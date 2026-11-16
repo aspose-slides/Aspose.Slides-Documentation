@@ -6,110 +6,89 @@ weight: 80
 url: /ja/cpp/presentation-view-properties/
 keywords:
 - ビュー プロパティ
-- 通常ビュー
+- 標準ビュー
 - アウトライン コンテンツ
 - アウトライン アイコン
 - 垂直スプリッタのスナップ
 - 単一ビュー
-- バーの状態
-- 次元サイズ
+- バー状態
+- 寸法サイズ
 - 自動調整
-- デフォルト ズーム
+- デフォルトズーム
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ のビュー プロパティを活用して、PPT、PPTX、ODP 形式のスライドをカスタマイズし、レイアウトやズームレベル、表示設定を調整します。"
+description: "C++ 用 Aspose.Slides を使用して、PowerPoint プレゼンテーションの標準ビュー レイアウト、スライドとノートのズーム、グリッド間隔、コメントの表示を構成します。"
 ---
-## **概要**
+## **導入**
 
-通常ビューは、スライド自体、サイドコンテンツ領域、下部コンテンツ領域の3つのコンテンツ領域で構成されます。各コンテンツ領域の配置に関するプロパティです。この情報により、アプリケーションはビューの状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態で表示されます。
+PowerPoint の標準ビューでは、スライドはサムネイルまたはアウトライン用のサイドペインと、下部のノートペインの間に表示されます。Aspose.Slides for C++ は、[Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) を介して、保存された編集設定を公開します。これには、ペインのレイアウト、ズームレベル、グリッド間隔、コメントの表示可否が含まれます。
 
-Method [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) が追加され、プレゼンテーションの通常ビュー プロパティへのアクセスが提供されました。
+## **INormalViewPropertiesについて**
 
-[INormalViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/inormalviewproperties/)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/inormalviewrestoredproperties/) インターフェイスとその派生、[SplitterBarStateType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/splitterbarstatetype/) 列挙体が追加されました。
+[get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) を使用して、[INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/) インターフェイスにアクセスします。[set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) は、アウトラインのスライドタイトル横にアイコンを表示するかどうかを制御します。[set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) は、ユーザーがサイドペインを狭めたときに最小化状態にスナップさせます。[set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) は、ウィンドウ全体で 1 つのペインを表示することを優先するかどうかを示します。
 
-## **INormalViewProperties について**
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) は、サイドペインとスライドの間の分割バーを制御します。[set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) は、ノートペイン上部の分割バーを制御します。両方とも `Minimized`、`Maximized`、または `Restored` のいずれかの [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) 値を受け取ります。
 
-通常ビューのプロパティを表します。
+## **INormalViewPropertiesの復元について**
 
-プロパティ **ShowOutlineIcons** は、通常ビュー モードの任意のコンテンツ領域にアウトライン コンテンツを表示する際に、アプリケーションがアイコンを表示すべきかどうかを指定します。
+分割バーが復元されると、[get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) はサイドペインの保存されたサイズを、[get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) は上部スライド領域の保存されたサイズを提供します。両方とも [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/) を公開します。その [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) メソッドは 0 から 100 のパーセンテージを受け取り、[set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) はウィンドウのサイズ変更時にエディタがサイズを自動調整するかどうかを制御します。
 
-プロパティ **SnapVerticalSplitter** は、サイド領域が十分に小さくなったときに垂直スプリッタが最小化状態にスナップするかどうかを指定します。
+この例は既存のプレゼンテーションを更新します。水平分割バーを復元し、[get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) で公開される上部スライド領域のサイズを自動調整を有効にした状態で 80% に設定し、垂直分割バーを最大化します。また、アウトラインビューで[set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) を使用してアウトラインアイコンを有効にします。
 
-プロパティ **PreferSingleView** は、ユーザーが標準の3領域ビューではなく、ウィンドウ全体に単一コンテンツ領域を表示することを好むかどうかを指定します。有効にすると、アプリケーションは 1 つのコンテンツ領域をウィンドウ全体に表示することを選択できる場合があります。
-
-プロパティ **VerticalBarState** と **HorizontalBarState** は、水平または垂直スプリッタ バーが表示される状態を指定します。水平スプリッタ バーはスライドとスライド下のコンテンツ領域を分離し、垂直スプリッタ バーはスライドとサイド コンテンツ領域を分離します。可能な値は **SplitterBarStateType.Minimized**、**SplitterBarStateType.Maximized**、**SplitterBarStateType.Restored** です。
-
-プロパティ **RestoredLeft** と **RestoredTop** は、**VerticalBarState** と **HorizontalBarState** に **SplitterBarStateType.Restored** が適用された場合の、通常ビューにおける左側または上側スライド領域のサイズを指定します。
-
-## **INormalViewProperties の復元について**
-
-領域が可変の復元サイズ（最小化でも最大化でもない）である場合の、通常ビューにおけるスライド領域（RestoredTop の子では幅、RestoredLeft の子では高さ）のサイズを指定します。
-
-プロパティ **DimensionSize** は、スライド領域のサイズ（restoredTop の子では幅、restoredLeft の子では高さ）を指定します。
-
-プロパティ **AutoAdjust** は、ウィンドウのサイズ変更時にサイド コンテンツ領域のサイズが新しいサイズに合わせて自動的に調整されるかどうかを指定します。
-
-以下の例は、プレゼンテーションの **ViewProperties.NormalViewProperties** プロパティにアクセスする方法を示しています。
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// プレゼンテーションのビュー プロパティを復元
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **デフォルト ズーム 値の設定**
-
-Aspose.Slides for C++ は、プレゼンテーションを開くと自動的にズームが設定された状態にできるデフォルト ズーム 値の設定をサポートするようになりました。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewproperties/) を設定することで実現できます。スライドビュー プロパティだけでなく、[get_NotesViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewproperties/get_notesviewproperties/) もプログラムから設定可能です。このトピックでは、Aspose.Slides でプレゼンテーションのビュー プロパティを設定する例を示します。
-
-ビュー プロパティを設定するには、以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成する
-2. プレゼンテーションのビュー [Properties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewproperties/) を設定する
-3. プレゼンテーションを PPTX ファイルとして保存する
-
-以下の例では、スライドビューとノートビューの両方のズーム値を設定しています。
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// プレゼンテーションのビュー プロパティを設定
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // スライドビューのズーム値（パーセンテージ）
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // ノートビューのズーム値（パーセンテージ）
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
+## **デフォルトズーム値の設定**
 
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) と [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) はエディタ用に個別のズーム設定を保存します。これらの設定はスライドのサイズ、スライドショーの再生、または画像エクスポートの解像度には影響しません。
+
+この例は既存のプレゼンテーションを開き、[set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) を使用して編集ウィンドウに合わせてスライドを自動的に拡大縮小するように有効にします。ノートページでは自動拡大縮小を無効にし、[set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) で固定 80% ズームを設定します。
+
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
+```
 ## **グリッド間隔の設定**
 
-[Presentation::get_ViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_viewproperties/) を使用して、プレゼンテーション全体のビュー設定にアクセスします。 [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iviewproperties/get_gridspacing/) および [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iviewproperties/set_gridspacing/) メソッドで、基礎となる編集グリッドの間隔を取得または変更できます。この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。グリッド間隔はポイントで指定され、72 ポイントが 1 インチに相当します。API のドキュメントで要求されているように、正の値を使用してください。
-
-以下の例は既存の `demo.pptx` を開き、現在のグリッド間隔を表示し、1/4 インチの間隔に設定して結果を保存します。
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) はプレゼンテーション全体の編集グリッド線間の距離を設定します。1 インチあたり 72 ポイントで、正のポイント値を受け取ります。この例は既存のプレゼンテーションで現在の間隔を出力し、間隔を 18 ポイントに設定して 1/4 インチのグリッドを保存します。
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +100,20 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
+グリッドは固定間隔で繰り返されます。[Drawing guides](/slides/ja/cpp/drawing-guides/) は個別の水平または垂直位置をマークします。両方とも編集支援機能であり、表示するエディタでのみ見えます。スライドショーや PDF、画像、SVG へのエクスポートでは表示されません。
 
-グリッドは [drawing guides](/slides/ja/cpp/drawing-guides/) とは異なります。グリッド間隔は一定間隔を制御しますが、描画ガイドは個別に配置された水平または垂直の整列線です。描画ガイドを追加、移動、削除してもグリッド間隔は変わりません。
+## **プレゼンテーションを開くときにコメントを表示または非表示にする**
 
-グリッドも描画ガイドも編集支援ツールです。PDF、画像、SVG、スライドショーとしてレンダリングされるスライドコンテンツには含まれません。グリッド間隔を保存しても、エディタがグリッドを表示するかどうかは保証されません。表示はビューアやエディタの設定に依存します。
-
-## **プレゼンテーションを開くときのコメントの表示/非表示**
-
-[Presentation::get_ViewProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_viewproperties/) を使用して、プレゼンテーション全体のビュー設定にアクセスします。 [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iviewproperties/get_showcomments/) と [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iviewproperties/set_showcomments/) を使用して、PowerPoint や他の互換エディタでプレゼンテーションを開く際にコメントを表示するかどうかの設定を保存できます。
-
-この設定は保存されたビューの好みを制御するだけで、コメントそのものの追加、削除、編集、解決は行いません。コメントを非表示にしても、内容、作者、位置、返信、ステータスは保持されます。コメントそのものを変更する操作については、[Presentation Comments](/slides/ja/cpp/presentation-comments/) を参照してください。
-
-以下の例は、コメントが含まれる既存の `comments.pptx` を使用します。現在の表示設定を出力し、コメントを非表示に設定し、コメントを削除せずに新しい PPTX を保存します。また、[IViewProperties::set_LastView](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iviewproperties/set_lastview/) と [ViewType::SlideView](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewtype/) を組み合わせて、コメントの可視性とともに初期編集ビューを設定します。
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) は、互換性のあるエディタがプレゼンテーションを開く際に使用する設定を保存します。コメント付きの既存プレゼンテーションに対して、この例は現在の設定を出力し、コメントを非表示にしたコピーを保存します。また、[set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) に[ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) を渡して、コピーをスライドビューで開くようにします。
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +127,36 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
-
-この設定は、PDF、HTML、画像、ノート、配布資料へのエクスポート時にコメントが含まれるかどうかを決定するものではありません。エクスポート固有のオプションは別途設定してください。
+コメントを非表示にすると、テキスト、作者、位置、返信、ステータスは保持されます。コメント自体を変更するには、[Presentation Comments](/slides/ja/cpp/presentation-comments/) を参照してください。エクスポート設定は、PDF、HTML、画像、ノート、ハンドアウトにコメントを表示するかどうかを制御します。
 
 ## **FAQ**
 
-**プレゼンテーションを再度開いたときにグリッドが表示されないのはなぜですか？**
+**Why is the grid hidden when I reopen the presentation?**
 
-ファイルはグリッド間隔を保存しますが、エディタ側でグリッドの表示/非表示を制御します。エディタのグリッド表示設定を確認してください。
+プレゼンテーションはグリッド間隔を保存しています。グリッドを表示するには、エディタでグリッドの表示を有効にしてください。
 
-**描画ガイドを削除してもグリッド間隔は変わりますか？**
+**Does clearing drawing guides change the grid spacing?**
 
-いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドを削除しても保存されたグリッド間隔はそのままです。
+いいえ。ガイドを追加、移動、またはクリアしてもグリッド間隔は変わりません。
 
-**プレゼンテーションのセクションごとに異なるビュー設定を行うことはできますか？**
+**Can different sections of a presentation have different view settings?**
 
-[View settings](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_viewproperties/) はプレゼンテーションレベル（[Normal View](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ja/cpp/aspose.slides/viewproperties/get_slideviewproperties/)）で定義され、セクション単位ではありません。そのため、ドキュメント全体に対して一組のパラメータが適用されます。
+いいえ。[Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) はプレゼンテーション全体に適用されます。
 
-**ユーザーごとに異なるビュー状態を事前に定義できますか？**
+**Can I save different view settings for different users?**
 
-できません。設定はファイルに保存され、すべてのユーザーで共有されます。ビューア側がユーザー設定を優先することはありますが、ファイル自体には単一のビュー プロパティしか含まれません。
+ファイルはすべてのユーザーに対して 1 つのビュー設定のみを保存します。エディタはユーザー固有のローカル設定を適用することもあります。
 
-**テンプレートに事前定義したビュー プロパティを埋め込んで、新規プレゼンテーションを同じ表示状態で開くことは可能ですか？**
+**Can I save view settings in a template?**
 
-可能です。[view properties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_viewproperties/) はプレゼンテーションレベルで保存されるため、テンプレートに埋め込めば新規作成時に同じ初期ビュー構成で開くことができます。
+はい。テンプレートから作成されたプレゼンテーションは、保存されたビュー設定を継承します。

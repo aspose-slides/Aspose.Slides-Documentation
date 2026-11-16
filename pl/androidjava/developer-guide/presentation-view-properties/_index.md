@@ -6,14 +6,14 @@ weight: 80
 url: /pl/androidjava/presentation-view-properties/
 keywords:
 - właściwości widoku
-- widok normalny
+- normalny widok
 - zawartość konspektu
 - ikony konspektu
 - przyciąganie pionowego podziału
 - pojedynczy widok
 - stan paska
 - rozmiar wymiaru
-- automatyczna regulacja
+- automatyczne dostosowanie
 - domyślne przybliżenie
 - PowerPoint
 - OpenDocument
@@ -21,84 +21,59 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Odkryj właściwości widoku Aspose.Slides dla Androida przy użyciu Java, aby dostosować formaty slajdów PPT, PPTX i ODP — regulować układy, poziomy przybliżenia i ustawienia wyświetlania."
+description: "Użyj Aspose.Slides for Android via Java, aby skonfigurować układ normalnego widoku, przybliżenie slajdu i notatek, odstępy siatki oraz widoczność komentarzy w prezentacjach PowerPoint."
 ---
 ## **Wstęp**
 
-Widok normalny składa się z trzech regionów zawartości: samego slajdu, bocznego regionu zawartości oraz dolnego regionu zawartości. Właściwości dotyczące rozmieszczenia poszczególnych regionów zawartości. Informacje te pozwalają aplikacji zapisać stan widoku do pliku, tak aby po ponownym otwarciu widok był w tym samym stanie, w jakim prezentacja była ostatnio zapisana.
+W normalnym widoku programu PowerPoint slajd wyświetlany jest pomiędzy bocznym panelem miniatur lub konspektem a panelem notatek poniżej. Aspose.Slides for Android via Java udostępnia zapisane preferencje edycji prezentacji poprzez [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--). Zawierają one układ paneli, poziomy przybliżenia, odstępy siatki oraz widoczność komentarzy.
 
-Metoda [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) została dodana, aby zapewnić dostęp do właściwości widoku normalnego prezentacji.
+## **Informacje o INormalViewProperties**
 
-Dodano interfejsy [INormalViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewRestoredProperties) oraz ich pochodne, a także wyliczenie [SplitterBarStateType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SplitterBarStateType).
+Użyj [getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNormalViewProperties--) aby uzyskać dostęp do interfejsu [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) kontroluje, czy ikony wyświetlane są obok tytułów slajdów w konspekcie. [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) umożliwia przyciąganie bocznego panelu do stanu zminimalizowanego, gdy użytkownik go zwęża. [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) wskazuje preferencję wyświetlania jednego panelu w pełnym oknie.
 
-## **O INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) kontroluje podziałkę pomiędzy bocznym panelem a slajdem. [setHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) kontroluje podziałkę nad panelem notatek. Oba przyjmują wartość typu [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` lub `Restored`.
 
-Reprezentuje właściwości widoku normalnego.
+## **Informacje o przywracaniu INormalViewProperties**
 
-Metody [getShowOutlineIcons](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) i [setShowOutlineIcons](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) określają, czy aplikacja powinna wyświetlać ikony przy wyświetlaniu zawartości konspektu w którymkolwiek z regionów zawartości trybu widoku normalnego.
+Gdy podziałka zostaje przywrócona, [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) zwraca zapisaną szerokość bocznego panelu, a [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) zwraca zapisaną wysokość górnego obszaru slajdu. Oba udostępniają [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/). Jego metoda [setDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) przyjmuje procent od 0 do 100, a [setAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) kontroluje, czy edytor dostosowuje rozmiar przy zmianie rozmiaru okna.
 
-Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) i [setSnapVerticalSplitter](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) określają, czy pionowy dzielnik powinien przełączać się do stanu zminimalizowanego, gdy boczny region jest wystarczająco mały.
-
-Właściwości [getPreferSingleView](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) i [setPreferSingleView](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) określają, czy użytkownik preferuje pełnoekranowy jednorodny region zawartości zamiast standardowego widoku normalnego z trzema regionami zawartości. Jeśli jest włączone, aplikacja może wyświetlić jeden z regionów zawartości na całym ekranie.
-
-Metody [getVerticalBarState](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) i [getHorizontalBarState](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) określają stan, w jakim powinien być wyświetlany odpowiednio pionowy lub poziomy pasek dzielnika. Poziomy pasek dzielnika oddziela slajd od regionu zawartości pod slajdem, pionowy pasek dzielnika oddziela slajd od bocznego regionu zawartości. Możliwe wartości to: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) oraz [SplitterBarStateType.Restored](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
-
-Metody [getRestoredLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) i [getRestoredTop](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) określają rozmiar górnego lub bocznego regionu slajdu w widoku normalnym, gdy wartość [SplitterBarStateType.Restored](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SplitterBarStateType#Restored) jest zastosowana dla [getVerticalBarState](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) i [getHorizontalBarState](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) odpowiednio.
-
-## **O przywracaniu INormalViewProperties**
-
-Określa rozmiar regionu slajdu (szerokość, gdy jest potomkiem [getRestoredTop](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), wysokość, gdy jest potomkiem [getRestoredLeft](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) w widoku normalnym, gdy region ma zmienny rozmiar przywrócony (niezminimalizowany ani niezmaksymalizowany).
-
-Metoda [getDimensionSize](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) określa rozmiar regionu slajdu (szerokość, gdy jest potomkiem restoredTop, wysokość, gdy jest potomkiem restoredLeft).
-
-Metoda [getAutoAdjust](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) określa, czy rozmiar bocznego regionu zawartości powinien kompensować nowy rozmiar przy zmianie rozmiaru okna zawierającego widok w aplikacji.
-
-Poniżej podany przykład pokazuje, jak uzyskać dostęp do właściwości [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) dla prezentacji.
+Ten przykład aktualizuje istniejącą prezentację. Przywraca poziomą podziałkę, ustawia rozmiar zwrócony przez [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) na 80 % z włączonym automatycznym dostosowaniem i maksymalizuje pionową podziałkę. Wywołuje także [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) aby wyświetlić ikony w widoku konspektu.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Przywróć właściwości widoku prezentacji
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ustaw domyślną wartość przybliżenia**
 
-{{% alert color="info" %}} 
+[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getSlideViewProperties--) i [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNotesViewProperties--) przechowują niezależne ustawienia przybliżenia dla edytora. Ustawienia te nie wpływają na wymiary slajdu, odtwarzanie pokazu slajdów ani rozdzielczość eksportowanych obrazów.
 
-Aspose.Slides for Android via Java obsługuje teraz ustawianie domyślnej wartości przybliżenia dla prezentacji, tak aby po otwarciu prezentacji przybliżenie było już ustawione. Można to zrobić, ustawiając [ViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ViewProperties) prezentacji. [getSlideViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) oraz [getNotesViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) mogą być ustawione programowo. W tym temacie zobaczymy na przykładzie, jak ustawić [View Properties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ViewProperties) dla [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) w Aspose.Slides.
-
-{{% /alert %}} 
-
-Aby ustawić właściwości widoku, wykonaj poniższe kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).
-1. Ustaw [View Properties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ViewProperties) dla [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).
-1. Zapisz prezentację jako plik [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   W poniższym przykładzie ustawiliśmy wartość przybliżenia dla widoku slajdu oraz widoku notatek.
+Ten przykład otwiera istniejącą prezentację i wywołuje [setVariableScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) aby dopasować slajd do okna edycji. Dla strony notatek wyłącza automatyczną skalowanie i wywołuje [setScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setScale-int-) aby ustawić stałe przybliżenie 80 %.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    // Ustawianie właściwości widoku prezentacji
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Wartość przybliżenia w procentach dla widoku slajdu
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Wartość przybliżenia w procentach dla widoku notatek 
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -106,77 +81,67 @@ try {
 
 ## **Ustaw odstęp siatki**
 
-Użyj [Presentation.getViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getViewProperties--) aby uzyskać dostęp do ustawień widoku obowiązujących w całej prezentacji. Metody [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) i [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) odczytują lub zmieniają interwał podstawowej siatki edycji. To ustawienie obowiązuje całą prezentację, a nie pojedynczy slajd. Odstęp siatki jest podawany w punktach, gdzie 72 punkty równa się jednemu calowi. Używaj wartości dodatniej, zgodnie z dokumentacją API.
-
-Poniższy przykład otwiera istniejący plik `demo.pptx`, wyświetla bieżący odstęp siatki, ustawia interwał ćwierć cala i zapisuje wynik.
+[setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) ustawia odległość między liniami siatki edycji w całej prezentacji. Przyjmuje dodatnią wartość w punktach, przy 72 punktach na cal. Ten przykład wypisuje bieżący odstęp w istniejącej prezentacji i zapisuje siatkę o kwart calowej, ustawiając interwał na 18 punktów.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    viewProperties.setGridSpacing(18f);
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Siatka różni się od [drawing guides](/slides/pl/androidjava/drawing-guides/). Odstęp siatki kontroluje regularny interwał, podczas gdy prowadnice są indywidualnie rozmieszczonymi liniami wyrównania poziomymi lub pionowymi. Dodawanie, przenoszenie lub usuwanie prowadnic nie zmienia odstępu siatki.
+Siatka powtarza się w stałych odstępach. [Drawing guides](/slides/pl/androidjava/drawing-guides/) oznaczają pojedyncze pozycje poziome lub pionowe. Oba są pomocnikami edycji i pojawiają się tylko w edytorach, które je wyświetlają. Pokazy slajdów oraz eksport do PDF, obrazów lub SVG ich nie uwzględniają.
 
-Zarówno siatka, jak i prowadnice są pomocnikami edycji. Nie są renderowane jako zawartość slajdu w PDF, obrazach, SVG ani pokazie slajdów. Przechowywanie odstępu siatki nie gwarantuje, że edytor wyświetli siatkę: jej widoczność zależy również od ustawień widza lub edytora.
+## **Pokaż lub ukryj komentarze podczas otwierania prezentacji**
 
-## **Pokaż lub ukryj komentarze przy otwieraniu prezentacji**
-
-Użyj [Presentation.getViewProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getViewProperties--) aby uzyskać dostęp do ustawień widoku obowiązujących w całej prezentacji. Użyj [IViewProperties.getShowComments](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) i [IViewProperties.setShowComments](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) aby odczytać lub zmienić przechowywaną preferencję dotyczącą wyświetlania komentarzy przy otwieraniu prezentacji w PowerPoint lub innym kompatybilnym edytorze.
-
-To nastawienie kontroluje jedynie przechowywaną preferencję widoku. Nie dodaje, nie usuwa, nie edytuje ani nie rozwiązuje komentarzy. Ukrywanie komentarzy zachowuje ich treść, autorów, pozycje, odpowiedzi i statusy. Zobacz [Presentation Comments](/slides/pl/androidjava/presentation-comments/) aby poznać operacje zmieniające same komentarze.
-
-Poniższy przykład wymaga istniejącego pliku `comments.pptx` zawierającego komentarze. Wyświetla bieżące ustawienie widoczności, żąda ukrycia komentarzy i zapisuje nowy plik PPTX bez usuwania jakichkolwiek komentarzy. Używa również [IViewProperties.setLastView](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) wraz z [ViewType.SlideView](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/viewtype/#SlideView) aby skonfigurować początkowy widok edycji wraz z widocznością komentarzy.
+[setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) przechowuje preferencję, którą kompatybilne edytory używają przy otwieraniu prezentacji. Dla istniejącej prezentacji z komentarzami, ten przykład wypisuje bieżące ustawienie i zapisuje kopię z ukrytymi komentarzami. Wywołuje także [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) z [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView), aby kopia otworzyła się w widoku slajdu.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-To ustawienie nie określa, czy komentarze są uwzględniane w eksportach do PDF, HTML, obrazów, notatek czy materiałów rozdawniczych. Konfiguruj odpowiednie opcje specyficzne dla eksportu osobno.
+Ukrywanie komentarzy zachowuje ich tekst, autorów, pozycje, odpowiedzi i statusy. Aby zmienić same komentarze, zobacz [Presentation Comments](/slides/pl/androidjava/presentation-comments/). Ustawienia eksportu kontrolują, czy komentarze pojawiają się w PDF, HTML, obrazach, notatkach lub materiałach rozdawniczych.
 
 ## **FAQ**
 
-**Dlaczego siatka nie jest widoczna po ponownym otwarciu prezentacji?**
+**Dlaczego siatka jest ukryta po ponownym otwarciu prezentacji?**
 
-Plik przechowuje odstęp siatki, ale to edytor decyduje o tym, czy siatka jest wyświetlana. Sprawdź ustawienia widoczności siatki w edytorze.
+Prezentacja przechowuje interwał siatki. Aby zobaczyć siatkę, włącz widoczność siatki w edytorze.
 
-**Czy usunięcie prowadnic zmienia odstęp siatki?**
+**Czy usunięcie prowadnic rysunkowych zmienia odstęp siatki?**
 
-Nie. Prowadnice i odstęp siatki to niezależne ustawienia. Usunięcie prowadnic pozostawia przechowywany interwał siatki niezmieniony.
+Nie. Dodanie, przesunięcie lub usunięcie prowadnicy nie zmienia interwału siatki.
 
-**Czy mogę ustawić różne ustawienia widoku dla poszczególnych sekcji prezentacji?**
+**Czy różne sekcje prezentacji mogą mieć różne ustawienia widoku?**
 
-Ustawienia [View settings](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getViewProperties--) są definiowane na poziomie prezentacji ([Normal View](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)), nie per sekcja, więc pojedynczy zestaw parametrów obowiązuje dla całego dokumentu po otwarciu.
+Nie. [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) ma zastosowanie do całej prezentacji.
 
-**Czy mogę zdefiniować różne stany widoku dla różnych użytkowników?**
+**Czy mogę zapisać różne ustawienia widoku dla różnych użytkowników?**
 
-Nie. Ustawienia są przechowywane w pliku i są współdzielone. Aplikacje przeglądające mogą uwzględniać preferencje użytkownika, ale sam plik zawiera jeden zestaw właściwości widoku.
+Plik przechowuje jeden zestaw właściwości widoku dla wszystkich. Edytor może również zastosować lokalne preferencje użytkownika.
 
-**Czy mogę przygotować szablon z wstępnie określonymi właściwościami widoku, aby nowe prezentacje otwierały się w ten sam sposób?**
+**Czy mogę zapisać ustawienia widoku w szablonie?**
 
-Tak. Ponieważ [view properties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getViewProperties--) są przechowywane na poziomie prezentacji, możesz osadzić je w szablonie i tworzyć z niego nowe dokumenty z taką samą początkową konfiguracją widoku.
+Tak. Prezentacje utworzone z szablonu dziedziczą zapisane ustawienia widoku.

@@ -1,59 +1,43 @@
 ---
-title: "Truy xuất và Cập nhật Thuộc tính Chế độ xem Bản trình bày trong Python qua Java"
-linktitle: "Thuộc tính Chế độ xem"
+title: Lấy và Cập nhật Thuộc tính Hiển thị Bản trình bày trong Python qua Java
+linktitle: Thuộc tính Hiển thị
 type: docs
 weight: 80
 url: /vi/python-java/presentation-view-properties/
 keywords:
-- "thuộc tính chế độ xem"
-- "chế độ xem bình thường"
-- "nội dung đề cương"
-- "biểu tượng đề cương"
-- "bộ chia dọc tự động gắn"
-- "chế độ xem đơn"
-- "trạng thái thanh"
-- "kích thước chiều"
-- "tự điều chỉnh"
-- "thu phóng mặc định"
-- "PowerPoint"
-- "OpenDocument"
-- "bản trình bày"
-- "Python"
-- "Java"
-- "Aspose.Slides"
-description: "Khám phá thuộc tính chế độ xem của Aspose.Slides cho Python qua Java để tùy chỉnh slide PPT, PPTX và ODP — điều chỉnh bố cục, mức thu phóng và cài đặt hiển thị."
+- thuộc tính hiển thị
+- chế độ xem bình thường
+- nội dung đề cương
+- biểu tượng đề cương
+- bộ chia dọc tự động thu gọn
+- chế độ xem đơn
+- trạng thái thanh
+- kích thước chiều
+- tự động điều chỉnh
+- thu phóng mặc định
+- PowerPoint
+- OpenDocument
+- bản trình bày
+- Python
+- Java
+- Aspose.Slides
+description: "Sử dụng Aspose.Slides cho Python qua Java để cấu hình bố trí chế độ xem bình thường, mức thu phóng slide và ghi chú, khoảng cách lưới và khả năng hiển thị bình luận trong các bản trình bày PowerPoint."
 ---
 ## **Giới thiệu**
 
-Chế độ xem bình thường bao gồm ba vùng nội dung: bản slide tự nó, một vùng nội dung bên và một vùng nội dung phía dưới. Thuộc tính chế độ xem bình thường mô tả vị trí của các vùng nội dung này. Thông tin này cho phép ứng dụng lưu trạng thái xem vào tệp, để khi mở lại, chế độ xem ở cùng trạng thái như khi bản trình bày được lưu lần cuối.
-
-Phương thức [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#getNormalViewProperties) đã được thêm vào để cung cấp quyền truy cập vào các thuộc tính chế độ xem bình thường của một bản trình bày.
-
-Các lớp [NormalViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewrestoredproperties/) và kiểu liệt kê [SplitterBarStateType](https://reference.aspose.com/slides/vi/python-java/aspose.slides/splitterbarstatetype/) đã được thêm.
+Trong chế độ xem bình thường của PowerPoint, slide hiển thị giữa một khung bên dành cho hình thu nhỏ hoặc đề cương và một khung ghi chú ở phía dưới. Aspose.Slides for Python via Java cung cấp các tùy chỉnh lưu trữ khi chỉnh sửa bản trình bày thông qua [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties). Các tùy chỉnh này bao gồm bố trí các khung, mức thu phóng, khoảng cách lưới và khả năng hiển thị bình luận.
 
 ## **Về NormalViewProperties**
 
-Đại diện cho các thuộc tính chế độ xem bình thường.
+Sử dụng [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) để truy cập lớp [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) kiểm soát việc có hiển thị biểu tượng bên cạnh tiêu đề slide trong đề cương hay không. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) cho phép khung bên tự động thu nhỏ khi người dùng thu hẹp nó. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) cho biết ưu tiên hiển thị một khung duy nhất trên toàn cửa sổ.
 
-Các phương thức [getShowOutlineIcons](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) và [setShowOutlineIcons](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) xác định liệu ứng dụng có nên hiển thị biểu tượng khi hiển thị nội dung đề cương trong bất kỳ vùng nội dung nào của chế độ xem bình thường hay không.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) kiểm soát thanh phân cách giữa khung bên và slide. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) kiểm soát thanh phân cách phía trên khung ghi chú. Cả hai chấp nhận giá trị của [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) là `Minimized`, `Maximized`, hoặc `Restored`.
 
-Các phương thức [getSnapVerticalSplitter](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) và [setSnapVerticalSplitter](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) xác định liệu bộ chia dọc có nên bật vào trạng thái thu nhỏ khi vùng bên đủ nhỏ.
+## **Về việc khôi phục NormalViewProperties**
 
-Các phương thức [getPreferSingleView](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) và [setPreferSingleView](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) xác định liệu người dùng có muốn xem một vùng nội dung đơn trên toàn cửa sổ thay vì chế độ xem bình thường tiêu chuẩn với ba vùng nội dung hay không. Nếu được bật, ứng dụng có thể chọn hiển thị một trong các vùng nội dung trên toàn cửa sổ.
+Khi một thanh phân cách được khôi phục, [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) cung cấp kích thước đã lưu của khung bên và [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) cung cấp kích thước đã lưu của vùng slide trên. Cả hai trả về một thể hiện của [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/). Phương thức [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) của nó chấp nhận phần trăm từ 0 đến 100, và [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) kiểm soát việc trình chỉnh sửa tự động điều chỉnh kích thước khi cửa sổ được thay đổi kích thước.
 
-Các phương thức [getVerticalBarState](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) và [getHorizontalBarState](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) xác định trạng thái mà thanh chia dọc hoặc ngang sẽ được hiển thị. Thanh chia ngang tách slide khỏi vùng nội dung phía dưới slide; thanh chia dọc tách slide khỏi vùng nội dung bên. Các giá trị có thể là: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/vi/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/vi/python-java/aspose.slides/splitterbarstatetype/#Maximized) và [SplitterBarStateType.Restored](https://reference.aspose.com/slides/vi/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-Các phương thức [getRestoredLeft](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) và [getRestoredTop](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getRestoredTop) xác định kích thước của vùng slide bên trái hoặc phía trên trong chế độ xem bình thường, khi giá trị [SplitterBarStateType.Restored](https://reference.aspose.com/slides/vi/python-java/aspose.slides/splitterbarstatetype/#Restored) được áp dụng cho [getVerticalBarState](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) và [getHorizontalBarState](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState), tương ứng.
-
-## **Về Khôi phục NormalViewProperties**
-
-Xác định kích thước của vùng slide (độ rộng khi là con của [getRestoredTop](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getRestoredTop), độ cao khi là con của [getRestoredLeft](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) trong chế độ xem bình thường, khi vùng này có kích thước khôi phục biến đổi (không phải thu nhỏ nor phóng to).
-
-Phương thức [getDimensionSize](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) chỉ định kích thước của vùng slide (độ rộng khi là con của [getRestoredTop](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getRestoredTop), độ cao khi là con của [getRestoredLeft](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
-
-Phương thức [getAutoAdjust](https://reference.aspose.com/slides/vi/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) xác định liệu kích thước của vùng nội dung bên có nên tự điều chỉnh để bù đắp cho kích thước mới khi thay đổi kích thước cửa sổ chứa chế độ xem trong ứng dụng hay không.
-
-Ví dụ bên dưới cho thấy cách truy cập [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#getNormalViewProperties) cho một bản trình bày.
+Ví dụ này cập nhật một bản trình bày hiện có. Nó khôi phục thanh phân cách ngang, đặt kích thước trả về bởi [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) thành 80% với tự động điều chỉnh được bật, và mở rộng tối đa thanh phân cách dọc. Nó cũng gọi [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) để hiển thị biểu tượng trong chế độ xem đề cương.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Khôi phục các thuộc tính chế độ xem của bản trình bày.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -79,19 +62,11 @@ try:
 finally:
     presentation.dispose()
 ```
-
 ## **Đặt Giá trị Thu phóng Mặc định**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides cho Python thông qua Java hỗ trợ thiết lập giá trị thu phóng mặc định để nó đã được áp dụng khi bản trình bày mở. Điều này có thể thực hiện bằng cách đặt [ViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/) của một bản trình bày. [getSlideViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#getSlideViewProperties) và [getNotesViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#getNotesViewProperties) có thể được cấu hình bằng chương trình. Trong chủ đề này, chúng ta sẽ xem qua một ví dụ về cách đặt [View Properties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/) của [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) trong Aspose.Slides.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) và [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) lưu các cài đặt thu phóng độc lập cho trình chỉnh sửa. Các cài đặt này không ảnh hưởng đến kích thước slide, việc phát trình chiếu, hay độ phân giải khi xuất ảnh.
 
-Để đặt các thuộc tính xem, thực hiện các bước sau:
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-2. Đặt [View Properties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/) cho [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
-3. Ghi bản trình bày thành tệp [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-Trong ví dụ bên dưới, chúng tôi đặt giá trị thu phóng cho cả chế độ xem slide và chế độ xem ghi chú.
+Ví dụ này mở một bản trình bày hiện có và gọi [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) để vừa slide với cửa sổ chỉnh sửa. Đối với trang ghi chú, nó tắt tự động tỷ lệ và gọi [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) để đặt mức thu phóng cố định 80%.
 
 ```python
 import jpype
@@ -102,22 +77,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Đặt các thuộc tính chế độ xem của bản trình bày.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Phần trăm thu phóng cho chế độ xem slide.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Phần trăm thu phóng cho chế độ xem ghi chú.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-
 ## **Đặt Khoảng cách Lưới**
 
-Sử dụng [Presentation.getViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getViewProperties) để truy cập cài đặt chế độ xem trên toàn bộ bản trình bày. Các phương thức [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#getGridSpacing) và [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#setGridSpacing) đọc hoặc thay đổi khoảng cách của lưới chỉnh sửa nền tảng. Cài đặt này áp dụng cho toàn bộ bản trình bày, không phải cho một slide riêng lẻ. Khoảng cách lưới được chỉ định bằng điểm, trong đó 72 điểm bằng một inch. Sử dụng giá trị dương, theo yêu cầu của tài liệu API.
-
-Ví dụ sau mở một tệp `demo.pptx` hiện có, in ra khoảng cách lưới hiện tại, đặt khoảng cách một phần tư inch, và lưu kết quả.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) thiết lập khoảng cách giữa các đường lưới chỉnh sửa trong toàn bộ bản trình bày. Nó nhận một giá trị dương tính bằng point, với 72 point mỗi inch. Ví dụ này in khoảng cách hiện tại trong một bản trình bày hiện có và lưu lưới một phần tư inch bằng cách đặt khoảng cách thành 18 point.
 
 ```python
 import jpype
@@ -134,22 +108,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Lưới khác với [drawing guides](/slides/vi/python-java/drawing-guides/). Khoảng cách lưới kiểm soát một khoảng cách đều đặn, trong khi các hướng dẫn vẽ là các đường căn chỉnh ngang hoặc dọc được đặt vị trí riêng lẻ. Thêm, di chuyển hoặc xóa các hướng dẫn vẽ không thay đổi khoảng cách lưới.
-
-Cả lưới và các hướng dẫn vẽ đều là công cụ hỗ trợ chỉnh sửa. Chúng không được hiển thị như nội dung slide trong PDF, hình ảnh, SVG, hoặc trình chiếu. Lưu khoảng cách lưới không đảm bảo rằng trình chỉnh sửa sẽ hiển thị lưới: khả năng hiển thị cũng phụ thuộc vào tùy chọn của người xem hoặc trình chỉnh sửa.
+Lưới lặp lại với một khoảng cách cố định. [Hướng dẫn vẽ](/slides/vi/python-java/drawing-guides/) đánh dấu các vị trí ngang hoặc dọc riêng lẻ. Cả hai đều là công cụ hỗ trợ chỉnh sửa và chỉ xuất hiện trong các trình chỉnh sửa hiển thị chúng. Trình chiếu và xuất ra PDF, ảnh, hoặc SVG sẽ bỏ qua chúng.
 
 ## **Hiển thị hoặc Ẩn Bình luận Khi Mở Bản trình bày**
 
-Sử dụng [Presentation.getViewProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getViewProperties) để truy cập cài đặt chế độ xem trên toàn bộ bản trình bày. Sử dụng [ViewProperties.getShowComments](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#getShowComments) và [ViewProperties.setShowComments](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#setShowComments) để đọc hoặc thay đổi tùy chọn lưu trữ về việc có nên hiển thị bình luận khi bản trình bày mở trong PowerPoint hoặc trình chỉnh sửa tương thích khác.
-
-Cài đặt này chỉ kiểm soát tùy chọn chế độ xem được lưu. Nó không thêm, xóa, chỉnh sửa hoặc giải quyết bình luận. Ẩn bình luận vẫn giữ nguyên nội dung, tác giả, vị trí, trả lời và trạng thái của chúng. Xem [Presentation Comments](/slides/vi/python-java/presentation-comments/) để biết các thao tác thay đổi bình luận.
-
-Ví dụ sau yêu cầu một tệp `comments.pptx` hiện có chứa bình luận. Nó in ra cài đặt hiển thị hiện tại, yêu cầu ẩn bình luận và lưu một PPTX mới mà không xóa bất kỳ bình luận nào. Nó cũng sử dụng [ViewProperties.setLastView](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewproperties/#setLastView) kết hợp với [ViewType.SlideView](https://reference.aspose.com/slides/vi/python-java/aspose.slides/viewtype/#SlideView) để cấu hình chế độ chỉnh sửa ban đầu cùng với khả năng hiển thị bình luận.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) lưu một tùy chọn mà các trình chỉnh hợp hỗ trợ sẽ sử dụng khi mở bản trình bày. Đối với một bản trình bày hiện có có bình luận, ví dụ này in cài đặt hiện tại và lưu một bản sao với bình luận bị ẩn. Nó cũng gọi [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) với [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) để bản sao mở ở chế độ xem slide.
 
 ```python
 import jpype
@@ -167,31 +136,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Cài đặt này không quyết định liệu bình luận có được bao gồm trong xuất PDF, HTML, hình ảnh, ghi chú hoặc tài liệu phát tay hay không. Hãy cấu hình các tùy chọn xuất riêng biệt cho từng định dạng.
+Việc ẩn bình luận vẫn giữ nguyên nội dung, tác giả, vị trí, trả lời và trạng thái của chúng. Để thay đổi chính các bình luận, xem [Bình luận Bản trình bày](/slides/vi/python-java/presentation-comments/). Cài đặt xuất quyết định liệu bình luận có xuất hiện trong PDF, HTML, ảnh, ghi chú, hay tài liệu phát tay hay không.
 
 ## **Câu hỏi thường gặp**
 
-**Tại sao lưới không hiển thị sau khi tôi mở lại bản trình bày?**
+**Tại sao lưới bị ẩn khi tôi mở lại bản trình bày?**
 
-Tệp lưu khoảng cách lưới, nhưng trình chỉnh sửa quyết định việc lưới có được hiển thị hay không. Kiểm tra cài đặt hiển thị lưới của trình chỉnh sửa.
+Bản trình bày lưu khoảng cách lưới. Để xem lưới, bật chế độ hiển thị lưới trong trình chỉnh sửa.
 
-**Việc xóa các hướng dẫn vẽ có thay đổi khoảng cách lưới không?**
+**Việc xóa các hướng dẫn vẽ có làm thay đổi khoảng cách lưới không?**
 
-Không. Các hướng dẫn vẽ và khoảng cách lưới là các cài đặt độc lập. Xóa các hướng dẫn không làm thay đổi khoảng cách lưới đã lưu.
+Không. Thêm, di chuyển hoặc xóa một hướng dẫn không làm thay đổi khoảng cách lưới.
 
-**Tôi có thể đặt các cài đặt chế độ xem khác nhau cho các phần khác nhau của bản trình bày không?**
+**Các phần khác nhau của một bản trình bày có thể có các cài đặt hiển thị khác nhau không?**
 
-[View settings](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getViewProperties) được định nghĩa ở mức bản trình bày ([Normal View]/[Slide View]), không phải theo từng phần, vì vậy một bộ tham số duy nhất áp dụng cho toàn bộ tài liệu khi mở.
+Không. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) áp dụng cho toàn bộ bản trình bày.
 
-**Tôi có thể định trước các trạng thái chế độ xem khác nhau cho các người dùng khác nhau không?**
+**Tôi có thể lưu các cài đặt hiển thị khác nhau cho các người dùng khác nhau không?**
 
-Không. Các cài đặt được lưu trong tệp và được chia sẻ. Các ứng dụng xem có thể tôn trọng tùy chọn người dùng, nhưng tệp tự nó chỉ chứa một bộ thuộc tính chế độ xem.
+Tệp chỉ lưu một bộ thuộc tính hiển thị cho mọi người. Trình chỉnh sửa cũng có thể áp dụng các tùy chỉnh cục bộ của người dùng.
 
-**Tôi có thể chuẩn bị một mẫu với View Properties đã định trước để các bản trình bày mới mở cùng cách không?**
+**Tôi có thể lưu cài đặt hiển thị trong một mẫu không?**
 
-Có. Vì [view properties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getViewProperties) được lưu ở mức bản trình bày, bạn có thể nhúng chúng vào mẫu và tạo tài liệu mới từ mẫu với cùng cấu hình chế độ xem ban đầu.
+Có. Các bản trình bày được tạo từ mẫu sẽ kế thừa các cài đặt hiển thị đã lưu của mẫu.

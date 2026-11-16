@@ -1,5 +1,5 @@
 ---
-title: Abrufen und Aktualisieren von Präsentations‑Ansichtseigenschaften in PHP
+title: Abrufen und Aktualisieren von Präsentationsansichtseigenschaften in PHP
 linktitle: Ansichtseigenschaften
 type: docs
 weight: 80
@@ -9,98 +9,60 @@ keywords:
 - Normalansicht
 - Gliederungsinhalt
 - Gliederungssymbole
-- Vertikalen Trenner einrasten
+- Vertikalen Trenner einrasten lassen
 - Einzelansicht
 - Leistenstatus
 - Abmessungsgröße
-- automatische Anpassung
+- Automatische Anpassung
 - Standardzoom
 - PowerPoint
 - OpenDocument
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Entdecken Sie die Ansichtseigenschaften von Aspose.Slides für PHP via Java, um PPT‑, PPTX‑ und ODP‑Folien anzupassen — Layouts, Zoomstufen und Anzeigeeinstellungen zu ändern."
+description: "Verwenden Sie Aspose.Slides für PHP via Java, um das Layout der Normalansicht, den Zoom von Folien und Notizen, den Rasterabstand und die Sichtbarkeit von Kommentaren in PowerPoint-Präsentationen zu konfigurieren."
 ---
 ## **Einleitung**
 
-Die normale Ansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem Seiten-Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, den Ansichtsstatus in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht denselben Zustand hat wie beim letzten Speichern der Präsentation.
+In der normalen Ansicht von PowerPoint wird die Folie zwischen einem Seitenbereich für Miniaturansichten oder einer Gliederung und einem Notizenbereich unten angezeigt. Aspose.Slides für PHP via Java stellt die gespeicherten Bearbeitungspräferenzen der Präsentation über [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) zur Verfügung. Dazu gehören das Layout der Bereiche, Zoom‑Stufen, Rasterabstand und die Sichtbarkeit von Kommentaren.
 
-Methode [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) wurde hinzugefügt, um Zugriff auf die Normalansichts‑Eigenschaften einer Präsentation zu bieten. 
+## **Über NormalViewProperties**
 
-Klassen [NormalViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewRestoredProperties) und deren Ableitungen sowie das Aufzählungs‑Element [SplitterBarStateType](https://reference.aspose.com/slides/de/php-java/aspose.slides/SplitterBarStateType) wurden hinzugefügt.
+Verwenden Sie [getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/), um auf die Klasse [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/) zuzugreifen. [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) steuert, ob Symbole neben den Folientiteln in der Gliederungsansicht angezeigt werden. [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) lässt den Seitenbereich in den minimierten Zustand „einrasten“, wenn der Benutzer ihn verkleinert. [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) gibt eine Präferenz an, ein Feld im Vollfenster anzuzeigen.
 
-## **Über INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) steuert den Trenner zwischen dem Seitenbereich und der Folie. [setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) steuert den Trenner über dem Notizenbereich. Beide akzeptieren einen [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/)-Wert von `Minimized`, `Maximized` oder `Restored`.
 
-Stellt Normalansichts‑Eigenschaften dar.
+## **Über das Wiederherstellen von NormalViewProperties**
 
-Methoden [getShowOutlineIcons](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) und [setShowOutlineIcons](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) geben an, ob die Anwendung Symbole anzeigen soll, wenn Gliederungs‑Inhalte in einem der Inhaltsbereiche des Normalansichts‑Modus dargestellt werden.
+Wenn ein Trenner wiederhergestellt wird, liefert [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) die gespeicherte Größe des Seitenbereichs und [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) die gespeicherte Größe des oberen Folienbereichs. Beide geben [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/) frei. Die Methode [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) akzeptiert einen Prozentsatz von 0 bis 100, und [setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) steuert, ob der Editor die Größe beim Ändern der Fenstergröße anpasst.
 
-Methoden [getSnapVerticalSplitter](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) und [setSnapVerticalSplitter](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) geben an, ob der vertikale Trenner in einen minimierten Zustand „einrasten“ soll, wenn der Seitenbereich ausreichend klein ist.
-
-Eigenschaft [getPreferSingleView](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) und [setPreferSingleView](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) geben an, ob der Benutzer es bevorzugt, einen einzelnen Inhaltsbereich über das gesamte Fenster anstelle der üblichen Normalansicht mit drei Inhaltsbereichen zu sehen. Ist diese Option aktiviert, kann die Anwendung einen der Inhaltsbereiche im gesamten Fenster anzeigen.
-
-Methoden [getVerticalBarState](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) und [getHorizontalBarState](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) geben den Zustand an, in dem die horizontale bzw. vertikale Trennerleiste angezeigt werden soll. Eine horizontale Trennerleiste trennt die Folie vom unteren Inhaltsbereich, eine vertikale Trennerleiste trennt die Folie vom Seiten‑Inhaltsbereich. Mögliche Werte sind: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/de/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/de/php-java/aspose.slides/SplitterBarStateType/#Maximized) und [SplitterBarStateType::Restored](https://reference.aspose.com/slides/de/php-java/aspose.slides/SplitterBarStateType/#Restored).
-
-Methoden [getRestoredLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) und [getRestoredTop](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties#getRestoredTop) geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn für [getVerticalBarState](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) und [getHorizontalBarState](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) der Wert [SplitterBarStateType::Restored](https://reference.aspose.com/slides/de/php-java/aspose.slides/SplitterBarStateType/#Restored) verwendet wird.
-
-## **Über das Wiederherstellen von INormalViewProperties**
-
-Gibt die Größe des Folienbereichs (Breite, wenn ein Kind von [getRestoredTop](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getRestoredTop) ist, Höhe, wenn ein Kind von [getRestoredLeft](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) ist) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert).
-
-Methode [getDimensionSize](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) gibt die Größe des Folienbereichs an (Breite bei restoredTop, Höhe bei restoredLeft).
-
-Methode [getAutoAdjust](https://reference.aspose.com/slides/de/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) gibt an, ob die Größe des Seiten‑Inhaltsbereichs die neue Größe kompensieren soll, wenn das Anwendungsfenster, das die Ansicht enthält, verändert wird.
-
-Ein untenstehendes Beispiel zeigt, wie Sie auf die Eigenschaften [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) einer Präsentation zugreifen können.
+Dieses Beispiel aktualisiert eine vorhandene Präsentation. Es stellt den horizontalen Trenner wieder her, setzt die von [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) zurückgegebene Größe auf 80 % mit aktivierter automatischer Anpassung und maximiert den vertikalen Trenner. Außerdem wird [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) aufgerufen, um Symbole in der Gliederungsansicht anzuzeigen.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # Wiederherstellen der Ansichtseigenschaften der Präsentation
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
+
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Standard‑Zoomwert festlegen**
-{{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, sodass beim Öffnen die Ansicht bereits gezoomt ist. Dies kann durch Setzen der [ViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties) einer Präsentation erfolgen. [getSlideViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) sowie [getNotesViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) können programmatisch gesetzt werden. In diesem Thema sehen wir anhand eines Beispiels, wie die [View Properties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties) einer [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation) in Aspose.Slides festgelegt werden.
+[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) und [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) speichern unabhängige Zoom‑Einstellungen für den Editor. Diese Einstellungen beeinflussen weder die Folienabmessungen, die Wiedergabe von Bildschirmen, noch die Auflösung beim Export von Bildern.
 
-{{% /alert %}} 
-
-Um die Ansichtseigenschaften zu setzen, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation).
-2. Setzen Sie die [View Properties](https://reference.aspose.com/slides/de/php-java/aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation).
-3. Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei. Im nachstehenden Beispiel haben wir den Zoomwert sowohl für die Folienansicht als auch für die Notizansicht gesetzt.
-
-```php
-  $presentation = new Presentation();
-  try {
-    # Festlegen der Ansichtseigenschaften der Präsentation
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // Zoomwert in Prozent für die Folienansicht
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // Zoomwert in Prozent für die Notizansicht
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **Rasterabstand festlegen**
-
-Verwenden Sie [Presentation::getViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#getViewProperties), um die anwendungsweiten Ansichtseinstellungen einer Präsentation abzurufen. Die Methoden [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/#getGridSpacing) und [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/#setGridSpacing) lesen bzw. ändern das Intervall des zugrunde liegenden Bearbeitungsrasters. Diese Einstellung gilt für die gesamte Präsentation, nicht für einzelne Folien. Der Rasterabstand wird in Punkten angegeben, wobei 72 Punkte einem Zoll entsprechen. Verwenden Sie einen positiven Wert, wie in der API‑Dokumentation gefordert.
-
-Das folgende Beispiel öffnet eine vorhandene `demo.pptx`, gibt den aktuellen Rasterabstand aus, setzt ein Viertel‑Zoll‑Intervall und speichert das Ergebnis.
+Dieses Beispiel öffnet eine vorhandene Präsentation und ruft [setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/) auf, um die Folie an das Bearbeitungsfenster anzupassen. Für die Notizseite deaktiviert es die automatische Skalierung und ruft [setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/) auf, um einen festen Zoom von 80 % festzulegen.
 
 ```php
 use aspose\slides\Presentation;
@@ -108,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Rasterabstand festlegen**
+
+Die Methode `setGridSpacing` von [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) legt den Abstand zwischen den Bearbeitungsrastern in der gesamten Präsentation fest. Sie akzeptiert einen positiven Wert in Punkten, wobei 72 Punkte einem Zoll entsprechen. Dieses Beispiel gibt den aktuellen Abstand in einer vorhandenen Präsentation aus und speichert ein Raster von einem Viertel Zoll, indem es das Intervall auf 18 Punkte setzt.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Das Raster unterscheidet sich von den [drawing guides](/slides/de/php-java/drawing-guides/). Der Rasterabstand steuert ein regelmäßiges Intervall, während Zeichenhilfen einzelne, horizontal oder vertikal positionierte Ausrichtungs‑Linien sind. Das Hinzufügen, Verschieben oder Entfernen von Zeichenhilfen ändert den Rasterabstand nicht.
-
-Sowohl Raster als auch Zeichenhilfen sind Hilfsmittel zur Bearbeitung. Sie werden nicht als Folieninhalt in PDF, Bildern, SVG oder einer Diashow gerendert. Das Speichern des Rasterabstandes garantiert nicht, dass ein Editor das Raster anzeigt: seine Sichtbarkeit hängt ebenfalls von den Präferenzen des Viewers oder Editors ab.
+Das Raster wiederholt sich in einem festen Intervall. [Drawing guides](/slides/de/php-java/drawing-guides/) markieren einzelne horizontale oder vertikale Positionen. Beide dienen als Bearbeitungshilfen und erscheinen nur in Editoren, die sie anzeigen. Bildschirminterpretationen sowie Exporte nach PDF, Bildern oder SVG lassen sie weg.
 
 ## **Kommentare beim Öffnen einer Präsentation ein‑ oder ausblenden**
 
-Verwenden Sie [Presentation::getViewProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/getviewproperties/), um die anwendungsweiten Ansichtseinstellungen einer Präsentation abzurufen. Mit [ViewProperties::getShowComments](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/getshowcomments/) und [ViewProperties::setShowComments](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/setshowcomments/) können Sie die gespeicherte Präferenz auslesen bzw. ändern, ob Kommentare beim Öffnen der Präsentation in PowerPoint oder einem anderen kompatiblen Editor angezeigt werden sollen.
-
-Diese Einstellung steuert nur die gespeicherte Ansichtsvoreinstellung. Sie fügt keine Kommentare hinzu, entfernt sie, bearbeitet sie oder löst sie auf. Das Ausblenden von Kommentaren bewahrt deren Inhalt, Autoren, Positionen, Antworten und Status. Siehe [Presentation Comments](/slides/de/php-java/presentation-comments/) für Vorgänge, die Kommentare selbst ändern.
-
-Das folgende Beispiel erfordert eine vorhandene `comments.pptx`‑Datei mit Kommentaren. Es gibt die aktuelle Sichtbarkeitseinstellung aus, fordert das Ausblenden der Kommentare an und speichert ein neues PPTX, ohne Kommentare zu entfernen. Zusätzlich wird [ViewProperties::setLastView](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/setlastview/) zusammen mit [ViewType::SlideView](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewtype/#SlideView) verwendet, um die anfängliche Bearbeitungsansicht neben der Kommentar‑Sichtbarkeit zu konfigurieren.
+[setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) speichert eine Präferenz, die kompatible Editoren beim Öffnen der Präsentation verwenden. Für eine vorhandene Präsentation mit Kommentaren gibt dieses Beispiel die aktuelle Einstellung aus und speichert eine Kopie mit ausgeblendeten Kommentaren. Außerdem wird [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) mit [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView) aufgerufen, damit die Kopie in der Folienansicht geöffnet wird.
 
 ```php
 use aspose\slides\NullableBool;
@@ -138,37 +116,38 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Diese Einstellung bestimmt nicht, ob Kommentare in PDF-, HTML-, Bild-, Notiz‑ oder Handout‑Exporten enthalten sind. Konfigurieren Sie die jeweiligen export‑spezifischen Optionen separat.
+Das Ausblenden von Kommentaren bewahrt deren Text, Autoren, Positionen, Antworten und Status. Um die Kommentare selbst zu ändern, siehe [Presentation Comments](/slides/de/php-java/presentation-comments/). Exporteinstellungen bestimmen, ob Kommentare in PDF, HTML, Bildern, Notizen oder Handzetteln erscheinen.
 
 ## **FAQ**
 
-**Warum ist das Raster nach erneutem Öffnen der Präsentation nicht sichtbar?**
+**Warum ist das Raster ausgeblendet, wenn ich die Präsentation erneut öffne?**
 
-Die Datei speichert den Rasterabstand, aber der Editor entscheidet, ob das Raster angezeigt wird. Prüfen Sie die Raster‑Sichtbarkeitseinstellungen des Editors.
+Die Präsentation speichert das Rasterintervall. Um das Raster zu sehen, aktivieren Sie die Rasteranzeige im Editor.
 
 **Ändert das Entfernen von Zeichenhilfen den Rasterabstand?**
 
-Nein. Zeichenhilfen und Rasterabstand sind unabhängige Einstellungen. Das Entfernen von Hilfen lässt das gespeicherte Rasterintervall unverändert.
+Nein. Das Hinzufügen, Verschieben oder Entfernen einer Hilfslinie lässt das Rasterintervall unverändert.
 
-**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?**
+**Können verschiedene Abschnitte einer Präsentation unterschiedliche Ansichtseinstellungen haben?**
 
-[View settings](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/getviewproperties/) werden auf Präsentationsebene definiert ([Normal View](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/de/php-java/aspose.slides/viewproperties/getslideviewproperties/)), nicht pro Abschnitt, sodass ein einziger Parametersatz für das gesamte Dokument gilt, wenn es geöffnet wird.
+Nein. [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) gilt für die gesamte Präsentation.
 
-**Kann ich vordefinierte Ansichtszustände für unterschiedliche Benutzer festlegen?**
+**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Benutzer speichern?**
 
-Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam genutzt. Viewer‑Anwendungen können Benutzerpräferenzen berücksichtigen, aber die Datei selbst enthält nur einen Satz Ansichtseigenschaften.
+Die Datei speichert einen Satz von Ansichtseigenschaften für alle. Ein Editor kann zudem die lokalen Präferenzen eines Benutzers anwenden.
 
-**Kann ich eine Vorlage mit vordefinierten View Properties erstellen, sodass neue Präsentationen gleich geöffnet werden?**
+**Kann ich Ansichtseinstellungen in einer Vorlage speichern?**
 
-Ja. Da [view properties](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/getviewproperties/) auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und daraus neue Dokumente mit derselben anfänglichen Ansichtskonfiguration erzeugen.
+Ja. Aus einer Vorlage erstellte Präsentationen übernehmen deren gespeicherte Ansichtseinstellungen.

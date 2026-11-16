@@ -1,59 +1,43 @@
 ---
-title: "Python के माध्यम से Java में प्रस्तुति दृश्य गुणधर्म प्राप्त करें और अपडेट करें"
-linktitle: "दृश्य गुणधर्म"
+title: Python के माध्यम से Java में प्रस्तुति दृश्य गुणों को प्राप्त करें और अद्यतन करें
+linktitle: दृश्य गुण
 type: docs
 weight: 80
 url: /hi/python-java/presentation-view-properties/
 keywords:
-- "दृश्य गुणधर्म"
-- "सामान्य दृश्य"
-- "आउटलाइन सामग्री"
-- "आउटलाइन आइकन"
-- "वर्टिकल स्प्लिटर स्नैप"
-- "एकल दृश्य"
-- "बार स्थिति"
-- "आयाम आकार"
-- "स्वत: समायोजन"
-- "डिफ़ॉल्ट ज़ूम"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- "Python"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides for Python via Java के दृश्य गुणधर्मों की खोज करके PPT, PPTX और ODP स्लाइड्स को अनुकूलित करें—लेआउट, ज़ूम स्तर और प्रदर्शन सेटिंग्स को समायोजित करें।"
+- दृश्य गुण
+- सामान्य दृश्य
+- रूपरेखा सामग्री
+- रूपरेखा आइकन
+- लंबवत विभाजक स्नैप
+- एकल दृश्य
+- बार स्थिति
+- परिमाण आकार
+- स्वतः समायोजन
+- डिफ़ॉल्ट ज़ूम
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- Python
+- Java
+- Aspose.Slides
+description: "PowerPoint प्रस्तुतियों में सामान्य दृश्य लेआउट, स्लाइड और नोट्स ज़ूम, ग्रिड स्पेसिंग, और टिप्पणी दृश्यता को कॉन्फ़िगर करने के लिए Java के माध्यम से Python के लिए Aspose.Slides का उपयोग करें।"
 ---
 ## **परिचय**
 
-सामान्य दृश्य में तीन सामग्री क्षेत्रों होते हैं: स्लाइड स्वयं, एक साइड सामग्री क्षेत्र, और एक नीचे का सामग्री क्षेत्र। सामान्य दृश्य की गुणधर्म इन सामग्री क्षेत्रों की स्थिति का वर्णन करते हैं। यह जानकारी एप्लिकेशन को दृश्य स्थिति फ़ाइल में सहेजने की अनुमति देती है, ताकि पुनः खोलने पर दृश्य वही स्थिति में हो जैसा कि प्रस्तुति अंतिम बार सहेजी गई थी।
-
-प्रस्तुति की सामान्य दृश्य गुणधर्मों तक पहुँच प्रदान करने के लिए मेथड [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getNormalViewProperties) जोड़ा गया है।
-
-[NormalViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/) और [NormalViewRestoredProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewrestoredproperties/) क्लासों तथा [SplitterBarStateType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/splitterbarstatetype/) एन्यूमरेशन को जोड़ा गया है।
+PowerPoint के सामान्य दृश्य में, स्लाइड एक साइड पेन के बीच दिखाई देती है जिसमें थंबनेल या रूपरेखा होती है और नीचे नोट्स पेन होता है। Aspose.Slides for Python via Java प्रेजेंटेशन की सहेजी गई एडिटिंग प्राथमिकताओं को [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) के माध्यम से उजागर करता है। इनमें पेन लेआउट, ज़ूम स्तर, ग्रिड स्पेसिंग और टिप्पणी दृश्यता शामिल है।
 
 ## **NormalViewProperties के बारे में**
 
-सामान्य दृश्य गुणधर्मों का प्रतिनिधित्व करता है।
+उपयोग करें [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) को [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/) क्लास तक पहुँचने के लिए। [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) नियंत्रित करता है कि रूपरेखा में स्लाइड शीर्षकों के बगल में आइकन दिखें या नहीं। [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) साइड पेन को न्यूनतम स्थिति में स्नैप करने देता है जब उपयोगकर्ता इसे संकरी करता है। [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) पूर्ण विंडो में एक पेन प्रदर्शित करने की प्राथमिकता दर्शाता है।
 
-[getShowOutlineIcons](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) और [setShowOutlineIcons](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) मेथड दर्शाते हैं कि क्या एप्लिकेशन को सामान्य दृश्य मोड में किसी भी सामग्री क्षेत्र में रूपरेखा सामग्री प्रदर्शित करते समय आइकन दिखाने चाहिए।
-
-[getSnapVerticalSplitter](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) और [setSnapVerticalSplitter](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) मेथड दर्शाते हैं कि जब साइड क्षेत्र पर्याप्त रूप से छोटा हो तो वर्टिकल स्प्लिटर को न्यूनतम स्थिति में स्नैप करना चाहिए या नहीं।
-
-[getPreferSingleView](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) और [setPreferSingleView](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) मेथड दर्शाते हैं कि उपयोगकर्ता तीन सामग्री क्षेत्रों वाले मानक सामान्य दृश्य के बजाय पूर्ण‑विंडो एक‑सामग्री क्षेत्र देखना चाहता है या नहीं। यदि सक्षम किया गया, तो एप्लिकेशन पूरे विंडो में एक सामग्री क्षेत्र प्रदर्शित कर सकता है।
-
-[getVerticalBarState](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) और [getHorizontalBarState](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) मेथड दर्शाते हैं कि क्षैतिज या वर्टिकल स्प्लिटर बार किस स्थिति में दिखाया जाना चाहिए। एक क्षैतिज स्प्लिटर बार स्लाइड को स्लाइड के नीचे के सामग्री क्षेत्र से अलग करता है; एक वर्टिकल स्प्लिटर बार स्लाइड को साइड सामग्री क्षेत्र से अलग करता है। संभावित मान हैं: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/hi/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/hi/python-java/aspose.slides/splitterbarstatetype/#Maximized) और [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hi/python-java/aspose.slides/splitterbarstatetype/#Restored)।
-
-[getRestoredLeft](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) और [getRestoredTop](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getRestoredTop) मेथड निर्दिष्ट करते हैं कि जब [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hi/python-java/aspose.slides/splitterbarstatetype/#Restored) मान को क्रमशः [getVerticalBarState](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) और [getHorizontalBarState](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) पर लागू किया जाता है, तो सामान्य दृश्य के शीर्ष या साइड स्लाइड क्षेत्र का आकार क्या होना चाहिए।
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) साइड पेन और स्लाइड के बीच विभाजक को नियंत्रित करता है। [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) नोट्स पेन के ऊपर विभाजक को नियंत्रित करता है। दोनों [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) के `Minimized`, `Maximized` या `Restored` मान स्वीकार करते हैं।
 
 ## **Restoring NormalViewProperties के बारे में**
 
-सामान्य दृश्य के स्लाइड क्षेत्र (चाइल्ड होने पर चौड़ाई या ऊँचाई) का आकार निर्दिष्ट करता है, जब क्षेत्र एक परिवर्तनीय पुनर्स्थापित आकार (न तो न्यूनतम न ही अधिकतम) में हो।
+जब विभाजक पुनर्स्थापित किया जाता है, तो [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) साइड पेन का सहेजा गया आकार प्रदान करता है और [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) ऊपर की स्लाइड क्षेत्र का सहेजा गया आकार प्रदान करता है। दोनों [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/) की एक इंस्टेंस लौटाते हैं। इसका [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) मेथड 0 से 100 तक प्रतिशत स्वीकार करता है, और [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) नियंत्रित करता है कि विंडो के आकार बदलने पर एडिटर आकार को समायोजित करे या नहीं।
 
-[getDimensionSize](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) मेथड स्लाइड क्षेत्र (चाइल्ड होने पर चौड़ाई या ऊँचाई) का आकार निर्दिष्ट करता है।
-
-[getAutoAdjust](https://reference.aspose.com/slides/hi/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) मेथड दर्शाता है कि जब विंडो का आकार बदलते हैं तो साइड सामग्री क्षेत्र का आकार नई विंडो आकार के अनुसार स्वतः समायोजित होना चाहिए या नहीं।
-
-निम्न उदाहरण दिखाता है कि प्रस्तुति के लिए [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getNormalViewProperties) तक कैसे पहुँचें।
+यह उदाहरण मौजूदा प्रेजेंटेशन को अपडेट करता है। यह क्षैतिज विभाजक को पुनर्स्थापित करता है, [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) द्वारा लौटाए गए आकार को 80% सेट करता है जिसमें स्वतः समायोजन सक्षम है, और लंबवत विभाजक को अधिकतम करता है। यह [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) को भी कॉल करता है ताकि रूपरेखा दृश्य में आइकन दिखाए जाएँ।
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # प्रस्तुति के दृश्य गुणधर्म को पुनर्स्थापित करें।
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -82,17 +65,9 @@ finally:
 
 ## **डिफ़ॉल्ट ज़ूम मान सेट करें**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java डिफ़ॉल्ट ज़ूम मान सेट करने का समर्थन करता है ताकि प्रस्तुति खोलते समय वह पहले से लागू हो। यह किसी प्रस्तुति के [ViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/) को सेट करके किया जा सकता है। [getSlideViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getSlideViewProperties) और [getNotesViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getNotesViewProperties) को प्रोग्रामेटिक रूप से कॉन्फ़िगर किया जा सकता है। इस विषय में, हम इस बात का उदाहरण देखेंगे कि Aspose.Slides में [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) की [View Properties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/) को कैसे सेट किया जाता है।
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) और [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) एडिटर के लिए स्वतंत्र ज़ूम सेटिंग्स संग्रहीत करते हैं। ये सेटिंग्स स्लाइड आयामों, स्लाइड‑शो प्लेबैक या इमेज एक्सपोर्ट रिज़ॉल्यूशन को प्रभावित नहीं करती हैं।
 
-View Properties सेट करने के लिए, निम्न चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास का एक इंस्टैंस बनाएँ।  
-2. [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) की [View Properties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/) सेट करें।  
-3. प्रस्तुति को एक [PPTX](https://docs.fileformat.com/presentation/pptx/) फ़ाइल के रूप में लिखें।
-
-नीचे के उदाहरण में हम स्लाइड दृश्य और नोट्स दृश्य दोनों के लिए ज़ूम मान सेट करते हैं।
+यह उदाहरण मौजूदा प्रेजेंटेशन को खोलता है और स्लाइड को एडिटिंग विंडो में फिट करने के लिए [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) को कॉल करता है। नोट्स पेज के लिए यह स्वतः स्केलेशन को निष्क्रिय करता है और एक स्थिर 80% ज़ूम सेट करने के लिए [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) को कॉल करता है।
 
 ```python
 import jpype
@@ -103,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # प्रस्तुति की दृश्य गुणधर्म सेट करें।
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # स्लाइड दृश्य के लिए ज़ूम प्रतिशत।
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # नोट्स दृश्य के लिए ज़ूम प्रतिशत।
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **ग्रिड स्पेसिंग सेट करें**
 
-प्रेज़ेंटेशन‑वाइड दृश्य सेटिंग्स तक पहुँचने के लिए [Presentation.getViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/#getViewProperties) का उपयोग करें। [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getGridSpacing) और [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#setGridSpacing) मेथड मूल संपादन ग्रिड अंतराल को पढ़ते या बदलते हैं। यह सेटिंग पूरे प्रेज़ेंटेशन पर लागू होती है, न कि व्यक्तिगत स्लाइड पर। ग्रिड स्पेसिंग पॉइंट्स में निर्दिष्ट की जाती है, जहाँ 72 पॉइंट्स एक इंच के बराबर होते हैं। API दस्तावेज़ के अनुसार एक धनात्मक मान का उपयोग करें।
-
-निम्न उदाहरण एक मौजूदा `demo.pptx` खोलता है, उसकी वर्तमान ग्रिड स्पेसिंग प्रिंट करता है, एक चौथाई‑इंच अंतराल सेट करता है, और परिणाम सहेजता है।
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) पूर्ण प्रेजेंटेशन में एडिटिंग ग्रिड लाइनों के बीच की दूरी सेट करता है। यह पॉइंट्स में एक सकारात्मक मान लेता है, जहाँ 1 इंच में 72 पॉइंट्स होते हैं। यह उदाहरण मौजूदा प्रेजेंटेशन में वर्तमान स्पेसिंग को प्रिंट करता है और अंतराल को 18 पॉइंट्स सेट करके एक क्वार्टर‑इंच ग्रिड सहेजता है।
 
 ```python
 import jpype
@@ -135,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-ग्रिड [drawing guides](/slides/hi/python-java/drawing-guides/) से अलग होता है। ग्रिड स्पेसिंग नियमित अंतराल को नियंत्रित करती है, जबकि ड्राइंग गाइड्स व्यक्तिगत रूप से स्थित क्षैतिज या वर्टिकल संरेखण लाइनों के रूप में होती हैं। गाइड्स को जोड़ने, स्थानांतरित करने या साफ़ करने से ग्रिड स्पेसिंग नहीं बदलती।
+ग्रिड एक निश्चित अंतराल पर दोहराता है। [ड्रॉइंग गाइड्स](/slides/hi/python-java/drawing-guides/) व्यक्तिगत क्षैतिज या लंबवत स्थितियों को चिह्नित करते हैं। दोनों एडिटिंग सहायक हैं और केवल उन एडिटर्स में दिखाई देते हैं जो इन्हें प्रदर्शित करते हैं। स्लाइड‑शो और PDF, इमेज या SVG में एक्सपोर्ट करने पर इन्हें बाहर रखा जाता है।
 
-ग्रिड और ड्राइंग गाइड दोनों संपादन सहायक हैं। वे PDF, इमेज, SVG या स्लाइड शो में स्लाइड सामग्री के रूप में रेंडर नहीं होते। ग्रिड स्पेसिंग को संग्रहीत करना यह गारंटी नहीं देता कि कोई एडिटर ग्रिड दिखाएगा: इसकी दृश्यमानता दर्शक या एडिटर की प्राथमिकताओं पर भी निर्भर करती है।
+## **प्रेजेंटेशन खोलते समय टिप्पणियों को दिखाएँ या छुपाएँ**
 
-## **प्रेज़ेंटेशन खोलते समय टिप्पणियों को दिखाएँ या छिपाएँ**
-
-प्रेज़ेंटेशन‑वाइड दृश्य सेटिंग्स तक पहुँचने के लिए [Presentation.getViewProperties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/#getViewProperties) का उपयोग करें। जब प्रेज़ेंटेशन PowerPoint या किसी अन्य संगत संपादक में खोलता है, तो टिप्पणियों को दिखाना है या नहीं, इस संग्रहीत प्राथमिकता को पढ़ने या बदलने के लिए [ViewProperties.getShowComments](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getShowComments) और [ViewProperties.setShowComments](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#setShowComments) का उपयोग करें।
-
-यह सेटिंग केवल संग्रहीत दृश्य प्राथमिकता को नियंत्रित करती है। यह टिप्पणी को जोड़ती, हटाती, संपादित करती या हल नहीं करती। टिप्पणियों को छिपाने से उनकी सामग्री, लेखक, स्थितियाँ, उत्तर और स्थितियाँ संरक्षित रहती हैं। उन कार्यों के लिए देखें [Presentation Comments](/slides/hi/python-java/presentation-comments/) जो स्वयं टिप्पणियों को बदलते हैं।
-
-निम्न उदाहरण को एक मौजूदा `comments.pptx` की आवश्यकता होती है जिसमें टिप्पणियाँ हों। यह वर्तमान दृश्यता सेटिंग प्रिंट करता है, टिप्पणियों को छिपाने का अनुरोध करता है, और बिना किसी टिप्पणी को हटाए नया PPTX सहेजता है। यह [ViewProperties.setLastView](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#setLastView) को [ViewType.SlideView](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewtype/#SlideView) के साथ उपयोग करके टिप्पणी दृश्यता के साथ प्रारंभिक संपादन दृश्य को कॉन्फ़िगर भी करता है।
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) एक प्राथमिकता संग्रहीत करता है जिसे संगत एडिटर्स प्रेजेंटेशन खोलते समय उपयोग करते हैं। टिप्पणियों वाले मौजूदा प्रेजेंटेशन के लिए, यह उदाहरण वर्तमान सेटिंग को प्रिंट करता है और टिप्पणियों को छुपाकर एक कॉपी सहेजता है। यह [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) को [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) के साथ भी कॉल करता है ताकि कॉपी स्लाइड व्यू में खुले।
 
 ```python
 import jpype
@@ -168,26 +138,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-यह सेटिंग यह निर्धारित नहीं करती कि टिप्पणियाँ PDF, HTML, इमेज, नोट्स या हैंडआउट निर्यात में शामिल हैं या नहीं। संबंधित निर्यात‑विशिष्ट विकल्पों को अलग से कॉन्फ़िगर करें।
+टिप्पणियों को छुपाने से उनका टेक्स्ट, लेखक, स्थिति, जवाब और स्थिति संरक्षित रहती है। टिप्पणियों को स्वयं बदलने के लिए देखें [प्रेजेंटेशन टिप्पणियाँ](/slides/hi/python-java/presentation-comments/)। एक्सपोर्ट सेटिंग्स नियंत्रित करती हैं कि PDF, HTML, इमेज, नोट्स या हैंडआउट्स में टिप्पणियाँ दिखें या नहीं।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**प्रस्तुति को पुनः खोलने के बाद ग्रिड क्यों दिखाई नहीं देता?**  
-फ़ाइल ग्रिड स्पेसिंग को संग्रहीत करती है, लेकिन संपादक नियंत्रण करता है कि ग्रिड प्रदर्शित हो या नहीं। संपादक की ग्रिड दृश्यता सेटिंग्स की जाँच करें।
+**ग्रिड को प्रेजेंटेशन पुनः खोलने पर क्यों छुपाया जाता है?**
 
-**ड्राइंग गाइड्स को साफ़ करने से ग्रिड स्पेसिंग बदलती है?**  
-नहीं। ड्राइंग गाइड्स और ग्रिड स्पेसिंग स्वतंत्र सेटिंग्स हैं। गाइड्स को साफ़ करने से संग्रहीत ग्रिड अंतराल अपरिवर्तित रहता है।
+प्रेजेंटेशन ग्रिड अंतराल को संग्रहीत करता है। ग्रिड देखने के लिए एडिटर में ग्रिड दृश्यता को सक्षम करें।
 
-**क्या मैं प्रस्तुति के विभिन्न अनुभागों के लिए अलग-अलग दृश्य सेटिंग्स निर्धारित कर सकता हूँ?**  
-[View settings](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/#getViewProperties) प्रस्तुति स्तर पर परिभाषित होते हैं ([Normal View](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/hi/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), सेक्शन‑दर‑सेक्शन नहीं, इसलिए एक ही पैरामीटर सेट पूरे दस्तावेज़ पर लागू होता है जब यह खुलता है।
+**क्या ड्रॉइंग गाइड्स को साफ़ करने से ग्रिड स्पेसिंग बदलती है?**
 
-**क्या मैं विभिन्न उपयोगकर्ताओं के लिए विभिन्न दृश्य स्थितियां पूर्वनिर्धारित कर सकता हूँ?**  
-नहीं। सेटिंग्स फ़ाइल में संग्रहीत होती हैं और साझा की जाती हैं। दर्शक एप्लिकेशन उपयोगकर्ता प्राथमिकताओं का सम्मान कर सकते हैं, लेकिन फ़ाइल में एक ही दृश्य गुणधर्म सेट होता है।
+नहीं। गाइड जोड़ने, स्थानांतरित करने या साफ़ करने से ग्रिड अंतराल अपरिवर्तित रहता है।
 
-**क्या मैं पूर्वनिर्धारित View Properties के साथ एक टेम्पलेट तैयार कर सकता हूँ जिससे नई प्रस्तुतियाँ उसी तरह खुलें?**  
-हाँ। क्योंकि [view properties](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/#getViewProperties) प्रस्तुति स्तर पर संग्रहीत होते हैं, आप उन्हें एक टेम्पलेट में एंबेड कर सकते हैं और उसी प्रारंभिक दृश्य कॉन्फ़िगरेशन के साथ नए दस्तावेज़ बना सकते हैं।
+**क्या प्रेजेंटेशन के विभिन्न सेक्शन अलग‑अलग व्यू सेटिंग्स रख सकते हैं?**
+
+नहीं। [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) सम्पूर्ण प्रेजेंटेशन पर लागू होता है।
+
+**क्या मैं विभिन्न उपयोगकर्ताओं के लिए अलग‑अलग व्यू सेटिंग्स सहेज सकता हूँ?**
+
+फ़ाइल सभी उपयोगकर्ताओं के लिए एक ही सेट व्यू प्रॉपर्टी संग्रहीत करती है। एक एडिटर उपयोगकर्ता की स्थानीय प्राथमिकताओं को भी लागू कर सकता है।
+
+**क्या मैं टेम्पलेट में व्यू सेटिंग्स सहेज सकता हूँ?**
+
+हाँ। टेम्पलेट से बनाई गई प्रेजेंटेशन उस टेम्पलेट की सहेजी गई व्यू सेटिंग्स को विरासत में लेती हैं।

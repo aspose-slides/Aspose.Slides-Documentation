@@ -1,5 +1,5 @@
 ---
-title: Načíst a aktualizovat vlastnosti zobrazení prezentace v PHP
+title: Načtení a aktualizace vlastností zobrazení prezentace v PHP
 linktitle: Vlastnosti zobrazení
 type: docs
 weight: 80
@@ -9,9 +9,9 @@ keywords:
 - normální zobrazení
 - obsah osnovy
 - ikony osnovy
-- přichytit svislý rozdělovač
-- jednoduché zobrazení
-- stav lišty
+- přichytit vertikální rozdělovač
+- jediné zobrazení
+- stav panelu
 - velikost rozměru
 - automatické přizpůsobení
 - výchozí přiblížení
@@ -20,88 +20,49 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Objevte vlastnosti zobrazení Aspose.Slides pro PHP přes Java, pomocí nichž můžete přizpůsobit formáty PPT, PPTX a ODP snímků – upravit rozvržení, úrovně přiblížení a nastavení zobrazení."
+description: "Použijte Aspose.Slides pro PHP přes Java k nastavení rozvržení normálního zobrazení, přiblížení snímků a poznámek, rozestupu mřížky a viditelnosti komentářů v prezentacích PowerPoint."
 ---
 ## **Úvod**
 
-Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, boční oblasti obsahu a spodní oblasti obsahu. Vlastnosti týkající se umístění různých oblastí obsahu. Tyto informace umožňují aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, v jakém bylo prezentace naposledy uloženo.
+V normálním zobrazení PowerPointu se snímek zobrazuje mezi postranním panelem s náhledy nebo osnovou a pod panelem s poznámkami. Aspose.Slides pro PHP přes Java zpřístupňuje uložená nastavení úprav prezentace prostřednictvím [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/). Tyto zahrnují rozvržení panelů, úrovně přiblížení, rozestupy mřížky a viditelnost komentářů.
 
-Byla přidána metoda [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties/#getNormalViewProperties), která poskytuje přístup k vlastnostem normálního zobrazení prezentace.  
+## **O NormalViewProperties**
 
-Byly přidány třídy [NormalViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewRestoredProperties) a jejich potomci a výčet [SplitterBarStateType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/SplitterBarStateType) byl přidán.
+Použijte [getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/) k přístupu ke třídě [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) ovládá, zda se vedle titulů snímků v osnově zobrazují ikony. [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) umožňuje postrannímu panelu přichytit se do zmenšeného stavu, když jej uživatel zmenší. [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) označuje preferenci zobrazit jeden panel v celém okně.
 
-## **O INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) řídí oddělovač mezi postranním panelem a snímkem. [setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) řídí oddělovač nad panelem s poznámkami. Obě přijímají hodnotu [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` nebo `Restored`.
 
-Reprezentuje vlastnosti normálního zobrazení.
+## **O obnovení NormalViewProperties**
 
-Metody [getShowOutlineIcons](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) a [setShowOutlineIcons](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) určují, zda má aplikace zobrazovat ikony při zobrazování obsahu osnovy v kterékoli oblasti obsahu v režimu normálního zobrazení.
+Když je oddělovač obnoven, [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) poskytuje uloženou velikost postranního panelu a [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) poskytuje uloženou velikost horní části snímku. Obě vystavují [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/). Jeho metoda [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) přijímá procento od 0 do 100 a [setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) určuje, zda editor upravuje velikost při změně velikosti okna.
 
-Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) a [setSnapVerticalSplitter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) určují, zda má svislý rozdělovač přejít do minimalizovaného stavu, když je boční oblast dostatečně malá.
-
-Vlastnost [getPreferSingleView](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) a [setPreferSingleView](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) určuje, zda uživatel preferuje zobrazit celou oblast obsahu v jednom okně místo standardního normálního zobrazení se třemi oblastmi obsahu. Pokud je povoleno, aplikace může zobrazit jednu z oblastí obsahu v celém okně.
-
-Metody [getVerticalBarState](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) určují stav, ve kterém má být zobrazen vodorovný nebo svislý rozdělovač. Vodorovný rozdělovač odděluje snímek od oblasti obsahu pod snímkem, svislý rozdělovač odděluje snímek od boční oblasti obsahu. Možné hodnoty jsou: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/cs/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/cs/php-java/aspose.slides/SplitterBarStateType/#Maximized) a [SplitterBarStateType::Restored](https://reference.aspose.com/slides/cs/php-java/aspose.slides/SplitterBarStateType/#Restored).
-
-Metody [getRestoredLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) a [getRestoredTop](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties#getRestoredTop) určují velikost horní nebo boční oblasti snímku v normálním zobrazení, když je pro [SplitterBarStateType::Restored](https://reference.aspose.com/slides/cs/php-java/aspose.slides/SplitterBarStateType/#Restored) použita hodnota pro [getVerticalBarState](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) odpovídajícím způsobem.
-
-## **O obnovení INormalViewProperties**
-
-Určuje velikost oblasti snímku (šířka, když je podřízená metodě [getRestoredTop](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getRestoredTop), výška, když je podřízená metodě [getRestoredLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) v normálním zobrazení, pokud je oblast obnovitelné proměnné velikosti (ne ani minimalizovaná, ani maximalizovaná).  
-
-Metoda [getDimensionSize](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) určuje velikost oblasti snímku (šířka, když je podřízená restoredTop, výška, když je podřízená restoredLeft).  
-
-Metoda [getAutoAdjust](https://reference.aspose.com/slides/cs/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) určuje, zda má velikost boční oblasti obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.  
-
-Níže uvedený příklad ukazuje, jak můžete získat vlastnosti [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) pro prezentaci.
+Tento příklad aktualizuje existující prezentaci. Obnoví horizontální oddělovač, nastaví velikost vrácenou metodou [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) na 80 % s povoleným automatickým přizpůsobením a maximalizuje vertikální oddělovač. Také zavolá [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/), aby zobrazil ikony ve výhledu osnovy.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # Obnovit vlastnosti zobrazení prezentace
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
 
-## **Nastavit výchozí hodnotu přiblížení**
-{{% alert color="info" %}} 
-
-Aspose.Slides pro PHP přes Java nyní podporuje nastavení výchozí hodnoty přiblížení pro prezentaci tak, že při otevření je přiblížení již nastavené. To lze provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties) prezentace. [getSlideViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) i [getNotesViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) lze nastavit programově. V tomto článku si ukážeme na příkladu, jak nastavit [View Properties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties) prezentace [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation) v Aspose.Slides.
-
-{{% /alert %}} 
-
-Pro nastavení vlastností zobrazení postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation).
-2. Nastavte [View Properties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ViewProperties) prezentace [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation).
-3. Uložte prezentaci jako soubor [PPTX ](https://docs.fileformat.com/presentation/pptx/).  
-   V níže uvedeném příkladu jsme nastavili hodnotu přiblížení pro zobrazení snímku i pro zobrazení poznámek.
-
-```php
-  $presentation = new Presentation();
-  try {
-    # Nastavení vlastností zobrazení prezentace
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // Hodnota přiblížení v procentech pro zobrazení snímku
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // Hodnota přiblížení v procentech pro zobrazení poznámek
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Nastavit rozestup mřížky**
+## **Nastavení výchozí hodnoty přiblížení**
 
-Použijte [Presentation::getViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getViewProperties) k přístupu k nastavením zobrazení na úrovni celé prezentace. Metody [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/#getGridSpacing) a [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/#setGridSpacing) čtou nebo mění interval podkladové editační mřížky. Toto nastavení se vztahuje na celou prezentaci, ne na jednotlivý snímek. Rozestup mřížky je udáván v bodech, kde 72 bodů odpovídá jednomu palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
+[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) a [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) ukládají nezávislá nastavení přiblížení pro editor. Tato nastavení neovlivňují rozměry snímků, přehrávání prezentace ani rozlišení exportu obrázků.
 
-Následující příklad otevře existující `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrtinového palce a uloží výsledek.
+Tento příklad otevře existující prezentaci a zavolá [setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/), aby přizpůsobil snímek oknu editoru. Pro stránku poznámek zakáže automatické škálování a zavolá [setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/), aby nastavil pevné přiblížení 80 %.
 
 ```php
 use aspose\slides\Presentation;
@@ -109,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Nastavení rozestupu mřížky**
+
+Metoda `setGridSpacing` třídy [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) nastavuje vzdálenost mezi čarami úpravové mřížky v celé prezentaci. Přijímá kladnou hodnotu v bodech, přičemž 72 bodů představuje jeden palec. Tento příklad vytiskne aktuální rozestup v existující prezentaci a uloží mřížku o čtvrt palce nastavením intervalu na 18 bodů.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Mřížka se liší od [drawing guides](/slides/cs/php-java/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco vodící čáry jsou jednotlivě umístěné horizontální nebo vertikální zarovnávací čáry. Přidání, přesunutí nebo vymazání vodicích čar nemění rozestup mřížky.
+Mřížka se opakuje v pevném intervalu. [Drawing guides](/slides/cs/php-java/drawing-guides/) označují jednotlivé horizontální nebo vertikální pozice. Oba jsou pomůckami při úpravách a zobrazují se jen v editorech, které je podporují. Prezentace a exporty do PDF, obrázků nebo SVG je vynechají.
 
-Jak mřížka, tak vodicí čáry jsou pomocí při editaci. Nejsou vykresleny jako obsah snímku v PDF, obrázcích, SVG ani při promítání. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na nastavení prohlížeče nebo editoru.
+## **Zobrazit nebo skrýt komentáře při otevírání prezentace**
 
-## **Zobrazit nebo skrýt komentáře při otevření prezentace**
-
-Použijte [Presentation::getViewProperties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getviewproperties/) k přístupu k nastavením zobrazení na úrovni celé prezentace. Použijte [ViewProperties::getShowComments](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/getshowcomments/) a [ViewProperties::setShowComments](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/setshowcomments/) k přečtení nebo změně uložené preference, zda mají být při otevření prezentace v PowerPointu nebo jiném kompatibilním editoru zobrazeny komentáře.
-
-Toto nastavení řídí pouze uloženou preferenci zobrazení. Nepřidává, neodstraňuje, neupravuje ani neřeší komentáře. Skrytí komentářů zachovává jejich obsah, autory, umístění, odpovědi a stav. Viz [Presentation Comments](/slides/cs/php-java/presentation-comments/) pro operace měnící samotné komentáře.
-
-Následující příklad vyžaduje existující `comments.pptx` obsahující komentáře. Vypíše aktuální nastavení viditelnosti, požádá o skrytí komentářů a uloží nový PPTX bez odebrání jakýchkoli komentářů. Také používá [ViewProperties::setLastView](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/setlastview/) s [ViewType::SlideView](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewtype/#SlideView) k nastavení počátečního zobrazení editace spolu s viditelností komentářů.
+[setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) ukládá preferenci, kterou kompatibilní editory použijí při otevírání prezentace. Pro existující prezentaci s komentáři tento příklad vytiskne aktuální nastavení a uloží kopii s komentáři skrytými. Také zavolá [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) s [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView), aby se kopie otevřela ve zobrazení snímku.
 
 ```php
 use aspose\slides\NullableBool;
@@ -139,37 +116,38 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Toto nastavení neurčuje, zda jsou komentáře zahrnuty do exportu do PDF, HTML, obrázku, poznámek nebo letáků. Příslušné možnosti specifické pro export nastavte samostatně.
+Skrytí komentářů zachovává jejich text, autory, pozice, odpovědi a stavy. Pro změnu samotných komentářů viz [Presentation Comments](/slides/cs/php-java/presentation-comments/). Nastavení exportu řídí, zda se komentáře zobrazí v PDF, HTML, obrázcích, poznámkách nebo letácích.
 
 ## **Často kladené otázky**
 
-**Proč mřížka není viditelná po opětovném otevření prezentace?**
+**Proč je mřížka skryta, když znovu otevřu prezentaci?**
 
-Soubor ukládá rozestup mřížky, ale zobrazení mřížky řídí editor. Zkontrolujte nastavení viditelnosti mřížky v editoru.
+Prezentace ukládá interval mřížky. Chcete‑li mřížku vidět, povolte její viditelnost v editoru.
 
-**Změní vymazání vodicích čar rozestup mřížky?**
+**Změní vymazání výkresových vodicích čar rozestup mřížky?**
 
-Ne. Vodicí čáry a rozestup mřížky jsou nezávislá nastavení. Vymazání vodicích čar nemění uložený interval mřížky.
+Ne. Přidání, přesunutí nebo vymazání vodítka nemění interval mřížky.
 
-**Mohu nastavit různá nastavení zobrazení pro různé sekce prezentace?**
+**Mohou různé sekce prezentace mít různá zobrazení nastavení?**
 
-Nastavení [View settings](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getviewproperties/) jsou definována na úrovni celé prezentace ([Normal View](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/cs/php-java/aspose.slides/viewproperties/getslideviewproperties/)), nikoli na úrovni sekce, takže jeden soubor parametrů platí pro celý dokument při otevření.
+Ne. [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) se vztahuje na celou prezentaci.
 
-**Mohu předdefinovat různá stavy zobrazení pro různé uživatele?**
+**Mohu uložit různá nastavení zobrazení pro různé uživatele?**
 
-Ne. Nastavení jsou uložena v souboru a jsou sdílena. Aplikační prohlížeče mohou respektovat uživatelské preference, ale samotný soubor obsahuje jeden soubor vlastností zobrazení.
+Soubor ukládá jedno sadu vlastností zobrazení pro všechny. Editor může také použít místní preference uživatele.
 
-**Mohu připravit šablonu s předdefinovanými View Properties, aby se nové prezentace otevíraly stejným způsobem?**
+**Mohu uložit nastavení zobrazení v šabloně?**
 
-Ano. Protože [view properties](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/getviewproperties/) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.
+Ano. Prezentace vytvořené ze šablony zdědí její uložená nastavení zobrazení.

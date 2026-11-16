@@ -9,11 +9,11 @@ keywords:
 - normal görünüm
 - taslak içeriği
 - taslak simgeleri
-- dikey ayırıcı yakalama
+- dikey bölücü yakalama
 - tek görünüm
 - çubuk durumu
 - boyut ölçüsü
-- otomatik ayarlama
+- otomatik ayar
 - varsayılan yakınlaştırma
 - PowerPoint
 - OpenDocument
@@ -21,157 +21,118 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java görünüm özelliklerini keşfedin; PPT, PPTX ve ODP slayt formatlarını özelleştirin—düzenleri, yakınlaştırma seviyelerini ve görüntü ayarlarını ayarlayın."
+description: "Aspose.Slides for Android via Java kullanarak PowerPoint sunumlarında normal görünüm düzenini, slayt ve not yakınlaştırmasını, ızgara aralığını ve yorum görünürlüğünü yapılandırın."
 ---
 ## **Giriş**
 
-Normal görünüm üç içerik bölgesinden oluşur: slayt kendisi, bir yan içerik bölgesi ve bir alt içerik bölgesi. Farklı içerik bölgelerinin konumlandırılmasıyla ilgili özellikler. Bu bilgi, uygulamanın görünüm durumunu dosyaya kaydetmesini sağlar, böylece yeniden açıldığında görünüm, sunumun son kaydedildiği andaki durumla aynı olur.
-
-Sunumun normal görünüm özelliklerine erişim sağlamak için [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) yöntemi eklenmiştir.  
-
-[INormalViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewRestoredProperties) arayüzleri ve alt sınıfları, [SplitterBarStateType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SplitterBarStateType) enumu eklenmiştir.
+PowerPoint'in normal görünümünde, slayt, küçük resimler veya bir taslak için yan panel ile altında notlar paneli arasında görünür. Aspose.Slides for Android via Java, sunumun kaydedilmiş düzenleme tercihlerini [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) aracılığıyla sunar. Bunlar arasında panel düzeni, yaklaştırma seviyeleri, ızgara aralığı ve yorum görünürlüğü bulunur.
 
 ## **INormalViewProperties hakkında**
 
-Normal görünüm özelliklerini temsil eder.
+Sunumun [getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNormalViewProperties--) aracılığıyla [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/) arayüzüne erişilir. [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) taslakta slayt başlıklarının yanında simgelerin görünmesini kontrol eder. [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) yan panelin, kullanıcı daralttığında küçültülmüş durumuna yapışmasını sağlar. [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) tüm pencere içinde tek bir panelin gösterilmesine tercih olduğunu belirtir.
 
-[getShowOutlineIcons](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) ve [setShowOutlineIcons](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) yöntemleri, normal görünüm modunda içerik bölgelerinden birinde taslak içeriği gösterilirken uygulamanın simgeleri gösterip göstermeyeceğini belirtir.
+[setVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) yan panel ile slayt arasındaki bölücüyü kontrol eder. [setHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) notlar panelinin üstündeki bölücüyü kontrol eder. Her ikisi de `Minimized`, `Maximized` veya `Restored` değerlerinden birini alan bir [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/splitterbarstatetype/) değerini kabul eder.
 
-[getSnapVerticalSplitter](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) ve [setSnapVerticalSplitter](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) yöntemleri, yan bölge yeterince küçük olduğunda dikey ayırıcı çubuğun küçültülmüş bir duruma kilitlenip kilitlenmeyeceğini belirtir.
+## **INormalViewProperties geri yükleme hakkında**
 
-[getPreferSingleView](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) ve [setPreferSingleView](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) kullanıcıların, üç içerik bölgesine sahip standart normal görünüm yerine tam pencere tek içerik bölgesi görmeyi tercih edip etmediğini belirtir. Etkinleştirildiğinde, uygulama içerik bölgelerinden birini tüm pencere içinde göstermeyi seçebilir.
+Bir bölücü geri yüklendiğinde, [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) yan panelin kaydedilmiş boyutunu ve [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) üst slayt alanının kaydedilmiş boyutunu sağlar. Her ikisi de [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/) sunar. Bunun [setDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) yöntemi %0 ile %100 arasında bir yüzde alır ve [setAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) pencere yeniden boyutlandırıldığında editörün boyutu ayarlayıp ayarlamayacağını kontrol eder.
 
-[getVerticalBarState](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) ve [getHorizontalBarState](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) yatay veya dikey ayırıcı çubuğun hangi durumda gösterileceğini belirtir. Bir yatay ayırıcı çubuk slaytı slaytın altındaki içerik bölgesinden ayırırken, bir dikey ayırıcı çubuk slaytı yan içerik bölgesinden ayırır. Olası değerler: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) ve [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
-
-[getRestoredLeft](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) ve [getRestoredTop](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) normal görünümde, bölge [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SplitterBarStateType#Restored) değeri [getVerticalBarState](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) ve [getHorizontalBarState](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) için uygulandığında üst veya yan slayt bölgesinin boyutlandırılmasını belirtir.
-
-## **INormalViewProperties Restorasyonu Hakkında**
-
-Normal görünümde, bölgeler değişken bir restore boyutunda (ne küçültülmüş ne de büyütülmüş) olduğunda slayt bölgesinin (getRestoredTop'un çocuğu olduğunda genişlik, getRestoredLeft'in çocuğu olduğunda yükseklik) boyutunu belirtir.
-
-[getDimensionSize](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) slayt bölgesinin (restoredTop'un çocuğu olduğunda genişlik, restoredLeft'in çocuğu olduğunda yükseklik) boyutunu belirtir.
-
-[getAutoAdjust](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) yan içerik bölgesinin boyutunun, uygulama içinde görünümü içeren pencere yeniden boyutlandırıldığında yeni boyuta uyum sağlayıp sağlamayacağını belirtir.
-
-Aşağıda verilen örnek, bir sunum için [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) özelliklerine nasıl erişileceğini gösterir.
+Bu örnek mevcut bir sunumu günceller. Yatay bölücüyü geri yükler, [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) tarafından döndürülen boyutu otomatik ayarlama etkinleştirilmiş şekilde %80 olarak ayarlar ve dikey bölücüyü maksimize eder. Ayrıca taslak görünümünde simgeleri göstermek için [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) çağrılır.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Sunumun görünüm özelliklerini geri yükle
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Varsayılan Yakınlaştırma Değerini Ayarlama**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Android via Java artık bir sunumun varsayılan yakınlaştırma değerini ayarlamayı destekliyor; böylece sunum açıldığında yakınlaştırma zaten ayarlanmış olur. Bu, bir sunumun [ViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ViewProperties) ayarlanarak yapılabilir. [getSlideViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) ve [getNotesViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) programatik olarak ayarlanabilir. Bu konuda, Aspose.Slides'te bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) nesnesinin [View Properties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ViewProperties) nasıl ayarlanır, bir örnekle göreceğiz.
-
-{{% /alert %}} 
-
-Görünüm özelliklerini ayarlamak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-2. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) için [View Properties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ViewProperties) ayarlayın.  
-3. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak yazın.  
-   Aşağıdaki örnekte, slayt görünümü ve notlar görünümü için yakınlaştırma değerini ayarladık.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // Sunumun görünüm özelliklerini ayarlama
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Slayt görünümü için yüzde cinsinden yakınlaştırma değeri
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Notlar görünümü için yüzde cinsinden yakınlaştırma değeri 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+## **Varsayılan Yakınlaştırma Değerini Ayarlama**
 
-## **Izgara Aralığını Ayarlama**
+[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getSlideViewProperties--) ve [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNotesViewProperties--) editör için bağımsız yakınlaştırma ayarlarını depolar. Bu ayarlar slayt boyutlarını, slayt gösterisi oynatımını veya görüntü dışa aktarım çözünürlüğünü etkilemez.
 
-[Presentation.getViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getViewProperties--) kullanarak sunum genelindeki görünüm ayarlarına erişin. [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) ve [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) yöntemleri temel düzenleme ızgarasının aralığını okur veya değiştirir. Bu ayar tüm sunuma uygulanır, tek bir slayta değil. Izgara aralığı, 72 noktanın bir inçe eşit olduğu puan cinsinden belirtilir. API belgelerinde belirtildiği gibi pozitif bir değer kullanın.
-
-Aşağıdaki örnek mevcut bir `demo.pptx` dosyasını açar, mevcut ızgara aralığını yazdırır, çeyrek inçlik bir aralık ayarlar ve sonucu kaydeder.
+Bu örnek mevcut bir sunumu açar ve slaytı düzenleme penceresine sığdırmak için [setVariableScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) çağırır. Notlar sayfası için otomatik ölçeklemeyi devre dışı bırakır ve sabit %80 yakınlaştırma ayarlamak için [setScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setScale-int-) çağırır.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+## **Izgara Aralığını Ayarlama**
+
+[setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) sunum boyunca düzenleme ızgara çizgileri arasındaki mesafeyi ayarlar. İnç başına 72 puan olmak üzere pozitif bir değer alır. Bu örnek mevcut bir sunumdaki mevcut aralığı yazdırır ve aralığı 18 puan olarak ayarlayarak çeyrek inçlik bir ızgara kaydeder.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+Izgara sabit bir aralıkla tekrar eder. [Çizim kılavuzları](/slides/tr/androidjava/drawing-guides/) bireysel yatay veya dikey konumları işaretler. Her ikisi de düzenleme yardımcılarıdır ve yalnızca bunları gösteren editörlerde görünür. Slayt gösterileri ve PDF, görüntü veya SVG dışa aktarımları bunları çıkartır.
 
-Izgara, [çizim kılavuzlarından](/slides/tr/androidjava/drawing-guides/) farklıdır. Izgara aralığı düzenli bir aralığı kontrol eder, çizim kılavuzları ise yatay veya dikey hizalama çizgileri olarak bireysel konumlandırılır. Çizim kılavuzlarını eklemek, taşımak veya temizlemek ızgara aralığını değiştirmez.
+## **Sunum Açarken Yorumları Gösterme veya Gizleme**
 
-Izgara ve çizim kılavuzları her ikisi de düzenleme yardımcılarındandır. PDF, görüntüler, SVG veya slayt gösterisinde slayt içeriği olarak işlenmezler. Izgara aralığını depolamak, bir düzenleyicinin ızgarayı göstereceğini garanti etmez; görünürlüğü ayrıca görüntüleyici veya düzenleyicinin tercihine bağlıdır.
-
-## **Sunum Açılırken Yorumları Gösterme veya Gizleme**
-
-[Presentation.getViewProperties](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getViewProperties--) kullanarak sunum genelindeki görünüm ayarlarına erişin. Yorumların PowerPoint veya başka bir uyumlu düzenleyicide açıldığında gösterilip gösterilmeyeceğiyle ilgili depolanan tercihi okumak veya değiştirmek için [IViewProperties.getShowComments](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) ve [IViewProperties.setShowComments](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) yöntemlerini kullanın.
-
-Bu ayar yalnızca depolanan görünüm tercihini kontrol eder. Yorum ekleme, silme, düzenleme veya çözümleme işlemlerini gerçekleştirmez. Yorumları gizlemek, içeriklerini, yazarlarını, konumlarını, yanıtlarını ve durumlarını korur. Yorumları değiştiren işlemler için [Presentation Comments](/slides/tr/androidjava/presentation-comments/) sayfasına bakın.
-
-Aşağıdaki örnek, yorum içeren mevcut bir `comments.pptx` dosyasını gerektirir. Mevcut görünürlük ayarını yazdırır, yorumların gizlenmesini talep eder ve yorumları kaldırmadan yeni bir PPTX kaydeder. Ayrıca, yorum görünürlüğüyle birlikte ilk düzenleme görünümünü yapılandırmak için [IViewProperties.setLastView](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) ve [ViewType.SlideView](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/viewtype/#SlideView) kullanır.
+[setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) uyumlu editörlerin sunumu açarken kullandığı bir tercih kaydeder. Yorumlu mevcut bir sunum için bu örnek mevcut ayarı yazdırır ve yorumları gizli bir kopya kaydeder. Ayrıca kopyanın slayt görünümünde açılması için [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) ile [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) çağrılır.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
-Bu ayar, yorumların PDF, HTML, görüntü, not veya el ilanı dışa aktarımlarına dahil edilip edilmediğini belirlemez. İlgili dışa aktarım seçeneklerini ayrı olarak yapılandırın.
+Yorumların gizlenmesi, metinlerini, yazarlarını, konumlarını, yanıtlarını ve durumlarını korur. Yorumları kendilerini değiştirmek için [Sunum Yorumları](/slides/tr/androidjava/presentation-comments/) bölümüne bakın. Dışa aktarma ayarları, yorumların PDF, HTML, görüntüler, notlar veya el ilanlarında görünüp görünmeyeceğini kontrol eder.
 
 ## **SSS**
 
-**Sunumu yeniden açtığımda ızgara neden görünmüyor?**  
-Dosya ızgara aralığını depolar, ancak ızgaranın gösterilip gösterilmediğini düzenleyici kontrol eder. Düzenleyicinin ızgara görünürlüğü ayarlarını kontrol edin.
+**Sunumu yeniden açtığımda ızgara neden gizleniyor?**  
+Sunum ızgara aralığını kaydeder. Izgarayı görmek için editörde ızgara görünürlüğünü etkinleştirin.
 
 **Çizim kılavuzlarını temizlemek ızgara aralığını değiştirir mi?**  
-Hayır. Çizim kılavuzları ve ızgara aralığı bağımsız ayarlardır. Kılavuzları temizlemek, depolanan ızgara aralığını değiştirmez.
+Hayır. Bir kılavuz eklemek, taşımak veya temizlemek ızgara aralığını değiştirmez.
 
-**Bir sunumun farklı bölümleri için farklı görünüm ayarları belirleyebilir miyim?**  
-[Görünüm ayarları](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getViewProperties--) sunum düzeyinde tanımlanır ([Normal View](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)), bölüme göre değil; bu nedenle belge açıldığında tüm belgeye tek bir parametre kümesi uygulanır.
+**Bir sunumun farklı bölümleri farklı görünüm ayarlarına sahip olabilir mi?**  
+Hayır. [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) tüm sunuma uygulanır.
 
-**Farklı kullanıcılar için farklı görünüm durumları önceden tanımlayabilir miyim?**  
-Hayır. Ayarlar dosyada depolanır ve paylaşılır. Görüntüleyici uygulamalar kullanıcı tercihlerini göz önünde bulundurabilir, ancak dosya kendisi tek bir görünüm özelliği kümesi içerir.
+**Farklı kullanıcılar için farklı görünüm ayarları kaydedebilir miyim?**  
+Dosya herkes için tek bir görünüm özelliği seti saklar. Bir editör ayrıca kullanıcının yerel tercihlerini uygulayabilir.
 
-**Yeni sunumların aynı şekilde açılması için önceden tanımlı Görünüm Özellikleriyle bir şablon hazırlayabilir miyim?**  
-Evet. [Görünüm özellikleri](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getViewProperties--) sunum düzeyinde depolandığı için, bunları bir şablona yerleştirerek yeni belgeler oluşturduğunuzda aynı başlangıç görünüm yapılandırması kullanılabilir.
+**Bir şablonda görünüm ayarlarını kaydedebilir miyim?**  
+Evet. Şablondan oluşturulan sunumlar, kaydedilmiş görünüm ayarlarını devralır.

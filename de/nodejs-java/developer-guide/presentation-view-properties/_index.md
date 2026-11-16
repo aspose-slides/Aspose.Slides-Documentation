@@ -9,10 +9,10 @@ keywords:
 - Normalansicht
 - Gliederungsinhalt
 - Gliederungssymbole
-- Vertikalen Trennbalken einrasten
+- vertikaler Trenner einrasten
 - Einzelansicht
-- Balkenstatus
-- Dimensionsgröße
+- Leistenzustand
+- Abmessungsgröße
 - automatische Anpassung
 - Standardzoom
 - PowerPoint
@@ -21,83 +21,59 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Entdecken Sie die Ansichtseigenschaften von Aspose.Slides für Node.js via Java, um PPT-, PPTX- und ODP‑Folien anzupassen—Layouts, Zoom‑Stufen und Anzeigeeinstellungen ändern."
+description: "Verwenden Sie Aspose.Slides für Node.js über Java, um das Layout der Normalansicht, den Zoom von Folien und Notizen, den Rasterabstand und die Kommentarsichtbarkeit in PowerPoint‑Präsentationen zu konfigurieren."
 ---
 ## **Einleitung**
 
-Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, ihren Ansichtsstatus in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht im gleichen Zustand ist, wie sie zuletzt gespeichert wurde.
-
-Die Methode [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) wurde hinzugefügt, um Zugriff auf die Normalansichtseigenschaften einer Präsentation zu ermöglichen. 
-
-Die Klassen [NormalViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewRestoredProperties) und ihre abgeleiteten Klassen sowie das Aufzählungstyp [SplitterBarStateType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SplitterBarStateType) wurden hinzugefügt.
+In der Normalansicht von PowerPoint wird die Folie zwischen einem Seitenbereich für Miniaturansichten oder einer Gliederung und einem Notizbereich unten angezeigt. Aspose.Slides für Node.js über Java stellt die gespeicherten Bearbeitungseinstellungen der Präsentation über [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) bereit. Diese umfassen das Layout der Bereiche, Zoomstufen, Rasterabstand und die Sichtbarkeit von Kommentaren.
 
 ## **Über NormalViewProperties**
 
-Stellt Normalansichtseigenschaften dar.
+Verwenden Sie [getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties), um auf die Klasse [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/) zuzugreifen. [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) steuert, ob Symbole neben den Folientiteln in der Gliederung angezeigt werden. [setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) ermöglicht es dem Seitenbereich, beim Verengen durch den Benutzer in den minimierten Zustand zu springen. [setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) gibt eine Präferenz an, ein einzelnes Feld im Vollfenster anzuzeigen.
 
-Die Methoden [getShowOutlineIcons](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) und [setShowOutlineIcons](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) geben an, ob die Anwendung Symbole anzeigen soll, wenn Gliederungsinhalte in einem der Inhaltsbereiche des Normalansichtsmodus angezeigt werden.
-
-Die Methoden [getSnapVerticalSplitter](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) und [setSnapVerticalSplitter](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) geben an, ob der vertikale Trennbalken in einen minimierten Zustand springen soll, wenn der Seitenbereich ausreichend klein ist.
-
-Die Eigenschaft [getPreferSingleView](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) und [setPreferSingleView](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean--) geben an, ob der Benutzer es vorzieht, einen einteiligen Vollfensterbereich anstelle der Standard‑Normalansicht mit drei Inhaltsbereichen zu sehen. Ist dies aktiviert, kann die Anwendung entscheiden, einen der Inhaltsbereiche im gesamten Fenster anzuzeigen.
-
-Die Methoden [getVerticalBarState](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) geben den Zustand an, in dem die horizontale bzw. vertikale Trennleiste angezeigt werden soll. Eine horizontale Trennleiste trennt die Folie vom darunter liegenden Inhaltsbereich, eine vertikale Trennleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) und [SplitterBarStateType.Restored](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
-
-Die Methoden [getRestoredLeft](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) und [getRestoredTop](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn der Wert [SplitterBarStateType.Restored](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SplitterBarStateType#Restored) für [getVerticalBarState](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) angewendet wird.
+[setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) steuert den Trenner zwischen dem Seitenbereich und der Folie. [setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) steuert den Trenner über dem Notizbereich. Beide akzeptieren einen Wert des Typs [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) entweder `Minimized`, `Maximized` oder `Restored`.
 
 ## **Über das Wiederherstellen von NormalViewProperties**
 
-Gibt die Größe des Folienbereichs (Breite, wenn er ein Kind von [getRestoredTop](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) ist, Höhe, wenn er ein Kind von [getRestoredLeft](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) ist) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert). 
+Wenn ein Trenner wiederhergestellt wird, liefert [getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) die gespeicherte Größe des Seitenbereichs und [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) die gespeicherte Größe des oberen Folienbereichs. Beide geben [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/) frei. Die Methode [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) akzeptiert einen Prozentsatz von 0 bis 100, und [setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) steuert, ob der Editor die Größe bei Änderung der Fenstergröße anpasst.
 
-Die Methode [getDimensionSize](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) gibt die Größe des Folienbereichs an (Breite, wenn er ein Kind von restoredTop ist, Höhe, wenn er ein Kind von restoredLeft ist).
-
-Die Methode [getAutoAdjust](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) gibt an, ob die Größe des seitlichen Inhaltsbereichs die neue Größe ausgleichen soll, wenn das Fenster, das die Ansicht enthält, innerhalb der Anwendung neu skaliert wird.
-
-Ein untenstehendes Beispiel zeigt, wie Sie auf die Eigenschaften [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) einer Präsentation zugreifen können.
+Dieses Beispiel aktualisiert eine vorhandene Präsentation. Es stellt den horizontalen Trenner wieder her, setzt die von [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) zurückgegebene Größe auf 80 % mit aktiviertem automatischem Anpassen und maximiert den vertikalen Trenner. Es ruft außerdem [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) auf, um Symbole in der Gliederungsansicht anzuzeigen.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // Wiederherstellen der Ansichtseigenschaften der Präsentation
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Standard‑Zoomwert festlegen**
 
-{{% alert color="info" %}} 
+[getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) und [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) speichern unabhängige Zoom‑Einstellungen für den Editor. Diese Einstellungen beeinflussen nicht die Folienabmessungen, die Wiedergabe der Bildschirmpräsentation oder die Auflösung beim Bildexport.
 
-Aspose.Slides für Node.js via Java unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, so dass beim Öffnen der Präsentation der Zoom bereits eingestellt ist. Dies kann durch Setzen der [ViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties) einer Präsentation erfolgen. [getSlideViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert festgelegt werden. In diesem Thema zeigen wir anhand eines Beispiels, wie die [View Properties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties) einer [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation) in Aspose.Slides gesetzt werden.
-
-{{% /alert %}} 
-
-Um die Ansichtseigenschaften festzulegen, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation).
-1. Setzen Sie die [View Properties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation).
-1. Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/) Datei. In dem unten gezeigten Beispiel haben wir den Zoomwert für die Folienansicht sowie die Notizansicht gesetzt.
+Dieses Beispiel öffnet eine vorhandene Präsentation und ruft [setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale) auf, um die Folie an das Bearbeitungsfenster anzupassen. Für die Notizseite deaktiviert es die automatische Skalierung und ruft [setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale) auf, um einen festen Zoom von 80 % festzulegen.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Festlegen der Ansichtseigenschaften der Präsentation
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Zoomwert in Prozent für die Folienansicht
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoomwert in Prozent für die Notizansicht
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
+
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -105,77 +81,69 @@ try {
 
 ## **Rasterabstand festlegen**
 
-Verwenden Sie [Presentation.getViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/#getViewProperties--) , um auf die ansichtsweiten Einstellungen der Präsentation zuzugreifen. Die Methoden [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) und [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) lesen bzw. ändern das Intervall des zugrunde liegenden Bearbeitungsrasters. Diese Einstellung gilt für die gesamte Präsentation, nicht für eine einzelne Folie. Der Rasterabstand wird in Punkten angegeben, wobei 72 Punkte einem Zoll entsprechen. Verwenden Sie einen positiven Wert, wie in der API‑Dokumentation gefordert.
-
-Das folgendende Beispiel öffnet eine vorhandene `demo.pptx`, gibt den aktuellen Rasterabstand aus, setzt ein Intervall von einem Viertelzoll und speichert das Ergebnis.
+[setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) legt den Abstand zwischen den Bearbeitungsrastern in der gesamten Präsentation fest. Es nimmt einen positiven Wert in Punkten, wobei 72 Punkte einem Zoll entsprechen. Dieses Beispiel gibt den aktuellen Abstand in einer vorhandenen Präsentation aus und speichert ein viertel‑Zoll‑Raster, indem es das Intervall auf 18 Punkte setzt.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Das Raster unterscheidet sich von [Zeichnungsrichtlinien](/slides/de/nodejs-java/drawing-guides/). Der Rasterabstand steuert ein regelmäßiges Intervall, während Zeichnungsrichtlinien einzeln positionierte horizontale oder vertikale Ausrichtungslinien sind. Das Hinzufügen, Verschieben oder Entfernen von Zeichnungsrichtlinien ändert den Rasterabstand nicht.
-
-Sowohl das Raster als auch die Zeichnungsrichtlinien sind Hilfsmittel beim Bearbeiten. Sie werden nicht als Folieninhalt in PDF, Bildern, SVG oder einer Diashow gerendert. Das Speichern des Rasterabstands garantiert nicht, dass ein Editor das Raster anzeigt: Die Sichtbarkeit hängt auch von den Einstellungen des Betrachters oder Editors ab.
+Das Raster wiederholt sich in festen Intervallen. [Zeichnungshilfen](/slides/de/nodejs-java/drawing-guides/) markieren einzelne horizontale oder vertikale Positionen. Beide dienen als Bearbeitungshilfen und erscheinen nur in Editoren, die sie anzeigen. Bildschirmpräsentationen sowie Exporte nach PDF, Bildern oder SVG lassen sie weg.
 
 ## **Kommentare beim Öffnen einer Präsentation anzeigen oder ausblenden**
 
-Verwenden Sie [Presentation.getViewProperties](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/#getViewProperties--) , um auf die ansichtsweiten Einstellungen der Präsentation zuzugreifen. Mit [ViewProperties.getShowComments](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/#getShowComments--) und [ViewProperties.setShowComments](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte--) können Sie die gespeicherte Präferenz auslesen bzw. ändern, ob Kommentare beim Öffnen der Präsentation in PowerPoint oder einem anderen kompatiblen Editor angezeigt werden sollen.
-
-Diese Einstellung steuert lediglich die gespeicherte Ansichtspräferenz. Sie fügt keine Kommentare hinzu, entfernt sie nicht, bearbeitet sie nicht und löst sie nicht auf. Das Ausblenden von Kommentaren bewahrt deren Inhalt, Autoren, Positionen, Antworten und Status. Siehe [Presentation Comments](/slides/de/nodejs-java/presentation-comments/) für Vorgänge, die die Kommentare selbst ändern.
-
-Das folgende Beispiel erfordert eine vorhandene `comments.pptx` mit Kommentaren. Es gibt die aktuelle Sichtbarkeitseinstellung aus, fordert das Ausblenden der Kommentare an und speichert ein neues PPTX, ohne Kommentare zu entfernen. Es verwendet zudem [ViewProperties.setLastView](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) zusammen mit [ViewType.SlideView](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewtype/#SlideView), um die anfängliche Bearbeitungsansicht zusammen mit der Kommentar‑Sichtbarkeit zu konfigurieren.
+[setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) speichert eine Präferenz, die kompatible Editoren beim Öffnen der Präsentation verwenden. Für eine vorhandene Präsentation mit Kommentaren gibt dieses Beispiel die aktuelle Einstellung aus und speichert eine Kopie mit ausgeblendeten Kommentaren. Es ruft außerdem [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) mit [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) auf, sodass die Kopie in der Folienansicht geöffnet wird.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Diese Einstellung bestimmt nicht, ob Kommentare in PDF-, HTML-, Bild-, Notiz‑ oder Handout‑Exporten enthalten sind. Konfigurieren Sie die entsprechenden export‑spezifischen Optionen separat.
+Das Ausblenden von Kommentaren bewahrt deren Text, Autoren, Positionen, Antworten und Status. Um die Kommentare selbst zu ändern, siehe [Präsentationskommentare](/slides/de/nodejs-java/presentation-comments/). Exporteinstellungen steuern, ob Kommentare in PDF, HTML, Bildern, Notizen oder Handzetteln erscheinen.
 
 ## **FAQ**
 
-**Warum ist das Raster nach dem erneuten Öffnen der Präsentation nicht sichtbar?**
+**Warum wird das Raster beim erneuten Öffnen der Präsentation ausgeblendet?**
 
-Die Datei speichert den Rasterabstand, aber der Editor entscheidet, ob das Raster angezeigt wird. Überprüfen Sie die Raster‑Sichtbarkeitseinstellungen des Editors.
+Die Präsentation speichert das Rasterintervall. Um das Raster zu sehen, aktivieren Sie die Rasteranzeige im Editor.
 
-**Ändert das Entfernen von Zeichenrichtlinien den Rasterabstand?**
+**Ändert das Löschen von Zeichenhilfen den Rasterabstand?**
 
-Nein. Zeichenrichtlinien und Rasterabstand sind unabhängige Einstellungen. Das Entfernen von Richtlinien lässt das gespeicherte Rasterintervall unverändert.
+Nein. Das Hinzufügen, Verschieben oder Löschen einer Hilfslinie lässt das Rasterintervall unverändert.
 
-**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?**
+**Können verschiedene Abschnitte einer Präsentation unterschiedliche Ansichtseinstellungen haben?**
 
-[Ansichtseinstellungen](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getviewproperties/) werden auf Präsentationsebene definiert ([Normal View](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), nicht pro Abschnitt, sodass ein einziger Parametersatz beim Öffnen des Dokuments für das gesamte Dokument gilt.
+Nein. [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) gilt für die gesamte Präsentation.
 
-**Kann ich unterschiedliche Ansichtszustände für verschiedene Benutzer vordefinieren?**
+**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Benutzer speichern?**
 
-Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam. Viewer‑Anwendungen können Benutzereinstellungen berücksichtigen, aber die Datei selbst enthält nur einen Satz Ansichtseigenschaften.
+Die Datei speichert ein Satz von Ansichtseigenschaften für alle. Ein Editor kann zudem die lokalen Präferenzen eines Benutzers anwenden.
 
-**Kann ich eine Vorlage mit vordefinierten Ansichtseigenschaften erstellen, damit neue Präsentationen gleich öffnen?**
+**Kann ich Ansichtseinstellungen in einer Vorlage speichern?**
 
-Ja. Da [Ansichtseigenschaften](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getviewproperties/) auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und daraus neue Dokumente mit derselben anfänglichen Ansichtskonfiguration erstellen.
+Ja. Präsentationen, die aus der Vorlage erstellt werden, erben deren gespeicherte Ansichtseinstellungen.

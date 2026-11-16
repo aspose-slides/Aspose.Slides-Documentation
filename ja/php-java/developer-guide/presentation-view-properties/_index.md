@@ -1,5 +1,5 @@
 ---
-title: PHP でプレゼンテーション ビュー プロパティを取得および更新する
+title: PHPでプレゼンテーションのビュー プロパティを取得および更新する
 linktitle: ビュー プロパティ
 type: docs
 weight: 80
@@ -11,97 +11,58 @@ keywords:
 - アウトライン アイコン
 - 垂直スプリッタのスナップ
 - 単一ビュー
-- バー 状態
-- 次元 サイズ
+- バーの状態
+- サイズの次元
 - 自動調整
-- デフォルト ズーム
+- デフォルトズーム
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java のビュー プロパティを活用して、PPT、PPTX、ODP スライドの形式をカスタマイズし、レイアウト、ズーム レベル、表示設定を調整します。"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint プレゼンテーションの標準ビュー レイアウト、スライドとノートのズーム、グリッド間隔、コメントの表示を構成します。"
 ---
-## **イントロダクション**
+## **概要**
 
-通常ビューは 3 つのコンテンツ領域で構成されます。スライド自体、サイドコンテンツ領域、ボトムコンテンツ領域です。これらの領域の配置に関するプロパティです。この情報により、アプリケーションはビューの状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態で表示されます。
+PowerPoint の標準ビューでは、スライドはサムネイルまたはアウトライン用のサイドペインと、下部のノートペインの間に表示されます。Aspose.Slides for PHP via Java は、[Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) を通じてプレゼンテーションの保存された編集設定を公開します。これにはペインのレイアウト、ズームレベル、グリッド間隔、コメントの表示状態が含まれます。
 
-メソッド [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) が追加され、プレゼンテーションの通常ビュー プロパティにアクセスできるようになりました。
+## **NormalViewPropertiesについて**
 
-[NormalViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties)、[NormalViewRestoredProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewRestoredProperties) クラスおよびその派生クラス、[SplitterBarStateType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SplitterBarStateType) 列挙体が追加されました。
+[getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/) を使用して [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/) クラスにアクセスします。[setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) はアウトラインでスライドタイトルの横にアイコンを表示するかどうかを制御します。[setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) はユーザーがサイドペインを狭めたときに最小化状態にスナップさせます。[setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) は全ウィンドウで 1 つのペインを表示することを優先します。
 
-## **INormalViewProperties について**
+[setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) はサイドペインとスライドの間の区切りバーを制御し、[setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) はノートペイン上部の区切りバーを制御します。両方とも `Minimized`、`Maximized`、または `Restored` のいずれかの [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/) 値を受け取ります。
 
-通常ビュー プロパティを表します。
+## **NormalViewPropertiesの復元について**
 
-メソッド [getShowOutlineIcons](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) と [setShowOutlineIcons](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) は、通常ビュー モードの任意のコンテンツ領域でアウトライン コンテンツを表示する際にアイコンを表示するかどうかを指定します。
+区切りバーが復元されると、[getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) はサイドペインの保存されたサイズを、[getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) は上部スライド領域の保存されたサイズを提供します。両方とも [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/) を公開します。その [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) メソッドは 0 から 100 のパーセンテージを受け取り、[setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) はウィンドウのサイズ変更時にエディタがサイズを自動調整するかどうかを制御します。
 
-メソッド [getSnapVerticalSplitter](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) と [setSnapVerticalSplitter](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) は、サイド領域が十分に小さくなったときに垂直スプリッタを最小化状態にスナップさせるかどうかを指定します。
-
-プロパティ [getPreferSingleView](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) と [setPreferSingleView](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) は、ユーザーが 3 つのコンテンツ領域を持つ標準の通常ビューではなく、ウィンドウ全体に単一のコンテンツ領域を表示することを好むかどうかを指定します。有効にすると、アプリケーションは 1 つのコンテンツ領域をウィンドウ全体に表示することを選択できるようになります。
-
-メソッド [getVerticalBarState](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) は、水平または垂直スプリッタ バーが表示される状態を指定します。水平スプリッタ バーはスライドとその下のコンテンツ領域を分割し、垂直スプリッタ バーはスライドとサイド コンテンツ領域を分割します。可能な値は [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SplitterBarStateType/#Minimized)、[SplitterBarStateType::Maximized](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SplitterBarStateType/#Maximized)、および [SplitterBarStateType::Restored](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SplitterBarStateType/#Restored) です。
-
-メソッド [getRestoredLeft](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) と [getRestoredTop](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties#getRestoredTop) は、[SplitterBarStateType::Restored](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SplitterBarStateType/#Restored) が [getVerticalBarState](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) に適用されたときの、通常ビューの上部またはサイド スライド領域のサイズを指定します。
-
-## **Restoring INormalViewProperties について**
-
-通常ビューのスライド領域（[getRestoredTop](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getRestoredTop) の子の場合は幅、[getRestoredLeft](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) の子の場合は高さ）が可変の復元サイズ（最小化でも最大化でもない）であるときのサイズを指定します。
-
-メソッド [getDimensionSize](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) は、復元された top の子の場合は幅、復元された left の子の場合は高さとして、スライド領域のサイズを指定します。
-
-メソッド [getAutoAdjust](https://reference.aspose.com/slides/ja/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) は、ウィンドウのサイズ変更時にサイド コンテンツ領域のサイズが新しいサイズに合わせて自動的に調整されるかどうかを指定します。
-
-以下の例は、プレゼンテーションの [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) プロパティにアクセスする方法を示しています。
+この例は既存のプレゼンテーションを更新します。水平区切りバーを復元し、[getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) が返すサイズを自動調整有効で 80% に設定し、垂直区切りバーを最大化します。また、[setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) を呼び出してアウトラインビューにアイコンを表示します。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # プレゼンテーションのビュー プロパティを復元する
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
 
-## **デフォルト ズーム値の設定**
-{{% alert color="info" %}} 
-
-Aspose.Slides for PHP via Java は、プレゼンテーションを開いたときにズームが既に設定された状態になるよう、デフォルト ズーム値の設定をサポートします。これはプレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties) を設定することで実現できます。 [getSlideViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) と [getNotesViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) をプログラムから設定できます。このトピックでは、Aspose.Slides で [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties) を設定する例を示します。
-
-{{% /alert %}} 
-
-ビュー プロパティを設定するには、以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ViewProperties) を設定します。  
-1. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き込みます。  
-   以下の例では、スライドビューとノートビューの両方のズーム値を設定しています。
-
-```php
-  $presentation = new Presentation();
-  try {
-    # プレゼンテーションのビュー プロパティを設定する
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // スライドビューのズーム値（パーセンテージ）
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // ノートビューのズーム値（パーセンテージ）
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **グリッド間隔の設定**
+## **デフォルトのズーム値を設定する**
 
-[Presentation::getViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/#getViewProperties) を使用して、プレゼンテーション全体のビュー設定にアクセスします。 [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/#getGridSpacing) と [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/#setGridSpacing) メソッドは、基礎となる編集グリッドの間隔を読み取ったり変更したりします。この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。グリッド間隔はポイント単位で指定され、72 ポイントが 1 インチに相当します。API ドキュメントで要求されているように正の値を使用してください。
+[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) と [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) はエディタ用に個別のズーム設定を保存します。これらの設定はスライドサイズ、スライドショーの再生、画像エクスポートの解像度には影響しません。
 
-以下の例は既存の `demo.pptx` を開き、現在のグリッド間隔を出力し、1/4 インチの間隔に設定して結果を保存します。
+この例は既存のプレゼンテーションを開き、[setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/) を呼び出してスライドを編集ウィンドウに合わせます。ノートページについては自動スケーリングを無効にし、[setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/) で固定の 80% ズームを設定します。
 
 ```php
 use aspose\slides\Presentation;
@@ -109,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **グリッド間隔を設定する**
+
+[ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) の `setGridSpacing` メソッドは、プレゼンテーション全体の編集グリッド線間の距離を設定します。単位はポイントで、1 インチあたり 72 ポイントです。この例は既存のプレゼンテーションで現在の間隔を出力し、間隔を 18 ポイントに設定して 1/4 インチのグリッドを保存します。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-グリッドは [drawing guides](/slides/ja/php-java/drawing-guides/) とは異なります。グリッド間隔は規則的な間隔を制御し、描画ガイドは個別に配置された水平または垂直の位置合わせ線です。描画ガイドを追加、移動、クリアしてもグリッド間隔は変わりません。
+グリッドは固定間隔で繰り返されます。[描画ガイド](/slides/ja/php-java/drawing-guides/) は個別の水平または垂直位置を示します。両方とも編集支援機能であり、表示できるエディタでのみ表示されます。スライドショーや PDF、画像、SVG へのエクスポートには含まれません。
 
-グリッドも描画ガイドも編集支援ツールです。PDF、画像、SVG、スライドショーとしてスライド コンテンツにレンダリングされません。グリッド間隔を保存しても、エディタがグリッドを表示するかどうかは保証されません。表示の可視性はビューアまたはエディタの設定に依存します。
+## **プレゼンテーションを開くときにコメントを表示または非表示にする**
 
-## **プレゼンテーションを開くときのコメントの表示/非表示**
-
-[Presentation::getViewProperties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/getviewproperties/) を使用して、プレゼンテーション全体のビュー設定にアクセスします。 [ViewProperties::getShowComments](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/getshowcomments/) と [ViewProperties::setShowComments](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/setshowcomments/) を使用して、PowerPoint やその他の互換エディタでプレゼンテーションを開いたときにコメントを表示するかどうかの保存された優先設定を読み取ったり変更したりします。
-
-この設定は保存されたビューの優先設定のみを制御します。コメントの追加、削除、編集、解決は行いません。コメントを非表示にしても、内容、作成者、位置、返信、ステータスは保持されます。コメント自体を変更する操作については [Presentation Comments](/slides/ja/php-java/presentation-comments/) を参照してください。
-
-以下の例は、コメントが含まれる既存の `comments.pptx` を使用します。現在の表示設定を出力し、コメントを非表示に設定し、コメントを削除せずに新しい PPTX として保存します。また、[ViewProperties::setLastView](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/setlastview/) と [ViewType::SlideView](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewtype/#SlideView) を組み合わせて、コメントの可視性とともに初期編集ビューを構成します。
+[setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) は、互換性のあるエディタがプレゼンテーションを開く際に使用する設定を保存します。コメント付きの既存プレゼンテーションについて、この例は現在の設定を出力し、コメントを非表示にしたコピーを保存します。また、[setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) に [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView) を指定して、コピーがスライドビューで開くようにします。
 
 ```php
 use aspose\slides\NullableBool;
@@ -139,37 +116,38 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-この設定は、PDF、HTML、画像、ノート、配布資料のエクスポート時にコメントが含まれるかどうかを決定しません。エクスポート固有のオプションは別途設定してください。
+コメントを非表示にしても、テキスト、作者、位置、返信、ステータスは保持されます。コメント自体を変更するには、[Presentation Comments](/slides/ja/php-java/presentation-comments/) を参照してください。エクスポート設定で PDF、HTML、画像、ノート、配布資料にコメントを含めるかどうかを制御できます。
 
-## **FAQ**
+## **よくある質問**
 
-**プレゼンテーションを再度開いたときにグリッドが表示されないのはなぜですか？**
+**プレゼンテーションを再度開くときにグリッドが非表示になるのはなぜですか？**
 
-ファイルはグリッド間隔を保存しますが、エディタがグリッドを表示するかどうかはエディタ側で制御されます。エディタのグリッド表示設定をご確認ください。
+プレゼンテーションはグリッド間隔を保存しています。グリッドを表示させるには、エディタでグリッドの表示を有効にしてください。
 
-**描画ガイドをクリアしてもグリッド間隔は変わりますか？**
+**描画ガイドをクリアするとグリッド間隔が変わりますか？**
 
-いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドをクリアしても保存されたグリッド間隔は変わりません。
+いいえ。ガイドを追加、移動、またはクリアしてもグリッド間隔は変更されません。
 
-**プレゼンテーションのセクションごとに異なるビュー設定を設定できますか？**
+**プレゼンテーションの異なるセクションで異なるビュー設定を持たせることはできますか？**
 
-[View settings](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/getviewproperties/) はプレゼンテーションレベル（[Normal View](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ja/php-java/aspose.slides/viewproperties/getslideviewproperties/)）で定義され、セクション単位ではありません。そのため、ドキュメント全体に対して単一のパラメータセットが適用されます。
+できません。[Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) はプレゼンテーション全体に適用されます。
 
-**ユーザーごとに異なるビュー状態を事前に定義できますか？**
+**異なるユーザーごとに別々のビュー設定を保存できますか？**
 
-できません。設定はファイルに保存され、共有されます。ビューア アプリケーションがユーザー固有の設定を尊重することはありますが、ファイル自体は 1 つのビュー プロパティ セットしか保持しません。
+ファイルは全ユーザー共通のビュー設定を 1 つだけ保存します。エディタ側でユーザーのローカル設定を適用することはあります。
 
-**新しいプレゼンテーションが同じビューで開くように、事前定義された View Properties を持つテンプレートを作成できますか？**
+**テンプレートにビュー設定を保存できますか？**
 
-できます。[view properties](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/getviewproperties/) はプレゼンテーションレベルで保存されるため、テンプレートに埋め込んでおけば、新規ドキュメントは同じ初期ビュー構成で作成されます。
+はい。テンプレートから作成されたプレゼンテーションは、テンプレートに保存されたビュー設定を継承します。

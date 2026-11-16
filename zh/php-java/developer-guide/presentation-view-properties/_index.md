@@ -9,7 +9,7 @@ keywords:
 - 普通视图
 - 大纲内容
 - 大纲图标
-- 捕捉垂直分割条
+- 垂直分割条捕捉
 - 单视图
 - 条状态
 - 尺寸大小
@@ -20,89 +20,49 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "了解 Aspose.Slides for PHP via Java 的视图属性，以自定义 PPT、PPTX 和 ODP 幻灯片格式——调整布局、缩放级别和显示设置。"
+description: "使用 Aspose.Slides for PHP via Java 配置 PowerPoint 演示文稿的普通视图布局、幻灯片和备注的缩放、网格间距以及评论可见性。"
 ---
-## **简介**
+## **介绍**
 
-普通视图由三个内容区域组成：幻灯片本身、侧边内容区域和底部内容区域。有关不同内容区域定位的属性。这些信息使应用程序能够将视图状态保存到文件中，以便重新打开时视图保持为上次保存演示文稿时的相同状态。
+在 PowerPoint 的普通视图中，幻灯片位于缩略图或大纲的侧窗格和下面的备注窗格之间。Aspose.Slides for PHP via Java 通过 [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/)公开了演示文稿保存的编辑首选项。它们包括窗格布局、缩放级别、网格间距和评论可见性。
 
-已添加方法 [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) ，以提供对演示文稿普通视图属性的访问。
+## **关于 NormalViewProperties**
 
-已添加 [NormalViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties)、[NormalViewRestoredProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewRestoredProperties) 类及其派生类，以及 [SplitterBarStateType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/SplitterBarStateType) 枚举。
+使用 [getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/) 访问 [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/) 类。[setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) 控制是否在大纲中的幻灯片标题旁显示图标。[setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) 允许当用户收窄侧窗格时将其自动缩至最小状态。[setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) 表示在完整窗口中显示单个窗格的首选项。
 
-## **关于 INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) 控制侧窗格与幻灯片之间的分隔条。[setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) 控制备注窗格上方的分隔条。两者均接受 [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/) 的 `Minimized`、`Maximized` 或 `Restored` 值。
 
-表示普通视图属性。
+## **关于 恢复 NormalViewProperties**
 
-[Methods getShowOutlineIcons](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) 和 [setShowOutlineIcons](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) 指定在普通视图模式下的任意内容区域显示大纲内容时，应用程序是否应显示图标。
+当分隔条被恢复时，[getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) 提供侧窗格的保存大小，而 [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) 提供上部幻灯片区域的保存大小。两者都暴露 [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/)。其 [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) 方法接受 0 到 100 的百分比，而 [setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) 控制编辑器在窗口大小改变时是否自动调整尺寸。
 
-[Methods getSnapVerticalSplitter](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) 和 [setSnapVerticalSplitter](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) 指定当侧边区域足够小且垂直分割条应是否自动折叠到最小状态。
-
-属性 [getPreferSingleView](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) 和 [setPreferSingleView](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) 指定用户是否倾向于在整个窗口中仅显示单一内容区域，而不是标准的包含三个内容区域的普通视图。如果启用，应用程序可能会选择在整个窗口中显示其中的一个内容区域。
-
-[Methods getVerticalBarState](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) 和 [getHorizontalBarState](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) 指定水平或垂直分割条应呈现的状态。水平分割条将幻灯片与其下方的内容区域分开，垂直分割条将幻灯片与侧边内容区域分开。可能的取值有： [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/zh/php-java/aspose.slides/SplitterBarStateType/#Minimized) 、 [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/zh/php-java/aspose.slides/SplitterBarStateType/#Maximized) 和 [SplitterBarStateType::Restored](https://reference.aspose.com/slides/zh/php-java/aspose.slides/SplitterBarStateType/#Restored)。
-
-[Methods getRestoredLeft](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) 和 [getRestoredTop](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties#getRestoredTop) 在对 [getVerticalBarState](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) 和 [getHorizontalBarState](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) 分别应用 [SplitterBarStateType::Restored](https://reference.aspose.com/slides/zh/php-java/aspose.slides/SplitterBarStateType/#Restored) 值时，指定普通视图顶部或侧边幻灯片区域的尺寸。
-
-## **关于 Restoring INormalViewProperties**
-
-指定普通视图中幻灯片区域的尺寸（作为 [getRestoredTop](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getRestoredTop) 的子项时表示宽度，作为 [getRestoredLeft](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) 的子项时表示高度），当该区域采用可变的恢复大小（既非最小化也非最大化）时。
-
-[Method getDimensionSize](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) 指定幻灯片区域的大小（作为 restoredTop 的子项时为宽度，作为 restoredLeft 的子项时为高度）。
-
-[Method getAutoAdjust](https://reference.aspose.com/slides/zh/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) 指定在调整包含视图的窗口大小时，侧边内容区域的尺寸是否应自动补偿新的尺寸。
-
-下面的示例演示如何访问演示文稿的 [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) 属性。
+此示例更新现有演示文稿。它恢复水平分隔条，将 [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) 返回的大小设置为 80% 并启用自动调整，并将垂直分隔条最大化。同时调用 [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) 在大纲视图中显示图标。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # 恢复演示文稿的视图属性
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
+
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **设置默认缩放值**
-{{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java 现已支持为演示文稿设置默认缩放值，使得打开演示文稿时已预先设置缩放。可以通过设置演示文稿的 [ViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties) 来实现。可以以编程方式设置 [getSlideViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) 和 [getNotesViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties/#getNotesViewProperties)。在本主题中，我们将通过示例展示如何在 Aspose.Slides 中为 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation) 设置 [View Properties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties)。
+[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) 和 [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) 为编辑器存储独立的缩放设置。这些设置不会影响幻灯片尺寸、幻灯片放映播放或图像导出分辨率。
 
-{{% /alert %}} 
-
-设置视图属性的步骤如下：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation) 类的实例。  
-2. 设置 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation) 的 [View Properties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/ViewProperties)。  
-3. 将演示文稿写入 [PPTX](https://docs.fileformat.com/presentation/pptx/) 文件。  
-
-下面的示例中，我们已为幻灯片视图和备注视图设置了缩放值。
-
-```php
-  $presentation = new Presentation();
-  try {
-    # 设置演示文稿的视图属性
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // 幻灯片视图的缩放值（百分比）
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // 备注视图的缩放值（百分比）
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **设置网格间距**
-
-使用 [Presentation::getViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#getViewProperties) 访问演示文稿级别的视图设置。 [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/#getGridSpacing) 和 [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/#setGridSpacing) 方法读取或更改底层编辑网格的间隔。此设置适用于整个演示文稿，而非单个幻灯片。网格间距以点为单位，72 点等于一英寸。请使用正值，符合 API 文档的要求。
-
-下面的示例打开现有的 `demo.pptx`，打印其当前网格间距，将间隔设置为四分之一英寸，然后保存结果。
+此示例打开现有演示文稿并调用 [setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/) 将幻灯片适配到编辑窗口。对于备注页，它禁用自动缩放并调用 [setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/) 将缩放固定为 80%。
 
 ```php
 use aspose\slides\Presentation;
@@ -110,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **设置网格间距**
+
+`setGridSpacing` 方法来自 [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) 用于设置整个演示文稿中编辑网格线之间的距离。它接受正数（单位为点），每英寸 72 点。此示例打印现有演示文稿中的当前间距，并通过将间隔设置为 18 点来保存四分英寸的网格。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-网格不同于 [drawing guides](/slides/zh/php-java/drawing-guides/)。网格间距控制规则的间隔，而绘图指南是单独定位的水平或垂直对齐线。添加、移动或清除绘图指南不会改变网格间距。
+网格以固定间隔重复。[Drawing guides](/slides/zh/php-java/drawing-guides/) 标记单独的水平或垂直位置。两者都是编辑辅助，仅在支持显示的编辑器中出现。幻灯片放映以及导出为 PDF、图像或 SVG 时会省略它们。
 
-网格和绘图指南都是编辑辅助工具。它们不会在 PDF、图像、SVG 或幻灯片放映中作为幻灯片内容渲染。存储网格间距并不保证编辑器会显示网格：其可见性还取决于查看器或编辑器的偏好设置。
+## **打开演示文稿时显示或隐藏评论**
 
-## **打开演示文稿时显示或隐藏批注**
-
-使用 [Presentation::getViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/getviewproperties/) 访问演示文稿级别的视图设置。使用 [ViewProperties::getShowComments](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/getshowcomments/) 和 [ViewProperties::setShowComments](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/setshowcomments/) 读取或更改在 PowerPoint 或其他兼容编辑器打开演示文稿时是否应显示批注的存储偏好。
-
-此设置仅控制存储的视图偏好。它不会添加、删除、编辑或解决批注。隐藏批注会保留其内容、作者、位置、回复和状态。有关更改批注本身的操作，请参阅 [Presentation Comments](/slides/zh/php-java/presentation-comments/)。
-
-下面的示例需要一个包含批注的现有 `comments.pptx`，它会打印当前的可见性设置，将批注设为隐藏，并保存一个不删除任何批注的新 PPTX。示例还使用 [ViewProperties::setLastView](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/setlastview/) 与 [ViewType::SlideView](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewtype/#SlideView) 一起配置初始编辑视图以及批注可见性。
+[setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) 存储兼容编辑器在打开演示文稿时使用的首选项。对于包含评论的现有演示文稿，此示例打印当前设置并保存一个隐藏评论的副本。它还调用 [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) 并传入 [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView)，使副本以幻灯片视图打开。
 
 ```php
 use aspose\slides\NullableBool;
@@ -140,32 +116,38 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-此设置不决定批注在 PDF、HTML、图像、备注或讲义导出时是否包含。请分别配置相应的导出特定选项。
+隐藏评论会保留其文本、作者、位置、回复和状态。若要更改评论本身，请参阅 [Presentation Comments](/slides/zh/php-java/presentation-comments/)。导出设置决定评论是否出现在 PDF、HTML、图像、备注或讲义中。
 
-## **常见问题解答**
+## **常见问题**
 
-**为什么重新打开演示文稿后网格不可见？**  
-文件会存储网格间距，但编辑器控制是否显示网格。请检查编辑器的网格可见性设置。
+**为什么重新打开演示文稿时网格会隐藏？**
 
-**清除绘图指南会改变网格间距吗？**  
-不会。绘图指南和网格间距是相互独立的设置。清除指南不会改变已存储的网格间隔。
+演示文稿保存了网格间隔。要查看网格，请在编辑器中启用网格可见性。
 
-**我能为演示文稿的不同章节设置不同的视图设置吗？**  
-[View settings](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/getviewproperties/) 在演示文稿级别定义（[Normal View](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/getslideviewproperties/)），而不是按章节。因此，文档打开时会使用一套参数应用于整个文档。
+**清除绘图指南会改变网格间距吗？**
 
-**我能为不同用户预定义不同的视图状态吗？**  
-不能。设置存储在文件中并且是共享的。查看器应用程序可以遵循用户偏好，但文件本身只有一套视图属性。
+不会。添加、移动或清除指南都不会改变网格间隔。
 
-**我可以准备一个包含预定义视图属性的模板，以便新演示文稿以相同方式打开吗？**  
-可以。因为 [view properties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/getviewproperties/) 存储在演示文稿级别，你可以将它们嵌入模板中，并从该模板创建新文档，以获得相同的初始视图配置。
+**演示文稿的不同章节可以有不同的视图设置吗？**
+
+不能。[Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) 适用于整个演示文稿。
+
+**我可以为不同用户保存不同的视图设置吗？**
+
+文件仅为所有人存储一套视图属性。编辑器还可能应用用户的本地首选项。
+
+**我可以在模板中保存视图设置吗？**
+
+可以。使用该模板创建的演示文稿会继承其保存的视图设置。

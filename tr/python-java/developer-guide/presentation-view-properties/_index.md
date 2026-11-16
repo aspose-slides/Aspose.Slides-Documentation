@@ -7,7 +7,7 @@ url: /tr/python-java/presentation-view-properties/
 keywords:
 - görünüm özellikleri
 - normal görünüm
-- taslak içerik
+- taslak içeriği
 - taslak simgeleri
 - dikey bölücüyü yakala
 - tek görünüm
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java görünüm özelliklerini keşfedin ve PPT, PPTX ve ODP slaytlarını özelleştirin—düzenleri, yakınlaştırma seviyelerini ve görüntü ayarlarını ayarlayın."
+description: "Java aracılığıyla Python için Aspose.Slides kullanarak PowerPoint sunumlarında normal görünüm düzenini, slayt ve not yakınlaştırmasını, ızgara aralığını ve yorum görünürlüğünü yapılandırın."
 ---
 ## **Giriş**
 
-Normal görünüm üç içerik bölgesinden oluşur: slaytın kendisi, bir yan içerik bölgesi ve bir alt içerik bölgesi. Normal görünüm özellikleri bu içerik bölgelerinin konumlandırılmasını açıklar. Bu bilgi uygulamanın görünüm durumunu dosyaya kaydetmesini sağlar, böylece yeniden açıldığında görünüm sunum en son kaydedildiği zamanki aynı durumda olur.
-
-Sunumun normal görünüm özelliklerine erişim sağlamak için [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#getNormalViewProperties) yöntemi eklenmiştir.
-
-[NormalViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/) ve [NormalViewRestoredProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewrestoredproperties/) sınıfları ve [SplitterBarStateType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/splitterbarstatetype/) sayımı eklenmiştir.
+PowerPoint'in normal görünümünde, slayt küçük resimler veya bir taslak için yan panel ile altında bir not paneli arasında görünür. Aspose.Slides for Python via Java, sunumun kaydedilmiş düzenleme tercihlerini [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) aracılığıyla ortaya koyar. Bunlar panel düzeni, yakınlaştırma seviyeleri, ızgara aralığı ve yorum görünürlüğünü içerir.
 
 ## **NormalViewProperties Hakkında**
 
-Normal görünüm özelliklerini temsil eder.
+[getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) bağlantısını kullanarak [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/) sınıfına erişin. [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) taslakta slayt başlıklarının yanında simgelerin görünüp görünmeyeceğini kontrol eder. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) kullanıcı yan paneli daralttığında panelin küçültülmüş durumuna yapışmasını sağlar. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) tam pencerede tek bir panel gösterme tercihini gösterir.
 
-[getShowOutlineIcons](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) ve [setShowOutlineIcons](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) yöntemleri, normal görünüm modunda herhangi bir içerik bölgesinde taslak içeriği görüntüleniyorsa uygulamanın simgeleri gösterip göstermeyeceğini belirtir.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) yan panel ile slayt arasındaki bölücüyü kontrol eder. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) not panelinin üzerindeki bölücüyü kontrol eder. Her ikisi de `Minimized`, `Maximized` veya `Restored` değerlerinden birini kabul eden bir [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) alır.
 
-[getSnapVerticalSplitter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) ve [setSnapVerticalSplitter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) yöntemleri, yan bölge yeterince küçük olduğunda dikey bölücünün küçültülmüş bir duruma kilitlenip kilitlenmeyeceğini belirler.
+## **NormalViewProperties Geri Yükleme Hakkında**
 
-[getPreferSingleView](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) ve [setPreferSingleView](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) yöntemleri, kullanıcının standart üç içerik bölgesine sahip normal görünüm yerine tam pencere tek içerik bölgesi görmeyi tercih edip etmeyeceğini belirtir. Etkinleştirilirse, uygulama içerik bölgelerinden birini tüm pencere içinde görüntülemeyi seçebilir.
+Bir bölücü geri yüklendiğinde, [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) yan panelin kaydedilmiş boyutunu ve [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) üst slayt alanının kaydedilmiş boyutunu sağlar. İkisi de bir [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/) örneği döndürür. Bunun [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) yöntemi 0 ile 100 arasında bir yüzde alır ve [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) pencere yeniden boyutlandırıldığında editörün boyutu ayarlayıp ayarlamadığını kontrol eder.
 
-[getVerticalBarState](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) ve [getHorizontalBarState](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) yöntemleri, yatay veya dikey bölücü çubuğunun hangi durumda gösterileceğini belirtir. Yatay bölücü çubuğu slaytı slaytın altındaki içerik bölgesinden ayırır; dikey bölücü çubuğu slaytı yan içerik bölgesinden ayırır. Olası değerler şunlardır: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/tr/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/tr/python-java/aspose.slides/splitterbarstatetype/#Maximized) ve [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-[getRestoredLeft](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) ve [getRestoredTop](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getRestoredTop) yöntemleri, [SplitterBarStateType.Restored](https://reference.aspose.com/slides/tr/python-java/aspose.slides/splitterbarstatetype/#Restored) değeri [getVerticalBarState](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) ve [getHorizontalBarState](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) yöntemlerine uygulandığında normal görünümün üst veya yan slayt bölgesinin boyutlandırılmasını belirtir.
-
-## **NormalViewProperties Geri Yüklenmesi Hakkında**
-
-Normal görünümde, bölge değişken bir geri yüklenmiş boyutta (ne küçültülmüş ne de büyütülmüş) olduğunda, slayt bölgesinin ([getRestoredTop](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getRestoredTop) çocuğu olduğunda genişlik, [getRestoredLeft](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) çocuğu olduğunda yükseklik) boyutlandırılmasını belirtir.
-
-[getDimensionSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) yöntemi, slayt bölgesinin ([getRestoredTop](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getRestoredTop) çocuğu olduğunda genişlik, [getRestoredLeft](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) çocuğu olduğunda yükseklik) boyutunu belirtir.
-
-[getAutoAdjust](https://reference.aspose.com/slides/tr/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) yöntemi, pencere yeniden boyutlandırıldığında yan içerik bölgesinin yeni boyuta göre telafi edilip edilmemesi gerektiğini belirtir.
-
-Aşağıdaki örnek, bir sunum için [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#getNormalViewProperties) yöntemine nasıl erişileceğini gösterir.
+Bu örnek mevcut bir sunumu günceller. Yatay bölücüyü geri yükler, [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) tarafından döndürülen boyutu %80 olarak ayarlar ve otomatik ayarlama etkinleştirilir, ayrıca dikey bölücüyü maksimize eder. Ayrıca taslak görünümünde simgeleri göstermek için [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) çağrılır.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Sunumun görünüm özelliklerini geri yükle.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -80,22 +63,14 @@ finally:
     presentation.dispose()
 ```
 
-## **Varsayılan Yakınlaştırma Değerini Ayarlama**
+## **Varsayılan Yakınlaştırma Değerini Ayarla**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java, sunum açıldığında zaten uygulanmış olacak şekilde varsayılan yakınlaştırma değerini ayarlamayı destekler. Bu, bir sunumun [ViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/) ayarlanarak yapılabilir. [getSlideViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#getSlideViewProperties) ve [getNotesViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#getNotesViewProperties) programatik olarak yapılandırılabilir. Bu konuda, Aspose.Slides içinde bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) için [View Properties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/) nasıl ayarlanacağını bir örnekle göreceğiz.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) ve [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) editör için bağımsız yakınlaştırma ayarlarını saklar. Bu ayarlar slayt boyutlarını, slayt gösterisi oynatımını veya görüntü dışa aktarma çözünürlüğünü etkilemez.
 
-Görünüm özelliklerini ayarlamak için şu adımları izleyin:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) için [View Properties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/) ayarlayın.
-3. Sunumu bir [PPTX](https://docs.fileformat.com/presentation/pptx/) dosyası olarak yazın.
-
-Aşağıdaki örnekte, slayt görünümü ve not görünümü için yakınlaştırma değerini ayarlıyoruz.
+Bu örnek mevcut bir sunumu açar ve slaytı düzenleme penceresine sığdırmak için [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) çağırır. Not sayfası için otomatik ölçeklendirmeyi devre dışı bırakır ve sabit %80 yakınlaştırma ayarlamak için [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) çağırır.
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -103,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Sunumun görünüm özelliklerini ayarla.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Slayt görünümü için yakınlaştırma yüzdesi.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Not görünümü için yakınlaştırma yüzdesi.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Izgara Aralığını Ayarlama**
+## **Izgara Aralığını Ayarla**
 
-Sunum genelindeki görünüm ayarlarına erişmek için [Presentation.getViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getViewProperties) kullanın. [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#getGridSpacing) ve [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#setGridSpacing) yöntemleri temel düzenleme ızgarasının aralığını okur veya değiştirir. Bu ayar tek bir slayta değil, tüm sunuma uygulanır. Izgara aralığı puan cinsinden belirtilir; 72 puan bir inç eder. API belgelerinde belirtildiği gibi pozitif bir değer kullanın.
-
-Aşağıdaki örnek, mevcut bir `demo.pptx` dosyasını açar, mevcut ızgara aralığını yazdırır, çeyrek inçlik bir aralık ayarlar ve sonucu kaydeder.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) sunum boyunca düzenleme ızgara çizgileri arasındaki mesafeyi ayarlar. İnç başına 72 puan olmak üzere pozitif bir değer alır. Bu örnek mevcut bir sunumdaki mevcut aralığı yazdırır ve aralığı 18 puana ayarlayarak çeyrek inçlik bir ızgara kaydeder.
 
 ```python
 import jpype
@@ -135,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Izgara, [drawing guides](/slides/tr/python-java/drawing-guides/) öğesinden farklıdır. Izgara aralığı düzenli bir aralığı kontrol eder, çizim kılavuzları ise ayrı ayrı konumlandırılmış yatay veya dikey hizalama çizgileridir. Çizim kılavuzlarını eklemek, taşımak veya temizlemek ızgara aralığını değiştirmez.
+Izgara sabit bir aralıkta tekrar eder. [Drawing guides](/slides/tr/python-java/drawing-guides/) tek tek yatay veya dikey konumları işaretler. Her ikisi de düzenleme yardımcılarıdır ve yalnızca bu öğeleri gösteren editörlerde görünür. Slayt gösterileri ve PDF, görüntü veya SVG dışa aktarmaları bunları atlar.
 
-Izgara ve çizim kılavuzları her ikisi de düzenleme yardımcılarıdır. PDF, görüntüler, SVG veya slayt gösterisinde slayt içeriği olarak işlenmezler. Izgara aralığının saklanması, bir düzenleyicinin ızgarayı göstereceğini garanti etmez; görünürlüğü ayrıca görüntüleyicinin veya düzenleyicinin tercihine bağlıdır.
+## **Sunumu Açarken Yorumları Göster veya Gizle**
 
-## **Sunum Açılırken Yorumları Gösterme veya Gizleme**
-
-Sunum genelindeki görünüm ayarlarına erişmek için [Presentation.getViewProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getViewProperties) kullanın. PowerPoint veya başka bir uyumlu düzenleyicide sunum açıldığında yorumların gösterilip gösterilmeyeceğine ilişkin saklanan tercihi okumak veya değiştirmek için [ViewProperties.getShowComments](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#getShowComments) ve [ViewProperties.setShowComments](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#setShowComments) kullanın.
-
-Bu ayar yalnızca saklanan görünüm tercihini kontrol eder. Yorumları eklemez, kaldırmaz, düzenlemez veya çözüme kavuşturmaz. Yorumların gizlenmesi, içeriklerini, yazarlarını, konumlarını, yanıtlarını ve durumlarını korur. Yorumları doğrudan değiştiren işlemler için [Presentation Comments](/slides/tr/python-java/presentation-comments/) bölümüne bakın.
-
-Aşağıdaki örnek, yorumlar içeren mevcut bir `comments.pptx` dosyasına ihtiyaç duyar. Mevcut görünürlük ayarını yazdırır, yorumların gizlenmesini talep eder ve yorumları kaldırmadan yeni bir PPTX kaydeder. Ayrıca, yorum görünürlüğüyle birlikte ilk düzenleme görünümünü yapılandırmak için [ViewProperties.setLastView](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#setLastView) ve [ViewType.SlideView](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewtype/#SlideView) kullanır.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) uyumlu editörlerin sunumu açarken kullandığı bir tercih saklar. Yorumları olan mevcut bir sunum için bu örnek mevcut ayarı yazdırır ve yorumları gizli bir kopya kaydeder. Ayrıca kopyanın slayt görünümünde açılması için [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) ile [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) çağrılır.
 
 ```python
 import jpype
@@ -168,31 +138,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Bu ayar, yorumların PDF, HTML, görüntü, not veya el kitabı dışa aktarımlarına dahil edilip edilmeyeceğini belirlemez. İlgili dışa aktarma seçeneklerini ayrı ayrı yapılandırın.
+Yorumları gizlemek metinlerini, yazarlarını, konumlarını, yanıtlarını ve durumlarını korur. Yorumları kendilerini değiştirmek için [Presentation Comments](/slides/tr/python-java/presentation-comments/) sayfasına bakın. Dışa aktarma ayarları yorumların PDF, HTML, görüntüler, notlar veya el ilanlarında görünüp görünmeyeceğini kontrol eder.
 
 ## **SSS**
 
-**Sunumu yeniden açtığımda ızgara neden görünmüyor?**
+**Sunumu yeniden açtığımda ızgara neden gizleniyor?**
 
-Dosya ızgara aralığını saklar, ancak editör ızgaranın gösterilip gösterilmeyeceğini kontrol eder. Editörün ızgara görünürlük ayarlarını kontrol edin.
+Sunum ızgara aralığını saklar. Izgarayı görmek için editörde ızgara görünürlüğünü etkinleştirin.
 
 **Çizim kılavuzlarını temizlemek ızgara aralığını değiştirir mi?**
 
-Hayır. Çizim kılavuzları ve ızgara aralığı bağımsız ayarlardır. Kılavuzları temizlemek, saklanan ızgara aralığını değiştirmez.
+Hayır. Bir kılavuz eklemek, taşımak veya temizlemek ızgara aralığını değiştirmez.
 
-**Bir sunumun farklı bölümleri için farklı görünüm ayarları belirleyebilir miyim?**
+**Bir sunumun farklı bölümleri farklı görünüm ayarlarına sahip olabilir mi?**
 
-[View settings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getViewProperties) sunum seviyesinde ([Normal View]/[Slide View]) tanımlanır, bölüme göre değil; bu nedenle bir tek parametre seti belgenin tamamına uygulanır.
+Hayır. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) tüm sunuma uygulanır.
 
-**Farklı kullanıcılar için farklı görünüm durumları önceden tanımlayabilir miyim?**
+**Farklı kullanıcılar için farklı görüş ayarlarını kaydedebilir miyim?**
 
-Hayır. Ayarlar dosyada saklanır ve paylaşılır. Görüntüleyici uygulamalar kullanıcı tercihlerine saygı gösterebilir, ancak dosya tek bir görünüm özelliği seti içerir.
+Dosya herkes için tek bir görünüm özelliği seti saklar. Bir editör ayrıca kullanıcının yerel tercihlerini uygulayabilir.
 
-**Yeni sunumların aynı şekilde açılması için önceden tanımlı View Properties içeren bir şablon hazırlayabilir miyim?**
+**Bir şablonda görünüm ayarlarını kaydedebilir miyim?**
 
-Evet. [view properties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getViewProperties) sunum seviyesinde saklandığından, bunları bir şablona gömebilir ve aynı başlangıç görünüm yapılandırmasıyla yeni belgeler oluşturabilirsiniz.
+Evet. Şablondan oluşturulan sunumlar, kaydedilmiş görünüm ayarlarını devralır.

@@ -9,8 +9,8 @@ keywords:
 - العرض العادي
 - محتوى المخطط
 - أيقونات المخطط
-- تثبيت القاطع العمودي
-- العرض الفردي
+- مقسم عمودي قابل للانقضاط
+- عرض واحد
 - حالة الشريط
 - حجم البُعد
 - ضبط تلقائي
@@ -20,84 +20,59 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "اكتشف خصائص العرض في Aspose.Slides for Java لتخصيص صيغ شرائح PPT و PPTX و ODP — تعديل التخطيطات ومستويات التكبير وإعدادات العرض."
+description: "استخدم Aspose.Slides للغة Java لتكوين تخطيط العرض العادي، وتكبير الشرائح والملاحظات، وتباعد الشبكة، ورؤية التعليقات في عروض PowerPoint التقديمية."
 ---
 ## **المقدمة**
 
-يتكون العرض العادي من ثلاث مناطق محتوى: الشريحة نفسها، ومنطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع مناطق المحتوى المختلفة. تسمح هذه المعلومات للتطبيق بحفظ حالة العرض في الملف، حتى عندما يُعاد فتحه يكون العرض في نفس الحالة التي كان عليها عند حفظ العرض آخر مرة.
-
-تم إضافة الطريقة [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.
-
-تم إضافة الواجهات [INormalViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties)، [INormalViewRestoredProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewRestoredProperties) وسلفاتها، وكذلك تعداد [SplitterBarStateType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SplitterBarStateType).
+في طريقة العرض العادية في PowerPoint، تظهر الشريحة بين لوحة جانبية للصور المصغرة أو المخطط ولوحة الملاحظات أسفلها. تُظهر مكتبة Aspose.Slides للغة Java تفضيلات التحرير المحفوظة للعرض من خلال [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--). تشمل هذه التفضيلات تخطيط اللوحات، مستويات التكبير، تباعد الشبكة، ورؤية التعليقات.
 
 ## **حول INormalViewProperties**
 
-يمثل خصائص العرض العادي.
+استخدم [getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) للوصول إلى واجهة [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) يتحكم في ما إذا كانت الأيقونات تظهر بجوار عناوين الشرائح في المخطط. [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) يسمح للوحة الجانبية بالانقضاط إلى وضعها المصغر عندما يضيق المستخدم حجمها. [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) يشير إلى تفضيل عرض لوحة واحدة في النافذة الكاملة.
 
-الطريقة [getShowOutlineIcons](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) والطريقة [setShowOutlineIcons](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) تحددان ما إذا كان يجب على التطبيق إظهار أيقونات عندما يتم عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
-
-الطريقة [getSnapVerticalSplitter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) والطريقة [setSnapVerticalSplitter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) تحددان ما إذا كان يجب أن يلتقط القاطع العمودي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما فيه الكفاية.
-
-الخاصية [getPreferSingleView](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) والطريقة [setPreferSingleView](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) تحددان ما إذا كان المستخدم يفضل رؤية منطقة محتوى واحدة كاملة النافذة بدلاً من العرض العادي القياسي الذي يتضمن ثلاث مناطق محتوى. إذا تم تمكينها، قد يختار التطبيق عرض إحدى مناطق المحتوى في النافذة بأكملها.
-
-الطريقة [getVerticalBarState](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) والطريقة [getHorizontalBarState](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) تحددان الحالة التي يجب أن يظهر فيها شريط القاطع الأفقي أو العمودي. يفصل شريط القاطع الأفقي الشريحة عن منطقة المحتوى أسفل الشريحة، ويفصل شريط القاطع العمودي الشريحة عن منطقة المحتوى الجانبية. القيم المحتملة هي: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SplitterBarStateType#Minimized)، [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SplitterBarStateType#Maximized) و[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SplitterBarStateType#Restored).
-
-الطريقة [getRestoredLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) والطريقة [getRestoredTop](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) تحددان حجم المنطقة العلوية أو الجانبية في العرض العادي عندما يتم تطبيق القيمة [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/java/com.aspose.slides/SplitterBarStateType#Restored) على [getVerticalBarState](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--).
+[setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) يتحكم في الفاصل بين اللوحة الجانبية والشريحة. [setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) يتحكم في الفاصل أعلى لوحة الملاحظات. كلاهما يقبل قيمة من نوع [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) وهي `Minimized` أو `Maximized` أو `Restored`.
 
 ## **حول استعادة INormalViewProperties**
 
-تحدد حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ [getRestoredTop](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getRestoredTop--)، الارتفاع عندما تكون طفلاً لـ [getRestoredLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) في العرض العادي، عندما تكون المنطقة ذات حجم مستعاد متغير (ليس مصغرة ولا مكبرة).
+عند استعادة الفاصل، يوفر [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) الحجم المحفوظ للوحة الجانبية و[getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) الحجم المحفوظ للمنطقة العليا من الشريحة. كلاهما يكشف عن [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/). طريقة [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) تقبل نسبة مئوية من 0 إلى 100، و[setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) يتحكم فيما إذا كان المحرر يضبط الحجم عند تعديل حجم النافذة.
 
-الطريقة [getDimensionSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) تحدد حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ restoredTop، الارتفاع عندما تكون طفلاً لـ restoredLeft).
-
-الطريقة [getAutoAdjust](https://reference.aspose.com/slides/ar/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) تحدد ما إذا كان يجب على منطقة المحتوى الجانبية التعويض عن الحجم الجديد عند تعديل حجم النافذة التي تحتوي على العرض داخل التطبيق.
-
-يوضح المثال أدناه كيف يمكن الوصول إلى خصائص [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) لعرض تقديمي.
+هذا المثال يُحدّث عرضًا تقديميًا موجودًا. يستعيد الفاصل الأفقي، يعيّن الحجم الذي تُرجعه [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) إلى 80% مع تمكين الضبط التلقائي، ويكبر الفاصل العمودي. كما يستدعي [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) لعرض الأيقونات في وضع المخطط.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // استعادة خصائص عرض العرض التقديمي
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **تعيين قيمة التكبير الافتراضية**
 
-{{% alert color="info" %}} 
+يخزن [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) و[getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) إعدادات تكبير مستقلة للمحرر. هذه الإعدادات لا تؤثر على أبعاد الشرائح أو تشغيل عرض الشرائح أو دقة تصدير الصور.
 
-يدعم Aspose.Slides for Java الآن تعيين قيمة التكبير الافتراضية للعرض التقديمي بحيث يتم تعيين التكبير بالفعل عند فتح العرض. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ViewProperties) للعرض التقديمي. يمكن ضبط كل من [getSlideViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) و[getNotesViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجياً. في هذا القسم، سنرى مثالاً يوضح كيفية تعيين [View Properties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation) في Aspose.Slides.
-
-{{% /alert %}} 
-
-لضبط خصائص العرض، يرجى اتباع الخطوات أدناه:
-
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation).
-1. تعيين [View Properties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ViewProperties) للـ [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation).
-1. كتابة العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   في المثال المرفق أدناه، قمنا بتعيين قيمة التكبير لكل من عرض الشريحة وعرض الملاحظات.
+هذا المثال يفتح عرضًا تقديميًا موجودًا ويستدعي [setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) لتناسب الشريحة مع نافذة التحرير. بالنسبة لصفحة الملاحظات، يعطل التحجيم التلقائي ويستدعي [setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) لتعيين تكبير ثابت بنسبة 80%.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    // تحديد خصائص عرض العرض التقديمي
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // قيمة التكبير بالنسب المئوية لعرض الشريحة
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // قيمة التكبير بالنسب المئوية لعرض الملاحظات 
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -105,77 +80,67 @@ try {
 
 ## **تعيين تباعد الشبكة**
 
-استخدم [Presentation.getViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getViewProperties--) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. تُقرأ أو تُغيّر الطرق [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iviewproperties/#getGridSpacing--) و[IViewProperties.setGridSpacing](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) الفاصل الزمني للشبكة التحريرية الأساسية. يُطبق هذا الإعداد على كامل العرض التقديمي، وليس على شريحة فردية. يُحدد تباعد الشبكة بالنقاط، حيث أن 72 نقطة تساوي بوصة واحدة. استخدم قيمة موجبة، كما هو مطلوب في وثائق API.
-
-المثال التالي يفتح ملف `demo.pptx` الموجود مسبقاً، يطبع تباعد الشبكة الحالي، يحدد فاصل ربع بوصة، ثم يحفظ النتيجة.
+[setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) يحدد المسافة بين خطوط الشبكة التحريرية في جميع أنحاء العرض. يأخذ قيمة موجبة بالنقاط، حيث 72 نقطة في البوصة. هذا المثال يطبع التباعد الحالي في عرض تقديمي موجود ويحفظ شبكة بربع بوصة بتعيين الفاصل إلى 18 نقطة.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-الشبكة تختلف عن [drawing guides](/slides/ar/java/drawing-guides/). يتحكم تباعد الشبكة في فاصل منتظم، بينما تكون خطوط الإرشاد رسومية موضوعة بشكل فردي أفقياً أو رأسياً. إضافة أو نقل أو مسح خطوط الإرشاد لا يغيّر تباعد الشبكة.
-
-كل من الشبكة وخطوط الإرشاد تُعدّ أدوات تحرير. لا يتم عرضها كمحتوى شريحة في ملفات PDF أو الصور أو SVG أو أثناء عرض الشرائح. تخزين تباعد الشبكة لا يضمن أن يعرض المحرر الشبكة: يعتمد ظهورها أيضاً على تفضيلات المشاهد أو المحرر.
+تتكرر الشبكة على فاصل ثابت. [إرشادات الرسم](/slides/ar/java/drawing-guides/) تُحدّد مواضع أفقية أو رأسية فردية. كلاهما أدوات مساعدة في التحرير وتظهر فقط في المحرّرات التي تعرضها. عروض الشرائح والتصدير إلى PDF أو صور أو SVG تتجاهلها.
 
 ## **إظهار أو إخفاء التعليقات عند فتح عرض تقديمي**
 
-استخدم [Presentation.getViewProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getViewProperties--) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. استخدم [IViewProperties.getShowComments](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iviewproperties/#getShowComments--) و[IViewProperties.setShowComments](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) لقراءة أو تعديل التفضيل المخزن بشأن ما إذا كان يجب إظهار التعليقات عند فتح العرض في PowerPoint أو محرر متوافق آخر.
-
-هذا الإعداد يتحكم فقط في تفضيل العرض المخزن. لا يضيف أو يزيل أو يحرر أو يحل التعليقات. إخفاء التعليقات يحافظ على محتواها ومؤلفيها ومواقعها والردود والحالات. راجع [Presentation Comments](/slides/ar/java/presentation-comments/) للعمليات التي تغير التعليقات نفسها.
-
-المثال التالي يتطلب ملف `comments.pptx` موجود مسبقاً يحتوي على تعليقات. يطبع إعداد الرؤية الحالي، يطلب إخفاء التعليقات، ثم يحفظ ملف PPTX جديد دون إزالة أي تعليقات. كما يستخدم [IViewProperties.setLastView](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iviewproperties/#setLastView-int-) مع [ViewType.SlideView](https://reference.aspose.com/slides/ar/java/com.aspose.slides/viewtype/#SlideView) لتكوين عرض التحرير الأولي إلى جانب رؤية التعليقات.
+[setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) يخزن تفضيلًا يستخدمه المحرّرات المتوافقة عند فتح العرض. بالنسبة لعرض تقديمي موجود يحتوي على تعليقات، يطبع هذا المثال الإعداد الحالي ويحفظ نسخة مع إخفاء التعليقات. كما يستدعي [setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) مع [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) حتى تُفتح النسخة في وضع الشريحة.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-هذا الإعداد لا يحدّد ما إذا كانت التعليقات تُدرج في تصديرات PDF أو HTML أو صورة أو ملاحظات أو كتيّب. اضبط خيارات التصدير الخاصة بكل تنسيق على حدة.
+إخفاء التعليقات يحفظ نصها ومؤلفيها ومواقعها وردودها وحالاتها. لتغيير التعليقات نفسها، راجع [تعليقات العرض](/slides/ar/java/presentation-comments/). تتحكم إعدادات التصدير فيما إذا كانت التعليقات تظهر في PDF أو HTML أو صور أو ملاحظات أو ملخصات.
 
-## **الأسئلة المتكررة**
+## **أسئلة شائعة**
 
-**لماذا لا تكون الشبكة مرئية بعد إعادة فتح العرض التقديمي؟**
+**لماذا تُخفى الشبكة عند إعادة فتح العرض؟**
 
-الملف يخزن تباعد الشبكة، لكن المحرر هو من يتحكم في ما إذا كانت الشبكة تُعرض. تحقق من إعدادات ظهور الشبكة في المحرر.
+يقوم العرض بتخزين الفاصل الزمني للشبكة. لرؤية الشبكة، فعّل رؤية الشبكة في المحرر.
 
-**هل يؤثر مسح خطوط الإرشاد على تباعد الشبكة؟**
+**هل يؤدي مسح إرشادات الرسم إلى تغيير تباعد الشبكة؟**
 
-لا. خطوط الإرشاد وتباعد الشبكة إعدادات مستقلة. مسح الخطوط لا يغيّر الفاصل المخزن للشبكة.
+لا. إضافة أو نقل أو مسح دليل لا يغيّر الفاصل الزمني للشبكة.
 
-**هل يمكنني ضبط إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+**هل يمكن لأقسام مختلفة من العرض أن تكون لها إعدادات عرض مختلفة؟**
 
-إعدادات العرض ([View settings](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getViewProperties--)) تُعرّف على مستوى العرض التقديمي ([Normal View](https://reference.aspose.com/slides/ar/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/ar/java/com.aspose.slides/viewproperties/#getSlideViewProperties--))، وليس لكل قسم، لذا مجموعة واحدة من المعايير تُطبق على المستند بأكمله عند الفتح.
+لا. [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) ينطبق على العرض بأكمله.
 
-**هل يمكنني تعريف حالات عرض مختلفة لمستخدمين مختلفين مسبقاً؟**
+**هل يمكنني حفظ إعدادات عرض مختلفة لمستخدمين مختلفين؟**
 
-لا. تُخزن الإعدادات في الملف وتُشارك بين جميع المستخدمين. قد تحترم التطبيقات التي تعرض الملف تفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+يحفظ الملف مجموعة واحدة من خصائص العرض للجميع. قد يطبق المحرر أيضًا تفضيلات محلية للمستخدم.
 
-**هل يمكنني إعداد قالب يحتوي على خصائص عرض مسبقة بحيث تفتح العروض الجديدة بنفس الطريقة؟**
+**هل يمكنني حفظ إعدادات العرض في قالب؟**
 
-نعم. بما أن [view properties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getViewProperties--) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه مع تكوين عرض أولي متماثل.
+نعم. العروض التي تُنشأ من القالب ترتثّ من إعدادات العرض المحفوظة فيه.

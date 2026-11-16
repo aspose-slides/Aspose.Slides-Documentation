@@ -7,9 +7,9 @@ url: /pl/nodejs-java/presentation-view-properties/
 keywords:
 - właściwości widoku
 - normalny widok
-- zawartość konspektu
+- treść konspektu
 - ikony konspektu
-- przyciąganie pionowego rozdzielacza
+- przyciąganie pionowego podziału
 - pojedynczy widok
 - stan paska
 - rozmiar wymiaru
@@ -21,84 +21,59 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Odkryj Aspose.Slides dla Node.js poprzez właściwości widoku w Java, aby dostosować formaty slajdów PPT, PPTX i ODP — modyfikować układy, poziomy powiększenia i ustawienia wyświetlania."
+description: "Użyj Aspose.Slides dla Node.js poprzez Java, aby skonfigurować układ normalnego widoku, powiększenie slajdu i notatek, odstępy siatki oraz widoczność komentarzy w prezentacjach PowerPoint."
 ---
 ## **Wprowadzenie**
 
-Normalny widok składa się z trzech regionów zawartości: samego slajdu, bocznego regionu zawartości oraz dolnego regionu zawartości. Właściwości dotyczące pozycjonowania poszczególnych regionów zawartości. Te informacje pozwalają aplikacji zapisać stan widoku w pliku, tak aby po ponownym otwarciu widok znajdował się w tym samym stanie, w którym prezentacja została ostatnio zapisana.
-
-Metoda [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) została dodana, aby zapewnić dostęp do właściwości normalnego widoku prezentacji.  
-
-[NormalViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewRestoredProperties) klasy i ich pochodne, [SplitterBarStateType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/SplitterBarStateType) wyliczenie zostały dodane.
+W normalnym widoku programu PowerPoint slajd wyświetlany jest pomiędzy bocznym panelem z miniaturami lub konspektem a panelem notatek poniżej. Aspose.Slides dla Node.js poprzez Java udostępnia zapisane preferencje edycji prezentacji poprzez [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties). Obejmują one układ paneli, poziomy powiększenia, odstępy siatki i widoczność komentarzy.
 
 ## **O NormalViewProperties**
 
-Reprezentuje właściwości normalnego widoku.
+Użyj [getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties), aby uzyskać dostęp do klasy [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) kontroluje, czy ikony pojawiają się obok tytułów slajdów w konspekcie. [setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) umożliwia przyciągnięcie bocznego panelu do stanu zminimalizowanego, gdy użytkownik go zwęża. [setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) wskazuje preferencję wyświetlania jednego panelu w pełnym oknie.
 
-Metody [getShowOutlineIcons](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) i [setShowOutlineIcons](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) określają, czy aplikacja powinna wyświetlać ikony przy wyświetlaniu zawartości konspektu w którymkolwiek z regionów zawartości trybu normalnego widoku.
-
-Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) i [setSnapVerticalSplitter](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) określają, czy pionowy rozdzielacz powinien przełączać się do stanu zminimalizowanego, gdy boczny region jest wystarczająco mały.
-
-Właściwość [getPreferSingleView](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) i [setPreferSingleView](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) określa, czy użytkownik preferuje pełnoekranowy jednorodnikowy region zawartości zamiast standardowego normalnego widoku z trzema regionami zawartości. Jeśli włączone, aplikacja może wyświetlić jeden z regionów zawartości na całym oknie.
-
-Metody [getVerticalBarState](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) i [getHorizontalBarState](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) określają stan, w jakim pasek rozdzielacza powinien być wyświetlany. Pionowy pasek rozdzielacza oddziela slajd od bocznego regionu zawartości, poziomy pasek rozdzielacza oddziela slajd od regionu zawartości pod slajdem. Możliwe wartości to: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) oraz [SplitterBarStateType.Restored](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
-
-Metody [getRestoredLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) i [getRestoredTop](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) określają rozmiar górnego lub bocznego regionu slajdu w normalnym widoku, gdy zastosowano wartość [SplitterBarStateType.Restored](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/SplitterBarStateType#Restored) dla [getVerticalBarState](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) i [getHorizontalBarState](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) odpowiednio.
+[setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) steruje podziałką pomiędzy bocznym panelem a slajdem. [setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) steruje podziałką nad panelem notatek. Obie przyjmują wartość typu [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` lub `Restored`.
 
 ## **O przywracaniu NormalViewProperties**
 
-Określa rozmiar regionu slajdu (szerokość, gdy jest potomkiem [getRestoredTop](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--), wysokość, gdy jest potomkiem [getRestoredLeft](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--)) w normalnym widoku, gdy region ma zmienny przywrócony rozmiar (niezminimalizowany ani zmaksymalizowany).
+Gdy podziałka zostaje przywrócona, [getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) zwraca zapisany rozmiar bocznego panelu, a [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) zwraca zapisany rozmiar górnej części slajdu. Obie udostępniają [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/). Metoda [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) przyjmuje procent od 0 do 100, a [setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) kontroluje, czy edytor dostosowuje rozmiar przy zmianie rozmiaru okna.
 
-Metoda [getDimensionSize](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) określa rozmiar regionu slajdu (szerokość, gdy jest dzieckiem restoredTop, wysokość, gdy jest dzieckiem restoredLeft).
-
-Metoda [getAutoAdjust](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) określa, czy rozmiar bocznego regionu zawartości powinien kompensować nowy rozmiar przy zmianie rozmiaru okna zawierającego widok w aplikacji.
-
-Poniżej podany przykład pokazuje, jak uzyskać dostęp do właściwości [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) prezentacji.
+Ten przykład aktualizuje istniejącą prezentację. Przywraca poziomą podziałkę, ustawia rozmiar zwrócony przez [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) na 80% z włączoną automatyczną regulacją oraz maksymalizuje pionową podziałkę. Wywołuje także [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons), aby wyświetlić ikony w widoku konspektu.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // Przywróć właściwości widoku prezentacji
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ustaw domyślną wartość powiększenia**
 
-{{% alert color="info" %}} 
+[getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) i [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) przechowują niezależne ustawienia powiększenia dla edytora. Ustawienia te nie wpływają na wymiary slajdu, odtwarzanie pokazu slajdów ani rozdzielczość eksportu obrazu.
 
-Aspose.Slides dla Node.js w Java teraz obsługuje ustawianie domyślnej wartości powiększenia dla prezentacji, tak aby po otwarciu prezentacji powiększenie było już ustawione. Można to zrobić, ustawiając [ViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties) prezentacji. [getSlideViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) oraz [getNotesViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) można ustawić programowo. W tym temacie zobaczymy na przykładzie, jak ustawić [View Properties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties) dla [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation) w Aspose.Slides.
-
-{{% /alert %}} 
-
-Aby ustawić właściwości widoku, postępuj zgodnie z poniższymi krokami:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
-2. Ustaw [View Properties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ViewProperties) dla [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
-3. Zapisz prezentację jako plik [PPTX](https://docs.fileformat.com/presentation/pptx/).
-   W poniższym przykładzie ustawiliśmy wartość powiększenia dla widoku slajdu oraz widoku notatek.
+Ten przykład otwiera istniejącą prezentację i wywołuje [setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale), aby dopasować slajd do okna edycji. Dla strony notatek wyłącza automatyczne skalowanie i wywołuje [setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale), aby ustawić stałe powiększenie 80%.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Ustawianie właściwości widoku prezentacji
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Wartość powiększenia w procentach dla widoku slajdu
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Wartość powiększenia w procentach dla widoku notatek
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
+
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -106,77 +81,69 @@ try {
 
 ## **Ustaw odstęp siatki**
 
-Użyj [Presentation.getViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getViewProperties--) , aby uzyskać dostęp do ustawień widoku obowiązujących w całej prezentacji. Metody [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) i [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) odczytują lub zmieniają interwał podstawowej siatki edycji. To ustawienie ma zastosowanie do całej prezentacji, a nie do pojedynczego slajdu. Odstęp siatki podawany jest w punktach, gdzie 72 punkty to jeden cal. Użyj wartości dodatniej, zgodnie z dokumentacją API.
-
-Poniższy przykład otwiera istniejący plik `demo.pptx`, wypisuje bieżący odstęp siatki, ustawia interwał ćwierćcala i zapisuje wynik.
+[setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) ustawia odległość pomiędzy liniami siatki edycji w całej prezentacji. Przyjmuje dodatnią wartość w punktach, przy 72 punktach na cal. Ten przykład wypisuje aktualny odstęp w istniejącej prezentacji i zapisuje siatkę o ćwierćcala, ustawiając interwał na 18 punktów.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Siatka różni się od [drawing guides](/slides/pl/nodejs-java/drawing-guides/). Odstęp siatki kontroluje regularny interwał, podczas gdy prowadnice to indywidualnie rozmieszczone linie wyrównania poziome lub pionowe. Dodawanie, przemieszczanie lub usuwanie prowadnic nie zmienia odstępu siatki.
+Siatka powtarza się w stałym interwale. [Drawing guides](/slides/pl/nodejs-java/drawing-guides/) oznaczają pojedyncze pozycje poziome lub pionowe. Oba służą jako pomoce edycyjne i pojawiają się tylko w edytorach, które je wyświetlają. Pokazy slajdów oraz eksporty do PDF, obrazów lub SVG ich nie zawierają.
 
-Zarówno siatka, jak i prowadnice są pomocnikami edycji. Nie są renderowane jako zawartość slajdu w PDF, obrazach, SVG ani w pokazie slajdów. Przechowywanie odstępu siatki nie gwarantuje, że edytor wyświetli siatkę: jej widoczność zależy także od preferencji przeglądarki lub edytora.
+## **Pokaż lub ukryj komentarze podczas otwierania prezentacji**
 
-## **Pokaż lub ukryj komentarze przy otwieraniu prezentacji**
-
-Użyj [Presentation.getViewProperties](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getViewProperties--) , aby uzyskać dostęp do ustawień widoku obowiązujących w całej prezentacji. Użyj [ViewProperties.getShowComments](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/#getShowComments--) i [ViewProperties.setShowComments](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte--) , aby odczytać lub zmienić przechowywaną preferencję dotyczącą wyświetlania komentarzy przy otwieraniu prezentacji w PowerPoint lub innym kompatybilnym edytorze.
-
-To ustawienie kontroluje jedynie przechowywaną preferencję widoku. Nie dodaje, nie usuwa, nie edytuje ani nie rozwiązuje komentarzy. Ukrycie komentarzy zachowuje ich treść, autorów, pozycje, odpowiedzi i statusy. Zobacz [Presentation Comments](/slides/pl/nodejs-java/presentation-comments/) w celu wykonania operacji zmieniających same komentarze.
-
-Poniższy przykład wymaga istniejącego pliku `comments.pptx` zawierającego komentarze. Wypisuje bieżące ustawienie widoczności, żąda ukrycia komentarzy i zapisuje nowy plik PPTX bez usuwania żadnych komentarzy. Używa również [ViewProperties.setLastView](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) razem z [ViewType.SlideView](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewtype/#SlideView), aby skonfigurować początkowy widok edycji wraz z widocznością komentarzy.
+[setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) przechowuje preferencję, której kompatybilne edytory używają przy otwieraniu prezentacji. Dla istniejącej prezentacji z komentarzami ten przykład wypisuje bieżące ustawienie i zapisuje kopię z ukrytymi komentarzami. Wywołuje także [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) z [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView), aby kopia otworzyła się w widoku slajdu.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-To ustawienie nie określa, czy komentarze są uwzględniane w eksportach PDF, HTML, obrazu, notatek czy materiałów rozdawanych. Skonfiguruj odpowiednie opcje specyficzne dla eksportu osobno.
+Ukrywanie komentarzy zachowuje ich tekst, autorów, pozycje, odpowiedzi i statusy. Aby zmienić same komentarze, zobacz [Presentation Comments](/slides/pl/nodejs-java/presentation-comments/). Ustawienia eksportu kontrolują, czy komentarze pojawiają się w PDF, HTML, obrazach, notatkach lub materiałach rozdawniczych.
 
 ## **FAQ**
 
-**Dlaczego siatka nie jest widoczna po ponownym otwarciu prezentacji?**
+**Dlaczego siatka jest ukryta po ponownym otwarciu prezentacji?**
 
-Plik przechowuje odstęp siatki, ale edytor decyduje, czy siatka jest wyświetlana. Sprawdź ustawienia widoczności siatki w edytorze.
+Prezentacja przechowuje interwał siatki. Aby zobaczyć siatkę, włącz widoczność siatki w edytorze.
 
-**Czy usunięcie prowadnic zmienia odstęp siatki?**
+**Czy usunięcie prowadnic rysunkowych zmienia odstęp siatki?**
 
-Nie. Prowadnice i odstęp siatki to niezależne ustawienia. Usunięcie prowadnic nie zmienia przechowywanego interwału siatki.
+Nie. Dodanie, przesunięcie lub usunięcie prowadnicy nie zmienia interwału siatki.
 
-**Czy mogę ustawić różne ustawienia widoku dla różnych sekcji prezentacji?**
+**Czy różne sekcje prezentacji mogą mieć różne ustawienia widoku?**
 
-[Ustawienia widoku](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getviewproperties/) są definiowane na poziomie prezentacji ([Normal View](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), a nie w poszczególnych sekcjach, dlatego pojedynczy zestaw parametrów obowiązuje dla całego dokumentu przy jego otwieraniu.
+Nie. [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) obowiązuje dla całej prezentacji.
 
-**Czy mogę zdefiniować różne stany widoku dla różnych użytkowników?**
+**Czy mogę zapisać różne ustawienia widoku dla różnych użytkowników?**
 
-Nie. Ustawienia są przechowywane w pliku i są współdzielone. Aplikacje oglądające mogą respektować preferencje użytkownika, ale sam plik zawiera jedną zestaw właściwości widoku.
+Plik przechowuje jedną grupę właściwości widoku dla wszystkich. Edytor może także zastosować lokalne preferencje użytkownika.
 
-**Czy mogę przygotować szablon z wstępnie zdefiniowanymi właściwościami widoku, aby nowe prezentacje otwierały się tak samo?**
+**Czy mogę zapisać ustawienia widoku w szablonie?**
 
-Tak. Ponieważ [właściwości widoku](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getviewproperties/) są przechowywane na poziomie prezentacji, możesz osadzić je w szablonie i tworzyć nowe dokumenty z tymi samymi początkowymi ustawieniami widoku.
+Tak. Prezentacje utworzone na podstawie szablonu dziedziczą zapisane w nim ustawienia widoku.

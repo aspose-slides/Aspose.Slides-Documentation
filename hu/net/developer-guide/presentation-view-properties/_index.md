@@ -1,5 +1,5 @@
 ---
-title: Prezentáció nézet tulajdonságainak lekérése és frissítése .NET‑ben
+title: Prezentáció nézet tulajdonságainak lekérdezése és frissítése .NET-ben
 linktitle: Nézet tulajdonságok
 type: docs
 weight: 80
@@ -10,100 +10,74 @@ keywords:
 - vázlat tartalom
 - vázlat ikonok
 - függőleges elválasztó rögzítése
-- egyedi nézet
+- egyes nézet
 - sáv állapot
 - dimenzió méret
 - automatikus igazítás
 - alapértelmezett nagyítás
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for .NET nézet tulajdonságait, hogy testreszabhassa a PPT, PPTX és ODP diák formátumait—állítsa be az elrendezéseket, nagyítási szinteket és megjelenítési beállításokat."
+description: "Az Aspose.Slides for .NET segítségével konfigurálhatja a normál nézet elrendezését, a diák és a jegyzetek nagyítását, a rács távolságát, valamint a megjegyzések láthatóságát PowerPoint prezentációkban."
 ---
 ## **Bevezetés**
 
-A normál nézet három tartalomrégióból áll: a dia maga, egy oldalsó tartalomrégió, és egy alsó tartalomrégió. A különböző tartalomrégiók elhelyezésével kapcsolatos tulajdonságok. Ez az információ lehetővé teszi az alkalmazás számára, hogy elmentse a nézet állapotát a fájlba, így a megnyitáskor a nézet ugyanabban az állapotban lesz, mint amikor a bemutatót utoljára elmentették.
+PowerPoint normál nézetében a dia a bélyegkép‑ vagy vázlat oldalsó ablaktábla és az alatti jegyzetablak között jelenik meg. Az Aspose.Slides for .NET a prezentáció mentett szerkesztési beállításait teszi elérhetővé a [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/). Ezek közé tartozik az ablaktábla elrendezése, a nagyítási szintek, a rács távolság és a megjegyzések láthatósága.
 
-A [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/iviewproperties/properties/normalviewproperties) property hozzá lett adva, hogy hozzáférést biztosítson a bemutató normál nézet tulajdonságaihoz.  
+## **Az INormalViewProperties**
 
-[INormalViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/inormalviewrestoredproperties) interfészei és azok leszármazottai, valamint a [SplitterBarStateType](https://reference.aspose.com/slides/hu/net/aspose.slides/splitterbarstatetype) felsorolt enum hozzá lett adva.
+Használja a [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) a [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/) interfész eléréséhez. [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) szabályozza, hogy ikonok jelenjenek‑e a dia címek mellett a vázlatban. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) lehetővé teszi, hogy az oldalsó ablaktábla a minimalizált állapothoz rögzítve legyen, amikor a felhasználó szűkíti. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) jelzi a preferenciát, hogy egy ablaktábla jelenjen meg a teljes ablakban.
 
-## **Az INormalViewProperties leírása**
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) szabályozza az oldalsó ablaktábla és a dia közötti elválasztót. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) szabályozza a jegyzetablak feletti elválasztót. Mindkettő elfogad egy [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) értéket: `Minimized`, `Maximized` vagy `Restored`.
 
-A normál nézet tulajdonságait képviseli.
+## **Az INormalViewProperties helyreállítása**
 
-A **ShowOutlineIcons** property azt határozza meg, hogy az alkalmazás ikonokat jelenítsen-e meg, ha a körvonal tartalmat bármelyik tartalomrégióban a normál nézet módban jeleníti meg.
+Amikor egy elválasztót helyreállítanak, a [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) a mentett oldalsó ablaktábla méretét, a [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) a felső diaszekció mentett méretét adja. Mindkettő [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/)‑t tesz elérhetővé. Ennek a [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/)‑nek az értéke 0‑tól 100‑ig terjedő százalék, a [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) szabályozza, hogy a szerkesztő módosítsa‑e a méretet az ablak átméretezésekor.
 
-A **SnapVerticalSplitter** property azt határozza meg, hogy a függőleges elválasztó pálca minimalizált állapotba „csapódjon‑be”, ha az oldalsó régió elég kicsi.
+Ez a példa egy meglévő prezentációt frissít. Visszaállítja a horizontális elválasztót, a [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) értékét 80 %-ra állítja automatikus igazítással, és maximalizálja a vertikális elválasztót. Emellett engedélyezi a [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) funkciót a vázlat nézethez.
 
-A **PreferSingleView** property azt határozza meg, hogy a felhasználó inkább egy teljes ablakot kitöltő egyetlen tartalomrégiót szeretne-e a három tartalomrégiós szabványos normál nézet helyett. Ha engedélyezve van, az alkalmazás egy tartalomrégiót megjeleníthet az egész ablakban.
-
-A **VerticalBarState** és **HorizontalBarState** propertyk azt az állapotot határozzák meg, amelyben a függőleges vagy vízszintes elválasztó pálcát meg kell jeleníteni. A vízszintes elválasztó pálca elválasztja a diát a dia alatti tartalomrégiótól, a függőleges elválasztó pálca elválasztja a diát az oldalsó tartalomrégiótól. Lehetséges értékek: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** és **SplitterBarStateType.Restored**.
-
-A **RestoredLeft** és **RestoredTop** propertyk a normál nézet felső vagy oldalsó diarégiójának méretezését határozzák meg, amikor a **VerticalBarState** és **HorizontalBarState** megfelelően a **SplitterBarStateType.Restored** értéket kapja.
-
-## **Az INormalViewProperties helyreállításáról**
-
-Meghatározza a diarégió (szélesség, ha a RestoredTop gyermekéről van szó, magasság, ha a RestoredLeft gyermekéről van szó) méretét a normál nézetben, amikor a régió változó, visszaállított méretű (sem minimalizált, sem maximalizált) állapotban van.
-
-A **DimensionSize** property a diarégió méretét határozza meg (szélesség, ha a restoredTop gyermekéről van szó, magasság, ha a restoredLeft gyermekéről van szó).
-
-A **AutoAdjust** property azt határozza meg, hogy az oldalsó tartalomrégió mérete kompenzálja‑e az új méretet, amikor a nézetet tartalmazó ablakot átméretezik az alkalmazásban.
-
-Az alábbi példa bemutatja, hogyan érheti el a **ViewProperties.NormalViewProperties** propertyket egy bemutatóhoz.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // Állítsa vissza a bemutató nézet tulajdonságait
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
-## **Az Alapértelmezett Nagyítási Szint Beállítása**
+## **Alapértelmezett nagyítási érték beállítása**
 
-Az Aspose.Slides for .NET most már támogatja az alapértelmezett nagyítási szint beállítását a bemutatóhoz, így a bemutató megnyitásakor a nagyítás már be van állítva. Ez a [ViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/viewproperties) beállításával történhet meg egy bemutatónál. A dia nézet tulajdonságai, valamint a [NotesViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/viewproperties/properties/notesviewproperties) programozottan beállíthatók. Ebben a témában egy példán keresztül megmutatjuk, hogyan állítható be a Bemutató View tulajdonságai az Aspose.Slides‑ben.
+A [SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) és a [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) független nagyítási beállításokat tárolnak a szerkesztő számára. Ezek a beállítások nem befolyásolják a dia méreteit, a diavetítés lejátszását vagy a képexport felbontását.
 
-A nézet tulajdonságainak beállításához kövesse az alábbi lépéseket:
+Ez a példa megnyit egy meglévő prezentációt, és engedélyezi a [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/)‑t, hogy a dia a szerkesztő ablakához igazodjon. A jegyzetoldalhoz letiltja az automatikus méretezést, és a [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) értékét rögzített 80 %-os nagyításra állítja.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból
-1. Állítsa be a Bemutató [Properties](https://reference.aspose.com/slides/hu/net/aspose.slides/viewproperties) tulajdonságait
-1. Írja ki a bemutatót PPTX fájlként
-
-Az alábbi példában beállítottuk a nagyítási értéket a dia nézethez és a jegyzet nézethez egyaránt.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // A bemutató nézet tulajdonságainak beállítása
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Nagyítási érték százalékban a dia nézethez
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Nagyítási érték százalékban a jegyzet nézethez 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
-## **Rács Távolság Beállítása**
+## **Rács távolság beállítása**
 
-Használja a [Presentation.ViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/viewproperties/) elemet a bemutató szintű nézetbeállítások eléréséhez. Az [IViewProperties.GridSpacing](https://reference.aspose.com/slides/hu/net/aspose.slides/iviewproperties/gridspacing/) property az alapul szolgáló szerkesztő rács intervallumát olvassa vagy módosítja. Ez a beállítás az egész bemutatóra vonatkozik, nem egyedi diára. A rács távolság pontokban van megadva, ahol 72 pont egy hüvelyknek felel meg. Pozitív értéket használjon, ahogyan azt az API dokumentációja előírja.
-
-Az alábbi példa megnyit egy meglévő `demo.pptx` fájlt, kiírja a jelenlegi rács távolságot, negyed hüvelykes intervallumra állítja, majd elmenti az eredményt.
+A [GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) beállítja a szerkesztői rácsvonalak közötti távolságot a teljes prezentációban. Pozitív értéket vár pontban, 72 pont hüvelykenként. Ez a példa kiírja a jelenlegi távolságot egy meglévő prezentációban, és egy negyed hüvelykes rácsot ment 18 pontos intervállal.
 
 ```csharp
 using System;
@@ -111,24 +85,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-A rács különbözik a [drawing guides](/slides/hu/net/drawing-guides/)-tól. A rács távolság szabályos intervallumot szabályoz, míg a rajzoló segédvonalak egyenként elhelyezett vízszintes vagy függőleges igazító vonalak. A segédvonalak hozzáadása, mozgatása vagy törlése nem változtatja meg a rács távolságát.
+A rács rögzített intervállal ismétlődik. A [Rajzsegédletek](/slides/hu/net/drawing-guides/) egyedi vízszintes vagy függőleges pozíciókat jelöl. Mindkettő szerkesztési segédeszköz, és csak azokban a szerkesztőkben jelenik meg, amelyek támogatják. A diavetítések és a PDF‑, kép‑ vagy SVG‑exportok nem tartalmazzák őket.
 
-Mind a rács, mind a rajzoló segédvonalak szerkesztési segédeszközök. Nem jelennek meg diatartalomként PDF‑ben, képeken, SVG‑ben vagy diavetítésben. A rács távolság tárolása nem garantálja, hogy egy szerkesztő megjeleníti a rácsot: annak láthatósága a megjelenítő vagy szerkesztő beállításaitól is függ.
+## **Megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor**
 
-## **Kommentárok Megjelenítése vagy Elrejtése a Bemutató Megnyitásakor**
-
-Használja a [Presentation.ViewProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/viewproperties/) elemet a bemutató szintű nézetbeállítások eléréséhez. Olvassa vagy módosítsa az [IViewProperties.ShowComments](https://reference.aspose.com/slides/hu/net/aspose.slides/iviewproperties/showcomments/) propertyt, hogy tárolja, a kommentárokat meg kell‑e jeleníteni, amikor a bemutató megnyílik a PowerPoint‑ban vagy egy másik kompatibilis szerkesztőben.
-
-Ez a beállítás csak a tárolt nézetpreferenciát szabályozza. Nem ad hozzá, nem távolít el, nem szerkeszt és nem old meg kommentárokat. A kommentárok elrejtése megőrzi azok tartalmát, szerzőit, pozícióit, válaszait és állapotát. Lásd a [Presentation Comments](/slides/hu/net/presentation-comments/) oldalt a kommentárok magukon végzett műveletekhez.
-
-Az alábbi példához egy meglévő `comments.pptx` fájlra van szükség, amely tartalmaz kommentárokat. Kiírja a jelenlegi láthatósági beállítást, kéri a kommentárok elrejtését, és ment egy új PPTX‑et anélkül, hogy bármely kommentárt eltávolítana. Emellett beállítja az [IViewProperties.LastView](https://reference.aspose.com/slides/hu/net/aspose.slides/iviewproperties/lastview/) propertyt a [ViewType.SlideView](https://reference.aspose.com/slides/hu/net/aspose.slides/viewtype/) értékre, hogy az első szerkesztői nézetet a kommentár láthatóságával együtt konfigurálja.
+A [ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) egy olyan preferenciát tárol, amelyet a kompatibilis szerkesztők a prezentáció megnyitásakor használnak. Egy megjegyzésekkel rendelkező meglévő prezentáció esetén ez a példa kiírja a jelenlegi beállítást, és egy példányt ment el a megjegyzések elrejtésével. Emellett a [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) értékét a [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/)‑ra állítja, így a példány dianézetben nyílik meg.
 
 ```csharp
 using System;
@@ -136,29 +105,30 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-Ez a beállítás nem határozza meg, hogy a kommentárok szerepelnek‑e a PDF, HTML, kép, jegyzet vagy szórólap exportokban. A megfelelő export‑specifikus beállításokat külön kell konfigurálni.
+A megjegyzések elrejtése megőrzi azok szövegét, szerzőjét, pozícióját, válaszait és állapotát. A megjegyzések módosításához lásd a [Prezentációs megjegyzések](/slides/hu/net/presentation-comments/) oldalt. Az exportálási beállítások szabályozzák, hogy a megjegyzések megjelennek‑e PDF‑ben, HTML‑ben, képekben, jegyzetekben vagy kézikönyvekben.
 
 ## **GYIK**
 
-**Miért nem látható a rács a bemutató újranyitása után?**  
-A fájl tárolja a rács távolságát, de a szerkesztő dönt arról, hogy a rács megjelenik‑e. Ellenőrizze a szerkesztő rács‑láthatósági beállításait.
+**Miért rejtőzik a rács, amikor újra megnyitom a prezentációt?**  
+A prezentáció tárolja a rács intervallumát. A rács megtekintéséhez engedélyezze a rács láthatóságát a szerkesztőben.
 
-**A rajzoló segédvonalak törlése megváltoztatja‑e a rács távolságát?**  
-Nem. A rajzoló segédvonalak és a rács távolság független beállítások. A segédvonalak törlése nem módosítja a tárolt rács intervallumot.
+**A rajzsegédletek törlése megváltoztatja a rács távolságát?**  
+Nem. Egy segédlet hozzáadása, mozgatása vagy törlése nem változtatja meg a rács intervallumát.
 
-**Beállíthatok‑e különböző nézetbeállításokat a bemutató különböző szakaszaihoz?**  
-A nézetbeállítások a bemutató szintjén vannak definiálva (Normál nézet / Dia nézet), nem szakaszonként, ezért egyetlen paraméterkészlet vonatkozik a teljes dokumentumra a megnyitáskor.
+**Lehetnek a prezentáció különböző részei eltérő nézetbeállításokkal?**  
+Nem. A [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) a teljes prezentációra vonatkozik.
 
-**Előre meghatározhatok‑e különböző nézetállapotokat különböző felhasználóknak?**  
-Nem. A beállítások a fájlban vannak tárolva, és megosztottak. A megjelenítő alkalmazások tiszteletben tarthatják a felhasználói preferenciákat, de a fájl maga csak egy nézet‑tulajdonság‑készletet tartalmaz.
+**Menthetek különböző nézetbeállításokat különböző felhasználók számára?**  
+A fájl egyetlen nézetbeállítás‑készletet tárol mindenki számára. Egy szerkesztő továbbá alkalmazhatja a felhasználó helyi preferenciáit.
 
-**Létrehozhatok‑e sablont előre definiált View Property‑kkel, hogy az új bemutatók ugyanúgy nyíljanak meg?**  
-Igen. Mivel a view property‑k a bemutató szintjén vannak tárolva, beágyazhatja őket egy sablonba, és új dokumentumok létrehozásakor ugyanazzal a kezdeti nézet‑konfigurációval indulnak.
+**Menthetek nézetbeállításokat sablonba?**  
+Igen. A sablonból létrehozott prezentációk öröklik a sablon mentett nézetbeállításait.

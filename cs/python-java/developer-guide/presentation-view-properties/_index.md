@@ -1,5 +1,5 @@
 ---
-title: Načíst a aktualizovat vlastnosti zobrazení prezentace v Pythonu pomocí Javy
+title: Získání a aktualizace vlastností zobrazení prezentace v Pythonu přes Java
 linktitle: Vlastnosti zobrazení
 type: docs
 weight: 80
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Objevte vlastnosti zobrazení Aspose.Slides pro Python pomocí Javy a přizpůsobte snímky PPT, PPTX a ODP - upravte rozvržení, úroveň přiblížení a nastavení zobrazení."
+description: "Použijte Aspose.Slides pro Python přes Java k nastavení rozvržení normálního zobrazení, přiblížení snímků a poznámek, rozestupu mřížky a viditelnosti komentářů v prezentacích PowerPoint."
 ---
 ## **Úvod**
 
-Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, postranní oblasti obsahu a spodní oblasti obsahu. Vlastnosti normálního zobrazení popisují umístění těchto oblastí obsahu. Tato informace umožňuje aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, v jakém bylo prezentace naposledy uložena.
-
-Byla přidána metoda [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getNormalViewProperties), která poskytuje přístup k vlastnostem normálního zobrazení prezentace.
-
-Byly přidány třídy [NormalViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewrestoredproperties/) a výčtový typ [SplitterBarStateType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/splitterbarstatetype/).
+V normálním zobrazení PowerPointu se snímek zobrazuje mezi bočním panelem s miniaturami nebo osnovou a panelem poznámek pod ním. Aspose.Slides pro Python přes Java poskytuje uložené preference úprav prezentace prostřednictvím [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties). Patří mezi ně rozvržení panelů, úrovně přiblížení, rozestup mřížky a viditelnost komentářů.
 
 ## **O NormalViewProperties**
 
-Reprezentuje vlastnosti normálního zobrazení.
+Použijte [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) pro přístup ke třídě [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) určuje, zda se vedle názvů snímků v osnově zobrazují ikony. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) umožňuje, aby se boční panel při zúžení uživatelem přichytila do minimalizovaného stavu. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) vyjadřuje preferenci zobrazit v plném okně jeden panel.
 
-Metody [getShowOutlineIcons](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) a [setShowOutlineIcons](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) určují, zda má aplikace zobrazovat ikony při zobrazování obsahu osnovy v kterékoliv oblasti obsahu v režimu normálního zobrazení.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) řídí oddělovač mezi bočním panelem a snímkem. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) řídí oddělovač nad panelem poznámek. Obě přijímají hodnotu typu [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` nebo `Restored`.
 
-Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) a [setSnapVerticalSplitter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) určují, zda se má svislý rozdělovací pruh přichytit do minimalizovaného stavu, když je postranní oblast dostatečně malá.
+## **O obnovení NormalViewProperties**
 
-Metody [getPreferSingleView](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) a [setPreferSingleView](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) určují, zda uživatel preferuje zobrazení jedné obsahové oblasti na celou obrazovku místo standardního normálního zobrazení se třemi oblastmi obsahu. Pokud je povoleno, může aplikace zobrazit jednu z oblastí obsahu v celém okně.
+Když je oddělovač obnoven, [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) poskytuje uloženou velikost bočního panelu a [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) poskytuje uloženou velikost horní části snímku. Oba vrací instanci třídy [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/). Její metoda [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) přijímá procento v rozmezí 0 až 100 a [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) určuje, zda editor upravuje velikost při změně velikosti okna.
 
-Metody [getVerticalBarState](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) určují stav, ve kterém má být zobrazen vodorovný nebo svislý rozdělovací pruh. Vodorovný pruh odděluje snímek od oblasti obsahu pod snímkem; svislý pruh odděluje snímek od postranní oblasti obsahu. Možné hodnoty jsou: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/cs/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/cs/python-java/aspose.slides/splitterbarstatetype/#Maximized) a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-Metody [getRestoredLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) a [getRestoredTop](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getRestoredTop) určují velikost horní nebo postranní oblasti snímku v normálním zobrazení, když je použita hodnota [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/python-java/aspose.slides/splitterbarstatetype/#Restored), na [getVerticalBarState](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) respektive.
-
-## **O obnovování NormalViewProperties**
-
-Určuje velikost oblasti snímku (šířka, pokud je podřízená [getRestoredTop](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getRestoredTop), výška, pokud je podřízená [getRestoredLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) v normálním zobrazení, když je oblast o proměnné obnovené velikosti (ani minimalizovaná, ani maximalizovaná).
-
-Metoda [getDimensionSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) určuje velikost oblasti snímku (šířka, pokud je podřízená [getRestoredTop](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getRestoredTop), výška, pokud je podřízená [getRestoredLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
-
-Metoda [getAutoAdjust](https://reference.aspose.com/slides/cs/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) určuje, zda má velikost postranní oblasti obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.
-
-Příklad níže ukazuje, jak získat přístup k [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getNormalViewProperties) pro prezentaci.
+Tento příklad aktualizuje existující prezentaci. Obnoví vodorovný oddělovač, nastaví velikost vrácenou metodou [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) na 80% s povoleným automatickým upravením a maximalizuje svislý oddělovač. Také volá [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) pro zobrazení ikon v zobrazení osnovy.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Obnovit vlastnosti zobrazení prezentace.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -80,19 +63,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavit výchozí hodnotu přiblížení**
+## **Nastavte výchozí hodnotu přiblížení**
 
-{{% alert color="info" title="Note" %}}
-Produkt Aspose.Slides pro Python pomocí Java podporuje nastavení výchozí hodnoty přiblížení, takže je aplikována již při otevření prezentace. To lze provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/) prezentace. [getSlideViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getSlideViewProperties) i [getNotesViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getNotesViewProperties) lze konfigurovat programově. V tomto tématu si ukážeme na příkladu, jak nastavit [View Properties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/) objektu [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) v Aspose.Slides.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) a [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) ukládají nezávislé nastavení přiblížení pro editor. Tato nastavení neovlivňují rozměry snímků, přehrávání prezentace ani rozlišení exportovaných obrázků.
 
-Pro nastavení vlastností zobrazení postupujte podle těchto kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-1. Nastavte [View Properties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/) objektu [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-1. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
-
-V níže uvedeném příkladu nastavujeme hodnotu přiblížení pro zobrazení snímku i poznámek.
+Tento příklad otevře existující prezentaci a zavolá [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale), aby přizpůsobil snímek oknu editoru. Pro stránku poznámek zakáže automatické škálování a zavolá [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale), aby nastavil pevné přiblížení 80%.
 
 ```python
 import jpype
@@ -103,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Nastavit vlastnosti zobrazení prezentace.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Procento přiblížení pro zobrazení snímku.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Procento přiblížení pro zobrazení poznámek.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Nastavit rozestup mřížky**
+## **Nastavte rozestup mřížky**
 
-Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getViewProperties) pro přístup k nastavením zobrazení na úrovni celé prezentace. Metody [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getGridSpacing) a [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#setGridSpacing) čtou nebo mění interval základní editační mřížky. Toto nastavení se vztahuje na celou prezentaci, ne na jednotlivý snímek. Rozestup mřížky je udáván v bodech, kde 72 bodů odpovídá jedné palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
-
-Následující příklad otevře existující soubor `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrtiny palce a výsledek uloží.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) nastavuje vzdálenost mezi čarami editační mřížky v celé prezentaci. Přijímá kladnou hodnotu v bodech, kde 72 bodů odpovídá jednomu palci. Tento příklad vypíše aktuální rozestup v existující prezentaci a uloží čtvrtinový palcový mřížkový rozestup nastavením intervalu na 18 bodů.
 
 ```python
 import jpype
@@ -135,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Mřížka se liší od [drawing guides](/slides/cs/python-java/drawing-guides/). Rozestup mřížky určuje pravidelný interval, zatímco vodící linie jsou jednotlivě umístěné horizontální nebo vertikální zarovnávací čáry. Přidání, přesunutí nebo vymazání vodících linií nemění rozestup mřížky.
+Mřížka se opakuje v pevném intervalu. [Kreslicí vodítka](/slides/cs/python-java/drawing-guides/) označují jednotlivé horizontální nebo vertikální pozice. Obě jsou pomůckami při úpravách a zobrazují se jen v editorech, které je podporují. Prezentace a exporty do PDF, obrázků nebo SVG je vypouštějí.
 
-Jak mřížka, tak i vodící linie jsou pomocné nástroje při úpravách. Nejsou vykreslovány jako obsah snímku v PDF, obrázcích, SVG ani při prezentaci. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost závisí také na nastavení prohlížeče nebo editoru.
+## **Zobrazit nebo skrýt komentáře při otevírání prezentace**
 
-## **Zobrazit nebo skrýt komentáře při otevření prezentace**
-
-Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getViewProperties) pro přístup k nastavením zobrazení na úrovni celé prezentace. Použijte [ViewProperties.getShowComments](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getShowComments) a [ViewProperties.setShowComments](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#setShowComments) pro čtení či změnu uložené preference, zda se mají komentáře při otevření prezentace v PowerPointu nebo jiném kompatibilním editoru zobrazit.
-
-Toto nastavení ovlivňuje pouze uloženou preferenci zobrazení. Nepřidává, neodstraňuje, neupravuje ani neřeší komentáře. Skrytí komentářů zachovává jejich obsah, autory, pozice, odpovědi a stavy. Viz [Presentation Comments](/slides/cs/python-java/presentation-comments/) pro operace, které mění samotné komentáře.
-
-Následující příklad vyžaduje existující soubor `comments.pptx` obsahující komentáře. Vypíše aktuální nastavení viditelnosti, požaduje skrytí komentářů a uloží nový PPTX bez odstranění jakýchkoli komentářů. Také používá [ViewProperties.setLastView](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#setLastView) s [ViewType.SlideView](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewtype/#SlideView) pro konfiguraci počátečního zobrazení úprav spolu s viditelností komentářů.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) ukládá preferenci, kterou kompatibilní editory použijí při otevírání prezentace. Pro existující prezentaci s komentáři tento příklad vypíše aktuální nastavení a uloží kopii se skrytými komentáři. Také volá [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) s [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView), aby se kopie otevřela v zobrazení snímků.
 
 ```python
 import jpype
@@ -168,31 +138,27 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Toto nastavení neurčuje, zda jsou komentáře zahrnuty do exportů PDF, HTML, obrázků, poznámek nebo letáků. Relevantní možnosti specifické pro exporty nastavte odděleně.
+Skrytí komentářů zachová jejich text, autory, pozice, odpovědi a stavy. Pro úpravu samotných komentářů viz [Komentáře k prezentaci](/slides/cs/python-java/presentation-comments/). Nastavení exportu řídí, zda se komentáře zobrazí v PDF, HTML, obrázcích, poznámkách nebo podkladech.
 
 ## **Často kladené otázky**
 
-**Proč není mřížka viditelná po opětovném otevření prezentace?**
+**Proč je mřížka skryta, když znovu otevřu prezentaci?**  
+Prezentace ukládá interval mřížky. Pro zobrazení mřížky ji povolte v editoru.
 
-Soubor ukládá rozestup mřížky, ale editor řídí, zda je mřížka zobrazena. Zkontrolujte nastavení viditelnosti mřížky v editoru.
+**Mění smazání vodicích čar rozestup mřížky?**  
+Ne. Přidání, přesunutí nebo smazání vodící čáry nemění interval mřížky.
 
-**Změní vymazání vodících linií rozestup mřížky?**
+**Může mít různá oddíly prezentace odlišná nastavení zobrazení?**  
+Ne. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) se vztahuje na celou prezentaci.
 
-Ne. Vodící linie a rozestup mřížky jsou nezávislá nastavení. Vymazání linií ponechá uložený interval mřížky nezměněn.
+**Mohu uložit odlišná nastavení zobrazení pro různé uživatele?**  
+Soubor ukládá jednu sadu vlastností zobrazení pro všechny. Editor může také použít lokální preference uživatele.
 
-**Mohu nastavit různé nastavení zobrazení pro různé sekce prezentace?**
-
-[Nastavení zobrazení](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getViewProperties) jsou definována na úrovni celé prezentace ([Normal View](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), nikoli pro jednotlivé sekce, takže jeden soubor parametrů platí pro celý dokument při otevření.
-
-**Mohu předdefinovat různé stavy zobrazení pro různé uživatele?**
-
-Ne. Nastavení jsou uložena v souboru a jsou sdílena. Prohlížečové aplikace mohou respektovat uživatelské preference, ale samotný soubor obsahuje jediné nastavení vlastností zobrazení.
-
-**Mohu připravit šablonu s předdefinovanými vlastnostmi zobrazení, aby se nové prezentace otevřely stejným způsobem?**
-
-Ano. Protože [vlastnosti zobrazení](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getViewProperties) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.
+**Mohu uložit nastavení zobrazení v šabloně?**  
+Ano. Prezentace vytvořené ze šablony převzetí její uložená nastavení zobrazení.

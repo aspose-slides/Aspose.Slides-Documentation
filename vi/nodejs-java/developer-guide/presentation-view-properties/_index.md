@@ -1,15 +1,15 @@
 ---
-title: Truy xuất và Cập nhật Thuộc tính chế độ xem Bản trình chiếu trong JavaScript
-linktitle: Thuộc tính chế độ xem
+title: Truy xuất và Cập nhật Thuộc tính Hiển thị Bản trình chiếu trong JavaScript
+linktitle: Thuộc tính Hiển thị
 type: docs
 weight: 80
 url: /vi/nodejs-java/presentation-view-properties/
 keywords:
-- thuộc tính chế độ xem
+- thuộc tính hiển thị
 - chế độ xem bình thường
-- nội dung đề cương
-- biểu tượng đề cương
-- bắt dính thanh chia dọc
+- nội dung dàn ý
+- biểu tượng dàn ý
+- gắn bộ chia dọc
 - chế độ xem đơn
 - trạng thái thanh
 - kích thước chiều
@@ -21,162 +21,129 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Node.js thông qua các thuộc tính chế độ xem Java để tùy chỉnh các định dạng PPT, PPTX và ODP—điều chỉnh bố cục, mức thu phóng và cài đặt hiển thị."
+description: "Sử dụng Aspose.Slides cho Node.js thông qua Java để cấu hình bố cục chế độ xem bình thường, thu phóng slide và ghi chú, khoảng cách lưới và hiển thị bình luận trong bản trình chiếu PowerPoint."
 ---
 ## **Giới thiệu**
 
-Chế độ xem bình thường gồm ba khu vực nội dung: bản trình chiếu, một khu vực nội dung bên và một khu vực nội dung phía dưới. Các thuộc tính liên quan đến vị trí của các khu vực nội dung khác nhau. Thông tin này cho phép ứng dụng lưu trạng thái xem vào tệp, để khi mở lại, chế độ xem sẽ ở cùng trạng thái như khi bản trình chiếu được lưu lần cuối.
-
-Phương thức [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) đã được thêm vào để cung cấp quyền truy cập vào các thuộc tính chế độ xem bình thường của bản trình chiếu. 
-
-Các lớp [NormalViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewRestoredProperties) và các lớp kế thừa của chúng, [SplitterBarStateType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SplitterBarStateType) enum đã được thêm.
+Trong chế độ xem bình thường của PowerPoint, slide xuất hiện giữa một khung bên cho ảnh thu nhỏ hoặc dàn ý và một khung ghi chú ở phía dưới. Aspose.Slides cho Node.js thông qua Java cung cấp các tùy chọn chỉnh sửa đã lưu của bản trình chiếu thông qua [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties). Những tùy chọn này bao gồm bố cục khung, mức thu phóng, khoảng cách lưới và hiển thị bình luận.
 
 ## **Về NormalViewProperties**
 
-Biểu diễn các thuộc tính chế độ xem bình thường.
+Sử dụng [getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties) để truy cập lớp [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) điều khiển việc có hiển thị biểu tượng bên cạnh tiêu đề slide trong dàn ý hay không. [setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) cho phép khung bên bám vào trạng thái thu nhỏ khi người dùng thu hẹp nó. [setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) cho biết ưu tiên hiển thị một khung trong toàn bộ cửa sổ.
 
-Các phương thức [getShowOutlineIcons](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) và [setShowOutlineIcons](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) chỉ định liệu ứng dụng có hiển thị biểu tượng khi hiển thị nội dung đề cương trong bất kỳ khu vực nội dung nào của chế độ xem bình thường hay không.
+[setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) điều khiển thanh ngăn cách giữa khung bên và slide. [setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) điều khiển thanh ngăn cách phía trên khung ghi chú. Cả hai chấp nhận một giá trị [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) là `Minimized`, `Maximized` hoặc `Restored`.
 
-Các phương thức [getSnapVerticalSplitter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) và [setSnapVerticalSplitter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) chỉ định liệu thanh chia dọc có tự động thu gọn khi khu vực bên đủ nhỏ.
+## **Về việc khôi phục NormalViewProperties**
 
-Thuộc tính [getPreferSingleView](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) và [setPreferSingleView](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) chỉ định liệu người dùng ưu tiên xem một vùng nội dung duy nhất trên toàn cửa sổ so với chế độ xem bình thường tiêu chuẩn với ba khu vực nội dung. Nếu bật, ứng dụng có thể chọn hiển thị một trong các khu vực nội dung trên toàn cửa sổ.
+Khi một thanh ngăn cách được khôi phục, [getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) cung cấp kích thước đã lưu của khung bên và [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) cung cấp kích thước đã lưu của vùng slide trên cùng. Cả hai đều phơi bày [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/). Phương thức [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) của nó chấp nhận một phần trăm từ 0 đến 100, và [setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) kiểm soát việc trình chỉnh sửa tự động điều chỉnh kích thước khi cửa sổ được thay đổi kích thước.
 
-Các phương thức [getVerticalBarState](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) và [getHorizontalBarState](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) xác định trạng thái mà thanh chia dọc hoặc ngang sẽ hiển thị. Thanh chia dọc tách bản trình chiếu khỏi khu vực nội dung bên, thanh chia ngang tách bản trình chiếu khỏi khu vực nội dung dưới. Các giá trị có thể là: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) và [SplitterBarStateType.Restored](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
-
-Các phương thức [getRestoredLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) và [getRestoredTop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) xác định kích thước của khu vực bản trình chiếu phía trên hoặc bên của chế độ xem bình thường, khi giá trị [SplitterBarStateType.Restored](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SplitterBarStateType#Restored) được áp dụng cho [getVerticalBarState](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) và [getHorizontalBarState](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) tương ứng.
-
-## **Về Restoring NormalViewProperties** 
-
-Xác định kích thước của khu vực bản trình chiếu (chiều rộng khi là con của [getRestoredTop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--), chiều cao khi là con của [getRestoredLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--)) của chế độ xem bình thường, khi khu vực có kích thước khôi phục biến đổi (không thu gọn và không phóng to). 
-
-Phương thức [getDimensionSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) xác định kích thước của khu vực bản trình chiếu (chiều rộng khi là con của restoredTop, chiều cao khi là con của restoredLeft).
-
-Phương thức [getAutoAdjust](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) xác định liệu kích thước của khu vực nội dung bên có nên tự điều chỉnh để bù cho kích thước mới khi thay đổi kích thước cửa sổ chứa chế độ xem trong ứng dụng hay không.
-
-Một ví dụ dưới đây cho thấy cách truy cập các thuộc tính [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) cho một bản trình chiếu.
+Ví dụ này cập nhật một bản trình chiếu hiện có. Nó khôi phục thanh ngang, đặt kích thước trả về bởi [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) thành 80% với chế độ tự động điều chỉnh được bật, và mở rộng tối đa thanh dọc. Nó cũng gọi [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) để hiển thị biểu tượng trong chế độ xem dàn ý.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // Khôi phục các thuộc tính chế độ xem của bản trình chiếu
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Đặt Giá Trị Thu Phóng Mặc Định**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Node.js via Java hiện hỗ trợ đặt giá trị thu phóng mặc định cho bản trình chiếu sao cho khi mở bản trình chiếu, mức thu phóng đã được thiết lập sẵn. Điều này có thể thực hiện bằng cách đặt [ViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties) của một bản trình chiếu. Các phương thức [getSlideViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) và [getNotesViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) có thể được thiết lập bằng mã. Trong chủ đề này, chúng ta sẽ xem qua một ví dụ về cách đặt [View Properties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties) của [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation) trong Aspose.Slides.
-
-{{% /alert %}} 
-
-Để đặt các thuộc tính chế độ xem, hãy thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation).
-1. Đặt [View Properties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ViewProperties) của [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation).
-1. Ghi bản trình chiếu thành tệp [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   Trong ví dụ dưới đây, chúng tôi đã đặt giá trị thu phóng cho chế độ xem bản trình chiếu cũng như chế độ xem ghi chú.
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var presentation = new aspose.slides.Presentation();
-try {
-    // Đặt các thuộc tính chế độ xem của bản trình chiếu
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Giá trị thu phóng tính bằng phần trăm cho chế độ xem slide
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Giá trị thu phóng tính bằng phần trăm cho chế độ xem ghi chú
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Đặt Khoảng Cách Lưới**
+## **Đặt giá trị thu phóng mặc định**
 
-Sử dụng [Presentation.getViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getViewProperties--) để truy cập cài đặt chế độ xem trên toàn bộ bản trình chiếu. Các phương thức [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) và [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) đọc hoặc thay đổi khoảng cách của lưới chỉnh sửa cơ bản. Cài đặt này áp dụng cho toàn bộ bản trình chiếu, không phải cho một slide riêng lẻ. Khoảng cách lưới được tính bằng điểm, trong đó 72 điểm bằng một inch. Sử dụng giá trị dương, theo yêu cầu của tài liệu API.
+[getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) và [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) lưu các cài đặt thu phóng độc lập cho trình chỉnh sửa. Những cài đặt này không ảnh hưởng tới kích thước slide, phát trình chiếu, hay độ phân giải xuất hình ảnh.
 
-Ví dụ sau mở một tệp `demo.pptx` hiện có, in ra khoảng cách lưới hiện tại, đặt khoảng cách một phần tư inch và lưu kết quả.
+Ví dụ này mở một bản trình chiếu hiện có và gọi [setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale) để vừa slide vào cửa sổ chỉnh sửa. Đối với trang ghi chú, nó tắt chế độ tự động thu phóng và gọi [setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale) để đặt mức thu phóng cố định 80%.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Lưới khác với [drawing guides](/slides/vi/nodejs-java/drawing-guides/). Khoảng cách lưới kiểm soát một khoảng đều đặn, trong khi các hướng dẫn vẽ là các đường thẳng ngang hoặc dọc được đặt vị trí riêng lẻ. Thêm, di chuyển hoặc xoá các hướng dẫn vẽ không thay đổi khoảng cách lưới.
+## **Đặt khoảng cách lưới**
 
-Cả lưới và các hướng dẫn vẽ đều là công cụ hỗ trợ chỉnh sửa. Chúng không được hiển thị như nội dung slide trong PDF, hình ảnh, SVG hoặc bản trình chiếu. Lưu khoảng cách lưới không đảm bảo một trình soạn thảo sẽ hiển thị lưới: tính khả dụng còn phụ thuộc vào cài đặt của người xem hoặc trình soạn thảo.
-
-## **Hiển Thị Hoặc Ẩn Bình Luận Khi Mở Bản Trình Chiếu**
-
-Sử dụng [Presentation.getViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getViewProperties--) để truy cập cài đặt chế độ xem trên toàn bộ bản trình chiếu. Sử dụng [ViewProperties.getShowComments](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#getShowComments--) và [ViewProperties.setShowComments](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte-) để đọc hoặc thay đổi tùy chọn lưu trữ về việc có hiển thị bình luận khi bản trình chiếu mở trong PowerPoint hoặc trình soạn thảo tương thích khác.
-
-Cài đặt này chỉ kiểm soát tùy chọn chế độ xem được lưu. Nó không thêm, xoá, chỉnh sửa hay giải quyết bình luận. Ẩn bình luận vẫn giữ nguyên nội dung, tác giả, vị trí, trả lời và trạng thái của chúng. Xem [Presentation Comments](/slides/vi/nodejs-java/presentation-comments/) để biết các thao tác thay đổi bình luận.
-
-Ví dụ sau yêu cầu một tệp `comments.pptx` hiện có có chứa bình luận. Nó in ra cài đặt hiển thị hiện tại, yêu cầu ẩn bình luận và lưu một tệp PPTX mới mà không xoá bất kỳ bình luận nào. Nó cũng sử dụng [ViewProperties.setLastView](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) với [ViewType.SlideView](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewtype/#SlideView) để cấu hình chế độ chỉnh sửa ban đầu cùng với khả năng hiển thị bình luận.
+[setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) đặt khoảng cách giữa các đường lưới chỉnh sửa trên toàn bộ bản trình chiếu. Nó nhận một giá trị dương bằng điểm, với 72 điểm mỗi inch. Ví dụ này in ra khoảng cách hiện tại trong một bản trình chiếu hiện có và lưu một lưới một phần tư inch bằng cách đặt khoảng cách thành 18 điểm.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Lưới lặp lại theo một khoảng cố định. [Hướng dẫn vẽ](/slides/vi/nodejs-java/drawing-guides/) đánh dấu các vị trí ngang hoặc dọc riêng lẻ. Cả hai đều là công cụ hỗ trợ chỉnh sửa và chỉ xuất hiện trong các trình chỉnh sửa hiển thị chúng. Các buổi trình chiếu và xuất ra PDF, hình ảnh hoặc SVG sẽ không bao gồm chúng.
+
+## **Hiển thị hoặc ẩn bình luận khi mở bản trình chiếu**
+
+[setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) lưu một tùy chọn mà các trình chỉnh sửa tương thích sử dụng khi mở bản trình chiếu. Đối với một bản trình chiếu hiện có có bình luận, ví dụ này in ra cài đặt hiện tại và lưu một bản sao với bình luận ẩn. Nó cũng gọi [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) với [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) để bản sao mở trong chế độ xem slide.
+
+```javascript
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Cài đặt này không quyết định việc bình luận có được bao gồm trong các xuất PDF, HTML, hình ảnh, ghi chú hay handout hay không. Hãy cấu hình các tùy chọn xuất riêng biệt cho từng định dạng.
+Việc ẩn bình luận vẫn giữ nguyên nội dung, tác giả, vị trí, phản hồi và trạng thái của chúng. Để thay đổi nội dung bình luận, xem [Bình luận trong Presentation](/slides/vi/nodejs-java/presentation-comments/). Cài đặt xuất quyết định việc bình luận có xuất hiện trong PDF, HTML, hình ảnh, ghi chú hay tài liệu phát tay hay không.
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Tại sao lưới không hiển thị sau khi tôi mở lại bản trình chiếu?**
+**Tại sao lưới lại bị ẩn khi tôi mở lại bản trình chiếu?**
 
-Tệp lưu khoảng cách lưới, nhưng trình soạn thảo kiểm soát việc lưới có được hiển thị hay không. Kiểm tra cài đặt hiển thị lưới của trình soạn thảo.
+Bản trình chiếu lưu khoảng cách lưới. Để thấy lưới, bật hiển thị lưới trong trình chỉnh sửa.
 
-**Việc xoá các hướng dẫn vẽ có thay đổi khoảng cách lưới không?**
+**Việc xóa hướng dẫn vẽ có thay đổi khoảng cách lưới không?**
 
-Không. Các hướng dẫn vẽ và khoảng cách lưới là các cài đặt độc lập. Xoá các hướng dẫn không thay đổi khoảng cách lưới đã lưu.
+Không. Thêm, di chuyển hoặc xóa một hướng dẫn không làm thay đổi khoảng cách lưới.
 
-**Tôi có thể đặt các cài đặt chế độ xem khác nhau cho các phần khác nhau của bản trình chiếu không?**
+**Các phần khác nhau của bản trình chiếu có thể có các cài đặt hiển thị khác nhau không?**
 
-[View settings](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getviewproperties/) được định nghĩa ở mức bản trình chiếu ([Normal View](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), không theo phần, vì vậy một bộ tham số duy nhất áp dụng cho toàn bộ tài liệu khi mở.
+Không. [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) áp dụng cho toàn bộ bản trình chiếu.
 
-**Tôi có thể định trước các trạng thái chế độ xem cho các người dùng khác nhau không?**
+**Tôi có thể lưu các cài đặt hiển thị riêng cho từng người dùng không?**
 
-Không. Các cài đặt được lưu trong tệp và được chia sẻ. Các ứng dụng xem có thể tôn trọng tùy chọn của người dùng, nhưng tệp chỉ chứa một bộ thuộc tính chế độ xem.
+Tệp chỉ lưu một bộ thuộc tính hiển thị cho tất cả mọi người. Một trình chỉnh sửa có thể áp dụng các tùy chọn cục bộ của người dùng.
 
-**Tôi có thể tạo mẫu với các View Properties được định trước để các bản trình chiếu mới mở cùng cách không?**
+**Tôi có thể lưu cài đặt hiển thị trong mẫu không?**
 
-Có. Vì [view properties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getviewproperties/) được lưu ở mức bản trình chiếu, bạn có thể nhúng chúng vào mẫu và tạo tài liệu mới từ mẫu với cùng cấu hình chế độ xem ban đầu.
+Có. Các bản trình chiếu tạo từ mẫu sẽ kế thừa các cài đặt hiển thị đã lưu.

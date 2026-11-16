@@ -1,15 +1,15 @@
 ---
-title: ดึงและอัปเดตคุณสมบัติมุมมองการนำเสนอบน Android
+title: ดึงและอัปเดตคุณสมบัติมุมมองงานนำเสนอบน Android
 linktitle: คุณสมบัติมุมมอง
 type: docs
 weight: 80
 url: /th/androidjava/presentation-view-properties/
-keywords: 
+keywords:
 - คุณสมบัติมุมมอง
 - มุมมองปกติ
-- เนื้อหาโครงร่าง
-- ไอคอนโครงร่าง
-- ล็อคตัวแบ่งแนวตั้ง
+- เนื้อหาเค้าโครง
+- ไอคอนเค้าโครง
+- แยกแนวตั้งแบบสแนป
 - มุมมองเดี่ยว
 - สถานะแถบ
 - ขนาดมิติ
@@ -17,166 +17,131 @@ keywords:
 - ซูมเริ่มต้น
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ค้นพบคุณสมบัติมุมมองของ Aspose.Slides สำหรับ Android ผ่าน Java เพื่อปรับแต่งรูปแบบสไลด์ PPT, PPTX และ ODP—ปรับเลย์เอาต์ ระดับการซูม และการตั้งค่าการแสดงผล"
+description: "ใช้ Aspose.Slides for Android ผ่าน Java เพื่อกำหนดค่าเลย์เอาต์ของมุมมองปกติ, การซูมของสไลด์และบันทึก, ระยะห่างของกริด, และการแสดงความเห็นในงานนำเสนอ PowerPoint"
 ---
-## **บทนำ**
+## **Introduction**
 
-มุมมองปกติมีพื้นที่เนื้อหา 3 ส่วน ได้แก่ สไลด์เอง, พื้นที่เนื้อหาด้านข้าง, และพื้นที่เนื้อหาด้านล่าง คุณสมบัติที่เกี่ยวกับการจัดตำแหน่งของพื้นที่เนื้อหาต่าง ๆ ข้อมูลนี้ช่วยให้แอปพลิเคชันบันทึกสถานะมุมมองลงไฟล์ เพื่อให้เมื่อเปิดใหม่มุมมองอยู่ในสถานะเดียวกันกับขณะบันทึกการนำเสนอครั้งสุดท้าย
+ในมุมมองปกติของ PowerPoint สไลด์จะแสดงระหว่างแผงด้านข้างสำหรับรูปย่อหรือเค้าโครงและแผงบันทึกด้านล่าง Aspose.Slides for Android via Java เปิดเผยการตั้งค่าการแก้ไขที่บันทึกของงานนำเสนอผ่าน [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--). ทั้งนี้รวมถึงการจัดเรียงแผง ระดับการซูม ระยะห่างของกริด และการแสดงความเห็น
 
-เมธอด [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) ได้ถูกเพิ่มเพื่อให้เข้าถึงคุณสมบัติมุมมองปกติของการนำเสนอ
+## **About INormalViewProperties**
 
-อินเทอร์เฟซ [INormalViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewRestoredProperties) และคลาสลูกของมัน, enum [SplitterBarStateType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SplitterBarStateType) ได้ถูกเพิ่ม
+ใช้ [getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNormalViewProperties--) เพื่อเข้าถึงอินเทอร์เฟซ [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/) . [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) ควบคุมว่าจะให้ไอคอนปรากฏข้างชื่อสไลด์ในเค้าโครงหรือไม่. [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) ทำให้แผงด้านข้างถูกยึดให้อยู่ในสถานะย่อเมื่อผู้ใช้ทำให้แคบลง. [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) ระบุความต้องการให้แสดงเพียงแผงเดียวในหน้าต่างเต็ม.
 
-## **เกี่ยวกับ INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) ควบคุมตัวแบ่งระหว่างแผงด้านข้างและสไลด์. [setHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) ควบคุมตัวแบ่งเหนือแผงบันทึก. ทั้งสองรับค่า [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/splitterbarstatetype/) ที่เป็น `Minimized`, `Maximized` หรือ `Restored`.
 
-แทนคุณสมบัติมุมมองปกติ
+## **About Restoring INormalViewProperties**
 
-เมธอด [getShowOutlineIcons](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) และ [setShowOutlineIcons](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) ระบุว่าแอปพลิเคชันจะแสดงไอคอนหรือไม่เมื่อแสดงเนื้อหาโครงร่างในพื้นที่เนื้อหาใด ๆ ของโหมดมุมมองปกติ
+เมื่อมีการกู้คืนตัวแบ่ง, [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) ให้ขนาดที่บันทึกของแผงด้านข้างและ [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) ให้ขนาดที่บันทึกของพื้นที่สไลด์ด้านบน. ทั้งสองเปิดเผย [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/). วิธีการ [setDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) ของมันรับเปอร์เซ็นต์ตั้งแต่ 0 ถึง 100, และ [setAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) ควบคุมว่าจะให้โปรแกรมแก้ไขปรับขนาดเมื่อหน้าต่างถูกปรับขนาดหรือไม่.
 
-เมธอด [getSnapVerticalSplitter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) และ [setSnapVerticalSplitter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) ระบุว่าตัวแบ่งแนวตั้งควรล็อคไปยังสถานะย่อเมื่อพื้นที่ด้านข้างมีขนาดเล็กพอ
-
-คุณสมบัติ [getPreferSingleView](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) และ [setPreferSingleView](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) ระบุว่าผู้ใช้ต้องการมองเห็นพื้นที่เนื้อหาเด้งเดียวเต็มหน้าต่างแทนมุมมองปกติแบบมาตรฐานที่มีสามพื้นที่หรือไม่ หากเปิดใช้งาน แอปพลิเคชันอาจเลือกแสดงหนึ่งในพื้นที่เนื้อหาให้เต็มหน้าต่าง
-
-เมธอด [getVerticalBarState](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) ระบุสถานะที่แถบแบ่งแนวนอนหรือแนวตั้งควรแสดง แถบแบ่งแนวนอนจะแยกสไลด์ออกจากพื้นที่เนื้อหาที่อยู่ด้านล่างสไลด์, แถบแบ่งแนวตั้งจะแยกสไลด์ออกจากพื้นที่เนื้อหาด้านข้าง ค่าที่เป็นไปได้คือ: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) และ [SplitterBarStateType.Restored](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
-
-เมธอด [getRestoredLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) และ [getRestoredTop](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) ระบุขนาดของพื้นที่สไลด์ด้านบนหรือด้านข้างของมุมมองปกติเมื่อใช้ค่า [SplitterBarStateType.Restored](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SplitterBarStateType#Restored) กับ [getVerticalBarState](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) ตามลำดับ
-
-## **เกี่ยวกับการกู้คืน INormalViewProperties**
-
-ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ [getRestoredTop](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), ความสูงเมื่อเป็นลูกของ [getRestoredLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) ของมุมมองปกติเมื่อพื้นที่มีขนาดที่กู้คืนได้แบบเปลี่ยนแปลง (ไม่ย่อและไม่ขยาย)
-
-เมธอด [getDimensionSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ restoredTop, ความสูงเมื่อเป็นลูกของ restoredLeft).
-
-เมธอด [getAutoAdjust](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) ระบุว่าขนาดของพื้นที่เนื้อหาด้านข้างควรปรับเพื่อชดเชยขนาดใหม่เมื่อเปลี่ยนขนาดหน้าต่างที่บรรจุมุมมองภายในแอปหรือไม่
-
-ตัวอย่างด้านล่างแสดงวิธีการเข้าถึงคุณสมบัติของ [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) สำหรับการนำเสนอ
+ตัวอย่างนี้อัปเดตงานนำเสนอที่มีอยู่แล้ว. มันกู้คืนตัวแบ่งแนวนอน, ตั้งค่าขนาดที่ได้จาก [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) เป็น 80% พร้อมเปิดการปรับอัตโนมัติ, และขยายตัวแบ่งแนวดิ่งให้เต็ม. นอกจากนี้ยังเรียก [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) เพื่อแสดงไอคอนในมุมมองเค้าโครง.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // กู้คืนคุณสมบัติมุมมองของการนำเสนอ
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **ตั้งค่าค่าซูมเริ่มต้น**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Android via Java ตอนนี้รองรับการตั้งค่าซูมเริ่มต้นสำหรับการนำเสนอ เพื่อให้เมื่อเปิดการนำเสนอแล้วซูมถูกตั้งไว้แล้ว สามารถทำได้โดยการตั้งค่า [ViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ViewProperties) ของการนำเสนอ [getSlideViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) และ [getNotesViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) สามารถตั้งค่าโดยโปรแกรมได้ ในหัวข้อนี้ เราจะดูตัวอย่างวิธีตั้งค่า [View Properties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ViewProperties) ของ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) ใน Aspose.Slides
-
-{{% /alert %}} 
-
-เพื่อกำหนดคุณสมบัติมุมมอง กรุณาปฏิบัติตามขั้นตอนด้านล่าง:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
-1. ตั้งค่า [View Properties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ViewProperties) ของ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)
-1. เขียนการนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/) 
-   ในตัวอย่างด้านล่าง เราได้ตั้งค่าซูมสำหรับมุมมองสไลด์และมุมมองบันทึกย่อ
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // ตั้งค่าคุณสมบัติมุมมองของการนำเสนอ
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองสไลด์
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองบันทึกย่อ 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ตั้งค่าการจัดช่องตาราง**
+## **Set the Default Zoom Value**
 
-ใช้ [Presentation.getViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getViewProperties--) เพื่อเข้าถึงการตั้งค่ามุมมองระดับการนำเสนอ ทั้งหมด เมธอด [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) และ [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) อ่านหรือเปลี่ยนช่วงของกริดการแก้ไขพื้นฐาน การตั้งค่านี้ใช้กับการนำเสนอทั้งหมด ไม่ใช่กับสไลด์เดี่ยว ๆ การจัดช่องกริดระบุเป็นจุด โดย 72 จุดเท่ากับหนึ่งนิ้ว ใช้ค่าบวกตามที่เอกสาร API ระบุ
+[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getSlideViewProperties--) และ [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNotesViewProperties--) เก็บการตั้งค่าซูมแยกกันสำหรับโปรแกรมแก้ไข. การตั้งค่าเหล่านี้ไม่ส่งผลต่อมิติของสไลด์, การเล่นสไลด์โชว์, หรือความละเอียดการส่งออกภาพ.
 
-ตัวอย่างต่อไปเปิดไฟล์ `demo.pptx` ที่มีอยู่แล้ว แสดงค่าการจัดช่องกริดปัจจุบัน ตั้งค่าช่วงเป็นหนึ่งในสี่นิ้ว และบันทึกผลลัพธ์
+ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และเรียก [setVariableScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) เพื่อให้สไลด์พอดีกับหน้าต่างแก้ไข. สำหรับหน้าบันทึก, มันปิดการปรับสเกลอัตโนมัติและเรียก [setScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setScale-int-) เพื่อตั้งค่าซูมคงที่ที่ 80%.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Set the Grid Spacing**
+
+[setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) ตั้งค่าระยะห่างระหว่างเส้นกริดการแก้ไขทั่วงานนำเสนอ. ค่าที่รับต้องเป็นค่าบวกในหน่วย points, โดยมี 72 points ต่อหนึ่งนิ้ว. ตัวอย่างนี้พิมพ์ระยะห่างปัจจุบันในงานนำเสนอที่มีอยู่และบันทึกกริดสี่ส่วนของนิ้วโดยตั้งช่วงเป็น 18 points.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-กริดแตกต่างจาก [drawing guides](/slides/th/androidjava/drawing-guides/). การจัดช่องกริดควบคุมช่วงที่สม่ำเสมอ ในขณะที่ drawing guides เป็นเส้นแนวนอนหรือแนวตั้งที่กำหนดตำแหน่งแบบแยกกัน การเพิ่ม ย้าย หรือลบ drawing guides จะไม่เปลี่ยนการจัดช่องกริด
+กริดจะทำซ้ำที่ช่วงเวลาคงที่. [คู่มือการวาด](/slides/th/androidjava/drawing-guides/) ทำเครื่องหมายตำแหน่งแนวนอนหรือแนวตั้งแต่ละตำแหน่ง. ทั้งสองเป็นเครื่องมือช่วยการแก้ไขและปรากฏเฉพาะในโปรแกรมแก้ไขที่แสดงมัน. การนำเสนอและการส่งออกเป็น PDF, รูปภาพ หรือ SVG จะละเว้นมัน.
 
-กริดและ drawing guides ทั้งสองเป็นเครื่องมือช่วยการแก้ไข พวกมันไม่ถูกแสดงเป็นเนื้อหาสไลด์ใน PDF, รูปภาพ, SVG หรือการนำเสนอ การจัดเก็บการจัดช่องกริดไม่รับประกันว่าโปรแกรมแก้ไขจะทำให้กริดแสดงผล: ความสามารถในการมองเห็นยังขึ้นกับการตั้งค่าของผู้ดูหรือโปรแกรมแก้ไข
+## **Show or Hide Comments When Opening a Presentation**
 
-## **แสดงหรือซ่อนความคิดเห็นเมื่อเปิดการนำเสนอ**
-
-ใช้ [Presentation.getViewProperties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getViewProperties--) เพื่อเข้าถึงการตั้งค่ามุมมองระดับการนำเสนอทั้งหมด ใช้ [IViewProperties.getShowComments](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) และ [IViewProperties.setShowComments](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) เพื่ออ่านหรือเปลี่ยนการตั้งค่าที่เก็บไว้เกี่ยวกับการแสดงความคิดเห็นเมื่อการนำเสนอเปิดใน PowerPoint หรือโปรแกรมที่เข้ากันได้อื่น
-
-การตั้งค่านี้ควบคุมเพียงการตั้งค่ามุมมองที่เก็บไว้เท่านั้น ไม่ได้เพิ่ม ลบ แก้ไข หรือแก้ปัญหาความคิดเห็น การซ่อนความคิดเห็นจะคงเนื้อหา ผู้เขียน ตำแหน่ง การตอบกลับ และสถานะของความคิดเห็นไว้ ดูที่ [Presentation Comments](/slides/th/androidjava/presentation-comments/) สำหรับการกระทำที่เปลี่ยนแปลงความคิดเห็นเอง
-
-ตัวอย่างต่อไปต้องมีไฟล์ `comments.pptx` ที่มีความคิดเห็นอยู่แล้ว มันจะแสดงการตั้งค่าการมองเห็นปัจจุบัน, ขอให้ซ่อนความคิดเห็น, และบันทึกไฟล์ PPTX ใหม่โดยไม่ลบความคิดเห็นใด ๆ อีก ทั้งนี้ยังใช้ [IViewProperties.setLastView](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) ร่วมกับ [ViewType.SlideView](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/viewtype/#SlideView) เพื่อกำหนดมุมมองการแก้ไขเริ่มต้นพร้อมกับการมองเห็นความคิดเห็น
+[setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) เก็บค่าการตั้งค่าที่โปรแกรมแก้ไขที่เข้ากันได้ใช้เมื่อเปิดงานนำเสนอ. สำหรับงานนำเสนอที่มีคอมเมนต์อยู่แล้ว, ตัวอย่างนี้พิมพ์ค่าการตั้งค่าปัจจุบันและบันทึกสำเนาที่ซ่อนคอมเมนต์. นอกจากนี้ยังเรียก [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) พร้อมกับ [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) เพื่อให้สำเนาเปิดในมุมมองสไลด์.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-การตั้งค่านี้ไม่ได้กำหนดว่าความคิดเห็นจะรวมอยู่ในการส่งออกเป็น PDF, HTML, รูปภาพ, โน้ต หรือเอกสารแจกจ่ายหรือไม่ คำสั่งที่เกี่ยวข้องกับการส่งออกแต่ละประเภทต้องกำหนดแยกต่างหาก
+การซ่อนคอมเมนต์จะคงข้อความ, ผู้เขียน, ตำแหน่ง, การตอบกลับ, และสถานะของคอมเมนต์ไว้. เพื่อเปลี่ยนคอมเมนต์เอง, ดูที่ [คอมเมนต์งานนำเสนอ](/slides/th/androidjava/presentation-comments/). การตั้งค่าการส่งออกควบคุมว่าจะให้คอมเมนต์ปรากฏใน PDF, HTML, รูปภาพ, โน้ต หรือเอกสารแจก.
 
 ## **FAQ**
 
-**ทำไมกริดไม่แสดงหลังจากที่เปิดการนำเสนอใหม่?**
+**ทำไมกริดถึงถูกซ่อนไว้เมื่อฉันเปิดงานนำเสนอใหม่?**
 
-ไฟล์บันทึกค่าการจัดช่องกริดไว้ แต่โปรแกรมแก้ไขเป็นผู้ควบคุมว่ากริดจะแสดงหรือไม่ ตรวจสอบการตั้งค่าการมองเห็นกริดของโปรแกรมแก้ไข
+งานนำเสนอเก็บช่วงกริดไว้. เพื่อดูกริด, ให้เปิดการมองเห็นกริดในโปรแกรมแก้ไข.
 
-**การลบ drawing guides จะทำให้การจัดช่องกริดเปลี่ยนหรือไม่?**
+**การลบ drawing guides จะทำให้ระยะห่างของกริดเปลี่ยนไหม?**
 
-ไม่. drawing guides และการจัดช่องกริดเป็นการตั้งค่าแยกกัน การลบ guides จะไม่ทำให้ช่วงกริดที่เก็บไว้เปลี่ยนแปลง
+ไม่. การเพิ่ม, ย้าย, หรือทำความสะอาดไกด์ไม่ทำให้ช่วงกริดเปลี่ยนแปลง.
 
-**ฉันสามารถตั้งค่ามุมมองต่าง ๆ สำหรับส่วนต่าง ๆ ของการนำเสนอได้หรือไม่?**
+**ส่วนต่าง ๆ ของงานนำเสนอสามารถมีการตั้งค่ามุมมองที่แตกต่างกันได้หรือไม่?**
 
-การตั้งค่า [View settings](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getViewProperties--) ถูกกำหนดระดับการนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)) ไม่ได้ระดับส่วน ดังนั้นชุดพารามิเตอร์เดียวจะใช้กับเอกสารทั้งหมดเมื่อเปิด
+ไม่. [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) ใช้กับงานนำเสนอทั้งหมด.
 
-**ฉันสามารถกำหนดสถานะมุมมองที่แตกต่างสำหรับผู้ใช้ต่าง ๆ ได้หรือไม่?**
+**ฉันสามารถบันทึกการตั้งค่ามุมมองที่แตกต่างกันสำหรับผู้ใช้ต่าง ๆ ได้ไหม?**
 
-ไม่. การตั้งค่าถูกเก็บในไฟล์และใช้ร่วมกัน แอปพลิเคชันตัวดูอาจเคารพการตั้งค่าผู้ใช้ แต่ไฟล์เองมีชุดคุณสมบัติมุมมองเพียงชุดเดียว
+ไฟล์เก็บชุดการตั้งค่ามุมมองเดียวสำหรับทุกคน. โปรแกรมแก้ไขอาจใช้ค่าการตั้งค่าท้องถิ่นของผู้ใช้ด้วย.
 
-**ฉันสามารถเตรียมเทมเพลตที่มี View Properties กำหนดล่วงหน้าเพื่อให้การนำเสนอใหม่เปิดแบบเดียวกันได้หรือไม่?**
+**ฉันสามารถบันทึกการตั้งค่ามุมมองในเทมเพลตได้หรือไม่?**
 
-ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getViewProperties--) ถูกเก็บระดับการนำเสนอ คุณสามารถฝังไว้ในเทมเพลตและสร้างเอกสารใหม่จากมันโดยมีการตั้งค่ามุมมองเริ่มต้นเดียวกัน
+ใช่. งานนำเสนอที่สร้างจากเทมเพลตจะสืบทอดการตั้งค่ามุมมองที่บันทึกไว้.

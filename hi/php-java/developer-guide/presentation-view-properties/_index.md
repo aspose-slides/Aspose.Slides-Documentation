@@ -1,107 +1,68 @@
 ---
-title: PHP में प्रस्तुति दृश्य गुण पुनः प्राप्त करें और अद्यतन करें
-linktitle: दृश्य गुण
+title: PHP में प्रेज़ेंटेशन व्यू प्रॉपर्टीज़ प्राप्त करें और अपडेट करें
+linktitle: व्यू प्रॉपर्टीज़
 type: docs
 weight: 80
 url: /hi/php-java/presentation-view-properties/
 keywords:
-- दृश्य गुण
-- सामान्य दृश्य
+- व्यू प्रॉपर्टीज़
+- नॉर्मल व्यू
 - रूपरेखा सामग्री
-- रूपरेखा आइकन
-- वर्टिकल स्प्लिटर को स्नैप करें
-- एकल दृश्य
-- बार स्थिति
-- आयाम आकार
-- स्वचालित समायोजन
+- रूपरेखा आइकन्स
+- स्नैप वर्टिकल स्प्लिटर
+- सिंगल व्यू
+- बार स्टेट
+- डाइमेंशन साइज
+- ऑटो एडजस्ट
 - डिफ़ॉल्ट ज़ूम
-- PowerPoint
-- OpenDocument
-- प्रस्तुति
+- पॉवरपॉइंट
+- ओपनडॉक्यूमेंट
+- प्रेज़ेंटेशन
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के दृश्य गुणों की खोज करें ताकि PPT, PPTX और ODP स्लाइड्स के फ़ॉर्मेट को अनुकूलित किया जा सके — लेआउट, ज़ूम स्तर और डिस्प्ले सेटिंग्स को समायोजित करें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रेज़ेंटेशन्स में नॉर्मल व्यू लेआउट, स्लाइड और नोट्स ज़ूम, ग्रिड स्पेसिंग, और टिप्पणी दृश्यता को कॉन्फ़िगर करें।"
 ---
-## **Introduction**
+## **परिचय**
 
-सामान्य दृश्य में तीन सामग्री क्षेत्रों होते हैं: स्लाइड स्वयं, एक साइड सामग्री क्षेत्र, और नीचे का सामग्री क्षेत्र। विभिन्न सामग्री क्षेत्रों की स्थिति संबंधी गुण। यह जानकारी एप्लिकेशन को उसके दृश्य स्थिति को फ़ाइल में सहेजने की अनुमति देती है, जिससे जब फिर से खोला जाए तो दृश्य उसी स्थिति में रहता है जैसा कि प्रस्तुति अंतिम बार सहेजी गई थी।
+PowerPoint के सामान्य दृश्य में, स्लाइड एक साइड पेन (थंबनेल या रूपरेखा) और नीचे नोट्स पेन के बीच दिखाई देती है। Aspose.Slides for PHP via Java प्रस्तुति की सहेजी गई संपादन प्राथमिकताओं को [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) के माध्यम से उजागर करता है। इनमें पेन लेआउट, ज़ूम स्तर, ग्रिड स्पेसिंग और टिप्पणी दृश्यता शामिल हैं।
 
-Method [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) को प्रस्तुति के सामान्य दृश्य गुणों तक पहुँच प्रदान करने के लिए जोड़ा गया है। 
+## **NormalViewProperties के बारे में**
 
-[NormalViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewRestoredProperties) क्लासेज तथा उनके उत्तराधिकारी, [SplitterBarStateType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/SplitterBarStateType) एनीम जोड़े गए हैं।
+[getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/) का उपयोग करके आप [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/) क्लास तक पहुँच सकते हैं। [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) नियंत्रित करता है कि रूपरेखा में स्लाइड शीर्षकों के बगल में आइकन दिखें या नहीं। [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) उपयोगकर्ता द्वारा साइड पेन को संकुचित करने पर पेन को उसके न्यूनतम स्थिति में स्नैप करने देता है। [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) पूर्ण विंडो में एक पेन दिखाने की पसंद दर्शाता है।
 
-## **INormalViewProperties के बारे में**
+[setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) साइड पेन और स्लाइड के बीच विभाजन नियंत्रित करता है। [setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) नोट्स पेन के ऊपर विभाजन नियंत्रित करता है। दोनों [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/) का मान स्वीकार करते हैं जो `Minimized`, `Maximized`, या `Restored` हो सकता है।
 
-सामान्य दृश्य गुणों का प्रतिनिधित्व करता है।
+## **NormalViewProperties को पुनर्स्थापित करने के बारे में**
 
-मेथड्स [getShowOutlineIcons](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) और [setShowOutlineIcons](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) यह निर्धारित करते हैं कि क्या एप्लिकेशन को normal view मोड के किसी भी सामग्री क्षेत्र में रूपरेखा सामग्री प्रदर्शित करते समय आइकन दिखाने चाहिए।
+जब किसी विभाजन को पुनर्स्थापित किया जाता है, तो [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) साइड पेन का सहेचा आकार प्रदान करता है और [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) ऊपर के स्लाइड क्षेत्र का सहेचा आकार प्रदान करता है। दोनों [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/) को प्रस्तुत करते हैं। उसकी [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) मेथड 0 से 100 तक का प्रतिशत स्वीकार करती है, और [setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) नियंत्रित करता है कि विंडो के आकार बदलने पर संपादक आकार को स्वचालित रूप से समायोजित करे या नहीं।
 
-मेथड्स [getSnapVerticalSplitter](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) और [setSnapVerticalSplitter](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) यह निर्धारित करते हैं कि जब साइड क्षेत्र पर्याप्त छोटा हो तो लंबवत स्प्लिटर को न्यूनतम स्थिति में स्नैप करना चाहिए या नहीं।
-
-प्रॉपर्टी [getPreferSingleView](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) और [setPreferSingleView](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) यह निर्धारित करती है कि उपयोगकर्ता मानक मानक three content regions वाले सामान्य दृश्य की बजाय पूर्ण-खिड़की एकल-समग्री क्षेत्र देखना पसंद करता है या नहीं। यदि सक्षम किया गया, तो एप्लिकेशन पूरे विंडो में किसी एक सामग्री क्षेत्र को प्रदर्शित कर सकता है।
-
-मेथड्स [getVerticalBarState](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) और [getHorizontalBarState](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) यह निर्दिष्ट करते हैं कि क्षैतिज या लंबवत स्प्लिटर बार किस स्थिति में दिखेगा। एक क्षैतिज स्प्लिटर बार स्लाइड को स्लाइड के नीचे की सामग्री क्षेत्र से अलग करता है, जबकि लंबवत स्प्लिटर बार स्लाइड को साइड सामग्री क्षेत्र से अलग करता है। संभावित मान हैं: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/hi/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/hi/php-java/aspose.slides/SplitterBarStateType/#Maximized) और [SplitterBarStateType::Restored](https://reference.aspose.com/slides/hi/php-java/aspose.slides/SplitterBarStateType/#Restored)।
-
-मेथड्स [getRestoredLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) और [getRestoredTop](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties#getRestoredTop) सामान्य दृश्य के शीर्ष या साइड स्लाइड क्षेत्र का आकार निर्दिष्ट करते हैं, जब [SplitterBarStateType::Restored](https://reference.aspose.com/slides/hi/php-java/aspose.slides/SplitterBarStateType/#Restored) मान को [getVerticalBarState](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) और [getHorizontalBarState](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) पर क्रमशः लागू किया जाता है।
-
-## **INormalViewProperties को पुनर्स्थापित करने के बारे में**
-
-सामान्य दृश्य के स्लाइड क्षेत्र (चौड़ाई जब [getRestoredTop](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getRestoredTop) का चाइल्ड हो, ऊँचाई जब [getRestoredLeft](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) का चाइल्ड हो) के आकार को निर्दिष्ट करता है, जब क्षेत्र का आकार परिवर्तनीय पुनर्स्थापित आकार (न्यूनतम या अधिकतम नहीं) हो। 
-
-मेथड [getDimensionSize](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) स्लाइड क्षेत्र के आकार को निर्दिष्ट करता है (चौड़ाई जब restoredTop का चाइल्ड हो, ऊँचाई जब restoredLeft का चाइल्ड हो)।
-
-मेथड [getAutoAdjust](https://reference.aspose.com/slides/hi/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) यह निर्धारित करता है कि साइड सामग्री क्षेत्र का आकार विंडो को री-साइज़ करने पर नई आकार के लिए समायोजित होना चाहिए या नहीं।
-
-नीचे एक उदाहरण दिया गया है जो दिखाता है कि आप प्रस्तुति के लिए [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) गुणों तक कैसे पहुँच सकते हैं।
+यह उदाहरण मौज़ूद प्रेजेंटेशन को अपडेट करता है। यह क्षैतिज विभाजन को पुनर्स्थापित करता है, [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) द्वारा लौटाए गए आकार को 80% पर सेट करता है और स्वचालित समायोजन को सक्रिय करता है, तथा लंबवत विभाजन को अधिकतम करता है। यह [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) को भी कॉल करता है ताकि रूपरेखा दृश्य में आइकन प्रदर्शित हों।
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # प्रस्तुति के दृश्य गुणों को पुनर्स्थापित करें
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
+
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **डिफ़ॉल्ट ज़ूम मान सेट करें**
-{{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java अब प्रस्तुति के लिए डिफ़ॉल्ट ज़ूम मान सेट करने का समर्थन करता है ताकि जब प्रस्तुति खोली जाए, ज़ूम पहले से सेट हो। यह किसी प्रस्तुति के [ViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties) को सेट करके किया जा सकता है। [getSlideViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) और [getNotesViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) को प्रोग्रामेटिकली सेट किया जा सकता है। इस विषय में, हम एक उदाहरण के साथ देखेंगे कि Aspose.Slides में [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) की [View Properties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties) कैसे सेट करें।
+[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) और [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) संपादक के लिए स्वतंत्र ज़ूम सेटिंग्स संग्रहित करते हैं। इन सेटिंग्स का स्लाइड आयाम, स्लाइड‑शो प्लेबैक, या इमेज एक्सपोर्ट रिज़ॉल्यूशन पर कोई प्रभाव नहीं पड़ता।
 
-{{% /alert %}} 
-
-दृश्य गुण सेट करने के लिए, कृपया नीचे दिए गए चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।
-1. [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation) की [View Properties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/ViewProperties) सेट करें।
-1. प्रस्तुति को एक [PPTX](https://docs.fileformat.com/presentation/pptx/) फ़ाइल के रूप में लिखें।
-   नीचे दिए गए उदाहरण में, हमने स्लाइड दृश्य और नोट्स दृश्य दोनों के लिए ज़ूम मान सेट किया है।
-
-```php
-  $presentation = new Presentation();
-  try {
-    # प्रस्तुति के दृश्य गुण सेट करना
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // स्लाइड दृश्य के लिए प्रतिशत में ज़ूम मान
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // नोट्स दृश्य के लिए प्रतिशत में ज़ूम मान
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **ग्रिड स्पेसिंग सेट करें**
-
-[Presentation::getViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#getViewProperties) का उपयोग करके प्रस्तुति-व्यापी दृश्य सेटिंग्स तक पहुँचें। [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/#getGridSpacing) और [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/#setGridSpacing) मेथड्स अंतर्निहित एडिटिंग ग्रिड की अंतराल को पढ़ते या बदलते हैं। यह सेटिंग पूरी प्रस्तुति पर लागू होती है, व्यक्तिगत स्लाइड पर नहीं। ग्रिड स्पेसिंग पॉइंट्स में निर्दिष्ट की जाती है, जहाँ 72 पॉइंट एक इंच के बराबर होते हैं। API दस्तावेज़ के अनुसार एक सकारात्मक मान का उपयोग करें।
-
-निम्नलिखित उदाहरण एक मौजूदा `demo.pptx` खोलता है, उसकी वर्तमान ग्रिड स्पेसिंग प्रिंट करता है, एक चौथाई इंच अंतराल सेट करता है, और परिणाम सहेजता है।
+यह उदाहरण मौज़ूद प्रेजेंटेशन को खोलता है और स्लाइड को संपादन विंडो में फिट करने के लिए [setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/) को कॉल करता है। नोट्स पेज के लिए यह स्वचालित स्केलिंग को अक्षम करता है और एक निर्धारित 80% ज़ूम सेट करने हेतु [setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/) को कॉल करता है।
 
 ```php
 use aspose\slides\Presentation;
@@ -109,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ग्रिड स्पेसिंग सेट करें**
+
+[ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) की `setGridSpacing` मेथड प्रेजेंटेशन भर में संपादन ग्रिड रेखाओं के बीच की दूरी निर्धारित करती है। यह पॉइंट्स में एक सकारात्मक मान लेती है, जहाँ 1 इंच में 72 पॉइंट्स होते हैं। यह उदाहरण मौज़ूद प्रेजेंटेशन में वर्तमान स्पेसिंग को प्रिंट करता है और अंतराल को 18 पॉइंट्स सेट करके एक चौथाई इंच ग्रिड सहेजता है।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-ग्रिड [drawing guides](/slides/hi/php-java/drawing-guides/) से अलग है। ग्रिड स्पेसिंग नियमित अंतराल को नियंत्रित करती है, जबकि ड्रॉइंग गाइड्स व्यक्तिगत रूप से स्थित क्षैतिज या लंबवत संरेखण रेखाएँ होती हैं। ड्रॉइंग गाइड्स को जोड़ना, ले जाना या साफ़ करना ग्रिड स्पेसिंग को नहीं बदलता।
+ग्रिड एक निश्चित अंतराल पर दोहराता है। [ड्राइंग गाइड्स](/slides/hi/php-java/drawing-guides/) व्यक्तिगत क्षैतिज या लंबवत स्थितियों को चिन्हित करते हैं। दोनों संपादन सहायक हैं और केवल उन संपादकों में दिखते हैं जो इन्हें प्रदर्शित करते हैं। स्लाइड शो और PDF, इमेज या SVG में निर्यात इनके बिना होते हैं।
 
-ग्रिड और ड्रॉइंग गाइड दोनों ही संपादन सहायक हैं। इन्हें PDF, इमेज, SVG, या स्लाइड शो में स्लाइड सामग्री के रूप में रेंडर नहीं किया जाता। ग्रिड स्पेसिंग को संग्रहीत करने से यह गारंटी नहीं मिलती कि एडिटर ग्रिड दिखाएगा: उसकी दृश्यता व्यूअर या एडिटर की पसंद पर भी निर्भर करती है।
+## **प्रेजेंटेशन खोलते समय टिप्पणी दिखाएँ या छिपाएँ**
 
-## **प्रस्तुति खोलते समय टिप्पणियाँ दिखाएँ या छुपाएँ**
-
-[Presentation::getViewProperties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/getviewproperties/) का उपयोग करके प्रस्तुति-व्यापी दृश्य सेटिंग्स तक पहुँचें। [ViewProperties::getShowComments](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/getshowcomments/) और [ViewProperties::setShowComments](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/setshowcomments/) का उपयोग करके यह पढ़ें या बदलें कि प्रस्तुति PowerPoint या किसी अन्य संगत एडिटर में खुलते समय टिप्पणियाँ दिखाई जानी चाहिए या नहीं।
-
-यह सेटिंग केवल संग्रहीत दृश्य प्राथमिकता को नियंत्रित करती है। यह टिप्पणियों को जोड़ती, हटाती, संपादित या हल नहीं करती। टिप्पणियों को छुपाने से उनकी सामग्री, लेखक, स्थितियाँ, उत्तर और स्थिति बरकरार रहती है। टिप्पणियों को स्वयं बदलने वाले कार्यों के लिए [Presentation Comments](/slides/hi/php-java/presentation-comments/) देखें।
-
-निम्नलिखित उदाहरण के लिए एक मौजूदा `comments.pptx` की आवश्यकता है जिसमें टिप्पणियाँ हों। यह वर्तमान दृश्यता सेटिंग प्रिंट करता है, टिप्पणियों को छुपाने का अनुरोध करता है, और किसी भी टिप्पणी को हटाए बिना नया PPTX सहेजता है। यह प्रारंभिक संपादन दृश्य को टिप्पणी दृश्यता के साथ कॉन्फ़िगर करने के लिए [ViewProperties::setLastView](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/setlastview/) को [ViewType::SlideView](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewtype/#SlideView) के साथ भी उपयोग करता है।
+[setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) वह प्राथमिकता संग्रहीत करता है जिसे संगत संपादक प्रेजेंटेशन खोलते समय उपयोग करते हैं। टिप्पणियों वाले मौज़ूद प्रेजेंटेशन के लिए यह उदाहरण वर्तमान सेटिंग को प्रिंट करता है और टिप्पणी छिपी हुई प्रतिलिपि को सहेजता है। यह [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) को [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView) के साथ भी कॉल करता है ताकि प्रतिलिपि स्लाइड दृश्य में खुले।
 
 ```php
 use aspose\slides\NullableBool;
@@ -139,37 +116,33 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-यह सेटिंग यह निर्धारित नहीं करती कि टिप्पणियाँ PDF, HTML, इमेज, नोट्स या हैंडआउट एक्सपोर्ट में शामिल हैं या नहीं। संबंधित एक्सपोर्ट-विशिष्ट विकल्पों को अलग से कॉन्फ़िगर करें।
+टिप्पणियों को छिपाने से उनका पाठ, लेखक, स्थितियाँ, जवाब और स्थिति संरक्षित रहती है। टिप्पणियों को स्वयं बदलने के लिए देखें [प्रेजेंटेशन टिप्पणियाँ](/slides/hi/php-java/presentation-comments/)। निर्यात सेटिंग्स यह नियंत्रित करती हैं कि टिप्पणी PDF, HTML, इमेज, नोट्स या हैंडआउट्स में दिखाई दे।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **अक्सर पूछे जाने वाले सवाल**
 
-**जब मैं प्रस्तुति फिर से खोलता हूँ तो ग्रिड क्यों नहीं दिख रहा है?**
+**जब मैं प्रेजेंटेशन को पुनः खोलता हूँ तो ग्रिड क्यों छिपा रहता है?**  
+प्रेजेंटेशन ग्रिड अंतराल को संग्रहीत करता है। ग्रिड देखने के लिए संपादक में ग्रिड दृश्यता को सक्षम करें।
 
-फ़ाइल ग्रिड स्पेसिंग को संग्रहीत करती है, लेकिन एडिटर नियंत्रित करता है कि ग्रिड प्रदर्शित हो या नहीं। एडिटर के ग्रिड दृश्यता सेटिंग्स को जांचें।
+**क्या ड्राइंग गाइड्स को साफ करने से ग्रिड स्पेसिंग बदलती है?**  
+नहीं। गाइड जोड़ना, स्थान बदलना या साफ करना ग्रिड अंतराल को अपरिवर्तित रखता है।
 
-**ड्रॉइंग गाइड्स को साफ़ करने से ग्रिड स्पेसिंग बदलती है क्या?**
+**क्या प्रेजेंटेशन के विभिन्न भागों के लिए अलग-अलग दृश्य सेटिंग्स हो सकती हैं?**  
+नहीं। [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) पूरे प्रेजेंटेशन पर लागू होता है।
 
-नहीं। ड्रॉइंग गाइड्स और ग्रिड स्पेसिंग स्वतंत्र सेटिंग्स हैं। गाइड्स को साफ़ करने से संग्रहीत ग्रिड अंतराल अपरिवर्तित रहता है।
+**क्या मैं अलग-अलग उपयोगकर्ताओं के लिए अलग-अलग दृश्य सेटिंग्स सहेज सकता हूँ?**  
+फ़ाइल सभी उपयोगकर्ताओं के लिए एक सेट दृश्य गुण संग्रहीत करती है। कोई संपादक उपयोगकर्ता की स्थानीय प्राथमिकता भी लागू कर सकता है।
 
-**क्या मैं प्रस्तुति के विभिन्न सेक्शनों के लिए अलग-अलग दृश्य सेटिंग्स सेट कर सकता हूँ?**
-
-[View settings](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/getviewproperties/) प्रस्तुति स्तर पर परिभाषित होते हैं ([Normal View](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/hi/php-java/aspose.slides/viewproperties/getslideviewproperties/)), सेक्शन के अनुसार नहीं, इसलिए एक ही पैरामीटर सेट पूरे दस्तावेज़ पर लागू होता है जब वह खुलता है।
-
-**क्या मैं विभिन्न उपयोगकर्ताओं के लिए अलग-अलग दृश्य स्थितियों को पहले से परिभाषित कर सकता हूँ?**
-
-नहीं। सेटिंग्स फ़ाइल में संग्रहीत होती हैं और साझा की जाती हैं। व्यूअर एप्लिकेशन उपयोगकर्ता की प्राथमिकताओं को सम्मानित कर सकते हैं, लेकिन फ़ाइल स्वयं केवल एक सेट दृश्य गुणों को रखती है।
-
-**क्या मैं पूर्वनिर्धारित View Properties के साथ एक टेम्पलेट तैयार कर सकता हूँ ताकि नई प्रस्तुतियां उसी तरह खुलें?**
-
-हां। क्योंकि [view properties](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/getviewproperties/) प्रस्तुति स्तर पर संग्रहीत होते हैं, आप उन्हें टेम्पलेट में एम्बेड कर सकते हैं और उसी प्रारंभिक दृश्य कॉन्फ़िगरेशन के साथ नई दस्तावेज़ बना सकते हैं।
+**क्या मैं टेम्प्लेट में दृश्य सेटिंग्स सहेज सकता हूँ?**  
+हां। टेम्प्लेट से बनाई गई प्रेजेंटेशन उसकी सहेजी गई दृश्य सेटिंग्स को विरासत में लेती है।

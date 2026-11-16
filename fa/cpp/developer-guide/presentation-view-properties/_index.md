@@ -7,109 +7,90 @@ url: /fa/cpp/presentation-view-properties/
 keywords:
 - ویژگی‌های نمای
 - نمای عادی
-- محتوای طرح کلی
-- آیکون‌های طرح کلی
-- چسباندن تقسیم‌کننده عمودی
+- محتوای فهرست
+- آیکون‌های فهرست
+- قفل‌کردن تقسیم‌کننده عمودی
 - نمای تک
 - وضعیت نوار
 - اندازه بُعد
 - تنظیم خودکار
-- بزرگنمایی پیش‌فرض
+- بزرگ‌نمایی پیش‌فرض
 - PowerPoint
 - OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "کشف ویژگی‌های نمای Aspose.Slides برای C++ برای سفارشی‌سازی فرمت‌های اسلاید PPT، PPTX و ODP — تنظیم چیدمان‌ها، سطوح بزرگنمایی و تنظیمات نمایش."
+description: "از Aspose.Slides برای C++ برای پیکربندی چیدمان نمای عادی، بزرگ‌نمایی اسلاید و یادداشت‌ها، فاصله‌گذاری شبکه و قابلیت نمایش نظرات در ارائه‌های PowerPoint استفاده کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-نمای عادی شامل سه ناحیه محتوا است: اسلاید خود، ناحیه محتوای جانبی و ناحیه محتوای پایین. ویژگی‌هایی که به موقعیت‌یابی نواحی مختلف محتوا مربوط می‌شوند. این اطلاعات به برنامه امکان می‌دهد وضعیت نمای خود را در فایل ذخیره کند، به طوری که هنگام بازگشایی، نما در همان وضعیتی باشد که ارائه آخرین بار ذخیره شده بود.
-
-متد [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) برای دسترسی به ویژگی‌های نمای عادی ارائه اضافه شده است.  
-
-رابط‌های [INormalViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inormalviewproperties/)، [INormalViewRestoredProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inormalviewrestoredproperties/) و زیررده‌های آن، enum [SplitterBarStateType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/splitterbarstatetype/) نیز اضافه شده‌اند.
+در نمای عادی PowerPoint، اسلاید بین یک پنل جانبی برای تصویرهای کوچک یا فهرست و یک پنل یادداشت در زیر نمایش داده می‌شود. Aspose.Slides برای C++ تنظیمات ویرایشی ذخیره‌شدهٔ ارائه را از طریق [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) در دسترس قرار می‌دهد. این تنظیمات شامل چینش پنل‌ها، سطح‌های بزرگ‌نمایی، فاصله‌گذاری شبکه و قابلیت نمایش نظرات هستند.
 
 ## **درباره INormalViewProperties**
 
-نمایش ویژگی‌های نمای عادی را ارائه می‌دهد.
+از [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) برای دسترسی به رابط [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/) استفاده کنید. [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) تعیین می‌کند که آیا آیکون‌ها در کنار عناوین اسلایدها در فهرست نمایش داده شوند یا خیر. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) امکان قفل کردن پنل جانبی به حالت کوچک‌سازی‌شدهٔ خود را زمانی که کاربر آن را باریک می‌کند، فراهم می‌کند. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) ترجیح نمایش تنها یک پنل در کل پنجره را نشان می‌دهد.
 
-ویژگی **ShowOutlineIcons** مشخص می‌کند که آیا برنامه باید آیکون‌ها را نمایش دهد زمانی که محتوای طرح کلی در هر یک از نواحی محتوا در حالت نمای عادی نمایش داده می‌شود یا خیر.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) تقسیم‌کنندهٔ بین پنل جانبی و اسلاید را کنترل می‌کند. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) تقسیم‌کنندهٔ بالای پنل یادداشت‌ها را تنظیم می‌نماید. هر دو مقدار از نوع [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) را می‌پذیرند که می‌تواند `Minimized`، `Maximized` یا `Restored` باشد.
 
-ویژگی **SnapVerticalSplitter** تعیین می‌کند که آیا تقسیم‌کننده عمودی باید وقتی ناحیه جانبی به اندازه کافی کوچک است، به حالت کوچک‌شده (Minimized) بچسبد یا خیر.
+## **درباره بازگرداندن INormalViewProperties**
 
-ویژگی **PreferSingleView** مشخص می‌کند که آیا کاربر ترجیح می‌دهد یک ناحیه محتوای تک‌پنجره‌ای را به‌جای نمای عادی استاندارد با سه ناحیه محتوا ببیند. اگر فعال باشد، برنامه ممکن است یک از نواحی محتوا را در تمام پنجره نمایش دهد.
+هنگامی که یک تقسیم‌کننده بازگردانده شود، [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) اندازهٔ ذخیره‌شدهٔ پنل جانبی و [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) اندازهٔ ذخیره‌شدهٔ ناحیهٔ بالایی اسلاید را فراهم می‌کند. هر دو ویژگی [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/) را باز می‌گردانند. متد [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) درصدی بین ۰ تا ۱۰۰ می‌پذیرد و [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) تعیین می‌کند که آیا ویرایشگر هنگام تغییر اندازهٔ پنجره، اندازه را خودکار تنظیم کند یا نه.
 
-ویژگی‌های **VerticalBarState** و **HorizontalBarState** حالت نشان داده شدن نوار تقسیم‌کننده افقی یا عمودی را تعیین می‌کنند. نوار تقسیم‌کننده افقی اسلاید را از ناحیه محتوای زیرین اسلاید جدا می‌کند، نوار تقسیم‌کننده عمودی اسلاید را از ناحیه محتوای جانبی جدا می‌کند. مقادیر ممکن عبارتند از: **SplitterBarStateType.Minimized، SplitterBarStateType.Maximized** و **SplitterBarStateType.Restored**.
+این مثال یک ارائهٔ موجود را به‌روزرسانی می‌کند. تقسیم‌کنندهٔ افقی را بازگردانی می‌کند، اندازهٔ ناحیهٔ بالایی اسلاید که توسط [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) افشا می‌شود را به ۸۰٪ تنظیم می‌کند و تنظیم خودکار را فعال می‌سازد، و تقسیم‌کنندهٔ عمودی را به حداکثر می‌رساند. همچنین با [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) آیکون‌های فهرست را برای نمای فهرست فعال می‌کند.
 
-ویژگی‌های **RestoredLeft** و **RestoredTop** اندازه‌گیری ناحیه اسلاید بالا یا سمت را در نمای عادی مشخص می‌کنند، زمانی که مقدار **SplitterBarStateType.Restored** برای **VerticalBarState** و **HorizontalBarState** به‌صورت متناسب اعمال شده باشد.
-
-## **درباره بازیابی INormalViewProperties**
-
-اندازه‌گیری ناحیه اسلاید (عرض زمانی که فرزند RestoredTop باشد، ارتفاع زمانی که فرزند RestoredLeft باشد) در نمای عادی را مشخص می‌کند، زمانی که ناحیه دارای اندازهٔ بازگردانده شده متغیر (نه کوچک‌شده نه بزرگ‌شده) باشد.
-
-ویژگی **DimensionSize** اندازه ناحیه اسلاید (عرض زمانی که فرزند restoredTop باشد، ارتفاع زمانی که فرزند restoredLeft باشد) را مشخص می‌کند.
-
-ویژگی **AutoAdjust** تعیین می‌کند که آیا اندازهٔ ناحیه محتوای جانبی باید برای اندازهٔ جدید هنگام تغییر اندازهٔ پنجرهٔ حاوی نما در برنامه جبران شود یا خیر.
-
-مثالی که در زیر آورده شده است نشان می‌دهد چگونه می‌توانید به ویژگی‌های **ViewProperties.NormalViewProperties** برای یک ارائه دسترسی پیدا کنید.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// بازگرداندن ویژگی‌های نمای ارائه
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **تنظیم مقدار پیش‌فرض بزرگنمایی**
-
-Aspose.Slides برای C++ اکنون از تنظیم مقدار پیش‌فرض بزرگنمایی برای ارائه پشتیبانی می‌کند به‌گونه‌ای که هنگام باز شدن ارائه، بزرگنمایی از پیش تنظیم شده باشد. این کار می‌تواند با تنظیم [ViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/) یک ارائه انجام شود. ویژگی‌های نمای اسلاید و همچنین [get_NotesViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/get_notesviewproperties/) می‌توانند به‌صورت برنامه‌نویسی تنظیم شوند. در این موضوع، با یک مثال می‌بینیم چگونه ویژگی‌های نمای یک ارائه را در Aspose.Slides تنظیم کنیم.
-
-برای تنظیم ویژگی‌های نما، لطفاً مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید
-1. ویو [Properties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/) ارائه را تنظیم کنید
-1. ارائه را به‌عنوان فایل PPTX ذخیره کنید
-
-در مثال زیر، مقدار بزرگنمایی را برای نمای اسلاید و همچنین نمای یادداشت تنظیم کرده‌ایم.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// تنظیم ویژگی‌های نمای ارائه
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // مقدار بزرگنمایی به درصد برای نمای اسلاید
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // مقدار بزرگنمایی به درصد برای نمای یادداشت 
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
 
-## **تنظیم فاصله شبکه**
+## **تنظیم مقدار پیش‌فرض بزرگ‌نمایی**
 
-از [Presentation::get_ViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_viewproperties/) برای دسترسی به تنظیمات نمای سراسری ارائه استفاده کنید. متدهای [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iviewproperties/get_gridspacing/) و [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iviewproperties/set_gridspacing/) فاصلهٔ شبکهٔ ویرایشی زیرین را می‌خوانند یا تغییر می‌دهند. این تنظیم بر کل ارائه اعمال می‌شود، نه بر روی یک اسلاید جداگانه. فاصلهٔ شبکه بر حسب نقطه مشخص می‌شود، که ۷۲ نقطه برابر یک اینچ است. یک مقدار مثبت استفاده کنید، همان‌طور که مستندات API می‌طلبد.
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) و [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) تنظیمات بزرگ‌نمایی جداگانه‌ای برای ویرایشگر ذخیره می‌کنند. این تنظیمات بر ابعاد اسلاید، پخش اسلایدشو یا وضوح تصویر هنگام خروجی تأثیری ندارند.
 
-مثال زیر یک فایل `demo.pptx` موجود را باز می‌کند، فاصلهٔ شبکهٔ فعلی آن را چاپ می‌کند، فاصلهٔ یک‌چهارم اینچ را تنظیم می‌کند و نتیجه را ذخیره می‌نماید.
+این مثال ارائهٔ موجودی را باز می‌کند و با استفاده از [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) مقیاس‌گذاری خودکار را فعال می‌سازد تا اسلاید داخل پنجرهٔ ویرایشگر جا بگیرد. برای صفحهٔ یادداشت، مقیاس‌گذاری خودکار غیرفعال می‌شود و با [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) بزرگ‌نمایی ثابت ۸۰٪ تنظیم می‌گردد.
+
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
+```
+
+## **تنظیم فاصله‌گذاری شبکه**
+
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) فاصله بین خطوط شبکهٔ ویرایشی را در سراسر ارائه تنظیم می‌کند. این مقدار به صورت عددی مثبت در واحد نقطه (هر اینچ ۷۲ نقطه) دریافت می‌شود. این مثال فاصلهٔ فعلی را در یک ارائهٔ موجود چاپ می‌کند و با تنظیم فاصلهٔ ۱۸ نقطه (یک‌چهارم اینچ) یک شبکهٔ جدید ذخیره می‌نماید.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +102,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-شبکه با [drawing guides](/slides/fa/cpp/drawing-guides/) متفاوت است. فاصلهٔ شبکه یک بازهٔ منظم را کنترل می‌کند، در حالی که راهنمای‌های رسم خطوط ترازبندی افقی یا عمودی هستند که به‌صورت جداگانه موقعیت‌یابی می‌شوند. افزودن، جابجایی یا پاک‌سازی راهنمای‌های رسم باعث تغییر فاصلهٔ شبکه نمی‌شود.
+شبکه در فواصل ثابت تکرار می‌شود. [راهنماهای رسم](/slides/fa/cpp/drawing-guides/) موقعیت‌های افقی یا عمودی جداگانه را نشان می‌دهند. هر دو ابزار کمکی برای ویرایش هستند و فقط در ویرایشگرهایی که آن‌ها را نمایش می‌دهند ظاهر می‌شوند. نمایش اسلاید و خروجی به PDF، تصویر یا SVG این راهنماها را حذف می‌کنند.
 
-هر دو، شبکه و راهنمای‌های رسم، ابزارهای کمکی ویرایش هستند. آن‌ها به‌عنوان محتوای اسلاید در PDF، تصاویر، SVG یا نمایش اسلاید رندر نمی‌شوند. ذخیرهٔ فاصلهٔ شبکه تضمین نمی‌کند که یک ویرایشگر شبکه را نمایش دهد؛ قابلیت دید آن نیز به تنظیمات مشاهده‌گر یا ویرایشگر بستگی دارد.
+## **نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه**
 
-## **نمایش یا مخفی کردن نظرات هنگام باز کردن یک ارائه**
-
-از [Presentation::get_ViewProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_viewproperties/) برای دسترسی به تنظیمات نمای سراسری ارائه استفاده کنید. از [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iviewproperties/get_showcomments/) و [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iviewproperties/set_showcomments/) برای ذخیرهٔ ترجیح نمایش یا عدم نمایش نظرات زمانی که ارائه در PowerPoint یا ویرایشگر سازگار دیگری باز می‌شود، استفاده کنید.
-
-این تنظیم تنها ترجیح ذخیره‌شدهٔ نما را کنترل می‌کند. این تنظیم نظرات را اضافه، حذف، ویرایش یا حل نمی‌کند. مخفی کردن نظرات محتوای آن‌ها، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌ها را حفظ می‌کند. برای عملیات‌هایی که نظرات را خودش تغییر می‌دهند به [Presentation Comments](/slides/fa/cpp/presentation-comments/) مراجعه کنید.
-
-مثال زیر نیاز به یک فایل `comments.pptx` موجود دارد که شامل نظرات باشد. این مثال تنظیم فعلی نمایش را چاپ می‌کند، درخواست می‌کند نظرات مخفی شوند و یک PPTX جدید را بدون حذف هیچ‌یک از نظرات ذخیره می‌کند. همچنین از [IViewProperties::set_LastView](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iviewproperties/set_lastview/) همراه با [ViewType::SlideView](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewtype/) برای پیکربندی نمای ویرایشی اولیه به‌همراه قابلیت نمایش نظرات استفاده می‌کند.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) ترجیحی را ذخیره می‌کند که ویرایشگرهای سازگار هنگام باز کردن ارائه از آن استفاده می‌کنند. برای یک ارائهٔ موجود که حاوی نظرات است، این مثال تنظیم فعلی را چاپ می‌کند و نسخه‌ای با نظرات مخفی ذخیره می‌نماید. همچنین با [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) همراه با [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) نسخهٔ کپی‌شده را در نمای اسلاید باز می‌کند.
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +130,37 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-این تنظیم تعیین نمی‌کند که نظرات در خروجی‌های PDF، HTML، تصویر، یادداشت یا جزوه گنجانده شوند یا نه. گزینه‌های مربوط به هر نوع خروجی را به‌صورت جداگانه پیکربندی کنید.
+مخفی‌سازی نظرات متن، نویسنده، موقعیت، پاسخ‌ها و وضعیت آن‌ها را حفظ می‌کند. برای تغییر خود نظرات، به بخش [Presentation Comments](/slides/fa/cpp/presentation-comments/) مراجعه کنید. تنظیمات خروجی تعیین می‌کند که آیا نظرات در PDF، HTML، تصویر، یادداشت یا جزوه‌ها ظاهر می‌شوند یا خیر.
 
 ## **سوالات متداول**
 
-**چرا پس از بازگشایی دوبارهٔ ارائه، شبکه نمایش داده نمی‌شود؟**
+**چرا شبکه هنگام باز کردن مجدد ارائه مخفی می‌شود؟**
 
-فایل فاصلهٔ شبکه را ذخیره می‌کند، اما ویرایشگر کنترل می‌کند که آیا شبکه نمایش داده شود یا نه. تنظیمات دیداری شبکهٔ ویرایشگر را بررسی کنید.
+ارائه فاصلهٔ شبکه را ذخیره می‌کند. برای مشاهدهٔ شبکه، قابلیت نمایش شبکه را در ویرایشگر فعال کنید.
 
-**آیا پاک‌سازی راهنمای‌های رسم فاصلهٔ شبکه را تغییر می‌دهد؟**
+**آیا پاک کردن راهنماهای رسم فاصلهٔ شبکه را تغییر می‌دهد؟**
 
-خیر. راهنمای‌های رسم و فاصلهٔ شبکه تنظیمات مستقلی هستند. پاک‌سازی راهنماها فاصلهٔ ذخیره‌شدهٔ شبکه را بدون تغییر می‌گذارد.
+نه. افزودن، جابجایی یا پاک کردن یک راهنما فاصلهٔ شبکه را تغییر نمی‌دهد.
 
-**آیا می‌توانم تنظیمات نمای متفاوتی برای بخش‌های مختلف یک ارائه تنظیم کنم؟**
+**آیا می‌توان بخش‌های مختلف یک ارائه را با تنظیمات نمای متفاوت داشت؟**
 
-تنظیمات [View settings](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_viewproperties/) در سطح ارائه تعریف می‌شوند ([Normal View](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/fa/cpp/aspose.slides/viewproperties/get_slideviewproperties/))، نه برای هر بخش، بنابراین یک مجموعهٔ واحد از پارامترها هنگام باز شدن، برای سرتاسر سند اعمال می‌شود.
+نه. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) برای کل ارائه اعمال می‌شود.
 
-**آیا می‌توانم حالت‌های نمای متفاوتی را برای کاربران مختلف پیش‌تعریف کنم؟**
+**آیا می‌توانم تنظیمات نمای متفاوتی برای کاربران مختلف ذخیره کنم؟**
 
-خیر. تنظیمات در فایل ذخیره شده و به‌اشتراک گذاشته می‌شوند. برنامه‌های نمایش ممکن است ترجیحات کاربر را رعایت کنند، اما خود فایل فقط یک مجموعهٔ ویژگی‌های نمای را شامل می‌شود.
+فایل تنها یک مجموعهٔ تنظیمات نمای برای همه ذخیره می‌کند. ویرایشگر ممکن است ترجیح‌های محلی کاربر را نیز اعمال کند.
 
-**آیا می‌توانم یک الگو با ویژگی‌های نمای پیش‌تعریف شده تهیه کنم تا ارائه‌های جدید به همان شکل باز شوند؟**
+**آیا می‌توانم تنظیمات نمای را در یک قالب ذخیره کنم؟**
 
-بله. چون [view properties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_viewproperties/) در سطح ارائه ذخیره می‌شوند، می‌توانید آن‌ها را در یک قالب قرار دهید و اسناد جدید را بر پایهٔ آن با همان پیکربندی نمای اولیه ایجاد کنید.
+بله. ارائه‌های ساخته‌شده از قالب، تنظیمات نمای ذخیره‌شدهٔ قالب را به ارث می‌برند.

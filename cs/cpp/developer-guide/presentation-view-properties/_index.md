@@ -1,5 +1,5 @@
 ---
-title: Získání a aktualizace vlastností zobrazení prezentace v C++
+title: Načíst a aktualizovat vlastnosti zobrazení prezentace v C++
 linktitle: Vlastnosti zobrazení
 type: docs
 weight: 80
@@ -9,9 +9,9 @@ keywords:
 - normální zobrazení
 - obsah osnovy
 - ikony osnovy
-- přichytit vertikální rozdělovač
+- přichycení svislého rozdělovače
 - jednoduché zobrazení
-- stav lišty
+- stav panelu
 - velikost rozměru
 - automatické přizpůsobení
 - výchozí přiblížení
@@ -20,96 +20,75 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte vlastnosti zobrazení Aspose.Slides pro C++, které umožňují přizpůsobit formáty PPT, PPTX a ODP snímků – upravte rozvržení, úrovně přiblížení a nastavení zobrazení."
+description: "Pomocí Aspose.Slides pro C++ můžete nakonfigurovat rozvržení normálního zobrazení, přiblížení snímků a poznámek, rozestup mřížky a viditelnost komentářů v prezentacích PowerPoint."
 ---
 ## **Úvod**
 
-Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, postranní oblasti obsahu a spodní oblasti obsahu. Vlastnosti týkající se umístění různých oblastí obsahu. Tyto informace umožňují aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, v jakém bylo prezentace naposledy uložena.
-
-Metoda [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) byla přidána pro poskytnutí přístupu k vlastnostem normálního zobrazení prezentace.
-
-Rozhraní [INormalViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/inormalviewrestoredproperties/) a jejich potomci, výčet [SplitterBarStateType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/splitterbarstatetype/) byl přidán.
+V normálním zobrazení PowerPointu se snímek zobrazuje mezi postranním panelem s náhledy nebo obrysem a panelem s poznámkami pod ním. Aspose.Slides pro C++ zpřístupňuje uložené předvolby úprav prezentace přes [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/). Patří mezi ně rozvržení panelů, úrovně přiblížení, rozestupy mřížky a viditelnost komentářů.
 
 ## **O INormalViewProperties**
 
-Representuje vlastnosti normálního zobrazení.
+Použijte [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) k přístupu k rozhraní [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/). [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) řídí, zda se vedle názvů snímků v obrysu zobrazují ikony. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) umožňuje, aby se postranní panel při zúžení uživatelem přichytil do minimalizovaného stavu. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) udává preferenci zobrazit v celém okně jediný panel.
 
-Vlastnost **ShowOutlineIcons** určuje, zda by měla aplikace zobrazovat ikony při zobrazování obsahu osnovy v některé z oblastí obsahu v režimu normálního zobrazení.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) řídí oddělovač mezi postranním panelem a snímkem. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) řídí oddělovač nad panelem s poznámkami. Oba přijímají hodnotu typu [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` nebo `Restored`.
 
-Vlastnost **SnapVerticalSplitter** určuje, zda se má vertikální rozdělovací lišta zachytit do minimalizovaného stavu, když je postranní oblast dostatečně malá.
+## **O obnovování INormalViewProperties**
 
-Vlastnost **PreferSingleView** určuje, zda uživatel upřednostňuje zobrazení jedné celé okna s jednou oblastí obsahu oproti standardnímu normálnímu zobrazení se třemi oblastmi obsahu. Pokud je povoleno, aplikace může zobrazit jednu z oblastí obsahu v celém okně.
+Když je oddělovač obnoven, [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) poskytuje uloženou šířku postranního panelu a [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) poskytuje uloženou výšku horní oblasti snímku. Oba exponují [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/). Jeho metoda [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) přijímá procento od 0 do 100 a [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) určuje, zda editor při změně velikosti okna upraví rozměr.
 
-Vlastnosti **VerticalBarState** a **HorizontalBarState** určují stav, ve kterém má být zobrazena horizontální nebo vertikální rozdělovací lišta. Horizontální rozdělovací lišta odděluje snímek od oblasti obsahu pod snímkem, vertikální rozdělovací lišta odděluje snímek od postranní oblasti obsahu. Možné hodnoty jsou: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** a **SplitterBarStateType.Restored**.
+Tento příklad aktualizuje existující prezentaci. Obnoví vodorovný oddělovač, nastaví velikost horní oblasti snímku zpřístupněnou pomocí [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) na 80 % s povoleným automatickým přizpůsobením a maximalizuje svislý oddělovač. Také povolí ikony obrysu pomocí [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) pro zobrazení obrysu.
 
-Vlastnosti **RestoredLeft** a **RestoredTop** určují velikost horní nebo postranní oblasti snímku v normálním zobrazení, když je pro **VerticalBarState** a **HorizontalBarState** použita hodnota **SplitterBarStateType.Restored**.
-
-## **O obnovení INormalViewProperties**
-
-Určuje velikost oblasti snímku (šířka, když je dítětem RestoredTop, výška, když je dítětem RestoredLeft) v normálním zobrazení, když má oblast proměnnou obnovenou velikost (ani minimalizovanou, ani maximalizovanou).
-
-Vlastnost **DimensionSize** určuje velikost oblasti snímku (šířka, když je dítětem restoredTop, výška, když je dítětem restoredLeft).
-
-Vlastnost **AutoAdjust** určuje, zda by měla oblast postranního obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.
-
-Níže je uveden příklad, který ukazuje, jak můžete získat přístup k vlastnostem **ViewProperties.NormalViewProperties** pro prezentaci.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// Obnovit vlastnosti zobrazení prezentace
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **Nastavení výchozí hodnoty přiblížení**
-
-Aspose.Slides pro C++ nyní podporuje nastavení výchozí hodnoty přiblížení pro prezentaci tak, aby bylo při otevření prezentace již nastaveno. To lze provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewproperties/) prezentace. Vlastnosti zobrazení snímku i [get_NotesViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewproperties/get_notesviewproperties/) lze nastavit programově. V tomto tématu si ukážeme na příkladu, jak nastavit vlastnosti zobrazení prezentace v Aspose.Slides.
-
-Pro nastavení vlastností zobrazení postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/)
-1. Nastavte [Properties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewproperties/) zobrazení prezentace
-1. Uložte prezentaci jako soubor PPTX
-
-V níže uvedeném příkladu jsme nastavili hodnotu přiblížení pro zobrazení snímku i pro zobrazení poznámek.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Nastavení vlastností zobrazení prezentace
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Hodnota zvětšení v procentech pro zobrazení snímku
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Hodnota zvětšení v procentech pro zobrazení poznámek
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
+## **Nastavte výchozí hodnotu přiblížení**
 
-## **Nastavení rozestupu mřížky**
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) a [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) ukládají samostatná nastavení přiblížení pro editor. Tato nastavení neovlivňují rozměry snímku, přehrávání prezentace ani rozlišení exportovaných obrázků.
 
-Použijte [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_viewproperties/) pro přístup k nastavením zobrazení na úrovni celé prezentace. Metody [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iviewproperties/get_gridspacing/) a [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iviewproperties/set_gridspacing/) čtou nebo mění interval podkladové editační mřížky. Toto nastavení platí pro celou prezentaci, nikoli pro jednotlivý snímek. Rozestup mřížky je zadáván v bodech, kde 72 bodů odpovídá jedné palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
+Tento příklad otevře existující prezentaci a povolí automatické škálování pomocí [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) , aby se snímek vešel do okna editoru. Pro stránku s poznámkami vypne automatické škálování a použije [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) , aby nastavil pevné přiblížení 80 %.
 
-Následující příklad otevře existující soubor `demo.pptx`, vypíše jeho aktuální rozestup mřížky, nastaví interval čtvrtinové palce a uloží výsledek.
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
+```
+## **Nastavte rozestup mřížky**
+
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) určuje vzdálenost mezi čarami editační mřížky v celé prezentaci. Přijímá kladnou hodnotu v bodech, přičemž 72 bodů představuje jeden palec. Tento příklad vytiskne aktuální rozestup v existující prezentaci a uloží čtvrttučekovou mřížku nastavením intervalu na 18 bodů.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +100,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-Mřížka se liší od [kreslicích vodítek](/slides/cs/cpp/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco kreslicí vodítka jsou jednotlivě umístěné vodorovné nebo svislé zarovnávací čáry. Přidání, přesunutí či vymazání kreslicích vodítek nemění rozestup mřížky.
+Mřížka se opakuje v pevném intervalu. [Kreslicí vodítka](/slides/cs/cpp/drawing-guides/) označují jednotlivé vodorovné nebo svislé pozice. Obě jsou pomůckami při úpravách a zobrazují se jen v editorech, které je podporují. Přehlídky a exporty do PDF, obrázků nebo SVG je vynechají.
 
-Jak mřížka, tak kreslicí vodítka jsou pomocnými nástroji pro úpravy. Nejsou vykreslovány jako obsah snímku v PDF, obrázcích, SVG ani v prezentaci. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na preferencích prohlížeče nebo editoru.
+## **Zobrazit nebo skrýt komentáře při otevírání prezentace**
 
-## **Zobrazení nebo skrytí komentářů při otevírání prezentace**
-
-Použijte [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_viewproperties/) pro přístup k nastavením zobrazení na úrovni celé prezentace. Použijte [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iviewproperties/get_showcomments/) a [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iviewproperties/set_showcomments/) k uložení preference, zda se mají při otevření prezentace v PowerPointu nebo jiném kompatibilním editoru zobrazit komentáře.
-
-Toto nastavení řídí pouze uloženou preferenci zobrazení. Nepřidává, neodstraňuje, needituje ani neřeší komentáře. Skrytí komentářů zachovává jejich obsah, autory, pozice, odpovědi a stavy. Viz [Presentation Comments](/slides/cs/cpp/presentation-comments/) pro operace, které mění samotné komentáře.
-
-Následující příklad vyžaduje existující soubor `comments.pptx`, který obsahuje komentáře. Vypíše aktuální nastavení viditelnosti, požádá o skrytí komentářů a uloží nový soubor PPTX, aniž by odstranil jakékoli komentáře. Také používá [IViewProperties::set_LastView](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iviewproperties/set_lastview/) spolu s [ViewType::SlideView](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewtype/) k nastavení počátečního editačního zobrazení vedle viditelnosti komentářů.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) ukládá předvolbu, kterou kompatibilní editory používají při otevírání prezentace. Pro existující prezentaci s komentáři tento příklad vytiskne aktuální nastavení a uloží kopii s komentáři skrytými. Také volá [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) s [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/), aby se kopie otevřela v zobrazení snímku.
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +128,32 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-Toto nastavení neurčuje, zda jsou komentáře zahrnuty do exportů PDF, HTML, obrázků, poznámek nebo podkladů. Příslušné možnosti specifické pro export nakonfigurujte samostatně.
+Skrytí komentářů zachovává jejich text, autory, pozice, odpovědi a stavy. Pro úpravu samotných komentářů viz [Komentáře k prezentaci](/slides/cs/cpp/presentation-comments/). Nastavení exportu řídí, zda se komentáře zobrazí v PDF, HTML, obrázcích, poznámkách nebo podklady.
 
 ## **Často kladené otázky**
 
-**Proč není po opětovném otevření prezentace viditelná mřížka?**
+**Proč je mřížka skryta, když znovu otevřu prezentaci?**  
+Prezentace ukládá interval mřížky. Pro zobrazení mřížky ji v editoru povolte.
 
-Soubor ukládá rozestup mřížky, ale editor rozhoduje, zda je mřížka zobrazena. Zkontrolujte nastavení viditelnosti mřížky v editoru.
+**Mění vymazání vodicích čar rozestup mřížky?**  
+Ne. Přidání, přesunutí nebo smazání vodící čáry nemění interval mřížky.
 
-**Nezmění vymazání kreslicích vodítek rozestup mřížky?**
+**Může mít různá oddíly prezentace různé nastavení zobrazení?**  
+Ne. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) se vztahuje na celou prezentaci.
 
-Ne. Kreslicí vodítka a rozestup mřížky jsou nezávislá nastavení. Vymazání vodítek ponechá uložený interval mřížky beze změny.
+**Mohu uložit různá nastavení zobrazení pro různé uživatele?**  
+Soubor ukládá jeden soubor nastavení zobrazení pro všechny. Editor může také aplikovat místní předvolby uživatele.
 
-**Mohu nastavit různá nastavení zobrazení pro různé sekce prezentace?**
-
-Nastavení zobrazení ([View settings](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_viewproperties/)) jsou definována na úrovni celé prezentace (Normal View/Slide View), nikoli pro jednotlivé sekce, takže jeden soubor parametrů platí pro celý dokument při otevření.
-
-**Mohu předdefinovat různé stavy zobrazení pro různé uživatele?**
-
-Ne. Nastavení jsou uložena v souboru a jsou sdílena. Aplikační prohlížeče mohou respektovat preference uživatele, ale soubor samotný obsahuje jen jeden soubor vlastností zobrazení.
-
-**Mohu připravit šablonu s předdefinovanými vlastnostmi zobrazení, aby se nové prezentace otevíraly stejným způsobem?**
-
-Ano. Protože [view properties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_viewproperties/) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.
+**Mohu uložit nastavení zobrazení v šabloně?**  
+Ano. Prezentace vytvořené ze šablony zdědí její uložená nastavení zobrazení.

@@ -1,5 +1,5 @@
 ---
-title: C++'ta Sunum Görünüm Özelliklerini Al ve Güncelle
+title: C++'ta Sunum Görünüm Özelliklerini Getirme ve Güncelleme
 linktitle: Görünüm Özellikleri
 type: docs
 weight: 80
@@ -7,109 +7,88 @@ url: /tr/cpp/presentation-view-properties/
 keywords:
 - görünüm özellikleri
 - normal görünüm
-- anahat içeriği
-- anahat ikonları
-- dikey bölücüyü yakala
+- taslak içeriği
+- taslak simgeleri
+- dikey bölmeyi yakala
 - tek görünüm
 - çubuk durumu
 - boyut ölçüsü
-- otomatik ayar
+- otomatik ayarlama
 - varsayılan yakınlaştırma
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ görünüm özelliklerini keşfedin; PPT, PPTX ve ODP slayt formatlarını özelleştirin—düzenleri, yakınlaştırma seviyelerini ve görüntü ayarlarını ayarlayın."
+description: "PowerPoint sunumlarında normal görünüm düzenini, slayt ve not yakınlaştırmasını, ızgara aralığını ve yorum görünürlüğünü yapılandırmak için C++ için Aspose.Slides kullanın."
 ---
 ## **Giriş**
 
-Normal görünüm üç içerik bölgesinden oluşur: slayt kendisi, bir yan içerik bölgesi ve bir alt içerik bölgesi. Farklı içerik bölgelerinin konumlandırılmasına ilişkin özellikler. Bu bilgi uygulamanın görünüm durumunu dosyaya kaydetmesini sağlar, böylece yeniden açıldığında görünüm, sunum son kaydedildiğinde olduğu aynı durumda olur.
-
-Method [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) sunumun normal görünüm özelliklerine erişim sağlamak için eklendi. 
-
-[INormalViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inormalviewrestoredproperties/) arabirimleri ve onların türevleri, [SplitterBarStateType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/splitterbarstatetype/) enumu eklendi.
+PowerPoint'in normal görünümünde, slayt, küçük resimler ya da taslak için bir yan bölme ile alttaki not bölmesi arasında görünür. Aspose.Slides for C++ sunumun kaydedilmiş düzenleme tercihlerini [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) aracılığıyla ortaya koyar. Bunlar arasında bölme düzeni, yakınlaştırma seviyeleri, ızgara aralığı ve yorum görünürlüğü bulunur.
 
 ## **INormalViewProperties Hakkında**
 
-Normal görünüm özelliklerini temsil eder.
+Şu andaki [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) kullanarak [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/) arayüzüne erişin. [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) taslakta slayt başlıklarının yanında simgelerin görünüp görünmeyeceğini kontrol eder. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) kullanıcı yan bölmeyi daralttığında yan bölmenin küçültülmüş durumuna tutunmasını sağlar. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) tüm pencerede tek bir bölmenin gösterilmesi tercihini gösterir.
 
-Property **ShowOutlineIcons**, normal görünüm modundaki herhangi bir içerik bölgesinde anahat içeriği görüntüleniyorsa uygulamanın simge gösterip göstermeyeceğini belirtir.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) yan bölme ile slayt arasındaki ayırıcıyı kontrol eder. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) not bölmesinin üzerindeki ayırıcıyı kontrol eder. İkisi de `Minimized`, `Maximized` veya `Restored` değerlerinden birini alan [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) değerini kabul eder.
 
-Property **SnapVerticalSplitter**, yan bölge yeterince küçük olduğunda dikey bölücünün küçültülmüş bir duruma kilitlenip kilitlenmeyeceğini belirtir.
+## **INormalViewProperties Yeniden Yüklenmesi Hakkında**
 
-Property **PreferSingleView**, kullanıcının üç içerik bölgesiyle standart normal görünüm yerine tam pencere tek içerik bölgesi görmeyi tercih edip etmediğini belirtir. Etkinleştirildiğinde, uygulama içerik bölgelerinden birini tüm pencereye yayarak görüntülemeyi seçebilir.
+Bir ayırıcı geri yüklendiğinde, [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) yan bölmenin kaydedilmiş boyutunu, [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) ise üst slayt alanının kaydedilmiş boyutunu sağlar. İkisi de [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/) aracılığıyla erişilir. Bunun [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) yöntemi 0 ile 100 arasında bir yüzde alır ve [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) pencere yeniden boyutlandırıldığında düzenleyicinin boyutu ayarlayıp ayarlamayacağını kontrol eder.
 
-Properties **VerticalBarState** ve **HorizontalBarState**, yatay veya dikey bölücü çubuğunun hangi durumda gösterileceğini belirtir. Yatay bölücü çubuk, slaytı slayt altındaki içerik bölgesinden ayırırken, dikey bölücü çubuk slaytı yan içerik bölgesinden ayırır. Olası değerler: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** ve **SplitterBarStateType.Restored**.
+Bu örnek mevcut bir sunumu günceller. Yatay ayırıcıyı geri yükler, [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) ile erişilen üst slayt alanının boyutunu %80 olarak ayarlar ve otomatik ayarlamayı etkinleştirir, ayrıca dikey ayırıcıyı maksimize eder. Taslak görünümü için ayrıca [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) ile taslak simgelerini etkinleştirir.
 
-Properties **RestoredLeft** ve **RestoredTop**, **VerticalBarState** ve **HorizontalBarState** için **SplitterBarStateType.Restored** değeri uygulandığında normal görünümdeki üst veya yan slayt bölgesinin boyutlandırılmasını belirtir.
-
-## **INormalViewProperties Geri Yükleme Hakkında**
-
-Normal görünümde bölgenin değişken geri yüklenmiş bir boyutta (ne küçültülmüş ne de büyütülmüş) olduğu durumda slayt bölgesinin (RestoredTop çocuğu olduğunda genişlik, RestoredLeft çocuğu olduğunda yükseklik) boyutlandırılmasını belirtir.
-
-Property **DimensionSize**, slayt bölgesinin (restoredTop çocuğu olduğunda genişlik, restoredLeft çocuğu olduğunda yükseklik) boyutunu belirtir.
-
-Property **AutoAdjust**, pencere yeniden boyutlandırıldığında yan içerik bölgesinin yeni boyuta göre telafi edilip edilmeyeceğini belirtir.
-
-Aşağıda verilen örnek, bir sunum için **ViewProperties.NormalViewProperties** özelliklerine nasıl erişileceğini gösterir.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// Sunumun görünüm özelliklerini geri yükle
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **Varsayılan Yakınlaştırma Değerini Ayarlama**
-
-Aspose.Slides for C++ artık sunum için varsayılan yakınlaştırma değerini ayarlamayı destekliyor; böylece sunum açıldığında yakınlaştırma zaten ayarlanmış olur. Bu, bir sunumun [ViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/) ayarlanarak yapılabilir. Slayt Görünüm Özellikleri ve ayrıca [get_NotesViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/get_notesviewproperties/) programlı olarak ayarlanabilir. Bu konuda, Aspose.Slides'te bir sunumun Görünüm Özelliklerini bir örnekle nasıl ayarlayacağımızı göreceğiz.
-
-Görünüm özelliklerini ayarlamak için aşağıdaki adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun
-1. Sunumun Görünüm [Properties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/) ayarlarını belirleyin
-1. Sunumu bir PPTX dosyası olarak kaydedin
-
-Aşağıda verilen örnekte, slayt görünümü ve notlar görünümü için yakınlaştırma değeri ayarlanmıştır.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Sunumun görünüm özelliklerini ayarlama
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Slayt görünümü için yüzde cinsinden yakınlaştırma değeri
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Not görünümü için yüzde cinsinden yakınlaştırma değeri 
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
+## **Varsayılan Yakınlaştırma Değerini Ayarla**
 
-## **Izgara Aralığını Ayarlama**
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) ve [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) düzenleyici için bağımsız yakınlaştırma ayarlarını depolar. Bu ayarlar slayt boyutlarını, slayt gösterisi oynatımını veya görüntü dışa aktarma çözünürlüğünü etkilemez.
 
-[Presentation::get_ViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_viewproperties/) kullanarak sunum genelindeki görünüm ayarlarına erişin. [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iviewproperties/get_gridspacing/) ve [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iviewproperties/set_gridspacing/) yöntemleri temel düzenleme ızgarasının aralığını okur veya değiştirir. Bu ayar bireysel bir slayta değil bütün sunuma uygulanır. Izgara aralığı puan cinsinden belirtilir; 72 puan bir inçtir. API belgelerinde belirtildiği gibi pozitif bir değer kullanın.
+Bu örnek mevcut bir sunumu açar ve slaytı düzenleme penceresine sığdırmak için [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) ile otomatik ölçeklemeyi etkinleştirir. Not sayfası için otomatik ölçeklemeyi devre dışı bırakır ve sabit %80 yakınlaştırma ayarlamak üzere [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) kullanır.
 
-Aşağıdaki örnek, mevcut bir `demo.pptx` dosyasını açar, mevcut ızgara aralığını yazdırır, çeyrek inçlik bir aralık ayarlar ve sonucu kaydeder.
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
+```
+## **Izgara Boşluğunu Ayarla**
+
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) sunum boyunca düzenleme ızgara çizgileri arasındaki mesafeyi belirler. 72 puan başına inç olarak pozitif bir değer alır. Bu örnek mevcut bir sunumda geçerli boşluğu yazdırır ve aralığı 18 puana ayarlayarak çeyrek inçlik bir ızgara kaydeder.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +100,20 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
+Izgara sabit bir aralıkta tekrar eder. [Drawing guides](/slides/tr/cpp/drawing-guides/) tek tek yatay veya dikey konumları işaretler. İkisi de düzenleme yardımıdır ve yalnızca bunları gösteren editörlerde görünür. Slayt gösterileri ve PDF, görüntü veya SVG olarak dışa aktarmalar bunları içermez.
 
-Izgara, [çizim kılavuzlarından](/slides/tr/cpp/drawing-guides/) farklıdır. Izgara aralığı düzenli bir aralığı kontrol ederken, çizim kılavuzları bireysel olarak konumlandırılmış yatay veya dikey hizalama çizgileridir. Çizim kılavuzlarını eklemek, taşımak veya temizlemek ızgara aralığını değiştirmez.
+## **Sunumu Açarken Yorumları Göster veya Gizle**
 
-Izgara ve çizim kılavuzları her ikisi de düzenleme yardımcılarıdır. PDF, resimler, SVG veya slayt gösterisinde slayt içeriği olarak işlenmezler. Izgara aralığının depolanması, bir düzenleyicinin ızgarayı göstereceğini garanti etmez; görünürlüğü ayrıca görüntüleyicinin veya düzenleyicinin tercihine bağlıdır.
-
-## **Sunumu Açarken Yorumları Gösterme veya Gizleme**
-
-[Presentation::get_ViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_viewproperties/) kullanarak sunum genelindeki görünüm ayarlarına erişin. [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iviewproperties/get_showcomments/) ve [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iviewproperties/set_showcomments/) kullanarak yorumların PowerPoint'te veya başka bir uyumlu editörde sunum açıldığında gösterilip gösterilmeyeceği tercihini saklayın.
-
-Bu ayar yalnızca saklanan görünüm tercihini kontrol eder. Yorum ekleme, kaldırma, düzenleme veya çözümleme yapmaz. Yorumları gizlemek, içeriklerini, yazarlarını, konumlarını, yanıtlarını ve durumlarını korur. Yorumların kendisini değiştiren işlemler için [Presentation Comments](/slides/tr/cpp/presentation-comments/) sayfasına bakın.
-
-Aşağıdaki örnek, yorum içeren mevcut bir `comments.pptx` dosyasını gerektirir. Mevcut görünürlük ayarını yazdırır, yorumların gizlenmesini talep eder ve yorumları kaldırmadan yeni bir PPTX kaydeder. Ayrıca yorum görünürlüğüyle birlikte başlangıç düzenleme görünümünü yapılandırmak için [IViewProperties::set_LastView](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iviewproperties/set_lastview/) ve [ViewType::SlideView](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewtype/) kullanır.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) sunumu açarken uyumlu editörlerin kullandığı bir tercih kaydeder. Yorumlu mevcut bir sunum için bu örnek geçerli ayarı yazdırır ve yorumlar gizli bir kopya kaydeder. Ayrıca kopyanın slayt görünümünde açılması için [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) metodunu [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) ile çağırır.
 
 ```cpp
 #include <system/console.h>
@@ -152,29 +127,36 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
-
-Bu ayar, yorumların PDF, HTML, görüntü, notlar veya el ilanı dışa aktarımlarına dahil edilip edilmeyeceğini belirlemez. İlgili dışa aktarım seçeneklerini ayrı ayrı yapılandırın.
+Yorumları gizlemek, metinlerini, yazarlarını, konumlarını, yanıtlarını ve durumlarını korur. Yorumların kendisini değiştirmek için [Presentation Comments](/slides/tr/cpp/presentation-comments/) bölümüne bakın. Dışa aktarma ayarları, yorumların PDF, HTML, görüntüler, notlar veya el ilanlarında görünüp görünmeyeceğini kontrol eder.
 
 ## **SSS**
 
-**Sunumu yeniden açtıktan sonra ızgara neden görünmüyor?**  
-Dosya ızgara aralığını saklar, ancak ızgaranın görüntülenip görüntülenmeyeceği editör tarafından kontrol edilir. Editörün ızgara görünürlük ayarlarını kontrol edin.
+**Sunumu yeniden açtığımda ızgara neden gizleniyor?**
 
-**Çizim kılavuzlarını temizlemek ızgara aralığını değiştirir mi?**  
-Hayır. Çizim kılavuzları ve ızgara aralığı bağımsız ayarlardır. Kılavuzları temizlemek, saklanan ızgara aralığını değiştirmez.
+Sunum ızgara aralığını depolar. Izgarayı görmek için editörde ızgara görünürlüğünü etkinleştirin.
 
-**Bir sunumun farklı bölümleri için farklı görünüm ayarları belirleyebilir miyim?**  
-[View settings](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_viewproperties/) sunum seviyesinde tanımlanır ([Normal View](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/get_slideviewproperties/)), bölüm bazında değil; bu yüzden tek bir parametre seti sunum açıldığında tüm belgeye uygulanır.
+**Çizim kılavuzlarını temizlemek ızgara boşluğunu değiştirir mi?**
 
-**Farklı kullanıcılar için önceden tanımlı farklı görünüm durumları belirleyebilir miyim?**  
-Hayır. Ayarlar dosyada saklanır ve paylaşılır. Görüntüleyici uygulamalar kullanıcı tercihlerine saygı gösterebilir, ancak dosya kendisi tek bir görünüm özelliği seti içerir.
+Hayır. Bir kılavuzu eklemek, taşımak veya temizlemek ızgara aralığını değiştirmez.
 
-**Önceden tanımlı Görünüm Özelliklerine sahip bir şablon hazırlayabilir ve yeni sunumların aynı şekilde açılmasını sağlayabilir miyim?**  
-Evet. [view properties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_viewproperties/) sunum seviyesinde saklandığı için, bunları bir şablona dahil edebilir ve aynı başlangıç görünüm yapılandırmasıyla yeni belgeler oluşturabilirsiniz.
+**Bir sunumun farklı bölümleri farklı görünüm ayarlarına sahip olabilir mi?**
+
+Hayır. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) tüm sunuma uygulanır.
+
+**Farklı kullanıcılar için farklı görünüm ayarlarını kaydedebilir miyim?**
+
+Dosya herkes için tek bir görünüm özelliği seti saklar. Bir editör ayrıca kullanıcının yerel tercihlerini uygulayabilir.
+
+**Bir şablonda görünüm ayarlarını kaydedebilir miyim?**
+
+Evet. Şablondan oluşturulan sunumlar, kaydedilmiş görünüm ayarlarını devralır.

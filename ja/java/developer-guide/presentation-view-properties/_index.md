@@ -1,5 +1,5 @@
 ---
-title: Java でプレゼンテーションのビュー プロパティを取得および更新する
+title: Java でプレゼンテーションのビュー プロパティを取得および更新
 linktitle: ビュー プロパティ
 type: docs
 weight: 80
@@ -10,8 +10,8 @@ keywords:
 - アウトライン コンテンツ
 - アウトライン アイコン
 - 垂直スプリッタのスナップ
-- 単一ビュー
-- バーの状態
+- シングル ビュー
+- バー状態
 - 次元サイズ
 - 自動調整
 - デフォルト ズーム
@@ -20,157 +20,127 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: Aspose.Slides for Java のビュー プロパティを活用して、PPT、PPTX、ODP スライドの形式をカスタマイズし、レイアウト、ズーム レベル、表示設定を調整します。
+description: "Java 用 Aspose.Slides を使用して、PowerPoint プレゼンテーションの標準ビュー レイアウト、スライドとノートのズーム、グリッド間隔、およびコメントの表示設定を構成します。"
 ---
-## **はじめに**
+## **導入**
 
-ノーマルビューは、スライド自体、サイドコンテンツ領域、ボトムコンテンツ領域の 3 つのコンテンツ領域で構成されます。これらのコンテンツ領域の位置に関するプロパティです。この情報により、アプリケーションはビュー状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態でビューが表示されます。
-
-Method[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) が追加され、プレゼンテーションのノーマルビューのプロパティにアクセスできるようになりました。
-
-[INormalViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewRestoredProperties) インターフェイスとその子孫、[SplitterBarStateType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/SplitterBarStateType) 列挙型が追加されました。
+PowerPoint の標準ビューでは、スライドはサムネイルまたはアウトライン用のサイドペインと、下部のノートペインの間に表示されます。Aspose.Slides for Java は、[Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) を介してプレゼンテーションの保存された編集設定を公開します。これらには、ペインのレイアウト、ズームレベル、グリッド間隔、コメントの表示が含まれます。
 
 ## **INormalViewProperties について**
 
-ノーマルビューのプロパティを表します。
+[getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) を使用して [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/) インターフェイスにアクセスします。[setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) は、アウトラインでスライドタイトルの横にアイコンを表示するかどうかを制御します。[setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) は、ユーザーがサイドペインを狭めたときに最小化状態にスナップさせます。[setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) は、全画面で 1 つのペインを表示することを優先するかどうかを示します。
 
-メソッド[getShowOutlineIcons](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) と [setShowOutlineIcons](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) は、ノーマルビュー モードの任意のコンテンツ領域でアウトライン コンテンツを表示する場合に、アプリケーションがアイコンを表示すべきかどうかを指定します。
-
-メソッド[getSnapVerticalSplitter](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) と [setSnapVerticalSplitter](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) は、サイド領域が十分に小さくなったときに垂直スプリッタを最小化状態にスナップさせるかどうかを指定します。
-
-プロパティ[getPreferSingleView](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) と [setPreferSingleView](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) は、ユーザーが 3 つのコンテンツ領域を持つ標準的なノーマルビューよりも、ウィンドウ全体に単一コンテンツ領域を表示することを好むかどうかを指定します。有効にすると、アプリケーションは 1 つのコンテンツ領域をウィンドウ全体に表示することが選択肢に入ります。
-
-メソッド[getVerticalBarState](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) は、水平または垂直スプリッタ バーが表示される状態を指定します。水平スプリッタ バーはスライドとスライド下部のコンテンツ領域を分離し、垂直スプリッタ バーはスライドとサイドコンテンツ領域を分離します。可能な値は [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ja/java/com.aspose.slides/SplitterBarStateType#Minimized)、[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ja/java/com.aspose.slides/SplitterBarStateType#Maximized) および [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/java/com.aspose.slides/SplitterBarStateType#Restored) です。
-
-メソッド[getRestoredLeft](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) と [getRestoredTop](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) は、[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/java/com.aspose.slides/SplitterBarStateType#Restored) が [getVerticalBarState](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) および [getHorizontalBarState](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) にそれぞれ適用されたときの、ノーマルビューの上部またはサイドスライド領域のサイズを指定します。
+[setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) はサイドペインとスライドの間の区切りを制御します。[setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) はノートペイン上部の区切りを制御します。両方とも `Minimized`、`Maximized`、または `Restored` のいずれかの [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) 値を受け取ります。
 
 ## **INormalViewProperties の復元について**
 
-ノーマルビューの領域（`getRestoredTop` の子の場合は幅、`getRestoredLeft` の子の場合は高さ）が可変の復元サイズ（最小化でも最大化でもない）であるときのスライド領域のサイズを指定します。
+区切りが復元されると、[getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) はサイドペインの保存されたサイズを、[getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) は上部スライド領域の保存されたサイズを提供します。両方とも [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/) を公開します。その [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) メソッドは 0 から 100 のパーセンテージを受け取り、[setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) はウィンドウのサイズ変更時にエディタがサイズを自動調整するかどうかを制御します。
 
-Method[getDimensionSize](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) は、復元トップの子であれば幅、復元レフトの子であれば高さとして、スライド領域のサイズを指定します。
-
-Method[getAutoAdjust](https://reference.aspose.com/slides/ja/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) は、ウィンドウのサイズ変更時にサイドコンテンツ領域のサイズが新しいサイズに合わせて調整されるかどうかを指定します。
-
-以下の例は、プレゼンテーションの[ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) プロパティにアクセスする方法を示しています。
+この例は既存のプレゼンテーションを更新します。水平区切りを復元し、[getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) が返すサイズを自動調整を有効にした状態で 80% に設定し、垂直区切りを最大化します。また、[setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) を呼び出してアウトラインビューにアイコンを表示します。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // プレゼンテーションのビュー プロパティを復元する
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **デフォルトのズーム値の設定**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Java は、プレゼンテーションを開いたときに既にズームが設定された状態になるよう、デフォルトのズーム値を設定できるようになりました。これはプレゼンテーションの[ViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ViewProperties) を設定することで行えます。[getSlideViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) および [getNotesViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) もプログラムで設定可能です。この項目では、Aspose.Slides で[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation) の[View Properties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ViewProperties) を設定する方法を例で示します。
-
-{{% /alert %}} 
-
-ビュー プロパティを設定するには、以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation) の[View Properties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ViewProperties) を設定します。  
-1. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き出します。  
-   以下の例では、スライドビューとノートビューの両方のズーム値を設定しています。
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // プレゼンテーションのビュー プロパティを設定する
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // スライドビューのズーム値（パーセンテージ）
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // ノートビューのズーム値（パーセンテージ） 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **グリッド間隔の設定**
+## **デフォルトのズーム値を設定する**
 
-[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。 [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iviewproperties/#getGridSpacing--) および [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) メソッドは、基礎となる編集グリッドの間隔を読み取ったり変更したりします。この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。グリッド間隔はポイントで指定され、72 ポイントが 1 インチに相当します。API ドキュメントで要求されているように正の値を使用してください。
+[getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) と [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) は、エディタ用に個別のズーム設定を保存します。これらの設定はスライドのサイズ、スライドショーの再生、画像エクスポートの解像度には影響しません。
 
-以下の例は、既存の `demo.pptx` を開き、現在のグリッド間隔を表示し、1/4 インチの間隔に設定して結果を保存します。
+この例は既存のプレゼンテーションを開き、[setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) を呼び出してスライドを編集ウィンドウに合わせます。ノートページについては自動スケーリングを無効にし、[setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) を呼び出して固定の 80% ズームを設定します。
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **グリッド間隔を設定する**
+
+[setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) は、プレゼンテーション全体の編集用グリッド線間の距離を設定します。単位はポイントで、1 インチは 72 ポイントです。この例は既存のプレゼンテーションで現在の間隔を出力し、間隔を 18 ポイント（1/4 インチ）に設定して保存します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-グリッドは [drawing guides](/slides/ja/java/drawing-guides/) とは異なります。グリッド間隔は規則的な間隔を制御し、描画ガイドは個別に配置された横方向または縦方向の整列線です。描画ガイドの追加、移動、削除はグリッド間隔を変更しません。
+グリッドは固定間隔で繰り返されます。[Drawing guides](/slides/ja/java/drawing-guides/) は個別の水平または垂直位置をマークします。どちらも編集支援ツールであり、表示できるエディタでのみ表示されます。スライドショーや PDF、画像、SVG へのエクスポートではこれらは除外されます。
 
-グリッドも描画ガイドも編集支援ツールです。PDF、画像、SVG、またはスライドショーとしてスライド コンテンツにレンダリングされません。グリッド間隔を保存しても、エディタがグリッドを表示することが保証されるわけではありません。表示はビューアやエディタの設定にも依存します。
+## **プレゼンテーションを開くときのコメントの表示/非表示**
 
-## **プレゼンテーションを開くときにコメントを表示または非表示にする**
-
-[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。 [IViewProperties.getShowComments](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iviewproperties/#getShowComments--) と [IViewProperties.setShowComments](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) は、PowerPoint やその他の互換エディタでプレゼンテーションを開く際にコメントを表示するかどうかの保存された設定を読み取ったり変更したりします。
-
-この設定は保存されたビューのプリファレンスのみを制御します。コメントの追加、削除、編集、解決は行いません。コメントを非表示にしても、内容、作成者、位置、返信、ステータスは保持されます。コメント自体を変更する操作については、[Presentation Comments](/slides/ja/java/presentation-comments/) を参照してください。
-
-以下の例は、コメントが含まれた既存の `comments.pptx` を前提としています。現在の可視性設定を表示し、コメントを非表示にするよう要求し、コメントを削除せずに新しい PPTX を保存します。また、[IViewProperties.setLastView](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iviewproperties/#setLastView-int-) と [ViewType.SlideView](https://reference.aspose.com/slides/ja/java/com.aspose.slides/viewtype/#SlideView) を使用して、コメントの可視性とともに初期編集ビューを構成しています。
+[setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) は、互換性のあるエディタがプレゼンテーションを開く際に使用する設定を保存します。コメント付きの既存プレゼンテーションに対して、この例は現在の設定を出力し、コメントを非表示にしたコピーを保存します。また、[setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) に [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) を渡すことで、コピーがスライドビューで開くようにします。
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-この設定は、PDF、HTML、画像、ノート、配布資料へのエクスポート時にコメントが含まれるかどうかを決定しません。エクスポート固有のオプションは別途設定してください。
+コメントを非表示にしても、テキスト、作者、位置、返信、ステータスは保持されます。コメント自体を変更するには、[Presentation Comments](/slides/ja/java/presentation-comments/) を参照してください。エクスポート設定は、コメントが PDF、HTML、画像、ノート、ハンドアウトに表示されるかどうかを制御します。
 
 ## **FAQ**
 
-**Why is the grid not visible after I reopen the presentation?**  
-ファイルはグリッド間隔を保存しますが、エディタ側がグリッドの表示可否を制御します。エディタのグリッド表示設定を確認してください。
+**プレゼンテーションを再度開くとグリッドが非表示になるのはなぜですか？**
 
-**Does clearing drawing guides change the grid spacing?**  
-いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドを削除しても保存されたグリッド間隔は変更されません。
+プレゼンテーションはグリッド間隔を保存しています。グリッドを表示するには、エディタでグリッドの表示を有効にしてください。
 
-**Can I set different view settings for different sections of a presentation?**  
-[View settings](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getViewProperties--) はプレゼンテーションレベル（[Normal View](https://reference.aspose.com/slides/ja/java/com.aspose.slides/viewproperties/#getNormalViewProperties--) / [Slide View](https://reference.aspose.com/slides/ja/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)）で定義され、セクションごとに設定できません。そのため、ドキュメントが開かれるときは単一のパラメータセットが全体に適用されます。
+**描画ガイドを削除してもグリッド間隔は変わりますか？**
 
-**Can I predefine different view states for different users?**  
-いいえ。設定はファイルに保存され、すべてのユーザーで共有されます。ビューアアプリはユーザー設定を考慮することがありますが、ファイル自体は 1 つのビュー プロパティしか保持しません。
+いいえ。ガイドを追加、移動、削除してもグリッド間隔は変わりません。
 
-**Can I prepare a template with predefined View Properties so new presentations open the same way?**  
-はい。[view properties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getViewProperties--) はプレゼンテーションレベルで保存されるため、テンプレートに埋め込んでおけば、新規作成時に同じ初期ビュー構成で開くことができます。
+**プレゼンテーションの異なるセクションでビュー設定を変えることはできますか？**
+
+いいえ。[Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) はプレゼンテーション全体に適用されます。
+
+**ユーザーごとに異なるビュー設定を保存できますか？**
+
+ファイルは全員用に 1 つのビュー設定セットを保存します。エディタはユーザー固有のローカル設定を適用することがあります。
+
+**テンプレートにビュー設定を保存できますか？**
+
+はい。テンプレートから作成されたプレゼンテーションは、保存されたビュー設定を継承します。

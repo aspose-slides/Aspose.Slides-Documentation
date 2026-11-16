@@ -1,18 +1,18 @@
 ---
-title: "Hämta och uppdatera vyegenskaper för presentation i C++"
-linktitle: "Vyegenskaper"
+title: Hämta och uppdatera presentationsvyegenskaper i C++
+linktitle: Vyegenskaper
 type: docs
 weight: 80
 url: /sv/cpp/presentation-view-properties/
 keywords:
 - vyegenskaper
-- normal vy
+- normalvy
 - dispositionsinnehåll
 - dispositionsikoner
-- fästa vertikal splitter
-- ensam vy
+- fäst vertikal delare
+- enkelvy
 - stapeltillstånd
-- dimensionens storlek
+- dimensionstorlek
 - automatisk justering
 - standardzoom
 - PowerPoint
@@ -20,96 +20,75 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Upptäck vyegenskaperna i Aspose.Slides för C++ för att anpassa PPT-, PPTX- och ODP‑presentationer – justera layouter, zoomnivåer och visningsinställningar."
+description: "Använd Aspose.Slides för C++ för att konfigurera normalvylayout, zoom för bild och anteckningar, rutnätsavstånd samt kommentarers synlighet i PowerPoint-presentationer."
 ---
 ## **Introduktion**
 
-Normalvyn består av tre innehållsområden: själva bilden, ett sidoinnehållsområde och ett botteninnehållsområde. Egenskaper som rör positioneringen av de olika innehållsområdena. Denna information gör att applikationen kan spara vynet till filen, så att när den öppnas igen är vyn i samma tillstånd som när presentationen senast sparades.
-
-Metoden [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) har lagts till för att ge åtkomst till normalvyns egenskaper för presentationen.
-
-[INormalViewProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/inormalviewrestoredproperties/) gränssnitten och deras underklasser, [SplitterBarStateType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/splitterbarstatetype/)‑enum har lagts till.
+I PowerPoints normala vy visas bilden mellan en sidopanel för miniatyrbilder eller en disposition och en anteckningspanel under. Aspose.Slides för C++ exponerar presentationens sparade redigeringsinställningar via [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/). Dessa inkluderar panelens layout, zoomnivåer, rutnätavstånd och kommentarers synlighet.
 
 ## **Om INormalViewProperties**
 
-Representerar normalvyns egenskaper.
+Använd [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) för att komma åt [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/)‑gränssnittet. [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) styr om ikoner visas bredvid bildtitlar i dispositionen. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) låter sidopanelen fästa sig i sitt minimerade tillstånd när användaren minskar den. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) indikerar en preferens för att visa en panel i hela fönstret.
 
-Egendomen **ShowOutlineIcons** anger om applikationen ska visa ikoner när man visar dispositionens innehåll i något av innehållsområdena i normalvy.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) styr delaren mellan sidopanelen och bilden. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) styr delaren ovanför anteckningspanelen. Båda accepterar ett [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/)‑värde av `Minimized`, `Maximized` eller `Restored`.
 
-Egendomen **SnapVerticalSplitter** anger om den vertikala splitterbaren ska fästas i ett minimerat tillstånd när sidoregionen är tillräckligt liten.
+## **Om återställning av INormalViewProperties**
 
-Egendomen **PreferSingleView** anger om användaren föredrar att se ett helfönster med ett enda innehållsområde istället för den vanliga normalvyn med tre innehållsområden. Om den är aktiverad kan applikationen välja att visa ett av innehållsområdena i hela fönstret.
+När en delare återställs levererar [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) den sparade storleken på sidopanelen och [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) den sparade storleken på det övre bildområdet. Båda exponerar [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/). Dess [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/)‑metod accepterar en procentandel från 0 till 100, och [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) styr om redigeraren justerar storleken när fönstret ändras i storlek.
 
-Egendomarna **VerticalBarState** och **HorizontalBarState** anger i vilket tillstånd den horisontella respektive vertikala splitterbaren ska visas. En horisontell splitterbar separerar bilden från innehållsområdet under bilden, en vertikal splitterbar separerar bilden från sidoinnehållsområdet. Möjliga värden är: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** och **SplitterBarStateType.Restored**.
+Detta exempel uppdaterar en befintlig presentation. Det återställer den horisontella delaren, sätter storleken på det övre bildområdet som exponeras av [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) till 80% med automatisk justering aktiverad, och maximerar den vertikala delaren. Det aktiverar också dispositionsikoner med [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) för dispositionsvyn.
 
-Egendomarna **RestoredLeft** och **RestoredTop** anger storleken på respektive top- eller sidoregion i normalvyn när värdet **SplitterBarStateType.Restored** har tillämpats på **VerticalBarState** respektive **HorizontalBarState**.
-
-## **Om att återställa INormalViewProperties**
-
-Anger storleken på bildregionen (bredd när den är ett underobjekt till RestoredTop, höjd när den är ett underobjekt till RestoredLeft) i normalvyn, när regionen har en variabel återställd storlek (varken minimerad eller maximerad).
-
-Egendomen **DimensionSize** anger storleken på bildregionen (bredd när den är ett underobjekt till restoredTop, höjd när den är ett underobjekt till restoredLeft).
-
-Egendomen **AutoAdjust** anger om storleken på sidoinnehållsområdet ska kompensera för den nya storleken när fönstret som innehåller vyn förstoras eller förminskas i applikationen.
-
-Ett exempel nedan visar hur du kan komma åt egenskaperna för **ViewProperties.NormalViewProperties** för en presentation.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// Återställ vyegenskaperna för presentationen
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **Ange standardzoomvärde**
-
-Aspose.Slides för C++ stöder nu att ställa in standardzoomvärdet för en presentation så att när presentationen öppnas är zoomen redan inställd. Detta kan göras genom att sätta [ViewProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/viewproperties/) för en presentation. Bildvyeegenskaper samt [get_NotesViewProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/viewproperties/get_notesviewproperties/) kan ställas in programmässigt. I detta avsnitt ser vi med ett exempel hur man sätter View Properties för en presentation i Aspose.Slides.
-
-För att ställa in vyeegenskaperna, följ stegen nedan:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/)
-1. Ställ in View [Properties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/viewproperties/) för Presentation
-1. Skriv presentationen som en PPTX‑fil
-
-I exemplet nedan har vi ställt in zoomvärdet för bildvyn samt notvyn.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Inställer vyegenskaperna för presentationen
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Zoomvärde i procent för bildvyn
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Zoomvärde i procent för notvyn 
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
+## **Ställ in standardzoomvärdet**
 
-## **Ställ in rutnätets avstånd**
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) och [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) lagrar oberoende zoominställningar för redigeraren. Dessa inställningar påverkar inte bildstorlekar, bildspelsuppspelning eller bildexportupplösning.
 
-Använd [Presentation::get_ViewProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_viewproperties/) för att komma åt vyinställningar på presentationsnivå. Metoderna [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iviewproperties/get_gridspacing/) och [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iviewproperties/set_gridspacing/) läser eller ändrar intervallet för det underliggande redigeringsrutnätet. Denna inställning gäller för hela presentationen, inte för en enskild bild. Rutnätsavstånd anges i punkter, där 72 punkter motsvarar en tum. Använd ett positivt värde, enligt API-dokumentationen.
+Detta exempel öppnar en befintlig presentation och möjliggör automatisk skalning med [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) för att anpassa bilden till redigeringsfönstret. För anteckningssidan inaktiveras automatisk skalning och [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) används för att sätta en fast zoom på 80%.
 
-Följande exempel öppnar en befintlig `demo.pptx`, skriver ut dess aktuella rutnätsavstånd, sätter ett kvart-tumsintervall och sparar resultatet.
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
+```
+## **Ställ in rutnätsavståndet**
+
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) anger avståndet mellan redigeringsrutnätslinjer i hela presentationen. Den tar ett positivt värde i punkter, med 72 punkter per tum. Detta exempel skriver ut det aktuella avståndet i en befintlig presentation och sparar ett fjärdedels tum stort rutnät genom att sätta intervallet till 18 punkter.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +100,20 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
+Rutnätet upprepas med ett fast intervall. [Ritningsguider](/slides/sv/cpp/drawing-guides/) markerar individuella horisontella eller vertikala positioner. Båda är hjälpmedel för redigering och visas endast i redigerare som visar dem. Bildspel och export till PDF, bilder eller SVG utelämnar dem.
 
-Rutnätet skiljer sig från [drawing guides](/slides/sv/cpp/drawing-guides/). Rutnätsavstånd styr ett regelbundet intervall, medan ritguider är individuellt placerade horisontella eller vertikala justeringslinjer. Att lägga till, flytta eller rensa ritguider ändrar inte rutnätsavståndet.
+## **Visa eller dölj kommentarer vid öppning av en presentation**
 
-Både rutnätet och ritguiderna är hjälpmedel för redigering. De renderas inte som bildinnehåll i PDF, bilder, SVG eller en bildspelsvisning. Att lagra rutnätsavståndet garanterar inte att en redigerare visar rutnätet: dess synlighet beror också på visnings- eller redigerarens inställningar.
-
-## **Visa eller dölja kommentarer vid öppning av en presentation**
-
-Använd [Presentation::get_ViewProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_viewproperties/) för att komma åt vyinställningar på presentationsnivå. Använd [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iviewproperties/get_showcomments/) och [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iviewproperties/set_showcomments/) för att lagra en preferens om huruvida kommentarer ska visas när presentationen öppnas i PowerPoint eller en annan kompatibel redigerare.
-
-Denna inställning styr endast den lagrade vypreferensen. Den lägger inte till, tar bort, redigerar eller löser kommentarer. Att dölja kommentarer bevarar deras innehåll, författare, positioner, svar och status. Se [Presentation Comments](/slides/sv/cpp/presentation-comments/) för operationer som ändrar kommentarerna själva.
-
-Följande exempel kräver en befintlig `comments.pptx` som innehåller kommentarer. Det skriver ut den aktuella synlighetsinställningen, begär att kommentarer ska döljas och sparar en ny PPTX utan att ta bort några kommentarer. Det använder också [IViewProperties::set_LastView](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iviewproperties/set_lastview/) tillsammans med [ViewType::SlideView](https://reference.aspose.com/slides/sv/cpp/aspose.slides/viewtype/) för att konfigurera den initiala redigeringsvyn samt kommentarssynlighet.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) lagrar en preferens som kompatibla redigerare använder när presentationen öppnas. För en befintlig presentation med kommentarer skriver detta exempel ut den aktuella inställningen och sparar en kopia med kommentarer dolda. Det anropar också [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) med [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) så att kopian öppnas i bildvyn.
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +127,31 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
+Att dölja kommentarer bevarar deras text, författare, positioner, svar och status. För att ändra själva kommentarerna, se [Presentation kommentarer](/slides/sv/cpp/presentation-comments/). Exportinställningarna styr om kommentarer visas i PDF, HTML, bilder, anteckningar eller handouts.
 
-Denna inställning avgör inte om kommentarer inkluderas i PDF-, HTML-, bild-, antecknings- eller utdelningsexport. Konfigurera de specifika exportalternativen separat.
+## **Vanliga frågor**
 
-## **FAQ**
+**Varför är rutnätet dolt när jag öppnar presentationen igen?**  
+Presentationen lagrar rutnätintervallet. För att se rutnätet, aktivera rutnätsvisning i redigeraren.
 
-**Varför är rutnätet inte synligt när jag öppnar presentationen igen?**
+**Påverkar rensning av ritningsguider rutnätsavståndet?**  
+Nej. Att lägga till, flytta eller rensa en guide lämnar rutnätintervallet oförändrat.
 
-Filen lagrar rutnätsavståndet, men redigeraren styr om rutnätet visas. Kontrollera redigerarens inställningar för rutnätsynlighet.
+**Kan olika sektioner i en presentation ha olika vyinställningar?**  
+Nej. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) gäller för hela presentationen.
 
-**Ändrar rensning av ritguider rutnätsavståndet?**
+**Kan jag spara olika vyinställningar för olika användare?**  
+Filen lagrar en uppsättning vyegenskaper för alla. En redigerare kan också tillämpa en användares lokala preferenser.
 
-Nej. Ritguider och rutnätsavstånd är oberoende inställningar. Att rensa guider lämnar det lagrade rutnätsintervallet oförändrat.
-
-**Kan jag ange olika vyinställningar för olika sektioner i en presentation?**
-
-[View settings](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_viewproperties/) definieras på presentationsnivå ([Normal View](https://reference.aspose.com/slides/sv/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/sv/cpp/aspose.slides/viewproperties/get_slideviewproperties/)), inte per sektion, så en enda uppsättning parametrar gäller för hela dokumentet när det öppnas.
-
-**Kan jag fördefiniera olika vylägen för olika användare?**
-
-Nej. Inställningarna lagras i filen och delas. Visningsprogram kan ta hänsyn till användarpreferenser, men filen i sig innehåller endast en uppsättning vyeegenskaper.
-
-**Kan jag förbereda en mall med fördefinierade View Properties så att nya presentationer öppnas på samma sätt?**
-
-Ja. Eftersom [view properties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_viewproperties/) lagras på presentationsnivå kan du bädda in dem i en mall och skapa nya dokument från den med samma initiala vykonfiguration.
+**Kan jag spara vyinställningar i en mall?**  
+Ja. Presentationer som skapas från mallen ärver dess sparade vyinställningar.

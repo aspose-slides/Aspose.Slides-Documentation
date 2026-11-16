@@ -1,5 +1,5 @@
 ---
-title: 在 C++ 中检索和更新演示文稿视图属性
+title: 检索并更新 C++ 中的演示文稿视图属性
 linktitle: 视图属性
 type: docs
 weight: 80
@@ -9,9 +9,9 @@ keywords:
 - 普通视图
 - 大纲内容
 - 大纲图标
-- 垂直拆分条自动折叠
+- 捕捉垂直分割条
 - 单视图
-- 条状态
+- 栏状态
 - 尺寸大小
 - 自动调整
 - 默认缩放
@@ -20,39 +20,23 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "发现 Aspose.Slides for C++ 的视图属性，以自定义 PPT、PPTX 和 ODP 幻灯片格式——调整布局、缩放级别和显示设置。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中配置普通视图布局、幻灯片和备注缩放、网格间距以及批注可见性。"
 ---
-## **介绍**
+## **简介**
 
-普通视图由三个内容区域组成：幻灯片本身、侧边内容区域和底部内容区域。有关不同内容区域定位的属性。这些信息允许应用程序将其视图状态保存到文件中，以便重新打开时视图保持在上次保存演示文稿时的相同状态。
-
-已添加方法 [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) 以提供对演示文稿普通视图属性的访问。
-
-已添加 [INormalViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/inormalviewproperties/)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/inormalviewrestoredproperties/) 接口及其派生类，以及 [SplitterBarStateType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/splitterbarstatetype/) 枚举。
+在 PowerPoint 的普通视图中，幻灯片位于缩略图或大纲的侧窗格与下方的备注窗格之间。Aspose.Slides for C++ 通过 [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) 公开演示文稿保存的编辑首选项。这些包括窗格布局、缩放级别、网格间距和批注可见性。
 
 ## **关于 INormalViewProperties**
 
-表示普通视图属性。
+使用 [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) 访问 [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/) 接口。[set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) 控制是否在大纲视图中在幻灯片标题旁显示图标。[set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) 使侧窗格在用户收窄时自动捕捉到最小化状态。[set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) 表示首选在整个窗口中显示单个窗格。
 
-属性 **ShowOutlineIcons** 指定在普通视图模式的任何内容区域显示大纲内容时，应用程序是否应显示图标。
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) 控制侧窗格与幻灯片之间的分割条。[set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) 控制备注窗格上方的分割条。这两者都接受 [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) 的值 `Minimized`、`Maximized` 或 `Restored`。
 
-属性 **SnapVerticalSplitter** 指定当侧边区域足够小且垂直拆分条应是否自动折叠至最小化状态。
+## **关于 恢复 INormalViewProperties**
 
-属性 **PreferSingleView** 指定用户是否更倾向于在整个窗口中仅显示单个内容区域，而不是具有三个内容区域的标准普通视图。如果启用，应用程序可能会选择在整个窗口中显示其中一个内容区域。
+当分割条被恢复时，[get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) 提供侧窗格保存的尺寸，而 [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) 提供上部幻灯片区域保存的尺寸。这两者都公开 [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/)。其 [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) 方法接受 0 到 100 的百分比，而 [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) 控制编辑器在窗口大小调整时是否自动调整尺寸。
 
-属性 **VerticalBarState** 和 **HorizontalBarState** 指定水平或垂直拆分条应显示的状态。水平拆分条将幻灯片与幻灯片下方的内容区域分开，垂直拆分条将幻灯片与侧边内容区域分开。可能的值有：**SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** 和 **SplitterBarStateType.Restored**。
-
-属性 **RestoredLeft** 和 **RestoredTop** 指定在 **VerticalBarState** 和 **HorizontalBarState** 分别使用 **SplitterBarStateType.Restored** 值时，普通视图中侧边或顶部幻灯片区域的大小。
-
-## **关于恢复 INormalViewProperties**
-
-指定普通视图中幻灯片区域（当为 RestoredTop 的子项时为宽度，当为 RestoredLeft 的子项时为高度）的大小，当该区域处于可变的恢复大小（既非最小化也非最大化）时。
-
-属性 **DimensionSize** 指定幻灯片区域的大小（当为 restoredTop 的子项时为宽度，当为 restoredLeft 的子项时为高度）。
-
-属性 **AutoAdjust** 指定在调整包含视图的应用程序窗口大小时，侧边内容区域的大小是否应自动补偿新的大小。
-
-下面的示例展示了如何访问演示文稿的 **ViewProperties.NormalViewProperties** 属性。
+此示例更新现有演示文稿。它恢复水平分割条，将通过 [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) 暴露的上部幻灯片区域大小设置为 80% 并启用自动调整，并将垂直分割条最大化。它还通过 [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) 为大纲视图启用轮廓图标。
 
 ```cpp
 #include <DOM/INormalViewProperties.h>
@@ -61,55 +45,52 @@ description: "发现 Aspose.Slides for C++ 的视图属性，以自定义 PPT、
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// 恢复演示文稿的视图属性
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
 
 ## **设置默认缩放值**
 
-Aspose.Slides for C++ 现在支持为演示文稿设置默认缩放值，以便在打开演示文稿时已设置缩放。可以通过设置演示文稿的 [ViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/) 来实现。幻灯片视图属性以及 [get_NotesViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/get_notesviewproperties/) 都可以通过编程方式设置。在本主题中，我们将通过示例展示如何在 Aspose.Slides 中设置演示文稿的视图属性。
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) 和 [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) 为编辑器存储独立的缩放设置。这些设置不会影响幻灯片尺寸、幻灯片放映播放或图像导出分辨率。
 
-要设置视图属性，请按以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例
-1. 设置演示文稿的视图 [Properties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/)
-1. 将演示文稿写入 PPTX 文件
-
-在下面的示例中，我们已为幻灯片视图和备注视图设置了缩放值。
+此示例打开现有演示文稿，并使用 [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) 启用自动缩放以将幻灯片适配编辑窗口。对于备注页，它禁用自动缩放并使用 [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) 将缩放设置为固定的 80%。
 
 ```cpp
 #include <DOM/ICommonSlideViewProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// 设置演示文稿的视图属性
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // 幻灯片视图的缩放值（百分比）
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // 备注视图的缩放值（百分比）
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
 ```
 
 ## **设置网格间距**
 
-使用 [Presentation::get_ViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_viewproperties/) 访问整个演示文稿的视图设置。方法 [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iviewproperties/get_gridspacing/) 和 [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iviewproperties/set_gridspacing/) 读取或更改底层编辑网格的间隔。此设置适用于整个演示文稿，而不是单个幻灯片。网格间距以点为单位，72 点等于一英寸。请使用正值，如 API 文档所要求。
-
-以下示例打开现有的 `demo.pptx`，打印其当前网格间距，设置四分之一英寸的间隔，并保存结果。
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) 设置整个演示文稿中编辑网格线之间的距离。它接受以点为单位的正值，1 英寸等于 72 点。此示例打印现有演示文稿的当前间距，并通过将间隔设置为 18 点来保存四分之一英寸的网格。
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +102,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-网格不同于 [drawing guides](/slides/zh/cpp/drawing-guides/)。网格间距控制规则的间隔，而绘图参考线是单独定位的水平或垂直对齐线。添加、移动或清除绘图参考线不会更改网格间距。
-
-网格和绘图参考线都是编辑辅助工具。它们不会作为幻灯片内容在 PDF、图像、SVG 或放映中渲染。存储网格间距并不保证编辑器会显示网格：其可见性也取决于查看器或编辑器的偏好设置。
+网格以固定间隔重复。[绘图指南](/slides/zh/cpp/drawing-guides/) 标记单独的水平或垂直位置。两者都是编辑辅助，仅在显示它们的编辑器中出现。幻灯片放映以及导出为 PDF、图像或 SVG 时都会省略它们。
 
 ## **打开演示文稿时显示或隐藏批注**
 
-使用 [Presentation::get_ViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_viewproperties/) 访问整个演示文稿的视图设置。使用 [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iviewproperties/get_showcomments/) 和 [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iviewproperties/set_showcomments/) 存储在打开 PowerPoint 或其他兼容编辑器时是否应显示批注的偏好设置。
-
-此设置仅控制存储的视图偏好。它不会添加、删除、编辑或解决批注。隐藏批注会保留其内容、作者、位置、回复和状态。请参阅 [Presentation Comments](/slides/zh/cpp/presentation-comments/) 了解更改批注本身的操作。
-
-下面的示例需要一个包含批注的现有 `comments.pptx`。它打印当前的可见性设置，请求隐藏批注，并在不删除任何批注的情况下保存新的 PPTX。它还使用 [IViewProperties::set_LastView](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iviewproperties/set_lastview/) 与 [ViewType::SlideView](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewtype/) 配置初始编辑视图以及批注可见性。
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) 保存兼容编辑器在打开演示文稿时使用的首选项。对于包含批注的现有演示文稿，此示例打印当前设置并保存一个隐藏批注的副本。它还使用 [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) 调用 [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/)，使副本以幻灯片视图打开。
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +130,37 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-此设置不决定批注是否包含在 PDF、HTML、图像、备注或讲义导出中。请分别配置相关导出特定的选项。
+隐藏批注会保留其文本、作者、位置、回复和状态。要更改批注本身，请参阅 [演示文稿批注](/slides/zh/cpp/presentation-comments/)。导出设置决定批注是否出现在 PDF、HTML、图像、备注或讲义中。
 
 ## **常见问题**
 
-**为什么重新打开演示文稿后网格不可见？**
+**为什么重新打开演示文稿时网格被隐藏？**
 
-文件存储了网格间距，但编辑器控制是否显示网格。检查编辑器的网格可见性设置。
+演示文稿存储了网格间隔。要查看网格，请在编辑器中启用网格可见性。
 
-**清除绘图参考线会改变网格间距吗？**
+**清除绘图指南会改变网格间距吗？**
 
-不会。绘图参考线和网格间距是独立的设置。清除参考线不会改变已存储的网格间隔。
+不会。添加、移动或清除指南都不会改变网格间隔。
 
-**我可以为演示文稿的不同章节设置不同的视图设置吗？**
+**演示文稿的不同章节可以有不同的视图设置吗？**
 
-[视图设置](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_viewproperties/) 在演示文稿级别定义（[Normal View](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/get_slideviewproperties/)），而不是按章节。因此打开文档时，整个文档使用同一套参数。
+不能。[Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) 适用于整个演示文稿。
 
-**我可以为不同的用户预定义不同的视图状态吗？**
+**我可以为不同用户保存不同的视图设置吗？**
 
-不能。设置存储在文件中并共享。查看器应用程序可能会遵循用户偏好，但文件本身只包含一套视图属性。
+文件只为所有人存储一套视图属性。编辑器可能还会应用用户的本地首选项。
 
-**我可以准备一个预定义视图属性的模板，使新演示文稿以相同方式打开吗？**
+**我可以在模板中保存视图设置吗？**
 
-可以。因为[view properties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/get_viewproperties/) 存储在演示文稿级别，您可以在模板中嵌入它们，从而使用相同的初始视图配置创建新文档。
+可以。使用该模板创建的演示文稿会继承其保存的视图设置。

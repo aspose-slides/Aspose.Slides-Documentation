@@ -1,182 +1,144 @@
 ---
-title: JavaScript でプレゼンテーションのビュー プロパティを取得・更新する
-linktitle: ビュー プロパティ
+title: "JavaScript でプレゼンテーションのビュー プロパティを取得および更新する"
+linktitle: "ビュー プロパティ"
 type: docs
 weight: 80
 url: /ja/nodejs-java/presentation-view-properties/
 keywords:
-- ビュー プロパティ
-- 通常ビュー
-- アウトライン コンテンツ
-- アウトライン アイコン
-- 垂直スプリッタのスナップ
-- 単一ビュー
-- バー 状態
-- 次元 サイズ
-- 自動調整
-- デフォルト ズーム
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides for Node.js via Java のビュー プロパティを使って、PPT、PPTX、ODP スライドの形式をカスタマイズし、レイアウト、ズーム レベル、表示設定を調整する方法を紹介します。"
+  - "ビュー プロパティ"
+  - "標準ビュー"
+  - "アウトライン コンテンツ"
+  - "アウトライン アイコン"
+  - "垂直スプリッタのスナップ"
+  - "シングルビュー"
+  - "バーの状態"
+  - "寸法 サイズ"
+  - "自動調整"
+  - "デフォルト ズーム"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "プレゼンテーション"
+  - "Node.js"
+  - "JavaScript"
+  - "Aspose.Slides"
+description: "Aspose.Slides for Node.js via Java を使用して、PowerPoint プレゼンテーションの標準ビュー レイアウト、スライドとノートのズーム、グリッド間隔、コメントの表示設定を構成します。"
 ---
-## **概要**
+## **はじめに**
 
-通常ビューは、スライド本体、サイドコンテンツ領域、ボトムコンテンツ領域の 3 つのコンテンツ領域で構成されます。各コンテンツ領域の位置に関するプロパティです。この情報により、アプリケーションはビュー状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態で表示されます。
-
-Method [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) が追加され、プレゼンテーションの通常ビューのプロパティにアクセスできるようになりました。
-
-[NormalViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties)、[NormalViewRestoredProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewRestoredProperties) クラスとその派生クラス、[SplitterBarStateType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SplitterBarStateType) 列挙が追加されました。
+PowerPoint の標準ビューでは、スライドはサムネイルやアウトライン用のサイドペインと、下部のノートペインの間に表示されます。Aspose.Slides for Node.js via Java は、プレゼンテーションの保存された編集設定を [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) で提供します。これらの設定には、ペインのレイアウト、ズームレベル、グリッド間隔、コメントの表示状態が含まれます。
 
 ## **NormalViewProperties について**
 
-通常ビューのプロパティを表します。
+[getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties) を使用して [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/) クラスにアクセスします。[setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) は、アウトラインでスライドタイトルの横にアイコンを表示するかどうかを制御します。[setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) は、ユーザーがサイドペインを狭めたときにペインを最小化状態にスナップさせます。[setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) は、ウィンドウ全体で 1 つのペインを表示することを優先するかどうかを示します。
 
-Method [getShowOutlineIcons](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) と [setShowOutlineIcons](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) は、通常ビュー モードの任意のコンテンツ領域でアウトライン コンテンツを表示する際に、アプリケーションがアイコンを表示すべきかどうかを指定します。
-
-Method [getSnapVerticalSplitter](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) と [setSnapVerticalSplitter](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) は、サイド領域が十分に小さくなったときに垂直スプリッタを最小化状態にスナップさせるかどうかを指定します。
-
-Property [getPreferSingleView](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) と [setPreferSingleView](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) は、ユーザーが標準の 3 つのコンテンツ領域を持つ通常ビューではなく、ウィンドウ全体に単一コンテンツ領域を表示することを好むかどうかを指定します。有効にすると、アプリケーションは 1 つのコンテンツ領域をウィンドウ全体に表示することがあります。
-
-Method [getVerticalBarState](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) は、水平または垂直スプリッタ バーが表示される状態を指定します。水平スプリッタ バーはスライドとスライド下部のコンテンツ領域を分け、垂直スプリッタ バーはスライドとサイドコンテンツ領域を分けます。可能な値は [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SplitterBarStateType#Minimized)、[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SplitterBarStateType#Maximized)、[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SplitterBarStateType#Restored) です。
-
-Method [getRestoredLeft](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) と [getRestoredTop](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) は、[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SplitterBarStateType#Restored) が [getVerticalBarState](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) に適用された場合の、通常ビューの上部またはサイドスライド領域のサイズを指定します。
+[setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) はサイドペインとスライド間の区切りバーを制御します。[setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) はノートペイン上部の区切りバーを制御します。両方とも `Minimized`、`Maximized`、`Restored` のいずれかの [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) 値を受け取ります。
 
 ## **NormalViewProperties の復元について**
 
-通常ビューのスライド領域（[getRestoredTop](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) の子の場合は幅、[getRestoredLeft](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) の子の場合は高さ）が、可変の復元サイズ（最小化でも最大化でもない）である場合のサイズを指定します。
+区切りバーが復元されると、[getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) はサイドペインの保存されたサイズを返し、[getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) は上部スライド領域の保存されたサイズを返します。両方とも [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/) を公開します。その [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) メソッドは 0 から 100 のパーセンテージを受け取り、[setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) はウィンドウのサイズ変更時にエディタがサイズを自動調整するかどうかを制御します。
 
-Method [getDimensionSize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) は、復元された top の子であれば幅、復元された left の子であれば高さとして、スライド領域のサイズを指定します。
-
-Method [getAutoAdjust](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) は、ウィンドウのサイズ変更時にサイドコンテンツ領域のサイズが新しいサイズに合わせて自動的に調整されるかどうかを指定します。
-
-以下の例は、プレゼンテーションの [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) プロパティにアクセスする方法を示しています。
+この例は既存のプレゼンテーションを更新します。水平区切りバーを復元し、[getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) が返すサイズを自動調整を有効にした状態で 80% に設定し、垂直区切りバーを最大化します。また、[setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) を呼び出してアウトラインビューにアイコンを表示します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // プレゼンテーションのビュー プロパティを復元する
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **デフォルトズーム値の設定**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Node.js via Java は、プレゼンテーションを開いたときにズームが既に設定された状態になるよう、デフォルトのズーム値の設定をサポートするようになりました。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties) を設定することで実現できます。[getSlideViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) および [getNotesViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) をプログラムで設定できます。このトピックでは、Aspose.Slides において [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties) を設定する方法を例で示します。
-
-{{% /alert %}} 
-
-ビュー プロパティを設定する手順は次のとおりです。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ViewProperties) を設定します。  
-1. プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。  
-   以下の例では、スライドビューとノートビューの両方にズーム値を設定しています。
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var presentation = new aspose.slides.Presentation();
-try {
-    // プレゼンテーションのビュー プロパティを設定する
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // スライドビューのズーム値（パーセンテージ）
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // ノートビューのズーム値（パーセンテージ）
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **グリッド間隔の設定**
+## **デフォルトのズーム値を設定する**
 
-[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。[ViewProperties.getGridSpacing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) と [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) メソッドは、基礎となる編集グリッドの間隔を取得または変更します。この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。グリッド間隔はポイント単位で指定され、72 ポイントが 1 インチに相当します。API ドキュメントの要件に従い、正の値を使用してください。
+[getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) と [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) はエディタ用に個別のズーム設定を保存します。これらの設定はスライドのサイズ、スライドショーの再生、画像エクスポートの解像度には影響しません。
 
-以下の例は既存の `demo.pptx` を開き、現在のグリッド間隔を表示し、1/4 インチの間隔に設定して結果を保存します。
+この例では既存のプレゼンテーションを開き、[setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale) を呼び出してスライドを編集ウィンドウに合わせます。ノートページについては自動スケーリングを無効にし、[setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale) を呼び出して固定の 80% ズームを設定します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-グリッドは [drawing guides](/slides/ja/nodejs-java/drawing-guides/) とは異なります。グリッド間隔は規則的な間隔を制御しますが、描画ガイドは個別に配置された水平または垂直の位置合わせラインです。描画ガイドの追加、移動、クリアはグリッド間隔には影響しません。
+## **グリッド間隔を設定する**
 
-グリッドも描画ガイドも編集の補助ツールです。PDF、画像、SVG、スライドショーとしてレンダリングされることはありません。グリッド間隔を保存しても、エディタが必ず表示するわけではなく、表示はビューアやエディタの設定に依存します。
-
-## **プレゼンテーションを開くときのコメント表示/非表示**
-
-[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。[ViewProperties.getShowComments](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#getShowComments--) と [ViewProperties.setShowComments](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte-) を使用して、PowerPoint などの互換エディタでプレゼンテーションを開いたときにコメントを表示するかどうかの保存された設定を取得または変更できます。
-
-この設定は保存されたビューの好みを制御するだけで、コメント自体の追加、削除、編集、解決は行いません。コメントを非表示にしても、内容、作者、位置、返信、ステータスは保持されます。コメントそのものを変更する操作については [Presentation Comments](/slides/ja/nodejs-java/presentation-comments/) を参照してください。
-
-以下の例はコメントが含まれた既存の `comments.pptx` を対象とし、現在の表示設定を出力し、コメントを非表示に設定して新しい PPTX を保存します。また、[ViewProperties.setLastView](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) と [ViewType.SlideView](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewtype/#SlideView) を組み合わせて、コメントの表示設定とともに初期編集ビューを構成しています。
+[setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) はプレゼンテーション全体の編集グリッド線間の距離を設定します。単位はポイントで、1 インチは 72 ポイントです。この例では既存のプレゼンテーションで現在の間隔を出力し、間隔を 18 ポイントに設定して 1/4 インチのグリッドを保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+グリッドは固定間隔で繰り返されます。[描画ガイド](/slides/ja/nodejs-java/drawing-guides/) は個々の水平または垂直の位置を示します。どちらも編集支援機能で、表示できるエディタでのみ表示されます。スライドショーや PDF、画像、SVG へのエクスポートではそれらは除外されます。
+
+## **プレゼンテーションを開くときのコメントの表示/非表示**
+
+[setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) は、対応するエディタがプレゼンテーションを開く際に使用する設定を保存します。コメントが含まれる既存のプレゼンテーションに対して、この例は現在の設定を表示し、コメントを非表示にしたコピーを保存します。また、[setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) を [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) と共に呼び出すことで、コピーがスライドビューで開かれるようにします。
+
+```javascript
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-この設定は PDF、HTML、画像、ノート、配布資料へのエクスポート時にコメントが含まれるかどうかを決定しません。エクスポート固有のオプションは別途設定してください。
+コメントを非表示にしても、テキスト、作成者、位置、返信、ステータスは保持されます。コメント自体を変更するには、[プレゼンテーションのコメント](/slides/ja/nodejs-java/presentation-comments/) を参照してください。エクスポート設定により、コメントが PDF、HTML、画像、ノート、配布資料に表示されるかが決まります。
 
-## **FAQ**
+## **よくある質問**
 
-**プレゼンテーションを再度開いたときにグリッドが表示されないのはなぜですか？**
+**プレゼンテーションを再度開いたときにグリッドが非表示になるのはなぜですか？**  
+プレゼンテーションはグリッド間隔を保存しています。グリッドを表示するには、エディタでグリッドの表示を有効にしてください。
 
-ファイルはグリッド間隔を保存しますが、エディタ側でグリッドの表示/非表示を制御します。エディタのグリッド表示設定をご確認ください。
+**描画ガイドを削除してもグリッド間隔は変わりますか？**  
+いいえ。ガイドを追加、移動、または削除しても、グリッド間隔は変わりません。
 
-**描画ガイドをクリアしてもグリッド間隔は変わりますか？**
+**プレゼンテーションの異なるセクションで異なるビュー設定を持つことはできますか？**  
+いいえ。[Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) はプレゼンテーション全体に適用されます。
 
-いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドをクリアしても保存されたグリッド間隔は変わりません。
+**異なるユーザーごとに別々のビュー設定を保存できますか？**  
+ファイルには全ユーザー共通のビュー設定が 1 つだけ保存されます。エディタはユーザーのローカル設定を適用することがあります。
 
-**プレゼンテーションのセクションごとに異なるビュー設定を持たせられますか？**
-
-[View settings](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/getviewproperties/) はプレゼンテーション単位で定義され（[Normal View](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)）、セクション単位ではありません。そのため、ドキュメント全体に対して 1 つのパラメータセットが適用されます。
-
-**ユーザーごとに異なるビュー状態を事前に定義できますか？**
-
-できません。設定はファイルに保存され、すべてのユーザーで共有されます。ビューアーアプリはユーザーの好みを考慮できることがありますが、ファイル自体は 1 つのビュー プロパティしか保持しません。
-
-**テンプレートに事前定義した View Properties を埋め込んで、新規プレゼンテーションが同じビューで開くようにできますか？**
-
-可能です。ビュー プロパティはプレゼンテーション単位で保存されるため、テンプレートに埋め込めば、新しく作成するドキュメントは同じ初期ビュー設定で開かれます。
+**テンプレートにビュー設定を保存できますか？**  
+はい。テンプレートから作成されたプレゼンテーションは、そのテンプレートに保存されたビュー設定を継承します。

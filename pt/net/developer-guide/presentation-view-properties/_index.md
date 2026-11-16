@@ -1,5 +1,5 @@
 ---
-title: Recuperar e Atualizar as Propriedades de Visualização da Apresentação no .NET
+title: Recuperar e Atualizar Propriedades de Visualização da Apresentação em .NET
 linktitle: Propriedades de Visualização
 type: docs
 weight: 80
@@ -7,9 +7,9 @@ url: /pt/net/presentation-view-properties/
 keywords:
 - propriedades de visualização
 - visualização normal
-- conteúdo de contorno
+- conteúdo do contorno
 - ícones de contorno
-- ajustar divisor vertical
+- ajuste do divisor vertical
 - visualização única
 - estado da barra
 - tamanho da dimensão
@@ -21,89 +21,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra as propriedades de visualização do Aspose.Slides para .NET para personalizar os formatos PPT, PPTX e ODP—ajuste layouts, níveis de zoom e configurações de exibição."
+description: "Use o Aspose.Slides para .NET para configurar o layout da visualização normal, o zoom de slides e notas, o espaçamento da grade e a visibilidade de comentários em apresentações do PowerPoint."
 ---
 ## **Introdução**
 
-A visualização normal consiste em três regiões de conteúdo: o slide propriamente dito, uma região de conteúdo lateral e uma região de conteúdo inferior. Propriedades relacionadas ao posicionamento das diferentes regiões de conteúdo. Essas informações permitem que o aplicativo salve seu estado de visualização no arquivo, de modo que, ao ser reaberto, a visualização esteja no mesmo estado em que a apresentação foi salva pela última vez.
-
-A propriedade [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/iviewproperties/properties/normalviewproperties) foi adicionada para fornecer acesso às propriedades de visualização normal da apresentação.
-
-Os interfaces [INormalViewProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/inormalviewrestoredproperties) e seus descendentes, bem como o enum [SplitterBarStateType](https://reference.aspose.com/slides/pt/net/aspose.slides/splitterbarstatetype), foram adicionados.
+Na visualização normal do PowerPoint, o slide aparece entre um painel lateral para miniaturas ou um contorno e um painel de notas abaixo. Aspose.Slides para .NET expõe as preferências de edição salvas da apresentação através de [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/). Estas incluem o layout do painel, níveis de zoom, espaçamento da grade e visibilidade de comentários.
 
 ## **Sobre INormalViewProperties**
 
-Representa as propriedades de visualização normal.
+Use [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) para acessar a interface [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/). [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) controla se ícones aparecem ao lado dos títulos dos slides no contorno. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) permite que o painel lateral trave em seu estado minimizado quando o usuário o reduz. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) indica uma preferência por exibir um único painel na janela completa.
 
-A propriedade **ShowOutlineIcons** especifica se o aplicativo deve mostrar ícones ao exibir o conteúdo do contorno em qualquer das regiões de conteúdo do modo de visualização normal.
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) controla o divisor entre o painel lateral e o slide. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) controla o divisor acima do painel de notas. Ambos aceitam um valor [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) de `Minimized`, `Maximized` ou `Restored`.
 
-A propriedade **SnapVerticalSplitter** especifica se o divisor vertical deve encaixar em um estado minimizado quando a região lateral estiver suficientemente pequena.
+## **Sobre Restaurar INormalViewProperties**
 
-A propriedade **PreferSingleView** especifica se o usuário prefere ver uma única região de conteúdo em tela cheia em vez da visualização normal padrão com três regiões de conteúdo. Se ativada, o aplicativo pode optar por exibir uma das regiões de conteúdo em toda a janela.
+Quando um divisor é restaurado, [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) fornece o tamanho salvo do painel lateral e [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) fornece o tamanho salvo da área superior do slide. Ambos expõem [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/). Sua propriedade [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) aceita uma porcentagem de 0 a 100, e [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) controla se o editor ajusta o tamanho quando a janela é redimensionada.
 
-As propriedades **VerticalBarState** e **HorizontalBarState** especificam o estado em que a barra do divisor horizontal ou vertical deve ser mostrada. Um divisor horizontal separa o slide da região de conteúdo abaixo do slide; um divisor vertical separa o slide da região de conteúdo lateral. Os valores possíveis são: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** e **SplitterBarStateType.Restored**.
+Este exemplo atualiza uma apresentação existente. Ele restaura o divisor horizontal, define [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) para 80% com ajuste automático ativado e maximiza o divisor vertical. Também habilita [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) para a visualização de contorno.
 
-As propriedades **RestoredLeft** e **RestoredTop** especificam o dimensionamento da região superior ou lateral do slide na visualização normal, quando o valor **SplitterBarStateType.Restored** é aplicado para **VerticalBarState** e **HorizontalBarState**, respectivamente.
-
-## **Sobre a Restauração de INormalViewProperties**
-
-Especifica o dimensionamento da região do slide (largura quando filho de RestoredTop, altura quando filho de RestoredLeft) da visualização normal, quando a região está em um tamanho restaurado variável (nem minimizado nem maximizado).
-
-A propriedade **DimensionSize** especifica o tamanho da região do slide (largura quando filho de RestoredTop, altura quando filho de RestoredLeft).
-
-A propriedade **AutoAdjust** especifica se o tamanho da região de conteúdo lateral deve compensar o novo tamanho ao redimensionar a janela que contém a visualização dentro do aplicativo.
-
-Um exemplo abaixo mostra como acessar as propriedades **ViewProperties.NormalViewProperties** de uma apresentação.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // Restaurar as propriedades de visualização da apresentação
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
-## **Definir o Valor de Zoom Padrão**
+## **Definir o Valor Padrão de Zoom**
 
-Aspose.Slides for .NET agora oferece suporte à definição do valor de zoom padrão para a apresentação, de modo que, ao abrir a apresentação, o zoom já esteja definido. Isso pode ser feito configurando o [ViewProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/viewproperties) de uma apresentação. As propriedades de visualização de slide, bem como [NotesViewProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/viewproperties/properties/notesviewproperties), podem ser definidas programaticamente. Neste tópico, veremos, com um exemplo, como definir as Propriedades de Visualização de uma apresentação no Aspose.Slides.
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) e [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) armazenam configurações de zoom independentes para o editor. Essas configurações não afetam as dimensões dos slides, a reprodução de apresentação ou a resolução de exportação de imagens.
 
-Para definir as propriedades de visualização, siga as etapas abaixo:
+Este exemplo abre uma apresentação existente e habilita [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/) para ajustar o slide à janela de edição. Para a página de notas, ele desabilita o dimensionamento automático e define [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) para um zoom fixo de 80%.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation)
-2. Defina as [Properties](https://reference.aspose.com/slides/pt/net/aspose.slides/viewproperties) de visualização da apresentação
-3. Grave a apresentação como um arquivo PPTX
-
-No exemplo abaixo, definimos o valor de zoom para a visualização de slide e para a visualização de notas.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Definindo as propriedades de visualização da apresentação
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Valor de zoom em porcentagem para a visualização de slide
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Valor de zoom em porcentagem para a visualização de notas 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
 ## **Definir o Espaçamento da Grade**
 
-Use [Presentation.ViewProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/viewproperties/) para acessar as configurações de visualização de toda a apresentação. A propriedade [IViewProperties.GridSpacing](https://reference.aspose.com/slides/pt/net/aspose.slides/iviewproperties/gridspacing/) lê ou altera o intervalo da grade de edição subjacente. Essa configuração se aplica a toda a apresentação, não a um slide individual. O espaçamento da grade é especificado em pontos, onde 72 pontos equivalem a uma polegada. Use um valor positivo, conforme requerido pela documentação da API.
-
-O exemplo a seguir abre um `demo.pptx` existente, exibe seu espaçamento de grade atual, define um intervalo de um quarto de polegada e salva o resultado.
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) define a distância entre as linhas da grade de edição em toda a apresentação. Ela recebe um valor positivo em pontos, com 72 pontos por polegada. Este exemplo imprime o espaçamento atual em uma apresentação existente e salva uma grade de um quarto de polegada definindo o intervalo para 18 pontos.
 
 ```csharp
 using System;
@@ -111,24 +85,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-A grade difere dos [drawing guides](/slides/pt/net/drawing-guides/). O espaçamento da grade controla um intervalo regular, enquanto os guias de desenho são linhas de alinhamento horizontais ou verticais posicionadas individualmente. Adicionar, mover ou limpar guias de desenho não altera o espaçamento da grade.
-
-Tanto a grade quanto os guias de desenho são auxiliares de edição. Eles não são renderizados como conteúdo de slide em PDF, imagens, SVG ou apresentação de slides. Armazenar o espaçamento da grade não garante que um editor exibirá a grade: sua visibilidade também depende das preferências do visualizador ou editor.
+A grade se repete em intervalos fixos. [Guias de desenho](/slides/pt/net/drawing-guides/) marcam posições horizontais ou verticais individuais. Ambos são auxílios de edição e aparecem apenas em editores que os exibem. Apresentações e exportações para PDF, imagens ou SVG os omitêm.
 
 ## **Mostrar ou Ocultar Comentários ao Abrir uma Apresentação**
 
-Use [Presentation.ViewProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/viewproperties/) para acessar as configurações de visualização de toda a apresentação. Leia ou altere [IViewProperties.ShowComments](https://reference.aspose.com/slides/pt/net/aspose.slides/iviewproperties/showcomments/) para armazenar uma preferência sobre se os comentários devem ser mostrados quando a apresentação for aberta no PowerPoint ou em outro editor compatível.
-
-Essa configuração controla apenas a preferência de visualização armazenada. Ela não adiciona, remove, edita ou resolve comentários. Ocultar comentários preserva seu conteúdo, autores, posições, respostas e status. Consulte [Presentation Comments](/slides/pt/net/presentation-comments/) para operações que alteram os próprios comentários.
-
-O exemplo a seguir requer um `comments.pptx` existente contendo comentários. Ele exibe a configuração de visibilidade atual, solicita que os comentários sejam ocultados e salva um novo PPTX sem remover nenhum comentário. Também define [IViewProperties.LastView](https://reference.aspose.com/slides/pt/net/aspose.slides/iviewproperties/lastview/) para [ViewType.SlideView](https://reference.aspose.com/slides/pt/net/aspose.slides/viewtype/) a fim de configurar a visualização de edição inicial juntamente com a visibilidade dos comentários.
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) armazena uma preferência que editores compatíveis utilizam ao abrir a apresentação. Para uma apresentação existente com comentários, este exemplo imprime a configuração atual e salva uma cópia com comentários ocultos. Também define [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) para [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) para que a cópia seja aberta na visualização de slide.
 
 ```csharp
 using System;
@@ -136,34 +105,35 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-Essa configuração não determina se os comentários serão incluídos nas exportações em PDF, HTML, imagem, notas ou folhetos. Configure as opções específicas de exportação separadamente.
+Ocultar comentários preserva seu texto, autores, posições, respostas e status. Para alterar os próprios comentários, veja [Comentários da Apresentação](/slides/pt/net/presentation-comments/). As configurações de exportação controlam se os comentários aparecem em PDF, HTML, imagens, notas ou folhetos.
 
 ## **FAQ**
 
-**Por que a grade não está visível depois de reabrir a apresentação?**
+**Por que a grade fica oculta ao reabrir a apresentação?**
 
-O arquivo armazena o espaçamento da grade, mas o editor controla se a grade é exibida. Verifique as configurações de visibilidade da grade no editor.
+A apresentação armazena o intervalo da grade. Para ver a grade, habilite a visibilidade da grade no editor.
 
-**Limpar os guias de desenho altera o espaçamento da grade?**
+**Limpar guias de desenho altera o espaçamento da grade?**
 
-Não. Guias de desenho e espaçamento da grade são configurações independentes. Limpar os guias deixa o intervalo da grade armazenado inalterado.
+Não. Adicionar, mover ou limpar uma guia deixa o intervalo da grade inalterado.
 
-**Posso definir diferentes configurações de visualização para diferentes seções de uma apresentação?**
+**Seções diferentes de uma apresentação podem ter configurações de visualização diferentes?**
 
-As [view settings](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/viewproperties/) são definidas ao nível da apresentação ([Normal View](https://reference.aspose.com/slides/pt/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/pt/net/aspose.slides/viewproperties/slideviewproperties/)), não por seção, portanto um único conjunto de parâmetros se aplica a todo o documento quando ele é aberto.
+Não. [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) se aplica a toda a apresentação.
 
-**Posso pré‑definir diferentes estados de visualização para diferentes usuários?**
+**Posso salvar configurações de visualização diferentes para usuários diferentes?**
 
-Não. As configurações são armazenadas no arquivo e são compartilhadas. Aplicativos visualizadores podem respeitar preferências do usuário, mas o próprio arquivo contém um único conjunto de propriedades de visualização.
+O arquivo armazena um único conjunto de propriedades de visualização para todos. Um editor pode também aplicar as preferências locais de um usuário.
 
-**Posso preparar um modelo com Propriedades de Visualização predefinidas para que novas apresentações abram da mesma forma?**
+**Posso salvar configurações de visualização em um modelo?**
 
-Sim. Como as [view properties](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/viewproperties/) são armazenadas ao nível da apresentação, você pode incorporá‑las em um modelo e criar novos documentos a partir dele com a mesma configuração de visualização inicial.
+Sim. Apresentações criadas a partir do modelo herdam as configurações de visualização salvas.

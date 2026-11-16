@@ -6,7 +6,7 @@ weight: 80
 url: /pl/cpp/presentation-view-properties/
 keywords:
 - właściwości widoku
-- widok normalny
+- normalny widok
 - zawartość konspektu
 - ikony konspektu
 - przyciąganie pionowego podziałnika
@@ -14,102 +14,83 @@ keywords:
 - stan paska
 - rozmiar wymiaru
 - automatyczne dopasowanie
-- domyślne powiększenie
+- domyślne przybliżenie
 - PowerPoint
 - OpenDocument
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Odkryj właściwości widoku Aspose.Slides dla C++, aby dostosować formaty slajdów PPT, PPTX i ODP - regulować układy, poziomy powiększenia i ustawienia wyświetlania."
+description: "Użyj Aspose.Slides for C++, aby skonfigurować układ normalnego widoku, przybliżenie slajdu i notatek, odstępy siatki oraz widoczność komentarzy w prezentacjach PowerPoint."
 ---
 ## **Wprowadzenie**
 
-Normalny widok składa się z trzech regionów zawartości: samego slajdu, bocznego regionu zawartości oraz dolnego regionu zawartości. Właściwości dotyczące pozycjonowania różnych regionów zawartości. Ta informacja pozwala aplikacji zapisać stan widoku do pliku, tak aby po ponownym otwarciu widok znajdował się w takim samym stanie, w jakim prezentacja została ostatnio zapisana.
-
-Metoda [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) została dodana, aby zapewnić dostęp do właściwości normalnego widoku prezentacji.  
-
-Interfejsy [INormalViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/inormalviewrestoredproperties/) oraz ich pochodne, a także wyliczenie [SplitterBarStateType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/splitterbarstatetype/) zostały dodane.
+W normalnym widoku programu PowerPoint slajd wyświetlany jest pomiędzy bocznym panelem miniaturek lub konspektem a panelem notatek poniżej. Aspose.Slides dla C++ udostępnia zapisane preferencje edycji prezentacji poprzez [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/). Obejmują one układ paneli, poziomy przybliżenia, odstępy siatki i widoczność komentarzy.
 
 ## **O INormalViewProperties**
 
-Reprezentuje właściwości widoku normalnego.
+Użyj [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/), aby uzyskać dostęp do interfejsu [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/). [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) kontroluje, czy ikony pojawiają się obok tytułów slajdów w konspekcie. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) pozwala bocznemu panelowi przyciągać się do stanu zminimalizowanego, gdy użytkownik go zwęża. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) wskazuje preferencję wyświetlania jednego panelu w pełnym oknie.
 
-Właściwość **ShowOutlineIcons** określa, czy aplikacja powinna wyświetlać ikony, jeśli wyświetla zawartość konspektu w dowolnym z regionów zawartości trybu widoku normalnego.
-
-Właściwość **SnapVerticalSplitter** określa, czy pionowy podziałnik powinien przełączać się do stanu zminimalizowanego, gdy boczny region jest wystarczająco mały.
-
-Właściwość **PreferSingleView** określa, czy użytkownik preferuje pełnoekranowy pojedynczy region zawartości zamiast standardowego widoku normalnego z trzema regionami zawartości. Jeśli jest włączona, aplikacja może wyświetlić jeden z regionów w całym oknie.
-
-Właściwości **VerticalBarState** i **HorizontalBarState** określają stan, w jakim powinien być wyświetlany pasek podziałnika poziomego lub pionowego. Pionowy pasek podziałnika oddziela slajd od bocznego regionu zawartości, poziomy pasek podziałnika oddziela slajd od regionu zawartości pod slajdem. Możliwe wartości to: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** oraz **SplitterBarStateType.Restored**.
-
-Właściwości **RestoredLeft** i **RestoredTop** określają rozmiar górnego lub bocznego regionu slajdu w widoku normalnym, gdy zastosowano wartość **SplitterBarStateType.Restored** dla **VerticalBarState** oraz **HorizontalBarState** odpowiednio.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) kontroluje podziałkę między bocznym panelem a slajdem. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) kontroluje podziałkę nad panelem notatek. Oba przyjmują wartość typu [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` lub `Restored`.
 
 ## **O przywracaniu INormalViewProperties**
 
-Określa rozmiar regionu slajdu (szerokość, gdy jest dzieckiem RestoredTop, wysokość, gdy jest dzieckiem RestoredLeft) w widoku normalnym, gdy region ma zmienny rozmiar przywrócony (niezminimalizowany ani niezmaksymalizowany).  
+Kiedy podziałka jest przywracana, [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) podaje zapisany rozmiar bocznego panelu, a [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) podaje zapisany rozmiar górnego obszaru slajdu. Oba udostępniają [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/). Metoda [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) przyjmuje procent od 0 do 100, a [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) kontroluje, czy edytor dostosowuje rozmiar przy zmianie rozmiaru okna.
 
-Właściwość **DimensionSize** określa rozmiar regionu slajdu (szerokość, gdy jest dzieckiem RestoredTop, wysokość, gdy jest dzieckiem RestoredLeft).
+Ten przykład aktualizuje istniejącą prezentację. Przywraca poziomą podziałkę, ustawia rozmiar górnego obszaru slajdu udostępnionego przez [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) na 80% z włączonym automatycznym dostosowaniem oraz maksymalizuje pionową podziałkę. Włącza także ikony konspektu za pomocą [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) dla widoku konspektu.
 
-Właściwość **AutoAdjust** określa, czy boczny region zawartości powinien kompensować nowy rozmiar przy zmianie rozmiaru okna zawierającego widok w aplikacji.
-
-Przykład poniżej pokazuje, jak uzyskać dostęp do właściwości **ViewProperties.NormalViewProperties** prezentacji.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// Przywróć właściwości widoku prezentacji
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **Ustaw domyślną wartość powiększenia**
-
-Aspose.Slides for C++ obsługuje teraz ustawianie domyślnej wartości powiększenia dla prezentacji, tak aby po otwarciu prezentacji powiększenie było już ustawione. Można to zrobić, ustawiając [ViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/) prezentacji. Właściwości widoku slajdu oraz [get_NotesViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/get_notesviewproperties/) można ustawić programowo. W tym temacie pokażemy, jak przy pomocy przykładu ustawić właściwości widoku prezentacji w Aspose.Slides.
-
-Aby ustawić właściwości widoku, wykonaj poniższe kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-2. Ustaw właściwości widoku [Properties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/) prezentacji.
-3. Zapisz prezentację jako plik PPTX.
-
-W podanym poniżej przykładzie ustawiliśmy wartość powiększenia dla widoku slajdu oraz widoku notatek.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Ustawianie właściwości widoku prezentacji
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Wartość powiększenia w procentach dla widoku slajdu
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Wartość powiększenia w procentach dla widoku notatek 
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
+```
+
+## **Ustaw domyślną wartość przybliżenia**
+
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) i [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) przechowują niezależne ustawienia przybliżenia dla edytora. Te ustawienia nie wpływają na wymiary slajdów, odtwarzanie pokazu slajdów ani rozdzielczość eksportowanych obrazów.
+
+Ten przykład otwiera istniejącą prezentację i włącza automatyczną skalowanie za pomocą [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/), aby dopasować slajd do okna edycji. Dla strony notatek wyłącza automatyczne skalowanie i używa [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/), aby ustawić stałe przybliżenie 80%.
+
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ustaw odstęp siatki**
 
-Użyj [Presentation::get_ViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_viewproperties/), aby uzyskać dostęp do ustawień widoku na poziomie całej prezentacji. Metody [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iviewproperties/get_gridspacing/) i [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iviewproperties/set_gridspacing/) odczytują lub zmieniają odstęp podstawowej siatki edycji. To ustawienie ma zastosowanie do całej prezentacji, a nie do pojedynczego slajdu. Odstęp siatki podawany jest w punktach, przy czym 72 punkty = 1 cal. Użyj wartości dodatniej, zgodnie z dokumentacją API.
-
-Poniższy przykład otwiera istniejący plik `demo.pptx`, wyświetla aktualny odstęp siatki, ustawia odstęp ćwierć cala i zapisuje wynik.
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) ustawia odległość między liniami siatki edycji w całej prezentacji. Przyjmuje dodatnią wartość w punktach, przy 72 punktach na cal. Ten przykład wyświetla bieżący odstęp w istniejącej prezentacji i zapisuje siatkę o odległości ćwierć cala, ustawiając interwał na 18 punktów.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +102,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-Siatka różni się od [drawing guides](/slides/pl/cpp/drawing-guides/). Odstęp siatki kontroluje regularny interwał, podczas gdy prowadnice rysunkowe to indywidualnie pozycjonowane linie wyrównania poziome lub pionowe. Dodawanie, przesuwanie lub usuwanie prowadnic nie zmienia odstępu siatki.
+Siatka powtarza się w stałych odstępach. [Drawing guides](/slides/pl/cpp/drawing-guides/) oznaczają poszczególne pozycje poziome lub pionowe. Oba są pomocnikami edycji i pojawiają się tylko w edytorach, które je wyświetlają. Pokazy slajdów oraz eksporty do PDF, obrazów lub SVG ich nie zawierają.
 
-Zarówno siatka, jak i prowadnice rysunkowe są pomocnikami edycji. Nie są renderowane jako zawartość slajdu w PDF, obrazach, SVG ani w pokazie slajdów. Przechowywanie odstępu siatki nie gwarantuje, że edytor wyświetli siatkę: jej widoczność zależy również od preferencji przeglądarki lub edytora.
+## **Pokaż lub ukryj komentarze przy otwieraniu prezentacji**
 
-## **Pokaż lub ukryj komentarze podczas otwierania prezentacji**
-
-Użyj [Presentation::get_ViewProperties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_viewproperties/), aby uzyskać dostęp do ustawień widoku na poziomie prezentacji. Użyj [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iviewproperties/get_showcomments/) i [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iviewproperties/set_showcomments/), aby zapisać preferencję dotyczącą wyświetlania komentarzy przy otwieraniu prezentacji w PowerPoint lub innym kompatybilnym edytorze.
-
-To ustawienie kontroluje jedynie zapisaną preferencję widoku. Nie dodaje, nie usuwa, nie edytuje ani nie rozwiązuje komentarzy. Ukrywanie komentarzy zachowuje ich treść, autorów, pozycje, odpowiedzi i statusy. Zobacz [Presentation Comments](/slides/pl/cpp/presentation-comments/) po operacje, które zmieniają same komentarze.
-
-Poniższy przykład wymaga istniejącego pliku `comments.pptx` zawierającego komentarze. Wyświetla bieżące ustawienie widoczności, żąda ukrycia komentarzy i zapisuje nowy plik PPTX bez usuwania żadnych komentarzy. Używa również [IViewProperties::set_LastView](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iviewproperties/set_lastview/) z [ViewType::SlideView](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewtype/), aby skonfigurować początkowy widok edycji wraz z widocznością komentarzy.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) przechowuje preferencję, której kompatybilne edytory używają przy otwieraniu prezentacji. Dla istniejącej prezentacji z komentarzami ten przykład wyświetla bieżące ustawienie i zapisuje kopię z ukrytymi komentarzami. Wywołuje także [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) z [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/), aby kopia otworzyła się w widoku slajdu.
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +130,37 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-To ustawienie nie określa, czy komentarze zostaną uwzględnione w eksportach PDF, HTML, obrazu, notatek lub materiałów rozdawniczych. Skonfiguruj odpowiednie opcje eksportu osobno.
+Ukrywanie komentarzy zachowuje ich tekst, autorów, pozycje, odpowiedzi i statusy. Aby zmienić same komentarze, zobacz [Presentation Comments](/slides/pl/cpp/presentation-comments/). Ustawienia eksportu kontrolują, czy komentarze pojawiają się w PDF, HTML, obrazach, notatkach lub wydrukach.
 
 ## **FAQ**
 
-**Dlaczego siatka nie jest widoczna po ponownym otwarciu prezentacji?**
+**Dlaczego siatka jest ukryta po ponownym otwarciu prezentacji?**
 
-Plik przechowuje odstęp siatki, ale edytor decyduje, czy siatka jest wyświetlana. Sprawdź ustawienia widoczności siatki w edytorze.
+Prezentacja przechowuje interwał siatki. Aby zobaczyć siatkę, włącz widoczność siatki w edytorze.
 
 **Czy usunięcie prowadnic rysunkowych zmienia odstęp siatki?**
 
-Nie. Prowadnice rysunkowe i odstęp siatki są odrębnymi ustawieniami. Usunięcie prowadnic nie zmienia zapisanego interwału siatki.
+Nie. Dodanie, przesunięcie lub usunięcie prowadnicy nie zmienia interwału siatki.
 
-**Czy mogę ustawić różne ustawienia widoku dla różnych sekcji prezentacji?**
+**Czy różne sekcje prezentacji mogą mieć różne ustawienia widoku?**
 
-Ustawienia widoku ([View settings](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_viewproperties/)) definiowane są na poziomie prezentacji ([Normal View](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/get_slideviewproperties/)), nie per sekcja, więc jeden zestaw parametrów obowiązuje dla całego dokumentu przy otwieraniu.
+Nie. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) dotyczy całej prezentacji.
 
-**Czy mogę zdefiniować różne stany widoku dla różnych użytkowników?**
+**Czy mogę zapisać różne ustawienia widoku dla różnych użytkowników?**
 
-Nie. Ustawienia są przechowywane w pliku i są współdzielone. Aplikacje odtwarzające mogą honorować preferencje użytkownika, ale sam plik zawiera jedną grupę właściwości widoku.
+Plik przechowuje jeden zestaw właściwości widoku dla wszystkich. Edytor może także zastosować lokalne preferencje użytkownika.
 
-**Czy mogę przygotować szablon z zdefiniowanymi właściwościami widoku, aby nowe prezentacje otwierały się w ten sam sposób?**
+**Czy mogę zapisać ustawienia widoku w szablonie?**
 
-Tak. Ponieważ [view properties](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_viewproperties/) są przechowywane na poziomie prezentacji, możesz osadzić je w szablonie i tworzyć z niego nowe dokumenty z taką samą początkową konfiguracją widoku.
+Tak. Prezentacje utworzone z szablonu dziedziczą zapisane w nim ustawienia widoku.

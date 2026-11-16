@@ -1,5 +1,5 @@
 ---
-title: Abrufen und Aktualisieren von Präsentationsansichtseigenschaften in Python
+title: Präsentationsansichtseigenschaften in Python abrufen und aktualisieren
 linktitle: Ansichtseigenschaften
 type: docs
 weight: 80
@@ -9,144 +9,128 @@ keywords:
 - Normalansicht
 - Gliederungsinhalt
 - Gliederungssymbole
-- Vertikalen Trennbalken einrasten
+- Vertikalen Trenner einrasten
 - Einzelansicht
 - Balkenstatus
-- Abmessungsgröße
-- Automatische Anpassung
+- Dimensionsgröße
+- automatische Anpassung
 - Standardzoom
 - PowerPoint
+- OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für Python über .NET Ansichtseigenschaften, um PPT-, PPTX- und ODP-Folien anzupassen – Layouts, Zoomstufen und Anzeigeeinstellungen zu verändern."
+description: "Verwenden Sie Aspose.Slides für Python über .NET, um das Layout der Normalansicht, den Zoom von Folien und Notizen, den Rasterabstand und die Sichtbarkeit von Kommentaren in PowerPoint-Präsentationen zu konfigurieren."
 ---
 ## **Einführung**
 
-Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, ihren Ansichtszustand in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht denselben Zustand hat wie beim letzten Speichern der Präsentation.
+In der Normalansicht von PowerPoint wird die Folie zwischen einem Seitenbereich für Miniaturansichten oder einer Gliederung und einem Notizbereich unten angezeigt. Aspose.Slides für Python über .NET stellt die gespeicherten Bearbeitungspräferenzen der Präsentation über [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/). Dazu gehören das Layout der Bereiche, die Zoomstufen, der Rasterabstand und die Sichtbarkeit von Kommentaren.
 
-Die Eigenschaft [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/normal_view_properties/) wurde hinzugefügt, um Zugriff auf die Normalansichts‑Eigenschaften einer Präsentation zu ermöglichen.  
+## **Über NormalViewProperties**
 
-Die Klassen [NormalViewProperties](https://reference.aspose.com/slides/de/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/de/python-net/aspose.slides/normalviewrestoredproperties/) sowie deren Ableitungen, das Aufzählungselement [SplitterBarStateType](https://reference.aspose.com/slides/de/python-net/aspose.slides/splitterbarstatetype/) wurden hinzugefügt.
+Verwenden Sie [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) um auf das Objekt [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/) zuzugreifen. [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) steuert, ob Symbole neben den Folientiteln in der Gliederung angezeigt werden. [snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) lässt den Seitenbereich in den minimierten Zustand springen, wenn der Benutzer ihn verkleinert. [prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) gibt an, dass ein einzelner Bereich im Vollbildfenster angezeigt werden soll.
 
-## **Über INormalViewProperties**
+[vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) steuert den Trenner zwischen dem Seitenbereich und der Folie. [horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) steuert den Trenner über dem Notizbereich. Beide akzeptieren einen [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) Wert von `MINIMIZED`, `MAXIMIZED` oder `RESTORED`.
 
-Stellt Normalansichts‑Eigenschaften dar.
+<!-- visual-explanation:presentation-view-properties:start -->
+[![Ein konzeptueller Editor trennt ein Seitenpanel, einen Folienbereich und einen unteren Bereich mit beschrifteten vertikalen und horizontalen Teilern.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-Die Eigenschaft **ShowOutlineIcons** gibt an, ob die Anwendung Symbole anzeigen soll, wenn Outline‑Inhalt in einem der Inhaltsbereiche der Normalansicht angezeigt wird.
+*In der Normalansicht steuert der vertikale Trenner die Breite des Seitenbereichs. Der horizontale Trenner steuert den Raum über dem Notizbereich.*
+<!-- visual-explanation:presentation-view-properties:end -->
 
-Die Eigenschaft **SnapVerticalSplitter** gibt an, ob der vertikale Trennbalken in einen minimierten Zustand einrasten soll, wenn der Seitenbereich hinreichend klein ist.
+## **Über das Wiederherstellen von NormalViewProperties**
 
-Die Eigenschaft **PreferSingleView** gibt an, ob der Benutzer es bevorzugt, einen einzelnen Inhaltsbereich im Vollfenster statt der üblichen Normalansicht mit drei Inhaltsbereichen zu sehen. Ist diese Option aktiviert, kann die Anwendung wählen, einen der Inhaltsbereiche im gesamten Fenster darzustellen.
+Wenn ein Trenner wiederhergestellt wird, liefert [restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) die gespeicherte Größe des Seitenbereichs und [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) die gespeicherte Größe des oberen Folienbereichs. Beide stellen [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/) bereit. Die Eigenschaft [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) akzeptiert einen Prozentsatz von 0 bis 100, und [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) steuert, ob der Editor die Größe bei einer Fenstergrößenänderung anpasst.
 
-Die Eigenschaften **VerticalBarState** und **HorizontalBarState** geben den Zustand an, in dem die horizontale bzw. vertikale Trennleiste angezeigt werden soll. Eine horizontale Trennleiste trennt die Folie vom darunter liegenden Inhaltsbereich, eine vertikale Trennleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** und **SplitterBarStateType.Restored**.
-
-Die Eigenschaften **RestoredLeft** und **RestoredTop** geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn für **VerticalBarState** bzw. **HorizontalBarState** der Wert **SplitterBarStateType.Restored** angewendet wird.
-
-## **Über das Wiederherstellen von INormalViewProperties**
-
-Legt die Größenangaben des Folienbereichs (Breite, wenn Kind von RestoredTop, Höhe, wenn Kind von RestoredLeft) der Normalansicht fest, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert).
-
-Die Eigenschaft **DimensionSize** gibt die Größe des Folienbereichs an (Breite, wenn Kind von restoredTop, Höhe, wenn Kind von restoredLeft).
-
-Die Eigenschaft **AutoAdjust** gibt an, ob die Größe des seitlichen Inhaltsbereichs die neue Größe kompensieren soll, wenn das Fenster, das die Ansicht enthält, in der Anwendung neu skaliert wird.
-
-Ein Beispiel wird unten gezeigt, wie Sie auf die Eigenschaften **ViewProperties.NormalViewProperties** einer Präsentation zugreifen können.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # Wiederherstellen der Ansichtseigenschaften der Präsentation
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Standard‑Zoomwert festlegen**
-
-Aspose.Slides für Python über .NET unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, sodass beim Öffnen der Präsentation der Zoom bereits eingestellt ist. Dies kann durch Festlegen der [view_properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/view_properties/) einer Präsentation erfolgen. Folienansichts‑Eigenschaften sowie [notes_view_properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/notes_view_properties/) können programmgesteuert gesetzt werden. In diesem Thema sehen wir anhand eines Beispiels, wie die Ansichtseigenschaften einer Präsentation in Aspose.Slides festgelegt werden.
-
-Um die Ansichtseigenschaften festzulegen, führen Sie bitte die folgenden Schritte aus:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)  
-1. Setzen Sie die [view properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/) der Präsentation  
-1. Speichern Sie die Präsentation als PPTX-Datei  
-
-Im nachstehenden Beispiel haben wir den Zoomwert für die Folienansicht sowie für die Notizansicht festgelegt.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # Festlegen der Ansichtseigenschaften der Präsentation
-    presentation.view_properties.slide_view_properties.scale = 100 # Zoomwert in Prozent für die Folienansicht
-    presentation.view_properties.notes_view_properties.scale = 100 # Zoomwert in Prozent für die Notizansicht 
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Rasterabstand festlegen**
-
-Verwenden Sie [Presentation.view_properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/view_properties/), um die präsentationsweiten Ansichtseinstellungen zuzugreifen. Die Eigenschaft [ViewProperties.grid_spacing](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/grid_spacing/) liest oder ändert das Intervall des zugrunde liegenden Bearbeitungsrasters. Diese Einstellung gilt für die gesamte Präsentation, nicht für einzelne Folien. Der Rasterabstand wird in Punkten angegeben, wobei 72 Punkte einem Zoll entsprechen. Verwenden Sie einen positiven Wert, wie in der API‑Dokumentation gefordert.
-
-Das folgende Beispiel öffnet ein vorhandenes `demo.pptx`, gibt den aktuellen Rasterabstand aus, setzt ein Intervall von einem Viertelzoll und speichert das Ergebnis.
+Dieses Beispiel aktualisiert eine bestehende Präsentation. Es stellt den horizontalen Trenner wieder her, setzt [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) auf 80 % mit aktivierter automatischer Anpassung und maximiert den vertikalen Trenner. Außerdem wird [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) für die Gliederungsansicht aktiviert.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Standard-Zoomwert festlegen**
+
+[slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) und [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) speichern unabhängige Zoom‑Einstellungen für den Editor. Diese Einstellungen beeinflussen nicht die Folienabmessungen, die Wiedergabe von Bildschirmen oder die Auflösung beim Export von Bildern.
+
+Dieses Beispiel öffnet eine bestehende Präsentation und aktiviert [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/), um die Folie an das Bearbeitungsfenster anzupassen. Für die Notizseite wird die automatische Skalierung deaktiviert und [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) auf einen festen Zoom von 80 % gesetzt.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Rasterabstand festlegen**
+
+[grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) legt den Abstand zwischen den Bearbeitungsrasterlinien in der gesamten Präsentation fest. Es nimmt einen positiven Wert in Punkten, wobei 72 Punkte einem Zoll entsprechen. Dieses Beispiel gibt den aktuellen Abstand in einer bestehenden Präsentation aus und speichert ein Viertel‑Zoll‑Raster, indem das Intervall auf 18 Punkte gesetzt wird.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Das Raster unterscheidet sich von den [drawing guides](/slides/de/python-net/drawing-guides/). Der Rasterabstand steuert ein regelmäßiges Intervall, während Zeichenhilfen einzelne horizontale oder vertikale Ausrichtungslinien sind. Das Hinzufügen, Verschieben oder Entfernen von Zeichenhilfen ändert den Rasterabstand nicht.
+Das Raster wiederholt sich in einem festen Intervall. [Zeichenhilfen](/slides/de/python-net/drawing-guides/) markieren einzelne horizontale oder vertikale Positionen. Beide dienen als Hilfsmittel beim Bearbeiten und erscheinen nur in Editoren, die sie anzeigen. Bildschirmp​räsentationen und Exporte nach PDF, Bildern oder SVG lassen sie weg.
 
-Sowohl das Raster als auch die Zeichenhilfen dienen als Bearbeitungshilfen. Sie werden nicht als Folieninhalt in PDF, Bildern, SVG oder einer Diashow dargestellt. Das Speichern des Rasterabstands garantiert nicht, dass ein Editor das Raster anzeigt: dessen Sichtbarkeit hängt auch von den Einstellungen des Betrachters oder Editors ab.
+## **Kommentare beim Öffnen einer Präsentation ein- oder ausblenden**
 
-## **Kommentare beim Öffnen einer Präsentation anzeigen oder ausblenden**
-
-Verwenden Sie [Presentation.view_properties](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/view_properties/), um die präsentationsweiten Ansichtseinstellungen zuzugreifen. Lesen oder ändern Sie [ViewProperties.show_comments](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/show_comments/), um eine Präferenz zu speichern, ob Kommentare angezeigt werden sollen, wenn die Präsentation in PowerPoint oder einem anderen kompatiblen Editor geöffnet wird.
-
-Diese Einstellung steuert nur die gespeicherte Ansichtspräferenz. Sie fügt Kommentare nicht hinzu, entfernt sie nicht, bearbeitet sie nicht und löst sie nicht auf. Das Ausblenden von Kommentaren bewahrt deren Inhalt, Autoren, Positionen, Antworten und Status. Siehe [Presentation Comments](/slides/de/python-net/presentation-comments/) für Vorgänge, die Kommentare selbst ändern.
-
-Das folgende Beispiel erfordert ein vorhandenes `comments.pptx` mit Kommentaren. Es gibt die aktuelle Sichtbarkeitseinstellung aus, fordert das Ausblenden der Kommentare an und speichert ein neues PPTX, ohne Kommentare zu entfernen. Es setzt außerdem [ViewProperties.last_view](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/last_view/) auf [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewtype/), um die anfängliche Bearbeitungsansicht zusammen mit der Kommentar­sichtbarkeit zu konfigurieren.
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) speichert eine Präferenz, die kompatible Editoren beim Öffnen der Präsentation verwenden. Für eine bestehende Präsentation mit Kommentaren gibt dieses Beispiel die aktuelle Einstellung aus und speichert eine Kopie mit ausgeblendeten Kommentaren. Außerdem wird [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) auf [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/) gesetzt, sodass die Kopie in der Folienansicht geöffnet wird.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Diese Einstellung bestimmt nicht, ob Kommentare in PDF-, HTML-, Bild-, Notiz‑ oder Handout‑Exporten enthalten sind. Konfigurieren Sie die entsprechenden export‑spezifischen Optionen separat.
+Das Ausblenden von Kommentaren bewahrt deren Text, Autoren, Positionen, Antworten und Status. Um die Kommentare selbst zu ändern, siehe [Präsentationskommentare](/slides/de/python-net/presentation-comments/). Exporteinstellungen steuern, ob Kommentare in PDF, HTML, Bildern, Notizen oder Handzetteln erscheinen.
 
 ## **FAQ**
 
-**Warum ist das Raster nach dem erneuten Öffnen der Präsentation nicht sichtbar?**  
-Die Datei speichert den Rasterabstand, aber der Editor entscheidet, ob das Raster angezeigt wird. Überprüfen Sie die Raster‑Sichtbarkeitseinstellungen des Editors.
+**Warum ist das Raster ausgeblendet, wenn ich die Präsentation erneut öffne?**
 
-**Ändert das Entfernen von Zeichenhilfen den Rasterabstand?**  
-Nein. Zeichenhilfen und Rasterabstand sind unabhängige Einstellungen. Das Entfernen von Hilfen lässt das gespeicherte Rasterintervall unverändert.
+Die Präsentation speichert das Rasterintervall. Um das Raster zu sehen, aktivieren Sie die Rasteranzeige im Editor.
 
-**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?**  
-[Ansichtseinstellungen](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/view_properties/) werden auf Präsentationsebene definiert ([Normal View](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/de/python-net/aspose.slides/viewproperties/slide_view_properties/)), nicht pro Abschnitt, sodass ein einziger Parametersatz beim Öffnen des gesamten Dokuments gilt.
+**Ändert das Löschen von Zeichenhilfen den Rasterabstand?**
 
-**Kann ich unterschiedliche Ansichtszustände für verschiedene Benutzer vordefinieren?**  
-Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam nutzbar. Viewer‑Anwendungen können Benutzerpräferenzen berücksichtigen, aber die Datei selbst enthält nur einen Satz von Ansichtseigenschaften.
+Nein. Das Hinzufügen, Verschieben oder Löschen einer Hilfslinie lässt das Rasterintervall unverändert.
 
-**Kann ich eine Vorlage mit vordefinierten Ansichtseigenschaften erstellen, damit neue Präsentationen gleich geöffnet werden?**  
-Ja. Da [Ansichtseigenschaften](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/view_properties/) auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und daraus neue Dokumente mit derselben initialen Ansichtskonfiguration erstellen.
+**Können verschiedene Abschnitte einer Präsentation unterschiedliche Ansichtseinstellungen haben?**
+
+Nein. [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) gilt für die gesamte Präsentation.
+
+**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Benutzer speichern?**
+
+Die Datei speichert einen Satz von Ansichtseigenschaften für alle. Ein Editor kann zusätzlich die lokalen Präferenzen eines Benutzers anwenden.
+
+**Kann ich Ansichtseinstellungen in einer Vorlage speichern?**
+
+Ja. Präsentationen, die aus der Vorlage erstellt werden, übernehmen die dort gespeicherten Ansichtseinstellungen.

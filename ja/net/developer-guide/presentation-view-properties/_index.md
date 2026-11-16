@@ -1,5 +1,5 @@
 ---
-title: .NET でプレゼンテーションのビュー プロパティを取得および更新
+title: .NET でプレゼンテーションのビュー プロパティを取得および更新する
 linktitle: ビュー プロパティ
 type: docs
 weight: 80
@@ -11,8 +11,8 @@ keywords:
 - アウトライン アイコン
 - 垂直スプリッタのスナップ
 - 単一ビュー
-- バー状態
-- 次元サイズ
+- バーの状態
+- サイズの寸法
 - 自動調整
 - デフォルト ズーム
 - PowerPoint
@@ -21,89 +21,57 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のビュー プロパティを活用し、PPT、PPTX、ODP スライドの形式をカスタマイズしましょう。レイアウトやズーム レベル、表示設定を調整できます。"
+description: "Aspose.Slides for .NET を使用して、PowerPoint プレゼンテーションの標準ビュー レイアウト、スライドとノートのズーム、グリッド間隔、コメントの表示状態を構成します。"
 ---
-## **Introduction**
+## **はじめに**
 
-通常ビューは 3 つのコンテンツ領域で構成されます。スライド自体、サイドコンテンツ領域、そして下部コンテンツ領域です。各コンテンツ領域の位置に関するプロパティです。この情報により、アプリケーションはビュー状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態で表示されます。
+PowerPoint の標準ビューでは、スライドはサムネイルやアウトライン用のサイドペインと、下部のノートペインの間に表示されます。Aspose.Slides for .NET は、プレゼンテーションの保存された編集設定を [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) を通じて公開します。これらにはペインレイアウト、ズームレベル、グリッド間隔、コメントの表示状態が含まれます。
 
-プロパティ [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/iviewproperties/properties/normalviewproperties) が追加され、プレゼンテーションの通常ビュー プロパティへのアクセスが提供されました。
+## **INormalViewProperties について**
 
-[INormalViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/inormalviewproperties)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/inormalviewrestoredproperties) インターフェイスとその派生、[SplitterBarStateType](https://reference.aspose.com/slides/ja/net/aspose.slides/splitterbarstatetype) 列挙型が追加されました。
+[NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) を使用して [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/) インターフェイスにアクセスします。[ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) はアウトラインでスライドタイトルの横にアイコンを表示するかどうかを制御します。[SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) は、ユーザーがサイドペインを狭くしたときにペインを最小化状態にスナップさせます。[PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) は、ウィンドウ全体で 1 つのペインを表示することを優先するかを示します。[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) はサイドペインとスライド間の区切り線を制御します。[HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) はノートペイン上部の区切り線を制御します。両方とも `Minimized`、`Maximized`、または `Restored` のいずれかの [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) 値を受け取ります。
 
-## **About INormalViewProperties**
+## **INormalViewProperties の復元について**
 
-通常ビューのプロパティを表します。
+区切り線が復元されると、[RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) はサイドペインの保存されたサイズを提供し、[RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) は上部スライド領域の保存されたサイズを提供します。両方とも [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/) を公開します。その [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) プロパティは 0 から 100 のパーセンテージを受け取り、[AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) はウィンドウのサイズ変更時にエディタがサイズを調整するかどうかを制御します。この例は既存のプレゼンテーションを更新します。水平区切り線を復元し、[RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) を自動調整を有効にした状態で 80% に設定し、垂直区切り線を最大化します。また、アウトラインビュー用に [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) を有効にします。
 
-プロパティ **ShowOutlineIcons** は、通常ビュー モードの任意のコンテンツ領域にアウトライン コンテンツを表示する場合にアイコンを表示するかどうかを指定します。
-
-プロパティ **SnapVerticalSplitter** は、サイド領域が十分に小さくなったときに垂直スプリッタが最小化状態にスナップするかどうかを指定します。
-
-プロパティ **PreferSingleView** は、ユーザーが 3 つのコンテンツ領域を持つ標準の通常ビューではなく、全ウィンドウで単一コンテンツ領域を表示したいかどうかを指定します。有効にすると、アプリケーションはウィンドウ全体にコンテンツ領域の 1 つを表示することを選択できる場合があります。
-
-プロパティ **VerticalBarState** と **HorizontalBarState** は、水平または垂直スプリッタ バーが表示される状態を指定します。水平スプリッタ バーはスライドとスライドの下部コンテンツ領域を分割し、垂直スプリッタ バーはスライドとサイドコンテンツ領域を分割します。可能な値は **SplitterBarStateType.Minimized**、**SplitterBarStateType.Maximized**、**SplitterBarStateType.Restored** です。
-
-プロパティ **RestoredLeft** と **RestoredTop** は、**VerticalBarState** と **HorizontalBarState** にそれぞれ **SplitterBarStateType.Restored** が適用されたときの、通常ビューの上部またはサイドスライド領域のサイズを指定します。
-
-## **About Restoring INormalViewProperties**
-
-領域が可変の復元サイズ（最小化でも最大化でもない）である場合の、通常ビューのスライド領域（RestoredTop の子の場合は幅、RestoredLeft の子の場合は高さ）のサイズを指定します。
-
-プロパティ **DimensionSize** は、スライド領域のサイズ（restoredTop の子の場合は幅、restoredLeft の子の場合は高さ）を指定します。
-
-プロパティ **AutoAdjust** は、ウィンドウのサイズ変更時にサイドコンテンツ領域のサイズが新しいサイズに合わせて自動的に調整されるかどうかを指定します。
-
-以下の例は、プレゼンテーションの **ViewProperties.NormalViewProperties** プロパティにアクセスする方法を示しています。
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // プレゼンテーションのビュー プロパティを復元する
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
-## **Set the Default Zoom Value**
+## **デフォルトズーム値の設定**
 
-Aspose.Slides for .NET は、プレゼンテーションを開いたときにズームが既に設定された状態になるよう、デフォルト ズーム値の設定をサポートするようになりました。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/viewproperties) を設定することで実現できます。スライド ビュー プロパティだけでなく、[NotesViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/viewproperties/properties/notesviewproperties) もプログラムから設定可能です。このトピックでは、Aspose.Slides でプレゼンテーションのビュー プロパティを設定する方法をサンプルで示します。
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) と [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) はエディタ用の個別のズーム設定を保存します。これらの設定はスライドのサイズ、スライドショーの再生、または画像エクスポートの解像度には影響しません。この例は既存のプレゼンテーションを開き、[VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/) を有効にしてスライドを編集ウィンドウに合わせます。ノートページについては自動スケーリングを無効にし、[Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) を固定の 80% ズームに設定します。
 
-ビュー プロパティを設定するには、以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成
-2. プレゼンテーションのビュー [Properties](https://reference.aspose.com/slides/ja/net/aspose.slides/viewproperties) を設定
-3. プレゼンテーションを PPTX ファイルとして書き出し
-
-以下のサンプルでは、スライド ビューとノート ビューの両方にズーム値を設定しています。
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // プレゼンテーションのビュー プロパティを設定する
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // スライドビューのズーム値（パーセンテージ）
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // ノートビューのズーム値（パーセンテージ） 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
-## **Set the Grid Spacing**
+## **グリッド間隔の設定**
 
-[Presentation.ViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/viewproperties/) を使用して、プレゼンテーション全体のビュー設定にアクセスします。プロパティ [IViewProperties.GridSpacing](https://reference.aspose.com/slides/ja/net/aspose.slides/iviewproperties/gridspacing/) は、基礎となる編集グリッドの間隔を読み取るか変更します。この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。グリッド間隔はポイントで指定され、72 ポイントが 1 インチに相当します。API ドキュメントで求められているように、正の値を使用してください。
-
-次の例は既存の `demo.pptx` を開き、現在のグリッド間隔を出力し、1/4 インチ間隔に設定して結果を保存します。
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) はプレゼンテーション全体の編集グリッド線間の距離を設定します。単位はポイントで、1 インチは 72 ポイントです。この例は既存のプレゼンテーションで現在の間隔を出力し、間隔を 18 ポイントに設定して 1/4 インチのグリッドを保存します。
 
 ```csharp
 using System;
@@ -111,24 +79,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-グリッドは [drawing guides](/slides/ja/net/drawing-guides/) とは異なります。グリッド間隔は規則的な間隔を制御するのに対し、描画ガイドは個別に配置された水平または垂直の整列線です。描画ガイドを追加、移動、またはクリアしてもグリッド間隔は変更されません。
+グリッドは固定間隔で繰り返されます。[Drawing guides](/slides/ja/net/drawing-guides/) は個々の水平または垂直位置を示すガイドです。どちらも編集支援ツールであり、表示できるエディタでのみ表示されます。スライドショーや PDF、画像、SVG へのエクスポートでは表示されません。
 
-グリッドも描画ガイドも編集支援ツールです。PDF、画像、SVG、スライドショーとしてレンダリングされるスライド コンテンツには含まれません。グリッド間隔を保存しても、エディタがグリッドを表示するかどうかは保証されません。表示はビューアやエディタの設定にも依存します。
+## **プレゼンテーションを開くときのコメントの表示/非表示**
 
-## **Show or Hide Comments When Opening a Presentation**
-
-[Presentation.ViewProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/viewproperties/) を使用して、プレゼンテーション全体のビュー設定にアクセスします。[IViewProperties.ShowComments](https://reference.aspose.com/slides/ja/net/aspose.slides/iviewproperties/showcomments/) を読み取るか変更して、PowerPoint やその他の対応エディタでプレゼンテーションを開く際にコメントを表示するかどうかの設定を保存できます。
-
-この設定は保存されたビューの優先設定のみを制御します。コメントの追加、削除、編集、解決は行いません。コメントを非表示にしても、コメントの内容、作成者、位置、返信、ステータスは保持されます。コメント自体を変更する操作については、[Presentation Comments](/slides/ja/net/presentation-comments/) を参照してください。
-
-以下の例は、コメントが含まれた既存の `comments.pptx` を使用します。現在の可視性設定を出力し、コメントを非表示に設定して新しい PPTX を保存します。また、[IViewProperties.LastView](https://reference.aspose.com/slides/ja/net/aspose.slides/iviewproperties/lastview/) を [ViewType.SlideView](https://reference.aspose.com/slides/ja/net/aspose.slides/viewtype/) に設定し、コメントの可視性とともに初期編集ビューを構成します。
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) は、対応するエディタがプレゼンテーションを開く際に使用する設定を保存します。コメントが含まれる既存のプレゼンテーションについて、この例は現在の設定を出力し、コメントを非表示にしたコピーを保存します。また、[LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) を [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) に設定して、コピーがスライドビューで開くようにします。
 
 ```csharp
 using System;
@@ -136,34 +99,30 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-この設定は、PDF、HTML、画像、ノート、または配布資料のエクスポート時にコメントが含まれるかどうかを決定するものではありません。エクスポート固有のオプションは別途構成してください。
+コメントを非表示にしても、テキスト、作成者、位置、返信、ステータスは保持されます。コメントそのものを変更するには、[Presentation Comments](/slides/ja/net/presentation-comments/) を参照してください。エクスポート設定により、PDF、HTML、画像、ノート、ハンドアウトにコメントを含めるかどうかが決まります。
 
 ## **FAQ**
 
-**なぜプレゼンテーションを再度開いたときにグリッドが表示されないのですか？**
+**プレゼンテーションを再度開くときにグリッドが非表示になるのはなぜですか？**  
+プレゼンテーションはグリッド間隔を保存しています。グリッドを表示するには、エディタでグリッドの表示を有効にしてください。
 
-ファイルはグリッド間隔を保存しますが、エディタがグリッドを表示するかはエディタ側の設定に依存します。エディタのグリッド表示設定をご確認ください。
+**描画ガイドを削除してもグリッド間隔は変わりますか？**  
+いいえ。ガイドを追加、移動、削除してもグリッド間隔は変わりません。
 
-**描画ガイドをクリアしてもグリッド間隔は変わりますか？**
+**プレゼンテーションの異なるセクションでビュー設定を変更できますか？**  
+いいえ。[Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) はプレゼンテーション全体に適用されます。
 
-いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドを削除しても保存されたグリッド間隔は変わりません。
+**異なるユーザーごとに異なるビュー設定を保存できますか？**  
+ファイルはすべてのユーザーに対して 1 つのビュー設定を保存します。エディタはユーザー固有のローカル設定を適用することもあります。
 
-**プレゼンテーションのセクションごとに異なるビュー設定を持たせることはできますか？**
-
-[View settings](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/viewproperties/) はプレゼンテーション レベルで定義され（[Normal View](https://reference.aspose.com/slides/ja/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ja/net/aspose.slides/viewproperties/slideviewproperties/)）、セクションごとではありません。そのため、ドキュメント全体に対して単一のパラメータセットが適用されます。
-
-**ユーザーごとに異なるビュー状態を事前に定義できますか？**
-
-できません。設定はファイルに保存され、すべてのユーザーで共有されます。ビューア アプリケーションがユーザーの好みを尊重することはありますが、ファイル自体には 1 つのビュー プロパティセットしか含まれません。
-
-**テンプレートに事前定義されたビュー プロパティを埋め込んで、新規プレゼンテーションを同じ設定で開かせることは可能ですか？**
-
-可能です。ビュー プロパティはプレゼンテーション レベルで保存されるため、テンプレートに埋め込んでおけば、新規ドキュメントを作成したときに同じ初期ビュー構成で開くことができます。
+**テンプレートにビュー設定を保存できますか？**  
+はい。テンプレートから作成されたプレゼンテーションは、テンプレートに保存されたビュー設定を継承します。

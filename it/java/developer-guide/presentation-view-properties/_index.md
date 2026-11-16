@@ -1,6 +1,6 @@
 ---
-title: Recupera e aggiorna le proprietà di visualizzazione della presentazione in Java
-linktitle: Proprietà di visualizzazione
+title: Recupera e Aggiorna le Proprietà di Visualizzazione della Presentazione in Java
+linktitle: Proprietà di Visualizzazione
 type: docs
 weight: 80
 url: /it/java/presentation-view-properties/
@@ -9,9 +9,9 @@ keywords:
 - visualizzazione normale
 - contenuto della struttura
 - icone della struttura
-- divisore verticale a scatto
-- visualizzazione singola
-- stato della barra
+- suddivisione verticale agganciata
+- vista singola
+- stato barra
 - dimensione
 - regolazione automatica
 - zoom predefinito
@@ -20,162 +20,127 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri le proprietà di visualizzazione di Aspose.Slides per Java per personalizzare formati PPT, PPTX e ODP—regola layout, livelli di zoom e impostazioni di visualizzazione."
+description: "Utilizza Aspose.Slides per Java per configurare il layout della visualizzazione normale, lo zoom diapositive e note, la spaziatura della griglia e la visibilità dei commenti nelle presentazioni PowerPoint."
 ---
 ## **Introduzione**
 
-La visualizzazione normale è composta da tre aree di contenuto: la diapositiva stessa, un'area laterale e un'area inferiore. Proprietà relative al posizionamento delle diverse aree di contenuto. queste informazioni consentono all'applicazione di salvare lo stato della visualizzazione nel file, così che, al riapertura, la vista sia nello stesso stato in cui la presentazione è stata salvata l'ultima volta.
-
-Il metodo [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) è stato aggiunto per fornire l'accesso alle proprietà della visualizzazione normale di una presentazione. 
-
-Sono stati aggiunti gli interface [INormalViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewRestoredProperties) e i loro discendenti, nonché l'enumerazione [SplitterBarStateType](https://reference.aspose.com/slides/it/java/com.aspose.slides/SplitterBarStateType).
+Nella visualizzazione normale di PowerPoint, la diapositiva appare tra un riquadro laterale per le miniature o la struttura e un riquadro delle note nella parte inferiore. Aspose.Slides per Java espone le preferenze di modifica salvate della presentazione tramite [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--). Queste includono la disposizione dei riquadri, i livelli di zoom, la spaziatura della griglia e la visibilità dei commenti.
 
 ## **Informazioni su INormalViewProperties**
 
-Rappresenta le proprietà della visualizzazione normale.
+Usa [getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) per accedere all'interfaccia [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) controlla se le icone appaiono accanto ai titoli delle diapositive nella struttura. [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) consente al riquadro laterale di agganciarsi al suo stato ridotto quando l'utente lo restringe. [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) indica una preferenza per visualizzare un unico riquadro nella finestra intera.
 
-I metodi [getShowOutlineIcons](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) e [setShowOutlineIcons](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) specificano se l'applicazione deve mostrare le icone quando visualizza il contenuto della struttura in una delle aree di contenuto della modalità di visualizzazione normale.
+[setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) controlla il divisore tra il riquadro laterale e la diapositiva. [setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) controlla il divisore sopra il riquadro delle note. Entrambi accettano un valore di [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` o `Restored`.
 
-I metodi [getSnapVerticalSplitter](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) e [setSnapVerticalSplitter](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) specificano se il divisore verticale deve scattare a uno stato minimizzato quando l'area laterale è sufficientemente piccola.
+## **Informazioni sul ripristino di INormalViewProperties**
 
-La proprietà [getPreferSingleView](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) e [setPreferSingleView](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) indica se l'utente preferisce vedere un'unica area di contenuto a finestra intera rispetto alla visualizzazione normale standard con tre aree di contenuto. Se abilitata, l'applicazione può scegliere di visualizzare una delle aree di contenuto nell'intera finestra.
+Quando un divisore viene ripristinato, [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) fornisce la dimensione salvata del riquadro laterale e [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) fornisce la dimensione salvata dell'area superiore della diapositiva. Entrambi espongono [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/). Il suo metodo [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) accetta una percentuale da 0 a 100, e [setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) controlla se l'editor regola la dimensione quando la finestra viene ridimensionata.
 
-I metodi [getVerticalBarState](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) e [getHorizontalBarState](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) specificano lo stato in cui deve essere mostrata la barra divisoria orizzontale o verticale. Una barra divisoria orizzontale separa la diapositiva dall'area di contenuto sotto la diapositiva, una barra divisoria verticale separa la diapositiva dall'area laterale. I valori possibili sono: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/it/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/it/java/com.aspose.slides/SplitterBarStateType#Maximized) e [SplitterBarStateType.Restored](https://reference.aspose.com/slides/it/java/com.aspose.slides/SplitterBarStateType#Restored).
-
-I metodi [getRestoredLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) e [getRestoredTop](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) specificano le dimensioni dell'area superiore o laterale della diapositiva nella visualizzazione normale, quando viene applicato il valore [SplitterBarStateType.Restored](https://reference.aspose.com/slides/it/java/com.aspose.slides/SplitterBarStateType#Restored) per [getVerticalBarState](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) e [getHorizontalBarState](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) di conseguenza.
-
-## **Informazioni sul ripristino di INormalViewProperties** 
-
-Specifica le dimensioni dell'area della diapositiva (larghezza quando è figlia di [getRestoredTop](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), altezza quando è figlia di [getRestoredLeft](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) della visualizzazione normale, quando l'area ha una dimensione variabile ripristinata (né minimizzata né massimizzata). 
-
-Il metodo [getDimensionSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) specifica la dimensione dell'area della diapositiva (larghezza quando è figlia di restoredTop, altezza quando è figlia di restoredLeft).
-
-Il metodo [getAutoAdjust](https://reference.aspose.com/slides/it/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) specifica se la dimensione dell'area laterale di contenuto deve compensare la nuova dimensione quando si ridimensiona la finestra che contiene la visualizzazione all'interno dell'applicazione.
-
-Un esempio riportato di seguito mostra come accedere alle proprietà [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) per una presentazione.
+Questo esempio aggiorna una presentazione esistente. Ripristina il divisore orizzontale, imposta la dimensione restituita da [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) all'80% con aggiustamento automatico abilitato e massimizza il divisore verticale. Chiama anche [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) per visualizzare le icone nella vista struttura.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Ripristina le proprietà di visualizzazione della presentazione
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Impostare il valore di zoom predefinito**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Java ora supporta l'impostazione del valore di zoom predefinito per una presentazione in modo che, quando la presentazione viene aperta, lo zoom sia già impostato. Ciò può essere fatto impostando le [ViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ViewProperties) di una presentazione. [getSlideViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) così come [getNotesViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) possono essere impostati programmaticamente. In questo argomento vedremo, con un esempio, come impostare le [View Properties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ViewProperties) di una [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation) in Aspose.Slides.
-
-{{% /alert %}} 
-
-Per impostare le proprietà di visualizzazione, seguire i passaggi seguenti:
-
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation).
-1. Impostare le [View Properties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ViewProperties) della [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation).
-1. Scrivere la presentazione in un file [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   Nell'esempio riportato di seguito, abbiamo impostato il valore di zoom per la visualizzazione della diapositiva e per la visualizzazione delle note.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // Impostazione delle proprietà di visualizzazione della presentazione
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Valore di zoom in percentuale per la visualizzazione della diapositiva
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Valore di zoom in percentuale per la visualizzazione delle note 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Impostare la spaziatura della griglia**
+## **Imposta il valore di zoom predefinito**
 
-Utilizzare [Presentation.getViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getViewProperties--) per accedere alle impostazioni di visualizzazione a livello di presentazione. I metodi [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/iviewproperties/#getGridSpacing--) e [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) leggono o modificano l'intervallo della griglia di editing sottostante. Questa impostazione si applica all'intera presentazione, non a una diapositiva individuale. La spaziatura della griglia è espressa in punti, dove 72 punti corrispondono a un pollice. Utilizzare un valore positivo, come richiesto dalla documentazione API.
+[getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) e [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) memorizzano impostazioni di zoom indipendenti per l'editor. Queste impostazioni non influenzano le dimensioni della diapositiva, la riproduzione della presentazione o la risoluzione di esportazione delle immagini.
 
-L'esempio seguente apre un file `demo.pptx` esistente, stampa la spaziatura della griglia corrente, imposta un intervallo di un quarto di pollice e salva il risultato.
+Questo esempio apre una presentazione esistente e chiama [setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) per adattare la diapositiva alla finestra di editing. Per la pagina delle note, disabilita la scala automatica e chiama [setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) per impostare uno zoom fisso dell'80%.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Imposta la spaziatura della griglia**
+
+[setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) imposta la distanza tra le linee della griglia di editing in tutta la presentazione. Accetta un valore positivo in punti, con 72 punti per pollice. Questo esempio stampa la spaziatura corrente in una presentazione esistente e salva una griglia di un quarto di pollice impostando l'intervallo a 18 punti.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-La griglia è diversa dalle [drawing guides](/slides/it/java/drawing-guides/). La spaziatura della griglia controlla un intervallo regolare, mentre le guide di disegno sono linee di allineamento orizzontali o verticali posizionate individualmente. Aggiungere, spostare o cancellare le guide di disegno non modifica la spaziatura della griglia.
+La griglia si ripete a intervalli fissi. [Drawing guides](/slides/it/java/drawing-guides/) segnano posizioni orizzontali o verticali individuali. Entrambe sono ausili di editing e appaiono solo negli editor che le visualizzano. Le presentazioni e le esportazioni in PDF, immagini o SVG le omettono.
 
-Sia la griglia sia le guide di disegno sono ausili per l'editing. Non vengono renderizzate come contenuto della diapositiva in PDF, immagini, SVG o presentazioni. La memorizzazione della spaziatura della griglia non garantisce che un editor visualizzi la griglia: la sua visibilità dipende anche dalle preferenze del visualizzatore o dell'editor.
+## **Mostra o nascondi i commenti all'apertura di una presentazione**
 
-## **Mostrare o nascondere i commenti all'apertura di una presentazione**
-
-Utilizzare [Presentation.getViewProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getViewProperties--) per accedere alle impostazioni di visualizzazione a livello di presentazione. Utilizzare [IViewProperties.getShowComments](https://reference.aspose.com/slides/it/java/com.aspose.slides/iviewproperties/#getShowComments--) e [IViewProperties.setShowComments](https://reference.aspose.com/slides/it/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) per leggere o modificare la preferenza memorizzata per la visualizzazione dei commenti quando la presentazione si apre in PowerPoint o in un altro editor compatibile.
-
-Questa impostazione controlla solo la preferenza di visualizzazione memorizzata. Non aggiunge, rimuove, modifica o risolve i commenti. Nascondere i commenti ne conserva contenuto, autori, posizioni, risposte e stati. Vedere [Presentation Comments](/slides/it/java/presentation-comments/) per le operazioni che modificano i commenti stessi.
-
-L'esempio seguente richiede un file `comments.pptx` esistente contenente commenti. Stampa l'impostazione di visibilità corrente, richiede che i commenti siano nascosti e salva un nuovo PPTX senza rimuovere alcun commento. Utilizza inoltre [IViewProperties.setLastView](https://reference.aspose.com/slides/it/java/com.aspose.slides/iviewproperties/#setLastView-int-) con [ViewType.SlideView](https://reference.aspose.com/slides/it/java/com.aspose.slides/viewtype/#SlideView) per configurare la vista di editing iniziale insieme alla visibilità dei commenti.
+[setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) memorizza una preferenza che gli editor compatibili usano all'apertura della presentazione. Per una presentazione esistente con commenti, questo esempio stampa l'impostazione corrente e salva una copia con i commenti nascosti. Chiama anche [setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) con [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) in modo che la copia si apra nella vista diapositiva.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Questa impostazione non determina se i commenti siano inclusi nelle esportazioni PDF, HTML, immagine, note o dispense. Configurare separatamente le opzioni specifiche di esportazione pertinenti.
+Nascondere i commenti ne preserva il testo, gli autori, le posizioni, le risposte e gli stati. Per modificare i commenti stessi, consulta [Presentation Comments](/slides/it/java/presentation-comments/). Le impostazioni di esportazione controllano se i commenti compaiono in PDF, HTML, immagini, note o opuscoli.
 
 ## **FAQ**
 
-**Perché la griglia non è visibile dopo aver riaperto la presentazione?**
+**Perché la griglia è nascosta quando riapro la presentazione?**
 
-Il file memorizza la spaziatura della griglia, ma è l'editor a controllare se la griglia viene visualizzata. Verificare le impostazioni di visibilità della griglia nell'editor.
+La presentazione memorizza l'intervallo della griglia. Per visualizzare la griglia, abilita la visibilità della griglia nell'editor.
 
-**La cancellazione delle guide di disegno modifica la spaziatura della griglia?**
+**La cancellazione delle guide di disegno cambia la spaziatura della griglia?**
 
-No. Le guide di disegno e la spaziatura della griglia sono impostazioni indipendenti. Cancellare le guide lascia invariato l'intervallo della griglia memorizzato.
+No. L'aggiunta, lo spostamento o la cancellazione di una guida non modificano l'intervallo della griglia.
 
-**Posso impostare diverse impostazioni di visualizzazione per sezioni differenti di una presentazione?**
+**Le diverse sezioni di una presentazione possono avere impostazioni di visualizzazione diverse?**
 
-Le [impostazioni di visualizzazione](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getViewProperties--) sono definite a livello di presentazione ([Normal View](https://reference.aspose.com/slides/it/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/it/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)), non per sezione, quindi un unico set di parametri si applica all'intero documento all'apertura.
+No. [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) si applica all'intera presentazione.
 
-**Posso predefinire stati di visualizzazione differenti per utenti diversi?**
+**Posso salvare impostazioni di visualizzazione diverse per utenti diversi?**
 
-No. Le impostazioni sono memorizzate nel file e sono condivise. Le applicazioni di visualizzazione possono rispettare le preferenze dell'utente, ma il file contiene un unico insieme di proprietà di visualizzazione.
+Il file memorizza un unico insieme di proprietà di visualizzazione per tutti. Un editor può anche applicare le preferenze locali dell'utente.
 
-**Posso preparare un modello con View Properties predefinite in modo che le nuove presentazioni si aprano nello stesso modo?**
+**Posso salvare le impostazioni di visualizzazione in un modello?**
 
-Sì. Poiché le [view properties](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getViewProperties--) sono memorizzate a livello di presentazione, è possibile includerle in un modello e creare nuovi documenti da esso con la stessa configurazione di visualizzazione iniziale.
+Sì. Le presentazioni create dal modello ereditano le impostazioni di visualizzazione salvate.
