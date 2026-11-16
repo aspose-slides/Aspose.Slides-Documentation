@@ -1,157 +1,136 @@
 ---
-title: Python में प्रस्तुति व्यू प्रॉपर्टीज़ को प्राप्त करें और अपडेट करें
-linktitle: व्यू प्रॉपर्टीज़
+title: Python में प्रस्तुति दृश्य गुणों को प्राप्त करें और अपडेट करें
+linktitle: दृश्य गुण
 type: docs
 weight: 80
 url: /hi/python-net/presentation-view-properties/
-keywords:
-- व्यू प्रॉपर्टीज़
+keywords: 
+- दृश्य गुण
 - सामान्य दृश्य
-- आउटलाइन कंटेंट
-- आउटलाइन आइकॉन
-- वर्टिकल स्प्लिटर स्नैप
-- सिंगल दृश्य
-- बार स्टेट
-- डायमेन्शन साइज
-- ऑटो एडेजस्ट
+- आउटलाइन सामग्री
+- आउटलाइन आइकन
+- वर्टिकल स्प्लिटर स्नेप
+- एकल दृश्य
+- बार स्थिति
+- आयाम आकार
+- ऑटो समायोजन
 - डिफ़ॉल्ट ज़ूम
 - PowerPoint
-- प्रेजेंटेशन
+- OpenDocument
+- प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के व्यू प्रॉपर्टीज़ की खोज करें ताकि PPT, PPTX और ODP स्लाइड्स के फ़ॉर्मेट को कस्टमाइज़ किया जा सके—लेआउट, ज़ूम लेवल और डिस्प्ले सेटिंग्स को समायोजित किया जा सके।"
+description: "PowerPoint प्रस्तुतियों में सामान्य दृश्य लेआउट, स्लाइड और नोट्स ज़ूम, ग्रिड अंतराल, और टिप्पणी दृश्यता को कॉन्फ़िगर करने के लिए .NET के माध्यम से Python के लिए Aspose.Slides का उपयोग करें।"
 ---
 ## **परिचय**
 
-Normal view में तीन कंटेंट क्षेत्रों होते हैं: स्वयं स्लाइड, एक साइड कंटेंट क्षेत्र, और नीचे का कंटेंट क्षेत्र। विभिन्न कंटेंट क्षेत्रों की पोजिशनिंग से संबंधित प्रॉपर्टीज़। यह जानकारी एप्लिकेशन को उसके view state को फ़ाइल में Save करने की अनुमति देती है, ताकि पुनः खोलने पर view वही स्थिति में हो जैसा कि प्रस्तुति आखिरी बार Save की गई थी।
+PowerPoint के सामान्य दृश्य में, स्लाइड थंबनेल या आउटलाइन के लिए एक साइड पेन और नीचे नोट्स पेन के बीच दिखाई देती है। Aspose.Slides for Python via .NET प्रस्तुति की सहेजी गई संपादन प्राथमिकताओं को [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) के माध्यम से प्रदान करता है। इनमें पेन लेआउट, ज़ूम स्तर, ग्रिड अंतराल, और टिप्पणी दृश्यमानता शामिल हैं।
 
-Property [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/normal_view_properties/) को प्रस्तुति के normal view प्रॉपर्टीज़ तक पहुंच प्रदान करने के लिए जोड़ा गया है।
+## **NormalViewProperties के बारे में**
 
-[NormalViewProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/normalviewrestoredproperties/) क्लासेज़ और उनके descendants, [SplitterBarStateType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/splitterbarstatetype/) enum को जोड़ा गया है।
+Use [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) to access the [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/) object. [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) controls whether icons appear beside slide titles in the outline. [snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) lets the side pane snap to its minimized state when the user narrows it. [prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) indicates a preference for displaying one pane in the full window.
 
-## **INormalViewProperties के बारे में**
+[vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) controls the divider between the side pane and the slide. [horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) controls the divider above the notes pane. Both accept a [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) value of `MINIMIZED`, `MAXIMIZED`, or `RESTORED`.
 
-Normal view प्रॉपर्टीज़ का प्रतिनिधित्व करता है।
+<!-- visual-explanation:presentation-view-properties:start -->
+[![एक वैचारिक संपादक एक साइड पैनल, स्लाइड क्षेत्र और निचले क्षेत्र को लेबल किए हुए वर्टिकल और हॉरिज़ॉन्टल स्प्लिटर के साथ अलग करता है।](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-Property **ShowOutlineIcons** यह निर्दिष्ट करता है कि normal view मोड में किसी भी कंटेंट क्षेत्र में outline कंटेंट प्रदर्शित करते समय एप्लिकेशन को आइकॉन दिखाने चाहिए या नहीं।
+*सामान्य दृश्य में, वर्टिकल डिवाइडर साइड पेन की चौड़ाई को नियंत्रित करता है। हॉरिज़ॉन्टल डिवाइडर नोट्स पेन के ऊपर की जगह को नियंत्रित करता है।*
+<!-- visual-explanation:presentation-view-properties:end -->
 
-Property **SnapVerticalSplitter** यह निर्दिष्ट करता है कि साइड क्षेत्र पर्याप्त छोटा होने पर वर्टिकल स्प्लिटर को मिनिमाइज़्ड स्थिति में स्नैप किया जाना चाहिए या नहीं।
+## **NormalViewProperties को पुनर्स्थापित करने के बारे में**
 
-Property **PreferSingleView** यह निर्दिष्ट करता है कि उपयोगकर्ता पूर्ण-विंडो सिंगल-कंटेंट क्षेत्र को standard normal view के तीन कंटेंट क्षेत्रों के ऊपर देखना पसंद करता है या नहीं। यदि सक्षम किया गया, तो एप्लिकेशन पूरे विंडो में एक कंटेंट क्षेत्र को प्रदर्शित करना चुन सकता है।
+When a divider is restored, [restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) supplies the saved size of the side pane and [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) supplies the saved size of the upper slide area. Both expose [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/). Its [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) property accepts a percentage from 0 to 100, and [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) controls whether the editor adjusts the size when the window is resized.
 
-Property **VerticalBarState** और **HorizontalBarState** यह निर्धारित करते हैं कि होरिज़ॉन्टल या वर्टिकल स्प्लिटर बार किस स्थिति में दिखाया जाना चाहिए। एक होरिज़ॉन्टल स्प्लिटर बार स्लाइड को नीचे के कंटेंट क्षेत्र से अलग करता है, वर्टिकल स्प्लिटर बार स्लाइड को साइड कंटेंट क्षेत्र से अलग करता है। संभावित मान हैं: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** और **SplitterBarStateType.Restored**।
-
-Property **RestoredLeft** और **RestoredTop** यह निर्दिष्ट करते हैं कि normal view में टॉप या साइड स्लाइड क्षेत्र का आकार क्या होना चाहिए, जब **VerticalBarState** और **HorizontalBarState** के लिए **SplitterBarStateType.Restored** मान लागू किया गया हो।
-
-## **INormalViewProperties को पुनर्स्थापित करने के बारे में**
-
-यह निर्दिष्ट करता है कि normal view में स्लाइड क्षेत्र (चाइल्ड होने पर RestoredTop के लिए चौड़ाई, RestoredLeft के लिए ऊँचाई) का आकार क्या होना चाहिए, जब क्षेत्र variable restored size (न तो मिनिमाइज़्ड न ही मैक्सिमाइज़्ड) में हो।
-
-Property **DimensionSize** स्लाइड क्षेत्र का आकार (RestoredTop का चाइल्ड होने पर चौड़ाई, RestoredLeft का चाइल्ड होने पर ऊँचाई) निर्दिष्ट करती है।
-
-Property **AutoAdjust** निर्दिष्ट करता है कि जब विंडो को रिसाइज़ किया जाता है तो साइड कंटेंट क्षेत्र का आकार नई साइज के अनुसार समायोजित होना चाहिए या नहीं।
-
-नीचे दिया गया उदाहरण दर्शाता है कि आप एक प्रस्तुति के लिए **ViewProperties.NormalViewProperties** प्रॉपर्टीज़ तक कैसे पहुंच सकते हैं।
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # प्रेजेंटेशन की व्यू प्रॉपर्टीज़ को पुनर्स्थापित करें
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **डिफ़ॉल्ट ज़ूम मान सेट करें**
-
-Aspose.Slides for Python via .NET अब प्रस्तुति के लिए डिफ़ॉल्ट ज़ूम मान सेट करने का समर्थन करता है जिससे जब प्रस्तुति खोली जाती है, तो ज़ूम पहले से ही सेट हो जाता है। यह presentation के [view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) को सेट करके किया जा सकता है। Slide View Properties और [notes_view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/notes_view_properties/) को प्रोग्रामेटिक रूप से सेट किया जा सकता है। इस विषय में, हम एक उदाहरण के साथ दिखाएंगे कि Aspose.Slides में Presentation के View Properties कैसे सेट करें।
-
-view properties सेट करने के लिए नीचे दिए गए चरणों का पालन करें:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास की इंस्टेंस बनाएं
-1. प्रस्तुति के [view properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/) सेट करें
-1. प्रस्तुति को PPTX फ़ाइल के रूप में लिखें
-
-नीचे दिया गया उदाहरण स्लाइड व्यू और नोट्स व्यू दोनों के लिए ज़ूम मान सेट करता है।
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # प्रस्तुति की व्यू प्रॉपर्टीज़ सेट करना
-    presentation.view_properties.slide_view_properties.scale = 100 # स्लाइड व्यू के लिए प्रतिशत में ज़ूम मान
-    presentation.view_properties.notes_view_properties.scale = 100 # नोट्स व्यू के लिए प्रतिशत में ज़ूम मान 
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **ग्रिड स्पेसिंग सेट करें**
-
-Presentation के view settings तक पहुंचने के लिए [Presentation.view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) का उपयोग करें। Property [ViewProperties.grid_spacing](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/grid_spacing/) मूल एडिटिंग ग्रिड का अंतराल पढ़ता या बदलता है। यह सेटिंग पूरी प्रस्तुति पर लागू होती है, न कि व्यक्तिगत स्लाइड पर। ग्रिड स्पेसिंग पॉइंट्स में निर्दिष्ट की जाती है, जहाँ 72 पॉइंट एक इंच के बराबर होते हैं। API डॉक्यूमेंटेशन के अनुसार आवश्यक मान सकारात्मक होना चाहिए।
-
-निम्न उदाहरण एक मौजूदा `demo.pptx` खोलता है, उसकी वर्तमान ग्रिड स्पेसिंग प्रिंट करता है, एक क्वार्टर-इंच अंतराल सेट करता है, और परिणाम को सहेजता है।
+This example updates an existing presentation. It restores the horizontal divider, sets [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) to 80% with automatic adjustment enabled, and maximizes the vertical divider. It also enables [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) for outline view.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **डिफ़ॉल्ट ज़ूम मान सेट करें**
+
+[slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) and [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) store independent zoom settings for the editor. These settings do not affect slide dimensions, slide-show playback, or image export resolution.
+
+This example opens an existing presentation and enables [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/) to fit the slide to the editing window. For the notes page, it disables automatic scaling and sets [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) to a fixed 80% zoom.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **ग्रिड अंतराल सेट करें**
+
+[grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) sets the distance between editing grid lines throughout the presentation. It takes a positive value in points, with 72 points per inch. This example prints the current spacing in an existing presentation and saves a quarter-inch grid by setting the interval to 18 points.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ग्रिड [drawing guides](/slides/hi/python-net/drawing-guides/) से अलग है। ग्रिड स्पेसिंग नियमित अंतराल को नियंत्रित करती है, जबकि drawing guides व्यक्तिगत रूप से स्थित क्षैतिज या लंबवत संरेखण रेखाएँ होती हैं। drawing guides को जोड़ना, स्थानांतरित करना या साफ़ करना ग्रिड स्पेसिंग को बदलता नहीं है।
+The grid repeats at a fixed interval. [Drawing guides](/slides/hi/python-net/drawing-guides/) mark individual horizontal or vertical positions. Both are editing aids and appear only in editors that display them. Slide shows and exports to PDF, images, or SVG omit them.
 
-ग्रिड और drawing guides दोनों ही एडिटिंग सहायक हैं। वे PDF, images, SVG, या स्लाइड शो में स्लाइड कंटेंट के रूप में रेंडर नहीं होते। ग्रिड स्पेसिंग को स्टोर करने से यह गारंटी नहीं मिलती कि कोई एडिटर ग्रिड दिखाएगा: इसकी दृश्यता viewer या editor की प्राथमिकताओं पर भी निर्भर करती है।
+## **प्रस्तुति खोलते समय टिप्पणी दिखाएँ या छुपाएँ**
 
-## **प्रेजेंटेशन खोलते समय टिप्पणियों को दिखाएँ या छिपाएँ**
-
-Presentation के view settings तक पहुंचने के लिए [Presentation.view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) का उपयोग करें। [ViewProperties.show_comments](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/show_comments/) को पढ़ें या बदलें ताकि यह Preference स्टोर हो सके कि PowerPoint या किसी अन्य संगत एडिटर में प्रेजेंटेशन खोलते समय टिप्पणियाँ दिखानी चाहिए या नहीं।
-
-यह सेटिंग केवल स्टोर किए गए view Preference को नियंत्रित करती है। यह टिप्पणियों को जोड़ती, हटाती, संपादित या हल नहीं करती। टिप्पणियों को छिपाने से उनकी सामग्री, लेखक, स्थितियाँ, उत्तर और स्थिति संरक्षित रहती है। टिप्पणी संचालन के बारे में अधिक जानकारी के लिए देखें [Presentation Comments](/slides/hi/python-net/presentation-comments/)।
-
-निम्न उदाहरण के लिए एक मौजूदा `comments.pptx` आवश्यक है जिसमें टिप्पणियाँ हों। यह वर्तमान दृश्यता सेटिंग प्रिंट करता है, टिप्पणियों को छिपाने का अनुरोध करता है, और कोई टिप्पणी हटाए बिना नया PPTX सहेजता है। यह zudem [ViewProperties.last_view](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/last_view/) को [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewtype/) पर सेट करता है ताकि प्रारंभिक एडिटिंग व्यू टिप्पणी दृश्यता के साथ कॉन्फ़िगर हो सके।
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) stores a preference that compatible editors use when opening the presentation. For an existing presentation with comments, this example prints the current setting and saves a copy with comments hidden. It also sets [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) to [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/) so the copy opens in slide view.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-यह सेटिंग यह निर्धारित नहीं करती कि टिप्पणियाँ PDF, HTML, image, notes, या handout निर्यात में शामिल हैं या नहीं। संबंधित निर्यात-विशिष्ट विकल्पों को अलग से कॉन्फ़िगर करें।
+Hiding comments preserves their text, authors, positions, replies, and statuses. To change the comments themselves, see [Presentation Comments](/slides/hi/python-net/presentation-comments/). Export settings control whether comments appear in PDF, HTML, images, notes, or handouts.
 
 ## **FAQ**
 
-**ग्रिड को पुनः खोलने के बाद क्यों नहीं दिख रहा है?**
+**प्रस्तुति को फिर से खोलने पर ग्रिड क्यों छिपा रहता है?**
 
-फ़ाइल ग्रिड स्पेसिंग को स्टोर करती है, लेकिन एडिटर नियंत्रित करता है कि ग्रिड प्रदर्शित होना चाहिए या नहीं। एडिटर की ग्रिड दृश्यता सेटिंग्स जाँचें।
+प्रस्तुति ग्रिड अंतराल को सहेजती है। ग्रिड देखने के लिए, संपादक में ग्रिड दृश्यमानता को सक्षम करें।
 
-**क्या drawing guides को साफ़ करने से ग्रिड स्पेसिंग बदलती है?**
+**ड्रॉइंग गाइड्स को साफ़ करने से ग्रिड अंतराल बदलता है क्या?**
 
-नहीं। drawing guides और ग्रिड स्पेसिंग स्वतंत्र सेटिंग्स हैं। गाइड्स को साफ़ करने से स्टोर किए गए ग्रिड अंतराल अपरिवर्तित रहता है।
+नहीं। गाइड जोड़ने, ले जाने या साफ़ करने से ग्रिड अंतराल अपरिवर्तित रहता है।
 
-**क्या मैं प्रस्तुति के विभिन्न सेक्शन के लिए अलग-अलग view सेटिंग्स सेट कर सकता हूँ?**
+**क्या प्रस्तुति के विभिन्न हिस्सों में अलग-अलग दृश्य सेटिंग्स हो सकती हैं?**
 
-[View settings](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) प्रस्तुति स्तर पर परिभाषित होते हैं ([Normal View](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/slide_view_properties/)), न कि सेक्शन प्रति, इसलिए जब दस्तावेज़ खुलता है तो एक ही सेट पैरामीटर पूरे दस्तावेज़ पर लागू होते हैं।
+नहीं। [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) पूरी प्रस्तुति पर लागू होता है।
 
-**क्या मैं विभिन्न उपयोगकर्ताओं के लिए अलग-अलग view states पहले से परिभाषित कर सकता हूँ?**
+**क्या मैं विभिन्न उपयोगकर्ताओं के लिए अलग-अलग दृश्य सेटिंग्स सहेज सकता हूँ?**
 
-नहीं। सेटिंग्स फ़ाइल में संग्रहीत होती हैं और साझा की जाती हैं। Viewer एप्लिकेशन उपयोगकर्ता प्राथमिकताओं को सम्मानित कर सकते हैं, लेकिन फ़ाइल में केवल एक सेट view प्रॉपर्टीज़ होती हैं।
+फ़ाइल सभी के लिए एक सेट दृश्य गुण सहेजती है। एक संपादक उपयोगकर्ता की स्थानीय प्राथमिकताओं को भी लागू कर सकता है।
 
-**क्या मैं एक टेम्प्लेट बना सकता हूँ जिसमें पहले से परिभाषित View Properties हों ताकि नई प्रस्तुतियाँ उसी तरह खुलें?**
+**क्या मैं टेम्प्लेट में दृश्य सेटिंग्स सहेज सकता हूँ?**
 
-हाँ। क्योंकि [view properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) प्रस्तुति स्तर पर संग्रहीत होते हैं, आप उन्हें टेम्प्लेट में एम्बेड कर सकते हैं और उसी प्रारंभिक view कॉन्फ़िगरेशन के साथ नई दस्तावेज़ बना सकते हैं।
+हां। टेम्प्लेट से बनाई गई प्रस्तुतियों में उसके सहेजे हुए दृश्य सेटिंग्स विरासत में मिलते हैं।

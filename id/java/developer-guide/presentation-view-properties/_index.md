@@ -1,5 +1,5 @@
 ---
-title: Mengambil dan Memperbarui Properti Tampilan Presentasi di Java
+title: Ambil dan Perbarui Properti Tampilan Presentasi di Java
 linktitle: Properti Tampilan
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - tampilan normal
 - konten outline
 - ikon outline
-- snap pembagi vertikal
+- snap pemisah vertikal
 - tampilan tunggal
 - status bar
 - ukuran dimensi
@@ -20,162 +20,122 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Temukan properti tampilan Aspose.Slides untuk Java untuk menyesuaikan format slide PPT, PPTX, dan ODP—atur tata letak, tingkat zoom, dan pengaturan tampilan."
+description: "Gunakan Aspose.Slides untuk Java untuk mengonfigurasi tata letak tampilan normal, zoom slide dan catatan, jarak grid, serta visibilitas komentar pada presentasi PowerPoint."
 ---
 ## **Pendahuluan**
 
-Tampilan normal terdiri dari tiga wilayah konten: slide itu sendiri, wilayah konten samping, dan wilayah konten bagian bawah. Properti yang berkaitan dengan penempatan wilayah konten yang berbeda. Informasi ini memungkinkan aplikasi menyimpan status tampilan ke file, sehingga ketika dibuka kembali tampilan berada dalam keadaan yang sama seperti saat presentasi terakhir disimpan.
-
-Metode[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) telah ditambahkan untuk menyediakan akses ke properti tampilan normal presentasi.
-
-Antarmuka[INormalViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties),[INormalViewRestoredProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewRestoredProperties) dan turunannya,[SplitterBarStateType](https://reference.aspose.com/slides/id/java/com.aspose.slides/SplitterBarStateType) enum telah ditambahkan.
+Dalam tampilan normal PowerPoint, slide muncul di antara panel samping untuk thumbnail atau outline dan panel catatan di bawah. Aspose.Slides for Java mengekspos preferensi penyuntingan yang disimpan dalam presentasi melalui [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--). Ini termasuk tata letak panel, tingkat zoom, jarak grid, dan visibilitas komentar.
 
 ## **Tentang INormalViewProperties**
 
-Mewakili properti tampilan normal.
+Gunakan [getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) untuk mengakses antarmuka [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) mengontrol apakah ikon muncul di sebelah judul slide dalam outline. [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) memungkinkan panel samping menempel ke keadaan diperkecil saat pengguna mempersempitnya. [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) menunjukkan preferensi menampilkan satu panel dalam jendela penuh.
 
-Metode[getShowOutlineIcons](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) dan[setShowOutlineIcons](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) menentukan apakah aplikasi harus menampilkan ikon saat menampilkan konten outline di salah satu wilayah konten mode tampilan normal.
-
-Metode[getSnapVerticalSplitter](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) dan[setSnapVerticalSplitter](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) menentukan apakah pembagi vertikal harus menempel ke keadaan diperkecil ketika wilayah samping cukup kecil.
-
-Properti[getPreferSingleView](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) dan[setPreferSingleView](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) menentukan apakah pengguna lebih suka melihat satu wilayah konten penuh jendela dibandingkan tampilan normal standar dengan tiga wilayah konten. Jika diaktifkan, aplikasi dapat memilih untuk menampilkan salah satu wilayah konten di seluruh jendela.
-
-Metode[getVerticalBarState](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) dan[getHorizontalBarState](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) menentukan keadaan yang harus ditunjukkan oleh pembagi batang horizontal atau vertikal. Pembagi batang horizontal memisahkan slide dari wilayah konten di bawah slide, pembagi batang vertikal memisahkan slide dari wilayah konten samping. Nilai yang memungkinkan adalah:[SplitterBarStateType.Minimized](https://reference.aspose.com/slides/id/java/com.aspose.slides/SplitterBarStateType#Minimized),[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/id/java/com.aspose.slides/SplitterBarStateType#Maximized)dan[SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/java/com.aspose.slides/SplitterBarStateType#Restored).
-
-Metode[getRestoredLeft](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) dan[getRestoredTop](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) menentukan ukuran wilayah slide atas atau samping tampilan normal, ketika nilai[SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/java/com.aspose.slides/SplitterBarStateType#Restored) diterapkan untuk[getVerticalBarState](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--)dan[getHorizontalBarState](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) secara sesuai.
+[setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) mengontrol pembagi antara panel samping dan slide. [setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) mengontrol pembagi di atas panel catatan. Kedua metode menerima nilai [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) berupa `Minimized`, `Maximized`, atau `Restored`.
 
 ## **Tentang Mengembalikan INormalViewProperties**
 
-Menentukan ukuran wilayah slide (lebar ketika anak dari[getRestoredTop](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), tinggi ketika anak dari[getRestoredLeft](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) tampilan normal, ketika wilayah tersebut memiliki ukuran dipulihkan yang variabel (tidak diperkecil maupun diperbesar).
+Ketika pembagi dipulihkan, [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) memberikan ukuran tersimpan dari panel samping dan [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) memberikan ukuran tersimpan dari area slide atas. Kedua metode mengekspos [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/). Metode [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) menerima persentase dari 0 hingga 100, dan [setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) mengontrol apakah penyunting menyesuaikan ukuran saat jendela diubah ukurannya.
 
-Metode[getDimensionSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) menentukan ukuran wilayah slide (lebar ketika anak dari restoredTop, tinggi ketika anak dari restoredLeft).
-
-Metode[getAutoAdjust](https://reference.aspose.com/slides/id/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) menentukan apakah ukuran wilayah konten samping harus menyesuaikan dengan ukuran baru saat mengubah ukuran jendela yang berisi tampilan dalam aplikasi.
-
-Contoh di bawah menunjukkan cara mengakses properti[ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) untuk sebuah presentasi.
+Contoh ini memperbarui presentasi yang ada. Ia mengembalikan pembagi horizontal, mengatur ukuran yang dikembalikan oleh [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) menjadi 80% dengan penyesuaian otomatis diaktifkan, dan memaksimalkan pembagi vertikal. Ia juga memanggil [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) untuk menampilkan ikon dalam tampilan outline.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Pulihkan properti tampilan presentasi
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Mengatur Nilai Zoom Default**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Java kini mendukung penetapan nilai zoom default untuk presentasi sehingga ketika presentasi dibuka, zoom sudah diatur. Hal ini dapat dilakukan dengan mengatur [ViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ViewProperties) sebuah presentasi. [getSlideViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) serta[getNotesViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) dapat diatur secara programatik. Pada topik ini, kita akan melihat contoh cara mengatur [View Properties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ViewProperties) dari [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) di Aspose.Slides.
-
-{{% /alert %}} 
-
-Untuk mengatur properti tampilan, ikuti langkah-langkah berikut:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
-1. Atur [View Properties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ViewProperties) dari [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
-1. Tulis presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   Pada contoh di bawah, kami telah mengatur nilai zoom untuk tampilan slide serta tampilan catatan.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // Mengatur properti tampilan presentasi
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Nilai zoom dalam persentase untuk tampilan slide
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Nilai zoom dalam persentase untuk tampilan catatan 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Mengatur Jarak Grid**
+## **Atur Nilai Zoom Default**
 
-Gunakan[Presentation.getViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getViewProperties--) untuk mengakses pengaturan tampilan pada seluruh presentasi. Metode[IViewProperties.getGridSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides/iviewproperties/#getGridSpacing--) dan[IViewProperties.setGridSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) membaca atau mengubah interval grid penyuntingan yang mendasarinya. Pengaturan ini berlaku untuk seluruh presentasi, bukan untuk slide individu. Jarak grid ditentukan dalam poin, di mana 72 poin sama dengan satu inci. Gunakan nilai positif, sesuai dokumentasi API.
+[getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) dan [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) menyimpan pengaturan zoom terpisah untuk penyunting. Pengaturan ini tidak memengaruhi dimensi slide, pemutaran slide-show, atau resolusi ekspor gambar.
 
-Contoh berikut membuka `demo.pptx` yang ada, mencetak jarak grid saat ini, mengatur interval seperempat inci, dan menyimpan hasilnya.
+Contoh ini membuka presentasi yang ada dan memanggil [setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) untuk menyesuaikan slide dengan jendela penyunting. Untuk halaman catatan, ia menonaktifkan skala otomatis dan memanggil [setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) untuk menetapkan zoom tetap 80%.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Atur Jarak Grid**
+
+[setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) mengatur jarak antara garis grid penyuntingan di seluruh presentasi. Nilai yang diterima adalah nilai positif dalam poin, dengan 72 poin per inci. Contoh ini mencetak jarak saat ini dalam presentasi yang ada dan menyimpan grid seperempat inci dengan mengatur interval menjadi 18 poin.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Grid berbeda dari[drawing guides](/slides/id/java/drawing-guides/). Jarak grid mengontrol interval reguler, sementara drawing guides adalah garis penyelarasan horizontal atau vertikal yang diposisikan secara individual. Menambah, memindahkan, atau menghapus drawing guides tidak mengubah jarak grid.
+Grid mengulang pada interval tetap. [Drawing guides](/slides/id/java/drawing-guides/) menandai posisi horizontal atau vertikal individu. Kedua alat tersebut merupakan bantuan penyuntingan dan hanya muncul di penyunting yang menampilkannya. Slide show dan ekspor ke PDF, gambar, atau SVG tidak menyertakannya.
 
-Baik grid maupun drawing guides merupakan bantuan penyuntingan. Mereka tidak dirender sebagai konten slide dalam PDF, gambar, SVG, atau tayangan slide. Menyimpan jarak grid tidak menjamin editor akan menampilkan grid: visibilitasnya juga bergantung pada preferensi penampil atau editor.
+## **Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi**
 
-## **Menampilkan atau Menyembunyikan Komentar Saat Membuka Presentasi**
-
-Gunakan[Presentation.getViewProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getViewProperties--) untuk mengakses pengaturan tampilan pada seluruh presentasi. Gunakan[IViewProperties.getShowComments](https://reference.aspose.com/slides/id/java/com.aspose.slides/iviewproperties/#getShowComments--) dan[IViewProperties.setShowComments](https://reference.aspose.com/slides/id/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) untuk membaca atau mengubah preferensi yang disimpan mengenai apakah komentar harus ditampilkan saat presentasi dibuka di PowerPoint atau editor kompatibel lainnya.
-
-Pengaturan ini hanya mengontrol preferensi tampilan yang disimpan. Ia tidak menambah, menghapus, menyunting, atau menyelesaikan komentar. Menyembunyikan komentar mempertahankan konten, penulis, posisi, balasan, dan statusnya. Lihat[Presentation Comments](/slides/id/java/presentation-comments/) untuk operasi yang mengubah komentar itu sendiri.
-
-Contoh berikut memerlukan `comments.pptx` yang sudah ada berisi komentar. Ia mencetak pengaturan visibilitas saat ini, meminta komentar disembunyikan, dan menyimpan PPTX baru tanpa menghapus komentar apa pun. Ia juga menggunakan[IViewProperties.setLastView](https://reference.aspose.com/slides/id/java/com.aspose.slides/iviewproperties/#setLastView-int-) dengan[ViewType.SlideView](https://reference.aspose.com/slides/id/java/com.aspose.slides/viewtype/#SlideView) untuk mengonfigurasi tampilan penyuntingan awal bersamaan dengan visibilitas komentar.
+[setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) menyimpan preferensi yang digunakan penyunting yang kompatibel saat membuka presentasi. Untuk presentasi yang ada dengan komentar, contoh ini mencetak pengaturan saat ini dan menyimpan salinan dengan komentar disembunyikan. Ia juga memanggil [setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) dengan [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) sehingga salinan terbuka dalam tampilan slide.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Pengaturan ini tidak menentukan apakah komentar termasuk dalam ekspor PDF, HTML, gambar, catatan, atau handout. Konfigurasikan opsi spesifik ekspor yang relevan secara terpisah.
+Menyembunyikan komentar mempertahankan teks, penulis, posisi, balasan, dan statusnya. Untuk mengubah komentar itu sendiri, lihat [Presentation Comments](/slides/id/java/presentation-comments/). Pengaturan ekspor mengontrol apakah komentar muncul dalam PDF, HTML, gambar, catatan, atau handout.
 
 ## **FAQ**
 
-**Mengapa grid tidak terlihat setelah saya membuka kembali presentasi?**
+**Mengapa grid disembunyikan saat saya membuka kembali presentasi?**  
+Presentasi menyimpan interval grid. Untuk melihat grid, aktifkan visibilitas grid di penyunting.
 
-File menyimpan jarak grid, tetapi editor yang mengontrol apakah grid ditampilkan. Periksa pengaturan visibilitas grid pada editor.
+**Apakah menghapus drawing guides mengubah jarak grid?**  
+Tidak. Menambahkan, memindahkan, atau menghapus sebuah panduan tidak mengubah interval grid.
 
-**Apakah menghapus drawing guides mengubah jarak grid?**
+**Dapatkah bagian berbeda dari sebuah presentasi memiliki pengaturan tampilan yang berbeda?**  
+Tidak. [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) berlaku untuk seluruh presentasi.
 
-Tidak. Drawing guides dan jarak grid merupakan pengaturan yang independen. Menghapus guides tidak mengubah interval grid yang disimpan.
+**Bisakah saya menyimpan pengaturan tampilan yang berbeda untuk pengguna yang berbeda?**  
+File menyimpan satu set properti tampilan untuk semua orang. Penyunting juga dapat menerapkan preferensi lokal pengguna.
 
-**Bisakah saya menetapkan pengaturan tampilan yang berbeda untuk bagian berbeda dari sebuah presentasi?**
-
-[View settings](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getViewProperties--) didefinisikan pada tingkat presentasi ([Normal View](https://reference.aspose.com/slides/id/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/id/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)), bukan per bagian, sehingga satu set parameter berlaku untuk seluruh dokumen saat dibuka.
-
-**Bisakah saya mendefinisikan keadaan tampilan yang berbeda untuk pengguna yang berbeda?**
-
-Tidak. Pengaturan disimpan dalam file dan bersifat bersama. Aplikasi penampil mungkin menghormati preferensi pengguna, tetapi file itu sendiri berisi satu set properti tampilan.
-
-**Bisakah saya menyiapkan templat dengan View Properties yang telah ditentukan sehingga presentasi baru terbuka dengan cara yang sama?**
-
-Ya. Karena[view properties](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getViewProperties--) disimpan pada tingkat presentasi, Anda dapat menyematkannya dalam templat dan membuat dokumen baru darinya dengan konfigurasi tampilan awal yang sama.
+**Bisakah saya menyimpan pengaturan tampilan dalam sebuah templat?**  
+Ya. Presentasi yang dibuat dari templat mewarisi pengaturan tampilan yang disimpannya.

@@ -1,18 +1,18 @@
 ---
-title: دریافت و به‌روزرسانی ویژگی‌های نمایش ارائه در پایتون از طریق جاوا
-linktitle: ویژگی‌های نمایش
+title: دریافت و به‌روزرسانی ویژگی‌های نمای ارائه در پایتون از طریق جاوا
+linktitle: ویژگی‌های نمای
 type: docs
 weight: 80
 url: /fa/python-java/presentation-view-properties/
 keywords:
-- ویژگی‌های نمایش
+- ویژگی‌های نمای
 - نمای عادی
 - محتوای طرح کلی
-- آیکون‌های طرح کلی
-- چسباندن تقسیم‌کننده عمودی
-- نمای تکی
-- وضعیت نوار
-- اندازه ابعادی
+- نمادهای طرح کلی
+- قاب عمودی اسنپ
+- نمای تک
+- وضعیت میله
+- اندازهٔ ابعاد
 - تنظیم خودکار
 - بزرگنمایی پیش‌فرض
 - PowerPoint
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "ویژگی‌های نمایش Aspose.Slides برای پایتون از طریق جاوا را کشف کنید تا اسلایدهای PPT، PPTX و ODP را سفارشی کنید—چیدمان‌ها، سطوح بزرگنمایی و تنظیمات نمایش را تنظیم نمایید."
+description: "از Aspose.Slides برای پایتون از طریق جاوا استفاده کنید تا طرح‌بندی نمای عادی، بزرگنمایی اسلاید و یادداشت‌ها، فاصله‌بندی شبکه و قابلیت نمایش نظرات را در ارائه‌های PowerPoint تنظیم کنید."
 ---
 ## **معرفی**
 
-نمای عادی متشکل از سه ناحیه محتوا است: اسلاید خودش، یک ناحیه محتوا در کنار و یک ناحیه محتوا در پایین. ویژگی‌های نمای عادی موقعیت این نواحی محتوا را توصیف می‌کنند. این اطلاعات به برنامه امکان می‌دهد وضعیت نمای خود را در فایل ذخیره کند تا هنگام بازگشایی، نمای همان‌گونه باشد که آخرین بار ارائه ذخیره شده بود.
-
-متد [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getNormalViewProperties) برای دسترسی به ویژگی‌های نمای عادی یک ارائه اضافه شده است.
-
-کلاس‌های [NormalViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/) و [NormalViewRestoredProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewrestoredproperties/) و شمارش‌گر [SplitterBarStateType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/splitterbarstatetype/) اضافه شده‌اند.
+در نمای عادی PowerPoint، اسلاید بین پانل کناری برای بندهای کوچک یا طرح کلی و پانل یادداشت‌ها در پایین نمایش داده می‌شود. Aspose.Slides برای Python از طریق Java ترجیحات ذخیره‌شدهٔ ویرایش ارائه را از طریق [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) آشکار می‌کند. این‌ها شامل چیدمان پانل‌ها، سطوح زوم، فاصله‌بندی شبکه و قابلیت نمایش نظرات هستند.
 
 ## **درباره NormalViewProperties**
 
-نمایانگر ویژگی‌های نمای عادی است.
+از [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) برای دسترسی به کلاس [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/) استفاده کنید. [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) تعیین می‌کند آیا نمادها در کنار عناوین اسلاید در طرح کلی نمایش داده شوند یا نه. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) اجازه می‌دهد پانل کناری هنگام باریک شدن توسط کاربر به حالت کوچک شده خود بپیچد. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) نشان‌دهندهٔ تمایل به نمایش یک پانل در تمام پنجره است.
 
-متدهای [getShowOutlineIcons](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) و [setShowOutlineIcons](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) تعیین می‌کنند که آیا برنامه باید در صورتی که محتوای طرح کلی را در هر یک از نواحی محتوا در حالت نمای عادی نمایش می‌دهد، آیکون‌ها را نشان دهد یا نه.
-
-متدهای [getSnapVerticalSplitter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) و [setSnapVerticalSplitter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) تعیین می‌کنند که آیا تقسیم‌کننده عمودی باید هنگام کوچک شدن کافی ناحیه جانب به حالت کمینه بچسبد یا خیر.
-
-متدهای [getPreferSingleView](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) و [setPreferSingleView](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) مشخص می‌کنند که آیا کاربر ترجیح می‌دهد ناحیه محتوا تک‌پنجره‌ای تمام‑صفحه را به جای نمای عادی استاندارد با سه ناحیه محتوا ببیند. در صورت فعال بودن، برنامه ممکن است یکی از نواحی محتوا را در تمام پنجره نمایش دهد.
-
-متدهای [getVerticalBarState](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) و [getHorizontalBarState](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) وضعیت نشان‌دادن نوار تقسیم‌کننده افقی یا عمودی را مشخص می‌کنند. یک نوار تقسیم‌کننده افقی اسلاید را از ناحیه محتوا زیر اسلاید جدا می‌کند؛ یک نوار تقسیم‌کننده عمودی اسلاید را از ناحیه محتوا در سمت جدا می‌کند. مقادیر ممکن عبارتند از: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/fa/python-java/aspose.slides/splitterbarstatetype/#Minimized)، [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/fa/python-java/aspose.slides/splitterbarstatetype/#Maximized) و [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fa/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-متدهای [getRestoredLeft](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) و [getRestoredTop](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getRestoredTop) ابعاد ناحیه اسلاید کناری یا بالایی نمای عادی را زمانی که مقدار [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fa/python-java/aspose.slides/splitterbarstatetype/#Restored) برای [getVerticalBarState](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) و [getHorizontalBarState](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) اعمال می‌شود، تعیین می‌کنند.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) تقسیم‌کننده بین پانل کناری و اسلاید را کنترل می‌کند. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) تقسیم‌کننده بالای پانل یادداشت‌ها را تنظیم می‌کند. هر دو مقدار از نوع [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) با گزینه‌های `Minimized`، `Maximized` یا `Restored` می‌پذیرند.
 
 ## **درباره بازگرداندن NormalViewProperties**
 
-ابعاد ناحیه اسلاید (عرض زمانی که فرزند [getRestoredTop](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getRestoredTop) است، ارتفاع زمانی که فرزند [getRestoredLeft](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) است) نمای عادی را زمانی که ناحیه دارای اندازه متغیر بازگردانده شده (نه کمینه‌ و نه بیشینه) باشد، مشخص می‌کند.
+زمانی که یک تقسیم‌کننده بازگردانی می‌شود، [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) اندازهٔ ذخیره‌شدهٔ پانل کناری و [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) اندازهٔ ذخیره‌شدهٔ ناحیهٔ بالایی اسلاید را برمی‌گرداند. هر دو یک نمونه از [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/) باز می‌گردانند. متد [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) درصدی بین ۰ تا ۱۰۰ می‌پذیرد و [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) تعیین می‌کند آیا ویرایشگر هنگام تغییر اندازهٔ پنجره اندازه را تنظیم کند یا نه.
 
-متد [getDimensionSize](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) اندازه ناحیه اسلاید (عرض زمانی که فرزند [getRestoredTop](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getRestoredTop) است، ارتفاع زمانی که فرزند [getRestoredLeft](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) است) را مشخص می‌کند.
-
-متد [getAutoAdjust](https://reference.aspose.com/slides/fa/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) تعیین می‌کند که آیا اندازه ناحیه محتوا جانبی باید برای اندازه جدید هنگام تغییر اندازه پنجره‌ای که نمای داخل برنامه در آن قرار دارد، جبران شود یا نه.
-
-نمونه زیر نشان می‌دهد که چگونه به [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getNormalViewProperties) برای یک ارائه دسترسی پیدا کنیم.
+این مثال یک ارائه موجود را به‌روزرسانی می‌کند. تقسیم‌کنندهٔ افقی را بازگردانی می‌کند، اندازهٔ بازگردانده‌شدهٔ توسط [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) را به ۸۰٪ تنظیم می‌کند و تنظیم خودکار را فعال می‌سازد، و تقسیم‌کنندهٔ عمودی را به حالت حداکثر می‌رساند. همچنین [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) را فراخوانی می‌کند تا نمادها در نمای طرح کلی نمایش داده شوند.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # بازگرداندن ویژگی‌های نمای ارائه.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -80,19 +63,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تنظیم مقدار پیش‌فرض بزرگنمایی**
+## **تنظیم مقدار پیش‌فرض زوم**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides برای Python از طریق Java امکان تنظیم مقدار پیش‌فرض بزرگنمایی را فراهم می‌کند تا هنگام باز شدن ارائه، این مقدار از پیش اعمال شده باشد. این کار با تنظیم [ViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/) یک ارائه انجام می‌شود. متدهای [getSlideViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getSlideViewProperties) و [getNotesViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getNotesViewProperties) می‌توانند به‌صورت برنامه‌نویسی پیکربندی شوند. در این موضوع، یک مثال می‌بینیم که چگونه [View Properties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/) را برای [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) در Aspose.Slides تنظیم کنیم.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) و [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) تنظیمات زوم مستقلی برای ویرایشگر ذخیره می‌کنند. این تنظیمات بر ابعاد اسلاید، پخش اسلایدشو یا وضوح صادرات تصویر تأثیر نمی‌گذارند.
 
-برای تنظیم ویژگی‌های نما، مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-1. [View Properties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/) را برای [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) تنظیم کنید.
-1. ارائه را به‌عنوان یک فایل [PPTX](https://docs.fileformat.com/presentation/pptx/) بنویسید.
-
-در مثال زیر مقدار بزرگنمایی را برای هر دو نمای اسلاید و نمای یادداشت‌ها تنظیم می‌کنیم.
+این مثال یک ارائه موجود را باز می‌کند و با فراخوانی [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) اسلاید را با پنجرهٔ ویرایش هم‌ اندازه می‌کند. برای صفحهٔ یادداشت‌ها، مقیاس خودکار را غیرفعال می‌کند و با فراخوانی [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) زوم ثابت ۸۰٪ را تنظیم می‌کند.
 
 ```python
 import jpype
@@ -103,25 +78,25 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # تنظیم ویژگی‌های نمای ارائه.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # درصد بزرگنمایی برای نمای اسلاید.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # درصد بزرگنمایی برای نمای یادداشت‌ها.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **تنظیم فاصله‌گذاری شبکه**
+## **تنظیم فاصله‌بندی شبکه**
 
-از [Presentation.getViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getViewProperties) برای دسترسی به تنظیمات نمای سراسری ارائه استفاده کنید. متدهای [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getGridSpacing) و [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#setGridSpacing) فاصله‌ی شبکه ویرایشی زیرین را می‌خوانند یا تغییر می‌دهند. این تنظیم برای کل ارائه اعمال می‌شود، نه برای اسلاید جداگانه. فاصله‌گذاری شبکه بر حسب نقطه مشخص می‌شود که ۷۲ نقطه معادل یک اینچ است. همان‌طور که مستندات API بیان می‌کند، از مقدار مثبت استفاده کنید.
-
-مثال زیر یک فایل `demo.pptx` موجود را باز می‌کند، فاصله‌گذاری شبکه فعلی را چاپ می‌کند، فاصله یک‌چهارم اینچ تنظیم می‌نماید و نتیجه را ذخیره می‌کند.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) فاصله بین خطوط شبکهٔ ویرایشی را در کل ارائه تنظیم می‌کند. مقدار مثبت بر حسب نقطه دریافت می‌کند که هر اینچ ۷۲ نقطه دارد. این مثال فاصلهٔ جاری را در یک ارائه موجود چاپ می‌کند و با تنظیم فواصل به ۱۸ نقطه، شبکه‌ای به اندازهٔ یک‌چهارم اینچ ذخیره می‌کند.
 
 ```python
-import jpile
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -135,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-شبکه با [راهنمای‌های رسم](/slides/fa/python-java/drawing-guides/) متفاوت است. فاصله‌گذاری شبکه یک بازه منظم را کنترل می‌کند، در حالی که راهنمای‌های رسم خطوط افقی یا عمودی موقعیت‌یابی شده به‌صورت جداگانه هستند. افزودن، جابه‌جایی یا پاک‌کردن راهنمای‌های رسم، فاصله‌گذاری شبکه را تغییر نمی‌دهد.
+شبکه با فاصلهٔ ثابتی تکرار می‌شود. [Drawing guides](/slides/fa/python-java/drawing-guides/) موقعیت‌های افقی یا عمودی فردی را علامت‌گذاری می‌کنند. هر دو ابزار کمکی برای ویرایش هستند و فقط در ویرایشگرهایی که آنها را نشان می‌دهند ظاهر می‌شوند. نمایش اسلایدها و صادرات به PDF، تصاویر یا SVG آنها را حذف می‌کند.
 
-هر دو، شبکه و راهنمای‌های رسم، ابزارهای ویرایشی هستند. آن‌ها به‌عنوان محتوای اسلاید در PDF، تصاویر، SVG یا نمایش اسلاید نمایش داده نمی‌شوند. ذخیره‌سازی فاصله‌گذاری شبکه تضمین نمی‌کند که یک ویرایشگر شبکه را نشان دهد؛ نمایش آن نیز به تنظیمات نماینده یا ویرایشگر وابسته است.
+## **نمایش یا عدم نمایش نظرات هنگام باز کردن ارائه**
 
-## **نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه**
-
-از [Presentation.getViewProperties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getViewProperties) برای دسترسی به تنظیمات نمای سراسری ارائه استفاده کنید. از [ViewProperties.getShowComments](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getShowComments) و [ViewProperties.setShowComments](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#setShowComments) برای خواندن یا تغییر ترجیح ذخیره‌شدهٔ اینکه آیا نظرات هنگام باز شدن ارائه در PowerPoint یا ویرایشگر سازگار دیگر نمایش داده شوند یا نه، استفاده کنید.
-
-این تنظیم فقط ترجیح نمای ذخیره‌شده را کنترل می‌کند. این تنظیم نظرات را اضافه، حذف، ویرایش یا حل نمی‌کند. مخفی‌سازی نظرات محتوای آن‌ها، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌ها را حفظ می‌کند. برای عملیات‌های تغییر نظرات به [نظرات ارائه](/slides/fa/python-java/presentation-comments/) مراجعه کنید.
-
-مثال زیر به یک فایل `comments.pptx` حاوی نظرات نیاز دارد. تنظیم قابل مشاهدهٔ فعلی را چاپ می‌کند، درخواست می‌کند که نظرات مخفی شوند و یک PPTX جدید بدون حذف هیچ نظری ذخیره می‌کند. همچنین از [ViewProperties.setLastView](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#setLastView) همراه با [ViewType.SlideView](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewtype/#SlideView) برای پیکربندی نمای ویرایشی اولیه همراه با نمایان بودن نظرات استفاده می‌کند.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) ترجیحی را ذخیره می‌کند که ویرایشگرهای سازگار هنگام باز کردن ارائه از آن استفاده می‌کنند. برای یک ارائه موجود با نظرات، این مثال تنظیم فعلی را چاپ می‌کند و یک نسخهٔ کپی با نظرات مخفی ذخیره می‌کند. همچنین با فراخوانی [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) همراه با [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) باعث می‌شود نسخهٔ کپی در نمای اسلاید باز شود.
 
 ```python
 import jpype
@@ -168,31 +138,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-این تنظیم تعیین نمی‌کند که آیا نظرات در خروجی‌های PDF، HTML، تصویر، یادداشت یا جزوه گنجانده می‌شوند یا نه. گزینه‌های مربوط به هر خروجی را جداگانه پیکربندی کنید.
+پنهان کردن نظرات متن، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌های آنها را حفظ می‌کند. برای تغییر خود نظرات، به [Presentation Comments](/slides/fa/python-java/presentation-comments/) مراجعه کنید. تنظیمات صادرات تعیین می‌کند آیا نظرات در PDF، HTML، تصاویر، یادداشت‌ها یا برگه‌های تک‌صفحه ظاهر شوند یا نه.
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چرا پس از باز کردن مجدد ارائه، شبکه دیده نمی‌شود؟**
+**چرا شبکه هنگام بازگشایی دوبارهٔ ارائه مخفی می‌شود؟**
 
-فایل فاصله‌گذاری شبکه را ذخیره می‌کند، اما ویرایشگر کنترل می‌کند که آیا شبکه نمایش داده شود یا نه. تنظیمات نمایش شبکه در ویرایشگر را بررسی کنید.
+ارائه فاصلهٔ شبکه را ذخیره می‌کند. برای مشاهدهٔ شبکه، قابلیت نمایش شبکه را در ویرایشگر فعال کنید.
 
-**آیا پاک‌کردن راهنمای‌های رسم فاصله‌گذاری شبکه را تغییر می‌دهد؟**
+**آیا حذف راهنمای رسم تغییر فاصلهٔ شبکه را ایجاد می‌کند؟**
 
-نه. راهنمای‌های رسم و فاصله‌گذاری شبکه تنظیمات مستقلی هستند. پاک‌کردن راهنمای‌ها مقدار بازهٔ ذخیره‌شدهٔ شبکه را تحت‌اثر نمی‌گذارد.
+خیر. افزودن، جابه‌جا یا حذف یک راهنما، فاصلهٔ شبکه را تغییری نمی‌دهد.
 
-**آیا می‌توانم تنظیمات نمای متفاوتی برای بخش‌های مختلف یک ارائه تعریف کنم؟**
+**آیا می‌توان تنظیمات نمای متفاوت برای بخش‌های مختلف ارائه داشت؟**
 
-[View settings](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getViewProperties) در سطح ارائه تعریف می‌شوند ([Normal View](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/fa/python-java/aspose.slides/viewproperties/#getSlideViewProperties))، نه برای هر بخش. بنابراین یک مجموعه پارامتر برای تمام سند اعمال می‌شود هنگامی که باز می‌شود.
+خیر. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) برای کل ارائه اعمال می‌شود.
 
-**آیا می‌توانم وضعیت‌های نمای متفاوتی برای کاربران مختلف پیش‌تعریف کنم؟**
+**آیا می‌توان تنظیمات نمای متفاوتی برای کاربران مختلف ذخیره کرد؟**
 
-نه. تنظیمات در فایل ذخیره می‌شوند و مشترک هستند. برنامه‌های نمایش ممکن است ترجیحات کاربر را در نظر بگیرند، اما خود فایل تنها شامل یک مجموعه ویژگی‌های نمای است.
+فایل یک مجموعهٔ تنظیمات نمای برای همه ذخیره می‌کند. یک ویرایشگر ممکن است ترجیحات محلی کاربر را نیز اعمال کند.
 
-**آیا می‌توانم قالبی با ویژگی‌های نمای از پیش تعریف‌شده آماده کنم تا ارائه‌های جدید به همان شکل باز شوند؟**
+**آیا می‌توان تنظیمات نمای را در قالب ذخیره کرد؟**
 
-بله. از آنجا که [view properties](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getViewProperties) در سطح ارائه ذخیره می‌شوند، می‌توانید آن‌ها را در قالب گنجانده و اسناد جدید را بر پایهٔ آن با همان پیکربندی نمای اولیه ایجاد کنید.
+بله. ارائه‌های ساخته‌شده از قالب، تنظیمات نمای ذخیره‌شدهٔ آن قالب را به ارث می‌برند.

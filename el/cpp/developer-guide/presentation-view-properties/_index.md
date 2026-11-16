@@ -1,115 +1,96 @@
 ---
-title: Ανάκτηση και Ενημέρωση Ιδιοτήτων Προβολής Παρουσίασης σε C++
-linktitle: Ιδιότητες Προβολής
+title: "Ανάκτηση και Ενημέρωση Ιδιοτήτων Προβολής Παρουσίασης σε C++"
+linktitle: "Ιδιότητες Προβολής"
 type: docs
 weight: 80
 url: /el/cpp/presentation-view-properties/
 keywords:
 - ιδιότητες προβολής
 - κανονική προβολή
-- περιεχόμενο περίληψης
-- εικονίδια περίληψης
-- συγκράτηση κάθετου διαχωριστή
+- περιεχόμενο περιγράμματος
+- εικονίδια περιγράμματος
+- συγκόλληση κάθετου διαχωριστή
 - μονή προβολή
-- κατάσταση μπάρας
+- κατάσταση γραμμής
 - μέγεθος διάστασης
 - αυτόματη προσαρμογή
-- προεπιλεγμένο ζουμ
+- προεπιλεγμένη μεγέθυνση
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Ανακαλύψτε τις ιδιότητες προβολής του Aspose.Slides για C++ για την προσαρμογή μορφών διαφανειών PPT, PPTX και ODP — προσαρμόστε διατάξεις, επίπεδα ζουμ και ρυθμίσεις εμφάνισης."
+description: "Χρησιμοποιήστε το Aspose.Slides για C++ για να διαμορφώσετε τη διάταξη της κανονικής προβολής, τη μεγέθυνση διαφάνειας και σημειώσεων, την απόσταση πλέγματος και τη διαφάνεια σχολίων σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Η κανονική προβολή αποτελείται από τρεις περιοχές περιεχομένου: τη διαφάνεια ίδια, μία πλευρική περιοχή περιεχομένου και μία κάτω περιοχή περιεχομένου. Ιδιότητες που αφορούν την τοποθέτηση των διαφορετικών περιοχών περιεχομένου. Αυτές οι πληροφορίες επιτρέπουν στην εφαρμογή να αποθηκεύει την κατάσταση προβολής στο αρχείο, ώστε όταν ανοίξει ξανά η προβολή να βρίσκεται στην ίδια κατάσταση όπως όταν η παρουσίαση αποθηκεύτηκε για τελευταία φορά.
-
-Method [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) has been added to provide access to normal view properties of presentation. 
-
-[INormalViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/inormalviewrestoredproperties/) interfaces and its descendants, [SplitterBarStateType](https://reference.aspose.com/slides/el/cpp/aspose.slides/splitterbarstatetype/) enum have been added.
+Στην κανονική προβολή του PowerPoint, η διαφάνεια εμφανίζεται μεταξύ ενός πλευρικού πλαισίου για μικρογραφίες ή περίγραμμα και ενός πλαισίου σημειώσεων από κάτω. Το Aspose.Slides για C++ αποκαλύπτει τις αποθηκευμένες προτιμήσεις επεξεργασίας της παρουσίασης μέσω [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/). Αυτές περιλαμβάνουν τη διάταξη των πλαισίων, τα επίπεδα μεγέθυνσης, την απόσταση του πλέγματος και τη διαφάνεια σχολίων.
 
 ## **Σχετικά με INormalViewProperties**
 
-Αντιπροσωπεύει τις ιδιότητες της κανονικής προβολής.
+Χρησιμοποιήστε [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) για πρόσβαση στην διεπαφή [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/). Το [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) ελέγχει αν εμφανίζονται εικονίδια δίπλα στους τίτλους των διαφανειών στο περίγραμμα. Το [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) επιτρέπει στο πλευρικό πλαίσιο να «κλειδώνει» στην ελαχιστοποιημένη του κατάσταση όταν ο χρήστης το σμικρύνει. Το [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) δηλώνει προτίμηση για εμφάνιση ενός μόνο πλαισίου σε όλο το παράθυρο.
 
-Η ιδιότητα **ShowOutlineIcons** καθορίζει εάν η εφαρμογή πρέπει να εμφανίζει εικονίδια όταν εμφανίζει το περιεχόμενο περίληψης σε οποιαδήποτε από τις περιοχές περιεχομένου της κανονικής λειτουργίας προβολής.
-
-Η ιδιότητα **SnapVerticalSplitter** καθορίζει εάν ο κάθετος διαχωριστής πρέπει να «καρφώνεται» σε ελαχιστοποιημένη κατάσταση όταν η πλευρική περιοχή είναι αρκετά μικρή.
-
-Η ιδιότητα **PreferSingleView** καθορίζει εάν ο χρήστης προτιμά να δει μία πλήρη περιοχή περιεχομένου σε ολόκληρο το παράθυρο αντί για την τυπική κανονική προβολή με τρία περιεχόμενα. Εάν ενεργοποιηθεί, η εφαρμογή μπορεί να επιλέξει να εμφανίσει μία από τις περιοχές περιεχομένου σε όλο το παράθυρο.
-
-Οι ιδιότητες **VerticalBarState** και **HorizontalBarState** καθορίζουν την κατάσταση που πρέπει να εμφανίζεται η οριζόντια ή κάθετη μπάρα διαχωριστή. Μία οριζόντια μπάρα διαχωριστή χωρίζει τη διαφάνεια από την περιοχή περιεχομένου κάτω από αυτήν, η κάθετη μπάρα διαχωριστή χωρίζει τη διαφάνεια από την πλευρική περιοχή περιεχομένου. Πιθανές τιμές είναι: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** και **SplitterBarStateType.Restored**.
-
-Οι ιδιότητες **RestoredLeft** και **RestoredTop** καθορίζουν το μέγεθος της άνω ή πλευρικής περιοχής διαφάνειας της κανονικής προβολής, όταν η τιμή **SplitterBarStateType.Restored** έχει εφαρμοστεί αντίστοιχα για **VerticalBarState** και **HorizontalBarState**.
+Το [set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) ελέγχει το διαχωριστικό μεταξύ του πλευρικού πλαισίου και της διαφάνειας. Το [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) ελέγχει το διαχωριστικό πάνω από το πλαίσιο σημειώσεων. Και τα δύο δέχονται μια τιμή του τύπου [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) — `Minimized`, `Maximized` ή `Restored`.
 
 ## **Σχετικά με την Επαναφορά INormalViewProperties**
 
-Καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του RestoredTop, ύψος όταν είναι παιδί του RestoredLeft) της κανονικής προβολής, όταν η περιοχή έχει μεταβλητό επαναφερθέν μέγεθος (ουδεμία ελαχιστοποίηση ή μεγιστοποίηση). 
+Όταν ένα διαχωριστικό επανέλθει στην προηγούμενη κατάσταση, το [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) παρέχει το αποθηκευμένο μέγεθος του πλευρικού πλαισίου και το [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) παρέχει το αποθηκευμένο μέγεθος της πάνω περιοχής της διαφάνειας. Και τα δύο εκθέτουν το [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/). Η μέθοδος [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) δέχεται ένα ποσοστό από 0 έως 100, και το [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) ελέγχει αν ο επεξεργαστής προσαρμόζει το μέγεθος όταν το παράθυρο αλλάζει διαστάσεις.
 
-Η ιδιότητα **DimensionSize** καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του restoredTop, ύψος όταν είναι παιδί του restoredLeft).
+Αυτό το παράδειγμα ενημερώνει μια υπάρχουσα παρουσίαση. Επαναφέρει το οριζόντιο διαχωριστικό, ορίζει το μέγεθος της πάνω περιοχής της διαφάνειας που παρέχεται από το [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) στο 80 % με ενεργοποιημένη την αυτόματη προσαρμογή, και μεγιστοποιεί το κάθετο διαχωριστικό. Επίσης ενεργοποιεί τα εικονίδια περιγράμματος με το [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) για την προβολή περίγραμμα.
 
-Η ιδιότητα **AutoAdjust** καθορίζει εάν το μέγεθος της πλευρικής περιοχής περιεχομένου πρέπει να προσαρμόζεται αυτόματα στο νέο μέγεθος όταν αλλάζει το μέγεθος του παραθύρου που περιέχει την προβολή στην εφαρμογή.
-
-Ένα παράδειγμα που δίνεται παρακάτω δείχνει πώς μπορείτε να έχετε πρόσβαση στις ιδιότητες **ViewProperties.NormalViewProperties** για μια παρουσίαση.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// Επαναφορά των ιδιοτήτων προβολής της παρουσίασης
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **Ορίστε την Προεπιλεγμένη Τιμή Μεγέθυνσης**
-
-Το Aspose.Slides for C++ υποστηρίζει πλέον τον ορισμό της προεπιλεγμένης τιμής μεγέθυνσης για την παρουσίαση, ώστε όταν ανοίξει η παρουσίαση η μεγέθυνση να είναι ήδη ορισμένη. Αυτό μπορεί να γίνει ορίζοντας τις [ViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/) μιας παρουσίασης. Οι ιδιότητες προβολής διαφάνειας καθώς και [get_NotesViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/get_notesviewproperties/) μπορούν να οριστούν προγραμματιστικά. Σε αυτό το θέμα, θα δούμε με ένα παράδειγμα πώς να ορίσετε τις Ιδιότητες Προβολής μιας Παρουσίασης στο Aspose.Slides.
-
-Για να ορίσετε τις ιδιότητες προβολής, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/)
-1. Ορίστε τις [Properties](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/) προβολής της παρουσίασης
-1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX
-
-Στο παρακάτω παράδειγμα, ορίσαμε την τιμή μεγέθυνσης τόσο για την προβολή διαφάνειας όσο και για την προβολή σημειώσεων.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Ορισμός των ιδιοτήτων προβολής της παρουσίασης
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Τιμή ζουμ σε ποσοστά για προβολή διαφάνειας
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Τιμή ζουμ σε ποσοστά για προβολή σημειώσεων
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
 
-## **Ορίστε την Απόσταση Πλέγματος**
+## **Ορισμός Προεπιλεγμένης Τιμής Μεγέθυνσης**
 
-Χρησιμοποιήστε [Presentation::get_ViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_viewproperties/) για πρόσβαση στις ρυθμίσεις προβολής όλου του εγγράφου. Οι μέθοδοι [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/el/cpp/aspose.slides/iviewproperties/get_gridspacing/) και [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/el/cpp/aspose.slides/iviewproperties/set_gridspacing/) διαβάζουν ή αλλάζουν το διάστημα του υποκείμενου πλέγματος επεξεργασίας. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παρουσίαση, όχι σε μεμονωμένη διαφάνεια. Η απόσταση πλέγματος καθορίζεται σε σημεία, όπου 72 σημεία ισοδυναμούν με μία ίντσα. Χρησιμοποιήστε θετική τιμή, όπως απαιτεί η τεκμηρίωση του API.
+Τα [get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) και [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) αποθηκεύουν ανεξάρτητες ρυθμίσεις μεγέθυνσης για τον επεξεργαστή. Αυτές οι ρυθμίσεις δεν επηρεάζουν τις διαστάσεις της διαφάνειας, την αναπαραγωγή της παρουσίασης ή την ανάλυση εξαγόμενων εικόνων.
 
-Το παρακάτω παράδειγμα ανοίγει ένα υπάρχον `demo.pptx`, εκτυπώνει την τρέχουσα απόσταση πλέγματος, ορίζει διάστημα ενός τέταρτου ίντσας και αποθηκεύει το αποτέλεσμα.
+Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και ενεργοποιεί την αυτόματη κλιμάκωση με το [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) ώστε η διαφάνεια να προσαρμόζεται στο παράθυρο επεξεργασίας. Για τη σελίδα σημειώσεων, απενεργοποιεί την αυτόματη κλιμάκωση και χρησιμοποιεί το [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) για να ορίσει σταθερή μεγέθυνση 80 %.
+
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
+```
+
+## **Ορισμός Απόστασης Πλέγματος**
+
+Το [set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) ορίζει την απόσταση μεταξύ των γραμμών επεξεργασίας του πλέγματος σε όλη την παρουσίαση. Δέχεται θετική τιμή σε σημεία, με 72 σημεία ανά ίντσα. Αυτό το παράδειγμα εκτυπώνει την τρέχουσα απόσταση σε μια υπάρχουσα παρουσίαση και αποθηκεύει ένα πλέγμα τετάρτης ίντσας ορίζοντας το διάστημα στα 18 σημεία.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +102,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-Το πλέγμα διαφέρει από τα [drawing guides](/slides/el/cpp/drawing-guides/). Η απόσταση πλέγματος ελέγχει ένα τακτικό διάστημα, ενώ οι οδηγίες σχεδίασης είναι ατομικά τοποθετημένες οριζόντιες ή κάθετες γραμμές ευθυγράμμισης. Η προσθήκη, μετακίνηση ή διαγραφή των οδηγών σχεδίασης δεν αλλάζει το διάστημα πλέγματος.
+Το πλέγμα επαναλαμβάνεται σε σταθερό διάστημα. Οι [Drawing guides](/slides/el/cpp/drawing-guides/) σημειώνουν μεμονωμένες οριζόντιες ή κάθετες θέσεις. Και τα δύο είναι βοηθήματα επεξεργασίας και εμφανίζονται μόνο σε επεξεργαστές που τα προβάλλουν. Οι παρουσιάσεις και οι εξαγωγές σε PDF, εικόνες ή SVG τα παραλείπουν.
 
-Τanto το πλέγμα όσο και οι οδηγίες σχεδίασης είναι βοηθήματα επεξεργασίας. Δεν αποδίδονται ως περιεχόμενο διαφάνειας σε PDF, εικόνες, SVG ή παρουσίαση. Η αποθήκευση της απόστασης πλέγματος δεν εγγυάται ότι ένας επεξεργαστής θα εμφανίσει το πλέγμα: η ορατότητά του εξαρτάται επίσης από τις προτιμήσεις του προγράμματος προβολής ή επεξεργασίας.
+## **Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης**
 
-## **Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα μιας Παρουσίασης**
-
-Χρησιμοποιήστε [Presentation::get_ViewProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_viewproperties/) για πρόσβαση στις ρυθμίσεις προβολής όλου του εγγράφου. Χρησιμοποιήστε [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/el/cpp/aspose.slides/iviewproperties/get_showcomments/) και [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/el/cpp/aspose.slides/iviewproperties/set_showcomments/) για να αποθηκεύσετε μια προτίμηση σχετικά με το αν τα σχόλια πρέπει να εμφανίζονται όταν η παρουσίαση ανοίγει στο PowerPoint ή σε άλλο συμβατό πρόγραμμα.
-
-Αυτή η ρύθμιση ελέγχει μόνο την αποθηκευμένη προτίμηση προβολής. Δεν προσθέτει, αφαιρεί, επεξεργάζεται ή λύνει σχόλια. Η απόκρυψη σχολίων διατηρεί το περιεχόμενο, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις τους. Δείτε το [Presentation Comments](/slides/el/cpp/presentation-comments/) για λειτουργίες που αλλάζουν τα ίδια τα σχόλια.
-
-Το παρακάτω παράδειγμα απαιτεί ένα υπάρχον `comments.pptx` που περιέχει σχόλια. Εκτυπώνει την τρέχουσα ρύθμιση ορατότητας, ζητά την απόκρυψη των σχολίων και αποθηκεύει ένα νέο PPTX χωρίς να αφαιρέσει κανένα σχόλιο. Επίσης χρησιμοποιεί [IViewProperties::set_LastView](https://reference.aspose.com/slides/el/cpp/aspose.slides/iviewproperties/set_lastview/) μαζί με [ViewType::SlideView](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewtype/) για να διαμορφώσει την αρχική προβολή επεξεργασίας μαζί με την ορατότητα των σχολίων.
+Το [set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) αποθηκεύει μια προτίμηση που οι συμβατοί επεξεργαστές χρησιμοποιούν όταν ανοίγουν την παρουσίαση. Για μια υπάρχουσα παρουσίαση με σχόλια, αυτό το παράδειγμα εκτυπώνει την τρέχουσα ρύθμιση και αποθηκεύει ένα αντίγραφο με τα σχόλια κρυμμένα. Επιπλέον, καλεί το [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) με το [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) ώστε το αντίγραφο να ανοίγει στην προβολή διαφάνειας.
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +130,37 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-Αυτή η ρύθμιση δεν καθορίζει εάν τα σχόλια περιλαμβάνονται στις εξαγωγές PDF, HTML, εικόνας, σημειώσεων ή φυλλαδίου. Ρυθμίστε ξεχωριστά τις σχετικές επιλογές εξαγωγής.
+Η απόκρυψη των σχολίων διατηρεί το κείμενο, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις τους. Για αλλαγή των ίδιων των σχολίων, δείτε την ενότητα [Presentation Comments](/slides/el/cpp/presentation-comments/). Οι ρυθμίσεις εξαγωγής ελέγχουν αν τα σχόλια εμφανίζονται σε PDF, HTML, εικόνες, σημειώσεις ή φυλλάδια.
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Γιατί το πλέγμα δεν είναι ορατό μετά το ξαναάνοιγμα της παρουσίασης;**
+**Γιατί το πλέγμα είναι κρυφό όταν ανοίγω ξανά την παρουσίαση;**
 
-Το αρχείο αποθηκεύει την απόσταση πλέγματος, αλλά ο επεξεργαστής ελέγχει αν το πλέγμα εμφανίζεται. Ελέγξτε τις ρυθμίσεις ορατότητας πλέγματος του επεξεργαστή.
+Η παρουσίαση αποθηκεύει το διάστημα του πλέγματος. Για να δείτε το πλέγμα, ενεργοποιήστε τη διαφάνεια του πλέγματος στον επεξεργαστή.
 
-**Αλλάζει η εκκαθάριση των οδηγών σχεδίασης το διάστημα του πλέγματος;**
+**Αλλάζει η απόσταση του πλέγματος όταν καθαρίζω τις οδηγίες σχεδίασης;**
 
-Όχι. Οι οδηγίες σχεδίασης και η απόσταση πλέγματος είναι ανεξάρτητες ρυθμίσεις. Η εκκαθάριση των οδηγών δεν αλλάζει το αποθηκευμένο διάστημα πλέγματος.
+Όχι. Η προσθήκη, η μετακίνηση ή η διαγραφή μιας οδηγίας δεν αλλάζει το διάστημα του πλέγματος.
 
-**Μπορώ να ορίσω διαφορετικές ρυθμίσεις προβολής για διαφορετικές ενότητες μιας παρουσίασης;**
+**Μπορούν διαφορετικές ενότητες μιας παρουσίασης να έχουν διαφορετικές ρυθμίσεις προβολής;**
 
-Οι [View settings](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_viewproperties/) ορίζονται σε επίπεδο παρουσίασης ([Normal View](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/el/cpp/aspose.slides/viewproperties/get_slideviewproperties/)), όχι ανά ενότητα, επομένως ένα σύνολο παραμέτρων εφαρμόζεται σε ολόκληρο το έγγραφο κατά το άνοιγμά του.
+Όχι. Το [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) ισχύει για ολόκληρη την παρουσίαση.
 
-**Μπορώ να προκαθορίσω διαφορετικές καταστάσεις προβολής για διαφορετικούς χρήστες;**
+**Μπορώ να αποθηκεύσω διαφορετικές ρυθμίσεις προβολής για διαφορετικούς χρήστες;**
 
-Όχι. Οι ρυθμίσεις αποθηκεύονται στο αρχείο και κοινοποιούνται. Οι εφαρμογές προβολής μπορεί να τιμήσουν τις προτιμήσεις του χρήστη, αλλά το αρχείο περιέχει ένα μόνο σύνολο ιδιοτήτων προβολής.
+Το αρχείο αποθηκεύει ένα σύνολο ιδιοτήτων προβολής για όλους. Ένας επεξεργαστής μπορεί επίσης να εφαρμόσει τις τοπικές προτιμήσεις ενός χρήστη.
 
-**Μπορώ να ετοιμάσω ένα πρότυπο με προδιαγεγραμμένες Ιδιότητες Προβολής ώστε νέες παρουσιάσεις να ανοίγουν με τον ίδιο τρόπο;**
+**Μπορώ να αποθηκεύσω ρυθμίσεις προβολής σε πρότυπο;**
 
-Ναι. Επειδή οι [view properties](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_viewproperties/) αποθηκεύονται σε επίπεδο παρουσίασης, μπορείτε να τις ενσωματώσετε σε ένα πρότυπο και να δημιουργείτε νέα έγγραφα από αυτό με την ίδια αρχική διαμόρφωση προβολής.
+Ναι. Οι παρουσιάσεις που δημιουργούνται από το πρότυπο κληρονομούν τις αποθηκευμένες ρυθμίσεις προβολής.

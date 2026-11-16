@@ -11,7 +11,7 @@ keywords:
 - ikon outline
 - snap pemisah vertikal
 - tampilan tunggal
-- keadaan bar
+- status bar
 - ukuran dimensi
 - penyesuaian otomatis
 - zoom default
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Temukan properti tampilan Aspose.Slides untuk Python via Java untuk menyesuaikan slide PPT, PPTX, dan ODP—atur tata letak, level zoom, dan pengaturan tampilan."
+description: "Gunakan Aspose.Slides untuk Python via Java untuk mengonfigurasi tata letak tampilan normal, zoom slide dan catatan, jarak grid, serta visibilitas komentar dalam presentasi PowerPoint."
 ---
 ## **Pendahuluan**
 
-Tampilan normal terdiri dari tiga wilayah konten: slide itu sendiri, wilayah konten samping, dan wilayah konten bawah. Properti tampilan normal menggambarkan posisi wilayah-wilayah konten ini. Informasi ini memungkinkan aplikasi menyimpan status tampilan ke dalam file, sehingga saat dibuka kembali tampilan berada dalam keadaan yang sama seperti saat presentasi terakhir disimpan.
-
-Metode [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getNormalViewProperties) telah ditambahkan untuk memberikan akses ke properti tampilan normal dari sebuah presentasi.
-
-Kelas [NormalViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewrestoredproperties/) dan enumerasi [SplitterBarStateType](https://reference.aspose.com/slides/id/python-java/aspose.slides/splitterbarstatetype/) telah ditambahkan.
+Dalam tampilan normal PowerPoint, slide muncul di antara panel samping untuk thumbnail atau outline dan panel catatan di bawah. Aspose.Slides untuk Python via Java mengekspos preferensi penyuntingan yang disimpan dalam presentasi melalui [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties). Preferensi ini mencakup tata letak panel, tingkat zoom, jarak grid, dan visibilitas komentar.
 
 ## **Tentang NormalViewProperties**
 
-Mewakili properti tampilan normal.
+Gunakan [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) untuk mengakses kelas [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) mengontrol apakah ikon muncul di sebelah judul slide dalam outline. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) memungkinkan panel samping menempel ke keadaan diperkecil ketika pengguna memperkecilnya. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) menunjukkan preferensi untuk menampilkan satu panel dalam jendela penuh.
 
-Metode [getShowOutlineIcons](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) dan [setShowOutlineIcons](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) menentukan apakah aplikasi harus menampilkan ikon saat menampilkan konten outline di salah satu wilayah konten mode tampilan normal.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) mengontrol pemisah antara panel samping dan slide. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) mengontrol pemisah di atas panel catatan. Kedua metode menerima nilai [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) berupa `Minimized`, `Maximized`, atau `Restored`.
 
-Metode [getSnapVerticalSplitter](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) dan [setSnapVerticalSplitter](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) menentukan apakah pemisah vertikal harus menempel ke keadaan diminimalkan ketika wilayah samping cukup kecil.
+## **Tentang Mengembalikan NormalViewProperties**
 
-Metode [getPreferSingleView](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) dan [setPreferSingleView](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) menentukan apakah pengguna lebih suka melihat satu wilayah konten penuh-jendela dibandingkan tampilan normal standar dengan tiga wilayah konten. Jika diaktifkan, aplikasi dapat memilih untuk menampilkan salah satu wilayah konten di seluruh jendela.
+Ketika sebuah pemisah dikembalikan, [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) menyediakan ukuran yang disimpan untuk panel samping dan [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) menyediakan ukuran yang disimpan untuk area slide bagian atas. Kedua metode mengembalikan instance dari [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/). Metode [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) menerima persentase dari 0 hingga 100, dan [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) mengontrol apakah editor menyesuaikan ukuran ketika jendela diubah ukurannya.
 
-Metode [getVerticalBarState](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) dan [getHorizontalBarState](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) menentukan keadaan yang harus ditampilkan oleh batang pemisah horizontal atau vertikal. Batang pemisah horizontal memisahkan slide dari wilayah konten di bawah slide; batang pemisah vertikal memisahkan slide dari wilayah konten samping. Nilai yang mungkin adalah: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/id/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/id/python-java/aspose.slides/splitterbarstatetype/#Maximized) dan [SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-Metode [getRestoredLeft](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) dan [getRestoredTop](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getRestoredTop) menentukan ukuran wilayah slide samping atau atas pada tampilan normal, ketika nilai [SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/python-java/aspose.slides/splitterbarstatetype/#Restored) diterapkan pada [getVerticalBarState](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) dan [getHorizontalBarState](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState), masing-masing.
-
-## **Tentang Memulihkan NormalViewProperties**
-
-Menentukan ukuran wilayah slide (lebar ketika menjadi anak dari [getRestoredTop](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getRestoredTop), tinggi ketika menjadi anak dari [getRestoredLeft](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) pada tampilan normal, ketika wilayah memiliki ukuran pulih yang variabel (tidak diminimalkan maupun dimaksimalkan).
-
-Metode [getDimensionSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) menentukan ukuran wilayah slide (lebar ketika menjadi anak dari [getRestoredTop](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getRestoredTop), tinggi ketika menjadi anak dari [getRestoredLeft](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
-
-Metode [getAutoAdjust](https://reference.aspose.com/slides/id/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) menentukan apakah ukuran wilayah konten samping harus menyesuaikan dengan ukuran baru saat mengubah ukuran jendela yang berisi tampilan dalam aplikasi.
-
-Contoh di bawah ini menunjukkan cara mengakses [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getNormalViewProperties) untuk sebuah presentasi.
+Contoh ini memperbarui presentasi yang ada. Ia mengembalikan pemisah horizontal, mengatur ukuran yang dikembalikan oleh [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) menjadi 80% dengan penyesuaian otomatis diaktifkan, dan memaksimalkan pemisah vertikal. Ia juga memanggil [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) untuk menampilkan ikon dalam tampilan outline.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Pulihkan properti tampilan presentasi.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -80,19 +63,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Setel Nilai Zoom Default**
+## **Atur Nilai Zoom Default**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides untuk Python via Java mendukung penetapan nilai zoom default sehingga sudah diterapkan ketika presentasi dibuka. Ini dapat dilakukan dengan mengatur [ViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/) dari sebuah presentasi. [getSlideViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getSlideViewProperties) serta [getNotesViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getNotesViewProperties) dapat dikonfigurasi secara programatik. Dalam topik ini, kita akan melihat dengan contoh cara mengatur [View Properties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/) dari [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) di Aspose.Slides.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) dan [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) menyimpan pengaturan zoom independen untuk editor. Pengaturan ini tidak memengaruhi dimensi slide, pemutaran slide-show, atau resolusi ekspor gambar.
 
-Untuk menyetel properti tampilan, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Setel [View Properties](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/) dari [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-3. Tuliskan presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-
-Pada contoh di bawah, kami menyetel nilai zoom untuk tampilan slide dan tampilan catatan.
+Contoh ini membuka presentasi yang ada dan memanggil [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) untuk menyesuaikan slide dengan jendela penyuntingan. Untuk halaman catatan, ia menonaktifkan penskalaan otomatis dan memanggil [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) untuk menetapkan zoom tetap 80%.
 
 ```python
 import jpype
@@ -103,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Atur properti tampilan presentasi.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Persentase zoom untuk tampilan slide.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Persentase zoom untuk tampilan catatan.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Setel Jarak Grid**
+## **Atur Jarak Grid**
 
-Gunakan [Presentation.getViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getViewProperties) untuk mengakses pengaturan tampilan seluruh presentasi. Metode [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getGridSpacing) dan [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#setGridSpacing) membaca atau mengubah interval grid penyuntingan yang mendasarinya. Pengaturan ini berlaku untuk seluruh presentasi, bukan untuk slide individu. Jarak grid ditentukan dalam poin, di mana 72 poin sama dengan satu inci. Gunakan nilai positif, sebagaimana dipersyaratkan oleh dokumentasi API.
-
-Contoh berikut membuka `demo.pptx` yang ada, mencetak jarak grid saat ini, menetapkan interval seperempat inci, dan menyimpan hasilnya.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) menetapkan jarak antara garis grid penyuntingan di seluruh presentasi. Nilai yang diberikan harus positif dalam satuan poin, dengan 72 poin per inci. Contoh ini mencetak jarak grid saat ini dalam presentasi yang ada dan menyimpan grid seperempat inci dengan mengatur interval menjadi 18 poin.
 
 ```python
 import jpype
@@ -135,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Grid berbeda dari [drawing guides](/slides/id/python-java/drawing-guides/). Jarak grid mengontrol interval teratur, sementara drawing guides adalah garis penyejajaran horisontal atau vertikal yang diposisikan secara terpisah. Menambahkan, memindahkan, atau menghapus drawing guides tidak mengubah jarak grid.
-
-Baik grid maupun drawing guides adalah bantuan penyuntingan. Mereka tidak dirender sebagai konten slide dalam PDF, gambar, SVG, atau tayangan slide. Menyimpan jarak grid tidak menjamin bahwa penyunting akan menampilkan grid: visibilitasnya juga bergantung pada preferensi penampil atau penyunting.
+Grid diulang pada interval tetap. [Drawing guides](/slides/id/python-java/drawing-guides/) menandai posisi horizontal atau vertikal individual. Kedua alat ini merupakan bantuan penyuntingan dan hanya muncul di editor yang menampilkannya. Slide show dan ekspor ke PDF, gambar, atau SVG mengabaikannya.
 
 ## **Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi**
 
-Gunakan [Presentation.getViewProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getViewProperties) untuk mengakses pengaturan tampilan seluruh presentasi. Gunakan [ViewProperties.getShowComments](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getShowComments) dan [ViewProperties.setShowComments](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#setShowComments) untuk membaca atau mengubah preferensi yang disimpan mengenai apakah komentar harus ditampilkan ketika presentasi dibuka di PowerPoint atau penyunting kompatibel lainnya.
-
-Pengaturan ini hanya mengontrol preferensi tampilan yang disimpan. Itu tidak menambah, menghapus, menyunting, atau menyelesaikan komentar. Menyembunyikan komentar mempertahankan konten, penulis, posisi, balasan, dan statusnya. Lihat [Presentation Comments](/slides/id/python-java/presentation-comments/) untuk operasi yang mengubah komentar itu sendiri.
-
-Contoh berikut memerlukan `comments.pptx` yang ada berisi komentar. Ia mencetak pengaturan visibilitas saat ini, meminta komentar disembunyikan, dan menyimpan PPTX baru tanpa menghapus komentar apa pun. Ia juga menggunakan [ViewProperties.setLastView](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#setLastView) dengan [ViewType.SlideView](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewtype/#SlideView) untuk mengonfigurasi tampilan penyuntingan awal bersama visibilitas komentar.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) menyimpan preferensi yang digunakan editor kompatibel saat membuka presentasi. Untuk presentasi yang ada dengan komentar, contoh ini mencetak pengaturan saat ini dan menyimpan salinan dengan komentar disembunyikan. Ia juga memanggil [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) dengan [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) sehingga salinan tersebut terbuka dalam tampilan slide.
 
 ```python
 import jpype
@@ -168,31 +138,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Pengaturan ini tidak menentukan apakah komentar termasuk dalam ekspor PDF, HTML, gambar, catatan, atau handout. Konfigurasikan opsi khusus ekspor yang relevan secara terpisah.
+Menyembunyikan komentar mempertahankan teks, penulis, posisi, balasan, dan statusnya. Untuk mengubah komentar itu sendiri, lihat [Presentation Comments](/slides/id/python-java/presentation-comments/). Pengaturan ekspor mengontrol apakah komentar muncul dalam PDF, HTML, gambar, catatan, atau handout.
 
 ## **FAQ**
 
-**Mengapa grid tidak terlihat setelah saya membuka kembali presentasi?**
+**Mengapa grid tersembunyi saat saya membuka kembali presentasi?**
 
-File menyimpan jarak grid, tetapi penyunting mengontrol apakah grid ditampilkan. Periksa pengaturan visibilitas grid pada penyunting.
+Presentasi menyimpan interval grid. Untuk melihat grid, aktifkan visibilitas grid di editor.
 
-**Apakah menghapus drawing guides mengubah jarak grid?**
+**Apakah menghapus panduan gambar mengubah jarak grid?**
 
-Tidak. Drawing guides dan jarak grid adalah pengaturan yang independen. Menghapus guides tidak mengubah interval grid yang disimpan.
+Tidak. Menambahkan, memindahkan, atau menghapus panduan tidak mengubah interval grid.
 
-**Bisakah saya mengatur pengaturan tampilan yang berbeda untuk bagian-bagian berbeda dalam sebuah presentasi?**
+**Apakah bagian berbeda dari presentasi dapat memiliki pengaturan tampilan yang berbeda?**
 
-[Pengaturan tampilan](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getViewProperties) didefinisikan pada tingkat presentasi ([Normal View](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/id/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), bukan per bagian, sehingga satu set parameter berlaku untuk seluruh dokumen saat dibuka.
+Tidak. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) berlaku untuk seluruh presentasi.
 
-**Apakah saya dapat mendefinisikan sebelumnya keadaan tampilan yang berbeda untuk pengguna yang berbeda?**
+**Bisakah saya menyimpan pengaturan tampilan yang berbeda untuk pengguna yang berbeda?**
 
-Tidak. Pengaturan disimpan dalam file dan bersifat bersama. Aplikasi penampil dapat menghormati preferensi pengguna, tetapi file itu sendiri hanya berisi satu set properti tampilan.
+File menyimpan satu set properti tampilan untuk semua orang. Editor dapat juga menerapkan preferensi lokal pengguna.
 
-**Apakah saya dapat menyiapkan templat dengan View Properties yang telah ditentukan sehingga presentasi baru membuka dengan cara yang sama?**
+**Bisakah saya menyimpan pengaturan tampilan dalam templat?**
 
-Ya. Karena [view properties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getViewProperties) disimpan pada tingkat presentasi, Anda dapat menyematkannya dalam sebuah templat dan membuat dokumen baru darinya dengan konfigurasi tampilan awal yang sama.
+Ya. Presentasi yang dibuat dari templat mewarisi pengaturan tampilan yang disimpan dalam templat.

@@ -1,5 +1,5 @@
 ---
-title: Pobieranie i aktualizacja właściwości widoku prezentacji w języku Python
+title: Pobieranie i aktualizacja właściwości widoku prezentacji w Pythonie
 linktitle: Właściwości widoku
 type: docs
 weight: 80
@@ -9,141 +9,128 @@ keywords:
 - widok normalny
 - zawartość konspektu
 - ikony konspektu
-- przyciąganie pionowego podziałnika
-- widok pojedynczy
+- przyciąganie pionowego podziału
+- pojedynczy widok
 - stan paska
 - rozmiar wymiaru
 - automatyczna regulacja
 - domyślne powiększenie
 - PowerPoint
+- OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Odkryj właściwości widoku Aspose.Slides dla Pythona via .NET, aby dostosować formaty slajdów PPT, PPTX i ODP — zmieniać układy, poziomy powiększenia i ustawienia wyświetlania."
+description: "Użyj Aspose.Slides for Python via .NET, aby skonfigurować układ widoku normalnego, powiększenie slajdu i notatek, odstępy siatki oraz widoczność komentarzy w prezentacjach PowerPoint."
 ---
 ## **Wprowadzenie**
 
-Widok normalny składa się z trzech regionów zawartości: samego slajdu, bocznego regionu zawartości oraz dolnego regionu zawartości. Właściwości dotyczące pozycjonowania różnych regionów zawartości. Informacje te pozwalają aplikacji zapisać stan widoku do pliku, tak aby po ponownym otwarciu widok znajdował się w takim samym stanie, w jakim prezentacja była ostatnio zapisana.
+W widoku normalnym programu PowerPoint slajd wyświetlany jest pomiędzy panelem bocznym z miniaturami lub konspektem a panelem notatek poniżej. Aspose.Slides for Python via .NET udostępnia zapisane preferencje edycji prezentacji poprzez [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/). Obejmują one układ paneli, poziomy powiększenia, odstępy siatki i widoczność komentarzy.
 
-Dodano własność [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/normal_view_properties/) , aby zapewnić dostęp do właściwości widoku normalnego prezentacji.  
-Dodano klasy [NormalViewProperties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/normalviewrestoredproperties/) oraz ich pochodne, a także wyliczenie [SplitterBarStateType](https://reference.aspose.com/slides/pl/python-net/aspose.slides/splitterbarstatetype/).
+## **O NormalViewProperties**
 
-## **O INormalViewProperties**
+Użyj [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) aby uzyskać dostęp do obiektu [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/). [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) kontroluje, czy ikony pojawiają się obok tytułów slajdów w konspekcie. [snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) pozwala panelowi bocznemu zminimalizować się, gdy użytkownik go zwęża. [prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) wskazuje preferencję wyświetlania jednego panelu w pełnym oknie.
 
-Reprezentuje właściwości widoku normalnego.
+[vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) kontroluje podziałkę między panelem bocznym a slajdem. [horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) kontroluje podziałkę nad panelem notatek. Oba przyjmują wartość [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) `MINIMIZED`, `MAXIMIZED` lub `RESTORED`.
 
-Właściwość **ShowOutlineIcons** określa, czy aplikacja powinna wyświetlać ikony przy wyświetlaniu treści konspektu w którymkolwiek z regionów zawartości trybu widoku normalnego.  
-Właściwość **SnapVerticalSplitter** określa, czy pionowy podziałnik ma przełączać się do stanu zminimalizowanego, gdy boczny region jest wystarczająco mały.  
-Właściwość **PreferSingleView** określa, czy użytkownik preferuje widok pełnoekranowego jednego regionu zawartości zamiast standardowego widoku normalnego z trzema regionami. Jeśli jest włączona, aplikacja może wyświetlić jeden z regionów zawartości na całym oknie.
+<!-- visual-explanation:presentation-view-properties:start -->
+[![A conceptual editor separates a side panel, slide region and bottom region with labelled vertical and horizontal splitters.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-Właściwości **VerticalBarState** i **HorizontalBarState** określają stan, w jakim ma być wyświetlany odpowiedni pasek podziałnika (poziomy lub pionowy). Pasek podziałnika poziomego oddziela slajd od regionu zawartości znajdującego się pod slajdem, pasek podziałnika pionowego oddziela slajd od bocznego regionu zawartości. Dostępne wartości to: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** oraz **SplitterBarStateType.Restored**.  
+*W widoku normalnym pionowa podziałka kontroluje szerokość panelu bocznego. Pozioma podziałka kontroluje przestrzeń nad panelem notatek.*
+<!-- visual-explanation:presentation-view-properties:end -->
 
-Właściwości **RestoredLeft** i **RestoredTop** określają rozmiar górnego lub bocznego regionu slajdu w widoku normalnym, gdy zastosowano wartość **SplitterBarStateType.Restored** dla **VerticalBarState** i **HorizontalBarState** odpowiednio.
+## **O przywracaniu NormalViewProperties**
 
-## **O przywracaniu INormalViewProperties**
+Gdy podziałka jest przywracana, [restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) podaje zapisaną szerokość panelu bocznego, a [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) podaje zapisaną wysokość górnego obszaru slajdu. Oba udostępniają [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/). Jego właściwość [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) przyjmuje procent od 0 do 100, a [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) kontroluje, czy edytor dostosowuje rozmiar przy zmianie rozmiaru okna.
 
-Określa rozmiar regionu slajdu (szerokość, gdy jest potomkiem RestoredTop, wysokość, gdy jest potomkiem RestoredLeft) w widoku normalnym, gdy region ma zmienny rozmiar przywrócony (niezminimalizowany ani niezmaksymalizowany).  
-
-Właściwość **DimensionSize** określa rozmiar regionu slajdu (szerokość, gdy jest potomkiem restoredTop, wysokość, gdy jest potomkiem restoredLeft).  
-
-Właściwość **AutoAdjust** określa, czy rozmiar bocznego regionu zawartości powinien kompensować nowy rozmiar przy zmianie rozmiaru okna zawierającego widok w aplikacji.  
-
-Poniżej podany jest przykład, który pokazuje, jak uzyskać dostęp do właściwości **ViewProperties.NormalViewProperties** prezentacji.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # Przywróć właściwości widoku prezentacji
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ustaw domyślną wartość powiększenia**
-
-Aspose.Slides for Python via .NET obsługuje teraz ustawianie domyślnej wartości powiększenia dla prezentacji, tak aby po otwarciu prezentacji powiększenie było już ustawione. Można to zrobić, ustawiając [view_properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/view_properties/) prezentacji. Właściwości widoku slajdu oraz [notes_view_properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/notes_view_properties/) mogą być ustawiane programowo. W tym artykule pokażemy na przykładzie, jak ustawić właściwości widoku prezentacji w Aspose.Slides.
-
-Aby ustawić właściwości widoku, wykonaj poniższe kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Ustaw [view properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/) prezentacji.
-1. Zapisz prezentację jako plik PPTX.
-
-W poniższym przykładzie ustawiliśmy wartość powiększenia dla widoku slajdu oraz widoku notatek.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # Ustawianie właściwości widoku prezentacji
-    presentation.view_properties.slide_view_properties.scale = 100 # Wartość powiększenia w procentach dla widoku slajdu
-    presentation.view_properties.notes_view_properties.scale = 100 # Wartość powiększenia w procentach dla widoku notatek
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ustaw odstęp siatki**
-
-Użyj [Presentation.view_properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/view_properties/), aby uzyskać dostęp do ustawień widoku obowiązujących w całej prezentacji. Właściwość [ViewProperties.grid_spacing](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/grid_spacing/) odczytuje lub zmienia odstęp podstawowej siatki edycji. To ustawienie dotyczy całej prezentacji, a nie pojedynczego slajdu. Odstęp siatki podaje się w punktach, gdzie 72 punkty równa się jednemu calowi. Użyj wartości dodatniej, zgodnie z dokumentacją API.
-
-Poniższy przykład otwiera istniejący plik `demo.pptx`, wyświetla bieżący odstęp siatki, ustawia odstęp kwart cala i zapisuje wynik.
+Ten przykład aktualizuje istniejącą prezentację. Przywraca poziomą podziałkę, ustawia [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) na 80% z włączonym automatycznym dostosowaniem i maksymalizuje pionową podziałkę. Włącza również [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) dla widoku konspektu.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Ustaw domyślną wartość powiększenia**
+
+[slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) i [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) przechowują niezależne ustawienia powiększenia dla edytora. Ustawienia te nie wpływają na wymiary slajdów, odtwarzanie pokazu slajdów ani rozdzielczość eksportu obrazów.
+
+Ten przykład otwiera istniejącą prezentację i włącza [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/) , aby dopasować slajd do okna edycji. Dla strony notatek wyłącza automatyczne skalowanie i ustawia [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) na stałe 80% powiększenie.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Ustaw odstęp siatki**
+
+[grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) ustawia odległość między liniami siatki edycji w całej prezentacji. Przyjmuje dodatnią wartość w punktach, przy 72 punktach na cal. Ten przykład wyświetla bieżący odstęp w istniejącej prezentacji i zapisuje siatkę o ćwierćcala, ustawiając interwał na 18 punktów.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Siatka różni się od [drawing guides](/slides/pl/python-net/drawing-guides/). Odstęp siatki kontroluje regularny interwał, podczas gdy prowadnice rysunkowe są indywidualnie rozmieszczanymi poziomymi lub pionowymi liniami wyrównania. Dodawanie, przenoszenie lub usuwanie prowadnic nie zmienia odstępu siatki.
-
-Zarówno siatka, jak i prowadnice rysunkowe są pomocnikami edycji. Nie są renderowane jako zawartość slajdu w PDF, obrazach, SVG ani w pokazie slajdów. Przechowywanie odstępu siatki nie gwarantuje, że edytor wyświetli siatkę: jej widoczność zależy także od ustawień przeglądarki lub edytora.
+Siatka powtarza się w stałym interwale. [Drawing guides](/slides/pl/python-net/drawing-guides/) oznaczają poszczególne pozycje poziome lub pionowe. Oba są pomocnikami edycji i pojawiają się tylko w edytorach, które je wyświetlają. Pokazy slajdów oraz eksporty do PDF, obrazów lub SVG je pomijają.
 
 ## **Pokaż lub ukryj komentarze przy otwieraniu prezentacji**
 
-Użyj [Presentation.view_properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/view_properties/), aby uzyskać dostęp do ustawień widoku obowiązujących w całej prezentacji. Odczytaj lub zmień [ViewProperties.show_comments](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/show_comments/), aby zapisać preferencję, czy komentarze mają być wyświetlane po otwarciu prezentacji w PowerPoint lub innym kompatybilnym edytorze.
-
-To ustawienie kontroluje jedynie zapisaną preferencję widoku. Nie dodaje, nie usuwa, nie edytuje ani nie rozwiązuje komentarzy. Ukrywanie komentarzy zachowuje ich treść, autorów, pozycje, odpowiedzi i statusy. Zobacz [Presentation Comments](/slides/pl/python-net/presentation-comments/), aby zapoznać się z operacjami zmieniającymi same komentarze.
-
-Poniższy przykład wymaga istniejącego pliku `comments.pptx` zawierającego komentarze. Wyświetla bieżące ustawienie widoczności, żąda ukrycia komentarzy i zapisuje nowy plik PPTX bez usuwania żadnych komentarzy. Dodatkowo ustawia [ViewProperties.last_view](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/last_view/) na [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewtype/), aby skonfigurować początkowy widok edycji wraz z widocznością komentarzy.
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) przechowuje preferencję, którą kompatybilne edytory wykorzystują przy otwieraniu prezentacji. Dla istniejącej prezentacji z komentarzami ten przykład wyświetla bieżące ustawienie i zapisuje kopię z ukrytymi komentarzami. Ustawia także [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) na [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/), aby kopia otworzyła się w widoku slajdu.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-To ustawienie nie określa, czy komentarze są uwzględniane w eksportach do PDF, HTML, obrazu, notatek lub wersji drukowanych. Skonfiguruj odpowiednie opcje specyficzne dla eksportu osobno.
+Ukrywanie komentarzy zachowuje ich tekst, autorów, pozycje, odpowiedzi i stany. Aby zmienić same komentarze, zobacz [Presentation Comments](/slides/pl/python-net/presentation-comments/). Ustawienia eksportu kontrolują, czy komentarze pojawiają się w PDF, HTML, obrazach, notatkach lub materiałach rozdawniczych.
 
 ## **FAQ**
 
-**Dlaczego siatka nie jest widoczna po ponownym otwarciu prezentacji?**  
-Plik przechowuje odstęp siatki, ale to edytor decyduje, czy siatka jest wyświetlana. Sprawdź ustawienia widoczności siatki w edytorze.
+**Dlaczego siatka jest ukryta po ponownym otwarciu prezentacji?**
 
-**Czy usunięcie prowadnic rysunkowych zmienia odstęp siatki?**  
-Nie. Prowadnice rysunkowe i odstęp siatki są niezależnymi ustawieniami. Usunięcie prowadnic nie zmienia przechowywanego interwału siatki.
+Prezentacja przechowuje interwał siatki. Aby zobaczyć siatkę, włącz widoczność siatki w edytorze.
 
-**Czy mogę ustawić różne ustawienia widoku dla różnych sekcji prezentacji?**  
-[Ustawienia widoku](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/view_properties/) definiowane są na poziomie prezentacji ([Normal View](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/slide_view_properties/)), a nie dla poszczególnych sekcji, więc jeden zestaw parametrów obowiązuje dla całego dokumentu po jego otwarciu.
+**Czy usunięcie prowadnic rysunkowych zmienia odstęp siatki?**
 
-**Czy mogę z góry określić różne stany widoku dla różnych użytkowników?**  
-Nie. Ustawienia są przechowywane w pliku i są współdzielone. Aplikacje przeglądające mogą uwzględniać preferencje użytkownika, ale sam plik zawiera jeden zestaw właściwości widoku.
+Nie. Dodanie, przeniesienie lub usunięcie prowadnicy nie zmienia interwału siatki.
 
-**Czy mogę przygotować szablon z wstępnie zdefiniowanymi właściwościami widoku, aby nowe prezentacje otwierały się w ten sam sposób?**  
-Tak. Ponieważ [view properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/view_properties/) są przechowywane na poziomie prezentacji, możesz umieścić je w szablonie i tworzyć z niego nowe dokumenty z tą samą początkową konfiguracją widoku.
+**Czy różne sekcje prezentacji mogą mieć różne ustawienia widoku?**
+
+Nie. [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) dotyczy całej prezentacji.
+
+**Czy mogę zapisać różne ustawienia widoku dla różnych użytkowników?**
+
+Plik przechowuje jeden zestaw właściwości widoku dla wszystkich. Edytor może także zastosować lokalne preferencje użytkownika.
+
+**Czy mogę zapisać ustawienia widoku w szablonie?**
+
+Tak. Prezentacje utworzone z szablonu dziedziczą zapisane ustawienia widoku.

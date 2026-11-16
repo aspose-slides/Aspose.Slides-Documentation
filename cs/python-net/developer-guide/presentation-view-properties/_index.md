@@ -9,144 +9,128 @@ keywords:
 - normální zobrazení
 - obsah osnovy
 - ikony osnovy
-- přichycení vertikálního rozdělovače
+- přichytit svislý rozdělovač
 - jednoduché zobrazení
-- stav lišty
+- stav pruhu
 - velikost rozměru
 - automatické přizpůsobení
 - výchozí přiblížení
 - PowerPoint
+- OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Objevte vlastnosti zobrazení Aspose.Slides pro Python via .NET a upravte formáty PPT, PPTX a ODP snímků—přizpůsobte rozvržení, úrovně přiblížení a nastavení zobrazení."
+description: "Použijte Aspose.Slides pro Python prostřednictvím .NET k nastavení rozvržení normálního zobrazení, přiblížení snímků a poznámek, rozestupu mřížky a viditelnosti komentářů v prezentacích PowerPoint."
 ---
 ## **Úvod**
 
-Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, boční oblasti obsahu a spodní oblasti obsahu. Vlastnosti vztahující se k umístění různých oblastí obsahu. Tyto informace umožňují aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, jako když byla prezentace naposledy uložena.
+V normálním zobrazení PowerPointu se snímek zobrazí mezi postranním panelem pro náhledy nebo osnovu a pod ním panelem poznámek. Aspose.Slides pro Python prostřednictvím .NET zpřístupňuje uložené preference úprav prezentace prostřednictvím [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/). Patří sem rozvržení panelů, úrovně přiblížení, rozestupy mřížky a viditelnost komentářů.
 
-Vlastnost [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/normal_view_properties/) byla přidána pro poskytnutí přístupu k vlastnostem normálního zobrazení prezentace.  
+## **O NormalViewProperties**
 
-Třídy [NormalViewProperties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/normalviewrestoredproperties/) a jejich potomci, výčtové typy [SplitterBarStateType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/splitterbarstatetype/) byly přidány.
+Použijte [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) k přístupu k objektu [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/). [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) řídí, zda se v osnově zobrazují ikony vedle názvů snímků. [snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) umožňuje postrannímu panelu přichytit se do svého minimalizovaného stavu, když jej uživatel zúží. [prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) vyjadřuje preferenci zobrazovat jeden panel v celém okně.
 
-## **O INormalViewProperties**
+[vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) řídí oddělovač mezi postranním panelem a snímkem. [horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) řídí oddělovač nad panelem poznámek. Oba přijímají hodnotu typu [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) `MINIMIZED`, `MAXIMIZED` nebo `RESTORED`.
 
-Reprezentuje vlastnosti normálního zobrazení.
+<!-- visual-explanation:presentation-view-properties:start -->
+[![Konceptuální editor odděluje postranní panel, oblast snímku a spodní oblast s označenými svislými a vodorovnými rozdělovači.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-Vlastnost **ShowOutlineIcons** určuje, zda má aplikace zobrazovat ikony při zobrazování obsahu osnovy v některé z oblastí obsahu režimu normálního zobrazení.
+*V normálním zobrazení řídí svislý oddělovač šířku postranního panelu. Vodorovný oddělovač řídí prostor nad panelem poznámek.*
+<!-- visual-explanation:presentation-view-properties:end -->
 
-Vlastnost **SnapVerticalSplitter** určuje, zda se vertikální rozdělovač má zachytit do minimalizovaného stavu, když je boční oblast dostatečně malá.
+## **O obnově NormalViewProperties**
 
-Vlastnost **PreferSingleView** určuje, zda uživatel preferuje zobrazení jediné celé okna s jednou oblastí obsahu místo standardního normálního zobrazení se třemi oblastmi obsahu. Pokud je povoleno, může aplikace zobrazit jednu z oblastí obsahu v celém okně.
+Když je oddělovač obnoven, [restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) poskytuje uloženou velikost postranního panelu a [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) poskytuje uloženou velikost horní oblasti snímku. Oba vystavují [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/). Jeho vlastnost [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) přijímá procento od 0 do 100 a [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) řídí, zda editor upravuje velikost při změně velikosti okna.
 
-Vlastnosti **VerticalBarState** a **HorizontalBarState** určují stav, ve kterém má být zobrazena horizontální nebo vertikální lišta rozdělovače. Horizontální lišta rozdělovače odděluje snímek od oblasti obsahu pod snímkem, vertikální lišta rozdělovače odděluje snímek od boční oblasti obsahu. Možné hodnoty jsou: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** a **SplitterBarStateType.Restored**.
-
-Vlastnosti **RestoredLeft** a **RestoredTop** určují velikost horní nebo boční oblasti snímku normálního zobrazení, když je pro **VerticalBarState** a **HorizontalBarState** použita hodnota **SplitterBarStateType.Restored**.
-
-## **O obnovení INormalViewProperties**
-
-Určuje velikost oblasti snímku (šířka, pokud je podřízená RestoredTop, výška, pokud je podřízená RestoredLeft) normálního zobrazení, když má oblast proměnnou obnovenou velikost (ani minimalizovanou, ani maximalizovanou).
-
-Vlastnost **DimensionSize** určuje velikost oblasti snímku (šířka, pokud je podřízená restoredTop, výška, pokud je podřízená restoredLeft).
-
-Vlastnost **AutoAdjust** určuje, zda má boční oblast obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.
-
-Níže uvedený příklad ukazuje, jak můžete přistupovat k vlastnostem **ViewProperties.NormalViewProperties** pro prezentaci.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # Obnovit vlastnosti zobrazení prezentace
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Nastavit výchozí hodnotu přiblížení**
-
-Aspose.Slides for Python via .NET nyní podporuje nastavení výchozí hodnoty přiblížení pro prezentaci tak, aby při otevření prezentace bylo přiblížení již nastaveno. To lze provést nastavením [view_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/view_properties/) prezentace. Vlastnosti zobrazení snímku i [notes_view_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/notes_view_properties/) lze nastavit programově. V tomto tématu uvidíme na příkladu, jak nastavit vlastnosti zobrazení prezentace v Aspose.Slides.
-
-Pro nastavení vlastností zobrazení postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/)
-2. Nastavte [view properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/) prezentace
-3. Uložte prezentaci jako soubor PPTX
-
-V níže uvedeném příkladu jsme nastavili hodnotu přiblížení pro zobrazení snímku i pro zobrazení poznámek.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # Nastavení vlastností zobrazení prezentace
-    presentation.view_properties.slide_view_properties.scale = 100 # Hodnota přiblížení v procentech pro zobrazení snímku
-    presentation.view_properties.notes_view_properties.scale = 100 # Hodnota přiblížení v procentech pro zobrazení poznámek 
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Nastavit rozestup mřížky**
-
-Použijte [Presentation.view_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/view_properties/) pro přístup k nastavením zobrazení na úrovni celé prezentace. Vlastnost [ViewProperties.grid_spacing](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/grid_spacing/) čte nebo mění interval základní editační mřížky. Toto nastavení se vztahuje na celou prezentaci, nikoli na jednotlivý snímek. Rozestup mřížky je uveden v bodech, kde 72 bodů odpovídá jednomu palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
-
-Následující příklad otevře existující soubor `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrtinového palce a výsledek uloží.
+Tento příklad aktualizuje existující prezentaci. Obnoví vodorovný oddělovač, nastaví [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) na 80 % s povoleným automatickým přizpůsobením a maximalizuje svislý oddělovač. Také povolí [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) pro zobrazení osnovy.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Nastavit výchozí hodnotu přiblížení**
+
+[slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) a [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) ukládají nezávislé nastavení přiblížení pro editor. Tato nastavení neovlivňují rozměry snímků, přehrávání prezentace ani rozlišení exportovaných obrázků.
+
+Tento příklad otevře existující prezentaci a povolí [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/) tak, aby se snímek přizpůsobil oknu editoru. Pro stránku poznámek zakáže automatické škálování a nastaví [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) na pevné přiblížení 80 %.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Nastavit rozestup mřížky**
+
+[grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) nastavuje vzdálenost mezi čarami editační mřížky v celé prezentaci. Přijímá kladnou hodnotu v bodech, přičemž 72 bodů představuje jeden palec. Tento příklad vypíše aktuální rozestup v existující prezentaci a uloží mřížku čtvrtinového palce nastavením intervalu na 18 bodů.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Mřížka se liší od [drawing guides](/slides/cs/python-net/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco vodicí čáry jsou individuálně umístěné horizontální nebo vertikální zarovnávací čáry. Přidání, přesunutí nebo vymazání vodicích čar nemění rozestup mřížky.
-
-Jak mřížka, tak vodicí čáry jsou pomocníky při úpravách. Nejsou vykreslovány jako obsah snímku v PDF, obrázcích, SVG ani v prezentaci. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na nastavení prohlížeče nebo editoru.
+Mřížka se opakuje v pevně daném intervalu. [Drawing guides](/slides/cs/python-net/drawing-guides/) označují jednotlivé vodorovné nebo svislé pozice. Obě jsou pomocí při úpravách a zobrazují se jen v editorech, které je podporují. Při přehrávání prezentací a exportu do PDF, obrázků nebo SVG jsou vynechány.
 
 ## **Zobrazit nebo skrýt komentáře při otevírání prezentace**
 
-Použijte [Presentation.view_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/view_properties/) pro přístup k nastavením zobrazení na úrovni celé prezentace. Přečtěte nebo změňte [ViewProperties.show_comments](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/show_comments/) a uložte preferenci, zda se mají při otevření prezentace v PowerPointu nebo jiném kompatibilním editoru zobrazovat komentáře.
-
-Toto nastavení řídí pouze uloženou preferenci zobrazení. Nepřidává, neodstraňuje, neupravuje ani neřeší komentáře. Skrytí komentářů zachovává jejich obsah, autory, pozice, odpovědi a stavy. Viz [Presentation Comments](/slides/cs/python-net/presentation-comments/) pro operace, které mění samotné komentáře.
-
-Následující příklad vyžaduje existující soubor `comments.pptx` obsahující komentáře. Vypíše aktuální nastavení viditelnosti, požádá o skrytí komentářů a uloží nový soubor PPTX, aniž by odstranil jakékoli komentáře. Také nastaví [ViewProperties.last_view](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/last_view/) na [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewtype/) pro konfiguraci počátečního zobrazení úprav spolu s viditelností komentářů.
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) ukládá preferenci, kterou kompatibilní editory používají při otevírání prezentace. Pro existující prezentaci s komentáři tento příklad vytiskne aktuální nastavení a uloží kopii s komentáři skrytými. Také nastaví [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) na [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/), aby se kopie otevřela ve zobrazení snímku.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Toto nastavení neurčuje, zda jsou komentáře zahrnuty do exportů PDF, HTML, obrázku, poznámek nebo podkladů. Konfigurujte příslušné možnosti specifické pro export samostatně.
+Skrytí komentářů zachovává jejich text, autory, pozice, odpovědi a stavy. Pro úpravu samotných komentářů viz [Presentation Comments](/slides/cs/python-net/presentation-comments/). Nastavení exportu řídí, zda se komentáře zobrazí v PDF, HTML, obrázcích, poznámkách nebo letácích.
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Proč není mřížka viditelná po opětovném otevření prezentace?**  
-Soubor ukládá rozestup mřížky, ale editor řídí, zda se mřížka zobrazí. Zkontrolujte nastavení viditelnosti mřížky v editoru.
+**Proč je mřížka při opětovném otevření prezentace skrytá?**
 
-**Mění vymazání vodicích čar rozestup mřížky?**  
-Ne. Vodicí čáry a rozestup mřížky jsou nezávislá nastavení. Vymazání vodicích čar nemění uložený interval mřížky.
+Prezentace ukládá interval mřížky. Pro zobrazení mřížky ji v editoru povolte.
 
-**Mohu nastavit různá nastavení zobrazení pro různé sekce prezentace?**  
-[Nastavení zobrazení](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/view_properties/) jsou definována na úrovni celé prezentace ([Normal View](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/cs/python-net/aspose.slides/viewproperties/slide_view_properties/)), nikoli po sekcích, takže jedná se o jeden soubor parametrů platný pro celý dokument při otevření.
+**Mění vymazání kreslicích vodítek rozestup mřížky?**
 
-**Mohu předdefinovat různé stavy zobrazení pro různé uživatele?**  
-Ne. Nastavení jsou uložena v souboru a sdílena. Aplikační prohlížeče mohou respektovat uživatelské preference, ale soubor samotný obsahuje jen jeden soubor vlastností zobrazení.
+Ne. Přidání, přesunutí nebo vymazání vodítka nemění interval mřížky.
 
-**Mohu připravit šablonu s předdefinovanými vlastnostmi zobrazení, aby se nové prezentace otevřely stejným způsobem?**  
-Ano. Protože [view properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/view_properties/) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.
+**Mohou různé sekce prezentace mít odlišná nastavení zobrazení?**
+
+Ne. [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) se vztahuje na celou prezentaci.
+
+**Mohu uložit různá nastavení zobrazení pro různé uživatele?**
+
+Soubor ukládá jeden soubor nastavení zobrazení pro všechny. Editor může také použít uživatelské místní preference.
+
+**Mohu uložit nastavení zobrazení v šabloně?**
+
+Ano. Prezentace vytvořené ze šablony zdědí její uložená nastavení zobrazení.

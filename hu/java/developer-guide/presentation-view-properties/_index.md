@@ -1,16 +1,16 @@
 ---
-title: Prezentáció nézet tulajdonságainak lekérése és frissítése Java-ban
-linktitle: Nézet tulajdonságok
+title: A prezentáció nézetbeállításainak lekérdezése és frissítése Java-ban
+linktitle: Nézetbeállítások
 type: docs
 weight: 80
 url: /hu/java/presentation-view-properties/
 keywords:
-- nézet tulajdonságok
+- nézetbeállítások
 - normál nézet
 - vázlat tartalom
 - vázlat ikonok
-- függőleges elválasztó rögzítése
-- egyedi nézet
+- függőleges osztó rögzítése
+- egyetlen nézet
 - sáv állapot
 - dimenzió méret
 - automatikus igazítás
@@ -20,161 +20,127 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Java nézet tulajdonságait a PPT, PPTX és ODP diák testreszabásához – állítsa be az elrendezéseket, a nagyítási szinteket és a megjelenítési beállításokat."
+description: "Használja az Aspose.Slides for Java-t a PowerPoint prezentációk normál nézetelrendezésének, dia- és jegyzetnagyításának, rácstávolságának és a megjegyzések láthatóságának beállításához."
 ---
 ## **Bevezetés**
 
-A normál nézet három tartalmi területből áll: a diából, egy oldalsó tartalmi területből és egy alsó tartalmi területből. A különböző tartalmi területek elhelyezésével kapcsolatos tulajdonságok. Ezek az információk lehetővé teszik az alkalmazás számára, hogy a nézet állapotát a fájlba mentse, így újra megnyitáskor a nézet ugyanabban az állapotban lesz, mint amikor a bemutatót legutóbb mentették.
+A PowerPoint normál nézetében a dia egy oldalsó ablaktábla között jelenik meg, amely bélyegképeket vagy vázlatot tartalmaz, és alul egy jegyzetablaktábla. Az Aspose.Slides for Java a prezentáció mentett szerkesztési beállításait a [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) segítségével teszi elérhetővé. Ezek közé tartozik az ablaktábla elrendezése, a nagyítási szintek, a rács távolsága és a megjegyzések láthatósága.
 
-A [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) metódust hozzáadtuk, hogy hozzáférést biztosítson a bemutató normál nézetének tulajdonságaihoz.
+## **Az INormalViewProperties-ról**
 
-Hozzáadtuk az [INormalViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewRestoredProperties) interfészeket és azok leszármazottjait, valamint a [SplitterBarStateType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SplitterBarStateType) felsoroló típust.
+Használja a [getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) a [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/) felület eléréséhez. A [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) szabályozza, hogy ikonok jelenjenek-e meg a dia címek mellett a vázlatban. A [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) lehetővé teszi, hogy az oldalsó ablaktábla a felhasználó szűkítésekor a minimalizált állapotba ragadjon. A [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) egy olyan preferenciát jelöl, hogy egy ablaktáblát jelenítsenek meg a teljes ablakban.
 
-## **Az INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) szabályozza az oldalsó ablaktábla és a dia közötti elválasztót. A [setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) szabályozza a jegyzetablaktábla feletti elválasztót. Mindkettő egy [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) értéket fogad el, amely lehet `Minimized`, `Maximized` vagy `Restored`.
 
-A normál nézet tulajdonságait képviseli.
+## **Az INormalViewProperties visszaállításáról**
 
-A [getShowOutlineIcons](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) és a [setShowOutlineIcons](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) metódusok meghatározzák, hogy az alkalmazás ikonokat jelenítsen-e meg, ha a normál nézet bármely tartalmi területén vázlatot jelenít meg.
+Amikor egy elválasztót visszaállítanak, a [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) a side pane mentett méretét, a [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) pedig a felső dia terület mentett méretét adja meg. Mindkettő a [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/) felületet teszi elérhetővé. Ennek a [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) metódusnak 0‑tól 100‑ig terjedő százalékot kell megadni, a [setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) pedig szabályozza, hogy a szerkesztő módosítsa‑e a méretet az ablak átméretezésekor.
 
-A [getSnapVerticalSplitter](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) és a [setSnapVerticalSplitter](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) metódusok meghatározzák, hogy a függőleges elválasztó a mellékleges terület elég kicsi leszésekor minimalizált állapotba ragadjon-e.
-
-A [getPreferSingleView](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) és a [setPreferSingleView](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) tulajdonságok meghatározzák, hogy a felhasználó egy teljes ablakos, egyetlen tartalmi területet részesít-e előnyben a három tartalmi területet tartalmazó szabványos normál nézethez képest. Ha engedélyezve van, az alkalmazás egyik tartalmi területet is megjelenítheti az egész ablakban.
-
-A [getVerticalBarState](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) metódusok meghatározzák, hogy a vízszintes vagy függőleges elválasztó sáv milyen állapotban legyen megjelenítve. A vízszintes elválasztó sáv elválasztja a diát a diák alatti tartalmi területtől, a függőleges elválasztó sáv elválasztja a diát az oldalsó tartalmi területtől. Lehetséges értékek: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SplitterBarStateType#Maximized) és [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SplitterBarStateType#Restored).
-
-A [getRestoredLeft](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) és a [getRestoredTop](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) metódusok meghatározzák a normál nézet felső vagy oldalsó diaterületének méretét, amikor a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hu/java/com.aspose.slides/SplitterBarStateType#Restored) érték alkalmazásra kerül a [getVerticalBarState](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) esetén.
-
-## **Az INormalViewProperties helyreállítása**
-
-Meghatározza a normál nézet diaterületének méretét (szélesség, ha a [getRestoredTop](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) gyermekéről van szó, magasság, ha a [getRestoredLeft](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) gyermekéről van szó), amikor a terület változó helyreállított méretekkel rendelkezik (sem minimalizált, sem maximalizált).
-
-A [getDimensionSize](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) metódus a diaterület méretét adja meg (szélesség a restoredTop esetén, magasság a restoredLeft esetén).
-
-A [getAutoAdjust](https://reference.aspose.com/slides/hu/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) metódus meghatározza, hogy az oldalsó tartalmi terület mérete kompenzálja-e az új méretet a nézetet tartalmazó ablak átméretezésekor az alkalmazáson belül.
-
-Az alább bemutatott példa azt mutatja, hogyan érheti el a [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) tulajdonságait egy bemutató számára.
+Ez a példa egy meglévő prezentációt frissít. Visszaállítja a vízszintes elválasztót, a [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) által visszaadott méretet 80%‑ra állítja be automatikus igazítással, és maximalizálja a függőleges elválasztót. Emellett meghívja a [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) metódust, hogy ikonok jelenjenek meg a vázlat nézetben.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // A prezentáció nézet tulajdonságainak visszaállítása
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Az alapértelmezett nagyítási érték beállítása**
-
-{{% alert color="info" %}} 
-
-Az Aspose.Slides for Java most már támogatja a prezentáció alapértelmezett nagyítási értékének beállítását, így a bemutató megnyitásakor a nagyítás már be van állítva. Ez a [ViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ViewProperties) beállításával érhető el egy prezentációban. A [getSlideViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) és a [getNotesViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) programozottan is beállítható. Ebben a témában egy példán keresztül megmutatjuk, hogyan állítható be a [View Properties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ViewProperties) a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) objektumban az Aspose.Slides használatával.
-
-{{% /alert %}} 
-
-A nézet tulajdonságok beállításához kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) osztálypéldányt.
-1. Állítsa be a [View Properties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ViewProperties) értékét a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation) számára.
-1. Írja ki a prezentációt egy [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként. Az alább látható példában beállítottuk a nagyítási értéket a dia- és a jegyzetnézethez is.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // A prezentáció nézet tulajdonságainak beállítása
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Nagyítási érték százalékban a dia nézethez
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Nagyítási érték százalékban a jegyzet nézethez 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **A rács távolság beállítása**
+## **Az alapértelmezett nagyítási érték beállítása**
 
-Használja a [Presentation.getViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getViewProperties--) metódust a prezentáció szintű nézeti beállítások eléréséhez. Az [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iviewproperties/#getGridSpacing--) és az [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) metódusok olvassák vagy módosítják az alaprendszer szerkesztő rácsának intervallumát. Ez a beállítás a teljes prezentációra vonatkozik, nem egyetlen diara. A rács távolságát pontban adjuk meg, ahol 72 pont egy hüvelyknek felel meg. Pozitív értéket használjon, ahogy azt az API dokumentációja előírja.
+A [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) és a [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) független nagyítási beállításokat tárolnak a szerkesztő számára. Ezek a beállítások nem befolyásolják a dia méreteit, a diavetítés lejátszását vagy a kép export felbontását.
 
-Az alábbi példa megnyit egy meglévő `demo.pptx` fájlt, kiírja a jelenlegi rács távolságát, egy negyed hüvelykes intervallumra állítja, majd elmenti az eredményt.
+Ez a példa megnyit egy meglévő prezentációt, és meghívja a [setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) metódust, hogy a dia illeszkedjen a szerkesztési ablakhoz. A jegyzetoldal esetében letiltja az automatikus méretezést, és a [setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) segítségével 80%‑os fix nagyítást állít be.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **A rács távolságának beállítása**
+
+A [setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) beállítja a szerkesztési rácsvonalak közötti távolságot a teljes prezentációban. Pozitív értéket vesz fel pontban, 72 pont hüvelykenként. Ez a példa kiírja a jelenlegi távolságot egy meglévő prezentációban, és egy negyed hüvelykes rácsot ment úgy, hogy az intervallumot 18 pontra állítja.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-A rács különbözik a [drawing guides](/slides/hu/java/drawing-guides/) útmutatóktól. A rács távolsága egy szabályos intervallumot szabályoz, míg a rajzoló útmutatók egyenként elhelyezett vízszintes vagy függőleges igazítási vonalak. Útmutatók hozzáadása, mozgatása vagy törlése nem változtatja meg a rács távolságát.
+A rács egy fix intervallumon ismétlődik. A [Drawing guides](/slides/hu/java/drawing-guides/) egyedi vízszintes vagy függőleges pozíciókat jelölnek. Mindkettő a szerkesztést segíti, és csak azokban a szerkesztőkben jelenik meg, ahol engedélyezett. A diavetítések és a PDF, kép vagy SVG exportok kihagyják őket.
 
-Mind a rács, mind a rajzoló útmutatók szerkesztési segédeszközök. Nem jelennek meg dia tartalomként PDF‑ben, képekben, SVG‑ben vagy diavetítésben. A rács távolságának tárolása nem garantálja, hogy egy szerkesztő megjeleníti a rácsot: láthatósága a megjelenítő vagy szerkesztő beállításaitól is függ.
+## **Megjegyzések megjelenítése vagy elrejtése prezentáció megnyitásakor**
 
-## **Megjegyzések megjelenítése vagy elrejtése bemutató megnyitásakor**
-
-Használja a [Presentation.getViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getViewProperties--) metódust a prezentáció szintű nézeti beállítások eléréséhez. A [IViewProperties.getShowComments](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iviewproperties/#getShowComments--) és a [IViewProperties.setShowComments](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) segítségével olvashatja vagy módosíthatja a tárolt beállítást arról, hogy a megjegyzéseket meg kell‑e jeleníteni a PowerPoint vagy más kompatibilis szerkesztő megnyitásakor.
-
-Ez a beállítás csak a tárolt nézeti előnyben részesítést szabályozza. Nem ad hozzá, nem távolít el, nem szerkeszt és nem old meg megjegyzéseket. A megjegyzések elrejtése megőrzi azok tartalmát, szerzőit, pozícióit, válaszait és állapotát. Lásd a [Presentation Comments](/slides/hu/java/presentation-comments/) oldalt a megjegyzéseken végzett műveletekért.
-
-Az alábbi példához egy meglévő `comments.pptx` fájl szükséges, amely megjegyzéseket tartalmaz. Kiírja a jelenlegi láthatósági beállítást, elrejti a megjegyzéseket, és egy új PPTX‑et ment anélkül, hogy a megjegyzéseket eltávolítaná. Emellett a [IViewProperties.setLastView](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iviewproperties/#setLastView-int-) metódust a [ViewType.SlideView](https://reference.aspose.com/slides/hu/java/com.aspose.slides/viewtype/#SlideView) értékkel használja a kezdeti szerkesztő nézet és a megjegyzés‑láthatóság konfigurálásához.
+A [setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) egy olyan preferenciát tárol, amelyet a kompatibilis szerkesztők a prezentáció megnyitásakor használnak. Egy megjegyzésekkel ellátott meglévő prezentáció esetén ez a példa kiírja a jelenlegi beállítást, és egy példányt ment, amelynek a megjegyzései el vannak rejtve. Emellett meghívja a [setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) metódust a [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) értékkel, hogy a másolat dia nézetben nyíljon meg.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Ez a beállítás nem határozza meg, hogy a megjegyzések szerepelnek‑e a PDF, HTML, kép, jegyzet vagy szórólap exportokban. A megfelelő export‑specifikus beállításokat külön kell konfigurálni.
+A megjegyzések elrejtése megőrzi a szövegüket, szerzőiket, pozícióikat, válaszaikat és állapotaikat. A megjegyzések módosításához lásd a [Presentation Comments](/slides/hu/java/presentation-comments/) oldalt. Az exportálási beállítások határozzák meg, hogy a megjegyzések megjelennek‑e PDF‑ben, HTML‑ben, képekben, jegyzetekben vagy szórólapokon.
 
 ## **GYIK**
 
-**Miért nem látható a rács a bemutató újranyitása után?**
+**Miért van a rács elrejtve, amikor újra megnyitom a prezentációt?**
 
-A fájl tárolja a rács távolságát, de a szerkesztő szabályozza, hogy a rács megjelenjen‑e. Ellenőrizze a szerkesztő rács láthatósági beállításait.
+A prezentáció tárolja a rács intervallumát. A rács megtekintéséhez engedélyezze a rács láthatóságát a szerkesztőben.
 
-**A rajzoló útmutatók törlése megváltoztatja‑e a rács távolságát?**
+**A rajzsegélyek törlése módosítja a rács távolságát?**
 
-Nem. A rajzoló útmutatók és a rács távolsága független beállítások. Az útmutatók törlése nem módosítja a tárolt rács intervallumát.
+Nem. A segédvonalak hozzáadása, mozgatása vagy törlése nem változtatja meg a rács intervallumát.
 
-**Beállíthatok‑e különböző nézeti beállításokat a prezentáció különböző szekcióihoz?**
+**Lehetnek a prezentáció egyes szakaszai különböző nézetbeállításokkal?**
 
-A [View settings](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getViewProperties--) a prezentáció szintjén (Normál nézet / Dia nézet) kerülnek definiálásra, nem szekciónként, így egyetlen paraméterkészlet vonatkozik a dokumentum egészére megnyitáskor.
+Nem. A [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) az egész prezentációra érvényes.
 
-**Előre definiálhatok‑e különböző nézeti állapotokat különböző felhasználók számára?**
+**Menthetek különböző nézetbeállításokat különböző felhasználóknak?**
 
-Nem. A beállítások a fájlban vannak tárolva és megosztottak. A megjelenítő alkalmazások tiszteletben tarthatják a felhasználói preferenciákat, de a fájl önmagában csak egy nézet tulajdonságkészletet tartalmaz.
+A fájl mindenki számára egyetlen nézetbeállítást tárol. A szerkesztő továbbiakban alkalmazhatja a felhasználó helyi preferenciáit.
 
-**Készíthetek‑e sablont előre definiált View Properties‑sal, hogy az új prezentációk ugyanúgy nyíljanak meg?**
+**Menthetek nézetbeállításokat egy sablonba?**
 
-Igen. Mivel a [view properties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#getViewProperties--) a prezentáció szintjén vannak tárolva, beágyazhatsz őket egy sablonba, és új dokumentumokat hozhatsz létre belőle ugyanazzal a kezdeti nézeti konfigurációval.
+Igen. A sablonból létrehozott prezentációk öröklik a sablon mentett nézetbeállításait.

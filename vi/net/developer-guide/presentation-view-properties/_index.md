@@ -7,103 +7,75 @@ url: /vi/net/presentation-view-properties/
 keywords:
 - thuộc tính hiển thị
 - chế độ xem bình thường
-- nội dung đề cương
-- biểu tượng đề cương
-- gắn thanh chia dọc
+- nội dung dàn ý
+- biểu tượng dàn ý
+- bắt dọc bộ chia
 - chế độ xem đơn
 - trạng thái thanh
 - kích thước chiều
 - tự động điều chỉnh
-- phóng to mặc định
+- thu phóng mặc định
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Khám phá các thuộc tính hiển thị của Aspose.Slides cho .NET để tùy chỉnh định dạng slide PPT, PPTX và ODP — điều chỉnh bố cục, mức phóng to và cài đặt hiển thị."
+description: "Sử dụng Aspose.Slides cho .NET để cấu hình bố cục chế độ xem bình thường, thu phóng slide và ghi chú, khoảng cách lưới và khả năng hiển thị bình luận trong các bản trình chiếu PowerPoint."
 ---
 ## **Giới thiệu**
 
-Chế độ xem bình thường bao gồm ba vùng nội dung: bản trình chiếu riêng, một vùng nội dung bên và một vùng nội dung ở dưới. Các thuộc tính liên quan tới việc định vị các vùng nội dung khác nhau. Thông tin này cho phép ứng dụng lưu trạng thái xem vào tệp, để khi mở lại, chế độ xem sẽ ở cùng trạng thái như khi bản trình chiếu được lưu lần cuối.
+Trong chế độ xem bình thường của PowerPoint, slide xuất hiện giữa một khung bên cho hình thu nhỏ hoặc dàn ý và một khung ghi chú phía dưới. Aspose.Slides for .NET cung cấp các tùy chọn chỉnh sửa đã lưu của bản trình chiếu thông qua [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/). Các tùy chọn này bao gồm bố cục khung, mức thu phóng, khoảng cách lưới và khả năng hiển thị bình luận.
 
-Thuộc tính [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/iviewproperties/properties/normalviewproperties) đã được thêm vào để cung cấp quyền truy cập vào các thuộc tính chế độ xem bình thường của bản trình chiếu.
+## **Về INormalViewProperties**
 
-[INormalViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/inormalviewrestoredproperties) giao diện và các lớp con của chúng, enum [SplitterBarStateType](https://reference.aspose.com/slides/vi/net/aspose.slides/splitterbarstatetype) đã được thêm.
+Sử dụng [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) để truy cập giao diện [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/). [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) kiểm soát việc hiển thị biểu tượng bên cạnh tiêu đề slide trong dàn ý. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) cho phép khung bên bám vào trạng thái thu nhỏ khi người dùng thu hẹp nó. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) cho biết sở thích hiển thị một khung trong cửa sổ đầy đủ.
 
-## **Giới thiệu về INormalViewProperties**
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) kiểm soát thanh chia giữa khung bên và slide. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) kiểm soát thanh chia phía trên khung ghi chú. Cả hai chấp nhận một giá trị [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) là `Minimized`, `Maximized`, hoặc `Restored`.
 
-Biểu thị các thuộc tính chế độ xem bình thường.
+## **Về việc Khôi phục INormalViewProperties**
 
-Thuộc tính **ShowOutlineIcons** xác định liệu ứng dụng có hiển thị biểu tượng khi hiển thị nội dung đề cương trong bất kỳ vùng nội dung nào của chế độ xem bình thường hay không.
+Khi một thanh chia được khôi phục, [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) cung cấp kích thước đã lưu của khung bên và [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) cung cấp kích thước đã lưu của khu vực slide phía trên. Cả hai đều hiển thị [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/). Thuộc tính [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) của nó chấp nhận phần trăm từ 0 đến 100, và [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) kiểm soát việc trình chỉnh sửa điều chỉnh kích thước khi cửa sổ được thay đổi kích thước.
 
-Thuộc tính **SnapVerticalSplitter** xác định liệu thanh chia dọc có tự động gắn vào trạng thái thu gọn khi vùng bên đủ nhỏ không.
+Ví dụ này cập nhật một bản trình chiếu hiện có. Nó khôi phục thanh chia ngang, đặt [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) thành 80% với tính năng tự động điều chỉnh được bật, và phóng to thanh chia dọc. Nó cũng bật [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) cho chế độ xem dàn ý.
 
-Thuộc tính **PreferSingleView** xác định liệu người dùng muốn xem một vùng nội dung duy nhất chiếm toàn bộ cửa sổ thay vì chế độ xem bình thường tiêu chuẩn với ba vùng nội dung. Nếu bật, ứng dụng có thể hiển thị một trong các vùng nội dung trên toàn bộ cửa sổ.
-
-Các thuộc tính **VerticalBarState** và **HorizontalBarState** chỉ định trạng thái mà thanh chia dọc hoặc ngang sẽ được hiển thị. Thanh chia ngang tách bản trình chiếu khỏi vùng nội dung phía dưới bản trình chiếu, thanh chia dọc tách bản trình chiếu khỏi vùng nội dung bên. Các giá trị có thể là: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** và **SplitterBarStateType.Restored.**
-
-Các thuộc tính **RestoredLeft** và **RestoredTop** chỉ định kích thước của vùng bản trình chiếu trên hoặc bên trong chế độ xem bình thường, khi giá trị **SplitterBarStateType.Restored** được áp dụng cho **VerticalBarState** và **HorizontalBarState** tương ứng.
-
-## **Về việc khôi phục INormalViewProperties**
-
-Xác định kích thước của vùng bản trình chiếu (chiều rộng khi là con của RestoredTop, chiều cao khi là con của RestoredLeft) trong chế độ xem bình thường, khi vùng này có kích thước khôi phục biến đổi (không phải thu gọn hay phóng đại).
-
-Thuộc tính **DimensionSize** chỉ định kích thước của vùng bản trình chiếu (chiều rộng khi là con của restoredTop, chiều cao khi là con của restoredLeft).
-
-Thuộc tính **AutoAdjust** chỉ định liệu kích thước của vùng nội dung bên có nên tự điều chỉnh cho kích thước mới khi thay đổi kích thước cửa sổ chứa chế độ xem trong ứng dụng hay không.
-
-Ví dụ dưới đây cho thấy cách bạn có thể truy cập các thuộc tính **ViewProperties.NormalViewProperties** cho một bản trình chiếu.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // Khôi phục các thuộc tính hiển thị của bản trình chiếu
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
+## **Đặt Giá Trị Thu Phóng Mặc Định**
 
-## **Đặt giá trị phóng to mặc định**
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) và [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) lưu các cài đặt thu phóng riêng biệt cho trình chỉnh sửa. Những cài đặt này không ảnh hưởng đến kích thước slide, phát trình chiếu, hoặc độ phân giải xuất hình ảnh.
 
-Aspose.Slides for .NET hiện đã hỗ trợ thiết lập giá trị phóng to mặc định cho bản trình chiếu sao cho khi mở bản trình chiếu, mức phóng to đã được đặt sẵn. Điều này có thể thực hiện bằng cách thiết lập [ViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties) của một bản trình chiếu. Các thuộc tính chế độ xem slide cũng như [NotesViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties/properties/notesviewproperties) có thể được thiết lập bằng mã. Trong chủ đề này, chúng ta sẽ xem một ví dụ về cách thiết lập View Properties của Presentation trong Aspose.Slides.
+Ví dụ này mở một bản trình chiếu hiện có và bật [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/) để vừa slide với cửa sổ chỉnh sửa. Đối với trang ghi chú, nó tắt việc thu phóng tự động và đặt [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) ở mức thu phóng cố định 80%.
 
-Để thiết lập các thuộc tính chế độ xem, hãy làm theo các bước dưới đây:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation)
-1. Đặt View [Properties](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties) của Presentation
-1. Ghi bản trình chiếu ra tệp PPTX
-
-Trong ví dụ dưới đây, chúng tôi đã đặt giá trị phóng to cho chế độ xem slide cũng như chế độ xem ghi chú.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Cài đặt các thuộc tính hiển thị của bản trình chiếu
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Giá trị phóng to bằng phần trăm cho chế độ xem slide
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Giá trị phóng to bằng phần trăm cho chế độ xem ghi chú 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
+## **Đặt Khoảng Cách Lưới**
 
-## **Đặt khoảng cách lưới**
-
-Sử dụng [Presentation.ViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/viewproperties/) để truy cập các cài đặt chế độ xem toàn bộ bản trình chiếu. Thuộc tính [IViewProperties.GridSpacing](https://reference.aspose.com/slides/vi/net/aspose.slides/iviewproperties/gridspacing/) đọc hoặc thay đổi khoảng thời gian của lưới chỉnh sửa nền. Cài đặt này áp dụng cho toàn bộ bản trình chiếu, không phải cho một slide riêng lẻ. Khoảng cách lưới được chỉ định bằng điểm, trong đó 72 điểm bằng một inch. Sử dụng giá trị dương, theo yêu cầu của tài liệu API.
-
-Ví dụ sau mở một tệp `demo.pptx` hiện có, in ra khoảng cách lưới hiện tại, đặt khoảng cách một phần tư inch và lưu kết quả.
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) đặt khoảng cách giữa các dòng lưới chỉnh sửa trong toàn bộ bản trình chiếu. Nó nhận giá trị dương tính bằng điểm, với 72 điểm một inch. Ví dụ này in ra khoảng cách hiện tại trong một bản trình chiếu hiện có và lưu một lưới một phần tư inch bằng cách đặt khoảng cách thành 18 điểm.
 
 ```csharp
 using System;
@@ -111,24 +83,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-Lưới khác với [drawing guides](/slides/vi/net/drawing-guides/). Khoảng cách lưới kiểm soát một khoảng thời gian đều, trong khi các guide vẽ là các đường căn chỉnh ngang hoặc dọc được đặt vị trí riêng lẻ. Thêm, di chuyển hoặc xóa các guide vẽ không thay đổi khoảng cách lưới.
+Lưới lặp lại với khoảng cách cố định. [Hướng dẫn vẽ](/slides/vi/net/drawing-guides/) đánh dấu các vị trí ngang hoặc dọc riêng lẻ. Cả hai đều là công cụ hỗ trợ chỉnh sửa và chỉ xuất hiện trong các trình chỉnh sửa hiển thị chúng. Trình chiếu và xuất ra PDF, hình ảnh, hoặc SVG không bao gồm chúng.
 
-Cả lưới và các guide vẽ đều là công cụ hỗ trợ chỉnh sửa. Chúng không được hiển thị như nội dung slide trong PDF, hình ảnh, SVG hoặc trong buổi chiếu slide. Lưu khoảng cách lưới không đảm bảo rằng một trình chỉnh sửa sẽ hiển thị lưới: việc hiển thị còn tùy thuộc vào sở thích của người xem hoặc trình chỉnh sửa.
+## **Hiển Thị hoặc Ẩn Bình Luận Khi Mở Bản Trình Chiếu**
 
-## **Hiển thị hoặc Ẩn bình luận khi mở bản trình chiếu**
-
-Sử dụng [Presentation.ViewProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/viewproperties/) để truy cập các cài đặt chế độ xem toàn bộ bản trình chiếu. Đọc hoặc thay đổi [IViewProperties.ShowComments](https://reference.aspose.com/slides/vi/net/aspose.slides/iviewproperties/showcomments/) để lưu một tùy chọn về việc có nên hiển thị bình luận khi bản trình chiếu mở trong PowerPoint hoặc trình chỉnh sửa tương thích khác.
-
-Cài đặt này chỉ kiểm soát tùy chọn chế độ xem được lưu. Nó không thêm, xóa, chỉnh sửa hoặc giải quyết bình luận. Ẩn bình luận giữ nguyên nội dung, tác giả, vị trí, trả lời và trạng thái của chúng. Xem [Presentation Comments](/slides/vi/net/presentation-comments/) để biết các thao tác thay đổi bình luận.
-
-Ví dụ sau yêu cầu một tệp `comments.pptx` hiện có chứa bình luận. Nó in ra cài đặt hiện tại về khả năng hiển thị, yêu cầu ẩn bình luận và lưu một tệp PPTX mới mà không xóa bất kỳ bình luận nào. Nó cũng đặt [IViewProperties.LastView](https://reference.aspose.com/slides/vi/net/aspose.slides/iviewproperties/lastview/) thành [ViewType.SlideView](https://reference.aspose.com/slides/vi/net/aspose.slides/viewtype/) để cấu hình chế độ chỉnh sửa ban đầu cùng với khả năng hiển thị bình luận.
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) lưu một tùy chọn mà các trình chỉnh sửa tương thích sử dụng khi mở bản trình chiếu. Đối với một bản trình chiếu hiện có có bình luận, ví dụ này in ra thiết lập hiện tại và lưu một bản sao với bình luận ẩn. Nó cũng đặt [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) thành [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) để bản sao mở ở chế độ xem slide.
 
 ```csharp
 using System;
@@ -136,34 +103,35 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-Cài đặt này không quyết định liệu bình luận có được bao gồm trong các xuất PDF, HTML, hình ảnh, ghi chú hoặc tài liệu phát tay hay không. Hãy cấu hình các tùy chọn xuất riêng biệt cho từng định dạng.
+Việc ẩn bình luận giữ lại nội dung, tác giả, vị trí, phản hồi và trạng thái của chúng. Để thay đổi các bình luận, xem [Bình luận Bản Trình Chiếu](/slides/vi/net/presentation-comments/). Cài đặt xuất quyết định việc bình luận có xuất hiện trong PDF, HTML, hình ảnh, ghi chú, hoặc tài liệu phát tay hay không.
 
 ## **Câu hỏi thường gặp**
 
-**Tại sao lưới không hiển thị sau khi tôi mở lại bản trình chiếu?**
+**Tại sao lưới bị ẩn khi tôi mở lại bản trình chiếu?**
 
-"Tệp lưu khoảng cách lưới, nhưng trình chỉnh sửa quyết định việc lưới có hiển thị hay không. Kiểm tra cài đặt hiển thị lưới của trình chỉnh sửa."
+Bản trình chiếu lưu khoảng cách lưới. Để xem lưới, bật tính năng hiển thị lưới trong trình chỉnh sửa.
 
-**Việc xóa các drawing guides có thay đổi khoảng cách lưới không?**
+**Việc xóa hướng dẫn vẽ có thay đổi khoảng cách lưới không?**
 
-"Không. Drawing guides và khoảng cách lưới là các cài đặt độc lập. Xóa các guide không làm thay đổi khoảng cách lưới đã lưu."
+Không. Thêm, di chuyển hoặc xóa một hướng dẫn không làm thay đổi khoảng cách lưới.
 
-**Tôi có thể đặt các cài đặt chế độ xem khác nhau cho các phần khác nhau của bản trình chiếu không?**
+**Các phần khác nhau của bản trình chiếu có thể có cài đặt xem khác nhau không?**
 
-"[View settings](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/viewproperties/) được định nghĩa ở mức bản trình chiếu ([Normal View](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/vi/net/aspose.slides/viewproperties/slideviewproperties/)), không phải cho từng phần, vì vậy một bộ tham số duy nhất áp dụng cho toàn bộ tài liệu khi mở."
+Không. [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) áp dụng cho toàn bộ bản trình chiếu.
 
-**Tôi có thể định trước các trạng thái chế độ xem khác nhau cho các người dùng khác nhau không?**
+**Tôi có thể lưu các cài đặt xem khác nhau cho các người dùng khác nhau không?**
 
-"Không. Các cài đặt được lưu trong tệp và được chia sẻ. Các ứng dụng xem có thể tôn trọng tùy chọn của người dùng, nhưng tệp tự nó chỉ chứa một bộ thuộc tính chế độ xem."
+Tệp lưu một bộ thuộc tính xem cho tất cả mọi người. Trình chỉnh sửa cũng có thể áp dụng các tùy chỉnh cục bộ của người dùng.
 
-**Tôi có thể chuẩn bị một mẫu với View Properties đã được định trước để các bản trình chiếu mới mở theo cùng cách không?**
+**Tôi có thể lưu cài đặt xem trong mẫu không?**
 
-"Có. Vì [view properties](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/viewproperties/) được lưu ở mức bản trình chiếu, bạn có thể nhúng chúng vào một mẫu và tạo tài liệu mới từ mẫu đó với cùng cấu hình chế độ xem ban đầu."
+Có. Các bản trình chiếu được tạo từ mẫu sẽ kế thừa các cài đặt xem đã lưu của mẫu.

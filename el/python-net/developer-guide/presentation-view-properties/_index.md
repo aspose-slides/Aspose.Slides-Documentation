@@ -7,151 +7,130 @@ url: /el/python-net/presentation-view-properties/
 keywords:
 - ιδιότητες προβολής
 - κανονική προβολή
-- περιεχόμενο περιγράμματος
+- περιεχόμενο περίγραμμα
 - εικονίδια περιγράμματος
-- προσκόλληση κάθετης διαχωριστικής γραμμής
+- πρύσιμο κάθετου διαχωριστή
 - μονή προβολή
 - κατάσταση γραμμής
 - μέγεθος διάστασης
 - αυτόματη προσαρμογή
 - προεπιλεγμένο ζουμ
 - PowerPoint
+- OpenDocument
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Ανακαλύψτε τις ιδιότητες προβολής του Aspose.Slides for Python via .NET για να προσαρμόσετε μορφές διαφανειών PPT, PPTX και ODP — ρυθμίστε διατάξεις, επίπεδα ζουμ και ρυθμίσεις εμφάνισης."
+description: "Χρησιμοποιήστε το Aspose.Slides for Python μέσω .NET για να διαμορφώσετε τη διάταξη της κανονικής προβολής, το ζουμ της διαφάνειας και των σημειώσεων, την απόσταση του πλέγματος και την ορατότητα των σχολίων σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Η κανονική προβολή αποτελείται από τρεις περιοχές περιεχομένου: τη διαφάνεια αυτή καθαυτή, μια πλευρική περιοχή περιεχομένου και μια περιοχή περιεχομένου στο κάτω μέρος. Ιδιότητες που αφορούν τη θέση των διαφορετικών περιοχών περιεχομένου. Αυτές οι πληροφορίες επιτρέπουν στην εφαρμογή να αποθηκεύσει την κατάσταση προβολής στο αρχείο, ώστε όταν ανοίξει ξανά η προβολή να είναι στην ίδια κατάσταση όπως όταν η παρουσίαση αποθηκεύτηκε τελευταία.
+Στην κανονική προβολή του PowerPoint, η διαφάνεια εμφανίζεται μεταξύ ενός πλευρικού πλαισίου για μικρογραφίες ή ένα περίγραμμα και ενός πλαισίου σημειώσεων από κάτω. Το Aspose.Slides for Python μέσω .NET εκθέτει τις αποθηκευμένες προτιμήσεις επεξεργασίας της παρουσίασης μέσω [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/). Αυτές περιλαμβάνουν τη διάταξη των πλαισίων, τα επίπεδα ζουμ, την απόσταση του πλέγματος και την ορατότητα των σχολίων.
 
-Η ιδιότητα [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/normal_view_properties/) προστέθηκε για να παρέχει πρόσβαση στις ιδιότητες κανονικής προβολής της παρουσίασης.  
+## **Σχετικά με NormalViewProperties**
 
-Προστέθηκαν οι κλάσεις [NormalViewProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/el/python-net/aspose.slides/normalviewrestoredproperties/) και οι απογόνους τους, καθώς και η απαρίθμηση [SplitterBarStateType](https://reference.aspose.com/slides/el/python-net/aspose.slides/splitterbarstatetype/).
+Χρησιμοποιήστε [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) για να αποκτήσετε πρόσβαση στο αντικείμενο [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/). Το [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) ελέγχει αν εμφανίζονται εικονίδια δίπλα στους τίτλους των διαφανειών στο περίγραμμα. Το [snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) επιτρέπει στο πλευρικό πλαίσιο να κλειδώνει στην ελαχιστοποιημένη του κατάσταση όταν ο χρήστης το σμικρύνει. Το [prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) υποδεικνύει προτίμηση για εμφάνιση ενός πλαισίου σε όλο το παράθυρο.
 
-## **Σχετικά με το INormalViewProperties**
+Το [vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) ελέγχει το διαχωριστικό μεταξύ του πλευρικού πλαισίου και της διαφάνειας. Το [horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) ελέγχει το διαχωριστικό πάνω από το πλαίσιο σημειώσεων. Και τα δύο δέχονται μια τιμή [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) του `MINIMIZED`, `MAXIMIZED` ή `RESTORED`.
 
-Αναπαριστά τις ιδιότητες κανονικής προβολής.
+<!-- visual-explanation:presentation-view-properties:start -->
+[![Ένας εννοιολογικός επεξεργαστής διαχωρίζει ένα πλευρικό πάνελ, περιοχή διαφάνειας και κάτω περιοχή με σημειωμένα κάθετα και οριζόντια διαχωριστικά.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-Η ιδιότητα **ShowOutlineIcons** καθορίζει αν η εφαρμογή θα εμφανίζει εικονίδια όταν εμφανίζει περιεχόμενο περιγράμματος σε οποιαδήποτε από τις περιοχές περιεχομένου της λειτουργίας κανονικής προβολής.
+*Στην κανονική προβολή, το κάθετο διαχωριστικό ελέγχει το πλάτος του πλευρικού πλαισίου. Το οριζόντιο διαχωριστικό ελέγχει το χώρο πάνω από το πλαίσιο σημειώσεων.*  
+<!-- visual-explanation:presentation-view-properties:end -->
 
-Η ιδιότητα **SnapVerticalSplitter** καθορίζει αν η κάθετη διαχωριστική γραμμή θα «κλειδώνει» σε ελαχιστοποιημένη κατάσταση όταν η πλευρική περιοχή είναι αρκετά μικρή.
+## **Σχετικά με την Επαναφορά NormalViewProperties**
 
-Η ιδιότητα **PreferSingleView** καθορίζει αν ο χρήστης προτιμά να βλέπει μια περιοχή περιεχομένου πλήρους παραθύρου αντί για την τυπική κανονική προβολή με τρεις περιοχές περιεχομένου. Εάν ενεργοποιηθεί, η εφαρμογή μπορεί να επιλέξει να εμφανίσει μία από τις περιοχές περιεχομένου σε ολόκληρο το παράθυρο.
+Όταν ένα διαχωριστικό επαναφέρεται, το [restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) παρέχει το αποθηκευμένο μέγεθος του πλευρικού πλαισίου και το [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) παρέχει το αποθηκευμένο μέγεθος της άνω περιοχής της διαφάνειας. Και τα δύο εκθέτουν το [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/). Η ιδιότητα [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) δέχεται ένα ποσοστό από 0 έως 100, και το [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) ελέγχει αν ο επεξεργαστής προσαρμόζει το μέγεθος όταν το παράθυρο αλλάζει μέγεθος.
 
-Οι ιδιότητες **VerticalBarState** και **HorizontalBarState** καθορίζουν την κατάσταση στην οποία θα εμφανίζεται η οριζόντια ή καθέτου γραμμή διαχωρισμού. Μια οριζόντια γραμμή διαχωρισμού χωρίζει τη διαφάνεια από την περιοχή περιεχομένου κάτω από τη διαφάνεια, ενώ μια κάθετη γραμμή διαχωρισμού χωρίζει τη διαφάνεια από την πλευρική περιοχή περιεχομένου. Πιθανές τιμές είναι: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** και **SplitterBarStateType.Restored**.
-
-Οι ιδιότητες **RestoredLeft** και **RestoredTop** καθορίζουν το μέγεθος της επάνω ή πλευρικής περιοχής διαφάνειας της κανονικής προβολής, όταν η τιμή **SplitterBarStateType.Restored** έχει εφαρμοστεί για τις **VerticalBarState** και **HorizontalBarState** αντίστοιχα.
-
-## **Σχετικά με την Επαναφορά INormalViewProperties**
-
-Καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του RestoredTop, ύψος όταν είναι παιδί του RestoredLeft) της κανονικής προβολής, όταν η περιοχή έχει μεταβλητό επαναφερθέν μέγεθος (ούτε ελαχιστοποιημένη ούτε μεγιστοποιημένη).
-
-Η ιδιότητα **DimensionSize** καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του RestoredTop, ύψος όταν είναι παιδί του RestoredLeft).
-
-Η ιδιότητα **AutoAdjust** καθορίζει αν το μέγεθος της πλευρικής περιοχής περιεχομένου πρέπει να αντισταθμίζεται για το νέο μέγεθος όταν αλλάζει το μέγεθος του παραθύρου που περιέχει την προβολή στην εφαρμογή.
-
-Παρατίθεται ένα παράδειγμα που δείχνει πώς μπορείτε να προσπελάσετε τις ιδιότητες **ViewProperties.NormalViewProperties** για μια παρουσίαση.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # Επαναφορά των ιδιοτήτων προβολής της παρουσίασης
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ορισμός Προεπιλεγμένης Τιμής Zoom**
-
-Το Aspose.Slides for Python via .NET υποστηρίζει πλέον τον ορισμό της προεπιλεγμένης τιμής ζουμ για την παρουσίαση, ώστε όταν η παρουσίαση ανοίξει το ζουμ να είναι ήδη ορισμένο. Αυτό μπορεί να γίνει ορίζοντας τις [view_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/view_properties/) μιας παρουσίασης. Οι ιδιότητες προβολής διαφάνειας καθώς και οι [notes_view_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/notes_view_properties/) μπορούν να οριστούν προγραμματιστικά. Στο παρόν άρθρο, θα δούμε με ένα παράδειγμα πώς να ορίσουμε τις Ιδιότητες Προβολής μιας Παρουσίασης στο Aspose.Slides.
-
-Για να ορίσετε τις ιδιότητες προβολής, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Ορίστε τις [view properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/) της παρουσίασης.
-1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
-
-Στο παρακάτω παράδειγμα, ορίσαμε την τιμή ζουμ για την προβολή διαφάνειας καθώς και για την προβολή σημειώσεων.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # Ορισμός των ιδιοτήτων προβολής της παρουσίασης
-    presentation.view_properties.slide_view_properties.scale = 100 # Τιμή ζουμ σε ποσοστά για προβολή διαφάνειας
-    presentation.view_properties.notes_view_properties.scale = 100 # Τιμή ζουμ σε ποσοστά για προβολή σημειώσεων 
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ορισμός Απόστασης Πλέγματος**
-
-Χρησιμοποιήστε το [Presentation.view_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/view_properties/) για να έχετε πρόσβαση στις ρυθμίσεις προβολής σε όλη την παρουσίαση. Η ιδιότητα [ViewProperties.grid_spacing](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/grid_spacing/) διαβάζει ή αλλάζει το διάστημα του υποκείμενου πλέγματος επεξεργασίας. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παρουσίαση, όχι σε μεμονωμένη διαφάνεια. Η απόσταση πλέγματος καθορίζεται σε σημεία, όπου 72 σημεία ισούνται με ένα ίντσα. Χρησιμοποιήστε θετική τιμή, όπως απαιτεί η τεκμηρίωση του API.
-
-Το παρακάτω παράδειγμα ανοίγει ένα υπάρχον `demo.pptx`, εκτυπώνει την τρέχουσα απόσταση πλέγματος, ορίζει ένα διάστημα ενός τέταρτου ίντσας και αποθηκεύει το αποτέλεσμα.
+Αυτό το παράδειγμα ενημερώνει μια υπάρχουσα παρουσίαση. Επαναφέρει το οριζόντιο διαχωριστικό, ορίζει το [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) στο 80% με ενεργοποιημένη την αυτόματη προσαρμογή, και μεγιστοποιεί το κάθετο διαχωριστικό. Επίσης ενεργοποιεί το [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) για την προβολή περιγράμματος.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Ορισμός της Προεπιλεγμένης Τιμής Ζουμ**
+
+Τα [slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) και [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) αποθηκεύουν ανεξάρτητες ρυθμίσεις ζουμ για τον επεξεργαστή. Αυτές οι ρυθμίσεις δεν επηρεάζουν τις διαστάσεις της διαφάνειας, την αναπαραγωγή της παρουσίασης ή την ανάλυση εξαγόμενων εικόνων.
+
+Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και ενεργοποιεί το [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/) ώστε η διαφάνεια να προσαρμόζεται στο παράθυρο επεξεργασίας. Για τη σελίδα σημειώσεων, απενεργοποιεί την αυτόματη κλιμάκωση και ορίζει το [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) σε σταθερό ζουμ 80%.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Ορισμός της Απόστασης Πλέγματος**
+
+Το [grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) ορίζει την απόσταση μεταξύ των γραμμών του πλέγματος επεξεργασίας σε όλη την παρουσίαση. Δέχεται μια θετική τιμή σε σημεία, με 72 σημεία ανά ίντσα. Αυτό το παράδειγμα εκτυπώνει την τρέχουσα απόσταση σε μια υπάρχουσα παρουσίαση και αποθηκεύει ένα πλέγμα τέταρτου ίντσας ορίζοντας το διάστημα σε 18 σημεία.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το πλέγμα διαφέρει από τις [drawing guides](/slides/el/python-net/drawing-guides/). Η απόσταση πλέγματος ελέγχει ένα τακτικό διάστημα, ενώ οι οδηγίες σχεδίασης είναι μεμονωμένα τοποθετημένες οριζόντιες ή κάθετες γραμμές ευθυγράμμισης. Η προσθήκη, μετακίνηση ή διαγραφή των οδηγών σχεδίασης δεν αλλάζει την απόσταση του πλέγματος.
-
-Τanto το πλέγμα όσο και οι οδηγίες σχεδίασης είναι βοηθήματα επεξεργασίας. Δεν αποδίδονται ως περιεχόμενο διαφάνειας σε PDF, εικόνες, SVG ή παρουσίαση. Η αποθήκευση της απόστασης πλέγματος δεν εγγυάται ότι ένας επεξεργαστής θα εμφανίσει το πλέγμα: η ορατότητά του εξαρτάται επίσης από τις προτιμήσεις του θεατή ή του επεξεργαστή.
+Το πλέγμα επαναλαμβάνεται σε σταθερό διάστημα. Τα [Οδηγοί σχεδίασης](/slides/el/python-net/drawing-guides/) σημειώνουν μεμονωμένες οριζόντιες ή κατακόρυφες θέσεις. Και τα δύο είναι βοηθήματα επεξεργασίας και εμφανίζονται μόνο σε επεξεργαστές που τα εμφανίζουν. Οι παρουσιάσεις και οι εξαγωγές σε PDF, εικόνες ή SVG τα παραλείπουν.
 
 ## **Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης**
 
-Χρησιμοποιήστε το [Presentation.view_properties](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/view_properties/) για να έχετε πρόσβαση στις ρυθμίσεις προβολής σε όλη την παρουσίαση. Διαβάστε ή αλλάξτε το [ViewProperties.show_comments](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/show_comments/) για να αποθηκεύσετε μια προτίμηση σχετικά με το αν τα σχόλια πρέπει να εμφανίζονται όταν η παρουσίαση ανοίξει στο PowerPoint ή σε άλλο συμβατό επεξεργαστή.
-
-Αυτή η ρύθμιση ελέγχει μόνο την αποθηκευμένη προτίμηση προβολής. Δεν προσθέτει, καταργεί, επεξεργάζεται ή λύνει σχόλια. Η απόκρυψη σχολίων διατηρεί το περιεχόμενό τους, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Δείτε τα [Presentation Comments](/slides/el/python-net/presentation-comments/) για ενέργειες που αλλάζουν τα ίδια τα σχόλια.
-
-Το παρακάτω παράδειγμα απαιτεί ένα υπάρχον `comments.pptx` που περιέχει σχόλια. Εκτυπώνει την τρέχουσα ρύθμιση ορατότητας, ζητά την απόκρυψη σχολίων και αποθηκεύει ένα νέο PPTX χωρίς να αφαιρέσει κανένα σχόλιο. Επίσης ορίζει το [ViewProperties.last_view](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/last_view/) στο [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewtype/) για να διαμορφώσει την αρχική προβολή επεξεργασίας μαζί με την ορατότητα σχολίων.
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) αποθηκεύει μια προτίμηση που χρησιμοποιούν οι συμβατοί επεξεργαστές κατά το άνοιγμα της παρουσίασης. Για μια υπάρχουσα παρουσίαση με σχόλια, αυτό το παράδειγμα εκτυπώνει την τρέχουσα ρύθμιση και αποθηκεύει ένα αντίγραφο με τα σχόλια κρυμμένα. Επίσης ορίζει το [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) στο [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/) ώστε το αντίγραφο να ανοίγει σε προβολή διαφάνειας.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Αυτή η ρύθμιση δεν καθορίζει αν τα σχόλια θα συμπεριληφθούν σε εξαγόμενα PDF, HTML, εικόνα, σημειώσεις ή φυλλάδια. Διαμορφώστε τις σχετικές επιλογές εξαγωγής χωριστά.
+Η απόκρυψη των σχολίων διατηρεί το κείμενό τους, τους δημιουργούς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Για να αλλάξετε τα ίδια τα σχόλια, δείτε [Presentation Comments](/slides/el/python-net/presentation-comments/). Οι ρυθμίσεις εξαγωγής ελέγχουν αν τα σχόλια εμφανίζονται σε PDF, HTML, εικόνες, σημειώσεις ή φυλλάδια.
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Γιατί δεν είναι ορατό το πλέγμα μετά το άνοιγμα ξανά της παρουσίασης;**
+**Γιατί το πλέγμα είναι κρυφό όταν ξανανοιώ την παρουσίαση;**
 
-Το αρχείο αποθηκεύει το διάστημα του πλέγματος, αλλά ο επεξεργαστής ελέγχει αν το πλέγμα εμφανίζεται. Ελέγξτε τις ρυθμίσεις ορατότητας πλέγματος του επεξεργαστή.
+Η παρουσίαση αποθηκεύει το διάστημα του πλέγματος. Για να δείτε το πλέγμα, ενεργοποιήστε την ορατότητα του πλέγματος στον επεξεργαστή.
 
-**Αλλάζει η διαγραφή των οδηγών σχεδίασης το διάστημα του πλέγματος;**
+**Αλλάζει η διαγραφή των οδηγών σχεδίασης την απόσταση του πλέγματος;**
 
-Όχι. Οι οδηγίες σχεδίασης και η απόσταση πλέγματος είναι ανεξάρτητες ρυθμίσεις. Η διαγραφή των οδηγών αφήνει το αποθηκευμένο διάστημα πλέγματος αμετάβλητο.
+Όχι. Η προσθήκη, η μετακίνηση ή η διαγραφή ενός οδηγού δεν αλλάζει το διάστημα του πλέγματος.
 
-**Μπορώ να ορίσω διαφορετικές ρυθμίσεις προβολής για διαφορετικές ενότητες μιας παρουσίασης;**
+**Μπορούν διαφορετικές ενότητες μιας παρουσίασης να έχουν διαφορετικές ρυθμίσεις προβολής;**
 
-Οι [ρυθμίσεις προβολής](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/view_properties/) ορίζονται σε επίπεδο παρουσίασης ([Normal View](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/el/python-net/aspose.slides/viewproperties/slide_view_properties/)), όχι ανά ενότητα, έτσι ένα σύνολο παραμέτρων εφαρμόζεται σε ολόκληρο το έγγραφο όταν ανοίγει.
+Όχι. Το [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) εφαρμόζεται σε ολόκληρη την παρουσίαση.
 
-**Μπορώ να προεγκαταστήσω διαφορετικές καταστάσεις προβολής για διαφορετικούς χρήστες;**
+**Μπορώ να αποθηκεύσω διαφορετικές ρυθμίσεις προβολής για διαφορετικούς χρήστες;**
 
-Όχι. Οι ρυθμίσεις αποθηκεύονται στο αρχείο και μοιράζονται. Οι εφαρμογές προβολής μπορούν να τιμήσουν τις προτιμήσεις του χρήστη, αλλά το ίδιο το αρχείο περιέχει ένα σύνολο ιδιοτήτων προβολής.
+Το αρχείο αποθηκεύει ένα σύνολο ιδιοτήτων προβολής για όλους. Ένας επεξεργαστής μπορεί επίσης να εφαρμόσει τις τοπικές προτιμήσεις ενός χρήστη.
 
-**Μπορώ να ετοιμάσω ένα πρότυπο με προορισμένες Ιδιότητες Προβολής ώστε οι νέες παρουσιάσεις να ανοίγουν με τον ίδιο τρόπο;**
+**Μπορώ να αποθηκεύσω ρυθμίσεις προβολής σε πρότυπο;**
 
-Ναι. Επειδή οι [ιδιότητες προβολής](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/view_properties/) αποθηκεύονται σε επίπεδο παρουσίασης, μπορείτε να τις ενσωματώσετε σε ένα πρότυπο και να δημιουργήσετε νέα έγγραφα από αυτό με την ίδια αρχική διαμόρφωση προβολής.
+Ναι. Οι παρουσιάσεις που δημιουργούνται από το πρότυπο κληρονομούν τις αποθηκευμένες ρυθμίσεις προβολής του.

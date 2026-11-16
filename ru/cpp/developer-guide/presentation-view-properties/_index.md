@@ -1,115 +1,96 @@
 ---
-title: "Получить и обновить свойства представления презентации в C++"
-linktitle: "Свойства представления"
+title: Получить и обновить свойства представления презентации в C++
+linktitle: Свойства представления
 type: docs
 weight: 80
 url: /ru/cpp/presentation-view-properties/
 keywords:
-- "свойства представления"
-- "обычный режим"
-- "контурное содержимое"
-- "значки контуров"
-- "привязка вертикального разделителя"
-- "одиночный просмотр"
-- "состояние полосы"
-- "размер измерения"
-- "автоматическая настройка"
-- "масштаб по умолчанию"
-- "PowerPoint"
-- "OpenDocument"
-- "презентация"
-- "C++"
-- "Aspose.Slides"
-description: "Откройте для себя свойства представления Aspose.Slides для C++, чтобы настраивать форматы слайдов PPT, PPTX и ODP — изменять макеты, уровни масштабирования и параметры отображения."
+- свойства представления
+- нормальный вид
+- содержание схемы
+- значки схемы
+- фиксация вертикального разделителя
+- однопанельный режим
+- состояние панели
+- размер измерения
+- автоматическая настройка
+- масштаб по умолчанию
+- PowerPoint
+- OpenDocument
+- презентация
+- C++
+- Aspose.Slides
+description: "Используйте Aspose.Slides для C++, чтобы настроить макет нормального вида, масштаб слайда и заметок, интервал сетки и видимость комментариев в презентациях PowerPoint."
 ---
 ## **Введение**
 
-Обычный режим просмотра состоит из трех областей содержимого: самого слайда, боковой области содержимого и нижней области содержимого. Свойства, относящиеся к позиционированию различных областей содержимого. Эта информация позволяет приложению сохранять состояние просмотра в файл, чтобы при повторном открытии просмотр был в том же состоянии, в котором презентация была сохранена в последний раз.
-
-Метод [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) был добавлен для предоставления доступа к свойствам обычного режима просмотра презентации.
-
-Интерфейсы [INormalViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/inormalviewrestoredproperties/) и их потомки, перечисление [SplitterBarStateType](https://reference.aspose.com/slides/ru/cpp/aspose.slides/splitterbarstatetype/) были добавлены.
+В обычном представлении PowerPoint слайд отображается между боковой панелью миниатюр или схемой и панелью заметок внизу. Aspose.Slides for C++ раскрывает сохранённые настройки редактирования презентации через [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/). Эти настройки включают расположение панелей, уровни масштабирования, интервал сетки и видимость комментариев.
 
 ## **О INormalViewProperties**
 
-Представляет свойства обычного режима просмотра.
+Используйте [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) для доступа к интерфейсу [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/). [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) управляет тем, появляются ли значки рядом с заголовками слайдов в схеме. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) позволяет боковой панели зафиксировать своё минимизированное состояние, когда пользователь сжимает её. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) указывает предпочтение отображения одной панели во весь окно.
 
-Свойство **ShowOutlineIcons** указывает, должен ли приложение показывать значки при отображении контурного содержимого в любой из областей обычного режима просмотра.
-
-Свойство **SnapVerticalSplitter** указывает, должен ли вертикальный разделитель переходить в свернутое состояние, когда боковая область достаточно мала.
-
-Свойство **PreferSingleView** указывает, предпочитает ли пользователь видеть одну область содержимого на весь экран вместо стандартного обычного режима с тремя областями. Если включено, приложение может выбрать отображать одну из областей содержимого во всем окне.
-
-Свойства **VerticalBarState** и **HorizontalBarState** указывают состояние, в котором должна отображаться горизонтальная или вертикальная полоса разделителя. Горизонтальная полоса разделителя отделяет слайд от области содержимого под слайдом, вертикальная полоса разделителя отделяет слайд от боковой области содержимого. Возможные значения: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** и **SplitterBarStateType.Restored**.
-
-Свойства **RestoredLeft** и **RestoredTop** задают размер верхней или боковой области слайда обычного режима, когда для **VerticalBarState** и **HorizontalBarState** соответственно применяется значение **SplitterBarStateType.Restored**.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) управляет разделителем между боковой панелью и слайдом. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) управляет разделителем над панелью заметок. Оба принимают значение типа [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) — `Minimized`, `Maximized` или `Restored`.
 
 ## **О восстановлении INormalViewProperties**
 
-Задает размеры области слайда (ширина, когда является дочерним объектом RestoredTop, высота, когда является дочерним объектом RestoredLeft) обычного режима, когда область имеет переменный восстановленный размер (не свернута и не развернута).
+Когда разделитель восстанавливается, [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) возвращает сохранённый размер боковой панели, а [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) — сохранённый размер верхней области слайда. Оба раскрывают интерфейс [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/). Его метод [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) принимает процент от 0 до 100, а [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) управляет тем, будет ли редактор автоматически корректировать размер при изменении окна.
 
-Свойство **DimensionSize** указывает размер области слайда (ширина, когда дочерний объект RestoredTop, высота, когда дочерний объект RestoredLeft).
+В этом примере обновляется существующая презентация. Восстанавливается горизонтальный разделитель, устанавливается размер верхней области слайда, получаемый через [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/), на 80 % с включённым автоматическим подстройкой, а вертикальный разделитель разворачивается в максимальное состояние. Также включаются значки схемы с помощью [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) для режима схемы.
 
-Свойство **AutoAdjust** указывает, должна ли боковая область содержимого компенсировать новый размер при изменении размера окна, содержащего просмотр в приложении.
-
-Ниже приведен пример, показывающий, как получить доступ к свойствам **ViewProperties.NormalViewProperties** презентации.
-
-``` cpp
+```cpp
 #include <DOM/INormalViewProperties.h>
 #include <DOM/INormalViewRestoredProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
-
-// Восстановить свойства представления презентации
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
-
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
-```
-
-## **Установить значение масштаба по умолчанию**
-
-Aspose.Slides для C++ теперь поддерживает установку значения масштаба по умолчанию для презентации, так что при открытии презентации масштаб уже установлен. Это можно сделать, задав [ViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/) презентации. Свойства просмотра слайда, а также [get_NotesViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/get_notesviewproperties/) могут быть установлены программно. В этой теме мы посмотрим на примере, как установить свойства просмотра презентации в Aspose.Slides.
-
-Для установки свойств просмотра выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/)
-1. Установите [Properties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/) просмотра для презентации
-1. Сохраните презентацию в файл PPTX
-
-В приведенном ниже примере мы задали значение масштаба для просмотра слайда, а также для просмотра заметок.
-
-``` cpp
-#include <DOM/ICommonSlideViewProperties.h>
-#include <DOM/IViewProperties.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Установка свойств просмотра презентации
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Значение масштаба в процентах для просмотра слайда
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Значение масштаба в процентах для просмотра заметок 
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
+```
+
+## **Установить значение масштабирования по умолчанию**
+
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) и [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) хранят независимые настройки масштабирования для редактора. Эти настройки не влияют на размеры слайдов, воспроизведение показа или разрешение при экспорте изображений.
+
+В этом примере открывается существующая презентация и включается автоматическое масштабирование с помощью [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) для подгонки слайда под окно редактирования. Для страницы заметок автоматическое масштабирование отключается, а [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) задаёт фиксированный масштаб 80 %.
+
+```cpp
+#include <DOM/ICommonSlideViewProperties.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
+
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
+
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
 ```
 
 ## **Установить интервал сетки**
 
-Используйте [Presentation::get_ViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_viewproperties/), чтобы получить доступ к общим настройкам просмотра презентации. Методы [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iviewproperties/get_gridspacing/) и [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iviewproperties/set_gridspacing/) читают или изменяют интервал базовой сетки редактирования. Эта настройка применяется ко всей презентации, а не к отдельному слайду. Интервал сетки задается в пунктах, где 72 пункта соответствуют одному дюйму. Используйте положительное значение, как указано в документации API.
-
-Следующий пример открывает существующий `demo.pptx`, выводит текущий интервал сетки, устанавливает интервал в четверть дюйма и сохраняет результат.
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) задаёт расстояние между линиями редактирующей сетки по всей презентации. Принимает положительное значение в пунктах, где 72 пункта = 1 дюйм. В этом примере выводится текущее значение интервала в существующей презентации и сохраняется сетка с шагом в четверть дюйма, установив интервал в 18 пунктов.
 
 ```cpp
 #include <system/console.h>
@@ -121,24 +102,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-Сетка отличается от [drawing guides](/slides/ru/cpp/drawing-guides/). Интервал сетки задает регулярный интервал, тогда как направляющие рисуются отдельными горизонтальными или вертикальными линиями выравнивания. Добавление, перемещение или удаление направляющих не изменяют интервал сетки.
-
-И сетка, и направляющие являются вспомогательными средствами редактирования. Они не выводятся как содержимое слайда в PDF, изображениях, SVG или в режиме показа слайдов. Сохранение интервала сетки не гарантирует, что редактор отобразит сетку: её видимость также зависит от настроек просмотра или редактора.
+Сетка повторяется через фиксированный интервал. [Drawing guides](/slides/ru/cpp/drawing-guides/) отмечают отдельные горизонтальные или вертикальные позиции. Оба служат вспомогательными средствами редактирования и отображаются только в редакторах, которые их показывают. При показе слайдов и экспорте в PDF, изображения или SVG они не учитываются.
 
 ## **Показать или скрыть комментарии при открытии презентации**
 
-Используйте [Presentation::get_ViewProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_viewproperties/), чтобы получить доступ к общим настройкам просмотра презентации. Используйте [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iviewproperties/get_showcomments/) и [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iviewproperties/set_showcomments/), чтобы сохранить предпочтение, показывать ли комментарии при открытии презентации в PowerPoint или другом совместимом редакторе.
-
-Эта настройка управляет только сохранённым предпочтением просмотра. Она не добавляет, не удаляет, не редактирует и не решает комментарии. Сокрытие комментариев сохраняет их содержимое, авторов, позиции, ответы и статусы. См. [Presentation Comments](/slides/ru/cpp/presentation-comments/) для операций, изменяющих сами комментарии.
-
-Следующий пример требует существующего `comments.pptx`, содержащего комментарии. Он выводит текущую настройку видимости, запрашивает скрыть комментарии и сохраняет новый PPTX, не удаляя комментарии. Он также использует [IViewProperties::set_LastView](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iviewproperties/set_lastview/) вместе с [ViewType::SlideView](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewtype/), чтобы настроить начальный режим редактирования вместе с видимостью комментариев.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) сохраняет предпочтение, которое совместимые редакторы используют при открытии презентации. Для существующей презентации с комментариями этот пример выводит текущую настройку и сохраняет копию с скрытыми комментариями. Также вызывается [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) с параметром [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/)‑, чтобы копия открылась в режиме просмотра слайдов.
 
 ```cpp
 #include <system/console.h>
@@ -152,34 +130,32 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-Эта настройка не определяет, будут ли комментарии включены в экспорт PDF, HTML, изображений, заметок или раздаточных материалов. Настройте соответствующие параметры экспорта отдельно.
+Скрытие комментариев сохраняет их текст, авторов, позиции, ответы и статусы. Чтобы изменить сами комментарии, см. раздел [Presentation Comments](/slides/ru/cpp/presentation-comments/). Параметры экспорта управляют тем, будут ли комментарии отображаться в PDF, HTML, изображениях, заметках или раздаточных материалах.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Почему сетка не видна после повторного открытия презентации?**
+**Почему сетка скрыта при повторном открытии презентации?**  
+Презентация хранит значение интервала сетки. Чтобы увидеть сетку, включите её отображение в редакторе.
 
-Файл хранит интервал сетки, но редактор управляет её отображением. Проверьте настройки видимости сетки в редакторе.
+**Изменяет ли удаление направляющих сетку?**  
+Нет. Добавление, перемещение или удаление направляющей не меняет значение интервала сетки.
 
-**Изменяется ли интервал сетки при удалении направляющих?**
+**Могут ли разные секции презентации иметь разные настройки представления?**  
+Нет. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) применяется ко всей презентации.
 
-Нет. Направляющие и интервал сетки — независимые настройки. Очистка направляющих не изменяет сохранённый интервал сетки.
+**Могу ли я сохранять разные настройки представления для разных пользователей?**  
+Файл хранит один набор свойств представления для всех. Редактор может также применять локальные предпочтения пользователя.
 
-**Можно ли задать разные настройки просмотра для разных разделов презентации?**
-
-Настройки просмотра ([View settings](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_viewproperties/)) определяются на уровне презентации ([Normal View](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ru/cpp/aspose.slides/viewproperties/get_slideviewproperties/)), а не для каждого раздела, поэтому один набор параметров применяется ко всему документу при открытии.
-
-**Можно ли заранее определить разные состояния просмотра для разных пользователей?**
-
-Нет. Настройки хранятся в файле и являются общими. Приложения‑просмотрщики могут учитывать предпочтения пользователя, но в файле содержится один набор свойств просмотра.
-
-**Можно ли подготовить шаблон с предустановленными свойствами просмотра, чтобы новые презентации открывались одинаково?**
-
-Да. Поскольку [view properties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_viewproperties/) сохраняются на уровне презентации, их можно включить в шаблон и создавать новые документы с тем же начальным конфигурированием просмотра.
+**Можно ли сохранять настройки представления в шаблоне?**  
+Да. Презентации, созданные из шаблона, наследуют сохранённые в нём настройки представления.

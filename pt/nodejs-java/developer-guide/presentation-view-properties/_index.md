@@ -7,9 +7,9 @@ url: /pt/nodejs-java/presentation-view-properties/
 keywords:
 - propriedades de visualização
 - visualização normal
-- conteúdo de contorno
-- ícones de contorno
-- prender divisor vertical
+- conteúdo do contorno
+- ícones do contorno
+- ajuste do divisor vertical
 - visualização única
 - estado da barra
 - tamanho da dimensão
@@ -21,162 +21,129 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Descubra as propriedades de visualização do Aspose.Slides for Node.js via Java para personalizar formatos de slides PPT, PPTX e ODP — ajuste layouts, níveis de zoom e configurações de exibição."
+description: "Use o Aspose.Slides para Node.js via Java para configurar o layout da visualização normal, o zoom de slides e notas, o espaçamento da grade e a visibilidade de comentários em apresentações do PowerPoint."
 ---
 ## **Introdução**
 
-A visualização normal consiste em três regiões de conteúdo: o próprio slide, uma região de conteúdo lateral e uma região de conteúdo inferior. Propriedades referentes ao posicionamento das diferentes regiões de conteúdo. Essas informações permitem que o aplicativo salve seu estado de visualização no arquivo, de modo que, quando reaberto, a visualização esteja no mesmo estado em que a apresentação foi salva pela última vez.
-
-Foi adicionado o método [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) para fornecer acesso às propriedades de visualização normal de uma apresentação. 
-
-As classes [NormalViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewRestoredProperties) e seus descendentes, bem como o enum [SplitterBarStateType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SplitterBarStateType) foram adicionados.
+Na visualização normal do PowerPoint, o slide aparece entre um painel lateral para miniaturas ou um contorno e um painel de notas abaixo. Aspose.Slides for Node.js via Java expõe as preferências de edição salvas da apresentação através de [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties). Estas incluem o layout dos painéis, níveis de zoom, espaçamento da grade e visibilidade de comentários.
 
 ## **Sobre NormalViewProperties**
 
-Representa as propriedades da visualização normal.
+Use [getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties) para acessar a classe [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) controla se ícones aparecem ao lado dos títulos dos slides no contorno. [setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) permite que o painel lateral se ajuste ao estado minimizado quando o usuário o estreita. [setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) indica uma preferência por exibir um único painel na janela inteira.
 
-Os métodos [getShowOutlineIcons](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) e [setShowOutlineIcons](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) especificam se o aplicativo deve mostrar ícones ao exibir o conteúdo de contorno em qualquer das regiões de conteúdo do modo de visualização normal.
+[setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) controla o divisor entre o painel lateral e o slide. [setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) controla o divisor acima do painel de notas. Ambos aceitam um valor [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) de `Minimized`, `Maximized` ou `Restored`.
 
-Os métodos [getSnapVerticalSplitter](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) e [setSnapVerticalSplitter](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) especificam se o divisor vertical deve ajustar-se a um estado minimizado quando a região lateral é suficientemente pequena.
+## **Sobre a restauração de NormalViewProperties**
 
-A propriedade [getPreferSingleView](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) e [setPreferSingleView](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) especificam se o usuário prefere ver uma única região de conteúdo em tela cheia em vez da visualização normal padrão com três regiões de conteúdo. Se habilitado, o aplicativo pode escolher exibir uma das regiões de conteúdo em toda a janela.
+Quando um divisor é restaurado, [getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) fornece o tamanho salvo do painel lateral e [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) fornece o tamanho salvo da área superior do slide. Ambos expõem [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/). Seu método [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) aceita uma porcentagem de 0 a 100, e [setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) controla se o editor ajusta o tamanho quando a janela é redimensionada.
 
-Os métodos [getVerticalBarState](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) e [getHorizontalBarState](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) especificam o estado em que a barra divisor horizontal ou vertical deve ser exibida. Uma barra divisor horizontal separa o slide da região de conteúdo abaixo do slide, enquanto a barra divisor vertical separa o slide da região de conteúdo lateral. Os valores possíveis são: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) e [SplitterBarStateType.Restored](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
-
-Os métodos [getRestoredLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) e [getRestoredTop](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) especificam o dimensionamento da região superior ou lateral do slide na visualização normal, quando o valor [SplitterBarStateType.Restored](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SplitterBarStateType#Restored) é aplicado para [getVerticalBarState](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) e [getHorizontalBarState](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) adequadamente.
-
-## **Sobre a Restauração de NormalViewProperties** 
-
-Especifica o dimensionamento da região do slide (largura quando é filho de [getRestoredTop](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--), altura quando é filho de [getRestoredLeft](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--)) da visualização normal, quando a região tem um tamanho restaurado variável (nem minimizado nem maximizado). 
-
-O método [getDimensionSize](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) especifica o tamanho da região do slide (largura quando é filho de restoredTop, altura quando é filho de restoredLeft).
-
-O método [getAutoAdjust](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) especifica se o tamanho da região de conteúdo lateral deve compensar o novo tamanho ao redimensionar a janela que contém a visualização dentro do aplicativo.
-
-Um exemplo abaixo mostra como acessar as propriedades [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) de uma apresentação.
+Este exemplo atualiza uma apresentação existente. Ele restaura o divisor horizontal, define o tamanho retornado por [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) para 80% com ajuste automático habilitado, e maximiza o divisor vertical. Também chama [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) para exibir ícones na visualização de contorno.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // Restaurar as propriedades de visualização da apresentação
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Definir Valor Padrão de Zoom**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Node.js via Java agora suporta a definição do valor de zoom padrão para uma apresentação, de modo que ao abrir a apresentação, o zoom já esteja definido. Isso pode ser feito configurando as [ViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties) de uma apresentação. Os métodos [getSlideViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) e [getNotesViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) podem ser definidos programaticamente. Neste tópico, veremos com um exemplo como definir as [View Properties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties) de [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation) no Aspose.Slides.
-
-{{% /alert %}} 
-
-Para definir as propriedades de visualização, siga os passos abaixo:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation).
-1. Defina as [View Properties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ViewProperties) de [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation).
-1. Grave a apresentação como um arquivo [PPTX](https://docs.fileformat.com/presentation/pptx/).
-   No exemplo abaixo, definimos o valor de zoom para a visualização de slide e também para a visualização de notas.
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var presentation = new aspose.slides.Presentation();
-try {
-    // Definindo as propriedades de visualização da apresentação
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Valor de zoom em porcentagem para a visualização de slide
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Valor de zoom em porcentagem para a visualização de notas
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Definir o Espaçamento da Grade**
+## **Definir o valor padrão de zoom**
 
-Use [Presentation.getViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/#getViewProperties--) para acessar as configurações de visualização de toda a apresentação. Os métodos [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) e [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) leem ou alteram o intervalo da grade de edição subjacente. Essa configuração se aplica a toda a apresentação, não a um slide individual. O espaçamento da grade é especificado em pontos, onde 72 pontos equivalem a uma polegada. Use um valor positivo, conforme exigido pela documentação da API.
+[getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) e [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) armazenam configurações de zoom independentes para o editor. Essas configurações não afetam as dimensões dos slides, a reprodução da apresentação ou a resolução da exportação de imagens.
 
-O exemplo a seguir abre um `demo.pptx` existente, exibe seu espaçamento de grade atual, define um intervalo de um quarto de polegada e salva o resultado.
+Este exemplo abre uma apresentação existente e chama [setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale) para ajustar o slide à janela de edição. Para a página de notas, ele desabilita o dimensionamento automático e chama [setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale) para definir um zoom fixo de 80%.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-A grade é diferente dos [drawing guides](/slides/pt/nodejs-java/drawing-guides/). O espaçamento da grade controla um intervalo regular, enquanto os guias de desenho são linhas de alinhamento horizontais ou verticais posicionadas individualmente. Adicionar, mover ou remover guias de desenho não altera o espaçamento da grade.
+## **Definir o espaçamento da grade**
 
-Tanto a grade quanto os guias de desenho são auxílios de edição. Eles não são renderizados como conteúdo de slide em PDF, imagens, SVG ou apresentação de slides. Armazenar o espaçamento da grade não garante que um editor exibirá a grade: sua visibilidade também depende das preferências do visualizador ou editor.
-
-## **Mostrar ou Ocultar Comentários ao Abrir uma Apresentação**
-
-Use [Presentation.getViewProperties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/#getViewProperties--) para acessar as configurações de visualização de toda a apresentação. Use [ViewProperties.getShowComments](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/#getShowComments--) e [ViewProperties.setShowComments](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte--) para ler ou alterar a preferência armazenada sobre se os comentários devem ser exibidos quando a apresentação for aberta no PowerPoint ou em outro editor compatível.
-
-Essa configuração controla apenas a preferência de visualização armazenada. Ela não adiciona, remove, edita ou resolve comentários. Ocultar comentários preserva seu conteúdo, autores, posições, respostas e status. Consulte [Presentation Comments](/slides/pt/nodejs-java/presentation-comments/) para operações que alteram os próprios comentários.
-
-O exemplo a seguir requer um `comments.pptx` existente contendo comentários. Ele exibe a configuração atual de visibilidade, solicita que os comentários sejam ocultados e salva um novo PPTX sem remover nenhum comentário. Também usa [ViewProperties.setLastView](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) com [ViewType.SlideView](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewtype/#SlideView) para configurar a visualização de edição inicial juntamente com a visibilidade dos comentários.
+[setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) define a distância entre as linhas da grade de edição em toda a apresentação. Recebe um valor positivo em pontos, com 72 pontos por polegada. Este exemplo exibe o espaçamento atual em uma apresentação existente e salva uma grade de um quarto de polegada definindo o intervalo para 18 pontos.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A grade se repete em intervalo fixo. [Drawing guides](/slides/pt/nodejs-java/drawing-guides/) marcam posições horizontais ou verticais individuais. Ambos são auxiliares de edição e aparecem apenas em editores que os exibem. Apresentações e exportações para PDF, imagens ou SVG os omitam.
+
+## **Mostrar ou ocultar comentários ao abrir uma apresentação**
+
+[setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) armazena uma preferência que editores compatíveis usam ao abrir a apresentação. Para uma apresentação existente com comentários, este exemplo exibe a configuração atual e salva uma cópia com os comentários ocultos. Também chama [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) com [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) para que a cópia abra na visualização de slide.
+
+```javascript
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Essa configuração não determina se os comentários são incluídos nas exportações em PDF, HTML, imagem, notas ou folhetos. Configure as opções específicas de exportação relevantes separadamente.
+Ocultar comentários preserva seu texto, autores, posições, respostas e status. Para alterar os próprios comentários, veja [Presentation Comments](/slides/pt/nodejs-java/presentation-comments/). As configurações de exportação controlam se os comentários aparecem em PDF, HTML, imagens, notas ou folhetos.
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Por que a grade não fica visível após eu reabrir a apresentação?**
+**Por que a grade está oculta quando reabro a apresentação?**
 
-O arquivo armazena o espaçamento da grade, mas o editor controla se a grade é exibida. Verifique as configurações de visibilidade da grade no editor.
+A apresentação armazena o intervalo da grade. Para ver a grade, habilite a visibilidade da grade no editor.
 
-**Limpar os guias de desenho altera o espaçamento da grade?**
+**Limpar guias de desenho altera o espaçamento da grade?**
 
-Não. Os guias de desenho e o espaçamento da grade são configurações independentes. Limpar os guias deixa o intervalo da grade armazenado inalterado.
+Não. Adicionar, mover ou limpar uma guia deixa o intervalo da grade inalterado.
 
-**Posso definir diferentes configurações de visualização para diferentes seções de uma apresentação?**
+**Seções diferentes de uma apresentação podem ter configurações de visualização diferentes?**
 
-As [configurações de visualização](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/getviewproperties/) são definidas no nível da apresentação ([Normal View](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), não por seção, portanto um único conjunto de parâmetros se aplica a todo o documento ao ser aberto.
+Não. [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) aplica-se a toda a apresentação.
 
-**Posso predefinir diferentes estados de visualização para usuários diferentes?**
+**Posso salvar configurações de visualização diferentes para usuários diferentes?**
 
-Não. As configurações são armazenadas no arquivo e são compartilhadas. Aplicativos de visualização podem respeitar as preferências do usuário, mas o arquivo em si contém um único conjunto de propriedades de visualização.
+O arquivo armazena um conjunto de propriedades de visualização para todos. Um editor também pode aplicar as preferências locais de um usuário.
 
-**Posso preparar um modelo com View Properties predefinidos para que novas apresentações abram da mesma forma?**
+**Posso salvar configurações de visualização em um modelo?**
 
-Sim. Como as [view properties](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/getviewproperties/) são armazenadas no nível da apresentação, você pode incorporá‑las em um modelo e criar novos documentos a partir dele com a mesma configuração de visualização inicial.
+Sim. Apresentações criadas a partir do modelo herdam suas configurações de visualização salvas.

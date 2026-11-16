@@ -1,5 +1,5 @@
 ---
-title: Mengambil dan Memperbarui Properti Tampilan Presentasi dalam C++
+title: Mengambil dan Memperbarui Properti Tampilan Presentasi di C++
 linktitle: Properti Tampilan
 type: docs
 weight: 80
@@ -7,11 +7,11 @@ url: /id/cpp/presentation-view-properties/
 keywords:
 - properti tampilan
 - tampilan normal
-- konten outline
-- ikon outline
+- konten kerangka
+- ikon kerangka
 - snap pembagi vertikal
 - tampilan tunggal
-- status bar
+- status bilah
 - ukuran dimensi
 - penyesuaian otomatis
 - zoom default
@@ -20,39 +20,23 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Temukan properti tampilan Aspose.Slides untuk C++ untuk menyesuaikan format slide PPT, PPTX, dan ODP—atur tata letak, tingkat zoom, dan pengaturan tampilan."
+description: "Gunakan Aspose.Slides untuk C++ untuk mengonfigurasi tata letak tampilan normal, zoom slide dan catatan, jarak grid, serta visibilitas komentar dalam presentasi PowerPoint."
 ---
 ## **Pendahuluan**
 
-Tampilan normal terdiri dari tiga wilayah konten: slide itu sendiri, wilayah konten samping, dan wilayah konten bagian bawah. Properti yang terkait dengan posisi berbagai wilayah konten. Informasi ini memungkinkan aplikasi menyimpan status tampilan ke file, sehingga saat dibuka kembali tampilan berada dalam keadaan yang sama seperti saat presentasi terakhir disimpan.
-
-Metode [IViewProperties::get_NormalViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) telah ditambahkan untuk memberikan akses ke properti tampilan normal presentasi.  
-
-[INormalViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/inormalviewproperties/), [INormalViewRestoredProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/inormalviewrestoredproperties/) antarmuka dan turunannya, serta enum [SplitterBarStateType](https://reference.aspose.com/slides/id/cpp/aspose.slides/splitterbarstatetype/) telah ditambahkan.
+Dalam tampilan normal PowerPoint, slide muncul di antara panel samping untuk thumbnail atau kerangka dan panel catatan di bawah. Aspose.Slides untuk C++ menampilkan preferensi penyuntingan yang disimpan melalui [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/). Ini mencakup tata letak panel, tingkat zoom, jarak grid, dan visibilitas komentar.
 
 ## **Tentang INormalViewProperties**
 
-Mewakili properti tampilan normal.
+Gunakan [get_NormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_normalviewproperties/) untuk mengakses antarmuka [INormalViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/). [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) mengontrol apakah ikon muncul di samping judul slide dalam kerangka. [set_SnapVerticalSplitter](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_snapverticalsplitter/) memungkinkan panel samping menempel pada keadaan diperkecil ketika pengguna mempersempitnya. [set_PreferSingleView](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_prefersingleview/) menunjukkan preferensi untuk menampilkan satu panel dalam jendela penuh.
 
-Properti **ShowOutlineIcons** menentukan apakah aplikasi harus menampilkan ikon jika menampilkan konten outline di salah satu wilayah konten mode tampilan normal.
-
-Properti **SnapVerticalSplitter** menentukan apakah pembagi vertikal harus menempel ke keadaan diminimalkan ketika wilayah samping cukup kecil.
-
-Properti **PreferSingleView** menentukan apakah pengguna lebih suka melihat satu wilayah konten penuh jendela dibandingkan tampilan normal standar dengan tiga wilayah konten. Jika diaktifkan, aplikasi dapat memilih untuk menampilkan salah satu wilayah konten di seluruh jendela.
-
-Properti **VerticalBarState** dan **HorizontalBarState** menentukan keadaan yang harus ditunjukkan oleh bar pembagi horizontal atau vertikal. Bar pembagi horizontal memisahkan slide dari wilayah konten di bawah slide, bar pembagi vertikal memisahkan slide dari wilayah konten samping. Nilai yang mungkin adalah: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** dan **SplitterBarStateType.Restored**.
-
-Properti **RestoredLeft** dan **RestoredTop** menentukan ukuran wilayah slide atas atau samping tampilan normal, ketika nilai **SplitterBarStateType.Restored** diterapkan untuk **VerticalBarState** dan **HorizontalBarState** secara berurutan.
+[set_VerticalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_verticalbarstate/) mengontrol pemisah antara panel samping dan slide. [set_HorizontalBarState](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_horizontalbarstate/) mengontrol pemisah di atas panel catatan. Kedua metode menerima nilai [SplitterBarStateType](https://reference.aspose.com/slides/cpp/aspose.slides/splitterbarstatetype/) berupa `Minimized`, `Maximized`, atau `Restored`.
 
 ## **Tentang Memulihkan INormalViewProperties**
 
-Menentukan ukuran wilayah slide (lebar ketika anak dari RestoredTop, tinggi ketika anak dari RestoredLeft) pada tampilan normal, ketika wilayah memiliki ukuran pemulihan variabel (tidak diminimalkan maupun dimaksimalkan).
+Saat pemisah dipulihkan, [get_RestoredLeft](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredleft/) memberikan ukuran yang disimpan untuk panel samping dan [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) memberikan ukuran yang disimpan untuk area slide atas. Kedua properti mengekspose [INormalViewRestoredProperties](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/). Metode [set_DimensionSize](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_dimensionsize/) menerima persentase dari 0 hingga 100, dan [set_AutoAdjust](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewrestoredproperties/set_autoadjust/) mengontrol apakah editor menyesuaikan ukuran ketika jendela diubah ukurannya.
 
-Properti **DimensionSize** menentukan ukuran wilayah slide (lebar ketika anak dari RestoredTop, tinggi ketika anak dari RestoredLeft).
-
-Properti **AutoAdjust** menentukan apakah ukuran wilayah konten samping harus menyesuaikan dengan ukuran baru saat mengubah ukuran jendela yang berisi tampilan dalam aplikasi.
-
-Contoh di bawah ini menunjukkan cara mengakses properti **ViewProperties.NormalViewProperties** untuk sebuah presentasi.
+Contoh ini memperbarui presentasi yang sudah ada. Ia memulihkan pemisah horizontal, mengatur ukuran area slide atas yang diberikan oleh [get_RestoredTop](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/get_restoredtop/) menjadi 80 % dengan penyesuaian otomatis diaktifkan, dan memaksimalkan pemisah vertikal. Ia juga mengaktifkan ikon kerangka dengan [set_ShowOutlineIcons](https://reference.aspose.com/slides/cpp/aspose.slides/inormalviewproperties/set_showoutlineicons/) untuk tampilan kerangka.
 
 ```cpp
 #include <DOM/INormalViewProperties.h>
@@ -61,54 +45,52 @@ Contoh di bawah ini menunjukkan cara mengakses properti **ViewProperties.NormalV
 #include <DOM/Presentation.h>
 #include <DOM/SplitterBarStateType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-pres->get_ViewProperties()->get_NormalViewProperties()->set_HorizontalBarState(SplitterBarStateType::Restored);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Pulihkan properti tampilan presentasi
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_AutoAdjust(true);
-pres->get_ViewProperties()->get_NormalViewProperties()->get_RestoredTop()->set_DimensionSize(80.0f);
-pres->get_ViewProperties()->get_NormalViewProperties()->set_ShowOutlineIcons(true);
+auto normalView = presentation->get_ViewProperties()->get_NormalViewProperties();
+normalView->set_HorizontalBarState(SplitterBarStateType::Restored);
+normalView->set_VerticalBarState(SplitterBarStateType::Maximized);
+auto restoredTop = normalView->get_RestoredTop();
+restoredTop->set_AutoAdjust(true);
+restoredTop->set_DimensionSize(80.0f);
+normalView->set_ShowOutlineIcons(true);
 
-pres->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_normal_view_state.pptx", SaveFormat::Pptx);
 ```
 
-## **Mengatur Nilai Zoom Default**
+## **Atur Nilai Zoom Default**
 
-Aspose.Slides untuk C++ kini mendukung pengaturan nilai zoom default untuk presentasi sehingga saat presentasi dibuka, zoom sudah ditetapkan. Hal ini dapat dilakukan dengan mengatur [ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/) sebuah presentasi. Properti Tampilan Slide serta [get_NotesViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/get_notesviewproperties/) dapat diatur secara programatis. Pada topik ini, kita akan melihat dengan contoh cara mengatur Properti Tampilan Presentasi di Aspose.Slides.
+[get_SlideViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_slideviewproperties/) dan [get_NotesViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_notesviewproperties/) menyimpan pengaturan zoom terpisah untuk editor. Pengaturan ini tidak memengaruhi dimensi slide, pemutaran slide-show, atau resolusi ekspor gambar.
 
-Untuk mengatur properti tampilan, ikuti langkah-langkah berikut:
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/)  
-2. Atur [Properties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/) Tampilan Presentasi  
-3. Tulis presentasi sebagai file PPTX  
-
-Pada contoh di bawah ini, kami telah mengatur nilai zoom untuk tampilan slide serta tampilan catatan.
+Contoh ini membuka presentasi yang sudah ada dan mengaktifkan penskalaan otomatis dengan [set_VariableScale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_variablescale/) agar slide menyesuaikan ukuran jendela penyuntingan. Untuk halaman catatan, ia menonaktifkan penskalaan otomatis dan menggunakan [set_Scale](https://reference.aspose.com/slides/cpp/aspose.slides/icommonslideviewproperties/set_scale/) untuk menetapkan zoom tetap 80 %.
 
 ```cpp
 #include <DOM/ICommonSlideViewProperties.h>
 #include <DOM/IViewProperties.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
 
-// Menetapkan properti tampilan presentasi
-presentation->get_ViewProperties()->get_SlideViewProperties()->set_Scale(100); // Nilai zoom dalam persentase untuk tampilan slide
-presentation->get_ViewProperties()->get_NotesViewProperties()->set_Scale(100); // Nilai zoom dalam persentase untuk tampilan catatan 
+auto viewProperties = presentation->get_ViewProperties();
+viewProperties->get_SlideViewProperties()->set_VariableScale(true);
+auto notesView = viewProperties->get_NotesViewProperties();
+notesView->set_VariableScale(false);
+notesView->set_Scale(80);
 
-presentation->Save(u"Zoom_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"zoom.pptx", SaveFormat::Pptx);
 ```
 
-## **Mengatur Jarak Grid**
+## **Atur Jarak Grid**
 
-Gunakan [Presentation::get_ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_viewproperties/) untuk mengakses pengaturan tampilan seluruh presentasi. Metode [IViewProperties::get_GridSpacing](https://reference.aspose.com/slides/id/cpp/aspose.slides/iviewproperties/get_gridspacing/) dan [IViewProperties::set_GridSpacing](https://reference.aspose.com/slides/id/cpp/aspose.slides/iviewproperties/set_gridspacing/) membaca atau mengubah interval grid pengeditan yang mendasarinya. Pengaturan ini berlaku untuk seluruh presentasi, bukan untuk setiap slide. Jarak grid ditentukan dalam point, dimana 72 point sama dengan satu inci. Gunakan nilai positif, seperti yang diperlukan oleh dokumentasi API.
-
-Contoh berikut membuka `demo.pptx` yang ada, mencetak jarak grid saat ini, mengatur interval seperempat inci, dan menyimpan hasilnya.
+[set_GridSpacing](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_gridspacing/) menetapkan jarak antara garis grid penyuntingan di seluruh presentasi. Nilai yang diterima berupa angka positif dalam poin, dengan 72 poin per inci. Contoh ini menampilkan jarak saat ini dalam presentasi yang ada dan menyimpan grid seperempat inci dengan mengatur interval menjadi 18 poin.
 
 ```cpp
 #include <system/console.h>
@@ -120,24 +102,21 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"demo.pptx");
-auto gridSpacing = presentation->get_ViewProperties()->get_GridSpacing();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto gridSpacing = viewProperties->get_GridSpacing();
 System::Console::WriteLine(u"Current grid spacing: {0} points", gridSpacing);
 
-presentation->get_ViewProperties()->set_GridSpacing(18.0f);
+viewProperties->set_GridSpacing(18.0f);
+
 presentation->Save(u"grid-spacing.pptx", SaveFormat::Pptx);
 ```
 
-Grid berbeda dari [drawing guides](/slides/id/cpp/drawing-guides/). Jarak grid mengontrol interval reguler, sementara drawing guides adalah garis penyelarasan horizontal atau vertikal yang diposisikan secara individual. Menambahkan, memindahkan, atau menghapus drawing guides tidak mengubah jarak grid.
+Grid berulang pada interval tetap. [Drawing guides](/slides/id/cpp/drawing-guides/) menandai posisi horizontal atau vertikal secara individu. Kedua elemen ini adalah bantuan penyuntingan dan hanya muncul di editor yang menampilkannya. Slide show serta ekspor ke PDF, gambar, atau SVG tidak menyertakannya.
 
-Baik grid maupun drawing guides merupakan bantuan pengeditan. Mereka tidak dirender sebagai konten slide dalam PDF, gambar, SVG, atau tayangan slide. Menyimpan jarak grid tidak menjamin editor akan menampilkan grid: visibilitasnya juga tergantung pada preferensi penampil atau editor.
+## **Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi**
 
-## **Menampilkan atau Menyembunyikan Komentar Saat Membuka Presentasi**
-
-Gunakan [Presentation::get_ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_viewproperties/) untuk mengakses pengaturan tampilan seluruh presentasi. Gunakan [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/id/cpp/aspose.slides/iviewproperties/get_showcomments/) dan [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/id/cpp/aspose.slides/iviewproperties/set_showcomments/) untuk menyimpan preferensi apakah komentar harus ditampilkan ketika presentasi dibuka di PowerPoint atau editor kompatibel lainnya.
-
-Pengaturan ini hanya mengontrol preferensi tampilan yang disimpan. Ini tidak menambah, menghapus, menyunting, atau menyelesaikan komentar. Menyembunyikan komentar mempertahankan isi, penulis, posisi, balasan, dan statusnya. Lihat [Presentation Comments](/slides/id/cpp/presentation-comments/) untuk operasi yang mengubah komentar itu sendiri.
-
-Contoh berikut memerlukan `comments.pptx` yang ada dan berisi komentar. Ia mencetak pengaturan visibilitas saat ini, meminta komentar disembunyikan, dan menyimpan PPTX baru tanpa menghapus komentar apa pun. Ia juga menggunakan [IViewProperties::set_LastView](https://reference.aspose.com/slides/id/cpp/aspose.slides/iviewproperties/set_lastview/) dengan [ViewType::SlideView](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewtype/) untuk mengonfigurasi tampilan pengeditan awal bersama visibilitas komentar.
+[set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) menyimpan preferensi yang digunakan editor kompatibel saat membuka presentasi. Untuk presentasi yang sudah ada dengan komentar, contoh ini menampilkan pengaturan saat ini dan menyimpan salinan dengan komentar tersembunyi. Ia juga memanggil [set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) dengan [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) agar salinan terbuka dalam tampilan slide.
 
 ```cpp
 #include <system/console.h>
@@ -151,29 +130,37 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
-auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+
+auto viewProperties = presentation->get_ViewProperties();
+auto showComments = viewProperties->get_ShowComments();
 System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
 
-presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
-presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+viewProperties->set_ShowComments(NullableBool::False);
+viewProperties->set_LastView(ViewType::SlideView);
+
 presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
 ```
 
-Pengaturan ini tidak menentukan apakah komentar termasuk dalam ekspor PDF, HTML, gambar, catatan, atau handout. Konfigurasikan opsi spesifik ekspor yang relevan secara terpisah.
+Menyembunyikan komentar mempertahankan teks, penulis, posisi, balasan, dan statusnya. Untuk mengubah komentar itu sendiri, lihat [Presentation Comments](/slides/id/cpp/presentation-comments/). Pengaturan ekspor mengontrol apakah komentar muncul dalam PDF, HTML, gambar, catatan, atau handout.
 
 ## **FAQ**
 
-**Mengapa grid tidak terlihat setelah saya membuka kembali presentasi?**  
-File menyimpan jarak grid, tetapi editor mengontrol apakah grid ditampilkan. Periksa pengaturan visibilitas grid pada editor.
+**Mengapa grid disembunyikan saat saya membuka kembali presentasi?**
 
-**Apakah menghapus drawing guides mengubah jarak grid?**  
-Tidak. Drawing guides dan jarak grid adalah pengaturan yang independen. Menghapus guides tidak mengubah interval grid yang disimpan.
+Presentasi menyimpan interval grid. Untuk melihat grid, aktifkan visibilitas grid di editor.
 
-**Bisakah saya mengatur pengaturan tampilan yang berbeda untuk bagian berbeda dari presentasi?**  
-Pengaturan [view](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_viewproperties/) didefinisikan pada tingkat presentasi ([Normal View](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/get_normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/get_slideviewproperties/)), bukan per bagian, sehingga satu set parameter berlaku untuk seluruh dokumen saat dibuka.
+**Apakah menghapus panduan gambar mengubah jarak grid?**
 
-**Bisakah saya menentukan sebelumnya keadaan tampilan yang berbeda untuk pengguna yang berbeda?**  
-Tidak. Pengaturan disimpan dalam file dan bersifat bersama. Aplikasi penampil dapat menghormati preferensi pengguna, tetapi file itu sendiri berisi satu set properti tampilan.
+Tidak. Menambahkan, memindahkan, atau menghapus panduan tidak mengubah interval grid.
 
-**Bisakah saya menyiapkan templat dengan View Properties yang telah ditentukan sehingga presentasi baru terbuka dengan cara yang sama?**  
-Ya. Karena [view properties](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/get_viewproperties/) disimpan pada tingkat presentasi, Anda dapat menyematkannya dalam templat dan membuat dokumen baru darinya dengan konfigurasi tampilan awal yang sama.
+**Bisakah bagian berbeda dari sebuah presentasi memiliki pengaturan tampilan yang berbeda?**
+
+Tidak. [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) berlaku untuk seluruh presentasi.
+
+**Bisakah saya menyimpan pengaturan tampilan yang berbeda untuk pengguna yang berbeda?**
+
+File menyimpan satu set properti tampilan untuk semua orang. Editor juga dapat menerapkan preferensi lokal pengguna.
+
+**Bisakah saya menyimpan pengaturan tampilan dalam templat?**
+
+Ya. Presentasi yang dibuat dari templat mewarisi pengaturan tampilan yang disimpan.

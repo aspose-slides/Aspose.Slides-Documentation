@@ -1,18 +1,18 @@
 ---
-title: Récupérer et mettre à jour les propriétés de vue de la présentation en Python via Java
-linktitle: Propriétés de vue
+title: Récupérer et mettre à jour les propriétés d'affichage de la présentation en Python via Java
+linktitle: Propriétés d'affichage
 type: docs
 weight: 80
 url: /fr/python-java/presentation-view-properties/
 keywords:
-- propriétés de vue
-- vue normale
+- propriétés d'affichage
+- affichage normal
 - contenu du plan
 - icônes du plan
-- ajustement du séparateur vertical
+- séparateur vertical ajustable
 - vue unique
 - état de la barre
-- taille de dimension
+- taille de la dimension
 - ajustement automatique
 - zoom par défaut
 - PowerPoint
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Découvrez les propriétés de vue d'Aspose.Slides for Python via Java pour personnaliser les diapositives PPT, PPTX et ODP — ajustez les mises en page, les niveaux de zoom et les paramètres d'affichage."
+description: "Utilisez Aspose.Slides for Python via Java pour configurer la disposition de la vue normale, le zoom des diapositives et des notes, l'espacement de la grille et la visibilité des commentaires dans les présentations PowerPoint."
 ---
 ## **Introduction**
 
-La vue normale se compose de trois zones de contenu : la diapositive elle‑même, une zone de contenu latérale et une zone de contenu inférieure. Les propriétés de la vue normale décrivent le positionnement de ces zones de contenu. Ces informations permettent à l’application d’enregistrer l’état de la vue dans le fichier, de sorte que, lors de la réouverture, la vue soit dans le même état que lorsque la présentation a été enregistrée pour la dernière fois.
-
-La méthode [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#getNormalViewProperties) a été ajoutée pour fournir l’accès aux propriétés de la vue normale d’une présentation.
-
-Les classes [NormalViewProperties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/) , [NormalViewRestoredProperties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewrestoredproperties/) et l’énumération [SplitterBarStateType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/splitterbarstatetype/) ont été ajoutées.
+Dans la vue normale de PowerPoint, la diapositive apparaît entre un volet latéral pour les vignettes ou le plan et un volet de notes en dessous. Aspose.Slides for Python via Java expose les préférences d'édition enregistrées de la présentation via [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties). Celles‑ci comprennent la disposition des volets, les niveaux de zoom, l'espacement de la grille et la visibilité des commentaires.
 
 ## **À propos de NormalViewProperties**
 
-Représente les propriétés de la vue normale.
+Utilisez [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) pour accéder à la classe [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) contrôle si des icônes apparaissent à côté des titres de diapositive dans le plan. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) permet au volet latéral de se raccourcir à son état minimisé lorsque l'utilisateur le réduit. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) indique une préférence pour l'affichage d'un seul volet dans la fenêtre complète.
 
-Les méthodes [getShowOutlineIcons](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) et [setShowOutlineIcons](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) indiquent si l’application doit afficher des icônes lors de l’affichage du contenu du plan dans l’une des zones de contenu du mode vue normale.
-
-Les méthodes [getSnapVerticalSplitter](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) et [setSnapVerticalSplitter](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) déterminent si le séparateur vertical doit s’enclencher dans un état réduit lorsque la zone latérale est suffisamment petite.
-
-Les méthodes [getPreferSingleView](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) et [setPreferSingleView](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) indiquent si l’utilisateur préfère voir une région à contenu unique sur toute la fenêtre plutôt que la vue normale standard avec trois zones de contenu. Si cette option est activée, l’application peut choisir d’afficher l’une des zones de contenu sur toute la fenêtre.
-
-Les méthodes [getVerticalBarState](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) et [getHorizontalBarState](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) spécifient l’état dans lequel la barre de séparation horizontale ou verticale doit être affichée. Une barre de séparation horizontale sépare la diapositive de la zone de contenu située en dessous de la diapositive ; une barre de séparation verticale sépare la diapositive de la zone de contenu latérale. Les valeurs possibles sont : [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/fr/python-java/aspose.slides/splitterbarstatetype/#Minimized) , [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/fr/python-java/aspose.slides/splitterbarstatetype/#Maximized) et [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fr/python-java/aspose.slides/splitterbarstatetype/#Restored) .
-
-Les méthodes [getRestoredLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) et [getRestoredTop](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getRestoredTop) définissent la taille de la zone supérieure ou latérale de la diapositive en vue normale, lorsque la valeur [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fr/python-java/aspose.slides/splitterbarstatetype/#Restored) est appliquée à [getVerticalBarState](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) et [getHorizontalBarState](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState), respectivement.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) contrôle le séparateur entre le volet latéral et la diapositive. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) contrôle le séparateur au-dessus du volet de notes. Les deux acceptent une valeur de type [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) : `Minimized`, `Maximized` ou `Restored`.
 
 ## **À propos de la restauration de NormalViewProperties**
 
-Spécifie la taille de la zone de la diapositive (largeur lorsqu’elle est enfant de [getRestoredTop](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getRestoredTop) , hauteur lorsqu’elle est enfant de [getRestoredLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) ) en vue normale, lorsque la zone possède une taille restaurée variable (ni réduite ni agrandie).
+Lorsque un séparateur est restauré, [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) fournit la taille enregistrée du volet latéral et [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) fournit la taille enregistrée de la zone supérieure de la diapositive. Les deux renvoient une instance de [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/). Sa méthode [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) accepte un pourcentage de 0 à 100, et [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) contrôle si l'éditeur ajuste la taille lorsque la fenêtre est redimensionnée.
 
-La méthode [getDimensionSize](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) indique la taille de la zone de la diapositive (largeur lorsqu’elle est enfant de [getRestoredTop](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getRestoredTop) , hauteur lorsqu’elle est enfant de [getRestoredLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) ).
-
-La méthode [getAutoAdjust](https://reference.aspose.com/slides/fr/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) indique si la taille de la zone de contenu latérale doit s’ajuster à la nouvelle taille lors du redimensionnement de la fenêtre contenant la vue dans l’application.
-
-L’exemple ci‑dessous montre comment accéder à [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#getNormalViewProperties) pour une présentation.
+Cet exemple met à jour une présentation existante. Il restaure le séparateur horizontal, fixe la taille renvoyée par [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) à 80 % avec l’ajustement automatique activé, et maximise le séparateur vertical. Il appelle également [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) pour afficher les icônes dans la vue plan.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Restaurer les propriétés de vue de la présentation.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -82,16 +65,9 @@ finally:
 
 ## **Définir la valeur de zoom par défaut**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java prend en charge la définition de la valeur de zoom par défaut afin qu’elle soit déjà appliquée lors de l’ouverture de la présentation. Cela peut être fait en définissant les [ViewProperties] d’une présentation. [getSlideViewProperties] ainsi que [getNotesViewProperties] peuvent être configurés par programme. Dans cet article, nous verrons avec un exemple comment définir les [View Properties] de la classe [Presentation] dans Aspose.Slides.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) et [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) stockent des paramètres de zoom indépendants pour l'éditeur. Ces paramètres n'affectent pas les dimensions des diapositives, la lecture du diaporama ou la résolution d'exportation d'image.
 
-Pour définir les propriétés de la vue, suivez les étapes suivantes :
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Définissez les [View Properties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/) de la [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-3. Enregistrez la présentation sous forme de fichier [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-Dans l’exemple ci‑dessous, nous définissons la valeur de zoom à la fois pour la vue diapositive et la vue notes.
+Cet exemple ouvre une présentation existante et appelle [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) pour adapter la diapositive à la fenêtre d'édition. Pour la page de notes, il désactive le redimensionnement automatique et appelle [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) pour définir un zoom fixe de 80 %.
 
 ```python
 import jpype
@@ -102,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Définir les propriétés de vue de la présentation.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Pourcentage de zoom pour la vue diapositive.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Pourcentage de zoom pour la vue des notes.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Définir l’espacement de la grille**
+## **Définir l'espacement de la grille**
 
-Utilisez [Presentation.getViewProperties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getViewProperties) pour accéder aux paramètres de vue à l’échelle de la présentation. Les méthodes [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#getGridSpacing) et [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#setGridSpacing) lisent ou modifient l’intervalle de la grille d’édition sous‑jacente. Ce paramètre s’applique à l’ensemble de la présentation, pas à une diapositive individuelle. L’espacement de la grille est indiqué en points, où 72 points correspondent à un pouce. Utilisez une valeur positive, conformément à la documentation de l’API.
-
-L’exemple suivant ouvre un fichier `demo.pptx` existant, affiche son espacement de grille actuel, définit un intervalle d’un quart de pouce et enregistre le résultat.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) définit la distance entre les lignes de la grille d'édition dans l'ensemble de la présentation. Elle prend une valeur positive en points, 72 points par pouce. Cet exemple affiche l'espacement actuel dans une présentation existante et enregistre une grille d'un quart de pouce en définissant l'intervalle à 18 points.
 
 ```python
 import jpype
@@ -134,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-La grille est différente des [drawing guides](/slides/fr/python-java/drawing-guides/). L’espacement de la grille contrôle un intervalle régulier, tandis que les guides de dessin sont des lignes d’alignement horizontales ou verticales positionnées individuellement. Ajouter, déplacer ou supprimer des guides de dessin ne modifie pas l’espacement de la grille.
+La grille se répète à intervalles fixes. [Drawing guides](/slides/fr/python-java/drawing-guides/) indiquent des positions individuelles horizontales ou verticales. Les deux sont des aides à l'édition et n'apparaissent que dans les éditeurs qui les affichent. Les diaporamas et les exportations vers PDF, images ou SVG les ignorent.
 
-La grille et les guides de dessin sont tous deux des aides à l’édition. Ils ne sont pas rendus comme contenu de diapositive dans les PDF, images, SVG ou un diaporama. Le fait d’enregistrer l’espacement de la grille ne garantit pas qu’un éditeur l’affichera : sa visibilité dépend également des préférences du visualiseur ou de l’éditeur.
+## **Afficher ou masquer les commentaires lors de l'ouverture d'une présentation**
 
-## **Afficher ou masquer les commentaires à l’ouverture d’une présentation**
-
-Utilisez [Presentation.getViewProperties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getViewProperties) pour accéder aux paramètres de vue à l’échelle de la présentation. Utilisez [ViewProperties.getShowComments](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#getShowComments) et [ViewProperties.setShowComments](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#setShowComments) pour lire ou modifier la préférence enregistrée indiquant si les commentaires doivent être affichés à l’ouverture de la présentation dans PowerPoint ou un autre éditeur compatible.
-
-Ce paramètre ne contrôle que la préférence de vue enregistrée. Il n’ajoute, ne supprime, ne modifie ni ne résout les commentaires. Masquer les commentaires en préserve le contenu, les auteurs, les positions, les réponses et les statuts. Voir [Presentation Comments](/slides/fr/python-java/presentation-comments/) pour les opérations qui modifient les commentaires eux‑mêmes.
-
-L’exemple suivant nécessite un fichier `comments.pptx` existant contenant des commentaires. Il affiche le paramètre de visibilité actuel, demande que les commentaires soient masqués et enregistre un nouveau PPTX sans supprimer aucun commentaire. Il utilise également [ViewProperties.setLastView](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#setLastView) avec [ViewType.SlideView](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewtype/#SlideView) pour configurer la vue d’édition initiale ainsi que la visibilité des commentaires.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) enregistre une préférence que les éditeurs compatibles utilisent lors de l'ouverture de la présentation. Pour une présentation existante contenant des commentaires, cet exemple affiche le paramètre actuel et enregistre une copie avec les commentaires masqués. Il appelle également [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) avec [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) afin que la copie s'ouvre en vue diapositive.
 
 ```python
 import jpype
@@ -167,31 +138,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Ce paramètre ne détermine pas si les commentaires sont inclus dans les exportations PDF, HTML, image, notes ou support. Configurez séparément les options spécifiques à chaque type d’exportation.
+Masquer les commentaires préserve leur texte, leurs auteurs, leurs positions, leurs réponses et leurs états. Pour modifier les commentaires eux‑mêmes, consultez [Presentation Comments](/slides/fr/python-java/presentation-comments/). Les paramètres d'exportation contrôlent si les commentaires apparaissent dans le PDF, le HTML, les images, les notes ou les documents imprimés.
 
 ## **FAQ**
 
-**Pourquoi la grille n’est‑elle pas visible après la réouverture de la présentation ?**
+**Pourquoi la grille est‑elle masquée lorsque je rouvre la présentation ?**
 
-Le fichier enregistre l’espacement de la grille, mais c’est l’éditeur qui contrôle son affichage. Vérifiez les paramètres de visibilité de la grille de l’éditeur.
+La présentation enregistre l'intervalle de la grille. Pour voir la grille, activez la visibilité de la grille dans l'éditeur.
 
-**La suppression des guides de dessin modifie‑t‑elle l’espacement de la grille ?**
+**La suppression des repères de dessin modifie‑t‑elle l'espacement de la grille ?**
 
-Non. Les guides de dessin et l’espacement de la grille sont des paramètres indépendants. Supprimer les guides laisse l’intervalle de grille stocké inchangé.
+Non. Ajouter, déplacer ou supprimer un repère ne modifie pas l'intervalle de la grille.
 
-**Puis‑je définir des paramètres de vue différents pour différentes sections d’une présentation ?**
+**Différentes sections d'une présentation peuvent‑elles avoir des paramètres d'affichage différents ?**
 
-Les [view settings](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getViewProperties) sont définis au niveau de la présentation ([Normal View](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/fr/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), pas par section, de sorte qu’un seul jeu de paramètres s’applique à l’ensemble du document lors de son ouverture.
+Non. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) s'applique à l'ensemble de la présentation.
 
-**Puis‑je pré‑définir différents états de vue pour différents utilisateurs ?**
+**Puis‑je enregistrer des paramètres d'affichage différents pour différents utilisateurs ?**
 
-Non. Les paramètres sont stockés dans le fichier et sont partagés. Les applications de visualisation peuvent prendre en compte les préférences de l’utilisateur, mais le fichier lui‑même ne contient qu’un seul ensemble de propriétés de vue.
+Le fichier stocke un seul ensemble de propriétés d'affichage pour tous. Un éditeur peut également appliquer les préférences locales d'un utilisateur.
 
-**Puis‑je préparer un modèle avec des propriétés de vue pré‑définies afin que les nouvelles présentations s’ouvrent de la même façon ?**
+**Puis‑je enregistrer les paramètres d'affichage dans un modèle ?**
 
-Oui. Étant donné que les [view properties](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getViewProperties) sont stockées au niveau de la présentation, vous pouvez les intégrer dans un modèle et créer de nouveaux documents à partir de celui‑ci avec la même configuration de vue initiale.
+Oui. Les présentations créées à partir du modèle héritent de ses paramètres d'affichage enregistrés.

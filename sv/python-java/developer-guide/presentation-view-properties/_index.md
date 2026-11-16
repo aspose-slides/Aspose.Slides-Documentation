@@ -1,16 +1,16 @@
 ---
-title: Hämta och uppdatera presentationsvisningsinställningar i Python via Java
-linktitle: Visningsinställningar
+title: Hämta och uppdatera presentationsvyegenskaper i Python via Java
+linktitle: Vyegenskaper
 type: docs
 weight: 80
 url: /sv/python-java/presentation-view-properties/
 keywords:
-- visningsegenskaper
-- normalvy
+- vyegenskaper
+- normalläge
 - dispositionsinnehåll
 - dispositionsikoner
-- snappa vertikal delare
-- enskild vy
+- fästa vertikal splitare
+- enda vy
 - stapeltillstånd
 - dimensionsstorlek
 - automatisk justering
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Python via Java visningsinställningar för att anpassa PPT-, PPTX- och ODP-bilder—justera layouter, zoomnivåer och visningsinställningar."
+description: "Använd Aspose.Slides för Python via Java för att konfigurera layouten i normalläget, zoom för bild och anteckningar, rutnätsavstånd samt kommentarers synlighet i PowerPoint-presentationer."
 ---
 ## **Introduktion**
 
-Normalvyn består av tre innehållsområden: själva bilden, ett sidoinnehållsområde och ett botteninnehållsområde. Normalvy‑egenskaper beskriver placeringen av dessa innehållsområden. Denna information gör att applikationen kan spara sitt visningsläge till filen, så att när den öppnas igen är vyn i samma tillstånd som när presentationen senast sparades.
-
-Metoden [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#getNormalViewProperties) har lagts till för att ge åtkomst till normalvyns egenskaper för en presentation.
-
-Klasserna [NormalViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/) och [NormalViewRestoredProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewrestoredproperties/) samt uppräkningen [SplitterBarStateType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/splitterbarstatetype/) har lagts till.
+I PowerPoints normalläge visas bilden mellan ett sidofält för miniatyrer eller en disposition och ett anteckningsfält nedanför. Aspose.Slides för Python via Java exponerar presentationens sparade redigeringsinställningar via [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties). Dessa inkluderar fältlayout, zoomnivåer, rutnätsavstånd och kommentarers synlighet.
 
 ## **Om NormalViewProperties**
 
-Representerar egenskaper för normalvyn.
+Använd [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) för att komma åt klassen [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) styr om ikoner visas bredvid bildrubriker i dispositionen. [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) låter sidofältet fästa i sitt minimerade tillstånd när användaren minskar det. [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) indikerar en preferens för att visa ett fält i hela fönstret.
 
-Metoderna [getShowOutlineIcons](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) och [setShowOutlineIcons](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) anger om applikationen ska visa ikoner när dispositionens innehåll visas i någon av innehållsområdena i normalvy‑läget.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) styr delaren mellan sidofältet och bilden. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) styr delaren ovanför anteckningsfältet. Båda accepterar ett [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/)‑värde av `Minimized`, `Maximized` eller `Restored`.
 
-Metoderna [getSnapVerticalSplitter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) och [setSnapVerticalSplitter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) anger om den vertikala delaren ska låsas till ett minimerat tillstånd när sidområdet är tillräckligt litet.
+## **Om återställning av NormalViewProperties**
 
-Metoderna [getPreferSingleView](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) och [setPreferSingleView](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) anger om användaren föredrar att se ett full‑fönster med ett enskilt innehållsområde i stället för den vanliga normalvyn med tre innehållsområden. Om detta är aktiverat kan applikationen välja att visa ett av innehållsområdena i hela fönstret.
+När en delare återställs ger [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) den sparade storleken på sidofältet och [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) den sparade storleken på det övre bildområdet. Båda returnerar en instans av [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/). Dess [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize)‑metod accepterar en procentsats från 0 till 100, och [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) styr om redigeraren justerar storleken när fönstret ändras i storlek.
 
-Metoderna [getVerticalBarState](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) och [getHorizontalBarState](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) anger i vilket tillstånd den horisontella eller vertikala delarstapeln ska visas. En horisontell delarstapel separerar bilden från innehållsområdet under bilden; en vertikal delarstapel separerar bilden från sidoinnehållsområdet. Möjliga värden är: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/sv/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/sv/python-java/aspose.slides/splitterbarstatetype/#Maximized) och [SplitterBarStateType.Restored](https://reference.aspose.com/slides/sv/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-Metoderna [getRestoredLeft](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) och [getRestoredTop](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getRestoredTop) anger storleken på den övre eller sidobildsområdet i normalvyn när värdet [SplitterBarStateType.Restored](https://reference.aspose.com/slides/sv/python-java/aspose.slides/splitterbarstatetype/#Restored) tillämpas på [getVerticalBarState](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) respektive [getHorizontalBarState](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState).
-
-## **Om att återställa NormalViewProperties**
-
-Anger storleken på bildområdet (bredd när det är ett barn till [getRestoredTop](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getRestoredTop), höjd när det är ett barn till [getRestoredLeft](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) i normalvyn, när området har en variabel återställd storlek (varken minimerad eller maximiserad).
-
-Metoden [getDimensionSize](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) specificerar storleken på bildområdet (bredd när det är ett barn till [getRestoredTop](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getRestoredTop), höjd när det är ett barn till [getRestoredLeft](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
-
-Metoden [getAutoAdjust](https://reference.aspose.com/slides/sv/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) anger om storleken på sidoinnehållsområdet ska anpassas till den nya storleken när fönstret som innehåller vyn i applikationen ändras.
-
-Exemplet nedan visar hur man får åtkomst till [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#getNormalViewProperties) för en presentation.
+Det här exemplet uppdaterar en befintlig presentation. Det återställer den horisontella delaren, sätter storleken som returneras av [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) till 80% med automatisk justering aktiverad, och maximerar den vertikala delaren. Det anropar också [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) för att visa ikoner i dispositionsvyn.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Återställ presentationens visningsinställningar.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -82,17 +65,9 @@ finally:
 
 ## **Ställ in standardzoomvärdet**
 
-{{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java stöder att ange standardzoomvärdet så att det redan tillämpas när presentationen öppnas. Detta kan göras genom att ställa in [ViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/) för en presentation. [getSlideViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#getSlideViewProperties) samt [getNotesViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#getNotesViewProperties) kan konfigureras programatiskt. I detta avsnitt ser vi med ett exempel hur man sätter [View Properties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/) för [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) i Aspose.Slides.
-{{% /alert %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) och [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) lagrar oberoende zoominställningar för redigeraren. Dessa inställningar påverkar inte bilddimensioner, bildspelsuppspelning eller bildexportens upplösning.
 
-För att ställa in visnings‑egenskaperna, följ dessa steg:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-1. Ställ in [View Properties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/) för [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
-1. Skriv presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)‑fil.
-
-I exemplet nedan sätter vi zoomvärdet för både bildvyn och anteckningsvyn.
+Det här exemplet öppnar en befintlig presentation och anropar [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) för att anpassa bilden till redigeringsfönstret. För anteckningssidan inaktiveras automatisk skalning och [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) anropas för att sätta en fast 80% zoom.
 
 ```python
 import jpype
@@ -103,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Ställ in presentationens visningsinställningar.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Zoomprocent för bildvyn.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Zoomprocent för anteckningsvyn.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Ställ in rutnätsavståndet**
 
-Använd [Presentation.getViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getViewProperties) för att få åtkomst till visningsinställningarna för hela presentationen. Metoderna [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#getGridSpacing) och [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#setGridSpacing) läser eller ändrar intervallet för det underliggande redigeringsrutnätet. Denna inställning gäller hela presentationen, inte en enskild bild. Rutnätsavståndet anges i punkter, där 72 punkter motsvarar en tum. Använd ett positivt värde, enligt API‑dokumentationen.
-
-Följande exempel öppnar en befintlig `demo.pptx`, skriver ut dess aktuella rutnätsavstånd, sätter ett fjärdedel‑tum‑intervall och sparar resultatet.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) anger avståndet mellan redigeringsrutnätslinjer i hela presentationen. Den tar ett positivt värde i punkter, med 72 punkter per tum. Det här exemplet skriver ut det aktuella avståndet i en befintlig presentation och sparar ett kvarts tum‑rutnät genom att sätta intervallet till 18 punkter.
 
 ```python
 import jpype
@@ -135,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Rutnätet är annorlunda än [drawing guides](/slides/sv/python-java/drawing-guides/). Rutnätsavståndet styr ett regelbundet intervall, medan ritningsguider är individuellt placerade horisontella eller vertikala justeringslinjer. Att lägga till, flytta eller rensa ritningsguider ändrar inte rutnätsavståndet.
+Rutnätet upprepas med ett fast intervall. [Ritningsguider](/slides/sv/python-java/drawing-guides/) markerar enskilda horisontella eller vertikala positioner. Båda är redigeringshjälpmedel och visas endast i redigerare som visar dem. Bildspel och export till PDF, bilder eller SVG utelämnar dem.
 
-Både rutnätet och ritningsguiderna är redigeringshjälpmedel. De renderas inte som bildinnehåll i PDF, bilder, SVG eller ett bildspel. Att lagra rutnätsavståndet garanterar inte att en redigerare visar rutnätet: dess synlighet beror också på visnings‑ eller redigerarens inställningar.
+## **Visa eller dölj kommentarer när en presentation öppnas**
 
-## **Visa eller dölja kommentarer när en presentation öppnas**
-
-Använd [Presentation.getViewProperties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getViewProperties) för att få åtkomst till visningsinställningarna för hela presentationen. Använd [ViewProperties.getShowComments](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#getShowComments) och [ViewProperties.setShowComments](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#setShowComments) för att läsa eller ändra den lagrade preferensen för om kommentarer ska visas när presentationen öppnas i PowerPoint eller en annan kompatibel redigerare.
-
-Denna inställning styr endast den lagrade visningspreferensen. Den lägger inte till, tar bort, redigerar eller löser kommentarer. Att dölja kommentarer bevarar deras innehåll, författare, positioner, svar och status. Se [Presentation Comments](/slides/sv/python-java/presentation-comments/) för operationer som ändrar kommentarerna själva.
-
-Följande exempel kräver en befintlig `comments.pptx` som innehåller kommentarer. Det skriver ut den aktuella synlighetsinställningen, begär att kommentarer ska döljas och sparar en ny PPTX utan att ta bort några kommentarer. Det använder också [ViewProperties.setLastView](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewproperties/#setLastView) med [ViewType.SlideView](https://reference.aspose.com/slides/sv/python-java/aspose.slides/viewtype/#SlideView) för att konfigurera den initiala redigeringsvyn tillsammans med kommentarernas synlighet.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) lagrar en preferens som kompatibla redigerare använder när de öppnar presentationen. För en befintlig presentation med kommentarer skriver detta exempel ut den aktuella inställningen och sparar en kopia med kommentarer dolda. Det anropar också [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) med [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView) så att kopian öppnas i bildvyn.
 
 ```python
 import jpype
@@ -168,31 +138,32 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Denna inställning avgör inte om kommentarer inkluderas i PDF-, HTML-, bild-, antecknings- eller utdrags‑export. Konfigurera de relevanta export‑specifika alternativen separat.
+Att dölja kommentarer bevarar deras text, författare, positioner, svar och status. För att ändra kommentarerna själva, se [Presentation‑kommentarer](/slides/sv/python-java/presentation-comments/). Exportinställningarna styr om kommentarer visas i PDF, HTML, bilder, anteckningar eller utdelningar.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Varför är rutnätet inte synligt när jag öppnar presentationen igen?**
+**Varför är rutnätet dolt när jag öppnar presentationen igen?**
 
-Filen lagrar rutnätsavståndet, men redigeraren styr om rutnätet visas. Kontrollera redigerarens inställningar för rutnätsynlighet.
+Presentationen lagrar rutnätsintervallet. För att se rutnätet, aktivera rutnätsynlighet i redigeraren.
 
-**Ändrar rensning av ritningsguider rutnätsavståndet?**
+**Ändrar borttagning av ritningsguider rutnätsavståndet?**
 
-Nej. Ritningsguider och rutnätsavstånd är oberoende inställningar. Att rensa guider lämnar det lagrade rutnätsintervallet oförändrat.
+Nej. Att lägga till, flytta eller ta bort en guide lämnar rutnätsintervallet oförändrat.
 
-**Kan jag ange olika visningsinställningar för olika avsnitt i en presentation?**
+**Kan olika avsnitt i en presentation ha olika vyinställningar?**
 
-[View settings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getViewProperties) definieras på presentationsnivå (Normal View/Slide View), inte per avsnitt, så ett enda parameter‑set gäller för hela dokumentet när det öppnas.
+Nej. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) gäller för hela presentationen.
 
-**Kan jag fördefiniera olika visningstillstånd för olika användare?**
+**Kan jag spara olika vyinställningar för olika användare?**
 
-Nej. Inställningarna lagras i filen och delas. Visningsprogram kan hedra användarpreferenser, men själva filen innehåller ett enda set av visningsegenskaper.
+Filen lagrar en uppsättning vyegenskaper för alla. En redigerare kan också tillämpa en användares lokala preferenser.
 
-**Kan jag förbereda en mall med fördefinierade View Properties så att nya presentationer öppnas på samma sätt?**
+**Kan jag spara vyinställningar i en mall?**
 
-Ja. Eftersom [view properties](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getViewProperties) lagras på presentationsnivå kan du bädda in dem i en mall och skapa nya dokument från den med samma initiala visningskonfiguration.
+Ja. Presentationer som skapas från mallen ärver dess sparade vyinställningar.

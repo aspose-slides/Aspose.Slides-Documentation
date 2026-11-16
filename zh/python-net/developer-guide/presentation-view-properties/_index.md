@@ -16,142 +16,116 @@ keywords:
 - 自动调整
 - 默认缩放
 - PowerPoint
+- OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "了解 Aspose.Slides for Python via .NET 的视图属性，以自定义 PPT、PPTX 和 ODP 幻灯片格式——调整布局、缩放级别和显示设置。"
+description: "使用 Aspose.Slides for Python via .NET 来配置 PowerPoint 演示文稿中的普通视图布局、幻灯片和备注的缩放、网格间距以及批注可见性。"
 ---
 ## **介绍**
 
-普通视图由三个内容区域组成：幻灯片本身、侧边内容区域和底部内容区域。涉及不同内容区域定位的属性。这些信息允许应用程序将其视图状态保存到文件中，这样在重新打开时，视图状态与上次保存演示文稿时相同。
+在 PowerPoint 的普通视图中，幻灯片位于用于缩略图或大纲的侧窗格和下面的备注窗格之间。Aspose.Slides for Python via .NET 通过 [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) 公开演示文稿保存的编辑首选项。这些包括窗格布局、缩放级别、网格间距和批注可见性。
 
-已添加属性 [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/normal_view_properties/) 以提供对演示文稿普通视图属性的访问。
+## **关于 NormalViewProperties**
 
-已添加 [NormalViewProperties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/normalviewproperties/)、[NormalViewRestoredProperties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/normalviewrestoredproperties/) 类及其派生类，以及 [SplitterBarStateType](https://reference.aspose.com/slides/zh/python-net/aspose.slides/splitterbarstatetype/) 枚举。
+使用 [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) 访问 [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/) 对象。[show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) 控制大纲中幻灯片标题旁是否显示图标。[snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) 使侧窗格在用户收窄时自动抓住并最小化。[prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) 表示在全窗口中显示单个窗格的偏好。
 
-## **关于 INormalViewProperties**
+[vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) 控制侧窗格与幻灯片之间的分割条。[horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) 控制备注窗格上方的分割条。这两者都接受 [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) 的值 `MINIMIZED`、`MAXIMIZED` 或 `RESTORED`。
 
-表示普通视图属性。
+<!-- visual-explanation:presentation-view-properties:start -->
+[![概念编辑器将侧面板、幻灯片区域和底部区域分开，并带有标记的垂直和水平分割条。](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-属性 **ShowOutlineIcons** 指定在普通视图模式的任何内容区域中显示大纲内容时，应用程序是否应显示图标。
+*在普通视图中，垂直分割条控制侧窗格的宽度。水平分割条控制备注窗格上方的空间。*
+<!-- visual-explanation:presentation-view-properties:end -->
 
-属性 **SnapVerticalSplitter** 指定当侧边区域足够小时时，垂直分割条是否应捕捉到最小化状态。
+## **关于恢复 NormalViewProperties**
 
-属性 **PreferSingleView** 指定用户是否更倾向于在全窗口单内容区域中查看，而不是标准的三内容区域普通视图。如果启用，应用程序可能会选择在整个窗口中显示其中一个内容区域。
+当分割条被恢复时，[restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) 提供侧窗格保存的大小，[restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) 提供上部幻灯片区域保存的大小。这两个属性都公开 [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/)。其 [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) 属性接受 0 到 100 的百分比，而 [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) 控制在窗口调整大小时编辑器是否自动调整尺寸。
 
-属性 **VerticalBarState** 和 **HorizontalBarState** 指定水平或垂直分割条应显示的状态。水平分割条将幻灯片与幻灯片下方的内容区域分隔，垂直分割条将幻灯片与侧边内容区域分隔。可能的取值为：**SplitterBarStateType.Minimized、SplitterBarStateType.Maximized** 和 **SplitterBarStateType.Restored**。
-
-当 **VerticalBarState** 和 **HorizontalBarState** 分别使用 **SplitterBarStateType.Restored** 值时，属性 **RestoredLeft** 和 **RestoredTop** 指定普通视图中顶部或侧边幻灯片区域的尺寸。
-
-## **关于恢复 INormalViewProperties**
-
-指定普通视图中幻灯片区域的尺寸（当为 RestoredTop 的子项时为宽度，当为 RestoredLeft 的子项时为高度），当该区域处于可变的恢复大小（既非最小化也非最大化）时。
-
-属性 **DimensionSize** 指定幻灯片区域的大小（当为 restoredTop 的子项时为宽度，当为 restoredLeft 的子项时为高度）。
-
-属性 **AutoAdjust** 指定在调整包含视图的窗口大小时，侧边内容区域的尺寸是否应补偿新的大小。
-
-下面的示例展示了如何访问演示文稿的 **ViewProperties.NormalViewProperties** 属性。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # 恢复演示文稿的视图属性
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **设置默认缩放值**
-
-Aspose.Slides for Python via .NET 现在支持为演示文稿设置默认缩放值，这样在打开演示文稿时，缩放已预先设定。可以通过设置演示文稿的 [view_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/view_properties/) 来实现。幻灯片视图属性以及 [notes_view_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/notes_view_properties/) 都可以以编程方式设置。在本主题中，我们将通过示例演示如何在 Aspose.Slides 中设置演示文稿的视图属性。
-
-为了设置视图属性，请按照以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的实例
-1. 设置演示文稿的 [视图属性](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/)
-1. 将演示文稿写入 PPTX 文件
-
-在下面的示例中，我们已为幻灯片视图和备注视图设置了缩放值。
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # 设置演示文稿的视图属性
-    presentation.view_properties.slide_view_properties.scale = 100 # 幻灯片视图的缩放值（百分比）
-    presentation.view_properties.notes_view_properties.scale = 100 # 备注视图的缩放值（百分比）
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **设置网格间距**
-
-使用 [Presentation.view_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/view_properties/) 访问整个演示文稿的视图设置。属性 [ViewProperties.grid_spacing](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/grid_spacing/) 读取或更改底层编辑网格的间隔。此设置适用于整个演示文稿，而不是单个幻灯片。网格间距以点为单位，72 点等于一英寸。请使用正值，符合 API 文档的要求。
-
-以下示例打开现有的 `demo.pptx`，输出其当前网格间距，设置四分之一英寸的间隔，并保存结果。
+此示例更新现有演示文稿。它恢复水平分割条，将 [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) 设置为 80% 并启用自动调整，并将垂直分割条最大化。它还为大纲视图启用 [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/)。
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **设置默认缩放值**
+
+[slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) 和 [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) 为编辑器存储独立的缩放设置。这些设置不会影响幻灯片尺寸、幻灯片放映播放或图像导出分辨率。
+
+此示例打开一个现有演示文稿，并启用 [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/) 以将幻灯片适配编辑窗口。对于备注页，它禁用自动缩放，并将 [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) 设置为固定的 80% 缩放。
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **设置网格间距**
+
+[grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) 设置整个演示文稿中编辑网格线之间的距离。它接受以点为单位的正值，1英寸等于 72 点。此示例打印现有演示文稿的当前间距，并通过将间隔设为 18 点来保存四分之一英寸的网格。
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-网格不同于 [drawing guides](/slides/zh/python-net/drawing-guides/)。网格间距控制规则的间隔，而绘图指南是单独定位的水平或垂直对齐线。添加、移动或清除绘图指南不会更改网格间距。
-
-网格和绘图指南都是编辑辅助工具。它们不会在 PDF、图像、SVG 或幻灯片放映中作为幻灯片内容渲染。存储网格间距并不能保证编辑器会显示网格：其可见性还取决于查看器或编辑器的设置。
+网格以固定间隔重复。[绘图指南](/slides/zh/python-net/drawing-guides/) 标记单独的水平或垂直位置。两者都是编辑辅助，仅在能够显示它们的编辑器中出现。幻灯片放映以及导出为 PDF、图像或 SVG 时会省略它们。
 
 ## **打开演示文稿时显示或隐藏批注**
 
-使用 [Presentation.view_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/view_properties/) 访问整个演示文稿的视图设置。读取或更改 [ViewProperties.show_comments](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/show_comments/) 以存储在 PowerPoint 或其他兼容编辑器打开演示文稿时是否显示批注的偏好。
-
-此设置仅控制存储的视图偏好。它不添加、删除、编辑或解决批注。隐藏批注会保留其内容、作者、位置、回复和状态。请参阅 [Presentation Comments](/slides/zh/python-net/presentation-comments/) 了解更改批注本身的操作。
-
-以下示例需要一个包含批注的现有 `comments.pptx`。它输出当前的可见性设置，要求隐藏批注，并保存一个新的 PPTX 而不删除任何批注。它还将 [ViewProperties.last_view](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/last_view/) 设置为 [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewtype/)，以在批注可见性之外配置初始编辑视图。
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) 存储兼容编辑器在打开演示文稿时使用的首选项。针对带有批注的现有演示文稿，此示例打印当前设置并保存一个隐藏批注的副本。它还将 [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) 设置为 [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/)，使副本以幻灯片视图打开。
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-此设置并不决定批注是否包含在 PDF、HTML、图像、备注或讲义导出中。请单独配置相应的导出特定选项。
+隐藏批注会保留其文本、作者、位置、回复和状态。要更改批注本身，请参阅 [演示文稿批注](/slides/zh/python-net/presentation-comments/)。导出设置控制批注是否出现在 PDF、HTML、图像、备注或讲义中。
 
 ## **常见问题**
 
-**为什么重新打开演示文稿后网格不可见？**
+**为什么重新打开演示文稿时网格会隐藏？**  
+演示文稿存储了网格间隔。要查看网格，请在编辑器中启用网格可见性。
 
-文件存储了网格间距，但编辑器决定是否显示网格。检查编辑器的网格可见性设置。
+**清除绘图指南会改变网格间距吗？**  
+不会。添加、移动或清除指南都不会改变网格间隔。
 
-**清除绘图指南会改变网格间距吗？**
+**演示文稿的不同章节可以拥有不同的视图设置吗？**  
+不能。[Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) 适用于整个演示文稿。
 
-不会。绘图指南和网格间距是独立的设置。清除指南不会改变已存储的网格间隔。
+**我可以为不同用户保存不同的视图设置吗？**  
+文件只为所有人存储一套视图属性。编辑器还可能使用用户的本地首选项。
 
-**我可以为演示文稿的不同章节设置不同的视图设置吗？**
-
-[视图设置](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/view_properties/) 在演示文稿级别定义（[Normal View](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/slide_view_properties/)），而非按章节划分，因此在打开时整个文档使用同一组参数。
-
-**我可以为不同用户预定义不同的视图状态吗？**
-
-不可以。设置存储在文件中并共享。查看器应用程序可能会遵循用户偏好，但文件本身只包含一组视图属性。
-
-**我可以准备一个预定义视图属性的模板，使新演示文稿以相同方式打开吗？**
-
-可以。因为 [view properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/view_properties/) 存储在演示文稿级别，您可以将它们嵌入模板中，基于该模板创建新文档时具有相同的初始视图配置。
+**我可以在模板中保存视图设置吗？**  
+可以。基于该模板创建的演示文稿会继承其已保存的视图设置。

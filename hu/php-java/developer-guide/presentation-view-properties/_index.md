@@ -1,17 +1,17 @@
 ---
-title: Prezentáció nézet tulajdonságainak lekérdezése és frissítése PHP-ben
-linktitle: Nézet tulajdonságok
+title: Prezentáció nézetbeállításainak lekérése és frissítése PHP-ban
+linktitle: Nézetbeállítások
 type: docs
 weight: 80
 url: /hu/php-java/presentation-view-properties/
 keywords:
-- nézet tulajdonságok
+- nézetbeállítások
 - normál nézet
 - vázlat tartalom
 - vázlat ikonok
 - függőleges elválasztó rögzítése
-- egyes nézet
-- sáv állapot
+- egyszemélyes nézet
+- panel állapota
 - dimenzió méret
 - automatikus igazítás
 - alapértelmezett nagyítás
@@ -20,88 +20,49 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for PHP via Java nézet tulajdonságait, hogy testreszabja a PPT, PPTX és ODP diák formátumait — állítsa be az elrendezéseket, nagyítási szinteket és megjelenítési beállításokat."
+description: "Az Aspose.Slides for PHP via Java segítségével állítsa be a normál nézet elrendezését, a dia és a jegyzetek nagyítását, a rács távolságát, valamint a megjegyzések láthatóságát a PowerPoint prezentációkban."
 ---
 ## **Bevezetés**
 
-A normál nézet három tartalmi területből áll: a dia magából, egy oldalsó tartalmi területből és egy alsó tartalmi területből. A különböző tartalmi területek elhelyezésére vonatkozó tulajdonságok. Ez az információ lehetővé teszi az alkalmazás számára, hogy elmentse a nézet állapotát a fájlba, így újranyitáskor a nézet ugyanabban az állapotban lesz, mint amikor a bemutatót legutóbb mentették.
+A PowerPoint normál nézetében a dia egy oldalsó panel és egy jegyzetpanel között jelenik meg, ahol az oldalsó panel bélyegképek vagy vázlatok számára szolgál, a jegyzetpanel pedig alul található. Az Aspose.Slides for PHP via Java a prezentáció mentett szerkesztési beállításait teszi elérhetővé a [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/). Ezek közé tartozik a panel elrendezése, a nagyítási szintek, a rácstávolság és a megjegyzések láthatósága.
 
-A [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) metódus hozzá lett adva, hogy hozzáférést biztosítson a bemutató normál nézet tulajdonságaihoz.  
+## **A NormalViewProperties tulajdonságairól**
 
-Hozzá lettek adva a [NormalViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties), a [NormalViewRestoredProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewRestoredProperties) osztályok és azok leszármazottai, valamint a [SplitterBarStateType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SplitterBarStateType) enum.
+Használja a [getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/) metódust a [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/) osztály eléréséhez. A [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) szabályozza, hogy az ikonok megjelennek-e a diacímek mellett a vázlatban. A [setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) lehetővé teszi, hogy az oldalsó panel a felhasználó szűkítésekor az összecsukott állapotba „rácsapjon”. A [setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) egy olyan preferenciát jelöl, amely egy panelek megjelenítését preferálja a teljes ablakban.
 
-## **Az INormalViewProperties leírása**
+A [setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) szabályozza az oldalsó panel és a dia közötti elválasztót. A [setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) szabályozza a jegyzetpanel feletti elválasztót. Mindkettő a [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` vagy `Restored` értéket fogadja el.
 
-A normál nézet tulajdonságait képviseli.
+## **A NormalViewProperties helyreállításáról**
 
-A [getShowOutlineIcons](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) és a [setShowOutlineIcons](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) metódusok határozzák meg, hogy az alkalmazás ikonokat jelenítsen-e, ha vázlat tartalmat jelenít meg a normál nézet valamelyik tartalmi területén.
+Amikor egy elválasztó visszaállításra kerül, a [getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) a mentett oldalsó panel méretét, a [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) pedig a felső dia terület mentett méretét adja vissza. Mindkettő a [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/) osztályt teszi elérhetővé. Ennek a [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) metódusa 0‑tól 100‑ig terjedő százalékot fogad, a [setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) pedig szabályozza, hogy a szerkesztő a méretet automatikusan módosítsa‑e az ablak átméretezésekor.
 
-A [getSnapVerticalSplitter](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) és a [setSnapVerticalSplitter](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) metódusok határozzák meg, hogy a függőleges elválasztó panel minimalizált állapotba csapjon-e, amikor az oldalsó terület elég kicsi.
-
-A [getPreferSingleView](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) és a [setPreferSingleView](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) tulajdonságok meghatározzák, hogy a felhasználó a három tartalmi területből álló standard normál nézet helyett teljes ablakos egyetlen tartalmi területet részesít-e előnyben. Ha engedélyezve van, az alkalmazás úgy dönthet, hogy az egyik tartalmi területet az egész ablakban jeleníti meg.
-
-A [getVerticalBarState](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) metódusok határozzák meg, hogy a függőleges vagy vízszintes elválasztó sáv milyen állapotban jelenjen meg. A vízszintes elválasztó sáv elválasztja a diát a dia alatti tartalmi területtől, a függőleges elválasztó sáv a diát az oldalsó tartalmi területtől. Lehetséges értékek: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SplitterBarStateType/#Maximized) és [SplitterBarStateType::Restored](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SplitterBarStateType/#Restored).
-
-A [getRestoredLeft](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) és a [getRestoredTop](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties#getRestoredTop) metódusok határozzák meg a normál nézet felső vagy oldalsó diaterületének méretét, amikor a [SplitterBarStateType::Restored](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SplitterBarStateType/#Restored) érték van alkalmazva a [getVerticalBarState](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) metódusokra.
-
-## **Az INormalViewProperties visszaállításáról**
-
-A diaterület (szélesség, ha a [getRestoredTop](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getRestoredTop) gyermekeként, magasság, ha a [getRestoredLeft](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) gyermekeként) méretét határozza meg a normál nézetben, amikor a terület változó visszaállított mérettel rendelkezik (sem minimalizált, sem maximalizált).
-
-A [getDimensionSize](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) metódus meghatározza a diaterület méretét (szélesség, ha a restoredTop gyermekeként, magasság, ha a restoredLeft gyermekeként).
-
-A [getAutoAdjust](https://reference.aspose.com/slides/hu/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) metódus meghatározza, hogy az oldalsó tartalmi terület mérete kompenzálja-e az új méretet, amikor a nézetet tartalmazó ablakot az alkalmazáson belül átméretezik.
-
-Az alább bemutatott példa azt mutatja, hogyan lehet elérni egy bemutató [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) tulajdonságait.
+Ez a példa egy meglévő prezentációt frissít. Visszaállítja a vízszintes elválasztót, a [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) által visszaadott méretet 80 %-ra állítja automatikus méretezés engedélyezésével, és maximalizálja a függőleges elválasztót. Emellett meghívja a [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) metódust, hogy ikonokat jelenítsen meg a vázlat nézetben.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # A bemutató nézet tulajdonságainak visszaállítása
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
 
-## **Az alapértelmezett zoom érték beállítása**
-{{% alert color="info" %}} 
-
-Az Aspose.Slides for PHP via Java most már támogatja az alapértelmezett zoom érték beállítását a bemutatóhoz, így amikor a bemutatót megnyitják, a zoom már be van állítva. Ez a [ViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties) beállításával történhet egy bemutatóban. A [getSlideViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) és a [getNotesViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) programozottan is beállítható. Ebben a témában példával megmutatjuk, hogyan lehet beállítani a [View Properties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties) a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation) objektumban az Aspose.Slides-ben.
-
-{{% /alert %}} 
-
-Az nézet tulajdonságainak beállításához kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation) osztályból.
-1. Állítsa be a [View Properties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ViewProperties) értékét a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation)‑nél.
-1. Írja a bemutatót [PPTX ](https://docs.fileformat.com/presentation/pptx/) fájlként.  
-   Az alább bemutatott példában beállítottuk a zoom értékét a diánézet és a jegyzetnézet számára is.
-
-```php
-  $presentation = new Presentation();
-  try {
-    # A bemutató nézet tulajdonságainak beállítása
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // Nagyítási érték százalékban a dianézethez
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // Nagyítási érték százalékban a jegyzetnézethez
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Rács távolságának beállítása**
+## **Az alapértelmezett nagyítási érték beállítása**
 
-Használja a [Presentation::getViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getViewProperties) metódust a bemutató szintű nézetbeállítások eléréséhez. A [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/#getGridSpacing) és a [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/#setGridSpacing) metódusok olvassák vagy módosítják a háttérben lévő szerkesztő rács intervallumát. Ez a beállítás az egész bemutatóra vonatkozik, nem egyetlen diára. A rács távolságát pontban adják meg, ahol 72 pont egy hüvelyknek felel meg. Pozitív értéket használjon, ahogy az API dokumentációja megköveteli.
+A [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) és a [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) a szerkesztő számára független nagyítási beállításokat tárolnak. Ezek a beállítások nem befolyásolják a dia méreteit, a diavetítés lejátszását vagy a kép export felbontását.
 
-A következő példa megnyit egy meglévő `demo.pptx` fájlt, kiírja a jelenlegi rács távolságát, egy negyed hüvelykes intervallumra állítja, majd elmenti az eredményt.
+Ez a példa megnyit egy meglévő prezentációt, és a [setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/) metódust hívja meg, hogy a dia a szerkesztőablakhoz igazodjon. A jegyzetoldalhoz letiltja az automatikus méretezést, és a [setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/) metódussal 80 %-os rögzített nagyítást állít be.
 
 ```php
 use aspose\slides\Presentation;
@@ -109,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **A rácstávolság beállítása**
+
+A `setGridSpacing` metódus a [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) osztályban beállítja a szerkesztési rácsvonalak közti távolságot a teljes prezentációban. Pozitív értéket vár pontban, ahol hüvelykenként 72 pont van. Ez a példa kiírja a jelenlegi távolságot egy meglévő prezentációban, és egy negyed hüvelykes rácsot ment 18 pont intervallummal.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-A rács különbözik a [drawing guides](/slides/hu/php-java/drawing-guides/) útmutatóktól. A rács távolság szabályos intervallumot szabályoz, míg a rajzoló segédvonalak egyenként elhelyezett vízszintes vagy függőleges igazítólínek. A segédvonalak hozzáadása, mozgatása vagy törlése nem változtatja meg a rács távolságát.
+A rács fix intervallumban ismétlődik. A [Drawing guides](/slides/hu/php-java/drawing-guides/) egyedi vízszintes vagy függőleges pozíciókat jelölnek. Mindkettő szerkesztési segédeszköz, és csak azokat megjelenítő szerkesztőkben látható. A diavetítések és a PDF‑, kép‑ vagy SVG‑exportok nem tartalmazzák őket.
 
-A rács és a rajzoló segédvonalak egyaránt szerkesztősegédek. Nem jelennek meg diatartalomként PDF-ben, képekben, SVG-ben vagy diavetítésben. A rács távolságának tárolása nem garancia arra, hogy egy szerkesztő megjeleníti a rácsot: a láthatóság a megjelenítő vagy szerkesztő beállításaitól is függ.
+## **Megjegyzések megjelenítése vagy elrejtése prezentáció megnyitásakor**
 
-## **Megjegyzések megjelenítése vagy elrejtése a bemutató megnyitásakor**
-
-Használja a [Presentation::getViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getviewproperties/) metódust a bemutató szintű nézetbeállítások eléréséhez. Használja a [ViewProperties::getShowComments](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/getshowcomments/) és a [ViewProperties::setShowComments](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/setshowcomments/) metódusokat a tárolt beállítás kiolvasásához vagy módosításához, hogy a megjegyzések megjelenjenek-e, amikor a bemutató megnyílik a PowerPointban vagy egy másik kompatibilis szerkesztőben.
-
-Ez a beállítás csak a tárolt nézeti preferenciát szabályozza. Nem ad hozzá, nem távolít el, nem szerkeszt és nem old meg megjegyzéseket. A megjegyzések elrejtése megőrzi azok tartalmát, szerzőit, pozícióit, válaszait és állapotát. Tekintse meg a [Presentation Comments](/slides/hu/php-java/presentation-comments/) oldalt a megjegyzéseken végzett műveletekhez.
-
-A következő példa egy meglévő `comments.pptx` fájlt igényel, amely megjegyzéseket tartalmaz. Kiírja a jelenlegi láthatósági beállítást, kéri a megjegyzések elrejtését, és egy új PPTX-et ment anélkül, hogy bármely megjegyzést eltávolítaná. Emellett a [ViewProperties::setLastView](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/setlastview/) metódust a [ViewType::SlideView](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewtype/#SlideView) értékkel használja a kezdeti szerkesztő nézet beállításához a megjegyzés láthatóságával együtt.
+A [setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) egy olyan beállítást tárol, amelyet a kompatibilis szerkesztők a prezentáció megnyitásakor alkalmaznak. Egy megjegyzésekkel rendelkező meglévő prezentációra ez a példa kiírja az aktuális beállítást, és egy olyan másolatot ment, amelyben a megjegyzések rejtve vannak. Emellett meghívja a [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) metódust a [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView) értékkel, hogy a másolat dia nézetben nyíljon meg.
 
 ```php
 use aspose\slides\NullableBool;
@@ -139,37 +116,33 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Ez a beállítás nem határozza meg, hogy a megjegyzések szerepelnek-e a PDF, HTML, kép, jegyzet vagy szórólap exportokban. A megfelelő export-specifikus beállításokat külön kell konfigurálni.
+A megjegyzések elrejtése megőrzi azok szövegét, szerzőit, pozícióit, válaszait és állapotait. A megjegyzések módosításához tekintse meg a [Presentation Comments](/slides/hu/php-java/presentation-comments/) oldalt. Az export beállítások határozzák meg, hogy a megjegyzések megjelenjenek-e PDF‑ben, HTML‑ben, képeken, jegyzetekben vagy anyagokban.
 
-## **FAQ**
+## **GYIK**
 
-**Miért nem látható a rács a bemutató újbóli megnyitása után?**
+**Miért van a rács rejtve, amikor újra megnyitom a prezentációt?**  
+A prezentáció tárolja a rács intervallumát. A rács megtekintéséhez engedélyezze a rács láthatóságát a szerkesztőben.
 
-A fájl tárolja a rács távolságát, de a szerkesztő szabályozza, hogy a rács megjelenik-e. Ellenőrizze a szerkesztő rács láthatósági beállításait.
+**A rajzsegédletek törlése megváltoztatja a rács távolságát?**  
+Nem. Segédlet hozzáadása, áthelyezése vagy törlése nem változtatja meg a rács intervallumát.
 
-**A rajzoló segédvonalak törlése megváltoztatja-e a rács távolságát?**
+**A prezentáció különböző részei különböző nézetbeállításokkal rendelkezhetnek?**  
+Nem. A [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) az egész prezentációra érvényes.
 
-Nem. A rajzoló segédvonalak és a rács távolsága különálló beállítások. A segédvonalak törlése nem változtatja meg a tárolt rács intervallumot.
+**Menthetek különböző nézetbeállításokat különböző felhasználók számára?**  
+A fájl mindenkinek egyetlen nézetbeállítási halmazt tárol. Egy szerkesztő azonban alkalmazhatja a felhasználó helyi preferenciáit is.
 
-**Beállíthatok-e különböző nézetbeállításokat a bemutató egyes szekcióihoz?**
-
-A [View settings](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getviewproperties/) a bemutató szintjén vannak definiálva ([Normal View](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/getslideviewproperties/)), nem szekciónként, így az egyetlen paraméterkészlet a teljes dokumentumra vonatkozik, amikor megnyílik.
-
-**Előre definiálhatok különböző nézetállapotokat különböző felhasználók számára?**
-
-Nem. A beállítások a fájlban vannak tárolva és megosztottak. A megjelenítő alkalmazások figyelembe vehetik a felhasználói preferenciákat, de a fájl önmagában csak egy nézet tulajdonságkészletet tartalmaz.
-
-**Készíthetek sablont előre definiált View Properties-vel, hogy az új bemutatók ugyanúgy nyíljanak meg?**
-
-Igen. Mivel a [view properties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/getviewproperties/) a bemutató szintjén vannak tárolva, beágyazhatja őket egy sablonba, és új dokumentumokat hozhat létre belőle azonos kezdeti nézet konfigurációval.
+**Menthetek nézetbeállításokat egy sablonban?**  
+Igen. A sablonból létrehozott prezentációk öröklik a mentett nézetbeállításokat.

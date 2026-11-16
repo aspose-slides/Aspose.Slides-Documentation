@@ -1,181 +1,146 @@
 ---
-title: Lấy và Cập nhật Thuộc tính Chế độ xem Bài thuyết trình trong Java
-linktitle: Thuộc tính xem
+title: Truy xuất và Cập nhật Thuộc tính Hiển thị Bản trình bày trong Java
+linktitle: Thuộc tính Hiển thị
 type: docs
 weight: 80
 url: /vi/java/presentation-view-properties/
 keywords:
-- thuộc tính xem
+- thuộc tính hiển thị
 - chế độ xem bình thường
-- nội dung dàn ý
-- biểu tượng dàn ý
-- định vị thanh chia dọc
+- nội dung đề cương
+- biểu tượng đề cương
+- bắt dính thanh chia dọc
 - chế độ xem đơn
 - trạng thái thanh
 - kích thước chiều
 - tự động điều chỉnh
-- phóng đại mặc định
+- thu phóng mặc định
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Khám phá thuộc tính chế độ xem của Aspose.Slides cho Java để tùy chỉnh định dạng slide PPT, PPTX và ODP—điều chỉnh bố cục, mức thu phóng và cài đặt hiển thị."
+description: "Sử dụng Aspose.Slides for Java để cấu hình bố cục chế độ xem bình thường, thu phóng slide và ghi chú, khoảng cách lưới, và hiển thị bình luận trong các bản trình bày PowerPoint."
 ---
 ## **Giới thiệu**
 
-Chế độ xem bình thường bao gồm ba vùng nội dung: chính slide, một vùng nội dung bên và một vùng nội dung phía dưới. Các thuộc tính liên quan đến vị trí của các vùng nội dung khác nhau. Thông tin này cho phép ứng dụng lưu trạng thái xem vào tệp, để khi mở lại, chế độ xem vẫn ở trạng thái giống như khi bài thuyết trình được lưu lần cuối.
+Trong chế độ xem bình thường của PowerPoint, slide xuất hiện giữa một khung bên dành cho hình thu nhỏ hoặc đề cương và một khung ghi chú phía dưới. Aspose.Slides for Java cung cấp các tùy chọn chỉnh sửa đã lưu của bản trình bày thông qua [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--). Các tùy chọn này bao gồm bố trí khung, mức thu phóng, khoảng cách lưới và hiển thị bình luận.
 
-Phương thức [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) đã được thêm vào để cung cấp quyền truy cập vào các thuộc tính chế độ xem bình thường của bài thuyết trình. 
+## **Về INormalViewProperties**
 
-Các giao diện [INormalViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewRestoredProperties) và các lớp kế thừa của chúng, enum [SplitterBarStateType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SplitterBarStateType) đã được thêm vào.
+Sử dụng [getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) để truy cập giao diện [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/). [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) điều khiển việc hiển thị biểu tượng bên cạnh tiêu đề slide trong đề cương. [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) cho phép khung bên tự động gắn vào trạng thái thu nhỏ khi người dùng thu hẹp nó. [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) biểu thị ưu tiên hiển thị một khung duy nhất trong cửa sổ toàn màn hình.
 
-## **Giới thiệu về INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) điều khiển thanh phân cách giữa khung bên và slide. [setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) điều khiển thanh phân cách phía trên khung ghi chú. Cả hai chấp nhận giá trị của [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) là `Minimized`, `Maximized`, hoặc `Restored`.
 
-Biểu thị các thuộc tính chế độ xem bình thường.
+## **Về việc Khôi phục INormalViewProperties**
 
-Các phương thức [getShowOutlineIcons](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) và [setShowOutlineIcons](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) chỉ định liệu ứng dụng có nên hiển thị biểu tượng khi hiển thị nội dung dàn ý trong bất kỳ vùng nội dung nào của chế độ xem bình thường hay không.
+Khi một thanh phân cách được khôi phục, [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) cung cấp kích thước đã lưu của khung bên và [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) cung cấp kích thước đã lưu của khu vực slide phía trên. Cả hai đều mở ra [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/). Phương thức [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) của nó chấp nhận phần trăm từ 0 đến 100, và [setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) điều khiển việc trình chỉnh sửa điều chỉnh kích thước khi cửa sổ được thay đổi kích thước.
 
-Các phương thức [getSnapVerticalSplitter](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) và [setSnapVerticalSplitter](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) chỉ định liệu thanh chia dọc có nên khớp vào trạng thái thu nhỏ khi vùng bên đủ nhỏ.
-
-Thuộc tính [getPreferSingleView](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) và [setPreferSingleView](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean--) chỉ định liệu người dùng có muốn xem một vùng nội dung duy nhất trên toàn cửa sổ thay vì chế độ xem bình thường tiêu chuẩn với ba vùng nội dung hay không. Nếu bật, ứng dụng có thể chọn hiển thị một trong các vùng nội dung trên toàn cửa sổ.
-
-Các phương thức [getVerticalBarState](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) và [getHorizontalBarState](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) xác định trạng thái mà thanh chia ngang hoặc dọc sẽ được hiển thị. Thanh chia ngang tách slide khỏi vùng nội dung phía dưới slide, thanh chia dọc tách slide khỏi vùng nội dung bên. Các giá trị có thể là: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SplitterBarStateType#Maximized) và [SplitterBarStateType.Restored](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SplitterBarStateType#Restored).
-
-Các phương thức [getRestoredLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) và [getRestoredTop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) xác định kích thước của vùng slide trên hoặc phía bên của chế độ xem bình thường, khi giá trị [SplitterBarStateType.Restored](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SplitterBarStateType#Restored) được áp dụng cho [getVerticalBarState](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) và [getHorizontalBarState](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) tương ứng.
-
-## **Về việc khôi phục INormalViewProperties**
-
-Xác định kích thước của vùng slide (độ rộng khi là con của [getRestoredTop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), độ cao khi là con của [getRestoredLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) trong chế độ xem bình thường, khi vùng này có kích thước khôi phục biến đổi (không phải thu nhỏ cũng không phải phóng to). 
-
-Phương thức [getDimensionSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) chỉ định kích thước của vùng slide (độ rộng khi là con của restoredTop, độ cao khi là con của restoredLeft).
-
-Phương thức [getAutoAdjust](https://reference.aspose.com/slides/vi/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) chỉ định liệu kích thước của vùng nội dung bên có nên điều chỉnh để bù cho kích thước mới khi thay đổi kích thước cửa sổ chứa chế độ xem trong ứng dụng hay không.
-
-Một ví dụ được đưa dưới đây cho thấy cách bạn có thể truy cập các thuộc tính [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) cho một bài thuyết trình.
+Ví dụ này cập nhật một bản trình bày hiện có. Nó khôi phục thanh phân cách ngang, đặt kích thước trả về bởi [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) thành 80% với việc điều chỉnh tự động được bật, và phóng to thanh phân cách dọc. Nó cũng gọi [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) để hiển thị biểu tượng trong chế độ xem đề cương.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Khôi phục các thuộc tính chế độ xem của bài thuyết trình
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Đặt giá trị phóng đại mặc định**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides for Java hiện hỗ trợ việc đặt giá trị phóng đại mặc định cho bài thuyết trình sao cho khi mở bài thuyết trình, mức phóng đại đã được đặt. Điều này có thể thực hiện bằng cách thiết lập [ViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ViewProperties) của một bài thuyết trình. [getSlideViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) cũng như [getNotesViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) có thể được đặt bằng mã. Trong chủ đề này, chúng ta sẽ xem qua một ví dụ về cách đặt [View Properties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ViewProperties) của [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) trong Aspose.Slides.
-
-{{% /alert %}} 
-
-Để đặt các thuộc tính chế độ xem, vui lòng thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) .
-2. Đặt [View Properties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ViewProperties) của [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) .
-3. Ghi bài thuyết trình thành tệp [PPTX](https://docs.fileformat.com/presentation/pptx/) .
-   Trong ví dụ được đưa dưới đây, chúng tôi đã đặt giá trị phóng đại cho chế độ xem slide cũng như chế độ xem ghi chú.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // Đặt các thuộc tính chế độ xem của bài thuyết trình
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Giá trị thu phóng tính bằng phần trăm cho chế độ xem slide
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Giá trị thu phóng tính bằng phần trăm cho chế độ xem ghi chú 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Đặt khoảng cách lưới**
+## **Đặt Giá Trị Thu Phóng Mặc Định**
 
-Sử dụng [Presentation.getViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getViewProperties--) để truy cập cài đặt chế độ xem toàn bài thuyết trình. Các phương thức [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iviewproperties/#getGridSpacing--) và [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) đọc hoặc thay đổi khoảng cách của lưới chỉnh sửa nền. Cài đặt này áp dụng cho toàn bộ bài thuyết trình, không phải cho một slide riêng lẻ. Khoảng cách lưới được chỉ định bằng điểm, trong đó 72 điểm bằng một inch. Sử dụng giá trị dương, theo yêu cầu của tài liệu API.
+[getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) và [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) lưu các cài đặt thu phóng độc lập cho trình chỉnh sửa. Những cài đặt này không ảnh hưởng đến kích thước slide, phát trình chiếu, hoặc độ phân giải khi xuất hình ảnh.
 
-Ví dụ dưới đây mở một tệp `demo.pptx` hiện có, in ra khoảng cách lưới hiện tại, đặt khoảng cách một phần tư inch và lưu kết quả.
+Ví dụ này mở một bản trình bày hiện có và gọi [setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) để vừa slide với cửa sổ chỉnh sửa. Đối với trang ghi chú, nó tắt việc thu phóng tự động và gọi [setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) để đặt mức thu phóng cố định 80%.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Đặt Khoảng Cách Lưới**
+
+[setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) thiết lập khoảng cách giữa các đường lưới chỉnh sửa trong toàn bộ bản trình bày. Nó nhận giá trị dương tính bằng điểm, với 72 điểm mỗi inch. Ví dụ này in ra khoảng cách hiện tại trong một bản trình bày hiện có và lưu lưới một phần tư inch bằng cách đặt khoảng cách thành 18 điểm.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Lưới khác với [hướng dẫn vẽ](/slides/vi/java/drawing-guides/). Khoảng cách lưới kiểm soát một khoảng đều, trong khi các hướng dẫn vẽ là các đường căn chỉnh ngang hoặc dọc được đặt riêng lẻ. Thêm, di chuyển hoặc xóa các hướng dẫn vẽ không thay đổi khoảng cách lưới.
+Lưới lặp lại ở một khoảng cách cố định. [Hướng dẫn vẽ](/slides/vi/java/drawing-guides/) đánh dấu các vị trí ngang hoặc dọc riêng lẻ. Cả hai đều là công cụ hỗ trợ chỉnh sửa và chỉ xuất hiện trong các trình chỉnh sửa hiển thị chúng. Trình chiếu và xuất ra PDF, hình ảnh, hoặc SVG sẽ không bao gồm chúng.
 
-Cả lưới và các hướng dẫn vẽ đều là công cụ hỗ trợ chỉnh sửa. Chúng không được hiển thị dưới dạng nội dung slide trong PDF, hình ảnh, SVG hoặc trình chiếu. Lưu khoảng cách lưới không đảm bảo một trình chỉnh sửa sẽ hiển thị lưới: khả năng hiển thị còn phụ thuộc vào tùy chọn của người xem hoặc trình chỉnh sửa.
+## **Hiển Thị Hoặc Ẩn Bình Luận Khi Mở Bản Trình Bày**
 
-## **Hiển thị hoặc Ẩn bình luận khi mở bài thuyết trình**
-
-Sử dụng [Presentation.getViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getViewProperties--) để truy cập cài đặt chế độ xem toàn bài thuyết trình. Sử dụng [IViewProperties.getShowComments](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iviewproperties/#getShowComments--) và [IViewProperties.setShowComments](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) để đọc hoặc thay đổi tùy chọn lưu trữ về việc có nên hiển thị bình luận khi bài thuyết trình mở trong PowerPoint hoặc trình chỉnh sửa tương thích khác.
-
-Cài đặt này chỉ kiểm soát tùy chọn chế độ xem đã lưu. Nó không thêm, xóa, chỉnh sửa hoặc giải quyết bình luận. Ẩn bình luận giữ nguyên nội dung, tác giả, vị trí, trả lời và trạng thái của chúng. Xem [Bình luận bài thuyết trình](/slides/vi/java/presentation-comments/) để biết các thao tác thay đổi bình luận.
-
-Ví dụ dưới đây yêu cầu một tệp `comments.pptx` hiện có có chứa bình luận. Nó in ra cài đặt hiển thị hiện tại, yêu cầu ẩn bình luận, và lưu một tệp PPTX mới mà không xóa bất kỳ bình luận nào. Nó cũng sử dụng [IViewProperties.setLastView](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iviewproperties/#setLastView-int-) cùng với [ViewType.SlideView](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewtype/#SlideView) để cấu hình chế độ chỉnh sửa ban đầu cùng với khả năng hiển thị bình luận.
+[setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) lưu một tùy chọn mà các trình chỉnh sửa tương thích sử dụng khi mở bản trình bày. Đối với một bản trình bày hiện có có bình luận, ví dụ này in ra cài đặt hiện tại và lưu một bản sao với bình luận bị ẩn. Nó cũng gọi [setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) với [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) để bản sao mở ở chế độ xem slide.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Cài đặt này không quyết định liệu bình luận có được bao gồm trong các xuất PDF, HTML, hình ảnh, ghi chú hoặc tài liệu phát tay hay không. Hãy cấu hình các tùy chọn xuất riêng biệt cho từng định dạng.
+Việc ẩn bình luận giữ nguyên nội dung, tác giả, vị trí, phản hồi và trạng thái của chúng. Để thay đổi chính các bình luận, xem [Bình luận Bản Trình Bày](/slides/vi/java/presentation-comments/). Các cài đặt xuất kiểm soát việc bình luận có xuất hiện trong PDF, HTML, hình ảnh, ghi chú, hoặc tài liệu rút gọn hay không.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Tại sao lưới không hiển thị sau khi tôi mở lại bài thuyết trình?**
+**Tại sao lưới lại bị ẩn khi tôi mở lại bản trình bày?**
 
-Tệp lưu khoảng cách lưới, nhưng trình chỉnh sửa quyết định việc lưới có được hiển thị hay không. Hãy kiểm tra cài đặt hiển thị lưới của trình chỉnh sửa.
+Bản trình bày lưu khoảng cách lưới. Để xem lưới, bật hiển thị lưới trong trình chỉnh sửa.
 
 **Việc xóa các hướng dẫn vẽ có thay đổi khoảng cách lưới không?**
 
-Không. Các hướng dẫn vẽ và khoảng cách lưới là những cài đặt độc lập. Xóa các hướng dẫn không làm thay đổi khoảng cách lưới đã lưu.
+Không. Thêm, di chuyển hoặc xóa một hướng dẫn không làm thay đổi khoảng cách lưới.
 
-**Tôi có thể đặt các cài đặt chế độ xem khác nhau cho các phần khác nhau của bài thuyết trình không?**
+**Các phần khác nhau của một bản trình bày có thể có cài đặt xem khác nhau không?**
 
-[Cài đặt chế độ xem](/slides/vi/java/slides/vi/presentation/#getViewProperties--) được định nghĩa ở mức độ bài thuyết trình ([Chế độ xem bình thường](/slides/vi/java/slides/vi/viewproperties/#getNormalViewProperties--)/[Chế độ xem slide](/slides/vi/java/slides/vi/viewproperties/#getSlideViewProperties--)), không phải theo phần, vì vậy một bộ tham số duy nhất áp dụng cho toàn bộ tài liệu khi mở.
+Không. [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) áp dụng cho toàn bộ bản trình bày.
 
-**Tôi có thể định nghĩa trước các trạng thái chế độ xem khác nhau cho từng người dùng không?**
+**Tôi có thể lưu các cài đặt xem khác nhau cho các người dùng khác nhau không?**
 
-Không. Các cài đặt được lưu trong tệp và được chia sẻ. Các ứng dụng xem có thể tôn trọng sở thích của người dùng, nhưng tệp tự nó chỉ chứa một bộ thuộc tính chế độ xem.
+Tệp lưu một bộ thuộc tính xem cho tất cả mọi người. Trình chỉnh sửa cũng có thể áp dụng các tùy chọn cục bộ của người dùng.
 
-**Tôi có thể chuẩn bị một mẫu với các Thuộc tính chế độ xem đã định nghĩa sẵn để các bài thuyết trình mới mở cùng cách không?**
+**Tôi có thể lưu cài đặt xem trong mẫu không?**
 
-Có. Vì [thuộc tính chế độ xem](/slides/vi/java/slides/vi/presentation/#getViewProperties--) được lưu ở mức độ bài thuyết trình, bạn có thể nhúng chúng vào một mẫu và tạo tài liệu mới từ mẫu đó với cùng cấu hình chế độ xem ban đầu.
+Có. Các bản trình bày được tạo từ mẫu sẽ kế thừa các cài đặt xem đã lưu của nó.

@@ -1,6 +1,6 @@
 ---
-title: Recuperar y actualizar las propiedades de vista de la presentación en .NET
-linktitle: Propiedades de vista
+title: Recuperar y Actualizar las Propiedades de Vista de la Presentación en .NET
+linktitle: Propiedades de Vista
 type: docs
 weight: 80
 url: /es/net/presentation-view-properties/
@@ -9,9 +9,9 @@ keywords:
 - vista normal
 - contenido del esquema
 - iconos del esquema
-- ajuste del divisor vertical
+- divisor vertical ajustable
 - vista única
-- estado de barra
+- estado de la barra
 - tamaño de dimensión
 - ajuste automático
 - zoom predeterminado
@@ -21,88 +21,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Descubra las propiedades de vista de Aspose.Slides para .NET para personalizar los formatos PPT, PPTX y ODP—ajuste diseños, niveles de zoom y configuraciones de visualización."
+description: "Utilice Aspose.Slides para .NET para configurar la distribución de la vista normal, el zoom de diapositivas y notas, el espaciado de la cuadrícula y la visibilidad de los comentarios en presentaciones de PowerPoint."
 ---
 ## **Introducción**
 
-La vista normal consta de tres regiones de contenido: la diapositiva propiamente dicha, una región de contenido lateral y una región de contenido inferior. Propiedades relacionadas con la posición de las diferentes regiones de contenido. Esta información permite a la aplicación guardar su estado de vista en el archivo, de modo que al volver a abrirlo la vista se encuentre en el mismo estado que cuando la presentación se guardó por última vez.
-
-Se ha añadido la propiedad [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/es/net/aspose.slides/iviewproperties/properties/normalviewproperties) para proporcionar acceso a las propiedades de vista normal de la presentación.
-
-Se han añadido las interfaces [INormalViewProperties](https://reference.aspose.com/slides/es/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/es/net/aspose.slides/inormalviewrestoredproperties) y sus descendientes, así como el enumerado [SplitterBarStateType](https://reference.aspose.com/slides/es/net/aspose.slides/splitterbarstatetype).
+En la vista normal de PowerPoint, la diapositiva aparece entre un panel lateral de miniaturas o un esquema y un panel de notas debajo. Aspose.Slides para .NET expone las preferencias de edición guardadas de la presentación a través de [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/). Estas incluyen la distribución de los paneles, los niveles de zoom, el espaciado de la cuadrícula y la visibilidad de los comentarios.
 
 ## **Acerca de INormalViewProperties**
 
-Representa las propiedades de vista normal.
+Utilice [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) para acceder a la interfaz [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/). [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) controla si aparecen iconos junto a los títulos de diapositiva en el esquema. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) permite que el panel lateral se ajuste a su estado minimizado cuando el usuario lo reduce. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) indica una preferencia por mostrar un solo panel en la ventana completa.
 
-La propiedad **ShowOutlineIcons** especifica si la aplicación debe mostrar iconos al visualizar el contenido del esquema en cualquiera de las regiones de contenido del modo de vista normal.
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) controla el divisor entre el panel lateral y la diapositiva. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) controla el divisor encima del panel de notas. Ambos aceptan un valor [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) de `Minimized`, `Maximized` o `Restored`.
 
-La propiedad **SnapVerticalSplitter** especifica si el divisor vertical debe ajustarse a un estado minimizado cuando la región lateral es lo suficientemente pequeña.
+## **Acerca de Restaurar INormalViewProperties**
 
-La propiedad **PreferSingleView** especifica si el usuario prefiere ver una única región de contenido a pantalla completa en lugar de la vista normal estándar con tres regiones de contenido. Si está habilitada, la aplicación puede optar por mostrar una de las regiones de contenido en toda la ventana.
+Cuando se restaura un divisor, [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) proporciona el tamaño guardado del panel lateral y [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) proporciona el tamaño guardado del área superior de la diapositiva. Ambos exponen [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/). Su propiedad [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) acepta un porcentaje de 0 a 100, y [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) controla si el editor ajusta el tamaño cuando la ventana se redimensiona.
 
-Las propiedades **VerticalBarState** y **HorizontalBarState** especifican el estado en el que debe mostrarse la barra divisor horizontal o vertical. Una barra divisor horizontal separa la diapositiva de la región de contenido situada bajo la diapositiva, mientras que la barra divisor vertical separa la diapositiva de la región de contenido lateral. Los valores posibles son: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** y **SplitterBarStateType.Restored**.
+Este ejemplo actualiza una presentación existente. Restaura el divisor horizontal, establece [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) al 80% con el ajuste automático habilitado, y maximiza el divisor vertical. También habilita [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) para la vista de esquema.
 
-Las propiedades **RestoredLeft** y **RestoredTop** especifican el tamaño de la región superior o lateral de la diapositiva en la vista normal, cuando se aplica el valor **SplitterBarStateType.Restored** a **VerticalBarState** y **HorizontalBarState**, respectivamente.
-
-## **Acerca de restaurar INormalViewProperties**
-
-Especifica el tamaño de la región de la diapositiva (ancho cuando es hijo de RestoredTop, altura cuando es hijo de RestoredLeft) de la vista normal, cuando la región tiene un tamaño restaurado variable (ni minimizado ni maximizado).
-
-La propiedad **DimensionSize** especifica el tamaño de la región de la diapositiva (ancho cuando es hijo de restoredTop, altura cuando es hijo de restoredLeft).
-
-La propiedad **AutoAdjust** especifica si el tamaño de la región de contenido lateral debe compensar el nuevo tamaño al cambiar el tamaño de la ventana que contiene la vista dentro de la aplicación.
-
-A continuación se muestra un ejemplo que indica cómo acceder a las propiedades **ViewProperties.NormalViewProperties** de una presentación.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // Restaurar las propiedades de vista de la presentación
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
 ## **Establecer el valor de zoom predeterminado**
 
-Aspose.Slides for .NET ahora admite la configuración del valor de zoom predeterminado para una presentación, de modo que cuando se abre la presentación, el zoom ya está establecido. Esto puede hacerse configurando las [ViewProperties](https://reference.aspose.com/slides/es/net/aspose.slides/viewproperties) de una presentación. Tanto las propiedades de vista de diapositiva como las [NotesViewProperties](https://reference.aspose.com/slides/es/net/aspose.slides/viewproperties/properties/notesviewproperties) pueden establecerse mediante código. En este tema, veremos mediante un ejemplo cómo establecer las propiedades de vista de una presentación en Aspose.Slides.
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) y [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) almacenan configuraciones de zoom independientes para el editor. Estas configuraciones no afectan las dimensiones de la diapositiva, la reproducción de la presentación o la resolución de exportación de imágenes.
 
-Para establecer las propiedades de vista, siga los pasos a continuación:
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation)
-1. Establecer las [Properties](https://reference.aspose.com/slides/es/net/aspose.slides/viewproperties) de vista de la presentación
-1. Guardar la presentación como un archivo PPTX
+Este ejemplo abre una presentación existente y habilita [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/) para ajustar la diapositiva a la ventana de edición. Para la página de notas, desactiva el escalado automático y establece [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) a un zoom fijo del 80%.
 
-En el ejemplo que sigue, hemos establecido el valor de zoom para la vista de diapositiva y la vista de notas.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Establecer las propiedades de vista de la presentación
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Valor de zoom en porcentajes para la vista de diapositiva
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Valor de zoom en porcentajes para la vista de notas 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
 ## **Establecer el espaciado de la cuadrícula**
 
-Utilice [Presentation.ViewProperties](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/viewproperties/) para acceder a la configuración de vista a nivel de presentación. La propiedad [IViewProperties.GridSpacing](https://reference.aspose.com/slides/es/net/aspose.slides/iviewproperties/gridspacing/) lee o modifica el intervalo de la cuadrícula de edición subyacente. Esta configuración se aplica a toda la presentación, no a una diapositiva individual. El espaciado de la cuadrícula se especifica en puntos, donde 72 puntos equivalen a una pulgada. Utilice un valor positivo, según lo requiera la documentación de la API.
-
-El siguiente ejemplo abre un `demo.pptx` existente, muestra su espaciado de cuadrícula actual, establece un intervalo de un cuarto de pulgada y guarda el resultado.
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) establece la distancia entre las líneas de la cuadrícula de edición en toda la presentación. Acepta un valor positivo en puntos, con 72 puntos por pulgada. Este ejemplo muestra el espaciado actual en una presentación existente y guarda una cuadrícula de un cuarto de pulgada estableciendo el intervalo a 18 puntos.
 
 ```csharp
 using System;
@@ -110,24 +85,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-La cuadrícula es diferente de las [drawing guides](/slides/es/net/drawing-guides/). El espaciado de la cuadrícula controla un intervalo regular, mientras que las guías de dibujo son líneas de alineación horizontales o verticales posicionadas individualmente. Añadir, mover o eliminar guías de dibujo no cambia el espaciado de la cuadrícula.
+La cuadrícula se repite a intervalos fijos. [Guías de dibujo](/slides/es/net/drawing-guides/) marcan posiciones horizontales o verticales individuales. Ambas son ayudas de edición y aparecen solo en los editores que las muestran. Las presentaciones y las exportaciones a PDF, imágenes o SVG las omiten.
 
-Tanto la cuadrícula como las guías de dibujo son ayudas de edición. No se renderizan como contenido de diapositiva en PDF, imágenes, SVG o presentaciones. Almacenar el espaciado de la cuadrícula no garantiza que un editor lo muestre: su visibilidad también depende de las preferencias del visor o del editor.
+## **Mostrar u Ocultar Comentarios al Abrir una Presentación**
 
-## **Mostrar u ocultar comentarios al abrir una presentación**
-
-Utilice [Presentation.ViewProperties](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/viewproperties/) para acceder a la configuración de vista a nivel de presentación. Lea o modifique [IViewProperties.ShowComments](https://reference.aspose.com/slides/es/net/aspose.slides/iviewproperties/showcomments/) para almacenar una preferencia sobre si los comentarios deben mostrarse al abrir la presentación en PowerPoint u otro editor compatible.
-
-Esta configuración sólo controla la preferencia de vista almacenada. No añade, elimina, edita ni resuelve comentarios. Ocultar los comentarios preserva su contenido, autores, posiciones, respuestas y estados. Consulte [Presentation Comments](/slides/es/net/presentation-comments/) para conocer las operaciones que modifican los propios comentarios.
-
-El siguiente ejemplo necesita un `comments.pptx` existente que contenga comentarios. Muestra la configuración de visibilidad actual, solicita que los comentarios se oculten y guarda un nuevo PPTX sin eliminar ningún comentario. También establece [IViewProperties.LastView](https://reference.aspose.com/slides/es/net/aspose.slides/iviewproperties/lastview/) a [ViewType.SlideView](https://reference.aspose.com/slides/es/net/aspose.slides/viewtype/) para configurar la vista de edición inicial junto con la visibilidad de los comentarios.
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) almacena una preferencia que los editores compatibles usan al abrir la presentación. Para una presentación existente con comentarios, este ejemplo muestra la configuración actual y guarda una copia con los comentarios ocultos. También establece [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) a [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) para que la copia se abra en vista de diapositiva.
 
 ```csharp
 using System;
@@ -135,29 +105,35 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-Esta configuración no determina si los comentarios se incluyen en las exportaciones a PDF, HTML, imágenes, notas o folletos. Configure por separado las opciones específicas de exportación correspondientes.
+Ocultar los comentarios conserva su texto, autores, posiciones, respuestas y estados. Para modificar los propios comentarios, consulte [Comentarios de la presentación](/slides/es/net/presentation-comments/). La configuración de exportación controla si los comentarios aparecen en PDF, HTML, imágenes, notas o folletos.
 
 ## **Preguntas frecuentes**
 
-**¿Por qué la cuadrícula no es visible después de volver a abrir la presentación?**  
-El archivo almacena el espaciado de la cuadrícula, pero el editor controla si la cuadrícula se muestra. Verifique la configuración de visibilidad de la cuadrícula en el editor.
+**¿Por qué la cuadrícula está oculta cuando vuelvo a abrir la presentación?**
 
-**¿Eliminar las guías de dibujo cambia el espaciado de la cuadrícula?**  
-No. Las guías de dibujo y el espaciado de la cuadrícula son configuraciones independientes. Eliminar las guías deja sin cambios el intervalo de la cuadrícula almacenado.
+La presentación almacena el intervalo de la cuadrícula. Para ver la cuadrícula, habilite la visibilidad de la cuadrícula en el editor.
 
-**¿Puedo establecer diferentes configuraciones de vista para distintas secciones de una presentación?**  
-Las [View settings](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/viewproperties/) se definen a nivel de presentación ([Normal View](https://reference.aspose.com/slides/es/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/es/net/aspose.slides/viewproperties/slideviewproperties/)), no por sección, por lo que un único conjunto de parámetros se aplica a todo el documento cuando se abre.
+**¿Eliminar las guías de dibujo altera el espaciado de la cuadrícula?**
 
-**¿Puedo predefinir diferentes estados de vista para distintos usuarios?**  
-No. La configuración se almacena en el archivo y se comparte. Las aplicaciones de visualización pueden respetar las preferencias del usuario, pero el archivo en sí contiene un único conjunto de propiedades de vista.
+No. Añadir, mover o eliminar una guía deja el intervalo de la cuadrícula sin cambios.
 
-**¿Puedo crear una plantilla con propiedades de vista predefinidas para que las nuevas presentaciones se abran de la misma forma?**  
-Sí. Dado que las [view properties](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/viewproperties/) se almacenan a nivel de presentación, puede incorporarlas en una plantilla y crear nuevos documentos a partir de ella con la misma configuración de vista inicial.
+**¿Pueden diferentes secciones de una presentación tener distintas configuraciones de vista?**
+
+No. [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) se aplica a toda la presentación.
+
+**¿Puedo guardar distintas configuraciones de vista para diferentes usuarios?**
+
+El archivo almacena un único conjunto de propiedades de vista para todos. Un editor también puede aplicar las preferencias locales de un usuario.
+
+**¿Puedo guardar configuraciones de vista en una plantilla?**
+
+Sí. Las presentaciones creadas a partir de la plantilla heredan sus configuraciones de vista guardadas.

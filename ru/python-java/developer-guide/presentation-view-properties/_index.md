@@ -6,12 +6,12 @@ weight: 80
 url: /ru/python-java/presentation-view-properties/
 keywords:
 - свойства представления
-- обычный вид
-- контурное содержимое
-- контурные значки
-- привязка вертикального разделителя
-- одиночный вид
-- состояние полосы
+- обычный режим
+- содержание схемы
+- значки схемы
+- фиксация вертикального разделителя
+- один вид
+- состояние панели
 - размер измерения
 - автоматическая настройка
 - масштаб по умолчанию
@@ -21,39 +21,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Узнайте о свойствах представления Aspose.Slides для Python через Java, позволяющих настраивать слайды PPT, PPTX и ODP — изменять макеты, уровни масштабирования и настройки отображения."
+description: "Используйте Aspose.Slides for Python via Java для настройки макета обычного режима, масштабирования слайда и заметок, интервала сетки и отображения комментариев в презентациях PowerPoint."
 ---
 ## **Введение**
 
-Обычный вид состоит из трёх областей содержимого: самого слайда, боковой области содержимого и нижней области содержимого. Свойства обычного вида описывают расположение этих областей. Эта информация позволяет приложению сохранять состояние представления в файл, так что при повторном открытии вид будет находиться в том же состоянии, в котором презентация была сохранена в последний раз.
-
-Метод [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getNormalViewProperties) был добавлен для предоставления доступа к свойствам обычного вида презентации.
-
-Классы [NormalViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/) и [NormalViewRestoredProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewrestoredproperties/) и перечисление [SplitterBarStateType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/splitterbarstatetype/) были добавлены.
+В обычном режиме просмотра PowerPoint слайд отображается между боковой панелью с миниатюрами или схемой и панелью заметок внизу. Aspose.Slides for Python via Java предоставляет сохранённые настройки редактирования презентации через [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties). Эти настройки включают расположение панелей, уровни масштабирования, интервалы сетки и отображение комментариев.
 
 ## **О NormalViewProperties**
 
-Представляет свойства обычного вида.
+Используйте [getNormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNormalViewProperties) для доступа к классу [NormalViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/). Метод [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) управляет отображением значков рядом с заголовками слайдов в схеме. Метод [setSnapVerticalSplitter](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) позволяет боковой панели автоматически переходить в минимизированное состояние, когда пользователь сжимает её. Метод [setPreferSingleView](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) указывает предпочтение отображения одной панели во всем окне.
 
-Методы [getShowOutlineIcons](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) и [setShowOutlineIcons](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) указывают, следует ли приложению показывать значки при отображении контурного содержимого в любой из областей обычного режима просмотра.
-
-Методы [getSnapVerticalSplitter](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) и [setSnapVerticalSplitter](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) задают, должен ли вертикальный разделитель переходить в минимизированное состояние, когда боковая область достаточно мала.
-
-Методы [getPreferSingleView](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) и [setPreferSingleView](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) определяют, предпочитает ли пользователь видеть одну область содержимого во весь экран вместо стандартного обычного вида с тремя областями. При включении приложение может отобразить одну из областей содержимого на всём окне.
-
-Методы [getVerticalBarState](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) и [getHorizontalBarState](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) задают состояние, в котором должна отображаться горизонтальная или вертикальная полоса разделителя. Горизонтальная полоса разделяет слайд и область содержимого под слайдом; вертикальная полоса разделяет слайд и боковую область содержимого. Возможные значения: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ru/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ru/python-java/aspose.slides/splitterbarstatetype/#Maximized) и [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ru/python-java/aspose.slides/splitterbarstatetype/#Restored).
-
-Методы [getRestoredLeft](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) и [getRestoredTop](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getRestoredTop) определяют размеры верхней или боковой области слайда обычного вида, когда значение [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ru/python-java/aspose.slides/splitterbarstatetype/#Restored) применяется к [getVerticalBarState](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) и [getHorizontalBarState](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) соответственно.
+[setVerticalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setVerticalBarState) управляет разделителем между боковой панелью и слайдом. [setHorizontalBarState](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setHorizontalBarState) управляет разделителем над панелью заметок. Оба метода принимают значение [SplitterBarStateType](https://reference.aspose.com/slides/python-java/aspose.slides/splitterbarstatetype/) `Minimized`, `Maximized` или `Restored`.
 
 ## **О восстановлении NormalViewProperties**
 
-Определяет размеры области слайда (ширина, когда это дочерний элемент [getRestoredTop](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getRestoredTop), высота, когда это дочерний элемент [getRestoredLeft](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) обычного вида, когда область имеет переменный восстановленный размер (не минимизирована и не максимизирована).
+Когда разделитель восстанавливается, [getRestoredLeft](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) возвращает сохранённый размер боковой панели, а [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop) — сохранённый размер верхней части слайда. Оба метода возвращают экземпляр [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/). Его метод [setDimensionSize](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) принимает процент от 0 до 100, а [setAutoAdjust](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) управляет тем, будет ли редактор автоматически менять размер при изменении окна.
 
-Метод [getDimensionSize](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) задаёт размер области слайда (ширина, когда это дочерний элемент [getRestoredTop](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getRestoredTop), высота, когда это дочерний элемент [getRestoredLeft](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
-
-Метод [getAutoAdjust](https://reference.aspose.com/slides/ru/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) указывает, должна ли боковая область содержимого компенсировать новый размер при изменении размеров окна, содержащего представление в приложении.
-
-Ниже показан пример, как получить доступ к [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getNormalViewProperties) для презентации.
+В этом примере обновляется существующая презентация. Восстанавливается горизонтальный разделитель, размер, полученный от [getRestoredTop](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#getRestoredTop), устанавливается в 80 % с включённой автоматической корректировкой, а вертикальный разделитель разворачивается в максимальное состояние. Также вызывается [setShowOutlineIcons](https://reference.aspose.com/slides/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) для отображения значков в схеме.
 
 ```python
 import jpype
@@ -64,13 +48,12 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, SplitterBarStateType
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
     normal_view_properties = presentation.getViewProperties().getNormalViewProperties()
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # Восстановить свойства представления презентации.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -80,21 +63,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Установка значения масштабирования по умолчанию**
+## **Установить значение масштабирования по умолчанию**
 
-{{% alert color="info" title="Note" %}}
+[getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) и [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) сохраняют независимые параметры масштабирования для редактора. Эти настройки не влияют на размеры слайдов, воспроизведение слайд-шоу или разрешение при экспорте изображений.
 
-Aspose.Slides for Python via Java поддерживает установку значения масштабирования по умолчанию, которое применяется сразу при открытии презентации. Это можно сделать, задав [ViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/) презентации. Методы [getSlideViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getSlideViewProperties) и [getNotesViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getNotesViewProperties) могут быть сконфигурированы программно. В этой статье мы покажем пример того, как задать [View Properties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/) у [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) в Aspose.Slides.
-
-{{% /alert %}}
-
-Чтобы задать свойства представления, выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-1. Задайте [View Properties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/) у [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-1. Сохраните презентацию как файл [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-В приведённом ниже примере задаётся значение масштабирования как для просмотра слайдов, так и для просмотра заметок.
+В этом примере открывается существующая презентация и вызывается [setVariableScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setVariableScale) для подгонки слайда под окно редактирования. Для страницы заметок отключается автоматическое масштабирование и вызывается [setScale](https://reference.aspose.com/slides/python-java/aspose.slides/commonslideviewproperties/#setScale) для установки фиксированного масштаба 80 %.
 
 ```python
 import jpype
@@ -105,22 +78,22 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("demo.pptx")
 try:
-    # Установить свойства представления презентации.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Процент масштабирования для просмотра слайда.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Процент масштабирования для просмотра заметок.
+    view_properties = presentation.getViewProperties()
+    view_properties.getSlideViewProperties().setVariableScale(True)
+    notes_view = view_properties.getNotesViewProperties()
+    notes_view.setVariableScale(False)
+    notes_view.setScale(80)
 
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
+    presentation.save("zoom.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Установка интервала сетки**
+## **Установить интервал сетки**
 
-Используйте [Presentation.getViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getViewProperties) для доступа к настройкам представления, применимым ко всей презентации. Методы [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getGridSpacing) и [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#setGridSpacing) читают или изменяют интервал базовой сетки редактирования. Эта настройка применяется ко всей презентации, а не к отдельному слайду. Интервал сетки указывается в пунктах, где 72 пункта равны одному дюйму. Используйте положительное значение, как предписано в документации API.
-
-В следующем примере открывается существующий файл `demo.pptx`, выводится текущий интервал сетки, задаётся интервал в четверть дюйма и сохраняется результат.
+[setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) задаёт расстояние между линиями редактирующей сетки во всей презентации. Принимает положительное значение в пунктах, где 72 пункта = 1 дюйм. В этом примере выводится текущий интервал в существующей презентации и сохраняется сетка с шагом четверти дюйма, задав интервал 18 пунктов.
 
 ```python
 import jpype
@@ -137,22 +110,17 @@ try:
     print(f"Current grid spacing: {grid_spacing} points")
 
     presentation.getViewProperties().setGridSpacing(18.0)
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Сетка отличается от [drawing guides](/slides/ru/python-java/drawing-guides/). Интервал сетки задаёт регулярный шаг, тогда как направляющие — это отдельные горизонтальные или вертикальные линии выравнивания. Добавление, перемещение или удаление направляющих не меняет интервал сетки.
+Сетка повторяется с фиксированным интервалом. [Руководящие линии](/slides/ru/python-java/drawing-guides/) отмечают отдельные горизонтальные или вертикальные позиции. Оба являются вспомогательными средствами редактирования и отображаются только в редакторах, которые их показывают. Слайд-шоу и экспорты в PDF, изображения или SVG их не включают.
 
-И сетка, и направляющие являются вспомогательными средствами редактирования. Они не отображаются как содержимое слайда в PDF, изображениях, SVG или при показе слайдов. Сохранение интервала сетки не гарантирует, что редактор отобразит её: её видимость также зависит от настроек просмотрщика или редактора.
+## **Показать или скрыть комментарии при открытии презентации**
 
-## **Показ или скрытие комментариев при открытии презентации**
-
-Используйте [Presentation.getViewProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getViewProperties) для доступа к настройкам представления, применимым ко всей презентации. Методы [ViewProperties.getShowComments](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getShowComments) и [ViewProperties.setShowComments](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#setShowComments) позволяют считать или изменить сохранённую настройку отображения комментариев при открытии презентации в PowerPoint или другом совместимом редакторе.
-
-Эта настройка управляет только сохранённым предпочтением представления. Она не добавляет, не удаляет, не редактирует и не разрешает комментарии. Скрытие комментариев сохраняет их содержимое, авторов, позиции, ответы и статусы. См. раздел [Presentation Comments](/slides/ru/python-java/presentation-comments/) для операций, изменяющих сами комментарии.
-
-В следующем примере требуется существующий файл `comments.pptx` с комментариями. Пример выводит текущую настройку видимости, запрашивает скрытие комментариев и сохраняет новый PPTX без удаления каких‑либо комментариев. Он также использует [ViewProperties.setLastView](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#setLastView) с [ViewType.SlideView](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewtype/#SlideView) для конфигурирования начального режима редактирования вместе с видимостью комментариев.
+[setShowComments](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setShowComments) сохраняет предпочтение, которое совместимые редакторы используют при открытии презентации. Для существующей презентации с комментариями этот пример выводит текущую настройку и сохраняет копию с скрытыми комментариями. Также вызывается [setLastView](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setLastView) с параметром [ViewType.SlideView](https://reference.aspose.com/slides/python-java/aspose.slides/viewtype/#SlideView), чтобы копия открылась в режиме просмотра слайда.
 
 ```python
 import jpype
@@ -170,31 +138,27 @@ try:
 
     presentation.getViewProperties().setShowComments(NullableBool.False_)
     presentation.getViewProperties().setLastView(ViewType.SlideView)
+    
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Эта настройка не определяет, будут ли комментарии включены в экспорты PDF, HTML, изображений, заметок или раздаточных материалов. Настройте соответствующие параметры экспорта отдельно.
+Скрытие комментариев сохраняет их текст, авторов, позиции, ответы и статусы. Чтобы изменить сами комментарии, см. [Комментарии к презентации](/slides/ru/python-java/presentation-comments/). Параметры экспорта определяют, будут ли комментарии отображаться в PDF, HTML, изображениях, заметках или раздаточных материалах.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Почему сетка не видна после повторного открытия презентации?**
+**Почему сетка скрыта, когда я повторно открываю презентацию?**  
+Презентация сохраняет интервал сетки. Чтобы увидеть сетку, включите её отображение в редакторе.
 
-Файл сохраняет интервал сетки, но редактор контролирует её отображение. Проверьте настройки видимости сетки в редакторе.
+**Изменит ли удаление руководящих линий интервал сетки?**  
+Нет. Добавление, перемещение или удаление линии не меняет интервал сетки.
 
-**Изменит ли очистка направляющих интервал сетки?**
+**Могут ли разные разделы презентации иметь разные настройки просмотра?**  
+Нет. [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) применяется ко всей презентации.
 
-Нет. Направляющие и интервал сетки — независимые параметры. Очистка направляющих не меняет сохранённый интервал сетки.
+**Могу ли я сохранить разные настройки просмотра для разных пользователей?**  
+Файл хранит один набор свойств просмотра для всех. Редактор может также применять локальные предпочтения пользователя.
 
-**Можно ли задать разные настройки представления для разных секций презентации?**
-
-[View settings](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getViewProperties) определяются на уровне презентации ([Normal View](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/ru/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), а не для каждой секции, поэтому один набор параметров применяется ко всему документу при открытии.
-
-**Можно ли заранее определить разные состояния представления для разных пользователей?**
-
-Нет. Настройки хранятся в файле и являются общими. Приложения‑просмотрщики могут учитывать предпочтения пользователя, но сам файл содержит один набор свойств представления.
-
-**Можно ли подготовить шаблон с предустановленными свойствами представления, чтобы новые презентации открывались одинаково?**
-
-Да. Поскольку [view properties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getViewProperties) сохраняются на уровне презентации, их можно включить в шаблон и создавать новые документы на его основе с тем же начальным конфигурированием представления.
+**Могу ли я сохранить настройки просмотра в шаблоне?**  
+Да. Презентации, созданные из шаблона, наследуют его сохранённые настройки просмотра.

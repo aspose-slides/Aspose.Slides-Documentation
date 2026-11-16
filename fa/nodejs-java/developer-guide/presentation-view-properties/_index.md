@@ -1,181 +1,145 @@
 ---
-title: دریافت و به‌روزرسانی خصوصیات نمای ارائه در جاوااسکریپت
-linktitle: خصوصیات نمای
+title: بازیابی و به‌روزرسانی ویژگی‌های نمای ارائه در جاوااسکریپت
+linktitle: ویژگی‌های نمای
 type: docs
 weight: 80
 url: /fa/nodejs-java/presentation-view-properties/
 keywords:
-- خصوصیات نمای
+- ویژگی‌های نمای
 - نمای عادی
 - محتوای طرح کلی
 - آیکون‌های طرح کلی
-- قفل‌کردن تقسیم‌کننده عمودی
+- قابلق عمودی اسنپ
 - نمای تک
 - وضعیت نوار
-- اندازهٔ بعد
+- اندازه بُعد
 - تنظیم خودکار
-- بزرگ‌نمایی پیش‌فرض
+- زوم پیش‌فرض
 - PowerPoint
 - OpenDocument
 - ارائه
 - Node.js
-- جاوااسکریپت
+- JavaScript
 - Aspose.Slides
-description: "با Aspose.Slides برای Node.js از طریق ویژگی‌های نمای جاوا، فرمت‌های اسلاید PPT، PPTX و ODP را سفارشی کنید—چیدمان‌ها، سطوح بزرگ‌نمایی و تنظیمات نمایش را تنظیم نمایید."
+description: "از Aspose.Slides برای Node.js از طریق Java برای پیکربندی چیدمان نمای عادی، زوم اسلاید و یادداشت‌ها، فاصله‌گذاری شبکه و قابلیت مشاهده نظرات در ارائه‌های PowerPoint استفاده کنید."
 ---
-## **مقدمه**
+## **معرفی**
 
-نمای عادی شامل سه ناحیه محتوا است: اسلاید خود، یک ناحیه محتوا کناری، و یک ناحیه محتوا زیرین. خصوصیات مربوط به موقعیت‌یابی نواحی مختلف محتوا. این اطلاعات به برنامه امکان می‌دهد حالت نمای خود را در فایل ذخیره کند، به‌گونه‌ای که هنگام بازگشایی، نما در همان وضعیت باشد که آخرین بار ارائه ذخیره شده بود.
-
-متد [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) اضافه شده است تا دسترسی به خصوصیات نمای عادی ارائه را فراهم کند. 
-
-[NormalViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties)، [NormalViewRestoredProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewRestoredProperties) کلاس و نسل‌های آن، و enum [SplitterBarStateType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SplitterBarStateType) اضافه شده‌اند.
+در نمای عادی PowerPoint، اسلاید بین یک پانل جانبی برای تصویرهای کوچک یا نمای کلی و یک پانل یادداشت‌ها در زیر قرار می‌گیرد. Aspose.Slides برای Node.js از طریق Java تنظیمات ذخیره‌شده ویرایشی ارائه را از طریق [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) نمایش می‌دهد. این تنظیمات شامل چیدمان پانل، سطوح زوم، فاصله‌گذاری شبکه و نمایانی نظرات است.
 
 ## **درباره NormalViewProperties**
 
-نمایش‌دهندهٔ خصوصیات نمای عادی.
+از [getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties) برای دسترسی به کلاس [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/) استفاده کنید. [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) تعیین می‌کند که آیا نمادها در کنار عناوین اسلاید در نمای کلی نمایش داده شوند. [setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) به پانل جانبی اجازه می‌دهد هنگام باریک شدن توسط کاربر به حالت حداقل خود بچسبد. [setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) نشان‌دهنده ترجیح نمایش یک پانل در کل پنجره است.
 
-متدهای [getShowOutlineIcons](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) و [setShowOutlineIcons](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) مشخص می‌کنند که آیا برنامه باید در صورت نمایش محتوای طرح کلی در هر یک از نواحی محتوا در حالت نمای عادی، آیکون‌ها را نشان دهد یا نه.
+[setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) تقسیم‌کننده بین پانل جانبی و اسلاید را کنترل می‌کند. [setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) تقسیم‌کننده بالای پانل یادداشت‌ها را کنترل می‌کند. هر دو یک مقدار از نوع [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) که می‌تواند `Minimized`، `Maximized` یا `Restored` باشد، می‌پذیرند.
 
-متدهای [getSnapVerticalSplitter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) و [setSnapVerticalSplitter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) مشخص می‌کنند که آیا تقسیم‌کننده عمودی باید وقتی ناحیهٔ کناری به اندازه کافی کوچک باشد، به حالت کوچک‌شده قفل شود یا نه.
+## **درباره بازیابی NormalViewProperties**
 
-ویژگی‌های [getPreferSingleView](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) و [setPreferSingleView](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean--) مشخص می‌کنند که آیا کاربر ترجیح می‌دهد یک ناحیهٔ تک‌محتوا با تمام‑پنجره را به جای نمای عادی استاندارد با سه ناحیه محتوا ببیند. در صورت فعال بودن، برنامه ممکن است یکی از نواحی محتوا را در تمام پنجره نمایش دهد.
+هنگام بازیابی یک تقسیم‌کننده، [getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) اندازه ذخیره‌شده پانل جانبی را فراهم می‌کند و [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) اندازه ذخیره‌شده ناحیه بالایی اسلاید را فراهم می‌کند. هر دو [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/) را نمایش می‌دهند. متد [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) آن یک درصد بین 0 تا 100 می‌گیرد و [setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) تعیین می‌کند که آیا ویرایشگر هنگام تغییر اندازه پنجره، اندازه را تنظیم کند یا نه.
 
-متدهای [getVerticalBarState](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) وضعیت نوار تقسیم‌کنندهٔ افقی یا عمودی را که باید نمایش داده شود، مشخص می‌کنند. یک نوار تقسیم‌کنندهٔ افقی اسلاید را از ناحیهٔ محتوا زیر اسلاید جدا می‌کند، نوار تقسیم‌کنندهٔ عمودی اسلاید را از ناحیهٔ محتوای کناری جدا می‌کند. مقادیر ممکن عبارتند از: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SplitterBarStateType#Minimized)، [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) و [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
-
-متدهای [getRestoredLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) و [getRestoredTop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) ابعاد ناحیهٔ بالایی یا کناری اسلاید در نمای عادی را زمانی که مقدار [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SplitterBarStateType#Restored) برای [getVerticalBarState](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) اعمال شده باشد، مشخص می‌کنند.
-
-## **درباره بازگردانی NormalViewProperties** 
-
-ابعاد ناحیهٔ اسلاید (عرض زمانی که فرزند [getRestoredTop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) باشد، ارتفاع زمانی که فرزند [getRestoredLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) باشد) در نمای عادی را زمانی که ناحیه دارای اندازهٔ بازگردانده متغیری باشد (نه کوچک‌شده و نه بزرگ‌شده) مشخص می‌کند. 
-
-متد [getDimensionSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) اندازهٔ ناحیهٔ اسلاید را (عرض وقتی که فرزند restoredTop باشد، ارتفاع وقتی که فرزند restoredLeft باشد) مشخص می‌کند.
-
-متد [getAutoAdjust](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) مشخص می‌کند که آیا اندازهٔ ناحیهٔ محتوای کناری باید برای اندازهٔ جدید جبران شود هنگامی که پنجرهٔ حاوی نما در برنامه تغییر اندازه می‌دهد یا نه.
-
-مثالی که در زیر آورده شده است نشان می‌دهد چگونه می‌توانید به خصوصیات [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) برای یک ارائه دسترسی پیدا کنید.
+این مثال یک ارائه موجود را به‌روزرسانی می‌کند. تقسیم‌کننده افقی را بازمی‌گرداند، اندازه‌ای که توسط [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) برگردانده می‌شود را به 80% با فعال بودن تنظیم خودکار تنظیم می‌کند و تقسیم‌کننده عمودی را به حالت حداکثر می‌رساند. همچنین [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) را برای نمایش نمادها در نمای کلی فراخوانی می‌کند.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // بازگرداندن خصوصیات نمای ارائه
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **تنظیم مقدار بزرگ‌نمایی پیش‌فرض**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides برای Node.js از طریق Java اکنون از تنظیم مقدار پیش‌فرض بزرگ‌نمایی برای ارائه پشتیبانی می‌کند به‌طوری‌که هنگامی‌که ارائه باز می‌شود، بزرگ‌نمایی از پیش تنظیم شده باشد. این می‌تواند با تنظیم [ViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties) یک ارائه انجام شود. متدهای [getSlideViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) و [getNotesViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) می‌توانند به‌صورت برنامه‌نویسی تنظیم شوند. در این موضوع، با یک مثال می‌بینیم چگونه [View Properties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties) را برای [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation) در Aspose.Slides تنظیم کنیم.
-
-{{% /alert %}} 
-
-برای تنظیم خصوصیات نما، لطفاً مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation) ایجاد کنید.
-1. [View Properties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ViewProperties) را برای [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation) تنظیم کنید.
-1. ارائه را به‌عنوان فایل [PPTX](https://docs.fileformat.com/presentation/pptx/) ذخیره کنید. در مثال زیر، مقدار بزرگ‌نمایی برای نمای اسلاید و همچنین نمای یادداشت‌ها تنظیم شده است.
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var presentation = new aspose.slides.Presentation();
-try {
-    // تنظیم خصوصیات نمای ارائه
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // مقدار بزرگ‌نمایی به درصد برای نمای اسلاید
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // مقدار بزرگ‌نمایی به درصد برای نمای یادداشت‌ها
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+## **تنظیم مقدار زوم پیش‌فرض**
 
-## **تنظیم فاصله شبکه**
+[getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) و [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) تنظیمات زوم مستقل برای ویرایشگر را ذخیره می‌کنند. این تنظیمات بر ابعاد اسلاید، پخش اسلایدشو یا وضوح خروجی تصویر تأثیر نمی‌گذارند.
 
-از [Presentation.getViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getViewProperties--) برای دسترسی به تنظیمات نمای سراسری ارائه استفاده کنید. متدهای [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) و [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) فاصلهٔ شبکهٔ ویرایش زیرین را می‌خوانند یا تغییر می‌دهند. این تنظیم برای تمام ارائه اعمال می‌شود، نه برای یک اسلاید جداگانه. فاصلهٔ شبکه بر حسب نقاط مشخص می‌شود که ۷۲ نقطه معادل یک اینچ است. از مقدار مثبت استفاده کنید، همان‌طور که مستندات API خواسته است.
-
-مثال زیر یک فایل `demo.pptx` موجود را باز می‌کند، فاصلهٔ کنونی شبکه را چاپ می‌کند، یک فاصلهٔ یک‌چهارم اینچ تنظیم می‌کند و نتیجه را ذخیره می‌کند.
+این مثال یک ارائه موجود را باز می‌کند و [setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale) را فراخوانی می‌کند تا اسلاید را با پنجره ویرایش تناسب دهد. برای صفحه یادداشت‌ها، مقیاس خودکار را غیرفعال می‌کند و [setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale) را برای تنظیم زوم ثابت 80% فراخوانی می‌کند.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+## **تنظیم فاصله‌گذاری شبکه**
 
-شبکه با [drawing guides](/slides/fa/nodejs-java/drawing-guides/) متفاوت است. فاصلهٔ شبکه یک بازهٔ منظم را کنترل می‌کند، در حالی که راهنمایی‌های رسم خطوطی افقی یا عمودی هستند که به صورت جداگانه موقعیت‌یابی می‌شوند. افزودن، جابه‌جایی یا حذف راهنمایی‌های رسم، فاصلهٔ شبکه را تغییر نمی‌دهد.
-
-هر دو، شبکه و راهنمایی‌های رسم، کمک‌های ویرایشی هستند. آن‌ها به‌عنوان محتوای اسلاید در PDF، تصاویر، SVG یا نمایش اسلاید رندر نمی‌شوند. ذخیره‌کردن فاصلهٔ شبکه تضمین نمی‌کند که ویرایشگر شبکه را نشان دهد: قابلیت دیده شدن آن نیز به تنظیمات نمایشگر یا ویرایشگر بستگی دارد.
-
-## **نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه**
-
-از [Presentation.getViewProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getViewProperties--) برای دسترسی به تنظیمات نمای سراسری ارائه استفاده کنید. از [ViewProperties.getShowComments](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/#getShowComments--) و [ViewProperties.setShowComments](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte-) برای خواندن یا تغییر ترجیح ذخیره‌شدهٔ اینکه آیا نظرات هنگام باز شدن ارائه در PowerPoint یا ویرایشگر سازگار دیگر نمایش داده شوند یا نه، استفاده کنید.
-
-این تنظیم فقط ترجیح ذخیره‌شدهٔ نمای را کنترل می‌کند. این کار نظرات را اضافه، حذف، ویرایش یا رفع نمی‌کند. مخفی‌سازی نظرات محتوای آن‌ها، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌ها را حفظ می‌کند. برای عملیات‌هایی که خود نظرات را تغییر می‌دهند، به [Presentation Comments](/slides/fa/nodejs-java/presentation-comments/) مراجعه کنید.
-
-مثال زیر به یک فایل `comments.pptx` موجود که حاوی نظرات است، نیاز دارد. این برنامه تنظیمات فعلی قابلیت دیده شدن را چاپ می‌کند، درخواست مخفی‌سازی نظرات می‌کند و یک PPTX جدید را بدون حذف نظرات ذخیره می‌کند. همچنین از [ViewProperties.setLastView](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) همراه با [ViewType.SlideView](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewtype/#SlideView) برای پیکربندی نمای ویرایشی اولیه به‌همراه قابلیت دیده شدن نظرات استفاده می‌کند.
+[setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) فاصله بین خطوط شبکه ویرایشی در سراسر ارائه را تنظیم می‌کند. این مقدار یک عدد مثبت به واحد نقطه است، با 72 نقطه در هر اینچ. این مثال فاصله جاری را در یک ارائه موجود چاپ می‌کند و با تنظیم فاصله به 18 نقطه، شبکه‌ای به‌مدت یک‌چهارم اینچ ذخیره می‌کند.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+شبکه با یک فاصله ثابت تکرار می‌شود. [Drawing guides](/slides/fa/nodejs-java/drawing-guides/) موقعیت‌های افقی یا عمودی جداگانه را علامت‌گذاری می‌کنند. هر دو ابزارهای کمکی ویرایشی هستند و فقط در ویرایشگرهایی که آنها را نمایش می‌دهند ظاهر می‌شوند. اسلایدشوها و خروجی‌های PDF، تصویر یا SVG آنها را حذف می‌کنند.
+
+## **نمایش یا مخفی‌کردن نظرات هنگام باز کردن یک ارائه**
+
+[setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) یک ترجیح را ذخیره می‌کند که ویرایشگرهای سازگار هنگام باز کردن ارائه از آن استفاده می‌کنند. برای یک ارائه موجود با نظرات، این مثال تنظیم فعلی را چاپ می‌کند و یک کپی با نظرات مخفی ذخیره می‌کند. همچنین [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) را با [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) فراخوانی می‌کند تا کپی در نمای اسلاید باز شود.
+
+```javascript
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
+مخفی‌کردن نظرات متن، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌های آنها را حفظ می‌کند. برای تغییر خود نظرات، به [Presentation Comments](/slides/fa/nodejs-java/presentation-comments/) مراجعه کنید. تنظیمات خروجی تعیین می‌کنند که آیا نظرات در PDF، HTML، تصاویر، یادداشت‌ها یا جزوه‌ها ظاهر شوند یا نه.
 
-این تنظیم تعیین نمی‌کند که آیا نظرات در خروجی‌های PDF، HTML، تصویر، یادداشت‌ها یا جزوه‌ها گنجانده شوند یا نه. گزینه‌های خاص هر نوع خروجی را به‌صورت جداگانه تنظیم کنید.
+## **سؤال‌های متداول**
 
-## **سوالات متداول**
+**چرا شبکه هنگام باز کردن دوباره ارائه مخفی می‌شود؟**
 
-**چرا پس از باز کردن مجدد ارائه، شبکه قابل مشاهده نیست؟**
+ارائه فاصله‌گذاری شبکه را ذخیره می‌کند. برای دیدن شبکه، قابلیت مشاهده شبکه را در ویرایشگر فعال کنید.
 
-فایل فاصلهٔ شبکه را ذخیره می‌کند، اما ویرایشگر کنترل می‌کند که آیا شبکه نمایش داده شود یا نه. تنظیمات قابلیت مشاهدهٔ شبکه در ویرایشگر را بررسی کنید.
+**آیا پاک‌ کردن راهنمای‌های رسم بر فاصله‌گذاری شبکه تأثیر می‌گذارد؟**
 
-**آیا حذف راهنمایی‌های رسم فاصلهٔ شبکه را تغییر می‌دهد؟**
+خیر. افزودن، جابجا کردن یا پاک‌ کردن یک راهنما فاصله‌گذاری شبکه را تغییر نمی‌دهد.
 
-خیر. راهنمایی‌های رسم و فاصلهٔ شبکه تنظیمات مستقلی هستند. حذف راهنمایی‌ها بازهٔ ذخیره‌شدهٔ شبکه را دست نخورده می‌گذارد.
+**آیا بخش‌های مختلف یک ارائه می‌توانند تنظیمات نمای متفاوتی داشته باشند؟**
 
-**آیا می‌توانم تنظیمات نمای متفاوتی برای بخش‌های مختلف یک ارائه تنظیم کنم؟**
+خیر. [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) برای کل ارائه اعمال می‌شود.
 
-تنظیمات [View settings](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getviewproperties/) در سطح ارائه تعریف می‌شوند ([Normal View](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/))، نه به‌ازای هر بخش؛ بنابراین یک مجموعهٔ پارامتر واحد برای تمام سند هنگام باز شدن اعمال می‌شود.
+**آیا می‌توانم تنظیمات نمای متفاوتی را برای کاربران مختلف ذخیره کنم؟**
 
-**آیا می‌توانم حالت‌های نمای متفاوتی برای کاربران مختلف از پیش تعریف کنم؟**
+فایل یک مجموعه تنظیمات نما را برای همه ذخیره می‌کند. یک ویرایشگر ممکن است ترجیحات محلی کاربر را نیز اعمال کند.
 
-خیر. تنظیمات در فایل ذخیره می‌شوند و به‌اشتراک گذاشته می‌شوند. برنامه‌های مشاهده‌کننده ممکن است ترجیح‌های کاربر را رعایت کنند، اما خود فایل تنها یک مجموعهٔ خصوصیات نمای را دارد.
+**آیا می‌توانم تنظیمات نما را در یک الگو ذخیره کنم؟**
 
-**آیا می‌توانم یک الگو با View Properties از پیش تعریف‌شده آماده کنم تا ارائه‌های جدید به همان شکل باز شوند؟**
-
-بله. زیرا [view properties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getviewproperties/) در سطح ارائه ذخیره می‌شوند، می‌توانید آن‌ها را در یک قالب گنجانده و اسناد جدید را از آن با همان پیکربندی نمای اولیه ایجاد کنید.
+بله. ارائه‌های ایجاد‌شده از این الگو، تنظیمات ذخیره‌شدهٔ آن را به ارث می‌برند.

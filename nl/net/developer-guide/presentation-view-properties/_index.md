@@ -1,19 +1,19 @@
 ---
-title: Ophalen en bijwerken van presentatieweergave-eigenschappen in .NET
-linktitle: Weergave-eigenschappen
+title: Ophalen en bijwerken van presentatieweergave‑eigenschappen in .NET
+linktitle: Weergave‑eigenschappen
 type: docs
 weight: 80
 url: /nl/net/presentation-view-properties/
 keywords:
-- weergave-eigenschappen
+- weergave‑eigenschappen
 - normale weergave
-- outline-inhoud
-- outline-icoontjes
-- snap verticale splitter
+- inhoud van overzicht
+- overzichts‑iconen
+- snap‑verticale‑splits
 - enkele weergave
 - balkstatus
-- dimensie-grootte
-- automatisch aanpassen
+- dimensiegrootte
+- automatische aanpassing
 - standaardzoom
 - PowerPoint
 - OpenDocument
@@ -21,89 +21,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek de weergave-eigenschappen van Aspose.Slides for .NET om PPT, PPTX en ODP-dia's aan te passen—lay-outs, zoomniveaus en weergave-instellingen wijzigen."
+description: "Gebruik Aspose.Slides voor .NET om de indeling van de normale weergave, de zoom van dia’s en notities, de rasterafstand en de zichtbaarheid van commentaren in PowerPoint‑presentaties te configureren."
 ---
 ## **Inleiding**
 
-De normale weergave bestaat uit drie inhoudsgebieden: de dia zelf, een zijinhoudsgebied en een onderinhoudsgebied. Eigenschappen met betrekking tot de positionering van de verschillende inhoudsgebieden. Deze informatie stelt de applicatie in staat om de weergavestatus op te slaan in het bestand, zodat bij het opnieuw openen de weergave zich in dezelfde staat bevindt als toen de presentatie voor het laatst werd opgeslagen.
-
-De eigenschap [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/iviewproperties/properties/normalviewproperties) is toegevoegd om toegang te geven tot de normale weergave‑eigenschappen van een presentatie.
-
-[INormalViewProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/inormalviewrestoredproperties), interfaces en hun afstammelingen, [SplitterBarStateType](https://reference.aspose.com/slides/nl/net/aspose.slides/splitterbarstatetype) enum zijn toegevoegd.
+In de normale weergave van PowerPoint verschijnt de dia tussen een zijpaneel voor miniaturen of een overzicht en een notitiepaneel eronder. Aspose.Slides for .NET maakt de opgeslagen bewerkingsvoorkeuren van de presentatie beschikbaar via [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/). Deze omvatten de paneelindeling, zoomniveaus, rasterafstand en zichtbaarheid van commentaren.
 
 ## **Over INormalViewProperties**
 
-Stelt de normale weergave‑eigenschappen voor.
+Gebruik [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) om toegang te krijgen tot de [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/) interface. [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) bepaalt of pictogrammen naast de dia‑titels in het overzicht verschijnen. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) laat het zijpaneel naar de geminimaliseerde toestand springen wanneer de gebruiker het vernauwt. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) geeft een voorkeur aan voor het weergeven van één paneel in het volledige venster.
 
-De eigenschap **ShowOutlineIcons** geeft aan of de applicatie pictogrammen moet weergeven bij het tonen van outline‑inhoud in een van de inhoudsgebieden in de normale weergavemodus.
-
-De eigenschap **SnapVerticalSplitter** bepaalt of de verticale splitter moet “snapen” naar een geminimaliseerde toestand wanneer het zijgebied voldoende klein is.
-
-De eigenschap **PreferSingleView** geeft aan of de gebruiker de voorkeur geeft aan een enkel‑venster weergave met één inhoudsgebied in plaats van de standaard normale weergave met drie inhoudsgebieden. Indien ingeschakeld, kan de applicatie ervoor kiezen om één van de inhoudsgebieden in het volledige venster weer te geven.
-
-De eigenschappen **VerticalBarState** en **HorizontalBarState** geven de toestand aan waarin de horizontale of verticale scheidingsbalk moet worden getoond. Een horizontale scheidingsbalk scheidt de dia van het inhoudsgebied onder de dia, een verticale scheidingsbalk scheidt de dia van het zij‑inhoudsgebied. Mogelijke waarden zijn: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** en **SplitterBarStateType.Restored**.
-
-De eigenschappen **RestoredLeft** en **RestoredTop** geven de afmetingen aan van respectievelijk het boven‑ of zij‑dia‑gebied in de normale weergave, wanneer de waarde **SplitterBarStateType.Restored** wordt toegepast op **VerticalBarState** en **HorizontalBarState**.
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) regelt de scheidingsbalk tussen het zijpaneel en de dia. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) regelt de scheidingsbalk boven het notitiepaneel. Beide accepteren een [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) waarde van `Minimized`, `Maximized` of `Restored`.
 
 ## **Over het herstellen van INormalViewProperties**
 
-Bepaalt de afmetingen van het dia‑gebied (breedte wanneer een kind van RestoredTop, hoogte wanneer een kind van RestoredLeft) in de normale weergave, wanneer het gebied een variabele herstelde grootte heeft (niet geminimaliseerd of gemaximaliseerd).
+Wanneer een scheidingsbalk wordt hersteld, levert [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) de opgeslagen grootte van het zijpaneel en [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) de opgeslagen grootte van het bovenste dia‑gebied. Beide exposeren [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/). De eigenschap [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) accepteert een percentage van 0 tot 100, en [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) bepaalt of de editor de grootte aanpast wanneer het venster wordt gewijzigd.
 
-De eigenschap **DimensionSize** geeft de grootte van het dia‑gebied aan (breedte wanneer een kind van RestoredTop, hoogte wanneer een kind van RestoredLeft).
+Dit voorbeeld werkt een bestaande presentatie bij. Het herstelt de horizontale scheidingsbalk, stelt [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) in op 80% met automatische aanpassing ingeschakeld, en maximaliseert de verticale scheidingsbalk. Het schakelt ook [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) in voor de overzichtsweergave.
 
-De eigenschap **AutoAdjust** bepaalt of de grootte van het zij‑inhoudsgebied moet worden aangepast aan de nieuwe grootte bij het wijzigen van de grootte van het venster dat de weergave binnen de applicatie bevat.
-
-Een voorbeeld hieronder toont hoe u toegang kunt krijgen tot de **ViewProperties.NormalViewProperties**‑eigenschappen voor een presentatie.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // Herstel de weergave‑eigenschappen van de presentatie
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
-## **Stel de standaardzoomwaarde in**
+## **Stel de standaard zoomwaarde in**
 
-Aspose.Slides for .NET ondersteunt nu het instellen van de standaardzoomwaarde voor een presentatie, zodat bij het openen van de presentatie de zoom reeds is ingesteld. Dit kan worden gedaan door de [ViewProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/viewproperties) van een presentatie in te stellen. Slide View Properties evenals [NotesViewProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/viewproperties/properties/notesviewproperties) kunnen programmatisch worden ingesteld. In dit onderwerp laten we aan de hand van een voorbeeld zien hoe u de weergave‑eigenschappen van een presentatie in Aspose.Slides kunt instellen.
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) en [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) slaan onafhankelijke zoominstellingen op voor de editor. Deze instellingen hebben geen invloed op de dia‑afmetingen, de weergave van de diavoorstelling, of de resolutie bij exporteren van afbeeldingen.
 
-Om de weergave‑eigenschappen in te stellen, volgt u de onderstaande stappen:
+Dit voorbeeld opent een bestaande presentatie en schakelt [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/) in om de dia aan te passen aan het bewerkingsvenster. Voor de notitiepagina schakelt het automatische schalen uit en stelt [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) in op een vaste zoom van 80%.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) aan
-1. Stel de weergave‑[Properties](https://reference.aspose.com/slides/nl/net/aspose.slides/viewproperties) van de presentatie in
-1. Schrijf de presentatie weg als een PPTX‑bestand
-
-In het onderstaande voorbeeld hebben we de zoomwaarde ingesteld voor zowel de dia‑weergave als de notitie‑weergave.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Instellen van de weergave‑eigenschappen van de presentatie
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Zoomwaarde in procenten voor diaview
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Zoomwaarde in procenten voor notitie‑view 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
 ## **Stel de rasterafstand in**
 
-Gebruik [Presentation.ViewProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/viewproperties/) om de weergave‑instellingen op presentatieniveau te benaderen. De eigenschap [IViewProperties.GridSpacing](https://reference.aspose.com/slides/nl/net/aspose.slides/iviewproperties/gridspacing/) leest of wijzigt het interval van het onderliggende bewerkingsraster. Deze instelling is van toepassing op de volledige presentatie, niet op een individuele dia. Rasterafstand wordt gespecificeerd in points, waarbij 72 points gelijk zijn aan één inch. Gebruik een positieve waarde, zoals vereist door de API‑documentatie.
-
-Het volgende voorbeeld opent een bestaande `demo.pptx`, geeft de huidige rasterafstand weer, stelt een kwart‑inch interval in en slaat het resultaat op.
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) stelt de afstand tussen bewerkingsrasterlijnen in de hele presentatie in. Het neemt een positieve waarde in punten, met 72 punten per inch. Dit voorbeeld toont de huidige afstand in een bestaande presentatie en slaat een kwart‑inch raster op door het interval op 18 punten in te stellen.
 
 ```csharp
 using System;
@@ -111,24 +85,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-Het raster verschilt van [drawing guides](/slides/nl/net/drawing-guides/). Rasterafstand beheerst een regelmatig interval, terwijl tekenrichtlijnen individuele horizontale of verticale uitlijningslijnen zijn. Het toevoegen, verplaatsen of verwijderen van tekenrichtlijnen verandert de rasterafstand niet.
+Het raster herhaalt zich met een vast interval. [Tekenhulpmiddelen](/slides/nl/net/drawing-guides/) markeren individuele horizontale of verticale posities. Beide zijn hulpmiddelen bij het bewerken en verschijnen alleen in editors die ze weergeven. Diavoorstellingen en exporten naar PDF, afbeeldingen of SVG laten ze weg.
 
-Zowel het raster als tekenrichtlijnen zijn hulpmiddelen bij het bewerken. Ze worden niet gerenderd als dia‑inhoud in PDF, afbeeldingen, SVG of een diavoorstelling. Het opslaan van de rasterafstand garandeert niet dat een editor het raster weergeeft: de zichtbaarheid hangt ook af van de voorkeuren van de viewer of editor.
+## **Toon of verberg commentaren bij het openen van een presentatie**
 
-## **Toon of verberg opmerkingen bij het openen van een presentatie**
-
-Gebruik [Presentation.ViewProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/viewproperties/) om de weergave‑instellingen op presentatieniveau te benaderen. Lees of wijzig [IViewProperties.ShowComments](https://reference.aspose.com/slides/nl/net/aspose.slides/iviewproperties/showcomments/) om een voorkeur op te slaan voor het al dan niet tonen van opmerkingen wanneer de presentatie wordt geopend in PowerPoint of een andere compatibele editor.
-
-Deze instelling regelt uitsluitend de opgeslagen weergave‑voorkeur. Het voegt geen opmerkingen toe, verwijdert ze, bewerkt of lost ze op. Het verbergen van opmerkingen behoudt hun inhoud, auteurs, posities, antwoorden en statussen. Zie [Presentation Comments](/slides/nl/net/presentation-comments/) voor bewerkingen die de opmerkingen zelf wijzigen.
-
-Het volgende voorbeeld vereist een bestaande `comments.pptx` met opmerkingen. Het geeft de huidige zichtbaarheid weer, vraagt om de opmerkingen te verbergen en slaat een nieuw PPTX op zonder opmerkingen te verwijderen. Het stelt tevens [IViewProperties.LastView](https://reference.aspose.com/slides/nl/net/aspose.slides/iviewproperties/lastview/) in op [ViewType.SlideView](https://reference.aspose.com/slides/nl/net/aspose.slides/viewtype/) om de initiële bewerkingsweergave samen met de opmerkingzichtbaarheid te configureren.
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) slaat een voorkeur op die compatibele editors gebruiken bij het openen van de presentatie. Voor een bestaande presentatie met commentaren toont dit voorbeeld de huidige instelling en slaat een kopie op met verstopte commentaren. Het stelt ook [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) in op [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) zodat de kopie opent in de diaweergave.
 
 ```csharp
 using System;
@@ -136,34 +105,35 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-Deze instelling bepaalt niet of opmerkingen worden meegenomen in PDF-, HTML-, afbeelding-, notitie- of handout‑exporten. Configureer de relevante export‑specifieke opties afzonderlijk.
+Het verbergen van commentaren behoudt hun tekst, auteurs, posities, reacties en statussen. Om de commentaren zelf te wijzigen, zie [Presentatiecommentaren](/slides/nl/net/presentation-comments/). Exportinstellingen bepalen of commentaren verschijnen in PDF, HTML, afbeeldingen, notities of hand‑outs.
 
 ## **Veelgestelde vragen**
 
-**Waarom is het raster niet zichtbaar nadat ik de presentatie opnieuw open?**
+**Waarom is het raster verborgen wanneer ik de presentatie opnieuw open?**
 
-Het bestand slaat de rasterafstand op, maar de editor bepaalt of het raster wordt weergegeven. Controleer de raster‑zichtbaarheidsinstellingen van de editor.
+De presentatie slaat het rasterinterval op. Om het raster te zien, schakel de rasterzichtbaarheid in de editor in.
 
-**Verandert het verwijderen van tekenrichtlijnen de rasterafstand?**
+**Verandert het verwijderen van tekenhulpmiddelen de rasterafstand?**
 
-Nee. Tekenrichtlijnen en rasterafstand zijn onafhankelijke instellingen. Het verwijderen van richtlijnen laat het opgeslagen rasterinterval ongewijzigd.
+Nee. Het toevoegen, verplaatsen of verwijderen van een hulplijn verandert het rasterinterval niet.
 
-**Kan ik verschillende weergave‑instellingen instellen voor verschillende secties van een presentatie?**
+**Kunnen verschillende secties van een presentatie verschillende weergave‑instellingen hebben?**
 
-[View settings](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/viewproperties/) worden gedefinieerd op presentatieniveau ([Normal View](https://reference.aspose.com/slides/nl/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/nl/net/aspose.slides/viewproperties/slideviewproperties/)), niet per sectie, zodat één set parameters van toepassing is op het hele document bij openen.
+Nee. [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) geldt voor de hele presentatie.
 
-**Kan ik vooraf verschillende weergave‑staten definiëren voor verschillende gebruikers?**
+**Kan ik verschillende weergave‑instellingen opslaan voor verschillende gebruikers?**
 
-Nee. De instellingen worden in het bestand opgeslagen en gedeeld. Viewer‑applicaties kunnen rekening houden met gebruikersvoorkeuren, maar het bestand zelf bevat één set weergave‑eigenschappen.
+Het bestand slaat één set weergave‑eigenschappen op voor iedereen. Een editor kan ook de lokale voorkeuren van een gebruiker toepassen.
 
-**Kan ik een sjabloon voorbereiden met vooraf gedefinieerde View Properties zodat nieuwe presentaties op dezelfde manier openen?**
+**Kan ik weergave‑instellingen opslaan in een sjabloon?**
 
-Ja. Omdat [view properties](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/viewproperties/) worden opgeslagen op presentatieniveau, kunt u ze in een sjabloon opnemen en nieuwe documenten ervan maken met dezelfde initiële weergaveconfiguratie.
+Ja. Presentaties die uit het sjabloon worden gemaakt, erven de daarin opgeslagen weergave‑instellingen.

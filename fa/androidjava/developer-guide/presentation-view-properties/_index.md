@@ -7,12 +7,12 @@ url: /fa/androidjava/presentation-view-properties/
 keywords:
 - ویژگی‌های نمای
 - نمای عادی
-- محتوای رئوس کلی
-- آیکون‌های رئوس کلی
-- قابلیت چسباندن جداساز عمودی
+- محتوای طرح کلی
+- نمادهای طرح کلی
+- قفل‌کننده عمودی کشویی
 - نمای تک
 - وضعیت نوار
-- اندازهٔ بُعد
+- اندازه‌ی ابعاد
 - تنظیم خودکار
 - بزرگنمایی پیش‌فرض
 - PowerPoint
@@ -21,162 +21,127 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "ویژگی‌های نمای Aspose.Slides برای اندروید از طریق جاوا را کشف کنید تا قالب‌های PPT، PPTX و ODP را سفارشی‌سازی کنید—چیدمان‌ها، سطوح بزرگنمایی و تنظیمات نمایش را تنظیم نمایید."
+description: "از Aspose.Slides برای اندروید از طریق جاوا برای پیکربندی طرح‌بندی نمای عادی، بزرگنمایی اسلاید و یادداشت‌ها، فاصله‌بندی شبکه و قابلیت مشاهده نظرات در ارائه‌های PowerPoint استفاده کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-نمای عادی شامل سه ناحیه محتوا است: خود اسلاید، یک ناحیه محتوای کناری، و یک ناحیه محتوای پایین. ویژگی‌هایی مربوط به موقعیت‌یابی نواحی محتوا مختلف. این اطلاعات به برنامه اجازه می‌دهد وضعیت نمای خود را در فایل ذخیره کند، به طوری که هنگام بازگشایی، نمای آن در همان وضعیت باشد که آخرین بار ارائه ذخیره شده بود.
-
-متد [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) اضافه شده است تا دسترسی به ویژگی‌های نمای عادی ارائه را فراهم کند.
-
-[INormalViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewRestoredProperties) رابط‌ها و فرزندان آن، [SplitterBarStateType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SplitterBarStateType) enum اضافه شده‌اند.
+در نمای عادی پاورپوینت، اسلاید بین پانل کناری برای تصاویر کوچک یا طرح کلی و پانل یادداشت‌های زیرین نمایش داده می‌شود. Aspose.Slides برای Android از طریق Java ترجیحات ذخیره شده ویرایش ارائه را از طریق [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) در دسترس قرار می‌دهد. این موارد شامل طرح‌بندی پانل، سطوح زوم، فاصله‌بندی شبکه و قابل مشاهده بودن نظرات است.
 
 ## **درباره INormalViewProperties**
 
-نمایانگر ویژگی‌های نمای عادی است.
+از [getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNormalViewProperties--) برای دسترسی به رابط [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/) استفاده کنید. [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) کنترل می‌کند که آیا نمادها در کنار عناوین اسلاید در طرح کلی ظاهر می‌شوند یا نه. [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) اجازه می‌دهد پانل کناری هنگام باریک شدن توسط کاربر به حالت حداقل خود محو شود. [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) نشان‌دهنده ترجیح برای نمایش یک پانل در تمام پنجره است.
 
-متدهای [getShowOutlineIcons](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) و [setShowOutlineIcons](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) مشخص می‌کنند که آیا برنامه باید در صورتی که محتوای رئوس کلی را در هر یک از نواحی محتوا در حالت نمای عادی نمایش می‌دهد، آیکون‌ها را نشان دهد یا خیر.
+[setVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) تقسیم‌کننده بین پانل کناری و اسلاید را کنترل می‌کند. [setHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) تقسیم‌کننده بالای پانل یادداشت‌ها را کنترل می‌کند. هر دو مقدار از نوع [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/splitterbarstatetype/) که می‌تواند `Minimized`، `Maximized` یا `Restored` باشد را می‌پذیرند.
 
-متدهای [getSnapVerticalSplitter](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) و [setSnapVerticalSplitter](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) مشخص می‌کنند که آیا جداساز عمودی باید هنگام کافی کوچک بودن ناحیه کناری به حالت کمینه برسد یا خیر.
+## **درباره بازیابی INormalViewProperties**
 
-ویژگی‌های [getPreferSingleView](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) و [setPreferSingleView](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean--) مشخص می‌کنند که آیا کاربر ترجیح می‌دهد یک ناحیه محتوای تک‑پنجره‌ای تمام‑صفحه را به جای نمای عادی استاندارد با سه ناحیه محتوا ببیند. اگر فعال باشد، برنامه ممکن است یکی از نواحی محتوا را در تمام پنجره نمایش دهد.
+هنگامی که یک تقسیم‌کننده بازسازی می‌شود، [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) اندازه ذخیره‌شده پانل کناری و [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) اندازه ذخیره‌شده ناحیه بالایی اسلاید را فراهم می‌کند. هر دو [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/) را در دسترس می‌گذارند. متد [setDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) درصدی بین 0 تا 100 می‌پذیرد و [setAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) تعیین می‌کند که آیا ویرایشگر هنگام تغییر اندازه پنجره اندازه را تنظیم می‌کند یا نه.
 
-متدهای [getVerticalBarState](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) حالت‌نمایی نوار جداساز افقی یا عمودی را که باید نمایش داده شود، مشخص می‌کنند. یک نوار جداساز افقی اسلاید را از ناحیه محتوا زیر اسلاید جدا می‌کند، نوار جداساز عمودی اسلاید را از ناحیه محتوای کناری جدا می‌کند. مقادیر ممکن عبارتند از: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) و [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
-
-متدهای [getRestoredLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) و [getRestoredTop](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) اندازه‌گیری ناحیه اسلاید بالایی یا کناری در نمای عادی را زمانی که مقدار [SplitterBarStateType.Restored](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SplitterBarStateType#Restored) برای [getVerticalBarState](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) اعمال شده است، مشخص می‌کنند.
-
-## **درباره بازگردانی INormalViewProperties**
-
-اندازه‌گیری ناحیه اسلاید (عرض وقتی فرزند [getRestoredTop](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) است، ارتفاع وقتی فرزند [getRestoredLeft](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) است) در نمای عادی را زمانی که ناحیه دارای اندازه بازگردانده‌متغیر است (نه کمینه و نه بیشینه) مشخص می‌کند.
-
-متد [getDimensionSize](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) اندازه ناحیه اسلاید را (عرض وقتی فرزند restoredTop است، ارتفاع وقتی فرزند restoredLeft است) مشخص می‌کند.
-
-متد [getAutoAdjust](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) تعیین می‌کند که آیا اندازه ناحیه محتوای کناری باید برای اندازه جدید ج compensation هنگام تغییر اندازه پنجره حاوی نمای داخل برنامه جبران کند یا نه.
-
-یک مثال در ادامه نشان می‌دهد که چگونه می‌توانید به ویژگی‌های [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) برای یک ارائه دسترسی پیدا کنید.
+این مثال یک ارائه موجود را به‌روز می‌کند. تقسیم‌کننده افقی را بازسازی می‌کند، اندازه‌ای که توسط [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) برگردانده شده را به 80% با فعال بودن تنظیم خودکار تنظیم می‌کند و تقسیم‌کننده عمودی را به حداکثر می‌رساند. همچنین [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) را برای نمایش نمادها در نمای طرح کلی فراخوانی می‌کند.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // بازگرداندن ویژگی‌های نمای ارائه
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **تنظیم مقدار بزرگنمایی پیش‌فرض**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides برای Android از طریق Java اکنون از تنظیم مقدار بزرگنمایی پیش‌فرض برای ارائه پشتیبانی می‌کند به‌گونه‌ای که هنگام باز شدن ارائه، بزرگنمایی از پیش تنظیم شده باشد. این کار می‌تواند با تنظیم [ViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ViewProperties) یک ارائه انجام شود. متدهای [getSlideViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) و همچنین [getNotesViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) می‌توانند برنامه‌نویسی شوند. در این موضوع، با یک مثال می‌بینیم چگونه [View Properties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ViewProperties) مربوط به [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) را در Aspose.Slides تنظیم کنیم.
-
-{{% /alert %}} 
-
-برای تنظیم ویژگی‌های نمای، لطفاً مراحل زیر را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) ایجاد کنید.
-1. ویژگی‌های [View Properties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ViewProperties) را برای [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) تنظیم کنید.
-1. ارائه را به صورت فایل [PPTX](https://docs.fileformat.com/presentation/pptx/) ذخیره کنید.
-   در مثال زیر، مقدار بزرگنمایی برای نمای اسلاید و همچنین نمای یادداشت‌ها تنظیم شده است.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // تنظیم ویژگی‌های نمای ارائه
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // مقدار بزرگنمایی به درصد برای نمای اسلاید
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // مقدار بزرگنمایی به درصد برای نمای نوت‌ها 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **تنظیم فاصله‌بندی شبکه**
+## **تنظیم مقدار پیش‌فرض زوم**
 
-از [Presentation.getViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getViewProperties--) برای دسترسی به تنظیمات نمای کلی ارائه استفاده کنید. متدهای [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) و [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) فاصلهٔ شبکه ویرایشی پایه را می‌خوانند یا تغییر می‌دهند. این تنظیم برای کل ارائه اعمال می‌شود، نه برای یک اسلاید منفرد. فاصله شبکه بر حسب پوینت تعیین می‌شود که ۷۲ پوینت برابر یک اینچ است. مقدار مثبت استفاده کنید، همان‌طور که مستندات API می‌طلبند.
+[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getSlideViewProperties--) و [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNotesViewProperties--) تنظیمات زوم مستقل برای ویرایشگر ذخیره می‌کنند. این تنظیمات بر ابعاد اسلاید، پخش اسلاید شو یا وضوح خروجی تصویر تأثیری ندارند.
 
-مثال زیر یک فایل `demo.pptx` موجود را باز می‌کند، فاصلهٔ شبکهٔ فعلی را چاپ می‌کند، فاصلهٔ یک‌چهارم اینچ تنظیم می‌کند و نتیجه را ذخیره می‌سازد.
+این مثال یک ارائه موجود را باز می‌کند و [setVariableScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) را برای متناسب کردن اسلاید با پنجره ویرایش فراخوانی می‌کند. برای صفحه یادداشت‌ها، مقیاس‌گذاری خودکار را غیرفعال می‌کند و [setScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setScale-int-) را برای تنظیم زوم ثابت 80% صدا می‌زند.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تنظیم فواصل شبکه**
+
+[setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) فاصله بین خطوط شبکه ویرایشی را در تمام ارائه تنظیم می‌کند. این مقدار یک مقدار مثبت بر حسب نقطه است، با 72 نقطه در هر اینچ. این مثال فاصله فعلی را در یک ارائه موجود چاپ می‌کند و با تنظیم فاصله به 18 نقطه، شبکه‌ای یک چهارم اینچی ذخیره می‌کند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-شبکه متفاوت از [drawing guides](/slides/fa/androidjava/drawing-guides/) است. فاصلهٔ شبکه یک دورهٔ منظم را کنترل می‌کند، در حالی که راهنمای‌های ترسیم خطوط تراز افقی یا عمودی هستند که به‌صورت جداگانه موقعیت‌یابی می‌شوند. افزودن، جابه‌جایی یا پاک کردن راهنمای‌های ترسیم فاصلهٔ شبکه را تغییر نمی‌دهد.
-
-هر دو، شبکه و راهنمای‌های ترسیم، ابزارهای کمکی ویرایش هستند. آنها به‌عنوان محتوای اسلاید در PDF، تصاویر، SVG یا ارائه اسلاید نمایش داده نمی‌شوند. ذخیرهٔ فاصلهٔ شبکه تضمین نمی‌کند که ویرایشگر آن را نشان دهد: نمایش آن همچنین به تنظیمات نمایشگر یا ویرایشگر بستگی دارد.
+شبکه با فواصل ثابت تکرار می‌شود. [Drawing guides](/slides/fa/androidjava/drawing-guides/) موقعیت‌های افقی یا عمودی فردی را علامت‌گذاری می‌کنند. هر دو ابزارهای کمکی ویرایشی هستند و فقط در ویرایشگرهایی که آنها را نشان می‌دهند ظاهر می‌شوند. اسلاید شوها و خروجی به PDF، تصاویر یا SVG اینها را حذف می‌کنند.
 
 ## **نمایش یا مخفی‌سازی نظرات هنگام باز کردن یک ارائه**
 
-از [Presentation.getViewProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getViewProperties--) برای دسترسی به تنظیمات نمای کلی ارائه استفاده کنید. از [IViewProperties.getShowComments](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) و [IViewProperties.setShowComments](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) برای خواندن یا تغییر ترجیح ذخیره‌شده برای اینکه آیا نظرات هنگام باز شدن ارائه در PowerPoint یا ویرایشگر سازگار دیگری نشان داده شوند یا نه، استفاده کنید.
-
-این تنظیم تنها ترجیح ذخیره‌شدهٔ نمای را کنترل می‌کند. این کار نظرات را اضافه، حذف، ویرایش یا حل نمی‌کند. مخفی‌سازی نظرات محتوای آنها، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌ها را حفظ می‌کند. برای عملیات‌هایی که نظرات را تغییر می‌دهند، به [Presentation Comments](/slides/fa/androidjava/presentation-comments/) مراجعه کنید.
-
-مثال زیر نیاز به یک فایل `comments.pptx` موجود دارد که حاوی نظرات باشد. تنظیمات قابل مشاهدهٔ فعلی را چاپ می‌کند، درخواست می‌کند که نظرات مخفی شوند و یک PPTX جدید را بدون حذف هیچ نظری ذخیره می‌کند. همچنین از [IViewProperties.setLastView](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) همراه با [ViewType.SlideView](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/viewtype/#SlideView) برای پیکربندی نمای ویرایش اولیه به‌همراه قابلیت مشاهدهٔ نظرات استفاده می‌کند.
+[setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) ترجیحی را ذخیره می‌کند که ویرایشگرهای سازگار هنگام باز کردن ارائه از آن استفاده می‌کنند. برای یک ارائه موجود که نظرات دارد، این مثال تنظیم فعلی را چاپ می‌کند و یک نسخه با نظرات مخفی ذخیره می‌کند. همچنین [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) را همراه با [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) صدا می‌زند تا نسخه در نمای اسلاید باز شود.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-این تنظیم تعیین نمی‌کند که آیا نظرات در خروجی‌های PDF، HTML، تصویر، یادداشت یا جزوه گنجانده می‌شوند یا نه. گزینه‌های مخصوص هر نوع خروجی را به‌طور جداگانه پیکربندی کنید.
+مخفی‌سازی نظرات متن، نویسندگان، موقعیت‌ها، پاسخ‌ها و وضعیت‌های آنها را حفظ می‌کند. برای تغییر خود نظرات، به [Presentation Comments](/slides/fa/androidjava/presentation-comments/) مراجعه کنید. تنظیمات خروجی تعیین می‌کند که آیا نظرات در PDF، HTML، تصاویر، یادداشت‌ها یا جزوات ظاهر می‌شوند یا نه.
 
 ## **سؤالات متداول**
 
-**چرا پس از باز کردن دوبارهٔ ارائه، شبکه قابل مشاهده نیست؟**
+**چرا شبکه هنگام باز کردن مجدد ارائه مخفی می‌شود؟**
 
-فایل فاصلهٔ شبکه را ذخیره می‌کند، اما ویرایشگر کنترل می‌کند که شبکه نمایش داده شود یا نه. تنظیمات نمایش شبکه در ویرایشگر را بررسی کنید.
+ارائه فاصله شبکه را ذخیره می‌کند. برای مشاهده شبکه، قابلیت نمایش شبکه را در ویرایشگر فعال کنید.
 
-**آیا پاک‌کردن راهنمای‌های ترسیم فاصلهٔ شبکه را تغییر می‌دهد؟**
+**آیا پاک‌کردن راهنمای رسم فاصله شبکه را تغییر می‌دهد؟**
 
-خیر. راهنمای‌های ترسیم و فاصلهٔ شبکه تنظیمات مستقلی هستند. پاک‌کردن راهنماها فاصلهٔ ذخیره‌شدهٔ شبکه را تغییر نمی‌دهد.
+خیر. افزودن، جابجایی یا پاک‌کردن یک راهنما فاصله شبکه را بدون تغییر می‌گذارد.
 
-**آیا می‌توانم تنظیمات نمای متفاوت برای بخش‌های مختلف یک ارائه تنظیم کنم؟**
+**آیا بخش‌های مختلف یک ارائه می‌توانند تنظیمات نمای متفاوتی داشته باشند؟**
 
-تنظیمات [View settings](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getViewProperties--) در سطح ارائه تعریف می‌شوند ([Normal View](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--))، نه برای هر بخش، بنابراین یک مجموعهٔ پارامتر برای کل سند هنگام باز شدن اعمال می‌شود.
+خیر. [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) بر کل ارائه اعمال می‌شود.
 
-**آیا می‌توانم حالت‌های نمای متفاوتی برای کاربران مختلف پیش‌تعریف کنم؟**
+**آیا می‌توانم تنظیمات نمای متفاوتی برای کاربران مختلف ذخیره کنم؟**
 
-خیر. این تنظیمات در فایل ذخیره می‌شوند و به اشتراک گذاشته می‌شوند. برنامه‌های نمایش ممکن است به تنظیمات کاربر احترام بگذارند، اما خود فایل فقط حاوی یک مجموعهٔ ویژگی‌های نمای است.
+فایل یک مجموعه تنظیمات نمای برای همه ذخیره می‌کند. یک ویرایشگر ممکن است ترجیحات محلی کاربر را نیز اعمال کند.
 
-**آیا می‌توانم قالبی با ویژگی‌های نمای پیش‌تعریف‌شده آماده کنم تا ارائه‌های جدید به همان شکل باز شوند؟**
+**آیا می‌توانم تنظیمات نمای را در الگو ذخیره کنم؟**
 
-بله. از آنجایی که [view properties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getViewProperties--) در سطح ارائه ذخیره می‌شوند، می‌توانید آنها را در قالبی بگنجانید و اسناد جدید را از آن با همان پیکربندی نمای اولیه ایجاد کنید.
+بله. ارائه‌های ساخته‌شده از الگو، تنظیمات نمای ذخیره‌شده آن را به ارث می‌برند.

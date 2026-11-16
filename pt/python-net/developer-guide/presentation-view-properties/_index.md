@@ -7,151 +7,130 @@ url: /pt/python-net/presentation-view-properties/
 keywords:
 - propriedades de visualização
 - visualização normal
-- conteúdo de contorno
+- conteúdo do contorno
 - ícones de contorno
-- travar divisor vertical
+- ajuste do divisor vertical
 - visualização única
 - estado da barra
 - tamanho da dimensão
 - ajuste automático
 - zoom padrão
 - PowerPoint
+- OpenDocument
 - apresentação
 - Python
 - Aspose.Slides
-description: "Descubra as propriedades de visualização do Aspose.Slides para Python via .NET para personalizar formatos PPT, PPTX e ODP — ajuste layouts, níveis de zoom e configurações de exibição."
+description: "Use Aspose.Slides for Python via .NET para configurar o layout da visualização normal, zoom de slides e notas, espaçamento da grade e visibilidade de comentários em apresentações do PowerPoint."
 ---
 ## **Introdução**
 
-A visualização normal consiste em três regiões de conteúdo: o próprio slide, uma região de conteúdo lateral e uma região de conteúdo inferior. Propriedades referentes ao posicionamento das diferentes regiões de conteúdo. Essas informações permitem que o aplicativo salve seu estado de visualização no arquivo, de modo que, ao ser reaberto, a visualização esteja no mesmo estado em que a apresentação foi salva pela última vez.
+Na visualização normal do PowerPoint, o slide aparece entre um painel lateral para miniaturas ou um contorno e um painel de notas abaixo. Aspose.Slides for Python via .NET expõe as preferências de edição salvas da apresentação através de [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/). Estas incluem o layout do painel, níveis de zoom, espaçamento de grade e visibilidade de comentários.
 
-A propriedade [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/normal_view_properties/) foi adicionada para fornecer acesso às propriedades de visualização normal da apresentação. 
+## **Sobre NormalViewProperties**
 
-As classes [NormalViewProperties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/normalviewrestoredproperties/) e seus descendentes, o enum [SplitterBarStateType](https://reference.aspose.com/slides/pt/python-net/aspose.slides/splitterbarstatetype/) foram adicionados.
+Use [normal_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/normal_view_properties/) para acessar o objeto [NormalViewProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/). [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) controla se ícones aparecem ao lado dos títulos dos slides no contorno. [snap_vertical_splitter](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/snap_vertical_splitter/) permite que o painel lateral se ajuste ao seu estado minimizado quando o usuário o reduz. [prefer_single_view](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/prefer_single_view/) indica uma preferência por exibir um único painel na janela inteira.
 
-## **Sobre INormalViewProperties** 
+[vertical_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/vertical_bar_state/) controla o divisor entre o painel lateral e o slide. [horizontal_bar_state](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/horizontal_bar_state/) controla o divisor acima do painel de notas. Ambos aceitam um valor [SplitterBarStateType](https://reference.aspose.com/slides/python-net/aspose.slides/splitterbarstatetype/) de `MINIMIZED`, `MAXIMIZED` ou `RESTORED`.
 
-Representa as propriedades de visualização normal.
+<!-- visual-explanation:presentation-view-properties:start -->
+[![A conceptual editor separates a side panel, slide region and bottom region with labelled vertical and horizontal splitters.](visual-presentation-view-properties-40ae1765a743.svg)](visual-presentation-view-properties-40ae1765a743.svg)
 
-A propriedade **ShowOutlineIcons** especifica se o aplicativo deve mostrar ícones ao exibir o conteúdo do contorno em qualquer uma das regiões de conteúdo do modo de visualização normal.
+*Na visualização normal, o divisor vertical controla a largura do painel lateral. O divisor horizontal controla o espaço acima do painel de notas.*
+<!-- visual-explanation:presentation-view-properties:end -->
 
-A propriedade **SnapVerticalSplitter** especifica se o divisor vertical deve “travarse” em um estado minimizado quando a região lateral for suficientemente pequena.
+## **Sobre Restaurar NormalViewProperties**
 
-A propriedade **PreferSingleView** especifica se o usuário prefere ver uma única região de conteúdo em tela cheia em vez da visualização normal padrão com três regiões de conteúdo. Se habilitada, o aplicativo pode escolher exibir uma das regiões de conteúdo em toda a janela.
+Quando um divisor é restaurado, [restored_left](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_left/) fornece o tamanho salvo do painel lateral e [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) fornece o tamanho salvo da área superior do slide. Ambos expõem [NormalViewRestoredProperties](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/). Sua propriedade [dimension_size](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/dimension_size/) aceita uma porcentagem de 0 a 100, e [auto_adjust](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewrestoredproperties/auto_adjust/) controla se o editor ajusta o tamanho quando a janela é redimensionada.
 
-As propriedades **VerticalBarState** e **HorizontalBarState** especificam o estado em que a barra do divisor horizontal ou vertical deve ser mostrada. Uma barra de divisor horizontal separa o slide da região de conteúdo abaixo do slide; a barra de divisor vertical separa o slide da região de conteúdo lateral. Valores possíveis são: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** e **SplitterBarStateType.Restored**.
-
-As propriedades **RestoredLeft** e **RestoredTop** especificam o dimensionamento da região superior ou lateral do slide na visualização normal, quando o valor **SplitterBarStateType.Restored** é aplicado para **VerticalBarState** e **HorizontalBarState**, respectivamente.
-
-## **Sobre Restaurar INormalViewProperties**
-
-Especifica o dimensionamento da região do slide (largura quando filho de RestoredTop, altura quando filho de RestoredLeft) da visualização normal, quando a região tem um tamanho restaurado variável (nem minimizado nem maximizado). 
-
-A propriedade **DimensionSize** especifica o tamanho da região do slide (largura quando filho de RestoredTop, altura quando filho de RestoredLeft).
-
-A propriedade **AutoAdjust** especifica se o tamanho da região de conteúdo lateral deve compensar o novo tamanho ao redimensionar a janela que contém a visualização dentro do aplicativo.
-
-Um exemplo abaixo mostra como acessar as propriedades **ViewProperties.NormalViewProperties** de uma apresentação.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as pres:
-    pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
-    pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
-
-    # Restaurar as propriedades de visualização da apresentação
-    pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
-    pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
-    pres.view_properties.normal_view_properties.show_outline_icons = True
-
-    pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Definir Valor Padrão de Zoom**
-
-Aspose.Slides for Python via .NET agora suporta a definição do valor de zoom padrão para a apresentação, de modo que, quando a apresentação for aberta, o zoom já esteja definido. Isso pode ser feito definindo as [view_properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/view_properties/) de uma apresentação. As propriedades de visualização de slide, bem como [notes_view_properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/notes_view_properties/), podem ser definidas programaticamente. Neste tópico, veremos com um exemplo como definir as propriedades de visualização da apresentação no Aspose.Slides.
-
-Para definir as propriedades de visualização, siga os passos abaixo:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/)
-1. Defina as [view properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/) da apresentação
-1. Grave a apresentação como um arquivo PPTX
-
-No exemplo abaixo, definimos o valor de zoom para a visualização de slide e para a visualização de notas.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    # Definindo as propriedades de visualização da apresentação
-    presentation.view_properties.slide_view_properties.scale = 100 # Valor de zoom em porcentagem para visualização de slide
-    presentation.view_properties.notes_view_properties.scale = 100 # Valor de zoom em porcentagem para visualização de notas 
-
-    presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Definir o Espaçamento da Grade**
-
-Use [Presentation.view_properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/view_properties/) para acessar as configurações de visualização em todo o documento. A propriedade [ViewProperties.grid_spacing](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/grid_spacing/) lê ou altera o intervalo da grade de edição subjacente. Essa configuração se aplica à apresentação inteira, não a um slide individual. O espaçamento da grade é especificado em pontos, onde 72 pontos equivalem a uma polegada. Use um valor positivo, conforme exigido pela documentação da API.
-
-O exemplo a seguir abre um `demo.pptx` existente, exibe o espaçamento de grade atual, define um intervalo de um quarto de polegada e salva o resultado.
+Este exemplo atualiza uma apresentação existente. Ele restaura o divisor horizontal, define [restored_top](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/restored_top/) para 80% com ajuste automático habilitado e maximiza o divisor vertical. Também habilita [show_outline_icons](https://reference.aspose.com/slides/python-net/aspose.slides/normalviewproperties/show_outline_icons/) para a visualização de contorno.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("demo.pptx") as presentation:
-    grid_spacing = presentation.view_properties.grid_spacing
-    print(f"Current grid spacing: {grid_spacing} points")
+    normal_view = presentation.view_properties.normal_view_properties
+    normal_view.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
+    normal_view.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
+    normal_view.restored_top.auto_adjust = True
+    normal_view.restored_top.dimension_size = 80
+    normal_view.show_outline_icons = True
 
-    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Definir o Valor Padrão de Zoom**
+
+[slide_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/slide_view_properties/) e [notes_view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/notes_view_properties/) armazenam configurações de zoom independentes para o editor. Essas configurações não afetam as dimensões do slide, a reprodução da apresentação ou a resolução de exportação de imagens.
+
+Este exemplo abre uma apresentação existente e habilita [variable_scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/variable_scale/) para ajustar o slide à janela de edição. Para a página de notas, ele desabilita o dimensionamento automático e define [scale](https://reference.aspose.com/slides/python-net/aspose.slides/commonslideviewproperties/scale/) para um zoom fixo de 80%.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    view_properties.slide_view_properties.variable_scale = True
+    view_properties.notes_view_properties.variable_scale = False
+    view_properties.notes_view_properties.scale = 80
+
+    presentation.save("zoom.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Definir o Espaçamento da Grade**
+
+[grid_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/grid_spacing/) define a distância entre as linhas de grade de edição em toda a apresentação. Aceita um valor positivo em pontos, com 72 pontos por polegada. Este exemplo imprime o espaçamento atual em uma apresentação existente e salva uma grade de um quarto de polegada definindo o intervalo para 18 pontos.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    view_properties = presentation.view_properties
+    print(f"Current grid spacing: {view_properties.grid_spacing} points")
+
+    view_properties.grid_spacing = 18.0
+
     presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A grade difere dos [drawing guides](/slides/pt/python-net/drawing-guides/). O espaçamento da grade controla um intervalo regular, enquanto os guias de desenho são linhas de alinhamento horizontais ou verticais posicionadas individualmente. Adicionar, mover ou limpar guias de desenho não altera o espaçamento da grade.
-
-Tanto a grade quanto os guias de desenho são auxílios de edição. Eles não são renderizados como conteúdo de slide em PDF, imagens, SVG ou em uma apresentação de slides. Armazenar o espaçamento da grade não garante que um editor exibirá a grade: sua visibilidade também depende das preferências do visualizador ou editor.
+A grade se repete em intervalos fixos. [Drawing guides](/slides/pt/python-net/drawing-guides/) marcam posições individuais horizontais ou verticais. Ambos são auxílios de edição e aparecem apenas em editores que os exibem. Apresentações de slides e exportações para PDF, imagens ou SVG os omitem.
 
 ## **Mostrar ou Ocultar Comentários ao Abrir uma Apresentação**
 
-Use [Presentation.view_properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/view_properties/) para acessar as configurações de visualização em todo o documento. Leia ou altere [ViewProperties.show_comments](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/show_comments/) para armazenar uma preferência sobre se os comentários devem ser mostrados quando a apresentação for aberta no PowerPoint ou em outro editor compatível.
-
-Essa configuração controla apenas a preferência de visualização armazenada. Ela não adiciona, remove, edita ou resolve comentários. Ocultar comentários preserva seu conteúdo, autores, posições, respostas e status. Consulte [Presentation Comments](/slides/pt/python-net/presentation-comments/) para operações que alteram os próprios comentários.
-
-O exemplo a seguir requer um `comments.pptx` existente contendo comentários. Ele exibe a configuração de visibilidade atual, solicita que os comentários sejam ocultados e salva um novo PPTX sem remover nenhum comentário. Também define [ViewProperties.last_view](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/last_view/) para [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewtype/) a fim de configurar a visualização de edição inicial juntamente com a visibilidade dos comentários.
+[show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) armazena uma preferência que editores compatíveis utilizam ao abrir a apresentação. Para uma apresentação existente com comentários, este exemplo imprime a configuração atual e salva uma cópia com os comentários ocultos. Também define [last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) para [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/) para que a cópia abra na visualização de slide.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("comments.pptx") as presentation:
-    show_comments = presentation.view_properties.show_comments
-    print(f"Current comment visibility: {show_comments}")
+    view_properties = presentation.view_properties
+    print(f"Current comment visibility: {view_properties.show_comments}")
 
-    presentation.view_properties.show_comments = slides.NullableBool.FALSE
-    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    view_properties.show_comments = slides.NullableBool.FALSE
+    view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    
     presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Essa configuração não determina se os comentários são incluídos nas exportações para PDF, HTML, imagem, notas ou folhetos. Configure as opções específicas de exportação separadamente.
+Ocultar comentários preserva seu texto, autores, posições, respostas e status. Para alterar os próprios comentários, veja [Presentation Comments](/slides/pt/python-net/presentation-comments/). As configurações de exportação controlam se os comentários aparecem em PDF, HTML, imagens, notas ou folhetos.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Por que a grade não está visível depois que reabro a apresentação?**
+**Por que a grade fica oculta ao reabrir a apresentação?**
 
-O arquivo armazena o espaçamento da grade, mas o editor controla se a grade será exibida. Verifique as configurações de visibilidade da grade no editor.
+A apresentação armazena o intervalo da grade. Para ver a grade, habilite a visibilidade da grade no editor.
 
 **Limpar guias de desenho altera o espaçamento da grade?**
 
-Não. Guias de desenho e espaçamento da grade são configurações independentes. Limpar os guias deixa o intervalo de grade armazenado inalterado.
+Não. Adicionar, mover ou limpar uma guia não altera o intervalo da grade.
 
-**Posso definir configurações de visualização diferentes para seções distintas de uma apresentação?**
+**Diferentes seções de uma apresentação podem ter configurações de visualização diferentes?**
 
-As [view settings](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/view_properties/) são definidas ao nível da apresentação ([Normal View](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/pt/python-net/aspose.slides/viewproperties/slide_view_properties/)), não por seção, de modo que um único conjunto de parâmetros se aplica a todo o documento ao ser aberto.
+Não. [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) se aplica a toda a apresentação.
 
-**Posso pré-definir diferentes estados de visualização para usuários diferentes?**
+**Posso salvar configurações de visualização diferentes para usuários diferentes?**
 
-Não. As configurações são armazenadas no arquivo e são compartilhadas. Aplicativos visualizadores podem honrar preferências do usuário, mas o arquivo contém apenas um conjunto de propriedades de visualização.
+O arquivo armazena um conjunto de propriedades de visualização para todos. Um editor também pode aplicar preferências locais de um usuário.
 
-**Posso preparar um modelo com propriedades de visualização pré-definidas para que novas apresentações abram da mesma forma?**
+**Posso salvar configurações de visualização em um modelo?**
 
-Sim. Como as [view properties](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/view_properties/) são armazenadas ao nível da apresentação, você pode incorporá‑las em um modelo e criar novos documentos a partir dele com a mesma configuração de visualização inicial.
+Sim. Apresentações criadas a partir do modelo herdam suas configurações de visualização salvas.

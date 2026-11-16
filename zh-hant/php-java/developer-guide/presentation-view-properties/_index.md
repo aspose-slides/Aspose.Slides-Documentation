@@ -1,5 +1,5 @@
 ---
-title: 在 PHP 中擷取與更新簡報檢視屬性
+title: 在 PHP 中檢索與更新簡報檢視屬性
 linktitle: 檢視屬性
 type: docs
 weight: 80
@@ -9,9 +9,9 @@ keywords:
 - 普通檢視
 - 大綱內容
 - 大綱圖示
-- 垂直分割條自動對齊
+- 對齊垂直分割條
 - 單一檢視
-- 分割條狀態
+- 分隔條狀態
 - 尺寸大小
 - 自動調整
 - 預設縮放
@@ -20,87 +20,49 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "探索 Aspose.Slides for PHP via Java 的檢視屬性，以自訂 PPT、PPTX 與 ODP 投影片格式——調整版面配置、縮放比例與顯示設定。"
+description: "使用 Aspose.Slides for PHP via Java 來設定 PowerPoint 簡報的普通檢視版面配置、投影片與備註的縮放比例、格線間距以及註解可見性。"
 ---
 ## **簡介**
 
-普通檢視由三個內容區域組成：投影片本身、側邊內容區域以及底部內容區域。此資訊涉及不同內容區域的定位屬性，允許應用程式將檢視狀態儲存至檔案，因而在重新開啟時，檢視會保持在上次儲存時的相同狀態。
+在 PowerPoint 的普通檢視中，投影片位於左側的縮圖或大綱窗格以及下方的備註窗格之間。Aspose.Slides for PHP via Java 透過 [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) 透露演示檔儲存的編輯偏好設定。這些設定包括窗格佈局、縮放比例、格線間距以及註解可見性。
 
-已新增方法[ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties/#getNormalViewProperties)以提供對簡報的普通檢視屬性的存取。
+## **關於 NormalViewProperties**
 
-已新增[NormalViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties)、[NormalViewRestoredProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewRestoredProperties)類別及其衍生類別，以及[SplitterBarStateType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/SplitterBarStateType)列舉。
+使用 [getNormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/) 取得 [NormalViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/) 類別。[setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) 控制大綱中投影片標題旁是否顯示圖示。[setSnapVerticalSplitter](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setsnapverticalsplitter/) 讓使用者縮小側窗格時自動貼齊至最小化狀態。[setPreferSingleView](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setprefersingleview/) 表示偏好在整個視窗中僅顯示一個窗格。
 
-## **關於 INormalViewProperties**
+[setVerticalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setverticalbarstate/) 控制側窗格與投影片之間的分隔條。[setHorizontalBarState](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/sethorizontalbarstate/) 控制備註窗格上方的分隔條。兩者皆接受 [SplitterBarStateType](https://reference.aspose.com/slides/php-java/aspose.slides/splitterbarstatetype/) 的 `Minimized`、`Maximized` 或 `Restored` 值。
 
-代表普通檢視屬性。
+## **關於還原 NormalViewProperties**
 
-方法[getShowOutlineIcons](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons)和[setShowOutlineIcons](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons)指定在普通檢視模式的任何內容區域中顯示大綱內容時，應否顯示圖示。
+當分隔條被還原時，[getRestoredLeft](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredleft/) 會提供側窗格的已保存寬度，而 [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) 會提供上方投影片區域的已保存高度。兩者皆會公開 [NormalViewRestoredProperties](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/)。其 [setDimensionSize](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setdimensionsize/) 方法接受 0 到 100 的百分比，而 [setAutoAdjust](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewrestoredproperties/setautoadjust/) 則控制在視窗大小變更時編輯器是否自動調整尺寸。
 
-方法[getSnapVerticalSplitter](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter)和[setSnapVerticalSplitter](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter)指定當側邊區域足夠小時，垂直分割條是否應自動縮至最小狀態。
-
-屬性[getPreferSingleView](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView)和[setPreferSingleView](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView)指定使用者是否偏好在整個視窗中僅顯示單一內容區域，而非標準的三個內容區域的普通檢視。若啟用，應用程式可選擇將其中一個內容區域擴展至整個視窗。
-
-方法[getVerticalBarState](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState)和[getHorizontalBarState](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState)指定水平或垂直分割條應呈現的狀態。水平分割條將投影片與下方內容區域分開，垂直分割條則將投影片與側邊內容區域分開。可能的值為[SplitterBarStateType::Minimized](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/SplitterBarStateType/#Minimized)、[SplitterBarStateType::Maximized](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/SplitterBarStateType/#Maximized)以及[SplitterBarStateType::Restored](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/SplitterBarStateType/#Restored)。
-
-方法[getRestoredLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)和[getRestoredTop](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties#getRestoredTop)指定在對應的[getVerticalBarState](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState)與[getHorizontalBarState](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState)返回[SplitterBarStateType::Restored](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/SplitterBarStateType/#Restored)時，普通檢視之上方或側邊投影片區域的大小。
-
-## **關於 Restoring INormalViewProperties**
-
-指定普通檢視中投影片區域的尺寸（作為[getRestoredTop](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getRestoredTop)的子項時為寬度，作為[getRestoredLeft](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)的子項時為高度），當該區域處於可變的已還原尺寸（既非最小化亦非最大化）時。
-
-方法[getDimensionSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize)指定投影片區域的大小（作為restoredTop的子項時為寬度，作為restoredLeft的子項時為高度）。
-
-方法[getAutoAdjust](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust)指定在調整包含檢視的視窗大小時，側邊內容區域的尺寸是否應自動補償新尺寸。
-
-以下範例說明如何存取[ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties/#getNormalViewProperties)屬性以取得簡報資訊。
+此範例會更新既有的演示檔。它還原水平分隔條，將由 [getRestoredTop](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/getrestoredtop/) 取得的尺寸設定為 80%，並啟用自動調整，之後將垂直分隔條最大化。它同時呼叫 [setShowOutlineIcons](https://reference.aspose.com/slides/php-java/aspose.slides/normalviewproperties/setshowoutlineicons/) 以在大綱檢視中顯示圖示。
 
 ```php
-  $pres = new Presentation();
-  try {
-    $pres->getViewProperties()->getNormalViewProperties()->setHorizontalBarState(SplitterBarStateType::Restored);
-    $pres->getViewProperties()->getNormalViewProperties()->setVerticalBarState(SplitterBarStateType::Maximized);
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SplitterBarStateType;
 
-    # 還原簡報的檢視屬性
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
-    $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
-    $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
+$presentation = new Presentation("demo.pptx");
+try {
+    $normalView = $presentation->getViewProperties()->getNormalViewProperties();
+    $normalView->setHorizontalBarState(SplitterBarStateType::Restored);
+    $normalView->setVerticalBarState(SplitterBarStateType::Maximized);
+    $normalView->getRestoredTop()->setAutoAdjust(true);
+    $normalView->getRestoredTop()->setDimensionSize(80);
+    $normalView->setShowOutlineIcons(true);
+
+    $presentation->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **設定預設縮放值**
-{{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java 現在支援為簡報設定預設縮放值，使得簡報開啟時即已設定縮放。可透過設定簡報的[ViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties)來完成。[getSlideViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties/#getSlideViewProperties)與[getNotesViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties/#getNotesViewProperties)皆可程式化設定。在本主題中，我們將示範如何為 Aspose.Slides 中的[Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation)設定[View Properties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties)。
+[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/) 與 [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnotesviewproperties/) 會為編輯器分別保存獨立的縮放設定。這些設定不會影響投影片尺寸、投影片放映播放或圖像匯出解析度。
 
-{{% /alert %}} 
-
-設定檢視屬性的步驟如下：
-
-1. 建立一個[Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation)類別的實例。
-1. 設定[Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation)的[View Properties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ViewProperties)。
-1.將簡報寫入為[PPTX](https://docs.fileformat.com/presentation/pptx/)檔案。以下範例同時設定了投影片檢視與註解檢視的縮放值。
-
-```php
-  $presentation = new Presentation();
-  try {
-    # 設定簡報的檢視屬性
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // 以百分比表示的投影片檢視縮放值
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // 以百分比表示的備註檢視縮放值
-
-    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
-
-## **設定格線間距**
-
-使用[Presentation::getViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getViewProperties)存取簡報層級的檢視設定。[ViewProperties::getGridSpacing](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/#getGridSpacing)與[ViewProperties::setGridSpacing](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/#setGridSpacing)方法可讀取或變更底層編輯格線的間距。此設定套用於整份簡報，而非單一投影片。格線間距以點為單位，72 點等於一英吋。請使用正值，符合 API 文件之要求。
-
-以下範例開啟現有的 `demo.pptx`，列印其當前格線間距，將間距設為四分之一英吋，並儲存結果。
+此範例開啟一個既有的演示檔，並呼叫 [setVariableScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setvariablescale/) 以將投影片調整至編輯視窗大小。對於備註頁面，它會停用自動縮放，並呼叫 [setScale](https://reference.aspose.com/slides/php-java/aspose.slides/commonslideviewproperties/setscale/) 設定固定的 80% 縮放。
 
 ```php
 use aspose\slides\Presentation;
@@ -108,27 +70,43 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("demo.pptx");
 try {
-    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
-    echo "Current grid spacing: " . $gridSpacing . " points\n";
+    $viewProperties = $presentation->getViewProperties();
+    $viewProperties->getSlideViewProperties()->setVariableScale(true);
+    $viewProperties->getNotesViewProperties()->setVariableScale(false);
+    $viewProperties->getNotesViewProperties()->setScale(80);
 
-    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("zoom.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **設定格線間距**
+
+[ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) 的 `setGridSpacing` 方法會設定整個演示檔中編輯格線之間的距離。它接受以點 (point) 為單位的正值，1 英吋等於 72 點。此範例會列印既有演示檔的目前間距，並透過將間隔設為 18 點來儲存四分之一英吋的格線。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current grid spacing: " . java_values($viewProperties->getGridSpacing()) . " points" . PHP_EOL;
+
+    $viewProperties->setGridSpacing(18.0);
+    
     $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-格線不同於[drawing guides](/slides/zh-hant/php-java/drawing-guides/)。格線間距控制規則的間隔，而繪製指引則是個別定位的水平或垂直對齊線。新增、移動或清除繪製指引不會改變格線間距。
+格線會以固定間隔重複。 [Drawing guides](/slides/zh-hant/php-java/drawing-guides/) 會標示個別的水平或垂直位置。兩者皆為編輯輔助工具，僅在顯示它們的編輯器中出現。投影片放映以及匯出為 PDF、圖像或 SVG 時皆不會包含它們。
 
-格線與繪製指引皆為編輯輔助工具，並不會在 PDF、影像、SVG 或簡報放映中渲染為投影片內容。儲存格線間距並不保證編輯器會顯示格線：其可見性亦取決於檢視器或編輯器的偏好設定。
+## **開啟演示檔時顯示或隱藏註解**
 
-## **開啟簡報時顯示或隱藏註解**
-
-使用[Presentation::getViewProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/getviewproperties/)存取簡報層級的檢視設定。使用[ViewProperties::getShowComments](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/getshowcomments/)與[ViewProperties::setShowComments](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/setshowcomments/)讀取或變更儲存的偏好，以決定在 PowerPoint 或其他相容編輯器開啟簡報時是否顯示註解。
-
-此設定僅控制儲存的檢視偏好，並不會新增、移除、編輯或解決註解。隱藏註解會保留其內容、作者、位置、回覆與狀態。請參閱[Presentation Comments](/slides/zh-hant/php-java/presentation-comments/)以取得變更註解本身的操作說明。
-
-以下範例需要一個包含註解的現有 `comments.pptx`。範例會列印目前的可見性設定、將註解隱藏，並將結果儲存為新的 PPTX，而不會移除任何註解。同時使用[ViewProperties::setLastView](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/setlastview/)搭配[ViewType::SlideView](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewtype/#SlideView)設定初始編輯檢視以及註解可見性。
+[setShowComments](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setshowcomments/) 會儲存相容編輯器在開啟演示檔時使用的偏好設定。對於含有註解的既有演示檔，此範例會列印目前設定，並儲存一個隱藏註解的副本。它同時使用 [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/setlastview/) 並傳入 [ViewType::SlideView](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/#SlideView) 使該副本以投影片檢視方式開啟。
 
 ```php
 use aspose\slides\NullableBool;
@@ -138,37 +116,38 @@ use aspose\slides\ViewType;
 
 $presentation = new Presentation("comments.pptx");
 try {
-    $showComments = $presentation->getViewProperties()->getShowComments();
-    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+    $viewProperties = $presentation->getViewProperties();
+    echo "Current comment visibility: " . java_values($viewProperties->getShowComments()) . PHP_EOL;
 
-    $presentation->getViewProperties()->setShowComments(NullableBool::False);
-    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $viewProperties->setShowComments(NullableBool::False);
+    $viewProperties->setLastView(ViewType::SlideView);
+
     $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-此設定不會決定註解是否會包含於 PDF、HTML、影像、註解頁或講義匯出中。請分別設定相關的匯出專屬選項。
+隱藏註解會保留其文字、作者、位置、回覆與狀態。若要變更註解本身，請參閱 [Presentation Comments](/slides/zh-hant/php-java/presentation-comments/)。匯出設定會控制註解是否出現在 PDF、HTML、圖像、備註或講義中。
 
-## **常見問題**
+## **常見問題集**
 
-**為什麼重新開啟簡報後格線不可見？**
+**為什麼重新開啟演示檔時格線會消失？**
 
-檔案會儲存格線間距，但編輯器負責決定是否顯示格線。請檢查編輯器的格線可見性設定。
+演示檔會儲存格線間隔。若要看到格線，請在編輯器中啟用格線可見性。
 
-**清除繪製指引會改變格線間距嗎？**
+**清除繪圖指南會改變格線間距嗎？**
 
-不會。繪製指引與格線間距是獨立的設定。清除指引不會影響已儲存的格線間隔。
+不會。新增、移動或清除指南皆不會影響格線間隔。
 
-**我可以為簡報的不同章節設定不同的檢視設定嗎？**
+**演示檔的不同區段可以有不同的檢視設定嗎？**
 
-[View settings](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/getviewproperties/)僅在簡報層級定義（[Normal View](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/viewproperties/getslideviewproperties/))，不會針對章節。開啟文件時，整份文件共用同一組參數。
+不能。[Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) 會套用於整個演示檔。
 
-**我可以為不同使用者預先定義不同的檢視狀態嗎？**
+**我可以為不同使用者儲存不同的檢視設定嗎？**
 
-不能。設定儲存在檔案中，供所有使用者共用。檢視應用程式可能會遵循使用者偏好，但檔案本身僅包含一組檢視屬性。
+檔案僅儲存一套檢視屬性，供所有人使用。編輯器也可能套用使用者本機的偏好設定。
 
-**我可以製作一個預先設定好 View Properties 的範本，使新簡報以相同方式開啟嗎？**
+**我可以在範本中儲存檢視設定嗎？**
 
-可以。因為[view properties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/getviewproperties/)儲存在簡報層級，您可以將它們嵌入範本，並以此範本建立新文件，以取得相同的初始檢視配置。
+可以。從範本建立的演示檔會繼承其已儲存的檢視設定。

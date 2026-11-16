@@ -9,173 +9,141 @@ keywords:
 - κανονική προβολή
 - περιεχόμενο περιγράμματος
 - εικονίδια περιγράμματος
-- αυτόματη τοποθέτηση κάθετης γραμμής διαχωρισμού
+- συγκράτηση κάθετου διαχωριστή
 - μονή προβολή
 - κατάσταση γραμμής
 - μέγεθος διάστασης
 - αυτόματη προσαρμογή
-- προεπιλεγμένη εστίαση
+- προεπιλεγμένο ζουμ
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ανακαλύψτε το Aspose.Slides για Node.js μέσω Java ιδιότητες προβολής για να προσαρμόσετε τις μορφές διαφανειών PPT, PPTX και ODP — να προσαρμόσετε τις διατάξεις, τα επίπεδα εστίασης και τις ρυθμίσεις εμφάνισης."
+description: "Χρησιμοποιήστε το Aspose.Slides για Node.js μέσω Java για να διαμορφώσετε τη διάταξη της κανονικής προβολής, το ζουμ της διαφάνειας και των σημειώσεων, την απόσταση πλέγματος και την ορατότητα σχολίων σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Η κανονική προβολή αποτελείται από τρεις περιοχές περιεχομένου: τη διαφάνεια ίδια, μια πλευρική περιοχή περιεχομένου και μια κάτω περιοχή περιεχομένου. Ιδιότητες που αφορούν τη θέση των διαφορετικών περιοχών περιεχομένου. Αυτή η πληροφορία επιτρέπει στην εφαρμογή να αποθηκεύει την κατάσταση προβολής στο αρχείο, ώστε όταν ανοίξει ξανά η προβολή να βρίσκεται στην ίδια κατάσταση με όποτε η παρουσίαση αποθηκεύτηκε τελευταία.
+Στην κανονική προβολή του PowerPoint, η διαφάνεια εμφανίζεται μεταξύ ενός πλευρικού πλαισίου για μικρογραφίες ή περίγραμμα και ενός πλαισίου σημειώσεων από κάτω. Το Aspose.Slides για Node.js μέσω Java εκθέτει τις αποθηκευμένες προτιμήσεις επεξεργασίας της παρουσίασης μέσω του [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties). Αυτά περιλαμβάνουν τη διάταξη των πλαισίων, τα επίπεδα ζουμ, την απόσταση πλέγματος και την ορατότητα σχολίων.
 
-Η μέθοδος [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) προστέθηκε για να παρέχει πρόσβαση στις ιδιότητες της κανονικής προβολής της παρουσίασης.
+## **Σχετικά με NormalViewProperties**
 
-Οι κλάσεις [NormalViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewRestoredProperties) και οι απογόνους τους, καθώς και η αντολογία [SplitterBarStateType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SplitterBarStateType) προστέθηκαν.
+Χρησιμοποιήστε το [getNormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNormalViewProperties) για πρόσβαση στην κλάση [NormalViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/). Η μέθοδος [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) ελέγχει αν τα εικονίδια εμφανίζονται δίπλα στους τίτλους διαφανειών στο περίγραμμα. Η [setSnapVerticalSplitter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) επιτρέπει στο πλευρικό πάνελ να «κουμπώνει» στην ελαχιστοποιημένη του κατάσταση όταν ο χρήστης το μειώνει. Η [setPreferSingleView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setPreferSingleView) δηλώνει προτίμηση για εμφάνιση ενός μόνο πάνελ σε πλήρη παράθυρο.
 
-## **Σχετικά με το NormalViewProperties**
+Η [setVerticalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setVerticalBarState) ελέγχει το χωρίο μεταξύ του πλευρικού πάνελ και της διαφάνειας. Η [setHorizontalBarState](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setHorizontalBarState) ελέγχει το χωρίο πάνω από το πάνελ σημειώσεων. Και οι δύο δέχονται μια τιμή τύπου [SplitterBarStateType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/splitterbarstatetype/) του `Minimized`, `Maximized` ή `Restored`.
 
-Αντιπροσωπεύει τις ιδιότητες της κανονικής προβολής.
+## **Σχετικό με την Επαναφορά NormalViewProperties**
 
-Οι μέθοδοι [getShowOutlineIcons](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) και [setShowOutlineIcons](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) καθορίζουν αν η εφαρμογή θα εμφανίζει εικονίδια όταν εμφανίζει περιεχόμενο περιγράμματος σε οποιαδήποτε από τις περιοχές περιεχομένου της λειτουργίας κανονικής προβολής.
+Όταν ένα χωρίο επανέρχεται στην αρχική του θέση, το [getRestoredLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredLeft) παρέχει το αποθηκευμένο μέγεθος του πλευρικού πάνελ και το [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) παρέχει το αποθηκευμένο μέγεθος της άνω περιοχής της διαφάνειας. Και οι δύο εκθέτουν το [NormalViewRestoredProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/). Η μέθοδος [setDimensionSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setDimensionSize) δέχεται ένα ποσοστό από 0 έως 100, ενώ η [setAutoAdjust](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewrestoredproperties/#setAutoAdjust) ελέγχει αν ο επεξεργαστής προσαρμόζει το μέγεθος όταν το παράθυρο αλλάζει μέγεθος.
 
-Οι μέθοδοι [getSnapVerticalSplitter](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) και [setSnapVerticalSplitter](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) καθορίζουν αν η κάθετη γραμμή διαχωρισμού θα «κολλήσει» σε κατάσταση ελαχιστοποιημένη όταν η πλευρική περιοχή είναι αρκετά μικρή.
-
-Η ιδιότητα [getPreferSingleView](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) και [setPreferSingleView](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) καθορίζει αν ο χρήστης προτιμά μια πλήρους παραθύρου περιοχή με μοναδικό περιεχόμενο αντί για την τυπική κανονική προβολή με τρεις περιοχές περιεχομένου. Αν είναι ενεργοποιημένο, η εφαρμογή μπορεί να επιλέξει να εμφανίσει μία από τις περιοχές περιεχομένου σε ολόκληρο το παράθυρο.
-
-Οι μέθοδοι [getVerticalBarState](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) και [getHorizontalBarState](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) καθορίζουν την κατάσταση που θα πρέπει να εμφανίζεται η οριζόντια ή κάθετη γραμμή διαχωρισμού. Μια οριζόντια γραμμή διαχωρισμού χωρίζει τη διαφάνεια από την περιοχή περιεχομένου κάτω από τη διαφάνεια, ενώ η κάθετη γραμμή διαχωρισμού χωρίζει τη διαφάνεια από την πλευρική περιοχή περιεχομένου. Πιθανές τιμές είναι: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) και [SplitterBarStateType.Restored](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
-
-Οι μέθοδοι [getRestoredLeft](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) και [getRestoredTop](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) καθορίζουν το μέγεθος της επάνω ή πλάγιας περιοχής διαφάνειας της κανονικής προβολής, όταν η τιμή [SplitterBarStateType.Restored](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/SplitterBarStateType#Restored) εφαρμόζεται στην [getVerticalBarState](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) και στη [getHorizontalBarState](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) αντίστοιχα.
-
-## **Σχετικά με την Επαναφορά NormalViewProperties**
-
-Καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι θυγατρική του [getRestoredTop](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--), ύψος όταν είναι θυγατρική του [getRestoredLeft](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--)) της κανονικής προβολής, όταν η περιοχή έχει μεταβλητό επαναφερθέν μέγεθος (ούτε ελαχιστοποιημένη ούτε μεγιστοποιημένη).
-
-Η μέθοδος [getDimensionSize](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι θυγατρική του restoredTop, ύψος όταν είναι θυγατρική του restoredLeft).
-
-Η μέθοδος [getAutoAdjust](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) καθορίζει αν το μέγεθος της πλευρικής περιοχής περιεχομένου θα προσαρμόζεται αυτόματα στο νέο μέγεθος κατά την αλλαγή μεγέθους του παραθύρου που φιλοξενεί την προβολή μέσα στην εφαρμογή.
-
-Ένα παράδειγμα παρακάτω δείχνει πώς μπορείτε να αποκτήσετε πρόσβαση στις ιδιότητες [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) για μια παρουσίαση.
+Αυτό το παράδειγμα ενημερώνει μια υπάρχουσα παρουσίαση. Επαναφέρει το οριζόντιο χωρίο, ορίζει το μέγεθος που επιστρέφει το [getRestoredTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#getRestoredTop) στο 80% με ενεργή αυτόματη προσαρμογή, και μεγιστοποιεί το κατακόρυφο χωρίο. Επίσης καλεί τη [setShowOutlineIcons](https://reference.aspose.com/slides/nodejs-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) για εμφάνιση εικονιδίων στην προβολή περίγραμμα.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("input.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    const normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(slides.SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(slides.SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    // Επαναφορά των ιδιοτήτων προβολής της παρουσίασης
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Ορισμός Προεπιλεγμένης Τιμής Εστίασης**
-
-{{% alert color="info" %}} 
-
-Το Aspose.Slides for Node.js via Java υποστηρίζει πλέον τον ορισμό προεπιλεγμένης τιμής εστίασης για την παρουσίαση, ώστε όταν η παρουσίαση ανοίξει η εστίαση να είναι ήδη ορισμένη. Αυτό μπορεί να γίνει ορίζοντας το [ViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties) μιας παρουσίασης. Τα [getSlideViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) καθώς και [getNotesViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) μπορούν να οριστούν προγραμματιστικά. Σε αυτό το θέμα, θα δούμε με ένα παράδειγμα πώς να ορίσουμε τις [View Properties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties) της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation) στο Aspose.Slides.
-
-{{% /alert %}} 
-
-Για τον ορισμό των ιδιοτήτων προβολής, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation).
-1. Ορίστε τις [View Properties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ViewProperties) της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation).
-1. Αποθηκεύστε την παρουσίαση ως αρχείο [PPTX](https://docs.fileformat.com/presentation/pptx/). Στο παρακάτω παράδειγμα, ορίσαμε την τιμή εστίασης για την προβολή διαφάνειας καθώς και για την προβολή σημειώσεων.
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var presentation = new aspose.slides.Presentation();
-try {
-    // Ορισμός των ιδιοτήτων προβολής της παρουσίασης
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Τιμή εστίασης σε ποσοστά για την προβολή διαφάνειας
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Τιμή εστίασης σε ποσοστά για την προβολή σημειώσεων
-    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ορισμός Διαστήματος Πλέγματος**
+## **Ορισμός Προεπιλεγμένης Τιμής Zoom**
 
-Χρησιμοποιήστε το [Presentation.getViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getViewProperties--) για να αποκτήσετε πρόσβαση στις ρυθμίσεις προβολής σε όλη την παρουσίαση. Οι μέθοδοι [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) και [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) διαβάζουν ή αλλάζουν το διάστημα του υποκείμενου πλέγματος επεξεργασίας. Αυτή η ρύθμιση ισχύει για ολόκληρη την παρουσίαση, όχι για μεμονωμένη διαφάνεια. Το διάστημα πλέγματος ορίζεται σε μονάδες σημείου, όπου 72 σημεία ισοδυναμούν με ένα ίντσο. Χρησιμοποιήστε θετική τιμή, όπως απαιτείται από την τεκμηρίωση του API.
+Οι [getSlideViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getSlideViewProperties) και [getNotesViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getNotesViewProperties) αποθηκεύουν ανεξάρτητες ρυθμίσεις ζουμ για τον επεξεργαστή. Αυτές οι ρυθμίσεις δεν επηρεάζουν τις διαστάσεις της διαφάνειας, την αναπαραγωγή της παρουσίασης ή την ανάλυση εξαγωγής εικόνας.
 
-Το παρακάτω παράδειγμα ανοίγει ένα υπάρχον `demo.pptx`, εκτυπώνει το τρέχον διάστημα πλέγματος, θέτει ένα διάστημα τέταρτου ίντσου και αποθηκεύει το αποτέλεσμα.
+Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί τη [setVariableScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setVariableScale) για να προσαρμόσει τη διαφάνεια στο παράθυρο επεξεργασίας. Για τη σελίδα σημειώσεων, απενεργοποιεί την αυτόματη κλίμακα και καλεί τη [setScale](https://reference.aspose.com/slides/nodejs-java/aspose.slides/commonslideviewproperties/#setScale) για να ορίσει σταθερό ζουμ 80%.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("demo.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var gridSpacing = presentation.getViewProperties().getGridSpacing();
-    console.log("Current grid spacing: " + gridSpacing + " points");
+    const viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18);
-    presentation.save("grid-spacing.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("zoom.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Το πλέγμα διαφέρει από τις [drawing guides](/slides/el/nodejs-java/drawing-guides/). Το διάστημα πλέγματος ελέγχει ένα κανονικό διάστημα, ενώ οι οδηγίες σχεδίασης είναι μεμονωμένες οριζόντιες ή κάθετες γραμμές ευθυγράμμισης. Η προσθήκη, η μετακίνηση ή η αφαίρεση οδηγών σχεδίασης δεν αλλάζει το διάστημα πλέγματος.
+## **Ορισμός Απόστασης Πλέγματος**
 
-Τanto το πλέγμα όσο και οι οδηγίες σχεδίασης είναι βοηθήματα επεξεργασίας. Δεν αποδίδονται ως περιεχόμενο διαφάνειας σε PDF, εικόνες, SVG ή παρουσίαση. Η αποθήκευση του διαστήματος πλέγματος δεν εγγυάται ότι ένας επεξεργαστής θα εμφανίσει το πλέγμα: η ορατότητά του εξαρτάται επίσης από τις προτιμήσεις του προβολέα ή του επεξεργαστή.
-
-## **Προβολή ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης**
-
-Χρησιμοποιήστε το [Presentation.getViewProperties](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getViewProperties--) για να αποκτήσετε πρόσβαση στις ρυθμίσεις προβολής σε όλη την παρουσίαση. Χρησιμοποιήστε τα [ViewProperties.getShowComments](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/#getShowComments--) και [ViewProperties.setShowComments](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte-) για να διαβάσετε ή να αλλάξετε την αποθηκευμένη προτίμηση σχετικά με το αν τα σχόλια θα εμφανίζονται όταν η παρουσίαση ανοίγει στο PowerPoint ή σε άλλο συμβατό πρόγραμμα.
-
-Αυτή η ρύθμιση ελέγχει μόνο την αποθηκευμένη προτίμηση προβολής. Δεν προσθέτει, αφαιρεί, επεξεργάζεται ή επιλύει σχόλια. Η απόκρυψη σχολίων διατηρεί το περιεχόμενό τους, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Δείτε το [Presentation Comments](/slides/el/nodejs-java/presentation-comments/) για λειτουργίες που αλλάζουν τα ίδια τα σχόλια.
-
-Το παρακάτω παράδειγμα απαιτεί ένα υπάρχον `comments.pptx` με σχόλια. Εκτυπώνει την τρέχουσα ρύθμιση ορατότητας, ζητάει η απόκρυψη των σχολίων και αποθηκεύει ένα νέο PPTX χωρίς να αφαιρέσει κανένα σχόλιο. Χρησιμοποιεί επίσης το [ViewProperties.setLastView](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) με το [ViewType.SlideView](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewtype/#SlideView) για να διαμορφώσει την αρχική προβολή επεξεργασίας μαζί με την ορατότητα των σχολίων.
+Η [setGridSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setGridSpacing) ορίζει την απόσταση μεταξύ των γραμμών του πλέγματος επεξεργασίας σε όλη την παρουσίαση. Δέχεται μια θετική τιμή σε σημεία (points), με 72 σημεία ανά ίντσα. Αυτό το παράδειγμα εκτυπώνει την τρέχουσα απόσταση σε μια υπάρχουσα παρουσίαση και αποθηκεύει ένα πλέγμα τεταρτοξενού (quarter‑inch) ορίζοντας το διάστημα στα 18 σημεία.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18);
+
+    presentation.save("grid-spacing.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το πλέγμα επαναλαμβάνεται σε σταθερό διάστημα. Οι [Οδηγοί σχεδίασης](/slides/el/nodejs-java/drawing-guides/) σημειώνουν μεμονωμένες οριζόντιες ή κατακόρυφες θέσεις. Και τα δύο είναι βοηθήματα επεξεργασίας και εμφανίζονται μόνο σε επεξεργαστές που τα εμφανίζουν. Οι παρουσιάσεις και οι εξαγωγές σε PDF, εικόνες ή SVG τα παραβλέπουν.
+
+## **Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης**
+
+Η [setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments) αποθηκεύει μια προτίμηση που χρησιμοποιούν οι συμβατοί επεξεργαστές κατά το άνοιγμα της παρουσίασης. Για μια υπάρχουσα παρουσίαση με σχόλια, αυτό το παράδειγμα εκτυπώνει τη τρέχουσα ρύθμιση και αποθηκεύει ένα αντίγραφο με τα σχόλια κρυμμένα. Επίσης καλεί τη [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) με το [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) ώστε το αντίγραφο ανοίξει στην προβολή διαφάνειας.
+
+```javascript
 const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-var presentation = new aspose.slides.Presentation("comments.pptx");
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var showComments = presentation.getViewProperties().getShowComments();
-    console.log("Current comment visibility: " + showComments);
+    const viewProperties = presentation.getViewProperties();
+    console.log("Current comment visibility: " + viewProperties.getShowComments());
 
-    var hideComments = java.newByte(aspose.slides.NullableBool.False);
-    presentation.getViewProperties().setShowComments(hideComments);
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
-    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+    const hideComments = java.newByte(slides.NullableBool.False);
+    viewProperties.setShowComments(hideComments);
+    viewProperties.setLastView(slides.ViewType.SlideView);
+
+    presentation.save("comments-hidden.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Αυτή η ρύθμιση δεν καθορίζει αν τα σχόλια περιλαμβάνονται σε εξαγωγές PDF, HTML, εικόνας, σημειώσεων ή φυλλαδίων. Ρυθμίστε τις αντίστοιχες επιλογές εξαγωγής ξεχωριστά.
+Η απόκρυψη σχολίων διατηρεί το κείμενο, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις τους. Για να αλλάξετε τα ίδια τα σχόλια, δείτε τα [Σχόλια Παρουσίασης](/slides/el/nodejs-java/presentation-comments/). Οι ρυθμίσεις εξαγωγής ελέγχουν αν τα σχόλια εμφανίζονται σε PDF, HTML, εικόνες, σημειώσεις ή φυλλάδια.
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Γιατί το πλέγμα δεν είναι ορατό μετά το άνοιγμα ξανά της παρουσίασης;**
+**Γιατί το πλέγμα είναι κρυφό όταν ανοίγω ξανά την παρουσίαση;**
 
-Το αρχείο αποθηκεύει το διάστημα πλέγματος, αλλά ο επεξεργαστής ελέγχει αν το πλέγμα θα εμφανιστεί. Ελέγξτε τις ρυθμίσεις ορατότητας πλέγματος του επεξεργαστή.
+Η παρουσίαση αποθηκεύει το διάστημα του πλέγματος. Για να δείτε το πλέγμα, ενεργοποιήστε την ορατότητα του πλέγματος στον επεξεργαστή.
 
-**Αλλάζει η αφαίρεση οδηγιών σχεδίασης το διάστημα πλέγματος;**
+**Αλλάζει η αφαίρεση των οδηγών σχεδίασης την απόσταση του πλέγματος;**
 
-Όχι. Οι οδηγίες σχεδίασης και το διάστημα πλέγματος είναι ανεξάρτητες ρυθμίσεις. Η αφαίρεση οδηγών δεν αλλάζει το αποθηκευμένο διάστημα πλέγματος.
+Όχι. Η προσθήκη, η μετακίνηση ή η διαγραφή ενός οδηγού αφήνει το διάστημα του πλέγματος αμετάβλητο.
 
-**Μπορώ να ορίσω διαφορετικές ρυθμίσεις προβολής για διαφορετικές ενότητες μιας παρουσίασης;**
+**Μπορούν διαφορετικές ενότητες μιας παρουσίασης να έχουν διαφορετικές ρυθμίσεις προβολής;**
 
-Οι [ρυθμίσεις προβολής](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/getviewproperties/) ορίζονται σε επίπεδο παρουσίασης ([Normal View](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), όχι ανά ενότητα, έτσι ένα σύνολο παραμέτρων ισχύει για όλο το έγγραφο όταν ανοίγει.
+Όχι. Η [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties) ισχύει για ολόκληρη την παρουσίαση.
 
-**Μπορώ να προ-ορίσω διαφορετικές καταστάσεις προβολής για διαφορετικούς χρήστες;**
+**Μπορώ να αποθηκεύσω διαφορετικές ρυθμίσεις προβολής για διαφορετικούς χρήστες;**
 
-Όχι. Οι ρυθμίσεις αποθηκεύονται στο αρχείο και μοιράζονται. Οι εφαρμογές προβολής μπορεί να σεβαστούν τις προτιμήσεις του χρήστη, αλλά το ίδιο το αρχείο περιέχει ένα σύνολο ιδιοτήτων προβολής.
+Το αρχείο αποθηκεύει ένα σύνολο ιδιοτήτων προβολής για όλους. Ένας επεξεργαστής μπορεί επίσης να εφαρμόσει τις τοπικές προτιμήσεις ενός χρήστη.
 
-**Μπορώ να ετοιμάσω ένα πρότυπο με προ-καθορισμένες Ιδιότητες Προβολής ώστε οι νέες παρουσιάσεις να ανοίγουν με τον ίδιο τρόπο;**
+**Μπορώ να αποθηκεύσω ρυθμίσεις προβολής σε ένα πρότυπο;**
 
-Ναι. Επειδή οι [ιδιότητες προβολής](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/getviewproperties/) αποθηκεύονται σε επίπεδο παρουσίασης, μπορείτε να τις ενσωματώσετε σε ένα πρότυπο και να δημιουργήσετε νέα έγγραφα από αυτό με την ίδια αρχική διαμόρφωση προβολής.
+Ναι. Οι παρουσιάσεις που δημιουργούνται από το πρότυπο κληρονομούν τις αποθηκευμένες ρυθμίσεις προβολής του.

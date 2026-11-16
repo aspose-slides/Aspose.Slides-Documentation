@@ -1,5 +1,5 @@
 ---
-title: Ανάκτηση και Ενημέρωση Ιδιοτήτων Προβολής Παρουσίασης στο Android
+title: Ανάκτηση και Ενημέρωση Ιδιοτήτων Προβολής Παρουσίασης σε Android
 linktitle: Ιδιότητες Προβολής
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - κανονική προβολή
 - περιεχόμενο περιγράμματος
 - εικονίδια περιγράμματος
-- συγκράτηση κάθετης γραμμής διαχωρισμού
+- κλείδωμα κάθετου διαχωριστικού
 - μονή προβολή
 - κατάσταση γραμμής
 - μέγεθος διάστασης
@@ -21,162 +21,127 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ανακαλύψτε το Aspose.Slides για Android μέσω Java ιδιότητες προβολής για να προσαρμόσετε τα μορφότυπα διαφανειών PPT, PPTX και ODP — προσαρμόστε διατάξεις, επίπεδα ζουμ και ρυθμίσεις εμφάνισης."
+description: "Χρησιμοποιήστε το Aspose.Slides για Android μέσω Java για να διαμορφώσετε τη διάταξη της κανονικής προβολής, το ζουμ των διαφανειών και των σημειώσεων, την απόσταση πλέγματος και την ορατότητα σχολίων σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Η κανονική προβολή αποτελείται από τρεις περιοχές περιεχομένου: τη διαφάνεια ίδια, μια πλευρική περιοχή περιεχομένου και μια κάτω περιοχή περιεχομένου. Ιδιότητες που αφορούν τη θέση των διαφόρων περιοχών περιεχομένου. Αυτές οι πληροφορίες επιτρέπουν στην εφαρμογή να αποθηκεύσει την κατάσταση προβολής στο αρχείο, ώστε όταν ανοίξει ξανά η προβολή να βρίσκεται στην ίδια κατάσταση όπως όταν η παρουσίαση αποθηκεύτηκε τελευταία.
+Στην κανονική προβολή του PowerPoint, η διαφάνεια εμφανίζεται μεταξύ ενός πλευρικού παραθύρου για μικρογραφίες ή περίγραμμα και ενός παραθύρου σημειώσεων από κάτω. Το Aspose.Slides για Android μέσω Java αποκαλύπτει τις αποθηκευμένες προτιμήσεις επεξεργασίας της παρουσίασης μέσω [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--). Αυτές περιλαμβάνουν τη διάταξη των παραθύρων, τα επίπεδα ζουμ, την απόσταση πλέγματος και την ορατότητα σχολίων.
 
-Η μέθοδος [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) προστέθηκε για να παρέχει πρόσβαση στις ιδιότητες της κανονικής προβολής μιας παρουσίασης. 
+## **Σχετικά με INormalViewProperties**
 
-Οι διεπαφές [INormalViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewRestoredProperties) και οι απογόνους τους, καθώς και η απαρίθμηση [SplitterBarStateType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SplitterBarStateType) έχουν προστεθεί.
+Χρησιμοποιήστε το [getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNormalViewProperties--) για να προσπελάσετε τη διεπαφή [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/). Το [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) ελέγχει αν τα εικονίδια εμφανίζονται δίπλα στους τίτλους των διαφανειών στο περίγραμμα. Το [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) επιτρέπει στο πλευρικό παράθυρο να κλειδώνει στην ελαχιστοποιημένη του κατάσταση όταν ο χρήστης το στενεύει. Το [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) υποδεικνύει προτίμηση για την προβολή ενός παραθύρου σε πλήρες παράθυρο.
 
-## **Σχετικά με το INormalViewProperties**
+Το [setVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) ελέγχει το διαχωριστικό μεταξύ του πλευρικού παραθύρου και της διαφάνειας. Το [setHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) ελέγχει το διαχωριστικό πάνω από το παράθυρο σημειώσεων. Και τα δύο δέχονται μια τιμή [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/splitterbarstatetype/) του `Minimized`, `Maximized` ή `Restored`.
 
-Αντιπροσωπεύει τις ιδιότητες της κανονικής προβολής.
+## **Σχετικά με την Επαναφορά INormalViewProperties**
 
-Οι μέθοδοι [getShowOutlineIcons](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) και [setShowOutlineIcons](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) καθορίζουν εάν η εφαρμογή πρέπει να εμφανίζει εικονίδια όταν εμφανίζει το περιεχόμενο περιγράμματος σε οποιαδήποτε από τις περιοχές περιεχομένου της κανονικής λειτουργίας προβολής.
+Όταν ένα διαχωριστικό επαναφέρεται, το [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) παρέχει το αποθηκευμένο μέγεθος του πλευρικού παραθύρου και το [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) παρέχει το αποθηκευμένο μέγεθος της άνω περιοχής της διαφάνειας. Και τα δύο εκθέτουν το [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/). Η μέθοδος [setDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) δέχεται ένα ποσοστό από 0 έως 100, και το [setAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) ελέγχει αν ο επεξεργαστής προσαρμόζει το μέγεθος όταν το παράθυρο αλλάζει μέγεθος.
 
-Οι μέθοδοι [getSnapVerticalSplitter](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) και [setSnapVerticalSplitter](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) καθορίζουν εάν η κάθετη διαχωριστική γραμμή πρέπει να «κολλάει» σε μια ελαχιστοποιημένη κατάσταση όταν η πλευρική περιοχή είναι επαρκώς μικρή.
-
-Η ιδιότητα [getPreferSingleView](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) και [setPreferSingleView](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean--) καθορίζει εάν ο χρήστης προτιμά να βλέπει μια ενιαία περιοχή περιεχομένου σε πλήρη παράθυρο αντί για την τυπική κανονική προβολή με τρεις περιοχές περιεχομένου. Εάν ενεργοποιηθεί, η εφαρμογή μπορεί να επιλέξει να εμφανίσει μία από τις περιοχές περιεχομένου σε όλο το παράθυρο.
-
-Οι μέθοδοι [getVerticalBarState](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) και [getHorizontalBarState](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) καθορίζουν την κατάσταση στην οποία πρέπει να εμφανίζεται η κάθετη ή οριζόντια γραμμή διαχωρισμού. Μία οριζόντια γραμμή διαχωρισμού χωρίζει τη διαφάνεια από την περιοχή περιεχομένου κάτω από τη διαφάνεια, η κάθετη γραμμή διαχωρισμού χωρίζει τη διαφάνεια από την πλευρική περιοχή περιεχομένου. Πιθανές τιμές είναι: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) και [SplitterBarStateType.Restored](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
-
-Οι μέθοδοι [getRestoredLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) και [getRestoredTop](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) καθορίζουν τις διαστάσεις της άνω ή πλευρικής περιοχής διαφάνειας της κανονικής προβολής, όταν η τιμή [SplitterBarStateType.Restored](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SplitterBarStateType#Restored) εφαρμόζεται στις [getVerticalBarState](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) και [getHorizontalBarState](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) αντίστοιχα.
-
-## **Σχετικά με την Επαναφορά των INormalViewProperties**
-
-Καθορίζει τις διαστάσεις της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του [getRestoredTop](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), ύψος όταν είναι παιδί του [getRestoredLeft](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) της κανονικής προβολής, όταν η περιοχή έχει μεταβλητό επαναφερθέν μέγεθος (ούτε ελαχιστοποιημένη ούτε μεγιστοποιημένη). 
-
-Η μέθοδος [getDimensionSize](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του restoredTop, ύψος όταν είναι παιδί του restoredLeft).
-
-Η μέθοδος [getAutoAdjust](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) καθορίζει εάν το μέγεθος της πλευρικής περιοχής περιεχομένου πρέπει να προσαρμόζεται αυτόματα στο νέο μέγεθος κατά την αλλαγή του μεγέθους του παραθύρου που περιέχει την προβολή μέσα στην εφαρμογή.
-
-Ένα παράδειγμα που δίνεται παρακάτω δείχνει πώς μπορείτε να έχετε πρόσβαση στις ιδιότητες [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) μιας παρουσίασης.
+Αυτό το παράδειγμα ενημερώνει μια υπάρχουσα παρουσίαση. Επαναφέρει το οριζόντιο διαχωριστικό, ορίζει το μέγεθος που επιστρέφει το [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#getRestoredTop--) στο 80% με ενεργοποιημένη την αυτόματη προσαρμογή, και μεγιστοποιεί το κάθετο διαχωριστικό. Επιπλέον καλεί το [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) για να εμφανίσει εικονίδια στην προβολή περίγραμμα.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Αποκατάσταση των ιδιοτήτων προβολής της παρουσίασης
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Ορισμός της Προεπιλεγμένης Τιμής Μεγέθυνσης**
-
-{{% alert color="info" %}} 
-
-Aspose.Slides για Android μέσω Java υποστηρίζει πλέον τον ορισμό της προεπιλεγμένης τιμής μεγέθυνσης για μια παρουσίαση, ώστε όταν ανοίγει η παρουσίαση, η μεγέθυνση να είναι ήδη ορισμένη. Αυτό μπορεί να γίνει ορίζοντας τις [ViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ViewProperties) μιας παρουσίασης. Οι [getSlideViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) καθώς και [getNotesViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) μπορούν να οριστούν προγραμματιστικά. Σε αυτό το θέμα, θα δούμε με ένα παράδειγμα πώς να ορίσουμε τις [View Properties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ViewProperties) της [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation) στο Aspose.Slides.
-
-{{% /alert %}} 
-
-Για να ορίσετε τις ιδιότητες προβολής, παρακαλούμε ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation).
-1. Ορίστε τις [View Properties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ViewProperties) της [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation).
-1. Γράψτε την παρουσίαση ως αρχείο [PPTX](https://docs.fileformat.com/presentation/pptx/).
-   Στο παρακάτω παράδειγμα, έχουμε ορίσει την τιμή μεγέθυνσης για την προβολή διαφάνειας καθώς και για την προβολή σημειώσεων.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // Ορισμός των ιδιοτήτων προβολής της παρουσίασης
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Τιμή ζουμ σε ποσοστά για την προβολή διαφάνειας
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Τιμή ζουμ σε ποσοστά για την προβολή σημειώσεων 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ορισμός του Διαστήματος Πλέγματος**
+## **Ορισμός της Προεπιλεγμένης Τιμής Ζουμ**
 
-Χρησιμοποιήστε το [Presentation.getViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getViewProperties--) για να έχετε πρόσβαση στις ρυθμίσεις προβολής σε όλη την παρουσίαση. Οι μέθοδοι [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) και [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) διαβάζουν ή τροποποιούν το διάστημα του υποκείμενου πλέγματος επεξεργασίας. Αυτή η ρύθμιση ισχύει για ολόκληρη την παρουσίαση, όχι για μεμονωμένη διαφάνεια. Το διάστημα πλέγματος καθορίζεται σε σημεία, όπου 72 σημεία ισοδυναμούν με ένα ίντσα. Χρησιμοποιήστε θετική τιμή, όπως απαιτεί η τεκμηρίωση του API.
+Τα [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getSlideViewProperties--) και [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getNotesViewProperties--) αποθηκεύουν ανεξάρτητες ρυθμίσεις ζουμ για τον επεξεργαστή. Αυτές οι ρυθμίσεις δεν επηρεάζουν τις διαστάσεις της διαφάνειας, την αναπαραγωγή της παρουσίασης ή την ανάλυση εξαγωγής εικόνας.
 
-Το παρακάτω παράδειγμα ανοίγει ένα υπάρχον `demo.pptx`, εκτυπώνει το τρέχον διάστημα πλέγματος, ορίζει ένα διάστημα τέταρτου ιντσών και αποθηκεύει το αποτέλεσμα.
+Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί το [setVariableScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) για να προσαρμόσει τη διαφάνεια στο παράθυρο επεξεργασίας. Για τη σελίδα σημειώσεων, απενεργοποιεί την αυτόματη κλιμάκωση και καλεί το [setScale](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icommonslideviewproperties/#setScale-int-) για να ορίσει σταθερό ζουμ 80%.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ορισμός της Απόστασης Πλέγματος**
+
+Το [setGridSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) ορίζει την απόσταση μεταξύ των γραμμών του πλέγματος επεξεργασίας σε ολόκληρη την παρουσίαση. Δέχεται μια θετική τιμή σε σημείο, με 72 σημεία ανά ίντσα. Αυτό το παράδειγμα εκτυπώνει την τρέχουσα απόσταση σε μια υπάρχουσα παρουσίαση και αποθηκεύει ένα πλέγμα τέταρτου ίντσας ορίζοντας το διάστημα στα 18 σημεία.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Το πλέγμα διαφέρει από τις [drawing guides](/slides/el/androidjava/drawing-guides/). Το διάστημα πλέγματος ελέγχει ένα κανονικό διάστημα, ενώ οι οδηγίες σχεδίασης είναι μεμονωμένα τοποθετημένες οριζόντιες ή κάθετες γραμμές ευθυγράμμισης. Η προσθήκη, η μετακίνηση ή η διαγραφή οδηγών σχεδίασης δεν αλλάζει το διάστημα του πλέγματος.
-
-Και το πλέγμα όσο και οι οδηγίες σχεδίασης είναι βοηθήματα επεξεργασίας. Δεν αποδίδονται ως περιεχόμενο διαφάνειας σε PDF, εικόνες, SVG ή παρουσίαση. Η αποθήκευση του διαστήματος πλέγματος δεν εγγυάται ότι ένας επεξεργαστής θα εμφανίσει το πλέγμα: η ορατότητά του εξαρτάται επίσης από τις προτιμήσεις του προβολέα ή επεξεργαστή.
+Το πλέγμα επαναλαμβάνεται σε σταθερό διάστημα. Οι [Drawing guides](/slides/el/androidjava/drawing-guides/) σημειώνουν μεμονωμένες οριζόντιες ή κατακόρυφες θέσεις. Και τα δύο αποτελούν βοηθήματα επεξεργασίας και εμφανίζονται μόνο σε επεξεργαστές που τα εμφανίζουν. Οι προβολές παρουσίασης και οι εξαγωγές σε PDF, εικόνες ή SVG τα παραλείπουν.
 
 ## **Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης**
 
-Χρησιμοποιήστε το [Presentation.getViewProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getViewProperties--) για να έχετε πρόσβαση στις ρυθμίσεις προβολής σε όλη την παρουσίαση. Χρησιμοποιήστε τα [IViewProperties.getShowComments](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) και [IViewProperties.setShowComments](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) για να διαβάσετε ή να τροποποιήσετε την αποθηκευμένη προτίμηση σχετικά με το αν τα σχόλια πρέπει να εμφανίζονται όταν η παρουσίαση ανοίγει στο PowerPoint ή σε άλλο συμβατό επεξεργαστή.
-
-Αυτή η ρύθμιση ελέγχει μόνο την αποθηκευμένη προτίμηση προβολής. Δεν προσθέτει, αφαιρεί, επεξεργάζεται ή λύνει σχόλια. Η απόκρυψη σχολίων διατηρεί το περιεχόμενό τους, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Δείτε τα [Presentation Comments](/slides/el/androidjava/presentation-comments/) για ενέργειες που αλλάζουν τα ίδια τα σχόλια.
-
-Το παρακάτω παράδειγμα απαιτεί ένα υπάρχον `comments.pptx` που περιέχει σχόλια. Εκτυπώνει την τρέχουσα ρύθμιση ορατότητας, ζητά την απόκρυψη των σχολίων και αποθηκεύει ένα νέο PPTX χωρίς να αφαιρέσει κανένα σχόλιο. Χρησιμοποιεί επίσης το [IViewProperties.setLastView](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) μαζί με το [ViewType.SlideView](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/viewtype/#SlideView) για να διαμορφώσει την αρχική προβολή επεξεργασίας μαζί με την ορατότητα των σχολίων.
+Το [setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) αποθηκεύει μια προτίμηση που οι συμβατοί επεξεργαστές χρησιμοποιούν κατά το άνοιγμα της παρουσίασης. Για μια υπάρχουσα παρουσίαση με σχόλια, αυτό το παράδειγμα εκτυπώνει τη τρέχουσα ρύθμιση και αποθηκεύει ένα αντίγραφο με τα σχόλια κρυμμένα. Επιπλέον καλεί το [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) με το [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) ώστε το αντίγραφο να ανοίξει στην προβολή διαφάνειας.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Αυτή η ρύθμιση δεν καθορίζει εάν τα σχόλια θα συμπεριληφθούν σε εξαγωγές PDF, HTML, εικόνας, σημειώσεων ή φυλλαδίων. Διαμορφώστε χωριστά τις σχετικές επιλογές εξαγωγής.
+Η απόκρυψη σχολίων διατηρεί το κείμενό τους, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Για να αλλάξετε τα ίδια τα σχόλια, δείτε το [Presentation Comments](/slides/el/androidjava/presentation-comments/). Οι ρυθμίσεις εξαγωγής ελέγχουν αν τα σχόλια εμφανίζονται σε PDF, HTML, εικόνες, σημειώσεις ή φυλλάδια.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Γιατί δεν είναι ορατό το πλέγμα μετά το άνοιγμα ξανά της παρουσίασης;**
+**Γιατί το πλέγμα είναι κρυφό όταν ανοίγω ξανά την παρουσίαση;**
 
-Το αρχείο αποθηκεύει το διάστημα του πλέγματος, αλλά ο επεξεργαστής ελέγχει αν το πλέγμα εμφανίζεται. Ελέγξτε τις ρυθμίσεις ορατότητας πλέγματος του επεξεργαστή.
+Η παρουσίαση αποθηκεύει το διάστημα του πλέγματος. Για να δείτε το πλέγμα, ενεργοποιήστε την ορατότητα του πλέγματος στον επεξεργαστή.
 
-**Αλλαγάζει η διαγραφή οδηγών σχεδίασης το διάστημα του πλέγματος;**
+**Η διαγραφή των οδηγών σχεδίασης αλλάζει την απόσταση του πλέγματος;**
 
-Όχι. Οι οδηγίες σχεδίασης και το διάστημα του πλέγματος είναι ανεξάρτητες ρυθμίσεις. Η διαγραφή των οδηγιών αφήνει το αποθηκευμένο διάστημα πλέγματος αμετάβλητο.
+Όχι. Η προσθήκη, η μετακίνηση ή η διαγραφή ενός οδηγού δεν αλλάζει το διάστημα του πλέγματος.
 
-**Μπορώ να ορίσω διαφορετικές ρυθμίσεις προβολής για διαφορετικές ενότητες μιας παρουσίασης;**
+**Μπορούν διαφορετικά τμήματα μιας παρουσίασης να έχουν διαφορετικές ρυθμίσεις προβολής;**
 
-Οι [ρυθμίσεις προβολής](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getViewProperties--) ορίζονται σε επίπεδο παρουσίασης ([Normal View](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)), όχι ανά ενότητα, έτσι ένα ενιαίο σύνολο παραμέτρων εφαρμόζεται σε όλο το έγγραφο κατά το άνοιγμα.
+Όχι. Το [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) εφαρμόζεται σε ολόκληρη την παρουσίαση.
 
-**Μπορώ να προκαθορίσω διαφορετικές καταστάσεις προβολής για διαφορετικούς χρήστες;**
+**Μπορώ να αποθηκεύσω διαφορετικές ρυθμίσεις προβολής για διαφορετικούς χρήστες;**
 
-Όχι. Οι ρυθμίσεις αποθηκεύονται στο αρχείο και μοιράζονται. Οι εφαρμογές προβολής μπορεί να τηρήσουν τις προτιμήσεις του χρήστη, αλλά το αρχείο περιέχει ένα σύνολο ιδιοτήτων προβολής.
+Το αρχείο αποθηκεύει ένα σύνολο ιδιοτήτων προβολής για όλους. Ένας επεξεργαστής μπορεί επίσης να εφαρμόσει τις τοπικές προτιμήσεις ενός χρήστη.
 
-**Μπορώ να δημιουργήσω ένα πρότυπο με προορισμένες Ιδιότητες Προβολής ώστε οι νέες παρουσιάσεις να ανοίγουν με τον ίδιο τρόπο;**
+**Μπορώ να αποθηκεύσω ρυθμίσεις προβολής σε ένα πρότυπο;**
 
-Ναι. Επειδή οι [ιδιότητες προβολής](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getViewProperties--) αποθηκεύονται σε επίπεδο παρουσίασης, μπορείτε να τις ενσωματώσετε σε ένα πρότυπο και να δημιουργήσετε νέα έγγραφα από αυτό με την ίδια αρχική διαμόρφωση προβολής.
+Ναι. Παρουσιάσεις που δημιουργούνται από το πρότυπο κληρονομούν τις αποθηκευμένες ρυθμίσεις προβολής.

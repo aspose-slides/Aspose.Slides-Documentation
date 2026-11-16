@@ -1,109 +1,83 @@
 ---
-title: Abrufen und Aktualisieren von Präsentations‑Ansichtseigenschaften in .NET
-linktitle: Ansichtseigenschaften
+title: "Abrufen und Aktualisieren von Präsentationsansichtseigenschaften in .NET"
+linktitle: "Ansichtseigenschaften"
 type: docs
 weight: 80
 url: /de/net/presentation-view-properties/
 keywords:
 - Ansichtseigenschaften
-- Normale Ansicht
+- Normalansicht
 - Gliederungsinhalt
-- Gliederungssymbole
-- Vertikaler Trennbalken einrasten
+- Gliederungsicons
+- Vertikalen Splitter einrasten
 - Einzelansicht
-- Balkenzustand
+- Leistenstatus
 - Dimensionsgröße
-- Automatische Anpassung
-- Standard‑Zoom
+- Autoanpassung
+- Standardzoom
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie die Ansichtseigenschaften von Aspose.Slides für .NET, um PPT-, PPTX- und ODP‑Folienformate anzupassen – Layouts, Zoom‑Stufen und Anzeigeeinstellungen zu ändern."
+description: "Verwenden Sie Aspose.Slides für .NET, um das Layout der Normalansicht, den Zoom von Folien und Notizen, den Rasterabstand und die Sichtbarkeit von Kommentaren in PowerPoint‑Präsentationen zu konfigurieren."
 ---
 ## **Einleitung**
 
-Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, ihren Ansichts‑Zustand in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht denselben Zustand hat wie beim letzten Speichern der Präsentation.
-
-Die Property [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/iviewproperties/properties/normalviewproperties) wurde hinzugefügt, um Zugriff auf die Normalansicht‑Eigenschaften der Präsentation zu ermöglichen.  
-
-[INormalViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/de/net/aspose.slides/inormalviewrestoredproperties) Schnittstellen und ihre Nachfolger sowie das Enum [SplitterBarStateType](https://reference.aspose.com/slides/de/net/aspose.slides/splitterbarstatetype) wurden hinzugefügt.
+In der Normalansicht von PowerPoint wird die Folie zwischen einem Seitenbereich für Miniaturansichten oder einer Gliederung und einem Notizenbereich unten angezeigt. Aspose.Slides für .NET stellt die gespeicherten Bearbeitungseinstellungen der Präsentation über [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) bereit. Dazu gehören das Layout der Bereiche, Zoomstufen, Rasterabstand und die Sichtbarkeit von Kommentaren.
 
 ## **Über INormalViewProperties**
 
-Stellt Normalansicht‑Eigenschaften dar.
+Verwenden Sie [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) um auf die Schnittstelle [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/) zuzugreifen. [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) steuert, ob Symbole neben den Folientiteln in der Gliederung angezeigt werden. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) kann den Seitenbereich beim Verengen durch den Benutzer in den minimierten Zustand einrasten lassen. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) gibt eine Vorliebe an, einen einzigen Bereich im Vollfenster anzuzeigen.
 
-Die Property **ShowOutlineIcons** gibt an, ob die Anwendung Symbole anzeigen soll, wenn Gliederungsinhalte in einem der Inhaltsbereiche des Normalansicht‑Modus angezeigt werden.
-
-Die Property **SnapVerticalSplitter** gibt an, ob der vertikale Teiler in den minimierten Zustand springen soll, wenn der seitliche Bereich ausreichend klein ist.
-
-Die Property **PreferSingleView** gibt an, ob der Benutzer bevorzugt, einen einzigen Vollfenster‑Inhaltsbereich statt der üblichen Normalansicht mit drei Inhaltsbereichen zu sehen. Ist sie aktiviert, kann die Anwendung wählen, einen der Inhaltsbereiche im gesamten Fenster darzustellen.
-
-Die Properties **VerticalBarState** und **HorizontalBarState** geben den Zustand an, in dem die horizontale bzw. vertikale Trennleiste angezeigt werden soll. Eine horizontale Trennleiste trennt die Folie vom darunter liegenden Inhaltsbereich, eine vertikale Trennleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** und **SplitterBarStateType.Restored**.
-
-Die Properties **RestoredLeft** und **RestoredTop** geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn für **VerticalBarState** bzw. **HorizontalBarState** der Wert **SplitterBarStateType.Restored** verwendet wird.
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) steuert den Trenner zwischen dem Seitenbereich und der Folie. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) steuert den Trenner über dem Notizenbereich. Beide akzeptieren einen [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) Wert von `Minimized`, `Maximized` oder `Restored`.
 
 ## **Über das Wiederherstellen von INormalViewProperties**
 
-Gibt die Größe des Folienbereichs (Breite, wenn ein Kind von RestoredTop, Höhe, wenn ein Kind von RestoredLeft) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert).
+Wenn ein Trenner wiederhergestellt wird, liefert [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) die gespeicherte Größe des Seitenbereichs und [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) die gespeicherte Größe des oberen Folienbereichs. Beide stellen [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/) bereit. Die Eigenschaft [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) akzeptiert einen Prozentsatz von 0 bis 100, und [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) steuert, ob der Editor die Größe bei einer Fenstergrößenänderung anpasst.
 
-Die Property **DimensionSize** gibt die Größe des Folienbereichs an (Breite, wenn ein Kind von RestoredTop, Höhe, wenn ein Kind von RestoredLeft).
+Dieses Beispiel aktualisiert eine vorhandene Präsentation. Es stellt den horizontalen Trenner wieder her, setzt [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) auf 80 % mit aktivierter automatischer Anpassung und maximiert den vertikalen Trenner. Außerdem wird [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) für die Gliederungsansicht aktiviert.
 
-Die Property **AutoAdjust** gibt an, ob die Größe des seitlichen Inhaltsbereichs sich an die neue Größe anpassen soll, wenn das Fenster, das die Ansicht enthält, innerhalb der Anwendung neu dimensioniert wird.
-
-Ein Beispiel weiter unten zeigt, wie Sie auf die Eigenschaften **ViewProperties.NormalViewProperties** einer Präsentation zugreifen können.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // Wiederherstellen der Ansichtseigenschaften der Präsentation
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
 ## **Standard‑Zoomwert festlegen**
 
-Aspose.Slides für .NET unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, sodass beim Öffnen der Präsentation der Zoom bereits eingestellt ist. Dies kann erreicht werden, indem die [ViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties) einer Präsentation gesetzt werden. Folien‑Ansichts‑Eigenschaften sowie [NotesViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties/properties/notesviewproperties) können programmgesteuert gesetzt werden. In diesem Thema zeigen wir anhand eines Beispiels, wie die View‑Properties einer Präsentation in Aspose.Slides gesetzt werden.
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) und [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) speichern unabhängige Zoomeinstellungen für den Editor. Diese Einstellungen wirken sich nicht auf die Folienabmessungen, die Wiedergabe der Bildpräsentation oder die Auflösung beim Bildexport aus.
 
-Um die View‑Properties zu setzen, führen Sie die folgenden Schritte aus:
+Dieses Beispiel öffnet eine vorhandene Präsentation und aktiviert [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/), um die Folie an das Bearbeitungsfenster anzupassen. Für die Notizenseite deaktiviert es die automatische Skalierung und setzt [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) auf einen festen Zoom von 80 %.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation)
-2. Setzen Sie die View[Properties](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties) der Präsentation
-3. Schreiben Sie die Präsentation als PPTX‑Datei
-
-Im unten stehenden Beispiel haben wir den Zoomwert sowohl für die Folienansicht als auch für die Notizansicht gesetzt.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // Festlegen der Ansichtseigenschaften der Präsentation
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // Zoomwert in Prozent für die Folienansicht
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // Zoomwert in Prozent für die Notizansicht 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
 ## **Rasterabstand festlegen**
 
-Verwenden Sie [Presentation.ViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/viewproperties/) zum Zugriff auf die präsentationsweiten Ansichtseinstellungen. Die Property [IViewProperties.GridSpacing](https://reference.aspose.com/slides/de/net/aspose.slides/iviewproperties/gridspacing/) liest oder ändert das Intervall des zugrundeliegenden Bearbeitungsrasters. Diese Einstellung gilt für die gesamte Präsentation, nicht für eine einzelne Folie. Der Rasterabstand wird in Punkten angegeben, wobei 72 Punkte einem Zoll entsprechen. Verwenden Sie einen positiven Wert, wie in der API‑Dokumentation gefordert.
-
-Das folgende Beispiel öffnet eine vorhandene `demo.pptx`, gibt den aktuellen Rasterabstand aus, setzt ein Intervall von einem Viertel Zoll und speichert das Ergebnis.
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) legt den Abstand zwischen den Bearbeitungsrasterlinien in der gesamten Präsentation fest. Es nimmt einen positiven Wert in Punkten, wobei 72 Punkte einem Zoll entsprechen. Dieses Beispiel gibt den aktuellen Abstand in einer vorhandenen Präsentation aus und speichert ein Raster von einem Viertel Zoll, indem es das Intervall auf 18 Punkte setzt.
 
 ```csharp
 using System;
@@ -111,24 +85,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-Das Raster unterscheidet sich von den [Zeichnungshilfen](/slides/de/net/drawing-guides/). Der Rasterabstand steuert ein regelmäßiges Intervall, während Zeichnungshilfen einzelne horizontal oder vertikal ausgerichtete Linien sind. Das Hinzufügen, Verschieben oder Entfernen von Zeichnungshilfen ändert den Rasterabstand nicht.
+Das Raster wiederholt sich in festen Intervallen. [Drawing guides](/slides/de/net/drawing-guides/) markieren einzelne horizontale oder vertikale Positionen. Beide sind Hilfsmittel beim Bearbeiten und werden nur in Editoren angezeigt, die sie unterstützen. Bildpräsentationen und Exporte nach PDF, Bildern oder SVG lassen sie weg.
 
-Sowohl das Raster als auch die Zeichnungshilfen sind Bearbeitungs­hilfen. Sie werden nicht als Folieninhalt in PDF, Bildern, SVG oder einer Diashow gerendert. Das Speichern des Rasterabstands garantiert nicht, dass ein Editor das Raster anzeigt: seine Sichtbarkeit hängt ebenfalls von den Einstellungen des Betrachters oder Editors ab.
+## **Kommentare beim Öffnen einer Präsentation ein- oder ausblenden**
 
-## **Kommentare beim Öffnen einer Präsentation ein‑ oder ausblenden**
-
-Verwenden Sie [Presentation.ViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/viewproperties/) zum Zugriff auf die präsentationsweiten Ansichtseinstellungen. Lesen oder ändern Sie [IViewProperties.ShowComments](https://reference.aspose.com/slides/de/net/aspose.slides/iviewproperties/showcomments/), um eine Präferenz zu speichern, ob Kommentare beim Öffnen der Präsentation in PowerPoint oder einem anderen kompatiblen Editor angezeigt werden sollen.
-
-Diese Einstellung steuert nur die gespeicherte Ansichtspräferenz. Sie fügt keine Kommentare hinzu, entfernt sie, bearbeitet sie oder löst sie auf. Das Ausblenden von Kommentaren bewahrt deren Inhalt, Autoren, Positionen, Antworten und Status. Siehe [Presentation Comments](/slides/de/net/presentation-comments/) für Vorgänge, die die Kommentare selbst ändern.
-
-Das folgende Beispiel erfordert eine vorhandene `comments.pptx` mit Kommentaren. Es gibt die aktuelle Sichtbarkeitseinstellung aus, fordert das Ausblenden der Kommentare an und speichert eine neue PPTX, ohne Kommentare zu entfernen. Außerdem wird [IViewProperties.LastView](https://reference.aspose.com/slides/de/net/aspose.slides/iviewproperties/lastview/) auf [ViewType.SlideView](https://reference.aspose.com/slides/de/net/aspose.slides/viewtype/) gesetzt, um die anfängliche Bearbeitungsansicht zusammen mit der Kommentar‑Sichtbarkeit zu konfigurieren.
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) speichert eine Präferenz, die kompatible Editoren beim Öffnen der Präsentation verwenden. Für eine vorhandene Präsentation mit Kommentaren gibt dieses Beispiel die aktuelle Einstellung aus und speichert eine Kopie mit ausgeblendeten Kommentaren. Es setzt zudem [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) auf [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/), sodass die Kopie in der Folienansicht geöffnet wird.
 
 ```csharp
 using System;
@@ -136,34 +105,35 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-Diese Einstellung bestimmt nicht, ob Kommentare in PDF, HTML, Bild, Notizen‑ oder Handzettel‑Exporten enthalten sind. Konfigurieren Sie die jeweiligen export‑spezifischen Optionen separat.
+Das Ausblenden von Kommentaren bewahrt deren Text, Autoren, Positionen, Antworten und Status. Um die Kommentare selbst zu ändern, siehe [Presentation Comments](/slides/de/net/presentation-comments/). Export‑Einstellungen bestimmen, ob Kommentare in PDF, HTML, Bildern, Notizen oder Handzetteln angezeigt werden.
 
 ## **FAQ**
 
-**Warum ist das Raster nach dem erneuten Öffnen der Präsentation nicht sichtbar?**
+**Warum ist das Raster ausgeblendet, wenn ich die Präsentation erneut öffne?**
 
-Die Datei speichert den Rasterabstand, aber der Editor entscheidet, ob das Raster angezeigt wird. Prüfen Sie die Raster‑Sichtbarkeitseinstellungen des Editors.
+Die Präsentation speichert das Rasterintervall. Um das Raster zu sehen, aktivieren Sie die Raster‑Sichtbarkeit im Editor.
 
-**Ändert das Entfernen von Zeichnungshilfen den Rasterabstand?**
+**Verändert das Entfernen von Zeichenhilfen den Rasterabstand?**
 
-Nein. Zeichnungshilfen und Rasterabstand sind unabhängige Einstellungen. Das Entfernen von Hilfen lässt das gespeicherte Rasterintervall unverändert.
+Nein. Das Hinzufügen, Verschieben oder Entfernen einer Hilfslinie ändert das Rasterintervall nicht.
 
-**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?**
+**Können verschiedene Abschnitte einer Präsentation unterschiedliche Ansichtseinstellungen haben?**
 
-[Ansichtseinstellungen](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/viewproperties/) werden auf Präsentationsebene definiert ([Normal View](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties/slideviewproperties/)), nicht pro Abschnitt, sodass ein einziger Parametersatz für das gesamte Dokument beim Öffnen gilt.
+Nein. [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) gilt für die gesamte Präsentation.
 
-**Kann ich vordefinierte Ansichtszustände für verschiedene Benutzer festlegen?**
+**Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Benutzer speichern?**
 
-Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam genutzt. Viewer‑Anwendungen können Benutzereinstellungen berücksichtigen, aber die Datei selbst enthält nur einen Satz View‑Properties.
+Die Datei speichert einen Satz von Ansichtseigenschaften für alle. Ein Editor kann zudem die lokalen Präferenzen eines Benutzers anwenden.
 
-**Kann ich eine Vorlage mit vordefinierten View‑Properties erstellen, sodass neue Präsentationen gleich geöffnet werden?**
+**Kann ich Ansichtseinstellungen in einer Vorlage speichern?**
 
-Ja. Da [View‑Properties](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/viewproperties/) auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und neue Dokumente daraus erstellen, die dieselbe anfängliche Ansichtskonfiguration besitzen.
+Ja. Präsentationen, die aus der Vorlage erstellt wurden, übernehmen deren gespeicherte Ansichtseinstellungen.

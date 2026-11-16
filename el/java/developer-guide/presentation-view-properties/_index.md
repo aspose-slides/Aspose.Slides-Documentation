@@ -1,181 +1,146 @@
 ---
-title: "Ανάκτηση και Ενημέρωση Ιδιοτήτων Προβολής Παρουσίασης σε Java"
-linktitle: "Ιδιότητες Προβολής"
+title: Ανάκτηση και Ενημέρωση Ιδιοτήτων Προβολής Παρουσιάσης σε Java
+linktitle: Ιδιότητες Προβολής
 type: docs
 weight: 80
 url: /el/java/presentation-view-properties/
 keywords:
 - ιδιότητες προβολής
 - κανονική προβολή
-- περιεχόμενο περιγράμματος
-- εικονίδια περιγράμματος
-- κλείδωμα κάθετου διαχωριστή
+- περιεχόμενο περίληψης
+- εικονίδια περίληψης
+- προσκόλληση κάθετου διαχωριστή
 - μονή προβολή
-- κατάσταση γραμμής
+- κατάσταση μπάρας
 - μέγεθος διάστασης
 - αυτόματη προσαρμογή
-- προεπιλεγμένο ζουμ
+- προεπιλεγμένη μεγέθυνση
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Ανακαλύψτε τις ιδιότητες προβολής του Aspose.Slides for Java για προσαρμογή των μορφών διαφανειών PPT, PPTX και ODP — ρυθμίστε τις διατάξεις, τα επίπεδα ζουμ και τις ρυθμίσεις εμφάνισης."
+description: "Χρησιμοποιήστε το Aspose.Slides για Java για να ρυθμίσετε τη διάταξη της κανονικής προβολής, τη μεγέθυνση των διαφανειών και των σημειώσεων, την απόσταση του πλέγματος και την ορατότητα των σχολίων σε παρουσιάσεις PowerPoint."
 ---
 ## **Εισαγωγή**
 
-Η κανονική προβολή αποτελείται από τρεις περιοχές περιεχομένου: τη διαφάνεια αυτή καθαυτή, μια πλευρική περιοχή περιεχομένου και μια κάτω περιοχή περιεχομένου. Ιδιότητες που αφορούν τη θέση των διαφορετικών περιοχών περιεχομένου. Αυτές οι πληροφορίες επιτρέπουν στην εφαρμογή να αποθηκεύσει την κατάσταση προβολής στο αρχείο, ώστε όταν ξανανοίξει η προβολή να είναι στην ίδια κατάσταση όπως όταν η παρουσίαση αποθηκεύτηκε τελευταία.
+Στην κανονική προβολή του PowerPoint, η διαφάνεια εμφανίζεται μεταξύ ενός πλευρικού παραθύρου για μικρογραφίες ή περίληψη και ενός παραθύρου σημειώσεων παρακάτω. Το Aspose.Slides for Java εκθέτει τις αποθηκευμένες προτιμήσεις επεξεργασίας της παρουσίασης μέσω του [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--). Αυτά περιλαμβάνουν τη διάταξη των παραθύρων, τα επίπεδα μεγέθυνσης, την απόσταση του πλέγματος και την ορατότητα σχολίων.
 
-Η μέθοδος [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) προστέθηκε για να παρέχει πρόσβαση στις ιδιότητες κανονικής προβολής της παρουσίασης.
+## **Σχετικά με INormalViewProperties**
 
-Προστέθηκαν τα interface [INormalViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewRestoredProperties) καθώς και οι απογόνους τους, το enum [SplitterBarStateType](https://reference.aspose.com/slides/el/java/com.aspose.slides/SplitterBarStateType).
+Χρησιμοποιήστε το [getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNormalViewProperties--) για να αποκτήσετε πρόσβαση στη διεπαφή [INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/). Το [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) ελέγχει αν εμφανίζονται εικονίδια δίπλα στους τίτλους των διαφανειών στην περίληψη. Το [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setSnapVerticalSplitter-boolean-) επιτρέπει στο πλευρικό παράθυρο να «κολλήσει» στην ελαχιστοποιημένη του κατάσταση όταν ο χρήστης το μειώνει. Το [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setPreferSingleView-boolean-) υποδεικνύει μια προτίμηση να εμφανίζεται ένα παράθυρο στην πλήρης οθόνη.
 
-## **Σχετικά με το INormalViewProperties**
+Το [setVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setVerticalBarState-int-) ελέγχει το διαχωριστικό μεταξύ του πλευρικού παραθύρου και της διαφάνειας. Το [setHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setHorizontalBarState-int-) ελέγχει το διαχωριστικό πάνω από το παράθυρο σημειώσεων. Και τα δύο δέχονται μια τιμή [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/splitterbarstatetype/) του `Minimized`, `Maximized` ή `Restored`.
 
-Αντιπροσωπεύει τις ιδιότητες της κανονικής προβολής.
+## **Σχετικά με την Επαναφορά INormalViewProperties**
 
-Οι μέθοδοι [getShowOutlineIcons](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) και [setShowOutlineIcons](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) καθορίζουν εάν η εφαρμογή πρέπει να εμφανίζει εικονίδια όταν εμφανίζει το περίγραμμα σε οποιαδήποτε από τις περιοχές περιεχομένου της λειτουργίας κανονικής προβολής.
+Όταν ένα διαχωριστικό επαναφέρεται, το [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredLeft--) παρέχει το αποθηκευμένο μέγεθος του πλευρικού παραθύρου και το [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) παρέχει το αποθηκευμένο μέγεθος της επάνω περιοχής της διαφάνειας. Και τα δύο εκθέτουν το [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/). Η μέθοδος [setDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setDimensionSize-float-) δέχεται ένα ποσοστό από 0 έως 100, και το [setAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewrestoredproperties/#setAutoAdjust-boolean-) ελέγχει αν ο επεξεργαστής προσαρμόζει το μέγεθος όταν το παράθυρο αλλάζει μέγεθος.
 
-Οι μέθοδοι [getSnapVerticalSplitter](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) και [setSnapVerticalSplitter](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) καθορίζουν εάν ο κάθετος διαχωριστής πρέπει να "κλειδώνει" σε ελαχιστοποιημένη κατάσταση όταν η πλευρική περιοχή είναι αρκετά μικρή.
-
-Η ιδιότητα [getPreferSingleView](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) και [setPreferSingleView](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) καθορίζουν εάν ο χρήστης προτιμά να βλέπει μια περιοχή περιεχομένου σε πλήρη παράθυρο αντί για την τυπική κανονική προβολή με τρεις περιοχές περιεχομένου. Εάν ενεργοποιηθεί, η εφαρμογή μπορεί να επιλέξει να εμφανίσει μία από τις περιοχές περιεχομένου σε όλο το παράθυρο.
-
-Οι μέθοδοι [getVerticalBarState](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) και [getHorizontalBarState](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) καθορίζουν την κατάσταση στην οποία θα εμφανίζεται η οριζόντια ή η κάθετη μπάρα διαχωριστικού. Μια οριζόντια μπάρα διαχωριστικού χωρίζει τη διαφάνεια από την περιοχή περιεχομένου κάτω από τη διαφάνεια, ενώ η κάθετη μπάρα χωρίζει τη διαφάνεια από την πλευρική περιοχή περιεχομένου. Πιθανές τιμές είναι: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/el/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/el/java/com.aspose.slides/SplitterBarStateType#Maximized) και [SplitterBarStateType.Restored](https://reference.aspose.com/slides/el/java/com.aspose.slides/SplitterBarStateType#Restored).
-
-Οι μέθοδοι [getRestoredLeft](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) και [getRestoredTop](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) καθορίζουν το μέγεθος της άνω ή της πλευρικής περιοχής της διαφάνειας στην κανονική προβολή, όταν η τιμή [SplitterBarStateType.Restored](https://reference.aspose.com/slides/el/java/com.aspose.slides/SplitterBarStateType#Restored) εφαρμόζεται στην [getVerticalBarState](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) και στην [getHorizontalBarState](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) αντίστοιχα.
-
-## **Σχετικά με την Επαναφορά των INormalViewProperties**
-
-Καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του [getRestoredTop](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), ύψος όταν είναι παιδί του [getRestoredLeft](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) στην κανονική προβολή, όταν η περιοχή έχει μεταβλητό αποκατεστημένο μέγεθος (ούτε ελαχιστοποιημένο ούτε μεγιστοποιημένο).
-
-Η μέθοδος [getDimensionSize](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) καθορίζει το μέγεθος της περιοχής διαφάνειας (πλάτος όταν είναι παιδί του restoredTop, ύψος όταν είναι παιδί του restoredLeft).
-
-Η μέθοδος [getAutoAdjust](https://reference.aspose.com/slides/el/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) καθορίζει εάν το μέγεθος της πλευρικής περιοχής περιεχομένου πρέπει να αντισταθμίσει το νέο μέγεθος κατά την αλλαγή μεγέθους του παραθύρου που περιέχει την προβολή στην εφαρμογή.
-
-Ένα παράδειγμα παρατίθεται παρακάτω που δείχνει πώς μπορείτε να αποκτήσετε πρόσβαση στις ιδιότητες [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) μιας παρουσίασης.
+Αυτό το παράδειγμα ενημερώνει μια υπάρχουσα παρουσίαση. Επαναφέρει το οριζόντιο διαχωριστικό, ορίζει το μέγεθος που επιστρέφεται από το [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#getRestoredTop--) στο 80 % με ενεργοποιημένη την αυτόματη προσαρμογή, και μεγιστοποιεί το κάθετο διαχωριστικό. Επιπλέον, καλεί το [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/inormalviewproperties/#setShowOutlineIcons-boolean-) για να εμφανίσει εικονίδια στην προβολή περίληψης.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("demo.pptx");
 try {
-    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
-    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
-    
-    // Επαναφορά των ιδιοτήτων προβολής της παρουσίασης
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    INormalViewProperties normalView = presentation.getViewProperties().getNormalViewProperties();
+    normalView.setHorizontalBarState(SplitterBarStateType.Restored);
+    normalView.setVerticalBarState(SplitterBarStateType.Maximized);
+    normalView.getRestoredTop().setAutoAdjust(true);
+    normalView.getRestoredTop().setDimensionSize(80);
+    normalView.setShowOutlineIcons(true);
 
-    pres.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Ορισμός της Προεπιλεγμένης Τιμής Ζουμ**
-
-{{% alert color="info" %}} 
-
-Το Aspose.Slides for Java υποστηρίζει πλέον τον ορισμό της προεπιλεγμένης τιμής ζουμ για μια παρουσίαση, ώστε όταν η παρουσίαση ανοίξει το ζουμ να είναι ήδη ορισμένο. Αυτό μπορεί να γίνει ορίζοντας τα [ViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/ViewProperties) της παρουσίασης. Οι μέθοδοι [getSlideViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) καθώς και [getNotesViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) μπορούν να οριστούν προγραμματιστικά. Σε αυτό το θέμα, θα δούμε με ένα παράδειγμα πώς να ορίσουμε τα [View Properties](https://reference.aspose.com/slides/el/java/com.aspose.slides/ViewProperties) της [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation) στο Aspose.Slides.
-
-{{% /alert %}} 
-
-Για να ορίσετε τις ιδιότητες προβολής, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation).
-2. Ορίστε τα [View Properties](https://reference.aspose.com/slides/el/java/com.aspose.slides/ViewProperties) της [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation).
-3. Αποθηκεύστε την παρουσία ως αρχείο [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   Στο παρακάτω παράδειγμα, ορίσαμε την τιμή ζουμ τόσο για την προβολή διαφάνειας όσο και για την προβολή σημειώσεων.
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation();
-try {
-    // Ορισμός των ιδιοτήτων προβολής της παρουσίασης
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Τιμή ζουμ σε ποσοστά για την προβολή διαφάνειας
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Τιμή ζουμ σε ποσοστά για την προβολή σημειώσεων 
-
-    presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ορισμός του Αποστάματος Πλέγματος**
+## **Ορισμός Προεπιλεγμένης Τιμής Μεγέθυνσης**
 
-Χρησιμοποιήστε το [Presentation.getViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getViewProperties--) για πρόσβαση στις ρυθμίσεις προβολής σε επίπεδο παρουσίασης. Οι μέθοδοι [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/el/java/com.aspose.slides/iviewproperties/#getGridSpacing--) και [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/el/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) διαβάζουν ή αλλάζουν το διάστημα του υποκείμενου πλέγματος επεξεργασίας. Αυτή η ρύθμιση ισχύει για ολόκληρη την παρουσίαση, όχι μόνο για μια συγκεκριμένη διαφάνεια. Το απόστημα του πλέγματος ορίζεται σε σημεία, όπου 72 σημεία ισοδυναμούν με μία ίντσα. Χρησιμοποιήστε θετική τιμή, όπως απαιτεί η τεκμηρίωση του API.
+Τα [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getSlideViewProperties--) και [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#getNotesViewProperties--) αποθηκεύουν ανεξάρτητες ρυθμίσεις μεγέθυνσης για τον επεξεργαστή. Αυτές οι ρυθμίσεις δεν επηρεάζουν τις διαστάσεις των διαφανειών, την αναπαραγωγή παρουσίασης ή την ανάλυση εξαγόμενων εικόνων.
 
-Το παρακάτω παράδειγμα ανοίγει ένα υπάρχον `demo.pptx`, εκτυπώνει το τρέχον απόστημα πλέγματος, ορίζει ένα διάστημα τέταρτης ίντσας και αποθηκεύει το αποτέλεσμα.
+Αυτό το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και καλεί το [setVariableScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setVariableScale-boolean-) για να προσαρμόσει τη διαφάνεια στο παράθυρο επεξεργασίας. Για τη σελίδα σημειώσεων, απενεργοποιεί την αυτόματη κλίμακα και καλεί το [setScale](https://reference.aspose.com/slides/java/com.aspose.slides/icommonslideviewproperties/#setScale-int-) για να ορίσει μια σταθερή μεγέθυνση 80 %.
 
 ```java
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("demo.pptx");
 try {
-    float gridSpacing = presentation.getViewProperties().getGridSpacing();
-    System.out.println("Current grid spacing: " + gridSpacing + " points");
+    IViewProperties viewProperties = presentation.getViewProperties();
+    viewProperties.getSlideViewProperties().setVariableScale(true);
+    viewProperties.getNotesViewProperties().setVariableScale(false);
+    viewProperties.getNotesViewProperties().setScale(80);
 
-    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("zoom.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ορισμός Απόστασης Πλέγματος**
+
+Το [setGridSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) ορίζει την απόσταση μεταξύ των γραμμών του πλέγματος επεξεργασίας σε όλη την παρουσίαση. Δέχεται μια θετική τιμή σε points, με 72 points ανά ίντσα. Αυτό το παράδειγμα εκτυπώνει την τρέχουσα απόσταση σε μια υπάρχουσα παρουσίαση και αποθηκεύει ένα πλέγμα τετάρτου ιντσού ορίζοντας το διάστημα στα 18 points.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current grid spacing: " + viewProperties.getGridSpacing() + " points");
+
+    viewProperties.setGridSpacing(18f);
+    
     presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Το πλέγμα διαφέρει από τις [drawing guides](/slides/el/java/drawing-guides/). Το απόστημα πλέγματος ελέγχει ένα κανονικό διάστημα, ενώ οι οδηγίες σχεδίασης είναι μεμονωμένα τοποθετημένες οριζόντιες ή κάθετες γραμμές στοίχισης. Η προσθήκη, η μετακίνηση ή η εκκαθάριση των οδηγιών σχεδίασης δεν αλλάζει το απόστημα του πλέγματος.
-
-Τanto το πλέγμα όσο και οι οδηγίες σχεδίασης είναι βοηθήματα επεξεργασίας. Δεν αποδίδονται ως περιεχόμενο διαφάνειας σε PDF, εικόνες, SVG ή παρουσίαση. Η αποθήκευση του αποστάματος πλέγματος δεν εγγυάται ότι ένας επεξεργαστής θα εμφανίσει το πλέγμα· η ορατότητά του εξαρτάται επίσης από τις προτιμήσεις του θεατή ή του επεξεργαστή.
+Το πλέγμα επαναλαμβάνεται σε σταθερό διάστημα. Τα [Drawing guides](/slides/el/java/drawing-guides/) σημειώνουν μεμονωμένες οριζόντιες ή κάθετες θέσεις. Και τα δύο είναι βοηθήματα επεξεργασίας και εμφανίζονται μόνο σε επεξεργαστές που τα εμφανίζουν. Οι παρουσιάσεις και οι εξαγωγές σε PDF, εικόνες ή SVG τα παραλείπουν.
 
 ## **Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης**
 
-Χρησιμοποιήστε το [Presentation.getViewProperties](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getViewProperties--) για πρόσβαση στις ρυθμίσεις προβολής σε επίπεδο παρουσίασης. Χρησιμοποιήστε τα [IViewProperties.getShowComments](https://reference.aspose.com/slides/el/java/com.aspose.slides/iviewproperties/#getShowComments--) και [IViewProperties.setShowComments](https://reference.aspose.com/slides/el/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) για να διαβάσετε ή να αλλάξετε την αποθηκευμένη προτίμηση σχετικά με το εάν θα εμφανίζονται σχόλια όταν η παρουσίαση ανοίγει στο PowerPoint ή σε κάποιο άλλο συμβατό πρόγραμμα.
-
-Αυτή η ρύθμιση ελέγχει μόνο την αποθηκευμένη προτίμηση προβολής. Δεν προσθέτει, αφαιρεί, επεξεργάζεται ή λύνει σχόλια. Η απόκρυψη σχολίων διατηρεί το περιεχόμενό τους, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Δείτε τις [Presentation Comments](/slides/el/java/presentation-comments/) για ενέργειες που αλλάζουν τα ίδια τα σχόλια.
-
-Το παρακάτω παράδειγμα απαιτεί ένα υπάρχον `comments.pptx` που περιέχει σχόλια. Εκτυπώνει την τρέχουσα ρύθμιση ορατότητας, ζητά την απόκρυψη των σχόλίων και αποθηκεύει ένα νέο PPTX χωρίς να αφαιρέσει κανένα σχόλιο. Χρησιμοποιεί επίσης το [IViewProperties.setLastView](https://reference.aspose.com/slides/el/java/com.aspose.slides/iviewproperties/#setLastView-int-) με το [ViewType.SlideView](https://reference.aspose.com/slides/el/java/com.aspose.slides/viewtype/#SlideView) για να ρυθμίσει την αρχική προβολή επεξεργασίας μαζί με την ορατότητα των σχολίων.
+Το [setShowComments](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) αποθηκεύει μια προτίμηση που χρησιμοποιούν συμβατοί επεξεργαστές κατά το άνοιγμα της παρουσίασης. Για μια υπάρχουσα παρουσίαση με σχόλια, αυτό το παράδειγμα εκτυπώνει την τρέχουσα ρύθμιση και αποθηκεύει ένα αντίγραφο με κρυμμένα σχόλια. Επίσης καλεί το [setLastView](https://reference.aspose.com/slides/java/com.aspose.slides/iviewproperties/#setLastView-int-) με το [ViewType.SlideView](https://reference.aspose.com/slides/java/com.aspose.slides/viewtype/#SlideView) ώστε το αντίγραφο να ανοίξει στην προβολή διαφάνειας.
 
 ```java
-import com.aspose.slides.NullableBool;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ViewType;
+import com.aspose.slides.*;
 
 Presentation presentation = new Presentation("comments.pptx");
 try {
-    byte showComments = presentation.getViewProperties().getShowComments();
-    System.out.println("Current comment visibility: " + showComments);
+    IViewProperties viewProperties = presentation.getViewProperties();
+    System.out.println("Current comment visibility: " + viewProperties.getShowComments());
 
-    presentation.getViewProperties().setShowComments(NullableBool.False);
-    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    viewProperties.setShowComments(NullableBool.False);
+    viewProperties.setLastView(ViewType.SlideView);
+
     presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Αυτή η ρύθμιση δεν καθορίζει αν τα σχόλια θα συμπεριληφθούν στις εξαγωγές PDF, HTML, εικόνας, σημειώσεων ή φυλλαδίου. Διαμορφώστε ξεχωριστά τις επιλογές εξαγωγής που σχετίζονται με κάθε μορφή.
+Η απόκρυψη σχολίων διατηρεί το κείμενό τους, τους συγγραφείς, τις θέσεις, τις απαντήσεις και τις καταστάσεις. Για να αλλάξετε τα ίδια τα σχόλια, δείτε το [Presentation Comments](/slides/el/java/presentation-comments/). Οι ρυθμίσεις εξαγωγής ελέγχουν αν τα σχόλια εμφανίζονται σε PDF, HTML, εικόνες, σημειώσεις ή φυλλάδια.
 
 ## **Συχνές Ερωτήσεις**
 
-**Γιατί το πλέγμα δεν είναι ορατό μετά το άνοιγμα εκ νέου της παρουσίασης;**
+**Γιατί το πλέγμα είναι κρυφό όταν ξανανοίγω την παρουσίαση;**
 
-Το αρχείο αποθηκεύει το απόστημα πλέγματος, αλλά ο επεξεργαστής ελέγχει αν θα εμφανιστεί το πλέγμα. Ελέγξτε τις ρυθμίσεις ορατότητας πλέγματος του επεξεργαστή.
+Η παρουσίαση αποθηκεύει το διάστημα του πλέγματος. Για να δείτε το πλέγμα, ενεργοποιήστε την προβολή του πλέγματος στον επεξεργαστή.
 
-**Αλλάζει η εκκαθάριση των οδηγών σχεδίασης το απόστημα του πλέγματος;**
+**Αλλάζει η διαγραφή των οδηγών σχεδίασης την απόσταση του πλέγματος;**
 
-Όχι. Οι οδηγίες σχεδίασης και το απόστημα πλέγματος είναι ανεξάρτητες ρυθμίσεις. Η εκκαθάριση των οδηγών δεν επηρεάζει το αποθηκευμένο διάστημα του πλέγματος.
+Όχι. Η προσθήκη, η μετακίνηση ή η διαγραφή ενός οδηγού δεν αλλάζει το διάστημα του πλέγματος.
 
-**Μπορώ να ορίσω διαφορετικές ρυθμίσεις προβολής για διαφορετικές ενότητες μιας παρουσίασης;**
+**Μπορούν διαφορετικές ενότητες μιας παρουσίασης να έχουν διαφορετικές ρυθμίσεις προβολής;**
 
-Οι [ρυθμίσεις προβολής](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getViewProperties--) ορίζονται σε επίπεδο παρουσίασης ([Normal View](https://reference.aspose.com/slides/el/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/el/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)), όχι ανά ενότητα, οπότε ένα σύνολο παραμέτρων ισχύει για ολόκληρο το έγγραφο όταν ανοίγει.
+Όχι. Το [Presentation.getViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) εφαρμόζεται σε ολόκληρη την παρουσίαση.
 
-**Μπορώ να προ-ορίσω διαφορετικές καταστάσεις προβολής για διαφορετικούς χρήστες;**
+**Μπορώ να αποθηκεύσω διαφορετικές ρυθμίσεις προβολής για διαφορετικούς χρήστες;**
 
-Όχι. Οι ρυθμίσεις αποθηκεύονται στο αρχείο και μοιράζονται. Οι εφαρμογές προβολής μπορεί να σεβαστούν τις προτιμήσεις του χρήστη, αλλά το αρχείο περιέχει ένα μόνο σύνολο ιδιοτήτων προβολής.
+Το αρχείο αποθηκεύει ένα σύνολο ιδιοτήτων προβολής για όλους. Ένας επεξεργαστής μπορεί επίσης να εφαρμόσει τις τοπικές προτιμήσεις ενός χρήστη.
 
-**Μπορώ να ετοιμάσω ένα πρότυπο με προορισμένες Ιδιότητες Προβολής ώστε οι νέες παρουσιάσεις να ανοίγουν με τον ίδιο τρόπο;**
+**Μπορώ να αποθηκεύσω ρυθμίσεις προβολής σε ένα πρότυπο;**
 
-Ναι. Επειδή οι [ιδιότητες προβολής](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getViewProperties--) αποθηκεύονται σε επίπεδο παρουσίασης, μπορείτε να τις ενσωματώσετε σε ένα πρότυπο και να δημιουργήσετε νέα έγγραφα από αυτό με την ίδια αρχική διαμόρφωση προβολής.
+Ναι. Οι παρουσιάσεις που δημιουργούνται από το πρότυπο κληρονομούν τις αποθηκευμένες ρυθμίσεις προβολής του.

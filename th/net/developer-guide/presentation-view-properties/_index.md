@@ -1,16 +1,16 @@
 ---
-title: เรียกคืนและอัปเดตคุณสมบัติมุมมองการนำเสนอใน .NET
-linktitle: คุณสมบัติมุมมอง
+title: ดึงและอัปเดตคุณสมบัติวิวของการนำเสนอใน .NET
+linktitle: คุณสมบัติวิว
 type: docs
 weight: 80
 url: /th/net/presentation-view-properties/
 keywords:
-- คุณสมบัติมุมมอง
+- คุณสมบัติวิว
 - มุมมองปกติ
-- เนื้อหาโครงร่าง
-- ไอคอนโครงร่าง
-- ตัวแยกแนวตั้งสแนป
-- มุมมองเดี่ยว
+- เนื้อหาเค้าโครง
+- ไอคอนเค้าโครง
+- สแนปตัวแบ่งแนวตั้ง
+- มุมมองเดียว
 - สถานะแถบ
 - ขนาดมิติ
 - ปรับอัตโนมัติ
@@ -21,87 +21,63 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบคุณสมบัติมุมมองของ Aspose.Slides สำหรับ .NET เพื่อปรับแต่งรูปแบบสไลด์ PPT, PPTX, และ ODP — ปรับแต่งเลย์เอาต์ ระดับการซูม และการตั้งค่าการแสดงผล"
+description: "ใช้ Aspose.Slides สำหรับ .NET เพื่อกำหนดค่าเค้าโครงมุมมองปกติ การซูมสไลด์และบันทึก ระยะห่างกริด และการแสดงความเห็นในงานนำเสนอ PowerPoint"
 ---
 ## **บทนำ**
 
-มุมมองปกติมีสามส่วนของเนื้อหา ได้แก่ สไลด์เอง, ส่วนเนื้อหาด้านข้าง, และส่วนเนื้อหาที่ด้านล่าง. คุณสมบัติที่เกี่ยวกับการจัดตำแหน่งของส่วนเนื้อหาต่าง ๆ นี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงในไฟล์ได้ เพื่อให้เมื่อเปิดใหม่มุมมองอยู่ในสถานะเดียวกับที่บันทึกรอบสุดท้ายของการนำเสนอ.  
-คุณสมบัติ [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/iviewproperties/properties/normalviewproperties) ได้ถูกเพิ่มเพื่อให้เข้าถึงคุณสมบัติของมุมมองปกติของการนำเสนอ.  
-[INormalViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/inormalviewproperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/th/net/aspose.slides/inormalviewrestoredproperties) อินเทอร์เฟซและคลาสที่สืบทอด, รวมถึง enum [SplitterBarStateType](https://reference.aspose.com/slides/th/net/aspose.slides/splitterbarstatetype) ได้ถูกเพิ่ม.
+ในมุมมองปกติของ PowerPoint สไลด์จะแสดงระหว่างแถบด้านข้างสำหรับภาพย่อหรือเค้าโครงและแถบบันทึกด้านล่าง Aspose.Slides for .NET เปิดเผยการตั้งค่าการแก้ไขที่บันทึกของการนำเสนอผ่าน [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/). รวมถึงการจัดเรียงแถบ ระดับการซูม ระยะห่างของกริด และการแสดงความคิดเห็น
 
 ## **เกี่ยวกับ INormalViewProperties**
 
-แทนคุณสมบัติของมุมมองปกติ.  
+ใช้ [NormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/normalviewproperties/) เพื่อเข้าถึงอินเทอร์เฟซ [INormalViewProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/). [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) ควบคุมว่าจะมีไอคอนปรากฏข้างชื่อสไลด์ในเค้าโครงหรือไม่. [SnapVerticalSplitter](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/snapverticalsplitter/) ทำให้แถบด้านข้างสแนปไปยังสถานะที่ย่อลงเมื่อผู้ใช้ลดขนาดมัน. [PreferSingleView](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/prefersingleview/) บ่งบอกการตั้งค่าเพื่อแสดงแถบเดียวในหน้าต่างเต็ม
 
-คุณสมบัติ **ShowOutlineIcons** ระบุว่ารายการแอปพลิเคชันควรแสดงไอคอนหรือไม่เมื่อแสดงเนื้อหาโครงร่างในส่วนใดส่วนหนึ่งของมุมมองปกติ.  
+[VerticalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/verticalbarstate/) ควบคุมตัวแบ่งระหว่างแถบด้านข้างและสไลด์. [HorizontalBarState](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/horizontalbarstate/) ควบคุมตัวแบ่งเหนือแถบบันทึก. ทั้งสองรับค่า [SplitterBarStateType](https://reference.aspose.com/slides/net/aspose.slides/splitterbarstatetype/) ที่เป็น `Minimized`, `Maximized`, หรือ `Restored`.
 
-คุณสมบัติ **SnapVerticalSplitter** ระบุว่าตัวแยกแนวตั้งควรสแนปเข้าสู่สถานะย่อเมื่อส่วนด้านข้างมีขนาดเล็กพอ.  
+## **เกี่ยวกับการกู้คืน INormalViewProperties**
 
-คุณสมบัติ **PreferSingleView** ระบุว่าผู้ใช้ต้องการดูส่วนเนื้อหาเดี่ยวเต็มหน้าต่างแทนมุมมองปกติมาตรฐานที่มีสามส่วนหรือไม่ หากเปิดใช้งาน แอปพลิเคชันอาจเลือกแสดงส่วนเนื้อหาหนึ่งในหน้าต่างทั้งหมด.  
+เมื่อมีการกู้คืนตัวแบ่ง [RestoredLeft](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredleft/) จะให้ขนาดที่บันทึกของแถบด้านข้างและ [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) จะให้ขนาดที่บันทึกของพื้นที่สไลด์ด้านบน. ทั้งสองเปิดเผย [INormalViewRestoredProperties](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/). คุณสมบัติ [DimensionSize](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/dimensionsize/) รับเปอร์เซ็นต์ตั้งแต่ 0 ถึง 100, และ [AutoAdjust](https://reference.aspose.com/slides/net/aspose.slides/inormalviewrestoredproperties/autoadjust/) ควบคุมว่าตัวแก้ไขจะปรับขนาดเมื่อหน้าต่างถูกปรับขนาดหรือไม่
 
-คุณสมบัติ **VerticalBarState** และ **HorizontalBarState** ระบุสถานะที่แถบสไลด์แนวตั้งหรือแนวนอนควรแสดง. แถบสไลด์แนวนอนจะแยกสไลด์ออกจากส่วนเนื้อหาที่อยู่ด้านล่างสไลด์, ส่วนแถบสไลด์แนวตั้งจะแยกสไลด์ออกจากส่วนเนื้อหาด้านข้าง. ค่าที่เป็นไปได้คือ: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** และ **SplitterBarStateType.Restored**.  
+ตัวอย่างนี้อัปเดตการนำเสนอที่มีอยู่ โดยกู้คืนตัวแบ่งแนวนอน ตั้งค่า [RestoredTop](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/restoredtop/) เป็น 80% พร้อมเปิดการปรับอัตโนมัติ และขยายตัวแบ่งแนวตั้งให้เต็ม นอกจากนี้ยังเปิดใช้งาน [ShowOutlineIcons](https://reference.aspose.com/slides/net/aspose.slides/inormalviewproperties/showoutlineicons/) สำหรับมุมมองเค้าโครง
 
-คุณสมบัติ **RestoredLeft** และ **RestoredTop** ระบุขนาดของส่วนสไลด์บนหรือด้านข้างของมุมมองปกติเมื่อค่า **SplitterBarStateType.Restored** ถูกนำไปใช้กับ **VerticalBarState** และ **HorizontalBarState** ตามลำดับ.
-
-## **เกี่ยวกับการคืนค่า INormalViewProperties** 
-
-ระบุขนาดของส่วนสไลด์ (ความกว้างเมื่อเป็นลูกของ RestoredTop, ความสูงเมื่อเป็นลูกของ RestoredLeft) ของมุมมองปกติเมื่อส่วนนั้นมีขนาดที่กู้คืนได้แบบตัวแปร (ไม่ได้ย่อหรือขยาย).  
-
-คุณสมบัติ **DimensionSize** ระบุขนาดของส่วนสไลด์ (ความกว้างเมื่อเป็นลูกของ restoredTop, ความสูงเมื่อเป็นลูกของ restoredLeft).  
-
-คุณสมบัติ **AutoAdjust** ระบุว่าขนาดของส่วนเนื้อหาด้านข้างควรปรับตามขนาดใหม่เมื่อเปลี่ยนขนาดหน้าต่างที่บรรจุมุมมองภายในแอปพลิเคชันหรือไม่.  
-
-ตัวอย่างด้านล่างแสดงวิธีการเข้าถึงคุณสมบัติ **ViewProperties.NormalViewProperties** ของการนำเสนอ.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("demo.pptx"))
-{
-    pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
-    pres.ViewProperties.NormalViewProperties.VerticalBarState = SplitterBarStateType.Maximized;
+using var presentation = new Presentation("demo.pptx");
 
-    // คืนค่าคุณสมบัติมุมมองของการนำเสนอ
-    pres.ViewProperties.NormalViewProperties.RestoredTop.AutoAdjust = true;
-    pres.ViewProperties.NormalViewProperties.RestoredTop.DimensionSize = 80;
-    pres.ViewProperties.NormalViewProperties.ShowOutlineIcons = true;
+var normalView = presentation.ViewProperties.NormalViewProperties;
+normalView.HorizontalBarState = SplitterBarStateType.Restored;
+normalView.VerticalBarState = SplitterBarStateType.Maximized;
+normalView.RestoredTop.AutoAdjust = true;
+normalView.RestoredTop.DimensionSize = 80;
+normalView.ShowOutlineIcons = true;
 
-    pres.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation_normal_view_state.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าค่าซูมเริ่มต้น**
+## **ตั้งค่าค่าการซูมเริ่มต้น**
 
-Aspose.Slides for .NET ตอนนี้รองรับการตั้งค่าซูมเริ่มต้นสำหรับการนำเสนอ เพื่อให้เมื่อเปิดการนำเสนอแล้วซูมจะถูกตั้งค่าไว้แล้ว สามารถทำได้โดยกำหนด [ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties) ของการนำเสนอ ทั้งคุณสมบัติมุมมองสไลด์และ [NotesViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/properties/notesviewproperties) สามารถตั้งค่าผ่านโปรแกรมได้ ในหัวข้อนี้เราจะดูตัวอย่างการตั้งค่าคุณสมบัติมุมมองของการนำเสนอใน Aspose.Slides.  
+[SlideViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/slideviewproperties/) และ [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/notesviewproperties/) เก็บการตั้งค่าการซูมที่แยกกันสำหรับตัวแก้ไข การตั้งค่าเหล่านี้ไม่กระทบต่อมิติของสไลด์ การเล่นสไลด์โชว์ หรือความละเอียดการส่งออกภาพ
 
-เพื่อกำหนดคุณสมบัติมุมมอง โปรดทำตามขั้นตอนต่อไปนี้:
+ตัวอย่างนี้เปิดการนำเสนอที่มีอยู่และเปิด [VariableScale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/variablescale/) เพื่อให้สไลด์พอดีกับหน้าต่างการแก้ไข สำหรับหน้าบันทึก จะปิดการปรับขนาดอัตโนมัติและตั้งค่า [Scale](https://reference.aspose.com/slides/net/aspose.slides/icommonslideviewproperties/scale/) เป็นการซูมคงที่ 80%
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)  
-1. ตั้งค่า View [Properties](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties) ของการนำเสนอ  
-1. เขียนการนำเสนอเป็นไฟล์ PPTX  
-
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าซูมสำหรับมุมมองสไลด์และมุมมองโน้ต.
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
-{
-    // กำหนดคุณสมบัติมุมมองของการนำเสนอ
-    presentation.ViewProperties.SlideViewProperties.Scale = 100; // ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองสไลด์
-    presentation.ViewProperties.NotesViewProperties.Scale = 100; // ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองโน้ต 
+using var presentation = new Presentation("demo.pptx");
 
-    presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
-}
+var viewProperties = presentation.ViewProperties;
+viewProperties.SlideViewProperties.VariableScale = true;
+viewProperties.NotesViewProperties.VariableScale = false;
+viewProperties.NotesViewProperties.Scale = 80;
+
+presentation.Save("zoom.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าความห่างของกริด**
+## **ตั้งค่าระยะห่างกริด**
 
-ใช้ [Presentation.ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/viewproperties/) เพื่อเข้าถึงการตั้งค่ามุมมองระดับการนำเสนอทั้งหมด. คุณสมบัติ [IViewProperties.GridSpacing](https://reference.aspose.com/slides/th/net/aspose.slides/iviewproperties/gridspacing/) อ่านหรือเปลี่ยนช่วงของกริดการแก้ไขพื้นฐาน การตั้งค่านี้ใช้กับการนำเสนอทั้งหมด ไม่ใช่สไลด์แต่ละอัน. ความห่างของกริดระบุเป็นจุด, โดย 72 จุดเท่ากับหนึ่งนิ้ว. ใช้ค่าบวกตามที่เอกสาร API กำหนด.  
-
-ตัวอย่างต่อไปนี้เปิดไฟล์ `demo.pptx` ที่มีอยู่แล้ว, พิมพ์ค่าความห่างของกริดปัจจุบัน, ตั้งค่าช่วงหนึ่งในสี่นิ้ว, และบันทึกผลลัพธ์.
+[GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) กำหนดระยะห่างระหว่างเส้นกริดการแก้ไขทั่วทั้งการนำเสนอ ค่าที่รับเป็นจำนวนบวกในหน่วยจุด โดยมี 72 จุดต่อหนึ่งนิ้ว ตัวอย่างนี้พิมพ์ระยะห่างปัจจุบันในการนำเสนอที่มีอยู่และบันทึกกริดความกว้างหนึ่งในสี่นิ้วโดยตั้งช่วงเป็น 18 จุด
 
 ```csharp
 using System;
@@ -109,24 +85,19 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("demo.pptx");
-var gridSpacing = presentation.ViewProperties.GridSpacing;
-Console.WriteLine($"Current grid spacing: {gridSpacing} points");
 
-presentation.ViewProperties.GridSpacing = 18f;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current grid spacing: {viewProperties.GridSpacing} points");
+
+viewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-กริดแตกต่างจาก [drawing guides](/slides/th/net/drawing-guides/). ความห่างของกริดควบคุมช่วงปกติ, ในขณะที่ drawing guides เป็นเส้นแนวนอนหรือแนวตั้งที่วางตำแหน่งเป็นชิ้นเดียว การเพิ่ม, ย้าย, หรือล้าง drawing guides จะไม่เปลี่ยนความห่างของกริด.  
+กริดจะทำซ้ำที่ช่วงคงที่ [แนวทางการวาด](/slides/th/net/drawing-guides/) ทำเครื่องหมายตำแหน่งแนวนอนหรือแนวตั้งแต่ละจุด ทั้งสองเป็นเครื่องมือช่วยการแก้ไขและปรากฏเฉพาะในตัวแก้ไขที่แสดงมัน การแสดงสไลด์และการส่งออกเป็น PDF, ภาพ หรือ SVG จะละเว้นมัน
 
-ทั้งกริดและ drawing guides เป็นเครื่องมือช่วยการแก้ไข. พวกมันไม่ได้แสดงเป็นเนื้อหาสไลด์ใน PDF, รูปภาพ, SVG หรือการแสดงสไลด์. การบันทึกความห่างของกริดไม่รับประกันว่าโปรแกรมแก้ไขจะทำการแสดงกริด: การมองเห็นยังขึ้นอยู่กับการตั้งค่าของผู้ดูหรือผู้แก้ไข.
+## **แสดงหรือซ่อนความคิดเห็นเมื่อตอนเปิดการนำเสนอ**
 
-## **แสดงหรือซ่อนความคิดเห็นเมื่อเปิดการนำเสนอ**
-
-ใช้ [Presentation.ViewProperties](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/viewproperties/) เพื่อเข้าถึงการตั้งค่ามุมมองระดับการนำเสนอ. อ่านหรือเปลี่ยนค่า [IViewProperties.ShowComments](https://reference.aspose.com/slides/th/net/aspose.slides/iviewproperties/showcomments/) เพื่อตั้งค่าตัวเลือกว่าควรแสดงความคิดเห็นเมื่อการนำเสนอเปิดใน PowerPoint หรือโปรแกรมที่เข้ากันได้อื่นหรือไม่.  
-
-การตั้งค่านี้ควบคุมเพียงตัวเลือกมุมมองที่เก็บไว้เท่านั้น. มันไม่ได้เพิ่ม, ลบ, แก้ไข, หรือแก้ไขความคิดเห็น. การซ่อนความคิดเห็นจะรักษาเนื้อหา, ผู้เขียน, ตำแหน่ง, การตอบกลับ, และสถานะของพวกมันไว้. ดู [Presentation Comments](/slides/th/net/presentation-comments/) สำหรับการดำเนินการที่เปลี่ยนแปลงความคิดเห็นเอง.  
-
-ตัวอย่างต่อไปนี้ต้องการไฟล์ `comments.pptx` ที่มีความคิดเห็นอยู่แล้ว. มันพิมพ์ค่าการมองเห็นปัจจุบัน, ขอให้ซ่อนความคิดเห็น, และบันทึกไฟล์ PPTX ใหม่โดยไม่ลบความคิดเห็นใด ๆ. มันยังตั้งค่า [IViewProperties.LastView](https://reference.aspose.com/slides/th/net/aspose.slides/iviewproperties/lastview/) เป็น [ViewType.SlideView](https://reference.aspose.com/slides/th/net/aspose.slides/viewtype/) เพื่อกำหนดมุมมองการแก้ไขเริ่มต้นพร้อมกับการมองเห็นความคิดเห็น.
+[ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) เก็บค่าการตั้งค่าที่ตัวแก้ไขที่รองรับจะใช้เมื่อเปิดการนำเสนอ สำหรับการนำเสนอที่มีความคิดเห็น ตัวอย่างนี้พิมพ์การตั้งค่าปัจจุบันและบันทึกสำเนาที่ซ่อนความคิดเห็น นอกจากนี้ยังตั้งค่า [LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) เป็น [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) เพื่อให้สำเนาเปิดในมุมมองสไลด์
 
 ```csharp
 using System;
@@ -134,29 +105,30 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("comments.pptx");
-var showComments = presentation.ViewProperties.ShowComments;
-Console.WriteLine($"Current comment visibility: {showComments}");
 
-presentation.ViewProperties.ShowComments = NullableBool.False;
-presentation.ViewProperties.LastView = ViewType.SlideView;
+var viewProperties = presentation.ViewProperties;
+Console.WriteLine($"Current comment visibility: {viewProperties.ShowComments}");
+
+viewProperties.ShowComments = NullableBool.False;
+viewProperties.LastView = ViewType.SlideView;
 presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
 ```
 
-การตั้งค่านี้ไม่ได้กำหนดว่าความคิดเห็นจะถูกรวมในไฟล์ PDF, HTML, รูปภาพ, โน้ต, หรือเอกสารแจกหรือไม่. ให้กำหนดตัวเลือกการส่งออกที่เกี่ยวข้องแยกต่างหาก.
+การซ่อนความคิดเห็นจะคงรักษาข้อความ, ผู้เขียน, ตำแหน่ง, การตอบกลับ, และสถานะของมันไว้ หากต้องการเปลี่ยนแปลงความคิดเห็นเอง ดูที่ [ความคิดเห็นของการนำเสนอ](/slides/th/net/presentation-comments/). การตั้งค่าการส่งออกจะกำหนดว่าความคิดเห็นจะปรากฏใน PDF, HTML, ภาพ, บันทึก, หรือเอกสารสรุปหรือไม่
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมกริดถึงไม่แสดงเมื่อฉันเปิดการนำเสนอใหม่?**  
-ไฟล์จะเก็บค่าความห่างของกริดไว้, แต่โปรแกรมแก้ไขเป็นผู้ควบคุมว่ากริดจะแสดงหรือไม่. ตรวจสอบการตั้งค่าการมองเห็นกริดของโปรแกรมแก้ไข.
+**เหตุใดกริดถึงหายไปเมื่อฉันเปิดการนำเสนอใหม่?**  
+การนำเสนอเก็บช่วงกริดไว้ เพื่อให้เห็นกริดให้เปิดการแสดงกริดในตัวแก้ไข
 
-**การล้าง drawing guides จะทำให้ความห่างของกริดเปลี่ยนหรือไม่?**  
-ไม่. Drawing guides และความห่างของกริดเป็นการตั้งค่าที่แยกจากกัน. การล้าง guides จะไม่เปลี่ยนช่วงกริดที่เก็บไว้.
+**การลบแนวทางการวาดทำให้ระยะห่างของกริดเปลี่ยนหรือไม่?**  
+ไม่. การเพิ่ม, ย้าย หรือ ลบแนวทางไม่ทำให้ช่วงกริดเปลี่ยน
 
-**ฉันสามารถตั้งค่ามุมมองที่ต่างกันสำหรับส่วนต่าง ๆ ของการนำเสนอได้หรือไม่?**  
-[View settings](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/viewproperties/) ถูกกำหนดที่ระดับการนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/th/net/aspose.slides/viewproperties/slideviewproperties/)), ไม่ได้แยกตามส่วน, ดังนั้นชุดพารามิเตอร์เดียวจะใช้กับเอกสารทั้งหมดเมื่อเปิด.
+**ส่วนต่าง ๆ ของการนำเสนอสามารถมีการตั้งค่ามุมมองที่แตกต่างกันได้หรือไม่?**  
+ไม่. [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) ใช้กับการนำเสนอทั้งหมด
 
-**ฉันสามารถกำหนดสถานะมุมมองที่ต่างกันสำหรับผู้ใช้ต่าง ๆ ได้หรือไม่?**  
-ไม่. การตั้งค่าถูกเก็บในไฟล์และใช้ร่วมกัน. โปรแกรมดูอาจเคารพการตั้งค่าของผู้ใช้, แต่ไฟล์เองมีชุดคุณสมบัติมุมมองเดียวเท่านั้น.
+**ฉันสามารถบันทึกการตั้งค่ามุมมองที่แตกต่างสำหรับผู้ใช้ต่าง ๆ ได้หรือไม่?**  
+ไฟล์เก็บชุดการตั้งค่ามุมมองเดียวสำหรับทุกคน ตัวแก้ไขอาจนำการตั้งค่าท้องถิ่นของผู้ใช้ไปใช้เพิ่มเติม
 
-**ฉันสามารถเตรียมเทมเพลตที่มี View Properties ที่กำหนดไว้ล่วงหน้าเพื่อให้การนำเสนอใหม่เปิดด้วยวิธีเดียวกันได้หรือไม่?**  
-ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/viewproperties/) ถูกเก็บระดับการนำเสนอ, คุณสามารถฝังไว้ในเทมเพลตและสร้างเอกสารใหม่จากเทมเพลตนั้นโดยมีการกำหนดมุมมองเริ่มต้นเดียวกัน.
+**ฉันสามารถบันทึกการตั้งค่ามุมมองในแม่แบบได้หรือไม่?**  
+ได้. การนำเสนอที่สร้างจากแม่แบบจะสืบทอดการตั้งค่ามุมมองที่บันทึกไว้
