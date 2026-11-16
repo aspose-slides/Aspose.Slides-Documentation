@@ -66,6 +66,55 @@ with slides.Presentation() as presentation:
     presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Add Diagonal Cell Borders**
+
+Use [border_diagonal_down](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_diagonal_down/) to draw a line from the top-left corner to the bottom-right, and [border_diagonal_up](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_diagonal_up/) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header; both diagonals can form an X to mark a cell as not applicable.
+
+Each diagonal is a [LineFormat](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/). In its [fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/fill_format/), set [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to [FillType.SOLID](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) and choose a [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/). Set the line's [width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) in points.
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    column_widths = [210, 210, 210]
+    row_heights = [160]
+    table = slide.shapes.add_table(45, 130, column_widths, row_heights)
+
+    downward_border = table.rows[0][0].cell_format.border_diagonal_down
+    downward_border.fill_format.fill_type = slides.FillType.SOLID
+    downward_border.fill_format.solid_fill_color.color = slides.Color.red
+    downward_border.width = 3
+
+    upward_border = table.rows[0][1].cell_format.border_diagonal_up
+    upward_border.fill_format.fill_type = slides.FillType.SOLID
+    upward_border.fill_format.solid_fill_color.color = slides.Color.blue
+    upward_border.width = 5
+
+    cross_downward_border = table.rows[0][2].cell_format.border_diagonal_down
+    cross_downward_border.fill_format.fill_type = slides.FillType.SOLID
+    cross_downward_border.fill_format.solid_fill_color.color = slides.Color.red
+    cross_downward_border.width = 3
+
+    cross_upward_border = table.rows[0][2].cell_format.border_diagonal_up
+    cross_upward_border.fill_format.fill_type = slides.FillType.SOLID
+    cross_upward_border.fill_format.solid_fill_color.color = slides.Color.blue
+    cross_upward_border.width = 5
+
+    presentation.save("diagonal_cell_borders.pptx", slides.export.SaveFormat.PPTX)
+```
+
+A diagonal is a formatting property, not a cell split. Each cell retains a single [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/); the regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*Left to right: downward diagonal (red, 3 pt), upward diagonal (blue, 5 pt), and both diagonals.*
+
 ## **Merge Table Cells**
 
 Use [merge_cells](https://reference.aspose.com/slides/python-net/aspose.slides/table/merge_cells/) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `False` keeps the merge within that range.
@@ -168,7 +217,6 @@ The saved presentation contains separate "Product A" and "Product B" cells with 
 This example creates a table with 150-point columns and 50-point rows. It sets [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to solid and [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) to red for cell `(2, 3)`, in the third column and fourth row.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -180,7 +228,7 @@ with slides.Presentation() as presentation:
 
     cell = table.rows[3][2]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
-    cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
+    cell.cell_format.fill_format.solid_fill_color.color = slides.Color.red
 
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```

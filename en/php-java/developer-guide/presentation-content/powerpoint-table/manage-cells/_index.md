@@ -87,6 +87,61 @@ try {
 }
 ```
 
+## **Add Diagonal Cell Borders**
+
+Use [getBorderDiagonalDown](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonaldown/) to draw a line from the top-left corner to the bottom-right, and [getBorderDiagonalUp](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonalup/) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header; both diagonals can form an X to mark a cell as not applicable.
+
+Each diagonal has its own [LineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/). In its [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/), use [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) to select [FillType::Solid](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) and choose a color through [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/). Set the line's width in points with [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/).
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 210, 210, 210 ];
+    $rowHeights = [ 160 ];
+    $table = $slide->getShapes()->addTable(45, 130, $columnWidths, $rowHeights);
+
+    $downwardBorder = $table->get_Item(0, 0)->getCellFormat()->getBorderDiagonalDown();
+    $downwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $downwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $downwardBorder->setWidth(3);
+
+    $upwardBorder = $table->get_Item(1, 0)->getCellFormat()->getBorderDiagonalUp();
+    $upwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $upwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $upwardBorder->setWidth(5);
+
+    $crossDownwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalDown();
+    $crossDownwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossDownwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $crossDownwardBorder->setWidth(3);
+
+    $crossUpwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalUp();
+    $crossUpwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossUpwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $crossUpwardBorder->setWidth(5);
+
+    $presentation->save("diagonal_cell_borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+A diagonal changes only the cell formatting. Each cell retains a single text frame, accessed through [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/gettextframe/). The regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*Left to right: downward diagonal (red, 3 pt), upward diagonal (blue, 5 pt), and both diagonals.*
+
 ## **Merge Table Cells**
 
 Use [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `false` keeps the merge within that range.

@@ -105,6 +105,73 @@ for (const auto& row : IterateOver(table->get_Rows()))
 presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **Add Diagonal Cell Borders**
+
+Use [get_BorderDiagonalDown](https://reference.aspose.com/slides/cpp/aspose.slides/icellformat/get_borderdiagonaldown/) to draw a line from the top-left corner to the bottom-right, and [get_BorderDiagonalUp](https://reference.aspose.com/slides/cpp/aspose.slides/icellformat/get_borderdiagonalup/) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header; both diagonals can form an X to mark a cell as not applicable.
+
+Each diagonal is an [ILineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/). Use [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) to access its fill, call [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ilinefillformat/set_filltype/) with [FillType::Solid](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) and choose a color through [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ilinefillformat/get_solidfillcolor/). Set the line width with [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) in points.
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/array.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({210, 210, 210});
+auto rowHeights = MakeArray<double>({160});
+auto table = slide->get_Shapes()->AddTable(45, 130, columnWidths, rowHeights);
+
+auto downwardBorder = table->idx_get(0, 0)->get_CellFormat()->get_BorderDiagonalDown();
+downwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+downwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+downwardBorder->set_Width(3);
+
+auto upwardBorder = table->idx_get(1, 0)->get_CellFormat()->get_BorderDiagonalUp();
+upwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+upwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+upwardBorder->set_Width(5);
+
+auto crossDownwardBorder = table->idx_get(2, 0)->get_CellFormat()->get_BorderDiagonalDown();
+crossDownwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+crossDownwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+crossDownwardBorder->set_Width(3);
+
+auto crossUpwardBorder = table->idx_get(2, 0)->get_CellFormat()->get_BorderDiagonalUp();
+crossUpwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+crossUpwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+crossUpwardBorder->set_Width(5);
+
+presentation->Save(u"diagonal_cell_borders.pptx", SaveFormat::Pptx);
+```
+
+A diagonal is a formatting property, not a cell split. Each cell retains a single text frame accessed through [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/); the regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*Left to right: downward diagonal (red, 3 pt), upward diagonal (blue, 5 pt), and both diagonals.*
+
 ## **Merge Table Cells**
 
 Use [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `false` keeps the merge within that range.

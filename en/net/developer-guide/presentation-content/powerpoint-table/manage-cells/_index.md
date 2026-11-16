@@ -78,6 +78,57 @@ foreach (var row in table.Rows)
 presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
+## **Add Diagonal Cell Borders**
+
+Use [BorderDiagonalDown](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonaldown/) to draw a line from the top-left corner to the bottom-right, and [BorderDiagonalUp](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonalup/) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header; both diagonals can form an X to mark a cell as not applicable.
+
+Each diagonal is an [ILineFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/). In its [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/), set [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to [FillType.Solid](https://reference.aspose.com/slides/net/aspose.slides/filltype/) and choose a [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/). Set the line's [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) in points.
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 210, 210, 210 };
+double[] rowHeights = { 160 };
+var table = slide.Shapes.AddTable(45, 130, columnWidths, rowHeights);
+
+var downwardBorder = table[0, 0].CellFormat.BorderDiagonalDown;
+downwardBorder.FillFormat.FillType = FillType.Solid;
+downwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+downwardBorder.Width = 3;
+
+var upwardBorder = table[1, 0].CellFormat.BorderDiagonalUp;
+upwardBorder.FillFormat.FillType = FillType.Solid;
+upwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+upwardBorder.Width = 5;
+
+var crossDownwardBorder = table[2, 0].CellFormat.BorderDiagonalDown;
+crossDownwardBorder.FillFormat.FillType = FillType.Solid;
+crossDownwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+crossDownwardBorder.Width = 3;
+
+var crossUpwardBorder = table[2, 0].CellFormat.BorderDiagonalUp;
+crossUpwardBorder.FillFormat.FillType = FillType.Solid;
+crossUpwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+crossUpwardBorder.Width = 5;
+
+presentation.Save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+```
+
+A diagonal is a formatting property, not a cell split. Each cell retains a single [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/); the regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*Left to right: downward diagonal (red, 3 pt), upward diagonal (blue, 5 pt), and both diagonals.*
+
 ## **Merge Table Cells**
 
 Use [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `false` keeps the merge within that range.
