@@ -305,6 +305,64 @@ try {
 }
 ```
 
+## **Apply Row or Column Banding**
+
+Use [Table::setHorizontalBanding](https://reference.aspose.com/slides/php-java/aspose.slides/table/sethorizontalbanding/) to alternate row fills or [Table::setVerticalBanding](https://reference.aspose.com/slides/php-java/aspose.slides/table/setverticalbanding/) to alternate column fills. The table style supplies the band colors. To keep a particular cell the same color in every configuration, use [CellFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getfillformat/) to apply a solid fill.
+
+The example saves three versions of the same table. Only the two banding flags change between saves.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TableStylePreset;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [100, 100, 100, 100];
+    $rowHeights = [50, 50, 50, 50];
+    
+    $table = $slide->getShapes()->addTable(40, 40, $columnWidths, $rowHeights);
+    $table->setStylePreset(TableStylePreset::MediumStyle2Accent1);
+    $table->setFirstRow(false);
+    $table->setFirstCol(false);
+    $table->setLastRow(false);
+    $table->setLastCol(false);
+
+    foreach ($rowHeights as $row => $height) {
+        foreach ($columnWidths as $column => $width) {
+            $table->get_Item($column, $row)->getTextFrame()->setText(($row + 1) . "," . ($column + 1));
+        }
+    }
+
+    $fill = $table->get_Item(1, 1)->getCellFormat()->getFillFormat();
+    $fill->setFillType(FillType::Solid);
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $fill->getSolidFillColor()->setColor($orange);
+
+    $table->setHorizontalBanding(true);
+    $table->setVerticalBanding(false);
+    $presentation->save("rows.pptx", SaveFormat::Pptx);
+
+    $table->setHorizontalBanding(false);
+    $table->setVerticalBanding(true);
+    $presentation->save("columns.pptx", SaveFormat::Pptx);
+
+    $table->setVerticalBanding(false);
+    $presentation->save("off.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+In PowerPoint, cell `2,2` stays orange in all three versions. Its neighbors alternate in color by row or by column and share a single fill when both flags are off.
+
+| Row banding | Column banding | Both off |
+| --- | --- | --- |
+| ![Alternating row fills with cell 2,2 in orange.](row-banding.png) | ![Alternating column fills with cell 2,2 in orange.](column-banding.png) | ![Uniform fill except for the orange cell.](banding-off.png) |
+
 ## **FAQ**
 
 **Can I apply PowerPoint themes/styles to a table that's already created?**
@@ -317,4 +375,4 @@ No, Aspose.Slides tables don't have built-in sorting or filters. Sort your data 
 
 **Can I have banded (striped) columns while keeping custom colors on specific cells?**
 
-Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.
+Yes. Enable banded columns and apply a local fill to the cells you want to highlight. See [Apply Row or Column Banding](#apply-row-or-column-banding).

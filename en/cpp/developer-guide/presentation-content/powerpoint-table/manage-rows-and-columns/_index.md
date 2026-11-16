@@ -342,6 +342,77 @@ Console::WriteLine(u"{0}", table->get_StylePreset());
 presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
+## **Apply Row or Column Banding**
+
+Set [set_HorizontalBanding](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_horizontalbanding/) to alternate row fills or [set_VerticalBanding](https://reference.aspose.com/slides/cpp/aspose.slides/itable/set_verticalbanding/) to alternate column fills. The table style supplies the band colors. To keep a particular cell the same color in every configuration, set its [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icellformat/get_fillformat/) to a solid fill.
+
+The example saves three versions of the same table. Only the two banding flags change between saves.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/TableStylePreset.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto widths = MakeArray<double>({ 100, 100, 100, 100 });
+auto heights = MakeArray<double>({ 50, 50, 50, 50 });
+
+auto table = slide->get_Shapes()->AddTable(40, 40, widths, heights);
+table->set_StylePreset(TableStylePreset::MediumStyle2Accent1);
+table->set_FirstRow(false);
+table->set_FirstCol(false);
+table->set_LastRow(false);
+table->set_LastCol(false);
+
+for (auto row = 0; row < heights->get_Length(); ++row)
+{
+    for (auto column = 0; column < widths->get_Length(); ++column)
+    {
+        auto label = String::Format(u"{0},{1}", row + 1, column + 1);
+        table->idx_get(column, row)->get_TextFrame()->set_Text(label);
+    }
+}
+
+auto fill = table->idx_get(1, 1)->get_CellFormat()->get_FillFormat();
+fill->set_FillType(FillType::Solid);
+fill->get_SolidFillColor()->set_Color(Color::get_Orange());
+
+table->set_HorizontalBanding(true);
+table->set_VerticalBanding(false);
+presentation->Save(u"rows.pptx", SaveFormat::Pptx);
+
+table->set_HorizontalBanding(false);
+table->set_VerticalBanding(true);
+presentation->Save(u"columns.pptx", SaveFormat::Pptx);
+
+table->set_VerticalBanding(false);
+presentation->Save(u"off.pptx", SaveFormat::Pptx);
+```
+
+In PowerPoint, cell `2,2` stays orange in all three versions. Its neighbors alternate in color by row or by column and share a single fill when both flags are off.
+
+| Row banding | Column banding | Both off |
+| --- | --- | --- |
+| ![Alternating row fills with cell 2,2 in orange.](row-banding.png) | ![Alternating column fills with cell 2,2 in orange.](column-banding.png) | ![Uniform fill except for the orange cell.](banding-off.png) |
+
 ## **FAQ**
 
 **Can I apply PowerPoint themes/styles to a table that's already created?**
@@ -354,4 +425,4 @@ No, Aspose.Slides tables don't have built-in sorting or filters. Sort your data 
 
 **Can I have banded (striped) columns while keeping custom colors on specific cells?**
 
-Yes. Turn on banded columns, then override specific cells with local formatting; cell-level formatting takes precedence over the table style.
+Yes. Enable banded columns and apply a local fill to the cells you want to highlight. See [Apply Row or Column Banding](#apply-row-or-column-banding).
