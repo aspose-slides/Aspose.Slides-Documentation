@@ -85,6 +85,60 @@ try {
 }
 ```
 
+## **Add Diagonal Cell Borders**
+
+Use [getBorderDiagonalDown](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalDown--) to draw a line from the top-left corner to the bottom-right, and [getBorderDiagonalUp](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalUp--) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header; both diagonals can form an X to mark a cell as not applicable.
+
+Each diagonal is an [ILineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/). In its [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--), use [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) to select [FillType.Solid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) and choose a color through [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--). Set the line's width in points with [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-).
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A diagonal is a formatting property, not a cell split. Each cell retains a single text frame, accessed through [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--); the regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*Left to right: downward diagonal (red, 3 pt), upward diagonal (blue, 5 pt), and both diagonals.*
+
 ## **Merge Table Cells**
 
 Use [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `false` keeps the merge within that range.

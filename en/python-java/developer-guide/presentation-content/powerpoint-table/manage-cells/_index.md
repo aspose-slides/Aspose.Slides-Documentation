@@ -86,6 +86,58 @@ finally:
     presentation.dispose()
 ```
 
+## **Add Diagonal Cell Borders**
+
+Use [getBorderDiagonalDown](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalDown) to draw a line from the top-left corner to the bottom-right, and [getBorderDiagonalUp](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalUp) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header. Both diagonals can form an X to mark a cell as not applicable.
+
+Each diagonal is an [LineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/). In its [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat), use [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) to select [FillType.Solid](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) and choose a color through [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor). Set the line's width in points with [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth).
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, FillType, SaveFormat
+from java.awt import Color
+
+
+def format_border(border, color, width):
+    fill = border.getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setColor(color)
+    border.setWidth(width)
+
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().addTable(45, 130, [210, 210, 210], [160])
+
+    left_cell = table.get_Item(0, 0).getCellFormat()
+    middle_cell = table.get_Item(1, 0).getCellFormat()
+    right_cell = table.get_Item(2, 0).getCellFormat()
+    format_border(left_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(middle_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+    format_border(right_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(right_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+A diagonal is a formatting property, not a cell split. Each cell retains a single text frame, accessed through [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame). The regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*Left to right: downward diagonal (red, 3 pt), upward diagonal (blue, 5 pt), and both diagonals.*
+
 ## **Merge Table Cells**
 
 Use [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `False` keeps the merge within that range.
