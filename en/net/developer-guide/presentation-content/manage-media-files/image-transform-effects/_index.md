@@ -136,6 +136,47 @@ presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 
 [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) replaces every pixel's color with one fixed color while preserving alpha. It is different from [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), which maps one source color to another and exposes both source and target color formats.
 
+### **Apply a Luminance Threshold**
+
+A luminance threshold can make faint marks on a scanned page easier to distinguish from the background. [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) preserves intermediate shades of gray. [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) maps luminance to black or white, while [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) applies a threshold to opacity.
+
+The luminance threshold ranges from 0% to 100%, inclusive. Pixels below the threshold become black. Pixels at or above it become white. Raising the threshold turns more shades black because more of them fall below the cutoff.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the working directory. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
 ## **Add Blur, Transparency, and Alpha Effects**
 
 [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) affects all color channels, including alpha. Set `grow` to `true` when the blurred edge may extend beyond the original picture bounds.

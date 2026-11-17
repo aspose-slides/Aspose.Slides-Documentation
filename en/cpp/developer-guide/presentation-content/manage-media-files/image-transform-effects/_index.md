@@ -171,6 +171,67 @@ presentation->Dispose();
 
 [AddColorReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) replaces every pixel's color with one fixed color while preserving alpha. It is different from [AddColorChangeEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), which maps one source color to another and exposes both source and target color formats.
 
+### **Apply a Luminance Threshold**
+
+A luminance threshold can make faint marks on a scanned page easier to distinguish from the background. [AddGrayScaleEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) preserves intermediate shades of gray. [AddBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) maps luminance to black or white, while [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) applies a threshold to opacity.
+
+The luminance threshold ranges from 0% to 100%, inclusive. Pixels below the threshold become black. Pixels at or above it become white. Raising the threshold turns more shades black because more of them fall below the cutoff.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the working directory. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```cpp
+#include <DOM/Effects/IBiLevel.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 150, SlideSizeScaleType::DoNotScale);
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto imageData = File::ReadAllBytes(u"grayscale-swatches.png");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+auto addFrame = [&](float x, const String& caption)
+{
+    auto label = shapes->AddAutoShape(ShapeType::Rectangle, x, 12, 216, 36);
+    label->get_TextFrame()->set_Text(caption);
+    return shapes->AddPictureFrame(ShapeType::Rectangle, x, 60, 216, 72, image);
+};
+
+addFrame(12, u"Original");
+
+auto lowThreshold = addFrame(252, u"Threshold 20%");
+lowThreshold->get_PictureFormat()->get_Picture()->get_ImageTransform()->AddBiLevelEffect(20.0f);
+
+auto highThreshold = addFrame(492, u"Threshold 60%");
+highThreshold->get_PictureFormat()->get_Picture()->get_ImageTransform()->AddBiLevelEffect(60.0f);
+
+presentation->Save(u"luminance-threshold.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
 ## **Add Blur, Transparency, and Alpha Effects**
 
 [AddBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) affects all color channels, including alpha. Set `grow` to `true` when the blurred edge may extend beyond the original picture bounds.

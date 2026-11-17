@@ -65,7 +65,7 @@ For fixed alpha modulation, transparency and opacity are complementary. For exam
 
 ## **Apply Brightness and Contrast**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) returns an [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/) operation. Its scalar settings are supplied when the operation is created. [IBrightnessContrast.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/#getEffective--) returns calculated read-only values that can be inspected or logged.
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) returns an [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/) operation. Its scalar settings are supplied when the operation is created. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/#getEffective--) returns calculated read-only values that can be inspected or logged.
 
 The following example increases brightness by 15% and contrast by 20%, then renders a preview without modifying the embedded image:
 
@@ -152,6 +152,52 @@ try {
 ```
 
 [addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) replaces every pixel's color with one fixed color while preserving alpha. It is different from [addColorChangeEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), which maps one source color to another and exposes both source and target color formats.
+
+### **Apply a Luminance Threshold**
+
+A luminance threshold can make faint marks on a scanned page easier to distinguish from the background. [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) preserves intermediate shades of gray. [addBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) maps luminance to black or white, while [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) applies a threshold to opacity.
+
+The luminance threshold ranges from 0% to 100%, inclusive. Pixels below the threshold become black. Pixels at or above it become white. Raising the threshold turns more shades black because more of them fall below the cutoff.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the working directory. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("grayscale-swatches.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
 
 ## **Add Blur, Transparency, and Alpha Effects**
 

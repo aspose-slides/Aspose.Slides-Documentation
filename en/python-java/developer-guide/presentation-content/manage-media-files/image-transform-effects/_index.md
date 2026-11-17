@@ -156,6 +156,53 @@ finally:
 
 [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) replaces every pixel's color with one fixed color while preserving alpha. It is different from [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), which maps one source color to another and exposes both source and target color formats.
 
+### **Apply a Luminance Threshold**
+
+A luminance threshold can make faint marks on a scanned page easier to distinguish from the background. [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) preserves intermediate shades of gray. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) maps luminance to black or white, while [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) applies a threshold to opacity.
+
+The luminance threshold ranges from 0% to 100%, inclusive. Pixels below the threshold become black. Pixels at or above it become white. Raising the threshold turns more shades black because more of them fall below the cutoff.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the working directory. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
 ## **Add Blur, Transparency, and Alpha Effects**
 
 [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) affects all color channels, including alpha. Set `grow` to `True` when the blurred edge may extend beyond the original picture bounds.

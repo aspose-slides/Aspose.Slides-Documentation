@@ -161,6 +161,55 @@ try {
 
 [addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) replaces every pixel's color with one fixed color while preserving alpha. It is different from [addColorChangeEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), which maps one source color to another and exposes both source and target color formats.
 
+### **Apply a Luminance Threshold**
+
+A luminance threshold can make faint marks on a scanned page easier to distinguish from the background. [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) preserves intermediate shades of gray. [addBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addbileveleffect/) maps luminance to black or white, while [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) applies a threshold to opacity.
+
+The luminance threshold ranges from 0% to 100%, inclusive. Pixels below the threshold become black. Pixels at or above it become white. Raising the threshold turns more shades black because more of them fall below the cutoff.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the directory containing the PHP script. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 150, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $sourceImage = Images::fromFile(__DIR__ . "/grayscale-swatches.png");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
+
+    $captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    $frames = [];
+    foreach ($captions as $index => $caption) {
+        $x = 12 + 240 * $index;
+        $label = $shapes->addAutoShape(ShapeType::Rectangle, $x, 12, 216, 36);
+        $label->getTextFrame()->setText($caption);
+        $frames[] = $shapes->addPictureFrame(ShapeType::Rectangle, $x, 60, 216, 72, $image);
+    }
+
+    $frames[1]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(20);
+    $frames[2]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(60);
+
+    $presentation->save(__DIR__ . "/luminance-threshold.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
 ## **Add Blur, Transparency, and Alpha Effects**
 
 [addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) affects all color channels, including alpha. Set `grow` to `true` when the blurred edge may extend beyond the original picture bounds.
