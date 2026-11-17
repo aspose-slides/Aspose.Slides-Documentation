@@ -1,13 +1,13 @@
 ---
-title: Python के साथ प्रस्तुतियों में इमेज ट्रांसफ़ॉर्म प्रभावों का प्रबंधन
-linktitle: इमेज ट्रांसफ़ॉर्म प्रभाव
+title: Presentations में Python के साथ Image Transform Effects प्रबंधित करें
+linktitle: इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स
 type: docs
 weight: 11
 url: /hi/python-java/image-transform-effects/
 keywords:
 - इमेज ट्रांसफ़ॉर्म
-- चित्र प्रभाव
-- उज्ज्वलता
+- पिक्चर इफ़ेक्ट
+- चमक
 - कंट्रास्ट
 - ग्रेस्केल
 - डुओटोन
@@ -16,57 +16,57 @@ keywords:
 - रंग प्रतिस्थापन
 - ब्लर
 - पारदर्शिता
-- अल्फा प्रभाव
-- प्रभाव श्रृंखला
+- अल्फा इफ़ेक्ट
+- इफ़ेक्ट चेन
 - PowerPoint
 - प्रस्तुति
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ चित्र फ्रेम के लिए इमेज ट्रांसफ़ॉर्म प्रभावों को लागू करें, श्रृंखला बनाएं, निरीक्षण करें, हटाएँ और सत्यापित करें।"
+description: "Aspose.Slides for Python via Java के साथ चित्र फ्रेम के लिए इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स को लागू करें, क्रमबद्ध करें, निरीक्षण करें, हटाएँ, और सत्यापित करें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-Aspose.Slides चित्र समायोजनों को इमेज ट्रांसफ़ॉर्म ऑपरेशन्स के क्रमबद्ध संग्रह के रूप में दर्शाता है। किसी चित्र फ्रेम के लिए, फ्रेम के [Picture](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picture/) से शुरू करें और [Picture.getImageTransform](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picture/#getImageTransform) को एक्सेस करें। लौटाया गया [ImageTransformOperationCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/) आपको मूल इमेज बाइट्स को पुनः लिखे बिना प्रभाव जोड़ने, गिनने, निरीक्षण करने, हटाने और साफ़ करने की अनुमति देता है।
+Aspose.Slides चित्र समायोजन को इमेज ट्रांसफ़ॉर्म ऑपरेशनों के क्रमबद्ध संग्रह के रूप में दर्शाता है। एक चित्र फ्रेम के लिए, फ्रेम के [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) से शुरू करें और [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform) तक पहुँचें। लौटाया गया [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) आपको प्रभावों को जोड़ने, गिनने, निरीक्षण करने, हटाने और साफ़ करने की अनुमति देता है बिना मूल छवि बाइट्स को फिर से लिखे।
 
-यह लेख उज्ज्वलता और कंट्रास्ट, रंग परिवर्तन, ब्लर, पारदर्शिता, क्रमबद्ध प्रभाव श्रृंखलाएँ, प्रभावी मान, हटाना, और PPTX राउंड‑ट्रिप सत्यापन के पूर्ण वर्कफ़्लो को दर्शाता है।
+यह लेख चमक और कंट्रास्ट, रंग रूपांतरण, ब्लर, पारदर्शिता, क्रमबद्ध प्रभाव शृंखलाएँ, प्रभावी मान, हटाना, और PPTX राउंड-ट्रिप सत्यापन के लिए एक पूर्ण कार्यप्रवाह दर्शाता है।
 
-## **प्रभाव स्वामित्व और इमेज पुनः उपयोग को समझें**
+## **इफ़ेक्ट स्वामित्व और छवि पुन: उपयोग को समझें**
 
-एक इमेज रिसोर्स और वह चित्र जो उसे प्रदर्शित करता है अलग-अलग वस्तुएँ हैं:
+एक छवि संसाधन और वह चित्र जो इसे प्रदर्शित करता है अलग-अलग वस्तुएँ हैं:
 
-- [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) प्रस्तुति द्वारा स्वामित्व वाले स्रोत इमेज डेटा को संग्रहीत या संदर्भित करता है।
-- [Picture](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picture/) एक चित्र फ़िल में आता है और इमेज रिसोर्स को संदर्भित करता है जबकि इमेज ट्रांसफ़ॉर्म संग्रह संग्रहीत करता है।
-- [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) स्लाइड आकृति है जो संबंधित चित्र फ़िल, ज्यामिति, क्रॉप सेटिंग्स, और अन्य फ्रेम‑स्तरीय फॉर्मेटिंग को रखता है।
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) प्रस्तुति द्वारा स्वामित्व वाले स्रोत छवि डेटा को संग्रहीत या संदर्भित करता है।
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) एक चित्र फ़िल में आता है और एक छवि संसाधन को संदर्भित करता है जबकि इमेज ट्रांसफ़ॉर्म संग्रह को संग्रहीत करता है।
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) वह स्लाइड आकार है जो संबंधित चित्र फ़िल, ज्यामिति, क्रॉप सेटिंग्स और अन्य फ्रेम-स्तरीय स्वरूपण को धारण करता है।
 
-इसलिए इमेज ट्रांसफ़ॉर्म ऑपरेशन्स [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) के बाइट्स को संशोधित नहीं करते। जब वही `PPImage` को कई बार [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/#addPictureFrame) में पास किया जाता है, तो प्रत्येक नया चित्र फ्रेम अपना स्वयं का `Picture` और अपना स्वयं का ट्रांसफ़ॉर्म संग्रह प्राप्त करता है। एक फ्रेम पर ग्रेस्केल लागू करने से अन्य फ्रेम ग्रेस्केल नहीं होते, भले ही सभी एक ही एम्बेडेड इमेज रिसोर्स को पुनः उपयोग करते हों।
+इसलिए, इमेज ट्रांसफ़ॉर्म ऑपरेशन्स [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) में बाइट्स को संशोधित नहीं करते हैं। जब वही `PPImage` को [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) को एक से अधिक बार पास किया जाता है, तो प्रत्येक नया चित्र फ्रेम अपना स्वयं का `Picture` और अपना स्वयं का ट्रांसफ़ॉर्म संग्रह प्राप्त करता है। एक फ्रेम पर ग्रेस्केल लागू करने से अन्य फ्रेम ग्रेस्केल नहीं होते, भले ही सभी एक ही एम्बेडेड छवि संसाधन को पुन: उपयोग करें।
 
-उसी `Picture.getImageTransform` मॉडल का उपयोग अन्य चित्र फ़िल, जैसे आकृति या स्लाइड बैकग्राउंड, द्वारा भी किया जाता है। नीचे के उदाहरण केवल चित्र फ्रेम पर केंद्रित हैं।
+एक ही `Picture.getImageTransform` मॉडल का उपयोग अन्य चित्र फ़िल, जैसे आकार या स्लाइड पृष्ठभूमि, द्वारा भी किया जाता है। नीचे के उदाहरण चित्र फ्रेम पर केंद्रित हैं।
 
-## **वैध पैरामीटर सीमाएँ और इकाइयाँ उपयोग करें**
+## **मान्य पैरामीटर रेंज और इकाइयों का उपयोग करें**
 
-प्रदर्शित विधियों में निम्नलिखित अर्थपूर्ण सीमाएँ और इकाइयाँ उपयोग की गई हैं। इन सीमाओं के भीतर मान रखें भले ही कोई विशेष लाइब्रेरी संस्करण तुरंत सभी आउट‑ऑफ़‑रेंज मानों को अस्वीकार न करे; लक्ष्य प्रस्तुति फ़ॉर्मेट सहेजते समय या PowerPoint फ़ाइल खोलते समय अमान्य डेटा को सामान्यीकृत, हटाए या अस्वीकार कर सकता है।
+प्रदर्शित विधियों में निम्नलिखित सेमांटिक रेंज और इकाइयों का उपयोग किया जाता है। इन रेंज में मान रखें भले ही कोई विशिष्ट लाइब्रेरी संस्करण तुरंत सभी असंगत मानों को नकारे; लक्ष्य प्रस्तुति स्वरूप सहेजे जाने या PowerPoint द्वारा फ़ाइल खोलते समय डेटा को सामान्यीकृत, छोड़ या अस्वीकृत कर सकता है।
 
-| ऑपरेशन | पैरामीटर | वैध सीमा और इकाई |
+| ऑपरेशन | पैरामीटर | वैध रेंज और इकाई |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` से `100` तक, प्रतिशत; `0` घटक को अपरिवर्तित छोड़ता है। |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | कोई संख्यात्मक पैरामीटर नहीं। अल्फा अपरिवर्तित रहता है। |
-| [addDuotoneEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | गहरे और हल्के पिक्सेल के लिए दो रंग। `java.awt.Color` में RGB और अल्फा चैनल `0` से `255` तक होते हैं। |
-| [addTintEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | `hue` `0` (समावेशी) से `360` (बहिष्कृत) डिग्री में; `amount` `-100` से `100` तक, प्रतिशत। |
-| [addHSLEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | `hue` `0` से `360` डिग्री; संतृप्ति और ल्यूमिनेंस `-100` से `100` तक, प्रतिशत। |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | प्रतिस्थापन रंग के चैनल मान `0` से `255` तक। मौजूदा अल्फा मान अपरिवर्तित रहते हैं। |
-| [addBlurEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | त्रिज्या गैर‑नकारात्मक और पॉइंट में मापी जाती है; `grow` एक Boolean है जो नियंत्रित करता है कि ब्लर सामग्री मूल सीमा से बाहर विस्तार कर सकती है या नहीं। |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | गैर‑नकारात्मक प्रतिशत। सामान्य अपारदर्शिता स्केलिंग के लिए `0` से `100` उपयोग करें: `0` पूर्णतः पारदर्शी और `100` मौजूदा अल्फा को बरकरार रखता है। |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` से `100` तक, प्रतिशत अपारदर्शिता। |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` से `100` तक, प्रतिशत अल्फा थ्रेशहोल्ड। इससे नीचे के मान पारदर्शी हो जाते हैं; थ्रेशहोल्ड के बराबर या ऊपर के मान अपारदर्शी हो जाते हैं। |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` से `100` तक, प्रतिशत; `0` घटक को अपरिवर्तित छोड़ता है। |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | कोई संख्यात्मक पैरामीटर नहीं। अल्फा अपरिवर्तित रहता है। |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | डार्क और लाइट पिक्सेल के लिए दो रंग। `java.awt.Color` में RGB और अल्फा चैनल `0` से `255` तक उपयोग होते हैं। |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | ह्यू `0` (समावेशी) से `360` (अपवर्जित) तक, डिग्री में; मात्रा `-100` से `100` तक, प्रतिशत। |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | ह्यू `0` (समावेशी) से `360` (अपवर्जित) तक, डिग्री में; संतृप्ति और ल्यूमिनेंस `-100` से `100` तक, प्रतिशत। |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | परिवर्तन रंग `0` से `255` तक चैनल मानों का उपयोग करता है। मौजूदा अल्फा मान अपरिवर्तित रहते हैं। |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | रेडियस गैर-नकारात्मक है और पॉइंट में मापा जाता है; `grow` एक बूलियन है जो नियंत्रित करता है कि ब्लर किया गया कंटेंट मूल सीमा से बाहर विस्तारित हो सकता है या नहीं। |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | गैर-नकारात्मक प्रतिशत। सामान्य अपारदर्शिता स्केलिंग के लिए `0` से `100` का प्रयोग करें: `0` पूर्णतः पारदर्शी है और `100` मौजूदा अल्फा को बरकरार रखता है। |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` से `100` तक, प्रतिशत अपारदर्शिता। |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` से `100` तक, प्रतिशत अल्फा थ्रेसहोल्ड। इसके नीचे के मान पारदर्शी हो जाते हैं; इस या इससे ऊपर के मान अपारदर्शी हो जाते हैं। |
 
-स्थिर अल्फा मॉड्यूलेशन के लिए, पारदर्शिता और अपारदर्शिता आपस में पूरक होते हैं। उदाहरण के लिये, 35 % पारदर्शिता का अर्थ 65 % अल्फा मॉड्यूलेशन मात्रा होता है।
+निश्चित अल्फा मॉड्यूलेशन के लिए, पारदर्शिता और अपारदर्शिता प्रतिपूरक होते हैं। उदाहरण के लिए, 35% पारदर्शिता अल्फा मॉड्यूलेशन मात्रा 65% के बराबर है।
 
-## **उज्ज्वलता और कंट्रास्ट लागू करें**
+## **चमक और कंट्रास्ट लागू करें**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) एक [BrightnessContrast](https://reference.aspose.com/slides/hi/python-java/aspose.slides/brightnesscontrast/) ऑपरेशन लौटाता है। इसके स्केलर सेटिंग्स ऑपरेशन निर्माण के समय प्रदान की जाती हैं। [BrightnessContrast.getEffective](https://reference.aspose.com/slides/hi/python-java/aspose.slides/brightnesscontrast/#getEffective) गणना किए गए केवल‑पढ़ने‑योग्य मान लौटाता है जिन्हें निरीक्षण या लॉग किया जा सकता है।
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) एक [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) ऑपरेशन लौटाता है। इसके स्केलर सेटिंग्स ऑपरेशन बनते समय प्रदान किए जाते हैं। [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) गणना किए गए केवल-पढ़ने योग्य मूल्यों को लौटाता है जिन्हें निरीक्षण या लॉग किया जा सकता है।
 
-निम्न उदाहरण उज्ज्वलता को 15 % और कंट्रास्ट को 20 % बढ़ाता है, फिर एम्बेडेड इमेज को बदले बिना एक पूर्वावलोकन रेंडर करता है:
+निम्न उदाहरण चमक को 15% और कंट्रास्ट को 20% बढ़ाता है, फिर एम्बेडेड छवि को संशोधित किए बिना एक पूर्वावलोकन रेंडर करता है:
 
 ```python
 import jpype
@@ -103,13 +103,13 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/hi/python-java/aspose.slides/brightnesscontrast/) Office 2010 चित्र‑प्रभाव विस्तार है और मानक DrawingML ल्यूमिनेंस प्रभाव से कम पोर्टेबल है। जब उज्ज्वलता और कंट्रास्ट को PPTX राउंड‑ट्रिप के बाद संपादन योग्य बनाए रखना हो, तो [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) का उपयोग करें और फ़ाइल को पुनः खोलने के बाद परिणाम सत्यापित करें। फ़ॉर्मेट सीमाएँ अनुभाग इस अंतर को अधिक विस्तार से समझाता है।
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) Office 2010 का चित्र‑इफ़ेक्ट विस्तार है और मानक DrawingML ल्यूमिनेंस इफ़ेक्ट से कम पोर्टेबल है। जब चमक और कंट्रास्ट को PPTX राउंड‑ट्रिप के बाद भी संपादन योग्य रहना हो, तो [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) का उपयोग करें और फ़ाइल को पुनः खोलने के बाद परिणाम सत्यापित करें। फ़ॉर्मेट प्रतिबंध अनुभाग इस अंतर को अधिक विस्तार से समझाता है।
 
-## **रंग परिवर्तन लागू करें**
+## **रंग रूपांतरण लागू करें**
 
-रंग प्रभावों को स्वतंत्र रूप से विभिन्न चित्र फ्रेम पर लागू किया जा सकता है जो एक ही इमेज रिसोर्स को पुनः उपयोग करते हैं। निम्न उदाहरण पाँच फ्रेम बनाता है और क्रमशः ग्रेस्केल, डुओटोन, टिंट, HSL समायोजन, और रंग प्रतिस्थापन लागू करता है।
+रंग प्रभाव एक ही छवि संसाधन को पुन: उपयोग करने वाले विभिन्न चित्र फ्रेम पर स्वतंत्र रूप से लागू किए जा सकते हैं। निम्न उदाहरण पाँच फ्रेम बनाता है और ग्रेस्केल, डुओटोन, टिंट, HSL समायोजन, और रंग प्रतिस्थापन लागू करता है।
 
-[Duotone](https://reference.aspose.com/slides/hi/python-java/aspose.slides/duotone/) दो स्वतंत्र रूप से संपादन योग्य रंग पैरामीटर रखता है: `color1` गहरे पिक्सेल को मैप करता है, जबकि `color2` हल्के पिक्सेल को। यह एक उपयोगी उदाहरण है जहाँ प्रभाव की सेटिंग्स केवल एक स्केलर मान से अधिक जटिल होती हैं।
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) दो स्वतंत्र रूप से संपादन योग्य रंग पैरामीटर रखता है: `color1` डार्क पिक्सेल को मैप करता है, जबकि `color2` लाइट पिक्सेल को मैप करता है। यह एक ऐसा प्रभाव का उपयोगी उदाहरण बनाता है जिसकी सेटिंग्स एकल स्केलर मान से अधिक जटिल होती हैं।
 
 ```python
 import jpype
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) प्रत्येक पिक्सेल के रंग को एक निश्चित रंग से प्रतिस्थापित करता है जबकि अल्फा को संरक्षित रखता है। यह [addColorChangeEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) से अलग है, जो एक स्रोत रंग को दूसरे में मैप करता है और दोनों स्रोत तथा लक्ष्य रंग फ़ॉर्मेट को उजागर करता है।
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) प्रत्येक पिक्सेल के रंग को एक स्थिर रंग से बदल देता है जबकि अल्फा को बरकरार रखता है। यह [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) से अलग है, जो एक स्रोत रंग को दूसरे में मैप करता है और दोनों स्रोत और लक्ष्य रंग स्वरूप दिखाता है।
 
-## **ब्लर, पारदर्शिता, और अल्फा प्रभाव जोड़ें**
+### **ल्यूमिनेंस थ्रेसहोल्ड लागू करें**
 
-[addBlurEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) सभी रंग चैनलों, सहित अल्फा, को प्रभावित करता है। जब ब्लर किया गया किनारा मूल चित्र सीमा से बाहर जा सकता है, तो `grow` को `True` सेट करें।
+एक ल्यूमिनेंस थ्रेसहोल्ड स्कैन किए गए पृष्ठ पर हल्की निशानों को पृष्ठभूमि से अलग करने में मदद कर सकता है। [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) मध्यवर्ती ग्रे शेड्स को बरकरार रखता है। [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) ल्यूमिनेंस को काले या सफेद में मैप करता है, जबकि [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) अपारदर्शिता पर थ्रेसहोल्ड लागू करता है।
 
-समान पारदर्शिता के लिये, [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) उपयोग करें। यह प्रत्येक मौजूदा अल्फा मान को गुणा करता है, इसलिए अंशतः पारदर्शी पिक्सेल अनुपातिक रूप से अलग रहते हैं। [addAlphaReplaceEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) सभी पिक्सेल को एक ही अल्फा मान असाइन करता है। [addAlphaBiLevelEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) थ्रेशहोल्ड के आधार पर अल्फा को दो स्तरों में बदल देता है।
+ल्यूमिनेंस थ्रेसहोल्ड 0% से 100% तक, समावेशी, रहता है। थ्रेसहोल्ड से नीचे के पिक्सेल काले हो जाते हैं। थ्रेसहोल्ड पर या उससे ऊपर के पिक्सेल सफेद हो जाते हैं। थ्रेसहोल्ड बढ़ाने से अधिक शेड्स काले हो जाते हैं क्योंकि अधिक पिक्सेल कटऑफ़ से नीचे गिरते हैं।
+
+[grayscale-swatches.png](grayscale-swatches.png) को कार्य निर्देशिका में डाउनलोड करें। प्रत्येक लेबल 0 से 255 की स्केल पर मूल ग्रे स्तर दर्शाता है। उदाहरण मूल को दो प्रतियों के बगल में रखता है और प्रत्येक प्रतिलिपि का थ्रेसहोल्ड प्रस्तुति में सहेजता है।
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+आउटपुट प्रस्तुति को PowerPoint में खोलें ताकि तीन फ्रेम की तुलना की जा सके। 96 लेबल वाला स्वैच लगभग 38% ल्यूमिनेंस (255 में से 96) है। यह 20% थ्रेसहोल्ड पर सफेद और 60% थ्रेसहोल्ड पर काला हो जाता है।
+
+![असली ग्रेस्केल स्वैचेज़ ल्यूमिनेंस थ्रेसहोल्ड 20% और 60% पर काले-सफेद परिणामों के बगल में](luminance-threshold.png)
+
+## **ब्लर, पारदर्शिता, और अल्फा इफ़ेक्ट जोड़ें**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) सभी रंग चैनलों को प्रभावित करता है, जिसमें अल्फा भी शामिल है। जब ब्लर किया गया किनारा मूल चित्र सीमाओं से बाहर विस्तार कर सकता है, तो `grow` को `True` सेट करें।
+
+समान पारदर्शिता के लिए, [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) का उपयोग करें। यह प्रत्येक मौजूदा अल्फा मान को गुणा करता है, इसलिए आंशिक रूप से पारदर्शी पिक्सेल अनुपातिक रूप से अलग रहते हैं। [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) सभी पिक्सेल को एक अल्फा मान सौंपता है। [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) थ्रेसहोल्ड के आधार पर अल्फा को दो स्तरों में बदलता है।
 
 ```python
 import jpype
@@ -200,15 +247,15 @@ finally:
     presentation.dispose()
 ```
 
-अन्य पैरामीटर‑रहित अल्फा ऑपरेशन्स में [addAlphaCeilingEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect) शामिल है, जो प्रत्येक शून्य‑से‑अधिक अल्फा को पूर्णतः अपारदर्शी बनाता है; [addAlphaFloorEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect) जो 100 % से नीचे के अल्फा को पूर्णतः पारदर्शी बनाता है; और [addAlphaInverseEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), जो अल्फा को `100% - alpha` में बदल देता है।
+अन्य पैरामीटर‑रहित अल्फा ऑपरेशन्स में [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect) शामिल है, जो प्रत्येक गैर‑शून्य अल्फा को पूर्णतः अपारदर्शी बनाता है; [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), जो 100% से नीचे के सभी अल्फा को पूर्णतः पारदर्शी बनाता है; और [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), जो अल्फा को `100% - alpha` में बदलता है।
 
-## **क्रमबद्ध प्रभाव श्रृंखला बनाएं**
+## **एक क्रमबद्ध इफ़ेक्ट चेन बनाएं**
 
-प्रत्येक `add...Effect` विधि संग्रह के अंत में एक नया ऑपरेशन जोड़ती है। रेंडरर संग्रह को क्रमबद्ध पाइपलाइन के रूप में उपयोग करता है: ऑपरेशन 0 का आउटपुट ऑपरेशन 1 का इनपुट बन जाता है, और इसी प्रकार आगे। इसलिए समान ऑपरेशन्स का क्रम बदलने से अलग चित्र प्राप्त हो सकता है।
+हर `add...Effect` मेथड संग्रह के अंत में एक नया ऑपरेशन जोड़ता है। रेंडरर संग्रह को क्रमबद्ध पाइपलाइन के रूप में उपयोग करता है: ऑपरेशन 0 का आउटपुट ऑपरेशन 1 का इनपुट बन जाता है, और इसी प्रकार। परिणामस्वरूप, समान ऑपरेशन्स को अलग क्रम में रखने से अलग छवि बन सकती है।
 
-उदाहरण के लिये, ग्रेस्केल के बाद टिंट पहले क्रोमैटिक जानकारी हटाता है और फिर ल्यूमिनेंस परिणाम को पुनः रंगता है। टिंट के बाद ग्रेस्केल टिंट को फिर से हटाता है। इसी प्रकार, अल्फा प्रतिस्थापन पहले के ऑपरेशन्स द्वारा गणना किए गए अल्फा मानों को अधिलेखित कर सकता है, जबकि अल्फा मॉड्यूलेशन उनके निरपेक्ष अंतर को बनाए रखता है।
+उदाहरण के लिए, ग्रेस्केल के बाद टिंट पहले क्रोमैटिक जानकारी हटाता है और फिर ल्यूमिनेंस परिणाम को पुनः रंगित करता है। टिंट के बाद ग्रेस्केल टिंट को फिर से हटा देता है। इसी प्रकार, अल्फा प्रतिस्थापन पहले के ऑपरेशन्स द्वारा गणना किए गए अल्फा मानों को ओवरराइड कर सकता है, जबकि अल्फा मॉड्यूलेशन उनके सापेक्ष अंतर को बरकरार रखता है।
 
-निम्न उदाहरण चार‑ऑपरेशन श्रृंखला बनाता है, इसे PPTX के रूप में सहेजता है, प्रस्तुति को पुनः खोलता है, ऑपरेशन प्रकार और क्रम दोनों की जाँच करता है, और पुनः खुले परिणाम को रेंडर करता है:
+निम्न उदाहरण चार‑ऑपरेशन चेन बनाता है, इसे PPTX के रूप में सहेजता है, प्रस्तुति को पुनः खोलता है, ऑपरेशन प्रकार और क्रम दोनों की जाँच करता है, और पुनः खुले परिणाम को रेंडर करता है:
 
 ```python
 import jpype
@@ -261,15 +308,19 @@ finally:
     reopened_presentation.dispose()
 ```
 
-संग्रह कोई संगतता मैट्रिक्स लागू नहीं करता जो रंग, अल्फा, और ब्लर ऑपरेशन्स को अलग‑अलग श्रृंखलाओं तक सीमित करे। इन्हें मिलाया जा सकता है, लेकिन सभी संयोजन हमेशा उपयोगी नहीं होते। एक स्थिर रंग प्रतिस्थापन पहले के रंग प्रभावों द्वारा निर्मित RGB विविधता को हटा देता है; डुओटोन के बाद ग्रेस्केल दो चयनित रंगों को हटा देता है; और अल्फा सीलिंग, फ़्लोर, प्रतिस्थापन, या बि‑लेवल ऑपरेशन्स पहले निर्मित अल्फा विवरण को निरस्त कर सकते हैं। श्रृंखला को इच्छित पिक्सेल‑प्रसंस्करण क्रम के अनुसार बनाएं, न कि उसके आइटम्स को अनलॉजिकल फ़ॉर्मेटिंग फ़्लैग मानकर।
+संग्रह कोई संगतता मैट्रिक्स नहीं लागू करता जो रंग, अल्फा और ब्लर ऑपरेशन्स को अलग-अलग चेन तक सीमित करता हो। इन्हें संयोजित किया जा सकता है, लेकिन संयोजन हमेशा उपयोगी नहीं होते। एक स्थिर रंग प्रतिस्थापन पहले के रंग प्रभावों द्वारा उत्पन्न RGB विविधता को हटा देता है; डुओटोन के बाद ग्रेस्केल दो चयनित रंगों को हटा देता है; और अल्फा सीलिंग, फ़्लोर, प्रतिस्थापन, या बाय‑लेवल ऑपरेशन्स पहले निर्मित अल्फा विवरण को हटा सकते हैं। चेन को इच्छित पिक्सेल‑प्रसंस्करण क्रम के अनुसार बनाएं, न कि इसके आइटम को अनऑर्डर्ड फ़ॉर्मेटिंग फ्लैग मानकर।
 
-## **संपादन योग्य और प्रभावी मानों का निरीक्षण करें**
+<!-- visual-explanation:image-transform-effects:start -->
+[![एक ही छवि पहले ग्रेस्केल फिर टिंट, और टिंट फिर ग्रेस्केल से गुजरती है। दो अंतिम ग्रेस्केल छवियों में अलग टोन हैं।](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+<!-- visual-explanation:image-transform-effects:end -->
 
-एक संपादन योग्य ऑपरेशन वह वस्तु है जो `Picture.getImageTransform` में संग्रहीत होती है। प्रभाव के आधार पर यह सीधे लिखने योग्य सदस्य उजागर कर सकता है। उदाहरण के लिये, [Blur](https://reference.aspose.com/slides/hi/python-java/aspose.slides/blur/) लिखने योग्य `radius` और `grow` मान प्रकट करता है, [AlphaModulateFixed](https://reference.aspose.com/slides/hi/python-java/aspose.slides/alphamodulatefixed/) लिखने योग्य `amount` प्रकट करता है, और [AlphaBiLevel](https://reference.aspose.com/slides/hi/python-java/aspose.slides/alphabilevel/) लिखने योग्य `threshold` प्रकट करता है। [Duotone](https://reference.aspose.com/slides/hi/python-java/aspose.slides/duotone/) जैसे रंग प्रभाव परिवर्तनशील [ColorFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/colorformat/) वस्तुएँ उजागर करते हैं।
+## **संपादन योग्य और प्रभावी मानों की जाँच करें**
 
-कुछ ऑपरेशन क्लास, जैसे [BrightnessContrast](https://reference.aspose.com/slides/hi/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/hi/python-java/aspose.slides/tint/), और [AlphaReplace](https://reference.aspose.com/slides/hi/python-java/aspose.slides/alphareplace/), अपने निर्माण स्केलर को लिखने योग्य गुणों के रूप में उजागर नहीं करते। इन सेटिंग्स को बदलने के लिए ऑपरेशन को हटाएँ और आवश्यक स्थिति में एक नया जोड़ें।
+एक संपादन योग्य ऑपरेशन वह ऑब्जेक्ट है जो `Picture.getImageTransform` में संग्रहीत होता है। प्रभाव के अनुसार, यह सीधे लिखने योग्य सदस्य उजागर कर सकता है। उदाहरण के लिए, [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) लिखने योग्य `radius` और `grow` मान दिखाता है, [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) लिखने योग्य `amount` दिखाता है, और [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) लिखने योग्य `threshold` दिखाता है। रंग प्रभाव जैसे [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) परिवर्तनशील [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/) ऑब्जेक्ट्स को उजागर करते हैं।
 
-`getEffective` द्वारा लौटाया गया प्रभावी डेटा गणना किया गया और केवल‑पढ़ने‑योग्य होता है। यह थीम‑निर्भर रंगों को हल करने और रेंडरर द्वारा उपयोग किए गए सामान्यीकृत मान पढ़ने में उपयोगी है, लेकिन यह कोई अतिरिक्त संपादन सतह नहीं है। निम्न उदाहरण श्रृंखला को गिनती करता है और जहाँ सम्बंधित API प्रभावी मान प्रदान करती है, उनका निरीक्षण करता है:
+कुछ ऑपरेशन क्लासेज़, जैसे [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/), और [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/), अपने निर्माण स्केलर को लिखने योग्य प्रॉपर्टीज़ के रूप में नहीं दिखाते। इन सेटिंग्स को बदलने के लिए, ऑपरेशन को हटाएँ और आवश्यक स्थिति में प्रतिस्थापन जोड़ें।
+
+`getEffective` द्वारा लौटाया गया प्रभावी डेटा गणना किया गया और केवल‑पढ़ने योग्य है। यह थीम‑निर्भर रंगों को हल करने और रेंडरर द्वारा उपयोग किए गए सामान्यीकृत मानों को पढ़ने में उपयोगी है, लेकिन यह कोई अन्य संपादन सतह नहीं है। निम्न उदाहरण चेन को गिनता है और जहाँ संबंधित API प्रभावी मान प्रदान करती है, उन मानों की जाँच करता है:
 
 ```python
 import jpype
@@ -333,11 +384,11 @@ finally:
     presentation.dispose()
 ```
 
-बिना पैरामीटर वाले प्रभाव जैसे ग्रेस्केल, अल्फा सीलिंग, और अल्फा इनवर्स भी एक प्रभावी‑डेटा वस्तु रखते हैं, लेकिन प्रिंट करने हेतु कोई स्केलर सेटिंग नहीं होती। उनका अस्तित्व और संग्रह में स्थिति ही महत्वपूर्ण जानकारी है।
+ग्रेस्केल, अल्फा सीलिंग, और अल्फा इनवर्स जैसे पैरामीटर‑रहित प्रभावों के पास अभी भी एक प्रभावी‑डेटा ऑब्जेक्ट होता है, लेकिन प्रिंट करने के लिए कोई स्केलर सेटिंग नहीं होती। संग्रह में उनकी उपस्थिति और स्थिति ही महत्वपूर्ण जानकारी होते हैं।
 
-## **इमेज ट्रांसफ़ॉर्म हटाएँ या साफ़ करें**
+## **छवि ट्रांसफ़ॉर्म हटाएँ या साफ़ करें**
 
-एक ऑपरेशन को इंडेक्स द्वारा हटाने के लिए [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) का उपयोग करें। हटाने के बाद इंडेक्स शिफ्ट होते हैं, इसलिए पहले लक्ष्य को खोजें और गिनती के बाद हटाएँ। पूरी श्रृंखला को हटाने के लिये [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#clear) का उपयोग करें।
+एक ऑपरेशन को सूचकांक द्वारा हटाने के लिए [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) का उपयोग करें। क्योंकि हटाने के बाद सूचकांक बदलते हैं, पहले लक्ष्य को खोजें और गिनती के बाद इसे हटाएँ। संपूर्ण चेन को हटाने के लिए [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) का उपयोग करें।
 
 ```python
 import jpype
@@ -377,38 +428,38 @@ finally:
     presentation.dispose()
 ```
 
-ट्रांसफ़ॉर्म हटाने या साफ़ करने से केवल चित्र फॉर्मेटिंग बदलती है। यह पुनः उपयोग किए गए [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) रिसोर्स को हटाता, पुनः‑संकुचित या अन्यथा नहीं बदलता।
+ट्रांसफ़ॉर्म को हटाने या साफ़ करने से केवल चित्र स्वरूपण बदलता है। यह पुनः उपयोग किए गए [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) संसाधन को हटाता, पुनः संपीड़ित नहीं करता, या अन्यथा नहीं बदलता।
 
-## **प्रेज़ेंटेशन फ़ॉर्मेट और निर्यात लक्ष्य पर विचार करें**
+## **प्रस्तुति स्वरूप और निर्यात लक्ष्यों पर विचार करें**
 
-इमेज ट्रांसफ़ॉर्म DrawingML में उत्पन्न होते हैं, इसलिए PPTX प्रभाव श्रृंखलाओं के लिये वांछित संपादन योग्य फ़ॉर्मेट है। PPTX के साथ भी, सभी ऑपरेशन्स की पोर्टेबिलिटी समान नहीं है:
+इमेज ट्रांसफ़ॉर्म DrawingML में उत्पन्न होते हैं, इसलिए PPTX प्रभाव चेन के लिए पसंदीदा संपादन योग्य स्वरूप है। PPTX के साथ भी, हर ऑपरेशन की पोर्टेबिलिटी समान नहीं होती:
 
-- मानक DrawingML ऑपरेशन्स जैसे ल्यूमिनेंस, ग्रेस्केल, डुओटोन, टिंट, HSL, ब्लर, और सामान्य अल्फा ऑपरेशन्स PPTX राउंड‑ट्रिप के दौरान जीवित रहने की सबसे अधिक संभावना रखते हैं। निरंतरता आवश्यक होने पर हमेशा निर्मित फ़ाइल को पुनः खोलें और संग्रह का निरीक्षण करें।
-- [BrightnessContrast](https://reference.aspose.com/slides/hi/python-java/aspose.slides/brightnesscontrast/) Office 2010 विस्तार है, मानक DrawingML ल्यूमिनेंस ऑपरेशन नहीं। यह इन‑मेमोरी रेंडरिंग के लिये उपयोगी है, लेकिन सहेजने और PPTX को पुनः खोलने के बाद संपादन योग्य [BrightnessContrast](https://reference.aspose.com/slides/hi/python-java/aspose.slides/brightnesscontrast/) के रूप में बना रहना गारंटी नहीं है। स्थायी उज्ज्वलता‑कंट्रास्ट समायोजन के लिये [addLuminanceEffect](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) को प्राथमिकता दें।
-- बाइनरी PPT फ़ॉर्मेट पूर्ण DrawingML प्रभाव मॉडल से पूर्वी है। PPT में सहेजने से असमर्थित ऑपरेशन्स को छोड़ दिया जा सकता है, श्रृंखला को समर्थित उपसमुच्चय तक घटित किया जा सकता है, या उपस्थिति का अनुमान लगाया जा सकता है। जटिल संपादन योग्य श्रृंखला के लिये PPT को सत्यापन फ़ॉर्मेट के रूप में उपयोग न करें।
-- PNG, JPEG, TIFF, PDF, SVG, HTML, या अन्य दृश्य आउटपुट में समर्थित श्रृंखला को रेंडर किया जाता है। ये आउटपुट संपादन योग्य `ImageTransformOperationCollection` नहीं रखते; रास्टर फ़ॉर्मेट परिणाम को पिक्सेल में फ़्लैटन कर देते हैं, और डॉक्यूमेंट/वेक्टर निर्यात अपने स्वयं के रेंडरिंग प्रतिनिधित्व को संग्रहीत करते हैं।
-- प्रभाव किसी लिंक्ड इमेज को स्व-समाहित नहीं बनाते। लिंक्ड चित्र को रेंडर करने के लिये लिंक्ड रिसोर्स उपलब्ध होना आवश्यक रहता है जब प्रस्तुति लोड होती है।
+- ल्यूमिनेंस, ग्रेस्केल, डुओटोन, टिंट, HSL, ब्लर, और सामान्य अल्फा ऑपरेशन्स जैसे मानक DrawingML ऑपरेशन्स के PPTX राउंड‑ट्रिप में जीवित रहने की सबसे अधिक संभावना होती है। जब संरक्षण आवश्यक हो, हमेशा उत्पन्न फ़ाइल को पुनः खोलें और संग्रह की जाँच करें।
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) एक Office 2010 विस्तार है न कि मानक DrawingML ल्यूमिनेंस ऑपरेशन। इसे मेमोरी‑में रेंडरिंग के लिए उपयोग किया जा सकता है, लेकिन सहेजने और PPTX को पुनः खोलने के बाद यह संपादन योग्य [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) के रूप में रहने की गारंटी नहीं है। निरंतर चमक और कंट्रास्ट समायोजन के लिए [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) को प्राथमिकता दें।
+- बाइनरी PPT स्वरूप पूर्ण DrawingML इफ़ेक्ट मॉडल से पहले का है। PPT में सहेजने से असमर्थित ऑपरेशन्स छोड़ सकते हैं, चेन को समर्थित उपसमुच्चय तक घटा सकते हैं, या दिखावट को अनुमानित कर सकते हैं। जटिल संपादन योग्य चेन के सत्यापन स्वरूप के रूप में PPT का उपयोग न करें।
+- PNG, JPEG, TIFF, PDF, SVG, HTML, या अन्य विज़ुअल आउटपुट में रेंडरिंग समर्थित चेन को रेंडर किए गए रूप में लागू करता है। उन आउटपुट में कोई संपादन योग्य `ImageTransformOperationCollection` नहीं होता; रास्टर स्वरूप परिणाम को पिक्सेल में फ्लैट कर देते हैं, तथा दस्तावेज़/वेक्टर निर्यात अपना स्वयं का रेंडरिंग प्रतिनिधित्व संग्रहीत करते हैं।
+- इफ़ेक्ट्स किसी लिंक्ड इमेज को स्वनिहित नहीं बनाते। लिंक्ड चित्र को रेंडर करने के लिए प्रस्तुति लोड होने पर लिंक्ड संसाधन उपलब्ध होना आवश्यक है।
 
-विभिन्न प्रस्तुति उपभोक्ता किनारे के मामलों को अलग‑अलग रेंडर कर सकते हैं, विशेषकर जब कई अल्फा या रंग‑क्वांटाइज़िंग ऑपरेशन्स को संयोजित किया गया हो। महत्वपूर्ण आउटपुट के लिये, उत्पादन में उपयोग किए गए वही Aspose.Slides संस्करण के साथ संपादन योग्य राउंड‑ट्रिप और अंतिम निर्यात फ़ॉर्मेट दोनों का परीक्षण करें।
+विभिन्न प्रस्तुति उपभोक्ता किनारे मामलों को अलग ढंग से रेंडर कर सकते हैं, विशेषकर जब कई अल्फा या रंग‑क्वांटाइज़िंग ऑपरेशन्स संयोजित हों। महत्वपूर्ण आउटपुट के लिए, उत्पादन में उपयोग किए गए समान Aspose.Slides संस्करण के साथ दोनों संपादन योग्य राउंड‑ट्रिप और अंतिम निर्यात स्वरूप का परीक्षण करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या इमेज ट्रांसफ़ॉर्म प्रभाव एम्बेडेड इमेज डेटा को बदलते हैं?**
+**क्या इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स एम्बेडेड इमेज डेटा को संशोधित करते हैं?**
 
-नहीं। ऑपरेशन्स `Picture` से संबंधित होते हैं जो चित्र फ़िल द्वारा उपयोग किया जाता है। आधारभूत `PPImage` बाइट्स अपरिवर्तित रहती हैं।
+नहीं। ऑपरेशन्स उस `Picture` से संबंधित होते हैं जो चित्र फ़िल द्वारा उपयोग किया जाता है। अंतर्निहित `PPImage` बाइट्स अपरिवर्तित रहते हैं।
 
-**क्या दो चित्र फ्रेम जो एक ही इमेज को पुनः उपयोग करते हैं, प्रभाव साझा करेंगे?**
+**क्या दो चित्र फ्रेम जो एक ही इमेज को पुनः उपयोग करते हैं, उनके इफ़ेक्ट्स साझा करेंगे?**
 
-नहीं। एक `PPImage` को पुनः उपयोग करने से इमेज डेटा की डुप्लिकेशन नहीं होती, लेकिन प्रत्येक चित्र फ्रेम आमतौर पर अलग `Picture` और अलग इमेज ट्रांसफ़ॉर्म संग्रह रखता है।
+नहीं। एक `PPImage` को पुनः उपयोग करने से डुप्लिकेट इमेज डेटा बचता है, लेकिन प्रत्येक चित्र फ्रेम आमतौर पर अलग `Picture` और इमेज ट्रांसफ़ॉर्म संग्रह रखता है।
 
-**क्या रंग, ब्लर, और अल्फा प्रभावों को एक साथ संयोजित किया जा सकता है?**
+**क्या रंग, ब्लर, और अल्फा इफ़ेक्ट्स को संयोजित किया जा सकता है?**
 
-हाँ। संग्रह उन्हें एक क्रमबद्ध श्रृंखला में स्वीकार करता है। प्रत्येक ऑपरेशन के पिछले आउटपुट पर प्रभाव को समझें, क्योंकि प्रतिस्थापन और थ्रेशहोल्ड ऑपरेशन्स पहले के रंग या अल्फा विवरण को हटा सकते हैं।
+हां। संग्रह उन्हें एक क्रमबद्ध चेन में स्वीकार करता है। प्रत्येक ऑपरेशन के पिछले आउटपुट पर प्रभाव पर विचार करें क्योंकि प्रतिस्थापन और थ्रेसहोल्ड ऑपरेशन्स पहले के रंग या अल्फा विवरण को हटा सकते हैं।
 
-**प्रभावी मान केवल‑पढ़ने‑योग्य क्यों होते हैं?**
+**क्यों प्रभावी मान केवल-पढ़ने योग्य होते हैं?**
 
-प्रभावी डेटा रेंडरिंग के लिये प्रयुक्त गणना किए गए मानों का प्रतिनिधित्व करता है, जिसमें हल किए गए रंग शामिल हैं। जहाँ लिखने योग्य सदस्य मौजूद हों, ट्रांसफ़ॉर्म संग्रह में संग्रहीत ऑपरेशन को संपादित करें; अन्यथा उसे हटाएँ और नई निर्माण पैरामीटर के साथ एक प्रतिस्थापन जोड़ें।
+प्रभावी डेटा रेंडरिंग के लिए उपयोग किए गए गणना किए गए मानों को दर्शाता है, जिसमें हल किए गए रंग शामिल हैं। यदि लिखने योग्य सदस्य मौजूद हों तो ट्रांसफ़ॉर्म संग्रह में संग्रहीत ऑपरेशन को संपादित करें; अन्यथा इसे हटाएँ और नई निर्माण पैरामीटर के साथ एक प्रतिस्थापन जोड़ें।
 
-**कौन सा फ़ॉर्मेट ट्रांसफ़ॉर्म श्रृंखला को संरक्षित रखने के लिये उपयोग करना चाहिए?**
+**एक ट्रांसफ़ॉर्म चेन को संरक्षित करने के लिए मुझे कौन सा स्वरूप उपयोग करना चाहिए?**
 
-PPTX का उपयोग करें और फ़ाइल को पुनः खोलकर सत्यापित करें। लिगेसी PPT पूर्ण DrawingML प्रभाव मॉडल को प्रदर्शित नहीं कर सकता, और रेंडर किए गए निर्यात फ़ॉर्मेट केवल उपस्थिति को संरक्षित करते हैं, न कि संपादन योग्य ट्रांसफ़ॉर्म ऑपरेशन्स।
+PPTX का उपयोग करें और फ़ाइल को पुनः खोलकर सत्यापित करें। लेगेसी PPT पूर्ण DrawingML इफ़ेक्ट मॉडल को दर्शा नहीं सकता, और रेंडर किए गए निर्यात स्वरूप केवल दिखावट को संरक्षित करते हैं न कि संपादन योग्य ट्रांसफ़ॉर्म ऑपरेशन्स।

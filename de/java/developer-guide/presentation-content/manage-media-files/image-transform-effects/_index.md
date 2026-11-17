@@ -11,9 +11,9 @@ keywords:
 - Kontrast
 - Graustufen
 - Duoton
-- Farbton
+- Tönung
 - HSL
-- Farbersatz
+- Farbersetzung
 - Unschärfe
 - Transparenz
 - Alpha‑Effekt
@@ -22,50 +22,50 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Bildtransformations‑Effekte für Bildrahmen mit Aspose.Slides für Java anwenden, verketten, inspizieren, entfernen und überprüfen."
+description: "Anwenden, verketten, untersuchen, entfernen und verifizieren von Bildtransformations‑Effekten für Bildrahmen mit Aspose.Slides für Java."
 ---
 ## **Übersicht**
 
-Aspose.Slides stellt Bildanpassungen als geordnete Sammlung von Bildtransformationsoperationen dar. Für einen Bildrahmen beginnen Sie mit dem [ISlidesPicture](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidespicture/) und greifen über [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidespicture/#getImageTransform--) zu. Die zurückgegebene [IImageTransformOperationCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/) ermöglicht das Anhängen, Aufzählen, Inspizieren, Entfernen und Leeren von Effekten, ohne die ursprünglichen Bildbytes neu zu schreiben.
+Aspose.Slides stellt Bildanpassungen als geordnete Sammlung von Bildtransformations‑Operationen dar. Für einen Bildrahmen beginnen Sie mit dem Rahmen‑[ISlidesPicture](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) und greifen auf [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/#getImageTransform--) zu. Die zurückgegebene [IImageTransformOperationCollection](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/) ermöglicht das Anhängen, Aufzählen, Untersuchen, Entfernen und Löschen von Effekten, ohne die ursprünglichen Bildbytes neu zu schreiben.
 
-Dieser Artikel demonstriert einen kompletten Arbeitsablauf für Helligkeit und Kontrast, Farbumwandlungen, Unschärfe, Transparenz, geordnete Effektketten, effektive Werte, Entfernen und die PPTX‑Rundreise‑Verifizierung.
+Dieser Artikel demonstriert einen vollständigen Workflow für Helligkeit und Kontrast, Farbtransformationen, Unschärfe, Transparenz, geordnete Effektketten, effektive Werte, das Entfernen und die PPTX‑Rundreise‑Verifizierung.
 
-## **Verstehen Sie den Effektbesitz und die Bildwiederverwendung**
+## **Verständnis von Effektzugehörigkeit und Bildwiederverwendung**
 
 Eine Bildressource und das Bild, das sie anzeigt, sind unterschiedliche Objekte:
 
-- [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/) speichert oder referenziert die Quellbilddaten, die der Präsentation gehören.
-- [ISlidesPicture](https://reference.aspose.com/slides/de/java/com.aspose.slides/islidespicture/) gehört zu einer Bildfüllung und verweist auf eine Bildressource, während es die Bildtransformationssammlung speichert.
-- [IPictureFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipictureframe/) ist die Folienform, die die zugehörige Bildfüllung, Geometrie, Zuschnitt‑Einstellungen und weitere Rahmen‑Formatierungen besitzt.
+- [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) speichert oder referenziert die Quellbilddaten, die zur Präsentation gehören.
+- [ISlidesPicture](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) gehört zu einer Bildfüllung und verweist auf eine Bildressource, während es die Bildtransformations‑Sammlung speichert.
+- [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) ist die Folienform, die die zugehörige Bildfüllung, Geometrie, Zuschneideeinstellungen und andere formatierungsbezogene Eigenschaften des Rahmens besitzt.
 
-Daher ändern Bildtransformationsoperationen nicht die Bytes in [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/). Wenn dasselbe `IPPImage` mehr als einmal an [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) übergeben wird, erhält jeder neue Bildrahmen sein eigenes `ISlidesPicture` und seine eigene Transformationssammlung. Das Anwenden von Graustufen auf einen Rahmen macht die anderen Rahmen nicht graustufig, obwohl alle dieselbe eingebettete Bildressource wiederverwenden.
+Daher verändern Bildtransformations‑Operationen nicht die Bytes in [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/). Wenn dieselbe `IPPImage` mehr als einmal an [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) übergeben wird, erhält jeder neue Bildrahmen sein eigenes `ISlidesPicture` und seine eigene Transformationssammlung. Das Anwenden von Graustufen auf einen Rahmen macht die anderen Rahmen nicht grau, obwohl alle dieselbe eingebettete Bildressource wiederverwenden.
 
-Das gleiche `ISlidesPicture.getImageTransform`‑Modell wird auch von anderen Bildfüllungen verwendet, beispielsweise von einer Form‑ oder Folienhintergrund‑Füllung. Die nachfolgenden Beispiele konzentrieren sich auf Bildrahmen.
+Das gleiche `ISlidesPicture.getImageTransform`‑Modell wird auch von anderen Bildfüllungen verwendet, z. B. einer Form oder Folienhintergrund. Die nachfolgenden Beispiele konzentrieren sich auf Bildrahmen.
 
 ## **Verwenden Sie gültige Parameterbereiche und Einheiten**
 
-Die gezeigten Methoden verwenden die folgenden semantischen Bereiche und Einheiten. Halten Sie Werte in diesen Bereichen, selbst wenn eine bestimmte Bibliotheksversion nicht sofort jeden ungültigen Wert ablehnt; das Ziel‑Präsentationsformat kann bei Speicherung oder beim Öffnen in PowerPoint normalisieren, weglassen oder ungültige Daten ablehnen.
+Die demonstrierten Methoden verwenden die folgenden semantischen Bereiche und Einheiten. Halten Sie Werte in diesen Bereichen, selbst wenn eine bestimmte Bibliotheksversion nicht sofort jeden außerhalb des Bereichs liegenden Wert ablehnt; das Ziel‑Präsentationsformat kann Daten beim Speichern normalisieren, weglassen oder ungültige Daten ablehnen, wenn PowerPoint die Datei öffnet.
 
 | Operation | Parameter | Gültiger Bereich und Einheit |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` bis `100`, Prozent; `0` lässt die Komponente unverändert. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | Keine | Keine numerischen Parameter. Alpha bleibt unverändert. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Zwei Farben für dunkle bzw. helle Pixel. RGB‑ und Alpha‑Kanäle in `java.awt.Color` verwenden Werte von `0` bis `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Farbton ist `0` inkl. bis `360` excl., in Grad; Menge ist `-100` bis `100`, Prozent. |
-| [addHSLEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Farbton ist `0` inkl. bis `360` excl., in Grad; Sättigung und Luminanz sind `-100` bis `100`, Prozent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Die Ersatzfarbe verwendet Kanalwerte von `0` bis `255`. Vorhandene Alpha‑Werte bleiben unverändert. |
-| [addBlurEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Radius ist nicht‑negativ und wird in Punkten gemessen; `grow` ist ein Boolean, der steuert, ob verwischter Inhalt außerhalb der ursprünglichen Begrenzungen ausdehnen darf. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Nicht‑negatives Prozent. Verwenden Sie `0` bis `100` für gewöhnliche Deckkraftskalierung: `0` ist vollständig transparent und `100` erhält das bestehende Alpha. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` bis `100`, Prozent‑Deckkraft. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` bis `100`, Prozent‑Alpha‑Schwellwert. Werte darunter werden transparent; Werte gleich oder darüber werden undurchsichtig. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` bis `100`, Prozent; `0` lässt die Komponente unverändert. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | None | Keine numerischen Parameter. Alpha bleibt unverändert. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Zwei Farben für dunkle und helle Pixel. RGB- und Alpha‑Kanäle in `java.awt.Color` verwenden `0` bis `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Farbton ist von `0` (inklusive) bis `360` (exklusiv) Grad; Betrag ist `-100` bis `100`, Prozent. |
+| [addHSLEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Farbton ist von `0` (inklusive) bis `360` (exklusiv) Grad; Sättigung und Luminanz sind `-100` bis `100`, Prozent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Die Ersatzfarbe verwendet Kanalwerte von `0` bis `255`. Vorhandene Alpha‑Werte bleiben unverändert. |
+| [addBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Radius ist nicht negativ und wird in Punkten gemessen; `grow` ist ein Boolescher Wert, der steuert, ob unscharfer Inhalt über die ursprünglichen Grenzen hinausgehen darf. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Nicht negativer Prozentsatz. Verwenden Sie `0` bis `100` für normale Deckkraftskalierung: `0` ist vollständig transparent und `100` erhält das vorhandene Alpha. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` bis `100`, Prozent Deckkraft. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` bis `100`, Prozent Alpha‑Schwelle. Werte darunter werden transparent; Werte gleich oder darüber undurchsichtig. |
 
-Für feste Alpha‑Modulation sind Transparenz und Deckkraft komplementär. Beispiel: 35 % Transparenz entsprechen einem Alpha‑Modulationswert von 65 %.
+Bei fester Alpha‑Modulation sind Transparenz und Deckkraft komplementär. Beispielsweise entspricht 35 % Transparenz einem Alpha‑Modulationswert von 65 %.
 
 ## **Helligkeit und Kontrast anwenden**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) liefert eine [IBrightnessContrast](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibrightnesscontrast/)‑Operation. Ihre skalaren Einstellungen werden beim Erzeugen der Operation übergeben. [IBrightnessContrast.getEffective](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibrightnesscontrast/#getEffective--) gibt berechnete, schreibgeschützte Werte zurück, die inspiziert oder protokolliert werden können.
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) gibt eine [IBrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/ibrightnesscontrast/)‑Operation zurück. Ihre Skalareinstellungen werden beim Erstellen der Operation übergeben. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/brightnesscontrast/#getEffective--) liefert berechnete schreibgeschützte Werte, die geprüft oder protokolliert werden können.
 
-Das folgende Beispiel erhöht die Helligkeit um 15 % und den Kontrast um 20 % und rendert anschließend eine Vorschau, ohne das eingebettete Bild zu verändern:
+Das folgende Beispiel erhöht die Helligkeit um 15 % und den Kontrast um 20 %, dann rendert es eine Vorschau, ohne das eingebettete Bild zu ändern:
 
 ```java
 import com.aspose.slides.*;
@@ -98,13 +98,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/de/java/com.aspose.slides/brightnesscontrast/) ist eine Office‑2010‑Bildeffekt‑Erweiterung und weniger portabel als der standardmäßige DrawingML‑Luminanz‑Effekt. Wenn Helligkeit und Kontrast nach einem PPTX‑Rundtrip editierbar bleiben sollen, verwenden Sie [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) und prüfen Sie das Ergebnis nach dem erneuten Öffnen der Datei. Der Abschnitt zu Formatbeschränkungen erklärt diesen Unterschied genauer.
+[BrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/brightnesscontrast/) ist eine Office 2010‑Bildeffekt‑Erweiterung und weniger portabel als der Standard‑DrawingML‑Luminanz‑Effekt. Wenn Helligkeit und Kontrast nach einer PPTX‑Rundreise editierbar bleiben müssen, verwenden Sie [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) und prüfen Sie das Ergebnis nach dem erneuten Öffnen der Datei. Der Abschnitt zu Formatbeschränkungen erklärt diesen Unterschied genauer.
 
 ## **Farbtransformationen anwenden**
 
-Farbeffekte können unabhängig voneinander auf verschiedene Bildrahmen angewendet werden, die dieselbe Bildressource wiederverwenden. Das folgende Beispiel erzeugt fünf Rahmen und wendet Graustufen, Duotone, Farbton, HSL‑Anpassung und Farbersatz an.
+Farbeffekte können unabhängig auf verschiedene Bildrahmen angewendet werden, die dieselbe Bildressource wiederverwenden. Das folgende Beispiel erstellt fünf Rahmen und wendet Graustufen, Duotone, Tönung, HSL‑Anpassung und Farbersetzung an.
 
-[IDuotone](https://reference.aspose.com/slides/de/java/com.aspose.slides/iduotone/) enthält zwei unabhängig editierbare Farbparameter: `color1` mappt dunkle Pixel, während `color2` helle Pixel mappt. Das macht es zu einem nützlichen Beispiel für einen Effekt, dessen Einstellungen komplexer sind als ein einzelner Skalarwert.
+[IDuotone](https://reference.aspose.com/slides/java/com.aspose.slides/iduotone/) enthält zwei unabhängig editierbare Farbparameter: `color1` ordnet dunklen Pixeln zu, während `color2` hellen Pixeln zuordnet. Das macht es zu einem sinnvollen Beispiel für einen Effekt, dessen Einstellungen komplexer sind als ein einzelner Skalarwert.
 
 ```java
 import com.aspose.slides.*;
@@ -143,13 +143,56 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) ersetzt die Farbe jedes Pixels durch eine feste Farbe und bewahrt dabei den Alpha‑Wert. Es unterscheidet sich von [addColorChangeEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), das eine Quellfarbe auf eine Ziel­farbe abbildet und sowohl Quell‑ als auch Ziel­farbformate offenlegt.
+[addColorReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) ersetzt die Farbe jedes Pixels durch eine feste Farbe und behält das Alpha bei. Es unterscheidet sich von [addColorChangeEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), das eine Quellfarbe zu einer anderen abbildet und sowohl Quell‑ als auch Ziel‑Farbformate offenlegt.
 
-## **Unschärfe, Transparenz und Alpha‑Effekte hinzufügen**
+### **Eine Luminanz‑Schwelle anwenden**
 
-[addBlurEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) beeinflusst alle Farbkanäle, einschließlich Alpha. Setzen Sie `grow` auf `true`, wenn die verwischte Kante über die ursprünglichen Bildgrenzen hinausgehen kann.
+Eine Luminanz‑Schwelle kann schwache Markierungen auf einer gescannten Seite leichter vom Hintergrund unterscheiden. [addGrayScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) bewahrt Zwischen­graustufen. [addBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) wandelt Luminanz in Schwarz oder Weiß um, während [addAlphaBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) einen Schwellenwert auf die Deckkraft anwendet.
 
-Für einheitliche Transparenz verwenden Sie [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Es multipliziert jeden vorhandenen Alpha‑Wert, sodass teilweise transparente Pixel proportional unterschiedlich bleiben. [addAlphaReplaceEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) weist hingegen allen Pixeln einen einheitlichen Alpha‑Wert zu. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) konvertiert Alpha in zwei Stufen basierend auf einem Schwellenwert.
+Die Luminanz‑Schwelle reicht von 0 % bis 100 %, inklusiv. Pixel unterhalb der Schwelle werden schwarz. Pixel gleich oder oberhalb der Schwelle werden weiß. Ein Anheben der Schwelle macht mehr Graustufen schwarz, weil mehr davon unter den Grenzwert fallen.
+
+Laden Sie [grayscale-swatches.png](grayscale-swatches.png) in das Arbeitsverzeichnis herunter. Jede Beschriftung gibt den ursprünglichen Grauwert auf einer Skala von 0 bis 255 an. Das Beispiel stellt das Original neben zwei Kopien und speichert die Schwelle jeder Kopie in der Präsentation.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    byte[] imageData = Files.readAllBytes(Paths.get("grayscale-swatches.png"));
+    IPPImage image = presentation.getImages().addImage(imageData);
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+    
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Öffnen Sie die Ausgabepresentation in PowerPoint, um die drei Rahmen zu vergleichen. Das Farbfeld mit der Bezeichnung 96 hat etwa 38 % Luminanz (96 von 255). Es wird bei einer Schwelle von 20 % weiß und bei 60 % schwarz.
+
+![Originale Graustufenfarbfelder neben den Schwarz‑Weiß‑Ergebnissen bei Luminanz‑Schwellen von 20 % und 60 %](luminance-threshold.png)
+
+## **Unscharfe, Transparenz‑ und Alpha‑Effekte hinzufügen**
+
+[addBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) wirkt sich auf alle Farbkanäle einschließlich Alpha aus. Setzen Sie `grow` auf `true`, wenn die unscharfe Kante über die ursprünglichen Bildgrenzen hinausreichen kann.
+
+Für einheitliche Transparenz verwenden Sie [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Es multipliziert jeden vorhandenen Alphawert, sodass teilweise transparente Pixel proportional unterschiedlich bleiben. [addAlphaReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) weist stattdessen allen Pixeln einen einzigen Alphawert zu. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) konvertiert Alpha in zwei Stufen basierend auf einem Schwellenwert.
 
 ```java
 import com.aspose.slides.*;
@@ -185,15 +228,15 @@ try {
 }
 ```
 
-Weitere parameter‑freie Alpha‑Operationen umfassen [addAlphaCeilingEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--) (macht jedes nicht‑null Alpha vollständig undurchsichtig), [addAlphaFloorEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--) (macht jedes Alpha unter 100 % vollständig transparent) und [addAlphaInverseEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--) (setzt Alpha zu `100% - alpha`).
+Weitere parameterlose Alpha‑Operationen umfassen [addAlphaCeilingEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--), die jedes von Null verschiedene Alpha vollständig undurchsichtig macht; [addAlphaFloorEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--), die jedes Alpha unter 100 % vollständig transparent macht; und [addAlphaInverseEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--), die Alpha zu `100% - alpha` ändert.
 
 ## **Eine geordnete Effektkette aufbauen**
 
-Jede `add...Effect`‑Methode fügt eine neue Operation am Ende der Sammlung hinzu. Der Renderer verwendet die Sammlung als geordnete Pipeline: Der Ausgang von Operation 0 wird zum Eingang von Operation 1 usw. Daher kann dieselbe Menge von Operationen in anderer Reihenfolge ein unterschiedliches Bild erzeugen.
+Jede `add...Effect`‑Methode fügt am Ende der Sammlung eine neue Operation hinzu. Der Renderer verwendet die Sammlung als geordnete Pipeline: die Ausgabe von Operation 0 wird zur Eingabe von Operation 1 usw. Folglich kann dieselben Operationen in anderer Reihenfolge ein unterschiedliches Bild erzeugen.
 
-Beispiel: Graustufen gefolgt von Farbton entfernen zuerst chromatische Informationen und färben dann das Luminanz‑Ergebnis ein. Farbton gefolgt von Graustufen entfernt den Farbton wieder. Ebenso kann Alpha‑Ersetzen Alpha‑Werte überschreiben, die durch frühere Operationen berechnet wurden, während Alpha‑Modulation deren relative Unterschiede bewahrt.
+Beispielsweise entfernt Graustufen, gefolgt von Tönung, zuerst chromatische Informationen und färbt dann das Luminanz‑Ergebnis neu. Tönung, gefolgt von Graustufen, entfernt die Tönung wieder. Ebenso kann Alpha‑Ersetzung Alpha‑Werte, die durch frühere Operationen berechnet wurden, überschreiben, während Alpha‑Modulation deren relative Unterschiede bewahrt.
 
-Das folgende Beispiel baut eine Kette aus vier Operationen, speichert sie als PPTX, öffnet die Präsentation erneut, prüft sowohl die Operationstypen als auch deren Reihenfolge und rendert das erneut geöffnete Ergebnis:
+Das folgende Beispiel erstellt eine Kette von vier Operationen, speichert sie als PPTX, öffnet die Präsentation erneut, prüft sowohl die Operationstypen als auch deren Reihenfolge und rendert das erneut geöffnete Ergebnis:
 
 ```java
 import com.aspose.slides.*;
@@ -246,15 +289,21 @@ try {
 }
 ```
 
-Die Sammlung erzwingt keine Kompatibilitätsmatrix, die Far‑, Alpha‑ und Unschärfe‑Operationen auf getrennte Ketten beschränkt. Sie können kombiniert werden, aber Kombinationen sind nicht immer sinnvoll. Ein fester Farbersatz entfernt RGB‑Variationen, die durch frühere Farbeffekte erzeugt wurden; Graustufen nach Duotone entfernen die beiden ausgewählten Farben; und Alpha‑Ceiling,‑Floor,‑Replace oder‑BiLevel können Alpha‑Details verwerfen, die zuvor erzeugt wurden. Bauen Sie die Kette nach der gewünschten Pixel‑Verarbeitungsreihenfolge auf, nicht nach ungeordneten Formatierungs‑Flags.
+Die Sammlung erzwingt keine Kompatibilitätsmatrix, die Farb‑, Alpha‑ und Unschärfe‑Operationen auf separate Ketten beschränkt. Sie können kombiniert werden, aber Kombinationen sind nicht immer sinnvoll. Eine feste Farb‑Ersetzung entfernt RGB‑Variationen, die durch frühere Farbeffekte erzeugt wurden; Graustufen nach Duotone entfernen die beiden ausgewählten Farben; und Alpha‑Ceiling-, Floor-, Replacement- oder Bi‑Level‑Operationen können Alpha‑Details, die zuvor erstellt wurden, verwerfen. Bauen Sie die Kette gemäß der gewünschten Pixel‑Verarbeitungssequenz auf, anstatt ihre Elemente als ungeordnete Formatierungs‑Flags zu behandeln.
 
-## **Editierbare und effektive Werte inspizieren**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Dasselbe Bild durchläuft zuerst Graustufen und dann Tönung, bzw. Tönung und dann Graustufen. Die beiden endgültigen Graustufenbilder haben unterschiedliche Töne.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Eine editierbare Operation ist das Objekt, das in `ISlidesPicture.getImageTransform` gespeichert ist. Je nach Effekt kann es direkt beschreibbare Mitglieder offenlegen. Beispielsweise offenlegt [IBlur](https://reference.aspose.com/slides/de/java/com.aspose.slides/iblur/) die beschreibbaren `radius`‑ und `grow`‑Werte, [IAlphaModulateFixed](https://reference.aspose.com/slides/de/java/com.aspose.slides/ialphamodulatefixed/) einen beschreibbaren `amount` und [IAlphaBiLevel](https://reference.aspose.com/slides/de/java/com.aspose.slides/ialphabilevel/) einen beschreibbaren `threshold`. Farbeffekte wie [IDuotone](https://reference.aspose.com/slides/de/java/com.aspose.slides/iduotone/) geben veränderbare [IColorFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/icolorformat/)‑Objekte zurück.
+*In dieser illustrativen Aspose.Slides for .NET 26.11‑Darstellung lässt eine 220°‑Tönung bei 25 % das Graustufenbild unverändert. Das Anwenden derselben Tönung vor Graustufen erzeugt unterschiedliche Töne.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Einige Operations‑Interfaces, darunter [IBrightnessContrast](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/de/java/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/de/java/com.aspose.slides/itint/) und [IAlphaReplace](https://reference.aspose.com/slides/de/java/com.aspose.slides/ialphareplace/), stellen ihre Erstellungs‑Skalarwerte nicht als beschreibbare Eigenschaften bereit. Um diese Einstellungen zu ändern, entfernen Sie die Operation und fügen Sie an der gewünschten Position eine Ersatz‑Operation ein.
+## **Editierbare und effektive Werte untersuchen**
 
-Effektive Daten, die von `getEffective()` zurückgegeben werden, sind berechnet und schreibgeschützt. Sie sind nützlich, um thema‑abhängige Farben aufzulösen und die normalisierten Werte zu lesen, die der Renderer verwendet, bilden jedoch keine weitere Bearbeitungsoberfläche. Das folgende Beispiel enumeriert die Kette und inspiziert effektive Werte, sofern die zugehörige API sie bereitstellt:
+Eine editierbare Operation ist das Objekt, das in `ISlidesPicture.getImageTransform` gespeichert wird. Je nach Effekt kann es direkt schreibbare Member offenlegen. Zum Beispiel legt [IBlur](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/) schreibbare `radius`‑ und `grow`‑Werte offen, [IAlphaModulateFixed](https://reference.aspose.com/slides/java/com.aspose.slides/ialphamodulatefixed/) legt ein schreibbares `amount`‑Feld offen und [IAlphaBiLevel](https://reference.aspose.com/slides/java/com.aspose.slides/ialphabilevel/) legt einen schreibbaren `threshold`‑Wert offen. Farbeffekte wie [IDuotone](https://reference.aspose.com/slides/java/com.aspose.slides/iduotone/) legen veränderbare [IColorFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/)‑Objekte off.
+
+Einige Operations‑Schnittstellen, einschließlich [IBrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/java/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/java/com.aspose.slides/itint/), und [IAlphaReplace](https://reference.aspose.com/slides/java/com.aspose.slides/ialphareplace/), geben ihre Erstellungs‑Skalare nicht als schreibbare Eigenschaften frei. Um diese Einstellungen zu ändern, entfernen Sie die Operation und fügen Sie an der gewünschten Position einen Ersatz hinzu.
+
+Durch `getEffective()` zurückgegebene effektive Daten sind berechnet und schreibgeschützt. Sie sind nützlich, um themenabhängige Farben aufzulösen und die normalisierten Werte zu lesen, die der Renderer verwendet, stellen jedoch keine weitere Bearbeitungsoberfläche dar. Das folgende Beispiel enumeriert die Kette und prüft effektive Werte, wo die entsprechende API sie bereitstellt:
 
 ```java
 import com.aspose.slides.*;
@@ -318,11 +367,11 @@ try {
 }
 ```
 
-Parameter‑freie Effekte wie Graustufen, Alpha‑Ceiling und Alpha‑Inverse besitzen ebenfalls ein Effektiv‑Daten‑Objekt, jedoch gibt es keine skalaren Einstellungen zum Ausgeben. Ihre Präsenz und Position in der Sammlung sind die relevanten Informationen.
+Parameterlose Effekte wie Graustufen, Alpha‑Ceiling und Alpha‑Inverse besitzen weiterhin ein effektives Datenobjekt, jedoch gibt es keine skalaren Einstellungen zum Ausgeben. Deren Vorhandensein und Position in der Sammlung sind die wichtigen Informationen.
 
-## **Bildtransformationen entfernen oder leeren**
+## **Bildtransformationen entfernen oder löschen**
 
-Verwenden Sie [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-), um eine Operation anhand ihres Index zu entfernen. Da sich Indizes nach einem Entfernen verschieben, suchen Sie zuerst das Ziel und entfernen Sie es anschließend nach dem Durchlaufen der Sammlung. Mit [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/de/java/com.aspose.slides/imagetransformoperationcollection/#clear--) lassen Sie die gesamte Kette entfernen.
+Verwenden Sie [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-), um eine Operation nach Index zu entfernen. Da Indizes nach einer Entfernung verschoben werden, suchen Sie zuerst das Ziel und entfernen es nach der Aufzählung. Verwenden Sie [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/imagetransformoperationcollection/#clear--) , um die gesamte Kette zu entfernen.
 
 ```java
 import com.aspose.slides.*;
@@ -363,38 +412,38 @@ try {
 }
 ```
 
-Das Entfernen oder Leeren von Transformationen ändert nur die Bildformatierung. Es löscht, komprimiert oder verändert nicht die wiederverwendete [IPPImage](https://reference.aspose.com/slides/de/java/com.aspose.slides/ippimage/)‑Ressource.
+Das Entfernen oder Löschen von Transformationen ändert nur die Bildformatierung. Es löscht, komprimiert nicht neu oder verändert die wiederverwendete [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/)‑Ressource nicht.
 
-## **Präsentationsformate und Exportziele berücksichtigen**
+## **Berücksichtigen Sie Präsentationsformate und Exportziele**
 
-Bildtransformationen stammen aus DrawingML, daher ist PPTX das bevorzugte editierbare Format für Effektketten. Selbst bei PPTX hat nicht jede Operation dieselbe Portabilität:
+Bildtransformationen entstehen in DrawingML, daher ist PPTX das bevorzugte editierbare Format für Effektketten. Auch bei PPTX hat nicht jede Operation dieselbe Portabilität:
 
-- Standard‑DrawingML‑Operationen wie Luminanz, Graustufen, Duotone, Farbton, HSL, Unschärfe und gängige Alpha‑Operationen haben die größte Chance, einen PPTX‑Rundtrip zu überstehen. Öffnen Sie die erzeugte Datei stets erneut und prüfen Sie die Sammlung, wenn die Persistenz ein Requirement ist.
-- [BrightnessContrast](https://reference.aspose.com/slides/de/java/com.aspose.slides/brightnesscontrast/) ist eine Office‑2010‑Erweiterung und nicht die standardmäßige DrawingML‑Luminanz‑Operation. Sie kann für In‑Memory‑Renderings verwendet werden, ist jedoch nicht garantiert als editierbares [IBrightnessContrast](https://reference.aspose.com/slides/de/java/com.aspose.slides/ibrightnesscontrast/) nach dem Speichern und erneuten Öffnen von PPTX erhalten zu bleiben. Verwenden Sie lieber [addLuminanceEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) für dauerhafte Helligkeits‑ und Kontrast‑Anpassungen.
-- Das binäre PPT‑Format predatiert das vollständige DrawingML‑Effekt‑Modell. Beim Speichern nach PPT können nicht unterstützte Operationen weggelassen, die Kette auf ein unterstütztes Subset reduziert oder das Erscheinungsbild approximiert werden. Verwenden Sie PPT nicht als Verifikationsformat für komplexe editierbare Ketten.
-- Das Rendern nach PNG, JPEG, TIFF, PDF, SVG, HTML oder anderen visuellen Ausgaben wendet die unterstützte Kette auf das gerenderte Aussehen an. Diese Ausgaben enthalten keine editierbare `IImageTransformOperationCollection`; Rasterformate flachen das Ergebnis in Pixel ab, und Dokument‑/Vektor‑Exporte speichern ihre eigene Rendering‑Repräsentation.
-- Effekte machen ein verknüpftes Bild nicht eigenständig. Das Rendern eines verknüpften Bildes ist weiterhin von der Verfügbarkeit der verknüpften Ressource beim Laden der Präsentation abhängig.
+- Standard‑DrawingML‑Operationen wie Luminanz, Graustufen, Duotone, Tönung, HSL, Unschärfe und gängige Alpha‑Operationen haben die beste Chance, einen PPTX‑Rundreise‑Durchlauf zu überstehen. Öffnen Sie die erzeugte Datei immer wieder und prüfen Sie die Sammlung, wenn die Erhaltung erforderlich ist.
+- [BrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/brightnesscontrast/) ist eine Office 2010‑Erweiterung und nicht die standardmäßige DrawingML‑Luminanz‑Operation. Sie kann für In‑Memory‑Rendering verwendet werden, ist jedoch nicht garantiert, nach dem Speichern und erneuten Öffnen der PPTX als editierbare [IBrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/ibrightnesscontrast/) bestehen zu bleiben. Bevorzugen Sie [addLuminanceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) für dauerhafte Helligkeits‑ und Kontrasteinstellungen.
+- Das binäre PPT‑Format ist älter als das vollständige DrawingML‑Effektmodell. Das Speichern nach PPT kann nicht unterstützte Operationen weglassen, eine Kette auf ein unterstütztes Subset reduzieren oder das Aussehen approximieren. Verwenden Sie PPT nicht als Verifikationsformat für eine komplexe editierbare Kette.
+- Das Rendern nach PNG, JPEG, TIFF, PDF, SVG, HTML oder anderen visuellen Ausgaben wendet die unterstützte Kette auf das gerenderte Erscheinungsbild an. Diese Ausgaben enthalten kein editierbares `IImageTransformOperationCollection`; Rasterformate flachen das Ergebnis in Pixel ab, und Dokument‑/Vektor‑Exports speichern ihre eigene Rendering‑Darstellung.
+- Effekte machen ein verknüpftes Bild nicht eigenständig. Das Rendern eines verknüpften Bildes hängt weiterhin davon ab, dass die verknüpfte Ressource beim Laden der Präsentation verfügbar ist.
 
-Verschiedene Präsentations‑Viewer können Randfälle unterschiedlich rendern, besonders wenn mehrere Alpha‑ oder Farb‑Quantisierungs‑Operationen kombiniert werden. Für kritische Ausgaben testen Sie sowohl den editierbaren Rundtrip als auch das endgültige Export‑Format mit derselben Aspose.Slides‑Version, die in der Produktion eingesetzt wird.
+Verschiedene Präsentations‑Consumer können Randfälle unterschiedlich rendern, insbesondere wenn mehrere Alpha‑ oder Farb‑Quantisierungs‑Operationen kombiniert werden. Für kritische Ausgaben testen Sie sowohl den editierbaren Rundreise‑Durchlauf als auch das endgültige Exportformat mit derselben Aspose.Slides‑Version, die in der Produktion verwendet wird.
 
 ## **FAQ**
 
-**Verändern Bildtransformations‑Effekte die eingebetteten Bilddaten?**
+**Ändern Bildtransformations‑Effekte die eingebetteten Bilddaten?**
 
-Nein. Die Operationen gehören zum `ISlidesPicture`, das von der Bildfüllung verwendet wird. Die zugrunde liegenden `IPPImage`‑Bytes bleiben unverändert.
+Nein. Die Operationen gehören zu dem `ISlidesPicture`, das von der Bildfüllung verwendet wird. Die zugrunde liegenden `IPPImage`‑Bytes bleiben unverändert.
 
-**Teilen zwei Bildrahmen, die dieselbe Bild‑Ressource wiederverwenden, ihre Effekte?**
+**Werden zwei Bildrahmen, die dasselbe Bild wiederverwenden, ihre Effekte teilen?**
 
-Nein. Das Wiederverwenden eines `IPPImage` reduziert doppelte Bilddaten, aber jeder Bildrahmen besitzt normalerweise ein separates `ISlidesPicture` und eine eigene Transformationssammlung.
+Nein. Die Wiederverwendung einer `IPPImage` vermeidet doppelte Bilddaten, aber jeder Bildrahmen hat normalerweise ein separates `ISlidesPicture` und eine eigene Bildtransformations‑Sammlung.
 
 **Können Farb‑, Unschärfe‑ und Alpha‑Effekte kombiniert werden?**
 
-Ja. Die Sammlung akzeptiert sie in einer geordneten Kette. Beachten Sie, was jede Operation mit dem Ergebnis der vorherigen macht, da Ersetzungs‑ und Schwellen‑Operationen frühere Farb‑ oder Alpha‑Details verwerfen können.
+Ja. Die Sammlung akzeptiert sie in einer einzigen geordneten Kette. Berücksichtigen Sie, was jede Operation mit dem Ergebnis der vorherigen macht, da Ersetzungs‑ und Schwellenwert‑Operationen frühere Farb‑ oder Alpha‑Details verwerfen können.
 
 **Warum sind effektive Werte schreibgeschützt?**
 
-Effektive Daten stellen berechnete Werte dar, die für das Rendering verwendet werden, einschließlich aufgelöster Farben. Bearbeiten Sie die in der Transformationssammlung gespeicherte Operation, wo beschreibbare Mitglieder existieren; andernfalls entfernen Sie sie und fügen Sie eine Ersatz‑Operation mit neuen Erstellungs‑Parametern hinzu.
+Effektive Daten repräsentieren berechnete Werte, die für das Rendering verwendet werden, einschließlich aufgelöster Farben. Editieren Sie die in der Transformationssammlung gespeicherte Operation, wenn schreibbare Member vorhanden sind; andernfalls entfernen Sie sie und fügen Sie einen Ersatz mit neuen Erstellungsparametern hinzu.
 
-**Welches Format sollte ich verwenden, um eine Transformationskette zu erhalten?**
+**Welches Format sollte ich zur Bewahrung einer Transformationskette verwenden?**
 
-Verwenden Sie PPTX und prüfen Sie die Datei, indem Sie sie erneut öffnen. Das alte PPT‑Format kann das komplette DrawingML‑Effekt‑Modell nicht darstellen, und gerenderte Export‑Formate bewahren nur das Aussehen, nicht die editierbaren Transformations‑Operationen.
+Verwenden Sie PPTX und prüfen Sie die Datei, indem Sie sie erneut öffnen. Das alte PPT‑Format kann das vollständige DrawingML‑Effektmodell nicht darstellen, und gerenderte Exportformate bewahren das Aussehen, nicht jedoch editierbare Transformations‑Operationen.

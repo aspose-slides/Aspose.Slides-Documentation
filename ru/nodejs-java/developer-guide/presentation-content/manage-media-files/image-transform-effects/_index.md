@@ -10,7 +10,7 @@ keywords:
 - яркость
 - контраст
 - градация серого
-- дутон
+- дуотон
 - оттенок
 - HSL
 - замена цвета
@@ -23,50 +23,50 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Применяйте, объединяйте, проверяйте, удаляйте и проверяйте эффекты преобразования изображения для рамок изображений с помощью Aspose.Slides для Node.js через Java."
+description: "Применяйте, объединяйте, проверяйте, удаляйте и верифицируйте эффекты преобразования изображения для кадров изображений с Aspose.Slides для Node.js через Java."
 ---
 ## **Обзор**
 
-Aspose.Slides представляет коррекцию изображений как упорядоченную коллекцию операций преобразования изображения. Для рамки изображения начните с [Picture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/) рамки и получите доступ к [Picture.getImageTransform](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/). Возвращаемый [ImageTransformOperationCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) позволяет добавить, перечислять, проверять, удалять и очищать эффекты без перезаписи оригинальных байтов изображения.
+Aspose.Slides представляет настройки изображения как упорядоченную коллекцию операций преобразования изображения. Для кадра изображения начните с [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) кадра и получите доступ к [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). Возвращаемый [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) позволяет добавлять, перечислять, проверять, удалять и очищать эффекты без перезаписи оригинальных байтов изображения.
 
-В этой статье демонстрируется полный рабочий процесс для яркости и контрастности, цветовых преобразований, размытия, прозрачности, упорядоченных цепочек эффектов, эффективных значений, удаления и проверка обратного раунда PPTX.
+В этой статье показан полный рабочий процесс для яркости и контрастности, цветовых преобразований, размытия, прозрачности, упорядоченных цепочек эффектов, эффективных значений, удаления и проверки обратного пути PPTX.
 
 ## **Понимание владения эффектом и повторного использования изображения**
 
 Ресурс изображения и изображение, которое его отображает, — это разные объекты:
 
-- [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) хранит или ссылается на исходные данные изображения, принадлежащие презентации.
-- [Picture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/) относится к заливке изображения и указывает на ресурс изображения, одновременно храня коллекцию преобразований изображения.
-- [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/) — это форма слайда, владеющая соответствующей заливкой изображения, геометрией, настройками обрезки и другими параметрами уровня кадра.
+- [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) хранит или ссылается на исходные данные изображения, принадлежащие презентации.
+- [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) относится к заливке изображения и указывает на ресурс изображения, одновременно храня коллекцию преобразований изображения.
+- [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) — это элемент слайда, который владеет соответствующей заливкой изображения, геометрией, настройками обрезки и другим форматированием уровня рамки.
 
-Поэтому операции преобразования изображения не изменяют байты в [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/). Когда один и тот же [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) передаётся в [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/) более одного раза, каждый новый кадр получает свой собственный [Picture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/) и собственную коллекцию преобразований. Применение градации серого к одному кадру не делает остальные кадры серыми, даже если они используют один и тот же встроенный ресурс изображения.
+Поэтому операции преобразования изображения не изменяют байты в [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/). Когда один и тот же [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) передаётся в [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) более одного раза, каждый новый кадр получает собственный [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) и собственную коллекцию преобразований. Применение градации серого к одному кадру не делает остальные кадры градацией серого, даже если они используют один и тот же встроенный ресурс изображения.
 
-Та же модель [Picture.getImageTransform](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/) используется и другими заливками изображений, например, фигурой или фоном слайда. Примеры ниже сосредоточены на кадрах изображения.
+Та же модель [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) используется и другими заливками изображений, например, формой или фоном слайда. Приведённые ниже примеры сосредоточены на кадрах изображения.
 
 ## **Использование допустимых диапазонов параметров и единиц измерения**
 
-Продемонстрированные методы используют следующие семантические диапазоны и единицы. Сохраняйте значения в этих диапазонах, даже если конкретная версия библиотеки не отклоняет каждый выходящий за пределы параметр сразу; целевой формат презентации может нормализовать, опустить или отклонить недопустимые данные при сохранении или при открытии файла PowerPoint.
+Продемонстрированные методы используют следующие семантические диапазоны и единицы. Сохраняйте значения в этих диапазонах, даже если конкретная версия библиотеки не отклоняет каждый недопустимый параметр сразу; целевой формат презентации может нормализовать, опустить или отклонить недопустимые данные при сохранении или открытии файла PowerPoint.
 
-| Операция | Параметры | Допустимый диапазон и единица |
+| Операция | Параметры | Допустимый диапазон и единица измерения |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | от `-100` до `100`, процентов; `0` оставляет компонент без изменений. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | Нет | Нет числовых параметров. Альфа остаётся без изменений. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Два цвета для тёмных и светлых пикселей. Каналы RGB и альфа в `java.awt.Color` используют значения от `0` до `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Оттенок от `0` (включительно) до `360` (исключительно) градусов; количество от `-100` до `100` процентов. |
-| [addHSLEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Оттенок от `0` (включительно) до `360` (исключительно) градусов; насыщенность и яркость от `-100` до `100` процентов. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | Цвет замены использует значения каналов от `0` до `255`. Существующие значения альфа остаются без изменений. |
-| [addBlurEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Радиус неотрицательный и измеряется в пунктах; `grow` — булево значение, определяющее, может ли размытый контент выходить за пределы оригинальных границ. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Неотрицательный процент. Используйте `0`‑`100` для обычного масштабирования непрозрачности: `0` полностью прозрачно, `100` сохраняет существующую альфа. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | От `0` до `100` процентов непрозрачности. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | От `0` до `100` процентов порога альфа. Значения ниже порога становятся прозрачными; значения, равные или выше порога, становятся непрозрачными. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` … `100`, процент; `0` оставляет компонент без изменений. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | Нет | Нет числовых параметров. Альфа остаётся без изменений. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Два цвета для тёмных и светлых пикселей. Каналы RGB и альфа в `java.awt.Color` используют значения от `0` до `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Hue — от `0` включительно до `360` исключительно, в градусах; amount — от `-100` до `100`, процент. |
+| [addHSLEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Hue — от `0` включительно до `360` исключительно, в градусах; saturation и luminance — от `-100` до `100`, процент. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | Цвет замены использует значения каналов от `0` до `255`. Существующие альфа‑значения остаются без изменений. |
+| [addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Радиус — неотрицательное значение, измеряется в пунктах; `grow` — логическое, определяющее, может ли размытие выйти за пределы оригинального изображения. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Неотрицательный процент. Используйте `0` … `100` для обычного масштабирования непрозрачности: `0` — полностью прозрачно, `100` — сохраняет исходную альфу. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` … `100`, процент непрозрачности. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` … `100`, процентный порог альфа. Значения ниже порога становятся прозрачными; значения, равные или выше порога, становятся непрозрачными. |
 
-Для фиксированной модуляции альфа прозрачность и непрозрачность являются взаимодополняющими. Например, 35 % прозрачность соответствует фиксированной модуляции альфа 65 %.
+Для фиксированной модуляции альфа прозрачность и непрозрачность являются взаимодополняющими. Например, прозрачность 35 % соответствует модулю альфа 65 %.
 
 ## **Применение яркости и контрастности**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) возвращает операцию [BrightnessContrast](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/brightnesscontrast/). Ее скалярные настройки задаются при создании операции. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/brightnesscontrast/) возвращает вычисленные только для чтения значения, которые можно проверить или записать в журнал.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) возвращает операцию [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/). Ее скалярные настройки задаются при создании операции. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) возвращает вычисленные только для чтения значения, которые можно просмотреть или записать в журнал.
 
-Следующий пример увеличивает яркость на 15 % и контрастность на 20 %, затем отображает предварительный просмотр без изменения встроенного изображения:
+Ниже показан пример, увеличивающий яркость на 15 % и контрастность на 20 %, после чего отображается предварительный просмотр без изменения встроенного изображения:
 
 ```javascript
 const aspose = {};
@@ -103,13 +103,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/brightnesscontrast/) — расширение эффекта изображения Office 2010 и менее переносимо, чем стандартный эффект яркости DrawingML. Когда яркость и контрастность должны оставаться редактируемыми после обратного раунда PPTX, используйте [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) и проверьте результат после повторного открытия файла. Раздел ограничений формата объясняет это различие подробнее.
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) — это расширение картинок Office 2010 и менее переносимо, чем стандартный эффект luminance DrawingML. Когда яркость и контрастность должны оставаться редактируемыми после обратного прохода PPTX, используйте [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) и проверьте результат после повторного открытия файла. Раздел ограничений формата объясняет это различие подробнее.
 
 ## **Применение цветовых преобразований**
 
-Цветовые эффекты могут применяться независимо к разным кадрам, использующим один ресурс изображения. Следующий пример создаёт пять кадров и применяет градацию серого, дутон, оттенок, настройку HSL и замену цвета.
+Цветовые эффекты можно применять независимо к разным кадрам, использующим один ресурс изображения. Ниже пример, создающий пять кадров и применяющий градацию серого, дуотон, оттенок, настройку HSL и замену цвета.
 
-[Duotone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/duotone/) содержит два независимо редактируемых цветовых параметра: `color1` сопоставляет тёмные пиксели, а `color2` — светлые. Это делает его полезным примером эффекта с более сложными настройками, чем один скаляр.
+[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) содержит два независимо редактируемых цветовых параметра: `color1` сопоставляется тёмным пикселям, а `color2` — светлым. Это делает его полезным примером эффекта с более сложными настройками, чем один скаляр.
 
 ```javascript
 const aspose = {};
@@ -152,13 +152,60 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) заменяет каждый пиксель фиксированным цветом, сохраняя альфа‑канал. Это отличается от [addColorChangeEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/), который сопоставляет один исходный цвет с другим и раскрывает форматы обоих цветов.
+[addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) заменяет каждый пиксель фиксированным цветом, сохраняя альфу. Это отличается от [addColorChangeEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), который сопоставляет один исходный цвет другому и раскрывает форматы как исходного, так и целевого цвета.
+
+### **Применение порога яркости**
+
+Порог яркости может облегчить различие слабых меток на отсканированной странице от фона. [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) сохраняет промежуточные оттенки серого. [addBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) переводит яркость в чёрный или белый, в то время как [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) применяет порог к непрозрачности.
+
+Порог яркости варьируется от 0 % до 100 % включительно. Пиксели ниже порога становятся чёрными. Пиксели, равные или выше порога, становятся белыми. Увеличение порога делает больше оттенков чёрными, потому что больше их попадает ниже порога отсечения.
+
+Скачайте [grayscale-swatches.png](grayscale-swatches.png) в рабочий каталог. Каждая надпись указывает исходный уровень серого от 0 до 255. Пример размещает оригинал рядом с двумя копиями и сохраняет порог каждой копии в презентации.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, slides.SlideSizeScaleType.DoNotScale);
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceImage = slides.Images.fromFile("grayscale-swatches.png");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    const frames = [];
+    for (let i = 0; i < captions.length; i++) {
+        const x = 12 + 240 * i;
+        const label = shapes.addAutoShape(slides.ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        const frame = shapes.addPictureFrame(slides.ShapeType.Rectangle, x, 60, 216, 72, image);
+        frames.push(frame);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60);
+    
+    presentation.save("luminance-threshold.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Откройте полученную презентацию в PowerPoint, чтобы сравнить три кадра. Образец с меткой 96 имеет около 38 % яркости (96 из 255). Он становится белым при пороге 20 % и чёрным при пороге 60 %.
+
+![Оригинальные образцы градации серого рядом с результатами чёрно‑белого преобразования при порогах яркости 20 % и 60 %](luminance-threshold.png)
 
 ## **Добавление размытия, прозрачности и альфа‑эффектов**
 
-[addBlurEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) влияет на все цветовые каналы, включая альфа. Установите `grow` в `true`, когда размытие может выходить за пределы оригинальных границ изображения.
+[addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) затрагивает все цветовые каналы, включая альфа. Установите `grow` в `true`, когда размытие может выйти за пределы оригинальных границ изображения.
 
-Для равномерной прозрачности используйте [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/). Он умножает каждое существующее значение альфа, поэтому частично прозрачные пиксели сохраняют относительные различия. [addAlphaReplaceEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) вместо этого назначает одно значение альфа всем пикселям. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) преобразует альфа в два уровня на основе порога.
+Для равномерной прозрачности используйте [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/). Он умножает каждое существующее альфа‑значение, поэтому частично прозрачные пиксели сохраняют относительные различия. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) присваивает один альфа‑значение всем пикселям. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) переводит альфу в два уровня по порогу.
 
 ```javascript
 const aspose = {};
@@ -198,15 +245,15 @@ try {
 }
 ```
 
-К другим альфа‑операциям без параметров относятся [addAlphaCeilingEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/), который делает каждую ненулевую альфа полностью непрозрачной; [addAlphaFloorEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/), который делает каждую альфа ниже 100 % полностью прозрачной; и [addAlphaInverseEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/), который меняет альфа на `100% - alpha`.
+Другие операции альфа без параметров включают [addAlphaCeilingEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), который делает каждую ненулевую альфу полностью непрозрачной; [addAlphaFloorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), который делает каждую альфу ниже 100 % полностью прозрачной; и [addAlphaInverseEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), который меняет альфу на `100% - alpha`.
 
-## **Создание упорядоченной цепочки эффектов**
+## **Построение упорядоченной цепочки эффектов**
 
-Каждый метод `add...Effect` добавляет новую операцию в конец коллекции. Рендерер использует коллекцию как упорядоченный конвейер: вывод операции 0 становится вводом операции 1 и т.д. Следовательно, одинаковые операции в разном порядке могут дать различное изображение.
+Каждый метод `add...Effect` добавляет новую операцию в конец коллекции. Рендерер использует коллекцию как упорядоченный конвейер: вывод операции 0 становится вводом операции 1 и так далее. Следовательно, одинаковые операции в разном порядке могут дать различное изображение.
 
-Например, градация серого, а затем оттенок сначала удаляют хроматическую информацию, а затем перекрашивают полученную яркость. Оттенок, а затем градация серого убирает оттенок обратно. Аналогично, замена альфа может переопределить значения, вычисленные более ранними операциями, тогда как модуляция альфа сохраняет их относительные различия.
+Например, градация серого, за которой следует оттенок, сначала удаляет хроматическую информацию, а затем перекрашивает полученную яркость. Оттенок, за которым следует градация серого, удаляет оттенок снова. Аналогично, замена альфа может переопределить альфа‑значения, вычисленные предыдущими операциями, тогда как модуляция альфа сохраняет их относительные различия.
 
-Следующий пример строит цепочку из четырёх операций, сохраняет её как PPTX, повторно открывает презентацию, проверяет типы и порядок операций и отображает результат после повторного открытия:
+Ниже пример, создающий цепочку из четырёх операций, сохраняющий её в PPTX, повторно открывающий презентацию, проверяющий типы и порядок операций и рендерящий результат после повторного открытия:
 
 ```javascript
 const aspose = {};
@@ -264,15 +311,22 @@ try {
 }
 ```
 
-Коллекция не накладывает матрицу совместимости, ограничивающую цветовые, альфа‑ и размытие операции отдельными цепочками. Их можно комбинировать, но такие комбинации не всегда полезны. Фиксированная замена цвета удаляет вариацию RGB, созданную более ранними цветовыми эффектами; градация серого после дутон удаляет два выбранных цвета; а операции альфа‑потолок, пол, замена или би‑уровень могут отбросить детали альфа, созданные ранее. Формируйте цепочку в соответствии с желаемой последовательностью обработки пикселей, а не как набор несортированных флагов форматирования.
+Коллекция не накладывает матрицу совместимости, ограничивающую цветовые, альфа‑ и размытие операции отдельными цепочками. Их можно комбинировать, хотя не всегда это имеет смысл. Фиксированная замена цвета удаляет вариацию RGB, созданную предыдущими цветовыми эффектами; градация серого после дуотона удаляет два выбранных цвета; операции альфа‑ceiling, floor, replace или bi‑level могут отбрасывать детали альфа, созданные ранее. Формируйте цепочку согласно требуемой последовательности обработки пикселей, а не как набор несвязанных флагов форматирования.
+
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![Одно и то же изображение проходит через градацию серого, а затем оттенок, и оттенок, а затем градацию серого. Два конечных изображения в градации серого имеют разные тона.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*В этом иллюстративном рендере Aspose.Slides for .NET 26.11 220° оттенок при 25 % оставляет градацию серого без изменений. Применение того же оттенка до градации серого даёт другие тона.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Проверка редактируемых и эффективных значений**
 
-Редактируемая операция — это объект, хранящийся в [Picture.getImageTransform](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/). В зависимости от эффекта он может напрямую раскрывать записываемые члены. Например, [Blur](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/blur/) раскрывает записываемые `radius` и `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/alphamodulatefixed/) раскрывает записываемый `amount`, а [AlphaBiLevel](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/alphabilevel/) раскрывает записываемый `threshold`. Цветовые эффекты, такие как [Duotone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/duotone/), раскрывают изменяемые объекты [ColorFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/colorformat/).
+Редактируемой операцией считается объект, хранящийся в [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). В зависимости от эффекта он может напрямую раскрывать записываемые члены. Например, [Blur](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/) раскрывает записываемые `radius` и `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphamodulatefixed/) — `amount`, а [AlphaBiLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphabilevel/) — `threshold`. Цветовые эффекты, такие как [Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/), раскрывают изменяемые объекты [ColorFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/).
 
-Некоторые операции, включая [BrightnessContrast](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/tint/) и [AlphaReplace](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/alphareplace/), не раскрывают свои скалярные параметры как записываемые свойства. Чтобы изменить эти настройки, удалите операцию и добавьте замену в требуемой позиции.
+Некоторые операции, включая [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tint/) и [AlphaReplace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphareplace/), не раскрывают свои скалярные параметры как записываемые свойства. Чтобы изменить такие настройки, удалите операцию и добавьте замену в нужном месте.
 
-Эффективные данные, возвращаемые `getEffective()`, вычисляются и доступны только для чтения. Они полезны для разрешения цветов, зависящих от темы, и чтения нормализованных значений, которые использует рендерер, но не являются отдельной поверхностью редактирования. Следующий пример перечисляет цепочку и проверяет эффективные значения, где соответствующий API их предоставляет:
+Эффективные данные, возвращаемые `getEffective()`, вычисляются и являются только для чтения. Они полезны для разрешения зависящих от темы цветов и чтения нормализованных значений, которые использует рендерер, но это не отдельная поверхность редактирования. Ниже пример, перечисляющий цепочку и проверяющий эффективные значения, где соответствующий API их предоставляет:
 
 ```javascript
 const aspose = {};
@@ -340,11 +394,11 @@ try {
 }
 ```
 
-Эффекты без параметров, такие как градация серого, альфа‑потолок и альфа‑инверсия, всё равно имеют объект эффективных данных, но нет скалярных настроек для вывода. Их наличие и позиция в коллекции являются важной информацией.
+Эффекты без параметров, такие как градация серого, альфа‑ceiling и альфа‑inverse, тоже имеют объект эффективных данных, но нет скалярных настроек для вывода. Их присутствие и позиция в коллекции — важная информация.
 
 ## **Удаление или очистка преобразований изображения**
 
-Используйте [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) для удаления одной операции по индексу. Поскольку индексы смещаются после удаления, сначала найдите нужную операцию, а затем удалите её после перечисления. Для удаления всей цепочки используйте [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/).
+Используйте [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) для удаления одной операции по индексу. Поскольку индексы смещаются после удаления, сначала найдите цель, а затем удалите её после перечисления. Для удаления всей цепочки используйте [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/).
 
 ```javascript
 const aspose = {};
@@ -389,38 +443,38 @@ try {
 }
 ```
 
-Удаление или очистка преобразований меняет только форматирование изображения. Это не удаляет, не перекомпрессирует и не изменяет используемый повторно [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) ресурс.
+Удаление или очистка преобразований изменяют только форматирование изображения. Они не удаляют, не перекомпрессируют и не изменяют повторно используемый ресурс [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/).
 
-## **Учёт форматов презентаций и целевых экспортов**
+## **Учёт форматов презентаций и целей экспорта**
 
-Преобразования изображений происходят в DrawingML, поэтому PPTX является предпочтительным редактируемым форматом для цепочек эффектов. Даже в PPTX не все операции имеют одинаковую переносимость:
+Преобразования изображения происходят в DrawingML, поэтому PPTX — предпочтительный редактируемый формат для цепочек эффектов. Даже в PPTX не каждая операция обладает одинаковой переносимостью:
 
-- Стандартные операции DrawingML, такие как luminance, grayscale, duotone, tint, HSL, blur и общие альфа‑операции, имеют наибольший шанс сохраниться после обратного раунда PPTX. Всегда повторно открывайте сгенерированный файл и проверяйте коллекцию, когда требуется сохранение.
-- [BrightnessContrast](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/brightnesscontrast/) — расширение Office 2010, а не стандартная операция luminance DrawingML. Его можно использовать для рендеринга в памяти, но нет гарантии, что после сохранения и повторного открытия PPTX он останется редактируемой операцией [BrightnessContrast](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/brightnesscontrast/). Предпочитайте [addLuminanceEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/) для постоянных коррекций яркости и контрастности.
-- Бинарный формат PPT предшествует полной модели эффектов DrawingML. Сохранение в PPT может опустить неподдерживаемые операции, сократить цепочку до поддерживаемого подмножества или приблизительно представить её. Не используйте PPT как формат проверки сложной редактируемой цепочки.
-- Рендеринг в PNG, JPEG, TIFF, PDF, SVG, HTML или другие визуальные форматы применяет поддерживаемую цепочку к отображаемому виду. Эти выводы не содержат редактируемого [ImageTransformOperationCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/imagetransformoperationcollection/); растровые форматы фиксируют результат в пикселях, а экспорты документов/векторов хранят собственное представление рендеринга.
-- Эффекты не делают связанное изображение автономным. Рендеринг связанной картинки всё равно зависит от доступности связанного ресурса при загрузке презентации.
+- Стандартные операции DrawingML, такие как luminance, grayscale, duotone, tint, HSL, blur и обычные альфа‑операции, имеют наибольшие шансы выжить при обратном проходе PPTX. Всегда открывайте сгенерированный файл и проверяйте коллекцию, если требуется сохранение.
+- [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) — расширение Office 2010, а не стандартная операция luminance DrawingML. Его можно использовать для рендеринга в памяти, но нет гарантии, что после сохранения и повторного открытия PPTX он останется редактируемой операцией [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/). Предпочтительно использовать [addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) для постоянных настроек яркости и контрастности.
+- Бинарный формат PPT предшествует полной модели эффектов DrawingML. Сохранение в PPT может опустить неподдерживаемые операции, сократить цепочку до поддерживаемой части или приблизительно воспроизвести вид. Не используйте PPT для проверки сложных редактируемых цепочек.
+- Рендеринг в PNG, JPEG, TIFF, PDF, SVG, HTML и другие визуальные форматы применяет поддерживаемую цепочку к визуальному представлению. Эти выводы не содержат редактируемый [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/); растровые форматы зап Flatten результат в пиксели, а экспорт документов/векторов хранит собственное представление рендеринга.
+- Эффекты не делают связанное изображение самодостаточным. Рендеринг связанного изображения всё равно зависит от доступности связанного ресурса при загрузке презентации.
 
-Разные потребители презентаций могут по‑разному обрабатывать граничные случаи, особенно когда комбинируются несколько альфа‑ или цветоквантующих операций. Для критически важного вывода тестируйте как редактируемый обратный раунд, так и окончательный экспортный формат тем же набором Aspose.Slides, который используется в продакшене.
+Разные потребители презентаций могут по‑разному отображать граничные случаи, особенно когда объединяются несколько альфа‑ или цветоквантовых операций. Для критических выводов тестируйте как редактируемый обратный проход, так и финальный формат экспорта с той же версией Aspose.Slides, которая используется в продакшене.
 
 ## **FAQ**
 
-**Изменяют ли эффекты преобразования изображения встроенные данные изображения?**
+**Модифицируют ли эффекты преобразования изображения встроенные данные изображения?**
 
-Нет. Операции принадлежат [Picture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/), используемому в заливке изображения. Байты базового [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) остаются неизменными.
+Нет. Операции принадлежат [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/), используемому в заливке изображения. Основные байты [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) остаются неизменными.
 
 **Будут ли два кадра, использующие одно и то же изображение, делить свои эффекты?**
 
-Нет. Повторное использование [PPImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ppimage/) избавляет от дублирования данных изображения, но каждый кадр обычно имеет отдельный [Picture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/) и собственную коллекцию преобразований.
+Нет. Повторное использование [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) избавляет от дублирования данных изображения, но каждый кадр обычно имеет отдельный [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) и свою коллекцию преобразований изображения.
 
 **Можно ли комбинировать цветовые, размытие и альфа‑эффекты?**
 
-Да. Коллекция принимает их в одной упорядоченной цепочке. Учитывайте, как каждая операция изменяет результат предыдущей, потому что операции замены и пороговые операции могут отбрасывать ранние цветовые или альфа‑детали.
+Да. Коллекция принимает их в одной упорядоченной цепочке. Учтите, как каждая операция влияет на результат предыдущей, потому что операции замены и порога могут отбрасывать ранее созданные цветовые или альфа‑детали.
 
 **Почему эффективные значения только для чтения?**
 
-Эффективные данные представляют собой вычисленные значения, используемые для рендеринга, включая разрешённые цвета. Редактируйте операцию, хранящуюся в коллекции трансформаций, где существуют записываемые члены; иначе удалите её и добавьте замену с новыми параметрами создания.
+Эффективные данные представляют вычисленные значения, используемые для рендеринга, включая разрешённые цвета. Изменяйте операцию, хранящуюся в коллекции преобразований, где существуют записываемые члены; иначе удалите её и добавьте замену с новыми параметрами создания.
 
-**Какой формат следует использовать для сохранения цепочки трансформаций?**
+**Какой формат следует использовать для сохранения цепочки преобразований?**
 
-Используйте PPTX и проверьте файл, открыв его повторно. Legacy PPT не может полностью представить модель эффектов DrawingML, а форматы экспортов сохраняют только внешний вид, а не редактируемые операции трансформации.
+Используйте PPTX и проверяйте файл, открывая его повторно. Устаревший PPT не может полностью представить модель эффектов DrawingML, а форматы экспортов сохраняют только внешний вид, а не редактируемые операции преобразования.

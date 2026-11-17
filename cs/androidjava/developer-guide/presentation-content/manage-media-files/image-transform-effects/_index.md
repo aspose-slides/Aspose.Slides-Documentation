@@ -16,57 +16,57 @@ keywords:
 - náhrada barvy
 - rozostření
 - průhlednost
-- alfa efekt
+- efekt alfa
 - řetězec efektů
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Použijte, řaďte, kontrolujte, odstraňujte a ověřujte efekty transformace obrázku pro rámečky obrázků s Aspose.Slides pro Android pomocí Javy."
+description: "Použijte, řetězujte, kontrolujte, odstraňujte a ověřujte efekty transformace obrázku pro rámečky obrázků s Aspose.Slides pro Android pomocí Javy."
 ---
 ## **Přehled**
 
-Aspose.Slides představuje úpravy obrázků jako seřazenou kolekci operací transformace obrazu. Pro rámeček obrázku začněte s [ISlidesPicture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidespicture/) a přistupte k [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidespicture/#getImageTransform--). Vrácená [IImageTransformOperationCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/) vám umožní přidávat, enumerovat, zkoumat, odstraňovat a vyprázdnit efekty, aniž byste přepisovali původní bajty obrázku.
+Aspose.Slides představuje úpravy obrázků jako uspořádanou kolekci operací transformace obrázku. Pro rámeček obrázku začněte s rámcem pomocí [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) a přistupte k [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#getImageTransform--). Vrácená [IImageTransformOperationCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/) vám umožní přidávat, procházet, zkoumat, odstraňovat a vymazávat efekty, aniž byste přepisovali původní bajty obrázku.
 
-Tento článek ukazuje kompletní pracovní postup pro jas a kontrast, barevné transformace, rozostření, průhlednost, řazené řetězce efektů, efektivní hodnoty, odstraňování a ověření PPTX round‑trip.
+Tento článek demonstruje kompletní pracovní postup pro jas a kontrast, barevné transformace, rozostření, průhlednost, uspořádané řetězce efektů, efektivní hodnoty, odstraňování a ověření zpětného importu PPTX.
 
-## **Pochopte vlastnictví efektu a opětovné použití obrázku**
+## **Pochopení vlastnictví efektů a opětovné použití obrázku**
 
-Zdrojový obrazový prostředek a obrázek, který jej zobrazuje, jsou odlišné objekty:
+Obrázkový zdroj a obrázek, který jej zobrazuje, jsou různé objekty:
 
-- [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) ukládá nebo odkazuje na zdrojová data obrázku vlastněná prezentací.
-- [ISlidesPicture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidespicture/) patří k výplni obrázku a odkazuje na obrazový prostředek a zároveň uchovává kolekci operací transformace.
-- [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) je tvar snímku, který vlastní odpovídající výplň obrázku, geometrie, oříznutí a další formátování na úrovni rámce.
+- [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) ukládá nebo odkazuje na zdrojová data obrázku vlastněná prezentací.
+- [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) patří výplni obrázku a odkazuje na zdroj obrázku při ukládání kolekce transformací obrázku.
+- [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) je tvar snímku, který vlastní příslušnou výplň obrázku, geometrie, nastavení ořezu a další formátování na úrovni rámce.
 
-Proto operace transformace obrazu nemění bajty v [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/). Když je stejný `IPPImage` předán metodě [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) vícekrát, každý nový rámeček obrázku získá vlastní `ISlidesPicture` a vlastní kolekci transformací. Použití odstínu šedi na jednom rámci neovlivní ostatní rámečky, i když všechny používají stejný vložený obrazový prostředek.
+Proto operace transformace obrázku nemění bajty v [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/). Když je stejný `IPPImage` předán více než jednou metodě [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-), každému novému rámečku obrázku je přiřazen vlastní `ISlidesPicture` a vlastní kolekce transformací. Aplikace odstínu šedi na jeden rámeček neovlivní ostatní rámečky, i když všechny používají stejný vložený obrázkový zdroj.
 
-Stejný model `ISlidesPicture.getImageTransform` se používá i u jiných výplní obrázku, například u tvaru nebo pozadí snímku. Níže uváděné příklady se soustředí na rámečky obrázků.
+Stejný model `ISlidesPicture.getImageTransform` se používá i u dalších výplní obrázku, například u tvaru nebo pozadí snímku. Níže uvedené příklady se zaměřují na rámečky obrázku.
 
-## **Používejte platné rozsahy parametrů a jednotky**
+## **Použijte platné rozsahy parametrů a jednotky**
 
-Ukázané metody používají následující sémantické rozsahy a jednotky. Udržujte hodnoty v těchto rozsazích, i když konkrétní verze knihovny neodmítne každou mimo‑rozsahovou hodnotu okamžitě; cílový formát prezentace může během uložení nebo při otevření souboru v PowerPointu normalizovat, vynechat nebo odmítnout neplatná data.
+Ukázané metody používají následující sémantické rozsahy a jednotky. Udržujte hodnoty v těchto rozmezích, i když konkrétní verze knihovny neodmítnou okamžitě každou hodnotu mimo rozsah; cílový formát prezentace může během uložení nebo při otevření souboru v PowerPointu normalizovat, vynechat nebo odmítnout neplatná data.
 
-| Operace | Parametry | Platný rozsah a jednotka |
+| Operation | Parameters | Valid range and unit |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` až `100`, procent; `0` ponechává komponentu beze změny. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | Žádné | Žádné číselné parametry. Alfa zůstává beze změny. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Dvě barvy pro tmavé a světlé pixely. Hodnoty RGB a alfa kanálu použité v `android.graphics.Color` jsou od `0` do `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Hue je od `0` (včetně) do `360` (exkluzivně) ve stupních; amount je od `-100` do `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Hue je od `0` (včetně) do `360` (exkluzivně) ve stupních; saturation a luminance jsou od `-100` do `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Náhradní barva používá hodnoty kanálů od `0` do `255`. Stávající alfa hodnoty zůstávají beze změny. |
-| [addBlurEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Radius je nezáporný a měří se v bodech; `grow` je Boolean, který určuje, zda může rozostřený obsah přesahovat původní hranice. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Nezáporné procento. Použijte `0` až `100` pro běžné škálování neprůhlednosti: `0` je zcela průhledné a `100` zachovává existující alfa. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` až `100`, procento neprůhlednosti. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` až `100`, procento alfa prahu. Hodnoty pod prahem se stanou průhlednými; hodnoty na prahu nebo nad ním jsou neprůhledné. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` až `100`, procent; `0` ponechá komponentu beze změny. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | None | Žádné číselné parametry. Alfa zůstává nezměněna. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Dvě barvy pro tmavé a světlé pixely. Hodnoty kanálů RGB a alfa používané `android.graphics.Color` jsou v rozsahu `0` až `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Odstín je od `0` (včetně) do `360` (vyloučeno) stupňů; množství je od `-100` do `100` procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Odstín je od `0` (včetně) do `360` (vyloučeno) stupňů; sytost a luminance jsou od `-100` do `100` procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Náhradní barva používá hodnoty kanálů od `0` do `255`. Existující hodnoty alfa zůstávají nezměněny. |
+| [addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Radius je nezáporný a měří se v bodech; `grow` je Boolean, který určuje, zda může rozostřený obsah přesáhnout původní hranice. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | `amount` nezáporné procento. Použijte `0` až `100` pro běžné škálování neprůhlednosti: `0` je plně průhledná a `100` zachovává existující alfu. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `alpha` `0` až `100`, procento neprůhlednosti. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `threshold` `0` až `100`, procentní práh alfa. Hodnoty pod prahem se stanou průhlednými; hodnoty na nebo nad prahem se stanou neprůhlednými. |
 
-Pro pevnou modulaci alfy jsou průhlednost a neprůhlednost komplementární. Například 35 % průhlednost odpovídá alfabmodulačnímu množství 65 %.
+U pevné modulace alfa jsou průhlednost a neprůhlednost komplementární. Například 35 % průhlednost odpovídá hodnotě modulace alfa 65 %.
 
-## **Použijte jas a kontrast**
+## **Použití jasu a kontrastu**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) vrací operaci [IBrightnessContrast](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibrightnesscontrast/). Její skalární nastavení jsou zadána při vytvoření operace. [IBrightnessContrast.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibrightnesscontrast/#getEffective--) vrací vypočtené hodnoty jen ke čtení, které lze zkoumat nebo zaznamenat.
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) vrací operaci [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/). Její skalární nastavení jsou zadána při vytvoření operace. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/#getEffective--) vrací vypočítané hodnoty pouze pro čtení, které lze prozkoumat nebo zaznamenat.
 
-Následující příklad zvýší jas o 15 % a kontrast o 20 %, poté vykreslí náhled bez změny vloženého obrazu:
+Následující příklad zvýší jas o 15 % a kontrast o 20 %, poté vykreslí náhled bez úpravy vloženého obrázku:
 
 ```java
 import com.aspose.slides.*;
@@ -102,13 +102,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/brightnesscontrast/) je rozšíření Office 2010 pro efekt obrázku a není tak přenositelné jako standardní DrawingML efekt jasu. Když je potřeba, aby jas a kontrast zůstaly po PPTX round‑trip editovatelné, použijte [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) a ověřte výsledek po znovuotevření souboru. Část o omezeních formátu tento rozdíl vysvětluje podrobněji.
+[BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) je rozšíření Office 2010 pro efekt obrázku a není tak přenositelné jako standardní efekt luminance DrawingML. Když musí zůstat jas a kontrast upravitelné po zpětném importu PPTX, použijte [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) a ověřte výsledek po opětovném otevření souboru. Část o omezeních formátu vysvětluje tento rozdíl podrobněji.
 
-## **Použijte barevné transformace**
+## **Použití barevných transformací**
 
-Barevné efekty lze aplikovat nezávisle na různých rámečcích obrázku, které sdílejí jeden obrazový prostředek. Následující příklad vytvoří pět rámců a použije odstín šedi, duotón, tónování, úpravu HSL a náhradu barvy.
+Barevné efekty lze aplikovat nezávisle na různých rámečcích obrázku, které znovu používají jeden obrázkový zdroj. Následující příklad vytvoří pět rámců a použije odstín šedi, duotón, tónování, úpravu HSL a náhradu barvy.
 
-[IDuotone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iduotone/) obsahuje dva nezávisle editovatelné barevné parametry: `color1` mapuje tmavé pixely, `color2` mapuje světlé pixely. To z něj dělá užitečný příklad efektu, jehož nastavení jsou složitější než jediná skalární hodnota.
+[IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) obsahuje dva nezávisle upravitelné barevné parametry: `color1` mapuje tmavé pixely, zatímco `color2` mapuje světlé pixely. To z něj činí užitečný příklad efektu, jehož nastavení jsou složitější než jediné skalární hodnoty.
 
 ```java
 import com.aspose.slides.*;
@@ -150,13 +150,59 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) nahrazuje barvu každého pixelu jednou fixní barvou a zachovává alfu. Liší se od [addColorChangeEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), který mapuje jednu zdrojovou barvu na jinou a vystavuje oba formáty barvy zdroje i cíle.
+[addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) nahrazuje barvu každého pixelu jednou pevnou barvou při zachování alfa. Je odlišné od [addColorChangeEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), který mapuje jednu zdrojovou barvu na jinou a vystavuje oba formáty zdrojové i cílové barvy.
 
-## **Přidejte rozostření, průhlednost a alfa efekty**
+### **Použití prahu luminance**
 
-[addBlurEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) ovlivňuje všechny barevné kanály, včetně alfy. Nastavte `grow` na `true`, když rozostřený okraj může přesáhnout původní hranice obrázku.
+Prahová hodnota luminance může usnadnit rozlišení slabých značek na naskenované stránce od pozadí. [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) zachovává mezistupně šedi. [addBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) mapuje luminanci na černou nebo bílou, zatímco [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) aplikuje práh na neprůhlednost.
 
-Pro jednotnou průhlednost použijte [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Násobí každou existující alfu, takže částečně průhledné pixely zůstávají relativně odlišné. [addAlphaReplaceEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) naopak přiřadí jednu alfu všem pixelům. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) převádí alfu na dvě úrovně podle prahu.
+Prahová hodnota luminance se pohybuje v rozmezí 0 % až 100 %, včetně. Pixely pod prahem se stanou černými. Pixely na nebo nad prahem se stanou bílými. Zvednutím prahu se více odstínů změní na černou, protože více z nich spadne pod limit.
+
+Stáhněte [grayscale-swatches.png](grayscale-swatches.png) do pracovního adresáře. Každý popisek udává původní úroveň šedi na škále od 0 do 255. Příklad umístí originál vedle dvou kopií a uloží práh každé kopie do prezentace.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("grayscale-swatches.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Otevřete výstupní prezentaci v PowerPointu a porovnejte tři rámce. Vzorek označený 96 má zhruba 38 % luminance (96 ze 255). Při prahu 20 % se změní na bílou a při prahu 60 % na černou.
+
+![Původní vzorky odstínů šedi vedle černobílých výsledků při prahových hodnotách luminance 20 % a 60 %](luminance-threshold.png)
+
+## **Přidání rozostření, průhlednosti a alfa efektů**
+
+[addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) ovlivňuje všechny barevné kanály, včetně alfa. Nastavte `grow` na `true`, pokud rozostřený okraj může přesáhnout původní hranice obrázku.
+
+Pro jednotnou průhlednost použijte [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Násobí každou existující hodnotu alfa, takže částečně průhledné pixely zůstávají proporcionálně odlišné. [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) místo toho přiřadí jednu hodnotu alfa všem pixelům. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) převádí alfu na dvě úrovně podle prahu.
 
 ```java
 import com.aspose.slides.*;
@@ -195,15 +241,15 @@ try {
 }
 ```
 
-Další alfa operace bez parametrů zahrnují [addAlphaCeilingEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--), která dělá každou nenulovou alfu plně neprůhlednou; [addAlphaFloorEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--), která dělá každou alfu pod 100 % plně průhlednou; a [addAlphaInverseEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--), která mění alfu na `100% - alpha`.
+Další operace alfa bez parametrů zahrnují [addAlphaCeilingEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--) – která učiní každou nenulovou alfu plně neprůhlednou; [addAlphaFloorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--) – která učiní každou alfu pod 100 % plně průhlednou; a [addAlphaInverseEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--) – která mění alfu na `100% - alfa`.
 
-## **Vytvořte řazený řetězec efektů**
+## **Vytvoření uspořádaného řetězce efektů**
 
-Každá metoda `add...Effect` přidá novou operaci na konec kolekce. Vykreslovač používá kolekci jako řazený pipeline: výstup operace 0 se stane vstupem operace 1 atd. Výsledkem je, že stejné operace v jiném pořadí mohou vytvořit jiný obrázek.
+Každá metoda `add...Effect` přidá novou operaci na konec kolekce. Vykreslovací modul používá kolekci jako uspořádaný pipeline: výstup operace 0 se stane vstupem operace 1 a tak dále. Výsledkem je, že stejné operace v jiném pořadí mohou vytvořit odlišný obrázek.
 
-Například odstín šedi následovaný tónováním nejprve odstraní chromatické informace a potom obarví výsledek jasu. Tónování následované odstínem šedi odstraní tónování zpět. Podobně může alfa náhrada přepsat alfu vypočtenou dřívějšími operacemi, zatímco alfa modulace zachová jejich relativní rozdíly.
+Například odstín šedi následovaný tónováním nejprve odstraní chromatičtí informace a potom přebarví výsledek luminance. Tónování následované odstínem šedi odstraní tónování znovu. Podobně může nahrazení alfa přepsat hodnoty alfa vypočítané dřívějšími operacemi, zatímco modulace alfa zachová jejich relativní rozdíly.
 
-Následující příklad vytvoří řetězec se čtyřmi operacemi, uloží jej jako PPTX, znovu otevře prezentaci, ověří typy operací i jejich pořadí a vykreslí výsledek po opětovném otevření:
+Následující příklad vytvoří řetězec se čtyřmi operacemi, uloží jej jako PPTX, znovu otevře prezentaci, zkontroluje typy operací i jejich pořadí a vykreslí výsledek po opětovném otevření:
 
 ```java
 import com.aspose.slides.*;
@@ -259,15 +305,22 @@ try {
 }
 ```
 
-Kolekce nevyžaduje matici kompatibility, která by omezovala barevné, alfa a rozostřovací operace na samostatné řetězce. Mohou být kombinovány, ale kombinace nejsou vždy užitečné. Pevná náhrada barvy odstraňuje RGB variaci vytvořenou dřívějšími barevnými efekty; odstín šedi po duotónu odstraňuje dvě vybrané barvy; a alfa ceiling, floor, replacement nebo bi‑level operace mohou zahodit alfa detaily vytvořené dříve. Vytvářejte řetězec podle požadované sekvence zpracování pixelů, nikoli jako neuspořádané příznaky formátování.
+Kolekce neukládá kompatibilní matici, která by omezovala barevné, alfa a rozostřovací operace na oddělené řetězce. Mohou být kombinovány, ale kombinace nejsou vždy užitečné. Pevná náhrada barvy odstraní variaci RGB vytvořenou dřívějšími barevnými efekty; odstín šedi po duotónu odstraní dvě vybrané barvy; a operace alfa ceiling, floor, replace nebo bi‑level mohou zlikvidovat alfa detaily vytvořené dříve. Sestavte řetězec podle požadované sekvence zpracování pixelů, místo abyste jeho položky považovali za neřazené příznaky formátování.
 
-## **Prozkoumejte editovatelné a efektivní hodnoty**
 
-Editovatelná operace je objekt uložený v `ISlidesPicture.getImageTransform`. V závislosti na efektu může přímo vystavovat zapisovatelné členy. Například [IBlur](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iblur/) vystavuje zapisovatelné `radius` a `grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ialphamodulatefixed/) vystavuje zapisovatelný `amount` a [IAlphaBiLevel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ialphabilevel/) vystavuje zapisovatelný `threshold`. Barevné efekty jako [IDuotone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iduotone/) vystavují změnitelné objekty [IColorFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorformat/).
+<!-- visual-explanation:image-transform-effects:start -->
+[![Stejný obrázek prochází nejprve převodem na odstíny šedi a poté tónováním, a naopak tónováním a pak převodem na odstíny šedi. Dvě výsledné obrázky v odstínech šedi mají odlišné tóny.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Některé rozhraní operací, včetně [IBrightnessContrast](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itint/) a [IAlphaReplace](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ialphareplace/), neuvádějí své vytvořené skaláry jako zapisovatelné vlastnosti. Pro změnu těchto nastavení odstraňte operaci a přidejte novou na požadovanou pozici.
+*V tomto ilustračním renderu Aspose.Slides pro .NET 26.11 zůstává obrázek v odstínech šedi nezměněn při tónování o 220° při 25 %. Aplikování stejného tónování před převodem na odstíny šedi vytváří odlišné tóny.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Efektivní data vrácená metodou `getEffective()` jsou vypočtená a jen ke čtení. Hodí se pro řešení tématem podmíněných barev a čtení normalizovaných hodnot, které vykreslovač používá, ale nejde o další editační povrch. Následující příklad enumeruje řetězec a zkoumá efektivní hodnoty, kde je API poskytuje:
+## **Prozkoumání upravitelných a efektivních hodnot**
+
+Upravitelná operace je objekt uložený v `ISlidesPicture.getImageTransform`. V závislosti na efektu může přímo exponovat zapisovatelné členy. Například [IBlur](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/) exponuje zapisovatelné hodnoty `radius` a `grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphamodulatefixed/) exponuje zapisovatelné `amount` a [IAlphaBiLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphabilevel/) exponuje zapisovatelný `threshold`. Barevné efekty jako [IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) exponují měnitelné objekty [IColorFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/).
+
+Některé rozhraní operací, včetně [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itint/) a [IAlphaReplace](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphareplace/), neexponují své tvorby jako zapisovatelné vlastnosti. Pro změnu těchto nastavení odstraňte operaci a přidejte náhradu na požadovanou pozici.
+
+Efektivní data vrácená metodou `getEffective()` jsou vypočítaná a pouze pro čtení. Jsou užitečná pro rozpoznání barev závislých na motivu a čtení normalizovaných hodnot, které vykreslující modul používá, ale nejsou dalším editačním povrchem. Následující příklad prochází řetězec a zkoumá efektivní hodnoty tam, kde příslušné API poskytuje tyto informace:
 
 ```java
 import com.aspose.slides.*;
@@ -331,11 +384,11 @@ try {
 }
 ```
 
-Efekty bez parametrů, jako odstín šedi, alfa ceiling a alfa inverse, mají stále objekt efektivních dat, ale není co tisknout. Jejich přítomnost a pozice v kolekci jsou podstatné informace.
+Efekty bez parametrů, jako odstín šedi, alfa ceiling a alfa inverse, stále mají objekt efektivních dat, ale neexistují žádná skalární nastavení k vytištění. Jejich přítomnost a pozice v kolekci jsou důležité informace.
 
-## **Odstraňte nebo vyprázdněte transformace obrazu**
+## **Odstranění nebo vymazání transformací obrázku**
 
-Použijte [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) k odstranění jedné operace podle indexu. Protože se indexy po odstranění posunou, nejprve vyhledejte cíl a až po enumeraci jej odstraňte. K vyprázdnění celého řetězce použijte [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--).
+Použijte [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) pro odebrání jedné operace podle indexu. Protože se indexy po odebrání posunou, nejprve vyhledejte cíl a až po průchodu jej odstraňte. Pro odebrání celého řetězce použijte [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--).
 
 ```java
 import com.aspose.slides.*;
@@ -376,38 +429,38 @@ try {
 }
 ```
 
-Odstranění nebo vyprázdnění transformací mění pouze formátování obrázku. Neodstraňuje, nekomprimuje ani jinak nemění znovu použitý [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) prostředek.
+Odstranění nebo vymazání transformací mění pouze formátování obrázku. Nesmaže, nepřekomprimuje ani jinak neubahne znovu použité zdroje [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/).
 
 ## **Zvažte formáty prezentací a cílové exporty**
 
-Transformace obrazu vznikají v DrawingML, takže PPTX je preferovaný editovatelný formát pro řetězce efektů. I v PPTX ne každá operace má úplnou přenositelnost:
+Transformace obrázku vznikají v DrawingML, takže PPTX je preferovaný editovatelný formát pro řetězce efektů. I v PPTX ne všechny operace mají stejnou přenositelnost:
 
-- Standardní DrawingML operace jako luminance, odstín šedi, duotón, tónování, HSL, rozostření a běžné alfa operace mají nejlepší šanci přežít PPTX round‑trip. Vždy po vygenerování souboru jej znovu otevřete a zkontrolujte kolekci, pokud je zachování požadováno.
-- [BrightnessContrast](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/brightnesscontrast/) je rozšíření Office 2010 místo standardní DrawingML luminance operace. Lze jej použít pro vykreslení v paměti, ale není zaručeno, že po uložení a opětovném otevření PPTX zůstane editovatelný [IBrightnessContrast](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibrightnesscontrast/). Upřednostněte [addLuminanceEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) pro trvalé úpravy jasu a kontrastu.
-- Binární formát PPT předchází úplnému modelu efektů DrawingML. Uložení do PPT může vynechat nepodporované operace, zredukovat řetězec na podporovanou podmnožinu nebo aproximovat vzhled. Nepoužívejte PPT jako ověřovací formát pro složitý editovatelný řetězec.
-- Renderování do PNG, JPEG, TIFF, PDF, SVG, HTML nebo jiných vizuálních výstupů aplikuje podporovaný řetězec na vykreslený vzhled. Tyto výstupy neobsahují editovatelný `IImageTransformOperationCollection`; rastrové formáty výsledek zploští do pixelů a exporty dokumentu/vektoru uchovávají vlastní reprezentaci vykreslení.
-- Efekty nečiní propojený obrázek samostatným. Renderování propojeného obrázku stále závisí na dostupnosti propojeného prostředku při načítání prezentace.
+- Standardní operace DrawingML, jako luminance, odstín šedi, duotón, tónování, HSL, rozostření a běžné alfa operace, mají největší šanci přežít zpětný import PPTX. Vždy po uložení souboru jej znovu otevřete a zkontrolujte kolekci, pokud je zachování vyžadováno.
+- [BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) je rozšíření Office 2010, nikoli standardní operace luminance DrawingML. Lze jej použít pro vykreslování v paměti, ale není zaručeno, že po uložení a opětovném otevření PPTX zůstane editovatelný [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/). Upřednostněte [addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) pro trvalé úpravy jasu a kontrastu.
+- Binární formát PPT předcházel úplnému modelu efektů DrawingML. Uložení do PPT může vynechat nepodporované operace, zredukovat řetězec na podporovanou podmnožinu nebo aproximovat vzhled. Nepoužívejte PPT jako ověřovací formát pro složitý editovatelný řetězec.
+- Vykreslení do PNG, JPEG, TIFF, PDF, SVG, HTML nebo jiného vizuálního výstupu použije podporovaný řetězec na vykreslený vzhled. Tyto výstupy neobsahují editovatelný `IImageTransformOperationCollection`; rastrové formáty výsledek zploští do pixelů a dokumentové/vektorové exporty ukládají vlastní reprezentaci vykreslení.
+- Efekty nezpůsobí, že propojený obrázek bude samostatně uzavřený. Vykreslení propojeného obrázku stále vyžaduje, aby byl propojený zdroj dostupný při načítání prezentace.
 
-Různí spotřebitelé prezentací mohou vykreslovat okrajové případy odlišně, zejména když je kombinováno několik alfa nebo barevných kvantizačních operací. Pro kritické výstupy testujte jak editovatelný round‑trip, tak finální exportní formát se stejnou verzí Aspose.Slides použité v produkci.
+Různí spotřebitelé prezentací mohou renderovat okrajové případy odlišně, zejména když jsou kombinovány několik alfa či barevných kvantizačních operací. Pro kritické výstupy testujte jak editovatelný zpětný import, tak finální exportní formát se stejnou verzí Aspose.Slides používanou v produkci.
 
 ## **Často kladené otázky**
 
-**Mění efekty transformace obrazu vložená data obrázku?**
+**Mění efekty transformace obrázku vložená data obrázku?**
 
-Ne. Operace patří k `ISlidesPicture` používanému výplní obrázku. Bajty podkladového `IPPImage` zůstávají beze změny.
+Ne. Operace patří k `ISlidesPicture` používanému výplní obrázku. Bajty podkladového `IPPImage` zůstávají nezměněny.
 
-**Budou dva rámečky obrázku, které používají stejný obrázek, sdílet své efekty?**
+**Budou dva rámečky obrázku, které znovu používají stejný obrázek, sdílet své efekty?**
 
-Ne. Použití `IPPImage` eliminuje duplicitní data obrázku, ale každý rámec obrázku má obvykle samostatný `ISlidesPicture` a kolekci transformací.
+Ne. Opětovné použití `IPPImage` eliminuje duplicitní data obrázku, ale každý rámeček obrázku má obvykle vlastní `ISlidesPicture` a vlastní kolekci transformací obrázku.
 
 **Lze kombinovat barevné, rozostřovací a alfa efekty?**
 
-Ano. Kolekce je akceptuje v jednom řazeném řetězci. Zvažte, co každá operace dělá s výstupem předchozí, protože operace náhrady a prahu mohou zahodit dříve vytvořené barevné nebo alfa detaily.
+Ano. Kolekce je přijímá v jednom uspořádaném řetězci. Zvažte, co každá operace dělá s výstupem předchozí, protože operace nahrazení a prahové operace mohou odstranit dřívější barevné nebo alfa detaily.
 
-**Proč jsou efektivní hodnoty jen ke čtení?**
+**Proč jsou efektivní hodnoty pouze pro čtení?**
 
-Efektivní data představují vypočtené hodnoty použité pro vykreslení, včetně rozpoznaných barev. Editujte operaci uloženou v kolekci transformací tam, kde jsou zapisovatelné členy; jinak ji odstraňte a přidejte novou s novými parametry vytvoření.
+Efektivní data představují vypočítané hodnoty používané při vykreslování, včetně rozřešených barev. Upravit lze operaci uloženou v kolekci transformací, kde existují zapisovatelné členy; jinak ji odstraňte a přidejte náhradu s novými parametry vytvoření.
 
 **Jaký formát použít pro zachování řetězce transformací?**
 
-Použijte PPTX a ověřte soubor jeho opětovným otevřením. Starší PPT nedokáže reprezentovat celý model efektů DrawingML a výstupní formáty exportu zachovají pouze vzhled, nikoli editovatelné operace transformace.
+Použijte PPTX a ověřte soubor jeho opětovným otevřením. Starší PPT nedokáže reprezentovat úplný model efektů DrawingML a exportní formáty jako PNG, PDF apod. zachovávají pouze vzhled, ne editovatelné operace transformace obrázku.

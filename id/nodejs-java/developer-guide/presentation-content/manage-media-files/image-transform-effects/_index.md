@@ -1,5 +1,5 @@
 ---
-title: Kelola Efek Transformasi Gambar dalam Presentasi dengan JavaScript
+title: Kelola Efek Transformasi Gambar pada Presentasi dengan JavaScript
 linktitle: Efek Transformasi Gambar
 type: docs
 weight: 11
@@ -9,62 +9,62 @@ keywords:
 - efek gambar
 - kecerahan
 - kontras
-- skala abu-abu
+- grayscale
 - duotone
 - tint
 - HSL
 - penggantian warna
 - blur
 - transparansi
-- efek alpha
+- efek alfa
 - rantai efek
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Terapkan, rangkai, periksa, hapus, dan verifikasi efek transformasi gambar untuk bingkai gambar dengan Aspose.Slides untuk Node.js via Java."
+description: "Terapkan, rangkai, inspeksi, hapus, dan verifikasi efek transformasi gambar untuk bingkai gambar dengan Aspose.Slides untuk Node.js via Java."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides merepresentasikan penyesuaian gambar sebagai koleksi terurut dari operasi transformasi gambar. Untuk sebuah bingkai gambar, mulailah dengan [Picture](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) bingkai tersebut dan akses [Picture.getImageTransform](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/). [ImageTransformOperationCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) yang dikembalikan memungkinkan Anda menambahkan, menelusuri, memeriksa, menghapus, dan membersihkan efek tanpa menulis ulang byte gambar asli.
+Aspose.Slides merepresentasikan penyesuaian gambar sebagai kumpulan terurut operasi transformasi gambar. Untuk sebuah bingkai gambar, mulai dengan [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) bingkai lalu akses [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) yang dikembalikan memungkinkan Anda menambahkan, menelusuri, memeriksa, menghapus, dan membersihkan efek tanpa menulis ulang byte gambar asli.
 
 Artikel ini mendemonstrasikan alur kerja lengkap untuk kecerahan dan kontras, transformasi warna, blur, transparansi, rantai efek berurutan, nilai efektif, penghapusan, dan verifikasi putar‑balik PPTX.
 
-## **Pahami Kepemilikan Efek dan Penggunaan Ulang Gambar**
+## **Memahami Kepemilikan Efek dan Penggunaan Ulang Gambar**
 
 Sebuah sumber gambar dan gambar yang menampilkannya adalah objek yang berbeda:
 
-- [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) menyimpan atau merujuk data gambar sumber yang dimiliki oleh presentasi.
-- [Picture](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) termasuk dalam isian gambar dan merujuk ke sumber gambar sambil menyimpan koleksi transformasi gambar.
-- [PictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) adalah bentuk slide yang memiliki isian gambar terkait, geometri, pengaturan pemotongan, dan pemformatan tingkat bingkai lainnya.
+- [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) menyimpan atau merujuk data gambar sumber yang dimiliki oleh presentasi.
+- [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) milik pengisian gambar dan merujuk ke sumber gambar sambil menyimpan koleksi transformasi gambar.
+- [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) adalah bentuk slide yang memiliki pengisian gambar yang relevan, geometri, pengaturan pemotongan, dan format level bingkai lainnya.
 
-Oleh karena itu, operasi transformasi gambar tidak mengubah byte dalam [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/). Ketika [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang sama diteruskan ke [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/) lebih dari satu kali, setiap bingkai gambar baru menerima [Picture](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) dan koleksi transformasinya masing‑masing. Menerapkan grayscale pada satu bingkai tidak membuat bingkai lainnya menjadi grayscale, meskipun semuanya menggunakan sumber gambar tersemat yang sama.
+Oleh karena itu, operasi transformasi gambar tidak memodifikasi byte dalam [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/). Ketika [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) yang sama diteruskan ke [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) lebih dari satu kali, setiap bingkai gambar baru menerima [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) miliknya sendiri dan koleksi transformasinya masing‑masing. Menerapkan grayscale pada satu bingkai tidak membuat bingkai lain menjadi grayscale, meskipun semuanya menggunakan kembali sumber gambar tersemat yang sama.
 
-Model [Picture.getImageTransform](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) yang sama juga digunakan oleh isian gambar lain, seperti bentuk atau latar belakang slide. Contoh di bawah ini berfokus pada bingkai gambar.
+Model [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) yang sama juga digunakan oleh pengisian gambar lainnya, seperti bentuk atau latar belakang slide. Contoh di bawah ini berfokus pada bingkai gambar.
 
 ## **Gunakan Rentang Parameter dan Satuan yang Valid**
 
-Metode yang ditunjukkan menggunakan rentang semantik dan satuan berikut. Pertahankan nilai dalam rentang ini meskipun versi pustaka tertentu tidak menolak setiap nilai di luar rentang secara langsung; format presentasi target mungkin menormalkan, menghilangkan, atau menolak data tidak valid saat menyimpan atau saat PowerPoint membuka berkas.
+Metode yang didemonstrasikan menggunakan rentang semantik dan satuan berikut. Simpan nilai dalam rentang ini meskipun versi pustaka tertentu tidak menolak setiap nilai di luar rentang secara langsung; format presentasi target mungkin menormalkan, menghilangkan, atau menolak data tidak valid saat menyimpan atau ketika PowerPoint membuka berkas.
 
 | Operasi | Parameter | Rentang dan satuan yang valid |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` sampai `100`, persentase; `0` membiarkan komponen tidak berubah. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | None | Tanpa parameter numerik. Alpha tidak berubah. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Dua warna untuk piksel gelap dan terang. Saluran RGB dan alpha pada `java.awt.Color` menggunakan `0` sampai `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Hue `0` inklusif sampai `360` eksklusif, dalam derajat; amount `-100` sampai `100`, persentase. |
-| [addHSLEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Hue `0` inklusif sampai `360` eksklusif, dalam derajat; saturation dan luminance `-100` sampai `100`, persentase. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | Warna pengganti menggunakan nilai saluran dari `0` sampai `255`. Nilai alpha yang ada tidak berubah. |
-| [addBlurEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Radius non‑negatif dan diukur dalam point; `grow` adalah Boolean yang mengontrol apakah konten blur dapat melampaui batas asli. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Persentase non‑negatif. Gunakan `0` sampai `100` untuk skala opasitas biasa: `0` sepenuhnya transparan dan `100` mempertahankan alpha yang ada. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` sampai `100`, persentase opasitas. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` sampai `100`, persentase ambang alpha. Nilai di bawah ambang menjadi transparan; nilai pada atau di atas ambang menjadi opak. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` hingga `100`, persen; `0` membiarkan komponen tidak berubah. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | None | Tidak ada parameter numerik. Alfa tidak berubah. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Dua warna untuk piksel gelap dan terang. Kanal RGB dan alfa dalam `java.awt.Color` menggunakan `0` hingga `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Hue `0` inklusif hingga `360` eksklusif, dalam derajat; amount `-100` hingga `100`, persen. |
+| [addHSLEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Hue `0` inklusif hingga `360` eksklusif, dalam derajat; saturasi dan luminansi `-100` hingga `100`, persen. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | Warna pengganti menggunakan nilai kanal dari `0` hingga `255`. Nilai alfa yang ada tidak berubah. |
+| [addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Radius tidak negatif dan diukur dalam point; `grow` adalah Boolean yang mengontrol apakah konten blur dapat meluas di luar batas asli. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Persen tidak negatif. Gunakan `0` hingga `100` untuk skala opasitas biasa: `0` sepenuhnya transparan dan `100` mempertahankan alfa yang ada. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` hingga `100`, persen opasitas. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` hingga `100`, persen ambang alfa. Nilai di bawahnya menjadi transparan; nilai pada atau di atasnya menjadi opaque. |
 
-Untuk modulasi alpha tetap, transparansi dan opasitas bersifat komplemen. Misalnya, transparansi 35 % berhubungan dengan nilai modulasi alpha 65 %.
+Untuk modulasi alfa tetap, transparansi dan opasitas bersifat komplementer. Misalnya, transparansi 35 % bersesuaian dengan modulasi alfa 65 %.
 
 ## **Terapkan Kecerahan dan Kontras**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) mengembalikan operasi [BrightnessContrast](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/brightnesscontrast/). Pengaturan skalar disediakan saat operasi dibuat. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/brightnesscontrast/) mengembalikan nilai hanya‑baca yang dihitung yang dapat diperiksa atau dicatat.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) mengembalikan operasi [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/). Pengaturan skalar disediakan saat operasi dibuat. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) mengembalikan nilai baca‑saja yang dihitung yang dapat diperiksa atau dicatat.
 
 Contoh berikut meningkatkan kecerahan sebesar 15 % dan kontras sebesar 20 %, lalu menampilkan pratinjau tanpa mengubah gambar tersemat:
 
@@ -103,13 +103,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/brightnesscontrast/) adalah ekstensi efek gambar Office 2010 dan kurang portabel dibandingkan efek luminansi DrawingML standar. Ketika kecerahan dan kontras harus tetap dapat diedit setelah putar‑balik PPTX, gunakan [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) dan verifikasi hasilnya setelah membuka kembali berkas. Bagian batasan format menjelaskan perbedaan ini secara lebih detail.
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) adalah ekstensi efek gambar Office 2010 dan kurang portabel dibandingkan efek luminansi DrawingML standar. Ketika kecerahan dan kontras harus tetap dapat diedit setelah putar‑balik PPTX, gunakan [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) dan verifikasi hasil setelah membuka kembali berkas. Bagian batasan format menjelaskan perbedaan ini secara lebih rinci.
 
 ## **Terapkan Transformasi Warna**
 
-Efek warna dapat diterapkan secara independen pada bingkai gambar yang berbeda namun menggunakan satu sumber gambar. Contoh berikut membuat lima bingkai dan menerapkan grayscale, duotone, tint, penyesuaian HSL, serta penggantian warna.
+Efek warna dapat diterapkan secara independen pada bingkai gambar yang menggunakan satu sumber gambar. Contoh berikut membuat lima bingkai dan menerapkan grayscale, duotone, tint, penyesuaian HSL, serta penggantian warna.
 
-[Duotone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/duotone/) memiliki dua parameter warna yang dapat diedit secara terpisah: `color1` memetakan piksel gelap, sementara `color2` memetakan piksel terang. Ini menjadikannya contoh berguna dari efek yang pengaturannya lebih kompleks daripada satu nilai skalar.
+[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) memiliki dua parameter warna yang dapat diedit secara terpisah: `color1` memetakan piksel gelap, sementara `color2` memetakan piksel terang. Ini menjadikannya contoh yang berguna untuk efek yang pengaturannya lebih kompleks daripada satu nilai skalar.
 
 ```javascript
 const aspose = {};
@@ -152,13 +152,60 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) menggantikan setiap warna piksel dengan satu warna tetap sambil mempertahankan alpha. Ini berbeda dari [addColorChangeEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang memetakan satu warna sumber ke warna lain dan menampilkan format warna sumber serta target.
+[addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) mengganti setiap warna piksel dengan satu warna tetap sambil mempertahankan alfa. Ini berbeda dari [addColorChangeEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang memetakan satu warna sumber ke warna lain dan mengekspose format warna sumber dan target.
+
+### **Terapkan Ambang Luminansi**
+
+Ambang luminansi dapat membuat goresan samar pada halaman yang dipindai lebih mudah dibedakan dari latar belakang. [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) mempertahankan nuansa abu‑abu menengah. [addBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) memetakan luminansi ke hitam atau putih, sementara [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) menerapkan ambang pada opasitas.
+
+Ambang luminansi berkisar dari 0 % hingga 100 %, inklusif. Piksel di bawah ambang menjadi hitam. Piksel pada atau di atas ambang menjadi putih. Meningkatkan ambang mengubah lebih banyak nuansa menjadi hitam karena lebih banyak di antaranya berada di bawah batas.
+
+Unduh [grayscale-swatches.png](grayscale-swatches.png) ke direktori kerja. Setiap label memberikan tingkat abu‑abu asli pada skala 0 hingga 255. Contoh menempatkan asli di sebelah dua salinan dan menyimpan ambang masing‑masing salinan dalam presentasi.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, slides.SlideSizeScaleType.DoNotScale);
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceImage = slides.Images.fromFile("grayscale-swatches.png");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    const frames = [];
+    for (let i = 0; i < captions.length; i++) {
+        const x = 12 + 240 * i;
+        const label = shapes.addAutoShape(slides.ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        const frame = shapes.addPictureFrame(slides.ShapeType.Rectangle, x, 60, 216, 72, image);
+        frames.push(frame);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60);
+    
+    presentation.save("luminance-threshold.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Buka presentasi output di PowerPoint untuk membandingkan tiga bingkai. Swatch yang diberi label 96 memiliki luminansi sekitar 38 % (96 dari 255). Swatch ini menjadi putih pada ambang 20 % dan hitam pada ambang 60 %.
+
+![Swatch abu‑abu asli berdampingan dengan hasil hitam‑putih pada ambang luminansi 20 % dan 60 %](luminance-threshold.png)
 
 ## **Tambahkan Blur, Transparansi, dan Efek Alpha**
 
-[addBlurEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) memengaruhi semua saluran warna, termasuk alpha. Setel `grow` ke `true` ketika tepi blur dapat melampaui batas gambar asli.
+[addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) memengaruhi semua kanal warna, termasuk alfa. Atur `grow` ke `true` ketika tepi blur dapat meluas di luar batas gambar asli.
 
-Untuk transparansi seragam, gunakan [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/). Ia mengalikan setiap nilai alpha yang ada, sehingga piksel yang sebagian transparan tetap berbeda secara proporsional. [addAlphaReplaceEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) sebaliknya menetapkan satu nilai alpha ke semua piksel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) mengonversi alpha menjadi dua level berdasarkan ambang.
+Untuk transparansi seragam, gunakan [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/). Ia mengalikan setiap nilai alfa yang ada, sehingga piksel semi‑transparan tetap berbeda secara proporsional. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) malah menetapkan satu nilai alfa untuk semua piksel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) mengubah alfa menjadi dua tingkat berdasarkan ambang.
 
 ```javascript
 const aspose = {};
@@ -198,15 +245,15 @@ try {
 }
 ```
 
-Operasi alpha tanpa parameter lain termasuk [addAlphaCeilingEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang membuat setiap alpha non‑nol menjadi sepenuhnya opak; [addAlphaFloorEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang membuat setiap alpha di bawah 100 % menjadi sepenuhnya transparan; dan [addAlphaInverseEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang mengubah alpha menjadi `100% - alpha`.
+Operasi alfa tanpa parameter lainnya meliputi [addAlphaCeilingEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang membuat setiap alfa non‑nol sepenuhnya opaque; [addAlphaFloorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang membuat setiap alfa di bawah 100 % sepenuhnya transparan; dan [addAlphaInverseEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), yang mengubah alfa menjadi `100% - alpha`.
 
 ## **Bangun Rantai Efek Berurutan**
 
-Setiap metode `add...Effect` menambahkan operasi baru ke akhir koleksi. Renderer menggunakan koleksi sebagai pipa berurutan: output operasi 0 menjadi input operasi 1, dan seterusnya. Akibatnya, operasi yang sama dalam urutan berbeda dapat menghasilkan gambar yang berbeda.
+Setiap metode `add...Effect` menambahkan operasi baru ke akhir koleksi. Renderer menggunakan koleksi sebagai pipeline berurutan: output operasi 0 menjadi input operasi 1, dan seterusnya. Akibatnya, operasi yang sama dalam urutan berbeda dapat menghasilkan gambar yang berbeda.
 
-Sebagai contoh, grayscale diikuti tint pertama‑tama menghapus informasi kromatik lalu mewarnai kembali hasil luminansi. Tint diikuti grayscale menghilangkan tint kembali. Demikian pula, penggantian alpha dapat menimpa nilai alpha yang dihitung oleh operasi sebelumnya, sementara modulasi alpha mempertahankan perbedaan relatifnya.
+Sebagai contoh, grayscale diikuti tint pertama‑tama menghapus informasi kromatik lalu mewarnai kembali hasil luminansi. Tint diikuti grayscale menghapus tint kembali. Demikian pula, penggantian alfa dapat menimpa nilai alfa yang dihitung oleh operasi sebelumnya, sedangkan modulasi alfa mempertahankan perbedaan relatifnya.
 
-Contoh berikut membangun rantai empat operasi, menyimpannya sebagai PPTX, membuka kembali presentasi, memeriksa tipe operasi serta urutannya, dan menampilkan hasil yang dibuka kembali:
+Contoh berikut membangun rantai empat operasi, menyimpannya sebagai PPTX, membuka kembali presentasi, memeriksa tipe operasi serta urutannya, dan merender hasil yang dibuka kembali:
 
 ```javascript
 const aspose = {};
@@ -264,15 +311,21 @@ try {
 }
 ```
 
-Koleksi tidak memberlakukan matriks kompatibilitas yang membatasi operasi warna, alpha, dan blur ke rantai terpisah. Mereka dapat digabungkan, namun kombinasi tidak selalu berguna. Penggantian warna tetap menghapus variasi RGB yang dihasilkan oleh efek warna sebelumnya; grayscale setelah duotone menghilangkan dua warna terpilih; dan operasi ceiling, floor, replacement, atau bi‑level alpha dapat membuang detail alpha yang dibuat sebelumnya. Bangun rantai sesuai urutan pemrosesan piksel yang diinginkan, bukan memperlakukan itemnya sebagai flag pemformatan tidak berurutan.
+Koleksi tidak memberlakukan matriks kompatibilitas yang membatasi operasi warna, alfa, dan blur ke rantai terpisah. Mereka dapat digabungkan, tetapi kombinasi tidak selalu berguna. Penggantian warna tetap menghilangkan variasi RGB yang dihasilkan oleh efek warna sebelumnya; grayscale setelah duotone menghilangkan dua warna terpilih; dan operasi alfa ceiling, floor, replacement, atau bi‑level dapat membuang detail alfa yang dibuat sebelumnya. Bangun rantai sesuai urutan pemrosesan piksel yang diinginkan, bukan memperlakukan item‑nya sebagai bendera format yang tidak berurutan.
 
-## **Periksa Nilai yang Dapat Diedit dan Nilai Efektif**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Gambar yang sama melewati grayscale kemudian tint, dan tint kemudian grayscale. Dua gambar grayscale akhir memiliki nada yang berbeda.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Operasi yang dapat diedit adalah objek yang disimpan dalam [Picture.getImageTransform](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/). Tergantung pada efeknya, ia dapat mengekspos anggota yang dapat ditulis secara langsung. Misalnya, [Blur](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/blur/) mengekspos nilai `radius` dan `grow` yang dapat ditulis, [AlphaModulateFixed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/alphamodulatefixed/) mengekspos `amount` yang dapat ditulis, dan [AlphaBiLevel](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/alphabilevel/) mengekspos `threshold` yang dapat ditulis. Efek warna seperti [Duotone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/duotone/) mengekspos objek [ColorFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/colorformat/) yang dapat diubah.
+*Dalam ilustrasi Aspose.Slides for .NET 26.11 ini, tint 220° dengan 25 % tidak mengubah gambar grayscale. Menerapkan tint yang sama sebelum grayscale menghasilkan nada yang berbeda.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Beberapa operasi, termasuk [BrightnessContrast](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tint/), dan [AlphaReplace](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/alphareplace/), tidak mengekspos skalar pembuatan mereka sebagai properti yang dapat ditulis. Untuk mengubah pengaturan tersebut, hapus operasi dan tambahkan pengganti pada posisi yang diperlukan.
+## **Periksa Nilai yang Dapat Diedit dan Efektif**
 
-Data efektif yang dikembalikan oleh `getEffective()` dihitung dan hanya‑baca. Ini berguna untuk menyelesaikan warna yang bergantung pada tema dan membaca nilai normalisasi yang digunakan renderer, tetapi bukan permukaan penyuntingan lain. Contoh berikut menelusuri rantai dan memeriksa nilai efektif di mana API yang bersangkutan menyediakannya:
+Sebuah operasi yang dapat diedit adalah objek yang disimpan dalam [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). Tergantung pada efeknya, objek tersebut dapat mengekspos anggota yang dapat ditulis secara langsung. Misalnya, [Blur](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/) mengekspos nilai `radius` dan `grow` yang dapat ditulis, [AlphaModulateFixed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphamodulatefixed/) mengekspos `amount` yang dapat ditulis, dan [AlphaBiLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphabilevel/) mengekspos `threshold` yang dapat ditulis. Efek warna seperti [Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) mengekspos objek [ColorFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/) yang dapat diubah.
+
+Beberapa operasi, termasuk [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tint/), dan [AlphaReplace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphareplace/), tidak mengekspos skalar pembuatannya sebagai properti yang dapat ditulis. Untuk mengubah pengaturan tersebut, hapus operasi dan tambahkan pengganti pada posisi yang diperlukan.
+
+Data efektif yang dikembalikan oleh `getEffective()` dihitung dan bersifat baca‑saja. Data ini berguna untuk menyelesaikan warna yang bergantung pada tema dan membaca nilai ternormalkan yang digunakan renderer, tetapi bukan permukaan penyuntingan lain. Contoh berikut menelusuri rantai dan memeriksa nilai efektif di mana API yang bersangkutan menyediakannya:
 
 ```javascript
 const aspose = {};
@@ -340,11 +393,11 @@ try {
 }
 ```
 
-Efek tanpa parameter seperti grayscale, alpha ceiling, dan alpha inverse tetap memiliki objek data‑efektif, namun tidak ada pengaturan skalar yang dapat dicetak. Keberadaan dan posisinya dalam koleksi merupakan informasi yang penting.
+Efek tanpa parameter seperti grayscale, alpha ceiling, dan alpha inverse tetap memiliki objek data‑efektif, tetapi tidak ada pengaturan skalar yang dapat dicetak. Keberadaan dan posisinya dalam koleksi adalah informasi penting.
 
 ## **Hapus atau Bersihkan Transformasi Gambar**
 
-Gunakan [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) untuk menghapus satu operasi berdasarkan indeks. Karena indeks bergeser setelah penghapusan, cari target terlebih dahulu dan hapus setelah penelusuran. Gunakan [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) untuk menghapus seluruh rantai.
+Gunakan [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) untuk menghapus satu operasi berdasarkan indeks. Karena indeks bergeser setelah penghapusan, cari target terlebih dahulu dan hapus setelah penelusuran. Gunakan [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) untuk menghapus seluruh rantai.
 
 ```javascript
 const aspose = {};
@@ -389,38 +442,38 @@ try {
 }
 ```
 
-Menghapus atau membersihkan transformasi hanya mengubah pemformatan gambar. Ini tidak menghapus, mengompresi ulang, atau mengubah sumber daya [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang digunakan kembali.
+Menghapus atau membersihkan transformasi hanya mengubah format gambar. Hal ini tidak menghapus, mengompresi ulang, atau mengubah sumber [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) yang digunakan kembali.
 
 ## **Pertimbangkan Format Presentasi dan Target Ekspor**
 
-Transformasi gambar berasal dari DrawingML, sehingga PPTX adalah format editabel yang disarankan untuk rantai efek. Bahkan dengan PPTX, tidak setiap operasi memiliki portabilitas yang sama:
+Transformasi gambar berasal dari DrawingML, sehingga PPTX adalah format yang disarankan untuk rantai efek yang dapat diedit. Bahkan dengan PPTX, tidak setiap operasi memiliki portabilitas yang sama:
 
-- Operasi DrawingML standar seperti luminance, grayscale, duotone, tint, HSL, blur, dan operasi alpha umum memiliki peluang terbaik untuk bertahan setelah putar‑balik PPTX. Selalu buka kembali berkas yang dihasilkan dan periksa koleksinya ketika preservasi menjadi persyaratan.
-- [BrightnessContrast](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/brightnesscontrast/) adalah ekstensi Office 2010, bukan operasi luminansi DrawingML standar. Ia dapat digunakan untuk perenderan dalam memori, namun tidak dijamin tetap sebagai operasi [BrightnessContrast](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/brightnesscontrast/) yang dapat diedit setelah menyimpan dan membuka kembali PPTX. Lebih pilih [addLuminanceEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) untuk penyesuaian kecerahan dan kontras yang persisten.
-- Format PPT biner mendahului model efek DrawingML penuh. Menyimpan ke PPT dapat menghilangkan operasi yang tidak didukung, mereduksi rantai menjadi subset yang didukung, atau memperkirakan tampilan. Jangan gunakan PPT sebagai format verifikasi untuk rantai editabel yang kompleks.
-- Rendering ke PNG, JPEG, TIFF, PDF, SVG, HTML, atau output visual lainnya menerapkan rantai yang didukung pada tampilan yang dirender. Output tersebut tidak berisi [ImageTransformOperationCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagetransformoperationcollection/) yang dapat diedit; format raster menumpuhkan hasil menjadi piksel, dan ekspor dokumen/vektor menyimpan representasi perenderan mereka sendiri.
-- Efek tidak membuat gambar tertaut menjadi mandiri. Rendering gambar tertaut tetap bergantung pada sumber daya tertaut yang tersedia saat presentasi dimuat.
+- Operasi DrawingML standar seperti luminansi, grayscale, duotone, tint, HSL, blur, dan operasi alfa umum memiliki peluang terbaik untuk bertahan setelah putar‑balik PPTX. Selalu buka kembali berkas yang dihasilkan dan periksa koleksi ketika preservasi menjadi keharusan.
+- [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) adalah ekstensi Office 2010 bukan operasi luminansi DrawingML standar. Ia dapat digunakan untuk rendering dalam memori, tetapi tidak dijamin tetap sebagai operasi [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) yang dapat diedit setelah menyimpan dan membuka kembali PPTX. Pilih [addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) untuk penyesuaian kecerahan dan kontras yang persisten.
+- Format PPT biner lebih dulu muncul sebelum model efek DrawingML lengkap. Menyimpan ke PPT dapat menghilangkan operasi yang tidak didukung, mereduksi rantai menjadi subset yang didukung, atau memperkirakan tampilan. Jangan gunakan PPT sebagai format verifikasi untuk rantai yang dapat diedit secara kompleks.
+- Rendering ke PNG, JPEG, TIFF, PDF, SVG, HTML, atau output visual lainnya menerapkan rantai yang didukung pada tampilan yang dirender. Output tersebut tidak berisi [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) yang dapat diedit; format raster meratakan hasil menjadi piksel, dan ekspor dokumen/vektor menyimpan representasi rendering mereka sendiri.
+- Efek tidak membuat gambar yang ditautkan menjadi mandiri. Rendering gambar yang ditautkan tetap bergantung pada keberadaan sumber yang ditautkan ketika presentasi dimuat.
 
-Berbagai konsumen presentasi dapat merender kasus tepi secara berbeda, terutama ketika beberapa operasi alpha atau kuantisasi warna digabungkan. Untuk output kritis, uji baik putar‑balik editabel maupun format ekspor final dengan versi Aspose.Slides yang sama seperti yang dipakai di produksi.
+Berbagai konsumen presentasi dapat merender kasus tepi secara berbeda, terutama ketika beberapa operasi alfa atau kuantisasi warna digabungkan. Untuk output yang kritis, uji baik putar‑balik yang dapat diedit maupun format ekspor akhir dengan versi Aspose.Slides yang sama digunakan dalam produksi.
 
 ## **FAQ**
 
-**Apakah efek transformasi gambar mengubah data gambar yang tersemat?**
+**Apakah efek transformasi gambar memodifikasi data gambar tersemat?**
 
-Tidak. Operasi berada pada [Picture](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) yang digunakan oleh isian gambar. Byte [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang mendasarinya tetap tidak berubah.
+Tidak. Operasi tersebut merupakan bagian dari [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) yang dipakai oleh pengisian gambar. Byte [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) yang mendasarinya tetap tidak berubah.
 
-**Apakah dua bingkai gambar yang menggunakan gambar yang sama berbagi efeknya?**
+**Apakah dua bingkai gambar yang menggunakan ulang gambar yang sama berbagi efeknya?**
 
-Tidak. Menggunakan kembali [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) menghindari duplikasi data gambar, tetapi setiap bingkai gambar biasanya memiliki [Picture](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) dan koleksi transformasi gambar yang terpisah.
+Tidak. Menggunakan kembali [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) menghindari duplikasi data gambar, tetapi setiap bingkai gambar biasanya memiliki [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) dan koleksi transformasi gambar yang terpisah.
 
-**Dapatkah efek warna, blur, dan alpha digabungkan?**
+**Bisakah efek warna, blur, dan alfa digabungkan?**
 
-Ya. Koleksi menerima semuanya dalam satu rantai berurutan. Pertimbangkan apa yang dilakukan setiap operasi pada output operasi sebelumnya karena operasi penggantian dan ambang dapat menghapus detail warna atau alpha yang dibuat sebelumnya.
+Ya. Koleksi menerima semua dalam satu rantai berurutan. Pertimbangkan apa yang dilakukan setiap operasi pada output sebelumnya karena operasi penggantian dan ambang dapat menghapus detail warna atau alfa sebelumnya.
 
-**Mengapa nilai efektif bersifat hanya‑baca?**
+**Mengapa nilai efektif bersifat baca‑saja?**
 
-Data efektif mewakili nilai yang dihitung untuk perenderan, termasuk warna yang telah diselesaikan. Edit operasi yang disimpan dalam koleksi transformasi di mana anggota yang dapat ditulis ada; bila tidak, hapus operasi tersebut dan tambahkan pengganti dengan parameter pembuatan yang baru.
+Data efektif mewakili nilai yang dihitung dan dipakai untuk rendering, termasuk warna yang telah diselesaikan. Edit operasi yang disimpan dalam koleksi transformasi di mana anggota dapat ditulis; bila tidak, hapus dan tambahkan pengganti dengan parameter pembuatan yang baru.
 
-**Format apa yang sebaiknya saya gunakan untuk mempertahankan rantai transformasi?**
+**Format apa yang harus saya gunakan untuk mempertahankan rantai transformasi?**
 
-Gunakan PPTX dan verifikasi berkas dengan membuka kembali. PPT lama tidak dapat merepresentasikan model efek DrawingML lengkap, dan format ekspor yang dirender hanya mempertahankan tampilan, bukan operasi transformasi yang dapat diedit.
+Gunakan PPTX dan verifikasi berkas dengan membukanya kembali. PPT lama tidak dapat merepresentasikan model efek DrawingML lengkap, dan format ekspor yang dirender hanya mempertahankan tampilan, bukan operasi transformasi yang dapat diedit.

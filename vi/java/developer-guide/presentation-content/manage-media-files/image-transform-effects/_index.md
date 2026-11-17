@@ -1,5 +1,5 @@
 ---
-title: Quản lý các hiệu ứng biến đổi hình ảnh trong bản trình bày bằng Java
+title: Quản lý các hiệu ứng biến đổi hình ảnh trong bản trình chiếu với Java
 linktitle: Các hiệu ứng biến đổi hình ảnh
 type: docs
 weight: 11
@@ -9,7 +9,7 @@ keywords:
 - hiệu ứng hình ảnh
 - độ sáng
 - độ tương phản
-- màu xám
+- xám
 - đôi màu
 - tô màu
 - HSL
@@ -19,53 +19,53 @@ keywords:
 - hiệu ứng alpha
 - chuỗi hiệu ứng
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Áp dụng, xâu chuỗi, kiểm tra, xóa và xác minh các hiệu ứng biến đổi hình ảnh cho khung hình ảnh bằng Aspose.Slides cho Java."
+description: "Áp dụng, tạo chuỗi, kiểm tra, xóa và xác minh các hiệu ứng biến đổi hình ảnh cho khung hình với Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides đại diện cho việc điều chỉnh hình ảnh dưới dạng một bộ sưu tập có thứ tự của các thao tác biến đổi hình ảnh. Đối với một khung hình ảnh, bắt đầu với [ISlidesPicture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidespicture/) của khung và truy cập [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidespicture/#getImageTransform--). Bộ [IImageTransformOperationCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/) trả về cho phép bạn thêm, liệt kê, kiểm tra, xóa và xóa toàn bộ các hiệu ứng mà không cần ghi lại lại các byte ảnh gốc.
+Aspose.Slides biểu diễn các điều chỉnh hình ảnh dưới dạng một bộ sưu tập có thứ tự của các thao tác biến đổi hình ảnh. Đối với một khung hình, bắt đầu với [ISlidesPicture](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) của khung và truy cập [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/#getImageTransform--). Bộ sưu tập [IImageTransformOperationCollection](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/) trả về cho phép bạn thêm, liệt kê, kiểm tra, xóa và xóa bỏ các hiệu ứng mà không cần ghi lại lại các byte hình ảnh gốc.
 
-Bài viết này trình bày quy trình làm việc đầy đủ cho độ sáng/độ tương phản, chuyển đổi màu, làm mờ, trong suốt, chuỗi hiệu ứng có thứ tự, giá trị hiệu quả, xóa bỏ và xác minh vòng quay PPTX.
+Bài viết này trình bày quy trình hoàn chỉnh cho độ sáng và độ tương phản, các biến đổi màu, làm mờ, độ trong suốt, chuỗi hiệu ứng có thứ tự, các giá trị hiệu quả, việc loại bỏ và xác minh vòng quay lại PPTX.
 
-## **Hiểu quyền sở hữu hiệu ứng và việc tái sử dụng ảnh**
+## **Hiểu Quyền Sở Hữu Hiệu Ứng và Tái Sử Dụng Hình Ảnh**
 
-Một tài nguyên ảnh và hình ảnh hiển thị nó là các đối tượng khác nhau:
+Một tài nguyên hình ảnh và hình ảnh hiển thị nó là các đối tượng khác nhau:
 
-- [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) lưu trữ hoặc tham chiếu dữ liệu ảnh nguồn thuộc bản trình bày.
-- [ISlidesPicture](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidespicture/) thuộc về một hình ảnh nền và tham chiếu tài nguyên ảnh đồng thời lưu trữ bộ sưu tập biến đổi ảnh.
-- [IPictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipictureframe/) là hình dạng trên slide sở hữu phần nền hình ảnh, hình học, cài đặt cắt và các định dạng cấp khung khác.
+- [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) lưu trữ hoặc tham chiếu dữ liệu hình ảnh nguồn thuộc về bản trình chiếu.
+- [ISlidesPicture](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) thuộc về một vùng điền hình ảnh và tham chiếu tới tài nguyên hình ảnh đồng thời lưu trữ bộ sưu tập biến đổi hình ảnh.
+- [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) là hình dạng trên slide sở hữu vùng điền hình ảnh, hình học, cài đặt cắt và các định dạng cấp khung khác.
 
-Do đó, các thao tác biến đổi ảnh không thay đổi các byte trong [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/). Khi cùng một `IPPImage` được truyền vào [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) hơn một lần, mỗi khung hình mới sẽ nhận được `ISlidesPicture` và bộ sưu tập biến đổi riêng. Áp dụng chuyển đổi màu xám cho một khung sẽ không làm các khung khác cũng chuyển sang màu xám, ngay cả khi tất cả chúng đều sử dụng chung tài nguyên ảnh đã nhúng.
+Do đó, các thao tác biến đổi hình ảnh không thay đổi các byte trong [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/). Khi cùng một `IPPImage` được truyền cho [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) hơn một lần, mỗi khung hình mới nhận được một `ISlidesPicture` riêng và một bộ sưu tập biến đổi riêng. Áp dụng chuyển đổi màu xám cho một khung không làm các khung khác cũng chuyển sang màu xám, dù tất cả đều tái sử dụng cùng một tài nguyên hình ảnh được nhúng.
 
-Mô hình `ISlidesPicture.getImageTransform` tương tự cũng được sử dụng cho các nền ảnh khác, chẳng hạn như hình dạng hoặc nền slide. Các ví dụ dưới đây tập trung vào khung hình ảnh.
+Mô hình `ISlidesPicture.getImageTransform` cũng được sử dụng bởi các vùng điền hình ảnh khác, chẳng hạn như dạng hoặc nền slide. Các ví dụ bên dưới tập trung vào khung hình.
 
-## **Sử dụng phạm vi tham số và đơn vị hợp lệ**
+## **Sử Dụng Khoảng Tham Số và Đơn Vị Hợp Lệ**
 
-Các phương pháp được minh họa sử dụng các phạm vi và đơn vị ngữ nghĩa sau. Giữ các giá trị trong phạm vi này ngay cả khi một phiên bản thư viện cụ thể không từ chối ngay lập tức các giá trị ngoài phạm vi; định dạng bản trình bày đích có thể chuẩn hoá, bỏ qua hoặc từ chối dữ liệu không hợp lệ khi lưu hoặc khi PowerPoint mở tệp.
+Các phương thức được minh họa sử dụng các khoảng và đơn vị ngữ nghĩa sau. Giữ các giá trị trong các khoảng này ngay cả khi một phiên bản thư viện cụ thể không từ chối ngay mọi giá trị ngoài phạm vi; định dạng bản trình chiếu đích có thể chuẩn hoá, bỏ qua hoặc từ chối dữ liệu không hợp lệ trong quá trình lưu hoặc khi PowerPoint mở tệp.
 
-| Hoạt động | Tham số | Phạm vi và đơn vị hợp lệ |
+| Hoạt động | Tham số | Khoảng hợp lệ và đơn vị |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` đến `100`, phần trăm; `0` giữ nguyên thành phần. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | Không có | Không có tham số số. Alpha không thay đổi. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Hai màu cho các pixel tối và sáng. Các kênh RGB và alpha trong `java.awt.Color` sử dụng giá trị `0` đến `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Hue từ `0` (bao gồm) đến `360` (không bao gồm), đơn vị độ; amount từ `-100` đến `100`, phần trăm. |
-| [addHSLEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Hue từ `0` (bao gồm) đến `360` (không bao gồm), đơn vị độ; saturation và luminance từ `-100` đến `100`, phần trăm. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Màu thay thế sử dụng các giá trị kênh từ `0` đến `255`. Giá trị alpha hiện có không thay đổi. |
-| [addBlurEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Radius không âm và đo bằng điểm; `grow` là Boolean điều khiển liệu nội dung bị làm mờ có thể mở rộng ra ngoài giới hạn gốc hay không. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Phần trăm không âm. Dùng `0` đến `100` cho việc điều chỉnh độ mờ thông thường: `0` là hoàn toàn trong suốt và `100` giữ nguyên alpha hiện có. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` đến `100`, phần trăm độ mờ. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` đến `100`, phần trăm ngưỡng alpha. Giá trị dưới ngưỡng trở nên trong suốt; giá trị bằng hoặc trên ngưỡng trở nên mờ. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` tới `100`, phần trăm; `0` giữ thành phần không thay đổi. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | None | Không có tham số số. Alpha không thay đổi. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Hai màu cho pixel tối và sáng. Các kênh RGB và alpha trong `java.awt.Color` dùng `0` tới `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Hue từ `0` (đã bao gồm) tới `360` (không bao gồm), đơn vị độ; amount từ `-100` tới `100`, phần trăm. |
+| [addHSLEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Hue từ `0` tới `360` độ; saturation và luminance từ `-100` tới `100`, phần trăm. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Màu thay thế sử dụng các giá trị kênh từ `0` tới `255`. Giá trị alpha hiện có không thay đổi. |
+| [addBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Bán kính không âm và đo bằng điểm; `grow` là Boolean điều khiển nội dung mờ có thể mở rộng ra ngoài giới hạn gốc hay không. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Phần trăm không âm. Dùng `0` tới `100` cho việc thu phóng độ mờ thông thường: `0` hoàn toàn trong suốt và `100` giữ nguyên alpha hiện có. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` tới `100`, phần trăm độ mờ. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` tới `100`, phần trăm ngưỡng alpha. Giá trị dưới ngưỡng trở nên trong suốt; giá trị bằng hoặc trên ngưỡng trở nên mờ. |
 
-Đối với việc điều chỉnh alpha cố định, trong suốt và độ mờ là hai khái niệm bổ sung nhau. Ví dụ, độ trong suốt 35 % tương đương với mức điều chỉnh alpha 65 %.
+Đối với điều chế alpha cố định, độ trong suốt và độ mờ là các khái niệm bổ sung. Ví dụ, độ trong suốt 35 % tương ứng với mức điều chế alpha là 65 %.
 
-## **Áp dụng độ sáng và độ tương phản**
+## **Áp Dụng Độ Sáng và Độ Tương Phản**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) trả về một thao tác [IBrightnessContrast](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibrightnesscontrast/). Các thiết lập vô hướng của nó được cung cấp khi tạo thao tác. [IBrightnessContrast.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibrightnesscontrast/#getEffective--) trả về các giá trị chỉ đọc đã được tính toán mà có thể kiểm tra hoặc ghi lại.
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) trả về một thao tác [IBrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/ibrightnesscontrast/). Các thiết lập vô hướng được cung cấp khi tạo thao tác. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/brightnesscontrast/#getEffective--) trả về các giá trị chỉ đọc đã được tính toán mà có thể kiểm tra hoặc ghi lại.
 
-Ví dụ sau tăng độ sáng lên 15 % và độ tương phản lên 20 %, sau đó hiển thị bản xem trước mà không thay đổi ảnh đã nhúng:
+Ví dụ dưới đây tăng độ sáng lên 15 % và độ tương phản lên 20 %, sau đó hiển thị bản xem trước mà không thay đổi hình ảnh được nhúng:
 
 ```java
 import com.aspose.slides.*;
@@ -98,13 +98,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/vi/java/com.aspose.slides/brightnesscontrast/) là một phần mở rộng hiệu ứng ảnh Office 2010 và không di động bằng hiệu ứng luminance chuẩn DrawingML. Khi cần giữ khả năng chỉnh sửa độ sáng/độ tương phản sau vòng quay PPTX, hãy sử dụng [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) và xác minh kết quả sau khi mở lại tệp. Phần giới hạn định dạng giải thích chi tiết hơn về sự khác biệt này.
+[BrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/brightnesscontrast/) là một phần mở rộng hiệu ứng hình ảnh Office 2010 và ít di động hơn so với hiệu ứng luminance chuẩn DrawingML. Khi độ sáng và độ tương phản phải vẫn có thể chỉnh sửa sau một vòng quay PPTX, hãy sử dụng [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) và xác minh kết quả sau khi mở lại tệp. Phần giới hạn định dạng giải thích chi tiết hơn sự khác biệt này.
 
-## **Áp dụng chuyển đổi màu**
+## **Áp Dụng Các Biến Đổi Màu Sắc**
 
-Các hiệu ứng màu có thể được áp dụng độc lập cho các khung hình ảnh khác nhau sử dụng chung một tài nguyên ảnh. Ví dụ dưới đây tạo năm khung và áp dụng các hiệu ứng màu xám, duotone, tint, điều chỉnh HSL và thay thế màu.
+Các hiệu ứng màu có thể được áp dụng độc lập cho các khung hình khác nhau mà tái sử dụng cùng một tài nguyên hình ảnh. Ví dụ dưới đây tạo năm khung và áp dụng màu xám, duotone, tint, điều chỉnh HSL và thay thế màu.
 
-[IDuotone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iduotone/) chứa hai tham số màu có thể chỉnh sửa độc lập: `color1` gán cho các pixel tối, trong khi `color2` gán cho các pixel sáng. Điều này làm cho nó trở thành một ví dụ hữu ích về một hiệu ứng có cài đặt phức tạp hơn một giá trị vô hướng duy nhất.
+[IDuotone](https://reference.aspose.com/slides/java/com.aspose.slides/iduotone/) chứa hai tham số màu có thể chỉnh sửa độc lập: `color1` ánh xạ các pixel tối, trong khi `color2` ánh xạ các pixel sáng. Điều này làm cho nó trở thành một ví dụ hữu ích về hiệu ứng có cài đặt phức tạp hơn một giá trị vô hướng duy nhất.
 
 ```java
 import com.aspose.slides.*;
@@ -143,13 +143,56 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) thay thế màu của mọi pixel bằng một màu cố định trong khi giữ nguyên alpha. Nó khác với [addColorChangeEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), thứ mà ánh xạ một màu nguồn sang màu đích và cho phép cả hai định dạng màu nguồn và đích.
+[addColorReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) thay thế màu của mọi pixel bằng một màu cố định trong khi bảo toàn alpha. Nó khác với [addColorChangeEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), thao tác này ánh xạ một màu nguồn sang một màu đích và phô bày cả định dạng màu nguồn và đích.
 
-## **Thêm làm mờ, trong suốt và hiệu ứng Alpha**
+### **Áp Dụng Ngưỡng Độ Sáng**
 
-[addBlurEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) ảnh hưởng đến tất cả các kênh màu, bao gồm cả alpha. Đặt `grow` thành `true` khi cạnh bị làm mờ có thể mở rộng ra ngoài giới hạn hình ảnh gốc.
+Ngưỡng độ sáng có thể làm cho các dấu mờ trên trang quét dễ phân biệt hơn so với nền. [addGrayScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) bảo toàn các mức xám trung gian. [addBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) ánh xạ độ sáng thành đen hoặc trắng, trong khi [addAlphaBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) áp dụng một ngưỡng lên độ trong suốt.
 
-Đối với độ trong suốt đồng nhất, sử dụng [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Nó nhân mỗi giá trị alpha hiện có, vì vậy các pixel bán trong suốt vẫn giữ tỷ lệ khác nhau. [addAlphaReplaceEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) thay vào đó gán một giá trị alpha duy nhất cho tất cả các pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) chuyển đổi alpha thành hai mức dựa trên ngưỡng.
+Ngưỡng độ sáng dao động từ 0 % tới 100 %, bao gồm cả hai đầu. Các pixel dưới ngưỡng trở thành đen. Các pixel bằng hoặc trên ngưỡng trở thành trắng. Tăng ngưỡng sẽ làm nhiều sắc thái hơn chuyển thành màu đen vì chúng rơi dưới mức cắt.
+
+Tải [grayscale-swatches.png](grayscale-swatches.png) về thư mục làm việc. Mỗi nhãn cho biết mức xám gốc trên thang 0 tới 255. Ví dụ đặt hình gốc cạnh hai bản sao và lưu ngưỡng của mỗi bản sao trong bản trình chiếu.
+
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    byte[] imageData = Files.readAllBytes(Paths.get("grayscale-swatches.png"));
+    IPPImage image = presentation.getImages().addImage(imageData);
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+    
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Mở bản trình chiếu đầu ra trong PowerPoint để so sánh ba khung. Bảng mẫu mang nhãn 96 có khoảng 38 % độ sáng (96 trên 255). Nó chuyển thành trắng ở ngưỡng 20 % và thành đen ở ngưỡng 60 %.
+
+![Các mẫu ảnh xám gốc cạnh kết quả đen-trắng ở ngưỡng độ sáng 20% và 60%](luminance-threshold.png)
+
+## **Thêm Hiệu Ứng Làm Mờ, Độ Trong Suốt và Alpha**
+
+[addBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) ảnh hưởng tới tất cả các kênh màu, bao gồm alpha. Đặt `grow` thành `true` khi cạnh mờ có thể mở rộng ra ngoài giới hạn hình ảnh gốc.
+
+Đối với độ trong suốt đồng nhất, sử dụng [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Nó nhân mỗi giá trị alpha hiện có, vì vậy các pixel bán trong suốt vẫn giữ tỉ lệ khác nhau. [addAlphaReplaceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) ngược lại gán một giá trị alpha cho mọi pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) chuyển đổi alpha thành hai mức dựa trên một ngưỡng.
 
 ```java
 import com.aspose.slides.*;
@@ -185,15 +228,15 @@ try {
 }
 ```
 
-Các thao tác alpha không có tham số khác bao gồm [addAlphaCeilingEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--), làm cho mọi alpha khác không bằng 0 trở nên hoàn toàn mờ; [addAlphaFloorEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--), làm cho mọi alpha dưới 100 % hoàn toàn trong suốt; và [addAlphaInverseEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--), chuyển đổi alpha thành `100% - alpha`.
+Các thao tác alpha không có tham số khác bao gồm [addAlphaCeilingEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--), làm cho mọi alpha khác không trở nên hoàn toàn mờ; [addAlphaFloorEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--), làm cho mọi alpha dưới 100 % trở nên hoàn toàn trong suốt; và [addAlphaInverseEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--), thay đổi alpha thành `100% - alpha`.
 
-## **Xây dựng chuỗi hiệu ứng có thứ tự**
+## **Xây Dựng Chuỗi Hiệu Ứng Có Thứ Tự**
 
-Mỗi phương thức `add...Effect` thêm một thao tác mới vào cuối bộ sưu tập. Bộ dựng hình sử dụng bộ sưu tập như một pipeline có thứ tự: đầu ra của thao tác 0 trở thành đầu vào của thao tác 1, cứ như vậy. Vì vậy, cùng một tập hợp các thao tác nhưng sắp xếp khác nhau có thể tạo ra hình ảnh khác nhau.
+Mỗi phương thức `add...Effect` thêm một thao tác mới vào cuối bộ sưu tập. Trình render sử dụng bộ sưu tập như một pipeline có thứ tự: đầu ra của thao tác 0 trở thành đầu vào của thao tác 1, và cứ tiếp tục như vậy. Do vậy, cùng các thao tác nhưng ở thứ tự khác nhau có thể tạo ra hình ảnh khác.
 
-Ví dụ, chuyển đổi màu xám rồi tint sẽ đầu tiên loại bỏ thông tin sắc màu và sau đó tái tạo màu cho kết quả luminance. Tint rồi màu xám lại loại bỏ tint. Tương tự, việc thay thế alpha có thể ghi đè các giá trị alpha được tính bởi các thao tác trước, trong khi điều chỉnh alpha bảo tồn các chênh lệch tương đối của chúng.
+Ví dụ, làm xám rồi nhuộm màu sẽ đầu tiên loại bỏ thông tin màu sắc và sau đó tô lại độ sáng đã được xử lý; nhuộm màu rồi làm xám sẽ lại loại bỏ màu nhuộm. Tương tự, thay thế alpha có thể ghi đè các giá trị alpha đã được tính bởi các thao tác trước, trong khi điều chế alpha bảo toàn sự khác biệt tương đối của chúng.
 
-Ví dụ dưới đây xây dựng một chuỗi bốn thao tác, lưu dưới dạng PPTX, mở lại bản trình bày, kiểm tra cả kiểu thao tác và thứ tự của chúng, và hiển thị kết quả đã mở lại:
+Ví dụ dưới đây xây dựng một chuỗi bốn thao tác, lưu dưới dạng PPTX, mở lại bản trình chiếu, kiểm tra cả loại thao tác và thứ tự của chúng, và render kết quả đã mở lại:
 
 ```java
 import com.aspose.slides.*;
@@ -246,15 +289,19 @@ try {
 }
 ```
 
-Bộ sưu tập không áp đặt ma trận tương thích nào buộc các thao tác màu, alpha và làm mờ phải nằm trong các chuỗi riêng biệt. Chúng có thể được kết hợp, nhưng không phải lúc nào cũng hữu ích. Việc thay thế màu cố định sẽ xóa bỏ sự biến đổi RGB do các hiệu ứng màu trước đó tạo ra; màu xám sau duotone sẽ xóa bỏ hai màu đã chọn; và các thao tác alpha ceiling, floor, replacement hoặc bi‑level có thể loại bỏ chi tiết alpha được tạo ra trước đó. Hãy xây dựng chuỗi dựa trên trình tự xử lý pixel mong muốn thay vì coi các mục trong đó là các cờ định dạng không có thứ tự.
+Bộ sưu tập không áp đặt một ma trận tương thích nào giới hạn các thao tác màu, alpha và làm mờ thành các chuỗi riêng biệt. Chúng có thể được kết hợp, nhưng không phải lúc nào cũng hữu ích. Thay thế màu cố định loại bỏ biến thể RGB do các hiệu ứng màu trước tạo ra; làm xám sau duotone loại bỏ hai màu đã chọn; và các thao tác alpha ceiling, floor, replacement hoặc bi-level có thể bỏ đi chi tiết alpha được tạo ra trước. Hãy xây dựng chuỗi dựa trên trình tự xử lý pixel mong muốn thay vì coi các mục như các cờ định dạng không có thứ tự.
 
-## **Kiểm tra giá trị có thể chỉnh sửa và giá trị hiệu quả**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Cùng một hình ảnh được chuyển qua làm xám rồi nhuộm màu, và nhuộm màu rồi làm xám. Hai hình ảnh xám cuối cùng có tông màu khác nhau.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+<!-- visual-explanation:image-transform-effects:end -->
 
-Một thao tác có thể chỉnh sửa là đối tượng được lưu trong `ISlidesPicture.getImageTransform`. Tùy vào hiệu ứng, nó có thể trực tiếp phơi bày các thành viên có thể ghi. Ví dụ, [IBlur](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iblur/) phơi bày các giá trị `radius` và `grow` có thể ghi, [IAlphaModulateFixed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ialphamodulatefixed/) phơi bày `amount` có thể ghi, và [IAlphaBiLevel](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ialphabilevel/) phơi bày `threshold` có thể ghi. Các hiệu ứng màu như [IDuotone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iduotone/) phơi bày các đối tượng [IColorFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icolorformat/) có thể thay đổi.
+## **Kiểm Tra Các Giá Trị Có Thể Chỉnh Sửa và Hiệu Quả**
 
-Một số giao diện thao tác, bao gồm [IBrightnessContrast](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itint/), và [IAlphaReplace](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ialphareplace/), không phơi bày các tham số tạo dưới dạng thuộc tính có thể ghi. Để thay đổi các cài đặt này, hãy xóa thao tác và thêm một thao tác thay thế tại vị trí mong muốn.
+Một thao tác có thể chỉnh sửa là đối tượng được lưu trong `ISlidesPicture.getImageTransform`. Tùy thuộc vào hiệu ứng, nó có thể phô bày các thành viên có thể ghi trực tiếp. Ví dụ, [IBlur](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/) phô bày các giá trị `radius` và `grow` có thể ghi, [IAlphaModulateFixed](https://reference.aspose.com/slides/java/com.aspose.slides/ialphamodulatefixed/) phô bày `amount` có thể ghi, và [IAlphaBiLevel](https://reference.aspose.com/slides/java/com.aspose.slides/ialphabilevel/) phô bày `threshold` có thể ghi. Các hiệu ứng màu như [IDuotone](https://reference.aspose.com/slides/java/com.aspose.slides/iduotone/) phô bày các đối tượng [IColorFormat](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/) có thể thay đổi.
 
-Dữ liệu hiệu quả trả về bởi `getEffective()` được tính toán và chỉ đọc. Nó hữu ích cho việc giải quyết các màu phụ thuộc vào chủ đề và đọc các giá trị đã chuẩn hoá mà bộ dựng hình sử dụng, nhưng không phải là một bề mặt chỉnh sửa khác. Ví dụ dưới đây liệt kê chuỗi và kiểm tra các giá trị hiệu quả ở nơi API cung cấp chúng:
+Một số giao diện thao tác, bao gồm [IBrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/java/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/java/com.aspose.slides/itint/), và [IAlphaReplace](https://reference.aspose.com/slides/java/com.aspose.slides/ialphareplace/), không phô bày các vô hướng tạo ra như thuộc tính có thể ghi. Để thay đổi các cài đặt đó, hãy xóa thao tác và thêm một thao tác thay thế ở vị trí cần thiết.
+
+Dữ liệu hiệu quả trả về bởi `getEffective()` được tính toán và chỉ đọc. Nó hữu ích để giải quyết các màu phụ thuộc vào chủ đề và đọc các giá trị đã được chuẩn hoá mà trình render sử dụng, nhưng không phải là một bề mặt chỉnh sửa khác. Ví dụ dưới đây liệt kê chuỗi và kiểm tra các giá trị hiệu quả ở nơi API cung cấp chúng:
 
 ```java
 import com.aspose.slides.*;
@@ -318,11 +365,11 @@ try {
 }
 ```
 
-Các hiệu ứng không có tham số như grayscale, alpha ceiling và alpha inverse vẫn có đối tượng dữ liệu hiệu quả, nhưng không có cài đặt vô hướng nào để in ra. Sự hiện diện và vị trí của chúng trong bộ sưu tập là thông tin quan trọng.
+Các hiệu ứng không có tham số như làm xám, alpha ceiling và alpha inverse vẫn có một đối tượng dữ liệu hiệu quả, nhưng không có cài đặt vô hướng nào để in. Sự hiện diện và vị trí của chúng trong bộ sưu tập là thông tin quan trọng.
 
-## **Xóa hoặc xóa toàn bộ các biến đổi ảnh**
+## **Xóa Hoặc Xóa Trống Các Biến Đổi Hình Ảnh**
 
-Sử dụng [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) để xóa một thao tác theo chỉ mục. Vì các chỉ mục sẽ dịch chuyển sau khi xóa, hãy tìm mục tiêu trước và xóa nó sau khi liệt kê. Sử dụng [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imagetransformoperationcollection/#clear--) để xóa toàn bộ chuỗi.
+Sử dụng [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) để xóa một thao tác theo chỉ mục. Vì các chỉ mục dịch chuyển sau khi xóa, hãy tìm mục tiêu trước và xóa nó sau khi liệt kê. Sử dụng [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/imagetransformoperationcollection/#clear--) để xóa toàn bộ chuỗi.
 
 ```java
 import com.aspose.slides.*;
@@ -363,38 +410,38 @@ try {
 }
 ```
 
-Xóa hoặc xóa toàn bộ các biến đổi chỉ thay đổi định dạng của hình ảnh. Nó không xóa, nén lại hoặc thay đổi tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) đã được tái sử dụng.
+Xóa hoặc xóa trống các biến đổi chỉ thay đổi định dạng hình ảnh. Nó không xóa, nén lại hoặc thay đổi tài nguyên [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) đã được tái sử dụng.
 
-## **Xem xét định dạng bản trình bày và các mục tiêu xuất**
+## **Xem Xét Định Dạng Bản Trình Chiếu và Đích Xuất**
 
-Biến đổi ảnh bắt nguồn từ DrawingML, vì vậy PPTX là định dạng chỉnh sửa ưa thích cho các chuỗi hiệu ứng. Ngay cả với PPTX, không phải mọi thao tác đều có tính di động giống nhau:
+Các biến đổi hình ảnh bắt nguồn từ DrawingML, vì vậy PPTX là định dạng chỉnh sửa ưa thích cho các chuỗi hiệu ứng. Ngay cả với PPTX, không phải mọi thao tác đều có tính di động giống nhau:
 
-- Các thao tác DrawingML chuẩn như luminance, grayscale, duotone, tint, HSL, blur và các thao tác alpha chung có khả năng tồn tại tốt nhất sau vòng quay PPTX. Luôn mở lại tệp đã tạo và kiểm tra bộ sưu tập khi yêu cầu bảo toàn.
-- [BrightnessContrast](https://reference.aspose.com/slides/vi/java/com.aspose.slides/brightnesscontrast/) là một phần mở rộng Office 2010 chứ không phải thao tác luminance DrawingML chuẩn. Nó có thể dùng để dựng hình trong bộ nhớ, nhưng không được đảm bảo sẽ vẫn là một [IBrightnessContrast](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibrightnesscontrast/) có thể chỉnh sửa sau khi lưu và mở lại PPTX. Nên dùng [addLuminanceEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) cho các điều chỉnh độ sáng/độ tương phản bền vững.
-- Định dạng PPT nhị phân xuất hiện trước mô hình hiệu ứng DrawingML đầy đủ. Lưu dưới dạng PPT có thể bỏ qua các thao tác không hỗ trợ, giảm chuỗi xuống một tập hợp con được hỗ trợ, hoặc xấp xỉ hình ảnh. Không nên dùng PPT làm định dạng xác minh cho một chuỗi chỉnh sửa phức tạp.
-- Kết xuất sang PNG, JPEG, TIFF, PDF, SVG, HTML hoặc các định dạng hình ảnh khác áp dụng chuỗi đã hỗ trợ vào hình ảnh cuối cùng. Các đầu ra này không chứa một `IImageTransformOperationCollection` có thể chỉnh sửa; các định dạng raster làm phẳng kết quả thành pixel, và các xuất tài liệu/vector lưu trữ đại diện dựng hình riêng của chúng.
-- Hiệu ứng không làm cho một ảnh được liên kết tự chứa. Việc dựng hình một ảnh liên kết vẫn phụ thuộc vào việc tài nguyên liên kết còn khả dụng khi trình bày được tải.
+- Các thao tác DrawingML chuẩn như luminance, grayscale, duotone, tint, HSL, blur và các thao tác alpha thông thường có khả năng tồn tại tốt nhất sau một vòng quay PPTX. Luôn mở lại tệp đã tạo và kiểm tra bộ sưu tập khi việc bảo lưu là yêu cầu.
+- [BrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/brightnesscontrast/) là một phần mở rộng Office 2010 chứ không phải thao tác luminance chuẩn DrawingML. Nó có thể được dùng cho việc render trong bộ nhớ, nhưng không được đảm bảo vẫn tồn tại dưới dạng [IBrightnessContrast](https://reference.aspose.com/slides/java/com.aspose.slides/ibrightnesscontrast/) có thể chỉnh sửa sau khi lưu và mở lại PPTX. Ưu tiên sử dụng [addLuminanceEffect](https://reference.aspose.com/slides/java/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) cho các điều chỉnh độ sáng và độ tương phản bền vững.
+- Định dạng PPT nhị phân trước khi có mô hình hiệu ứng DrawingML đầy đủ. Lưu dưới dạng PPT có thể bỏ qua các thao tác không được hỗ trợ, giảm chuỗi xuống một tập hợp được hỗ trợ, hoặc xấp xỉ giao diện. Không nên dùng PPT làm định dạng xác minh cho một chuỗi chỉnh sửa phức tạp.
+- Render sang PNG, JPEG, TIFF, PDF, SVG, HTML hoặc các đầu ra hình ảnh khác áp dụng chuỗi được hỗ trợ vào giao diện render. Các đầu ra này không chứa một `IImageTransformOperationCollection` có thể chỉnh sửa; các định dạng raster làm phẳng kết quả thành pixel, và các xuất tài liệu/vector lưu trữ đại diện render riêng của chúng.
+- Các hiệu ứng không làm cho một hình ảnh liên kết tự chứa. Render một hình ảnh liên kết vẫn phụ thuộc vào việc tài nguyên liên kết có sẵn khi bản trình chiếu được tải.
 
-Các nền tảng trình bày khác nhau có thể dựng các trường hợp biên khác nhau, đặc biệt khi nhiều thao tác alpha hoặc giảm màu được kết hợp. Đối với đầu ra quan trọng, hãy thử cả vòng quay chỉnh sửa và định dạng xuất cuối cùng bằng cùng một phiên bản Aspose.Slides đang dùng trong sản xuất.
+Các người tiêu thụ bản trình chiếu khác nhau có thể render các trường hợp biên khác nhau, đặc biệt khi kết hợp nhiều thao tác alpha hoặc lượng màu. Đối với đầu ra quan trọng, hãy kiểm tra cả vòng quay chỉnh sửa và định dạng xuất cuối cùng bằng cùng một phiên bản Aspose.Slides được dùng trong môi trường sản xuất.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Các hiệu ứng biến đổi ảnh có thay đổi dữ liệu ảnh đã nhúng không?**
+**Các hiệu ứng biến đổi hình ảnh có thay đổi dữ liệu hình ảnh được nhúng không?**
 
-Không. Các thao tác thuộc về `ISlidesPicture` được dùng cho nền ảnh. Các byte `IPPImage` nền tảng vẫn không thay đổi.
+Không. Các thao tác thuộc về `ISlidesPicture` được dùng bởi vùng điền hình ảnh. Các byte `IPPImage` nền tảng vẫn không bị thay đổi.
 
-**Hai khung hình ảnh sử dụng cùng một ảnh có cùng chia sẻ hiệu ứng không?**
+**Hai khung hình sử dụng cùng một hình ảnh sẽ chia sẻ các hiệu ứng không?**
 
-Không. Tái sử dụng một `IPPImage` giúp tránh trùng lặp dữ liệu ảnh, nhưng mỗi khung hình thường có một `ISlidesPicture` và bộ sưu tập biến đổi ảnh riêng.
+Không. Tái sử dụng một `IPPImage` tránh việc sao lập dữ liệu hình ảnh, nhưng mỗi khung hình thường có một `ISlidesPicture` và bộ sưu tập biến đổi riêng.
 
 **Có thể kết hợp các hiệu ứng màu, làm mờ và alpha không?**
 
-Có. Bộ sưu tập cho phép chúng trong một chuỗi có thứ tự. Hãy cân nhắc tác động của mỗi thao tác lên kết quả của thao tác trước, vì các thao tác thay thế và ngưỡng có thể loại bỏ chi tiết màu hoặc alpha đã tạo ra trước đó.
+Có. Bộ sưu tập chấp nhận chúng trong một chuỗi có thứ tự. Hãy cân nhắc mỗi thao tác sẽ ảnh hưởng như thế nào tới đầu ra của thao tác trước, vì các thao tác thay thế và ngưỡng có thể loại bỏ chi tiết màu hoặc alpha đã có.
 
 **Tại sao các giá trị hiệu quả lại chỉ đọc?**
 
-Dữ liệu hiệu quả đại diện cho các giá trị đã tính toán dùng để dựng hình, bao gồm các màu đã giải quyết. Chỉnh sửa thao tác lưu trong bộ sưu tập nơi có thành viên có thể ghi; nếu không, hãy xóa nó và thêm một thao tác thay thế với các tham số tạo mới.
+Dữ liệu hiệu quả đại diện cho các giá trị đã được tính toán dùng cho việc render, bao gồm các màu đã được giải quyết. Chỉnh sửa thao tác lưu trong bộ sưu tập biến đổi ở nơi có thành viên có thể ghi; nếu không, hãy xóa nó và thêm một thao tác thay thế với các tham số tạo mới.
 
-**Định dạng nào nên dùng để bảo toàn một chuỗi biến đổi?**
+**Định dạng nào nên dùng để bảo lưu một chuỗi biến đổi?**
 
-Sử dụng PPTX và xác minh tệp bằng cách mở lại. PPT cũ không thể biểu diễn đầy đủ mô hình hiệu ứng DrawingML, và các định dạng xuất hình ảnh chỉ bảo toàn ngoại hình chứ không giữ lại các thao tác biến đổi có thể chỉnh sửa.
+Sử dụng PPTX và xác minh tệp bằng cách mở lại. PPT cũ không thể biểu diễn toàn bộ mô hình hiệu ứng DrawingML, và các định dạng xuất render chỉ giữ lại giao diện chứ không có các thao tác biến đổi có thể chỉnh sửa.

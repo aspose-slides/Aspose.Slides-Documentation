@@ -1,5 +1,5 @@
 ---
-title: Správa efektů transformace obrázku v prezentacích s .NET
+title: Spravujte efekty transformace obrázku v prezentacích s .NET
 linktitle: Efekty transformace obrázku
 type: docs
 weight: 11
@@ -11,12 +11,12 @@ keywords:
 - kontrast
 - odstín šedi
 - duotón
-- tónování
+- nádech
 - HSL
-- nahrazení barvy
-- rozostření
+- náhrada barvy
+- rozmazání
 - průhlednost
-- alfa efekt
+- efekt alfa
 - řetězec efektů
 - PowerPoint
 - prezentace
@@ -27,46 +27,46 @@ description: "Použijte, řaďte, kontrolujte, odstraňujte a ověřujte efekty 
 ---
 ## **Přehled**
 
-Aspose.Slides představuje úpravy obrázků jako uspořádanou kolekci operací transformace obrázku. Pro rámeček obrázku začněte s rámcem [ISlidesPicture](https://reference.aspose.com/slides/cs/net/aspose.slides/islidespicture/) a přistupte k [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/cs/net/aspose.slides/islidespicture/imagetransform/). Vrácená [IImageTransformOperationCollection](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/) vám umožní přidávat, procházet, kontrolovat, odstraňovat a vymazávat efekty, aniž byste přepisovali původní bajty obrázku.
+Aspose.Slides představuje úpravy obrázků jako uspořádanou kolekci operací transformace obrazu. Pro rámeček obrázku začněte s objektem [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) a přistupte k [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/). Vrácený [IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/) vám umožní přidávat, procházet, zkoumat, odstraňovat a čistit efekty, aniž byste přepisovali původní bajty obrázku.
 
-Tento článek ukazuje kompletní pracovní postup pro jas a kontrast, barevné transformace, rozostření, průhlednost, řazené řetězce efektů, efektivní hodnoty, odstraňování a ověření PPTX round‑trip.
+Tento článek demonstruje kompletní postup pro jas a kontrast, barevné transformace, rozmazání, průhlednost, řazené řetězce efektů, efektivní hodnoty, odstraňování a ověření PPTX round‑trip.
 
-## **Pochopte vlastnictví efektů a opakované použití obrázku**
+## **Pochopení vlastnictví efektů a znovupoužití obrázku**
 
-Obrazový zdroj a obrázek, který jej zobrazuje, jsou různé objekty:
+Obrazový zdroj a obrázek, který ho zobrazuje, jsou různé objekty:
 
-- [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) ukládá nebo odkazuje na zdrojová data obrázku, která vlastní prezentace.
-- [ISlidesPicture](https://reference.aspose.com/slides/cs/net/aspose.slides/islidespicture/) patří k výplni obrázku a odkazuje na zdroj obrázku, přičemž uchovává kolekci transformací obrázku.
-- [IPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ipictureframe/) je tvar snímku, který vlastní příslušnou výplň obrázku, geometrii, nastavení ořezu a další formátování úrovně rámce.
+- [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) ukládá nebo odkazuje na zdrojová data obrázku patřící prezentaci.
+- [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) patří k výplni obrázku a odkazuje na obrazový zdroj, zatímco uchovává kolekci transformací obrazu.
+- [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) je tvar snímku, který vlastní příslušnou výplň obrázku, geometrii, nastavení ořezu a další formátování úrovně rámce.
 
-Proto operace transformace obrázku nemodifikují bajty v [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/). Když je stejný `IPPImage` předán metodě [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addpictureframe/) vícekrát, každý nový rámeček obrázku získá vlastní `ISlidesPicture` a vlastní kolekci transformací. Použití odstínu šedi na jednom rámečku neovlivní ostatní rámečky, i když všechny používají stejný vložený obrazový zdroj.
+Proto operace transformace obrazu nemění bajty v [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). Když je stejný `IPPImage` předán metodě [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) více než jednou, každý nový rámeček obrázku získá vlastní `ISlidesPicture` a vlastní kolekci transformací. Aplikace odstínu šedi na jeden rámec neovlivní ostatní rámečky, i když všechny používají stejný vložený obrazový zdroj.
 
-Stejný model `ISlidesPicture.ImageTransform` používají také další výplně obrázků, např. tvar nebo pozadí snímku. Níže uvedené příklady se zaměřují na rámečky obrázků.
+Stejný model `ISlidesPicture.ImageTransform` používají i jiné výplně obrázků, např. tvar nebo pozadí snímku. Níže uvedené příklady se zaměřují na rámečky obrázků.
 
 ## **Používejte platné rozsahy parametrů a jednotky**
 
-Ukázané metody používají následující sémantické rozsahy a jednotky. Držte se těchto rozsahů, i když konkrétní verze knihovny neodmítne každou mimo‑rozsahovou hodnotu okamžitě; cílový formát prezentace může během uložení nebo při otevření souboru PowerPointem normalizovat, vynechat nebo odmítnout neplatná data.
+Ukázané metody používají následující sémantické rozsahy a jednotky. Dodržujte tyto rozsahy, i když konkrétní verze knihovny neodmítne okamžitě každý neplatný vstup; cílový formát prezentace může během uložení nebo při otevření souboru v PowerPointu normalizovat, vynechat nebo odmítnout neplatná data.
 
 | Operace | Parametry | Platný rozsah a jednotka |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` až `100`, procent; `0` ponechá komponentu beze změny. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | Žádné číselné parametry. Alfa zůstává beze změny. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Dvě barvy pro tmavé a světlé pixely. RGB a alfa kanály v `System.Drawing.Color` používají hodnoty od `0` do `255`. |
-| [AddTintEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Odstín je od `0` (včetně) do `360` (vyloučeno) stupňů; množství je od `-100` do `100` procent. |
-| [AddHSLEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Odstín je od `0` (včetně) do `360` (vyloučeno) stupňů; sytost a luminance jsou od `-100` do `100` procent. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | Náhradní barva používá kanálové hodnoty od `0` do `255`. Existující alfa hodnoty zůstávají beze změny. |
-| [AddBlurEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Poloměr je nezáporný a měří se v bodech; `grow` je logická hodnota určující, zda může rozostřený obsah přesahovat původní ohraničení. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Nezáporné procento. Použijte `0` až `100` pro obyčejné škálování neprůhlednosti: `0` je plně průhledné a `100` zachovává existující alfa. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` až `100`, procenta neprůhlednosti. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` až `100`, procenta alfa prahu. Hodnoty pod prahem se stanou průhlednými; hodnoty na nebo nad prahem se stanou neprůhlednými. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` až `100`, procent; `0` ponechává komponentu beze změny. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | Žádné | Žádné číselné parametry. Alfa zůstává beze změny. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Dvě barvy pro tmavé a světlé pixely. Kanály RGB a alfa v `System.Drawing.Color` používají hodnoty `0` až `255`. |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Odstín je `0` včetně až `360` vyloučeno, ve stupních; množství je `-100` až `100`, procent. |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Odstín je `0` včetně až `360` vyloučeno, ve stupních; sytost a luminance jsou `-100` až `100`, procent. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | Náhradní barva používá hodnoty kanálů od `0` do `255`. Existující hodnoty alfa zůstávají beze změny. |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Poloměr je nezáporný a měří se v bodech; `grow` je Boolean, který určuje, zda rozmazaný obsah může přesahovat původní okraje. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Nezáporné procento. Použijte `0` až `100` pro běžné škálování opacity: `0` je plně průhledné a `100` zachovává existující alfa. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` až `100`, procento opacity. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` až `100`, procento prahu alfa. Hodnoty pod prahem se stanou průhlednými; hodnoty na nebo nad prahem jsou neprůhledné. |
 
-Pro pevnou alfa modulaci jsou průhlednost a neprůhlednost komplementární. Například 35 % průhlednosti odpovídá hodnotě modulace alfa 65 %.
+Pro pevnou modulaci alfa jsou průhlednost a opacity komplementární. Například 35 % průhlednost odpovídá modulaci alfa ve výši 65 %.
 
 ## **Použijte jas a kontrast**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) vrací operaci [IBrightnessContrast](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ibrightnesscontrast/). Její skalární nastavení se předává při vytvoření operace. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/brightnesscontrast/geteffective/) vrací vypočítané pouze pro čtení hodnoty, které lze zkontrolovat nebo zaznamenat.
+[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) vrací operaci [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/). Její skalární nastavení jsou zadána při vytvoření operace. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/) vrací vypočtené jen pro čtení hodnoty, které lze zkontrolovat nebo zaznamenat.
 
-Následující příklad zvýší jas o 15 % a kontrast o 20 %, poté zobrazí náhled bez úpravy vloženého obrázku:
+Následující příklad zvýší jas o 15 % a kontrast o 20 %, poté vykreslí náhled, aniž by upravil vložený obrázek:
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/brightnesscontrast/) je rozšíření Office 2010 pro efekt obrázku a není tak přenositelné jako standardní efekt DrawingML luminance. Pokud má jas a kontrast zůstat po PPTX round‑trip editovatelné, použijte [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) a výsledek ověřte po opětovném otevření souboru. Sekce omezení formátů toto rozlišení vysvětluje podrobněji.
+[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) je rozšíření Office 2010 pro efekty obrázků a není tak přenositelné jako standardní efekt DrawingML luminance. Když je třeba, aby jas a kontrast zůstaly editovatelné po PPTX round‑trip, použijte [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) a ověřte výsledek po opětovném otevření souboru. Část o omezeních formátu vysvětluje tento rozdíl podrobněji.
 
-## **Použijte transformace barev**
+## **Použijte barevné transformace**
 
-Barevné efekty lze použít nezávisle na různých rámecích obrázku, které znovu používají jeden zdroj obrázku. Následující příklad vytvoří pět rámečků a použije odstín šedi, duotón, tónování, úpravu HSL a nahrazení barvy.
+Barevné efekty lze aplikovat nezávisle na různých rámečcích obrázků, které znovu používají jeden obrazový zdroj. Následující příklad vytvoří pět rámečků a použije odstín šedi, duotón, nádech, úpravu HSL a nahrazení barvy.
 
-[IDuotone](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iduotone/) obsahuje dva nezávisle editovatelné parametry barvy: `Color1` mapuje tmavé pixely, zatímco `Color2` mapuje světlé pixely. To z něj činí užitečný příklad efektu, jehož nastavení jsou složitější než jediná skalární hodnota.
+[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) obsahuje dva nezávisle editovatelné barevné parametry: `Color1` mapuje tmavé pixely, zatímco `Color2` mapuje světlé pixely. To z něj dělá užitečný příklad efektu, jehož nastavení jsou složitější než jediná skalární hodnota.
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) nahrazuje barvu každého pixelu jednou pevnou barvou a zachovává alfa kanál. Liší se od [AddColorChangeEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), který mapuje jednu zdrojovou barvu na jinou a vystavuje oba formáty zdrojové i cílové barvy.
+[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) nahrazuje barvu každého pixelu jednou pevnou barvou a zachovává alfu. Liší se od [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), který mapuje jednu zdrojovou barvu na jinou a odhaluje formáty obou zdrojových i cílových barev.
 
-## **Přidejte rozostření, průhlednost a alfa efekty**
+### **Použijte prahování luminance**
 
-[AddBlurEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) ovlivňuje všechny barevné kanály, včetně alfa. Nastavte `grow` na `true`, pokud rozostřený okraj může přesáhnout původní okraje obrázku.
+Prahování luminance může usnadnit rozpoznání slabých značek na naskenované stránce. [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) zachovává mezistupně šedi. [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) mapuje luminanci na černou nebo bílou, zatímco [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) aplikuje práh na průhlednost.
 
-Pro jednotnou průhlednost použijte [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Násobí každou existující hodnotu alfa, takže částečně průhledné pixely zůstávají proporcionálně odlišné. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) naopak přiřadí jednu hodnotu alfa všem pixelům. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) převádí alfa na dvě úrovně podle prahu.
+Prahování luminance se pohybuje od 0 % do 100 %, včetně. Pixely pod prahem se stanou černými. Pixely na nebo nad prahem se stanou bílými. Zvýšením prahu se více odstínů stane černými, protože více pixelů spadne pod limit.
+
+Stáhněte [grayscale-swatches.png](grayscale-swatches.png) do pracovního adresáře. Každý štítek uvádí původní úroveň šedi na stupnici od 0 do 255. Příklad umístí originál vedle dvou kopií a uloží práh každé kopie v prezentaci.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Otevřete výstupní prezentaci v PowerPointu a porovnejte tři rámečky. Štítek s hodnotou 96 má asi 38 % luminance (96 z 255). Při prahu 20 % se zobrazí bílá a při prahu 60 % černá.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **Přidejte rozmazání, průhlednost a alfa efekty**
+
+[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) ovlivňuje všechny barevné kanály, včetně alfy. Nastavte `grow` na `true`, když rozmazaný okraj může přesáhnout původní okraje obrázku.
+
+Pro jednotnou průhlednost použijte [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Násobí každou existující alfu, takže částečně průhledné pixely zůstávají proporcionálně odlišné. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) místo toho přiřadí jednu alfa hodnotu všem pixelům. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) převádí alfu na dvě úrovně podle prahu.
 
 ```csharp
 using System.IO;
@@ -171,15 +212,15 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-Další operace alfa bez parametrů zahrnují [AddAlphaCeilingEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), který učiní každou nenulovou alfu plně neprůhlednou; [AddAlphaFloorEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), který učiní každou alfu pod 100 % plně průhlednou; a [AddAlphaInverseEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), který mění alfu na `100% - alfa`.
+Další alfa operace bez parametrů zahrnují [AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), který nastaví každou nenulovou alfu na plně neprůhlednou; [AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), který nastaví každou alfu pod 100 % na plně průhlednou; a [AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), který mění alfu na `100% - alpha`.
 
-## **Sestavte řazený řetězec efektů**
+## **Vytvořte řazený řetězec efektů**
 
-Každá metoda `Add...Effect` přidá novou operaci na konec kolekce. Vykreslovací engine používá kolekci jako řazený potrubní pás: výstup operace 0 se stane vstupem operace 1 a tak dále. V důsledku toho může stejná sada operací v jiném pořadí vytvořit odlišný obrázek.
+Každá metoda `Add...Effect` připojí novou operaci na konec kolekce. Vykreslovací engine používá kolekci jako uspořádaný pipeline: výstup operace 0 se stane vstupem operace 1 a tak dále. Výsledkem je, že stejné operace v jiném pořadí mohou vytvořit odlišný obrázek.
 
-Například odstín šedi následovaný tónováním nejprve odstraní chromatickou informaci a pak přetónuje výsledek luminance. Tónování následované odstínem šedi zase odstraní tónování. Podobně náhrada alfa může přepsat hodnoty alfa vypočítané dřívějšími operacemi, zatímco modulace alfa zachová jejich relativní rozdíly.
+Například odstín šedi následovaný nádechem nejprve odstraní chromatickou informaci a pak obarví výsledek luminance. Nádech následovaný odstínem šedi nádech opět odstraní. Podobně může nahrazení alfy přepsat alfa hodnoty vypočítané dřívějšími operacemi, zatímco modulace alfy zachová jejich relativní rozdíly.
 
-Následující příklad vytvoří řetězec čtyř operací, uloží jej jako PPTX, otevře prezentaci znovu, zkontroluje typy operací i jejich pořadí a vykreslí výsledek po opětovném otevření:
+Následující příklad vytvoří řetězec se čtyřmi operacemi, uloží jej jako PPTX, znovu otevře prezentaci, ověří typy operací i jejich pořadí a vykreslí znovuotevřený výsledek:
 
 ```csharp
 using System;
@@ -224,15 +265,22 @@ else
 }
 ```
 
-Kolekce nevyžaduje kompatibilní matici, která by omezovala barvy, alfa a rozostření na samostatné řetězce. Mohou být kombinovány, ale kombinace nejsou vždy užitečné. Pevná náhrada barvy odstraní RGB variaci vytvořenou předchozími barevnými efekty; odstín šedi po duotónu odstraní dvě vybrané barvy; a efekty alfa ceiling, floor, replacement nebo bi‑level mohou zrušit detaile alfa vytvořené dříve. Sestavujte řetězec podle požadované sekvence zpracování pixelů, nikoli jako neuspořádané příznaky formátování.
+Kolekce neukládá kompatibilní matici, která by omezovala barevné, alfa a rozmazávací operace na oddělené řetězce. Mohou být kombinovány, ale ne vždy jsou užitečné. Pevná náhrada barvy odstraní RGB variaci vytvořenou předchozími barevnými efekty; odstín šedi po duotóne odstraní dvě vybrané barvy; a operace alfa ceiling, floor, replacement nebo bi‑level mohou zahodit alfa detail vytvořený dříve. Sestavte řetězec podle požadované sekvence zpracování pixelů místo toho, abyste jeho položky považovali za nepřehledné formátovací příznaky.
 
-## **Prozkoumejte editovatelné a efektivní hodnoty**
 
-Editovatelná operace je objekt uložený v `ISlidesPicture.ImageTransform`. V závislosti na efektu může přímo vystavovat zapisovatelné členy. Například [IBlur](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iblur/) vystavuje zapisovatelný `Radius` a `Grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ialphamodulatefixed/) vystavuje zapisovatelný `Amount` a [IAlphaBiLevel](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ialphabilevel/) vystavuje zapisovatelný `Threshold`. Barevné efekty jako [IDuotone](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iduotone/) vystavují mutable objekty [IColorFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/icolorformat/).
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Některé rozhraní operací, včetně [IBrightnessContrast](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/itint/) a [IAlphaReplace](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ialphareplace/), neexponují své vytvářející skaláry jako zapisovatelné vlastnosti. Pro změnu těchto nastavení odstraňte operaci a přidejte novou na požadovanou pozici.
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Efektivní data vrácená metodou `GetEffective()` jsou vypočítaná a pouze pro čtení. Hodí se k rozpoznání tématem závislých barev a ke čtení normalizovaných hodnot, které vykreslovací engine používá, ale nejsou dalším editovatelným povrchem. Následující příklad prochází řetězec a kontroluje efektivní hodnoty tam, kde API je poskytuje:
+## **Prohlédněte editovatelné a efektivní hodnoty**
+
+Editovatelná operace je objekt uložený v `ISlidesPicture.ImageTransform`. V závislosti na efektu může přímo odhalovat zapisovatelné členy. Například [IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/) odhaluje zapisovatelný `Radius` a `Grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/) odhaluje zapisovatelný `Amount` a [IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/) odhaluje zapisovatelný `Threshold`. Barevné efekty jako [IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) odhalují mutovatelné objekty [IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/).
+
+Některé rozhraní operací, včetně [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/) a [IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/), neodhalují své vytvořené skaláry jako zapisovatelné vlastnosti. Pro změnu těchto nastavení odeberte operaci a přidejte náhradu na požadovanou pozici.
+
+Efektivní data vrácená metodou `GetEffective()` jsou vypočtená a jen pro čtení. Hodí se k rozlišení barev závislých na motivu a ke čtení normalizovaných hodnot, které vykreslovací engine používá, ale nejsou dalším editačním rozhraním. Následující příklad prochází řetězec a kontroluje efektivní hodnoty, kde API poskytuje:
 
 ```csharp
 using System;
@@ -302,11 +350,11 @@ if (pictureFrame != null)
 }
 ```
 
-Efekty bez parametrů, jako odstín šedi, alfa ceiling a alfa inverse, stále mají objekt s efektivními daty, ale není co tisknout jako skalární nastavení. Jejich přítomnost a pozice v kolekci jsou důležité informace.
+Efekty bez parametrů, jako odstín šedi, alfa ceiling a alfa inverse, stále mají objekt efektivních dat, ale neexistují žádná skalární nastavení, která by šlo vytisknout. Jejich přítomnost a pozice v kolekci jsou důležité informace.
 
-## **Odstraňte nebo vymažte transformace obrázku**
+## **Odstraňte nebo vymažte transformace obrazu**
 
-Použijte [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) k odebrání jedné operace podle indexu. Protože se indexy po odebrání posouvají, nejprve najděte cílovou operaci a až po procházení ji odstraňte. Metodu `Clear()` použijte k odstranění celého řetězce.
+Použijte [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) k odebrání jedné operace podle indexu. Protože se indexy po odebrání posunou, nejprve vyhledejte cíl a až po průchodu jej odstraňte. Použijte `Clear()` k odebrání celého řetězce.
 
 ```csharp
 using System;
@@ -344,38 +392,38 @@ if (pictureFrame != null)
 }
 ```
 
-Odstranění nebo vymazání transformací mění jen formátování obrázku. Neodstraňuje, nekomeprimuje ani jinak nemění znovu použité zdroje [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/).
+Odstranění nebo vymazání transformací mění pouze formátování obrázku. Neodstraňuje, nekomprimuje ani jinak nemění znovu použitý zdroj [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
 
 ## **Zvažte formáty prezentací a cílové exporty**
 
-Transformace obrázku pocházejí z DrawingML, takže PPTX je preferovaný editovatelný formát pro řetězce efektů. I v PPTX však nekaždá operace má stejnou přenositelnost:
+Transformace obrazu pocházejí z DrawingML, takže PPTX je preferovaný editovatelný formát pro řetězce efektů. I u PPTX však ne všechny operace mají stejnou přenositelnost:
 
-- Standardní operace DrawingML jako luminance, odstín šedi, duotón, tónování, HSL, rozostření a běžné alfa operace mají nejlepší šanci přežít PPTX round‑trip. Vždy po uložení souboru otevřete znovu a zkontrolujte kolekci, pokud je zachování požadováno.
-- [BrightnessContrast](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/brightnesscontrast/) je rozšíření Office 2010, nikoli standardní operace DrawingML luminance. Lze jej použít pro renderování v paměti, ale není zaručeno, že po uložení a opětovném otevření PPTX zůstane editovatelným [IBrightnessContrast](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/ibrightnesscontrast/). Pro trvalé úpravy jasu a kontrastu upřednostněte [AddLuminanceEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/).
-- Binární formát PPT předchází plnému modelu efektů DrawingML. Ukládání do PPT může vynechat nepodporované operace, zredukovat řetězec na podporovanou podmnožinu nebo aproximovat vzhled. Nepoužívejte PPT jako formát pro ověření komplexního editovatelného řetězce.
-- Renderování do PNG, JPEG, TIFF, PDF, SVG, HTML nebo jiných vizuálních výstupů použije podporovaný řetězec pro vytvořený vzhled. Tyto výstupy neobsahují editovatelnou `IImageTransformOperationCollection`; rastrové formáty výsledek zploští do pixelů a dokumentové/vektorové exporty ukládají vlastní reprezentaci renderování.
-- Efekty nečiní propojený obrázek samostatně uložitelným. Renderování propojeného obrázku stále závisí na dostupnosti propojeného zdroje při načítání prezentace.
+- Standardní operace DrawingML, jako luminance, odstín šedi, duotón, nádech, HSL, rozmazání a běžné alfa operace, mají nejlepší šanci přežít PPTX round‑trip. Vždy znovu otevřete vygenerovaný soubor a zkontrolujte kolekci, pokud je zachování požadováno.
+- [BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) je rozšíření Office 2010 a ne standardní operace DrawingML luminance. Lze jej použít pro renderování v paměti, ale není zaručeno, že po uložení a opětovném otevření PPTX zůstane editovatelným [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/). Upřednostněte [AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) pro trvalé úpravy jasu a kontrastu.
+- Binární formát PPT předchází úplnému modelu efektů DrawingML. Ukládání do PPT může vynechat nepodporované operace, zkrátit řetězec na podporovanou podmnožinu nebo aproximovat vzhled. Nepoužívejte PPT jako ověřovací formát pro složitý editovatelný řetězec.
+- Renderování do PNG, JPEG, TIFF, PDF, SVG, HTML nebo jiných vizuálních výstupů použije podporovaný řetězec na výsledný vzhled. Tyto výstupy neobsahují editovatelný `IImageTransformOperationCollection`; rastrové formáty výsledek rozloží do pixelů a exporty dokumentu/vektoru ukládají vlastní reprezentaci renderování.
+- Efekty nečiní propojený obrázek samostatným. Renderování propojeného obrázku stále závisí na tom, že propojený zdroj bude dostupný při načítání prezentace.
 
-Různí spotřebitelé prezentací mohou renderovat okrajové případy odlišně, zvláště když jsou kombinovány několik alfa nebo barevných kvantizačních operací. Pro kritické výstupy otestujte jak editovatelný round‑trip, tak finální exportní formát se stejnou verzí Aspose.Slides používanou ve výrobě.
+Různí spotřebitelé prezentací mohou renderovat okrajové případy odlišně, zejména když jsou kombinovány několik alfa nebo barevných kvantizačních operací. Pro kritický výstup otestujte jak editovatelný round‑trip, tak finální exportní formát se stejnou verzí Aspose.Slides používanou v produkci.
 
 ## **Často kladené otázky**
 
-**Mění efekty transformace obrázku vložená data obrázku?**
+**Upravují efekty transformace obrazu vložená data obrázku?**
 
-Ne. Operace patří k `ISlidesPicture` používanému výplní obrázku. Bajty podkladového `IPPImage` zůstávají beze změny.
+Ne. Operace patří k `ISlidesPicture` použitému výplní obrázku. Podkladové bajty `IPPImage` zůstávají beze změny.
 
-**Budou dva rámečky obrázku, které používají stejný obrázek, sdílet své efekty?**
+**Budou dva rámečky obrázků, které znovu používají stejný obrázek, sdílet své efekty?**
 
-Ne. Opakované použití `IPPImage` snižuje duplicitní data obrázku, ale každý rámeček obrázku má obvykle vlastní `ISlidesPicture` a vlastní kolekci transformací obrázku.
+Ne. Znovupoužití `IPPImage` eliminuje duplicitní data obrázku, ale každý rámeček obrázku má obvykle samostatný `ISlidesPicture` a kolekci transformací obrazu.
 
-**Lze kombinovat barevné, rozostřovací a alfa efekty?**
+**Lze kombinovat barevné, rozmazávací a alfa efekty?**
 
-Ano. Kolekce je přijímá v jednom řazeném řetězci. Zvažte, jak každá operace ovlivňuje výstup předchozí, protože operace náhrady a prahu mohou zrušit dřívější barevné nebo alfa detaily.
+Ano. Kolekce je přijímá v jednom řazeném řetězci. Zvažte, co každá operace dělá s výstupem předchozí, protože náhrada a prahové operace mohou zahodit dřívější barevné nebo alfa detaily.
 
-**Proč jsou efektivní hodnoty pouze pro čtení?**
+**Proč jsou efektivní hodnoty jen pro čtení?**
 
-Efektivní data představují vypočítané hodnoty použité pro renderování, včetně rozpoznaných barev. Upravit můžete operaci uloženou v kolekci transformací, pokud má zapisovatelné členy; jinak ji odstraňte a přidejte novou s novými parametry.
+Efektivní data představují vypočtené hodnoty používané při renderování, včetně rozřešených barev. Editujte operaci uloženou v kolekci transformací tam, kde existují zapisovatelné členy; jinak ji odstraňte a přidejte náhradu s novými parametry vytvoření.
 
-**Jaký formát použít k zachování řetězce transformací?**
+**Který formát použít k zachování řetězce transformací?**
 
-Použijte PPTX a ověřte soubor jeho opětovným otevřením. Starší PPT nemůže reprezentovat celý model efektů DrawingML a renderované exportní formáty zachovávají pouze vzhled, ne editovatelné operace transformace.
+Použijte PPTX a ověřte soubor opětovným otevřením. Starší PPT nemůže reprezentovat celý model efektů DrawingML a renderovací exportní formáty zachovávají jen vzhled, nikoli editovatelné operace transformace.

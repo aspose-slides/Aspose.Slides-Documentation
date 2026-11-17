@@ -1,72 +1,72 @@
 ---
-title: مدیریت افکت‌های تبدیل تصویر در ارائه‌ها با پایتون
-linktitle: افکت‌های تبدیل تصویر
+title: مدیریت اثرهای تبدیل تصویر در ارائه‌ها با Python
+linktitle: اثرهای تبدیل تصویر
 type: docs
 weight: 11
 url: /fa/python-java/image-transform-effects/
 keywords:
 - تبدیل تصویر
-- افکت تصویر
+- اثر تصویر
 - روشنایی
 - کنتراست
 - خاکستری
-- دو‌رنگی
-- رنگ‌پاشی
+- دو‑تونی
+- تینت
 - HSL
 - جایگزینی رنگ
-- محو
+- تاری
 - شفافیت
-- افکت آلفا
-- زنجیره افکت
+- اثر آلفا
+- زنجیرهٔ اثر
 - PowerPoint
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "اعمال، زنجیره‌سازی، بازرسی، حذف و اعتبارسنجی افکت‌های تبدیل تصویر برای قاب‌های تصویر با Aspose.Slides برای پایتون از طریق جاوا."
+description: "اعمال، زنجیره‌بندی، بررسی، حذف و تأیید اثرهای تبدیل تصویر برای چارچوب‌های تصویری با Aspose.Slides برای Python از طریق Java."
 ---
-## **نمایش کلی**
+## **نمای کلی**
 
-Aspose.Slides تنظیمات تصویر را به عنوان مجموعه‌ای مرتب از عملیات تبدیل تصویر نمایش می‌دهد. برای یک قاب تصویر، با [Picture](https://reference.aspose.com/slides/fa/python-java/aspose.slides/picture/) قاب شروع کنید و به [Picture.getImageTransform](https://reference.aspose.com/slides/fa/python-java/aspose.slides/picture/#getImageTransform) دسترسی پیدا کنید. مجموعهٔ بازگشتی [ImageTransformOperationCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/) به شما اجازه می‌دهد تا اثرات را اضافه، فهرست، بازرسی، حذف و پاک کنید بدون اینکه بایت‌های تصویر اصلی بازنویسی شوند.
+Aspose.Slides تنظیمات تصویر را به‌عنوان مجموعه‌ای مرتب از عملیات تبدیل تصویر نمایش می‌دهد. برای یک چارچوب تصویر، با [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) چارچوب شروع کنید و به [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform) دسترسی پیدا کنید. [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) بازگشتی به شما اجازه می‌دهد تا اثرات را اضافه، شمارش، بررسی، حذف و پاک‌سازی کنید بدون اینکه بایت‌های تصویر اصلی بازنویسی شوند.
 
-این مقاله یک جریان کاری کامل برای روشنایی و کنتراست، تبدیل رنگ‌ها، تار شدن، شفافیت، زنجیره‌های اثر مرتب، مقادیر مؤثر، حذف و تأیید دورانی PPTX را نشان می‌دهد.
+این مقاله یک جریان کار کامل برای روشنایی و کنتراست، تبدیل‌های رنگ، تاری، شفافیت، زنجیره‌های اثر مرتب، مقادیر مؤثر، حذف و تأیید دورانی PPTX را نشان می‌دهد.
 
-## **درک مالکیت اثر و استفادهٔ مجدد از تصویر**
+## **درک مالکیت اثر و بازاستفاده تصویر**
 
-یک منبع تصویر و تصویری که آن را نمایش می‌دهد، اشیای متفاوتی هستند:
+یک منبع تصویر و عکسی که آن را نمایش می‌دهد، اشیای متفاوتی هستند:
 
-- [PPImage](https://reference.aspose.com/slides/fa/python-java/aspose.slides/ppimage/) داده‌های تصویر منبع را که متعلق به ارائه است، ذخیره یا به آنها ارجاع می‌دهد.
-- [Picture](https://reference.aspose.com/slides/fa/python-java/aspose.slides/picture/) به یک پر کردن تصویر تعلق دارد و به منبع تصویر ارجاع می‌دهد در حالی که مجموعهٔ تبدیل تصویر را نگهداری می‌کند.
-- [PictureFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pictureframe/) شکل اسلاید است که پر کردن تصویر مربوطه، هندسه، تنظیمات برش و سایر قالب‌بندی‌های سطح قاب را دارا است.
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) داده‌های تصویر منبع را که متعلق به ارائه است، ذخیره یا مرجع می‌کند.
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) به یک پرکن تصویر تعلق دارد و به یک منبع تصویر ارجاع می‌دهد در حالی که مجموعه تبدیل تصویر را نگه می‌دارد.
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) شکل اسلایدی است که پرکن تصویر مرتبط، هندسه، تنظیمات برش و سایر قالب‌بندی‌های سطح چارچوب را در اختیار دارد.
 
-بنابراین، عملیات تبدیل تصویر بایت‌های موجود در [PPImage](https://reference.aspose.com/slides/fa/python-java/aspose.slides/ppimage/) را تغییر نمی‌دهند. هنگامی که همان `PPImage` بیش از یک بار به [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapecollection/#addPictureFrame) داده می‌شود، هر قاب تصویر جدید `Picture` و مجموعهٔ تبدیل تصویر خود را دریافت می‌کند. اعمال مقیاس خاکستری بر یک قاب، دیگر قاب‌ها را خاکستری نمی‌کند، حتی اگر همهٔ آنها از همان منبع تصویر جاسازی‌شده استفاده کنند.
+به همین دلیل، عملیات تبدیل تصویر بایت‌های [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) را تغییر نمی‌دهند. وقتی همان `PPImage` بیش از یک بار به [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) داده شود، هر چارچوب تصویر جدید یک `Picture` و مجموعه تبدیل مختص به خود دریافت می‌کند. اعمال خاکستری به یک چارچوب، دیگر چارچوب‌ها را خاکستری نمی‌کند، حتی اگر همه آن‌ها از همان منبع تصویر توکار استفاده کنند.
 
-مدل `Picture.getImageTransform` مشابه برای پر کردن‌های تصویری دیگر نیز به کار می‌رود، مانند پس‌زمینهٔ شکل یا اسلاید. مثال‌های زیر بر روی قاب‌های تصویر متمرکز هستند.
+مدل `Picture.getImageTransform` مشابه توسط پرکن‌های تصویری دیگر، مانند یک شکل یا پس‌زمینه اسلاید، نیز استفاده می‌شود. مثال‌های زیر بر چارچوب‌های تصویر متمرکز شده‌اند.
 
-## **استفاده از بازه‌ها و واحدهای معتبر برای پارامترها**
+## **استفاده از بازه‌ها و واحدهای معتبر پارامترها**
 
-روش‌های نشان داده‌شده از بازه‌ها و واحدهای معنایی زیر استفاده می‌کنند. حتی اگر نسخهٔ خاصی از کتابخانه هر مقدار خارج از بازه را بلافاصله رد نکند، مقادیر را در این بازه‌ها نگه دارید؛ قالب هدف ممکن است هنگام ذخیره یا باز کردن فایل توسط PowerPoint، داده‌های نامعتبر را نرمال‌سازی، حذف یا رد کند.
+متدهای نمایش داده‌شده از بازه‌ها و واحدهای معنایی زیر استفاده می‌کنند. حتی اگر نسخهٔ خاصی از کتابخانه هر مقدار خارج از بازه را فوراً رد نکند، مقادیر را در این بازه‌ها نگه دارید؛ قالب هدف ارائه ممکن است در زمان ذخیره یا هنگام باز کردن فایل توسط PowerPoint عیار، حذف یا رد داده‌های نامعتبر را انجام دهد.
 
-| عملیات | پارامترها | بازه معتبر و واحد |
+| عملیات | پارامترها | محدوده معتبر و واحد |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` تا `100`، درصد؛ `0` مؤلفه را دست‌نخورده می‌گذارد. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | پارامتر عددی ندارد. آلفا دست‌نخورده می‌ماند. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | دو رنگ برای پیکسل‌های تاریک و روشن. کانال‌های RGB و آلفا در `java.awt.Color` از `0` تا `255` استفاده می‌شوند. |
-| [addTintEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | hue از `0` (شامل) تا `360` (به‌جز) درجه؛ amount از `-100` تا `100` درصد. |
-| [addHSLEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | hue از `0` تا `360` درجه؛ saturation و luminance از `-100` تا `100` درصد. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | رنگ جایگزین مقادیر کانال‌های `0` تا `255` دارد. مقادیر آلفای موجود دست‌نخورده می‌مانند. |
-| [addBlurEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | radius غیرمنفی و بر حسب نقاط اندازه‌گیری می‌شود؛ `grow` یک Boolean است که کنترل می‌کند آیا محتوای تار شده می‌تواند خارج از مرزهای اصلی گسترش یابد یا خیر. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | درصد غیرمنفی. برای مقیاس شفافیت معمولی از `0` تا `100` استفاده کنید: `0` کاملاً شفاف و `100` آلفای موجود را حفظ می‌کند. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` تا `100` درصد شفافیت. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` تا `100` درصد آلفا. مقادیر زیر آستانه شفاف می‌شوند؛ مقادیر برابر یا بالاتر مات می‌شوند. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`، `contrast` | `-100` تا `100`، درصد؛ `0` مؤلفه را دست‌نخورده می‌گذارد. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | هیچ پارامتر عددی وجود ندارد. آلفا دست‌نخورده است. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`، `color2` | دو رنگ برای پیکسل‌های تیره و روشن. مقادیر کانال‌های RGB و آلفا در `java.awt.Color` از `0` تا `255` استفاده می‌شود. |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`، `amount` | `hue` از `0` شامل تا `360` منفصل، بر حسب درجه؛ `amount` از `-100` تا `100`، درصد. |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`، `saturation`، `luminance` | `hue` از `0` شامل تا `360` منفصل، بر حسب درجه؛ `saturation` و `luminance` از `-100` تا `100`، درصد. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | رنگ جایگزین از `0` تا `255` برای هر کانال استفاده می‌کند. مقادیر آلفای موجود دست‌نخورده می‌مانند. |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`، `grow` | `radius` غیرمنفی است و برحسب پوینت اندازه‌گیری می‌شود؛ `grow` یک Boolean است که کنترل می‌کند آیا محتوی تاری می‌تواند خارج از مرزهای اصلی گسترش یابد. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | درصد غیرمنفی. برای مقیاس‌رسانی شفافیت معمولی از `0` تا `100` استفاده کنید: `0` کاملاً شفاف و `100` آلفای موجود را حفظ می‌کند. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` تا `100`، درصد شفافیت. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` تا `100`، درصد آلفا آستانه. مقادیر زیر این مقدار شفاف می‌شوند؛ مقادیر برابر یا بالاتر مات می‌شوند. |
 
-برای مدولاسیون ثابت آلفا، شفافیت و مات بودن مکمل یکدیگرند. برای مثال، 35٪ شفافیت معادل مقدار مدولاسیون آلفا 65٪ است.
+برای مدولاسیون ثابت آلفا، شفافیت و مات بودن مکمل یکدیگر هستند. برای مثال، 35٪ شفافیت معادل مقدار مدولاسیون آلفا 65٪ است.
 
 ## **اعمال روشنایی و کنتراست**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) یک عملیات [BrightnessContrast](https://reference.aspose.com/slides/fa/python-java/aspose.slides/brightnesscontrast/) برمی‌گرداند. تنظیمات اسکالاری آن هنگام ایجاد عملیات تأمین می‌شود. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/fa/python-java/aspose.slides/brightnesscontrast/#getEffective) مقادیر فقط‌خواندنی محاسبه‌شده را برمی‌گرداند که می‌توان آن‌ها را بازرسی یا لاگ کرد.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) یک عملیات [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) باز می‌گرداند. تنظیمات اسکالاری آن هنگام ساخت عملیات فراهم می‌شود. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) مقادیر محاسبه‌شدهٔ فقط‑خواندنی را برمی‌گرداند که می‌توان آنها را بررسی یا ثبت کرد.
 
-مثال زیر روشنایی را 15٪ و کنتراست را 20٪ افزایش می‌دهد و سپس پیش‌نمایشی بدون تغییر تصویر جاسازی‌شده رندر می‌کند:
+مثال زیر روشنایی را به‌مقدار 15٪ و کنتراست را به‌مقدار 20٪ افزایش می‌دهد، سپس پیش‌نمایشی را بدون تغییر تصویر توکار رندر می‌کند:
 
 ```python
 import jpype
@@ -103,16 +103,16 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/fa/python-java/aspose.slides/brightnesscontrast/) افزونهٔ افکت تصویر Office 2010 است و کمتر قابل حمل از افکت روشنایی استاندارد DrawingML است. وقتی روشنایی و کنتراست پس از یک دور PPTX باید قابل ویرایش بمانند، از [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) استفاده کنید و پس از باز کردن مجدد فایل نتیجه را تأیید کنید. بخش محدودیت‌های فرمت این تفاوت را با جزئیات بیشتری توضیح می‌دهد.
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) یک افزونهٔ اثر تصویری Office 2010 است و نسبت به اثر استاندارد DrawingML کمتری قابلیت حمل دارد. وقتی روشنایی و کنتراست باید پس از یک دورانی PPTX ویرایش‌پذیر بمانند، از [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) استفاده کنید و پس از باز کردن دوبارهٔ فایل، نتیجه را تأیید نمایید. بخش محدودیت‌های قالب این تمایز را با جزئیات بیشتری توضیح می‌دهد.
 
 ## **اعمال تبدیل‌های رنگی**
 
-افکت‌های رنگی می‌توانند به‌صورت مستقل بر قاب‌های تصویری مختلفی که از یک منبع تصویر استفاده می‌کنند، اعمال شوند. مثال زیر پنج قاب ایجاد می‌کند و به ترتیب خاکستری، دو‌رنگی، رنگ‌پاشی، تنظیم HSL و جایگزینی رنگ را اعمال می‌کند.
+اثرات رنگی می‌توانند به‌صورت مستقل بر چارچوب‌های تصویری مختلف که یک منبع تصویر را بازاستفاده می‌کنند اعمال شوند. مثال زیر پنج چارچوب ایجاد می‌کند و به ترتیب سردست، دو‌تونی، تینت، تنظیم HSL و جایگزینی رنگ را اعمال می‌کند.
 
-[Duotone](https://reference.aspose.com/slides/fa/python-java/aspose.slides/duotone/) دو پارامتر رنگی مستقل و قابل ویرایش دارد: `color1` پیکسل‌های تاریک، در حالی که `color2` پیکسل‌های روشن را نقشه می‌کند. این یک مثال مفید از افکتی است که تنظیمات آن پیچیده‌تر از یک مقدار اسکالاری ساده است.
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) دو پارامتر رنگی به‌صورت مستقل و قابل ویرایش دارد: `color1` پیکسل‌های تیره را نگاشت می‌کند، در حالی که `color2` پیکسل‌های روشن را. این مثال مفیدی برای اثر است که تنظیماتش پیچیده‌تر از یک مقدار اسکالاری است.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 from pathlib import Path
 
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) رنگ هر پیکسل را با یک رنگ ثابت جایگزین می‌کند در حالی که آلفا را حفظ می‌سازد. این متفاوت از [addColorChangeEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) است که یک رنگ مبدأ را به رنگ هدف دیگری نقشه می‌کند و هر دو قالب رنگ مبدأ و هدف را نمایان می‌سازد.
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) هر پیکسل را با یک رنگ ثابت جایگزین می‌کند در حالی که آلفا را حفظ می‌کند. این متفاوت از [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) است که یک رنگ منبع را به رنگ دیگری نگاشت می‌کند و هر دو قالب رنگ منبع و هدف را نشان می‌دهد.
 
-## **افکت‌های تار، شفافیت و آلفا را اضافه کنید**
+### **اعمال آستانهٔ روشنایی**
 
-[addBlurEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) تمام کانال‌های رنگی، از جمله آلفا را تحت تأثیر قرار می‌دهد. وقتی لبهٔ تار ممکن است فراتر از مرزهای تصویر اصلی گسترش یابد، `grow` را به `True` تنظیم کنید.
+یک آستانهٔ روشنایی می‌تواند نشانه‌های ضعیف روی صفحهٔ اسکن‌شده را برای تمایز از پس‌زمینه آسان‌تر کند. [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) سایه‌های میانی خاکستری را حفظ می‌کند. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) روشنایی را به سیاه یا سفید نگاشت می‌کند، در حالی که [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) آستانه‌ای را بر شفافیت اعمال می‌کند.
 
-برای شفافیت یکنواخت، از [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) استفاده کنید. این مقدار آلفای موجود را در همه پیکسل‌ها ضرب می‌کند، بنابراین پیکسل‌های نیمه‌شفاف به‌نسبت متفاوت باقی می‌مانند. [addAlphaReplaceEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) به‌جای آن یک مقدار آلفا را برای تمام پیکسل‌ها اختصاص می‌دهد. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) آلفا را بر پایهٔ یک آستانه به دو سطح تبدیل می‌کند.
+آستانهٔ روشنایی از 0٪ تا 100٪، شامل هر دو، متغیر است. پیکسل‌های زیر آستانه به‌صورت سیاه می‌شوند. پیکسل‌های برابر یا بالای آستانه سفید می‌شوند. افزایش آستانه باعث می‌شود سایه‌های بیشتری سیاه شوند چون بیشترشان زیر قطع‌نقطه قرار می‌گیرند.
+
+فایل [grayscale-swatches.png](grayscale-swatches.png) را در پوشهٔ کاری دانلود کنید. هر برچسب سطح خاکستری اصلی را روی مقیاس 0 تا 255 نشان می‌دهد. مثال اصلی را در کنار دو کپی قرار می‌دهد و آستانهٔ هر کپی را در ارائه ذخیره می‌کند.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+ارائهٔ خروجی را در PowerPoint باز کنید تا سه چارچوب را مقایسه کنید. سواچ برچسب‌دار 96 تقریباً 38٪ روشنایی (96 از 255) دارد. در آستانهٔ 20٪ سفید می‌شود و در آستانهٔ 60٪ سیاه.
+
+![نمونه‌های خاکستری اصلی در کنار نتایج سیاه‑سفید با آستانه‌های روشنایی 20٪ و 60٪](luminance-threshold.png)
+
+## **افزودن تاری، شفافیت و اثرات آلفا**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) بر تمام کانال‌های رنگی، از جمله آلفا، تأثیر می‌گذارد. وقتی لبهٔ تار می‌تواند فراتر از مرزهای تصویر اصلی گسترش یابد، `grow` را به `True` تنظیم کنید.
+
+برای شفافیت یکنواخت، از [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) استفاده کنید. این اثر تمام مقادیر آلفای موجود را ضرب می‌کند، بنابراین پیکسل‌های نیمه‌شفاف به نسبت متفاوت باقی می‌مانند. [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) به‌جای آن یک مقدار آلفا را به همهٔ پیکسل‌ها اختصاص می‌دهد. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) آلفا را بر پایهٔ یک آستانه به دو سطح تبدیل می‌کند.
 
 ```python
 import jpype
@@ -200,15 +247,15 @@ finally:
     presentation.dispose()
 ```
 
-سایر عملیات آلفای بدون پارامتر شامل [addAlphaCeilingEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect) است که هر آلفای غیرصفر را کاملاً مات می‌کند؛ [addAlphaFloorEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect) که هر آلفا زیر 100٪ را کاملاً شفاف می‌کند؛ و [addAlphaInverseEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect) که آلفا را به `100% - alpha` تغییر می‌دهد.
+دیگر عملیات‌های آلفا بدون پارامتر شامل [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect) است که هر آلفای غیرصفر را کاملاً مات می‌کند؛ [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect) که هر آلفایی زیر 100٪ را کاملاً شفاف می‌کند؛ و [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect) که آلفا را به `100% - alpha` تغییر می‌دهد.
 
 ## **ساخت زنجیرهٔ اثر مرتب**
 
-هر متد `add...Effect` یک عملیات جدید را به انتهای مجموعه اضافه می‌کند. رندرر مجموعه را به‌عنوان یک خط تولید مرتب استفاده می‌کند: خروجی عملیات 0 ورودی عملیات 1 می‌شود و به همین ترتیب. بنابراین، همان عملیات‌ها در ترتیب متفاوت می‌توانند تصویر متفاوتی تولید کنند.
+هر متد `add...Effect` یک عملیات جدید را به انتهای مجموعه اضافه می‌کند. رندرکننده مجموعه را به‌عنوان یک خط لولهٔ مرتب استفاده می‌کند: خروجی عملیات 0 ورودی عملیات 1 می‌شود و به همین ترتیب. بنابراین، همان عملیات‌ها به ترتیب متفاوت می‌توانند تصویر متفاوتی تولید کنند.
 
-به عنوان مثال، خاکستری‌سازی سپس رنگ‌پاشی ابتدا اطلاعات کروماتیک را حذف می‌کند و سپس نتیجهٔ روشنایی را رنگ‌آمیزی می‌کند. رنگ‌پاشی سپس خاکستری‌سازی رنگ‌پاشی را دوباره حذف می‌کند. به همین ترتیب، جایگزینی آلفا می‌تواند مقادیر آلفای محاسبه‌شده توسط عملیات‌های پیشین را نادیده بگیرد، در حالی که مدولاسیون آلفا تفاوت‌های نسبی آن‌ها را حفظ می‌کند.
+به‌عنوان مثال، خاکستری کردن سپس تینت ابتدا اطلاعات رنگی را پاک می‌کند و سپس روشنایی نتیجه را دوباره رنگ می‌دهد. تینت سپس خاکستری کردن دوباره تینت را حذف می‌کند. به‌طور مشابه، جایگزینی آلفا می‌تواند مقادیر آلفای محاسبه‌شده توسط عملیات‌های قبلی را نادیده بگیرد، در حالی که مدولاسیون آلفا تفاوت‌های نسبی آن‌ها را حفظ می‌کند.
 
-مثال زیر یک زنجیرهٔ چهار عملیاتی می‌سازد، آن را به‌صورت PPTX ذخیره می‌کند، ارائه را باز می‌کند، هر دو نوع عملیات و ترتیب آن‌ها را بررسی می‌کند و نتیجهٔ باز شده را رندر می‌کند:
+مثال زیر یک زنجیرهٔ چهارعملیاتی می‌سازد، آن را به‌صورت PPTX ذخیره می‌کند، ارائه را دوباره باز می‌کند، هر دو نوع عملیات و ترتیب آن‌ها را بررسی می‌کند و نتیجهٔ بازگشایی‌شده را رندر می‌نماید:
 
 ```python
 import jpype
@@ -261,15 +308,21 @@ finally:
     reopened_presentation.dispose()
 ```
 
-مجموعه محدودیتی برای ترکیب عملیات رنگ، آلفا و تار در زنجیره‌های جداگانه اعمال نمی‌کند. می‌توان آن‌ها را ترکیب کرد، اما ترکیب‌ها همیشه مفید نیستند. یک جایگزینی رنگ ثابت، تنوع RGB تولید شده توسط افکت‌های رنگی قبلی را حذف می‌کند؛ خاکستری‌سازی پس از دو‌رنگی دو رنگ انتخابی را از بین می‌برد؛ و عملیات‌های آلفا ceiling، floor، replacement یا bi‑level می‌توانند جزئیات آلفای ایجادشده در مراحل قبلی را نادیده بگیرند. زنجیره را بر مبنای توالی پردازش پیکسل موردنظر بسازید نه این‌که موارد را به‌عنوان پرچم‌های قالب‌بندی نامرتب در نظر بگیرید.
+مجموعه محدودیتی در مورد ماتریس سازگاری که اثرات رنگ، آلفا و تاری را به زنجیره‌های جداگانه محدود کند، اعمال نمی‌کند. می‌توان آن‌ها را ترکیب کرد، اما ترکیب‌ها همیشه مفید نیستند. یک جایگزینی رنگ ثابت، تنوع RGB تولیدشده توسط اثرات رنگی قبلی را حذف می‌کند؛ خاکستری پس از دو‌تونی، دو رنگ انتخاب‌شده را حذف می‌کند؛ و عملیات آلفا سِقف، کف، جایگزینی یا دو‌سطحی می‌توانند جزئیات آلفایی که پیش‌تر ایجاد شده‌اند را از بین ببرند. زنجیره را براساس توالی پردازش پیکسلی موردنظر بسازید نه اینکه آیتم‌های آن را به‌عنوان پرچم‌های قالب‌بندی نامرتب در نظر بگیرید.
 
-## **بازرسی مقادیر قابل ویرایش و مؤثر**
+<!-- visual-explanation:image-transform-effects:start -->
+[![همین تصویر ابتدا از طریق خاکستری سپس تینت و سپس تینت سپس خاکستری می‌گذرد. دو تصویر نهایی خاکستری رنگ‌های متفاوتی دارند.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-یک عملیات قابل ویرایش همان شیء ذخیره‌شده در `Picture.getImageTransform` است. بسته به افکت، ممکن است اعضای نوشتنی را مستقیماً نشان دهد. برای مثال، [Blur](https://reference.aspose.com/slides/fa/python-java/aspose.slides/blur/) مقادیر نوشتنی `radius` و `grow` را نشان می‌دهد، [AlphaModulateFixed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/alphamodulatefixed/) یک `amount` نوشتنی را افشا می‌کند، و [AlphaBiLevel](https://reference.aspose.com/slides/fa/python-java/aspose.slides/alphabilevel/) یک `threshold` نوشتنی دارد. افکت‌های رنگی مانند [Duotone](https://reference.aspose.com/slides/fa/python-java/aspose.slides/duotone/) اشیای قابل تغییر [ColorFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/colorformat/) را نشان می‌دهند.
+*در این نمای شبیه‌سازی‌شده از Aspose.Slides برای .NET 26.11، تینت 220° با 25% تصویر خاکستری را دست‌نخورده می‌گذارد. اعمال همان تینت قبل از خاکستری شدن رنگ‌های متفاوتی ایجاد می‌کند.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-برخی کلاس‌های عملیات، از جمله [BrightnessContrast](https://reference.aspose.com/slides/fa/python-java/aspose.slides/brightnesscontrast/)، [HSL](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hsl/)، [Tint](https://reference.aspose.com/slides/fa/python-java/aspose.slides/tint/)، و [AlphaReplace](https://reference.aspose.com/slides/fa/python-java/aspose.slides/alphareplace/)، مقادیر اسکالاری ساخت خود را به عنوان ویژگی‌های نوشتنی نشان نمی‌دهند. برای تغییر این تنظیمات، عملیات را حذف کنید و یک جایگزین در موقعیت موردنظر اضافه کنید.
+## **بررسی مقادیر قابل ویرایش و مؤثر**
 
-داده‌های مؤثر برگردانده‌شده توسط `getEffective` محاسبه‌شده و فقط‑خواندنی هستند. این داده‌ها برای حل رنگ‌های وابسته به تم و خواندن مقادیر نرمال‌شده‌ای که رندرر استفاده می‌کند، مفید هستند، اما سطح ویرایشی دیگری نیستند. مثال زیر زنجیره را فهرست می‌کند و مقادیر مؤثری را که API مربوطه فراهم می‌کند، بازرسی می‌کند:
+یک عملیات قابل ویرایش همان شیء ذخیره‌شده در `Picture.getImageTransform` است. بسته به اثر، ممکن است اعضای قابل نوشتن را مستقیماً گشود. برای مثال، [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) مقادیر `radius` و `grow` قابل نوشتن را در اختیار می‌گذارد، [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) `amount` قابل نوشتن دارد و [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) `threshold` قابل نوشتن را افشا می‌کند. اثرات رنگی مانند [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) شیءهای [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/) قابل تغییر را نشان می‌دهند.
+
+برخی کلاس‌های عملیات، از جمله [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/)، [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/)، [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/) و [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/)، اسکالارهای ساخت خود را به‌عنوان ویژگی‌های قابل نوشتن نشان نمی‌دهند. برای تغییر این تنظیمات، عملیات را حذف کنید و جایگزین موردنیاز را در موقعیت دلخواه اضافه کنید.
+
+دادهٔ مؤثر بازگردانده‌شده توسط `getEffective` محاسبه‌شده و فقط‑خواندنی است. برای حل رنگ‌های وابسته به تم و خواندن مقادیر نُرم‌سازی‌شده‌ای که رندرکننده استفاده می‌کند مفید است، اما سطح ویرایش دیگری نیست. مثال زیر زنجیره را شمارش می‌کند و مقادیر مؤثر را جایی که API متناظر آن‌ها را فراهم می‌کند، بررسی می‌نماید:
 
 ```python
 import jpype
@@ -333,11 +386,11 @@ finally:
     presentation.dispose()
 ```
 
-افکت‌های بدون پارامتر مانند خاکستری، آلفا ceiling و آلفا inverse همچنان یک شیء دادهٔ مؤثر دارند، اما مقدار اسکالاری برای چاپ ندارند. حضور و موقعیت آن‌ها در مجموعه، اطلاعات مهم هستند.
+اثرات بدون پارامتر مانند خاکستری، آلفا سِقف و آلفا معکوس همچنان یک شیء دادهٔ مؤثر دارند، اما تنظیمات اسکالاری برای چاپ ندارند. حضور و موقعیت آن‌ها در مجموعه اطلاعات مهم هستند.
 
 ## **حذف یا پاک‌سازی تبدیل‌های تصویر**
 
-از [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) برای حذف یک عملیات بر اساس شاخص استفاده کنید. چون شاخص‌ها پس از حذف جابجا می‌شوند، ابتدا هدف را جستجو کنید و سپس پس از فهرست‌گذاری آن را حذف کنید. برای حذف کل زنجیره از [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#clear) استفاده کنید.
+از [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) برای حذف یک عملیات بر اساس اندیس استفاده کنید. چون اندیس‌ها پس از حذف جابه‌جا می‌شوند، ابتدا هدف را جستجو کنید و پس از شمارش حذف کنید. از [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) برای حذف کل زنجیره استفاده کنید.
 
 ```python
 import jpype
@@ -377,38 +430,38 @@ finally:
     presentation.dispose()
 ```
 
-حذف یا پاک‌سازی تبدیل‌ها فقط قالب‌بندی تصویر را تغییر می‌دهد. این کار منبع [PPImage](https://reference.aspose.com/slides/fa/python-java/aspose.slides/ppimage/) بازاستفاده‌شده را حذف، دوباره فشرده یا به‌طور دیگری تغییر نمی‌دهد.
+حذف یا پاک‌سازی تبدیل‌ها فقط قالب‌بندی تصویر را تغییر می‌دهد. منبع تصویر توکار [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) را حذف، فشرده‌سازی یا به‌صورت دیگری تغییر نمی‌دهد.
 
-## **در نظر گرفتن فرمت‌های ارائه و مقاصد صادراتی**
+## **در نظر گرفتن فرمت‌های ارائه و اهداف خروجی**
 
-تبدیل‌های تصویر از DrawingML نشأت می‌گیرند، بنابراین PPTX فرمت ویرایش‌پذیر ترجیحی برای زنجیره‌های اثر است. حتی در PPTX نیز همهٔ عملیات‌ها همان‌پرتابلیت ندارند:
+تبدیل‌های تصویر از DrawingML نشأت می‌گیرند، بنابراین PPTX قالب ویرایش‌پذیر ترجیحی برای زنجیره‌های اثر است. حتی در PPTX هم هر عملیات قابلیت قابل حمل یکسانی ندارد:
 
-- عملیات‌های استاندارد DrawingML مانند luminance، grayscale، duotone، tint، HSL، blur و عملیات‌های عمومی آلفا شانس بیشتری برای بقا پس از دور PPTX دارند. هنگامیکه حفظ اثر ضروری است، همیشه فایل تولیدشده را باز کنید و مجموعه را بازرسی کنید.
-- [BrightnessContrast](https://reference.aspose.com/slides/fa/python-java/aspose.slides/brightnesscontrast/) یک افزونهٔ Office 2010 است نه عملیات استاندارد luminance DrawingML. می‌توان آن را برای رندر در حافظه استفاده کرد، اما تضمین نمی‌شود پس از ذخیره و باز کردن PPTX به‌صورت قابل ویرایش باقی بماند. برای تنظیمات ثابت روشنایی و کنتراست، از [addLuminanceEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) استفاده کنید.
-- قالب باینری PPT پیش از مدل اثر کامل DrawingML وجود داشته است. ذخیره به‌صورت PPT می‌تواند عملیات‌های پشتیبانی‌نشده را حذف کند، زنجیره را به زیرمجموعهٔ پشتیبانی‌شده کاهش دهد یا ظاهر را تقریب بزند. PPT را برای تأیید زنجیرهٔ ویرایش‌پذیر پیچیده استفاده نکنید.
-- رندر به PNG، JPEG، TIFF، PDF، SVG، HTML یا خروجی‌های تصویری دیگر، زنجیرهٔ پشتیبانی‌شده را روی ظاهر رندر شده اعمال می‌کند. این خروجی‌ها `ImageTransformOperationCollection` ویرایش‌پذیری را ندارند؛ فرمت‌های رستر نتیجه را به پیکسل‌ها مسطح می‌کنند و صادرات سند/وکتور نمایش رندر خود را ذخیره می‌کنند.
-- افکت‌ها تصویر پیوندی را خودمحافظ نمی‌سازند. رندر یک تصویر پیوندی همچنان به در دسترس بودن منبع پیوندی هنگام بارگذاری ارائه وابسته است.
+- عملیات‌های استاندارد DrawingML مانند luminance، grayscale، duotone، tint، HSL، blur و عملیات‌های معمول آلفا بیشترین شانس بقا پس از یک دورانی PPTX را دارند. همیشه فایل تولیدشده را دوباره باز کنید و مجموعه را هنگام نیاز به حفظ بررسی نمایید.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) یک افزونهٔ Office 2010 است نه عملیات استاندارد luminance DrawingML. می‌توان از آن برای رندر در حافظه استفاده کرد، اما پس از ذخیره و بازگشایی PPTX تضمین نیست که به‌عنوان یک [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) ویرایش‌پذیر باقی بماند. برای تنظیمات ثابت روشنایی و کنتراست، از [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) استفاده کنید.
+- قالب باینری PPT پیش از مدل کامل اثر DrawingML وجود داشته است. ذخیره در PPT می‌تواند عملیات‌های پشتیبانی‌نشده را حذف کند، زنجیره را به زیرمجموعه‌ای پشتیبانی‌شده کاهش دهد یا ظاهر را تقریب بزند. برای یک زنجیرهٔ ویرایش‌پذیر پیچیده، از PPT به‌عنوان قالب تأیید استفاده نکنید.
+- رندر به PNG، JPEG، TIFF، PDF، SVG، HTML یا سایر خروجی‌های بصری، زنجیرهٔ پشتیبانی‌شده را بر روی ظاهر رندر شده اعمال می‌کند. این خروجی‌ها شامل یک `ImageTransformOperationCollection` ویرایش‌پذیر نیستند؛ فرمت‌های رستر نتیجه را به پیکسل‌ها مسطح می‌کنند و صادرات سند/وکتور نمای رندر خودشان را ذخیره می‌کنند.
+- اثرها تصویر پیوندی را خودکفا نمی‌سازند. رندر یک تصویر پیوندی همچنان به در دسترس بودن منبع پیوندی هنگام بارگذاری ارائه وابسته است.
 
-مصرف‌کنندگان مختلف ارائه ممکن است موارد لبه‌ای را به‌طور متفاوتی رندر کنند، به‌ویژه زمانی که چندین عملیات آلفا یا رنگی ترکیب می‌شوند. برای خروجی‌های حیاتی، هر دو دور ویرایش‌پذیر و فرمت صادرات نهایی را با همان نسخهٔ Aspose.Slides که در تولید استفاده می‌شود، تست کنید.
+مصرف‌کنندگان مختلف ارائه ممکن است موارد لبه را به‌صورت متفاوتی رندر کنند، به‌ویژه وقتی چندین عملیات آلفا یا رنگ‑کوانتایزینگ ترکیب می‌شوند. برای خروجی بحرانی، هر دو دورانی ویرایش‌پذیر و قالب نهایی صادراتی را با همان نسخهٔ Aspose.Slides که در تولید استفاده می‌شود، تست کنید.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا افکت‌های تبدیل تصویر دادهٔ تصویر جاسازی‌شده را تغییر می‌دهند؟**
+**آیا اثرهای تبدیل تصویر داده‌های تصویر توکار را تغییر می‌دهند؟**
 
-نه. این عملیات‌ها متعلق به `Picture` استفاده‌شده توسط پر کردن تصویر هستند. بایت‌های پایه‌ای `PPImage` دست‌نخورده می‌مانند.
+نه. این عملیات به `Picture` استفاده‌شده توسط پرکن تصویر تعلق دارند. بایت‌های زیرین `PPImage` دست‌نخورده می‌مانند.
 
-**آیا دو قاب تصویری که از همان تصویر استفاده می‌کنند، افکت‌های یکسانی دارند؟**
+**آیا دو چارچوب تصویر که یک تصویر را بازاستفاده می‌کنند اثرهای خود را به‌اشتراک می‌گذارند؟**
 
-نه. استفادهٔ مجدد از `PPImage` از تکرار دادهٔ تصویر جلوگیری می‌کند، اما هر قاب تصویر معمولاً یک `Picture` و مجموعهٔ تبدیل تصویر جداگانه دارد.
+نه. بازاستفاده از `PPImage` از تکرار داده‌های تصویر جلوگیری می‌کند، اما هر چارچوب تصویر معمولاً `Picture` و مجموعه تبدیل تصویر جداگانه‌ای دارد.
 
-**آیا افکت‌های رنگ، تار و آلفا می‌توانند ترکیب شوند؟**
+**آیا می‌توان اثرهای رنگ، تاری و آلفا را ترکیب کرد؟**
 
-بله. مجموعه این افکت‌ها را در یک زنجیرهٔ مرتب می‌پذیرد. به این فکر کنید که هر عملیات چه تاثیری بر خروجی عملیات قبلی دارد، زیرا عملیات‌های جایگزینی و آستانه‌گذاری ممکن است جزئیات رنگ یا آلفای قبلی را حذف کنند.
+بله. مجموعه آن‌ها را در یک زنجیرهٔ مرتب می‌پذیرد. به این فکر کنید که هر عملیات چه تأثیری بر خروجی عملیات قبلی دارد، زیرا عملیات‌های جایگزینی و آستانه ممکن است جزئیات رنگ یا آلفای قبلی را حذف کنند.
 
 **چرا مقادیر مؤثر فقط‑خواندنی هستند؟**
 
-داده‌های مؤثر مقادیر محاسبه‌شده‌ای هستند که برای رندر استفاده می‌شوند، از جمله رنگ‌های حل‌شده. عملیات ذخیره‌شده در مجموعهٔ تبدیل را ویرایش کنید جایی که اعضای نوشتنی وجود دارد؛ در غیر این صورت آن را حذف کنید و یک جایگزین با پارامترهای ساخت جدید اضافه کنید.
+دادهٔ مؤثر مقادیر محاسبه‌شده‌ای را نشان می‌دهد که برای رندر استفاده می‌شود، شامل رنگ‌های حل‌شده. عملیات ذخیره‌شده در مجموعه تبدیل را جایی ویرایش کنید که اعضای قابل نوشتن دارد؛ در غیر این صورت آن را حذف کنید و با پارامترهای ساخت جدید جایگزین نمایید.
 
-**کدام فرمت را برای حفظ زنجیرهٔ تبدیل توصیه می‌شود؟**
+**برای حفظ یک زنجیرهٔ تبدیل کدام قالب مناسب است؟**
 
-از PPTX استفاده کنید و فایل را با باز کردن مجدد تأیید کنید. PPT قدیمی نمی‌تواند مدل کامل افکت DrawingML را نشان دهد و فرمت‌های خروجی رندر فقط ظاهر را حفظ می‌کنند نه عملیات تبدیل قابل ویرایش.
+از PPTX استفاده کنید و پس از ذخیره، فایل را دوباره باز کنید تا تأیید شود. PPT قدیمی نمی‌تواند مدل کامل اثر DrawingML را نشان دهد و فرمت‌های خروجی رندر فقط ظاهر را حفظ می‌کنند نه عملیات تبدیل ویرایش‌پذیر.

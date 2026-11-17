@@ -14,59 +14,59 @@ keywords:
 - tint
 - HSL
 - kleurvervanging
-- vervaging
+- onscherpte
 - transparantie
-- alpha‑effect
+- alfa‑effect
 - effectketen
 - PowerPoint
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Toepassen, samenvoegen, inspecteren, verwijderen en verifiëren van afbeeldingstransformatie‑effecten voor afbeelding‑frames met Aspose.Slides voor Android via Java."
+description: "Pas afbeeldingstransformatie‑effecten toe, koppel ze, inspecteer, verwijder en verifieer ze voor afbeeldingsframes met Aspose.Slides voor Android via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides vertegenwoordigt afbeeldingsaanpassingen als een geordende collectie van afbeeldings‑transformatie‑operaties. Voor een afbeelding‑frame begin je met de frame‑behorende [ISlidesPicture](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidespicture/) en krijg je toegang tot [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidespicture/#getImageTransform--). De geretourneerde [IImageTransformOperationCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/) laat je effecten toevoegen, enumereren, inspecteren, verwijderen en wissen zonder de oorspronkelijke afbeeldingsbytes te herschrijven.
+Aspose.Slides vertegenwoordigt afbeeldingsaanpassingen als een geordende verzameling van beeldtransformatie‑operaties. Voor een afbeeldingsframe begin je met het frame's [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) en krijg je toegang tot [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#getImageTransform--). De geretourneerde [IImageTransformOperationCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/) stelt je in staat om effecten toe te voegen, te enumereren, te inspecteren, te verwijderen en te wissen zonder de oorspronkelijke afbeeldingsbytes opnieuw te schrijven.
 
-Dit artikel laat een volledige workflow zien voor helderheid en contrast, kleuropties, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijdering en PPTX round‑trip verificatie.
+Dit artikel demonstreert een volledige workflow voor helderheid en contrast, kleurtransformaties, onscherpte, transparantie, geordende effectketens, effectieve waarden, verwijderen en PPTX‑round‑trip‑verificatie.
 
 ## **Begrijp eigendom van effecten en hergebruik van afbeeldingen**
 
-Een afbeelding‑resource en de afbeelding die deze weergeeft zijn verschillende objecten:
+Een afbeeldingsbron en de afbeelding die deze weergeeft zijn verschillende objecten:
 
-- [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) slaat de bron‑afbeeldingsgegevens op of verwijst ernaar en behoort toe aan de presentatie.
-- [ISlidesPicture](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidespicture/) hoort bij een afbeelding‑vulling en verwijst naar een afbeelding‑resource terwijl de afbeeldings‑transformatie‑collectie wordt bewaard.
-- [IPictureFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipictureframe/) is de dia‑vorm die de bijbehorende afbeelding‑vulling, geometrie, bijsnij‑instellingen en andere frame‑niveau opmaak bezit.
+- [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) slaat de bronafbeeldingsgegevens op of verwijst ernaar die eigendom zijn van de presentatie.
+- [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) behoort tot een afbeeldingsvulling en verwijst naar een afbeeldingsbron terwijl het de collectie van beeldtransformaties opslaat.
+- [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) is de dia‑vorm die de betreffende afbeeldingsvulling, geometrie, bijsnij‑instellingen en andere opmaak op frame‑niveau bezit.
 
-Daarom wijzigen afbeeldings‑transformatie‑operaties de bytes in [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) niet. Wanneer dezelfde `IPPImage` meer dan één keer wordt doorgegeven aan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-), krijgt elk nieuw afbeelding‑frame zijn eigen `ISlidesPicture` en zijn eigen transformatie‑collectie. Het toepassen van grijstinten op één frame maakt de andere frames niet grijs, ook al gebruiken ze dezelfde ingesloten afbeelding‑resource.
+Daarom wijzigen beeldtransformatie‑operaties de bytes in [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) niet. Wanneer dezelfde `IPPImage` meer dan één keer wordt doorgegeven aan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) , krijgt elk nieuw afbeeldingsframe zijn eigen `ISlidesPicture` en zijn eigen transformatie‑collectie. Het toepassen van grijstinten op één frame maakt de andere frames niet grijs, zelfs al gebruiken ze allemaal dezelfde ingebedde afbeeldingsbron.
 
-Hetzelfde `ISlidesPicture.getImageTransform`‑model wordt ook gebruikt door andere afbeelding‑vullingen, zoals een vorm of dia‑achtergrond. De voorbeelden hieronder richten zich op afbeelding‑frames.
+Hetzelfde `ISlidesPicture.getImageTransform`‑model wordt ook gebruikt door andere afbeeldingsvullingen, zoals een vorm of dia‑achtergrond. De onderstaande voorbeelden richten zich op afbeeldingsframes.
 
 ## **Gebruik geldige parameterbereiken en eenheden**
 
-De getoonde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet meteen elke buiten‑range‑waarde afwijst; het doel‑presentatieformaat kan tijdens opslaan of bij openen door PowerPoint normaliseren, verwijderen of ongeldige gegevens afwijzen.
+De gedemonstreerde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet direct elke buiten‑range waarde afwijst; het doelformaat van de presentatie kan ongeldige gegevens normaliseren, weglaten of afwijzen tijdens het opslaan of wanneer PowerPoint het bestand opent.
 
 | Operatie | Parameters | Geldig bereik en eenheid |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel ongewijzigd. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | Geen | Geen numerieke parameters. Alpha blijft ongewijzigd. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfacanaalwaarden die door `android.graphics.Color` worden gebruikt, lopen van `0` tot `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; hoeveelheid (`amount`) is `-100` tot `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfadewaarden blijven ongewijzigd. |
-| [addBlurEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Straal is niet‑negatief en wordt gemeten in punten; `grow` is een Boolean die bepaalt of vervaagde inhoud buiten de oorspronkelijke randen mag uitbreiden. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Niet‑negatief percentage. Gebruik `0` tot `100` voor gewone opaciteits‑schaal: `0` is volledig transparant en `100` behoudt de bestaande alpha. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` tot `100`, procent opaciteit. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` tot `100`, procent alpha‑drempel. Waarden lager dan de drempel worden transparant; waarden gelijk aan of hoger worden ondoorzichtig. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel ongewijzigd. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | None | Geen numerieke parameters. Alpha blijft ongewijzigd. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB- en alfakanalwaarden die door `android.graphics.Color` worden gebruikt, lopen van `0` tot `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Tint is `0` inclusief tot `360` exclusief, in graden; hoeveelheid is `-100` tot `100`, procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Tint is `0` inclusief tot `360` exclusief, in graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | De vervangende kleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfa‑waarden blijven ongewijzigd. |
+| [addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Radius is niet‑negatief en wordt gemeten in punten; `grow` is een Boolean die bepaalt of vervaagd materiaal buiten de oorspronkelijke grenzen mag uitsteken. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Niet‑negatief procent. Gebruik `0` tot `100` voor gewone transparantie‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alfa. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` tot `100`, procent doorzichtigheid. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` tot `100`, procent alfa‑drempel. Waarden eronder worden transparant; waarden op of boven de drempel worden ondoorzichtig. |
 
-Voor vaste alpha‑modulatie zijn transparantie en opaciteit complementair. Een transparantie van 35 % komt overeen met een alpha‑modulatie‑waarde van 65 %.
+Voor vaste alfa‑modulatie zijn transparantie en opaciteit complementair. Bijvoorbeeld, 35% transparantie komt overeen met een alfa‑modulatie‑bedrag van 65%.
 
 ## **Pas helderheid en contrast toe**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) retourneert een [IBrightnessContrast](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibrightnesscontrast/)‑operatie. De scalare instellingen worden meegegeven wanneer de operatie wordt aangemaakt. [IBrightnessContrast.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibrightnesscontrast/#getEffective--) levert berekende alleen‑lezen waarden die kunnen worden geïnspecteerd of gelogd.
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) retourneert een [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/)‑operatie. De scalair‑instellingen worden geleverd wanneer de operatie wordt aangemaakt. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/#getEffective--) retourneert berekende alleen‑lees‑waarden die kunnen worden geïnspecteerd of gelogd.
 
-Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, en rendert daarna een voorbeeld zonder de ingesloten afbeelding te wijzigen:
+Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, en rendert vervolgens een voorbeeld zonder de ingebedde afbeelding te wijzigen:
 
 ```java
 import com.aspose.slides.*;
@@ -102,13 +102,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/brightnesscontrast/) is een Office 2010 afbeelding‑effect‑extensie en minder draagbaar dan het standaard DrawingML‑luminantie‑effect. Wanneer helderheid en contrast bewerkbaar moeten blijven na een PPTX‑round‑trip, gebruik dan [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) en verifieer het resultaat na het opnieuw openen van het bestand. De sectie over format‑beperkingen legt dit onderscheid uitgebreider uit.
+[BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) is een Office 2010 afbeelding‑effect‑extensie en minder draagbaar dan het standaard DrawingML‑luminant‑effect. Wanneer helderheid en contrast bewerkbaar moeten blijven na een PPTX‑round‑trip, gebruik dan [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) en verifieer het resultaat na het opnieuw openen van het bestand. De sectie over format‑beperkingen legt dit onderscheid nader uit.
 
 ## **Pas kleurtransformaties toe**
 
-Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeelding‑frames die één afbeelding‑resource hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijstinten, duotoon, tint, HSL‑aanpassing en kleurvervanging toe.
+Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeeldingsframes die één afbeeldingsbron hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijstinten, duotoon, tint, HSL‑aanpassing en kleurvervanging toe.
 
-[IDuotone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iduotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` wijst donkere pixels toe, terwijl `color2` lichte pixels wijst. Dit maakt het een nuttig voorbeeld van een effect waarvan de instellingen complexer zijn dan één enkele scalare waarde.
+[IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` wijst donkere pixels toe, terwijl `color2` lichte pixels wijst. Dit maakt het een nuttig voorbeeld van een effect waarvan de instellingen complexer zijn dan een enkele scalair‑waarde.
 
 ```java
 import com.aspose.slides.*;
@@ -150,13 +150,59 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) vervangt elke pixelkleur door één vaste kleur terwijl de alpha behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), dat één bron‑kleur naar een andere mappt en zowel bron‑ als doel‑kleurformaten onthult.
+[addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) vervangt de kleur van elke pixel door één vaste kleur, terwijl alfa behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--), dat één bronkleur naar een andere afbeeldt en zowel bron‑ als doelkleurformaten blootlegt.
 
-## **Voeg vervaging, transparantie en alpha‑effecten toe**
+### **Pas een luminantiedrempel toe**
 
-[addBlurEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) beïnvloedt alle kleurkanalen, inclusief alpha. Stel `grow` in op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeeldingsgrenzen kan uitbreiden.
+Een luminantiedrempel kan vage markeringen op een gescande pagina beter van de achtergrond onderscheiden. [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) behoudt tussenliggende grijstinten. [addBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) zet luminantie om in zwart of wit, terwijl [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) een drempel op de opaciteit toepast.
 
-Voor uniforme transparantie, gebruik [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Het vermenigvuldigt elke bestaande alfadewaarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) wijst in plaats daarvan één alfadewaarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) zet alpha om in twee niveaus op basis van een drempel.
+De luminantiedrempel varieert van 0 % tot 100 %, inclusief. Pixels onder de drempel worden zwart. Pixels op of boven de drempel worden wit. Het verhogen van de drempel maakt meer tinten zwart omdat meer ervan onder de afkapwaarde vallen.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) naar de werkmap. Elk etiket geeft het oorspronkelijke grijsniveau op een schaal van 0 tot 255 weer. Het voorbeeld plaatst het origineel naast twee kopieën en slaat de drempel van elke kopie op in de presentatie.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("grayscale-swatches.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open de uitvoerpresentatie in PowerPoint om de drie frames te vergelijken. Het kleurstaal met label 96 heeft ongeveer 38 % luminantie (96 van 255). Het wordt wit bij de drempel van 20 % en zwart bij de drempel van 60 %.
+
+![Originele grijstinten naast de zwart‑wit resultaten bij luminantiedrempels van 20 % en 60 %](luminance-threshold.png)
+
+## **Voeg onscherpte, transparantie en alfa‑effecten toe**
+
+[addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) beïnvloedt alle kleurkanalen, inclusief alfa. Stel `grow` in op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeeldingsgrenzen kan uitstrekken.
+
+Voor uniforme transparantie, gebruik [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-). Het vermenigvuldigt elke bestaande alfadeelwaarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) kent daarentegen één alfadeelwaarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) zet alfa om in twee niveaus op basis van een drempel.
 
 ```java
 import com.aspose.slides.*;
@@ -195,15 +241,15 @@ try {
 }
 ```
 
-Andere parameter‑vrije alpha‑operaties omvatten [addAlphaCeilingEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--), die elke niet‑nul alpha volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--), die elke alpha onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--), die alpha verandert naar `100% - alpha`.
+Andere alfa‑operaties zonder parameters omvatten [addAlphaCeilingEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--), die elke niet‑nul alfa volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--), die elke alfa onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--), die alfa verandert naar `100% - alpha`.
 
-## **Bouw een geordende effectketen**
+## **Bouw een geordende effectketen op**
 
-Elke `add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de uitvoer van operatie 0 wordt de invoer van operatie 1, enzovoort. Bijgevolg kan dezelfde reeks operaties in een andere volgorde een ander beeld opleveren.
+Elke `add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de output van operatie 0 wordt de input van operatie 1, enzovoort. Daardoor kan dezelfde reeks operaties in een andere volgorde een ander beeld opleveren.
 
-Bijvoorbeeld, grijstinten gevolgd door tint verwijdert eerst chromatische informatie en kleurt daarna het luminantie‑resultaat opnieuw. Tint gevolgd door grijstinten verwijdert vervolgens de tint weer. Evenzo kan een alpha‑vervanging alpha‑waarden die door eerdere operaties zijn berekend overschrijven, terwijl alpha‑modulatie hun relatieve verschillen behoudt.
+Bijvoorbeeld, grijstinten gevolgd door tint verwijdert eerst chromatische informatie en kleurt vervolgens het luminantieresultaat opnieuw. Tint gevolgd door grijstinten verwijdert de tint weer. Evenzo kan alfa‑vervanging alfa‑waarden die door eerdere operaties zijn berekend, overschrijven, terwijl alfa‑modulatie hun relatieve verschillen behoudt.
 
-Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de operatietypen als hun volgorde, en rendert het heropende resultaat:
+Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de type operaties als hun volgorde, en rendert het heropende resultaat:
 
 ```java
 import com.aspose.slides.*;
@@ -259,15 +305,21 @@ try {
 }
 ```
 
-De collectie legt geen compatibiliteitsmatrix op die kleur‑, alpha‑ en vervagingsoperaties tot afzonderlijke ketens beperkt. Ze kunnen gecombineerd worden, hoewel combinaties niet altijd zinvol zijn. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is gecreëerd; grijstinten na duotoon verwijderen de twee geselecteerde kleuren; en alpha‑ceiling, floor, replacement of bi‑level operaties kunnen eerder gemaakte alpha‑details verwijderen. Bouw de keten volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items als ongeordende opmaak‑vlaggen te beschouwen.
+De collectie legt geen compatibiliteitsmatrix op die kleur-, alfa- en onscherpte‑operaties tot afzonderlijke ketens beperkt. Ze kunnen worden gecombineerd, maar combinaties zijn niet altijd nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is geproduceerd; grijstinten na duotoon verwijderen de twee geselecteerde kleuren; en alfa‑plafond, -vloer, -vervanging of -bilevel‑operaties kunnen alfa‑details die eerder zijn gemaakt, weggooien. Bouw de keten volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te zien als ongeordende opmaak‑vlaggen.
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![Dezelfde afbeelding gaat eerst door grijstinten daarna tint, en eerst door tint daarna grijstinten. De twee uiteindelijke grijstint‑afbeeldingen hebben verschillende tonen.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*In dit illustratieve Aspose.Slides voor .NET 26.11‑render, een tint van 220° op 25 % laat de grijstint‑afbeelding ongewijzigd. Het toepassen van dezelfde tint vóór grijstinten leidt tot verschillende tinten.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Inspecteer bewerkbare en effectieve waarden**
 
-Een bewerkbare operatie is het object dat wordt opgeslagen in `ISlidesPicture.getImageTransform`. Afhankelijk van het effect kan het direct schrijfbare leden exposeren. Bijvoorbeeld, [IBlur](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iblur/) exposeert schrijfbare `radius`‑ en `grow`‑waarden, [IAlphaModulateFixed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ialphamodulatefixed/) exposeert een schrijfbare `amount`, en [IAlphaBiLevel](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ialphabilevel/) exposeert een schrijfbare `threshold`. Kleur‑effecten zoals [IDuotone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iduotone/) exposeren mutabele [IColorFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icolorformat/) objecten.
+Een bewerkbare operatie is het object dat is opgeslagen in `ISlidesPicture.getImageTransform`. Afhankelijk van het effect kan het direct schrijfbare leden blootleggen. Bijvoorbeeld, [IBlur](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/) biedt schrijfbare `radius`‑ en `grow`‑waarden, [IAlphaModulateFixed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphamodulatefixed/) biedt een schrijfbare `amount`, en [IAlphaBiLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphabilevel/) biedt een schrijfbare `threshold`. Klee­rijeffecten zoals [IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) bieden mutable [IColorFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/)‑objecten.
 
-Sommige operatie‑interfaces, waaronder [IBrightnessContrast](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itint/) en [IAlphaReplace](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ialphareplace/), exposeren hun creatiescalaren niet als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanger toe op de gewenste positie.
+Sommige operatie‑interfaces, inclusief [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itint/), en [IAlphaReplace](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphareplace/), tonen hun creatiescalars niet als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder de operatie en voeg een vervanging toe op de vereiste positie.
 
-Effectieve data die door `getEffective()` wordt geretourneerd, is berekend en alleen‑lezen. Het is nuttig voor het oplossen van themagebaseerde kleuren en het lezen van de genormaliseerde waarden die de renderer gebruikt, maar het is geen extra bewerkingsvlak. Het volgende voorbeeld enumerateert de keten en inspecteert effectieve waarden waar de corresponderende API ze biedt:
+Effectieve gegevens die worden geretourneerd door `getEffective()` zijn berekend en alleen‑lees. Ze zijn nuttig voor het oplossen van themakerende kleuren en het lezen van de genormaliseerde waarden die de renderer gebruikt, maar vormen geen extra bewerkingsoppervlak. Het volgende voorbeeld enumerateert de keten en inspecteert effectieve waarden waar de corresponderende API ze levert:
 
 ```java
 import com.aspose.slides.*;
@@ -331,11 +383,11 @@ try {
 }
 ```
 
-Parameter‑vrije effecten zoals grijstinten, alpha‑ceiling en alpha‑inverse hebben nog steeds een effectieve‑data‑object, maar er zijn geen scalar‑instellingen om af te drukken. Hun aanwezigheid en positie in de collectie zijn de belangrijke informatie.
+Effecten zonder parameters zoals grijstinten, alfa‑plafond en alfa‑inverse hebben nog steeds een effectieve‑dat object, maar er zijn geen scalair‑instellingen om af te drukken. Hun aanwezigheid en positie in de collectie zijn de belangrijke informatie.
 
-## **Verwijder of wis afbeeldings‑transformaties**
+## **Verwijder of wis beeldtransformaties**
 
-Gebruik [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) om één operatie op index te verwijderen. Omdat indexen na een verwijdering verschuiven, zoek je eerst het doel en verwijder het daarna na enumeratie. Gebruik [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--) om de volledige keten te verwijderen.
+Gebruik [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) om één operatie op basis van index te verwijderen. Omdat indexen verschuiven na verwijdering, zoek eerst naar het doel en verwijder het daarna na enumeratie. Gebruik [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--) om de volledige keten te verwijderen.
 
 ```java
 import com.aspose.slides.*;
@@ -376,38 +428,38 @@ try {
 }
 ```
 
-Het verwijderen of wissen van transformaties wijzigt alleen de afbeelding‑opmaak. Het verwijdert, recomprimeert of verandert de hergebruikte [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) resource niet.
+Het verwijderen of wissen van transformaties wijzigt alleen de afbeeldingsopmaak. Het verwijdert, recomprimeert of wijzigt de hergebruikte [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)‑bron niet.
 
-## **Beschouw presentatieformaten en export‑doelen**
+## **Overweeg presentatieformaten en exportdoelen**
 
-Afbeeldings‑transformaties ontstaan in DrawingML, dus PPTX is het geprefereerde bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie identieke draagbaarheid:
+Beeldtransformaties komen voort uit DrawingML, dus PPTX is het voorkeurs‑bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie dezelfde draagbaarheid:
 
-- Standaard DrawingML‑operaties zoals luminantie, grijstinten, duotoon, tint, HSL, vervaging en gangbare alpha‑operaties hebben de grootste kans om een PPTX‑round‑trip te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de collectie wanneer behoud een vereiste is.
-- [BrightnessContrast](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/brightnesscontrast/) is een Office 2010‑extensie in plaats van de standaard DrawingML‑luminantie‑operatie. Het kan voor in‑memory rendering worden gebruikt, maar het is niet gegarandeerd dat het na opslaan en heropenen van PPTX bewerkbaar blijft als [IBrightnessContrast](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibrightnesscontrast/). Geef de voorkeur aan [addLuminanceEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) voor persistente helderheid‑ en contrast‑aanpassingen.
-- Het binair PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde operaties weglaten, een keten terugbrengen tot een ondersteunde subset, of een benadering van het uiterlijk geven. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
-- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele output past de ondersteunde keten toe op het gerenderde uiterlijk. Die outputs bevatten geen bewerkbare `IImageTransformOperationCollection`; rasterformaten flatten het resultaat naar pixels, en document‑/vector‑exports slaan hun eigen renderingsrepresentatie op.
-- Effecten maken een gekoppelde afbeelding niet zelf‑voorzienend. Het renderen van een gekoppelde afbeelding blijft afhankelijk van de beschikbaarheid van de gekoppelde resource wanneer de presentatie wordt geladen.
+- Standaard DrawingML‑operaties zoals luminantie, grijstinten, duotoon, tint, HSL, onscherpte en gangbare alfa‑operaties hebben de grootste kans om een PPTX‑round‑trip te overleven. Open het gegenereerde bestand altijd opnieuw en inspecteer de collectie wanneer bewaring een vereiste is.
+- [BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) is een Office 2010‑extensie in plaats van de standaard DrawingML‑luminantie‑operatie. Het kan worden gebruikt voor in‑memory rendering, maar het is niet gegarandeerd dat het blijft als een bewerkbare [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/) na het opslaan en opnieuw openen van PPTX. Geef de voorkeur aan [addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) voor blijvende helderheids‑ en contrast‑aanpassingen.
+- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde operaties weglaten, een keten reduceren tot een ondersteunde subset, of het uiterlijk benaderen. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
+- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele output past de ondersteunde keten toe op het gerenderde uiterlijk. Deze uitvoerbestanden bevatten geen bewerkbare `IImageTransformOperationCollection`; rasterformaten flatten het resultaat naar pixels, en document‑/vector‑exports slaan hun eigen renderrepresentatie op.
+- Effecten maken een gekoppelde afbeelding niet zelfvoorzienend. Het renderen van een gekoppelde afbeelding blijft afhankelijk van de beschikbaarheid van de gekoppelde bron wanneer de presentatie wordt geladen.
 
-Verschillende presentatie‑consumenten kunnen randgevallen verschillend renderen, vooral wanneer meerdere alpha‑ of kleur‑kwantisatie‑operaties gecombineerd worden. Voor kritieke output, test zowel de bewerkbare round‑trip als het uiteindelijke export‑formaat met dezelfde versie van Aspose.Slides die in productie wordt gebruikt.
+Verschillende presentatie‑consumenten kunnen randgevallen verschillend renderen, vooral wanneer meerdere alfa‑ of kleur‑kwantisatie‑operaties worden gecombineerd. Voor kritieke output, test zowel de bewerkbare round‑trip als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
 
 ## **FAQ**
 
-**Wijzigen afbeelding‑transformatie‑effecten de ingesloten afbeeldingsdata?**
+**Veranderen beeldtransformatie‑effecten de ingebedde afbeeldingsgegevens?**
 
-Nee. De operaties behoren tot de `ISlidesPicture` die door de afbeelding‑vulling wordt gebruikt. De onderliggende `IPPImage`‑bytes blijven ongewijzigd.
+Nee. De operaties behoren tot de `ISlidesPicture` die door de afbeeldingsvulling wordt gebruikt. De onderliggende `IPPImage`‑bytes blijven ongewijzigd.
 
-**Delen twee afbeelding‑frames die dezelfde afbeelding hergebruiken hun effecten?**
+**Zullen twee afbeeldingsframes die dezelfde afbeelding hergebruiken hun effecten delen?**
 
-Nee. Het hergebruiken van een `IPPImage` voorkomt dubbele afbeeldingsdata, maar elk afbeelding‑frame heeft normaal gesproken een apart `ISlidesPicture` en een aparte transformatie‑collectie.
+Nee. Het hergebruiken van een `IPPImage` voorkomt dubbele afbeeldingsdata, maar elk afbeeldingsframe heeft normaal een aparte `ISlidesPicture` en een eigen beeldtransformatie‑collectie.
 
-**Kunnen kleur‑, vervagings‑ en alpha‑effecten gecombineerd worden?**
+**Kunnen kleur-, onscherpte‑ en alfa‑effecten worden gecombineerd?**
 
-Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke operatie doet met de uitvoer van de vorige, want vervangings‑ en drempel‑operaties kunnen eerdere kleur‑ of alpha‑details verwijderen.
+Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke operatie doet met de output van de vorige, omdat vervangings‑ en drempel‑operaties eerdere kleur‑ of alfade details kunnen weggooien.
 
-**Waarom zijn effectieve waarden alleen‑lezen?**
+**Waarom zijn effectieve waarden alleen‑lees?**
 
-Effectieve data vertegenwoordigt berekende waarden die voor het renderen worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transformatie‑collectie is opgeslagen waar schrijfbare leden bestaan; anders verwijder je deze en voeg je een vervanger toe met nieuwe creatie‑parameters.
+Effectieve data vertegenwoordigt berekende waarden die voor rendering worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transform‑collectie is opgeslagen wanneer er schrijfbare leden bestaan; verwijder anders de operatie en voeg een vervanging toe met nieuwe creatie‑parameters.
 
 **Welk formaat moet ik gebruiken om een transform‑keten te behouden?**
 
-Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan het volledige DrawingML‑effectmodel niet representeren, en gerenderde export‑formaten behouden alleen het uiterlijk, niet bewerkbare transform‑operaties.
+Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan het volledige DrawingML‑effectmodel niet weergeven, en gerenderde exportformaten behouden alleen het uiterlijk, niet bewerkbare transform‑operaties.

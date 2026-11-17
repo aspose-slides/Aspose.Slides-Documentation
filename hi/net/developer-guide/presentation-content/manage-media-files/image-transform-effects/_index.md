@@ -1,72 +1,72 @@
 ---
-title: ".NET के साथ प्रस्तुतियों में इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स को प्रबंधित करें"
-linktitle: "इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स"
+title: .NET के साथ प्रस्तुतियों में छवि रूपांतरण प्रभाव प्रबंधित करें
+linktitle: छवि रूपांतरण प्रभाव
 type: docs
 weight: 11
 url: /hi/net/image-transform-effects/
 keywords:
-- इमेज ट्रांसफ़ॉर्म
-- पिक्चर इफ़ेक्ट
-- ब्राइटनेस
-- कंट्रास्ट
+- छवि रूपांतरण
+- चित्र प्रभाव
+- चमक
+- कॉन्ट्रास्ट
 - ग्रेस्केल
-- ड्यूोटोन
+- डुओटोन
 - टिंट
 - HSL
 - रंग प्रतिस्थापन
 - ब्लर
-- ट्रांसपैरेंसी
-- अल्फा इफ़ेक्ट
-- इफ़ेक्ट चेन
+- पारदर्शिता
+- अल्फा प्रभाव
+- प्रभाव श्रृंखला
 - PowerPoint
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ पिक्चर फ्रेम्स के लिए इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स को लागू करें, चेन बनाएं, निरीक्षण करें, हटाएं और सत्यापित करें।"
+description: "Aspose.Slides for .NET के साथ चित्र फ्रेम के लिए छवि रूपांतरण प्रभाव लागू करें, श्रृंखलाबद्ध करें, निरीक्षण करें, हटाएँ, और सत्यापित करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-Aspose.Slides चित्र समायोजन को इमेज ट्रांसफ़ॉर्म ऑपरेशनों के क्रमबद्ध संग्रह के रूप में दर्शाता है। एक चित्र फ्रेम के लिए, फ्रेम की [ISlidesPicture](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/) से शुरू करें और [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/imagetransform/) तक पहुँचें। लौटाया गया [IImageTransformOperationCollection](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/) आपको प्रभावों को जोड़ने, गिनने, जांचने, हटाने और साफ़ करने की अनुमति देता है बिना मूल इमेज बाइट्स को पुनर्लिखे।
+Aspose.Slides चित्र समायोजनों को छवि रूपांतरण संचालन के क्रमबद्ध संग्रह के रूप में प्रस्तुत करता है। एक चित्र फ्रेम के लिए, फ्रेम के [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) से शुरू करें और [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/) तक पहुँचें। लौटाया गया [IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/) आपको मूल छवि बाइट्स को दोबारा लिखे बिना प्रभावों को जोड़ने, गिनने, निरीक्षण करने, हटाने और साफ़ करने की अनुमति देता है।
 
-यह लेख ब्राइटनेस और कंट्रास्ट, रंग रूपांतरण, ब्लर, ट्रांसपैरेंसी, क्रमबद्ध इफ़ेक्ट चेन, प्रभावी मान, हटाना, और PPTX राउंड‑ट्रिप सत्यापन के लिए पूर्ण कार्यप्रवाह प्रदर्शित करता है।
+यह लेख चमक और कंट्रास्ट, रंग रूपांतरण, ब्लर, पारदर्शिता, क्रमबद्ध प्रभाव श्रृंखला, प्रभावी मान, हटाना, और PPTX राउंड‑ट्रिप सत्यापन के लिए पूर्ण कार्यप्रवाह प्रदर्शित करता है।
 
-## **प्रभाव स्वामित्व और इमेज पुन: उपयोग को समझें**
+## **इफ़ेक्ट स्वामित्व और छवि पुन: उपयोग को समझें**
 
-एक इमेज रिसोर्स और उसे प्रदर्शित करने वाला चित्र दो विभिन्न वस्तुएँ हैं:
+एक छवि संसाधन और वह चित्र जो इसे प्रदर्शित करता है अलग‑अलग वस्तुएँ हैं:
 
-- [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) प्रस्तुति द्वारा स्वामित्व वाले स्रोत इमेज डेटा को संग्रहीत या संदर्भित करता है।
-- [ISlidesPicture](https://reference.aspose.com/slides/hi/net/aspose.slides/islidespicture/) एक चित्र फ़िल के अंतर्गत आता है और इमेज रिसोर्स को संदर्भित करता है जबकि इमेज ट्रांसफ़ॉर्म संग्रह को संग्रहीत करता है।
-- [IPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe/) स्लाइड आकार है जो संबंधित चित्र फ़िल, ज्यामिति, क्रॉप सेटिंग्स, और अन्य फ्रेम‑स्तर फ़ॉर्मेटिंग को स्वामित्व रखता है।
+- [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) प्रस्तुति द्वारा स्वामित्व वाली मूल छवि डेटा को संग्रहीत या संदर्भित करता है।
+- [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) एक चित्र फ़िल भरता है और एक छवि संसाधन को संदर्भित करता है जबकि छवि रूपांतरण संग्रह को संग्रहीत करता है।
+- [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) वह स्लाइड आकार है जो संबंधित चित्र फ़िल, ज्यामिति, क्रॉप सेटिंग्स और अन्य फ्रेम‑स्तरीय फ़ॉर्मेटिंग को धारण करता है।
 
-इसलिए, इमेज ट्रांसफ़ॉर्म ऑपरेशन्स [IPPImage] की बाइट्स को संशोधित नहीं करते। जब एक ही `IPPImage` को [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/addpictureframe/) से अधिक बार पास किया जाता है, तो प्रत्येक नई चित्र फ्रेम को अपना `ISlidesPicture` और अपनी ट्रांसफ़ॉर्म संग्रह मिलती है। एक फ्रेम पर ग्रेस्केल लागू करने से अन्य फ्रेम ग्रेस्केल नहीं होते, भले ही सभी एक ही एम्बेडेड इमेज रिसोर्स को पुन: उपयोग करें।
+इसलिए, छवि रूपांतरण संचालन [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) में बाइट्स को संशोधित नहीं करते। जब वही `IPPImage` को [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) को एक से अधिक बार पास किया जाता है, तो प्रत्येक नया चित्र फ्रेम अपना स्वयं का `ISlidesPicture` और अपनी स्वयं की रूपांतरण संग्रह प्राप्त करता है। एक फ्रेम पर ग्रेस्केल लागू करना अन्य फ्रेमों को ग्रेस्केल नहीं बनाता, भले ही सभी समान एम्बेडेड छवि संसाधन का पुनः उपयोग करें।
 
-उसी `ISlidesPicture.ImageTransform` मॉडल का उपयोग अन्य चित्र फ़िल्स, जैसे आकार या स्लाइड पृष्ठभूमि, द्वारा भी किया जाता है। नीचे के उदाहरण केवल चित्र फ्रेम्स पर केंद्रित हैं।
+एक ही `ISlidesPicture.ImageTransform` मॉडल का उपयोग अन्य चित्र फ़िल, जैसे आकार या स्लाइड पृष्ठभूमि, द्वारा भी किया जाता है। नीचे के उदाहरण चित्र फ्रेम पर केंद्रित हैं।
 
-## **वैध पैरामीटर रेंज और इकाइयों का उपयोग करें**
+## **वैध पैरामीटर रेंज और इकाइयाँ उपयोग करें**
 
-प्रदर्शित विधियों में निम्न सेमिक अर्थ वाली रेंज और इकाइयाँ उपयोग की जाती हैं। इन रेंजों में मान रखें भले ही कोई विशेष लाइब्रेरी संस्करण तुरंत सभी आउट‑ऑफ़‑रेंज मानों को अस्वीकार न करे; लक्ष्य प्रस्तुति फ़ॉर्मेट सहेजते समय या PowerPoint फ़ाइल खोलते समय अमान्य डेटा को सामान्यीकृत, छोड़ या अस्वीकार कर सकता है।
+प्रदर्शित विधियों में निम्नलिखित अर्थपूर्ण रेंज और इकाइयाँ उपयोग होती हैं। इन रेंजों में मान रखें भले ही किसी विशेष लाइब्रेरी संस्करण द्वारा आउट‑ऑफ़‑रेंज मान तुरंत अस्वीकार न किए जाएँ; लक्ष्य प्रस्तुति स्वरूप सहेजते समय या PowerPoint फ़ाइल खोलते समय अमान्य डेटा को सामान्यीकृत, छोड़ या अस्वीकार कर सकता है।
 
 | ऑपरेशन | पैरामीटर | वैध रेंज और इकाई |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` से `100` तक, प्रतिशत; `0` घटक को अपरिवर्तित रखता है। |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | कोई संख्यात्मक पैरामीटर नहीं। अल्फा अपरिवर्तित रहता है। |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | डार्क और लाइट पिक्सेल के लिए दो रंग। `System.Drawing.Color` में RGB और अल्फा चैनल `0` से `255` तक प्रयोग करते हैं। |
-| [AddTintEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | ह्यू `0` (समावेशी) से `360` (अनन्य) डिग्री में; मात्रा `-100` से `100`, प्रतिशत। |
-| [AddHSLEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | ह्यू `0` (समावेशी) से `360` (अनन्य) डिग्री में; सैचुरेशन और ल्यूमिनेंस `-100` से `100`, प्रतिशत। |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | बदलाव रंग के चैनल मान `0` से `255` तक होते हैं। मौजूदा अल्फा मान अपरिवर्तित रहता है। |
-| [AddBlurEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | रेडियस नॉन‑नेगेटिव है और पॉइंट्स में मापा जाता है; `grow` एक बूलियन है जो निर्धारित करता है कि ब्लर किया गया कंटेंट मूल सीमा से बाहर विस्तारित हो सकता है या नहीं। |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | नॉन‑नेगेटिव प्रतिशत। सामान्य अपारदर्शिता स्केलिंग के लिए `0` से `100` प्रयोग करें: `0` पूर्णतः ट्रांसपेरेंट है और `100` मौजूद अल्फा को बरकरार रखता है। |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` से `100`, प्रतिशत अपारदर्शिता। |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` से `100`, प्रतिशत अल्फा थ्रेशहोल्ड। इसके नीचे मान ट्रांसपेरेंट हो जाते हैं; इस या उससे ऊपर के मान अपारदर्शी हो जाते हैं। |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` से `100` तक, प्रतिशत; `0` घटक को अपरिवर्तित छोड़ता है। |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | कोई नहीं | कोई संख्यात्मक पैरामीटर नहीं। अल्फा अपरिवर्तित रहता है। |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | गहरे और हल्के पिक्सेल के लिए दो रंग। `System.Drawing.Color` में RGB और अल्फा चैनल `0` से `255` तक होते हैं। |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue `0` (समावेशी) से `360` (बहिष्करण) तक, डिग्री में; amount `-100` से `100` तक, प्रतिशत। |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue `0` से `360` तक, डिग्री में; saturation और luminance `-100` से `100` तक, प्रतिशत। |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | प्रतिस्थापन रंग चैनल मान `0` से `255` तक। मौजूदा अल्फा मान अपरिवर्तित रहते हैं। |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Radius गैर‑नकारात्मक और पॉइंट में मापी जाती है; `grow` एक Boolean है जो निर्धारित करता है कि धुंधला कंटेंट मूल सीमा से बाहर जा सकता है या नहीं। |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | गैर‑नकारात्मक प्रतिशत। सामान्य अपारदर्शिता स्केलिंग के लिए `0` से `100` उपयोग करें: `0` पूरी तरह पारदर्शी और `100` मौजूदा अल्फा को बरकरार रखता है। |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` से `100` तक, प्रतिशत अपारदर्शिता। |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` से `100` तक, प्रतिशत अल्फा थ्रेशहोल्ड। इससे नीचे के मान पारदर्शी हो जाते हैं; थ्रेशहोल्ड के बराबर या ऊपर के मान अपारदर्शी हो जाते हैं। |
 
-स्थिर अल्फा मॉडुलेशन के लिए, ट्रांसपैरेंसी और अपारदर्शिता परस्परपूरक होते हैं। उदाहरण के लिए, 35% ट्रांसपैरेंसी का अर्थ 65% अल्फा मॉडुलेशन मात्रा है।
+स्थिर अल्फा मॉड्यूलेशन के लिए, पारदर्शिता और अपारदर्शिता परस्परपूरक होते हैं। उदाहरण के लिए, 35 % पारदर्शिता का अर्थ है अल्फा मॉड्यूलेशन मात्रा 65 % के बराबर।
 
-## **ब्राइटनेस और कंट्रास्ट लागू करें**
+## **चमक और कंट्रास्ट लागू करें**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) एक [IBrightnessContrast](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ibrightnesscontrast/) ऑपरेशन लौटाता है। इसके स्केलर सेटिंग्स ऑपरेशन बनाते समय प्रदान की जाती हैं। [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/brightnesscontrast/geteffective/) गणना किए हुए केवल‑पढ़ने योग्य मान लौटाता है जिन्हें निरीक्षण या लॉग किया जा सकता है।
+[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) एक [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) संचालन लौटाता है। इसके स्केलर सेटिंग्स संचालन बनते समय आपूर्ति की जाती हैं। [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/) गणना किए गए केवल‑पढ़ने‑योग्य मान लौटाता है जिसे निरीक्षण या लॉग किया जा सकता है।
 
-निम्न उदाहरण ब्राइटनेस को 15% और कंट्रास्ट को 20% बढ़ाता है, फिर एम्बेडेड इमेज को बदले बिना एक प्रीव्यू रेंडर करता है:
+निम्न उदाहरण 15 % चमक और 20 % कंट्रास्ट बढ़ाता है, फिर एम्बेडेड छवि को बदले बिना एक प्रीव्यू रेंडर करता है:
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/brightnesscontrast/) Office 2010 चित्र‑इफ़ेक्ट विस्तार है और मानक DrawingML ल्यूमिनेंस इफ़ेक्ट की तुलना में कम पोर्टेबल है। जब ब्राइटनेस और कंट्रास्ट को PPTX राउंड‑ट्रिप के बाद भी संपादन योग्य रखना हो, तो [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) का उपयोग करें और फ़ाइल को पुनः खोलने के बाद परिणाम सत्यापित करें। फ़ॉर्मेट सीमाएँ भाग इस अंतर को अधिक विस्तार से समझाता है।
+[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) Office 2010 चित्र‑इफ़ेक्ट विस्तार है और मानक DrawingML ल्यूमिनेंस इफ़ेक्ट से कम पोर्टेबल है। जब चमक और कंट्रास्ट को PPTX राउंड‑ट्रिप के बाद भी संपादन योग्य रहना हो, तो [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) का उपयोग करें और फ़ाइल पुनः खोलने के बाद परिणाम सत्यापित करें। स्वरूप सीमाएँ इस अंतर को अधिक विस्तार से समझाती हैं।
 
 ## **रंग रूपांतरण लागू करें**
 
-रंग इफ़ेक्ट्स को अलग‑अलग चित्र फ्रेम्स पर स्वतंत्र रूप से लागू किया जा सकता है जो एक ही इमेज रिसोर्स को पुनः उपयोग करते हैं। निम्न उदाहरण पाँच फ्रेम बनाता है और क्रमशः ग्रेस्केल, ड्यूोटोन, टिंट, HSL समायोजन, और रंग प्रतिस्थापन लागू करता है।
+रंग प्रभावों को अलग‑अलग चित्र फ्रेम पर स्वतंत्र रूप से लागू किया जा सकता है जो एक ही छवि संसाधन का पुनः उपयोग करते हैं। निम्न उदाहरण पाँच फ्रेम बनाता है और क्रमशः ग्रेस्केल, डुओटोन, टिंट, HSL समायोजन, और रंग प्रतिस्थापन लागू करता है।
 
-[IDuotone](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iduotone/) दो स्वतंत्र रूप से संपादन योग्य रंग पैरामीटर रखता है: `Color1` डार्क पिक्सेल को मैप करता है, जबकि `Color2` लाइट पिक्सेल को। यह एक उपयोगी उदाहरण है जहाँ सेटिंग्स एकल स्केलर मान से अधिक जटिल हैं।
+[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) दो स्वतंत्र रूप से संपादन योग्य रंग पैरामीटर रखता है: `Color1` गहरे पिक्सेल को मैप करता है, जबकि `Color2` हल्के पिक्सेल को। यह एक उपयोगी उदाहरण है जहाँ सेटिंग्स एकल स्केलर मान से अधिक जटिल होती हैं।
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) प्रत्येक पिक्सेल के रंग को एक निश्चित रंग से बदलता है जबकि अल्फा को बरकरार रखता है। यह [AddColorChangeEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) से अलग है, जो एक स्रोत रंग को दूसरे में मैप करता है और स्रोत तथा लक्ष्य रंग फ़ॉर्मेट दोनों को उजागर करता है।
+[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) हर पिक्सेल के रंग को एक निश्चित रंग से बदलता है जबकि अल्फा को संरक्षित रखता है। यह [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) से अलग है, जो एक स्रोत रंग को दूसरे में मैप करता है और स्रोत एवं लक्ष्य दोनों रंग स्वरूपों को उजागर करता है।
 
-## **ब्लर, ट्रांसपैरेंसी और अल्फा इफ़ेक्ट जोड़ें**
+### **ल्यूमिनेंस थ्रेशहोल्ड लागू करें**
 
-[AddBlurEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) सभी रंग चैनलों, अल्फा सहित, को प्रभावित करता है। जब ब्लर किया गया किनारा मूल चित्र की सीमा से बाहर जा सकता है, तो `grow` को `true` सेट करें।
+ल्यूमिनेंस थ्रेशहोल्ड स्कैन की गई पृष्ठ पर धुंधले निशानों को पृष्ठभूमि से अधिक स्पष्ट बनाने में मदद करता है। [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) मध्यवर्ती ग्रे शेड्स को बनाए रखता है। [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) ल्यूमिनेंस को काले या सफ़ेद में मैप करता है, जबकि [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) अपारदर्शिता पर थ्रेशहोल्ड लगाता है।
 
-समान ट्रांसपैरेंसी के लिए, [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) उपयोग करें। यह प्रत्येक मौजूद अल्फा मान को गुणा करता है, इसलिए आंशिक रूप से ट्रांसपेरेंट पिक्सेल अनुपातिक रूप से अलग रहते हैं। [AddAlphaReplaceEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) सभी पिक्सेल को एक ही अल्फा मान देता है। [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) थ्रेशहोल्ड के आधार पर अल्फा को दो स्तरों में परिवर्तित करता है।
+ल्यूमिनेंस थ्रेशहोल्ड 0 % से 100 % (समावेशी) तक रहता है। थ्रेशहोल्ड से कम पिक्सेल काले हो जाते हैं। थ्रेशहोल्ड के बराबर या ऊपर के पिक्सेल सफ़ेद हो जाते हैं। थ्रेशहोल्ड बढ़ाने से अधिक शेड्स काले हो जाते हैं क्योंकि अधिक पिक्सेल कट‑ऑफ़ से नीचे गिरते हैं।
+
+[grayscale-swatches.png](grayscale-swatches.png) को कार्यशील निर्देशिका में डाउनलोड करें। प्रत्येक लेबल मूल ग्रे स्तर को 0‑255 स्केल पर दर्शाता है। उदाहरण मूल को दो प्रतियों के बगल में रखता है और प्रत्येक प्रतिलिपि का थ्रेशहोल्ड प्रस्तुति में सहेजता है।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+आउटपुट प्रस्तुति को PowerPoint में खोलें और तीन फ्रेम की तुलना करें। लेबल 96 वाला स्वॉच लगभग 38 % ल्यूमिनेंस (96/255) दर्शाता है। यह 20 % थ्रेशहोल्ड पर सफ़ेद और 60 % थ्रेशहोल्ड पर काला हो जाता है।
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **ब्लर, पारदर्शिता, और अल्फा प्रभाव जोड़ें**
+
+[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) सभी रंग चैनलों को प्रभावित करता है, जिसमें अल्फा भी शामिल है। जब ब्लर्ड किनारा मूल चित्र सीमा से बाहर जा सकता है, तो `grow` को `true` सेट करें।
+
+समान पारदर्शिता के लिए, [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) का उपयोग करें। यह प्रत्येक मौजूदा अल्फा मान को गुणा करता है, इसलिए आंशिक रूप से पारदर्शी पिक्सेल अनुपातिक रूप से अलग रहते हैं। [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) सभी पिक्सेल को एक ही अल्फा मान देता है। [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) थ्रेशहोल्ड के आधार पर अल्फा को दो स्तरों में परिवर्तित करता है।
 
 ```csharp
 using System.IO;
@@ -171,15 +212,15 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-अन्य पैरामीटर‑फ़्री अल्फा ऑपरेशन्स में [AddAlphaCeilingEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/) शामिल है, जो हर गैर‑शून्य अल्फा को पूर्णतः अपारदर्शी बनाता है; [AddAlphaFloorEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/) जो 100% से कम प्रत्येक अल्फा को पूर्णतः ट्रांसपेरेंट बनाता है; तथा [AddAlphaInverseEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/) जो अल्फा को `100% - alpha` में बदलता है।
+अन्य पैरामीटर‑रहित अल्फा संचालन में शामिल हैं [AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), जो प्रत्येक शून्य‑नॉन‑शून्य अल्फा को पूरी तरह अपारदर्शी बनाता है; [AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), जो 100 % से कम सभी अल्फा को पूरी तरह पारदर्शी बनाता है; और [AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), जो अल्फा को `100% - alpha` में बदलता है।
 
-## **एक क्रमबद्ध इफ़ेक्ट चेन बनाएँ**
+## **एक क्रमबद्ध प्रभाव श्रृंखला बनाएं**
 
-प्रत्येक `Add...Effect` मेथड नई ऑपरेशन को संग्रह के अंत में जोड़ता है। रेंडरर संग्रह को क्रमबद्ध पाइपलाइन के रूप में उपयोग करता है: ऑपरेशन 0 का आउटपुट ऑपरेशन 1 का इनपुट बन जाता है, आदि। परिणामस्वरूप, विभिन्न क्रम में समान ऑपरेशन्स अलग इमेज उत्पन्न कर सकते हैं।
+प्रत्येक `Add...Effect` विधि संग्रह के अंत में एक नया संचालन जोड़ती है। रेंडरर संग्रह को क्रमबद्ध पाइपलाइन के रूप में उपयोग करता है: संचालन 0 का आउटपुट संचालन 1 का इनपुट बनता है, आदि। परिणामस्वरूप, समान संचालन का अलग क्रम अलग‑अलग छवि उत्पन्न कर सकता है।
 
-उदाहरण के लिये, ग्रेस्केल के बाद टिंट पहले क्रोमैटिक जानकारी को हटा देता है और फिर ल्यूमिनेंस परिणाम को फिर से रंग देता है। टिंट के बाद ग्रेस्केल टिंट को फिर से हटा देता है। इसी तरह, अल्फा रिप्लेसमेंट पहले के ऑपरेशन्स द्वारा गणना किए गए अल्फा मानों को ओवरराइड कर सकता है, जबकि अल्फा मोड्यूलेशन उनके सापेक्ष अंतर को बनाय रखता है।
+उदाहरण के लिए, ग्रेस्केल के बाद टिंट पहले रंगात्मक जानकारी हटाता है और फिर ल्यूमिनेंस परिणाम को पुनः रंगित करता है। टिंट के बाद ग्रेस्केल टिंट को फिर से हटा देता है। इसी तरह, अल्फा प्रतिस्थापन पहले के संचालन द्वारा गणना किए गए अल्फा मानों को ओवरराइड कर सकता है, जबकि अल्फा मॉड्यूलेशन उनके सापेक्ष अंतर को बनाए रखता है।
 
-निम्न उदाहरण चार‑ऑपरेशन चेन बनाता है, इसे PPTX के रूप में सहेजता है, प्रस्तुति को पुनः खोलता है, ऑपरेशन प्रकार और उनका क्रम दोनों जाँचता है, और पुनः खोले गए परिणाम को रेंडर करता है:
+निम्न उदाहरण चार‑ऑपरेशन श्रृंखला बनाता है, उसे PPTX के रूप में सहेजता है, प्रस्तुति को पुनः खोलता है, संचालन प्रकार और क्रम दोनों की जाँच करता है, और पुनः खुले परिणाम को रेंडर करता है:
 
 ```csharp
 using System;
@@ -224,15 +265,22 @@ else
 }
 ```
 
-संग्रह कोई संगतता मैट्रिक्स नहीं लागू करता जो रंग, अल्फा, और ब्लर ऑपरेशन्स को अलग‑अलग चेन में सीमित करे। उन्हें एक साथ जोड़ा जा सकता है, लेकिन संयोजन हमेशा उपयोगी नहीं होते। एक स्थिर रंग प्रतिस्थापन पहले के रंग इफ़ेक्ट्स द्वारा उत्पन्न RGB विविधता को हटा देता है; ड्यूोटोन के बाद ग्रेस्केल दो चयनित रंगों को हटा देता है; और अल्फा सीलिंग, फ़्लोर, रिप्लेसमेंट, या बाइ‑लेवल ऑपरेशन्स पहले निर्मित अल्फा विवरण को समाप्त कर सकते हैं। चेन को वांछित पिक्सेल‑प्रोसेसिंग क्रम के अनुसार बनाएं न कि इसके आइटम्स को अनऑर्डर्ड फ़ॉर्मेटिंग फ़्लैग मानें।
+संग्रह कोई संगतता मैट्रिक्स लागू नहीं करता जो रंग, अल्फा, और ब्लर संचालन को अलग‑अलग श्रृंखलाओं में सीमित करे। इन्हें संयोजित किया जा सकता है, पर संयोजन हमेशा उपयोगी नहीं होते। एक स्थिर रंग प्रतिस्थापन पहले के रंग प्रभावों द्वारा उत्पन्न RGB विविधता को हटा देता है; डुओटोन के बाद ग्रेस्केल दो चयनित रंगों को हटा देता है; और अल्फा सीलिंग, फ़्लोर, प्रतिस्थापन, या बाइलवल संचालन पहले निर्मित अल्फा विवरण को नष्ट कर सकते हैं। इच्छित पिक्सेल‑प्रोसेसिंग क्रम के अनुसार श्रृंखला बनाएँ, न कि इसे असॉर्टेड फ़ॉर्मेटिंग फ्लैग मानें।
 
-## **संपादन योग्य और प्रभावी मान निरीक्षण करें**
 
-एक संपादन योग्य ऑपरेशन वह ऑब्जेक्ट है जो `ISlidesPicture.ImageTransform` में संग्रहीत होता है। प्रभाव के आधार पर, यह सीधे लिखने योग्य सदस्य उजागर कर सकता है। उदाहरण के लिए, [IBlur](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iblur/) लिखने योग्य `Radius` और `Grow` उजागर करता है, [IAlphaModulateFixed](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ialphamodulatefixed/) लिखने योग्य `Amount` उजागर करता है, और [IAlphaBiLevel](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ialphabilevel/) लिखने योग्य `Threshold` उजागर करता है। रंग इफ़ेक्ट्स जैसे [IDuotone](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iduotone/) परिवर्तनीय [IColorFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/icolorformat/) ऑब्जेक्ट्स उजागर करते हैं।
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-कुछ ऑपरेशन इंटरफ़ेसेस, जैसे [IBrightnessContrast](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/itint/), और [IAlphaReplace](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ialphareplace/), अपने निर्माण स्केलर को लिखने योग्य प्रॉपर्टी के रूप में उजागर नहीं करते। उन सेटिंग्स को बदलने के लिये, ऑपरेशन को हटाएँ और वांछित स्थान पर एक नया जोड़ें।
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-`GetEffective()` द्वारा लौटाया गया प्रभावी डेटा गणना किया गया और केवल‑पढ़ने योग्य होता है। यह थीम‑निर्भर रंगों को हल करने और रेंडरर द्वारा उपयोग किए गए सामान्यीकृत मानों को पढ़ने में उपयोगी है, परंतु यह अतिरिक्त संपादन सतह नहीं है। निम्न उदाहरण चेन को गिनता है और जहाँ संबंधित API उपलब्ध है, प्रभावी मानों का निरीक्षण करता है:
+## **संपादनीय और प्रभावी मानों का निरीक्षण करें**
+
+एक संपादनीय संचालन वह वस्तु है जो `ISlidesPicture.ImageTransform` में संग्रहीत होती है। प्रभाव के अनुसार, यह सीधे लिखने योग्य सदस्यों को उजागर कर सकता है। उदाहरण के लिए, [IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/) लिखने योग्य `Radius` और `Grow` को उजागर करता है, [IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/) लिखने योग्य `Amount` को उजागर करता है, और [IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/) लिखने योग्य `Threshold` को उजागर करता है। [IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) जैसे रंग प्रभाव [IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/) वस्तुओं को बदलने योग्य रूप में उजागर करते हैं।
+
+कुछ संचालन इंटरफ़ेस, जैसे [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/), और [IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/), अपने निर्माण स्केलर को लिखने योग्य गुण के रूप में उजागर नहीं करते। इन सेटिंग्स को बदलने के लिए, संचालन को हटाएँ और आवश्यक स्थिति में एक प्रतिस्थापन जोड़ें।
+
+`GetEffective()` द्वारा लौटाए गए प्रभावी डेटा गणना किए गए और केवल‑पढ़ने‑योग्य होते हैं। यह थीम‑निर्भर रंगों को हल करने और रेंडरर द्वारा उपयोग किए गए सामान्यीकृत मानों को पढ़ने में उपयोगी होता है, लेकिन यह कोई अतिरिक्त संपादन सतह नहीं है। नीचे का उदाहरण श्रृंखला को गिनता है और जहाँ संबंधित API प्रदान करती है वहाँ प्रभावी मानों का निरीक्षण करता है:
 
 ```csharp
 using System;
@@ -302,11 +350,11 @@ if (pictureFrame != null)
 }
 ```
 
-ग्रेस्केल, अल्फा सीलिंग, और अल्फा इनवर्स जैसे पैरामीटर‑फ़्री इफ़ेक्ट्स का भी प्रभावी‑डेटा ऑब्जेक्ट होता है, परंतु प्रिंट करने के लिये कोई स्केलर सेटिंग नहीं होती। संग्रह में उनकी उपस्थिति और स्थिति ही महत्वपूर्ण जानकारी है।
+पैरामीटर‑रहित प्रभाव जैसे ग्रेस्केल, अल्फा सीलिंग, और अल्फा इनवर्स के भी एक प्रभावी‑डेटा वस्तु होती है, लेकिन प्रिंट करने के लिए कोई स्केलर सेटिंग नहीं होती। उनका अस्तित्व और संग्रह में स्थिति ही महत्वपूर्ण जानकारी होती है।
 
-## **इमेज ट्रांसफ़ॉर्म हटाएँ या साफ़ करें**
+## **छवि रूपांतरण हटाएँ या साफ़ करें**
 
-[IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) का उपयोग करके इंडेक्स द्वारा एक ऑपरेशन हटाएँ। हटाने के बाद इंडेक्स बदलते हैं, इसलिए पहले लक्ष्य खोजें और enumeration के बाद हटाएँ। संपूर्ण चेन हटाने के लिये `Clear()` उपयोग करें।
+एक संचालन को उसके इंडेक्स द्वारा हटाने के लिए [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) का उपयोग करें। क्योंकि हटाने के बाद इंडेक्स शिफ़्ट होते हैं, पहले लक्ष्य को खोजें और गिनती के बाद उसे हटाएँ। पूरी श्रृंखला को हटाने के लिए `Clear()` उपयोग करें।
 
 ```csharp
 using System;
@@ -344,33 +392,38 @@ if (pictureFrame != null)
 }
 ```
 
-ट्रांसफ़ॉर्म हटाने या साफ़ करने से केवल चित्र फ़ॉर्मेटिंग बदलती है। यह पुनः उपयोग किए गए [IPPImage](https://reference.aspose.com/slides/hi/net/aspose.slides/ippimage/) रिसोर्स को न तो हटाता है, न पुनः संपीड़ित करता है, और न ही अन्यथा बदलता है।
+रूपांतरण हटाने या साफ़ करने से केवल चित्र फ़ॉर्मेटिंग बदलती है। यह पुनः उपयोग किए गए [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) संसाधन को नहीं हटाता, पुनः संपीड़ित करता या अन्यथा बदलता।
 
-## **प्रेज़ेंटेशन फ़ॉर्मेट और एक्सपोर्ट लक्ष्य पर विचार करें**
+## **प्रेजेंटेशन स्वरूप और एक्सपोर्ट लक्ष्य पर विचार करें**
 
-इमेज ट्रांसफ़ॉर्म DrawingML से उत्पन्न होते हैं, इसलिए PPTX इफ़ेक्ट चेन के लिये वांछित संपादन योग्य फ़ॉर्मेट है। PPTX के साथ भी, प्रत्येक ऑपरेशन की पोर्टेबिलिटी समान नहीं होती:
+छवि रूपांतरण DrawingML में उत्पन्न होते हैं, इसलिए PPTX प्रभाव श्रृंखलाओं के लिए पसंदीदा संपादन योग्य स्वरूप है। PPTX के साथ भी, हर संचालन की पोर्टेबिलिटी समान नहीं है:
 
-- ल्यूमिनेंस, ग्रेस्केल, ड्यूोटोन, टिंट, HSL, ब्लर, और सामान्य अल्फा ऑपरेशन्स जैसे मानक DrawingML ऑपरेशन्स का PPTX राउंड‑ट्रिप में जीवित रहने का सर्वोत्तम मौका होता है। जब संरक्षण आवश्यक हो, हमेशा उत्पन्न फ़ाइल को पुनः खोलें और संग्रह की जाँच करें।
-- [BrightnessContrast](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/brightnesscontrast/) Office 2010 विस्तार है, मानक DrawingML ल्यूमिनेंस ऑपरेशन नहीं। इसे मेमोरी में रेंडरिंग के लिये उपयोग किया जा सकता है, परंतु यह सेव करने और PPTX को पुनः खोलने के बाद एक संपादन योग्य [IBrightnessContrast](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/ibrightnesscontrast/) के रूप में बना रहे, इसकी गारंटी नहीं है। स्थायी ब्राइटनेस और कंट्रास्ट समायोजन के लिये [AddLuminanceEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) को प्राथमिकता दें।
-- बाइनरी PPT फ़ॉर्मेट पूर्ण DrawingML इफ़ेक्ट मॉडल से पहले का है। PPT में सहेजने से असमर्थित ऑपरेशन्स को छोड़ दिया जा सकता है, चेन को समर्थित उपसमुच्चय में घटाया जा सकता है, या उपस्थिति का अनुमान लगाया जा सकता है। जटिल संपादन योग्य चेन के लिये PPT को सत्यापन फ़ॉर्मेट के रूप में उपयोग न करें।
-- PNG, JPEG, TIFF, PDF, SVG, HTML, या अन्य विजुअल आउटपुट में रेंडर करने से समर्थित चेन रेंडर की गई उपस्थिति पर लागू होती है। इन आउटपुट में संपादन योग्य `IImageTransformOperationCollection` नहीं होती; रास्टर फ़ॉर्मेट परिणाम को पिक्सेल में फ़्लैटन कर देते हैं, और दस्तावेज़/वेक्टर एक्सपोर्ट अपना स्वयं का रेंडरिंग प्रतिनिधित्व संग्रहीत करते हैं।
-- इफ़ेक्ट्स किसी लिंक्ड इमेज को स्व‑समाहित नहीं बनाते। लिंक्ड चित्र को रेंडर करने के लिये प्रस्तुति लोड होने पर लिंक्ड रिसोर्स उपलब्ध होना आवश्यक है।
+- मानक DrawingML संचालन जैसे ल्यूमिनेंस, ग्रेस्केल, डुओटोन, टिंट, HSL, ब्लर, और सामान्य अल्फा संचालन PPTX राउंड‑ट्रिप में जीवित रहने की सबसे अधिक संभावना रखते हैं। जब संरक्षण आवश्यक हो, तो उत्पन्न फ़ाइल को हमेशा पुनः खोलें और संग्रह का निरीक्षण करें।
+- [BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) Office 2010 का विस्तार है, न कि मानक DrawingML ल्यूमिनेंस संचालन। इसे इन‑मेमोरी रेंडरिंग के लिए उपयोग किया जा सकता है, लेकिन सहेजने और PPTX को पुनः खोलने के बाद यह संपादन योग्य [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) के रूप में बना रहना गारंटीकृत नहीं है। स्थायी चमक और कंट्रास्ट समायोजन के लिए [AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) को प्राथमिकता दें।
+- बाइनरी PPT स्वरूप पूर्ण DrawingML प्रभाव मॉडल से पहले आया है। PPT में सहेजने से असहाय संचालन छोड़ दिए जा सकते हैं, श्रृंखला को समर्थित उपसमूह में घटाया जा सकता है, या दिखावट का अनुमान लगाया जा सकता है। जटिल संपादन योग्य श्रृंखला के लिए सत्यापन स्वरूप के रूप में PPT का उपयोग न करें।
+- PNG, JPEG, TIFF, PDF, SVG, HTML या अन्य दृश्य आउटपुट पर रेंडरिंग समर्थित श्रृंखला को रेंडर की गई दिखावट पर लागू करती है। इन आउटपुट में संपादन योग्य `IImageTransformOperationCollection` नहीं होता; रास्टर स्वरूप परिणाम को पिक्सेल में फ्लैट कर देते हैं, और दस्तावेज़/वेक्टर एक्सपोर्ट अपना स्वयं का रेंडरिंग प्रतिनिधित्व संग्रहीत करते हैं।
+- प्रभाव लिंक्ड छवि को स्वयं‑संचित नहीं बनाते। लिंक्ड चित्र को रेंडर करने के लिए लिंक्ड संसाधन की उपलब्धता आवश्यक रहती है जब प्रस्तुति लोड की जाती है।
 
-विभिन्न प्रेज़ेंटेशन कंज्यूमर्स किनारे मामलों को अलग ढंग से रेंडर कर सकते हैं, विशेषकर जब कई अल्फा या रंग‑क्वांटाइज़िंग ऑपरेशन्स को मिलाया जाता है। महत्वपूर्ण आउटपुट के लिये, उत्पादन में उपयोग किए जाने वाले समान Aspose.Slides संस्करण के साथ संपादन योग्य राउंड‑ट्रिप और अंतिम एक्सपोर्ट फ़ॉर्मेट दोनों का परीक्षण करें।
+विभिन्न प्रस्तुति उपभोक्ता किनारे मामलों को अलग‑अलग रेंडर कर सकते हैं, विशेष रूप से जब कई अल्फा या रंग‑क्वांटाइज़िंग संचालन संयोजित होते हैं। महत्वपूर्ण आउटपुट के लिए, वही Aspose.Slides संस्करण उपयोग करते हुए संपादन योग्य राउंड‑ट्रिप और अंतिम एक्सपोर्ट स्वरूप दोनों का परीक्षण करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या इमेज ट्रांसफ़ॉर्म इफ़ेक्ट एम्बेडेड इमेज डेटा को संशोधित करते हैं?**  
-नहीं। ये ऑपरेशन्स चित्र फ़िल द्वारा उपयोग किए गए `ISlidesPicture` से संबंधित हैं। आधारभूत `IPPImage` बाइट्स अपरिवर्तित रहती हैं।
+**क्या छवि रूपांतरण प्रभाव एम्बेडेड छवि डेटा को संशोधित करते हैं?**
 
-**क्या दो चित्र फ्रेम्स जो एक ही इमेज को पुनः उपयोग करते हैं, अपने इफ़ेक्ट साझा करेंगे?**  
-नहीं। `IPPImage` को पुन: उपयोग करने से डुप्लिकेट इमेज डेटा बचता है, पर प्रत्येक चित्र फ्रेम आमतौर पर एक अलग `ISlidesPicture` और इमेज ट्रांसफ़ॉर्म संग्रह रखता है।
+नहीं। संचालन `ISlidesPicture` से संबंधित होते हैं जो चित्र फ़िल द्वारा उपयोग किया जाता है। अंतर्निहित `IPPImage` बाइट्स अपरिवर्तित रहती हैं।
 
-**क्या रंग, ब्लर, और अल्फा इफ़ेक्ट को मिलाया जा सकता है?**  
-हां। संग्रह उन्हें एक क्रमबद्ध चेन में स्वीकार करता है। प्रत्येक ऑपरेशन पिछले के आउटपुट को कैसे बदलता है, इस पर विचार करें क्योंकि रिप्लेसमेंट और थ्रेशहोल्ड ऑपरेशन्स पहले के रंग या अल्फा विवरण को हटा सकते हैं।
+**क्या दो चित्र फ्रेम जो समान छवि का पुनः उपयोग करते हैं, प्रभाव साझा करते हैं?**
 
-**प्रभावी मान केवल पढ़ने योग्य क्यों होते हैं?**  
-प्रभावी डेटा रेंडरिंग के लिये उपयोग किए गए गणना किए हुए मानों को दर्शाता है, जिसमें हल किए हुए रंग शामिल हैं। जहाँ लिखने योग्य सदस्य मौजूद हों, ट्रांसफ़ॉर्म संग्रह में संग्रहीत ऑपरेशन को संपादित करें; अन्यथा उसे हटाकर नई निर्माण पैरामीटर के साथ प्रतिस्थापन जोड़ें।
+नहीं। `IPPImage` को पुनः उपयोग करने से डुप्लिकेट छवि डेटा बचता है, लेकिन प्रत्येक चित्र फ्रेम आमतौर पर अलग `ISlidesPicture` और अलग छवि रूपांतरण संग्रह रखता है।
 
-**एक ट्रांसफ़ॉर्म चेन को संरक्षित रखने के लिये मुझे कौन सा फ़ॉर्मेट उपयोग करना चाहिए?**  
-PPTX का उपयोग करें और फ़ाइल को पुनः खोलकर सत्यापित करें। लेगेसी PPT पूर्ण DrawingML इफ़ेक्ट मॉडल को प्रदर्शित नहीं कर सकता, और रेंडर किए गए एक्सपोर्ट फ़ॉर्मेट केवल उपस्थिति को संरक्षित करते हैं, न कि संपादन योग्य ट्रांसफ़ॉर्म ऑपरेशन्स को।
+**क्या रंग, ब्लर, और अल्फा प्रभावों को संयोजित किया जा सकता है?**
+
+हां। संग्रह उन्हें एक क्रमबद्ध श्रृंखला में स्वीकार करता है। प्रत्येक संचालन के पिछले संचालन पर क्या प्रभाव पड़ता है, इसका विचार करें क्योंकि प्रतिस्थापन और थ्रेशहोल्ड संचालन पहले के रंग या अल्फा विवरण को हटा सकते हैं।
+
+**प्रभावी मान केवल‑पढ़ने‑योग्य क्यों होते हैं?**
+
+प्रभावी डेटा रेंडरिंग के लिए उपयोग किए गए गणना किए गए मानों का प्रतिनिधित्व करता है, जिसमें हल किए गए रंग शामिल होते हैं। जहाँ लिखने योग्य सदस्य मौजूद हों, रूपांतरण संग्रह में संग्रहीत संचालन को संपादित करें; अन्यथा उसे हटाएँ और नई निर्माण पैरामीटर के साथ एक प्रतिस्थापन जोड़ें।
+
+**कौन‑सा स्वरूप रूपांतरण श्रृंखला को संरक्षित करने के लिए उपयोग करना चाहिए?**
+
+PPTX का उपयोग करें और फ़ाइल को पुनः खोलकर सत्यापित करें। लेगेसी PPT पूर्ण DrawingML प्रभाव मॉडल को प्रदर्शित नहीं कर सकता, और रेंडरेड एक्सपोर्ट स्वरूप केवल दिखावट को संरक्षित करते हैं, न कि संपादन योग्य रूपांतरण संचालन।

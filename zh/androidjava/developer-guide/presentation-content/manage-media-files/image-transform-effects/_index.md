@@ -10,7 +10,7 @@ keywords:
 - 亮度
 - 对比度
 - 灰度
-- 双色调
+- 双调
 - 色调
 - HSL
 - 颜色替换
@@ -23,48 +23,48 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "通过 Java 使用 Aspose.Slides for Android 对图片框应用、链式、检查、移除和验证图像变换效果。"
+description: "通过 Java 使用 Aspose.Slides for Android 对图片框的图像变换效果进行应用、链式处理、检查、移除和验证。"
 ---
-## **概述**
+## **概览**
 
-Aspose.Slides 将图片调整表示为有序的图像变换操作集合。对于图片框，首先获取框的 [ISlidesPicture](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islidespicture/) 并访问 [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islidespicture/#getImageTransform--)。返回的 [IImageTransformOperationCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/) 允许追加、枚举、检查、移除和清除效果，而无需重新写入原始图像字节。
+Aspose.Slides 将图片调整表示为有序的图像变换操作集合。对于图片框，首先获取框的 [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) 并访问 [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#getImageTransform--)。返回的 [IImageTransformOperationCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/) 允许您追加、枚举、检查、移除和清除效果，而无需重写原始图像字节。
 
-本文展示了完整的工作流，包括亮度和对比度、颜色变换、模糊、透明度、有序效果链、有效值、移除以及 PPTX 循环验证。
+本文演示了亮度和对比度、颜色转换、模糊、透明度、有序效果链、有效值、移除以及 PPTX 循环验证的完整工作流。
 
 ## **了解效果所有权和图像复用**
 
 图像资源和显示它的图片是不同的对象：
 
-- [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 存储或引用演示文稿拥有的源图像数据。
-- [ISlidesPicture](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islidespicture/) 属于图片填充，引用图像资源并保存图像变换集合。
-- [IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/) 是拥有相应图片填充、几何、裁剪设置以及其它框级格式的幻灯片形状。
+- [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) 存储或引用演示文稿拥有的源图像数据。
+- [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) 属于图片填充并引用图像资源，同时存储图像变换集合。
+- [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) 是拥有相关图片填充、几何形状、裁剪设置以及其他帧级格式的幻灯片形状。
 
-因此，图像变换操作不会修改 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 中的字节。当同一 `IPPImage` 多次传递给 [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) 时，每个新图片框都会获得其自己的 `ISlidesPicture` 和其自己的变换集合。对一个框应用灰度不会使其他框也变灰，尽管它们复用了同一嵌入图像资源。
+因此，图像变换操作不会修改 [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) 中的字节。当相同的 `IPPImage` 多次传递给 [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) 时，每个新图片框都会获得其自己的 `ISlidesPicture` 和其自己的变换集合。对一个框应用灰度并不会使其他框也变为灰度，即使它们都复用了相同的嵌入图像资源。
 
-相同的 `ISlidesPicture.getImageTransform` 模型也被其它图片填充使用，例如形状或幻灯片背景。以下示例侧重于图片框。
+相同的 `ISlidesPicture.getImageTransform` 模型也被其他图片填充使用，例如形状或幻灯片背景。下面的示例侧重于图片框。
 
 ## **使用有效的参数范围和单位**
 
-演示的方法使用以下语义范围和单位。即使特定库版本不会立即拒绝每个超出范围的值，也请保持在这些范围内；目标演示文稿格式可能在保存时或 PowerPoint 打开文件时对无效数据进行标准化、忽略或拒绝。
+演示的方法使用以下语义范围和单位。即使特定库版本未立即拒绝每个超出范围的值，也请保持在这些范围内；目标演示文稿格式可能在保存时或 PowerPoint 打开文件时对无效数据进行规范化、忽略或拒绝。
 
 | 操作 | 参数 | 有效范围和单位 |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` 到 `100`，百分比；`0` 表示保持该组件不变。 |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | 无 | 无数值参数。Alpha 保持不变。 |
-| [addDuotoneEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | 两个用于暗像素和亮像素的颜色。`android.graphics.Color` 使用的 RGB 和 alpha 通道值范围为 `0` 到 `255`。 |
-| [addTintEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | hue 为 `0`（含）到 `360`（不含）度；amount 为 `-100` 到 `100`，百分比。 |
-| [addHSLEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | hue 为 `0`（含）到 `360`（不含）度；saturation 和 luminance 为 `-100` 到 `100`，百分比。 |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | 替换颜色的通道值范围为 `0` 到 `255`。已有的 alpha 值保持不变。 |
-| [addBlurEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | radius 为非负数，单位为点；`grow` 为布尔值，控制模糊内容是否可以超出原始边界。 |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | 非负百分比。使用 `0` 到 `100` 表示普通的不透明度缩放：`0` 为完全透明，`100` 保持现有 alpha。 |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` 到 `100`，百分比不透明度。 |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` 到 `100`，百分比 alpha 阈值。低于阈值的像素变为透明，等于或高于阈值的像素变为不透明。 |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` 到 `100`，百分比；`0` 保持组件不变。 |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | 无 | 无数值参数。Alpha 保持不变。 |
+| [addDuotoneEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | 用于暗像素和亮像素的两种颜色。`android.graphics.Color` 使用的 RGB 和 alpha 通道值范围为 `0` 到 `255`。 |
+| [addTintEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | 色相 `hue` 为 `0`（含）至 `360`（不含）度；`amount` 为 `-100` 到 `100`，百分比。 |
+| [addHSLEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | 色相 `hue` 为 `0`（含）至 `360`（不含）度；饱和度和亮度为 `-100` 到 `100`，百分比。 |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | 替换颜色的通道值范围为 `0` 到 `255`。现有的 alpha 值保持不变。 |
+| [addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | 半径为非负值，单位为点（points）；`grow` 为布尔值，控制模糊内容是否可以延伸超出原始边界。 |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | 非负百分比。使用 `0` 到 `100` 进行普通的不透明度缩放：`0` 完全透明，`100` 保留现有的 alpha。 |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` 到 `100`，百分比不透明度。 |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` 到 `100`，百分比 alpha 阈值。低于该值的像素变为透明，等于或高于该值的像素变为不透明。 |
 
-对于固定 alpha 调制，透明度和不透明度是互补的。例如，35% 透明度对应 65% 的 alpha 调制量。
+对于固定的 alpha 调制，透明度和不透明度是互补的。例如，35% 的透明度对应 65% 的 alpha 调制量。
 
 ## **应用亮度和对比度**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) 返回一个 [IBrightnessContrast](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibrightnesscontrast/) 操作。其标量设置在创建操作时提供。[IBrightnessContrast.getEffective](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibrightnesscontrast/#getEffective--) 返回只读的计算值，可用于检查或记录。
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) 返回一个 [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/) 操作。其标量设置在创建操作时提供。[BrightnessContrast.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/#getEffective--) 返回计算后的只读值，可供检查或记录。
 
 下面的示例将亮度提高 15%，对比度提高 20%，然后在不修改嵌入图像的情况下渲染预览：
 
@@ -102,13 +102,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/brightnesscontrast/) 是 Office 2010 的图片效果扩展，便携性低于标准 DrawingML 亮度效果。当亮度和对比度必须在 PPTX 循环后仍可编辑时，请使用 [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) 并在重新打开文件后验证结果。格式限制章节对该区别有更详细的说明。
+[BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) 是 Office 2010 的图片效果扩展，便携性不如标准的 DrawingML 亮度效果。当亮度和对比度在 PPTX 循环后仍需保持可编辑时，请使用 [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) 并在重新打开文件后验证结果。格式限制章节对该区别作了更详细的说明。
 
-## **应用颜色变换**
+## **应用颜色转换**
 
-颜色效果可以独立应用于复用同一图像资源的不同图片框。下面的示例创建五个框，并分别应用灰度、双音、色调、HSL 调整和颜色替换。
+颜色效果可以独立地应用于复用同一图像资源的不同图片框。下面的示例创建了五个框，并应用灰度、双调、色调、HSL 调整以及颜色替换。
 
-[IDuotone](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iduotone/) 包含两个可独立编辑的颜色参数：`color1` 映射暗像素，`color2` 映射亮像素。这使其成为示例，展示了设置比单一标量更复杂的效果。
+[IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) 包含两个可独立编辑的颜色参数：`color1` 对应暗像素，`color2` 对应亮像素。这使它成为一个示例，展示了设置比单一标量值更复杂的效果。
 
 ```java
 import com.aspose.slides.*;
@@ -150,13 +150,59 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) 将每个像素的颜色替换为固定颜色，同时保留 alpha。它与 [addColorChangeEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--) 不同，后者将一种源颜色映射到另一种颜色，并公开源与目标颜色的格式。
+[addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) 将每个像素的颜色替换为固定颜色，同时保留 alpha。它不同于 [addColorChangeEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--)，后者将一种源颜色映射到另一种颜色，并公开源颜色和目标颜色的格式。
+
+### **应用亮度阈值**
+
+亮度阈值可以使扫描页面上微弱的痕迹更加容易与背景区分。[addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) 保留中间的灰色阶调。[addBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) 将亮度映射为黑或白，而 [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) 对不透明度应用阈值。
+
+亮度阈值范围为 0% 到 100%，包括两端。低于阈值的像素变为黑色。等于或高于阈值的像素变为白色。提高阈值会使更多的色调变为黑色，因为它们更多落在阈值以下。
+
+将 [grayscale-swatches.png](grayscale-swatches.png) 下载到工作目录。每个标签给出原始灰度级别，范围为 0 到 255。示例将原始图像放在两个副本旁边，并在演示文稿中保存每个副本的阈值。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("grayscale-swatches.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+在 PowerPoint 中打开输出的演示文稿，以比较这三个框。标记为 96 的色板约有 38% 的亮度（96/255）。在 20% 阈值时变为白色，在 60% 阈值时变为黑色。
+
+![原始灰度色板旁边是亮度阈值 20% 和 60% 时的黑白结果](luminance-threshold.png)
 
 ## **添加模糊、透明度和 Alpha 效果**
 
-[addBlurEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) 会影响所有颜色通道，包括 alpha。当模糊边缘可能超出原始图片边界时，将 `grow` 设置为 `true`。
+[addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) 对所有颜色通道（包括 alpha）均有效。当模糊边缘可能超出原始图片边界时，将 `grow` 设置为 `true`。
 
-要实现均匀透明度，请使用 [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-)。它会乘以每个现有的 alpha 值，从而保持部分透明像素的相对差异。[addAlphaReplaceEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) 则为所有像素分配统一的 alpha 值。[addAlphaBiLevelEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) 根据阈值将 alpha 转换为两个级别。
+要实现统一透明度，请使用 [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-)。它会乘以每个现有的 alpha 值，从而使部分透明像素保持比例差异。[addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) 则为所有像素分配相同的 alpha 值。[addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) 根据阈值将 alpha 转换为两个层级。
 
 ```java
 import com.aspose.slides.*;
@@ -195,15 +241,15 @@ try {
 }
 ```
 
-其他无参数的 alpha 操作包括 [addAlphaCeilingEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--)（将所有非零 alpha 设为完全不透明），[addAlphaFloorEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--)（将所有低于 100% 的 alpha 设为完全透明），以及 [addAlphaInverseEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--)（将 alpha 改为 `100% - alpha`）。
+其他无参数的 alpha 操作包括 [addAlphaCeilingEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--)，将所有非零 alpha 完全设为不透明；[addAlphaFloorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--)，将所有低于 100% 的 alpha 完全设为透明；以及 [addAlphaInverseEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--)，将 alpha 改为 `100% - alpha`。
 
 ## **构建有序效果链**
 
-每个 `add...Effect` 方法会将新操作追加到集合的末尾。渲染器将集合视为有序管道：操作 0 的输出成为操作 1 的输入，依此类推。因此，以不同顺序排列相同操作会产生不同的图像。
+每个 `add...Effect` 方法都会在集合末尾追加一个新操作。渲染器将集合视为有序管道：操作 0 的输出成为操作 1 的输入，依此类推。因此，相同的操作若顺序不同会产生不同的图像。
 
-例如，先灰度后色调会先去除色彩信息再重新着色亮度结果；先色调后灰度会再次去除色调。类似地，Alpha 替换可以覆盖前面操作计算的 alpha，而 Alpha 调制会保留它们的相对差异。
+例如，先灰度后色调会先去除色彩信息，再对亮度结果重新上色。先色调后灰度则会再次去除色调。类似地，alpha 替换可以覆盖早前操作计算的 alpha 值，而 alpha 调制则保留它们的相对差异。
 
-下面的示例构建四操作链，将其保存为 PPTX，重新打开演示文稿，检查操作类型及其顺序，并渲染重新打开的结果：
+下面的示例构建了一个四操作链，将其保存为 PPTX，重新打开演示文稿，检查操作类型及其顺序，并渲染重新打开的结果：
 
 ```java
 import com.aspose.slides.*;
@@ -259,15 +305,21 @@ try {
 }
 ```
 
-该集合并未强制使用兼容矩阵来限制颜色、alpha 和模糊操作必须在不同链中。它们可以组合，但并非所有组合都有用。固定颜色替换会移除之前颜色效果产生的 RGB 变化；双音后再灰度会去除两个选定颜色；Alpha ceiling、floor、replace 或 bi‑level 操作会丢弃之前创建的 alpha 细节。请根据所需的像素处理顺序构建链，而不是把其项目当作无序的格式标志。
+集合并未强制兼容性矩阵将颜色、alpha 和模糊操作限制为独立链。它们可以组合，但并非所有组合都有用。固定的颜色替换会移除早期颜色效果产生的 RGB 变化；双调后再做灰度会移除两种选定颜色；alpha ceiling、floor、replacement 或 bi-level 操作会丢弃早期创建的 alpha 细节。请根据所需的像素处理顺序构建链，而不是把这些项目当作无序的格式标志。
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![相同的图像先经过灰度再色调，和先色调再灰度。最终的两个灰度图像色调不同。](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*在此示例的 Aspose.Slides for .NET 26.11 渲染中，220°、25% 的色调对灰度图像不起作用。先应用相同的色调再进行灰度会产生不同的色调。*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **检查可编辑和有效值**
 
-可编辑的操作是存储在 `ISlidesPicture.getImageTransform` 中的对象。根据效果的不同，它可能直接公开可写成员。例如，[IBlur](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iblur/) 公开可写的 `radius` 和 `grow`，[IAlphaModulateFixed](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ialphamodulatefixed/) 公开可写的 `amount`，以及 [IAlphaBiLevel](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ialphabilevel/) 公开可写的 `threshold`。像 [IDuotone](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iduotone/) 这样的颜色效果会公开可变的 [IColorFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icolorformat/) 对象。
+可编辑的操作是存储在 `ISlidesPicture.getImageTransform` 中的对象。根据效果的不同，它可能直接公开可写成员。例如，[IBlur](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/) 公开可写的 `radius` 和 `grow` 值，[IAlphaModulateFixed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphamodulatefixed/) 公开可写的 `amount`，以及 [IAlphaBiLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphabilevel/) 公开可写的 `threshold`。像 [IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) 这样的颜色效果会公开可变的 [IColorFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/) 对象。
 
-某些操作接口，包括 [IBrightnessContrast](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibrightnesscontrast/)、[IHSL](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ihsl/)、[ITint](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itint/) 和 [IAlphaReplace](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ialphareplace/)，不公开其创建时的标量为可写属性。要更改这些设置，需要移除该操作并在所需位置添加替代操作。
+包括 [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/)、[IHSL](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihsl/)、[ITint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itint/) 和 [IAlphaReplace](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphareplace/) 在内的某些操作接口并未将其创建时的标量公开为可写属性。若需更改这些设置，请删除该操作并在所需位置添加替代操作。
 
-`getEffective()` 返回的有效数据是计算后的只读值。它对解析主题依赖的颜色和读取渲染器使用的标准化值很有帮助，但不是另一个编辑界面。下面的示例枚举链并检查在对应 API 提供的有效值：
+`getEffective()` 返回的有效数据是计算后的只读值。它对于解析主题相关颜色以及读取渲染器使用的归一化值很有帮助，但并不是另外的编辑界面。下面的示例枚举链并在相应 API 提供的情况下检查有效值：
 
 ```java
 import com.aspose.slides.*;
@@ -331,11 +383,11 @@ try {
 }
 ```
 
-没有参数的效果如灰度、alpha ceiling 和 alpha inverse 仍然会有有效数据对象，只是没有可打印的标量设置。它们在集合中的存在和位置才是重要信息。
+像灰度、alpha ceiling 和 alpha inverse 这样的无参数效果仍然有有效数据对象，只是没有可打印的标量设置。它们在集合中的存在和位置才是重要信息。
 
 ## **移除或清除图像变换**
 
-使用 [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) 按索引移除单个操作。由于移除后索引会变化，请先搜索目标并在枚举后移除。使用 [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--) 可清除整条链。
+使用 [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) 按索引移除单个操作。由于移除后索引会移动，先搜索目标再在枚举后移除。使用 [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--) 可清除整个链。
 
 ```java
 import com.aspose.slides.*;
@@ -376,38 +428,38 @@ try {
 }
 ```
 
-移除或清除变换仅改变图片格式，不会删除、重新压缩或以其他方式修改复用的 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 资源。
+移除或清除变换仅更改图片的格式设置。它不会删除、重新压缩或以其他方式修改复用的 [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) 资源。
 
 ## **考虑演示文稿格式和导出目标**
 
-图像变换源自 DrawingML，因此 PPTX 是效果链的首选可编辑格式。即使使用 PPTX，也不是所有操作都具备相同的可移植性：
+图像变换源自 DrawingML，因此 PPTX 是效果链的首选可编辑格式。即使使用 PPTX，也并非每个操作具有相同的可移植性：
 
-- 标准 DrawingML 操作如 luminance、grayscale、duotone、tint、HSL、blur 以及常见的 alpha 操作最有可能在 PPTX 循环后保持不变。始终重新打开生成的文件并检查集合，以确保需要保留时的完整性。
-- [BrightnessContrast](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/brightnesscontrast/) 是 Office 2010 的扩展，而非标准 DrawingML luminance 操作。它可用于内存渲染，但保存并重新打开 PPTX 后不一定仍为可编辑的 [IBrightnessContrast](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ibrightnesscontrast/)。请优先使用 [addLuminanceEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) 实现持久的亮度和对比度调整。
-- 二进制 PPT 格式早于完整的 DrawingML 效果模型。保存为 PPT 可能会省略不支持的操作、将链缩减为支持的子集，或近似外观。不要使用 PPT 作为复杂可编辑链的验证格式。
-- 渲染为 PNG、JPEG、TIFF、PDF、SVG、HTML 或其他可视输出时，会将支持的链应用于渲染后的外观。这些输出不包含可编辑的 `IImageTransformOperationCollection`；光栅格式会将结果展平成像素，文档/矢量导出会存储各自的渲染表示。
-- 效果不会使链接的图像变为自包含。渲染链接图片仍然依赖于加载演示文稿时链接资源的可用性。
+- 标准 DrawingML 操作，如亮度、灰度、双调、色调、HSL、模糊以及常见的 alpha 操作，在 PPTX 循环中存活的可能性最高。当需要保持可编辑性时，请始终重新打开生成的文件并检查集合。
+- [BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) 是 Office 2010 的扩展，而非标准 DrawingML 亮度操作。它可用于内存渲染，但在保存并重新打开 PPTX 后不保证仍保持为可编辑的 [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/)。请优先使用 [addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) 以实现持久的亮度和对比度调整。
+- 二进制 PPT 格式早于完整的 DrawingML 效果模型。保存为 PPT 可能会省略不受支持的操作，将链缩减为受支持的子集，或近似外观。不要将 PPT 用作复杂可编辑链的验证格式。
+- 渲染为 PNG、JPEG、TIFF、PDF、SVG、HTML 或其他可视输出时，会将受支持的链应用于渲染后的外观。这些输出不包含可编辑的 `IImageTransformOperationCollection`；栅格格式会将结果展平成像素，文档/矢量导出会存储其自己的渲染表示。
+- 效果并不会使链接的图像变成自包含。渲染链接图片仍依赖于加载演示文稿时链接资源的可用性。
 
-不同的演示文稿使用者在边缘情况的渲染上可能会有所差异，尤其是当多种 alpha 或颜色量化操作组合时。对于关键输出，请使用生产环境中相同版本的 Aspose.Slides，既测试可编辑的循环，又测试最终导出格式。
+不同的演示文稿读取器在渲染边缘情况时可能表现不同，尤其是当组合了多个 alpha 或颜色量化操作时。对于关键输出，请使用生产环境中相同的 Aspose.Slides 版本同时测试可编辑的循环和最终导出格式。
 
-## **常见问题**
+## **FAQ**
 
 **图像变换效果会修改嵌入的图像数据吗？**
 
-不会。操作属于图片填充使用的 `ISlidesPicture`，底层 `IPPImage` 的字节保持不变。
+No. The operations belong to the `ISlidesPicture` used by the picture fill. The underlying `IPPImage` bytes remain unchanged.
 
-**复用同一图像的两个图片框会共享它们的效果吗？**
+**两个复用相同图像的图片框会共享它们的效果吗？**
 
-不会。复用 `IPPImage` 可以避免重复的图像数据，但每个图片框通常拥有单独的 `ISlidesPicture` 和图像变换集合。
+No. Reusing an `IPPImage` avoids duplicate image data, but each picture frame normally has a separate `ISlidesPicture` and image transform collection.
 
 **可以组合颜色、模糊和 alpha 效果吗？**
 
-可以。集合接受它们在同一有序链中。请考虑每个操作对前一个操作输出的影响，因为替换和阈值操作可能会丢弃之前的颜色或 alpha 细节。
+Yes. The collection accepts them in one ordered chain. Consider what each operation does to the output of the previous one because replacement and threshold operations may discard earlier color or alpha detail.
 
-**为什么有效值是只读的？**
+**为何有效值是只读的？**
 
-有效数据代表用于渲染的计算值，包括已解析的颜色。请在变换集合中编辑那些具有可写成员的操作；否则移除该操作并使用新的创建参数添加替代操作。
+Effective data represents calculated values used for rendering, including resolved colors. Edit the operation stored in the transform collection where writable members exist; otherwise remove it and add a replacement with new creation parameters.
 
-**应该使用哪种格式来保留变换链？**
+**应使用哪种格式来保留变换链？**
 
-使用 PPTX 并通过重新打开文件进行验证。传统 PPT 无法完整表示 DrawingML 效果模型，渲染导出格式仅保留外观而不保留可编辑的变换操作。
+Use PPTX and verify the file by reopening it. Legacy PPT cannot represent the full DrawingML effect model, and rendered export formats preserve appearance rather than editable transform operations.

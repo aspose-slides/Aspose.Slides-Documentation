@@ -9,7 +9,7 @@ keywords:
 - afbeeldingseffect
 - helderheid
 - contrast
-- grijswaarde
+- grijswaarden
 - duotoon
 - tint
 - HSL
@@ -23,50 +23,50 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Pas afbeeldingstransformatie‑effecten toe, maak ketens, inspecteer, verwijder en verifieer ze voor afbeeldingsframes met Aspose.Slides voor Python via Java."
+description: "Pas afbeeldingstransformatie‑effecten toe, verbind ze, inspecteer, verwijder en verifieer ze voor afbeeldingskaders met Aspose.Slides voor Python via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides vertegenwoordigt beeldaanpassingen als een geordende collectie van afbeeldings‑transformatie‑bewerkingen. Voor een afbeeldingsframe begin je met het frame’s [Picture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/picture/) en roep je [Picture.getImageTransform](https://reference.aspose.com/slides/nl/python-java/aspose.slides/picture/#getImageTransform) aan. De geretourneerde [ImageTransformOperationCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/) stelt je in staat om effecten toe te voegen, te enumereren, te inspecteren, te verwijderen en te wissen zonder de originele afbeeldingsbytes opnieuw te schrijven.
+Aspose.Slides stelt beeldaanpassingen voor als een geordende verzameling van afbeeldingstransformatie‑operaties. Voor een afbeeldingskader begin je met de [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) van het kader en roep je [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform) aan. De geretourneerde [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) stelt je in staat om effecten toe te voegen, te doorlopen, te inspecteren, te verwijderen en te wissen zonder de oorspronkelijke afbeeldings‑bytes opnieuw te schrijven.
 
-Dit artikel toont een volledige workflow voor helderheid en contrast, kleurtransformaties, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijdering en PPTX‑round‑trip‑verificatie.
+Dit artikel toont een volledige workflow voor helderheid en contrast, kleurtransformaties, vervaging, transparantie, geordende effecten‑ketens, effectieve waarden, verwijdering en PPTX‑rondreistrajectverificatie.
 
-## **Begrijp eigendom van effecten en hergebruik van afbeeldingen**
+## **Begrijp effect‑eigendom en hergebruik van afbeeldingen**
 
 Een afbeeldingsbron en de afbeelding die deze weergeeft zijn verschillende objecten:
 
-- [PPImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/) slaat of verwijst naar de bron‑afbeeldingsdata die eigendom is van de presentatie.
-- [Picture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/picture/) behoort tot een afbeeldingsvulling en verwijst naar een afbeeldingsbron terwijl het de afbeeldings‑transform‑collectie opslaat.
-- [PictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pictureframe/) is de dia‑vorm die de relevante afbeeldingsvulling, geometrie, uitsnijdingsinstellingen en andere opmaak op frame‑niveau bezit.
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) slaat de bronafbeeldingsdata op of verwijst ernaar die eigendom is van de presentatie.
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) behoort tot een afbeelding‑vulling en verwijst naar een afbeeldingsbron terwijl deze de collectie van afbeeldingstransformaties opslaat.
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) is de dia‑vorm die de bijbehorende afbeelding‑vulling, geometrie, bijsnijd‑instellingen en andere op frame‑niveau opmaak bezit.
 
-Daarom wijzigen afbeeldings‑transform‑bewerkingen de bytes in [PPImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/) niet. Wanneer dezelfde `PPImage` meer dan eens wordt doorgegeven aan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addPictureFrame), krijgt elk nieuw afbeeldingsframe zijn eigen `Picture` en eigen transform‑collectie. Het toepassen van grijswaarde op één frame maakt de andere frames niet grijs, ook al hergebruiken ze dezelfde ingebedde afbeeldingsbron.
+Daarom wijzigen afbeeldingstransformatie‑operaties de bytes in [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) niet. Wanneer dezelfde `PPImage` meer dan één keer aan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) wordt doorgegeven, ontvangt elk nieuw afbeeldingskader zijn eigen `Picture` en zijn eigen transformaties‑collectie. Het toepassen van grijswaarden op één kader maakt de andere kaders niet grijs, zelfs wanneer ze allemaal dezelfde ingebedde afbeeldingsbron hergebruiken.
 
-Hetzelfde `Picture.getImageTransform`‑model wordt ook gebruikt door andere afbeeldingsvullingen, zoals een vorm‑ of dia‑achtergrond. De onderstaande voorbeelden focussen op afbeeldingsframes.
+Hetzelfde `Picture.getImageTransform`‑model wordt ook gebruikt door andere afbeeldingvullingen, zoals een vorm of dia‑achtergrond. De voorbeelden hieronder richten zich op afbeeldingskaders.
 
 ## **Gebruik geldige parameterbereiken en eenheden**
 
-De getoonde methoden gebruiken de volgende semantische bereiken en eenheden. Houd je aan deze bereiken, zelfs als een bepaalde bibliotheekversie een out‑of‑range‑waarde niet onmiddellijk afwijst; het doel‑presentatieformaat kan de gegevens normaliseren, weglaten of afwijzen tijdens opslaan of wanneer PowerPoint het bestand opent.
+De gedemonstreerde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet onmiddellijk elke out‑of‑range‑waarde afwijst; het doel‑presentatie‑formaat kan ongeldige gegevens normaliseren, weglaten of afwijzen tijdens het opslaan of wanneer PowerPoint het bestand opent.
 
 | Operatie | Parameters | Geldig bereik en eenheid |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat de component ongewijzigd. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | Geen numerieke parameters. Alfa blijft ongewijzigd. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfacanalen in `java.awt.Color` gebruiken `0` tot `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; hoeveelheid (`amount`) is `-100` tot `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Tint is `0` inclusief tot `360` exclusief, in graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfabewerkingen blijven ongewijzigd. |
-| [addBlurEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Straal is niet‑negatief en wordt gemeten in punten; `grow` is een Boolean die bepaalt of vervaagd materiaal buiten de originele grenzen mag uitbreiden. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Niet‑negatief percentage. Gebruik `0` tot `100` voor gewone opaciteit‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alfa. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` tot `100`, procent opacity. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` tot `100`, procent alfa‑drempel. Waarden onder de drempel worden transparant; waarden gelijk aan of hoger worden ondoorzichtig. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel ongewijzigd. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | Geen | Geen numerieke parameters. Alpha blijft ongewijzigd. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfacanalen in `java.awt.Color` gebruiken `0` tot `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; hoeveelheid (`amount`) is `-100` tot `100`, procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alpha‑waarden blijven ongewijzigd. |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Straal is niet‑negatief en wordt gemeten in punten; `grow` is een Boolean die bepaalt of vervaagde inhoud buiten de oorspronkelijke grenzen mag uitsteken. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Niet‑negatief percentage. Gebruik `0` tot `100` voor gewone opaciteits‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alpha. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` tot `100`, procent opacity. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` tot `100`, procent alpha‑drempel. Waarden eronder worden transparant; waarden gelijk aan of hoger worden ondoorzichtig. |
 
-Voor vaste alfamodulatie zijn transparantie en opacity complementair. Bijvoorbeeld, 35 % transparantie komt overeen met een alfamodulatie‑waarde van 65 %.
+Voor vaste alpha‑modulatie zijn transparantie en opacity complementair. Bijvoorbeeld, 35% transparantie komt overeen met een alpha‑modulatie‑waarde van 65%.
 
-## **Pas helderheid en contrast toe**
+## **Helderheid en contrast toepassen**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) retourneert een [BrightnessContrast](https://reference.aspose.com/slides/nl/python-java/aspose.slides/brightnesscontrast/) bewerking. De scalaire instellingen worden opgegeven wanneer de bewerking wordt aangemaakt. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nl/python-java/aspose.slides/brightnesscontrast/#getEffective) retourneert berekende alleen‑lezen waarden die geïnspecteerd of gelogd kunnen worden.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) retourneert een [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/)‑operatie. De scalar‑instellingen worden meegegeven bij het creëren van de operatie. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) geeft berekende alleen‑lees waarden terug die kunnen worden geïnspecteerd of gelogd.
 
-Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 % en rendert vervolgens een voorbeeld zonder de ingebedde afbeelding te wijzigen:
+Het volgende voorbeeld verhoogt de helderheid met 15% en het contrast met 20%, en rendert vervolgens een voorbeeld zonder de ingebedde afbeelding te wijzigen:
 
 ```python
 import jpype
@@ -103,13 +103,13 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/nl/python-java/aspose.slides/brightnesscontrast/) is een Office 2010‑afbeeldingseffect‑extensie en minder draagbaar dan het standaard DrawingML‑luminantie‑effect. Wanneer helderheid en contrast bewerkbaar moeten blijven na een PPTX‑round‑trip, gebruik dan [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) en verifieer het resultaat na het heropenen van het bestand. De sectie over format‑beperkingen legt dit onderscheid uitgebreider uit.
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) is een Office 2010 afbeelding‑effect extensie en is minder draagbaar dan het standaard DrawingML‑luminantie‑effect. Wanneer helderheid en contrast bewerkbaar moeten blijven na een PPTX‑rondreis, gebruik dan [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) en verifieer het resultaat na het opnieuw openen van het bestand. De sectie over format‑beperkingen legt dit onderscheid uitgebreider uit.
 
-## **Pas kleurtransformaties toe**
+## **Kleurtransformaties toepassen**
 
-Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeeldingsframes die één afbeeldingsbron hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijswaarde, duotoon, tint, HSL‑aanpassing en kleurvervanging toe.
+Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeeldingskaders die één afbeeldingsbron hergebruiken. Het volgende voorbeeld maakt vijf kaders en past grijswaarden, duotone, tint, HSL‑aanpassing en kleurvervanging toe.
 
-[Duotone](https://reference.aspose.com/slides/nl/python-java/aspose.slides/duotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` mappt donkere pixels, terwijl `color2` lichte pixels mappt. Dit maakt het een bruikbaar voorbeeld van een effect waarvan de instellingen complexer zijn dan één enkele scalaire waarde.
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` wijst donkere pixels toe, terwijl `color2` lichte pixels toewijst. Dit maakt het een nuttig voorbeeld van een effect waarvan de instellingen complexer zijn dan één enkele scalar‑waarde.
 
 ```python
 import jpype
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) vervangt de kleur van elke pixel door één vaste kleur, terwijl alfa behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), dat één bronkleur naar een andere mappt en zowel bron‑ als doelformaat van kleuren blootlegt.
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) vervangt de kleur van elke pixel door één vaste kleur, terwijl alpha behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), dat één bronkleur naar een andere mapt en zowel bron‑ als doelformaten toont.
 
-## **Voeg vervaging, transparantie en alfadeffecten toe**
+### **Een luminantiedrempel toepassen**
 
-[addBlurEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) beïnvloedt alle kleurkanalen, inclusief alfa. Stel `grow` in op `True` wanneer de vervaagde rand buiten de originele afbeeldingsgrenzen kan uitbreiden.
+Een luminantiedrempel kan vage vlekken op een gescande pagina gemakkelijker van de achtergrond onderscheiden. [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) behoudt tussenliggende grijstinten. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) zet luminantie om in zwart of wit, terwijl [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) een drempel op de opacity toepast.
 
-Voor uniforme transparantie, gebruik [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Het vermenigvuldigt elke bestaande alfabare, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) kent in plaats daarvan één alfawaarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) converteert alfa naar twee niveaus op basis van een drempel.
+De luminantiedrempel varieert van 0% tot 100%, inclusief. Pixels onder de drempel worden zwart. Pixels op of boven de drempel worden wit. Het verhogen van de drempel maakt meer tinten zwart omdat meer ervan onder de afkapwaarde vallen.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) naar de werkmap. Elk label geeft het oorspronkelijke grijsniveau op een schaal van 0 tot 255 weer. Het voorbeeld plaatst het origineel naast twee kopieën en slaat de drempel van elke kopie op in de presentatie.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Open de gegenereerde presentatie in PowerPoint om de drie kaders te vergelijken. De swatch met label 96 heeft ongeveer 38% luminantie (96 van 255). Hij wordt wit bij de 20%‑drempel en zwart bij de 60%‑drempel.
+
+![Originele grijstinten naast de zwart‑wit resultaten bij luminantiedrempels van 20% en 60%](luminance-threshold.png)
+
+## **Vervaging, transparantie en alpha‑effecten toevoegen**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) beïnvloedt alle kleurkanalen, inclusief alpha. Zet `grow` op `True` wanneer de vervaagde rand buiten de oorspronkelijke afbeelding kan uitsteken.
+
+Voor uniforme transparantie gebruik je [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Het vermenigvuldigt elke bestaande alpha‑waarde, zodat deels transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) kent in plaats daarvan één alpha‑waarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) zet alpha om in twee niveaus op basis van een drempel.
 
 ```python
 import jpype
@@ -200,15 +247,15 @@ finally:
     presentation.dispose()
 ```
 
-Andere alfa‑bewerkingen zonder parameters zijn onder meer [addAlphaCeilingEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), dat elke niet‑nul alfa volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), dat elke alfa onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), dat alfa verandert naar `100% - alpha`.
+Andere parameter‑vrije alpha‑operaties omvatten [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), die elke niet‑nul alpha volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), die elke alpha onder 100% volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), die alpha wijzigt naar `100% - alpha`.
 
-## **Bouw een geordende effectketen**
+## **Een geordende effectketen bouwen**
 
-Elke `add...Effect`‑methode voegt een nieuwe bewerking toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de uitvoer van bewerking 0 wordt de invoer van bewerking 1, enzovoort. Daardoor kan dezelfde set bewerkingen in een andere volgorde een ander beeld opleveren.
+Elke `add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de output van operatie 0 wordt de input van operatie 1, enzovoort. Daardoor kan dezelfde reeks operaties in een andere volgorde een ander beeld opleveren.
 
-Bijvoorbeeld, grijswaarde gevolgd door tint verwijdert eerst chromatische informatie en kleurt daarna het luminantie‑resultaat. Tint gevolgd door grijswaarde verwijdert de tint weer. Evenzo kan alfavervanging alfa‑waarden die door eerdere bewerkingen zijn berekend, overschrijven, terwijl alfamodulatie hun relatieve verschillen behoudt.
+Bijvoorbeeld, grijswaarden gevolgd door tint verwijdert eerst chromatische informatie en kleurt vervolgens het luminantieresultaat. Tint gevolgd door grijswaarden verwijdert de tint opnieuw. Evenzo kan alpha‑vervanging alpha‑waarden die door eerdere operaties zijn berekend overschrijven, terwijl alpha‑modulatie hun relatieve verschillen behoudt.
 
-Het volgende voorbeeld bouwt een keten van vier bewerkingen, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de bewerkingstypen als hun volgorde, en rendert het heropende resultaat:
+Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de soorten operaties als hun volgorde, en rendert het heropende resultaat:
 
 ```python
 import jpype
@@ -261,15 +308,21 @@ finally:
     reopened_presentation.dispose()
 ```
 
-De collectie legt geen compatibiliteitsmatrix op die kleur‑, alfa‑ en vervagingsbewerkingen tot aparte ketens beperkt. Ze kunnen gecombineerd worden, maar combinaties zijn niet altijd zinvol. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is gecreëerd; grijswaarde na duotoon verwijdert de twee geselecteerde kleuren; en alfa‑ceiling, -floor, -replace of -bilevel kunnen alfa‑details die eerder zijn gemaakt weggooien. Bouw de keten op volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te zien als ongeordende opmaak‑vlaggen.
+De collectie legt geen compatibiliteitsmatrix op die kleur-, alpha- en vervagingsoperaties tot afzonderlijke ketens beperkt. Ze kunnen worden gecombineerd, maar combinaties zijn niet altijd zinvol. Een vaste kleurvervanging verwijdert de RGB‑variatie die door eerdere kleureffecten is gecreëerd; grijswaarden na duotone verwijdert de twee geselecteerde kleuren; en alpha‑ceiling, floor, replacement of bi‑level‑operaties kunnen eerder gecreëerde alpha‑details wegdoen. Bouw de keten volgens de gewenste pixelverwerkingsvolgorde in plaats van de items te beschouwen als ongeordende opmaak‑vlaggen.
 
-## **Inspecteer bewerkbare en effectieve waarden**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Dezelfde afbeelding gaat eerst door grijswaarden dan tint, en tint dan grijswaarden. De twee uiteindelijke grijswaarden‑afbeeldingen hebben verschillende tinten.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Een bewerkbare bewerking is het object dat is opgeslagen in `Picture.getImageTransform`. Afhankelijk van het effect kan het schrijfbare leden direct blootleggen. Bijvoorbeeld, [Blur](https://reference.aspose.com/slides/nl/python-java/aspose.slides/blur/) biedt schrijfbare `radius`‑ en `grow`‑waarden, [AlphaModulateFixed](https://reference.aspose.com/slides/nl/python-java/aspose.slides/alphamodulatefixed/) biedt een schrijfbare `amount`, en [AlphaBiLevel](https://reference.aspose.com/slides/nl/python-java/aspose.slides/alphabilevel/) biedt een schrijfbare `threshold`. Kleureffecten zoals [Duotone](https://reference.aspose.com/slides/nl/python-java/aspose.slides/duotone/) geven wijzigbare [ColorFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/colorformat/)‑objecten.
+*In deze illustratieve Aspose.Slides for .NET 26.11 rendering, een tint van 220° op 25% laat de grijswaarden‑afbeelding ongewijzigd. Het toepassen van dezelfde tint vóór grijswaarden produceert verschillende tinten.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Sommige bewerkingsklassen, waaronder [BrightnessContrast](https://reference.aspose.com/slides/nl/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nl/python-java/aspose.slides/tint/) en [AlphaReplace](https://reference.aspose.com/slides/nl/python-java/aspose.slides/alphareplace/), onthullen hun creatiescalars niet als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de bewerking en voeg je een vervanging toe op de gewenste positie.
+## **Bewerkbare en effectieve waarden inspecteren**
 
-Effectieve data die door `getEffective` wordt geretourneerd, is berekend en alleen‑lezen. Het is nuttig voor het oplossen van themagerelateerde kleuren en het lezen van de genormaliseerde waarden die de renderer gebruikt, maar het is geen bewerkingsoppervlak. Het volgende voorbeeld doorloopt de keten en inspecteert effectieve waarden waar de bijbehorende API ze levert:
+Een bewerkbare operatie is het object dat wordt opgeslagen in `Picture.getImageTransform`. Afhankelijk van het effect kan het direct beschrijfbare leden blootstellen. Bijvoorbeeld, [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) biedt beschrijfbare `radius`‑ en `grow`‑waarden, [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) biedt een beschrijfbare `amount`, en [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) biedt een beschrijfbare `threshold`. Kleureffecten zoals [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) geven mutabele [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/)‑objecten.
+
+Sommige operatiewlassen, waaronder [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/) en [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/), blootstellen hun creatie‑scalars niet als beschrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanging toe op de vereiste positie.
+
+Effectieve data die door `getEffective` wordt teruggegeven, is berekend en alleen‑lees. Het is nuttig voor het oplossen van themagevoelige kleuren en het lezen van de genormaliseerde waarden die de renderer gebruikt, maar het is geen extra bewerkingsoppervlak. Het volgende voorbeeld doorloopt de keten en inspecteert effectieve waarden waar de corresponderende API ze levert:
 
 ```python
 import jpype
@@ -333,11 +386,11 @@ finally:
     presentation.dispose()
 ```
 
-Effecten zonder parameters zoals grijswaarde, alfa‑ceiling en alfa‑inverse hebben nog steeds een effectief‑datobject, maar er zijn geen scalaire instellingen om af te drukken. Hun aanwezigheid en positie in de collectie vormen de belangrijke informatie.
+Parameter‑vrije effecten zoals grijswaarden, alpha‑ceiling en alpha‑inverse hebben nog steeds een effectieve‑data‑object, maar er zijn geen scalar‑instellingen om weer te geven. Hun aanwezigheid en positie in de collectie zijn de belangrijke informatie.
 
-## **Verwijder of wis afbeeldingstransformaties**
+## **Afbeeldingstransformaties verwijderen of wissen**
 
-Gebruik [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) om één bewerking op basis van index te verwijderen. Omdat indices verschuiven na een verwijdering, zoek je eerst het doel en verwijder je het daarna na enumeratie. Gebruik [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#clear) om de volledige keten te verwijderen.
+Gebruik [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) om één operatie op index te verwijderen. Omdat indexen verschuiven na verwijdering, zoek je eerst het doel en verwijder je het na de doorloop. Gebruik [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) om de volledige keten te verwijderen.
 
 ```python
 import jpype
@@ -377,38 +430,38 @@ finally:
     presentation.dispose()
 ```
 
-Het verwijderen of wissen van transformaties verandert alleen de afbeeldingsopmaak. Het verwijdert, recomprimeert of wijzigt de hergebruikte [PPImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/) bron niet.
+Het verwijderen of wissen van transformaties verandert alleen de afbeelding‑opmaak. Het verwijdert, recomprimeert of wijzigt niet de hergebruikte [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) bron.
 
-## **Overweeg presentatie‑formaten en export‑doelen**
+## **Overweeg presentatieformaten en exportdoelen**
 
-Afbeeldings‑transformaties ontstaan in DrawingML, dus PPTX is het voorkeurs‑bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke bewerking identieke draagbaarheid:
+Afbeeldingstransformaties ontstaan in DrawingML, dus PPTX is het voorkeursbewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie dezelfde draagbaarheid:
 
-- Standaard DrawingML‑bewerkingen zoals luminantie, grijswaarde, duotoon, tint, HSL, vervaging en gangbare alfa‑bewerkingen hebben de grootste kans om een PPTX‑round‑trip te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de collectie wanneer behoud een vereiste is.
-- [BrightnessContrast](https://reference.aspose.com/slides/nl/python-java/aspose.slides/brightnesscontrast/) is een Office 2010‑extensie in plaats van de standaard DrawingML‑luminantie‑bewerking. Het kan worden gebruikt voor in‑memory rendering, maar het is niet gegarandeerd dat het na opslaan en heropenen van PPTX bewerkbaar blijft als [BrightnessContrast]. Geef de voorkeur aan [addLuminanceEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) voor blijvende helderheids‑ en contrast‑aanpassingen.
-- Het binair PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde bewerkingen weglaten, een keten reduceren tot een ondersteunde subset, of het uiterlijk benaderen. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
-- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele outputs past de ondersteunde keten toe op het gerenderde uiterlijk. Die outputs bevatten geen bewerkbare `ImageTransformOperationCollection`; rasterformaten flatten het resultaat naar pixels, en document‑/vector‑exports slaan hun eigen renderrepresentatie op.
-- Effecten maken een gelinkte afbeelding niet zelf‑containend. Het renderen van een gelinkte afbeelding hangt nog steeds af van de beschikbaarheid van de gelinkte bron wanneer de presentatie wordt geladen.
+- Standaard DrawingML‑operaties zoals luminantie, grijswaarden, duotone, tint, HSL, vervaging en veelvoorkomende alpha‑operaties hebben de grootste kans om een PPTX‑rondreis te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de collectie wanneer behoud een vereiste is.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) is een Office 2010‑extensie in plaats van de standaard DrawingML‑luminantie‑operatie. Het kan worden gebruikt voor in‑memory rendering, maar het is niet gegarandeerd dat het als een bewerkbare [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) blijft na het opslaan en opnieuw openen van PPTX. Geef de voorkeur aan [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) voor permanente helderheids‑ en contrast‑aanpassingen.
+- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan als PPT kan niet‑ondersteunde operaties weglaten, een keten terugbrengen tot een ondersteund subset, of de weergave benaderen. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
+- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele output past de ondersteunde keten toe op de gerenderde weergave. Die outputs bevatten geen bewerkbare `ImageTransformOperationCollection`; rasterformaten vlakken het resultaat af tot pixels, en document‑/vector‑exports slaan hun eigen renderrepresentatie op.
+- Effecten maken een gekoppelde afbeelding niet zelf‑voorzienend. Het renderen van een gekoppelde afbeelding blijft afhankelijk van de beschikbaarheid van de gekoppelde bron wanneer de presentatie wordt geladen.
 
-Verschillende presentatie‑consumenten kunnen randgevallen verschillend renderen, vooral wanneer meerdere alfa‑ of kleur‑kwantisatie‑bewerkingen gecombineerd zijn. Voor kritische output, test zowel de bewerkbare round‑trip als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
+Verschillende presentatie‑consumenten kunnen randgevallen anders renderen, vooral wanneer meerdere alpha‑ of kleur‑kwantisatie‑operaties worden gecombineerd. Voor kritische output, test zowel de bewerkbare rondreis als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
 
 ## **FAQ**
 
 **Wijzigen afbeeldingstransformatie‑effecten de ingebedde afbeeldingsdata?**
 
-Nee. De bewerkingen behoren tot de `Picture` die wordt gebruikt door de afbeeldingsvulling. De onderliggende `PPImage`‑bytes blijven ongewijzigd.
+Nee. De operaties behoren tot de `Picture` die wordt gebruikt voor de afbeelding‑vulling. De onderliggende `PPImage`‑bytes blijven ongewijzigd.
 
-**Delen twee afbeeldingsframes die dezelfde afbeelding hergebruiken hun effectinstellingen?**
+**Zullen twee afbeeldingskaders die dezelfde afbeelding hergebruiken hun effect delen?**
 
-Nee. Het hergebruiken van een `PPImage` voorkomt dubbele afbeeldingsdata, maar elk afbeeldingsframe heeft normaal gesproken een eigen `Picture` en eigen transformatiescollectie.
+Nee. Het hergebruiken van een `PPImage` vermijdt dubbele afbeeldingsdata, maar elk afbeeldingskader heeft normaal gezien een afzonderlijke `Picture` en een eigen transformaties‑collectie.
 
-**Kunnen kleur-, vervagings‑ en alfaseffecten worden gecombineerd?**
+**Kunnen kleur-, vervaging‑ en alpha‑effecten gecombineerd worden?**
 
-Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke bewerking doet met de uitvoer van de vorige, want vervangings‑ en drempel‑bewerkingen kunnen eerdere kleur‑ of alfadeelgegevens verwijderen.
+Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke operatie doet met de output van de vorige, omdat vervangings‑ en drempel‑operaties eerdere kleur‑ of alfadeel kunnen verwijderen.
 
-**Waarom zijn effectieve waarden alleen‑lezen?**
+**Waarom zijn effectieve waarden alleen‑lees?**
 
-Effectieve data vertegenwoordigt berekende waarden die worden gebruikt voor rendering, inclusief opgeloste kleuren. Bewerk de bewerking die in de transformatiescollectie is opgeslagen waar schrijfbare leden bestaan; verwijder anders de bewerking en voeg een vervanging met nieuwe creatie‑parameters toe.
+Effectieve data vertegenwoordigt berekende waarden die voor rendering worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transformaties‑collectie is opgeslagen waar beschrijfbare leden bestaan; anders verwijder je deze en voeg je een vervanging toe met nieuwe creatie‑parameters.
 
 **Welk formaat moet ik gebruiken om een transformatieketen te behouden?**
 
-Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Het legacy‑PPT‑formaat kan het volledige DrawingML‑effectmodel niet weergeven, en gerenderde exportformaten behouden alleen het uiterlijk, niet de bewerkbare transformatiebewerkingen.
+Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan het volledige DrawingML‑effectmodel niet weergeven, en gerenderde exportformaten behouden alleen de weergave en niet de bewerkbare transformaties.

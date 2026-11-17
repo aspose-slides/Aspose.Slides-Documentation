@@ -16,56 +16,56 @@ keywords:
 - kleurvervanging
 - vervaging
 - transparantie
-- alpha‑effect
+- alfa‑effect
 - effectketen
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Pas afbeeldingstransformatie‑effecten toe, combineer, inspecteer, verwijder en verifieer ze voor afbeelding‑frames met Aspose.Slides voor PHP via Java."
+description: "Pas afbeeldingstransformatie‑effecten toe, koppel ze, inspecteer, verwijder en verifieer ze voor afbeeldingsframes met Aspose.Slides voor PHP via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt afbeeldingaanpassingen voor als een geordende collectie van image‑transform‑operaties. Voor een picture‑frame begin je met de frame‑[Picture](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picture/) en krijg je toegang tot [Picture::getImageTransform](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picture/getimagetransform/). De geretourneerde [ImageTransformOperationCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/) maakt het mogelijk om effecten toe te voegen, te enumereren, te inspecteren, te verwijderen en te wissen zonder de oorspronkelijke afbeeldingsbytes te herschrijven.
+Aspose.Slides vertegenwoordigt afbeeldingaanpassingen als een geordende collectie van beeldtransformatie‑operaties. Voor een afbeeldingsframe begin je met het frame‑[Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) en roep je [Picture::getImageTransform](https://reference.aspose.com/slides/php-java/aspose.slides/picture/getimagetransform/) aan. De geretourneerde [ImageTransformOperationCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/) laat je effecten toevoegen, opsommen, inspecteren, verwijderen en wissen zonder de originele afbeeldingsbytes opnieuw te schrijven.
 
-Dit artikel toont een volledige werkstroom voor helderheid en contrast, kleuraanpassingen, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijdering en PPTX‑round‑trip‑verificatie.
+Dit artikel laat een volledige workflow zien voor helderheid en contrast, kleuraanpassingen, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijderen en PPTX‑rondreis‑verificatie.
 
-## **Begrijp eigenaarschap van effecten en hergebruik van afbeeldingen**
+## **Begrijp effect‑eigenaarschap en hergebruik van afbeeldingen**
 
-Een afbeelding‑resource en de afbeelding die deze weergeeft zijn verschillende objecten:
+Een afbeeldingsbron en de afbeelding die deze weergeeft zijn verschillende objecten:
 
-- [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/) slaat de bron‑afbeeldingsdata op of verwijst ernaar en behoort toe aan de presentatie.
-- [Picture](https://reference.aspose.com/slides/nl/php-java/aspose.slides/picture/) maakt deel uit van een picture‑fill en verwijst naar een afbeelding‑resource terwijl het de image‑transform‑collectie opslaat.
-- [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/) is de slide‑shape die de betreffende picture‑fill, geometrie, crop‑instellingen en andere frame‑niveau‑formattering bezit.
+- [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) slaat de bronafbeeldingsgegevens op of verwijst ernaar en behoort tot de presentatie.
+- [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) maakt deel uit van een afbeeldingvulling en verwijst naar een afbeeldingsbron terwijl het de afbeeldings‑transformatiecollectie opslaat.
+- [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) is de dia‑vorm die de betreffende afbeeldingvulling, geometrie, uitsnijdingsinstellingen en andere op frame‑niveau ingestelde opmaak bezit.
 
-Daarom wijzigen image‑transform‑operaties de bytes in [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/) niet. Wanneer dezelfde `PPImage` meer dan eens wordt doorgegeven aan [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/addpictureframe/), krijgt elk nieuw picture‑frame zijn eigen `Picture` en zijn eigen transform‑collectie. Het toepassen van grijstinten op één frame maakt de andere frames niet grijstinten, ook al hergebruiken ze dezelfde ingesloten afbeelding‑resource.
+Daarom wijzigen beeldtransformatie‑operaties de bytes in [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) niet. Wanneer dezelfde `PPImage` meer dan één keer wordt doorgegeven aan [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/), krijgt elk nieuw afbeeldingsframe zijn eigen `Picture` en eigen transformatie‑collectie. Het toepassen van grijstinten op één frame maakt de andere frames niet grijs, ook al gebruiken ze allemaal dezelfde ingebedde afbeeldingsbron.
 
-Hetzelfde `Picture::getImageTransform`‑model wordt ook gebruikt door andere picture‑fills, zoals een shape‑ of slide‑achtergrond. De voorbeelden hieronder richten zich op picture‑frames.
+Hetzelfde `Picture::getImageTransform`‑model wordt ook gebruikt door andere afbeeldingvullingen, zoals een vorm‑ of dia‑achtergrond. De onderstaande voorbeelden richten zich op afbeeldingsframes.
 
 ## **Gebruik geldige parameterbereiken en eenheden**
 
-De getoonde methoden gebruiken de volgende semantische bereiken en eenheden. Houd de waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet elke out‑of‑range‑waarde onmiddellijk afwijst; het doel‑presentatieformaat kan ongeldige data normaliseren, weglaten of afwijzen tijdens het opslaan of wanneer PowerPoint het bestand opent.
+De getoonde methoden gebruiken de volgende semantische bereiken en eenheden. Houd je aan deze bereiken, zelfs als een bepaalde bibliotheekversie niet onmiddellijk elke out‑of‑range‑waarde afwijst; het doelpresentatieformaat kan de waarden normaliseren, weglaten of ongeldige gegevens afwijzen tijdens opslaan of wanneer PowerPoint het bestand opent.
 
 | Operatie | Parameters | Geldig bereik en eenheid |
 |---|---|---|
-| [addLuminanceEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat de component ongewijzigd. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | Geen | Geen numerieke parameters. Alpha blijft ongewijzigd. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alpha‑kanalen in `java.awt.Color` gebruiken `0` tot `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue is `0` (inclusief) tot `360` (exclusief), in graden; amount is `-100` tot `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue is `0` (inclusief) tot `360` (exclusief), in graden; saturation en luminance zijn `-100` tot `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alpha‑waarden blijven ongewijzigd. |
-| [addBlurEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Radius is niet‑negatief en wordt gemeten in points; `grow` is een Boolean die bepaalt of vervaagd materiaal buiten de oorspronkelijke grenzen mag uitsteken. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Niet‑negatief procent. Gebruik `0` tot `100` voor gewone opaciteits‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alpha. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` tot `100`, procent opaciteit. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` tot `100`, procent alpha‑drempel. Waarden daaronder worden transparant; waarden op of boven de drempel worden ondoorzichtig. |
+| [addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel ongewijzigd. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | Geen | Geen numerieke parameters. Alpha blijft ongewijzigd. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfacanalen in `java.awt.Color` gebruiken `0` tot `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Tint is `0` (incl.) tot `360` (excl.) graden; `amount` is `-100` tot `100`, procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Tint is `0` (incl.) tot `360` (excl.) graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfavarianten blijven ongewijzigd. |
+| [addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Straal is niet‑negatief en wordt gemeten in points; `grow` is een Boolean die bepaalt of vervaagd materiaal buiten de oorspronkelijke grenzen mag uitsteken. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Niet‑negatieve procentwaarde. Gebruik `0` tot `100` voor gewone ondoorzichtigheids‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alpha. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` tot `100`, procent ondoorzichtigheid. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` tot `100`, procent alpha‑drempel. Waarden daaronder worden transparant; waarden gelijk aan of hoger worden ondoorzichtig. |
 
-Voor vaste alpha‑modulatie zijn transparantie en opaciteit complementair. Bijvoorbeeld, 35 % transparantie correspondeert met een alpha‑modulatie‑waarde van 65 %.
+Voor vaste alfacomodulatie zijn transparantie en ondoorzichtigheid complementair. Bijvoorbeeld, 35 % transparantie komt overeen met een alfacomodulatie‑waarde van 65 %.
 
 ## **Helderheid en contrast toepassen**
 
-[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) retourneert een [Luminance](https://reference.aspose.com/slides/nl/php-java/aspose.slides/luminance/)‑operatie. De scalar‑instellingen worden meegegeven bij het aanmaken van de operatie. [Luminance::getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/luminance/geteffective/) geeft berekende read‑only‑waarden terug die kunnen worden geïnspecteerd of gelogd.
+[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) retourneert een [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/)‑operatie. De schaalinstellingen worden meegegeven bij het aanmaken van de operatie. [Luminance::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/geteffective/) levert berekende alleen‑lezen‑waarden die geïnspecteerd of gelogd kunnen worden.
 
-Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, en rendert daarna een voorbeeld zonder de ingesloten afbeelding te wijzigen:
+Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, en rendert vervolgens een voorbeeld zonder de ingebedde afbeelding te wijzigen:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -107,13 +107,13 @@ try {
 }
 ```
 
-`Luminance` is het standaard DrawingML‑effect voor helderheid en contrast. Wanneer deze instellingen bewerkbaar moeten blijven na een PPTX‑round‑trip, open je de opgeslagen presentatie opnieuw en controleer je zowel het type operatie als de effectieve waarden.
+`Luminance` is het standaard DrawingML‑effect voor helderheid en contrast. Wanneer deze instellingen bewerkbaar moeten blijven na een PPTX‑rondreis, open dan de opgeslagen presentatie opnieuw en controleer zowel het operatietype als de effectieve waarden.
 
 ## **Kleuraanpassingen toepassen**
 
-Kleur‑effecten kunnen onafhankelijk worden toegepast op verschillende picture‑frames die één afbeelding‑resource hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijstinten, duotone, tint, HSL‑aanpassing en kleurvervanging toe.
+Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeeldingsframes die één afbeeldingsbron hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijstinten, duotoon, tint, HSL‑aanpassing en kleurvervanging toe.
 
-[Duotone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/duotone/) bevat twee onafhankelijk bewerkbare kleur‑parameters: `color1` mappt donkere pixels, terwijl `color2` lichte pixels mappt. Dit maakt het een nuttig voorbeeld van een effect waarvan de instellingen complexer zijn dan één scalaire waarde.
+[Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` bepaalt donkere pixels, terwijl `color2` lichte pixels bepaalt. Dit maakt het een handig voorbeeld van een effect waarvan de instellingen complexer zijn dan een enkele schaalwaarde.
 
 ```php
 use aspose\slides\Images;
@@ -158,13 +158,62 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) vervangt elke pixel‑kleur door één vaste kleur terwijl alpha behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), dat één bronkleur naar een andere mappt en zowel bron‑ als doel‑kleurformaten blootlegt.
+[addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) vervangt de kleur van elke pixel door één vaste kleur, terwijl de alpha behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), dat één bronkleur naar een andere omzet en zowel bron‑ als doelformaten van kleuren blootlegt.
 
-## **Vervaag, transparantie en alpha‑effecten toevoegen**
+### **Een luminantiedrempel toepassen**
 
-[addBlurEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) beïnvloedt alle kleurkanalen, inclusief alpha. Stel `grow` in op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeeldingsgrenzen mag uitstrekken.
+Een luminantiedrempel kan vage markeringen op een gescande pagina beter onderscheidbaar maken van de achtergrond. [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) behoudt tussentoonwaarden van grijs. [addBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addbileveleffect/) zet luminantie om in zwart of wit, terwijl [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) een drempel op de ondoorzichtigheid toepast.
 
-Voor uniforme transparantie gebruik je [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). Het vermenigvuldigt elke bestaande alpha‑waarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) kent in plaats daarvan één alpha‑waarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) zet alpha om naar twee niveaus op basis van een drempel.
+De luminantiedrempel varieert van 0 % tot 100 %, inclusief. Pixels onder de drempel worden zwart. Pixels op of boven de drempel worden wit. Het verhogen van de drempel maakt meer tinten zwart omdat meer ervan onder de cutoff vallen.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) naar de map met het PHP‑script. Elke etikettering geeft het originele grijsniveau op een schaal van 0 tot 255 weer. Het voorbeeld plaatst het origineel naast twee kopieën en slaat de drempel van elke kopie op in de presentatie.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 150, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $sourceImage = Images::fromFile(__DIR__ . "/grayscale-swatches.png");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
+
+    $captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    $frames = [];
+    foreach ($captions as $index => $caption) {
+        $x = 12 + 240 * $index;
+        $label = $shapes->addAutoShape(ShapeType::Rectangle, $x, 12, 216, 36);
+        $label->getTextFrame()->setText($caption);
+        $frames[] = $shapes->addPictureFrame(ShapeType::Rectangle, $x, 60, 216, 72, $image);
+    }
+
+    $frames[1]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(20);
+    $frames[2]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(60);
+
+    $presentation->save(__DIR__ . "/luminance-threshold.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Open de gegenereerde presentatie in PowerPoint om de drie frames te vergelijken. Het kleurstaal met label 96 heeft ongeveer 38 % luminantie (96 van 255). Het wordt wit bij een drempel van 20 % en zwart bij een drempel van 60 %.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **Vervaag, transparantie en alfa‑effecten toevoegen**
+
+[addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) beïnvloedt alle kleurkanalen, inclusief alpha. Stel `grow` in op `true` wanneer de vervaagde rand buiten de originele afbeeldingsgrenzen mag uitsteken.
+
+Voor uniforme transparantie gebruik je [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). Het vermenigvuldigt elke bestaande alfab waarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) kent daarentegen één alfab‑waarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) zet alpha om in twee niveaus op basis van een drempel.
 
 ```php
 use aspose\slides\Images;
@@ -207,15 +256,15 @@ try {
 }
 ```
 
-Andere parameter‑vrije alpha‑operaties omvatten [addAlphaCeilingEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/), dat elke niet‑nul alpha volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/), dat elke alpha onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/), dat alpha verandert naar `100% - alpha`.
+Andere alfa‑operaties zonder parameters omvatten [addAlphaCeilingEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/), die elke niet‑nul alpha volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/), die elke alpha onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/), die alpha verandert in `100% - alpha`.
 
 ## **Een geordende effectketen bouwen**
 
-Elke `add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de output van operatie 0 wordt de input van operatie 1, enzovoort. Daardoor kan dezelfde reeks operaties in een andere volgorde een ander beeld opleveren.
+Elke `add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de output van operatie 0 wordt de input van operatie 1, enzovoort. Daardoor kan dezelfde set operaties in een andere volgorde een verschillend resultaat opleveren.
 
-Bijvoorbeeld, grijstinten gevolgd door tint verwijdert eerst chromatische informatie en kleurt vervolgens het luminantie‑resultaat. Tint gevolgd door grijstinten verwijdert de tint weer. Evenzo kan alpha‑vervanging alpha‑waarden die eerder berekend zijn overschrijven, terwijl alpha‑modulatie hun relatieve verschillen behoudt.
+Bijvoorbeeld, grijstinten gevolgd door tint verwijdert eerst chromatische informatie en kleurt vervolgens het luminantie‑resultaat. Tint gevolgd door grijstinten verwijdert de tint weer. Evenzo kan alfa‑vervanging alfa‑waarden die door eerdere operaties zijn berekend overschrijven, terwijl alfa‑modulatie hun relatieve verschillen behoudt.
 
-Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de operatietypen als hun volgorde, en rendert het geopende resultaat:
+Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de operatietypen als hun volgorde, en rendert het heropende resultaat:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -278,15 +327,21 @@ try {
 }
 ```
 
-De collectie legt geen compatibiliteitsmatrix op die kleur‑, alpha‑ en vervagings‑operaties tot afzonderlijke ketens beperkt. Ze kunnen worden gecombineerd, maar combinaties zijn niet altijd nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is geproduceerd; grijstinten na duotone verwijderen de twee geselecteerde kleuren; en alpha‑ceiling, floor, replacement of bi‑level kunnen alpha‑details die eerder zijn gecreëerd weggooien. Bouw de keten volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te beschouwen als ongeordende formatterings‑vlaggen.
+De collectie legt geen compatibiliteitsmatrix op die kleur‑, alfa‑ en vervagingsoperaties beperkt tot afzonderlijke ketens. Ze kunnen worden gecombineerd, maar niet alle combinaties zijn nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is gecreëerd; grijstinten na duotoon verwijderen de twee geselecteerde kleuren; en alfa‑ceiling, floor, replacement of bi‑level‑operaties kunnen alfa‑detail dat eerder is aangemaakt weggooien. Bouw de keten volgens de gewenste volgorde van pixelverwerking in plaats van de items te zien als ongeordende opmaak‑vlaggen.
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*In deze illustratieve Aspose.Slides voor .NET 26.11‑render laat een tint van 220° op 25 % de grijstintafbeelding ongewijzigd. Het toepassen van dezelfde tint vóór grijstinten levert verschillende tonen op.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Bewerkbare en effectieve waarden inspecteren**
 
-Een bewerkbare operatie is het object dat is opgeslagen in `Picture::getImageTransform`. Afhankelijk van het effect kan het direct schrijfbare leden blootleggen. Bijvoorbeeld, [Blur](https://reference.aspose.com/slides/nl/php-java/aspose.slides/blur/) toont schrijfbare `radius`‑ en `grow`‑waarden, [AlphaModulateFixed](https://reference.aspose.com/slides/nl/php-java/aspose.slides/alphamodulatefixed/) toont een schrijfbare `amount`, en [AlphaBiLevel](https://reference.aspose.com/slides/nl/php-java/aspose.slides/alphabilevel/) toont een schrijfbare `threshold`. Kleur‑effecten zoals [Duotone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/duotone/) tonen mutabele [ColorFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colorformat/)‑objecten.
+Een bewerkbare operatie is het object dat is opgeslagen in `Picture::getImageTransform`. Afhankelijk van het effect kan het direct schrijfbare leden blootleggen. Bijvoorbeeld, [Blur](https://reference.aspose.com/slides/php-java/aspose.slides/blur/) biedt schrijfbare `radius`‑ en `grow`‑waarden, [AlphaModulateFixed](https://reference.aspose.com/slides/php-java/aspose.slides/alphamodulatefixed/) biedt een schrijfbare `amount`, en [AlphaBiLevel](https://reference.aspose.com/slides/php-java/aspose.slides/alphabilevel/) biedt een schrijfbare `threshold`. Kleureffecten zoals [Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) geven mutable [ColorFormat](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/)-objecten.
 
-Sommige operaties, waaronder [Luminance](https://reference.aspose.com/slides/nl/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/nl/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nl/php-java/aspose.slides/tint/) en [AlphaReplace](https://reference.aspose.com/slides/nl/php-java/aspose.slides/alphareplace/), onthullen hun creatiescalars niet als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanging toe op de gewenste positie.
+Sommige operaties, waaronder [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/php-java/aspose.slides/tint/), en [AlphaReplace](https://reference.aspose.com/slides/php-java/aspose.slides/alphareplace/), stellen hun creatieschaal niet bloot als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanging toe op de gewenste positie.
 
-Effectieve data die door `getEffective()` wordt geretourneerd, is berekend en read‑only. Het is nuttig om thema‑afhankelijke kleuren te bepalen en de genormaliseerde waarden te lezen die de renderer gebruikt, maar het vormt geen extra bewerkingsoppervlak. Het volgende voorbeeld enumerateert de keten en inspecteert effectieve waarden waar de corresponderende API er een biedt:
+Effectieve gegevens die door `getEffective()` worden geretourneerd, zijn berekend en alleen‑lezen. Ze zijn nuttig om themagebonden kleuren op te lossen en de genormaliseerde waarden te lezen die de renderer gebruikt, maar vormen geen extra bewerkingsoppervlak. Het volgende voorbeeld loopt de keten door en inspecteert de effectieve waarden waar de bijbehorende API ze levert:
 
 ```php
 use aspose\slides\Presentation;
@@ -350,11 +405,11 @@ try {
 }
 ```
 
-Parameter‑vrije effecten zoals grijstinten, alpha‑ceiling en alpha‑inverse beschikken nog steeds over een effective‑data‑object, maar er zijn geen scalaire instellingen om af te drukken. Hun aanwezigheid en positie in de collectie vormen de belangrijke informatie.
+Operaties zonder parameters, zoals grijstinten, alfa‑ceiling en alfa‑inverse, hebben nog steeds een effective‑data‑object, maar er zijn geen schaalinstellingen om af te drukken. Hun aanwezigheid en positie in de collectie zijn de belangrijke informatie.
 
-## **Image‑transformaties verwijderen of wissen**
+## **Transformaties verwijderen of wissen**
 
-Gebruik [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/removeat/) om een operatie op een bepaalde index te verwijderen. Omdat indexen verschuiven na een verwijdering, zoek je eerst het doel en verwijder je het na het enumereren. Gebruik [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/imagetransformoperationcollection/clear/) om de volledige keten te verwijderen.
+Gebruik [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/removeat/) om een operatie op een bepaalde index te verwijderen. Omdat indexen verschuiven na een verwijdering, zoek je eerst het gewenste element en verwijder je het daarna na opsomming. Gebruik [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/clear/) om de volledige keten te verwijderen.
 
 ```php
 use aspose\slides\Presentation;
@@ -400,37 +455,37 @@ try {
 }
 ```
 
-Het verwijderen of wissen van transformaties verandert alleen de picture‑formattering. Het verwijdert, recomprimeert of wijzigt niet de hergebruikte [PPImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ppimage/)‑resource.
+Het verwijderen of wissen van transformaties wijzigt alleen de afbeelding‑opmaak. Het verwijdert, comprimeert of wijzigt niet de hergebruikte [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/)‑resource.
 
-## **Presentatieformaten en export‑doelen overwegen**
+## **Overweeg presentatie‑formaten en export‑doelen**
 
-Image‑transformaties ontstaan in DrawingML, dus PPTX is het voorkeursformaat voor bewerkbare effectketens. Zelfs met PPTX heeft niet elke operatie identieke portabiliteit:
+Beeldtransformaties ontstaan in DrawingML, dus PPTX is het voorkeurs‑bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie identieke draagbaarheid:
 
-- Standaard DrawingML‑operaties zoals luminance, grayscale, duotone, tint, HSL, blur en algemene alpha‑operaties hebben de grootste kans om een PPTX‑round‑trip te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de collectie wanneer behoud een vereiste is.
-- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan als PPT kan niet‑ondersteunde operaties weglaten, een keten reduceren tot een ondersteunde subset, of het uiterlijk benaderen. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
-- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele output past de ondersteunde keten toe op het gerenderde uiterlijk. Deze outputs bevatten geen bewerkbare `ImageTransformOperationCollection`; rasterformaten flatten het resultaat tot pixels, en document‑ of vector‑exporten slaan hun eigen renderrepresentatie op.
-- Effecten maken een gelinkte afbeelding niet zelf‑containing. Het renderen van een gelinkte afbeelding blijft afhankelijk van de beschikbaarheid van de gelinkte resource wanneer de presentatie wordt geladen.
+- Standaard DrawingML‑operaties zoals luminantie, grijstinten, duotoon, tint, HSL, vervaging en gewone alfa‑operaties hebben de grootste kans om een PPTX‑rondreis te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de collectie wanneer behoud vereist is.
+- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde operaties weglaten, een keten reduceren tot een ondersteunde subset, of de weergave benaderen. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
+- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele uitvoer past de ondersteunde keten toe op het gerenderde uiterlijk. Deze uitvoer bevat geen bewerkbare `ImageTransformOperationCollection`; raster‑formaten flatten het resultaat tot pixels, en document‑ of vector‑exporten slaan hun eigen weergaverepresentatie op.
+- Effecten maken een gelinkte afbeelding niet zelf‑bevat. Het renderen van een gelinkte afbeelding blijft afhankelijk van de beschikbaarheid van de gelinkte bron wanneer de presentatie wordt geladen.
 
-Verschillende presentatie‑consumenten kunnen rand‑gevallen verschillend renderen, vooral wanneer meerdere alpha‑ of kleur‑kwantisatie‑operaties gecombineerd worden. Voor kritische output, test zowel de bewerkbare round‑trip als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
+Verschillende presentatie‑consumenten kunnen randgevallen verschillend renderen, vooral wanneer meerdere alfa‑ of kleur‑kwantisatie‑operaties gecombineerd worden. Voor kritische output, test zowel de bewerkbare rondreis als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
 
 ## **FAQ**
 
-**Wijzigen image‑transform‑effecten de ingebedde afbeeldingsdata?**
+**Wijzigen beeldtransformatie‑effecten de ingebedde afbeeldingsgegevens?**
 
-Nee. De operaties behoren tot de `Picture` die door de picture‑fill wordt gebruikt. De onderliggende `PPImage`‑bytes blijven ongewijzigd.
+Nee. De operaties behoren tot de `Picture` die wordt gebruikt door de afbeeldingvulling. De onderliggende `PPImage`‑bytes blijven ongewijzigd.
 
-**Zullen twee picture‑frames die dezelfde afbeelding hergebruiken hun effect‑instellingen delen?**
+**Zullen twee afbeeldingsframes die dezelfde afbeelding hergebruiken elkaars effecten delen?**
 
-Nee. Het hergebruiken van een `PPImage` voorkomt dubbele afbeeldingsdata, maar elk picture‑frame heeft normaal gesproken een eigen `Picture` en eigen image‑transform‑collectie.
+Nee. Het hergebruiken van een `PPImage` voorkomt dubbele afbeeldingsdata, maar elk afbeeldingsframe heeft normaal gesproken een eigen `Picture` en eigen transformatie‑collectie.
 
-**Kunnen kleur‑, blur‑ en alpha‑effecten gecombineerd worden?**
+**Kunnen kleur-, vervagings‑ en alfa‑effecten worden gecombineerd?**
 
-Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke operatie doet met de output van de vorige, omdat vervangings‑ en drempel‑operaties eerdere kleur‑ of alpha‑details kunnen verwerpen.
+Ja. De collectie accepteert ze in één geordende keten. Houd rekening met wat elke operatie doet met de output van de vorige, omdat vervangings‑ en drempel‑operaties eerdere kleur‑ of alfactdetails kunnen verwijderen.
 
-**Waarom zijn effectieve waarden read‑only?**
+**Waarom zijn effectieve waarden alleen‑lezen?**
 
-Effectieve data stelt berekende waarden voor die voor het renderen worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transform‑collectie is opgeslagen waar schrijfbare leden bestaan; verwijder anders de operatie en voeg een vervanging toe met nieuwe creatie‑parameters.
+Effectieve data vertegenwoordigt berekende waarden die voor rendering worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transformatie‑collectie is opgeslagen waar schrijfbare leden bestaan; verwijder anders de operatie en voeg een vervanging toe met nieuwe creatie‑parameters.
 
-**Welk formaat moet ik gebruiken om een transform‑keten te behouden?**
+**Welk formaat moet ik gebruiken om een transformatieketen te behouden?**
 
-Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan het volledige DrawingML‑effectmodel niet weergeven, en geëxporteerde formaten behouden alleen het uiterlijk, niet bewerkbare transform‑operaties.
+Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan het volledige DrawingML‑effectmodel niet vertegenwoordigen, en gerenderde exportformaten behouden alleen het uiterlijk, niet de bewerkbare transformatie‑operaties.

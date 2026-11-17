@@ -1,6 +1,6 @@
 ---
 title: مدیریت اثرهای تبدیل تصویر در ارائه‌ها با .NET
-linktitle: اثرهای تبدیل تصویر
+linktitle: اثرات تبدیل تصویر
 type: docs
 weight: 11
 url: /fa/net/image-transform-effects/
@@ -9,12 +9,12 @@ keywords:
 - اثر تصویر
 - روشنایی
 - کنتراست
-- سیاه‌سفید
-- دو‑رنگ
-- رنگ‌زاد
+- مقیاس‌سودگی خاکستری
+- دو‑رنگی
+- رنگ‌پرتو
 - HSL
 - جایگزینی رنگ
-- محو
+- تاری
 - شفافیت
 - اثر آلفا
 - زنجیرهٔ اثر
@@ -23,50 +23,50 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اعمال، زنجیره‌سازی، بررسی، حذف و تأیید اثرهای تبدیل تصویر برای قاب‌های تصویر با Aspose.Slides برای .NET."
+description: "اعمال، زنجیره‌سازی، بازرسی، حذف و تأیید اثرهای تبدیل تصویر برای فریم‌های تصویر با Aspose.Slides برای .NET."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-Aspose.Slides تنظیمات تصویر را به صورت یک مجموعهٔ ترتیبی از عملیات تبدیل تصویر (image transform) نمایش می‌دهد. برای یک قاب تصویر، ابتدا با [ISlidesPicture](https://reference.aspose.com/slides/fa/net/aspose.slides/islidespicture/) قاب کار کنید و به [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/fa/net/aspose.slides/islidespicture/imagetransform/) دسترسی پیدا کنید. شیٔ [IImageTransformOperationCollection](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/) برگردانده‌شده به شما اجازه می‌دهد تا عملیات‌ها را اضافه، مرور، بررسی، حذف و پاک سازی کنید بدون این‌که بایت‌های تصویر اصلی بازنویسی شوند.
+Aspose.Slides تنظیمات تصویر را به‌عنوان یک مجموعهٔ مرتب از عملیات تبدیل تصویر ارائه می‌دهد. برای یک فریم تصویر، با فریمٔ [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) شروع کنید و به [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/) دسترسی پیدا کنید. مجموعهٔ بازگردانده‌شدهٔ [IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/) به شما اجازه می‌دهد تا اثرها را بدون بازنویسی بایت‌های تصویر اصلی، اضافه، مرور، بررسی، حذف و پاک کنید.
 
-این مقاله یک جریان کاری کامل برای روشنایی و کنتراست، تبدیل رنگ‌ها، محو (blur)، شفافیت، زنجیرهٔ اثرات ترتیبی، مقادیر مؤثر، حذف و اعتبارسنجی دورانی PPTX را نشان می‌دهد.
+این مقاله یک جریان کار کامل برای تنظیم روشنایی و کنتراست، تبدیل رنگ‌ها، تار کردن، شفافیت، زنجیرهٔ اثرهای مرتب، مقادیر مؤثر، حذف و تأیید دورانی PPTX را نشان می‌دهد.
 
-## **درک مالکیت اثر و بازاستفادهٔ تصویر**
+## **درک مالکیت اثر و استفادهٔ مجدد از تصویر**
 
-یک منبع تصویر و تصویری که آن را نمایش می‌دهد، اشیاء متفاوتی هستند:
+یک منبع تصویر و تصویری که آن را نمایش می‌دهد، اشیای متفاوتی هستند:
 
-- [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) دادهٔ تصویر منبع را که متعلق به ارائه است، نگهداری یا به آن ارجاع می‌دهد.
-- [ISlidesPicture](https://reference.aspose.com/slides/fa/net/aspose.slides/islidespicture/) متعلق به پرکردن تصویر است و به منبع تصویر اشاره می‌کند در حالی که مجموعهٔ تبدیل تصویر را ذخیره می‌کند.
-- [IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/) شکل اسلاید است که پرکردن تصویر، هندسه، تنظیمات برش و دیگر قالب‌بندی‌های سطح قاب را داراست.
+- [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) دادهٔ تصویر منبع را که متعلق به ارائه است، ذخیره یا به آن ارجاع می‌دهد.
+- [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) به پرکنندهٔ تصویر تعلق دارد و به منبع تصویر اشاره می‌کند در حالی‌که مجموعهٔ تبدیل تصویر را نگه می‌دارد.
+- [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) شکل اسلاید است که پرکنندهٔ تصویر، هندسه، تنظیمات برش و سایر قالب‌بندی‌های سطح فریم را در اختیار دارد.
 
-به همین دلیل، عملیات‌های تبدیل تصویر بایت‌های موجود در [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) را تغییر نمی‌دهند. وقتی همان `IPPImage` بیش از یک بار به [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addpictureframe/) پاس داده شود، هر قاب جدید تصویر `ISlidesPicture` و مجموعهٔ تبدیل خود را دریافت می‌کند. اعمال حالت‌سفید (grayscale) به یک قاب، باعث نمی‌شود قاب‌های دیگر نیز حالت‌سفید شوند، حتی اگر همهٔ آن‌ها از همان منبع تصویر توکار استفاده کنند.
+بنابراین، عملیات تبدیل تصویر بایت‌های موجود در [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) را تغییر نمی‌دهند. وقتی همان `IPPImage` بیش از یک بار به [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) پاس داده می‌شود، هر فریم تصویری جدید یک `ISlidesPicture` و مجموعهٔ تبدیل خود را دریافت می‌کند. اعمال مقیاس‌سودگی خاکستری به یک فریم، فریم‌های دیگر را مقیاس‌سودگی نمی‌کند، حتی اگر همهٔ آن‌ها از همان منبع تصویر جاسازی‌شده استفاده کنند.
 
-مدل `ISlidesPicture.ImageTransform` همان‌طور که در سایر پرکننده‌های تصویر مثل شکل یا پس‌زمینهٔ اسلاید استفاده می‌شود، در این مثال‌ها بر روی قاب‌های تصویر متمرکز است.
+مدل `ISlidesPicture.ImageTransform` مشابه همچنین توسط پرکننده‌های تصویر دیگر، مانند شکل یا پس‌زمینه اسلاید، استفاده می‌شود. مثال‌های زیر بر فریم‌های تصویر تمرکز دارند.
 
 ## **استفاده از بازه‌ها و واحدهای معتبر پارامترها**
 
-روش‌های نشان داده‌شده از بازه‌ها و واحدهای معنایی زیر استفاده می‌کنند. حتی اگر نسخهٔ خاصی از کتابخانه مقدار خارج از بازه را بلافاصله رد نکند، مقادیر را در این بازه‌ها نگه دارید؛ چون فرمت هدف ممکن است در زمان ذخیره یا هنگام باز شدن فایل توسط PowerPoint داده نامعتبر را نرمال‌سازی، حذف یا رد کند.
+روش‌های نشان داده‌شده بازه‌ها و واحدهای معنایی زیر را استفاده می‌کنند. حتی اگر نسخهٔ خاصی از کتابخانه هر مقدار خارج از بازه را فوراً رد نکند، مقادیر را در این بازه‌ها نگه دارید؛ قالب هدف ممکن است هنگام ذخیره یا باز کردن فایل توسط PowerPoint داده‌های نامعتبر را نرمال‌سازی، حذف یا رد کند.
 
-| عمل | پارامترها | بازه و واحد معتبر |
+| عملیات | پارامترها | بازه معتبر و واحد |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` تا `100`، درصد؛ `0` مؤلفه را تغییر نمی‌دهد. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | بدون | پارامتر عددی ندارد. آلفا تغییر نمی‌کند. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | دو رنگ برای پیکسل‌های تاریک و روشن. مقادیر کانال‌های RGB و آلفا در `System.Drawing.Color` از `0` تا `255` هستند. |
-| [AddTintEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | `hue` شامل `0` تا قبل از `360`، به درجه؛ `amount` از `-100` تا `100` درصد. |
-| [AddHSLEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | `hue` شامل `0` تا قبل از `360` درجه؛ `saturation` و `luminance` از `-100` تا `100` درصد. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | رنگ جایگزین مقادیر کانال از `0` تا `255` را دارد. مقادیر آلفای موجود تغییری نمی‌کند. |
-| [AddBlurEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | `radius` مقدار غیرمنفی است و بر حسب پوینت اندازه‌گیری می‌شود؛ `grow` یک Boolean است که کنترل می‌کند آیا محتوای محوشده می‌تواند خارج از مرزهای اصلی گسترش یابد یا نه. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | درصد غیرمنفی. برای مقیاس‌گذاری شفافیت معمولی از `0` تا `100` استفاده کنید: `0` کاملاً شفاف و `100` آلفای موجود را حفظ می‌کند. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` تا `100` درصد شفافیت. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` تا `100` درصد آلفا آستانه. مقادیر زیر آن شفاف می‌شوند؛ مقادیر برابر یا بالاتر آن نامرئی می‌شوند. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` تا `100` درصد؛ `0` مؤلفه را بدون تغییر می‌گذارد. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | هیچ | پارامتر عددی ندارند. آلفا بدون تغییر می‌ماند. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | دو رنگ برای پیکسل‌های تیره و روشن. مقادیر کانال‌های RGB و آلفا در `System.Drawing.Color` از `0` تا `255` هستند. |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | رنگ‌پرتو (`hue`) از `0` شامل تا `360` به‌جز، بر حسب درجه؛ مقدار (`amount`) از `-100` تا `100` درصد. |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | `hue` از `0` شامل تا `360` به‌جز، بر حسب درجه؛ اشباع (`saturation`) و روشنایی (`luminance`) از `-100` تا `100` درصد. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | رنگ جایگزین مقادیر کانال‌هایش را از `0` تا `255` می‌گیرد. مقادیر آلفای موجود بدون تغییر می‌مانند. |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | شعاع مقدار غیرمنفی است و بر حسب نقطه اندازه‌گیری می‌شود؛ `grow` یک Boolean است که تعیین می‌کند آیا محتوای تاری می‌تواند خارج از مرزهای اصلی گسترش یابد یا نه. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | درصد غیرمنفی. برای مقیاس‌گذاری شفافیت معمولی از `0` تا `100` استفاده کنید: `0` کاملاً شفاف و `100` آلفای موجود را حفظ می‌کند. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` تا `100` درصد شفافیت. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` تا `100` درصد آستانهٔ آلفا. مقادیر زیر آن شفاف می‌شوند؛ مقادیر برابر یا بالاتر آن مات می‌شوند. |
 
-برای مدولات آلفای ثابت، شفافیت و مات‌پذیری مکمل یکدیگرند. برای مثال، 35٪ شفافیت معادل مقدار مدولات آلفای 65٪ است.
+برای مدولاسیون ثابت آلفا، شفافیت و مات بودن مکمل یکدیگر هستند. به‌عنوان مثال، شفافیت 35٪ معادل مقدار مدولاسیون آلفای 65٪ است.
 
 ## **اعمال روشنایی و کنتراست**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) یک عملیات [IBrightnessContrast](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ibrightnesscontrast/) برمی‌گرداند. تنظیمات اسکالر آن هنگام ایجاد عملیات تعیین می‌شود. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/brightnesscontrast/geteffective/) مقادیر محاسبه‌شدهٔ فقط‑خواندنی را که می‌توانند بررسی یا ثبت شوند، برمی‌گرداند.
+[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) یک عمل [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) برمی‌گرداند. تنظیمات اسکالر هنگام ایجاد عملیات فراهم می‌شوند. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/) مقادیر محاسبه‌شدهٔ فقط‑خواندنی را برمی‌گرداند که می‌توان آنها را بررسی یا ثبت کرد.
 
-مثال زیر روشنایی را 15٪ و کنتراست را 20٪ افزایش می‌دهد، سپس پیش‌نمایشی بدون تغییر تصویر توکار تولید می‌کند:
+مثال زیر روشنایی را 15٪ و کنتراست را 20٪ افزایش می‌دهد، سپس پیش‌نمایشی را بدون تغییر تصویر جاسازی‌شده رندر می‌کند:
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/brightnesscontrast/) یک افزونهٔ اثر تصویر Office 2010 است و نسبت به اثر luminance استاندارد DrawingML قابلیت‌پذیری کمتری دارد. وقتی باید روشنایی و کنتراست پس از یک دور PPTX قابل ویرایش بمانند، از [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) استفاده کنید و پس از باز کردن مجدد فایل، نتیجه را تأیید کنید. بخش محدودیت‌های فرمت این تمایز را با جزئیات بیشتری توضیح می‌دهد.
+[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) افزونهٔ اثر تصویری Office 2010 است و نسبت به اثر روشنایی استاندارد DrawingML کمتر قابل حمل است. وقتی نیاز باشد روشنایی و کنتراست پس از یک دورانی PPTX قابل ویرایش بمانند، از [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) استفاده کنید و پس از باز کردن مجدد فایل نتیجه را تأیید کنید. بخش محدودیت‌های قالب این تمایز را با جزئیات بیشتری توضیح می‌دهد.
 
 ## **اعمال تبدیل‌های رنگی**
 
-اثرات رنگی می‌توانند به‌صورت مستقل بر روی قاب‌های تصویری مختلف که یک منبع تصویر را بازاستفاده می‌کنند، اعمال شوند. مثال زیر پنج قاب ایجاد می‌کند و حالت‌سفید، دو‑رنگ (duotone)، رنگ‌زاد (tint)، تنظیم HSL و جایگزینی رنگ را اعمال می‌نماید.
+تأثیرات رنگی می‌توانند به‌صورت مستقل بر فریم‌های تصویری مختلف که یک منبع تصویر را به‌کار می‌برند، اعمال شوند. مثال زیر پنج فریم ایجاد می‌کند و به ترتیب مقیاس‌سودگی خاکستری، دو‑رنگی، رنگ‌پرتو، تنظیم HSL و جایگزینی رنگ را اعمال می‌کند.
 
-[IDuotone](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iduotone/) دو پارامتر رنگی مستقل دارد: `Color1` پیکسل‌های تاریک و `Color2` پیکسل‌های روشن را نقشه‌برداری می‌کند. این یک مثال مفید از اثر است که تنظیمات پیچیده‌تری نسبت به یک مقدار اسکالر دارد.
+[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) دو پارامتر رنگی مستقل‑قابل‑ویرایش دارد: `Color1` رنگ پیکسل‌های تاریک و `Color2` رنگ پیکسل‌های روشن را تعیین می‌کند. این باعث می‌شود یک مثال مفید از اثر باشد که تنظیماتش پیچیده‌تر از یک مقدار اسکالر منفرد است.
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) هر پیکسل را با یک رنگ ثابت جایگزین می‌کند در حالی که آلفا را حفظ می‌کند. این متفاوت از [AddColorChangeEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) است که یک رنگ منبع را به رنگ هدف دیگری نگاشت می‌کند و هر دو قالب رنگ منبع و هدف را در اختیار می‌گذارد.
+[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) هر پیکسل را با یک رنگ ثابت جایگزین می‌کند در حالی‌که آلفا را حفظ می‌کند. این متفاوت از [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) است که یک رنگ منبع را به رنگ هدف نگاشت می‌کند و هر دو قالب رنگ منبع و هدف را نمایان می‌سازد.
 
-## **افزودن محو، شفافیت و اثرات آلفا**
+### **اعمال آستانهٔ روشنایی**
 
-[AddBlurEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) تمام کانال‌های رنگی، شامل آلفا، را تحت تأثیر قرار می‌دهد. وقتی لبهٔ محوشده ممکن است بیرون از مرزهای تصویر اصلی گسترش یابد، `grow` را به `true` تنظیم کنید.
+یک آستانهٔ روشنایی می‌تواند علائم ضعیف روی یک صفحهٔ اسکن‌شده را از پس‌زمینه متمایز کند. [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) سایه‌های میانی خاکستری را حفظ می‌کند. [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) روشنایی را به سیاه یا سفید نگاشت می‌کند، در حالی‌که [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) آستانه‌ای را بر شفافیت اعمال می‌کند.
 
-برای شفافیت یکنواخت، از [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) استفاده کنید. این اثر مقدار آلفای موجود را در هر پیکسل ضرب می‌کند، بنابراین پیکسل‌های نیمه‌شفاف به‌صورت نسبی متفاوت باقی می‌مانند. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) به‌جای این کار، یک مقدار آلفا واحد را به همهٔ پیکسل‌ها اختصاص می‌دهد. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) آلفا را بر اساس یک آستانه به دو سطح تبدیل می‌کند.
+آستانهٔ روشنایی از 0٪ تا 100٪، گنجانده می‌شود. پیکسل‌های زیر آستانه سیاه می‌شوند. پیکسل‌های برابر یا بالاتر سفید می‌شوند. افزایش آستانه باعث می‌شود سایه‌های بیشتری سیاه شوند زیرا بیشتر آنها زیر حد برش می‌افتند.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the working directory. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![نمونه‌های اصلی خاکستری کنار نتایج سیاه‑سفید در آستانه‌های روشنایی 20٪ و 60٪](luminance-threshold.png)
+
+## **افزودن تاری، شفافیت و اثرهای آلفا**
+
+[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) بر تمام کانال‌های رنگ، از جمله آلفا، تأثیر می‌گذارد. وقتی لبهٔ تاری ممکن است خارج از مرزهای تصویر اصلی گسترش یابد، `grow` را به `true` تنظیم کنید.
+
+برای شفافیت یکنواخت، از [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) استفاده کنید. این اثر هر مقدار آلفای موجود را ضرب می‌کند، بنابراین پیکسل‌های نیمه‌شفاف به‌صورت نسبی متفاوت باقی می‌مانند. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) به‌جای آن یک مقدار آلفا واحد را به همهٔ پیکسل‌ها اختصاص می‌دهد. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) آلفا را به دو سطح بر پایهٔ آستانه تبدیل می‌کند.
 
 ```csharp
 using System.IO;
@@ -171,15 +212,15 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-سایر عملیات آلفای بدون پارامتر شامل [AddAlphaCeilingEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/) است که هر آلفای غیرصفر را کاملاً نامرئی می‌کند؛ [AddAlphaFloorEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/) که هر آلفای زیر 100٪ را کاملاً شفاف می‌کند؛ و [AddAlphaInverseEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/) که آلفا را به `100% - alpha` تغییر می‌دهد.
+سایر عملیات آلفای بدون پارامتر شامل [AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/)، که هر آلفای غیرصفر را کاملاً مات می‌کند؛ [AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/)، که هر آلفای زیر 100٪ را کاملاً شفاف می‌کند؛ و [AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/)، که آلفا را به `100% - alpha` تغییر می‌دهد.
 
-## **ساخت زنجیرهٔ اثر ترتیبی**
+## **ساخت زنجیرهٔ اثر مرتب**
 
-هر روش `Add...Effect` یک عملیات جدید را به انتهای مجموعه اضافه می‌کند. رندرر مجموعه را به‌عنوان یک خط لولهٔ ترتیبی استفاده می‌کند: خروجی عملیات 0 تبدیل به ورودی عملیات 1 می‌شود و به همین ترتیب. بنابراین، همان عملیات‌ها در ترتیب متفاوت می‌توانند تصویر متفاوتی تولید کنند.
+هر متد `Add...Effect` عملی را به انتهای مجموعه اضافه می‌کند. رندرکننده از مجموعه به‌عنوان یک خط لولهٔ مرتب استفاده می‌کند: خروجی عملیات 0 به ورودی عملیات 1 می‌شود و الی آخر. در نتیجه، همان عملیات‌ها در ترتیب متفاوت می‌توانند تصویر متفاوتی تولید کنند.
 
-به عنوان مثال، حالت‌سفید پس از رنگ‌زاد ابتدا اطلاعات رنگی را حذف می‌کند و سپس نتیجهٔ روشنایی را رنگ‌زده (recolor) می‌کند. رنگ‌زاد پس از حالت‌سفید رنگ‌زاد را دوباره حذف می‌کند. به طور مشابه، جایگزینی آلفا می‌تواند مقادیر آلفایی که توسط عملیات‌های قبلی محاسبه شده‌اند را بازنویسی کند، در حالی که مدولات آلفا اختلافات نسبی آن‌ها را حفظ می‌کند.
+به‌عنوان مثال، ابتدا اعمال مقیاس‌سودگی خاکستری سپس رنگ‌پرتو، ابتدا اطلاعات رنگی را حذف می‌کند و سپس نتیجهٔ روشنایی را رنگ می‌دهد. رنگ‌پرتو سپس مقیاس‌سودگی خاکستری، همان رنگ‌پرتو را دوباره حذف می‌کند. به‌طور مشابه، جایگزینی آلفا می‌تواند مقادیر آلفایی که توسط عملیات‌های قبلی محاسبه شده‌اند را بازنویسی کند، در حالی‌که مدولاسیون آلفا تفاوت‌های نسبی آنها را حفظ می‌کند.
 
-مثال زیر یک زنجیرهٔ چهار‑عملیاتی می‌سازد، آن را به‌صورت PPTX ذخیره می‌کند، ارائه را باز می‌کند، هر دو نوع عملیات و ترتیب آن‌ها را بررسی می‌کند و نتیجهٔ باز کرده را رندر می‌کند:
+مثال زیر یک زنجیرهٔ چهار‑عملیاتی می‌سازد، آن را به‌صورت PPTX ذخیره می‌کند، ارائه را باز می‌کند، هر دو نوع عملیات و ترتیبشان را بررسی می‌کند و نتیجهٔ بازگشایی‌شده را رندر می‌کند:
 
 ```csharp
 using System;
@@ -224,15 +265,21 @@ else
 }
 ```
 
-مجموعه محدودیتی در زمینهٔ سازگاری اعمال نمی‌کند که رنگ، آلفا و عملیات محو را به زنجیره‌های جداگانه محدود کند. آن‌ها می‌توانند ترکیب شوند، هرچند ترکیب‌ها همیشه مفید نیستند. یک جایگزینی رنگ ثابت، تنوع RGB تولیدشده توسط اثرهای رنگی قبلی را حذف می‌کند؛ حالت‌سفید پس از دو‑رنگ، دو رنگ انتخاب‌شده را حذف می‌کند؛ و عملیات‌های آلفا ceiling، floor، replacement یا bi‑level می‌توانند جزئیات آلفایی ایجادشدهٔ قبلی را از بین ببرند. زنجیره را بر اساس دنبالهٔ پردازش پیکسل موردنظر ساختاردهید نه به‌عنوان پرچم‌های قالب‌بندی بی‌نظم.
+مجموعه محدودیتی سازگاری اعمال نمی‌کند که عملیات‌های رنگ، آلفا و تاری را به زنجیره‌های جداگانه محدود کند. آنها می‌توانند ترکیب شوند، اما ترکیب‌ها همیشه مفید نیستند. جایگزینی ثابت رنگ، تغییرات RGB تولید شده توسط اثرهای رنگی قبلی را حذف می‌کند؛ مقیاس‌سودگی خاکستری پس از دو‑رنگی، دو رنگ انتخاب‌شده را حذف می‌کند؛ و عملیات‌های سقف، کف، جایگزینی یا دو‑سطحی آلفا می‌توانند جزئیات آلفایی ایجاد شده قبلی را دور بیندازند. زنجیره را بر اساس ترتیب پردازش پیکسل موردنظر ساخته و نه به‌عنوان پرچم‌های قالب‌بندی نامرتب.
 
-## **بازرسی مقادیر ویرایش‌پذیر و مؤثر**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-یک عملیات ویرایش‌پذیر شیٔی است که در `ISlidesPicture.ImageTransform` ذخیره می‌شود. بسته به اثر، ممکن است اعضای قابل نوشتن را مستقیماً در اختیار بگذارد. به عنوان مثال، [IBlur](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iblur/) `Radius` و `Grow` را قابل نوشتن می‌کند، [IAlphaModulateFixed](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ialphamodulatefixed/) `Amount` را قابل نوشتن می‌کند، و [IAlphaBiLevel](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ialphabilevel/) `Threshold` را قابل نوشتن می‌کند. اثرات رنگی مانند [IDuotone](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iduotone/) اشیاء [IColorFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/icolorformat/) قابل تغییر را در اختیار می‌گذارند.
+*در این رندر Aspose.Slides for .NET 26.11، رنگ‌پرتوی 220° با 25% تصویر مقیاس‌سودگی خاکستری را تغییری نمی‌دهد. اعمال همان رنگ‌پرتو پیش از مقیاس‌سودگی خاکستری نتایج متفاوتی به‌دست می‌دهد.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-برخی از واسط‌های عملیات، از جمله [IBrightnessContrast](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ibrightnesscontrast/)، [IHSL](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ihsl/)، [ITint](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/itint/) و [IAlphaReplace](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ialphareplace/) اسکالرهای ساخت خود را به‌عنوان ویژگی‌های نوشتنی نمایان نمی‌سازند. برای تغییر این تنظیمات، عملیات را حذف کنید و در موقعیت موردنظر جایگزین جدیدی اضافه کنید.
+## **بازرسی مقادیر قابل ویرایش و مؤثر**
 
-دادهٔ مؤثری که توسط `GetEffective()` برگردانده می‌شود محاسبه شده و فقط‑خواندنی است. این داده برای حل رنگ‌های وابسته به تم و خواندن مقادیر نرمال‌سازی‌شده‌ای که رندرر استفاده می‌کند مفید است، اما سطح ویرایش دیگری نیست. مثال زیر زنجیره را مرور می‌کند و مقادیر مؤثر را در جایی که API مربوطه آن‌ها را فراهم می‌کند، بررسی می‌نماید:
+یک عملیات قابل ویرایش همان شیء ذخیره‌شده در `ISlidesPicture.ImageTransform` است. بسته به اثر، ممکن است اعضای نوشتنی را مستقیماً نشان دهد. برای مثال، [IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/) ویژگی‌های نوشتنی `Radius` و `Grow` را افشا می‌کند، [IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/) ویژگی نوشتنی `Amount` را نشان می‌دهد، و [IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/) ویژگی نوشتنی `Threshold` را آشکار می‌کند. اثرهای رنگی نظیر [IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) اشیاء قابل تغییر [IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/) را فراهم می‌کنند.
+
+برخی از رابط‌های عملیات، شامل [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/)، [IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/)، [ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/) و [IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/)، مقیاس‌های ساخت خود را به‌صورت ویژگی‌های نوشتنی نشان نمی‌دهند. برای تغییر این تنظیمات، عملیات را حذف کنید و یک جایگزین در موقعیت موردنیاز اضافه کنید.
+
+داده‌های مؤثر برگردانده‌شده توسط `GetEffective()` محاسبه‌شده و فقط‑خواندنی هستند. این داده‌ها برای حل رنگ‌های وابسته به قالب و خواندن مقادیر نرمال‌شده‌ای که رندرکننده استفاده می‌کند، مفید هستند، اما سطح ویرایشی دیگری نیستند. مثال زیر زنجیره را مرور می‌کند و مقادیر مؤثر را درجایی که API مربوطه آنها را فراهم می‌کند، بررسی می‌کند:
 
 ```csharp
 using System;
@@ -302,11 +349,11 @@ if (pictureFrame != null)
 }
 ```
 
-اثرات بدون پارامتر مانند حالت‌سفید، آلفا ceiling و آلفا inverse نیز یک شیٔ دادهٔ مؤثر دارند، اما مقدار اسکالر برای چاپ ندارند. وجود و موقعیت آن‌ها در مجموعه اطلاعات مهم هستند.
+اثرهای بدون پارامتر نظیر مقیاس‌سودگی خاکستری، سقف آلفا و وارون آلفا هنوز شیء دادهٔ مؤثری دارند، اما پارامترهای اسکالر برای چاپ ندارند. حضور و موقعیت آنها در مجموعه، اطلاعات مهم هستند.
 
-## **حذف یا پاک‌سازی تبدیل‌های تصویر**
+## **حذف یا پاک‌کردن تبدیل‌های تصویر**
 
-از [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) برای حذف یک عملیات بر اساس ایندکس استفاده کنید. چون ایندکس‌ها بعد از حذف جابجا می‌شوند، ابتدا هدف را جستجو کنید و سپس پس از مرور آن را حذف کنید. برای حذف کل زنجیره از `Clear()` استفاده کنید.
+از [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) برای حذف یک عملیات بر اساس اندیس استفاده کنید. چون اندیس‌ها پس از حذف جابه‌جا می‌شوند، ابتدا هدف را جستجو کنید و پس از مرور آن را حذف کنید. برای حذف کل زنجیره از `Clear()` استفاده کنید.
 
 ```csharp
 using System;
@@ -344,38 +391,38 @@ if (pictureFrame != null)
 }
 ```
 
-حذف یا پاک‌سازی تبدیل‌ها فقط قالب‌بندی تصویر را تغییر می‌دهد. این عمل منبع [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) را حذف، فشرده‌سازی مجدد یا به‌هره‌برداری دیگری نمی‌کند.
+حذف یا پاک‌کردن تبدیل‌ها فقط قالب‌بندی تصویر را تغییر می‌دهد. این کار منبع [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) استفاده‌شده را حذف، فشرده‌سازی یا به‌طور دیگری تغییر نمی‌دهد.
 
-## **در نظر گرفتن فرمت‌های ارائه و مقصدهای خروجی**
+## **در نظر گرفتن قالب‌های ارائه و مقاصد خروجی**
 
-تبدیل‌های تصویر در DrawingML منشأ می‌گیرند، بنابراین PPTX فرمت ویرایش‌پذیر ترجیحی برای زنجیره‌های اثر است. حتی با PPTX نیز تمام عملیات‌ها قابلیت‌پذیری یکسانی ندارند:
+تبدیل‌های تصویر از DrawingML نشأت می‌گیرند، بنابراین PPTX قالب قابل ویرایش ترجیحی برای زنجیره‌های اثر است. حتی با PPTX، همهٔ عملیات‌ها قابل‌حملیت یکسانی ندارند:
 
-- عملیات‌های استاندارد DrawingML مانند luminance، حالت‌سفید، دو‑رنگ، رنگ‌زاد، HSL، محو و عملیات‌های رایج آلفا بیشترین شانس باقی‌ماندن پس از دورهای PPTX را دارند. همیشه فایل تولید‌شده را باز کنید و مجموعه را بازبینی کنید وقتی حفظ‌پذیری الزامی است.
-- [BrightnessContrast](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/brightnesscontrast/) افزونهٔ Office 2010 است نه عملیات استاندارد luminance DrawingML. می‌تواند برای رندرینگ در حافظه استفاده شود، اما پس از ذخیره و باز کردن PPTX تضمین نمی‌شود که به‌عنوان یک [IBrightnessContrast](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/ibrightnesscontrast/) قابل ویرایش باقی بماند. برای تنظیمات پایدار روشنایی و کنتراست، از [AddLuminanceEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) استفاده کنید.
-- فرمت باینری PPT پیش از مدل کامل اثر DrawingML وجود داشت. ذخیره به PPT می‌تواند عملیات‌های پشتیبانی‌نشده را حذف کند، زنجیره را به زیرمجموعه‌ای قابل حمایت کاهش دهد یا ظاهر را تقریب بزند. برای تأیید زنجیرهٔ قابل ویرایش پیچیده، از PPT به‌عنوان فرمت هدف استفاده نکنید.
-- رندر به PNG، JPEG، TIFF، PDF، SVG، HTML یا خروجی‌های بصری دیگر زنجیرهٔ پشتیبانی‌شده را بر ظاهر رندری اعمال می‌کند. این خروجی‌ها `IImageTransformOperationCollection` قابل ویرایش را شامل نمی‌شوند؛ فرمت‌های رستری نتیجه را به پیکسل تبدیل می‌کنند و صادرات اسناد/برداری نمایهٔ رندری خودشان را ذخیره می‌کنند.
-- اثرها تصویر لینک‌شده را خودکفا نمی‌سازند. رندر یک تصویر لینک‌شده همچنان به موجود بودن منبع لینک‌شده هنگام بارگذاری ارائه وابسته است.
+- عملیات‌های استاندارد DrawingML مانند روشنایی، مقیاس‌سودگی خاکستری، دو‑رنگی، رنگ‌پرتو، HSL، تاری و عملیات‌های متداول آلفا بهترین شانس را برای بقا در دورانی PPTX دارند. همیشه فایل تولیدشده را دوباره باز کنید و مجموعه را بازبینی کنید زمانی که حفظ اثرها الزامی است.
+- [BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) یک افزونهٔ Office 2010 است نه عملیات استاندارد روشنایی DrawingML. می‌توان از آن برای رندر در حافظه استفاده کرد، اما پس از ذخیره و بازگشایی PPTX تضمین نمی‌شود که به‌عنوان یک [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) قابل ویرایش باقی بماند. برای تنظیمات ثابت روشنایی و کنتراست، از [AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) استفاده کنید.
+- قالب باینری PPT پیش از مدل کامل اثرهای DrawingML وجود داشت. ذخیره به PPT می‌تواند عملیات‌های نامپشتیبانی‌شده را حذف کند، زنجیره را به زیرمجموعهٔ پشتیبانی‌شده کاهش دهد یا ظاهر را تقریب بزند. برای تأیید زنجیرهٔ پیچیدهٔ قابل ویرایش، از PPT به‌عنوان قالب تأیید استفاده نکنید.
+- رندر به PNG، JPEG، TIFF، PDF، SVG، HTML یا سایر خروجی‌های تصویری، زنجیرهٔ پشتیبانی‌شده را بر روی ظاهر رندر شده اعمال می‌کند. این خروجی‌ها مجموعهٔ `IImageTransformOperationCollection` ویرایشی را ندارند؛ قالب‌های رستری نتیجه را به پیکسل‌ها مسطح می‌کنند و خروجی‌های سند/خطی نمای رندر خود را ذخیره می‌کنند.
+- اثرها تصویر پیوندی را خود‑محافظ نمی‌کنند. رندر یک تصویر پیوندی همچنان به در دسترس بودن منبع پیوندی هنگام بارگذاری ارائه وابسته است.
 
-مصرف‌کنندگان مختلف ارائه ممکن است موارد لبه‌ای را متفاوت رندر کنند، به‌ویژه وقتی چندین عملیات آلفا یا کمی‌سازی رنگ ترکیب شوند. برای خروجی حیاتی، هر دو دور ویرایش‌پذیر و فرمت نهایی صادرات را با همان نسخهٔ Aspose.Slides که در تولید استفاده می‌شود، آزمایش کنید.
+مصرف‌کنندگان مختلف ارائه ممکن است موارد لبه‌ای را به‌طرق مختلف رندر کنند، به‌ویژه زمانی که چندین عملیات آلفا یا رنگ‑کوانتایزینگ ترکیب می‌شوند. برای خروجی‌های بحرانی، هر دو دورانی ویرایشی و قالب خروجی نهایی را با همان نسخهٔ Aspose.Slides که در تولید استفاده می‌شود، تست کنید.
 
-## **سؤالات متداول**
+## **سؤال‌های متداول**
 
-**آیا اثرهای تبدیل تصویر دادهٔ تصویر توکار را تغییر می‌دهند؟**
+**آیا اثرهای تبدیل تصویر دادهٔ تصویر جاسازی‌شده را تغییر می‌دهند؟**
 
-نه. این عملیات‌ها به `ISlidesPicture` که توسط پرکنندهٔ تصویر استفاده می‌شود تعلق دارند. بایت‌های زیرین `IPPImage` دست نخورده می‌مانند.
+نه. عملیات‌ها به `ISlidesPicture` که توسط پرکنندهٔ تصویر استفاده می‌شود تعلق دارند. بایت‌های زیرین `IPPImage` بدون تغییر می‌مانند.
 
-**آیا دو قاب تصویر که از یک تصویر استفاده می‌کنند اثرهای خود را به‌اشتراک می‌گذارند؟**
+**آیا دو فریم تصویری که از یک تصویر استفاده می‌کنند اثرهای خود را به‌اشتراک می‌گذارند؟**
 
-نه. استفاده مجدد از یک `IPPImage` باعث جلوگیری از تکرار دادهٔ تصویر می‌شود، اما هر قاب تصویر به‌طور معمول یک `ISlidesPicture` و مجموعهٔ تبدیل تصویر جداگانه دارد.
+نه. استفادهٔ مجدد از یک `IPPImage` از تکرار دادهٔ تصویر جلوگیری می‌کند، اما هر فریم تصویر معمولاً یک `ISlidesPicture` و مجموعهٔ تبدیل تصویر جداگانه دارد.
 
-**آیا می‌توان اثرهای رنگ، محو و آلفا را ترکیب کرد؟**
+**آیا می‌توان اثرهای رنگ، تاری و آلفا را ترکیب کرد؟**
 
-بله. مجموعه آن‌ها را در یک زنجیرهٔ ترتیبی می‌پذیرد. به این فکر کنید که هر عملیات چه تأثیری بر خروجی عملیات قبلی دارد، زیرا عملیات‌های جایگزینی و آستانه می‌توانند جزئیات رنگ یا آلفای قبلی را از بین ببرند.
+بله. مجموعه این اثرها را در یک زنجیرهٔ مرتب می‌پذیرد. به این فکر کنید که هر عملیات چه‌گونه بر خروجی عملیات قبلی تأثیر می‌گذارد، زیرا عملیات‌های جایگزینی و آستانه ممکن است جزئیات رنگ یا آلفای قبلی را حذف کنند.
 
 **چرا مقادیر مؤثر فقط‑خواندنی هستند؟**
 
-دادهٔ مؤثر مقادیر محاسبه‌شده‌ای است که برای رندر استفاده می‌شود، از جمله رنگ‌های حل‌شده. عملیات ذخیره‌شده در مجموعهٔ تبدیل را ویرایش کنید که اعضای قابل نوشتن دارد؛ در غیر این صورت آن را حذف کنید و با پارامترهای ساخت جدید جایگزین کنید.
+داده‌های مؤثر مقادیر محاسبه‌شده‌ای هستند که برای رندر استفاده می‌شوند، از جمله رنگ‌های حل‌شده. عملیات ذخیره‌شده در مجموعهٔ تبدیل را ویرایش کنید جایی که اعضای نوشتنی موجودند؛ در غیر این صورت آن را حذف کنید و با پارامترهای ساخت جدید جایگزین کنید.
 
-**کدام فرمت برای حفظ زنجیرهٔ تبدیل توصیه می‌شود؟**
+**کدام قالب را باید برای حفظ زنجیرهٔ تبدیل استفاده کنم؟**
 
-از PPTX استفاده کنید و با باز کردن مجدد فایل آن را تأیید نمایید. PPT نسخهٔ قدیمی نمی‌تواند مدل کامل اثر DrawingML را نشان دهد و فرمت‌های صادرات رندری فقط ظاهر را حفظ می‌کنند، نه عملیات تبدیل قابل ویرایش.
+از PPTX استفاده کنید و فایل را با بازگشایی مجدد تأیید کنید. PPT قدیمی نمی‌تواند مدل کامل اثرهای DrawingML را نشان دهد و قالب‌های خروجی رندر شده فقط ظاهر را حفظ می‌کنند، نه عملیات تبدیل‌های قابل ویرایش.

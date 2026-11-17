@@ -1,19 +1,19 @@
 ---
-title: Képtranszformációs hatások kezelése prezentációkban Python nyelven
+title: Képtranszformációs hatások kezelése prezentációkban Python segítségével
 linktitle: Képtranszformációs hatások
 type: docs
 weight: 11
 url: /hu/python-java/image-transform-effects/
 keywords:
 - képtranszformáció
-- képhatás
+- kép hatás
 - fényerő
 - kontraszt
-- szürkeárnyalat
+- szürkeárnyalatos
 - duotone
-- színárnyalat
+- árnyalat
 - HSL
-- színhelyettesítés
+- színcsere
 - elmosás
 - átlátszóság
 - alfa hatás
@@ -23,50 +23,50 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Alkalmazzon, láncba rendezzen, vizsgáljon, távolítson el és ellenőrizzen képtranszformációs hatásokat képkeretekhez az Aspose.Slides for Python via Java használatával."
+description: "Alkalmazza, láncolja, vizsgálja, távolítsa el és ellenőrizze a képtranszformációs hatásokat a képkeretekhez az Aspose.Slides for Python via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides a képmódosításokat rendezett gyűjteményként jeleníti meg, amely képtranszformációs műveleteket tartalmaz. Képkeret esetén kezdje a keret [Picture](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picture/) -ával, és érje el a [Picture.getImageTransform](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picture/#getImageTransform). A visszakapott [ImageTransformOperationCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/) lehetővé teszi a hatások hozzáfűzését, felsorolását, vizsgálatát, eltávolítását és törlését anélkül, hogy az eredeti képadatokat újraírná.
+Az Aspose.Slides a képi beállításokat képsortranszformációs műveletek rendezett gyűjteményeként ábrázolja. Egy képkockához kezdje a képkocka [Kép](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) elemével, majd férjen hozzá a [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform) metódushoz. A visszaadott [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) lehetővé teszi hatások hozzáadását, felsorolását, vizsgálatát, eltávolítását és törlését anélkül, hogy az eredeti kép bájtjait újraírná.
 
-Ez a cikk bemutat egy teljes munkafolyamatot a fényerő és kontraszt, színtranszformációk, elmosás, átlátszóság, rendezett hatásláncok, hatékony értékek, eltávolítás és PPTX körkörös ellenőrzés számára.
+Ez a cikk bemutat egy teljes munkafolyamatot a fényerő és kontraszt, színátalakítások, elmosás, átlátszóság, rendezett hatámláncok, hatékony értékek, eltávolítás és PPTX körkörös ellenőrzés kezelésére.
 
-## **A hatás tulajdonjogának és a kép újrafelhasználásának megértése**
+## **Értsd meg a hatás tulajdonjogát és a kép újrafelhasználását**
 
-Egy képernyőforrás és a megjelenítő kép különálló objektumok:
+A kép erőforrás és a megjelenítő kép különálló objektumok:
 
-- [PPImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/) tárolja vagy hivatkozik a prezentáció által birtokolt forráskép adataira.
-- [Picture](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picture/) egy képkitöltéshez tartozik, és egy képernyőforrást hivatkozik, miközben a képtranszformációs gyűjteményt tárolja.
-- [PictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pictureframe/) a dián lévő alakzat, amely a megfelelő képkitöltést, geometriát, vágási beállításokat és egyéb keret‑szintű formázásokat birtokolja.
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) tárolja vagy hivatkozik a prezentáció által birtokolt forráskép adataira.
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) egy képkitöltéshez tartozik, és egy képer erőforrásra hivatkozik, miközben tárolja a képtranszformációs gyűjteményt.
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) a diavetítés alakja, amely birtokolja a megfelelő képkitöltést, geometriát, vágási beállításokat és egyéb keretszintű formázásokat.
 
-Ezért a képtranszformációs műveletek nem módosítják a [PPImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/) bájtjait. Ha ugyanazt a `PPImage`‑t több alkalommal adjuk át a [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addPictureFrame) metódusnak, minden új képkeret saját `Picture`‑t és saját transzformációs gyűjteményt kap. A szürkeárnyalatos hatás alkalmazása egy keretre nem teszi a többi keretet szürkeárnyalatosvá, még akkor sem, ha mindegyik ugyanazt a beágyazott képernyőforrást használja.
+Ezért a képtranszformációs műveletek nem módosítják a [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) bájtjait. Ha ugyanazt a `PPImage`-t többször adjuk át a [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) metódusnak, minden új képkeret saját `Picture`-t és saját transzformációs gyűjteményt kap. A szürkeárnyalatos átalakítás egy keretre nem teszi a többi keretet is szürkeárnyalatosra, még ha mindegyik ugyanazt a beágyazott képer erőforrást is újrahasználja.
 
-Ugyanez a `Picture.getImageTransform` modell más képkitöltéseknél is használható, például alakzat vagy diák háttér esetén. Az alábbi példák a képkeretekre összpontosítanak.
+Ugyanazt a `Picture.getImageTransform` modellt más képkitöltések is használják, például alakzat vagy dia háttér esetén. Az alábbi példák a képkeretekre koncentrálnak.
 
-## **Érvényes paramétertartományok és egységek használata**
+## **Használj érvényes paramétertartományokat és egységeket**
 
-A bemutatott metódusok a következő szemantikai tartományokat és egységeket használják. Tartsuk a értékeket ezekben a tartományokban, még ha egy adott könyvtárverzió nem is utasítja el azonnal az out‑of‑range értékeket; a célnyelvi prezentációformátum normalizálhat, elhagyhat vagy elutasíthat érvénytelen adatot mentéskor vagy amikor a PowerPoint megnyitja a fájlt.
+A bemutatott módszerek a következő szemantikai tartományokat és egységeket használják. Tartsd meg az értékeket ezekben a tartományokban, még ha egy adott könyvtárverzió nem is utasít el azonnal minden tartományon kívüli értéket; a céldokumentum formátuma normalizálhat, kihagyhat vagy elutasíthat érvénytelen adatokat mentéskor vagy amikor a PowerPoint megnyitja a fájlt.
 
-| Művelet | Paraméterek | Érvényes tartomány és egység |
+| **Művelet** | **Paraméterek** | **Érvényes tartomány és egység** |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` és `100` között, százalék; `0` változatlanul hagyja az összetevőt. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | Nincs numerikus paraméter. Az alfa változatlan. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Két szín a sötét és a világos képpontokhoz. Az RGB és alfa csatornák a `java.awt.Color`‑ban `0` és `255` között vannak. |
-| [addTintEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | A színárnyalat `0`‑tól (inkluzívan) `360`‑ig (exkluzívan), fokban; az mennyiség `-100` és `100` között, százalék. |
-| [addHSLEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | A színárnyalat `0`‑tól (inkluzívan) `360`‑ig (exkluzívan), fokban; a telítettség és a fényerő `-100` és `100` között, százalék. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | A helyettesítő szín csatornaértékei `0` és `255` között vannak. A meglévő alfa értékek változatlanok. |
-| [addBlurEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | A sugár nemnegatív és pontokban van megadva; a `grow` egy logikai érték, amely meghatározza, hogy a elmosott tartalom kiterjedhet‑e az eredeti határokon kívül. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Nemnegatív százalék. Használja a `0` és `100` közötti értékeket az átlátszatlanság szokásos skálázásához: `0` teljesen átlátszó, `100` megőrzi a meglévő alfacéket. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` és `100` közötti, százalékos átlátszatlanság. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` és `100` közötti, százalékos alfa küszöb. Az alatta lévő értékek átlátszóvá válnak; a küszöbön vagy afelett lévő értékek átlátszatlanná. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` és `100` között, százalékban; `0` változatlanul hagyja az összetevőt. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | Nincs numerikus paraméter. Az alfa változatlan. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Két szín a sötét és világos pixelekhez. Az `java.awt.Color` RGB és alfa csatornái `0` és `255` között vannak. |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Az árnyalat `0`-tól (inkl.) `360`-ig (exkl.), fokban; az mennyiség `-100` és `100` között, százalékban. |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Az árnyalat `0`-tól (inkl.) `360`-ig (exkl.), fokban; a telítettség és a fényesség `-100` és `100` között, százalékban. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | A helyettesítő szín csatornaértékei `0` és `255` között vannak. A meglévő alfa értékek változatlanok. |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | A sugár nemnegatív és pontban mérve; a `grow` egy logikai érték, amely azt szabályozza, hogy az elmosott tartalom kiterjeszthető-e az eredeti határokon kívülre. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Nemnegatív százalék. Használd a `0`-tól `100`-ig terjedőt a szokásos átlátszatlanság skálázáshoz: `0` teljesen átlátszó, `100` megőrzi a meglévő alfa értéket. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` és `100` között, százalékos átlátszatlanság. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` és `100` között, százalékos alfa küszöb. Az alatta lévő értékek átlátszóvá válnak; a küszöbnél nagyobb vagy egyenlő értékek átlátszatlanná. |
 
-A fix alfa moduláció esetén az átlátszóság és az opacitás komplementer egységek. Például a 35 % átlátszóság a 65 % alfa‑modulációs értéknek felel meg.
+Rögzített alfa moduláció esetén az átlátszóság és az átlátszatlanság egymást kiegészítik. Például a 35 % átlátszóság egy 65 % alfa modulációs mennyiségnek felel meg.
 
 ## **Fényerő és kontraszt alkalmazása**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) egy [BrightnessContrast](https://reference.aspose.com/slides/hu/python-java/aspose.slides/brightnesscontrast/) műveletet ad vissza. Skalár beállításait a művelet létrehozásakor adjuk meg. A [BrightnessContrast.getEffective](https://reference.aspose.com/slides/hu/python-java/aspose.slides/brightnesscontrast/#getEffective) számított csak‑olvasású értékeket ad, amelyeket ellenőrizhet vagy naplózhat.
+Az [ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) egy [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) műveletet ad vissza. A skalár beállításai a művelet létrehozásakor kerülnek megadásra. A [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) kiszámított, csak olvasható értékeket ad vissza, amelyeket meg lehet vizsgálni vagy naplózni.
 
-Az alábbi példa 15 %‑kal növeli a fényerőt és 20 %‑kal a kontrasztot, majd előnézetet renderel a beágyazott kép módosítása nélkül:
+Az alábbi példa 15 % -kal növeli a fényerőt és 20 % -kal a kontrasztot, majd előnézetet jelenít meg anélkül, hogy a beágyazott képet módosítaná:
 
 ```python
 import jpype
@@ -103,13 +103,13 @@ finally:
     presentation.dispose()
 ```
 
-A [BrightnessContrast](https://reference.aspose.com/slides/hu/python-java/aspose.slides/brightnesscontrast/) egy Office 2010 kép‑hatás kiterjesztés, és kevésbé hordozható, mint a szabványos DrawingML luminance hatás. Ha a fényerő és kontraszt szerkeszthetőnek kell maradnia egy PPTX körutazás után, használja a [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) metódust, és ellenőrizze az eredményt a fájl újranyitása után. A formátumkorlátozások szakaszban részletesebben kifejtésre kerül ez a különbség.
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) egy Office 2010 képhasználati hatásbővítmény, és kevésbé hordozható, mint a szabványos DrawingML fényerő hatás. Ha a fényerő és a kontraszt PPTX körkörös után is szerkeszthetőnek kell maradnia, használja a [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) metódust, és ellenőrizze az eredményt a fájl újra megnyitása után. A formátumkorlátozások szakasz részletesebben kifejti ezt a különbséget.
 
-## **Színtranszformációk alkalmazása**
+## **Színátalakítások alkalmazása**
 
-A színeffekteket külön‑külön alkalmazhatja különböző képkeretekre, melyek ugyanazt a képernyőforrást használják. Az alábbi példa öt keretet hoz létre, és szürkeárnyalatos, duotone, tint, HSL‑korrekció és színhelyettesítés hatásokat alkalmaz.
+Színhatásokat függetlenül lehet alkalmazni különböző képkeretekre, amelyek ugyanazt a képforrást használják. Az alábbi példa öt keretet hoz létre, és szürkeárnyalatos, duotone, színezés, HSL beállítás és színcserét alkalmaz.
 
-[Duotone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/duotone/) két önállóan szerkeszthető színparamétert tartalmaz: a `color1` a sötét pixeleket, a `color2` a világos pixeleket térképezi. Ez egy jó példa egy olyan hatásra, amelynek beállításai bonyolultabbak egy egyszerű skalárértékhez képest.
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) két egymástól függetlenül szerkeszthető színparamétert tartalmaz: a `color1` a sötét pixeleket, a `color2` a világos pixeleket térképezi. Ez hasznos példává teszi azt a hatást, amelynek beállításai bonyolultabbak, mint egy egyszerű skalár érték.
 
 ```python
 import jpype
@@ -153,13 +153,62 @@ finally:
     presentation.dispose()
 ```
 
-Az [addColorReplaceEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) minden pixel színét egy rögzített színre cseréli, miközben megtartja az alfacéket. Ez eltér a [addColorChangeEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect)‑től, amely egy forrás‑színt egy másikra képezi, és mindkét színformátumot ki is mutatja.
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) minden pixel színét egy rögzített színre cseréli, miközben megőrzi az alfat. Ez eltér a [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) művelettől, amely egy forrás színt egy másikra térképezi, és mind a forrás, mind a cél színformátumot elérhetővé teszi.
+
+### **Fényerő küszöb alkalmazása**
+
+Egy fényerő küszöb segíthet a gyengén látható jelek megkülönböztetésében a szkennelt oldalon a háttértől. 
+
+[addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) megőrzi a köztes szürke árnyalatokat. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) a fényerőt feketére vagy fehérre térképezi, míg a [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) egy küszöböt alkalmaz az átlátszatlanságra.
+
+A fényerő küszöb 0 % és 100 % között terjed, mindkét értéket beleértve. A küszöbnél alacsonyabb pixelek feketék lesznek. A küszöbnél nagyobb vagy egyenlő pixelek fehérek lesznek. A küszöb növelése több árnyalatot feketére változtat, mivel több pixel esik a vágási pont alá.
+
+Töltse le a [grayscale-swatches.png](grayscale-swatches.png) fájlt a munkakönyvtárba. Minden címke az eredeti szürke szintet mutatja 0–255 skálán. A példa az eredetit két másolat mellé helyezi, és minden másolat küszöbét a prezentációba menti.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Nyissa meg a kimeneti prezentációt a PowerPointban, hogy összehasonlítsa a három keretet. A 96 felirattal ellátott mintának körülbelül 38 % fényerője van (96 a 255‑ből). A 20 % küszöbnél fehér, a 60 % küszöbnél fekete lesz.
+
+![Eredeti szürkeárnyalatos minták a fekete‑fehér eredmények mellett 20 % és 60 % fényerő küszöbök esetén](luminance-threshold.png)
 
 ## **Elmosás, átlátszóság és alfa hatások hozzáadása**
 
-[addBlurEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) az összes színcsatornát, köztük az alfacset is érinti. Állítsa a `grow`‑t `True`‑ra, ha az elmosott él kiterjedhet az eredeti kép határain kívülre.
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) minden színcsatornát, beleértve az alfat is, érint. Állítsa a `grow` értékét `True`-ra, ha az elmosott él kiterjedhet az eredeti kép határain túlra.
 
-Az egységes átlátszósághoz használja a [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect)‑et. Minden meglévő alfa‑értéket megszoroz, így a részben átlátszó pixelek arányosan különböznek továbbra is. Az [addAlphaReplaceEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) ehelyett egyetlen alfa‑értéket rendel minden pixelhez. Az [addAlphaBiLevelEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) az alfacet két szintre konvertál egy küszöb alapján.
+Egyenletes átlátszóság esetén használja a [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) metódust. Minden meglévő alfa értéket megszorozza, így a részlegesen átlátszó pixelek arányosan különböznek. A [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) ehelyett egyetlen alfa értéket rendel minden pixelhez. A [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) egy küszöb alapján két szintre konvertálja az alfat.
 
 ```python
 import jpype
@@ -200,15 +249,15 @@ finally:
     presentation.dispose()
 ```
 
-Paraméter‑szabad alfa‑műveletek közé tartozik még a [addAlphaCeilingEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), amely minden nem‑nulla alfacetet teljesen opaká tesz; a [addAlphaFloorEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), amely minden 100 % alatti alfacetet teljesen átlátszóvá tesz; valamint a [addAlphaInverseEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), amely az alfacetet `100% - alpha`‑ra változtatja.
+Más, paraméter nélküli alfa műveletek közé tartozik a [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), amely minden nem nulla alfat teljesen átlátszatlanná teszi; a [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), amely minden 100 % alatti alfat teljesen átlátszóvá alakít; valamint a [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), amely az alfat `100% - alpha` értékre módosítja.
 
-## **Rendezett hatáslánc felépítése**
+## **Rendezett hatámlánc felépítése**
 
-Minden `add...Effect` metódus egy új műveletet fűz a gyűjtemény végéhez. A renderelő a gyűjteményt rendezett csővezeték‑ként használja: az 0‑ás művelet kimenete lesz az 1‑es bemenete, és így tovább. Ennek következtében ugyanazok a műveletek más sorrendben más képet eredményezhetnek.
+Minden `add...Effect` metódus egy új műveletet fűz a gyűjtemény végéhez. A renderelő a gyűjteményt rendezett csővezetéknek tekinti: az 0‑ás művelet kimenete lesz az 1‑es művelet bemenete, és így tovább. Ennek következtében ugyanazok a műveletek más sorrendben különböző képet eredményezhetnek.
 
-Például a szürkeárnyalat elsőként alkalmazott tint után először a színinformációt távolítja el, majd a luminancia eredményt színezi újra. A tint előbb, szürkeárnyalat később alkalmazva a tintet ismét eltávolítja. Hasonlóképpen, az alfa‑helyettesítés felülírhatja a korábbi műveletek által kiszámított alfa‑értékeket, míg az alfa‑moduláció megőrzi azok relatív különbségeit.
+Például a szürkeárnyalatos hatás tint után történő alkalmazása először eltávolítja a színinformációt, majd átszínezi a fényerő eredményt. A tint után következő szürkeárnyalatos visszaállítja a tintet. Hasonlóan, az alfa helyettesítés felülírhatja a korábbi műveletek által számított alfa értékeket, míg az alfa moduláció megőrzi azok relatív különbségét.
 
-Az alábbi példa egy négy műveletből álló láncot épít, PPTX‑ként menti, újra megnyitja a prezentációt, ellenőrzi a művelettípusokat és a sorrendet, majd a megnyitott eredményt rendereli:
+Az alábbi példa egy négy műveletből álló láncot épít, PPTX formátumban menti, majd újra megnyitja a prezentációt, ellenőrzi a művelettípusokat és azok sorrendjét, és megjeleníti az újból megnyitott eredményt:
 
 ```python
 import jpype
@@ -261,15 +310,21 @@ finally:
     reopened_presentation.dispose()
 ```
 
-A gyűjtemény nem kényszerít kompatibilitási mátrixot, amely szín‑, alfa‑ és elmosás‑műveleteket külön láncokra korlátozna. Kombinálhatók, de a kombinációk nem mindig hasznosak. Egy fix színhelyettesítés eltávolítja a korábbi színes hatások által előállított RGB‑variációt; a duotone után alkalmazott szürkeárnyalat eltávolítja a két kiválasztott színt; az alfa‑ceiling, floor, replacement vagy bi‑level műveletek eldobhatják a korábban létrehozott alfa‑részleteket. Építse a láncot a kívánt pixel‑feldolgozási sorrend alapján, ne pedig rendezetlen formázási jelzőként tekintsen a benne lévő elemekre.
+A gyűjtemény nem alkalmaz kompatibilitási mátrixot, amely szín-, alfa- és elmosási műveleteket külön láncokra korlátozna. Kombinálhatók, de a kombinációk nem mindig hasznosak. Egy rögzített színcsere eltávolítja az előző színhatások által létrehozott RGB-variációkat; a duotone után alkalmazott szürkeárnyalatos eltávolítja a két kiválasztott színt; valamint az alfa ceiling, floor, replacement vagy bi-level műveletek eldobhatják a korábban létrehozott alfa részleteket. Építse fel a láncot a kívánt pixel-feldolgozási sorrend szerint, ahelyett, hogy elemeit rendezetlen formázási jelzőknek tekintené.
 
-## **Szerkeszthető és hatékony értékek ellenőrzése**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-A szerkeszthető művelet az objektum, amely a `Picture.getImageTransform`‑ban tárolódik. A hatástól függően közvetlenül exposálhat írható tagokat. Például a [Blur](https://reference.aspose.com/slides/hu/python-java/aspose.slides/blur/) exponálja a írható `radius` és `grow` értékeket, az [AlphaModulateFixed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/alphamodulatefixed/) egy írható `amount`‑ot, az [AlphaBiLevel](https://reference.aspose.com/slides/hu/python-java/aspose.slides/alphabilevel/) egy írható `threshold`‑ot. A [Duotone](https://reference.aspose.com/slides/hu/python-java/aspose.slides/duotone/) színhatás [ColorFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/colorformat/) objektumokat exponál.
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Néhány művelet‑osztály, köztük a [BrightnessContrast](https://reference.aspose.com/slides/hu/python-java/aspose.slides/brightnesscontrast/), a [HSL](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hsl/), a [Tint](https://reference.aspose.com/slides/hu/python-java/aspose.slides/tint/) és a [AlphaReplace](https://reference.aspose.com/slides/hu/python-java/aspose.slides/alphareplace/), nem exponálja a létrehozási skalárokat írható tulajdonságként. Ezek módosításához távolítsa el a műveletet, és adjon hozzá egy helyettesítőt a kívánt pozícióban.
+## **Szerkeszthető és hatékony értékek vizsgálata**
 
-A `getEffective` által visszaadott hatékony adat kiszámított és csak‑olvasású. Hasznos a téma‑függő színek feloldásához és a renderelő által használt normalizált értékek megismeréséhez, de nem egy újabb szerkesztési felület. Az alábbi példa felsorolja a láncot, és ellenőrzi a hatékony értékeket, ahol az API biztosítja őket:
+Egy szerkeszthető művelet a `Picture.getImageTransform` tárolja. A hatástól függően közvetlenül elérhetővé teheti az írásra alkalmas tagokat. Például a [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) a szerkeszthető `radius` és `grow` értékeket mutatja, az [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) a szerkeszthető `amount` mezőt, az [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) a szerkeszthető `threshold` mezőt. A színhatások, mint a [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/), módosítható [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/) objektumokat tesznek elérhetővé.
+
+Néhány művelet osztály, köztük a [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/) és [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/), nem teszék elérhetővé a létrehozásuk során megadott skalárokat szerkeszthető tulajdonságként. Ezeknek a beállításoknak a módosításához távolítsa el a műveletet, és a kívánt helyen adjon hozzá egy helyettesítőt.
+
+A `getEffective` által visszaadott hatékony adatok számított és csak olvasható értékek. Hasznosak a témafüggő színek feloldásához és a renderelő által használt normalizált értékek olvasásához, de nem egy további szerkesztő felületet jelentenek. Az alábbi példa felsorolja a láncot és vizsgálja az effektív értékeket, ahol az adott API biztosítja őket:
 
 ```python
 import jpype
@@ -333,11 +388,11 @@ finally:
     presentation.dispose()
 ```
 
-Paraméter‑szabad hatások, mint a szürkeárnyalat, alfa‑ceiling vagy alfa‑inverse, szintén rendelkeznek hatékony‑adat objektummal, de nincs kiírandó skalár beállításuk. Jelenlétük és pozíciójuk a gyűjteményben a lényeges információ.
+A paraméter nélküli hatások, mint a szürkeárnyalatos, alfa ceiling és alfa inverse, továbbra is rendelkeznek hatékony adatobjektummal, de nincs kiírandó skalár beállítás. A jelenlétük és a gyűjteményen belüli pozíciójuk a fontos információ.
 
 ## **Képtranszformációk eltávolítása vagy törlése**
 
-Használja a [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#removeAt)‑t egy művelet index szerinti eltávolításához. Mivel az indexek az eltávolítás után eltolódnak, előbb keresse meg a célt, majd a felsorolás után távolítsa el. A [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#clear) teljes lánc eltávolításához használható.
+Használja az [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) metódust egy művelet index szerinti eltávolításához. Mivel az indexek eltolódnak az eltávolítás után, előbb keresse meg a célt, majd a felsorolás után távolítsa el. Használja az [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) metódust a teljes lánc eltávolításához.
 
 ```python
 import jpype
@@ -377,38 +432,38 @@ finally:
     presentation.dispose()
 ```
 
-A transzformációk eltávolítása vagy törlése csak a kép formázását változtatja meg. Nem törli, nem tömöríti újra és nem módosítja a felhasznált [PPImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/) erőforrást.
+A transzformációk eltávolítása vagy törlése csak a kép formázását módosítja. Nem törli, nem tömöríti újra, és nem változtatja meg a újrahasznált [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) erőforrást.
 
-## **A prezentációformátumok és exportcélok szem előtt tartása**
+## **Vegye figyelembe a prezentáció formátumokat és export célpontokat**
 
-A képtranszformációk a DrawingML‑ből származnak, így a PPTX a legmegfelelőbb szerkeszthető formátum a hatásláncok számára. Még PPTX‑ben sem minden művelet rendelkezik azonos hordozhatósággal:
+A képtranszformációk a DrawingML-ből származnak, ezért a PPTX a preferált szerkeszthető formátum a hatámláncokhoz. Még PPTX esetén sem minden művelet rendelkezik azonos hordozhatósággal:
 
-- A szabványos DrawingML műveletek, mint a luminance, szürkeárnyalat, duotone, tint, HSL, elmosás és a gyakori alfa‑műveletek a legnagyobb eséllyel maradnak meg egy PPTX körutazás után. Mindig nyissa újra a generált fájlt, és ellenőrizze a gyűjteményt, ha a megőrzés elvárás.
-- A [BrightnessContrast](https://reference.aspose.com/slides/hu/python-java/aspose.slides/brightnesscontrast/) egy Office 2010 kiterjesztés, nem a szabványos DrawingML luminance művelet. Memóriában történő rendereléshez használható, de nem garantált, hogy szerkeszthető [BrightnessContrast]‑ként marad a PPTX mentése és újranyitása után. Tartós fényerő‑ és kontraszt‑beállításokhoz előnyben részesítse a [addLuminanceEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect)‑et.
-- A bináris PPT formátum a teljes DrawingML hatásmodellt megelőzi. PPT‑be mentés elhagyhat nem támogatott műveleteket, csökkentheti a láncot egy támogatott részhalmazra, vagy csak közelítheti a megjelenést. Ne használja a PPT‑t ellenőrzési formátumként összetett szerkeszthető lánc esetén.
-- PNG, JPEG, TIFF, PDF, SVG, HTML vagy más vizuális kimenetre való renderelés a támogatott láncot alkalmazza a megjelenésre. Ezek a kimenetek nem tartalmaznak szerkeszthető `ImageTransformOperationCollection`‑t; a raszteres formátumok eredményt pixelekre lapítják, a dokumentum‑/vektoral exportok saját renderelési reprezentációt tárolnak.
-- A hatások nem teszik önállóvá a hivatkozott képet. Egy hivatkozott kép renderelése továbbra is a hivatkozott erőforrás rendelkezésre állásától függ a prezentáció betöltésekor.
+- Az olyan szabványos DrawingML műveletek, mint a fényerő, szürkeárnyalatos, duotone, tint, HSL, elmosás és a gyakori alfa műveletek a legnagyobb eséllyel maradnak meg egy PPTX körkörös után. Mindig nyissa meg újra a generált fájlt, és ellenőrizze a gyűjteményt, ha a megőrzés követelmény.
+- A [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) egy Office 2010 kiegészítő, nem a szabványos DrawingML fényerő művelet. Memóriában történő rendereléshez használható, de nem garantált, hogy szerkeszthető [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) marad a PPTX mentése és újra megnyitása után. Inkább a [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) használata javasolt a tartós fényerő és kontraszt beállításokhoz.
+- A bináris PPT formátum megelőzi a teljes DrawingML hatásmodellt. PPT-be mentés esetén a nem támogatott műveletek kimaradhatnak, a lánc egy támogatott részhalmazra csökkenhet, vagy a megjelenést közelítheti. Ne használja a PPT-t ellenőrzési formátumként egy összetett szerkeszthető lánchoz.
+- A PNG, JPEG, TIFF, PDF, SVG, HTML vagy egyéb vizuális kimenetre történő renderelés a támogatott láncot alkalmazza a megjelenésre. Ezek a kimenetek nem tartalmaznak szerkeszthető `ImageTransformOperationCollection`-t; a raszteres formátumok az eredményt pixelekre lapítják, a dokumentum/vektoral exportok a saját renderelési reprezentációikat tárolják.
+- A hatások nem teszik a hivatkozott képet önállóvá. A hivatkozott kép renderelése továbbra is függ a hivatkozott erőforrás elérhetőségétől, amikor a prezentáció betöltődik.
 
-Különböző prezentáció‑fogyasztók eltérően renderelhetik a szélsőséges eseteket, különösen ha több alfa‑ vagy szín‑kvantálási művelet kombinálódik. Kritikus kimenet esetén tesztelje mind a szerkeszthető körutazást, mind a végső export formátumot ugyanazzal az Aspose.Slides verzióval, amelyet a gyártásban használ.
+Különböző prezentációs fogyasztók eltérően renderelhetik a szélhelyzeteket, különösen ha több alfa vagy színkvantálási művelet kombinálódik. Kritikus kimenet esetén tesztelje mind a szerkeszthető körkörös folyamatot, mind a végső export formátumot ugyanazzal az Aspose.Slides verzióval, mint a termelésben.
 
 ## **GYIK**
 
-**Módosítják a képtranszformációs hatások a beágyazott képadatot?**
+**Módosítják a képtranszformációs hatások a beágyazott kép adatokat?**
 
-Nem. A műveletek a képkitöltéshez használt `Picture`‑hez tartoznak. A mögöttes `PPImage` bájtjai változatlanok maradnak.
+Nem. A műveletek a képkitöltés által használt `Picture`-hez tartoznak. A mögöttes `PPImage` bájtok változatlanok maradnak.
 
-**Két képkeret, amely ugyanazt a képet újrahasználja, megosztja a hatásokat?**
+**Megosztják-e a két képkeret, amely ugyanazt a képet használja, a hatásokat?**
 
-Nem. A `PPImage` újrahasználata elkerüli a duplikált képadatot, de minden képkeret általában külön `Picture`‑t és képtranszformációs gyűjteményt kap.
+Nem. A `PPImage` újrahasználata elkerüli a duplikált képadatot, de minden képkeret általában külön `Picture`-t és képtranszformációs gyűjteményt kap.
 
-**Kombinálhatók-e a szín, elmosás és alfa hatások?**
+**Kombinálhatók a szín, elmosás és alfa hatások?**
 
-Igen. A gyűjtemény egyetlen rendezett láncban fogadja őket. Figyelje meg, hogy az egyes műveletek hogyan befolyásolják az előző kimenetét, mivel a helyettesítő és küszöb‑műveletek eldobhatják a korábbi szín‑ vagy alfa‑részleteket.
+Igen. A gyűjtemény egy rendezett láncban fogadja őket. Vegye figyelembe, hogy minden művelet mit tesz az előző kimenetével, mivel a helyettesítő és küszöb műveletek eldobhatják a korábbi szín- vagy alfa részleteket.
 
-**Miért csak‑olvasásúak a hatékony értékek?**
+**Miért csak olvashatóak a hatékony értékek?**
 
-A hatékony adat a rendereléshez használt kiszámított értékeket képviseli, beleértve a feloldott színeket is. Szerkessze a transzformációs gyűjteményben tárolt műveletet, ahol írható tagok vannak; egyébként távolítsa el, és adjon hozzá egy új, a kívánt paraméterekkel rendelkező helyettesítőt.
+A hatékony adatok a rendereléshez használt számított értékeket, köztük a feloldott színeket képviselik. Szerkessze a transzformációs gyűjteményben tárolt műveletet, ahol vannak írható tagok; egyébként távolítsa el, és adjon hozzá egy helyettesítőt új létrehozási paraméterekkel.
 
-**Mely formátumot használjam a transzformációs lánc megőrzéséhez?**
+**Milyen formátumot használjak a transzformációs lánc megőrzéséhez?**
 
-Használjon PPTX‑et, és ellenőrizze a fájlt az újranyitás után. A régi PPT nem képes a teljes DrawingML hatásmodellt ábrázolni, és a renderelt export formátumok csak a megjelenést, nem pedig a szerkeszthető transzformációkat őrzik meg.
+Használjon PPTX-et, és ellenőrizze a fájlt újbóli megnyitással. A régi PPT nem képes a teljes DrawingML hatásmodellt ábrázolni, és a renderelt export formátumok csak a megjelenést őrzik meg, nem a szerkeszthető transzformációs műveleteket.

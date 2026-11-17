@@ -1,72 +1,72 @@
 ---
-title: Spravovat efekty transformace obrázku v prezentacích s Pythonem
-linktitle: Efekty transformace obrázku
+title: Správa efektů transformace obrazu v prezentacích s Pythonem
+linktitle: Efekty transformace obrazu
 type: docs
 weight: 11
 url: /cs/python-java/image-transform-effects/
 keywords:
-- transformace obrázku
+- transformace obrazu
 - efekt obrázku
 - jas
 - kontrast
-- odstín šedi
+- škála šedi
 - duotón
-- tónování
+- odstín
 - HSL
 - náhrada barvy
-- rozmazání
+- rozostření
 - průhlednost
-- efekt alfa
+- alpha efekt
 - řetězec efektů
 - PowerPoint
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Použijte, řaďte, kontrolujte, odstraňujte a ověřujte efekty transformace obrázku pro rámečky obrázků pomocí Aspose.Slides pro Python přes Java."
+description: "Použijte, řaďte, kontrolujte, odstraňujte a ověřujte efekty transformace obrazu pro rámečky obrázků s Aspose.Slides pro Python pomocí Java."
 ---
 ## **Přehled**
 
-Aspose.Slides představuje úpravy obrázků jako uspořádanou kolekci operací transformace obrázku. Pro rámeček obrázku začněte s [Picture](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picture/) rámce a přistupte k [Picture.getImageTransform](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picture/#getImageTransform). Vrácená [ImageTransformOperationCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/) vám umožní přidávat, procházet, inspektovat, odstraňovat a mazat efekty, aniž byste přepisovali původní bajty obrázku.
+Aspose.Slides představuje úpravy obrázků jako uspořádanou kolekci operací transformace obrázku. Pro rámeček obrázku začněte s rámečkem [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) a přistupte k [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform). Vrácená [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) vám umožní přidávat, procházet, kontrolovat, odstraňovat a vymazávat efekty, aniž byste přepisovali původní bajty obrázku.
 
-Tento článek demonstruje kompletní workflow pro jas a kontrast, barevné transformace, rozmazání, transparentnost, řetězce efektů v určeném pořadí, efektivní hodnoty, odstraňování a ověření PPTX round‑trip.
+Tento článek ukazuje kompletní postup pro jas a kontrast, barevné transformace, rozostření, průhlednost, řazené řetězce efektů, efektivní hodnoty, odstraňování a ověření zpětného průchodu PPTX.
 
-## **Pochopení vlastnictví efektu a opětovného použití obrázku**
+## **Pochopte vlastnictví efektů a opětovné použití obrázků**
 
-Obrazový zdroj a obrázek, který jej zobrazuje, jsou různé objekty:
+Zdrojový obrázek a obrázek, který jej zobrazuje, jsou různé objekty:
 
-- [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/) ukládá nebo odkazuje na zdrojová data obrázku, která vlastní prezentace.
-- [Picture](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picture/) patří do výplně obrázku a odkazuje na obrazový zdroj, zatímco uchovává kolekci transformací obrázku.
-- [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) je tvar snímku, který vlastní příslušnou výplň obrázku, geometrii, nastavení ořezu a další formátování na úrovni rámce.
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) ukládá nebo odkazuje na zdrojová data obrázku vlastněná prezentací.
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) patří do výplně obrázku a odkazuje na zdroj obrázku při ukládání kolekce transformací obrázku.
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) je tvar snímku, který vlastní příslušnou výplň obrázku, geometrii, nastavení ořezu a další formátování na úrovni rámečku.
 
-Proto operace transformace obrázku nemodifikují bajty v [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/). Když je stejný `PPImage` předán metodě [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addPictureFrame) více než jednou, každý nový rámeček obrázku získá svůj vlastní `Picture` a vlastní kolekci transformací. Použití odstínu šedi na jednom rámci neovlivní ostatní rámečky, i když všechny používají stejný vložený obrazový zdroj.
+Proto operace transformace obrázku nemění bajty v [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/). Když je stejný `PPImage` předán metodě [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) více než jednou, každý nový rámeček obrázku získá vlastní `Picture` a vlastní kolekci transformací. Aplikace odstínu šedé na jeden rámeček neovlivní ostatní rámečky, i když všechny používají stejný vložený zdroj obrázku.
 
-Stejný model `Picture.getImageTransform` používají také jiné výplně obrázku, například tvar nebo pozadí snímku. Níže uvedené příklady se zaměřují na rámečky obrázků.
+Stejný model `Picture.getImageTransform` používají i jiné výplně obrázku, například tvar nebo pozadí snímku. Níže uvedené příklady se zaměřují na rámečky obrázku.
 
 ## **Používejte platné rozsahy parametrů a jednotky**
 
-Ukázané metody používají následující sémantické rozsahy a jednotky. Udržujte hodnoty v těchto rozsazích, i když konkrétní verze knihovny neodmítne okamžitě každou hodnotu mimo rozsah; cílový formát prezentace může během uložení nebo při otevření souboru v PowerPointu normalizovat, vynechat nebo odmítnout neplatná data.
+Ukázané metody používají následující sémantické rozsahy a jednotky. Dodržujte hodnoty v těchto rozsazích, i když konkrétní verze knihovny neodmítne okamžitě každou hodnotu mimo rozsah; cílový formát prezentace může během uložení nebo při otevření souboru v PowerPointu normalizovat, vynechat nebo odmítnout neplatná data.
 
 | Operace | Parametry | Platný rozsah a jednotka |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` až `100`, procent; `0` ponechává komponentu beze změny. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | Žádné | Žádné číselné parametry. Alfa zůstává beze změny. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Dvě barvy pro tmavé a světlé pixely. Kanály RGB a alfa v `java.awt.Color` používají hodnoty `0` až `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Hue je `0` inkluzivně až `360` exkluzivně, ve stupních; amount je `-100` až `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Hue je `0` inkluzivně až `360` exkluzivně, ve stupních; saturation a luminance jsou `-100` až `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | Náhradní barva používá hodnoty kanálů od `0` do `255`. Existující alfa hodnoty zůstávají beze změny. |
-| [addBlurEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Radius je nezáporný a měří se v bodech; `grow` je Boolean, který určuje, zda rozmazaný obsah může přesáhnout původní hranice. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Nezáporné procento. Použijte `0` až `100` pro běžné škálování neprůhlednosti: `0` je úplně průhledné a `100` zachovává existující alfu. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` až `100`, procenta neprůhlednosti. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` až `100`, procenta alfa prahu. Hodnoty pod prahem se stávají průhlednými; hodnoty na prahu nebo nad ním se stávají neprůhlednými. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` až `100`, procent; `0` ponechává komponentu nezměněnou. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | Žádné | Žádné číselné parametry. Alfa zůstává nezměněna. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Dvě barvy pro tmavé a světlé pixely. Kanály RGB a alfa v `java.awt.Color` používají `0` až `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Odstín je od `0` (včetně) do `360` (vyloučeno) stupňů; množství je od `-100` do `100` procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Odstín je od `0` (včetně) do `360` (vyloučeno) stupňů; sytost a luminance jsou od `-100` do `100` procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | Náhradní barva používá hodnoty kanálů od `0` do `255`. Existující hodnoty alfa zůstávají nezměněny. |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Poloměr je nezáporný a měří se v bodech; `grow` je logická hodnota, která určuje, zda rozostřený obsah může přesahovat původní hranice. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Nezáporné procento. Použijte `0` až `100` pro běžné škálování neprůhlednosti: `0` je plně průhledné a `100` zachovává existující alfa. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` až `100`, procento neprůhlednosti. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` až `100`, procentní prahová hodnota alfa. Hodnoty pod tím se stanou průhlednými; hodnoty na nebo nad tím se stanou neprůhlednými. |
 
-Pro pevnou modulaci alfy jsou transparentnost a neprůhlednost komplementární. Například 35 % transparentnosti odpovídá modulaci alfy ve výši 65 %.
+Pro pevnou modulaci alfa jsou průhlednost a neprůhlednost komplementární. Například 35 % průhlednost odpovídá hodnotě modulace alfa 65 %.
 
 ## **Použijte jas a kontrast**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) vrací operaci [BrightnessContrast](https://reference.aspose.com/slides/cs/python-java/aspose.slides/brightnesscontrast/). Její skalární nastavení jsou zadána při vytvoření operace. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/cs/python-java/aspose.slides/brightnesscontrast/#getEffective) vrací vypočtené hodnoty jen pro čtení, které lze inspektovat nebo zaznamenat.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) vrací operaci [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/). Její skalární nastavení jsou zadána při vytvoření operace. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) vrací vypočítané hodnoty pouze ke čtení, které lze zkontrolovat nebo zaznamenat.
 
-Následující příklad zvýší jas o 15 % a kontrast o 20 %, poté vykreslí náhled, aniž by změnil vložený obrázek:
+Následující příklad zvýší jas o 15 % a kontrast o 20 %, pak zobrazí náhled bez úpravy vloženého obrázku:
 
 ```python
 import jpype
@@ -103,13 +103,13 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/cs/python-java/aspose.slides/brightnesscontrast/) je rozšíření efektu obrázku pro Office 2010 a není tak přenositelné jako standardní efekt luminance v DrawingML. Když musí být jas a kontrast po PPTX round‑tripu zachovány editovatelné, použijte [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) a po opětovném otevření souboru ověřte výsledek. Část o omezeních formátu podrobně vysvětluje tento rozdíl.
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) je rozšíření Office 2010 pro efekt obrázku a není tak přenositelný jako standardní efekt luminance v DrawingML. Když je potřeba, aby jas a kontrast zůstaly editovatelné po zpětném průchodu PPTX, použijte [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) a ověřte výsledek po opětovném otevření souboru. Část o omezeních formátu vysvětluje tento rozdíl podrobněji.
 
 ## **Použijte barevné transformace**
 
-Barevné efekty lze aplikovat nezávisle na různých rámečcích obrázků, které používají jeden obrazový zdroj. Následující příklad vytvoří pět rámců a aplikuje odstín šedi, duotón, tónování, úpravu HSL a náhradu barvy.
+Barevné efekty lze aplikovat nezávisle na různých rámečcích obrázku, které používají jeden zdroj obrázku. Následující příklad vytvoří pět rámečků a použije šedou škálu, duotón, odstín, úpravu HSL a nahrazení barvy.
 
-[Duotone](https://reference.aspose.com/slides/cs/python-java/aspose.slides/duotone/) obsahuje dva nezávisle editovatelné barevné parametry: `color1` mapuje tmavé pixely, zatímco `color2` mapuje světlé pixely. To jej činí užitečným příkladem efektu, jehož nastavení jsou složitější než jediná skalární hodnota.
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) obsahuje dva nezávisle upravitelné parametry barvy: `color1` mapuje tmavé pixely, zatímco `color2` mapuje světlé pixely. To z něj činí užitečný příklad efektu, jehož nastavení jsou složitější než jediná skalární hodnota.
 
 ```python
 import jpype
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) nahrazuje barvu každého pixelu jednou pevnou barvou a zachovává alfu. Liší se od [addColorChangeEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), který mapuje jednu zdrojovou barvu na jinou a vystavuje oba formáty zdrojové i cílové barvy.
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) nahrazuje barvu každého pixelu jednou pevnou barvou při zachování alfa kanálu. Liší se od [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), který mapuje jednu zdrojovou barvu na jinou a vystavuje oba formáty barvy.
 
-## **Přidejte rozmazání, transparentnost a alfa efekty**
+### **Použijte prah luminance**
 
-[addBlurEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) ovlivňuje všechny barevné kanály, včetně alfy. Nastavte `grow` na `True`, když rozmazaný okraj může přesáhnout původní hranice obrázku.
+Prahování luminance může usnadnit rozlišení slabých značek na naskenované stránce od pozadí. [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) zachovává střední odstíny šedé. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) mapuje luminanci na černou nebo bílou, zatímco [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) aplikuje prah na neprůhlednost.
 
-Pro jednotnou transparentnost použijte [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Násobí každou existující alfa hodnotu, takže částečně průhledné pixely zůstávají úměrně odlišné. [addAlphaReplaceEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) místo toho přiřadí jednu alfa hodnotu všem pixelům. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) převádí alfu na dvě úrovně podle prahu.
+Prahová hodnota luminance je od 0 % do 100 %, včetně. Pixely pod prahem se stanou černými. Pixely na nebo nad prahem se stanou bílými. Zvýšením prahu se více odstínů změní na černou, protože více z nich spadne pod hranici.
+
+Stáhněte soubor [grayscale-swatches.png](grayscale-swatches.png) do pracovního adresáře. Každý popisek udává původní úroveň šedi na stupnici od 0 do 255. Příklad umístí originál vedle dvou kopií a uloží prah každé kopie v prezentaci.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Otevřete výstupní prezentaci v PowerPointu a porovnejte tři rámečky. Vzorek označený 96 má přibližně 38 % luminance (96 z 255). Při prahu 20 % se změní na bílou a při prahu 60 % na černou.
+
+![Původní šedé vzorky vedle černobílých výsledků při prahových hodnotách luminance 20 % a 60 %](luminance-threshold.png)
+
+## **Přidejte rozostření, průhlednost a alfa efekty**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) ovlivňuje všechny barevné kanály, včetně alfa. Nastavte `grow` na `True`, pokud může rozostřený okraj přesáhnout původní hranice obrázku.
+
+Pro jednotnou průhlednost použijte [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Násobí každou existující hodnotu alfa, takže částečně průhledné pixely zůstávají úměrně odlišné. [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) místo toho přiřadí jednu hodnotu alfa všem pixelům. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) převádí alfa na dvě úrovně na základě prahu.
 
 ```python
 import jpype
@@ -200,15 +247,15 @@ finally:
     presentation.dispose()
 ```
 
-Další efekty alfy bez parametrů zahrnují [addAlphaCeilingEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), který dělá každou nenulovou alfu plně neprůhlednou; [addAlphaFloorEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), který dělá každou alfu pod 100 % plně průhlednou; a [addAlphaInverseEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), který mění alfu na `100% - alpha`.
+Další operace alfa bez parametrů zahrnují [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), která nastaví každou nenulovou alfa hodnotu na plně neprůhlednou; [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), která nastaví každou alfa pod 100 % na plně průhlednou; a [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), která mění alfa na `100% - alpha`.
 
-## **Vytvořte řetězec efektů v určeném pořadí**
+## **Sestavte řazený řetězec efektů**
 
-Každá metoda `add...Effect` přidá novou operaci na konec kolekce. Renderér používá kolekci jako uspořádaný pipeline: výstup operace 0 se stane vstupem operace 1 a tak dále. Výsledkem je, že stejné operace v jiném pořadí mohou vytvořit odlišný obrázek.
+Každá metoda `add...Effect` připojí novou operaci na konec kolekce. Vykreslovací engine používá kolekci jako uspořádaný potrubní řetězec: výstup operace 0 se stane vstupem operace 1 a tak dále. V důsledku toho může stejná sada operací v jiném pořadí vytvořit odlišný obrázek.
 
-Například odstín šedi následovaný tónováním nejprve odstraní chromatické informace a pak přebarví výsledek luminance. Tónování následované odstínem šedi odstraní tónování zpět. Podobně náhrada alfy může přepsat alfa hodnoty vypočtené předchozími operacemi, zatímco modulace alfy zachová jejich relativní rozdíly.
+Například šedá škála následovaná odstínem nejprve odstraní chromatickou informaci a pak přebarevní výsledek luminance. Opačný pořad – odstín a pak šedá škála – odstraní odstín znovu. Podobně nahrazení alfa může přepsat hodnoty alfa vypočítané dřívějšími operacemi, zatímco modulace alfa zachová jejich relativní rozdíly.
 
-Následující příklad vytvoří řetězec se čtyřmi operacemi, uloží jej jako PPTX, znovu otevře prezentaci, zkontroluje typy operací i jejich pořadí a vykreslí výsledek po opětovném otevření:
+Následující příklad vytvoří řetězec se čtyřmi operacemi, uloží jej jako PPTX, znovu otevře prezentaci, ověří jak typy operací, tak jejich pořadí, a vykreslí výsledek po opětovném otevření:
 
 ```python
 import jpype
@@ -261,15 +308,21 @@ finally:
     reopened_presentation.dispose()
 ```
 
-Kolekce neukládá kompatibilní matici, která by omezovala barevné, alfa a rozmazávací operace do oddělených řetězců. Lze je kombinovat, ale kombinace nejsou vždy užitečné. Pevná náhrada barvy odstraňuje variaci RGB vytvořenou předchozími barevnými efekty; odstín šedi po duotónu odstraňuje dvě vybrané barvy; a operace alfa ceiling, floor, replacement nebo bi‑level mohou zahodit alfa detail vytvořený dříve. Sestavte řetězec podle požadovaného pořadí zpracování pixelů, místo aby byly položky považovány za neuspořádané příznaky formátování.
+Kolekce neukládá kompatibilní matici, která by omezovala barevné, alfa a rozostřovací operace na samostatné řetězce. Mohou být kombinovány, ale ne všechny kombinace jsou užitečné. Pevná náhrada barvy odstraní variaci RGB vytvořenou předchozími barevnými efekty; šedá škála po duotóne odstraní obě vybrané barvy; a operace alfa ceiling, floor, replacement nebo bi‑level mohou vyřadit alfa detail vytvořený dříve. Sestavujte řetězec podle požadované sekvence zpracování pixelů, místo aby jste je považovali za neuspořádané příznaky formátování.
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![Stejný obrázek prochází šedou škálou, potom odstínem, a alternativně odstínem, potom šedou škálou. Dvě konečné šedé obrázky mají odlišné tóny.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*V tomto ilustračním renderu Aspose.Slides pro .NET 26.11 zůstane při 220° odstínu s 25 % šedá škála nezměněna. Aplikace stejného odstínu před šedou škálou vytváří jiné tóny.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Prozkoumejte editovatelné a efektivní hodnoty**
 
-Editovatelná operace je objekt uložený v `Picture.getImageTransform`. V závislosti na efektu může přímo vystavovat zapisovatelné členy. Například [Blur](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blur/) vystavuje zapisovatelné hodnoty `radius` a `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/cs/python-java/aspose.slides/alphamodulatefixed/) vystavuje zapisovatelný `amount` a [AlphaBiLevel](https://reference.aspose.com/slides/cs/python-java/aspose.slides/alphabilevel/) vystavuje zapisovatelný `threshold`. Barevné efekty jako [Duotone](https://reference.aspose.com/slides/cs/python-java/aspose.slides/duotone/) vystavují měnitelné objekty [ColorFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/colorformat/).
+Editovatelný efekt je objekt uložený v `Picture.getImageTransform`. V závislosti na efektu může přímo odhalovat zapisovatelné členy. Například [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) odhaluje zapisovatelné hodnoty `radius` a `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) odhaluje zapisovatelný `amount` a [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) odhaluje zapisovatelný `threshold`. Barevné efekty jako [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) odhalují měnitelné objekty [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/).
 
-Některé třídy operací, včetně [BrightnessContrast](https://reference.aspose.com/slides/cs/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/cs/python-java/aspose.slides/tint/) a [AlphaReplace](https://reference.aspose.com/slides/cs/python-java/aspose.slides/alphareplace/), neexponují své vytvořené skaláry jako zapisovatelné vlastnosti. Pro změnu těchto nastavení odstraňte operaci a přidejte náhradu na požadovanou pozici.
+Některé třídy operací, včetně [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/), a [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/), neodhalují své vytváěcí skaláry jako zapisovatelné vlastnosti. Pro změnu těchto nastavení odeberte operaci a přidejte novou na požadované pozici.
 
-Efektivní data vrácená metodou `getEffective` jsou vypočtená a jen pro čtení. Jsou užitečná pro řešení tématem podmíněných barev a čtení normalizovaných hodnot, které renderér používá, ale nejsou dalším editovacím povrchem. Následující příklad prochází řetězec a inspektuje efektivní hodnoty, pokud je příslušné API poskytuje:
+Efektivní data vrácená metodou `getEffective` jsou vypočítaná a jen ke čtení. Hodí se k rozpoznání barev závislých na motivu a k načtení normalizovaných hodnot, které renderer používá, ale nejsou dalším editovacím rozhraním. Následující příklad prochází řetězec a kontroluje efektivní hodnoty tam, kde je příslušné API poskytuje:
 
 ```python
 import jpype
@@ -333,11 +386,11 @@ finally:
     presentation.dispose()
 ```
 
-Efekty bez parametrů, jako odstín šedi, alfa ceiling a alfa inverse, stále mají objekt efektivních dat, ale neexistují skalární nastavení k výpisu. Jejich přítomnost a pozice v kolekci jsou důležité informace.
+Efekty bez parametrů, jako šedá škála, alfa ceiling a alfa inverse, stále mají objekt efektivních dat, ale neexistují žádná skalární nastavení k vytištění. Jejich přítomnost a pozice v kolekci jsou důležitou informací.
 
-## **Odstraňte nebo vymažte transformace obrázku**
+## **Odstraňte nebo vymažte transformace obrázků**
 
-Použijte [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) pro odstranění jedné operace podle indexu. Protože se indexy po odstranění posouvají, nejprve vyhledejte cíl a až po procházení jej odstraňte. Použijte [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#clear) pro odstranění celého řetězce.
+Použijte [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) k odebrání jedné operace podle indexu. Protože se indexy po odebrání posouvají, nejprve vyhledejte cíl a poté jej po procházení odeberte. Použijte [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) k odebrání celého řetězce.
 
 ```python
 import jpype
@@ -377,38 +430,38 @@ finally:
     presentation.dispose()
 ```
 
-Odstranění nebo vymazání transformací mění pouze formátování obrázku. Neodstraňuje, nekomprimuje ani jinak nemění znovu použitý zdroj [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/).
+Odebrání nebo vymazání transformací mění jen formátování obrázku. Neodstraňuje, nekomprimuje ani jinak nemění znovu použité zdroje [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/).
 
-## **Zvažte formáty prezentací a cílové exporty**
+## **Zvažte formáty prezentací a cíle exportu**
 
-Transformace obrázků pocházejí z DrawingML, takže PPTX je preferovaný editovatelný formát pro řetězce efektů. I v PPTX ne každá operace má stejnou přenositelnost:
+Transformace obrázků vznikají v DrawingML, takže PPTX je preferovaný editovatelný formát pro řetězce efektů. I v PPTX však ne každá operace má stejnou přenositelnost:
 
-- Standardní operace DrawingML, jako luminance, odstín šedi, duotón, tónování, HSL, rozmazání a běžné alfa operace, mají nejlepší šanci přežít PPTX round‑trip. Vždy po vygenerování souboru jej znovu otevřete a zkontrolujte kolekci, pokud je zachování požadováno.
-- [BrightnessContrast](https://reference.aspose.com/slides/cs/python-java/aspose.slides/brightnesscontrast/) je rozšíření Office 2010, nikoli standardní operace luminance v DrawingML. Lze jej použít pro renderování v paměti, ale není zaručeno, že po uložení a opětovném otevření PPTX zůstane editovatelný [BrightnessContrast](https://reference.aspose.com/slides/cs/python-java/aspose.slides/brightnesscontrast/). Pro trvalé úpravy jasu a kontrastu upřednostněte [addLuminanceEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect).
-- Binární formát PPT předchází úplnému modelu efektů DrawingML. Uložení do PPT může vynechat nepodporované operace, zredukovat řetězec na podporovanou podmnožinu nebo aproximovat vzhled. Nepoužívejte PPT jako formát pro ověření složitého editovatelného řetězce.
-- Renderování do PNG, JPEG, TIFF, PDF, SVG, HTML nebo jiných vizuálních výstupů aplikuje podporovaný řetězec na vykreslený vzhled. Tyto výstupy neobsahují editovatelnou `ImageTransformOperationCollection`; rastrové formáty výsledek vyhlazují do pixelů a dokumentové/vektorové exporty ukládají vlastní reprezentaci renderování.
-- Efekty nečiní spojený obrázek samostatně uzavřeným. Renderování spojeného obrázku stále závisí na dostupnosti spojeného zdroje při načítání prezentace.
+- Standardní operace DrawingML, jako jsou luminance, šedá škála, duotón, odstín, HSL, rozostření a běžné alfa operace, mají největší šanci přežít zpětný průchod PPTX. Vždy po uložení souboru znovu otevřete a zkontrolujte kolekci, pokud je zachování požadováno.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) je rozšíření Office 2010, nikoli standardní operace luminance v DrawingML. Lze jej použít pro vykreslování v paměti, ale není zaručeno, že po uložení a opětovném otevření PPTX zůstane editovatelný [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/). Pro trvalé úpravy jasu a kontrastu upřednostněte [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect).
+- Binární formát PPT předchází kompletnímu modelu efektů DrawingML. Ukládání do PPT může vynechat nepodporované operace, zredukovat řetězec na podporovaný podmnožinu nebo přibližně napodobit vzhled. Nepoužívejte PPT jako ověřovací formát pro složitý editovatelný řetězec.
+- Vykreslování do PNG, JPEG, TIFF, PDF, SVG, HTML nebo jiných vizuálních výstupů aplikuje podporovaný řetězec na vykreslený vzhled. Tyto výstupy neobsahují editovatelnou `ImageTransformOperationCollection`; rastrové formáty výsledek rozplátí do pixelů a exporty dokumentu/vektoru ukládají vlastní reprezentaci vykreslení.
+- Efekty nezpůsobí, že propojený obrázek bude samostatný. Vykreslování propojeného obrázku stále závisí na dostupnosti propojeného zdroje při načtení prezentace.
 
-Různí spotřebitelé prezentací mohou vykreslovat okrajové případy odlišně, zejména když jsou kombinovány několik alfa nebo barevných kvantizačních operací. Pro kritické výstupy testujte jak editovatelný round‑trip, tak konečný exportní formát se stejnou verzí Aspose.Slides používanou ve výrobě.
+Různí spotřebitelé prezentací mohou renderovat hraniční případy odlišně, zejména když jsou kombinovány více alfa nebo barevně kvantizačních operací. Pro kritické výstupy testujte jak editovatelný zpětný průchod, tak finální exportní formát stejnou verzí Aspose.Slides používanou ve výrobě.
 
 ## **Často kladené otázky**
 
-**Modifikují efekty transformace obrázku vložená data obrázku?**
+**Mění efekty transformace obrázku vložená data obrázku?**
 
-Ne. Operace patří do `Picture` použitého ve výplni obrázku. Underlying `PPImage` bajty zůstávají beze změny.
+Ne. Operace patří k `Picture` použitému ve výplni obrázku. Bajty podkladového `PPImage` zůstávají nezměněny.
 
-**Budou dva rámečky obrázku, které používají stejný obraz, sdílet své efekty?**
+**Sdílejí dva rámečky obrázku, které používají stejný obrázek, své efekty?**
 
-Ne. Opakované použití `PPImage` zabraňuje duplicitním datům obrázku, ale každý rámec obrázku má obvykle samostatný `Picture` a kolekci transformací obrázku.
+Ne. Opakovaným použitím `PPImage` se předejde duplicitě dat obrázku, ale každý rámeček obrázku má obvykle vlastní `Picture` a vlastní kolekci transformací obrázku.
 
-**Lze kombinovat barevné, rozmazávací a alfa efekty?**
+**Lze kombinovat barevné, rozostřovací a alfa efekty?**
 
-Ano. Kolekce je přijímá v jednom řetězci v určeném pořadí. Zvažte, co každá operace dělá s výstupem předchozí, protože operace náhrady a prahu mohou odstranit dřívější barevné nebo alfa detaily.
+Ano. Kolekce je přijímá v jednom řazeném řetězci. Zvažte, co každá operace dělá s výstupem předchozí, protože operace nahrazení a prahování mohou odstranit dřívější barevný nebo alfa detail.
 
-**Proč jsou efektivní hodnoty jen pro čtení?**
+**Proč jsou efektivní hodnoty jen ke čtení?**
 
-Efektivní data představují vypočtené hodnoty používané při renderování, včetně rozřešených barev. Upravte operaci uloženou v kolekci transformací, kde existují zapisovatelné členy; jinak ji odstraňte a přidejte náhradu s novými parametry při vytvoření.
+Efektivní data představují vypočítané hodnoty použité při vykreslování, včetně rozpoznaných barev. Upravit můžete pouze operaci uloženou v kolekci transformací, kde existují zapisovatelné členy; jinak ji odeberte a přidejte novou s novými parametry tvorby.
 
-**Jaký formát bych měl použít pro zachování řetězce transformací?**
+**Jaký formát použít k zachování řetězce transformací?**
 
-Použijte PPTX a ověřte soubor jeho opětovným otevřením. Legacy PPT nemůže představovat úplný model efektů DrawingML a exportní formáty zachovávají vzhled spíše než editovatelné transformace.
+Použijte PPTX a ověřte soubor opětovným otevřením. Starší PPT nedokáže reprezentovat celý model efektů DrawingML a výstupní formáty zachovávají jen vzhled, nikoli editovatelné operace transformace.

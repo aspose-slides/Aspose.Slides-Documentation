@@ -6,66 +6,66 @@ weight: 11
 url: /th/cpp/image-transform-effects/
 keywords:
 - การแปลงภาพ
-- เอฟเฟกต์รูปภาพ
+- เอฟเฟกต์ภาพ
 - ความสว่าง
 - คอนทราสต์
-- สีเทา
-- โทนคู่
-- สีสัน
+- สเกลสีเทา
+- โดโต้น
+- สีทินท์
 - HSL
 - การแทนที่สี
 - เบลอ
 - ความโปร่งใส
 - เอฟเฟกต์อัลฟ่า
-- เชนเอฟเฟกต์
+- ห่วงโซ่เอฟเฟกต์
 - PowerPoint
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "ใช้, สร้างเชน, ตรวจสอบ, ลบ, และตรวจสอบความถูกต้องของเอฟเฟกต์การแปลงภาพสำหรับกรอบรูปด้วย Aspose.Slides สำหรับ C++."
+description: "ใช้, เชื่อมต่อ, ตรวจสอบ, ลบ, และตรวจสอบความถูกต้องของเอฟเฟกต์การแปลงภาพสำหรับกรอบรูปภาพด้วย Aspose.Slides สำหรับ C++."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงลำดับของการดำเนินการแปลงภาพ สำหรับกรอบรูป ให้เริ่มต้นด้วย [ISlidesPicture](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidespicture/) ของกรอบ แล้วเข้าถึง [ISlidesPicture::get_ImageTransform](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidespicture/get_imagetransform/). คอลเลกชันที่คืนค่าเป็น [IImageTransformOperationCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/) จะทำให้คุณสามารถเพิ่ม, ดูรายการ, ตรวจสอบ, ลบ และล้างเอฟเฟกต์ได้โดยไม่ต้องเขียนใหม่ไบต์ของภาพต้นฉบับ
+Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงลำดับของการดำเนินการแปลงภาพ สำหรับกรอบรูปภาพ ให้เริ่มจากกรอบของ [ISlidesPicture](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/) และเข้าถึง [ISlidesPicture::get_ImageTransform](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/get_imagetransform/)。ที่คืนค่าเป็น [IImageTransformOperationCollection](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/) จะอนุญาตให้คุณเพิ่ม, ตรวจสอบ, ลบ, และเคลียร์เอฟเฟกต์โดยไม่ต้องเขียนไบต์ของรูปเดิมใหม่
 
-บทความนี้สาธิตเวิร์กโฟลว์เต็มรูปแบบสำหรับความสว่างและคอนทราสต์, การแปลงสี, เบลอร์, ความโปร่งใส, เชนเอฟเฟกต์ตามลำดับ, ค่าเอฟเฟกต์ที่คำนวณได้, การลบ, และการตรวจสอบรอบ PPTX
+บทความนี้สาธิตขั้นตอนทำงานครบวงจรสำหรับความสว่างและคอนทราสต์, การแปลงสี, เบลอ, ความโปร่งใส, ห่วงโซ่เอฟเฟกต์ที่เรียงลำดับ, ค่าที่มีผล, การลบ, และการตรวจสอบการทำงานแบบรอบเดี่ยว PPTX
 
-## **ทำความเข้าใจการเป็นเจ้าของเอฟเฟกต์และการใช้ซ้ำภาพ**
+## **ทำความเข้าใจความเป็นเจ้าของเอฟเฟกต์และการใช้ซ้ำภาพ**
 
-ทรัพยากรภาพและภาพที่แสดงมันเป็นอ็อบเจ็กต์ที่แตกต่างกัน:
+ทรัพยากรภาพและรูปภาพที่แสดงภาพเป็นออบเจ็กต์ที่ต่างกัน:
 
-- [IPPImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ippimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นของงานนำเสนอ
-- [ISlidesPicture](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidespicture/) เป็นส่วนของการเติมรูปภาพและอ้างอิงทรัพยากรภาพพร้อมเก็บคอลเลกชันการแปลงภาพ
-- [IPictureFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipictureframe/) เป็นรูปร่างบนสไลด์ที่เป็นเจ้าของการเติมรูปภาพที่เกี่ยวข้อง, รูปร่าง, การตั้งค่าการครอป, และการจัดรูปแบบระดับเฟรมอื่น ๆ
+- [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นทางที่เป็นของงานนำเสนอ
+- [ISlidesPicture](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/) เป็นส่วนของการเติมรูปและอ้างอิงทรัพยากรภาพพร้อมเก็บคอลเลกชันการแปลงภาพ
+- [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) เป็นรูปทรงสไลด์ที่อ้างอิงการเติมรูป, รูปร่าง, การครอป, และการจัดรูปแบบระดับกรอบอื่นๆ
 
-ดังนั้นการดำเนินการแปลงภาพจะไม่แก้ไขไบต์ใน [IPPImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ippimage/). เมื่อส่ง `IPPImage` เดียวกันไปยัง [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapecollection/addpictureframe/) มากกว่าหนึ่งครั้ง แต่ละกรอบรูปใหม่จะได้รับ `ISlidesPicture` ของตนเองและคอลเลกชันการแปลงของตนเอง การปรับสีเทาให้กับกรอบหนึ่งไม่ได้ทำให้กรอบอื่นเป็นสีเทา แม้ว่าทั้งหมดจะใช้ทรัพยากรภาพที่ฝังไว้เดียวกัน
+ดังนั้น การดำเนินการแปลงภาพจะไม่แก้ไขไบต์ใน [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/)。เมื่อ `IPPImage` เดียวกันถูกส่งผ่านไปยัง [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) มากกว่าหนึ่งครั้ง แต่ละกรอบรูปใหม่จะได้รับ `ISlidesPicture` ของตนเองและคอลเลกชันการแปลงของตนเอง การใส่ grayscale ให้กับกรอบหนึ่งจะไม่ทำให้กรอบอื่นเป็น grayscale แม้ว่าพวกมันจะใช้ทรัพยากรภาพฝังเดียวกัน
 
-โมเดล `ISlidesPicture::get_ImageTransform` เดียวกันนี้ยังใช้กับการเติมรูปภาพอื่น ๆ เช่น รูปทรงหรือพื้นหลังสไลด์ ตัวอย่างด้านล่างมุ่งเน้นที่กรอบรูปภาพ
+โมเดล `ISlidesPicture::get_ImageTransform` นี้ยังใช้กับการเติมรูปอื่นๆ เช่น รูปร่างหรือพื้นหลังสไลด์ ตัวอย่างต่อไปนี้มุ่งเน้นไปที่กรอบรูปภาพ
 
-## **ใช้ช่วงและหน่วยที่ถูกต้อง**
+## **ใช้ช่วงพารามิเตอร์และหน่วยที่ถูกต้อง**
 
-วิธีการที่แสดงใช้ช่วงและหน่วยตามความหมายต่อไปนี้ แม้ว่ารุ่นไลบรารีบางรุ่นอาจไม่ปฏิเสธค่าที่อยู่นอกช่วงทันที แต่รูปแบบการนำเสนอเป้าหมายอาจทำให้ค่าเป็นมาตรฐาน, ลบ, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
+วิธีที่สาธิตใช้ช่วงและหน่วยตามความหมายต่อไปนี้  โปรดเก็บค่าภายในช่วงเหล่านี้ แม้ว่ารุ่นไลบรารีบางรุ่นอาจไม่ปฏิเสธค่าที่อยู่นอกช่วงโดยทันที; รูปแบบการนำเสนอเป้าหมายอาจทำให้ค่าเป็นมาตรฐาน, ลบ, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
 
 | การดำเนินการ | พารามิเตอร์ | ช่วงและหน่วยที่ถูกต้อง |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` ถึง `100` ในหน่วยเปอร์เซ็นต์; `0` ไม่เปลี่ยนแปลงคอมโพเนนต์ |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | ไม่มีพารามิเตอร์เชิงตัวเลข. Alpha ไม่เปลี่ยนแปลง |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | สองสีสำหรับพิกเซลสีมืดและสีสว่าง. ช่องสี RGB และ alpha ใน `System::Drawing::Color` ใช้ค่า `0` ถึง `255` |
-| [AddTintEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue อยู่ในช่วง `0` รวมถึงถึง `360` ไม่รวม, หน่วยเป็นองศา; amount อยู่ในช่วง `-100` ถึง `100` เปอร์เซ็นต์ |
-| [AddHSLEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue อยู่ในช่วง `0` รวมถึงถึง `360` ไม่รวม, หน่วยเป็นองศา; saturation และ luminance อยู่ในช่วง `-100` ถึง `100` เปอร์เซ็นต์ |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | สีแทนที่ใช้ค่าช่องตั้งแต่ `0` ถึง `255`. ค่า alpha เดิมไม่เปลี่ยนแปลง |
-| [AddBlurEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | radius ต้องเป็นจำนวนไม่เป็นลบและวัดเป็นพอยท์; `grow` ควบคุมว่าผลเบลอร์อาจขยายออกนอกขอบเดิมหรือไม่ |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | เปอร์เซ็นต์ที่ไม่เป็นลบ. ใช้ `0` ถึง `100` สำหรับการปรับความทึบแบบทั่วไป: `0` เป็นโปร่งแสงเต็ม, `100` เก็บค่า alpha เดิม |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` ถึง `100` เปอร์เซ็นต์ความทึบ |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` ถึง `100` เปอร์เซ็นต์เกณฑ์ alpha. ค่าต่ำกว่าจะเป็นโปร่งแสง; ค่าที่เท่าหรือสูงกว่าจะเป็นทึบ |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` ถึง `100` เปอร์เซ็นต์; `0` ทำให้ส่วนประกอบไม่เปลี่ยนแปลง |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | ไม่มีพารามิเตอร์เชิงตัวเลข ค่าความโปร่งใส (Alpha) ไม่เปลี่ยนแปลง |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | สองสีสำหรับพิกเซลสีเข้มและสีอ่อน ช่อง RGB และอัลฟาใน `System::Drawing::Color` ใช้ค่า `0` ถึง `255` |
+| [AddTintEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue มีค่าตั้งแต่ `0` (รวม) ถึง `360` (ไม่รวม) หน่วยเป็นองศา; amount มีค่า `-100` ถึง `100` เปอร์เซ็นต์ |
+| [AddHSLEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue มีค่าตั้งแต่ `0` (รวม) ถึง `360` (ไม่รวม) หน่วยเป็นองศา; saturation และ luminance มีค่า `-100` ถึง `100` เปอร์เซ็นต์ |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | สีการแทนที่ใช้ค่าช่องตั้งแต่ `0` ถึง `255` ค่าอัลฟาที่มีอยู่ไม่เปลี่ยนแปลง |
+| [AddBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Radius ต้องเป็นจำนวนเต็มบวกหรือศูนย์และวัดเป็นจุด; `grow` ควบคุมว่าภาพเบลออาจขยายออกนอกขอบเขตเดิมหรือไม่ |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | เปอร์เซ็นต์ที่ไม่เป็นลบ ใช้ `0` ถึง `100` สำหรับการปรับความทึบแบบปกติ: `0` หมายถึงโปร่งใสเต็มและ `100` คงค่าความทึบเดิม |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` ถึง `100` เปอร์เซ็นต์ความทึบ |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` ถึง `100` เปอร์เซ็นต์เกณฑ์อัลฟา ค่าที่ต่ำกว่าจะเป็นโปร่งใส; ค่าที่เท่ากับหรือสูงกว่าจะเป็นทึบ |
 
-สำหรับการปรับค่า alpha แบบคงที่ ความโปร่งใสและความทึบเป็นค่าตรงกันข้าม ตัวอย่างเช่น ความโปร่งใส 35% สอดคล้องกับค่า alpha modulation 65%
+สำหรับการปรับอัลฟ่าแบบคงที่ ความโปร่งใสและความทึบเป็นค่าเสริมกัน ตัวอย่างเช่น ความโปร่งใส 35% มีค่าอัลฟ่าโมเดูเลต 65%
 
-## **ปรับความสว่างและคอนทราสต์**
+## **ใช้ความสว่างและคอนทราสต์**
 
-[IImageTransformOperationCollection::AddBrightnessContrastEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) คืนค่าอ็อบเจ็กต์ [IBrightnessContrast](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ibrightnesscontrast/) การตั้งค่าสเกลาร์จึงถูกกำหนดขณะสร้างอ็อบเจ็กต์ เมธอด `IBrightnessContrast::GetEffective` คืนค่าที่คำนวณแล้วแบบอ่านอย่างเดียวซึ่งสามารถตรวจสอบหรือบันทึกได้
+[IImageTransformOperationCollection::AddBrightnessContrastEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) คืนค่าออบเจ็กต์ [IBrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ibrightnesscontrast/) การตั้งค่าสเกลาร์จะถูกส่งเมื่อสร้างออบเจ็กต์ `IBrightnessContrast::GetEffective` คืนค่าที่คำนวณแล้วแบบอ่านอย่างเดียวที่สามารถตรวจสอบหรือบันทึกได้
 
-ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และคอนทราสต์ 20% แล้วเรนเดอร์พรีวิวโดยไม่แก้ไขภาพฝังไว้:
+ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และคอนทราสต์ 20% แล้วแสดงตัวอย่างโดยไม่แก้ไขภาพฝัง:
 
 ```cpp
 #include <DOM/Effects/IBrightnessContrast.h>
@@ -109,13 +109,13 @@ preview->Save(u"brightness-contrast-preview.png", ImageFormat::Png);
 presentation->Dispose();
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/brightnesscontrast/) เป็นส่วนขยายเอฟเฟกต์รูปภาพของ Office 2010 และมีความพกพาน้อยกว่าเอฟเฟกต์ luminance ของ DrawingML มาตรฐาน หากต้องการให้ความสว่างและคอนทราสต์ยังคงแก้ไขได้หลังการรอบ PPTX ให้ใช้ [IImageTransformOperationCollection::AddLuminanceEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) และตรวจสอบผลลัพธ์หลังจากเปิดไฟล์ใหม่ ส่วนหัวข้อข้อจำกัดรูปแบบอธิบายความแตกต่างนี้อย่างละเอียดเพิ่มเติม
+[BrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/brightnesscontrast/) เป็นส่วนขยายเอฟเฟกต์ภาพของ Office 2010 ซึ่งพกพาได้น้อยกว่เอฟเฟกต์ luminance มาตรฐานของ DrawingML เมื่อความสว่างและคอนทราสต์ต้องการให้แก้ไขได้หลังการเดินทางรอบ PPTX ให้ใช้ [IImageTransformOperationCollection::AddLuminanceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) แล้วตรวจสอบผลลัพธ์หลังจากเปิดไฟล์ใหม่ ส่วนที่อธิบายข้อจำกัดของฟอร์แมตจะให้รายละเอียดเพิ่มเติม
 
-## **ปรับการแปลงสี**
+## **ใช้การแปลงสี**
 
-เอฟเฟกต์สีสามารถนำไปใช้แยกกันกับกรอบรูปหลายกรอบที่ใช้ทรัพยากรภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้ากรอบและใช้สีเทา, duotone, tint, การปรับ HSL, และการแทนที่สี
+เอฟเฟกต์สีสามารถนำไปใช้แยกกันกับกรอบรูปภาพต่างๆ ที่ใช้ทรัพยากรภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้ากรอบและใส่ grayscale, duotone, tint, การปรับ HSL, และการแทนที่สี
 
-[IDuotone](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iduotone/) มีพารามิเตอร์สีสองค่า `get_Color1` สำหรับพิกเซลสีมืดและ `get_Color2` สำหรับพิกเซลสีสว่าง ทำให้เป็นตัวอย่างที่ดีของเอฟเฟกต์ที่ตั้งค่าซับซ้อนกว่าค่าสเกลาร์เดียว
+[IDuotone](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iduotone/) มีพารามิเตอร์สีสองตัวที่แก้ไขได้อิสระ: `get_Color1` ใช้กับพิกเซลสีเข้ม, `get_Color2` ใช้กับพิกเซลสีอ่อน ทำให้เป็นตัวอย่างที่ดีของเอฟเฟกต์ที่มีการตั้งค่าซับซ้อนกว่าค่าขนาดเดียว
 
 ```cpp
 #include <DOM/Effects/IColorReplace.h>
@@ -168,13 +168,74 @@ presentation->Save(u"color-transformations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งสีโดยคงค่า alpha ไว้ ซึ่งต่างจาก [AddColorChangeEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) ที่แมปสีต้นทางไปยังสีเป้าหมายและเปิดเผยรูปแบบสีของทั้งสอง
+[AddColorReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งสีโดยคงอัลฟาไว้ ต่างจาก [AddColorChangeEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) ที่จะแมพสีต้นทางหนึ่งเป็นสีเป้าหมายและเผยรูปแบบสีต้นทางและเป้าหมาย
 
-## **เพิ่มเบลอร์, ความโปร่งใส, และเอฟเฟกต์ Alpha**
+### **ใช้เกณฑ์ความสว่าง**
 
-[AddBlurEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) มีผลต่อทุกช่องสีรวมถึง alpha ตั้งค่า `grow` เป็น `true` เมื่อขอบที่เบลอร์อาจขยายออกนอกขอบภาพเดิม
+เกณฑ์ความสว่างสามารถทำให้เครื่องหมายที่จางบนหน้าสแกนมองเห็นได้ชัดเจนขึ้นจากพื้นหลัง [AddGrayScaleEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) คงระดับสีเทากลาง [AddBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) แมพความสว่างเป็นสีดำหรือสีขาว, ส่วน [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) ใช้เกณฑ์กับความทึบ
 
-สำหรับความโปร่งใสสม่ำเสมอ ให้ใช้ [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) ซึ่งคูณค่า alpha ทุกค่าที่มีอยู่ ทำให้พิกเซลที่โปร่งใสบางส่วนยังคงแตกต่างตามสัดส่วน [AddAlphaReplaceEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) แทนที่จะกำหนดค่า alpha เดียวให้กับทุกพิกเซล [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) จะเปลี่ยน alpha เป็นสองระดับตามเกณฑ์
+เกณฑ์ความสว่างอยู่ระหว่าง 0% ถึง 100% ทั้งหมด พิกเซลที่ต่ำกว่าเกณฑ์จะเป็นสีดำ พิกเซลที่เท่ากับหรือสูงกว่าเกณฑ์จะเป็นสีขาว การเพิ่มเกณฑ์จะทำให้เฉดสีมากขึ้นกลายเป็นสีดำเนื่องจากหลายค่าอยู่ใต้จุดตัด
+
+ดาวน์โหลด [grayscale-swatches.png](grayscale-swatches.png) ไปยังไดเรกทอรีทำงาน แต่ละป้ายกำกับให้ระดับสีเทาต้นฉบับในสเกลตั้งแต่ 0 ถึง 255 ตัวอย่างวางต้นฉบับข้างสองสำเนาและบันทึกเกณฑ์ของแต่ละสำเนาไว้ในงานนำเสนอ
+
+```cpp
+#include <DOM/Effects/IBiLevel.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 150, SlideSizeScaleType::DoNotScale);
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto imageData = File::ReadAllBytes(u"grayscale-swatches.png");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+auto addFrame = [&](float x, const String& caption)
+{
+    auto label = shapes->AddAutoShape(ShapeType::Rectangle, x, 12, 216, 36);
+    label->get_TextFrame()->set_Text(caption);
+    return shapes->AddPictureFrame(ShapeType::Rectangle, x, 60, 216, 72, image);
+};
+
+addFrame(12, u"Original");
+
+auto lowThreshold = addFrame(252, u"Threshold 20%");
+lowThreshold->get_PictureFormat()->get_Picture()->get_ImageTransform()->AddBiLevelEffect(20.0f);
+
+auto highThreshold = addFrame(492, u"Threshold 60%");
+highThreshold->get_PictureFormat()->get_Picture()->get_ImageTransform()->AddBiLevelEffect(60.0f);
+
+presentation->Save(u"luminance-threshold.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+เปิดงานนำเสนอผลลัพธ์ใน PowerPoint เพื่อเปรียบเทียบสามกรอบ ตัวอย่างที่มีป้ายกำกับ 96 มีความสว่างประมาณ 38% (96 จาก 255) จะกลายเป็นสีขาวที่เกณฑ์ 20% และสีดำที่เกณฑ์ 60%
+
+![ต้นฉบับสเว็ทช์สีเทาข้างผลลัพธ์สีดำ‑ขาวที่เกณฑ์ความสว่าง 20% และ 60%](luminance-threshold.png)
+
+## **เพิ่มเบลอ, ความโปร่งใส, และเอฟเฟกต์อัลฟ่า**
+
+[AddBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) มีผลต่อทุกช่องสี รวมอัลฟาด้วย ตั้งค่า `grow` เป็น `true` เมื่อขอบเบลออาจขยายออกไปนอกขอบเขตรูปเดิม
+
+สำหรับความโปร่งใสสม่ำเสมอ ให้ใช้ [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) มันคูณค่าอัลฟ่าเดิมทุกค่า ดังนั้นพิกเซลที่โปร่งใสบางส่วนจะคงความแตกต่างตามสัดส่วน [AddAlphaReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) จะกำหนดค่าอัลฟ่าเดียวให้กับทุกพิกเซล [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) แปลงอัลฟ่าเป็นสองระดับตามเกณฑ์
 
 ```cpp
 #include <DOM/Effects/IAlphaBiLevel.h>
@@ -224,15 +285,15 @@ presentation->Save(u"blur-and-alpha-effects.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-เอฟเฟกต์ alpha ที่ไม่มีพารามิเตอร์อื่น ๆ รวมถึง [AddAlphaCeilingEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/) ซึ่งทำให้ทุกค่า alpha ที่ไม่เป็นศูนย์เป็นทึบเต็ม; [AddAlphaFloorEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/) ทำให้ทุกค่า alpha ที่ต่ำกว่า 100% เป็นโปร่งใสเต็ม; และ [AddAlphaInverseEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/) ที่เปลี่ยนค่า alpha เป็น `100% - alpha`
+เอฟเฟกต์อัลฟ่าอื่นที่ไม่มีพารามิเตอร์รวมถึง [AddAlphaCeilingEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/) ซึ่งทำให้ทุกอัลฟ่าไม่เป็นศูนย์เต็มทึบ; [AddAlphaFloorEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/) ทำให้ทุกอัลฟ่าใต้น้อยกว่า 100% เป็นโปร่งใสเต็ม; และ [AddAlphaInverseEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/) แปลงอัลฟ่าเป็น `100% - alpha`
 
-## **สร้างเชนเอฟเฟกต์ตามลำดับ**
+## **สร้างห่วงโซ่เอฟเฟกต์ที่เรียงลำดับ**
 
-แต่ละเมธอด `Add...Effect` จะเพิ่มออบเจ็กต์ใหม่ต่อท้ายคอลเลกชัน เราเรนเดอร์ใช้คอลเลกชันเป็นสายการประมวลผลตามลำดับ: ผลลัพธ์ของการดำเนินการ 0 จะเป็นอินพุตของการดำเนินการ 1 และต่อ ๆ ไป ดังนั้นการจัดลำดับเดียวกันแต่ต่างกันจะให้ภาพที่ต่างกัน
+แต่ละเมธอด `Add...Effect` จะเพิ่มการดำเนินการใหม่ต่อท้ายคอลเลกชัน เราเรนเดอร์ใช้คอลเลกชันเป็นสายงานที่เรียงลำดับ: ผลลัพธ์ของการดำเนินการ 0 กลายเป็นอินพุตของการดำเนินการ 1 เป็นต้น ดังนั้น การใช้เอฟเฟกต์เดียวกันในลำดับต่างกันอาจให้ภาพที่ต่างกัน
 
-เช่น การใช้สีเทาตามด้วย tint จะลบข้อมูลสีโครเมาติกก่อนแล้วทำให้ผลลัพธ์ luminance มีสีใหม่ การใช้ tint ตามด้วยสีเทาจะลบ tint อีกครั้ง ในทำนองเดียวกัน การแทนที่ alpha สามารถเขียนทับค่าที่คำนวณจากการดำเนินการก่อนหน้าได้ ในขณะที่การปรับค่า alpha จะคงความแตกต่างเชิงสัมพัทธ์ไว้
+เช่น grayscale แล้วตามด้วย tint จะลบข้อมูลสีก่อนแล้วทำให้สีใหม่ของผลลัพธ์ความสว่าง; tint แล้วตามด้วย grayscale จะลบ tint อีกครั้ง เช่นเดียวกับการแทนที่อัลฟ่าอาจเขียนทับค่าที่คำนวณจากการดำเนินการก่อนหน้า ในขณะที่การโมเดูเลตอัลฟ้าจะคงความแตกต่างสัมพัทธ์ไว้
 
-ตัวอย่างต่อไปนี้สร้างเชนสี่ปฏิบัติการ, บันทึกเป็น PPTX, เปิดไฟล์ใหม่, ตรวจสอบชนิดและลำดับของการดำเนินการ, และเรนเดอร์ผลลัพธ์ที่เปิดใหม่:
+ตัวอย่างต่อไปนี้สร้างห่วงโซ่สี่การดำเนินการ บันทึกเป็น PPTX แล้วเปิดงานนำเสนอใหม่ เพื่อตรวจสอบทั้งประเภทการดำเนินการและลำดับ จากนั้นเรนเดอร์ผลลัพธ์ที่เปิดใหม่:
 
 ```cpp
 #include <DOM/Effects/IAlphaModulateFixed.h>
@@ -303,15 +364,20 @@ else
 reopenedPresentation->Dispose();
 ```
 
-คอลเลกชันไม่ได้บังคับให้มีเมทริกซ์ความเข้ากันที่จำกัดสี, alpha, และเบลอร์ให้แยกเป็นเชนต่าง ๆ พวกมันสามารถผสานรวมกันได้แต่บางการผสานอาจไม่มีประโยชน์ การแทนที่สีคงที่จะลบความแปรเปลี่ยน RGB ที่สร้างโดยเอฟเฟกต์สีก่อนหน้า; การใช้สีเทาหลัง duotone จะลบสองสีที่เลือก; การใช้เอฟเฟกต์ alpha ceiling, floor, replacement หรือ bi‑level สามารถลบรายละเอียด alpha ที่สร้างก่อนหน้าได้ สร้างเชนตามลำดับการประมวลผลพิกเซลที่ต้องการ แทนที่จะถือเป็นแฟล็กการจัดรูปแบบที่ไม่เรียงลำดับ
+คอลเลกชันไม่ได้กำหนดเมทริกซ์ความเข้ากันที่จำกัดเอฟเฟกต์สี, อัลฟ่า, และเบลอให้อยู่ในห่วงโซ่แยกกัน สามารถรวมกันได้ แต่การรวมกันอาจไม่ใช้งานที่มีประโยชน์ การแทนที่สีคงที่จะลบการเปลี่ยนแปลง RGB ที่เกิดจากเอฟเฟกต์สีก่อนหน้า; grayscale หลัง duotone จะลบสองสีที่เลือก; และเอฟเฟกต์อัลฟ่า ceiling, floor, replace หรือ bi‑level สามารถลบรายละเอียดอัลฟ่าเดิมที่สร้างขึ้นก่อนหน้า สร้างห่วงโซ่ตามลำดับการประมวลผลพิกเซลที่ต้องการ ไม่ใช่จัดเป็นธงฟอร์แมตที่ไม่มีลำดับ
 
-## **ตรวจสอบค่าแก้ไขได้และค่าที่คำนวณได้**
+<!-- visual-explanation:image-transform-effects:start -->
+[![ภาพเดียวผ่าน grayscale แล้ว tint, และผ่าน tint แล้ว grayscale. สองภาพ grayscale สุดท้ายมีโทนสีต่างกัน](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+*ในภาพแสดงผล Aspose.Slides for .NET 26.11 นี้ การ tint 220° ที่ 25% ทำให้ภาพ grayscale ไม่เปลี่ยน; การใช้ tint ก่อน grayscale ให้โทนสีที่ต่างกัน*
+<!-- visual-explanation:image-transform-effects:end -->
 
-การดำเนินการที่แก้ไขได้คื้อ็อบเจ็กต์ที่เก็บไว้ใน `ISlidesPicture::get_ImageTransform` ขึ้นอยู่กับเอฟเฟกต์ บางอ็อบเจ็กต์อาจเปิดเผยสมาชิกที่เขียนได้โดยตรง เช่น [IBlur](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iblur/) มี `set_Radius` และ `set_Grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ialphamodulatefixed/) มี `set_Amount`, และ [IAlphaBiLevel](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ialphabilevel/) มี `set_Threshold` เอฟเฟกต์สีอย่าง [IDuotone](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iduotone/) เปิดเผยอ็อบเจ็กต์ [IColorFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/icolorformat/) ที่เปลี่ยนแปลงได้
+## **ตรวจสอบค่าที่แก้ไขได้และค่าที่มีผล**
 
-อินเทอร์เฟซบางอย่างรวมถึง [IBrightnessContrast](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/itint/), และ [IAlphaReplace](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ialphareplace/) ไม่ได้เปิดเผยสเกลาร์การสร้างเป็นคุณสมบัติเขียนได้ เพื่อเปลี่ยนการตั้งค่าเหล่านี้ ให้ลบการดำเนินการแล้วเพิ่มการทดแทนในตำแหน่งที่ต้องการ
+ออบเจ็กต์การดำเนินการที่แก้ไขได้คือออบเจ็กต์ที่เก็บใน `ISlidesPicture::get_ImageTransform` ขึ้นอยู่กับเอฟเฟกต์อาจเปิดเผยสมาชิกที่เขียนได้โดยตรง เช่น [IBlur](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/) มี `set_Radius` และ `set_Grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphamodulatefixed/) มี `set_Amount`, และ [IAlphaBiLevel](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphabilevel/) มี `set_Threshold`  เอฟเฟกต์สีเช่น [IDuotone](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iduotone/) เปิดเผยออบเจ็กต์ [IColorFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/) ที่แก้ไขได้
 
-ข้อมูลที่คำนวณโดย `GetEffective()` เป็นค่าที่คำนวณแล้วและอ่าน‑อย่าง‑เดียว มีประโยชน์สำหรับการแก้ไขสีที่ขึ้นกับธีมและการอ่านค่าที่ทำให้เรนเดอร์ใช้ แต่ไม่ได้เป็นพื้นผิวการแก้ไขใหม่ ตัวอย่างต่อไปนี้วนผ่านเชนและตรวจสอบค่าที่คำนวณได้สำหรับหลายการดำเนินการทั่วไป:
+อินเทอร์เฟสการดำเนินการบางอย่างรวมถึง [IBrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/cpp/aspose.slides.effects/itint/), และ [IAlphaReplace](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphareplace/) ไม่เปิดเผยสเกลาร์ที่สร้างเป็นคุณสมบัติที่เขียนได้ เพื่อเปลี่ยนการตั้งค่าเหล่านั้น ให้ลบการดำเนินการแล้วเพิ่มการแทนที่ในตำแหน่งที่ต้องการ
+
+ข้อมูลที่มีผลที่คืนโดย `GetEffective()` เป็นค่าที่คำนวณแล้วและอ่าน‑อย่างเดียว มีประโยชน์สำหรับการแก้ไขสีที่ขึ้นกับธีมและการอ่านค่าที่ทำให้อยู่ในรูปแบบมาตรฐานที่ตัวเรนเดอร์ใช้ แต่ไม่ใช่พื้นผิวการแก้ไขอื่น ตัวอย่างต่อไปนี้วนลูปคอลเลกชันและตรวจสอบค่าที่มีผลของการดำเนินการทั่วไปหลายรายการ:
 
 ```cpp
 #include <DOM/Effects/IAlphaModulateFixed.h>
@@ -394,11 +460,11 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-เอฟเฟกต์ที่ไม่มีพารามิเตอร์เช่นสีเทา, alpha ceiling, และ alpha inverse ยังคงมีออบเจ็กต์ข้อมูลที่คำนวณได้ แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์ การมีอยู่และตำแหน่งในคอลเลกชันคือข้อมูลสำคัญ
+เอฟเฟกต์ที่ไม่มีพารามิเตอร์เช่น grayscale, alpha ceiling, และ alpha inverse ยังคงมีออบเจ็กต์ข้อมูลที่มีผลอยู่ แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์ สิ่งที่สำคัญคือการมีอยู่และตำแหน่งของพวกมันในคอลเลกชัน
 
 ## **ลบหรือเคลียร์การแปลงภาพ**
 
-ใช้ [IImageTransformOperationCollection::RemoveAt](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/removeat/) เพื่อลบการดำเนินการหนึ่งรายการโดยใช้ดัชนี เนื่องจากดัชนีจะสับเปลี่ยนหลังการลบ ให้ค้นหาตัวเป้าหมายก่อนแล้วลบหลังจากวนรายการ ใช้ `Clear()` เพื่อลบเชนทั้งหมด
+ใช้ [IImageTransformOperationCollection::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/removeat/) เพื่อลบการดำเนินการหนึ่งตามตำแหน่ง เนื่องจากตำแหน่งจะเปลี่ยนหลังการลบ ให้ค้นหาเป้าหมายก่อนแล้วลบหลังจากวนลูป ใช้ `Clear()` เพื่อลบห่วงโซ่ทั้งหมด
 
 ```cpp
 #include <DOM/Effects/IBlur.h>
@@ -460,38 +526,38 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-การลบหรือเคลียร์การแปลงเปลี่ยนเฉพาะการจัดรูปแบบของรูปภาพ ไม่ได้ลบ, บีบอัดใหม่, หรือแก้ไขทรัพยากร [IPPImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ippimage/) ที่ใช้ซ้ำ
+การลบหรือเคลียร์การแปลงเปลี่ยนเฉพาะรูปแบบของรูปภาพ ไม่ได้ทำการลบ, บีบอัดใหม่, หรือแก้ไขทรัพยากร [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) ที่ใช้งานซ้ำ
 
-## **พิจารณารูปแบบงานนำเสนอและเป้าหมายการส่งออก**
+## **พิจารณาฟอร์แมตการนำเสนอและเป้าหมายการส่งออก**
 
-การแปลงภาพเริ่มต้นจาก DrawingML ดังนั้น PPTX จึงเป็นรูปแบบที่แก้ไขได้ดีที่สุดสำหรับเชนเอฟเฟกต์ แม้กับ PPTX การดำเนินการแต่ละอย่างอาจมีความพกพาที่ต่างกัน:
+การแปลงภาพเริ่มต้นจาก DrawingML ทำให้ PPTX เป็นฟอร์แมตที่แก้ไขได้ที่แนะนำสำหรับห่วงโซ่เอฟเฟกต์ แม้กับ PPTX ก็ไม่ได้หมายความว่าการดำเนินการทุกอย่างมีพกพาเท่าเดิม:
 
-- การดำเนินการ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และเอฟเฟกต์ alpha ทั่วไปมีโอกาสรอดชีวิตจากรอบ PPTX มากที่สุด ควรเปิดไฟล์ที่สร้างแล้วตรวจสอบคอลเลกชันทุกครั้งเมื่อการเก็บรักษาเป็นข้อกำหนด
-- [BrightnessContrast](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/brightnesscontrast/) เป็นส่วนขยาย Office 2010 ไม่ใช่การดำเนินการ luminance ของ DrawingML มาตรฐาน สามารถใช้เพื่อเรนเดอร์ในหน่วยความจำได้แต่ไม่ได้รับประกันว่าจะคงเป็น [IBrightnessContrast](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/ibrightnesscontrast/) ที่แก้ไขได้หลังการบันทึกและเปิดไฟล์ PPTX แนะนำให้ใช้ [AddLuminanceEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) สำหรับการปรับความสว่างและคอนทราสต์ที่คงที่
-- รูปแบบไบนารี PPT มีอายุยาวกว่ารุ่นโมเดลเอฟเฟกต์ DrawingML เต็มรูปแบบ การบันทึกเป็น PPT อาจละเว้นการดำเนินการที่ไม่ได้รับการสนับสนุน, ลดเชนลงเป็นส่วนย่อยที่สนับสนุน, หรือประมาณลักษณะที่แสดง อย่าใช้ PPT เป็นรูปแบบตรวจสอบสำหรับเชนที่แก้ไขได้ซับซ้อน
-- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML หรือรูปแบบภาพอื่น ๆ จะใช้เชนที่สนับสนุนกับลักษณะที่เรนเดอร์ออกมา รูปแบบเหล่านั้นไม่มี `IImageTransformOperationCollection` ที่แก้ไขได้; รูปแบบเรสเตอร์ทำให้ผลลัพธ์แปลงเป็นพิกเซล, และการส่งออกเอกสารหรือเวกเตอร์จะจัดเก็บการแทนภาพของตนเอง
-- เอฟเฟกต์ไม่ได้ทำให้ภาพที่ลิงก์เป็นไฟล์ที่อยู่ในตัว การเรนเดอร์รูปภาพที่ลิงก์ยังคงพึ่งพาทรัพยากรที่ลิงก์อยู่เมื่อเปิดงานนำเสนอ
+- การดำเนินการ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และการดำเนินการอัลฟ่าแบบทั่วไป มีโอกาสดีที่สุดที่จะคงอยู่หลังการเดินทางรอบ PPTX ควรเปิดไฟล์ที่สร้างใหม่แล้วตรวจสอบคอลเลกชันเสมอเมื่อการคงรักษาเป็นข้อกำหนด
+- [BrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/brightnesscontrast/) เป็นส่วนขยาย Office 2010 ไม่ใช่การดำเนินการ luminance มาตรฐานของ DrawingML สามารถใช้สำหรับเรนเดอร์ในหน่วยความจำได้ แต่ไม่รับประกันว่าจะคงเป็น [IBrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ibrightnesscontrast/) ที่แก้ไขได้หลังบันทึกและเปิดใหม่ PPTX แนะนำให้ใช้ [AddLuminanceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) สำหรับการปรับความสว่างและคอนทราสต์ที่คงอยู่
+- ฟอร์แมตไบนารี PPT มีอายุยาวกว่ารุ่นเต็มของโมเดลเอฟเฟกต์ DrawingML การบันทึกเป็น PPT อาจละทิ้งการดำเนินการที่ไม่รองรับ, ลดห่วงโซ่ลงเป็นส่วนที่รองรับ, หรือประมาณลักษณะการแสดงผล อย่าใช้ PPT เป็นฟอร์แมตการตรวจสอบสำหรับห่วงโซ่ที่แก้ไขได้ซับซ้อน
+- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML หรือเอาต์พุตภาพอื่นๆ จะใช้ห่วงโซ่ที่รองรับในการเรนเดอร์ผลลัพธ์ รูปแบบเหล่านี้ไม่ได้บรรจุ `IImageTransformOperationCollection` ที่แก้ไขได้; รูปแบบเรสเตอร์ทำให้ผลลัพธ์แปรสภาพเป็นพิกเซล และการส่งออกเอกสารหรือเวกเตอร์เก็บการแสดงผลของตนเอง
+- เอฟเฟกต์ไม่ทำให้ภาพที่เชื่อมโยงเป็นไฟล์ที่อยู่ในตัวเอง การเรนเดอร์ภาพที่เชื่อมโยงยังคงต้องอาศัยทรัพยากรที่เชื่อมโยงอยู่เมื่อนำเสนอถูกโหลด
 
-ผู้ใช้งานนำเสนอที่ต่างกันอาจเรนเดอร์กรณีขอบต่างกัน โดยเฉพาะเมื่อผสานหลายเอฟเฟกต์ alpha หรือการควอนตายสี การทดสอบทั้งรอบแก้ไขและรูปแบบส่งออกขั้นสุดท้ายด้วยรุ่น Aspose.Slides ที่ใช้ในผลิตภัณฑ์เป็นเรื่องสำคัญ
+ผู้บริโภคงานนำเสนอที่ต่างกันอาจเรนเดอร์กรณีขอบต่างกันโดยเฉพาะเมื่อมีการรวมการดำเนินการอัลฟ่าหรือการควอนตาไลซ์สีหลายอย่าง สำหรับผลลัพธ์สำคัญ ควรทดสอบทั้งรอบการแก้ไขและรูปแบบการส่งออกขั้นสุดท้ายด้วย Aspose.Slides รุ่นเดียวที่ใช้ในการผลิต
 
 ## **FAQ**
 
-**เอฟเฟกต์การแปลงภาพทำให้ข้อมูลภาพฝังเปลี่ยนแปลงหรือไม่?**
+**Do image transform effects modify the embedded image data?**
 
-ไม่มี การดำเนินการเป็นของ `ISlidesPicture` ที่ใช้โดยการเติมรูปภาพ ไบต์ของ `IPPImage` พื้นฐานจะไม่ถูกแก้ไข
+No. The operations belong to the `ISlidesPicture` used by the picture fill. The underlying `IPPImage` bytes remain unchanged.
 
-**สองกรอบรูปที่ใช้ `IPPImage` เดียวกันจะใช้เอฟเฟกต์ร่วมกันหรือไม่?**
+**Will two picture frames that reuse the same image share their effects?**
 
-ไม่มี การใช้ `IPPImage` ซ้ำช่วยหลีกเลี่ยงข้อมูลภาพซ้ำกันแต่ละกรอบรูปโดยทั่วไปจะมี `ISlidesPicture` และคอลเลกชันการแปลงภาพของตนเอง
+No. Reusing an `IPPImage` avoids duplicate image data, but each picture frame normally has a separate `ISlidesPicture` and image transform collection.
 
-**สามารถผสานเอฟเฟกต์สี, เบลอร์, และ alpha ได้หรือไม่?**
+**Can color, blur, and alpha effects be combined?**
 
-ได้ คอลเลกชันรับพวกมันในเชนที่เรียงลำดับ ควรพิจารณาว่าแต่ละการดำเนินการทำอะไรกับผลลัพธ์ของการดำเนินการก่อนหน้า เพราะเอฟเฟกต์การแทนที่และเกณฑ์อาจลบดึงรายละเอียดสีหรือ alpha ก่อนหน้า
+Yes. The collection accepts them in one ordered chain. Consider what each operation does to the output of the previous one because replacement and threshold operations may discard earlier color or alpha detail.
 
-**ทำไมค่าที่คำนวณได้จึงเป็นอ่าน‑อย่าง‑เดียว?**
+**Why are effective values read‑only?**
 
-ข้อมูลที่คำนวณเป็นค่าที่ใช้สำหรับการเรนเดอร์รวมถึงสีที่แก้ไขแล้ว แก้ไขการดำเนินการที่เก็บในคอลเลกชันที่มีสมาชิกที่เขียนได้; หากไม่มีให้ลบและเพิ่มการทดแทนด้วยพารามิเตอร์การสร้างใหม่
+Effective data represents calculated values used for rendering, including resolved colors. Edit the operation stored in the transform collection where writable members exist; otherwise remove it and add a replacement with new creation parameters.
 
-**ควรใช้รูปแบบใดเพื่อคงเชนการแปลง?**
+**Which format should I use to preserve a transform chain?**
 
-ใช้ PPTX และตรวจสอบไฟล์โดยการเปิดใหม่อีกครั้ง PPT รุ่นเก่าไม่สามารถแสดงโมเดลเอฟเฟกต์ DrawingML ทั้งหมดได้ และรูปแบบส่งออกที่เรนเดอร์จะเก็บลักษณะการแสดงผลแทนการดำเนินการแปลงที่แก้ไขได้
+Use PPTX and verify the file by reopening it. Legacy PPT cannot represent the full DrawingML effect model, and rendered export formats preserve appearance rather than editable transform operations.

@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda .NET ile Görüntü Dönüşüm Efektlerini Yönetme
+title: Sunumlarda Görüntü Dönüşüm Efektlerini .NET ile Yönetme
 linktitle: Görüntü Dönüşüm Efektleri
 type: docs
 weight: 11
@@ -9,9 +9,9 @@ keywords:
 - resim efekti
 - parlaklık
 - kontrast
-- gri ölçek
+- gri tonlama
 - çift ton
-- renk tonu
+- tonlama
 - HSL
 - renk değiştirme
 - bulanıklaştırma
@@ -23,50 +23,50 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile resim çerçeveleri için görüntü dönüşüm efektlerini uygulayın, zincirleyin, inceleyin, kaldırın ve doğrulayın."
+description: "Aspose.Slides for .NET ile resim çerçevelerinde görüntü dönüşüm efektlerini uygulayın, zincirleyin, inceleyin, kaldırın ve doğrulayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, resim ayarlamalarını sıralı bir görüntü dönüşüm işlemleri koleksiyonu olarak temsil eder. Bir resim çerçevesi için, çerçevenin [ISlidesPicture](https://reference.aspose.com/slides/tr/net/aspose.slides/islidespicture/) ile başlayın ve [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/tr/net/aspose.slides/islidespicture/imagetransform/) öğesine erişin. Döndürülen [IImageTransformOperationCollection](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/) size etkileri ekleme, listeleme, inceleme, kaldırma ve temizleme imkanı sağlar; orijinal görüntü baytlarını yeniden yazmadan.
+Aspose.Slides, resim ayarlamalarını, görüntü dönüşüm işlemlerinin sıralı bir koleksiyonu olarak temsil eder. Bir resim çerçevesi için, çerçevenin [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) ile başlayın ve [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/) öğesine erişin. Döndürülen [IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/) size orijinal görüntü baytlarını yeniden yazmadan efekt ekleme, listeleme, inceleme, kaldırma ve temizlik yapma imkanı sağlar.
 
-Bu makale, parlaklık ve kontrast, renk dönüşümleri, bulanıklaştırma, şeffaflık, sıralı efekt zincirleri, etkili değerler, kaldırma ve PPTX çift yönlü doğrulama için tam bir iş akışını göstermektedir.
+Bu makale, parlaklık ve kontrast, renk dönüşümleri, bulanıklaştırma, şeffaflık, sıralı efekt zincirleri, etkili değerler, kaldırma ve PPTX çift yönlü doğrulama için tam bir iş akışını gösterir.
 
-## **Efekt Sahipliğini ve Görüntü Yeniden Kullanımını Anlama**
+## **Efekt Sahipliği ve Görüntü Yeniden Kullanımını Anlama**
 
 Bir görüntü kaynağı ve onu gösteren resim farklı nesnelerdir:
 
-- [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) sunumda sahip olunan kaynak görüntü verilerini depolar veya referans verir.
-- [ISlidesPicture](https://reference.aspose.com/slides/tr/net/aspose.slides/islidespicture/) bir resim doldurmanın parçasıdır ve bir görüntü kaynağına başvururken aynı zamanda görüntü dönüşüm koleksiyonunu depolar.
-- [IPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe/) ilgili resim doldurmayı, geometrileri, kırpma ayarlarını ve diğer çerçeve seviyesindeki biçimlendirmeleri sahip olan slayt şeklidir.
+- [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) sunumun sahip olduğu kaynak görüntü verilerini depolar veya başvurur.
+- [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) bir resim dolduruma aittir ve bir görüntü kaynağına atıfta bulunurken görüntü dönüşüm koleksiyonunu saklar.
+- [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) ilgili resim doldurumu, geometriyi, kırpma ayarlarını ve diğer çerçeve düzeyindeki biçimlendirmeleri sahip olan slayt şeklidir.
 
-Bu nedenle, görüntü dönüşüm işlemleri [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) içindeki baytları değiştirmez. Aynı `IPPImage` [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/addpictureframe/) metoduna birden fazla kez geçirilirse, her yeni resim çerçevesi kendi `ISlidesPicture` ve kendi dönüşüm koleksiyonunu alır. Bir çerçeveye gri ölçek uygulanması, diğer çerçevelerin gri ölçeğe geçmesine neden olmaz; tüm çerçeveler aynı gömülü görüntü kaynağını kullansa da.
+Bu nedenle, görüntü dönüşüm işlemleri [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) içindeki baytları değiştirmez. Aynı `IPPImage` birden fazla kez [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) metoduna geçirildiğinde, her yeni resim çerçevesi kendi `ISlidesPicture` ve kendi dönüşüm koleksiyonunu alır. Bir çerçeveye gri tonlama uygulanması, diğer çerçevelerin gri tonlamasını yapmaz, çünkü hepsi aynı gömülü görüntü kaynağını yeniden kullanır.
 
-Aynı `ISlidesPicture.ImageTransform` modeli şekil doldurması veya slayt arka planı gibi diğer resim doldurmalarında da kullanılır. Aşağıdaki örnekler resim çerçevelerine odaklanmıştır.
+Aynı `ISlidesPicture.ImageTransform` modeli, şekil ya da slayt arka planı gibi diğer resim doldurmalar tarafından da kullanılır. Aşağıdaki örnekler resim çerçevelerine odaklanır.
 
-## **Geçerli Parametre Aralıklarını ve Birimlerini Kullanma**
+## **Geçerli Parametre Aralıkları ve Birimlerini Kullanma**
 
-Gösterilen metodlar aşağıdaki anlamsal aralıkları ve birimleri kullanır. Belirli bir kütüphane sürümü hemen her dışarıdaki değeri reddetmese bile bu aralıkta kalın; hedef sunum formatı kaydetme sırasında veya PowerPoint dosyayı açtığında geçersiz verileri normalleştirebilir, atabilir veya reddedebilir.
+Demonstrasyon yöntemleri aşağıdaki anlamsal aralıkları ve birimleri kullanır. Belirli bir kütüphane sürümü, out-of-range değerleri hemen reddetmese bile, bu aralıklardaki değerleri koruyun; hedef sunum formatı kaydetme sırasında veya PowerPoint dosyayı açtığında geçersiz verileri normalleştirebilir, atabilir veya reddedebilir.
 
-| Operation | Parametreler | Geçerli aralık ve birim |
+| Operation | Parameters | Valid range and unit |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` ile `100` arasında, yüzde; `0` bileşeni değiştirmez. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | Yok | Sayısal parametre yok. Alfa değişmez. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Koyu ve açık pikseller için iki renk. `System.Drawing.Color` içindeki RGB ve alfa kanalları `0` ile `255` arasındadır. |
-| [AddTintEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Ton `0` dahil, `360` hariç derece cinsinden; miktar `-100` ile `100` arasında, yüzde. |
-| [AddHSLEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Ton `0` dahil, `360` hariç derece; doygunluk ve parlaklık `-100` ile `100` arasında, yüzde. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | Değiştirme rengi kanallarını `0` ile `255` arasında kullanır. Mevcut alfa değerleri değişmez. |
-| [AddBlurEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Yarıçap negatif olmayan ve puan cinsindendir; `grow` bulanık içeriğin orijinal sınırların dışına çıkıp çıkmayacağını belirleyen bir Boolean'dır. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Negatif olmayan yüzde. Normal opaklık ölçeklemesi için `0` ile `100` kullanılır: `0` tamamen şeffaf, `100` mevcut alfabayı korur. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` ile `100` arasında, yüzde opaklık. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` ile `100` arasında, yüzde alfa eşiği. Altındaki değerler şeffaf, eşit veya üzerindeki değerler opak olur. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` ile `100` arasında, yüzde; `0` bileşeni değiştirmez. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | Sayısal parametre yok. Alfa değişmez. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Karanlık ve açık pikseller için iki renk. `System.Drawing.Color` içindeki RGB ve alfa kanalları `0` ile `255` arasında kullanılır. |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Renk tonu `0` dahil, `360` hariç derecede; miktar `-100` ile `100` arasında, yüzde. |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Renk tonu `0` dahil, `360` hariç derecede; doygunluk ve parlaklık `-100` ile `100` arasında, yüzde. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | Yerine konulan renk `0` ile `255` arasındaki kanal değerlerini kullanır. Mevcut alfa değerleri değişmez. |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Yarıçap negatif olmayan ve puan cinsinden ölçülür; `grow` bulanık içeriğin orijinal sınırlardan dışarı çıkıp çıkmayacağını kontrol eden bir Boolean’dır. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Negatif olmayan yüzde. Normal opaklık ölçeklemesi için `0` ile `100` kullanın: `0` tamamen şeffaftır ve `100` mevcut alfasını korur. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` ile `100` arasında, yüzde opaklık. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` ile `100` arasında, yüzde alfa eşik değeri. Bu değerin altındaki değerler şeffaf, eşit ya da üstündekiler opak olur. |
 
-Sabit alfa modülasyonu için şeffaflık ve opaklık karşılıklı tamamlayıcıdır. Örneğin, %35 şeffaflık %65 alfa modülasyon miktarına karşılık gelir.
+Sabit alfa modülasyonu için, şeffaflık ve opaklık karşılıklıdır. Örneğin, %35 şeffaflık %65 alfa modülasyon miktarına karşılık gelir.
 
 ## **Parlaklık ve Kontrast Uygulama**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) bir [IBrightnessContrast](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ibrightnesscontrast/) işlemi döndürür. İşlem oluşturulurken skaler ayarları sağlanır. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/brightnesscontrast/geteffective/) hesaplanmış, yalnızca okunabilen değerleri döndürür; bu değerler incelenebilir veya kaydedilebilir.
+[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) bir [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) işlemi döndürür. İşlem oluşturulurken skaler ayarları sağlanır. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/) incelenebilen veya kaydedilebilen hesaplanmış sadece‑okunur değerleri döndürür.
 
-Aşağıdaki örnek parlaklığı %15, kontrastı %20 artırır ve gömülü görüntüyü değiştirmeden bir ön izleme üretir:
+Aşağıdaki örnek parlaklığı %15 ve kontrastı %20 artırır, ardından gömülü görüntüyü değiştirmeden bir ön izleme render eder:
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/brightnesscontrast/) bir Office 2010 resim‑efekti uzantısıdır ve standart DrawingML parlaklık etkisine göre daha az taşınabilirdir. Parlaklık ve kontrastın PPTX çift yönlü yolculuktan sonra da düzenlenebilir kalması gerekiyorsa [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) kullanın ve dosyayı yeniden açtıktan sonra sonucu doğrulayın. Biçim sınırlamaları bölümü bu farkı daha ayrıntılı açıklar.
+[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) bir Office 2010 resim‑efekt uzantısıdır ve standart DrawingML parlaklık efektinden daha az taşınabilirdir. Parlaklık ve kontrast bir PPTX çift yönlü işlemden sonra düzenlenebilir kalmalıysa, [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) kullanın ve dosyayı yeniden açtıktan sonra sonucu doğrulayın. Biçim sınırlamaları bölümü bu farkı daha ayrıntılı açıklar.
 
 ## **Renk Dönüşümlerini Uygulama**
 
-Renk efektleri, aynı görüntü kaynağını kullanan farklı resim çerçevelerine bağımsız olarak uygulanabilir. Aşağıdaki örnek beş çerçeve oluşturur ve sırasıyla gri ölçek, duotone, ton, HSL ayarı ve renk değiştirme uygular.
+Renk efektleri, aynı görüntü kaynağını yeniden kullanan farklı resim çerçevelerine bağımsız olarak uygulanabilir. Aşağıdaki örnek beş çerçeve oluşturur ve gri tonlama, duotone, tonlama, HSL ayarı ve renk değiştirme uygular.
 
-[IDuotone](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iduotone/) iki bağımsız olarak düzenlenebilir renk parametresi içerir: `Color1` koyu pikselleri, `Color2` ise açık pikselleri temsil eder. Bu, ayarları tek bir skaler değerden daha karmaşık bir etki örneği olması bakımından faydalıdır.
+[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) iki bağımsız olarak düzenlenebilir renk parametresi içerir: `Color1` karanlık pikselleri, `Color2` ise açık pikselleri eşler. Bu, ayarları tek bir skaler değerden daha karmaşık bir etkene örnek teşkil eder.
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) her pikselin rengini tek bir sabit renkle değiştirirken alfabayı korur. Bu, bir kaynak rengi başka bir renge eşleyen ve hem kaynak hem hedef renk biçimlerini ortaya çıkaran [AddColorChangeEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) işleminden farklıdır.
+[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) her pikselin rengini sabit bir renk ile değiştirirken alfabı korur. Bu, bir kaynak rengi diğerine eşleyen ve hem kaynak hem hedef renk formatlarını ortaya çıkaran [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/) farklıdır.
+
+### **Parlaklık Eşiği Uygulama**
+
+Bir parlaklık eşiği, taranmış bir sayfadaki hafif işaretleri arka plandan ayırt etmeyi kolaylaştırabilir. [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) ara gri tonlarını korur. [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) parlaklığı siyah veya beyaza eşler, [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) ise opaklığa bir eşik uygular.
+
+Parlaklık eşiği %0 ile %100 arasında, dahil. Eşik altındaki pikseller siyah olur. Eşikte ya da üstünde olan pikseller beyaz olur. Eşiği yükseltmek, daha fazla tonu siyaha dönüştürür çünkü daha çok ton kesimin altına düşer.
+
+[grayscale-swatches.png](grayscale-swatches.png) dosyasını çalışma dizinine indirin. Her etiket, 0‑255 ölçeğindeki orijinal gri seviyesini verir. Örnek, orijinali iki kopyanın yanına yerleştirir ve her kopyanın eşik değerini sunumda kaydeder.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Çıktı sunumunu PowerPoint'te açarak üç çerçeveyi karşılaştırın. 96 etiketi verilen örnek yaklaşık %38 parlaklığa (255 içinde 96) sahiptir. %20 eşikte beyaza, %60 eşikte siyaha dönüşür.
+
+![Parlaklık eşikleri %20 ve %60’ta siyah‑beyaz sonuçların yanındaki orijinal gri ton örnekleri](luminance-threshold.png)
 
 ## **Bulanıklaştırma, Şeffaflık ve Alfa Efektleri Ekleme**
 
-[AddBlurEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) tüm renk kanallarını, alfa dahil, etkiler. Bulanık kenarın orijinal resim sınırlarının dışına uzanabileceği durumlarda `grow` değerini `true` olarak ayarlayın.
+[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) alfa dahil tüm renk kanallarını etkiler. Bulanık kenar orijinal resim sınırlarının dışına çıkabilecekse `grow` değerini `true` olarak ayarlayın.
 
-Tekdüzen şeffaflık için [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) kullanın. Bu, mevcut alfa değerlerini çarpan bir işlem olduğundan kısmen şeffaf pikseller orantılı olarak farklı kalır. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) ise tüm piksellere tek bir alfa değeri atar. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) ise alfa değerini bir eşik temelinde iki seviyeye dönüştürür.
+Tekdüze şeffaflık için [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) kullanın. Bu, mevcut her alfa değerini çarpar; böylece kısmen şeffaf pikseller orantılı olarak farklı kalır. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) ise tüm piksellere tek bir alfa değeri atar. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) alfa değerini bir eşik üzerine iki seviyeye dönüştürür.
 
 ```csharp
 using System.IO;
@@ -171,15 +212,15 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-Parametresiz diğer alfa işlemleri arasında [AddAlphaCeilingEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/) bulunur; bu, sıfır olmayan tüm alfabayı tamamen opak yapar. [AddAlphaFloorEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/) tüm %100'ün altındaki alfabayı tamamen şeffaf eder; ve [AddAlphaInverseEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/) alfabı `100% - alpha` biçiminde tersine çevirir.
+Diğer parametresiz alfa işlemleri şunlardır: [AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/) – sıfır olmayan her alfabı tamamen opak yapar; [AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/) – %100’ün altındaki her alfabı tamamen şeffaf hale getirir; ve [AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/) – alfabı `100% - alpha` şeklinde değiştirir.
 
-## **Sıralı Bir Etki Zinciri Oluşturma**
+## **Sıralı Bir Efekt Zinciri Oluşturma**
 
-Her `Add...Effect` metodu yeni bir işlemi koleksiyonun sonuna ekler. İşleyici koleksiyonu sıralı bir pipeline olarak kullanır: işlem 0’ın çıktısı işlem 1’in girdisi olur ve bu şekilde devam eder. Dolayısıyla aynı işlemler farklı bir sırada farklı bir görüntü üretebilir.
+Her `Add...Effect` metodu koleksiyonun sonuna yeni bir işlem ekler. Renderleyici koleksiyonu sıralı bir taşıma hattı olarak kullanır: işlem 0’ın çıktısı işlem 1’in girdisi olur ve böyle devam eder. Bu nedenle, aynı işlemler farklı bir sırada birleştirildiğinde farklı bir görüntü elde edilebilir.
 
-Örneğin, gri ölçek ardından ton uygulamak önce renk bilgisini kaldırır, ardından parlaklık sonucunu yeniden renklendirir. Ton ardından gri ölçek uygulamak tonu tekrar kaldırır. Benzer şekilde, alfa değiştirme daha önceki işlemlerle hesaplanan alfa değerlerini geçersiz kılabilir, alfa modülasyonu ise göreceli farkları korur.
+Örneğin, gri tonlama ardından tonlama önce kromatik bilgiyi kaldırır, ardından parlaklık sonucunu yeniden renklendirir. Tonlama ardından gri tonlama tonu tekrar kaldırır. Benzer şekilde, alfa değiştirme daha önceki işlemler tarafından hesaplanan alfa değerlerini geçersiz kılabilir, alfa modülasyonu ise bunların göreceli farklarını korur.
 
-Aşağıdaki örnek dört işlemden oluşan bir zincir oluşturur, PPTX olarak kaydeder, sunumu yeniden açar, hem işlem tiplerini hem de sıralarını kontrol eder ve yeniden açılan sonucu render eder:
+Aşağıdaki örnek dört işlemden oluşan bir zincir oluşturur, PPTX olarak kaydeder, sunumu yeniden açar, hem işlem türlerini hem de sırasını kontrol eder ve yeniden açılan sonucu render eder:
 
 ```csharp
 using System;
@@ -224,15 +265,21 @@ else
 }
 ```
 
-Koleksiyon renk, alfa ve bulanıklaştırma işlemlerini ayrı zincirlere sınırlayan bir uyumluluk matrisi dayatmaz. Birleştirilebilirler, ancak tüm kombinasyonlar yararlı olmayabilir. Sabit bir renk değişimi, önceki renk efektleriyle üretilen RGB varyasyonunu ortadan kaldırır; duotone sonrası gri ölçek iki seçili rengi siler; ve alfa tavan, taban, değiştirme veya iki‑seviyeli işlemler daha önce oluşturulan alfa detayını yok edebilir. Zinciri istediğiniz piksel‑işleme sırasına göre oluşturun; öğeleri sırasız biçimlendirme bayrakları olarak düşünmeyin.
+Koleksiyon, renk, alfa ve bulanıklaştırma işlemlerini ayrı zincirlere sınırlayan bir uyumluluk matrisi dayatmaz. Bunlar birleştirilebilir, ancak kombinasyonlar her zaman faydalı değildir. Sabit renk değiştirme, önceki renk efektleriyle oluşan RGB varyasyonunu kaldırır; duotone sonrası gri tonlama iki seçili rengi kaldırır; ve alfa tavan, taban, değiştirme veya iki seviyeli işlemler önceki alfa detaylarını silebilir. Zinciri, istenen piksel işlem sırasına göre oluşturun, öğelerini sırasız biçim işaretleri gibi görmeyin.
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![Aynı görüntü önce gri tonlamadan sonra tonlamadan, ve tonlamadan önce gri tonlamadan geçer. İki son gri tonlama görüntüsü farklı tonlara sahiptir.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*Bu açıklayıcı Aspose.Slides for .NET 26.11 render'ında, %25'lik 220° tonlama gri tonlama görüntüsünü değiştirmez. Aynı tonlamayı gri tonlamadan önce uygulamak farklı tonlar üretir.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Düzenlenebilir ve Etkili Değerleri İnceleme**
 
-Düzenlenebilir bir işlem, `ISlidesPicture.ImageTransform` içinde depolanan nesnedir. Efekte bağlı olarak, yazılabilir üyeler doğrudan ortaya çıkabilir. Örneğin, [IBlur](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iblur/) yazılabilir `Radius` ve `Grow` öğelerini, [IAlphaModulateFixed](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ialphamodulatefixed/) yazılabilir `Amount` öğesini, ve [IAlphaBiLevel](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ialphabilevel/) yazılabilir `Threshold` öğesini ortaya çıkarır. [IDuotone](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iduotone/) gibi renk efektleri değiştirilebilir [IColorFormat](https://reference.aspose.com/slides/tr/net/aspose.slides/icolorformat/) nesnelerini ortaya çıkarır.
+Düzenlenebilir bir işlem, `ISlidesPicture.ImageTransform` içinde depolanan nesnedir. Etkiye bağlı olarak, yazılabilir üyeleri doğrudan ortaya çıkarabilir. Örneğin, [IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/) yazılabilir `Radius` ve `Grow` öğelerini; [IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/) yazılabilir `Amount`; ve [IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/) yazılabilir `Threshold` öğesini ortaya çıkarır. [IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) gibi renk efektleri ise değiştirilebilir [IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/) nesnelerini ortaya çıkarır.
 
-[IBrightnessContrast](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/itint/) ve [IAlphaReplace](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ialphareplace/) gibi bazı işlem arayüzleri, oluşturma skalerlerini yazılabilir özellik olarak ortaya koymaz. Bu ayarları değiştirmek için işlemi kaldırıp istenen konumda yeni bir işlem ekleyin.
+Bazı işlem arayüzleri, [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/) ve [IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/) dahil, oluşturma skalerlerini yazılabilir özellikler olarak ortaya çıkarmaz. Bu ayarları değiştirmek için, işlemi kaldırın ve gereken konuma bir yenisi ekleyin.
 
-`GetEffective()` tarafından döndürülen etkili veri hesaplanmış ve yalnızca okunabilir bir nesnedir. Tema bağımlı renkleri çözümlemek ve işleyicinin kullandığı normalleştirilmiş değerleri okumak için yararlıdır, ancak başka bir düzenleme yüzeyi değildir. Aşağıdaki örnek zinciri enumerate eder ve ilgili API sağlayan yerlerde etkili değerleri inceler:
+`GetEffective()` tarafından döndürülen etkili veri hesaplanmış ve sadece‑okunurdur. Tema‑bağımlı renkleri çözmek ve renderleyicinin kullandığı normalleştirilmiş değerleri okumak için faydalıdır, ancak başka bir düzenleme yüzeyi değildir. Aşağıdaki örnek zinciri sıralar ve ilgili API'nin sağladığı yerlerde etkili değerleri inceler:
 
 ```csharp
 using System;
@@ -302,11 +349,11 @@ if (pictureFrame != null)
 }
 ```
 
-Parametresiz efektler (gri ölçek, alfa tavan, alfa tersine çevirme gibi) hâlâ bir etkili veri nesnesine sahiptir, ancak bastırılacak skaler ayarları yoktur. Bulunmaları ve koleksiyondaki konumları önemli bilgidir.
+Gri tonlama, alfa tavan ve alfa ters gibi parametresiz efektlerin hâlâ bir etkili‑veri nesnesi vardır, ancak yazdırılacak skaler ayar yoktur. Bunların varlığı ve koleksiyondaki konumu önemli bilgidir.
 
 ## **Görüntü Dönüşümlerini Kaldırma veya Temizleme**
 
-Bir işlemi indeksle kaldırmak için [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) kullanın. Kaldırma sonrası indeksler kaydığı için önce hedefi bulup enumerate ettikten sonra kaldırın. Tüm zinciri kaldırmak için `Clear()` kullanın.
+Bir işlemi indeksle kaldırmak için [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) kullanın. Kaldırma sonrası indeksler kaydığı için, önce hedefi bulun ve ardından dolaşım sonrası kaldırın. Tüm zinciri kaldırmak için `Clear()` kullanın.
 
 ```csharp
 using System;
@@ -344,38 +391,38 @@ if (pictureFrame != null)
 }
 ```
 
-Dönüşümleri kaldırmak veya temizlemek yalnızca resim biçimlendirmesini değiştirir. Yeniden kullanılan [IPPImage](https://reference.aspose.com/slides/tr/net/aspose.slides/ippimage/) kaynağını silmez, yeniden sıkıştırmaz veya başka bir şekilde değiştirmez.
+Dönüşümleri kaldırmak veya temizlemek yalnızca resim biçimlendirmesini değiştirir. Yeniden kullanılan [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) kaynağını silmez, yeniden sıkıştırmaz veya başka bir şekilde değiştirmez.
 
-## **Sunum Formatlarını ve Dışa Aktarım Hedeflerini Düşünme**
+## **Sunum Biçimlerini ve Dışa Aktarım Hedeflerini Düşünme**
 
-Görüntü dönüşümleri DrawingML içinde ortaya çıkar, bu yüzden PPTX etkili zincirler için tercih edilen düzenlenebilir formattır. PPTX bile olsa, her işlem aynı taşınabilirliğe sahip değildir:
+Görüntü dönüşümleri DrawingML'de ortaya çıkar, bu yüzden PPTX efekt zincirleri için tercih edilen düzenlenebilir formattır. PPTX ile bile, her işlem aynı taşınabilirliğe sahip değildir:
 
-- Luminance, grayscale, duotone, tint, HSL, blur ve yaygın alfa işlemleri gibi standart DrawingML işlemleri PPTX çift yönlü yolculuktan en iyi şekilde geçer. Saklanan dosyayı her zaman yeniden açın ve koleksiyonu inceleyin; koruma bir gereklilikse bu şarttır.
-- [BrightnessContrast](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/brightnesscontrast/) bir Office 2010 uzantısıdır, standart DrawingML luminance işlemi değildir. Bellek içi render için kullanılabilir, ancak PPTX kaydedilip yeniden açıldıktan sonra düzenlenebilir bir [IBrightnessContrast](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/ibrightnesscontrast/) olarak kalması garanti edilmez. Kalıcı parlaklık ve kontrast ayarları için [AddLuminanceEffect](https://reference.aspose.com/slides/tr/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) tercih edin.
-- Eski PPT formatı tam DrawingML efekt modelinden önce gelmiştir. PPT’ye kaydetmek desteklenmeyen işlemleri atabilir, zinciri desteklenen bir alt kümeye indirebilir veya görünümü yaklaşık olarak oluşturabilir. Karmaşık düzenlenebilir bir zincir için PPT’yi doğrulama formatı olarak kullanmayın.
-- PNG, JPEG, TIFF, PDF, SVG, HTML veya diğer görsel çıktılar desteklenen zinciri görünüm üzerine uygular. Bu çıktılar düzenlenebilir `IImageTransformOperationCollection` içermez; raster formatlar sonucu piksellere döker, belge/vektör dışa aktarımları ise kendi render temsillerini depolar.
-- Efektler bağlanan bir görüntüyü kendi içinde özelleştirilmiş hâle getirmez. Bağlantılı bir resim render edildiğinde, sunum yüklendiğinde bağlantılı kaynağın mevcut olması gerekir.
+- Parlaklık, gri tonlama, duotone, tonlama, HSL, bulanıklaştırma ve yaygın alfa işlemleri gibi standart DrawingML işlemleri, bir PPTX çift yönlü işleminde hayatta kalma şansı en yüksek olandır. Koruma bir gereklilik olduğunda daima oluşturulan dosyayı yeniden açın ve koleksiyonu inceleyin.
+- [BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) standart DrawingML parlaklık işlemi yerine bir Office 2010 uzantısıdır. Bellekte renderleme için kullanılabilir, ancak kaydedilip PPTX yeniden açıldıktan sonra düzenlenebilir bir [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) olarak kalması garanti değildir. Kalıcı parlaklık ve kontrast ayarları için [AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) tercih edin.
+- İkili PPT formatı, tam DrawingML efekt modelinden öncedir. PPT'ye kaydetmek, desteklenmeyen işlemleri atabilir, zinciri desteklenen bir alt kümeye indirebilir veya görünümü yaklaşık olarak yakalayabilir. Karmaşık düzenlenebilir bir zincir için PPT'yi doğrulama formatı olarak kullanmayın.
+- PNG, JPEG, TIFF, PDF, SVG, HTML veya diğer görsel çıktılara renderleme, desteklenen zinciri renderlenmiş görünüme uygular. Bu çıktılar, düzenlenebilir bir `IImageTransformOperationCollection` içermez; raster formatlar sonucu piksel hâline getirir ve belge/vektör dışa aktarımları kendi renderleme temsilini depolar.
+- Efektler, bağlı bir görüntüyü kendi içinde bağımsız hâle getirmez. Bağlı bir resmi renderlemek, sunum yüklendiğinde bağlı kaynağın mevcut olmasına hâlâ bağlıdır.
 
-Farklı sunum tüketicileri kenar durumları farklı render edebilir, özellikle birkaç alfa veya renk‑kuantalama işlemi bir arada kullanıldığında. Kritik çıktılar için aynı Aspose.Slides sürümüyle düzenlenebilir çift yönlü yolculuğu ve son dışa aktarım formatını test edin.
+Farklı sunum tüketicileri kenar durumları farklı renderleyebilir, özellikle birden fazla alfa veya renk-kuantizasyon işlemi birleştirildiğinde. Kritik çıktılar için, üretimde kullanılan aynı Aspose.Slides sürümüyle düzenlenebilir çift yönlü ve son dışa aktarım formatını test edin.
 
 ## **SSS**
 
 **Görüntü dönüşüm efektleri gömülü görüntü verilerini değiştirir mi?**
 
-Hayır. İşlemler, resim doldurması tarafından kullanılan `ISlidesPicture` içinde tutulur. Alttaki `IPPImage` baytları değişmez.
+Hayır. İşlemler, resim doldurumu tarafından kullanılan `ISlidesPicture` a aittir. Alttaki `IPPImage` baytları değişmez.
 
-**Aynı görüntüyü yeniden kullanan iki resim çerçevesi etkilerini paylaşır mı?**
+**Aynı görüntüyü yeniden kullanan iki resim çerçevesi efektlerini paylaşır mı?**
 
-Hayır. `IPPImage` yeniden kullanmak veri tekrarlamasını önler, ancak her resim çerçevesi genellikle ayrı bir `ISlidesPicture` ve ayrı bir görüntü dönüşüm koleksiyonuna sahiptir.
+Hayır. `IPPImage` yeniden kullanmak, kopya görüntü verisini önler, ancak her resim çerçevesi genellikle ayrı bir `ISlidesPicture` ve görüntü dönüşüm koleksiyonuna sahiptir.
 
 **Renk, bulanıklaştırma ve alfa efektleri birleştirilebilir mi?**
 
-Evet. Koleksiyon bunları tek bir sıralı zincirde kabul eder. Önceki işlemin çıktısını ne yaptığına dikkat edin; değiştirme ve eşik işlemleri önceki renk veya alfa detayını ortadan kaldırabilir.
+Evet. Koleksiyon bunları tek bir sıralı zincirde kabul eder. Her bir işlemin önceki çıktıyı nasıl etkilediğini düşünün; çünkü değiştirme ve eşik işlemleri önceki renk veya alfa detaylarını ortadan kaldırabilir.
 
-**Etkili değerler neden yalnızca okunabilir?**
+**Etkili değerler neden sadece‑okunur?**
 
-Etkili veri, render için kullanılan hesaplanmış değerleri (çözülmüş renkler dahil) temsil eder. Yazılabilir üyeler varsa dönüşüm koleksiyonunda depolanan işlemi düzenleyin; aksi takdirde yeni oluşturma parametreleriyle bir yerine koyma ekleyin.
+Etkili veri, renderleme için kullanılan hesaplanmış değerleri, çözülmüş renkler dahil, temsil eder. Yazılabilir üyeleri olan transform koleksiyonundaki işlemi düzenleyin; aksi takdirde kaldırın ve yeni oluşturma parametreleriyle bir yenisini ekleyin.
 
 **Bir dönüşüm zincirini korumak için hangi formatı kullanmalıyım?**
 
-PPTX kullanın ve dosyayı yeniden açarak doğrulayın. Eski PPT tam DrawingML efekt modelini temsil edemez; render edilen dışa aktarma formatları ise yalnızca görünümü korur, düzenlenebilir dönüşüm işlemlerini değil.
+PPTX kullanın ve dosyayı yeniden açarak doğrulayın. Eski PPT, tam DrawingML efekt modelini temsil edemez ve renderlenen dışa aktarma formatları, düzenlenebilir dönüşüm işlemleri yerine görünümü korur.

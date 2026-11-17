@@ -1,5 +1,5 @@
 ---
-title: จัดการเอฟเฟกต์การแปลงภาพในงานพรีเซนเทชันด้วย Python
+title: จัดการเอฟเฟกต์การแปลงภาพในงานนำเสนอด้วย Python
 linktitle: เอฟเฟกต์การแปลงภาพ
 type: docs
 weight: 11
@@ -9,64 +9,64 @@ keywords:
 - เอฟเฟกต์รูปภาพ
 - ความสว่าง
 - ความคอนทราสต์
-- สเกลเทา
+- เกรย์สเกล
 - ดูโทน
-- สีสัน
+- ทินท์
 - HSL
 - การแทนที่สี
 - เบลอ
 - ความโปร่งใส
 - เอฟเฟกต์อัลฟ่า
-- โซ่เอฟเฟกต์
+- ห่วงโซ่เอฟเฟกต์
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "ใช้, สร้างโซ่, ตรวจสอบ, ลบ และตรวจสอบความถูกต้องของเอฟเฟกต์การแปลงภาพสำหรับกรอบรูปภาพด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
+description: "ใช้, เชื่อมต่อ, ตรวจสอบ, ลบ, และตรวจสอบความถูกต้องของเอฟเฟกต์การแปลงภาพสำหรับกรอบรูปภาพด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงลำดับของการดำเนินการแปลงภาพ สำหรับกรอบรูป ให้เริ่มจาก [Picture](https://reference.aspose.com/slides/th/python-java/aspose.slides/picture/) ของกรอบและเข้าถึง [Picture.getImageTransform](https://reference.aspose.com/slides/th/python-java/aspose.slides/picture/#getImageTransform). [ImageTransformOperationCollection](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/) ที่คืนค่ามาให้คุณสามารถเพิ่ม, แสดงรายการ, ตรวจสอบ, ลบ, และล้างเอฟเฟกต์โดยไม่ต้องเขียนทับไบต์ของภาพต้นฉบับ
+Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงตามลำดับของการดำเนินการแปลงภาพ. สำหรับกรอบรูปภาพ ให้เริ่มต้นด้วย [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) ของกรอบและเข้าถึง [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform). คอลเลกชัน [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) ที่ส่งกลับมาช่วยให้คุณเพิ่ม, ทำการวนซ้ำ, ตรวจสอบ, ลบ, และเคลียร์เอฟเฟกต์โดยไม่ต้องเขียนทับไบต์ของภาพต้นฉบับ.
 
-บทความนี้แสดงกระบวนการทำงานครบถ้วนสำหรับการปรับความสว่างและคอนทราสต์, การแปลงสี, ความเบลอ, ความโปร่งใส, การจัดลำดับเอฟเฟกต์, ค่าที่ได้จริง, การลบ, และการตรวจสอบรอบ‑trip ของ PPTX
+บทความนี้แสดงขั้นตอนการทำงานเต็มรูปแบบสำหรับความสว่างและความคอนทราสต์, การแปลงสี, การเบลอ, ความโปร่งใส, ห่วงโซ่เอฟเฟกต์ตามลำดับ, ค่าที่มีผล, การลบ, และการตรวจสอบรอบ PPTX.
 
-## **ทำความเข้าใจการเป็นเจ้าของเอฟเฟกต์และการใช้ภาพซ้ำ**
+## **ทำความเข้าใจความเป็นเจ้าของเอฟเฟกต์และการใช้ภาพซ้ำ**
 
-แหล่งภาพและรูปภาพที่แสดงภาพนั้นเป็นอ็อบเจ็กต์ที่แตกต่างกัน:
+ทรัพยากรภาพและรูปภาพที่แสดงมันเป็นอ็อบเจกต์ที่แตกต่างกัน:
 
-- [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นเจ้าของของพรีเซนเทชัน
-- [Picture](https://reference.aspose.com/slides/th/python-java/aspose.slides/picture/) เป็นส่วนเติมรูปภาพและอ้างอิงถึงแหล่งภาพในขณะที่เก็บคอลเลกชันการแปลงภาพ
-- [PictureFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/pictureframe/) เป็นรูปทรงบนสไลด์ที่เป็นเจ้าของส่วนเติมรูปภาพที่เกี่ยวข้อง, รูปร่าง, การตั้งค่าการครอป, และการจัดรูปแบบระดับกรอบอื่น ๆ
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นของงานนำเสนอ.
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) เป็นส่วนของการเติมรูปภาพและอ้างอิงถึงทรัพยากรภาพขณะที่เก็บคอลเลกชันการแปลงภาพ.
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) คือรูปร่างบนสไลด์ที่เป็นเจ้าของการเติมรูปภาพ, เรขาคณิต, การตั้งค่าตัด, และรูปแบบระดับกรอบอื่น ๆ.
 
-ดังนั้นการดำเนินการแปลงภาพจะไม่แก้ไขไบต์ใน [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/). เมื่อ `PPImage` เดียวกันถูกส่งไปยัง [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addPictureFrame) มากกว่าหนึ่งครั้ง, แต่ละกรอบรูปใหม่จะได้รับ `Picture` ของตนเองและคอลเลกชันการแปลงของตนเอง การนำเอาเอฟเฟกต์สเกลเทาไปใช้กับกรอบหนึ่งจะไม่ทำให้กรอบอื่นสเกลเทาแม้ทั้งหมดจะใช้แหล่งภาพที่ฝังเดียวกัน
+ดังนั้นการดำเนินการแปลงภาพจะไม่เปลี่ยนแปลงไบต์ใน [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/). เมื่อ `PPImage` เดียวกันถูกส่งผ่านไปยัง [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) มากกว่าหนึ่งครั้ง, แต่ละกรอบรูปภาพใหม่จะได้รับ `Picture` ของตนเองและคอลเลกชันการแปลงของตนเอง. การใช้เกรย์สเกลกับกรอบหนึ่งไม่ได้ทำให้กรอบอื่นเป็นเกรย์สเกล, แม้ว่าทั้งหมดจะใช้ทรัพยากรภาพที่ฝังอยู่เดียวกัน.
 
-โมเดล `Picture.getImageTransform` เดียวกันยังใช้โดยส่วนเติมรูปภาพอื่น ๆ เช่น รูปร่างหรือพื้นหลังสไลด์ ตัวอย่างด้านล่างมุ่งเน้นไปที่กรอบรูปภาพ
+แบบจำลอง `Picture.getImageTransform` เดียวกันยังใช้กับการเติมรูปภาพอื่น ๆ เช่น รูปร่างหรือพื้นหลังสไลด์. ตัวอย่างด้านล่างมุ่งเน้นที่กรอบรูปภาพ.
 
-## **ใช้ช่วงค่าพารามิเตอร์และหน่วยที่ถูกต้อง**
+## **ใช้ช่วงค่าและหน่วยที่ถูกต้อง**
 
-วิธีการที่แสดงใช้ช่วงความหมายและหน่วยต่อไปนี้. ให้รักษาค่าภายในช่วงเหล่านี้แม้เวอร์ชันไลบรารีบางเวอร์ชันอาจไม่ปฏิเสธค่าผิดช่วงทันที; รูปแบบพรีเซนเทชันเป้าหมายอาจทำให้ค่าปกติ, ลบ, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
+วิธีการที่สาธิตใช้ช่วงและหน่วยความหมายต่อไปนี้. ให้ค่าคงอยู่ในช่วงเหล่านี้แม้ว่าเวอร์ชันไลบรารีบางรุ่นอาจไม่ได้ปฏิเสธค่าที่อยู่นอกช่วงทันที; รูปแบบการนำเสนอเป้าหมายอาจทำให้ค่าปกติ, ตัดออก, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์.
 
-| Operation | Parameters | ช่วงค่าที่ถูกต้องและหน่วย |
+| การดำเนินการ | พารามิเตอร์ | ช่วงและหน่วยที่ถูกต้อง |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` ถึง `100`, เปอร์เซนต์; `0` ไม่เปลี่ยนส่วนประกอบ |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | ไม่มี | ไม่มีพารามิเตอร์เชิงตัวเลข. Alpha ไม่เปลี่ยน |
-| [addDuotoneEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | สองสีสำหรับพิกเซลมืดและสว่าง. ช่องสี RGB และอัลฟ่าใน `java.awt.Color` ใช้ค่า `0` ถึง `255` |
-| [addTintEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | hue ตั้งแต่ `0` (รวม) ถึง `360` (ไม่รวม) ระดับองศา; amount ตั้งแต่ `-100` ถึง `100` เปอร์เซนต์ |
-| [addHSLEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | hue ตั้งแต่ `0` (รวม) ถึง `360` (ไม่รวม) ระดับองศา; saturation และ luminance ตั้งแต่ `-100` ถึง `100` เปอร์เซนต์ |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | สีแทนที่ใช้ค่าช่องจาก `0` ถึง `255`. ค่าอัลฟ่าเดิมไม่เปลี่ยน |
-| [addBlurEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | radius ต้องไม่เป็นค่าติดลบและวัดเป็นจุด; `grow` เป็น Boolean ที่กำหนดว่าภาพเบลออาจขยายนอกขอบเดิมหรือไม่ |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | เปอร์เซนต์ไม่เป็นค่าติดลบ. ใช้ `0` ถึง `100` สำหรับการปรับความทึบปกติ: `0` โปร่งแสงเต็มและ `100` รักษาอัลฟ่าที่มีอยู่ |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` ถึง `100` เปอร์เซนต์ความทึบ |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` ถึง `100` เปอร์เซนต์ค่าเกณฑ์อัลฟ่า. ค่าต่ำกว่าจะเป็นโปร่งแสง; ค่าสูงกว่าหรือเท่าจะเป็นทึบ |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` ถึง `100`, เปอร์เซ็นต์; `0` ทำให้คอมโพเนนท์คงเดิม |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | ไม่มี | ไม่มีพารามิเตอร์เชิงตัวเลข. ค่าอัลฟ่าคงเดิม |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | สองสีสำหรับพิกเซลมืดและสว่าง. ช่องสี RGB และอัลฟ่าใน `java.awt.Color` ใช้ค่า `0` ถึง `255` |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Hue ตั้งแต่ `0` รวมถึงถึง `360` ไม่รวม, หน่วยเป็นองศ; amount ตั้งแต่ `-100` ถึง `100`, เปอร์เซ็นต์ |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Hue ตั้งแต่ `0` รวมถึงถึง `360` ไม่รวม, หน่วยเป็นองศ; saturation และ luminance ตั้งแต่ `-100` ถึง `100`, เปอร์เซ็นต์ |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | สีที่แทนที่ใช้ค่าช่องตั้งแต่ `0` ถึง `255`. ค่าอัลฟ่าที่มีอยู่คงเดิม |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | รัศมีต้องเป็นค่าที่ไม่เป็นลบและวัดเป็นพอยท์; `grow` เป็น Boolean ที่กำหนดว่าคอนเทนต์ที่เบลออาจขยายออกนอกขอบเดิมหรือไม่ |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | เปอร์เซ็นต์ที่ไม่เป็นลบ. ใช้ `0` ถึง `100` สำหรับการสเกลความทึบปกติ: `0` โปร่งใสเต็ม, `100` คงค่าอัลฟ่าที่มี |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` ถึง `100`, เปอร์เซ็นต์ความทึบ |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` ถึง `100`, เปอร์เซ็นต์ค่าอัลฟ่าที่เป็นเกณฑ์. ค่าต่ำกว่าจะโปร่งใส; ค่าที่เท่าหรือสูงกว่าจะทึบ |
 
-สำหรับการมอดูเลตอัลฟ่าแบบคงที่, ความโปร่งใสและความทึบเป็นค่าตรงกันข้าม ตัวอย่างเช่น ความโปร่งใส 35% เทียบกับปริมาณมอดูเลตอัลฟ่า 65%
+สำหรับการมอดูเลตอัลฟ่าคงที่, ความโปร่งใสและความทึบเป็นค่าตรงข้าม. ตัวอย่างเช่น ความโปร่งใส 35% เทียบกับค่ามอดูเลตอัลฟ่า 65%.
 
-## **ใช้ความสว่างและคอนทราสต์**
+## **ใช้ความสว่างและความคอนทราสต์**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) คืนค่าอ็อบเจ็กต์ [BrightnessContrast](https://reference.aspose.com/slides/th/python-java/aspose.slides/brightnesscontrast/) การตั้งค่าสเกลาร์ถูกกำหนดในขณะสร้างอ็อบเจ็กต์. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/th/python-java/aspose.slides/brightnesscontrast/#getEffective) คืนค่าที่คำนวณแล้วแบบอ่านอย่างเดียวซึ่งสามารถตรวจสอบหรือบันทึกได้
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) จะคืนค่าออบเจกต์ [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) การตั้งค่าสเกลาร์จะถูกส่งเมื่อสร้างออบเจกต์. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) คืนค่าที่คำนวณแล้วแบบอ่านอย่างเดียวซึ่งสามารถตรวจสอบหรือบันทึกได้.
 
-ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และคอนทราสต์ 20% แล้วแสดงตัวอย่างโดยไม่แก้ไขภาพที่ฝังไว้:
+ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และความคอนทราสต์ 20%, จากนั้นเรนเดอร์พรีวิวโดยไม่แก้ไขภาพฝัง:
 
 ```python
 import jpype
@@ -103,21 +103,21 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/th/python-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยายเอฟเฟกต์รูปภาพของ Office 2010 และมีความพกพาน้อยกว่ามาตรฐาน DrawingML luminance. เมื่อความสว่างและคอนทราสต์ต้องการให้แก้ไขได้หลังการ round‑trip ของ PPTX, ให้ใช้ [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) และตรวจสอบผลลัพธ์หลังจากเปิดไฟล์ใหม่. ส่วน “format limitations” ให้รายละเอียดเพิ่มเติมเกี่ยวกับความแตกต่างนี้
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยายเอฟเฟกต์รูปภาพ Office 2010 และพกพาน้อยกว่าการเอฟเฟกต์ luminance ของ DrawingML มาตรฐาน. เมื่อความสว่างและความคอนทราสต์ต้องการให้แก้ไขได้หลังการรอบ PPTX, ให้ใช้ [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) และตรวจสอบผลหลังเปิดไฟล์ใหม่. ส่วนข้อจำกัดของรูปแบบอธิบายความแตกต่างนี้อย่างละเอียด.
 
 ## **ใช้การแปลงสี**
 
-เอฟเฟกต์สีสามารถนำไปใช้แยกต่างหากกับกรอบรูปภาพหลายกรอบที่ใช้แหล่งภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้ากรอบและนำไปใช้สเกลเทา, ดูโทน, สีสัน, การปรับ HSL, และการแทนที่สี
+เอฟเฟกต์สีสามารถใช้แยกกันกับกรอบรูปภาพที่ใช้ทรัพยากรภาพเดียวกัน. ตัวอย่างต่อไปนี้สร้างห้าเฟรมและใช้เกรย์สเกล, ดูโทน, ทินท์, การปรับ HSL, และการแทนที่สี.
 
-[Duotone](https://reference.aspose.com/slides/th/python-java/aspose.slides/duotone/) มีพารามิเตอร์สีสองตัวที่แก้ไขได้อิสระ: `color1` ใช้กับพิกเซลมืด, `color2` ใช้กับพิกเซลสว่าง. ทำให้เป็นตัวอย่างที่ดีของเอฟเฟกต์ที่การตั้งค่าซับซ้อนกว่าค่าสเกลาร์เดียว
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) มีพารามิเตอร์สีสองค่าให้แก้ไขได้อย่างอิสระ: `color1` ใช้กับพิกเซลมืด, `color2` ใช้กับพิกเซลสว่าง. ตัวอย่างนี้จึงเป็นตัวอย่างที่ดีของเอฟเฟกต์ที่การตั้งค่าซับซ้อนกว่าค่าสเกลาร์เดียว.
 
 ```python
-import jpile
+import jpype
 import asposeslides
 from pathlib import Path
 
-if not jpile.isJVMStarted():
-    jpile.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 from java.awt import Color
@@ -127,7 +127,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
 
     image_data = Path("photo.png").read_bytes()
-    image_bytes = jpile.JArray(jpile.JByte)(image_data)
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
     image = presentation.getImages().addImage(image_bytes)
 
     gray_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 180, 120, image)
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งสีในขณะที่รักษาอัลฟ่า. มันแตกต่างจาก [addColorChangeEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) ที่แมปสีต้นทางหนึ่งไปยังสีเป้าหมายและเปิดเผยรูปแบบสีของแหล่งและเป้าหมาย
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งสีขณะคงค่าอัลฟ่าไว้. มันแตกต่างจาก [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect) ที่แมพสีต้นทางหนึ่งเป็นสีปลายทางและเปิดเผยรูปแบบสีของทั้งสอง.
 
-## **เพิ่มความเบลอ, ความโปร่งใส, และเอฟเฟกต์อัลฟ่า**
+### **ใช้เกณฑ์ความสว่าง**
 
-[addBlurEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) มีผลต่อทุกช่องสีรวมถึงอัลฟ่า. ตั้งค่า `grow` เป็น `True` เมื่อขอบเบลออาจขยายออกนอกขอบภาพเดิม
+เกณฑ์ความสว่างสามารถทำให้เครื่องหมายที่จางบนหน้าสแกนง่ายต่อการแยกจากพื้นหลัง. [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) คงระดับสีเทากลาง. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) แมพความสว่างเป็นสีดำหรือสีขาว, ในขณะที่ [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) ใช้เกณฑ์กับความทึบ.
 
-สำหรับความโปร่งใสสม่ำเสมอ, ใช้ [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). มันคูณค่าอัลฟ่าเดิมทั้งหมด, ดังนั้นพิกเซลที่โปร่งใสบางส่วนจะคงสัดส่วนความโปร่งใส. [addAlphaReplaceEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) แทนที่ค่าต้นที่เป็นอัลฟ่าเดียวกันทั้งหมด. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) แปลงอัลฟ่าเป็นสองระดับตามค่าเกณฑ์
+เกณฑ์ความสว่างอยู่ระหว่าง 0% ถึง 100% (รวม). พิกเซลที่ต่ำกว่ากำหนดจะเป็นสีดำ. พิกเซลที่เท่าหรือสูงกว่าจะเป็นสีขาว. การยกเกณฑ์ทำให้เงาที่อยู่ระหว่างสีต่าง ๆ กลายเป็นสีดำมากขึ้นเพราะมากกว่าหนึ่งส่วนตกต่ำกว่าเกณฑ์.
+
+ดาวน์โหลด [grayscale-swatches.png](grayscale-swatches.png) ไปยังโฟลเดอร์ทำงาน. แต่ละป้ายกำกับแสดงระดับสีเทาต้นฉบับบนสเกล 0‑255. ตัวอย่างวางภาพต้นฉบับข้างสองสำเนาและบันทึกเกณฑ์ของแต่ละสำเนาในงานนำเสนอ.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+เปิดงานนำเสนอผลลัพธ์ใน PowerPoint เพื่อเปรียบเทียบสามเฟรม. ตัวอย่างสีเทาที่มีป้ายกำกับ 96 มีความสว่างประมาณ 38% (96 จาก 255). มันกลายเป็นสีขาวที่เกณฑ์ 20% และเป็นสีดำที่เกณฑ์ 60%.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **เพิ่มบลอร์, ความโปร่งใส, และเอฟเฟกต์อัลฟ่า**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) มีผลต่อทุกช่องสีรวมถึงอัลฟ้า. ตั้งค่า `grow` เป็น `True` เมื่อขอบที่เบลออาจขยายออกนอกขอบรูปภาพเดิม.
+
+สำหรับความโปร่งใสแบบสม่ำเสมอ, ใช้ [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). มันคูณค่าอัลฟ่าที่มีอยู่ทุกค่า, ทำให้พิกเซลที่โปร่งใสบางส่วนยังคงต่างกันตามสัดส่วน. [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) แทนที่ค่าอัลฟ่าเดียวให้กับทุกพิกเซล. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) แปลงอัลฟ่าเป็นสองระดับตามเกณฑ์.
 
 ```python
 import jpype
@@ -200,15 +247,15 @@ finally:
     presentation.dispose()
 ```
 
-เอฟเฟกต์อัลฟ่าอื่น ๆ ที่ไม่มีพารามิเตอร์ ได้แก่ [addAlphaCeilingEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect) ซึ่งทำให้ทุกอัลฟ่าไม่เป็นศูนย์เป็นทึบเต็ม; [addAlphaFloorEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect) ซึ่งทำให้ทุกอัลฟ่าใต 100% เป็นโปร่งใสเต็ม; และ [addAlphaInverseEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect) ซึ่งเปลี่ยนอัลฟ่าเป็น `100% - alpha`
+การดำเนินการอัลฟ่าอื่น ๆ ที่ไม่มีพารามิเตอร์ ได้แก่ [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect) ซึ่งทำให้ค่าอัลฟ่าไม่เป็นศูนย์ทั้งหมดเต็มทึบ; [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect) ซึ่งทำให้ค่าอัลฟ่าต่ำกว่า 100% ทั้งหมดเป็นโปร่งใสเต็ม; และ [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect) ซึ่งเปลี่ยนอัลฟ่าเป็น `100% - alpha`.
 
-## **สร้างโซ่เอฟเฟกต์ที่เรียงลำดับ**
+## **สร้างห่วงโซ่เอฟเฟกต์ตามลำดับ**
 
-แต่ละเมธอด `add...Effect` จะเพิ่มการดำเนินการใหม่ต่อท้ายคอลเลกชัน. เร็นเดอร์ใช้คอลเลกชันเป็นสายการประมวลผลที่เรียงลำดับ: ผลลัพธ์ของการดำเนินการ 0 จะเป็นอินพุตของการดำเนินการ 1, และต่อไป ดังนั้นการจัดลำดับเดียวกันในลำดับที่ต่างกันอาจได้ภาพที่แตกต่างกัน
+ทุกเมธอด `add...Effect` จะต่อเติมการดำเนินการใหม่ลงท้ายคอลเลกชัน. ตัวเรนเดอร์ใช้คอลเลกชันเป็นสายการประมวลผลตามลำดับ: ผลลัพธ์ของการดำเนินการ 0 จะเป็นอินพุตของการดำเนินการ 1, และต่อไป. ดังนั้นการใช้การดำเนินการเดียวกันในลำดับที่ต่างกันอาจให้ภาพที่แตกต่างกัน.
 
-เช่น สเกลเท้าตามด้วยสีสันจะลบข้อมูลสีก่อนแล้วเปลี่ยนสีของผลลัพธ์ความสว่าง. สีสันตามด้วยสเกลเท้าจะทำให้สีสันหายไปอีกครั้ง. เช่นเดียวกัน การแทนที่อัลฟ่าอาจเขียนทับค่าอัลฟ่าโดยการดำเนินการก่อนหน้า, ขณะที่การมอดูเลตอัลฟ่าเก็บความแตกต่างสัมพัทธ์ไว้
+เช่น เกรย์สเกลตามด้วยทินท์จะลบข้อมูลสีก่อนแล้วค่อยทำสีใหม่บนผลลัพธ์ความสว่าง. ทินท์ตามด้วยเกรย์สเกลจะลบทินท์ออกอีกครั้ง. ในทำนองเดียวกัน การแทนที่อัลฟ่าอาจเขียนทับค่าอัลฟ่าที่คำนวนจากการดำเนินการก่อนหน้า, ในขณะที่การมอดูเลตอัลฟ่าจะคงความแตกต่างสัมพัทธ์ของพวกมันไว้.
 
-ตัวอย่างต่อไปนี้สร้างโซ่สี่การดำเนินการ, บันทึกเป็น PPTX, เปิดพรีเซนเทชันใหม่, ตรวจสอบทั้งประเภทการดำเนินการและลำดับ, แล้วเร็นเดอร์ผลลัพธ์ที่เปิดใหม่:
+ตัวอย่างต่อไปนี้สร้างห่วงโซ่สี่ขั้นตอน, บันทึกเป็น PPTX, เปิดงานนำเสนอใหม่, ตรวจสอบประเภทและลำดับของการดำเนินการ, แล้วเรนเดอร์ผลลัพธ์ที่เปิดใหม่:
 
 ```python
 import jpype
@@ -261,15 +308,21 @@ finally:
     reopened_presentation.dispose()
 ```
 
-คอลเลกชันไม่ได้กำหนดเมทริกซ์ความเข้ากันได้ที่จำกัดให้เอฟเฟกต์สี, อัลฟ่า, และความเบลออยู่ในโซ่แยกกัน. พวกมันสามารถรวมกันได้, แต่บางการรวมอาจไม่ค่อยมีประโยชน์. การแทนที่สีคงที่จะลบความแปรผัน RGB ที่สร้างโดยเอฟเฟกต์สีก่อนหน้า; สเกลเท้าหลังดูโทนจะลบสองสีที่เลือก; และเอฟเฟกต์อัลฟ่า ceiling, floor, replacement หรือ bi‑level สามารถทิ้งรายละเอียดอัลฟ่าได้. สร้างโซ่ตามลำดับการประมวลผลพิกเซลที่ต้องการแทนที่จะถือว่าเป็นแฟล็กการจัดรูปแบบที่ไม่มีลำดับ
+คอลเลกชันไม่ได้บังคับให้มีเมทริกซ์ความเข้ากันที่จำกัดการทำงานของสี, อัลฟ่า, และบลอร์ให้อยู่ในห่วงโซ่แยกต่างหาก. สามารถรวมกันได้, แต่การรวมอาจไม่ค่อยมีประโยชน์. การแทนที่สีคงที่จะลบความแปรผัน RGB ที่สร้างโดยเอฟเฟกต์สีก่อนหน้า; เกรย์สเกลหลังจากดูโทนจะลบสองสีที่เลือก; การมอดูเลตอัลฟ่า, เพดาน, พื้น, หรือการทำอัลฟ่าแบบสองระดับสามารถทิ้งรายละเอียดอัลฟ่าที่สร้างก่อนหน้า. ให้สร้างห่วงโซ่ตามลำดับการประมวลผลพิกเซลที่ต้องการ แทนที่จะมองรายการเป็นแฟล็กรูปแบบที่ไม่มีลำดับ.
 
-## **ตรวจสอบค่าที่แก้ไขได้และค่าที่ได้จริง**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-การดำเนินการที่แก้ไขได้คืออ็อบเจ็กต์ที่เก็บไว้ใน `Picture.getImageTransform`. ขึ้นอยู่กับเอฟเฟกต์, อาจเปิดเผยสมาชิกที่เขียนได้โดยตรง. ตัวอย่างเช่น, [Blur](https://reference.aspose.com/slides/th/python-java/aspose.slides/blur/) เปิดเผย `radius` และ `grow` ที่เขียนได้, [AlphaModulateFixed](https://reference.aspose.com/slides/th/python-java/aspose.slides/alphamodulatefixed/) เปิดเผย `amount`, และ [AlphaBiLevel](https://reference.aspose.com/slides/th/python-java/aspose.slides/alphabilevel/) เปิดเผย `threshold`. เอฟเฟกต์สีเช่น [Duotone](https://reference.aspose.com/slides/th/python-java/aspose.slides/duotone/) เปิดเผยวัตถุ [ColorFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/colorformat/) ที่แก้ไขได้
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-บางคลาสการดำเนินการ, รวมถึง [BrightnessContrast](https://reference.aspose.com/slides/th/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/th/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/th/python-java/aspose.slides/tint/), และ [AlphaReplace](https://reference.aspose.com/slides/th/python-java/aspose.slides/alphareplace/), ไม่เปิดเผยสเกลาร์ที่สร้างเป็นคุณสมบัติที่เขียนได้. เพื่อเปลี่ยนการตั้งค่าเหล่านั้น, ให้ลบการดำเนินการและเพิ่มการแทนที่ในตำแหน่งที่ต้องการ
+## **ตรวจสอบค่าที่แก้ไขได้และค่าที่มีผล**
 
-ข้อมูลที่ได้จริงที่ `getEffective` คืนค่ามาเป็นค่าที่คำนวณแล้วและอ่าน‑อย่างเดียว. มันมีประโยชน์สำหรับการแก้ไขสีที่ขึ้นกับธีมและการอ่านค่าที่ทำให้มาตรฐานซึ่งเร็นเดอร์ใช้, แต่ไม่ได้เป็นพื้นผิวการแก้ไขอื่น. ตัวอย่างต่อไปนี้แสดงรายการโซ่และตรวจสอบค่าที่ได้จริงในที่ API ให้ข้อมูล:
+การดำเนินการที่แก้ไขได้คือออบเจกต์ที่เก็บไว้ใน `Picture.getImageTransform`. ขึ้นอยู่กับเอฟเฟกต์, มันอาจเปิดเผยสมาชิกที่เขียนได้โดยตรง. ตัวอย่างเช่น, [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) เปิดเผยค่าเขียนได้ `radius` และ `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) เปิดเผย `amount`, และ [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) เปิดเผย `threshold`. เอฟเฟกต์สีเช่น [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) เปิดเผยออบเจกต์ [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/) ที่เปลี่ยนแปลงได้.
+
+คลาสการดำเนินการบางอย่างรวมถึง [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/), และ [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/) ไม่เปิดเผยสเกลาร์การสร้างเป็นคุณสมบัติที่เขียนได้. เพื่อเปลี่ยนการตั้งค่าเหล่านั้น, ให้ลบการดำเนินการแล้วเพิ่มการแทนที่ในตำแหน่งที่ต้องการ.
+
+ข้อมูลที่ได้จาก `getEffective` ถูกคำนวนและเป็นค่าอ่าน‑อย่าง‑เดียว. มันมีประโยชน์สำหรับการแก้ไขสีที่อิงธีมและการอ่านค่าที่ทำให้เป็นมาตรฐานที่เรนเดอร์ใช้, แต่ไม่ใช่พื้นผิวการแก้ไขอื่น. ตัวอย่างต่อไปนี้วนซ้ำห่วงโซ่และตรวจสอบค่าที่มีผลในที่ API ให้:
 
 ```python
 import jpype
@@ -333,11 +386,11 @@ finally:
     presentation.dispose()
 ```
 
-เอฟเฟกต์ที่ไม่มีพารามิเตอร์เช่นสเกลเท้า, alpha ceiling, และ alpha inverse ยังมีอ็อบเจ็กต์ข้อมูลที่ได้จริง, แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์. การมีอยู่และตำแหน่งของมันในคอลเลกชันเป็นข้อมูลสำคัญ
+เอฟเฟกต์ที่ไม่มีพารามิเตอร์เช่นเกรย์สเกล, เพดานอัลฟ่า, และอินเวอร์สอัลฟ่ายังมีออบเจกต์ข้อมูลที่มีผล, แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์. การมีอยู่และตำแหน่งของพวกมันในคอลเลกชันคือข้อมูลสำคัญ.
 
 ## **ลบหรือเคลียร์การแปลงภาพ**
 
-ใช้ [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) เพื่อลบการดำเนินการหนึ่งโดยใช้ดัชนี. เนื่องจากดัชนีจะเปลี่ยนหลังการลบ, ควรค้นหาเป้าหมายก่อนแล้วลบหลังจากแสดงรายการ. ใช้ [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#clear) เพื่อลบโซ่ทั้งหมด
+ใช้ [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) เพื่อลบการดำเนินการหนึ่งด้วยดัชนี. เนื่องจากดัชนีจะเปลี่ยนหลังการลบ, ควรค้นหาเป้าหมายก่อนแล้วลบหลังจากวนซ้ำ. ใช้ [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) เพื่อลบห่วงโซ่ทั้งหมด.
 
 ```python
 import jpype
@@ -377,38 +430,38 @@ finally:
     presentation.dispose()
 ```
 
-การลบหรือเคลียร์การแปลงเปลี่ยนเฉพาะการจัดรูปแบบรูปภาพ. มันไม่ได้ลบ, บีบอัดใหม่, หรือแก้ไขแหล่ง [PPImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/ppimage/) ที่ใช้ซ้ำ
+การลบหรือเคลียร์การแปลงจะเปลี่ยนเฉพาะการจัดรูปแบบรูปภาพ. มันไม่ได้ลบ, บีบอัดใหม่, หรือแก้ไขทรัพยากร [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) ที่ใช้ซ้ำ.
 
-## **พิจารณารูปแบบพรีเซนเทชันและเป้าหมายการส่งออก**
+## **พิจารณารูปแบบการนำเสนอและเป้าหมายการส่งออก**
 
-การแปลงภาพมาจาก DrawingML, ดังนั้น PPTX เป็นรูปแบบที่แนะนำสำหรับการแก้ไขโซ่เอฟเฟกต์. แม้กับ PPTX, ไม่ใช่ทุกการดำเนินการที่มีพกพาเดียวกัน:
+การแปลงภาพมาจาก DrawingML, ดังนั้น PPTX เป็นรูปแบบแก้ไขที่แนะนำสำหรับห่วงโซ่เอฟเฟกต์. แม้ใน PPTX, การดำเนินการแต่ละอย่างอาจมีความพกพาที่ต่างกัน:
 
-- การดำเนินการ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และเอฟเฟกต์อัลฟ่าทั่วไปมีโอกาสสูงสุดที่จะคงอยู่หลังการ round‑trip ของ PPTX. ควรเปิดไฟล์ที่สร้างใหม่และตรวจสอบคอลเลกชันเมื่อการเก็บรักษาเป็นข้อกำหนด
-- [BrightnessContrast](https://reference.aspose.com/slides/th/python-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยาย Office 2010 ไม่ใช่มาตรฐาน DrawingML luminance. สามารถใช้สำหรับเร็นเดอร์ในหน่วยความจำ, แต่ไม่รับประกันว่าจะยังคงเป็น [BrightnessContrast](https://reference.aspose.com/slides/th/python-java/aspose.slides/brightnesscontrast/) ที่แก้ไขได้หลังการบันทึกและเปิด PPTX อีกครั้ง. ควรใช้ [addLuminanceEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) สำหรับการปรับความสว่างและคอนทราสต์ที่คงอยู่
-- รูปแบบไบนารี PPT มีอายุยาวนานกว่ารุ่นเต็มของโมเดลเอฟเฟกต์ DrawingML. การบันทึกเป็น PPT อาจละเว้นการดำเนินการที่ไม่ได้รับการสนับสนุน, ลดโซ่ให้เหลือส่วนที่สนับสนุน, หรือประมาณลักษณะการแสดงผล. อย่าใช้ PPT เป็นรูปแบบการตรวจสอบสำหรับโซ่แก้ไขที่ซับซ้อน
-- การเร็นเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML, หรือรูปแบบภาพอื่น ๆ จะนำโซ่ที่สนับสนุนไปใช้กับการแสดงผลที่เร็นเดอร์. ผลลัพธ์เหล่านั้นไม่มี `ImageTransformOperationCollection` ที่แก้ไขได้; รูปแบบราสเตอร์ทำให้ผลลัพธ์แบนเป็นพิกเซล, ส่วนส่งออกเอกสาร/เวกเตอร์เก็บตัวแทนการเร็นเดอร์ของตนเอง
-- เอฟเฟกต์ไม่ทำให้ภาพที่ลิงก์มาเป็นอิสระ. การเร็นเดอร์รูปที่ลิงก์ยังคงต้องพึ่งพาแหล่งที่ลิงก์อยู่ในขณะที่พรีเซนเทชันโหลด
+- การดำเนินการ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และเอฟเฟกต์อัลฟ่าทั่วไปมีโอกาสอยู่รอดสูงสุดหลังรอบ PPTX. ควรเปิดไฟล์ที่สร้างใหม่และตรวจสอบคอลเลกชันเมื่อความคงที่เป็นข้อกำหนด.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยาย Office 2010 แทนการดำเนินการ luminance ของ DrawingML มาตรฐาน. สามารถใช้สำหรับเรนเดอร์ในหน่วยความจำ, แต่ไม่รับประกันว่าจะคงเป็น [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) ที่แก้ไขได้หลังบันทึกและเปิดใหม่ PPTX. ควรใช้ [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) สำหรับการปรับความสว่างและความคอนทราสต์ที่คงอยู่.
+- รูปแบบ PPT ไบนารีเกิดมาก่อนโมเดลเอฟเฟกต์ DrawingML ครบถ้วน. การบันทึกเป็น PPT อาจละเว้นการดำเนินการที่ไม่รองรับ, ลดห่วงโซ่ลงเป็นส่วนย่อยที่รองรับ, หรือประมาณลักษณะภาพ. อย่าใช้ PPT เป็นรูปแบบตรวจสอบสำหรับห่วงโซ่แก้ไขที่ซับซ้อน.
+- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML, หรือรูปแบบภาพอื่น ๆ จะใช้ห่วงโซ่ที่รองรับเพื่อสร้างลักษณะภาพที่เรนเดอร์. ผลลัพธ์เหล่านั้นไม่มี `ImageTransformOperationCollection` ที่แก้ไขได้; รูปแบบราสเตอร์จะทำให้ผลลัพธ์แบนเป็นพิกเซล, และการส่งออกเอกสาร/เวกเตอร์จะเก็บตัวแทนการเรนเดอร์ของตนเอง.
+- เอฟเฟกต์ไม่ทำให้ภาพที่ลิงก์เป็นอิสระ. การเรนเดอร์รูปภาพที่ลิงก์ยังคงขึ้นกับทรัพยากรที่ลิงก์ต้องพร้อมใช้งานเมื่อโหลดงานนำเสนอ.
 
-ผู้ใช้พรีเซนเทชันต่าง ๆ อาจเร็นเดอร์กรณีขอบแตกต่างกัน, โดยเฉพาะเมื่อหลายเอฟเฟกต์อัลฟ่า หรือการควบคุมสีถูกรวมกัน. สำหรับผลลัพธ์สำคัญ, ควรทดสอบทั้งรอบการแก้ไขและรูปแบบส่งออกสุดท้ายด้วยเวอร์ชัน Aspose.Slides ที่ใช้ในผลิตภัณฑ์
+ผู้ใช้การนำเสนอที่ต่างกันอาจเรนเดอร์กรณีขอบต่างกัน, โดยเฉพาะเมื่อรวมหลายการดำเนินการอัลฟ่าหรือการควอนตั้มสี. สำหรับผลลัพธ์สำคัญ, ควรทดสอบทั้งรอบแก้ไขและรูปแบบส่งออกสุดท้ายด้วยเวอร์ชัน Aspose.Slides ที่ใช้ในผลิตภัณฑ์.
 
 ## **FAQ**
 
-**เอฟเฟกต์การแปลงภาพแก้ไขข้อมูลภาพที่ฝังหรือไม่?**
+**เอฟเฟกต์การแปลงภาพแก้ไขข้อมูลภาพฝังหรือไม่?**
 
-ไม่. การดำเนินการเป็นของ `Picture` ที่ใช้โดยส่วนเติมรูปภาพ. ไบต์ของ `PPImage` พื้นฐานยังคงไม่เปลี่ยน
+ไม่. การดำเนินการเป็นของ `Picture` ที่ใช้โดยการเติมรูปภาพ. ไบต์ `PPImage` พื้นฐานคงเดิมไม่มีการเปลี่ยนแปลง.
 
-**สองกรอบรูปที่ใช้แหล่งภาพเดียวกันจะแชร์เอฟเฟกต์หรือไม่?**
+**สองกรอบรูปภาพที่ใช้ภาพเดียวกันจะแบ่งปันเอฟเฟกต์หรือไม่?**
 
-ไม่. การใช้ `PPImage` เดียวกันช่วยลดข้อมูลภาพซ้ำ, แต่แต่ละกรอบรูปโดยปกติมี `Picture` และคอลเลกชันการแปลงภาพแยกกัน
+ไม่. การใช้ `PPImage` ซ้ำช่วยหลีกเลี่ยงข้อมูลภาพซ้ำซ้อน, แต่แต่ละกรอบรูปภาพโดยปกติมี `Picture` และคอลเลกชันการแปลงภาพแยกกัน.
 
-**สามารถรวมเอฟเฟกต์สี, ความเบลอ, และอัลฟ่าได้หรือไม่?**
+**สามารถรวมเอฟเฟกต์สี, บลอร์, และอัลฟ่าได้หรือไม่?**
 
-ได้. คอลเลกชันรับพวกมันในโซ่ที่เรียงลำดับ. ควรพิจารณาว่าการดำเนินการแต่ละอย่างทำอะไรกับผลลัพธ์ของการดำเนินการก่อนหน้า เนื่องจากการแทนที่และการตั้งค่าขั้นreshold อาจตัดรายละเอียดสีหรืออัลฟ่าเดิมออก
+ได้. คอลเลกชันรับพวกมันในห่วงโซ่เรียงลำดับหนึ่ง. ควรพิจารณาว่าแต่ละการดำเนินการทำอะไรกับผลลัพธ์ของการดำเนินการก่อนหน้า เพราะการแทนที่และการทำเกณฑ์อาจลบรายละเอียดสีหรืออัลฟ่าที่สร้างก่อนหน้า.
 
-**ทำไมค่าที่ได้จริงจึงเป็นแบบอ่าน‑อย่างเดียว?**
+**ทำไมค่าที่มีผลถึงเป็นแบบอ่าน‑อย่าง‑เดียว?**
 
-ข้อมูลที่ได้จริงเป็นค่าที่คำนวณแล้วใช้สำหรับการเร็นเดอร์, รวมถึงสีที่แก้ไขตามธีม. ให้แก้ไขการดำเนินการที่เก็บในคอลเลกชันเมื่อมีสมาชิกที่เขียนได้; หากไม่มีให้ลบและเพิ่มการแทนที่ด้วยพารามิเตอร์การสร้างใหม่
+ค่าที่มีผลเป็นค่าที่คำนวนเพื่อการเรนเดอร์, รวมถึงสีที่แก้ไขแล้ว. ให้แก้ไขการดำเนินการที่เก็บในคอลเลกชันที่มีสมาชิกเขียนได้; หากไม่มี, ให้ลบแล้วเพิ่มการแทนที่ด้วยพารามิเตอร์สร้างใหม่.
 
-**ควรใช้รูปแบบใดเพื่อเก็บโซ่การแปลง?**
+**ควรใช้รูปแบบใดเพื่อคงห่วงโซ่การแปลง?**
 
-ใช้ PPTX และตรวจสอบไฟล์โดยการเปิดใหม่. PPT แบบเก่าไม่สามารถแสดงโมเดลเอฟเฟกต์ DrawingML ทั้งหมดได้, และรูปแบบส่งออกที่เร็นเดอร์จะเก็บเพียงการแสดงผล ไม่ใช่การแปลงที่แก้ไขได้
+ใช้ PPTX และตรวจสอบไฟล์โดยเปิดใหม่. PPT รุ่นเก่าจะไม่สามารถแสดงโมเดลเอฟเฟกต์ DrawingML เต็มรูปแบบ, ส่วนรูปแบบส่งออกที่เรนเดอร์จะคงลักษณะภาพแต่ไม่คงการแปลงที่แก้ไขได้.

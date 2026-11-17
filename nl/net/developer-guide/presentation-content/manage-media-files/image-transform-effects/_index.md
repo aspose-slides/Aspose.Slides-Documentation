@@ -1,11 +1,11 @@
 ---
-title: Beheer beeldtransformatie‑effecten in presentaties met .NET
-linktitle: Beeldtransformatie‑effecten
+title: Beheer afbeeldingstransform‑effecten in presentaties met .NET
+linktitle: Afbeeldingstransform‑effecten
 type: docs
 weight: 11
 url: /nl/net/image-transform-effects/
 keywords:
-- beeldtransformatie
+- afbeeldingstransform
 - afbeeldingseffect
 - helderheid
 - contrast
@@ -16,57 +16,57 @@ keywords:
 - kleurvervanging
 - vervaging
 - transparantie
-- alfa‑effect
+- alphaeffect
 - effectketen
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Pas beeldtransformatie‑effecten toe, koppel ze, inspecteer, verwijder en verifieer ze voor afbeelding‑frames met Aspose.Slides voor .NET."
+description: "Pas afbeeldingstransform‑effecten toe, koppel ze, inspecteer, verwijder en verifieer ze voor picture frames met Aspose.Slides voor .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides vertegenwoordigt afbeeldingsaanpassingen als een geordende verzameling van beeldtransformatie‑operaties. Voor een afbeelding‑frame begin je met het frame’s [ISlidesPicture](https://reference.aspose.com/slides/nl/net/aspose.slides/islidespicture/) en krijg je toegang tot [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/nl/net/aspose.slides/islidespicture/imagetransform/). De geretourneerde [IImageTransformOperationCollection](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/) laat je effecten toevoegen, opsommen, inspecteren, verwijderen en wissen zonder de oorspronkelijke afbeeldingsbytes opnieuw te schrijven.
+Aspose.Slides vertegenwoordigt beeldaanpassingen als een geordende collectie van image transform‑operaties. Voor een picture frame, begin met de frame‑`[ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/)` en krijg toegang tot `[ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/)`. De geretourneerde `[IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/)` laat je effecten toevoegen, enumereren, inspecteren, verwijderen en wissen zonder de oorspronkelijke image‑bytes opnieuw te schrijven.
 
-Dit artikel laat een volledige workflow zien voor helderheid en contrast, kleurtransformaties, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijdering en PPTX‑round‑trip‑verificatie.
+Dit artikel toont een volledige werkstroom voor helderheid en contrast, kleurtransformaties, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijdering en PPTX‑rondreis‑verificatie.
 
 ## **Begrijp eigendom van effecten en hergebruik van afbeeldingen**
 
-Een afbeeldingsbron en de afbeelding die deze weergeeft zijn verschillende objecten:
+Een afbeelding‑resource en de picture die deze weergeeft zijn verschillende objecten:
 
-- [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) slaat de bronafbeeldingsdata op of verwijst ernaar en behoort tot de presentatie.
-- [ISlidesPicture](https://reference.aspose.com/slides/nl/net/aspose.slides/islidespicture/) maakt deel uit van een afbeeldingsvulling en verwijst naar een afbeeldingsbron terwijl het de beeldtransformatie‑verzameling opslaat.
-- [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/) is de dia‑vorm die de betreffende afbeeldingsvulling, geometrie, bijsnijdinstellingen en andere frame‑niveau‑opmaak bezit.
+- `[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)` slaat de bronafbeeldingsgegevens op of verwijst ernaar, eigendom van de presentatie.
+- `[ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/)` behoort tot een picture‑fill en verwijst naar een afbeelding‑resource terwijl de image‑transform‑collectie wordt opgeslagen.
+- `[IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/)` is de slide‑shape die de relevante picture‑fill, geometrie, crop‑instellingen en andere frame‑level opmaak bezit.
 
-Daarom wijzigen beeldtransformatie‑operaties de bytes in [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) niet. Wanneer dezelfde `IPPImage` meer dan één keer wordt doorgegeven aan [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addpictureframe/), krijgt elk nieuw afbeelding‑frame zijn eigen `ISlidesPicture` en eigen transformatie‑verzameling. Het toepassen van grijstinten op één frame maakt de andere frames niet grijs, zelfs als ze dezelfde ingesloten afbeeldingsbron hergebruiken.
+Daarom wijzigen image‑transform‑operaties de bytes in `[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)` niet. Wanneer dezelfde `IPPImage` meer dan één keer wordt doorgegeven aan `[IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/)`, krijgt elk nieuw picture‑frame zijn eigen `ISlidesPicture` en zijn eigen transform‑collectie. Het toepassen van grayscale op één frame maakt de andere frames niet grayscale, ook al hergebruiken ze allemaal dezelfde embedded afbeelding‑resource.
 
-Hetzelfde `ISlidesPicture.ImageTransform`‑model wordt ook gebruikt door andere afbeeldingsvullingen, zoals een vorm‑ of dia‑achtergrond. De onderstaande voorbeelden richten zich op afbeelding‑frames.
+Hetzelfde `ISlidesPicture.ImageTransform`‑model wordt ook gebruikt door andere picture‑fills, zoals een shape of slide‑background. De voorbeelden hieronder richten zich op picture‑frames.
 
 ## **Gebruik geldige parameter‑bereiken en eenheden**
 
-De aangetoonde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet onmiddellijk elke out‑of‑range‑waarde afwijst; het doel‑presentatieformaat kan tijdens opslaan of bij het openen in PowerPoint normaliseren, weglaten of ongeldige data afwijzen.
+De gedemonstreerde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet meteen elke out‑of‑range waarde afwijst; het doelpresentatie‑formaat kan normaliseren, weglaten of ongeldige data afwijzen tijdens het opslaan of wanneer PowerPoint het bestand opent.
 
-| Operatie | Parameters | Geldig bereik en eenheid |
+| Operatie | Parameters | Geldige bereik en eenheid |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel onveranderd. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | Geen | Geen numerieke parameters. Alpha blijft onveranderd. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfacanalen in `System.Drawing.Color` gebruiken `0` tot `255`. |
-| [AddTintEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue is `0` inclusief tot `360` exclusief, in graden; amount is `-100` tot `100`, procent. |
-| [AddHSLEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue is `0` inclusief tot `360` exclusief, in graden; saturatie en luminantie zijn `-100` tot `100`, procent. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | De vervangende kleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfabwaarden blijven onveranderd. |
-| [AddBlurEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Radius is niet‑negatief en wordt gemeten in points; `grow` is een Boolean die bepaalt of vervaagd materiaal buiten de originele grenzen mag uitsteken. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Niet‑negatieve procent. Gebruik `0` tot `100` voor gewone doorzichtigheids‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alfa. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` tot `100`, procent doorzichtigheid. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` tot `100`, procent alfabdrempel. Waarden eronder worden transparant; waarden op of boven de drempel worden ondoorzichtig. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel onveranderd. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | Geen numerieke parameters. Alpha wordt niet gewijzigd. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfacanalen in `System.Drawing.Color` gebruiken `0` tot `255`. |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; hoeveelheid (`amount`) is `-100` tot `100`, procent. |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfabedragen blijven ongewijzigd. |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Straal is niet‑negatief en wordt gemeten in punten; `grow` is een Boolean die bepaalt of vervaagde inhoud buiten de oorspronkelijke grenzen mag uitsteken. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Niet‑negatieve procenten. Gebruik `0` tot `100` voor gewone opaciteits‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alpha. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` tot `100`, procent opaciteit. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` tot `100`, procent alpha‑drempel. Waarden eronder worden transparant; waarden op of boven de drempel worden ondoorzichtig. |
 
-Voor vaste alfa‑modulatie zijn transparantie en ondoorzichtigheid complementair. Bijvoorbeeld, 35 % transparantie komt overeen met een alfa‑modulatie‑waarde van 65 %.
+Voor vaste alpha‑modulatie zijn transparantie en opaciteit complementair. Bijvoorbeeld, 35 % transparantie komt overeen met een alpha‑modulatie‑hoeveelheid van 65 %.
 
 ## **Helderheid en contrast toepassen**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) retourneert een [IBrightnessContrast](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ibrightnesscontrast/)‑operatie. De scalare instellingen worden meegegeven wanneer de operatie wordt aangemaakt. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/brightnesscontrast/geteffective/) retourneert berekende alleen‑lezen‑waarden die geïnspecteerd of gelogd kunnen worden.
+`[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/)` retourneert een `[IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/)`‑operatie. De scalaire instellingen worden meegegeven wanneer de operatie wordt aangemaakt. `[IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/)` retourneert berekende alleen‑lezen waarden die kunnen worden geïnspecteerd of gelogd.
 
-Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, waarna een voorbeeld wordt gerenderd zonder de ingesloten afbeelding te wijzigen:
+Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, waarna een preview wordt gerenderd zonder de embedded afbeelding te wijzigen:
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/brightnesscontrast/) is een Office‑2010‑afbeeldingseffect‑extensie en minder draagbaar dan het standaard DrawingML‑luminantie‑effect. Wanneer helderheid en contrast na een PPTX‑round‑trip bewerkbaar moeten blijven, gebruik dan [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) en verifieer het resultaat na het heropenen van het bestand. De sectie “format limitations” legt dit onderscheid uitgebreider uit.
+`[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/)` is een Office 2010 picture‑effect extensie en is minder draagbaar dan het standaard DrawingML luminance‑effect. Wanneer helderheid en contrast bewerkbaar moeten blijven na een PPTX‑rondreis, gebruik dan `[IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/)` en verifieer het resultaat na het heropenen van het bestand. De sectie over format‑beperkingen legt dit onderscheid gedetailleerder uit.
 
 ## **Kleurtransformaties toepassen**
 
-Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeelding‑frames die dezelfde afbeeldingsbron hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijstinten, duotoon, tint, HSL‑aanpassing en kleurvervanging toe.
+Kleureffecten kunnen onafhankelijk worden toegepast op verschillende picture‑frames die één afbeelding‑resource hergebruiken. Het volgende voorbeeld maakt vijf frames en past grayscale, duotone, tint, HSL‑aanpassing en kleurvervanging toe.
 
-[IDuotone](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iduotone/) bevat twee onafhankelijk bewerkbare kleur‑parameters: `Color1` mappt donkere pixels, terwijl `Color2` lichte pixels mappt. Dit maakt het een bruikbaar voorbeeld van een effect waarvan de instellingen complexer zijn dan een enkele scalare waarde.
+`[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/)` bevat twee onafhankelijk bewerkbare kleur‑parameters: `Color1` mappt donkere pixels, terwijl `Color2` lichte pixels mappt. Dit maakt het een bruikbaar voorbeeld van een effect waarvan de instellingen complexer zijn dan één enkele scalaire waarde.
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) vervangt elke pixel‑kleur door één vaste kleur terwijl alfa behouden blijft. Het verschilt van [AddColorChangeEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), dat één bronkleur naar een andere mappt en zowel bron‑ als doel‑kleurformaten blootlegt.
+`[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/)` vervangt de kleur van elke pixel door één vaste kleur terwijl alpha behouden blijft. Het verschilt van `[AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/)`, dat één bronkleur naar een andere mappt en beide kleurformaten (bron en doel) blootlegt.
 
-## **Vervaging, transparantie en alfa‑effecten toevoegen**
+### **Een luminantie‑drempel toepassen**
 
-[AddBlurEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) beïnvloedt alle kleurkanalen, inclusief alfa. Stel `grow` in op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeelding‑grenzen kan uitsteken.
+Een luminantie‑drempel kan zwakke markeringen op een gescande pagina makkelijker onderscheidbaar maken ten opzichte van de achtergrond. `[AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/)` behoudt tussenliggende grijstinten. `[AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/)` mappt luminantie naar zwart of wit, terwijl `[AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/)` een drempel op opaciteit toepast.
 
-Voor uniforme transparantie, gebruik [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Het vermenigvuldigt elke bestaande alfabwaarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) wijst in plaats daarvan één alfabwaarde toe aan alle pixels. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) zet alfa om naar twee niveaus gebaseerd op een drempel.
+De luminantie‑drempel varieert van 0 % tot 100 %, inclusief. Pixels onder de drempel worden zwart. Pixels op of boven de drempel worden wit. Het verhogen van de drempel maakt meer tinten zwart omdat meer van hen onder de cutoff vallen.
+
+Download `[grayscale-swatches.png](grayscale-swatches.png)` naar de werkmap. Elk label geeft het oorspronkelijke grijsniveau op een schaal van 0 tot 255 weer. Het voorbeeld plaatst het origineel naast twee kopieën en slaat de drempel van elke kopie op in de presentatie.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Open de uitvoer‑presentatie in PowerPoint om de drie frames te vergelijken. Het swatch‑label 96 heeft ongeveer 38 % luminantie (96 van 255). Het wordt wit bij de 20 % drempel en zwart bij de 60 % drempel.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **Vervaag, transparantie en alpha‑effecten toevoegen**
+
+`[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/)` beïnvloedt alle kleurkanalen, inclusief alpha. Zet `grow` op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeelding kan uitsteken.
+
+Voor uniforme transparantie, gebruik `[AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/)`. Het vermenigvuldigt elke bestaande alpha‑waarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. `[AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/)` kent daarentegen één alpha‑waarde toe aan alle pixels. `[AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/)` converteert alpha naar twee niveaus op basis van een drempel.
 
 ```csharp
 using System.IO;
@@ -171,15 +212,15 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-Andere alfa‑operaties zonder parameters zijn onder meer [AddAlphaCeilingEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), die elke niet‑nul alfa volledig ondoorzichtig maakt; [AddAlphaFloorEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), die elke alfa onder 100 % volledig transparant maakt; en [AddAlphaInverseEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), die alfa verandert naar `100% - alpha`.
+Andere parameter‑vrije alpha‑operaties omvatten `[AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/)`, die elke niet‑nul alpha volledig ondoorzichtig maakt; `[AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/)`, die elke alpha onder 100 % volledig transparant maakt; en `[AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/)`, die alpha omzet naar `100% - alpha`.
 
-## **Een geordende effectketen bouwen**
+## **Een geordende effectketen opbouwen**
 
-Elke `Add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de verzameling. De renderer gebruikt de verzameling als een geordende pijplijn: de output van operatie 0 wordt de input van operatie 1, enzovoort. Daardoor kan dezelfde reeks operaties in een andere volgorde een ander beeld opleveren.
+Elke `Add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de output van operatie 0 wordt de input van operatie 1, enzovoort. Daardoor kunnen dezelfde operaties in een andere volgorde een andere afbeelding opleveren.
 
-Bijvoorbeeld, grijstinten gevolgd door tint verwijdert eerst chromatische informatie en kleurt dan het luminantie‑resultaat opnieuw. Tint gevolgd door grijstinten verwijdert de tint weer. Op dezelfde manier kan alfa‑vervanging alfa‑waarden die door eerdere operaties zijn berekend overschrijven, terwijl alfa‑modulatie hun relatieve verschillen behoudt.
+Bijvoorbeeld, grayscale gevolgd door tint verwijdert eerst chromatische informatie en kleurt daarna het luminantie‑resultaat opnieuw. Tint gevolgd door grayscale verwijdert de tint weer. Evenzo kan alpha‑vervanging alpha‑waarden die door eerdere operaties zijn berekend overschrijven, terwijl alpha‑modulatie hun relatieve verschillen behoudt.
 
-Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, heropent de presentatie, controleert zowel de operatietypen als hun volgorde, en rendert het heropende resultaat:
+Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de operatietypen als hun volgorde, en rendert het heropende resultaat:
 
 ```csharp
 using System;
@@ -224,15 +265,22 @@ else
 }
 ```
 
-De verzameling legt geen compatibiliteitsmatrix op die kleuren-, alfa- en vervagings‑operaties tot gescheiden ketens beperkt. Ze kunnen gecombineerd worden, maar combinaties zijn niet altijd nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is geproduceerd; grijstinten na duotoon verwijderen de twee geselecteerde kleuren; en alfa‑ceiling, floor, replace‑ of bi‑level‑operaties kunnen alfa‑details die eerder zijn gecreëerd weggooien. Bouw de keten volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te beschouwen als ongeordende opmaak‑vlaggen.
+De collectie legt geen compatibiliteitsmatrix op die kleur‑, alpha‑ en vervaging‑operaties tot aparte ketens beperkt. Ze kunnen worden gecombineerd, maar combinaties zijn niet altijd nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is gecreëerd; grayscale na duotone verwijdert de twee geselecteerde kleuren; en alpha‑ceiling, floor, replace of bi‑level operaties kunnen alpha‑detail die eerder is gemaakt weggooien. Bouw de keten op volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te zien als ongeordende opmaak‑vlaggen.
+
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Bewerkbare en effectieve waarden inspecteren**
 
-Een bewerkbare operatie is het object dat in `ISlidesPicture.ImageTransform` is opgeslagen. Afhankelijk van het effect kan het direct schrijfbare leden blootleggen. Bijvoorbeeld, [IBlur](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iblur/) blootlegt schrijfbare `Radius` en `Grow`, [IAlphaModulateFixed](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ialphamodulatefixed/) blootlegt schrijfbare `Amount`, en [IAlphaBiLevel](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ialphabilevel/) blootlegt schrijfbare `Threshold`. Kleureffecten zoals [IDuotone](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iduotone/) blootleggen mutable [IColorFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/icolorformat/)‑objecten.
+Een bewerkbare operatie is het object dat is opgeslagen in `ISlidesPicture.ImageTransform`. Afhankelijk van het effect kan het rechtstreeks schrijfbare leden blootleggen. Bijvoorbeeld, `[IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/)` exposeert schrijfbare `Radius` en `Grow`, `[IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/)` exposeert schrijfbare `Amount`, en `[IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/)` exposeert schrijfbare `Threshold`. Kleur‑effecten zoals `[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/)` exposeeren mutabele `[IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/)`‑objecten.
 
-Sommige operatie‑interfaces, waaronder [IBrightnessContrast](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/itint/) en [IAlphaReplace](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ialphareplace/), exposen hun creatiescalars niet als schrijfbare properties. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanging toe op de gewenste positie.
+Sommige operatie‑interfaces, waaronder `[IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/)`, `[IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/)`, `[ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/)` en `[IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/)`, exposen hun creatiescalars niet als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanging toe op de vereiste positie.
 
-Effectieve data die door `GetEffective()` wordt geretourneerd, is berekend en alleen‑lezen. Het is nuttig voor het oplossen van thema‑afhankelijke kleuren en het lezen van de genormaliseerde waarden die de renderer gebruikt, maar het vormt geen extra bewerkingsoppervlak. Het volgende voorbeeld loopt de keten af en inspecteert effectieve waarden waar de corresponderende API ze levert:
+Effectieve data die door `GetEffective()` wordt geretourneerd, is berekend en alleen‑lezen. Het is nuttig om themagerelateerde kleuren op te lossen en de genormaliseerde waarden die de renderer gebruikt te lezen, maar het is geen extra bewerkingsoppervlak. Het volgende voorbeeld enumerateert de keten en inspecteert effectieve waarden waar de corresponderende API ze levert:
 
 ```csharp
 using System;
@@ -302,11 +350,11 @@ if (pictureFrame != null)
 }
 ```
 
-Parameter‑vrije effecten zoals grijstinten, alfa‑ceiling en alfa‑inverse hebben nog steeds een effective‑data‑object, maar er zijn geen scalare instellingen om af te drukken. Hun aanwezigheid en positie in de verzameling zijn de belangrijke informatie.
+Parameter‑vrije effecten zoals grayscale, alpha ceiling en alpha inverse hebben nog steeds een effectieve‑data‑object, maar er zijn geen scalaire instellingen om af te drukken. Hun aanwezigheid en positie in de collectie zijn de belangrijke informatie.
 
 ## **Transformaties verwijderen of wissen**
 
-Gebruik [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) om één operatie op index te verwijderen. Omdat indexen verschuiven na verwijdering, zoek eerst het doel en verwijder het daarna na de opsomming. Gebruik `Clear()` om de volledige keten te verwijderen.
+Gebruik `[IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/)` om één operatie op basis van index te verwijderen. Omdat indexen verschuiven na verwijdering, zoek eerst het doel en verwijder het na enumeratie. Gebruik `Clear()` om de volledige keten te verwijderen.
 
 ```csharp
 using System;
@@ -344,38 +392,38 @@ if (pictureFrame != null)
 }
 ```
 
-Het verwijderen of wissen van transformaties verandert alleen de afbeelding‑opmaak. Het verwijdert, recomprimeert of wijzigt de hergebruikte [IPPImage](https://reference.aspose.com/slides/nl/net/aspose.slides/ippimage/) bron niet.
+Het verwijderen of wissen van transformaties wijzigt alleen de picture‑opmaak. Het verwijdert, recomprimeert of verandert de hergebruikte `[IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)`‑resource niet.
 
-## **Presentatieformaten en exportdoelen overwegen**
+## **Overweeg presentatief formaten en exportdoelen**
 
-Beeldtransformaties stammen uit DrawingML, dus PPTX is het voorkeursbare bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie identieke draagbaarheid:
+Image‑transformaties komen voort uit DrawingML, dus PPTX is het voorkeurs‑bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie identieke draagbaarheid:
 
-- Standaard DrawingML‑operaties zoals luminantie, grijstinten, duotoon, tint, HSL, vervaging en gangbare alfa‑operaties hebben de grootste kans om een PPTX‑round‑trip te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de verzameling wanneer behoud een vereiste is.
-- [BrightnessContrast](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/brightnesscontrast/) is een Office‑2010‑extensie in plaats van de standaard DrawingML‑luminantie‑operatie. Het kan worden gebruikt voor in‑memory rendering, maar er is geen garantie dat het na opslaan en heropenen van PPTX blijft bestaan als een bewerkbare [IBrightnessContrast](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/ibrightnesscontrast/). Geef de voorkeur aan [AddLuminanceEffect](https://reference.aspose.com/slides/nl/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) voor persistente helderheids‑ en contrast‑aanpassingen.
-- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde operaties weglaten, een keten reduceren tot een ondersteunde subset, of een benadering van het uiterlijk geven. Gebruik PPT niet als verificatieformaat voor een complexe bewerkbare keten.
-- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele output past de ondersteunde keten toe op het gerenderde uiterlijk. Deze uitvoer bevat geen bewerkbare `IImageTransformOperationCollection`; rasterformaten flatten het resultaat tot pixels, en document‑/vector‑exports slaan hun eigen weergave‑representatie op.
-- Effecten maken een gekoppelde afbeelding niet zelf‑voorzienend. Het renderen van een gekoppelde afbeelding blijft afhankelijk van de beschikbaarheid van de gekoppelde bron wanneer de presentatie wordt geladen.
+- Standaard DrawingML‑operaties zoals luminance, grayscale, duotone, tint, HSL, blur en gemeenschappelijke alpha‑operaties hebben de grootste kans om een PPTX‑rondreis te overleven. Open altijd het gegenereerde bestand opnieuw en inspecteer de collectie wanneer behoud een vereiste is.
+- `[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/)` is een Office 2010‑extensie in plaats van de standaard DrawingML‑luminance‑operatie. Het kan worden gebruikt voor in‑memory rendering, maar het is niet gegarandeerd dat het als bewerkbare `[IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/)` blijft bestaan na opslaan en heropenen van PPTX. Geef de voorkeur aan `[AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/)` voor blijvende helderheids‑ en contrast‑aanpassingen.
+- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde operaties weglaten, een keten reduceren tot een ondersteunde subset, of het uiterlijk benaderen. Gebruik PPT niet als verificatieformaat voor een complexe bewerkbare keten.
+- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele output past de ondersteunde keten toe op het gerenderde uiterlijk. Die outputs bevatten geen bewerkbare `IImageTransformOperationCollection`; raster‑formaten flatten het resultaat naar pixels, en document/vector‑exports slaan hun eigen render‑representatie op.
+- Effecten maken een gelinkte afbeelding niet zelf‑containend. Het renderen van een gelinkte picture blijft afhangen van de beschikbaarheid van de gelinkte resource wanneer de presentatie wordt geladen.
 
-Verschillende presentatie‑consumenten kunnen edge‑cases anders renderen, vooral wanneer meerdere alfa‑ of kleur‑kwantisering‑operaties gecombineerd worden. Voor kritieke output, test zowel de bewerkbare round‑trip als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
+Verschillende presentatie‑consumenten kunnen edge‑cases verschillend renderen, vooral wanneer meerdere alpha‑ of kleur‑kwantiserende operaties worden gecombineerd. Voor kritische output, test zowel de bewerkbare rondreis als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
 
 ## **FAQ**
 
-**Wijzigten beeldtransformatie‑effecten de ingebedde afbeeldingsdata?**
+**Wijzigen image‑transform‑effecten de embedded afbeeldingsdata?**
 
-Nee. De operaties behoren tot de `ISlidesPicture` die door de afbeelding‑vulling wordt gebruikt. De onderliggende `IPPImage`‑bytes blijven ongewijzigd.
+Nee. De operaties behoren tot de `ISlidesPicture` die door de picture‑fill wordt gebruikt. De onderliggende `IPPImage`‑bytes blijven ongewijzigd.
 
-**Delen twee afbeelding‑frames die dezelfde afbeelding hergebruiken hun effectinstellingen?**
+**Delen twee picture‑frames die dezelfde afbeelding hergebruiken hun effect‑instellingen?**
 
-Nee. Het hergebruiken van een `IPPImage` voorkomt dubbele afbeeldingsdata, maar elk afbeelding‑frame heeft normaal gezien een apart `ISlidesPicture` en een eigen beeldtransformatie‑verzameling.
+Nee. Het hergebruiken van een `IPPImage` voorkomt dubbele afbeeldingsdata, maar elk picture‑frame heeft normaal gesproken een aparte `ISlidesPicture` en image‑transform‑collectie.
 
-**Kunnen kleur‑, vervaging‑ en alfa‑effecten gecombineerd worden?**
+**Kunnen kleur‑, blur‑ en alpha‑effecten worden gecombineerd?**
 
-Ja. De verzameling accepteert ze in één geordende keten. Houd rekening met wat elke operatie met de output van de vorige doet, want vervangings‑ en drempel‑operaties kunnen eerdere kleur‑ of alfabdetails weggooien.
+Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke operatie doet met de output van de vorige, want vervangings‑ en drempel‑operaties kunnen eerdere kleur‑ of alpha‑details weggooien.
 
 **Waarom zijn effectieve waarden alleen‑lezen?**
 
-Effectieve data vertegenwoordigt berekende waarden die voor rendering worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transformatie‑verzameling is opgeslagen waar schrijfbare leden bestaan; anders verwijder je de operatie en voeg je een vervanging toe met nieuwe creatie‑parameters.
+Effectieve data vertegenwoordigt berekende waarden die voor rendering worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die is opgeslagen in de transform‑collectie waar schrijfbare leden bestaan; anders verwijder je deze en voeg je een vervanging toe met nieuwe creatie‑parameters.
 
-**Welk formaat moet ik gebruiken om een transformatie‑keten te behouden?**
+**Welk formaat moet ik gebruiken om een transform‑keten te behouden?**
 
-Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Het legacy‑PPT‑formaat kan het volledige DrawingML‑effectmodel niet weergeven, en geëxporteerde formaten behouden alleen het uiterlijk, niet de bewerkbare transformatie‑operaties.
+Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan niet het volledige DrawingML‑effectmodel vertegenwoordigen, en gerenderde export‑formaten behouden alleen het uiterlijk, niet bewerkbare transform‑operaties.

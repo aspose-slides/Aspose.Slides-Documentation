@@ -1,16 +1,16 @@
 ---
-title: Quản lý các hiệu ứng biến đổi ảnh trong bản trình chiếu với Python
-linktitle: Các hiệu ứng biến đổi ảnh
+title: Quản lý các hiệu ứng biến đổi hình ảnh trong bản trình bày với Python
+linktitle: Hiệu ứng biến đổi hình ảnh
 type: docs
 weight: 11
 url: /vi/python-java/image-transform-effects/
 keywords:
-- biến đổi ảnh
-- hiệu ứng ảnh
+- biến đổi hình ảnh
+- hiệu ứng hình ảnh
 - độ sáng
 - độ tương phản
-- chuyển đổi xám
-- đôi màu
+- xám
+- hai màu
 - tông màu
 - HSL
 - thay thế màu
@@ -19,54 +19,54 @@ keywords:
 - hiệu ứng alpha
 - chuỗi hiệu ứng
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Python
 - Java
 - Aspose.Slides
-description: "Áp dụng, nối chuỗi, kiểm tra, xóa và xác thực các hiệu ứng biến đổi ảnh cho khung ảnh với Aspose.Slides cho Python qua Java."
+description: "Áp dụng, nối chuỗi, kiểm tra, xoá và xác thực các hiệu ứng biến đổi hình ảnh cho các khung ảnh với Aspose.Slides cho Python qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides biểu thị các hiệu chỉnh ảnh dưới dạng một tập hợp có thứ tự của các thao tác biến đổi ảnh. Đối với một khung ảnh, bắt đầu với [Picture](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picture/) của khung và truy cập [Picture.getImageTransform](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picture/#getImageTransform). [ImageTransformOperationCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/) trả về cho phép bạn thêm, liệt kê, kiểm tra, xóa và xóa sạch các hiệu ứng mà không cần ghi lại lại các byte hình ảnh gốc.
+Aspose.Slides biểu diễn việc điều chỉnh hình ảnh dưới dạng một bộ sưu tập có thứ tự của các thao tác biến đổi ảnh. Đối với một khung ảnh, bắt đầu với [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) và truy cập [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform). Bộ [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) trả về cho phép bạn thêm, liệt kê, kiểm tra, xoá và xóa các hiệu ứng mà không cần ghi lại lại byte ảnh gốc.
 
-Bài viết này minh họa quy trình làm việc hoàn chỉnh cho độ sáng và độ tương phản, biến đổi màu, làm mờ, trong suốt, chuỗi hiệu ứng có thứ tự, giá trị hiệu lực, xóa và xác thực vòng quay PPTX.
+Bài viết này trình bày quy trình đầy đủ cho độ sáng và độ tương phản, các biến đổi màu, làm mờ, độ trong suốt, chuỗi hiệu ứng có thứ tự, giá trị thực tế, việc loại bỏ và kiểm chứng vòng quay PPTX.
 
-## **Hiểu quyền sở hữu hiệu ứng và việc tái sử dụng ảnh**
+## **Hiểu Quyền Sở Hữu Hiệu Ứng và Tái Sử Dụng Hình Ảnh**
 
-Một tài nguyên ảnh và hình ảnh hiển thị nó là các đối tượng khác nhau:
+Một tài nguyên hình ảnh và hình ảnh hiển thị nó là các đối tượng khác nhau:
 
-- [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) lưu trữ hoặc tham chiếu dữ liệu ảnh nguồn mà bản trình chiếu sở hữu.
-- [Picture](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picture/) thuộc về một phần nền hình và tham chiếu tài nguyên ảnh đồng thời lưu trữ tập hợp biến đổi ảnh.
-- [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/) là hình dạng trên slide sở hữu phần nền hình, hình học, cài đặt cắt và các định dạng cấp khung khác.
+- [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) lưu hoặc tham chiếu dữ liệu hình ảnh nguồn mà bản trình bày sở hữu.
+- [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) thuộc về phần tô màu hình ảnh và tham chiếu tới một tài nguyên hình ảnh trong khi lưu trữ bộ sưu tập biến đổi ảnh.
+- [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) là hình dạng trên slide sở hữu phần tô màu hình ảnh liên quan, hình học, thiết lập cắt và các định dạng cấp khung khác.
 
-Do đó, các thao tác biến đổi ảnh không thay đổi các byte trong [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/). Khi cùng một `PPImage` được truyền cho [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/#addPictureFrame) hơn một lần, mỗi khung ảnh mới sẽ nhận được `Picture` và tập hợp biến đổi riêng. Áp dụng chuyển đổi xám cho một khung không làm các khung khác cũng chuyển sang xám, mặc dù tất cả chúng đều tái sử dụng cùng một tài nguyên ảnh được nhúng.
+Do đó, các thao tác biến đổi ảnh không thay đổi byte trong [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/). Khi cùng một `PPImage` được truyền vào [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) hơn một lần, mỗi khung ảnh mới sẽ nhận được `Picture` và bộ sưu tập biến đổi riêng. Áp dụng chuyển đổi grayscale cho một khung không làm các khung khác cũng chuyển sang grayscale, mặc dù tất cả đều tái sử dụng cùng một tài nguyên hình ảnh được nhúng.
 
-Mô hình `Picture.getImageTransform` tương tự cũng được sử dụng bởi các phần nền hình khác, chẳng hạn như hình dạng hoặc nền slide. Các ví dụ dưới đây tập trung vào khung ảnh.
+Mô hình `Picture.getImageTransform` tương tự cũng được sử dụng bởi các phần tô màu hình ảnh khác, chẳng hạn như hình dạng hoặc nền slide. Các ví dụ dưới đây tập trung vào khung ảnh.
 
-## **Sử dụng phạm vi và đơn vị tham số hợp lệ**
+## **Sử Dụng Phạm Vi Tham Số và Đơn Vị Hợp Lệ**
 
-Các phương pháp được minh họa sử dụng các phạm vi ngữ nghĩa và đơn vị sau. Giữ các giá trị trong phạm vi này ngay cả khi một phiên bản thư viện cụ thể không từ chối ngay mọi giá trị ngoài phạm vi; định dạng bản trình chiếu đích có thể chuẩn hoá, bỏ qua hoặc từ chối dữ liệu không hợp lệ khi lưu hoặc khi PowerPoint mở tệp.
+Các phương thức được minh họa sử dụng các phạm vi và đơn vị ngữ nghĩa sau. Giữ các giá trị trong phạm vi này ngay cả khi một phiên bản thư viện cụ thể không từ chối ngay mọi giá trị vượt phạm vi; định dạng bản trình bày mục tiêu có thể chuẩn hoá, bỏ hoặc từ chối dữ liệu không hợp lệ khi lưu hoặc khi PowerPoint mở tệp.
 
-| Hoạt động | Tham số | Phạm vi hợp lệ và đơn vị |
+| Hoạt động | Tham số | Phạm vi và đơn vị hợp lệ |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` đến `100`, phần trăm; `0` giữ thành phần không đổi. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | Không có | Không có tham số số. Alpha không thay đổi. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Hai màu cho pixel tối và sáng. Các kênh RGB và alpha trong `java.awt.Color` dùng giá trị từ `0` đến `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Hue từ `0` (bao gồm) đến `360` (không bao gồm), đơn vị độ; amount từ `-100` đến `100`, phần trăm. |
-| [addHSLEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Hue từ `0` (bao gồm) đến `360` (không bao gồm), đơn vị độ; saturation và luminance từ `-100` đến `100`, phần trăm. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | Màu thay thế sử dụng giá trị kênh từ `0` đến `255`. Giá trị alpha hiện có không thay đổi. |
-| [addBlurEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Radius không âm và đo bằng điểm; `grow` là Boolean điều khiển việc nội dung đã làm mờ có thể mở rộng ra ngoài giới hạn gốc hay không. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Phần trăm không âm. Dùng `0` đến `100` cho việc thu giảm độ trong suốt thông thường: `0` là hoàn toàn trong suốt và `100` giữ nguyên alpha hiện có. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` đến `100`, phần trăm độ mờ. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` đến `100`, phần trăm ngưỡng alpha. Giá trị dưới ngưỡng trở nên trong suốt; giá trị bằng hoặc lớn hơn ngưỡng trở nên mờ đục. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` đến `100`, phần trăm; `0` giữ thành phần không thay đổi. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | Không có tham số số. Alpha không thay đổi. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Hai màu cho các pixel tối và sáng. Các kênh RGB và alpha trong `java.awt.Color` sử dụng giá trị từ `0` đến `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Hue từ `0` (bao gồm) đến `360` (không bao gồm), đơn vị độ; amount từ `-100` đến `100`, phần trăm. |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Hue từ `0` (bao gồm) đến `360` (không bao gồm), đơn vị độ; saturation và luminance từ `-100` đến `100`, phần trăm. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | Màu thay thế sử dụng giá trị kênh từ `0` đến `255`. Giá trị alpha hiện có không thay đổi. |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Bán kính là không âm và đo bằng điểm; `grow` là kiểu Boolean điều khiển việc nội dung mờ có thể mở rộng ra ngoài giới hạn gốc hay không. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Phần trăm không âm. Sử dụng `0` đến `100` cho việc điều chỉnh độ mờ thông thường: `0` là hoàn toàn trong suốt và `100` giữ nguyên alpha hiện có. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` đến `100`, phần trăm độ mờ. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` đến `100`, phần trăm ngưỡng alpha. Giá trị dưới ngưỡng sẽ trong suốt; giá trị bằng hoặc trên ngưỡng sẽ không trong suốt. |
 
-Đối với việc điều chế alpha cố định, độ trong suốt và độ mờ là các khái niệm bổ sung nhau. Ví dụ, độ trong suốt 35 % tương đương với mức điều chế alpha 65 %.
+Đối với điều chế alpha cố định, độ trong suốt và độ mờ là các giá trị bổ trợ. Ví dụ, 35% độ trong suốt tương ứng với mức điều chế alpha là 65%.
 
-## **Áp dụng độ sáng và độ tương phản**
+## **Áp Dụng Độ Sáng và Độ Tương Phản**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) trả về một thao tác [BrightnessContrast](https://reference.aspose.com/slides/vi/python-java/aspose.slides/brightnesscontrast/). Các thiết lập vô hướng của nó được cung cấp khi tạo thao tác. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/vi/python-java/aspose.slides/brightnesscontrast/#getEffective) trả về các giá trị chỉ đọc đã được tính toán, có thể kiểm tra hoặc ghi lại.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) trả về một thao tác [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/). Các thiết lập vô hướng được cung cấp khi tạo thao tác. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) trả về các giá trị chỉ đọc đã tính toán có thể được kiểm tra hoặc ghi lại.
 
-Ví dụ sau tăng độ sáng lên 15 % và độ tương phản lên 20 %, sau đó hiển thị bản xem trước mà không thay đổi ảnh được nhúng:
+Ví dụ sau tăng độ sáng lên 15% và độ tương phản lên 20%, sau đó hiển thị bản xem trước mà không thay đổi ảnh được nhúng:
 
 ```python
 import jpype
@@ -103,13 +103,13 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/vi/python-java/aspose.slides/brightnesscontrast/) là một phần mở rộng hiệu ứng ảnh của Office 2010 và ít di động hơn so với hiệu ứng luminance chuẩn DrawingML. Khi độ sáng và độ tương phản cần giữ khả năng chỉnh sửa sau vòng quay PPTX, hãy sử dụng [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) và xác minh kết quả sau khi mở lại tệp. Phần giới hạn định dạng giải thích chi tiết sự khác biệt này.
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) là một phần mở rộng hiệu ứng ảnh Office 2010 và ít di động hơn so với hiệu ứng luminance chuẩn DrawingML. Khi cần giữ độ sáng và độ tương phản có thể chỉnh sửa sau vòng quay PPTX, hãy sử dụng [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) và kiểm chứng kết quả sau khi mở lại tệp. Phần giới hạn định dạng giải thích chi tiết hơn về sự khác biệt này.
 
-## **Áp dụng các biến đổi màu**
+## **Áp Dụng Các Biến Đổi Màu**
 
-Các hiệu ứng màu có thể được áp dụng độc lập cho các khung ảnh khác nhau sử dụng chung một tài nguyên ảnh. Ví dụ dưới đây tạo năm khung và áp dụng chuyển đổi xám, duotone, tint, điều chỉnh HSL và thay thế màu.
+Các hiệu ứng màu có thể được áp dụng độc lập cho các khung ảnh khác nhau mà tái sử dụng cùng một tài nguyên hình ảnh. Ví dụ sau tạo năm khung và áp dụng grayscale, duotone, tint, điều chỉnh HSL và thay thế màu.
 
-[Duotone](https://reference.aspose.com/slides/vi/python-java/aspose.slides/duotone/) chứa hai tham số màu có thể chỉnh sửa độc lập: `color1` ánh xạ pixel tối, trong khi `color2` ánh xạ pixel sáng. Điều này làm cho nó trở thành một ví dụ hữu ích của hiệu ứng có cài đặt phức tạp hơn một giá trị vô hướng duy nhất.
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) chứa hai tham số màu có thể chỉnh sửa độc lập: `color1` ánh xạ các pixel tối, trong khi `color2` ánh xạ các pixel sáng. Điều này làm cho nó trở thành một ví dụ hữu ích của một hiệu ứng có cài đặt phức tạp hơn một giá trị vô hướng duy nhất.
 
 ```python
 import jpype
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) thay thế mỗi pixel bằng một màu cố định trong khi giữ nguyên alpha. Nó khác với [addColorChangeEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), phương pháp này ánh xạ một màu nguồn sang màu đích và cho phép cả hai định dạng màu nguồn và đích.
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) thay thế màu của mỗi pixel bằng một màu cố định trong khi giữ nguyên alpha. Nó khác với [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), cái mà ánh xạ một màu nguồn sang màu đích và hiển thị cả định dạng màu nguồn và đích.
 
-## **Thêm hiệu ứng làm mờ, trong suốt và alpha**
+### **Áp Dụng Ngưỡng Độ Sáng**
 
-[addBlurEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) ảnh hưởng đến tất cả các kênh màu, bao gồm alpha. Đặt `grow` thành `True` khi cạnh đã làm mờ có thể mở rộng ra ngoài giới hạn ảnh gốc.
+Một ngưỡng độ sáng có thể làm cho các dấu mờ trên trang quét dễ phân biệt hơn so với nền. [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) giữ lại các mức xám trung gian. [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) ánh xạ độ sáng thành đen hoặc trắng, trong khi [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) áp dụng ngưỡng cho độ trong suốt.
 
-Đối với độ trong suốt đồng nhất, sử dụng [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Nó nhân mỗi giá trị alpha hiện có, vì vậy các pixel bán trong suốt vẫn giữ tỷ lệ khác nhau. [addAlphaReplaceEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) thay vào đó gán một giá trị alpha duy nhất cho mọi pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) chuyển đổi alpha thành hai mức dựa trên ngưỡng.
+Ngưỡng độ sáng dao động từ 0% đến 100%, bao gồm. Các pixel dưới ngưỡng trở thành đen. Các pixel bằng hoặc trên ngưỡng trở thành trắng. Tăng ngưỡng sẽ làm nhiều sắc thái hơn trở thành đen vì chúng nằm dưới mức cắt.
+
+Tải xuống [grayscale-swatches.png](grayscale-swatches.png) về thư mục làm việc. Mỗi nhãn cho biết mức xám gốc trên thang 0 đến 255. Ví dụ đặt bản gốc bên cạnh hai bản sao và lưu ngưỡng của mỗi bản sao trong bản trình bày.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Mở bản trình bày đầu ra trong PowerPoint để so sánh ba khung. Mẫu có nhãn 96 có khoảng 38% độ sáng (96 trên 255). Nó chuyển sang trắng ở ngưỡng 20% và sang đen ở ngưỡng 60%.
+
+![Các mẫu màu xám gốc bên cạnh kết quả đen‑trắng ở ngưỡng độ sáng 20% và 60%](luminance-threshold.png)
+
+## **Thêm Hiệu Ứng Làm Mờ, Độ Trong Suốt và Alpha**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) ảnh hưởng đến tất cả các kênh màu, bao gồm alpha. Đặt `grow` thành `True` khi cạnh mờ có thể mở rộng ra ngoài giới hạn ảnh gốc.
+
+Đối với độ trong suốt đồng nhất, hãy sử dụng [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Nó nhân mỗi giá trị alpha hiện có, vì vậy các pixel bán trong suốt vẫn giữ tỉ lệ khác nhau. [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) thay vào đó gán một giá trị alpha cho tất cả các pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) chuyển đổi alpha thành hai mức dựa trên một ngưỡng.
 
 ```python
 import jpype
@@ -200,15 +247,13 @@ finally:
     presentation.dispose()
 ```
 
-Các thao tác alpha không tham số khác bao gồm [addAlphaCeilingEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), làm cho mọi alpha khác 0 trở nên hoàn toàn mờ đục; [addAlphaFloorEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), làm cho mọi alpha dưới 100 % hoàn toàn trong suốt; và [addAlphaInverseEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), chuyển đổi alpha thành `100% - alpha`.
+Các thao tác alpha không có tham số khác bao gồm [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), làm cho mọi alpha khác 0 trở nên hoàn toàn không trong suốt; [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), làm cho mọi alpha dưới 100% trở nên hoàn toàn trong suốt; và [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), thay đổi alpha thành `100% - alpha`.
 
-## **Xây dựng một chuỗi hiệu ứng có thứ tự**
+## **Xây Dựng Chuỗi Hiệu Ứng Có Thứ Tự**
 
-Mỗi phương pháp `add...Effect` thêm một thao tác mới vào cuối tập hợp. Bộ render sử dụng tập hợp như một pipeline có thứ tự: đầu ra của thao tác 0 trở thành đầu vào của thao tác 1, và tiếp tục như vậy. Do đó, cùng các thao tác nhưng sắp xếp khác nhau có thể tạo ra ảnh khác nhau.
+Mỗi phương thức `add...Effect` thêm một thao tác mới vào cuối bộ sưu tập. Bộ vẽ sử dụng bộ sưu tập như một pipeline có thứ tự: đầu ra của thao tác 0 trở thành đầu vào của thao tác 1, và cứ tiếp tục như vậy. Do đó, cùng một tập hợp thao tác nhưng sắp xếp khác nhau có thể tạo ra hình ảnh khác.
 
-Ví dụ, chuyển đổi xám rồi tint sẽ đầu tiên loại bỏ thông tin sắc màu và sau đó tô lại kết quả luminance. Tint rồi chuyển đổi xám sẽ lại loại bỏ tint. Tương tự, việc thay thế alpha có thể ghi đè giá trị alpha được tính bởi các thao tác trước, trong khi việc điều chế alpha giữ lại sự khác biệt tương đối của chúng.
-
-Ví dụ sau xây dựng một chuỗi bốn thao tác, lưu dưới dạng PPTX, mở lại bản trình chiếu, kiểm tra cả loại thao tác và thứ tự của chúng, và hiển thị kết quả đã mở lại:
+Ví dụ, grayscale rồi tint đầu tiên loại bỏ thông tin sắc màu rồi màu lại kết quả độ sáng. Tint rồi grayscale lại loại bỏ tint. Tương tự, thay thế alpha có thể ghi đè các giá trị alpha được tính bởi các thao tác trước, trong khi điều chế alpha giữ lại sự khác biệt tương đối của chúng.
 
 ```python
 import jpype
@@ -261,15 +306,21 @@ finally:
     reopened_presentation.dispose()
 ```
 
-Tập hợp không áp đặt một ma trận tương thích buộc các thao tác màu, alpha và blur phải nằm trong các chuỗi riêng biệt. Chúng có thể được kết hợp, nhưng không phải lúc nào cũng hữu ích. Việc thay thế màu cố định loại bỏ các biến thể RGB do các hiệu ứng màu trước tạo ra; chuyển đổi xám sau duotone loại bỏ hai màu đã chọn; và các thao tác alpha ceiling, floor, replacement hoặc bi‑level có thể bỏ đi chi tiết alpha được tạo ra trước đó. Hãy xây dựng chuỗi dựa trên trình tự xử lý pixel mong muốn thay vì xem các mục như các cờ định dạng không có thứ tự.
+Bộ sưu tập không áp đặt một ma trận tương thích hạn chế các thao tác màu, alpha và làm mờ thành các chuỗi riêng biệt. Chúng có thể được kết hợp, nhưng không phải lúc nào cũng hữu ích. Thay thế màu cố định sẽ loại bỏ biến thể RGB do các hiệu ứng màu trước tạo ra; grayscale sau duotone sẽ loại bỏ hai màu đã chọn; và các thao tác ceiling, floor, replacement hoặc bi‑level alpha có thể loại bỏ chi tiết alpha đã tạo ra trước. Xây dựng chuỗi dựa trên thứ tự xử lý pixel mong muốn thay vì xem các mục như các cờ định dạng không có thứ tự.
 
-## **Kiểm tra giá trị có thể chỉnh sửa và giá trị hiệu lực**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Cùng một hình ảnh được đưa qua grayscale rồi tint, và tint rồi grayscale. Hai hình ảnh grayscale cuối cùng có các tông màu khác nhau.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Một thao tác có thể chỉnh sửa là đối tượng được lưu trong `Picture.getImageTransform`. Tùy thuộc vào hiệu ứng, nó có thể hiển thị các thành viên ghi được trực tiếp. Ví dụ, [Blur](https://reference.aspose.com/slides/vi/python-java/aspose.slides/blur/) cho phép ghi `radius` và `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/vi/python-java/aspose.slides/alphamodulatefixed/) cho phép ghi `amount`, và [AlphaBiLevel](https://reference.aspose.com/slides/vi/python-java/aspose.slides/alphabilevel/) cho phép ghi `threshold`. Các hiệu ứng màu như [Duotone](https://reference.aspose.com/slides/vi/python-java/aspose.slides/duotone/) cho phép chỉnh sửa các đối tượng [ColorFormat](https://reference.aspose.com/slides/vi/python-java/aspose.slides/colorformat/).
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Một số lớp thao tác, bao gồm [BrightnessContrast](https://reference.aspose.com/slides/vi/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/vi/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/vi/python-java/aspose.slides/tint/), và [AlphaReplace](https://reference.aspose.com/slides/vi/python-java/aspose.slides/alphareplace/), không để lộ các tham số khởi tạo dưới dạng thuộc tính ghi được. Để thay đổi các cài đặt này, cần xóa thao tác và thêm một thao tác thay thế ở vị trí yêu cầu.
+## **Kiểm Tra Các Giá Trị Có Thể Chỉnh Sửa và Hiệu Quả**
 
-Dữ liệu hiệu lực được trả về bởi `getEffective` là đã tính toán và chỉ đọc. Nó hữu ích để giải quyết màu phụ thuộc vào giao diện chủ đề và đọc các giá trị đã chuẩn hoá mà bộ render sử dụng, nhưng không phải là một bề mặt chỉnh sửa khác. Ví dụ sau liệt kê chuỗi và kiểm tra các giá trị hiệu lực ở những nơi API cung cấp chúng:
+Một thao tác có thể chỉnh sửa là đối tượng được lưu trong `Picture.getImageTransform`. Tùy thuộc vào hiệu ứng, nó có thể trực tiếp mở ra các thành viên có thể ghi. Ví dụ, [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) mở ra các giá trị `radius` và `grow` có thể ghi, [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) mở ra `amount` có thể ghi, và [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) mở ra `threshold` có thể ghi. Các hiệu ứng màu như [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) mở ra các đối tượng [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/) có thể thay đổi.
+
+Một số lớp thao tác, bao gồm [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/), và [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/), không mở ra các vô hướng tạo ra dưới dạng thuộc tính có thể ghi. Để thay đổi các cài đặt này, hãy xoá thao tác và thêm một thao tác thay thế ở vị trí yêu cầu.
+
+Dữ liệu hiệu quả do `getEffective` trả về được tính toán và chỉ đọc. Nó hữu ích để giải quyết các màu phụ thuộc vào chủ đề và đọc các giá trị chuẩn hoá mà bộ vẽ sử dụng, nhưng không phải là một bề mặt chỉnh sửa khác. Ví dụ sau liệt kê chuỗi và kiểm tra các giá trị hiệu quả tại nơi API cung cấp chúng:
 
 ```python
 import jpype
@@ -333,11 +384,11 @@ finally:
     presentation.dispose()
 ```
 
-Các hiệu ứng không tham số như grayscale, alpha ceiling và alpha inverse vẫn có đối tượng dữ liệu hiệu lực, nhưng không có thiết lập vô hướng nào để in ra. Sự hiện diện và vị trí của chúng trong tập hợp là thông tin quan trọng.
+Các hiệu ứng không có tham số như grayscale, alpha ceiling và alpha inverse vẫn có một đối tượng dữ liệu hiệu quả, nhưng không có cài đặt vô hướng để in. Sự hiện diện và vị trí của chúng trong bộ sưu tập là thông tin quan trọng.
 
-## **Xóa hoặc xóa sạch các biến đổi ảnh**
+## **Xóa Hoặc Xóa Hết Các Biến Đổi Hình Ảnh**
 
-Sử dụng [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) để xóa một thao tác theo chỉ mục. Vì các chỉ mục thay đổi sau khi xóa, trước tiên hãy tìm chỉ mục mục tiêu và xóa nó sau khi liệt kê. Dùng [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#clear) để xóa toàn bộ chuỗi.
+Sử dụng [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) để xoá một thao tác theo chỉ mục. Vì chỉ mục dịch chuyển sau khi xoá, hãy tìm mục tiêu trước và xoá nó sau khi liệt kê. Sử dụng [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) để xoá toàn bộ chuỗi.
 
 ```python
 import jpype
@@ -377,38 +428,38 @@ finally:
     presentation.dispose()
 ```
 
-Xóa hoặc xóa sạch các biến đổi chỉ thay đổi định dạng hình ảnh. Nó không xóa, nén lại hoặc thay đổi tài nguyên [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) đã được tái sử dụng.
+Xoá hoặc xóa hết các biến đổi chỉ thay đổi định dạng hình ảnh. Nó không xóa, nén lại hoặc thay đổi tài nguyên [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) đã được tái sử dụng.
 
-## **Xem xét định dạng bản trình chiếu và mục tiêu xuất**
+## **Xem Xét Định Dạng Bản Trình Bày và Đích Xuất**
 
-Các biến đổi ảnh bắt nguồn từ DrawingML, vì vậy PPTX là định dạng chỉnh sửa ưa thích cho các chuỗi hiệu ứng. Ngay cả với PPTX, không phải mọi thao tác đều có tính di động giống nhau:
+Các biến đổi ảnh xuất phát từ DrawingML, vì vậy PPTX là định dạng chỉnh sửa ưa thích cho các chuỗi hiệu ứng. Ngay cả với PPTX, không phải mọi thao tác đều có tính di động giống nhau:
 
-- Các thao tác DrawingML chuẩn như luminance, grayscale, duotone, tint, HSL, blur và các thao tác alpha thường có khả năng tồn tại tốt nhất sau vòng quay PPTX. Luôn mở lại tệp đã tạo và kiểm tra tập hợp khi yêu cầu bảo toàn.
-- [BrightnessContrast](https://reference.aspose.com/slides/vi/python-java/aspose.slides/brightnesscontrast/) là một phần mở rộng Office 2010 chứ không phải thao tác luminance chuẩn DrawingML. Nó có thể dùng cho việc render trong bộ nhớ, nhưng không được đảm bảo vẫn tồn tại dưới dạng [BrightnessContrast](https://reference.aspose.com/slides/vi/python-java/aspose.slides/brightnesscontrast/) có thể chỉnh sửa sau khi lưu và mở lại PPTX. Ưu tiên [addLuminanceEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) cho các điều chỉnh độ sáng và độ tương phản bền vững.
-- Định dạng PPT nhị phân ra đời trước mô hình hiệu ứng DrawingML đầy đủ. Lưu dưới dạng PPT có thể bỏ qua các thao tác không được hỗ trợ, giảm chuỗi về một tập con được hỗ trợ hoặc xấp xỉ giao diện. Không dùng PPT làm định dạng xác thực cho một chuỗi chỉnh sửa phức tạp.
-- Render ra PNG, JPEG, TIFF, PDF, SVG, HTML hoặc các đầu ra hình ảnh khác áp dụng chuỗi đã hỗ trợ vào giao diện được render. Các đầu ra này không chứa một `ImageTransformOperationCollection` có thể chỉnh sửa; định dạng raster làm phẳng kết quả thành các pixel, và các xuất tài liệu/vector lưu trữ cách biểu diễn render riêng của chúng.
-- Hiệu ứng không làm cho một ảnh liên kết tự chứa. Render một ảnh được liên kết vẫn phụ thuộc vào việc tài nguyên liên kết có sẵn khi bản trình chiếu được tải.
+- Các thao tác DrawingML chuẩn như luminance, grayscale, duotone, tint, HSL, blur và các thao tác alpha thông thường có cơ hội tồn tại tốt nhất sau vòng quay PPTX. Luôn mở lại tệp đã tạo và kiểm tra bộ sưu tập khi yêu cầu bảo tồn.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) là một phần mở rộng Office 2010 chứ không phải thao tác luminance DrawingML chuẩn. Nó có thể được dùng cho việc vẽ trong bộ nhớ, nhưng không được đảm bảo vẫn tồn tại dưới dạng [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) có thể chỉnh sửa sau khi lưu và mở lại PPTX. Nên ưu tiên [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) cho các điều chỉnh độ sáng và độ tương phản bền vững.
+- Định dạng PPT nhị phân xuất hiện trước mô hình hiệu ứng DrawingML đầy đủ. Lưu dưới dạng PPT có thể bỏ qua các thao tác không hỗ trợ, giảm chuỗi thành một tập con hỗ trợ, hoặc xấp xỉ giao diện. Không sử dụng PPT làm định dạng kiểm chứng cho một chuỗi chỉnh sửa phức tạp.
+- Xuất ra PNG, JPEG, TIFF, PDF, SVG, HTML hoặc các đầu ra hình ảnh khác áp dụng chuỗi hỗ trợ cho giao diện được vẽ. Các đầu ra này không chứa một `ImageTransformOperationCollection` có thể chỉnh sửa; định dạng raster làm phẳng kết quả thành pixel, và các xuất khẩu tài liệu/vector lưu trữ đại diện vẽ riêng của chúng.
+- Các hiệu ứng không làm cho một hình ảnh liên kết tự chứa. Việc vẽ một hình ảnh liên kết vẫn phụ thuộc vào tài nguyên liên kết tồn tại khi bản trình bày được tải.
 
-Các trình duyệt bản trình chiếu khác nhau có thể render các trường hợp biên khác nhau, đặc biệt khi kết hợp nhiều thao tác alpha hoặc màu. Đối với đầu ra quan trọng, hãy kiểm tra cả vòng quay chỉnh sửa và định dạng xuất cuối cùng bằng cùng một phiên bản Aspose.Slides được dùng trong môi trường sản xuất.
+Các người tiêu dùng bản trình bày khác nhau có thể vẽ các trường hợp biên khác nhau, đặc biệt khi kết hợp nhiều thao tác alpha hoặc giảm màu. Đối với đầu ra quan trọng, hãy kiểm tra cả vòng quay chỉnh sửa và định dạng xuất cuối cùng với cùng một phiên bản Aspose.Slides được sử dụng trong môi trường sản xuất.
 
-## **Câu hỏi thường gặp**
+## **CÂU HỎI THƯỜNG GẶP**
 
-**Các hiệu ứng biến đổi ảnh có thay đổi dữ liệu ảnh được nhúng không?**
+**Các hiệu ứng biến đổi hình ảnh có thay đổi dữ liệu hình ảnh được nhúng không?**
 
-Không. Các thao tác thuộc về `Picture` được sử dụng bởi phần nền hình. Các byte `PPImage` nền tảng không bị thay đổi.
+Không. Các thao tác thuộc về `Picture` được sử dụng bởi phần tô màu hình ảnh. Các byte `PPImage` nền tảng vẫn không thay đổi.
 
-**Hai khung ảnh sử dụng cùng một ảnh có chia sẻ hiệu ứng không?**
+**Hai khung ảnh tái sử dụng cùng một hình ảnh có chia sẻ hiệu ứng không?**
 
-Không. Việc tái sử dụng một `PPImage` tránh trùng lặp dữ liệu ảnh, nhưng mỗi khung ảnh thường có một `Picture` và tập hợp biến đổi ảnh riêng.
+Không. Tái sử dụng một `PPImage` tránh việc trùng lặp dữ liệu ảnh, nhưng mỗi khung ảnh thường có một `Picture` và bộ sưu tập biến đổi ảnh riêng.
 
-**Có thể kết hợp các hiệu ứng màu, làm mờ và alpha không?**
+**Các hiệu ứng màu, làm mờ và alpha có thể được kết hợp không?**
 
-Có. Tập hợp cho phép chúng trong một chuỗi có thứ tự. Cần xem xét mỗi thao tác ảnh hưởng đến đầu ra của thao tác trước đó vì các thao tác thay thế và ngưỡng có thể loại bỏ chi tiết màu hoặc alpha đã tạo.
+Có. Bộ sưu tập cho phép chúng trong một chuỗi có thứ tự. Hãy cân nhắc mỗi thao tác sẽ ảnh hưởng như thế nào đến kết quả của thao tác trước, vì các thao tác thay thế và ngưỡng có thể loại bỏ chi tiết màu hoặc alpha đã tạo ra trước đó.
 
-**Tại sao các giá trị hiệu lực lại chỉ đọc?**
+**Tại sao các giá trị hiệu quả lại chỉ đọc?**
 
-Dữ liệu hiệu lực đại diện cho các giá trị đã tính toán dùng để render, bao gồm màu đã được giải quyết. Chỉnh sửa thao tác được lưu trong tập hợp biến đổi nếu có thành viên có thể ghi; nếu không, hãy xóa và thêm một thao tác thay thế với các tham số khởi tạo mới.
+Dữ liệu hiệu quả đại diện cho các giá trị đã tính toán được sử dụng cho việc vẽ, bao gồm các màu đã giải quyết. Chỉnh sửa thao tác lưu trong bộ sưu tập biến đổi ở nơi có thành viên có thể ghi; nếu không, hãy xoá nó và thêm một thao tác thay thế với các tham số tạo mới.
 
-**Định dạng nào nên dùng để bảo toàn một chuỗi biến đổi?**
+**Nên sử dụng định dạng nào để bảo tồn một chuỗi biến đổi?**
 
-Dùng PPTX và xác thực tệp bằng cách mở lại. PPT cổ không thể biểu diễn toàn bộ mô hình hiệu ứng DrawingML, và các định dạng xuất render chỉ bảo toàn giao diện chứ không chứa các thao tác biến đổi có thể chỉnh sửa.
+Sử dụng PPTX và xác minh tệp bằng cách mở lại. Định dạng PPT cổ không thể biểu diễn toàn bộ mô hình hiệu ứng DrawingML, và các định dạng xuất ra hình ảnh chỉ giữ lại giao diện thay vì các thao tác biến đổi có thể chỉnh sửa.
