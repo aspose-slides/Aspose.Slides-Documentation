@@ -235,6 +235,37 @@ The saved presentation contains separate "Product A" and "Product B" cells with 
 *The row-span split uses the existing boundary. Product A and Product B occupy (1, 2) and (1, 3), respectively.*
 <!-- visual-explanation:manage-cells:end -->
 
+### **Split a Cell at a Specific Height**
+
+[SplitByHeight](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyheight/) takes the height of the upper part in points. [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) takes the number of existing grid rows in the upper part. To center a 40-point cell in the right column, subtract 40 from the cell’s actual height and divide the remaining space equally above and below it.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 160, 160 };
+double[] rowHeights = { 140 };
+
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
+table[0, 0].TextFrame.Text = "Left";
+
+var height = table[1, 0].Height;
+var margin = (height - 40) / 2;
+
+table[1, 0].SplitByHeight(margin);
+table[1, 1].SplitByHeight(40);
+table[1, 1].TextFrame.Text = "Middle";
+
+presentation.Save("split_by_height.pptx", SaveFormat.Pptx);
+```
+
+The first split adds a grid row, leaving the lower 90 points at `[1, 1]`. The second split targets that cell and adds another row below it. The right column now contains `[1, 0]` at 50 points (`margin`), `[1, 1]` at 40 points, and `[1, 2]` at 50 points (`margin`). The left cell spans all three rows at its original height of 140 points.
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
+
 ## **Change the Table Cell Background Color**
 
 This example creates a table with 150-point columns and 50-point rows. It sets [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) to solid and [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) to red for cell `(2, 3)`, in the third column and fourth row.
