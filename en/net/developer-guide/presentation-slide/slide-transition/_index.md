@@ -52,6 +52,53 @@ else
 }
 ```
 
+## **Wheel Transition**
+
+The [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) property of [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Wheel from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) before accessing [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) as [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
+
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) and an explicit [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) of 8,000 milliseconds to make the difference easy to observe.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+var slideWidth = presentation.SlideSize.Size.Width;
+var slideHeight = presentation.SlideSize.Size.Height;
+
+var blackSlide = presentation.Slides[0];
+blackSlide.Shapes.Clear();
+blackSlide.Background.Type = BackgroundType.OwnBackground;
+blackSlide.Background.FillFormat.FillType = FillType.Solid;
+blackSlide.Background.FillFormat.SolidFillColor.Color = Color.Black;
+
+var destinationSlide = presentation.Slides.AddClone(blackSlide);
+var rectangle = destinationSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+rectangle.FillFormat.FillType = FillType.Solid;
+rectangle.FillFormat.SolidFillColor.Color = Color.Gold;
+rectangle.TextFrame.Text = "Wheel transition";
+
+presentation.Slides.AddClone(blackSlide);
+presentation.Slides.AddClone(destinationSlide);
+
+var spokeCounts = new uint[] { 1, 8 };
+for (var i = 0; i < spokeCounts.Length; i++)
+{
+    var transition = presentation.Slides[i * 2 + 1].SlideShowTransition;
+    transition.Type = TransitionType.Wheel;
+    var wheelTransition = (IWheelTransition)transition.Value;
+    wheelTransition.Spokes = spokeCounts[i];
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 8000;
+}
+
+presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
+```
+
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:

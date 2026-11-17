@@ -53,6 +53,58 @@ finally:
     presentation.dispose()
 ```
 
+## **Wheel Transition**
+
+Use [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) to select Wheel from [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/). Then call [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) to access the [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) settings. Its [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) method controls how many radial sectors reveal the destination slide.
+
+The example creates two identical pairs of slides. Each pair starts with a black slide and ends with a full-slide gold rectangle. Both destination slides use the same slow speed set with [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) and the same explicit duration of 8,000 milliseconds set with [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration). Only the spoke count changes.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, Presentation, SaveFormat, ShapeType, TransitionSpeed, TransitionType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
+    height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+
+    slides = presentation.getSlides()
+    black_slide = slides.get_Item(0)
+    black_slide.getShapes().clear()
+    background = black_slide.getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Solid)
+    background.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    destination_slide = slides.addClone(black_slide)
+    rectangle = destination_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, width, height)
+    rectangle.getFillFormat().setFillType(FillType.Solid)
+    rectangle.getFillFormat().getSolidFillColor().setColor(Color(255, 215, 0))
+    rectangle.getTextFrame().setText("Wheel transition")
+
+    slides.addClone(black_slide)
+    slides.addClone(destination_slide)
+    for slide_index, spokes in ((1, 1), (3, 8)):
+        transition = slides.get_Item(slide_index).getSlideShowTransition()
+        transition.setType(TransitionType.Wheel)
+        wheel_transition = transition.getValue()
+        wheel_transition.setSpokes(spokes)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(8000)
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Open `wheel-transitions.pptx` in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see one clockwise sweep reveal the gold rectangle. Then advance from slide 3 to slide 4 to see eight radial sectors reveal the same rectangle simultaneously.
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
