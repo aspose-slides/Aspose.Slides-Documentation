@@ -212,6 +212,36 @@ The original text and its formatting remain in the upper (or left) cell; the new
 
 The saved presentation contains separate "Product A" and "Product B" cells with the template's cell formatting retained. See the [Cell API Reference](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) for details.
 
+### **Split a Cell at a Specific Height**
+
+[split_by_height](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_height/) takes the height of the upper part in points. [split_by_row_span](https://reference.aspose.com/slides/python-net/aspose.slides/cell/split_by_row_span/) takes the number of existing grid rows in the upper part. To center a 40-point cell vertically in the right column, subtract 40 from the cell’s actual height and divide the remaining space equally above and below it.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    column_widths = [160, 160]
+    row_heights = [140]
+    
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
+    table.rows[0][0].text_frame.text = "Left"
+
+    height = table.rows[0][1].height
+    margin = (height - 40) / 2
+
+    table.rows[0][1].split_by_height(margin)
+    table.rows[1][1].split_by_height(40)
+    table.rows[1][1].text_frame.text = "Middle"
+
+    presentation.save("split_by_height.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The first split adds a grid row, leaving the lower 90 points in `table.rows[1][1]`. The second split divides that cell into a 40-point middle cell and a 50-point bottom cell. The three cells in the right column are now 50, 40, and 50 points high from top to bottom. The left cell spans all three rows at its original height of 140 points.
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
+
 ## **Change the Table Cell Background Color**
 
 This example creates a table with 150-point columns and 50-point rows. It sets [fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to solid and [solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/) to red for cell `(2, 3)`, in the third column and fourth row.

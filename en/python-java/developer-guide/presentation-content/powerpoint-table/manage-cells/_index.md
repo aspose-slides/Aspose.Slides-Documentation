@@ -262,6 +262,41 @@ The original text and its formatting remain in the upper (or left) cell; the new
 
 The saved presentation contains separate "Product A" and "Product B" cells with the template's cell formatting retained. See the [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) for details.
 
+### **Split a Cell at a Specific Height**
+
+[splitByHeight](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByHeight) takes the height of the upper part in points. [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) takes the number of existing grid rows in the upper part. To center a 40-point cell in the right column, subtract 40 from the cell’s actual height and divide the remaining space equally above and below it.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().addTable(50, 50, [160, 160], [140])
+    table.get_Item(0, 0).getTextFrame().setText("Left")
+
+    height = table.get_Item(1, 0).getHeight()
+    margin = (height - 40) / 2
+    
+    table.get_Item(1, 0).splitByHeight(margin)
+    table.get_Item(1, 1).splitByHeight(40)
+    table.get_Item(1, 1).getTextFrame().setText("Middle")
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+The first split adds a grid row and leaves the lower 90 points in cell `(1, 1)`. The second split divides that cell into a 40-point middle cell and a 50-point bottom cell. The right column now has three cells with heights of 50, 40, and 50 points from top to bottom. The left cell spans all three rows and retains its original height of 140 points.
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
+
 ## **Change the Table Cell Background Color**
 
 This example creates a table with 150-point columns and 50-point rows. It uses [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) to select a solid fill and sets the color returned by [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) to red for cell `(2, 3)`, in the third column and fourth row.

@@ -307,6 +307,48 @@ The original text and its formatting remain in the upper (or left) cell; the new
 
 The saved presentation contains separate "Product A" and "Product B" cells with the template's cell formatting retained. See the [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) for details.
 
+### **Split a Cell at a Specific Height**
+
+[SplitByHeight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyheight/) takes the height of the upper part in points. [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) takes the number of existing grid rows in the upper part. To center a 40-point cell in the right column, subtract 40 from the cell’s actual height and divide the remaining space equally above and below it.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/ITextFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({160, 160});
+auto rowHeights = MakeArray<double>({140});
+
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Left");
+
+auto height = table->idx_get(1, 0)->get_Height();
+auto margin = (height - 40) / 2;
+
+table->idx_get(1, 0)->SplitByHeight(margin);
+table->idx_get(1, 1)->SplitByHeight(40);
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Middle");
+
+presentation->Save(u"split_by_height.pptx", SaveFormat::Pptx);
+```
+
+The first split adds a grid row, leaving the lower 90 points at `(1, 1)`. The second split targets that cell and adds another row below it. The right column now contains `(1, 0)` at 50 points (`margin`), `(1, 1)` at 40 points, and `(1, 2)` at 50 points (`margin`). The left cell spans all three rows at its original height of 140 points.
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
+
 ## **Change the Table Cell Background Color**
 
 This example creates a table with 150-point columns and 50-point rows. It uses [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to select a solid fill and [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) to access the fill color and set it to red for cell `(2, 3)`, in the third column and fourth row.
