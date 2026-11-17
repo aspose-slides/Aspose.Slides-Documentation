@@ -6,8 +6,8 @@ weight: 30
 url: /th/nodejs-java/manage-cells/
 keywords:
 - เซลล์ตาราง
-- รวมเซลล์
-- ลบเส้นขอบ
+- ผสานเซลล์
+- ลบขอบ
 - แยกเซลล์
 - รูปภาพในเซลล์
 - สีพื้นหลัง
@@ -16,17 +16,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "จัดการเซลล์ตาราง PowerPoint ด้วย JavaScript: ระบุเซลล์ที่รวมกัน, ลบเส้นขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
+description: "จัดการเซลล์ตาราง PowerPoint ด้วย JavaScript: ระบุเซลล์ที่ผสาน, ลบขอบ, แยกเซลล์, และตั้งค่สีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ให้คุณเข้าถึงและแก้ไขเซลล์ของตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวมกัน, ลบเส้นขอบของเซลล์, ทำงานกับการจัดหมายเลขเซลล์หลังจากการรวมหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, อัปเดตการจัดรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่ผสาน, ลบขอบเซลล์, ทำงานกับการกำหนดหมายเลขเซลล์หลังจากการผสานหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างจะแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-Aspose.Slides ใช้ดัชนีเริ่มที่ศูนย์เพื่อเข้าถึงเซลล์ของตารางในลำดับ `(column, row)`
+Aspose.Slides ใช้ดัชนีเริ่มจากศูนย์ในการเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
 
-## **ระบุเซลล์ตารางที่รวมกัน**
+## **ระบุเซลล์ตารางที่ผสาน**
 
-ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปทรงแรกบนสไลด์แรกเป็นตาราง โดยสมมติว่าสไลด์และรูปทรงมีอยู่และรูปทรงเป็นตาราง จากนั้นวนลูปผ่านทุกแถวและคอลัมน์และใช้ [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) เพื่อระบุเซลล์ในเขตที่รวมกัน สำหรับแต่ละผลลัพธ์ จะพิมพ์พิกัดเซลล์ในลำดับ `row;column`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), และพิกัดเริ่มต้นของเขต, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) และ [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/)
+ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกเป็นตาราง มันสมมุติว่ามีสไลด์และรูปร่างอยู่และรูปร่างนั้นเป็นตาราง จากนั้นวนผ่านทุกแถวและคอลัมน์และใช้ [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) เพื่อระบุเซลล์ในพื้นที่ที่ผสาน สำหรับแต่ละผลการจับคู่จะพิมพ์พิกัดเซลล์ในลำดับ `row;column`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), และพิกัดเริ่มต้นของพื้นที่, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) และ [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -52,9 +52,9 @@ try {
 }
 ```
 
-## **ลบเส้นขอบของเซลล์ตาราง**
+## **ลบขอบเซลล์ตาราง**
 
-สร้าง [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางถูกกำหนดเป็นหน่วยจุด ตัวอย่างตั้งค่าเส้นขอบของเซลล์ทั้งหมดสี่ด้านเป็น [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), ทำให้มันไม่ปรากฏ
+Create a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and add a table to its first slide with [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Column widths, row heights, and the table position are specified in points. The example sets all four cell borders to [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), making them invisible.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -85,11 +85,65 @@ try {
 }
 ```
 
-## **รวมเซลล์ตาราง**
+## **เพิ่มขอบเซลล์แนวทแยง**
 
-ใช้ [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางให้เป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง อาร์กิวเมนต์สุดท้ายควบคุมว่าการรวมอาจรวมเซลล์นอกช่วงที่กำหนดหรือไม่; `false` ทำให้การรวมอยู่ภายในช่วงนั้น
+Use [getBorderDiagonalDown](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderdiagonaldown/) to draw a line from the top-left corner to the bottom-right, and [getBorderDiagonalUp](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderdiagonalup/) to draw a line from the bottom-left corner to the top-right. A diagonal can mark a corner header; both diagonals can form an X to mark a cell as not applicable.
 
-ตัวอย่างสร้างตาราง 4x4 โดยมีคอลัมน์และแถวความกว้าง/ความสูง 70 จุด จากนั้นรวมเซลล์ศูนย์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)` เซลล์ที่ได้จะครอบคลุมสองคอลัมน์และสองแถว ในขณะที่กริดพื้นฐานของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหาหรือการจัดรูปแบบของเซลล์ที่รวม ใช้ตำแหน่งมุมซ้ายบน: `table.get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่น ๆ ในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดของตาราง ดังนั้นดัชนีของเซลล์ที่อยู่นอกช่วงจะไม่เปลี่ยนแปลง
+Each diagonal is a [LineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/). In its [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/), use [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) to select [FillType.Solid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) and choose a color through [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/). Set the line's width in points with [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/).
+
+The example creates three cells in one row: a red downward diagonal, a blue upward diagonal, and both diagonals. It leaves the top, bottom, left, and right cell borders unchanged.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [210, 210, 210]);
+    const rowHeights = java.newArray("double", [160]);
+    const table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    const downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    downwardBorder.setWidth(3);
+
+    const upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    upwardBorder.setWidth(5);
+
+    const crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    crossDownwardBorder.setWidth(3);
+
+    const crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A diagonal is a formatting property, not a cell split. Each cell retains a single text frame, accessed through [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/gettextframe/); the regions on either side of a diagonal cannot be edited independently.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![สามเซลล์ตารางที่แสดงเส้นทแยงสีแดงจากซ้ายบนไปขวาล่าง, เส้นทแยงสีน้ำเงินจากซ้ายล่างไปขวาบน, และเส้นทแยงทั้งสองประกอบเป็นรูป X.](diagonal-cell-borders.png)
+
+*จากซ้ายไปขวา: เส้นทแยงลง (สีแดง, 3 pt), เส้นทแยงขึ้น (สีน้ำเงิน, 5 pt), และเส้นทแยงทั้งสอง.*
+
+## **ผสานเซลล์ตาราง**
+
+Use [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) to combine a rectangular range of table cells into one cell. Specify the cells at the top-left and bottom-right corners of the range. The final argument controls whether the merge may include cells outside the specified range; `false` keeps the merge within that range.
+
+The example creates a 4-by-4 table with 70-point columns and rows, then merges the four central cells from `(1, 1)` through `(2, 2)`. The resulting cell spans two columns and two rows, while the table's underlying grid retains four columns and four rows. To access the merged cell's content or formatting, use its top-left position: `table.get_Item(1, 1)` in this example. The other positions in the merged range remain part of the table grid, so the indices of cells outside the range do not change.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -113,11 +167,11 @@ try {
 
 ## **แยกเซลล์ตาราง**
 
-การรวมเซลล์ในตัวอย่างก่อนหน้ารักษากริดของตารางไว้ การแยกเซลล์อาจทำให้เกิดคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ทางด้านขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของตาราง PowerPoint
+Merging cells in the previous example preserves the table's grid. Splitting a cell can introduce a new grid column and change the column indices of cells to its right. Aspose.Slides follows PowerPoint's table grid model.
 
-ตัวอย่างนี้สร้างตาราง 4x4 โดยมีคอลัมน์และแถวความกว้าง/ความสูง 70 จุดและเรียกใช้ [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) บนเซลล์ `(1, 1)` ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์จะถูกใช้เพื่อสร้างเซลล์สองเซลล์ที่มีความกว้างเท่ากัน
+This example creates a 4-by-4 table with 70-point columns and rows and calls [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) on cell `(1, 1)`. Half of the cell's 70-point width is passed to create two equal-width cells.
 
-หลังจากการแยกนี้, ทั้งสองครึ่งจะถูกเข้าถึงเป็น `table.get_Item(1, 1)` และ `table.get_Item(2, 1)` ตารางกริดตอนนี้มีห้าคอลัมน์: เซลล์ที่อยู่เดิมในคอลัมน์ 2 และ 3 ย้ายไปยังคอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวคงที่ ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังการแยก
+After this split, the two halves are accessed as `table.get_Item(1, 1)` and `table.get_Item(2, 1)`. The table grid now has five columns: cells originally in columns 2 and 3 move to columns 3 and 4, respectively. Row indices remain unchanged. Use these updated column indices when accessing cells after the split.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -139,16 +193,22 @@ try {
 }
 ```
 
-### **แยกเซลล์ที่รวมกันตามช่วงแถวหรือคอลัมน์**
+<!-- visual-explanation:manage-cells:start -->
+[![เซลล์ 70-point ที่ไม่ได้ผสานแยกเป็นสองเซลล์ 35-point, เพิ่มคอลัมน์กริดที่ห้าและเลื่อนดัชนีไปทางขวา.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-เพื่อเตรียมเซลล์แม่แบบที่รวมไว้สำหรับการเติมข้อมูล, ใช้ [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) เพื่อแยกตามเส้นขอบแถวที่มีอยู่, หรือ [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) เพื่อแยกตามเส้นขอบคอลัมน์
+*การแยกความกว้างส่งผลต่อเซลล์ (1, 1), โดยใช้ดัชนี (คอลัมน์, แถว) เริ่มจากศูนย์. แถวอื่น ๆ คงเซลล์ที่ครอบคลุมตำแหน่งคอลัมน์ใหม่ทั้งสอง.*
+<!-- visual-explanation:manage-cells:end -->
 
-อาร์กิวเมนต์ `index` นับจำนวนแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มันเป็นค่าที่สัมพันธ์กับเขตที่รวม:
+### **แยกเซลล์ที่ผสานตามช่วงแถวหรือคอลัมน์**
+
+To prepare merged template cells for data population, use [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) to split along an existing row boundary, or [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) to split along a column boundary.
+
+The `index` argument counts rows in the upper part or columns in the left part of the split; it is relative to the merged region:
 
 - การแยกแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
 - การแยกคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
 
-ตัวอย่างคาดว่างานนำเสนอจะมีตารางเป็นรูปทรงแรกบนสไลด์แรก, โดย `(1, 2)` และ `(1, 3)` รวมกันในแนวตั้ง โดยเริ่มจากตำแหน่งล่าง, ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) และ [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) เพื่อตำแหน่งต้นกำเนิดและตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะแยกแถวที่ 2 และ 3 สำหรับชื่อสินค้า สำหรับการรวมสองคอลัมน์แนวนอน ให้ใช้ `splitByColSpan(1)` แทน
+The example expects a presentation to have a table as the first shape on the first slide, with `(1, 2)` and `(1, 3)` merged vertically. Starting from the lower position, it uses [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) and [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) to locate the origin and checks both spans. `splitByRowSpan(1)` then separates rows 2 and 3 for product names. For a horizontal two-column merge, use `splitByColSpan(1)` instead.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -167,7 +227,7 @@ try {
     if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
         mergedCell.splitByRowSpan(1);
 
-        // ดึงเซลล์ผลลัพธ์จากตารางหลังจากการแยก.
+        // ดึงเซลล์ที่ได้จากตารางหลังจากการแยก.
         const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         console.log("Upper cell merged: " + upperCell.isMergedCell());
@@ -185,15 +245,50 @@ try {
 }
 ```
 
-กริดของตารางและดัชนีเซลล์โดยรอบคงที่ ดึงเซลล์ผลลัพธ์ตามพิกัดของมัน; ที่นี่ทั้งสองมีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) พิมพ์ `false` เขตที่ใหญ่กว่าสามารถยังคงรวมกันบางส่วนหลังจากการแยกหนึ่งครั้ง
+The table grid and surrounding cell indices stay unchanged. Retrieve the resulting cells by their coordinates; here, both have spans of 1 and [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) prints `false`. Larger regions can remain partly merged after one split.
 
-ข้อความต้นฉบับและการจัดรูปแบบของมันคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่จะว่างเปล่าแต่สืบมาจากการจัดรูปแบบของเซลล์เช่นการเติม, เส้นขอบ, และระยะขอบ เติมข้อมูลลงในเซลล์หลังจากการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน
+The original text and its formatting remain in the upper (or left) cell; the new cell is empty but inherits cell formatting such as fill, borders, and margins. Populate the cells after splitting and set any required text formatting explicitly.
 
-งานนำเสนอที่บันทึกไว้มีเซลล์ \"Product A\" และ \"Product B\" แยกกันโดยคงการจัดรูปแบบของเซลล์แม่แบบไว้ ดู [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) สำหรับรายละเอียด
+The saved presentation contains separate "Product A" and "Product B" cells with the template's cell formatting retained. See the [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) for details.
+
+### **แยกเซลล์ที่ความสูงเฉพาะ**
+
+[splitByHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyheight/) takes the height of the upper part in points. [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) takes the number of existing grid rows in the upper part. To center a 40-point cell in the right column, subtract 40 from the cell’s actual height and divide the remaining space equally above and below it.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [160, 160]);
+    const rowHeights = java.newArray("double", [140]);
+
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    const height = table.get_Item(1, 0).getHeight();
+    const margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The first split adds a grid row and leaves the lower 90 points in cell `(1, 1)`. The second split divides that cell into a 40-point middle cell and a 50-point bottom cell. The right column now has three cells with heights of 50, 40, and 50 points from top to bottom. The left cell spans all three rows and retains its original height of 140 points.
+
+![เซลล์ซ้ายครอบคลุมความสูงเต็มของตารางข้าง ๆ มีสามเซลล์ที่มีข้อความ Middle อยู่ตรงกลาง.](split-by-height.png)
 
 ## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
 
-ตัวอย่างนี้สร้างตารางที่มีคอลัมน์ 150 จุดและแถว 50 จุด ใช้ [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) เพื่อเลือกการเติมแบบทึบและตั้งค่าสีที่คืนค่าจาก [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ในคอลัมน์ที่สามและแถวที่สี่
+This example creates a table with 150-point columns and 50-point rows. It uses [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) to select a solid fill and sets the color returned by [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) to red for cell `(2, 3)`, in the third column and fourth row.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -219,9 +314,9 @@ try {
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
 
-วางรูปภาพต้นฉบับในไดเรกทอรีทำงานก่อนรันตัวอย่างนี้ มันโหลดรูปภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) และเพิ่มลงในคอลเลกชันรูปภาพของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). จากนั้นกำหนดรูปภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกในตาราง
+Place the input image in the working directory before running this example. It loads the image with [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) and adds it to the presentation's image collection with [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). It then assigns the image to the picture fill of cell `(0, 0)`, the first cell in the table.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) ยืดรูปภาพให้เติมเต็มเซลล์, ซึ่งอาจเปลี่ยนอัตราส่วนภาพ ความกว้างของคอลัมน์และความสูงของแถวเป็นหน่วยจุด รูปภาพที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากเพิ่มลงในงานนำเสนอ
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) stretches the image to fill the cell, which may change its aspect ratio. Column widths and row heights are in points. The loaded image is disposed in a `finally` block after it is added to the presentation.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -255,18 +350,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งความหนาและสไตล์ของเส้นที่แตกต่างกันสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถตั้งความหนาและสไตล์ของเส้นต่าง ๆ สำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
 
-ใช่. ด้าน [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) มีคุณสมบัติเกี่ยวกับแต่ละด้านแยกกัน ดังนั้นความหนาและสไตล์ของแต่ละด้านสามารถแตกต่างกันได้
+ใช่. ขอบ [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) มีคุณสมบัติแยกกัน, ดังนั้นความหนาและสไตล์ของแต่ละด้านจึงสามารถแตกต่างกันได้.
 
-**เกิดอะไรขึ้นกับรูปภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปเป็นพื้นหลังของเซลล์?**
+**อะไรจะเกิดขึ้นกับรูปภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งภาพเป็นพื้นหลังของเซลล์?**
 
-พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). หากยืด, รูปภาพจะปรับให้เข้ากับเซลล์ใหม่; หากเป็นการทำแผ่นกระเบื้อง, แผ่นกระเบื้องจะถูกคำนวณใหม่
+พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). หากใช้การยืด, รูปภาพจะปรับตามเซลล์ใหม่; หากใช้การเรียงต่อ, แผ่นภาพจะถูกคำนวนใหม่.
 
-**ฉันสามารถกำหนดลิงก์ไฮเพอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
+**ฉันสามารถกำหนด hyperlink ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
 
-[Hyperlinks](/slides/th/nodejs-java/manage-hyperlinks/) ถูกตั้งค่าที่ระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือที่ระดับของตาราง/รูปทรงทั้งหมด ในทางปฏิบัติคุณสามารถกำหนดลิงก์ให้กับส่วนหนึ่งหรือให้กับข้อความทั้งหมดในเซลล์ได้
+[Hyperlinks](/slides/th/nodejs-java/manage-hyperlinks/) ถูกตั้งที่ระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือที่ระดับของตาราง/รูปร่างทั้งหมด. ในทางปฏิบัติคุณจะกำหนดลิงก์ให้กับ portion หรือกับข้อความทั้งหมดในเซลล์.
 
 **ฉันสามารถตั้งฟอนต์ที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
 
-ใช่. กรอบข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (runs) ที่มีการจัดรูปแบบอิสระ—ครอบครัวฟอนต์, สไตล์, ขนาด, และสี
+ใช่. กรอบข้อความของเซลล์สนับสนุน [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (runs) ที่มีการจัดรูปแบบอิสระ—ฟอนต์, สไตล์, ขนาด, และสี.

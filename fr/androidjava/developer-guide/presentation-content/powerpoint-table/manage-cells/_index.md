@@ -6,7 +6,7 @@ weight: 30
 url: /fr/androidjava/manage-cells/
 keywords:
 - cellule de tableau
-- fusionner les cellules
+- fusionner des cellules
 - supprimer la bordure
 - diviser la cellule
 - image dans la cellule
@@ -16,17 +16,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Gérer les cellules de tableau PowerPoint sur Android : identifier les cellules fusionnées, supprimer les bordures, diviser les cellules et définir les couleurs d'arrière-plan et les images avec Aspose.Slides pour Android via Java."
+description: "Gérez les cellules de tableau PowerPoint sur Android : identifiez les cellules fusionnées, supprimez les bordures, divisez les cellules et définissez les couleurs d'arrière‑plan ainsi que les images avec Aspose.Slides pour Android via Java."
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides vous permet d'accéder aux cellules de tableau et de les modifier dans les présentations PowerPoint. Cet article explique comment identifier les cellules de tableau fusionnées, supprimer les bordures des cellules, travailler avec la numérotation des cellules après une fusion ou une division, changer la couleur d'arrière‑plan d’une cellule et ajouter une image à l’intérieur d’une cellule de tableau. Les exemples montrent comment créer ou ouvrir une présentation, obtenir un tableau à partir d’une diapositive, mettre à jour le format des cellules via leurs propriétés, puis enregistrer la présentation modifiée au format PPTX.
+Aspose.Slides vous permet d'accéder aux cellules de tableau et de les modifier dans les présentations PowerPoint. Cet article explique comment identifier les cellules de tableau fusionnées, supprimer les bordures des cellules, gérer la numérotation des cellules après fusion ou division, changer la couleur d’arrière‑plan d’une cellule et ajouter une image à l’intérieur d’une cellule de tableau. Les exemples montrent comment créer ou ouvrir une présentation, obtenir un tableau à partir d’une diapositive, mettre à jour le formatage des cellules via leurs propriétés, puis enregistrer la présentation modifiée au format PPTX.
 
-Aspose.Slides utilise des indices zéro‑based pour accéder aux cellules de tableau dans l’ordre `(column, row)`.
+Aspose.Slides utilise des indices basés sur zéro pour accéder aux cellules de tableau dans l’ordre **(colonne, ligne)**.
 
 ## **Identifier une cellule de tableau fusionnée**
 
-L’exemple ouvre une présentation existante et accède à la première forme de la première diapositive en tant que tableau. Il suppose que la diapositive et la forme existent et que la forme est bien un tableau. Il parcourt ensuite toutes les lignes et colonnes et utilise [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) pour identifier les cellules dans des zones fusionnées. Pour chaque correspondance, il affiche les coordonnées de la cellule dans l’ordre `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), ainsi que les coordonnées de départ de la région, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) et [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
+L’exemple ouvre une présentation existante et accède à la première forme de la première diapositive en tant que tableau. Il suppose que la diapositive et la forme existent et que la forme est bien un tableau. Il parcourt ensuite toutes les lignes et colonnes et utilise [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) pour identifier les cellules appartenant à des régions fusionnées. Pour chaque correspondance, il imprime les coordonnées de la cellule dans l’ordre `ligne;colonne`, ainsi que [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), et les coordonnées de départ de la région, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) et [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
 import com.aspose.slides.*;
@@ -54,9 +54,9 @@ try {
 }
 ```
 
-## **Supprimer les bordures des cellules du tableau**
+## **Supprimer les bordures des cellules de tableau**
 
-Créez une [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) et ajoutez un tableau à sa première diapositive avec [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Les largeurs de colonnes, hauteurs de lignes et la position du tableau sont spécifiées en points. L’exemple définit les quatre bordures de chaque cellule sur [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), les rendant invisibles.
+Créez une [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) et ajoutez‑y un tableau sur la première diapositive avec [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Les largeurs de colonne, hauteurs de ligne et la position du tableau sont spécifiées en points. L’exemple définit les quatre bordures de chaque cellule sur [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), les rendant invisibles.
 
 ```java
 import com.aspose.slides.*;
@@ -84,11 +84,63 @@ try {
 }
 ```
 
-## **Fusionner des cellules de tableau**
+## **Ajouter des bordures diagonales aux cellules**
 
-Utilisez [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) pour combiner une plage rectangulaire de cellules en une seule cellule. Spécifiez les cellules aux coins supérieur‑gauche et inférieur‑droit de la plage. Le dernier argument contrôle si la fusion peut inclure des cellules en dehors de la plage spécifiée ; `false` maintient la fusion à l’intérieur de cette plage.
+Utilisez [getBorderDiagonalDown](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalDown--) pour tracer une ligne du coin supérieur gauche au coin inférieur droit, et [getBorderDiagonalUp](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalUp--) pour tracer une ligne du coin inférieur gauche au coin supérieur droit. Une diagonale peut marquer un en‑tête de coin ; les deux diagonales peuvent former un X pour indiquer qu’une cellule n’est pas applicable.
 
-L’exemple crée un tableau 4 × 4 avec des colonnes et lignes de 70 points, puis fusionne les quatre cellules centrales de `(1, 1)` à `(2, 2)`. La cellule résultante occupe deux colonnes et deux lignes, tandis que la grille sous‑jacente du tableau conserve quatre colonnes et quatre lignes. Pour accéder au contenu ou au format de la cellule fusionnée, utilisez sa position supérieure‑gauche : `table.get_Item(1, 1)` dans cet exemple. Les autres positions de la plage fusionnée restent partie de la grille du tableau, de sorte que les indices des cellules en dehors de la plage ne changent pas.
+Chaque diagonale est un [ILineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/). Dans son [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--), utilisez [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) pour sélectionner [FillType.Solid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) et choisissez une couleur via [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--). Définissez la largeur de la ligne en points avec [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-).
+
+L’exemple crée trois cellules dans une même ligne : une diagonale rouge descendant, une diagonale bleue ascendante, et les deux diagonales. Il laisse les bordures supérieure, inférieure, gauche et droite inchangées.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Une diagonale est une propriété de formatage, pas une division de cellule. Chaque cellule conserve un seul cadre de texte, accessible via [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--); les zones de part et d’autre d’une diagonale ne peuvent pas être éditées séparément.
+
+![Trois cellules de tableau affichant une diagonale rouge du coin supérieur gauche au coin inférieur droit, une diagonale bleue du coin inférieur gauche au coin supérieur droit, et les deux diagonales formant un X.](diagonal-cell-borders.png)
+
+*De gauche à droite : diagonale descendante (rouge, 3 pt), diagonale ascendante (bleue, 5 pt) et les deux diagonales.*
+
+## **Fusionner les cellules d'un tableau**
+
+Utilisez [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) pour combiner une plage rectangulaire de cellules en une seule cellule. Spécifiez les cellules aux coins supérieur‑gauche et inférieur‑droit de la plage. Le dernier argument détermine si la fusion peut inclure des cellules en dehors de la plage spécifiée ; `false` garde la fusion à l’intérieur de cette plage.
+
+L’exemple crée un tableau 4 × 4 avec des colonnes et lignes de 70 points, puis fusionne les quatre cellules centrales de `(1, 1)` à `(2, 2)`. La cellule résultante s’étend sur deux colonnes et deux lignes, tandis que la grille sous‑jacente du tableau reste à quatre colonnes et quatre lignes. Pour accéder au contenu ou au formatage de la cellule fusionnée, utilisez sa position supérieure‑gauche : `table.get_Item(1, 1)` dans cet exemple. Les autres positions de la plage fusionnée restent partie de la grille du tableau, de sorte que les indices des cellules en dehors de la plage ne changent pas.
 
 ```java
 import com.aspose.slides.*;
@@ -109,13 +161,13 @@ try {
 }
 ```
 
-## **Diviser des cellules de tableau**
+## **Diviser les cellules d'un tableau**
 
-La fusion des cellules dans l’exemple précédent préserve la grille du tableau. Diviser une cellule peut introduire une nouvelle colonne de grille et modifier les indices de colonne des cellules situées à sa droite. Aspose.Slides suit le modèle de grille de tableau de PowerPoint.
+La fusion des cellules dans l’exemple précédent conserve la grille du tableau. Diviser une cellule peut introduire une nouvelle colonne dans la grille et modifier les indices de colonne des cellules situées à sa droite. Aspose.Slides suit le modèle de grille des tableaux de PowerPoint.
 
-Cet exemple crée un tableau 4 × 4 avec des colonnes et lignes de 70 points et appelle [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) sur la cellule `(1, 1)`. La moitié de la largeur de 70 points de la cellule est transmise pour créer deux cellules de largeur égale.
+Cet exemple crée un tableau 4 × 4 avec des colonnes et lignes de 70 points et appelle [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) sur la cellule `(1, 1)`. La moitié de la largeur de 70 points de la cellule est passée pour créer deux cellules de largeur égale.
 
-Après cette division, les deux moitiés sont accessibles via `table.get_Item(1, 1)` et `table.get_Item(2, 1)`. La grille du tableau comporte maintenant cinq colonnes : les cellules initialement situées dans les colonnes 2 et 3 se déplacent respectivement vers les colonnes 3 et 4. Les indices de ligne restent inchangés. Utilisez ces indices de colonne mis à jour lorsqu’il s’agit d’accéder aux cellules après la division.
+Après cette division, les deux moitiés sont accessibles via `table.get_Item(1, 1)` et `table.get_Item(2, 1)`. La grille du tableau possède maintenant cinq colonnes : les cellules initialement en colonnes 2 et 3 se déplacent respectivement aux colonnes 3 et 4. Les indices de ligne restent inchangés. Utilisez ces indices de colonne mis à jour lors de l’accès aux cellules après la division.
 
 ```java
 import com.aspose.slides.*;
@@ -136,16 +188,22 @@ try {
 }
 ```
 
-### **Diviser les cellules fusionnées par étendue de ligne ou de colonne**
+<!-- visual-explanation:manage-cells:start -->
+[![Une cellule non fusionnée de 70 points se divise en deux cellules de 35 points, ajoutant une cinquième colonne de grille et décalant les indices à sa droite.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-Pour préparer les cellules de modèle fusionnées à la population de données, utilisez [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) pour diviser le long d’une frontière de ligne existante, ou [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) pour diviser le long d’une frontière de colonne.
+*La division de la largeur affecte la cellule (1, 1), en utilisant des indices zéro‑based (colonne, ligne). Les autres lignes conservent une cellule s'étendant sur les deux nouvelles positions de colonne.*
+<!-- visual-explanation:manage-cells:end -->
+
+### **Diviser les cellules fusionnées selon la portée de ligne ou de colonne**
+
+Pour préparer des cellules de modèle fusionnées à la population de données, utilisez [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) pour diviser le long d’une bordure de ligne existante, ou [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) pour diviser le long d’une bordure de colonne.
 
 L’argument `index` compte les lignes dans la partie supérieure ou les colonnes dans la partie gauche de la division ; il est relatif à la région fusionnée :
 
 - Division de ligne : `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
 - Division de colonne : `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
 
-L’exemple part du principe qu’une présentation possède un tableau comme première forme de la première diapositive, avec les cellules `(1, 2)` et `(1, 3)` fusionnées verticalement. En partant de la position inférieure, il utilise [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) et [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) pour localiser l’origine et vérifie les deux étendues. `splitByRowSpan(1)` sépare ensuite les lignes 2 et 3 pour les noms de produit. Pour une fusion horizontale de deux colonnes, utilisez `splitByColSpan(1)` à la place.
+L’exemple suppose qu’une présentation contient un tableau comme première forme de la première diapositive, avec les cellules `(1, 2)` et `(1, 3)` fusionnées verticalement. En partant de la position inférieure, il utilise [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) et [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) pour localiser l’origine et vérifie les deux étendues. `splitByRowSpan(1)` sépare alors les lignes 2 et 3 pour les noms de produit. Pour une fusion horizontale de deux colonnes, utilisez `splitByColSpan(1)` à la place.
 
 ```java
 import com.aspose.slides.*;
@@ -164,7 +222,7 @@ try {
     {
         mergedCell.splitByRowSpan(1);
 
-        // Récupérer les cellules résultantes du tableau après la division.
+        // Récupérez les cellules résultantes du tableau après la division.
         ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         System.out.println("Upper cell merged: " + upperCell.isMergedCell());
@@ -184,15 +242,49 @@ try {
 }
 ```
 
-La grille du tableau et les indices des cellules environnantes restent inchangés. Récupérez les cellules résultantes par leurs coordonnées ; ici, les deux ont une étendue de 1 et [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) renvoie `false`. Des régions plus grandes peuvent rester partiellement fusionnées après une division.
+La grille du tableau et les indices des cellules environnantes restent inchangés. Récupérez les cellules résultantes par leurs coordonnées ; ici, les deux possèdent un étendue de 1 et [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) renvoie `false`. Des régions plus grandes peuvent rester partiellement fusionnées après une division.
 
-Le texte original et son formatage demeurent dans la cellule supérieure (ou gauche) ; la nouvelle cellule est vide mais hérite du format de la cellule (remplissage, bordures, marges). Remplissez les cellules après la division et définissez explicitement tout formatage de texte requis.
+Le texte original et son formatage demeurent dans la cellule supérieure (ou gauche) ; la nouvelle cellule est vide mais hérite du formatage de la cellule, tel que le remplissage, les bordures et les marges. Remplissez les cellules après la division et définissez explicitement tout formatage de texte requis.
 
-La présentation enregistrée contient des cellules distinctes « Product A » et « Product B » avec le formatage du modèle conservé. Consultez la [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) pour plus de détails.
+La présentation enregistrée contient les cellules séparées « Product A » et « Product B » avec le formatage du modèle conservé. Consultez la [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) pour plus de détails.
 
-## **Modifier la couleur d’arrière‑plan des cellules du tableau**
+### **Diviser une cellule à une hauteur spécifique**
 
-Cet exemple crée un tableau avec des colonnes de 150 points et des lignes de 50 points. Il utilise [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) pour sélectionner un remplissage solide et définit la couleur renvoyée par [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) sur rouge pour la cellule `(2, 3)`, située dans la troisième colonne et la quatrième ligne.
+[splitByHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByHeight-double-) prend la hauteur de la partie supérieure en points. [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) prend le nombre de lignes de grille existantes dans la partie supérieure. Pour centrer une cellule de 40 points dans la colonne de droite, soustrayez 40 de la hauteur réelle de la cellule et répartissez l’espace restant également au‑dessus et au‑dessous.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La première division ajoute une ligne de grille et laisse les 90 points inférieurs dans la cellule `(1, 1)`. La seconde division transforme cette cellule en une cellule centrale de 40 points et une cellule inférieure de 50 points. La colonne de droite comporte maintenant trois cellules avec des hauteurs de 50, 40 et 50 points de haut en bas. La cellule de gauche s’étend sur les trois lignes et conserve sa hauteur originale de 140 points.
+
+![La cellule de gauche s'étend sur toute la hauteur du tableau à côté de trois cellules avec le centre au milieu.](split-by-height.png)
+
+## **Modifier la couleur d'arrière‑plan d'une cellule de tableau**
+
+Cet exemple crée un tableau avec des colonnes de 150 points et des lignes de 50 points. Il utilise [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) pour sélectionner un remplissage plein et définit la couleur renvoyée par [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) sur rouge pour la cellule `(2, 3)`, soit la troisième colonne et la quatrième ligne.
 
 ```java
 import com.aspose.slides.*;
@@ -216,11 +308,11 @@ try {
 }
 ```
 
-## **Ajouter une image à l’intérieur d’une cellule de tableau**
+## **Ajouter une image à l'intérieur d'une cellule de tableau**
 
-Placez l’image d’entrée dans le répertoire de travail avant d’exécuter cet exemple. Elle charge l’image avec [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) et l’ajoute à la collection d’images de la présentation avec [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Elle assigne ensuite l’image au remplissage image de la cellule `(0, 0)`, la première cellule du tableau.
+Placez l’image d’entrée dans le répertoire de travail avant d’exécuter cet exemple. Elle est chargée avec [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) et ajoutée à la collection d’images de la présentation via [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Elle est ensuite affectée au remplissage d’image de la cellule `(0, 0)`, la première cellule du tableau.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) étire l’image pour remplir la cellule, ce qui peut modifier son rapport d’aspect. Les largeurs de colonnes et hauteurs de lignes sont en points. L’image chargée est libérée dans un bloc `finally` après son ajout à la présentation.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) étire l’image pour remplir la cellule, ce qui peut modifier son ratio d’aspect. Les largeurs de colonne et hauteurs de ligne sont exprimées en points. L’image chargée est libérée dans un bloc `finally` après son ajout à la présentation.
 
 ```java
 import com.aspose.slides.*;
@@ -255,16 +347,16 @@ try {
 
 **Puis‑je définir des épaisseurs et des styles de ligne différents pour chaque côté d’une même cellule ?**
 
-Oui. Les bordures [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) disposent de propriétés séparées, de sorte que l’épaisseur et le style de chaque côté peuvent différer.
+Oui. Les bordures [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) possèdent des propriétés séparées, ce qui permet d’avoir une épaisseur et un style différents pour chaque côté.
 
-**Que se passe‑t‑il pour l’image si je modifie la taille de la colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
+**Que se passe‑t‑il avec l’image si je modifie la taille de la colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
 
-Le comportement dépend du [fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). Avec l’étirement, l’image s’ajuste à la nouvelle cellule ; avec le carrelage, les carreaux sont recalculés.
+Le comportement dépend du [fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). En mode étirement, l’image s’ajuste à la nouvelle taille de la cellule ; en mode mosaïque, les tuiles sont recalculées.
 
 **Puis‑je affecter un hyperlien à tout le contenu d’une cellule ?**
 
-Les [Hyperlinks](/slides/fr/androidjava/manage-hyperlinks/) sont définis au niveau du texte (portion) à l’intérieur du cadre de texte de la cellule ou au niveau du tableau/la forme entière. En pratique, vous affectez le lien à une portion ou à tout le texte de la cellule.
+[Hyperlinks](/slides/fr/androidjava/manage-hyperlinks/) sont définis au niveau du texte (portion) à l’intérieur du cadre de texte de la cellule ou au niveau de l’ensemble du tableau/forme. En pratique, vous affectez le lien à une portion ou à tout le texte de la cellule.
 
-**Puis‑je appliquer des polices différentes au sein d’une même cellule ?**
+**Puis‑je définir des polices différentes au sein d’une même cellule ?**
 
-Oui. Le cadre de texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (runs) avec un formatage indépendant — famille, style, taille et couleur de police.
+Oui. Le cadre de texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (segments) avec un formatage indépendant : famille de police, style, taille et couleur.

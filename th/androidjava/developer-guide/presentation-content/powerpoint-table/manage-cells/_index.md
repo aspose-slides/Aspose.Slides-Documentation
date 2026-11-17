@@ -1,32 +1,32 @@
 ---
-title: จัดการเซลล์ตารางในงานนำเสนอบน Android
-linktitle: จัดการเซลล์
+title: จัดการเซลตารางในงานนำเสนอบน Android
+linktitle: จัดการเซล
 type: docs
 weight: 30
 url: /th/androidjava/manage-cells/
 keywords:
-- เซลล์ตาราง
-- ผสานเซลล์
-- ลบขอบ
-- แยกเซลล์
-- รูปภาพในเซลล์
+- เซลตาราง
+- รวมเซล
+- ลบกรอบ
+- แยกเซล
+- รูปภาพในเซล
 - สีพื้นหลัง
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "จัดการเซลล์ตาราง PowerPoint บน Android: ระบุเซลล์ที่ผสาน, ลบขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
+description: "จัดการเซลตาราง PowerPoint บน Android: ระบุเซลที่รวมกัน, ลบกรอบ, แยกเซล, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่ผสาน, ลบขอบเซลล์, ทำงานกับหมายเลขเซลล์หลังจากการผสานหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+Aspose.Slides ให้คุณเข้าถึงและแก้ไขเซลตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีระบุเซลที่รวมกัน, ลบกรอบเซล, ทำงานกับการจัดเลขเซลหลังจากรวมหรือแยกเซล, เปลี่ยนสีพื้นหลังของเซล, และเพิ่มรูปภาพภายในเซลตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลผ่านคุณสมบัติของเซล, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-Aspose.Slides ใช้ดัชนีเริ่มจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
+Aspose.Slides ใช้ดัชนีเริ่มต้นจากศูนย์เพื่อเข้าถึงเซลตารางตามลำดับ `(column, row)`.
 
-## **ระบุเซลล์ตารางที่ผสาน**
+## **ระบุเซลที่รวมกัน**
 
-ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกเป็นตาราง สมมติว่าสไลด์และรูปร่างมีอยู่และรูปร่างเป็นตาราง จากนั้นวนลูปผ่านแถวและคอลัมน์ทั้งหมดและใช้ [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) เพื่อระบุเซลล์ในพื้นที่ที่ผสาน สำหรับแต่ละผลลัพธ์จะพิมพ์พิกัดเซลล์ในรูปแบบ `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), และพิกัดเริ่มต้นของพื้นที่, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) และ [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
+ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกในสไลด์แรกเป็นตาราง สมมติว่ามีสไลด์และรูปร่างและรูปร่างเป็นตาราง จากนั้นวนลูปผ่านแถวและคอลัมน์ทั้งหมดและใช้ [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) เพื่อระบุเซลในพื้นที่ที่รวมกัน สำหรับแต่ละการตรงกันจะแสดงพิกัดเซลในลำดับ `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), และพิกัดเริ่มต้นของพื้นที่, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) และ [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
 import com.aspose.slides.*;
@@ -54,9 +54,9 @@ try {
 }
 ```
 
-## **ลบขอบเซลล์ตาราง**
+## **ลบกรอบเซลตาราง**
 
-สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเพิ่มตารางลงบนสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางระบุเป็นจุด ตัวอย่างกำหนดขอบเซลล์สี่ด้านทั้งหมดให้เป็น [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), ทำให้ขอบไม่ปรากฏ
+สร้าง [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) และเพิ่มตารางในสไลด์แรกโดยใช้ [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) ความกว้างคอลัมน์, ความสูงแถว, และตำแหน่งของตารางระบุเป็นพอยต์ ตัวอย่างตั้งค่ากรอบเซลทั้งสี่เป็น [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) ทำให้ไม่มองเห็นได้
 
 ```java
 import com.aspose.slides.*;
@@ -84,11 +84,65 @@ try {
 }
 ```
 
-## **ผสานเซลล์ตาราง**
+## **เพิ่มกรอบเซลแบบทแยง**
 
-ใช้ [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางให้เป็นเซลล์เดียว ระบุตำแหน่งเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง ตัวเลือกสุดท้ายควบคุมว่าการผสานอาจรวมเซลล์ที่อยู่นอกช่วงที่ระบุหรือไม่; `false` จะทำให้การผสานคงอยู่ภายในช่วงนั้น
+ใช้ [getBorderDiagonalDown](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalDown--) เพื่อวาดเส้นจากมุมบนซ้ายไปมุมล่างขวาและ [getBorderDiagonalUp](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalUp--) เพื่อวาดเส้นจากมุมล่างซ้ายไปมุมบนขวา เส้นทแยงสามารถทำเครื่องหมายหัวข้อมุมได้; เส้นทแยงทั้งสองสามารถสร้างรูป X เพื่อทำเครื่องหมายเซลว่าไม่ใช้ได้
 
-ตัวอย่างสร้างตาราง 4x4 ที่คอลัมน์และแถวมีขนาด 70 จุด แล้วผสานเซลล์ศูนย์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)`. เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว ในขณะที่กริดของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหาหรือรูปแบบของเซลล์ที่ผสานให้ใช้ตำแหน่งมุมซ้ายบน: `table.get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่ผสานยังคงเป็นส่วนของกริดตาราง ดังนั้นดัชนีของเซลล์นอกช่วงจะไม่เปลี่ยนแปลง
+แต่ละเส้นทแยงเป็น [ILineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/). ใน [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--) ให้ใช้ [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือก [FillType.Solid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) และเลือกสีผ่าน [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--). ตั้งความกว้างของเส้นเป็นพอยต์ด้วย [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-).
+
+ตัวอย่างสร้างเซลสามเซลในแถวเดียว: เส้นทแยงลงสีแดง, เส้นทแยงขึ้นสีฟ้า, และเส้นทแยงทั้งสอง โดยทิ้งกรอบบน, ล่าง, ซ้าย, ขวาไว้เหมือนเดิม
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+เส้นทแยงเป็นคุณสมบัติการจัดรูปแบบ ไม่ใช่การแยกเซล แต่ละเซลจะเก็บเฟรมข้อความเดียวเข้าถึงได้ผ่าน [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--); พื้นที่ด้านใดด้านหนึ่งของเส้นทแยงไม่สามารถแก้ไขแยกจากกันได้
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![เซลตารางสามเซลที่แสดงเส้นทแยงสีแดงจากบนซ้ายไปล่างขวา, เส้นทแยงสีน้ำเงินจากล่างซ้ายไปบนขวา, และเส้นทแยงสองเส้นสร้างรูป X.](diagonal-cell-borders.png)
+
+*จากซ้ายไปขวา: เส้นทแยงลง (สีแดง, 3 pt), เส้นทแยงขึ้น (สีน้ำเงิน, 5 pt), และเส้นทแยงสองเส้น*
+
+## **รวมเซลตาราง**
+
+ใช้ [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) เพื่อรวมช่วงสี่เหลี่ยมของเซลตารางให้เป็นเซลเดียว กำหนดเซลที่มุมบนซ้ายและมุมล่างขวาของช่วง อากิวเมนต์สุดท้ายควบคุมว่าการรวมอาจรวมเซลที่อยู่นอกช่วงที่ระบุหรือไม่; `false` จะทำให้การรวมอยู่ในช่วงนั้นเท่านั้น
+
+ตัวอย่างสร้างตาราง 4x4 ที่คอลัมน์และแถวมีความกว้าง 70 พอยต์ แล้วรวมเซลศูนย์กลางสี่เซลจาก `(1, 1)` ถึง `(2, 2)` เซลที่ได้จะครอบคลุมสองคอลัมน์และสองแถว ขณะที่กริดของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหา或รูปแบบของเซลที่รวม ให้ใช้ตำแหน่งบนซ้ายของเซล: `table.get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่น ๆ ในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง ดังนั้นดัชนีของเซลที่อยู่นอกช่วงจะไม่เปลี่ยน
 
 ```java
 import com.aspose.slides.*;
@@ -109,13 +163,13 @@ try {
 }
 ```
 
-## **แยกเซลล์ตาราง**
+## **แยกเซลตาราง**
 
-การผสานเซลล์ในตัวอย่างก่อนหน้าให้กริดของตารางคงที่ การแยกเซลล์อาจทำให้เกิดคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ที่อยู่ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint
+การรวมเซลในตัวอย่างก่อนหน้าเก็บกริดของตารางไว้ การแยกเซลอาจสร้างคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลที่อยู่ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint
 
-ตัวอย่างนี้สร้างตาราง 4x4 ที่คอลัมน์และแถวมีขนาด 70 จุดและเรียกใช้ [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) กับเซลล์ `(1, 1)`. ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์จะถูกใช้เพื่อสร้างเซลล์ที่มีความกว้างเท่ากันสองเซลล์
+ตัวอย่างนี้สร้างตาราง 4x4 ที่คอลัมน์และแถวมีความกว้าง 70 พอยต์และเรียกใช้ [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) บนเซล `(1, 1)` ครึ่งความกว้าง 70 พอยต์ของเซลถูกส่งเข้าเพื่อสร้างเซลสองเซลที่มีความกว้างเท่ากัน
 
-หลังจากแยกแล้ว ครึ่งสองส่วนจะเข้าถึงได้โดยใช้ `table.get_Item(1, 1)` และ `table.get_Item(2, 1)`. กริดของตารางขณะนี้มีห้าคอลัมน์: เซลล์ที่อยู่ในคอลัมน์ 2 และ 3 เดิมจะย้ายไปยังคอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวไม่เปลี่ยนแปลง ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังการแยก
+หลังจากการแยกนี้ ครึ่งสองส่วนเข้าถึงได้เป็น `table.get_Item(1, 1)` และ `table.get_Item(2, 1)` ตารางตอนนี้มีห้าคอลัมน์: เซลที่เคยอยู่ในคอลัมน์ 2 และ 3 ย้ายไปเป็นคอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวไม่เปลี่ยน ใช้ดัชนีคอลัมน์ที่อัปเดตเมื่อเข้าถึงเซลหลังการแยก
 
 ```java
 import com.aspose.slides.*;
@@ -136,16 +190,23 @@ try {
 }
 ```
 
-### **แยกเซลล์ที่ผสานตามแถวหรือคอลัมน์**
 
-เพื่อเตรียมเซลล์เทมเพลตที่ผสานไว้สำหรับการเติมข้อมูล ให้ใช้ [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) เพื่อแยกตามเส้นขอบแถวที่มีอยู่ หรือใช้ [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) เพื่อแยกตามเส้นขอบคอลัมน์
+<!-- visual-explanation:manage-cells:start -->
+[![เซลที่มีความกว้าง 70 พอยต์ที่ไม่ได้รวมกันแยกเป็นเซลสองเซลที่มีความกว้าง 35 พอยต์, เพิ่มคอลัมน์กริดที่ห้าและเลื่อนดัชนีที่อยู่ทางขวา.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; ค่าจะสัมพันธ์กับพื้นที่ที่ผสาน:
+*การแยกความกว้างส่งผลต่อเซล (1, 1) โดยใช้ดัชนี (column, row) เริ่มจากศูนย์ แถวอื่น ๆ ยังคงมีเซลที่ครอบคลุมตำแหน่งคอลัมน์ใหม่ทั้งสอง.*
+<!-- visual-explanation:manage-cells:end -->
+
+### **แยกเซลที่รวมกันตามแถวหรือคอลัมน์**
+
+เพื่อเตรียมเซลเทมเพลตที่รวมไว้สำหรับการใส่ข้อมูล ให้ใช้ [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) เพื่อแยกตามขอบเขตแถวที่มีอยู่ หรือ [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) เพื่อแยกตามขอบเขตคอลัมน์
+
+อากิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มันสัมพันธ์กับพื้นที่ที่รวมกัน:
 
 - การแยกแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
 - การแยกคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
 
-ตัวอย่างคาดว่ามีงานนำเสนอที่มีตารางเป็นรูปร่างแรกบนสไลด์แรก โดยมีเซลล์ `(1, 2)` และ `(1, 3)` ผสานกันในแนวตั้ง เริ่มจากตำแหน่งล่างสุด ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) และ [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) เพื่อหาตำแหน่งต้นทางและตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะทำการแยกแถวที่ 2 และ 3 สำหรับชื่อสินค้า สำหรับการผสานสองคอลัมน์ในแนวนอนให้ใช้ `splitByColSpan(1)` แทน
+ตัวอย่างคาดว่าการนำเสนอมีตารางเป็นรูปร่างแรกในสไลด์แรก โดยเซล `(1, 2)` และ `(1, 3)` รวมกันในแนวตั้ง เริ่มจากตำแหน่งล่าง ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) และ [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) เพื่อหาตำแorigin และตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะแยกแถว 2 และ 3 สำหรับชื่อสินค้า สำหรับการรวมสองคอลัมน์ในแนวนอน ใช้ `splitByColSpan(1)` แทน
 
 ```java
 import com.aspose.slides.*;
@@ -164,7 +225,7 @@ try {
     {
         mergedCell.splitByRowSpan(1);
 
-        // ดึงเซลล์ที่ได้จากตารางหลังการแยก.
+        // ดึงเซลผลลัพธ์จากตารางหลังจากการแยก
         ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         System.out.println("Upper cell merged: " + upperCell.isMergedCell());
@@ -184,15 +245,49 @@ try {
 }
 ```
 
-กริดของตารางและดัชนีเซลล์รอบข้างคงที่ ดึงเซลล์ที่ได้โดยใช้พิกัด; ตัวอย่างนี้ทั้งสองเซลล์มีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) จะพิมพ์ `false`. พื้นที่ที่ใหญ่ขึ้นอาจยังคงผสานบางส่วนหลังการแยกหนึ่งครั้ง
+กริดของตารางและดัชนีเซลโดยรอบคงเดิม ดึงเซลที่ได้ตามพิกัด; ที่นี่ทั้งสองมีช่วงเท่ากับ 1 และ [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) แสดง `false` พื้นที่ที่ใหญ่กว่าสามารถคงอยู่เป็นบางส่วนที่รวมไว้หลังการแยกหนึ่งครั้ง
 
-ข้อความและรูปแบบดั้งเดิมยังคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่จะว่างเปล่าแต่รับมรดกรูปแบบเซลล์ เช่น การเติม, ขอบ, และระยะขอบ เติมข้อความลงในเซลล์หลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน
+ข้อความต้นฉบับและรูปแบบยังคงอยู่ในเซลบน (หรือซ้าย) เซลใหม่จะว่างเปล่าแต่สืบทอดรูปแบบเซลเช่นสีพื้น, กรอบ, และระยะห่าง เติมข้อมูลในเซลหลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการโดยชัดเจน
 
-งานนำเสนอที่บันทึกไว้จะมีเซลล์ “Product A” และ “Product B” แยกจากกันโดยคงรูปแบบเซลล์ของเทมเพลตไว้ ดูที่ [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) สำหรับรายละเอียด
+งานนำเสนอที่บันทึกไว้มีเซล “Product A” และ “Product B” แยกกันโดยยังคงรูปแบบเซลของเทมเพลต ดู [Cell API Reference](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) สำหรับรายละเอียด
 
-## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
+### **แยกเซลตามความสูงที่ระบุ**
 
-ตัวอย่างนี้สร้างตารางที่คอลัมน์มีขนาด 150 จุดและแถวมีขนาด 50 จุด ใช้ [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือกการเติมแบบทึบและตั้งค่าสีที่ได้จาก [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ที่คอลัมน์ที่สามและแถวที่สี่
+[splitByHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByHeight-double-) รับความสูงของส่วนบนเป็นพอยต์ [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) รับจำนวนแถวกริดที่มีอยู่ในส่วนบน เพื่อวางเซล 40 พอยต์ไว้ตรงกลางคอลัมน์ขวา ให้ลด 40 จากความสูงจริงของเซลและแบ่งพื้นที่ที่เหลือเท่า ๆ กันด้านบนและด้านล่าง
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การแยกแรกเพิ่มแถวกริดและเหลือพื้นที่ด้านล่าง 90 พอยต์ในเซล `(1, 1)` การแยกที่สองแบ่งเซลนั้นเป็นเซลกลาง 40 พอยต์และเซลล่าง 50 พอยต์ คอลัมน์ขวาตอนนี้มีสามเซลที่มีความสูง 50, 40, และ 50 พอยต์จากบนลงล่าง เซลซ้ายครอบคลุมทั้งสามแถวและคงความสูงเดิมที่ 140 พอยต์
+
+![เซลซ้ายครอบคลุมความสูงเต็มของตารางข้างเซลสามเซลที่มีข้อความ Middle อยู่ตรงกลาง.](split-by-height.png)
+
+## **เปลี่ยนสีพื้นหลังของเซลตาราง**
+
+ตัวอย่างนี้สร้างตารางที่คอลัมน์กว้าง 150 พอยต์และแถวสูง 50 พอยต์ ใช้ [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือกการเติมสีแบบทึบและตั้งสีที่ได้จาก [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) เป็นสีแดงสำหรับเซล `(2, 3)` ที่คอลัมน์ที่สามและแถวที่สี่
 
 ```java
 import com.aspose.slides.*;
@@ -216,11 +311,11 @@ try {
 }
 ```
 
-## **เพิ่มรูปภาพภายในเซลล์ตาราง**
+## **เพิ่มรูปภาพภายในเซลตาราง**
 
-วางรูปภาพต้นฉบับในไดเรกทอรีทำงานก่อนรันตัวอย่างนี้ โปรแกรมจะโหลดรูปภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) และเพิ่มลงในคอลเลกชันภาพของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). จากนั้นจะกำหนดรูปภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกของตาราง
+วางรูปภาพนำเข้าในไดเร็กทอรีการทำงานก่อนรันตัวอย่างนี้ จะโหลดรูปด้วย [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) แล้วเพิ่มลงในคอลเลกชันรูปของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). จากนั้นกำหนดรูปให้กับการเติมภาพของเซล `(0, 0)` ซึ่งเป็นเซลแรกในตาราง
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) จะยืดรูปภาพให้เต็มเซลล์ซึ่งอาจทำให้สัดส่วนเปลี่ยนแปลง ความกว้างของคอลัมน์และความสูงของแถวเป็นหน่วยจุด รูปภาพที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากเพิ่มลงในงานนำเสนอ
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) จะยืดรูปเพื่อเติมเซล ซึ่งอาจเปลี่ยนอัตราส่วนของรูป ความกว้างคอลัมน์และความสูงแถวเป็นพอยต์ ภาพที่โหลดจะถูกกำจัดในบล็อก `finally` หลังจากเพิ่มลงในงานนำเสนอ
 
 ```java
 import com.aspose.slides.*;
@@ -253,18 +348,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งความหนาและสไตล์เส้นที่แตกต่างกันสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถตั้งความหนาและสไตล์ของเส้นต่าง ๆ สำหรับแต่ละด้านของเซลเดียวได้หรือไม่?**
 
-ใช่. ขอบ [ด้านบน](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[ด้านล่าง](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[ด้านซ้าย](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[ด้านขวา](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) มีคุณสมบัติแยกกัน จึงสามารถกำหนดความหนาและสไตล์ของแต่ละด้านได้ต่างกัน
+ใช่. ขอบ [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) มีคุณสมบัติเสริมแยกกัน ดังนั้นความหนาและสไตล์ของแต่ละด้านจึงสามารถแตกต่างกันได้
 
-**จะเกิดอะไรขึ้นกับรูปภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปเป็นพื้นหลังของเซลล์?**
+**ภาพจะเกิดอะไรขึ้นหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปเป็นพื้นหลังของเซล?**
 
-พฤติจะแตกต่างกันตาม [โหมดเติม](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). หากใช้การยืดรูปภาพจะปรับให้พอดีกับเซลล์ใหม่; หากใช้การเรียงซ้ำ (tiling) จะคำนวณเซลล์ใหม่อีกครั้ง
+พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile) หากยืดรูปภาพจะปรับให้เข้ากับเซลใหม่; หากเป็นการ tiled รูปภาพย่อยจะถูกคำนวณใหม่
 
-**ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
+**ฉันสามารถกำหนดไฮเพอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลได้หรือไม่?**
 
-[ไฮเปอร์ลิงก์](/slides/th/androidjava/manage-hyperlinks/) จะถูกตั้งระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือระดับของตาราง/รูปร่างทั้งหมด ในการปฏิบัติคุณจะกำหนดลิงก์ให้กับส่วนหรือกับข้อความทั้งหมดในเซลล์
+[Hyperlinks](/slides/th/androidjava/manage-hyperlinks/) จะตั้งที่ระดับข้อความ (portion) ภายในเฟรมข้อความของเซลหรือที่ระดับตาราง/รูปร่างทั้งหมด ในการใช้งานจริงคุณกำหนดลิงก์ให้กับ portion หรือให้กับข้อความทั้งหมดในเซล
 
-**ฉันสามารถตั้งแบบอักษรที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
+**ฉันสามารถตั้งฟอนต์ต่าง ๆ ภายในเซลเดียวได้หรือไม่?**
 
-ใช่. กรอบข้อความของเซลล์รองรับ [ส่วน](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (run) ที่มีการฟอร์แมตอิสระ — ฟอนต์, สไตล์, ขนาด และสี.
+ใช่. เฟรมข้อความของเซลสนับสนุน [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (runs) ที่มีการจัดรูปแบบอิสระ — ครอบครัวฟอนต์, สไตล์, ขนาด, และสี.

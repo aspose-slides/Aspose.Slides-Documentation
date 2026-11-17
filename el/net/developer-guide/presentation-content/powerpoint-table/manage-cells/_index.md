@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Κελιών Πίνακα σε Παρουσιάσεις σε .NET
-linktitle: Διαχείριση Κελιών
+title: Διαχείριση κελιών πινάκων σε παρουσιάσεις στο .NET
+linktitle: Διαχείριση κελιών
 type: docs
 weight: 30
 url: /el/net/manage-cells/
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Διαχειριστείτε τα κελιά πίνακα PowerPoint σε C#: εντοπίστε συγχωνευμένα κελιά, αφαιρέστε τα περιγράμματα, διαχωρίστε κελιά και ορίστε χρώματα φόντου και εικόνες με το Aspose.Slides για .NET."
+description: "Διαχειριστείτε κελιά πινάκων PowerPoint σε C#: εντοπίστε συγχωνευμένα κελιά, αφαιρέστε περιγράμματα, διαιρέστε κελιά και ορίστε χρώματα φόντου και εικόνες με το Aspose.Slides για .NET."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σας επιτρέπει να έχετε πρόσβαση και να τροποποιείτε κελιά πίνακα σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίζετε συγχωνευμένα κελιά πίνακα, να αφαιρείτε τα σύνορα των κελιών, να εργάζεστε με την αρίθμηση των κελιών μετά τη συγχώνευση ή το διαχωρισμό κελιών, να αλλάζετε το χρώμα φόντου ενός κελιού και να προσθέτετε μια εικόνα μέσα σε ένα κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να αποκτήσετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη διαμόρφωση του κελιού μέσω των ιδιοτήτων του κελιού και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Aspose.Slides σάς επιτρέπει να προσπελάζετε και να τροποποιείτε κελιά πίνακα σε παρουσιάσεις PowerPoint. Αυτό το άρθρο εξηγεί πώς να εντοπίζετε συγχωνευμένα κελιά πίνακα, να αφαιρείτε τα περιθώρια των κελιών, να εργάζεστε με την αρίθμηση κελιών μετά τη συγχώνευση ή το διαχωρισμό κελιών, να αλλάζετε το χρώμα φόντου ενός κελιού, και να προσθέτετε μια εικόνα μέσα σε κελί πίνακα. Τα παραδείγματα δείχνουν πώς να δημιουργήσετε ή να ανοίξετε μια παρουσίαση, να λάβετε έναν πίνακα από μια διαφάνεια, να ενημερώσετε τη μορφοποίηση του κελιού μέσω των ιδιοτήτων του κελιού, και να αποθηκεύσετε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Το Aspose.Slides χρησιμοποιεί δείκτες που ξεκινούν από το μηδέν για πρόσβαση στα κελιά του πίνακα με τη σειρά `(column, row)`.
+Το Aspose.Slides χρησιμοποιεί δείκτες μηδενικής βάσης για την πρόσβαση στα κελιά πίνακα με τη σειρά `(column, row)`.
 
-## **Εντοπισμός Συγχωνευμένου Κελιού Πίνακα**
+## **Αναγνώριση Συγχωνευμένου Κελιού Πίνακα**
 
-Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και προσπελαύνει το πρώτο σχήμα στην πρώτη διαφάνεια ως πίνακα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πίνακας. Στη συνέχεια διασχίζει όλες τις γραμμές και στήλες και χρησιμοποιεί [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) για να εντοπίσει κελιά σε συγχωνευμένες περιοχές. Για κάθε αντιστοιχία, εκτυπώνει τις συντεταγμένες του κελιού με τη σειρά `row;column`, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), και τις αρχικές συντεταγμένες της περιοχής, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) και [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
+Το παράδειγμα ανοίγει μια υπάρχουσα παρουσίαση και προσπελαύνει το πρώτο σχήμα στην πρώτη διαφάνεια ως πίνακα. Υποθέτει ότι η διαφάνεια και το σχήμα υπάρχουν και ότι το σχήμα είναι πίνακας. Στη συνέχεια, επαναλαμβάνει όλες τις γραμμές και στήλες και χρησιμοποιεί [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) για να εντοπίσει κελιά σε συγχωνευμένες περιοχές. Για κάθε αντιστοιχία, εκτυπώνει τις συντεταγμένες του κελιού με σειρά `row;column`, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), και τις αρχικές συντεταγμένες της περιοχής, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) και [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
 
 ```csharp
 using System;
@@ -51,9 +51,9 @@ for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 }
 ```
 
-## **Αφαίρεση Συνόρων Κελιών Πίνακα**
+## **Αφαίρεση Περιγραμμάτων Κελιών Πίνακα**
 
-Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) και προσθέστε έναν πίνακα στην πρώτη του διαφάνεια με το [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). Τα πλάτη των στηλών, τα ύψη των γραμμών και η θέση του πίνακα ορίζονται σε πόντους. Το παράδειγμα ορίζει όλα τα τέσσερα σύνορα κελιών σε [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/), καθιστώντας τα αόρατα.
+Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) και προσθέστε έναν πίνακα στην πρώτη του διαφάνεια με [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). Τα πλάτη των στηλών, τα ύψη των γραμμών και η θέση του πίνακα ορίζονται σε πόντους. Το παράδειγμα θέτει όλα τα τέσσερα περιγράμματα κελιού σε [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/), καθιστώντας τα αόρατα.
 
 ```csharp
 using Aspose.Slides;
@@ -77,11 +77,62 @@ foreach (var row in table.Rows)
 presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
+## **Προσθήκη Διαγώνιων Περιγραμμάτων Κελιού**
+
+Χρησιμοποιήστε [BorderDiagonalDown](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonaldown/) για να σχεδιάσετε μια γραμμή από την επάνω αριστερή γωνία στην κάτω δεξιά, και [BorderDiagonalUp](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonalup/) για να σχεδιάσετε μια γραμμή από την κάτω αριστερή γωνία στην επάνω δεξιά. Μια διαγώνιος μπορεί να σημαδέψει μια κεφαλίδα γωνίας· και οι δύο διαγώνιοι μπορούν να σχηματίσουν ένα X για να σημειώσουν ότι το κελί δεν είναι εφαρμόσιμο.
+
+Κάθε διαγώνιος είναι ένα [ILineFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/). Στο [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) του, ορίστε το [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) σε [FillType.Solid](https://reference.aspose.com/slides/net/aspose.slides/filltype/) και επιλέξτε ένα [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/). Ορίστε το [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) της γραμμής σε πόντους.
+
+Το παράδειγμα δημιουργεί τρία κελιά σε μία γραμμή: μια κόκκινη διαγώνια προς τα κάτω, μια μπλε διαγώνια προς τα πάνω, και και τις δύο διαγώνιους. Αφήνει αμετάβλητα τα περιγράμματα πάνω, κάτω, αριστερά και δεξιά του κελιού.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 210, 210, 210 };
+double[] rowHeights = { 160 };
+var table = slide.Shapes.AddTable(45, 130, columnWidths, rowHeights);
+
+var downwardBorder = table[0, 0].CellFormat.BorderDiagonalDown;
+downwardBorder.FillFormat.FillType = FillType.Solid;
+downwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+downwardBorder.Width = 3;
+
+var upwardBorder = table[1, 0].CellFormat.BorderDiagonalUp;
+upwardBorder.FillFormat.FillType = FillType.Solid;
+upwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+upwardBorder.Width = 5;
+
+var crossDownwardBorder = table[2, 0].CellFormat.BorderDiagonalDown;
+crossDownwardBorder.FillFormat.FillType = FillType.Solid;
+crossDownwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+crossDownwardBorder.Width = 3;
+
+var crossUpwardBorder = table[2, 0].CellFormat.BorderDiagonalUp;
+crossUpwardBorder.FillFormat.FillType = FillType.Solid;
+crossUpwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+crossUpwardBorder.Width = 5;
+
+presentation.Save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+```
+
+Μια διαγώνιος είναι ιδιότητα μορφοποίησης, όχι διαίρεση κελιού. Κάθε κελί διατηρεί ένα μοναδικό [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/); οι περιοχές σε κάθε πλευρά μιας διαγωνίου δεν μπορούν να επεξεργαστούν ανεξάρτητα.
+
+Το αποθηκευμένο πίνακας, αποδομένο στο Microsoft PowerPoint:
+
+![Τρία κελιά πίνακα που δείχνουν μια κόκκινη διαγώνιο από πάνω-αριστερά προς κάτω-δεξιά, μια μπλε διαγώνιο από κάτω-αριστερά προς πάνω-δεξιά, και και τις δύο διαγώνιους που σχηματίζουν X.](diagonal-cell-borders.png)
+
+*Από αριστερά προς δεξιά: διαγώνιος προς τα κάτω (κόκκινο, 3 pt), διαγώνιος προς τα πάνω (μπλε, 5 pt), και και οι δύο διαγώνιοι.*
+
 ## **Συγχώνευση Κελιών Πίνακα**
 
-Χρησιμοποιήστε το [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) για να συνδυάσετε ένα ορθογώνιο εύρος κελιών πίνακα σε ένα κελί. Καθορίστε τα κελιά στην πάνω‑αριστερή και στην κάτω‑δεξιά γωνία του εύρους. Το τελευταίο όρισμα ελέγχει αν η συγχώνευση μπορεί να περιλαμβάνει κελιά εκτός του καθορισμένου εύρους· το `false` διατηρεί τη συγχώνευση εντός αυτού του εύρους.
+Χρησιμοποιήστε [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) για να συνδυάσετε μια ορθογώνια περιοχή κελιών πίνακα σε ένα κελί. Καθορίστε τα κελιά στην επάνω αριστερή και την κάτω δεξιά γωνία της περιοχής. Το τελικό όρισμα ελέγχει αν η συγχώνευση μπορεί να περιλάβει κελιά εκτός της καθορισμένης περιοχής· το `false` διατηρεί τη συγχώνευση εντός αυτής της περιοχής.
 
-Το παράδειγμα δημιουργεί έναν πίνακα 4 × 4 με στήλες και γραμμές 70 πόντων, στη συνέχεια συγχωνεύει τα τέσσερα κεντρικά κελιά από το `(1, 1)` έως το `(2, 2)`. Το αποτέλεσμα είναι κελί που καλύπτει δύο στήλες και δύο γραμμές, ενώ το υποκείμενο πλέγμα του πίνακα διατηρεί τέσσερις στήλες και τέσσερις γραμμές. Για πρόσβαση στο περιεχόμενο ή τη διαμόρφωση του συγχωνευμένου κελιού, χρησιμοποιήστε τη θέση του στην πάνω‑αριστερή γωνία: `table[1, 1]` σε αυτό το παράδειγμα. Οι άλλες θέσεις στο συγχωνευμένο εύρος παραμένουν μέρος του πλέγματος, επομένως οι δείκτες των κελιών εκτός του εύρους δεν αλλάζουν.
+Το παράδειγμα δημιουργεί έναν πίνακα 4x4 με στήλες και γραμμές 70 πόντων, στη συνέχεια συγχωνεύει τα τέσσερα κεντρικά κελιά από `(1, 1)` έως `(2, 2)`. Το αποτέλεσμα είναι ένα κελί που καλύπτει δύο στήλες και δύο γραμμές, ενώ το υποκείμενο πλέγμα του πίνακα παραμένει τέσσερις στήλες και τέσσερις γραμμές. Για πρόσβαση στο περιεχόμενο ή στη μορφοποίηση του συγχωνευμένου κελιού, χρησιμοποιήστε την επάνω αριστερή θέση: `table[1, 1]` σε αυτό το παράδειγμα. Οι άλλες θέσεις στη συγχωνευμένη περιοχή παραμένουν μέρος του πλέγματος, έτσι οι δείκτες κελιών εκτός της περιοχής δεν αλλάζουν.
 
 ```csharp
 using Aspose.Slides;
@@ -103,9 +154,9 @@ presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
 
 Η συγχώνευση κελιών στο προηγούμενο παράδειγμα διατηρεί το πλέγμα του πίνακα. Η διαίρεση ενός κελιού μπορεί να εισαγάγει μια νέα στήλη πλέγματος και να αλλάξει τους δείκτες στήλης των κελιών στα δεξιά του. Το Aspose.Slides ακολουθεί το μοντέλο πλέγματος πίνακα του PowerPoint.
 
-Αυτό το παράδειγμα δημιουργεί έναν πίνακα 4 × 4 με στήλες και γραμμές 70 πόντων και καλεί το [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) στο κελί `(1, 1)`. Το μισό του πλάτους του κελιού (70 πόντοι) περνιέται για τη δημιουργία δύο κελιών ίσου πλάτους.
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα 4x4 με στήλες και γραμμές 70 πόντων και καλεί [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) στο κελί `(1, 1)`. Το μισό του πλάτους των 70 πόντων του κελιού περνιέται για να δημιουργηθούν δύο κελιά ίσου πλάτους.
 
-Μετά τη διαίρεση, οι δύο μισές προσπελάζονται ως `table[1, 1]` και `table[2, 1]`. Το πλέγμα του πίνακα τώρα έχει πέντε στήλες: τα κελιά που αρχικά ήταν στις στήλες 2 και 3 μετακινούνται στις στήλες 3 και 4, αντίστοιχα. Οι δείκτες γραμμών παραμένουν αμετάβλητοι. Χρησιμοποιήστε αυτούς τους ενημερωμένους δείκτες στήλης όταν προσπελάζετε κελιά μετά τη διαίρεση.
+Μετά από αυτή τη διαίρεση, τα δύο μισά προσπελαύνονται ως `table[1, 1]` και `table[2, 1]`. Το πλέγμα του πίνακα τώρα έχει πέντε στήλες: τα κελιά που αρχικά ήταν στις στήλες 2 και 3 μετατοπίζονται στις στήλες 3 και 4, αντίστοιχα. Οι δείκτες γραμμών παραμένουν αμετάβλητοι. Χρησιμοποιήστε αυτούς τους ενημερωμένους δείκτες στήλης όταν προσπελάζετε κελιά μετά τη διαίρεση.
 
 ```csharp
 using System.Drawing;
@@ -124,16 +175,16 @@ table[1, 1].SplitByWidth(table[1, 1].Width / 2);
 presentation.Save("split_cells.pptx", SaveFormat.Pptx);
 ```
 
-### **Διαίρεση Συγχωνευμένων Κελιών κατά Σειρά ή Στήλη**
+### **Διαίρεση Συγχωνευμένων Κελιών κατά Row ή Column Span**
 
-Για να προετοιμάσετε συγχωνευμένα κελιά προτύπου για πληροφόρηση δεδομένων, χρησιμοποιήστε το [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) για διαίρεση κατά υπάρχουσα γραμμή, ή το [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) για διαίρεση κατά στήλη.
+Για να προετοιμάσετε τα συγχωνευμένα κελιά προτύπου για πληθυσμό δεδομένων, χρησιμοποιήστε [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) για διαίρεση κατά υπάρχον όριο γραμμής, ή [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) για διαίρεση κατά όριο στήλης.
 
-Το όρισμα `index` μετράει τις γραμμές στο άνω τμήμα ή τις στήλες στο αριστερό τμήμα της διαίρεσης· είναι σχετικό με τη συγχωνευμένη περιοχή:
+Το όρισμα `index` μετρά γραμμές στο άνω μέρος ή στήλες στο αριστερό μέρος της διαίρεσης· είναι σχετικό με τη συγχωνευμένη περιοχή:
 
 - Διαίρεση γραμμής: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
 - Διαίρεση στήλης: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
 
-Το παράδειγμα υποθέτει ότι η παρουσίαση έχει έναν πίνακα ως πρώτο σχήμα στην πρώτη διαφάνεια, με τα `(1, 2)` και `(1, 3)` συγχωνευμένα κατακόρυφα. Ξεκινώντας από το κατώτερο σημείο, χρησιμοποιεί τα [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) και [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) για τον εντοπισμό του αρχικού σημείου και ελέγχει και τις δύο εκτάσεις. Το `SplitByRowSpan(1)` τότε διαχωρίζει τις γραμμές 2 και 3 για τα ονόματα προϊόντων. Για οριζόντια συγχώνευση δύο στηλών, χρησιμοποιήστε το `SplitByColSpan(1)`.
+Το παράδειγμα υποθέτει ότι η παρουσίαση έχει έναν πίνακα ως πρώτο σχήμα στην πρώτη διαφάνεια, με `(1, 2)` και `(1, 3)` συγχωνευμένα κάθετα. Ξεκινώντας από τη χαμηλότερη θέση, χρησιμοποιεί [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) και [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) για να εντοπίσει το αρχικό σημείο και ελέγχει και τα δύο spans. Το `SplitByRowSpan(1)` χωρίζει τότε τις γραμμές 2 και 3 για τα ονόματα προϊόντων. Για μια οριζόντια συγχώνευση δύο στηλών, χρησιμοποιήστε `SplitByColSpan(1)` αντίθετα.
 
 ```csharp
 using System;
@@ -153,7 +204,7 @@ if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 
 {
     mergedCell.SplitByRowSpan(1);
 
-    // Ανακτήστε τα προκύπτοντα κελιά από τον πίνακα μετά το διαχωρισμό.
+    // Ανακτήστε τα προκύπτοντα κελιά από τον πίνακα μετά τη διαίρεση.
     var upperCell = table[firstColumnIndex, firstRowIndex];
     var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
     Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
@@ -170,15 +221,52 @@ else
 }
 ```
 
-Το πλέγμα του πίνακα και οι περιβάλλουσες δείκτες κελιών παραμένουν αμετάβλητες. Ανακτήστε τα προκύπτοντα κελιά με τις συντεταγμένες τους· εδώ και τα δύο έχουν εκτάσεις 1 και το [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) εκτυπώνει `False`. Μεγαλύτερες περιοχές μπορούν να παραμείνουν εν μέρει συγχωνευμένες μετά από μια διαίρεση.
+Το πλέγμα του πίνακα και οι δείκτες των γύρω κελιών παραμένουν αμετάβλητοι. Ανακτήστε τα προκύπτοντα κελιά με τις συντεταγμένες τους· εδώ, και τα δύο έχουν span 1 και το [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) εκτυπώνει `False`. Μεγαλύτερες περιοχές μπορούν να παραμείνουν μερικώς συγχωνευμένες μετά από μία διαίρεση.
 
-Το αρχικό κείμενο και η διαμόρφωσή του παραμένουν στο άνω (ή αριστερό) κελί· το νέο κελί είναι κενό αλλά κληρονομεί τη διαμόρφωση του κελιού, όπως γέμισμα, σύνορα και περιθώρια. Συμπληρώστε τα κελιά μετά το διαχωρισμό και ορίστε ρητά τυχόν απαιτούμενη διαμόρφωση κειμένου.
+Το αρχικό κείμενο και η μορφοποίησή του παραμένουν στο άνω (ή αριστερό) κελί· το νέο κελί είναι κενό αλλά κληρονομεί τη μορφοποίηση του κελιού όπως γέμισμα, περιγράμματα και περιθώρια. Συμπληρώστε τα κελιά μετά το splitting και ορίστε ρητά τυχόν απαιτούμενη μορφοποίηση κειμένου.
 
-Η αποθηκευμένη παρουσίαση περιέχει ξεχωριστά κελιά “Product A” και “Product B” με τη διαμόρφωση κελιού του προτύπου διατηρημένη. Δείτε το [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) για λεπτομέρειες.
+Η αποθηκευμένη παρουσίαση περιέχει ξεχωριστά κελιά “Product A” και “Product B” με τη διατηρημένη μορφοποίηση του προτύπου. Δείτε την [Αναφορά API Κελού](https://reference.aspose.com/slides/net/aspose.slides/cell/) για λεπτομέρειες.
+
+<!-- visual-explanation:manage-cells:start -->
+[![Το συγχωνευμένο κελί στη στήλη 1, γραμμές 2 και 3 χωρίζεται σε Product A και Product B με τους ίδιους δείκτες πλέγματος.](visual-manage-cells-62c80896698e.svg)](visual-manage-cells-62c80896698e.svg)
+
+*Η διαίρεση row-span χρησιμοποιεί το υπάρχον όριο. Τα Product A και Product B καταλαμβάνουν (1, 2) και (1, 3), αντίστοιχα.*
+<!-- visual-explanation:manage-cells:end -->
+
+### **Διαίρεση Κελιού σε Συγκεκριμένο Ύψος**
+
+[SplitByHeight](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyheight/) λαμβάνει το ύψος του άνω μέρους σε πόντους. [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) λαμβάνει τον αριθμό των υπαρχουσών γραμμών πλέγματος στο άνω μέρος. Για να κεντράρετε ένα κελί 40 πόντων στη δεξιά στήλη, αφαιρέστε 40 από το πραγματικό ύψος του κελιού και διαιρέστε το υπόλοιπο χώρο ίσο πάνω και κάτω.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 160, 160 };
+double[] rowHeights = { 140 };
+
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
+table[0, 0].TextFrame.Text = "Left";
+
+var height = table[1, 0].Height;
+var margin = (height - 40) / 2;
+
+table[1, 0].SplitByHeight(margin);
+table[1, 1].SplitByHeight(40);
+table[1, 1].TextFrame.Text = "Middle";
+
+presentation.Save("split_by_height.pptx", SaveFormat.Pptx);
+```
+
+Η πρώτη διαίρεση προσθέτει μια γραμμή πλέγματος, αφήνοντας τα κατώτερα 90 πόντους στο `[1, 1]`. Η δεύτερη διαίρεση στοχεύει αυτό το κελί και προσθέτει άλλη μια γραμμή κάτω από αυτό. Η δεξιά στήλη περιέχει τώρα `[1, 0]` στα 50 πόντους (`margin`), `[1, 1]` στα 40 πόντους, και `[1, 2]` στα 50 πόντους (`margin`). Το αριστερό κελί καλύπτει όλες τις τρεις γραμμές στο αρχικό του ύψος των 140 πόντων.
+
+![Το αριστερό κελί εκτείνεται σε όλο το ύψος του πίνακα δίπλα σε τρία κελιά με το Middle στο κέντρο.](split-by-height.png)
 
 ## **Αλλαγή Χρώματος Φόντου Κελιού Πίνακα**
 
-Το παράδειγμα αυτό δημιουργεί έναν πίνακα με στήλες 150 πόντων και γραμμές 50 πόντων. Ορίζει το [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) σε συμπαγές και το [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) σε κόκκινο για το κελί `(2, 3)`, στην τρίτη στήλη και τέταρτη γραμμή.
+Αυτό το παράδειγμα δημιουργεί έναν πίνακα με στήλες 150 πόντων και γραμμές 50 πόντων. Ορίζει το [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) σε συμπαγές και το [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) σε κόκκινο για το κελί `(2, 3)`, στην τρίτη στήλη και τέταρτη γραμμή.
 
 ```csharp
 using System.Drawing;
@@ -201,9 +289,9 @@ presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 
 ## **Προσθήκη Εικόνας Μέσα σε Κελί Πίνακα**
 
-Τοποθετήστε την εικόνα εισόδου στον κατάλογο εργασίας πριν τρέξετε αυτό το παράδειγμα. Φορτώνει την εικόνα με το [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) και την προσθέτει στη συλλογή εικόνων της παρουσίασης με το [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). Στη συνέχεια αντιστοιχίζει την εικόνα στο γέμισμα εικόνας του κελιού `(0, 0)`, το πρώτο κελί του πίνακα.
+Τοποθετήστε την εικόνα εισόδου στον κατάλογο εργασίας πριν τρέξετε αυτό το παράδειγμα. Φορτώνει την εικόνα με [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) και την προσθέτει στη συλλογή εικόνων της παρουσίασης με [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). Στη συνέχεια, αντιστοιχίζει την εικόνα στο γέμισμα εικόνας του κελιού `(0, 0)`, του πρώτου κελιού στον πίνακα.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) τεντώνει την εικόνα ώστε να γεμίσει το κελί, κάτι που μπορεί να αλλάξει την αναλογία διαστάσεων. Τα πλάτη των στηλών και τα ύψη των γραμμών ορίζονται σε πόντους. Η φορτωμένη εικόνα απορρίπτεται αυτόματα με τη δήλωση `using`.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) τεντώει την εικόνα ώστε να γεμίσει το κελί, γεγονός που μπορεί να αλλάξει την αναλογία διαστάσεών του. Τα πλάτη των στηλών και τα ύψη των γραμμών είναι σε πόντους. Η φορτωμένη εικόνα εξυπηρετείται αυτόματα από τη δήλωση using.
 
 ```csharp
 using Aspose.Slides;
@@ -228,18 +316,18 @@ presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να ορίσω διαφορετικά πάχη γραμμών και στυλ για διαφορετικές πλευρές ενός μόνο κελιού;**
+**Μπορώ να ορίσω διαφορετικά πάχη και στυλ γραμμής για τις διαφορετικές πλευρές ενός μόνο κελιού;**
 
-Ναι. Τα [επάνω](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[κάτω](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[αριστερά](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[δεξιά](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) σύνορα έχουν ξεχωριστές ιδιότητες, ώστε το πάχος και το στυλ κάθε πλευράς να μπορεί να διαφέρει.
+Ναι. Τα περιγράμματα [επάνω](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[κάτω](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[αριστερά](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[δεξιά](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) έχουν ξεχωριστές ιδιότητες, έτσι η πάχος και το στυλ κάθε πλευράς μπορούν να διαφέρουν.
 
-**Τι συμβαίνει με την εικόνα εάν αλλάξω το μέγεθος στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντο κελιού;**
+**Τι συμβαίνει με την εικόνα αν αλλάξω το μέγεθος στήλης/γραμμής μετά τον ορισμό μιας εικόνας ως φόντου κελιού;**
 
-Η συμπεριφορά εξαρτάται από τη [λειτουργία γεμίσματος](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). Με τέντωμα, η εικόνα προσαρμόζεται στο νέο κελί· με επαναλάβο, τα κομμάτια επαναϋπολογίζονται.
+Η συμπεριφορά εξαρτάται από τη [mode γεμίσματος](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). Με τέντωμα, η εικόνα προσαρμόζεται στο νέο κελί· με επικάλυψη, τα πλακίδια επανυπολογίζονται.
 
 **Μπορώ να προσθέσω υπερσύνδεσμο σε όλο το περιεχόμενο ενός κελιού;**
 
-[Hyperlinks](/slides/el/net/manage-hyperlinks/) ορίζονται σε επίπεδο κειμένου (τμήματος) μέσα στο πλαίσιο κειμένου του κελιού ή σε επίπεδο ολόκληρου πίνακα/σχήματος. Στην πράξη, ορίζετε τον σύνδεσμο σε ένα τμήμα ή σε ολόκληρο το κείμενο στο κελί.
+Οι [Υπερσυνδέσεις](/slides/el/net/manage-hyperlinks/) ορίζονται σε επίπεδο κειμένου (μερίδας) μέσα στο πλαίσιο κειμένου του κελιού ή σε επίπεδο ολόκληρου πίνακα/σχήματος. Στην πράξη, ορίζετε το σύνδεσμο σε μια μερίδα ή σε όλο το κείμενο στο κελί.
 
 **Μπορώ να ορίσω διαφορετικές γραμματοσειρές μέσα σε ένα μόνο κελί;**
 
-Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (τμήματα) με ανεξάρτητη διαμόρφωση—όνομα γραμματοσειράς, στυλ, μέγεθος και χρώμα.
+Ναι. Το πλαίσιο κειμένου ενός κελιού υποστηρίζει [μερίδες](https://reference.aspose.com/slides/net/aspose.slides/portion/) (runs) με ανεξάρτητη μορφοποίηση—οικογένεια γραμματοσειράς, στυλ, μέγεθος και χρώμα.

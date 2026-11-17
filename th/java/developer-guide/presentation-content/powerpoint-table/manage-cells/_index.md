@@ -1,5 +1,5 @@
 ---
-title: จัดการเซลล์ตารางในงานนำเสนอโดยใช้ Java
+title: จัดการเซลล์ตารางในงานนำเสนอด้วย Java
 linktitle: จัดการเซลล์
 type: docs
 weight: 30
@@ -15,17 +15,17 @@ keywords:
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "จัดการเซลล์ตาราง PowerPoint ใน Java: ระบุเซลล์ที่รวมกัน, ลบขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Java."
+description: "จัดการเซลล์ตาราง PowerPoint ด้วย Java: ระบุเซลล์ที่รวม, ลบขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint. บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวมกัน, ลบขอบเซลล์, ทำงานกับการนับหมายเลขเซลล์หลังจากการรวมหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง. ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.
+Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวมกัน, ลบขอบเซลล์, ทำงานกับการจัดลำดับเซลล์หลังจากการรวมหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
 
-Aspose.Slides ใช้ดัชนีเริ่มจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
+Aspose.Slides ใช้ดัชนีเริ่มต้นจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
 
 ## **ระบุเซลล์ตารางที่รวมกัน**
 
-ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกเป็นตาราง. มันสมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างนั้นเป็นตาราง. จากนั้นมันวนลูปผ่านทุกแถวและคอลัมน์และใช้ [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) เพื่อระบุเซลล์ในพื้นที่ที่รวมกัน. สำหรับแต่ละที่ตรงกัน, จะพิมพ์พิกัดเซลล์ในลำดับ `row;column`, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--), และพิกัดเริ่มต้นของพื้นที่, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) และ [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
+ตัวอย่างเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกเป็นตาราง สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นตาราง จากนั้นวนลูปผ่านทุกแถวและคอลัมน์และใช้ [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) เพื่อระบุเซลล์ในบริเวณที่รวมกัน สำหรับแต่ละผลลัพธ์จะแสดงพิกัดเซลล์ในรูป `row;column`, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--), และพิกัดเริ่มต้นของบริเวณ, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) และ [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--)  
 
 ```java
 import com.aspose.slides.*;
@@ -55,7 +55,7 @@ try {
 
 ## **ลบขอบเซลล์ตาราง**
 
-สร้าง [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกของมันด้วย [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางระบุเป็นจุด. ตัวอย่างตั้งค่าขอบเซลล์สี่ด้านทั้งหมดเป็น [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), ทำให้ขอบไม่ปรากฏ.
+สร้าง [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางระบุเป็นพ้อยท์ ตัวอย่างกำหนดให้ขอบเซลล์สี่ด้านทั้งหมดเป็น [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), ทำให้ขอบไม่ปรากฏ  
 
 ```java
 import com.aspose.slides.*;
@@ -83,11 +83,65 @@ try {
 }
 ```
 
+## **เพิ่มขอบเซลล์แบบทแยง**
+
+ใช้ [getBorderDiagonalDown](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalDown--) วาดเส้นจากมุมซ้ายบนไปมุมขวาล่าง, และ [getBorderDiagonalUp](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalUp--) วาดเส้นจากมุมซ้ายล่างไปมุมขวาบน เส้นทแยงสามารถใช้เป็นหัวข้อมุม; เส้นทแยงทั้งสองสามารถสร้างรูป X เพื่อบ่งบอกว่าเซลล์ไม่ใช้ได้  
+
+แต่ละเส้นทแยงเป็น [ILineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) ใน [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) ใช้ [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) เลือก [FillType.Solid](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) และเลือกสีผ่าน [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) ตั้งความกว้างของเส้นเป็นพ้อยท์ด้วย [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-)  
+
+ตัวอย่างสร้างสามเซลล์ในแถวเดียว: เส้นทแยงลงสีแดง, เส้นทแยงขึ้นสีฟ้า, และทั้งสองเส้นทแยง คงขอบด้านบน, ล่าง, ซ้าย, ขวาไว้ตามเดิม  
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+เส้นทแยงเป็นคุณสมบัติการจัดรูปแบบ, ไม่ใช่การแยกเซลล์ แต่ละเซลล์คงกรอบข้อความเดียวซึ่งเข้าถึงได้ผ่าน [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) ; พื้นที่ทั้งสองข้างของเส้นทแยงไม่สามารถแก้ไขแยกกันได้  
+
+ตารางที่บันทึกแล้ว แสดงผลใน Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*จากซ้ายไปขวา: เส้นทแยงลง (สีแดง, 3 pt), เส้นทแยงขึ้น (สีฟ้า, 5 pt), และเส้นทแยงทั้งสอง.*
+
 ## **รวมเซลล์ตาราง**
 
-ใช้ [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางให้เป็นเซลล์เดียว. ระบุเซลล์ที่มุมบนซ้ายและมุมล่างขวาของช่วง. อาร์กิวเมนต์สุดท้ายกำหนดว่า การรวมอาจรวมเซลล์นอกช่วงที่กำหนดหรือไม่; `false` ทำให้การรวมอยู่ภายในช่วงนั้นเท่านั้น.
+ใช้ [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) รวมช่วงสี่เหลี่ยมของเซลล์ตารางเป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและขวาล่างของช่วง อาร์กิวเมนต์สุดท้ายควบคุมว่าการรวมอาจรวมเซลล์ที่อยู่นอกช่วงที่กำหนดหรือไม่; `false` ทำให้การรวมคงอยู่ภายในช่วงเท่านั้น  
 
-ตัวอย่างสร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุด, จากนั้นรวมเซลล์ศูนย์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)`. เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว, ในขณะที่กริดพื้นฐานของตารางยังคงมีสี่คอลัมน์และสี่แถว. เพื่อเข้าถึงเนื้อหา或รูปแบบของเซลล์ที่รวม, ใช้ตำแหน่งบนซ้าย: `table.get_Item(1, 1)` ในตัวอย่างนี้. ตำแหน่งอื่นในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง, ดังนั้นดัชนีของเซลล์นอกช่วงจะไม่เปลี่ยนแปลง.
+ตัวอย่างสร้างตารางขนาด 4x4 โดยคอลัมน์และแถวละ 70 พอยท์, จากนั้นรวมเซลล์ศูนย์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)` เซลล์ที่ได้จะครอบคลุมสองคอลัมน์และสองแถว, ในขณะที่กริดของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหาหรือรูปแบบของเซลล์ที่รวม ให้ใช้ตำแหน่งมุมซ้ายบน: `table.get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง, ดังนั้นดัชนีของเซลล์ที่อยู่นอกช่วงจะไม่เปลี่ยนแปลง  
 
 ```java
 import com.aspose.slides.*;
@@ -110,11 +164,11 @@ try {
 
 ## **แยกเซลล์ตาราง**
 
-การรวมเซลล์ในตัวอย่างก่อนหน้ารักษากริดของตารางไว้. การแยกเซลล์สามารถเพิ่มคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ที่อยู่ทางขวา. Aspose.Slides ปฏิบัติตามโมเดลกริดตารางของ PowerPoint.
+การรวมเซลล์ในตัวอย่างก่อนหน้ารักษากริดของตารางไว้ การแยกเซลล์อาจทำให้เกิดคอลัมน์กริดใหม่และเปลี่ยนดัชนีของเซลล์ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint  
 
-ตัวอย่างนี้สร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุดและเรียกใช้ [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) บนเซลล์ `(1, 1)`. ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์ถูกส่งผ่านเพื่อสร้างเซลล์สองอันที่มีความกว้างเท่ากัน.
+ตัวอย่างนี้สร้างตาราง 4x4 โดยคอลัมน์และแถวละ 70 พอยท์และเรียก [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) บนเซลล์ `(1, 1)` ส่งค่าความกว้าง 70 พอยท์ครึ่งหนึ่งเพื่อสร้างสองเซลล์ที่มีความกว้างเท่ากัน  
 
-หลังจากแยกนี้, ครึ่งสองส่วนเข้าถึงได้โดย `table.get_Item(1, 1)` และ `table.get_Item(2, 1)`. กริดของตารางขณะนี้มีห้าคอลัมน์: เซลล์ที่เคยอยู่ในคอลัมน์ 2 และ 3 ย้ายไปเป็นคอลัมน์ 3 และ 4 ตามลำดับ. ดัชนีแถวคงที่. ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังจากการแยก.
+หลังจากแยก, ครึ่งสองส่วนเข้าถึงได้เป็น `table.get_Item(1, 1)` และ `table.get_Item(2, 1)` กริดของตารางตอนนี้มีห้าคอลัมน์: เซลล์ที่เคยอยู่ในคอลัมน์ 2 และ 3 ย้ายไปเป็นคอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวคงที่ ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อเข้าถึงเซลล์หลังจากแยก  
 
 ```java
 import com.aspose.slides.*;
@@ -135,16 +189,23 @@ try {
 }
 ```
 
+
+<!-- visual-explanation:manage-cells:start -->
+[![An unmerged 70-point cell splits into two 35-point cells, adding a fifth grid column and shifting the indices to its right.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
+
+*การแยกความกว้างส่งผลต่อเซลล์ (1, 1) โดยใช้ดัชนีเริ่มต้นจากศูนย์ (คอลัมน์, แถว) ด้านอื่นของแถวยังคงมีเซลล์ที่ครอบคลุมตำแหน่งคอลัมน์ใหม่ทั้งสอง*
+<!-- visual-explanation:manage-cells:end -->
+
 ### **แยกเซลล์ที่รวมกันตามช่วงแถวหรือคอลัมน์**
 
-เพื่อเตรียมเซลล์เทมเพลตที่รวมกันสำหรับการเติมข้อมูล, ใช้ [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) เพื่อแยกตามเส้นขอบแถวที่มีอยู่, หรือ [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) เพื่อแยกตามเส้นขอบคอลัมน์.
+เพื่อเตรียมเซลล์แม่แบบที่รวมไว้สำหรับการเติมข้อมูล, ใช้ [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) แยกตามขอบแถวที่มีอยู่, หรือใช้ [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) แยกตามขอบคอลัมน์  
 
-อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; ค่าจึงสัมพันธ์กับพื้นที่ที่รวมกัน:
+อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; ค่าจากจุดเริ่มต้นของพื้นที่ที่รวม:
 
-- การแยกแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
-- การแยกคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+- แยกตามแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- แยกตามคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
 
-ตัวอย่างสมมติว่ามีงานนำเสนอที่มีตารางเป็นรูปร่างแรกบนสไลด์แรก, โดยเซลล์ `(1, 2)` และ `(1, 3)` รวมกันตามแนวตั้ง. เริ่มจากตำแหน่งด้านล่าง, ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) และ [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) เพื่อค้นหาตำแหน่งต้นทางและตรวจสอบทั้งสองช่วง. `splitByRowSpan(1)` จะแยกแถวที่ 2 และ 3 สำหรับชื่อสินค้า. สำหรับการรวมแนวนอนสองคอลัมน์, ใช้ `splitByColSpan(1)` แทน.
+ตัวอย่างคาดว่าผลงานนำเสนอมีตารางเป็นรูปร่างแรกบนสไลด์แรก, โดยเซลล์ `(1, 2)` และ `(1, 3)` รวมกันแนวตั้ง เริ่มจากตำแหน่งล่าง ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) และ [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) เพื่อหาตำแหน่งเริ่มต้นและตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะทำการแยกแถว 2 และ 3 สำหรับชื่อสินค้า สำหรับการรวมแนวนอนสองคอลัมน์ ให้ใช้ `splitByColSpan(1)` แทน  
 
 ```java
 import com.aspose.slides.*;
@@ -163,7 +224,7 @@ try {
     {
         mergedCell.splitByRowSpan(1);
 
-        // ดึงเซลล์ที่ได้จากตารางหลังจากทำการแยก.
+        // ดึงเซลล์ที่ได้จากตารางหลังจากการแยก
         ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         System.out.println("Upper cell merged: " + upperCell.isMergedCell());
@@ -183,15 +244,49 @@ try {
 }
 ```
 
-กริดของตารางและดัชนีเซลล์โดยรอบคงที่. ดึงเซลล์ที่ได้ตามพิกัด; ในที่นี้ ทั้งสองเซลล์มีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) แสดง `false`. พื้นที่ที่ใหญ่กว่าอาจยังคงรวมกันบางส่วนหลังจากการแยกหนึ่งครั้ง.
+กริดของตารางและดัชนีเซลล์รอบข้างคงเดิม เรียกเซลล์ที่ได้ด้วยพิกัด; ทั้งสองเซลล์มีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) แสดง `false` พื้นที่ใหญ่กว่าสามารถคงเหลือบางส่วนที่ยังรวมอยู่หลังการแยกหนึ่งครั้ง  
 
-ข้อความต้นฉบับและรูปแบบของมันคงอยู่ในเซลล์ด้านบน (หรือด้านซ้าย); เซลล์ใหม่ว่างเปล่าแต่สืบทอดรูปแบบเซลล์เช่นการเติม, ขอบ, และระยะเว้น. เติมข้อมูลลงในเซลล์หลังจากการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน.
+ข้อความและรูปแบบเดิมคงอยู่ในเซลล์บน (หรือซ้าย) เซลล์ใหม่เป็นค่าว่างแต่รับสืบทอดรูปแบบเซลล์เช่นสีเติม, ขอบ, และระยะเว้นขอบ เติมข้อความลงในเซลล์หลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน  
 
-งานนำเสนอที่บันทึกไว้จะมีเซลล์ "Product A" และ "Product B" แยกกันโดยคงรูปแบบเซลล์ของเทมเพลตไว้. ดูที่ [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) สำหรับรายละเอียด.
+งานนำเสนอที่บันทึกไว้มีเซลล์ “Product A” และ “Product B” แยกจากกันโดยคงรูปแบบเซลล์ตามแม่แบบ ดูที่ [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) เพื่อรับรายละเอียดเพิ่มเติม  
+
+### **แยกเซลล์ตามความสูงที่กำหนด**
+
+[splitByHeight](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByHeight-double-) รับค่าความสูงของส่วนบนเป็นพอยท์ [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) รับจำนวนแถวกริดที่มีอยู่ในส่วนบน เพื่อตำแหน่งเซลล์สูง 40 พอยท์ในคอลัมน์ขวา ให้ลบ 40 จากความสูงจริงของเซลล์และแบ่งพื้นที่ที่เหลือเท่า ๆ กันเหนือและใต้  
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+    
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+การแยกครั้งแรกเพิ่มแถวกริดและเหลือ 90 พอยท์ที่ด้านล่างของเซลล์ `(1, 1)` การแยกครั้งที่สองแบ่งเซลล์นั้นเป็นเซลล์กลางสูง 40 พอยท์และเซลล์ล่างสูง 50 พอยท์ คอลัมน์ขวามีสามเซลล์ที่มีความสูง 50, 40, และ 50 พอยท์จากบนลงล่าง เซลล์ซ้ายครอบคลุมทุกแถวสามแถวและคงความสูงเดิมที่ 140 พอยท์  
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
 
 ## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
 
-ตัวอย่างนี้สร้างตารางที่มีคอลัมน์ขนาด 150 จุดและแถวขนาด 50 จุด. มันใช้ [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือกการเติมแบบทึบและตั้งค่าสีที่ได้จาก [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่.
+ตัวอย่างนี้สร้างตารางที่คอลัมน์กว้าง 150 พอยท์และแถวสูง 50 พอยท์ ใช้ [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) เลือกเติมสีทึบและตั้งค่าสีที่ได้จาก [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) เป็นสีแดงสำหรับเซลล์ `(2, 3)` ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่  
 
 ```java
 import com.aspose.slides.*;
@@ -217,9 +312,9 @@ try {
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
 
-วางรูปภาพต้นเข้าไปในไดเรกทอรีทำงานก่อนเรียกใช้ตัวอย่างนี้. มันโหลดรูปภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) และเพิ่มมันไปยังคอลเลกชันรูปภาพของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). จากนั้นกำหนดรูปภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกในตาราง.
+วางรูปภาพต้นฉบับในไดเรกทอรีทำงานก่อนรันตัวอย่างนี้ จะโหลดรูปภาพด้วย [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) และเพิ่มลงในคอลเลกชันภาพของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-) จากนั้นกำหนดภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)` เซลล์แรกในตาราง  
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) ทำให้รูปภาพขยายเต็มเซลล์, ซึ่งอาจเปลี่ยนอัตราส่วนของรูป. ความกว้างของคอลัมน์และความสูงของแถวระบุเป็นจุด. รูปที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากเพิ่มไปยังงานนำเสนอ.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) ยืดรูปภาพให้เติมเต็มเซลล์ ซึ่งอาจทำให้อัตราส่วนภาพเปลี่ยน ความกว้างของคอลัมน์และความสูงของแถวเป็นพอยท์ รูปภาพที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากเพิ่มลงในงานนำเสนอ  
 
 ```java
 import com.aspose.slides.*;
@@ -250,20 +345,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Can I set different line thicknesses and styles for different sides of a single cell?**
+**ฉันสามารถตั้งความหนาและสไตล์ของเส้นที่แตกต่างกันสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**  
 
-ใช่. ขอบ [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) มีคุณสมบัติแยกกัน, ดังนั้นความหนาและสไตล์ของแต่ละด้านสามารถต่างกันได้.
+ใช่. ขอบ [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) มีคุณสมบัติเพียายกัน ดังนั้นความหนาและสไตล์ของแต่ละด้านจึงสามารถแตกต่างกันได้  
 
-**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+**จะเกิดอะไรขึ้นกับรูปภาพหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปเป็นพื้นหลังของเซลล์?**  
 
-พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). หากใช้การยืด, รูปภาพจะปรับตามเซลล์ใหม่; หากใช้การทำแผ่นกระเบื้อง, แผ่นกระเบื้องจะถูกคำนวณใหม่.
+พฤติกรรมขึ้นกับ [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile) หากใช้การยืดรูปภาพจะปรับตามเซลล์ใหม่; หากใช้การทำซ้ำ (tile) แผ่นภาพจะถูกคำนวณใหม่  
 
-**Can I assign a hyperlink to all the content of a cell?**
+**ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**  
 
-[Hyperlinks](/slides/th/java/manage-hyperlinks/) ตั้งที่ระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือที่ระดับตาราง/รูปร่างทั้งหมด. โดยปฏิบัติจริง, คุณจะกำหนดลิงก์ให้กับส่วนหนึ่งหรือให้กับข้อความทั้งหมดในเซลล์.
+[Hyperlinks](/slides/th/java/manage-hyperlinks/) ตั้งระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือที่ระดับตาราง/รูปร่างทั้งหมด ในการปฏิบัติคุณสามารถกำหนดลิงก์ให้กับส่วนหนึ่งหรือกับข้อความทั้งหมดในเซลล์  
 
-**Can I set different fonts within a single cell?**
+**ฉันสามารถตั้งฟอนต์ที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**  
 
-ใช่. กรอบข้อความของเซลล์สนับสนุน [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (runs) ที่มีการจัดรูปแบบแยกกัน—แบบอักษร, สไตล์, ขนาด, และสี.
+ใช่. กรอบข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (รัน) ที่มีการจัดรูปแบบอิสระ เช่น ชื่อฟอนต์, สไตล์, ขนาด, และสี  

@@ -1,12 +1,12 @@
 ---
-title: Táblázatcellák kezelése prezentációkban Python segítségével
+title: Táblázatcellák kezelése prezentációkban Python nyelven
 linktitle: Cellák kezelése
 type: docs
 weight: 30
 url: /hu/python-java/manage-cells/
 keywords:
 - táblázatcella
-- cellák összevonása
+- cellák egyesítése
 - szegély eltávolítása
 - cella felosztása
 - kép a cellában
@@ -19,13 +19,13 @@ description: "PowerPoint táblázatcellák kezelése Pythonban: összevont cell�
 ---
 ## **Áttekintés**
 
-Aspose.Slides lehetővé teszi, hogy elérje és módosítsa a táblázatcellákat PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan azonosíthatók az összevont táblázatcellák, hogyan távolíthatók el a cellaszegélyek, hogyan kezelhető a cellaszámozás cellák összevonása vagy felosztása után, hogyan változtatható meg egy cella háttérszíne, és hogyan adhatunk képet a táblázatcellán belül. A példák azt mutatják, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezhetünk táblázatot egy diából, hogyan frissíthetjük a cellaformázást cella‑tulajdonságokon keresztül, és hogyan menthetjük a módosított prezentációt PPTX fájlként.
+Az Aspose.Slides lehetővé teszi, hogy hozzáférj a PowerPoint‑prezentációk táblázatcelláihoz, és módosítsd őket. Ez a cikk bemutatja, hogyan azonosíts összevont táblázatcellákat, hogyan távolíthatod el a cella szegélyeit, hogyan dolgozhatsz a cellaszámozással egyesítés vagy felosztás után, hogyan változtathatod meg egy cella háttérszínét, és hogyan adhatunk képet egy táblázatcellához. A példák megmutatják, hogyan hozhatsz létre vagy nyithatsz meg egy prezentációt, hogyan szerezheted meg a táblázatot egy diáról, hogyan frissítheted a cella formázását a cella tulajdonságain keresztül, és hogyan mentheted a módosított prezentációt PPTX fájlként.
 
-Az Aspose.Slides nulla‑alapú indexeket használ a táblázatcellák eléréséhez `(oszlop, sor)` sorrendben.
+Az Aspose.Slides nulla‑alapú indexeket használ a táblázatcellák eléréséhez a `(oszlop, sor)` sorrendben.
 
-## **Az összevont táblázatcellák azonosítása**
+## **Összevont táblázatcellák azonosítása**
 
-A példa megnyit egy meglévő prezentációt, és az első dián az első alakzatot táblázatként éri el. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat táblázat. Ezután végigiterál az összes soron és oszlopon, és a [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) használatával azonosítja az összevont régiók celláit. Minden egyezésnél kiírja a cella koordinátáit `row;column` sorrendben, a [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), a [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), valamint a régió kezdő koordinátáit, a [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) és a [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
+A példa megnyit egy meglévő prezentációt, és az első dián lévő első alakzatot táblázatként éri el. Feltételezi, hogy a dia és az alakzat létezik, valamint hogy az alakzat táblázat. Ezután végigiterál az összes soron és oszlopon, és a [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) metódust használja az összevont régiók celláinak azonosítására. Minden egyezés esetén kiírja a cella koordinátáit `sor;oszlop` sorrendben, a [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), a [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan) értékeket, valamint a régió kezdő koordinátáit, a [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) és a [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) segítségével.
 
 ```python
 import jpype
@@ -52,9 +52,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Táblázatcella szegélyek eltávolítása**
+## **Táblázatcellák szegélyeinek eltávolítása**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) és adjon egy táblázatot az első diájához a [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) használatával. Az oszlopszélességeket, sormagasságokat és a táblázat pozícióját pontban adja meg. A példa minden négy cellaszegélyt a [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékre állítja, így azok láthatatlanok.
+Hozz létre egy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) objektumot, és adj hozzá egy táblázatot az első diájához a [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) metódussal. Az oszlopszélességek, sormagasságok és a táblázat pozíciója pontokban van megadva. A példa mind a négy cella szegélyét a [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) értékre állítja, így láthatatlanná téve őket.
 
 ```python
 import jpype
@@ -85,11 +85,63 @@ finally:
     presentation.dispose()
 ```
 
-## **Táblázatcellák összevonása**
+## **Átlós cellaszegélyek hozzáadása**
 
-A [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) használatával egy téglalap alakú táblázatcellatartományt egy cellává egyesítheti. Adja meg a tartomány bal‑felső és jobb‑alsó sarkának celláit. Az utolsó argumentum határozza meg, hogy az összevonás tartalmazhat‑e a megadott tartományon kívüli cellákat; a `False` érték az összevonást a tartományon belül tartja.
+A [getBorderDiagonalDown](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalDown) metódussal a bal felső saroktól a jobb alsó sarokig, a [getBorderDiagonalUp](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalUp) metódussal pedig a bal alsó saroktól a jobb felső sarokig rajzolhatsz vonalat. Egy átló jelölhet egy sarokfejlécet. Mindkét átló X‑et alkothat, ami azt jelzi, hogy a cella nem alkalmazható.
 
-A példa 4‑by‑4‑es táblázatot hoz létre 70‑pontos oszlopszélességekkel és sormagasságokkal, majd összevonja a négy középső cellát a `(1, 1)`‑től a `(2, 2)`‑ig terjedő tartományban. Az eredményül kapott cella két oszlopot és két sort fed le, míg a táblázat alaprendszere továbbra is négy oszlopból és négy sorból áll. Az összevont cella tartalmához vagy formázásához a bal‑felső pozíciót kell használni: `table.get_Item(1, 1)` ebben a példában. A többi pozíció az összevont tartományban továbbra is a táblázat rácsának része marad, így a tartományon kívüli cellák indexei nem változnak.
+Minden átló egy [LineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/) objektum. Az ő [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) metódusában a [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) segítségével válaszd a [FillType.Solid](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) opciót, és válassz színt a [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) segítségével. A vonal vastagságát pontokban a [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) metódussal állíthatod be.
+
+A példa egy sorban három cellát hoz létre: egy piros lefelé irányuló átlót, egy kék felfelé irányuló átlót és mindkét átlót. A felső, alsó, bal és jobb cellaszegélyeket változatlanul hagyja.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, FillType, SaveFormat
+from java.awt import Color
+
+
+def format_border(border, color, width):
+    fill = border.getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setColor(color)
+    border.setWidth(width)
+
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().addTable(45, 130, [210, 210, 210], [160])
+
+    left_cell = table.get_Item(0, 0).getCellFormat()
+    middle_cell = table.get_Item(1, 0).getCellFormat()
+    right_cell = table.get_Item(2, 0).getCellFormat()
+    format_border(left_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(middle_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+    format_border(right_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(right_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Az átló egy formázási tulajdonság, nem cellafelosztás. Minden cella egyetlen szövegkeretet tartalmaz, amelyet a [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) metódussal érhetsz el. Az átló mindkét oldalán lévő területeket nem lehet külön‑külön szerkeszteni.
+
+A mentett táblázat, a Microsoft PowerPoint‑ban megjelenítve:
+
+![Három táblázatcella, amelyek piros átlót mutatnak a bal felső saroktól a jobb alsó sarokig, kék átlót a bal alsó saroktól a jobb felső sarokig, és mindkét átló X-et alkot.](diagonal-cell-borders.png)
+
+*Balról jobbra: lefelé irányú átló (piros, 3 pt), felfelé irányú átló (kék, 5 pt), és mindkét átló.*
+
+## **Táblázatcellák egyesítése**
+
+Használd a [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) metódust, hogy egy téglalap alakú táblázatcellákat egy cellává egyesítsd. Add meg a tartomány bal felső és jobb alsó sarkában lévő cellákat. Az utolsó argumentum határozza meg, hogy az egyesítés tartalmazhat‑e a megadott tartományon kívüli cellákat; a `False` érték az egyesítést a tartományon belül tartja.
+
+A példa egy 4×4‑es táblázatot hoz létre 70‑pontos oszlopokkal és sorokkal, majd egyesíti a négy középső cellát a `(1, 1)`‑től `(2, 2)`‑ig terjedő tartományban. Az eredményül kapott cella két oszlopon és két soron átnyúlik, míg a táblázat alaprendszere négy oszlopot és négy sort tartalmaz továbbra is. Az egyesített cella tartalmának vagy formázásának eléréséhez használd a bal‑felső pozíciót: `table.get_Item(1, 1)` ebben a példában. A többi pozíció az egyesített tartományban továbbra is a táblázatrács része, ezért a tartományon kívüli cellák indexei nem változnak.
 
 ```python
 import jpype
@@ -117,11 +169,11 @@ finally:
 
 ## **Táblázatcellák felosztása**
 
-Az előző példában a cellák összevonása megőrzi a táblázat rácsát. Egy cella felosztása új rácsoszlopot vezethet be, és megváltoztathatja a jobbra lévő cellák oszlopindexeit. Az Aspose.Slides a PowerPoint táblázatrács-modelljét követi.
+A korábbi példában a cellák összevonása megőrzi a táblázat rácsát. Egy cella felosztása új rácsoszlopot hozhat létre, és megváltoztathatja a jobb oldali cellák oszlopindexeit. Az Aspose.Slides a PowerPoint táblázatrács modelljét követi.
 
-Ebben a példában egy 4‑by‑4‑es táblázatot hozunk létre 70‑pontos oszlopszélességekkel és sormagasságokkal, majd a `(1, 1)`‑es cellán meghívjuk a [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) metódust. A cella 70‑pontos szélességének felét adjuk meg, hogy két egyenlő szélességű cellát kapjunk.
+A példa egy 4×4‑es táblázatot hoz létre 70‑pontos oszlopokkal és sorokkal, majd meghívja a [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) metódust a `(1, 1)` cellán. A cella 70‑pontos szélességének felét átadja, hogy két egyenlő szélességű cellát hozzon létre.
 
-A felosztás után a két felét a `table.get_Item(1, 1)` és a `table.get_Item(2, 1)` hívásokkal érhetjük el. A táblázat rácsa most már öt oszlopot tartalmaz: az eredetileg a 2‑es és 3‑as oszlopban lévő cellák a 3‑as és 4‑es oszlopokra kerülnek. A sorindexek változatlanok maradnak. A felosztás után a frissített oszlopindexeket kell használni a cellák eléréséhez.
+A felosztás után a két felét a `table.get_Item(1, 1)` és a `table.get_Item(2, 1)` segítségével érheted el. A táblázatrács most öt oszlopot tartalmaz: az eredetileg a 2‑ és 3‑as oszlopban lévő cellák a 3‑as és 4‑es oszlopba kerülnek. A sorindexek változatlanok maradnak. A felosztás utáni cellák elérésénél ezeket a frissített oszlopindexeket használd.
 
 ```python
 import jpype
@@ -147,16 +199,22 @@ finally:
     presentation.dispose()
 ```
 
-### **Összevont cellák felosztása sor- vagy oszlopszakasz szerint**
+<!-- visual-explanation:manage-cells:start -->
+[![Egy nem összevont 70‑pontos cella két 35‑pontos cellára oszlik, egy ötödik rácsoszlopot hozzáadva, és a jobb oldali indexeket eltolva.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-Az összevont sabloncellák adatkitöltés előkészítéséhez használja a [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) metódust egy meglévő sorhatáron való felosztáshoz, vagy a [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) metódust oszlophatáron való felosztáshoz.
+*~A szélesség felosztása a (1, 1) cellát érinti, nulla‑alapú (oszlop, sor) indexekkel. A többi sor egy cellát tart meg, amely mindkét új oszloppozíciót átnyúlik.~*
+<!-- visual-explanation:manage-cells:end -->
 
-Az `index` argumentum a felosztás felső részének sorait vagy a bal részének oszlopait számolja; a megadott összevont területhez viszonyítva értendő:
+### **Összevont cellák felosztása sor- vagy oszlopszélesség szerint**
 
-- Sorfelosztás: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
-- Oszlopfelosztás: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+A összevont sabloncellák adatkitöltésre való előkészítéséhez használd a [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) metódust egy meglévő sorhatár mentén történő felosztáshoz, vagy a [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) metódust oszlophatár mentén.
 
-A példa azt feltételezi, hogy a prezentáció első diáján az első alakzat egy táblázat, ahol a `(1, 2)` és `(1, 3)` cellák függőlegesen össze vannak vonva. Az alsó pozícióból kiindulva a [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) és a [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) segítségével meghatározza a kiindulópontot, és ellenőrzi mindkét kiterjedést. A `splitByRowSpan(1)` ezután szétválasztja a 2‑es és 3‑as sorokat a terméknevekhez. Vízszintes két‑oszlopos összevonás esetén használja a `splitByColSpan(1)`-et.
+Az `index` argumentum a felosztás felső részében lévő sorok vagy a bal részében lévő oszlopok számát adja meg; a összevont régióhoz viszonylagos.
+
+- Sor felosztás: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Oszlop felosztás: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+A példa azt feltételezi, hogy a prezentáció első diáján az első alakzat egy táblázat, amelyben a `(1, 2)` és `(1, 3)` cellák függőlegesen össze vannak vonva. Az alsó pozícióból kiindulva a [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) és [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) metódusokkal határozza meg az eredetet, és ellenőrzi mindkét átfedést. A `splitByRowSpan(1)` ezután szétválasztja a 2‑ és 3‑as sorokat a terméknevekhez. Vízszintes, két oszlopos összevonáshoz használd a `splitByColSpan(1)`‑et helyette.
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ try:
     if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
         merged_cell.splitByRowSpan(1)
 
-        # A felosztás után szerezze be a táblából a kapott cellákat.
+        # A felosztás után a táblázatban keletkezett cellákat lekérdezi.
         upper_cell = table.get_Item(first_column_index, first_row_index)
         lower_cell = table.get_Item(first_column_index, first_row_index + 1)
         print(f"Upper cell merged: {upper_cell.isMergedCell()}")
@@ -196,15 +254,50 @@ finally:
     presentation.dispose()
 ```
 
-A táblázat rácsa és a környező cellaindexek változatlanok maradnak. Az eredményül kapott cellákat koordinátáik alapján kérdezhetjük le; itt mindkettőnek 1‑es kiterjedése van, és a [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) `False`‑t ad vissza. Nagyobb területek egy felosztás után is részben összevonva maradhatnak.
+A táblázatrács és a környező cella indexek változatlanok maradnak. A kapott cellákat a koordinátáik alapján érheted el; itt mindkettő 1‑es átfedéssel rendelkezik, és a [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) `False`‑t ad vissza. Nagyobb régiók egy felosztás után is részben összevonva maradhatnak.
 
-Az eredeti szöveg és formázása a felső (vagy bal) cellában marad; az új cella üres, de örökli a cellaformázást, például a kitöltést, a szegélyeket és a margókat. A felosztás után töltse fel a cellákat, és állítsa be a szükséges szövegformázást explicit módon.
+Az eredeti szöveg és formázása az felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, mint például a kitöltést, szegélyeket és margókat. A felosztás után töltsd fel a cellákat, és állítsd be a szükséges szövegformázást explicit módon.
 
-A mentett prezentáció külön „Product A” és „Product B” cellákat tartalmaz, miközben a sablon cellaformázása megmarad. További részletekért tekintse meg a [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/).
+A mentett prezentáció külön "Product A" és "Product B" cellákat tartalmaz, a sablon cellaformázását megtartva. A részletekért lásd a [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) oldalt.
+
+### **Cellának felosztása meghatározott magasságban**
+
+A [splitByHeight](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByHeight) metódus a felső rész magasságát veszi pontban. A [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) a felső részben lévő meglévő rácssorok számát veszi. Egy 40‑pontos cella középre helyezéséhez a jobb oszlopban vonj le 40‑et a cella tényleges magasságából, és oszd el egyenlően a maradék helyet felül és alul.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().addTable(50, 50, [160, 160], [140])
+    table.get_Item(0, 0).getTextFrame().setText("Left")
+
+    height = table.get_Item(1, 0).getHeight()
+    margin = (height - 40) / 2
+    
+    table.get_Item(1, 0).splitByHeight(margin)
+    table.get_Item(1, 1).splitByHeight(40)
+    table.get_Item(1, 1).getTextFrame().setText("Middle")
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Az első felosztás egy rácssort ad hozzá, és a `(1, 1)` cellában 90 pontot hagy alul. A második felosztás a cellát egy 40‑pontos középső cellára és egy 50‑pontos alsó cellára osztja. A jobb oszlop most három cellát tartalmaz, magasságuk felülről lefelé 50, 40 és 50 pont. A bal cella mindhárom sort átnyúlik, és megtartja az eredeti 140‑pontos magasságát.
+
+![A bal cella a teljes táblázatmagasságot lefedi, mellette három cella van, középen a 'Middle' felirattal.](split-by-height.png)
 
 ## **A táblázatcella háttérszínének módosítása**
 
-Ez a példa 150‑pontos oszlopszélességgel és 50‑pontos sormagassággal hoz létre egy táblázatot. A [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) segítségével szilárd kitöltést választ, majd a [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) által visszaadott színt pirosra állítja a `(2, 3)`‑as cellához, azaz a harmadik oszlop négyedik sorához.
+A példa egy 150‑pontos oszlopszélességű és 50‑pontos sormagasságú táblázatot hoz létre. A [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) segítségével szilárd kitöltést választ, majd a [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) által visszaadott színt pirosra állítja a `(2, 3)` cellában, a harmadik oszlopban és negyedik sorban.
 
 ```python
 import jpype
@@ -233,11 +326,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Kép hozzáadása egy táblázatcellához**
+## **Kép hozzáadása táblázatcella belsejébe**
 
-Helyezze a bemeneti képet a munkakönyvtárba a példa futtatása előtt. A képet a [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) betölti, majd a prezentáció képgyűjteményéhez a [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) segítségével adja hozzá. Ezután a képet a `(0, 0)`‑as cella képtöltésére rendeli, amely a táblázat első cellája.
+Tedd a bemeneti képet a munkakönyvtárba a példa futtatása előtt. A [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) segítségével betölti a képet, és a prezentáció képkollekciójába adja a [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) metódussal. Ezután a képet a `(0, 0)` cella (a táblázat első cellája) képpel kitöltésére rendeli.
 
-A [PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) a képet a cellába nyújtja, ez megváltoztathatja az arányait. Az oszlopszélességek és sormagasságok pontban vannak megadva. A betöltött képet egy `finally` blokkban szabadítja fel, miután hozzá lett adva a prezentációhoz.
+[A PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) a képet a cellához nyújtja, ami megváltoztathatja az arányát. Az oszlopszélességek és sormagasságok pontban vannak megadva. A betöltött képet a `finally` blokkban felszabadítják, miután hozzá lett adva a prezentációhoz.
 
 ```python
 import jpype
@@ -273,18 +366,18 @@ finally:
 
 ## **GYIK**
 
-**Beállíthatok különböző vonalvastagságot és stílust egy cella különböző oldalain?**
+**Beállíthatok különböző vonalvastagságot és stílust a cella egyes oldalaira?**
 
-Igen. A [felső](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[alsó](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[bal](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[jobb](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) szegélyeknek külön tulajdonságaik vannak, így minden oldal vastagsága és stílusa eltérő lehet.
+Igen. A [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) szegélyek külön tulajdonságokkal rendelkeznek, így minden oldal vastagsága és stílusa eltérhet.
 
-**Mi történik a képpel, ha a oszlop/sor méretét megváltoztatom miután képet állítottam be a cella háttérként?**
+**Mi történik a képpel, ha a cella háttérképeként beállítás után megváltoztatom az oszlop/sor méretét?**
 
-A viselkedés a [kitöltési mód](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (nyújtás/ismétlés) függvénye. Nyújtás esetén a kép alkalmazkodik az új cellához, ismétlés esetén a csempéket újraszámolják.
+A viselkedés a [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile) függvénye. Nyújtás esetén a kép a új cellához igazodik, csempézés esetén a csempéket újraszámolják.
 
-**Hozzárendelhetek hiperhivatkozást a cella teljes tartalmához?**
+**Rendelhetek hiperhivatkozást a cella teljes tartalmához?**
 
-A [Hiperhivatkozások](/slides/hu/python-java/manage-hyperlinks/) a cella szövegkeretének (rész) szintjén vagy a teljes táblázat/alakzat szintjén állíthatók be. Gyakorlatban a hivatkozást egy részre vagy a cella teljes szövegére kell alkalmazni.
+A [Hyperlinks](/slides/hu/python-java/manage-hyperlinks/) a cell szövegkeretének szövegréssze (portion) szintjén vagy a teljes tábla/alakzat szintjén állítható be. Gyakorlatban a hivatkozást egy részlethez vagy a cella teljes szövegéhez rendelik.
 
-**Beállíthatok különböző betűtípusokat egyetlen cellában?**
+**Beállíthatok különböző betűtípusokat egyetlen cellán belül?**
 
-Igen. A cella szövegkerete támogatja a [rész](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (run) elemeket független formázással – betűtípus, stílus, méret és szín.
+Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (futás) független formázással – betűcsalád, stílus, méret és szín.

@@ -15,17 +15,17 @@ keywords:
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "จัดการเซลล์ตาราง PowerPoint ด้วย PHP: ระบุเซลล์ที่รวม, ลบเส้นขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
+description: "จัดการเซลล์ตาราง PowerPoint ด้วย PHP: ระบุเซลล์ที่รวมแล้ว, ลบเส้นขอบ, แยกเซลล์, และตั้งค่าสีพื้นหลังและรูปภาพด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ทำให้คุณสามารถเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีระบุเซลล์ตารางที่รวม การลบเส้นขอบของเซลล์ การทำงานกับการนับเลขเซลล์หลังจากการรวมหรือการแยกเซลล์ การเปลี่ยนสีพื้นหลังของเซลล์ และการเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างจะแสดงวิธีสร้างหรือเปิดงานนำเสนอ ดึงตารางจากสไลด์ ปรับรูปแบบเซลล์ผ่านคุณสมบัติของเซลล์ และบันทึกงานนำเสนอที่ปรับเปลี่ยนเป็นไฟล์ PPTX
+Aspose.Slides ช่วยให้คุณเข้าถึงและแก้ไขเซลล์ตารางในงานนำเสนอ PowerPoint ได้ บทความนี้อธิบายวิธีระบุเซลล์ที่รวมแล้ว, ลบเส้นขอบเซลล์, ทำงานกับการจัดลำดับเซลล์หลังจากการรวมหรือแยกเซลล์, เปลี่ยนสีพื้นหลังของเซลล์, และเพิ่มรูปภาพภายในเซลล์ตาราง ตัวอย่างจะแสดงวิธีสร้างหรือเปิดงานนำเสนอ, ดึงตารางจากสไลด์, ปรับรูปแบบเซลล์ผ่านคุณสมบัติเซลล์, และบันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX
 
-Aspose.Slides ใช้ดัชนีที่เริ่มจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`.
+Aspose.Slides ใช้ดัชนีเริ่มต้นจากศูนย์เพื่อเข้าถึงเซลล์ตารางตามลำดับ `(column, row)`  
 
-## **ระบุเซลล์ตารางที่รวม**
+## **ระบุเซลล์ตารางที่รวมแล้ว**
 
-ตัวอย่างเปิดงานนำเสนอที่มีอยู่แล้วและเข้าถึงรูปทรงแรกบนสไลด์แรกเป็นตาราง โดยสมมติว่ามีสไลด์และรูปทรงอยู่และรูปทรงเป็นตาราง จากนั้นวนลูปผ่านทุกแถวและคอลัมน์และใช้ [เซลล์ที่รวม](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) เพื่อระบุเซลล์ในพื้นที่ที่รวม สำหรับแต่ละที่ตรงกันจะแสดงพิกัดเซลล์ในลำดับ `row;column` , [รับช่วงแถว](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [รับช่วงคอลัมน์](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), และพิกัดเริ่มต้นของพื้นที่นั้น, [ดัชนีแถวแรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) และ [ดัชนีคอลัมน์แรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/).
+ตัวอย่างจะเปิดงานนำเสนอที่มีอยู่และเข้าถึงรูปร่างแรกบนสไลด์แรกในรูปแบบตาราง สมมติว่ามีสไลด์และรูปร่างอยู่และรูปร่างเป็นตาราง จากนั้นจะวนลูปผ่านแถวและคอลัมน์ทั้งหมดและใช้ [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) เพื่อระบุเซลล์ในพื้นที่ที่รวมไว้ สำหรับแต่ละผลลัพธ์จะแสดงพิกัดเซลล์ในรูปแบบ `row;column` พร้อมกับ [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), และพิกัดเริ่มต้นของพื้นที่นั้น ได้แก่ [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) และ [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/)
 
 ```php
 use aspose\slides\Presentation;
@@ -55,7 +55,7 @@ try {
 
 ## **ลบเส้นขอบเซลล์ตาราง**
 
-สร้าง [งานนำเสนอ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกด้วย [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). ความกว้างคอลัมน์, ความสูงแถว, และตำแหน่งตารางระบุเป็นจุด ตัวอย่างตั้งค่าเส้นขอบสี่ด้านของเซลล์ทั้งหมดเป็น [ไม่มีการเติม](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), ทำให้มองไม่เห็น.
+สร้าง [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) และเพิ่มตารางไปยังสไลด์แรกของมันด้วย [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/). ความกว้างของคอลัมน์, ความสูงของแถว, และตำแหน่งของตารางระบุเป็นจุด ตัวอย่างตั้งค่าเส้นขอบสี่ด้านของเซลล์ทั้งหมดให้เป็น [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/), ทำให้เส้นขอบไม่มองเห็น
 
 ```php
 use aspose\slides\FillType;
@@ -86,11 +86,66 @@ try {
 }
 ```
 
+## **เพิ่มเส้นขอบแนวทแยงของเซลล์**
+
+ใช้ [getBorderDiagonalDown](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonaldown/) เพื่อวาดเส้นจากมุมซ้ายบนไปยังมุมขวาล่าง, และ [getBorderDiagonalUp](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonalup/) เพื่อวาดเส้นจากมุมซ้ายล่างไปยังมุมขวา แนวทแยงสามารถทำเครื่องหมายหัวข้อหัวมุม; ทั้งสองแนวสามารถสร้างรูป X เพื่อบ่งชี้ว่าเซลล์ไม่ใช้ได้
+
+แต่ละแนวทแยงมี [LineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) ของตนเอง ใน [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) ให้ใช้ [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) เพื่อเลือก [FillType::Solid](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) และเลือกสีด้วย [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/). ตั้งค่าความกว้างของเส้นเป็นจุดด้วย [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/)
+
+ตัวอย่างสร้างเซลล์สามเซลล์ในแถวเดียว: แนวทแยงลงสีแดง, แนวทแยงขึ้นสีฟ้า, และทั้งสองแนวพร้อมกัน เส้นขอบด้านบน, ด้านล่าง, ซ้าย, และขวาจะคงไว้ตามเดิม
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 210, 210, 210 ];
+    $rowHeights = [ 160 ];
+    $table = $slide->getShapes()->addTable(45, 130, $columnWidths, $rowHeights);
+
+    $downwardBorder = $table->get_Item(0, 0)->getCellFormat()->getBorderDiagonalDown();
+    $downwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $downwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $downwardBorder->setWidth(3);
+
+    $upwardBorder = $table->get_Item(1, 0)->getCellFormat()->getBorderDiagonalUp();
+    $upwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $upwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $upwardBorder->setWidth(5);
+
+    $crossDownwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalDown();
+    $crossDownwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossDownwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $crossDownwardBorder->setWidth(3);
+
+    $crossUpwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalUp();
+    $crossUpwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossUpwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $crossUpwardBorder->setWidth(5);
+
+    $presentation->save("diagonal_cell_borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+แนวทแยงเปลี่ยนเฉพาะรูปแบบของเซลล์เท่านั้น แต่ละเซลล์ยังคงมีกรอบข้อความเดียวที่เข้าถึงได้ผ่าน [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/gettextframe/). พื้นที่ทางสองข้างของแนวทแยงไม่สามารถแก้ไขแยกกันได้
+
+ตารางที่บันทึกแล้ว แสดงใน Microsoft PowerPoint:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*ซ้ายไปขวา: แนวทแยงลง (สีแดง, 3 pt), แนวทแยงขึ้น (สีฟ้า, 5 pt) และทั้งสองแนวทแยงสร้างรูป X*  
+
 ## **รวมเซลล์ตาราง**
 
-ใช้ [รวมเซลล์](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางเป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง พารามิเตอร์สุดท้ายควบคุมว่าการรวมอาจรวมเซลล์นอกช่วงที่กำหนดหรือไม่; `false` จะคงการรวมให้อยู่ในช่วงนั้น
+ใช้ [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) เพื่อรวมช่วงสี่เหลี่ยมของเซลล์ตารางเป็นเซลล์เดียว ระบุเซลล์ที่มุมซ้ายบนและมุมขวาล่างของช่วง อาร์กิวเมนต์สุดท้ายควบคุมว่า การรวมอาจรวมเซลล์ที่อยู่นอกช่วงที่ระบุหรือไม่; `false` ทำให้การรวมอยู่ภายในช่วงเท่านั้น
 
-ตัวอย่างสร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุด จากนั้นรวมสี่เซลล์ตรงกลางจาก `(1, 1)` ถึง `(2, 2)`. เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว ในขณะที่ตารางยังคงมีกริดสี่คอลัมน์สี่แถว เพื่อเข้าถึงเนื้อหา或รูปแบบของเซลล์ที่รวม ให้ใช้ตำแหน่งซ้ายบน: `$table->get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่นในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง ดังนั้นดัชนีของเซลล์ที่อยู่นอกช่วงจะไม่เปลี่ยน
+ตัวอย่างสร้างตารางขนาด 4x4 มีคอลัมน์และแถวขนาด 70 จุด, จากนั้นรวมเซลล์ศูนย์กลางสี่เซลล์จาก `(1, 1)` ถึง `(2, 2)`. เซลล์ที่ได้ครอบคลุมสองคอลัมน์และสองแถว ในขณะที่กริดพื้นฐานของตารางยังคงมีสี่คอลัมน์และสี่แถว เพื่อเข้าถึงเนื้อหา หรือรูปแบบของเซลล์ที่รวมไว้ ให้ใช้ตำแหน่งซ้ายบน: `$table->get_Item(1, 1)` ในตัวอย่างนี้ ตำแหน่งอื่น ๆ ในช่วงที่รวมยังคงเป็นส่วนหนึ่งของกริดตาราง ดังนั้นดัชนีของเซลล์นอกช่วงจะไม่เปลี่ยน
 
 ```php
 use aspose\slides\Presentation;
@@ -114,11 +169,11 @@ try {
 
 ## **แยกเซลล์ตาราง**
 
-การรวมเซลล์ในตัวอย่างก่อนหน้ารักษาโครงสร้างกริดของตาราง การแยกเซลล์อาจสร้างคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ทางด้านขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint
+การรวมเซลล์ในตัวอย่างก่อนหน้าเก็บกริดของตารางไว้ การแยกเซลล์อาจเพิ่มคอลัมน์กริดใหม่และเปลี่ยนดัชนีคอลัมน์ของเซลล์ที่อยู่ทางขวา Aspose.Slides ปฏิบัติตามโมเดลกริดของ PowerPoint
 
-ตัวอย่างนี้สร้างตาราง 4x4 ด้วยคอลัมน์และแถวขนาด 70 จุดและเรียกใช้ [แยกตามความกว้าง](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) บนเซลล์ `(1, 1)`. ครึ่งหนึ่งของความกว้าง 70 จุดของเซลล์ถูกใช้เพื่อสร้างเซลล์สองอันที่กว้างเท่ากัน
+ตัวอย่างนี้สร้างตาราง 4x4 ที่คอลัมน์และแถวขนาด 70 จุดและเรียก [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) บนเซลล์ `(1, 1)`. ความกว้าง 70 จุดของเซลล์ถูกแบ่งครึ่งเพื่อสร้างสองเซลล์ที่มีความกว้างเท่ากัน
 
-หลังจากแยกแล้ว ครึ่งสองส่วนเข้าถึงได้โดย `$table->get_Item(1, 1)` และ `$table->get_Item(2, 1)`. กริดตารางตอนนี้มีห้าคอลัมน์: เซลล์ที่เคยอยู่ในคอลัมน์ 2 และ 3 ย้ายไปที่คอลัมน์ 3 และ 4 ตามลำดับ ดัชนีแถวไม่เปลี่ยน ใช้ดัชนีคอลัมน์ที่อัพเดตเมื่อเข้าถึงเซลล์หลังการแยก
+หลังจากแยกนี้ ครึ่งสองส่วนจะเข้าถึงโดย `$table->get_Item(1, 1)` และ `$table->get_Item(2, 1)`. กริดตารางตอนนี้มีห้าคอลัมน์: เซลล์ที่อยู่ในคอลัมน์ที่ 2 และ 3 เดิมจะย้ายไปที่คอลัมน์ที่ 3 และ 4 ตามลำดับ ดัชนีแถวคงที่ ใช้ดัชนีคอลัมน์ที่อัปเดตนี้เมื่อต้องเข้าถึงเซลล์หลังการแยก
 
 ```php
 use aspose\slides\Presentation;
@@ -140,16 +195,22 @@ try {
 }
 ```
 
-### **แยกเซลล์ที่รวมตามช่วงแถวหรือคอลัมน์**
+<!-- visual-explanation:manage-cells:start -->
+[![เซลล์ที่ไม่ได้รวมขนาด 70 จุด แบ่งเป็นสองเซลล์ขนาด 35 จุด เพิ่มคอลัมน์กริดที่ห้าที่ทำให้ดัชนีของด้านขวาเปลี่ยนตำแหน่ง.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-เพื่อเตรียมเซลล์เทมเพลตที่รวมสำหรับการเติมข้อมูล ใช้ [แยกตามช่วงแถว](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) เพื่อแยกตามขอบแถวที่มีอยู่ หรือ [แยกตามช่วงคอลัมน์](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) เพื่อแยกตามขอบคอลัมน์
+*การแยกความกว้างส่งผลต่อเซลล์ (1, 1) โดยใช้ดัชนี (คอลัมน์, แถว) เริ่มจากศูนย์ แถวอื่น ๆ คงเซลล์ที่ครอบคลุมตำแหน่งคอลัมน์ใหม่ทั้งสอง*
+<!-- visual-explanation:manage-cells:end -->
 
-อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มีค่าอ้างอิงจากพื้นที่ที่รวม:
+### **แยกเซลล์ที่รวมแล้วตามช่วงแถวหรือคอลัมน์**
 
-- แยกแถว: `0 < index <` [รับช่วงแถว](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
-- แยกคอลัมน์: `0 < index <` [รับช่วงคอลัมน์](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+เพื่อเตรียมเซลล์เทมเพลตที่รวมไว้สำหรับการเติมข้อมูล, ใช้ [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) เพื่อแยกตามขอบแถวที่มีอยู่, หรือ [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) เพื่อแยกตามขอบคอลัมน์
 
-ตัวอย่างคาดว่างานนำเสนอมีตารางเป็นรูปทรงแรกบนสไลด์แรก โดย `(1, 2)` และ `(1, 3)` ถูกรวมแนวตั้ง เริ่มจากตำแหน่งล่าง ใช้ [ดัชนีคอลัมน์แรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) และ [ดัชนีแถวแรก](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) เพื่อหาตำแหน่งต้น แล้วตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะแยกแถว 2 และ 3 สำหรับชื่อสินค้า สำหรับการรวมแนวนอนสองคอลัมน์ ให้ใช้ `splitByColSpan(1)` แทน
+อาร์กิวเมนต์ `index` นับแถวในส่วนบนหรือคอลัมน์ในส่วนซ้ายของการแยก; มีค่าอิงจากพื้นที่ที่รวมไว้:
+
+- แยกแถว: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- แยกคอลัมน์: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+ตัวอย่างสมมติว่ามีงานนำเสนอที่มีตารางเป็นรูปร่างแรกบนสไลด์แรก, โดยเซลล์ `(1, 2)` และ `(1, 3)` รวมกันในแนวตั้ง เริ่มจากตำแหน่งล่าง ใช้ [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) และ [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) เพื่อหาตำแหน่งต้นทางและตรวจสอบทั้งสองช่วง `splitByRowSpan(1)` จะทำให้แยกแถว 2 และ 3 สำหรับชื่อสินค้า สำหรับการรวมสองคอลัมน์ในแนวนอน ให้ใช้ `splitByColSpan(1)` แทน
 
 ```php
 use aspose\slides\Presentation;
@@ -169,7 +230,7 @@ try {
     {
         $mergedCell->splitByRowSpan(1);
 
-        // ดึงเซลล์ที่ได้จากตารางหลังจากแยกออก.
+        // ดึงเซลล์ที่ได้จากตารางหลังจากการแยก.
         $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
         $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
         echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
@@ -189,15 +250,51 @@ try {
 }
 ```
 
-กริดของตารางและดัชนีเซลล์โดยรอบคงเดิม ให้ดึงเซลล์ที่แยกออกมาด้วยพิกัดของมัน; ในที่นี้ทั้งสองเซลล์มีช่วงเป็น 1 และ [เซลล์ที่รวม](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) แสดง `false`. พื้นที่ใหญ่กว่าอาจยังคงรวมบางส่วนหลังจากการแยกหนึ่งครั้ง
+กริดของตารางและดัชนีเซลล์รอบข้างคงเดิม ดึงเซลล์ที่ได้โดยใช้พิกัดของมัน; ทั้งสองเซลล์นี้มีช่วงเป็น 1 และ [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) จะพิมพ์ `false`. พื้นที่ใหญ่กว่าอาจยังคงรวมบางส่วนหลังจากการแยกหนึ่งครั้ง
 
-ข้อความและรูปแบบเดิมยังคงอยู่ในเซลล์บน (หรือซ้าย); เซลล์ใหม่เป็นค่าว่างแต่สืบทอดรูปแบบเซลล์เช่น การเติม, เส้นขอบ, และระยะขอบ เติมข้อความลงในเซลล์หลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน
+ข้อความและรูปแบบเดิมยังคงอยู่ในเซลล์บน (หรือซ้าย) ส่วนเซลล์ใหม่จะว่างเปล่าแต่สืบทอดรูปแบบเซลล์ เช่น การเติม, เส้นขอบ, และระยะขอบ เติมข้อมูลหลังการแยกและตั้งค่าการจัดรูปแบบข้อความที่ต้องการอย่างชัดเจน
 
-งานนำเสนอที่บันทึกมีเซลล์ "Product A" และ "Product B" แยกจากกันโดยคงรูปแบบเซลล์ของเทมเพลตไว้ ดูที่ [อ้างอิง Cell API](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) สำหรับรายละเอียด
+งานนำเสนอที่บันทึกไว้มีเซลล์ “Product A” และ “Product B” แยกกันโดยคงรูปแบบของเทมเพลตไว้ ดูรายละเอียดเพิ่มเติมได้ที่ [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/)
+
+### **แยกเซลล์ตามความสูงที่กำหนด**
+
+[splitByHeight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyheight/) รับค่าความสูงของส่วนบนเป็นจุด, [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) รับจำนวนแถวกริดที่มีอยู่ในส่วนบน เพื่อวางเซลล์ขนาด 40 จุดตรงกลางคอลัมน์ขวา ให้นำ 40 จากความสูงจริงของเซลล์มาลบและแบ่งส่วนที่เหลือเท่า ๆ กันด้านบนและด้านล่าง
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 160, 160 ];
+    $rowHeights = [ 140 ];
+    
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+    $table->get_Item(0, 0)->getTextFrame()->setText("Left");
+
+    $rightCell = $table->get_Item(1, 0);
+    $height = java_values($rightCell->getHeight());
+    $margin = ($height - 40) / 2;
+
+    $rightCell->splitByHeight($margin);
+    $table->get_Item(1, 1)->splitByHeight(40);
+    $table->get_Item(1, 1)->getTextFrame()->setText("Middle");
+
+    $presentation->save("split_by_height.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+การแยกครั้งแรกเพิ่มแถวกริดและเหลือ 90 จุดในเซลล์ `(1, 1)`. การแยกครั้งที่สองจะแบ่งเซลล์นั้นเป็นเซลล์กลางขนาด 40 จุดและเซลล์ล่างขนาด 50 จุด คอลัมน์ขวา الآن มีสามเซลล์ที่สูง 50, 40, และ 50 จุดจากบนลงล่าง เซลล์ซ้ายครอบคลุมทั้งสามแถวและคงความสูงเดิม 140 จุด
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
 
 ## **เปลี่ยนสีพื้นหลังของเซลล์ตาราง**
 
-ตัวอย่างนี้สร้างตารางที่มีคอลัมน์ขนาด 150 จุดและแถวขนาด 50 จุด ใช้ [กำหนดประเภทการเติม](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) เพื่อเลือกการเติมทึบและตั้งค่าสีที่ได้จาก [รับสีเติมแบบทึบ](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่
+ตัวอย่างนี้สร้างตารางที่คอลัมน์ขนาด 150 จุดและแถวขนาด 50 จุด ใช้ [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) เพื่อเลือกการเติมสีทึบและตั้งค่าสีที่คืนจาก [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) ให้เป็นสีแดงสำหรับเซลล์ `(2, 3)`, ซึ่งอยู่ในคอลัมน์ที่สามและแถวที่สี่
 
 ```php
 use aspose\slides\FillType;
@@ -224,9 +321,9 @@ try {
 
 ## **เพิ่มรูปภาพภายในเซลล์ตาราง**
 
-วางภาพอินพุตในโฟลเดอร์ทำงานก่อนรันตัวอย่างนี้ โปรแกรมโหลดภาพด้วย [จากไฟล์](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) และเพิ่มเข้าไปในคอลเลกชันภาพของงานนำเสนอด้วย [เพิ่มรูปภาพ](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). จากนั้นกำหนดภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกของตาราง
+วางรูปภาพต้นฉบับในไดเรกทอรีทำงานก่อนรันตัวอย่างนี้ ตัวอย่างโหลดรูปด้วย [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) และเพิ่มเข้าไปในคอลเลกชันรูปของงานนำเสนอด้วย [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/). จากนั้นกำหนดรูปภาพให้กับการเติมรูปภาพของเซลล์ `(0, 0)`, เซลล์แรกของตาราง
 
-[ขยาย](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) ทำให้ภาพขยายเต็มเซลล์ซึ่งอาจเปลี่ยนสัดส่วนของภาพ ความกว้างคอลัมน์และความสูงแถวระบุเป็นจุด ภาพที่โหลดแล้วจะถูกลบในบล็อก `finally` หลังจากเพิ่มเข้าไปในงานนำเสนอ
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) ยืดรูปภาพให้เต็มเซลล์ ซึ่งอาจทำให้สัดส่วนแตกต่างกัน ความกว้างคอลัมน์และความสูงแถวระบุเป็นจุด รูปภาพที่โหลดจะถูกทำลายในบล็อก `finally` หลังจากถูกเพิ่มเข้าไปในงานนำเสนอ
 
 ```php
 use aspose\slides\FillType;
@@ -262,18 +359,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**Can I set different line thicknesses and styles for different sides of a single cell?**
+**ฉันสามารถตั้งความหนาและสไตล์ของเส้นที่แตกต่างกันสำหรับแต่ละด้านของเซลล์เดียวได้หรือไม่?**
 
-Yes. The [บน](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[ล่าง](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[ซ้าย](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[ขวา](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) borders have separate properties, so the thickness and style of each side can differ.
+ได้. เส้นขอบ [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) มีคุณสมบัติแยกกันจึงสามารถกำหนดความหนาและสไตล์ของแต่ละด้านให้แตกต่างกันได้
 
-**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+**ภาพจะเกิดอะไรขึ้นหากฉันเปลี่ยนขนาดคอลัมน์/แถวหลังจากตั้งรูปภาพเป็นพื้นหลังของเซลล์?**
 
-The behavior depends on the [โหมดการเติม](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated.
+พฤติกรรมขึ้นอยู่กับ [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile). หากยืดภาพจะปรับตามเซลล์ใหม่; หากทำเป็นกระเบื้อง (tile) กระเบื้องจะถูกคำนวณใหม่
 
-**Can I assign a hyperlink to all the content of a cell?**
+**ฉันสามารถกำหนดไฮเปอร์ลิงก์ให้กับเนื้อหาทั้งหมดของเซลล์ได้หรือไม่?**
 
-[ไฮเปอร์ลิงก์](/slides/th/php-java/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
+[Hyperlinks](/slides/th/php-java/manage-hyperlinks/) ถูกกำหนดระดับข้อความ (portion) ภายในกรอบข้อความของเซลล์หรือระดับของตาราง/รูปร่างทั้งหมด ในการปฏิบัติจริงคุณจะกำหนดลิงก์ให้กับส่วนหนึ่งหรือทั้งหมดของข้อความในเซลล์
 
-**Can I set different fonts within a single cell?**
+**ฉันสามารถตั้งฟอนต์ที่แตกต่างกันภายในเซลล์เดียวได้หรือไม่?**
 
-Yes. A cell’s text frame supports [ส่วนย่อย](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.
+ได้. กรอบข้อความของเซลล์รองรับ [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (run) ที่มีการจัดรูปแบบอิสระ — ครอบครัวฟอนต์, สไตล์, ขนาด, และสี.

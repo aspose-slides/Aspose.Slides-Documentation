@@ -1,5 +1,5 @@
 ---
-title: Управление ячейками таблиц в презентациях с помощью Python
+title: Управление ячейками таблиц в презентациях с использованием Python
 linktitle: Управление ячейками
 type: docs
 weight: 30
@@ -7,8 +7,8 @@ url: /ru/python-java/manage-cells/
 keywords:
 - ячейка таблицы
 - объединение ячеек
-- удалить границу
-- разделить ячейку
+- удаление границы
+- разделение ячейки
 - изображение в ячейке
 - цвет фона
 - PowerPoint
@@ -19,13 +19,13 @@ description: "Управляйте ячейками таблиц PowerPoint в P
 ---
 ## **Обзор**
 
-Aspose.Slides позволяет получать доступ к ячейкам таблиц в презентациях PowerPoint и изменять их. Эта статья объясняет, как определить объединённые ячейки таблицы, удалить границы ячеек, работать с нумерацией ячеек после объединения или разделения, изменить цвет фона ячейки и добавить изображение внутрь ячейки таблицы. Примеры показывают, как создать или открыть презентацию, получить таблицу со слайда, обновить форматирование ячейки через свойства ячейки и сохранить изменённую презентацию в файл PPTX.
+Aspose.Slides позволяет вам получать доступ к ячейкам таблиц в презентациях PowerPoint и изменять их. Эта статья объясняет, как определить объединённые ячейки таблицы, удалить границы ячеек, работать с нумерацией ячеек после объединения или разбиения ячеек, изменить цвет фона ячейки и добавить изображение внутри ячейки таблицы. Примеры показывают, как создать или открыть презентацию, получить таблицу со слайда, обновить форматирование ячеек через свойства ячейки и сохранить изменённую презентацию как файл PPTX.
 
 Aspose.Slides использует индексы, начинающиеся с нуля, для доступа к ячейкам таблицы в порядке `(column, row)`.
 
-## **Определение объединённой ячейки таблицы**
+## **Определить объединённую ячейку таблицы**
 
-Пример открывает существующую презентацию и получает первую форму на первом слайде как таблицу. Предполагается, что слайд и форма существуют и что форма является таблицей. Затем он перебирает все строки и столбцы и использует [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) для определения ячеек в объединённых областях. Для каждого совпадения выводятся координаты ячейки в порядке `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan) и начальные координаты области, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) и [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
+Пример открывает существующую презентацию и получает первую форму на первом слайде как таблицу. Предполагается, что слайд и форма существуют и что форма является таблицей. Затем он перебирает все строки и столбцы и использует [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) чтобы определить ячейки в объединённых областях. Для каждого совпадения он выводит координаты ячейки в порядке `row;column`, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan) и стартовые координаты области, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) и [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex).
 
 ```python
 import jpype
@@ -52,9 +52,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Удаление границ ячейки таблицы**
+## **Удалить границы ячеек таблицы**
 
-Создайте [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) и добавьте таблицу на первый слайд с помощью [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable). Ширины столбцов, высоты строк и позиция таблицы задаются в пунктах. Пример устанавливает все четыре границы ячейки в [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), делая их невидимыми.
+Создайте [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) и добавьте таблицу на её первый слайд с помощью [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable). Ширины столбцов, высоты строк и позиция таблицы задаются в пунктах. Пример устанавливает все четыре границы ячеек в [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), делая их невидимыми.
 
 ```python
 import jpype
@@ -85,11 +85,63 @@ finally:
     presentation.dispose()
 ```
 
-## **Объединение ячеек таблицы**
+## **Добавить диагональные границы ячейки**
 
-Используйте [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) для объединения прямоугольного диапазона ячеек таблицы в одну ячейку. Укажите ячейки в левом верхнем и правом нижнем углах диапазона. Последний аргумент управляет тем, может ли объединение включать ячейки за пределами указанного диапазона; `False` сохраняет объединение внутри этого диапазона.
+Используйте [getBorderDiagonalDown](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalDown) чтобы нарисовать линию от верхнего левого угла к нижнему правому, и [getBorderDiagonalUp](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalUp) чтобы нарисовать линию от нижнего левого угла к верхнему правому. Диагональ может отмечать заголовок угла. Обе диагонали могут образовывать X, чтобы пометить ячейку как неприменимую.
 
-Пример создаёт таблицу 4×4 с колоннами и строками шириной 70 пунктов, затем объединяет четыре центральные ячейки от `(1, 1)` до `(2, 2)`. Получившаяся ячейка охватывает два столбца и две строки, в то время как базовая сетка таблицы остаётся четырёхколоночной и четырёхстрочной. Чтобы получить доступ к содержимому или форматированию объединённой ячейки, используйте её позицию в левом верхнем углу: `table.get_Item(1, 1)` в этом примере. Другие позиции в объединённом диапазоне остаются частью сетки таблицы, поэтому индексы ячеек за пределами диапазона не меняются.
+Каждая диагональ является [LineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/). В её [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) используйте [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) для выбора [FillType.Solid](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) и выберите цвет через [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor). Установите ширину линии в пунктах с помощью [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth).
+
+Пример создаёт три ячейки в одной строке: красную диагональ вниз, синюю диагональ вверх и обе диагонали. Он оставляет границы ячеек сверху, снизу, слева и справа без изменений.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, FillType, SaveFormat
+from java.awt import Color
+
+
+def format_border(border, color, width):
+    fill = border.getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setColor(color)
+    border.setWidth(width)
+
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().addTable(45, 130, [210, 210, 210], [160])
+
+    left_cell = table.get_Item(0, 0).getCellFormat()
+    middle_cell = table.get_Item(1, 0).getCellFormat()
+    right_cell = table.get_Item(2, 0).getCellFormat()
+    format_border(left_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(middle_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+    format_border(right_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(right_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Диагональ — это свойство форматирования, а не разрезка ячейки. Каждая ячейка сохраняет один текстовый фрейм, доступ к которому осуществляется через [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame). Области по обе стороны от диагонали нельзя редактировать независимо.
+
+Сохранённая таблица, отображаемая в Microsoft PowerPoint:
+
+![Три ячейки таблицы с красной диагональю от верхнего левого к нижнему правому, синей диагональю от нижнего левого к верхнему правому и обеими диагоналями, образующими X.](diagonal-cell-borders.png)
+
+*Слева направо: диагональ вниз (красная, 3 пт), диагональ вверх (синяя, 5 пт) и обе диагонали.*
+
+## **Объединить ячейки таблицы**
+
+Используйте [mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) чтобы объединить прямоугольный диапазон ячеек таблицы в одну ячейку. Укажите ячейки в левом верхнем и правом нижнем углах диапазона. Последний аргумент определяет, может ли объединение включать ячейки за пределами указанного диапазона; `False` сохраняет объединение внутри этого диапазона.
+
+Пример создаёт таблицу 4 × 4 с колонками и строками по 70 пунктов, затем объединяет четыре центральные ячейки от `(1, 1)` до `(2, 2)`. Получившаяся ячейка охватывает два столбца и две строки, в то время как базовая сетка таблицы остаётся из четырёх столбцов и четырёх строк. Чтобы получить доступ к содержимому или форматированию объединённой ячейки, используйте её позицию в левом верхнем углу: `table.get_Item(1, 1)` в этом примере. Остальные позиции в объединённом диапазоне остаются частью сетки таблицы, поэтому индексы ячеек вне диапазона не меняются.
 
 ```python
 import jpype
@@ -115,13 +167,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Разделение ячеек таблицы**
+## **Разделить ячейки таблицы**
 
-Объединение ячеек в предыдущем примере сохраняет сетку таблицы. Разделение ячейки может добавить новый столбец в сетку и изменить индексы столбцов ячеек справа от неё. Aspose.Slides следует модели сетки таблиц PowerPoint.
+Объединение ячеек в предыдущем примере сохраняет сетку таблицы. Разделение ячейки может добавить новый столбец в сетку и изменить индексы столбцов ячеек справа от неё. Aspose.Slides следует модели сетки таблицы PowerPoint.
 
-В этом примере создаётся таблица 4×4 с колоннами и строками шириной 70 пунктов и вызывается [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) для ячейки `(1, 1)`. Половина ширины ячейки 70 пунктов передаётся для создания двух ячеек одинаковой ширины.
+Этот пример создаёт таблицу 4 × 4 с колонками и строками по 70 пунктов и вызывает [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) для ячейки `(1, 1)`. Половина ширины ячейки 70 пунктов передаётся для создания двух ячеек одинаковой ширины.
 
-После разделения две половины доступны как `table.get_Item(1, 1)` и `table.get_Item(2, 1)`. Сетка таблицы теперь содержит пять столбцов: ячейки, первоначально находившиеся в столбцах 2 и 3, перемещаются в столбцы 3 и 4 соответственно. Индексы строк остаются без изменений. Используйте обновлённые индексы столбцов при доступе к ячейкам после разделения.
+После этого разделения две половины доступны как `table.get_Item(1, 1)` и `table.get_Item(2, 1)`. Сетка таблицы теперь имеет пять столбцов: ячейки, изначально в столбцах 2 и 3, перемещаются в столбцы 3 и 4 соответственно. Индексы строк остаются без изменений. Используйте обновлённые индексы столбцов при доступе к ячейкам после разделения.
 
 ```python
 import jpype
@@ -147,16 +199,22 @@ finally:
     presentation.dispose()
 ```
 
-### **Разделение объединённых ячеек по строке или столбцу**
+<!-- visual-explanation:manage-cells:start -->
+[![Необъединённая ячейка шириной 70 пунктов разбивается на две ячейки по 35 пунктов, добавляя пятый столбец сетки и сдвигая индексы справа.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-Чтобы подготовить объединённые шаблонные ячейки к заполнению данными, используйте [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) для разделения вдоль существующей границы строки или [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) для разделения вдоль границы столбца.
+*Разделение ширины влияет на ячейку (1, 1), используя индексы (столбец, строка), начинающиеся с нуля. Другие строки сохраняют ячейку, охватывающую обе новые позиции столбцов.*
+<!-- visual-explanation:manage-cells:end -->
 
-Аргумент `index` считает строки в верхней части или столбцы в левой части разделения; он относителен к объединённой области:
+### **Разделить объединённые ячейки по строке или столбцу**
 
-- Разделение по строке: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
-- Разделение по столбцу: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+Чтобы подготовить объединённые шаблонные ячейки к заполнению данными, используйте [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) чтобы разделить вдоль существующей границы строки, или [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) чтобы разделить вдоль границы столбца.
 
-Пример ожидает, что презентация содержит таблицу в виде первой формы на первом слайде, где ячейки `(1, 2)` и `(1, 3)` объединены вертикально. Начиная с нижнего положения, он использует [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) и [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) для определения начала и проверяет обе области. `splitByRowSpan(1)` затем разделяет строки 2 и 3 для названий продуктов. Для горизонтального объединения двух столбцов используйте `splitByColSpan(1)`.
+Аргумент `index` считает строки в верхней части или столбцы в левой части разделения; он относительно объединённой области:
+
+- Row split: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan).
+- Column split: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan).
+
+Пример ожидает, что презентация содержит таблицу в первой форме на первом слайде, где `(1, 2)` и `(1, 3)` объединены вертикально. Начиная с нижней позиции, он использует [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) и [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) чтобы найти начало и проверяет оба охвата. `splitByRowSpan(1)` затем разделяет строки 2 и 3 для названий продуктов. Для горизонтального объединения двух столбцов используйте `splitByColSpan(1)` вместо этого.
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ try:
     if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
         merged_cell.splitByRowSpan(1)
 
-        # Получить результирующие ячейки из таблицы после разделения.
+        # Получить получившиеся ячейки из таблицы после разделения.
         upper_cell = table.get_Item(first_column_index, first_row_index)
         lower_cell = table.get_Item(first_column_index, first_row_index + 1)
         print(f"Upper cell merged: {upper_cell.isMergedCell()}")
@@ -196,15 +254,50 @@ finally:
     presentation.dispose()
 ```
 
-Сетка таблицы и окружающие индексы ячеек остаются без изменений. Получите результирующие ячейки по их координатам; здесь обе имеют span = 1, и [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) выводит `False`. Более крупные области могут оставаться частично объединёнными после одного разделения.
+Сетка таблицы и окружающие индексы ячеек остаются без изменений. Получите полученные ячейки по их координатам; здесь обе имеют охваты 1 и [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) выводит `False`. Более крупные области могут оставаться частично объединёнными после одного разделения.
 
-Исходный текст и его форматирование остаются в верхней (или левой) ячейке; новая ячейка пуста, но наследует форматирование ячейки, такое как заливка, границы и поля. Заполняйте ячейки после разделения и явно задавайте требуемое форматирование текста.
+Исходный текст и его форматирование остаются в верхней (или левой) ячейке; новая ячейка пуста, но наследует форматирование ячейки, такое как заливка, границы и отступы. Заполняйте ячейки после разделения и задавайте любые требуемые форматы текста явно.
 
-Сохранённая презентация содержит отдельные ячейки «Product A» и «Product B» с сохранённым форматированием шаблонных ячеек. Смотрите [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) для подробностей.
+Сохранённая презентация содержит отдельные ячейки "Product A" и "Product B" с сохранённым форматированием шаблона ячейки. См. [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) для деталей.
 
-## **Изменение цвета фона ячейки таблицы**
+### **Разделить ячейку на определённой высоте**
 
-Этот пример создаёт таблицу со столбцами шириной 150 пунктов и строками высотой 50 пунктов. Он использует [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) для выбора сплошной заливки и задаёт цвет, полученный через [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), как красный для ячейки `(2, 3)`, то есть третьего столбца и четвёртой строки.
+[splitByHeight](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByHeight) принимает высоту верхней части в пунктах. [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) принимает количество существующих строк сетки в верхней части. Чтобы центрировать ячейку высотой 40 пунктов в правом столбце, вычтите 40 из фактической высоты ячейки и равномерно разделите оставшееся пространство сверху и снизу.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().addTable(50, 50, [160, 160], [140])
+    table.get_Item(0, 0).getTextFrame().setText("Left")
+
+    height = table.get_Item(1, 0).getHeight()
+    margin = (height - 40) / 2
+    
+    table.get_Item(1, 0).splitByHeight(margin)
+    table.get_Item(1, 1).splitByHeight(40)
+    table.get_Item(1, 1).getTextFrame().setText("Middle")
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Первое разделение добавляет строку сетки и оставляет нижние 90 пунктов в ячейке `(1, 1)`. Второе разделение делит эту ячейку на среднюю ячейку высотой 40 пунктов и нижнюю ячейку высотой 50 пунктов. Правый столбец теперь имеет три ячейки высотой 50, 40 и 50 пунктов сверху вниз. Левая ячейка охватывает все три строки и сохраняет исходную высоту 140 пунктов.
+
+![Левая ячейка охватывает всю высоту таблицы рядом с тремя ячейками, где средняя находится в центре.](split-by-height.png)
+
+## **Изменить цвет фона ячейки таблицы**
+
+Этот пример создаёт таблицу со столбцами шириной 150 пунктов и строками высотой 50 пунктов. Он использует [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) чтобы выбрать сплошную заливку и устанавливает цвет, возвращаемый [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), в красный для ячейки `(2, 3)`, в третьем столбце и четвёртой строке.
 
 ```python
 import jpype
@@ -233,11 +326,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Добавление изображения внутри ячейки таблицы**
+## **Добавить изображение внутрь ячейки таблицы**
 
-Поместите входное изображение в рабочий каталог перед запуском примера. Оно загружается с помощью [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) и добавляется в коллекцию изображений презентации через [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Затем изображение назначается заливке рисунком ячейки `(0, 0)`, первой ячейки в таблице.
+Поместите входное изображение в рабочий каталог перед запуском этого примера. Он загружает изображение с помощью [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) и добавляет его в коллекцию изображений презентации через [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage). Затем он назначает изображение заполнению картинки ячейки `(0, 0)`, первой ячейки в таблице.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) растягивает изображение, заполняя ячейку, что может изменить его соотношение сторон. Ширины столбцов и высоты строк задаются в пунктах. Загруженное изображение освобождается в блоке `finally` после добавления в презентацию.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) растягивает изображение, чтобы заполнить ячейку, что может изменить её соотношение сторон. Ширины колонок и высоты строк задаются в пунктах. Загруженное изображение освобождается в блоке `finally` после его добавления в презентацию.
 
 ```python
 import jpype
@@ -271,20 +364,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**Можно ли задать разную толщину и стиль линий для разных сторон одной ячейки?**
+**Могу ли я установить разную толщину линий и стили для разных сторон одной ячейки?**
 
-Да. Границы [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут различаться.
+Да. Границы [верхний](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[нижний](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[левый](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[правый](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) имеют отдельные свойства, поэтому толщина и стиль каждой стороны могут различаться.
 
-**Что происходит с изображением, если я изменю размер столбца/строки после установки рисунка в качестве фона ячейки?**
+**Что происходит с изображением, если я изменю размер столбца/строки после установки картинки как фон ячейки?**
 
-Поведение зависит от [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile). При растягивании изображение подгоняется к новой ячейке; при заливке плитками плитки пересчитываются.
+Поведение зависит от [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile). При растягивании изображение подстраивается под новую ячейку; при замостке плитки пересчитываются.
 
-**Можно ли назначить гиперссылку всему содержимому ячейки?**
+**Могу ли я назначить гиперссылку всему содержимому ячейки?**
 
-[Hyperlinks](/slides/ru/python-java/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового фрейма ячейки или на уровне всей таблицы/формы. На практике ссылку назначают части текста или всему тексту в ячейке.
+[Hyperlinks](/slides/ru/python-java/manage-hyperlinks/) задаются на уровне текста (части) внутри текстового фрейма ячейки или на уровне всей таблицы/фигуры. На практике вы назначаете ссылку части или всему тексту в ячейке.
 
-**Можно ли задать разные шрифты внутри одной ячейки?**
+**Могу ли я установить разные шрифты внутри одной ячейки?**
 
-Да. Текстовый фрейм ячейки поддерживает [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (блоки) с независимым форматированием — семейство шрифта, начертание, размер и цвет.
+Да. Текстовый фрейм ячейки поддерживает [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (отрезки) с независимым форматированием — семейство шрифта, стиль, размер и цвет.

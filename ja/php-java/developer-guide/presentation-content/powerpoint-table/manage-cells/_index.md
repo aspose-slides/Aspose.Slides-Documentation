@@ -1,13 +1,13 @@
 ---
-title: PHP を使用したプレゼンテーションのテーブルセル管理
+title: PHP を使用したプレゼンテーションのテーブル セルの管理
 linktitle: セルの管理
 type: docs
 weight: 30
 url: /ja/php-java/manage-cells/
 keywords:
-- テーブルセル
+- テーブル セル
 - セルの結合
-- 枠線の削除
+- 枠の削除
 - セルの分割
 - セル内の画像
 - 背景色
@@ -15,17 +15,17 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "PHP で PowerPoint のテーブルセルを管理します：結合セルの識別、枠線の削除、セルの分割、背景色と画像の設定を Aspose.Slides for PHP via Java を使用して行います。"
+description: "PHP で PowerPoint のテーブル セルを管理します: 結合されたセルの識別、枠の削除、セルの分割、背景色と画像の設定を Aspose.Slides for PHP via Java で行います。"
 ---
 ## **概要**
 
-Aspose.Slides を使用すると、PowerPoint プレゼンテーション内のテーブル セルにアクセスして変更できます。この記事では、結合されたテーブル セルの識別、セルの枠線の削除、セルの結合または分割後の番号付けの操作、セルの背景色の変更、テーブル セル内への画像の追加方法を説明します。例では、プレゼンテーションの作成または開く方法、スライドからテーブルを取得する方法、セル プロパティを介してセルの書式設定を更新する方法、および変更されたプレゼンテーションを PPTX ファイルとして保存する方法を示します。
+Aspose.Slides を使用すると、PowerPoint プレゼンテーション内のテーブル セルにアクセスして変更できます。本記事では、結合されたテーブル セルの識別、セル枠の削除、結合または分割後のセル番号の操作、セルの背景色の変更、テーブル セル内への画像の追加方法について説明します。例では、プレゼンテーションの作成またはオープン、スライドからテーブルの取得、セル プロパティによるセル書式設定の更新、変更されたプレゼンテーションの PPTX ファイルへの保存方法を示しています。
 
-Aspose.Slides は、テーブル セルにアクセスする際にゼロベースのインデックスを使用し、順序は`(column, row)`です。
+Aspose.Slides は、テーブル セルへのアクセスにゼロベースのインデックス `(column, row)` を使用します。
 
 ## **結合されたテーブル セルの識別**
 
-例では、既存のプレゼンテーションを開き、最初のスライドの最初のシェイプをテーブルとして取得します。スライドとシェイプが存在し、シェイプがテーブルであることを前提としています。その後、すべての行と列を反復し、[isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) を使用して結合領域のセルを識別します。マッチする各セルについて、`row;column` の順序でセル座標を出力し、[getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/)、[getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/)、および領域の開始座標である [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) と [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) を取得します。
+この例は既存のプレゼンテーションを開き、最初のスライドの最初のシェイプをテーブルとして取得します。スライドとシェイプが存在し、シェイプがテーブルであることを前提としています。その後、すべての行と列を走査し、[isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) を使用して結合領域のセルを識別します。該当するセルが見つかると、`row;column` の順序でセル座標と、[getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/)、[getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/)、および領域の開始座標である [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) と [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) を出力します。
 
 ```php
 use aspose\slides\Presentation;
@@ -53,9 +53,9 @@ try {
 }
 ```
 
-## **テーブル セルの枠線の削除**
+## **テーブル セル枠の削除**
 
-[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) を作成し、[addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) を使用して最初のスライドにテーブルを追加します。列幅、行高さ、テーブルの位置はポイントで指定します。例では、すべての四辺のセル枠線を [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) に設定し、非表示にします。
+[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) を作成し、[addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) で最初のスライドにテーブルを追加します。列幅、行高さ、テーブルの位置はポイントで指定します。この例では、すべてのセル枠を [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) に設定し、枠を非表示にします。
 
 ```php
 use aspose\slides\FillType;
@@ -86,11 +86,66 @@ try {
 }
 ```
 
+## **対角線セル枠の追加**
+
+[getBorderDiagonalDown](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonaldown/) を使用して左上から右下へ線を描画し、[getBorderDiagonalUp](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonalup/) を使用して左下から右上へ線を描画します。対角線はコーナー ヘッダーを示すことができ、両方の対角線を組み合わせて「該当なし」セルを示す X を作成できます。
+
+各対角線は個別の [LineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) を持ちます。その [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) で [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) を使用して [FillType::Solid](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) を選択し、[getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) で色を指定します。線の太さは [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) でポイント単位で設定します。
+
+この例では、1 行に 3 つのセルを作成します。赤い下向き対角線、青い上向き対角線、そして両方の対角線です。上下左右のセル枠は変更しません。
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 210, 210, 210 ];
+    $rowHeights = [ 160 ];
+    $table = $slide->getShapes()->addTable(45, 130, $columnWidths, $rowHeights);
+
+    $downwardBorder = $table->get_Item(0, 0)->getCellFormat()->getBorderDiagonalDown();
+    $downwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $downwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $downwardBorder->setWidth(3);
+
+    $upwardBorder = $table->get_Item(1, 0)->getCellFormat()->getBorderDiagonalUp();
+    $upwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $upwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $upwardBorder->setWidth(5);
+
+    $crossDownwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalDown();
+    $crossDownwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossDownwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $crossDownwardBorder->setWidth(3);
+
+    $crossUpwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalUp();
+    $crossUpwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossUpwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $crossUpwardBorder->setWidth(5);
+
+    $presentation->save("diagonal_cell_borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+対角線はセルの書式設定のみを変更します。各セルは単一のテキスト フレームを保持し、[getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/gettextframe/) でアクセスできます。対角線の両側の領域は個別に編集できません。
+
+Microsoft PowerPoint でレンダリングされた保存済みテーブル:
+
+![左上から右下へ赤い対角線、左下から右上へ青い対角線、そして両方の対角線で X を形成する 3 つのテーブル セル。](diagonal-cell-borders.png)
+
+*左から右へ: 下向き対角線 (赤、3 pt)、上向き対角線 (青、5 pt)、両方の対角線。*
+
 ## **テーブル セルの結合**
 
-[mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) を使用して、テーブル セルの矩形範囲を1つのセルに結合します。範囲の左上隅と右下隅のセルを指定します。最後の引数は、結合が指定範囲外のセルを含むかどうかを制御します。`false` を指定すると、結合はその範囲内に留まります。
+[mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) を使用して、矩形領域のテーブル セルを 1 つのセルに結合します。領域の左上隅と右下隅のセルを指定します。最後の引数は、結合が指定領域外のセルを含むかどうかを制御します。`false` を指定すると結合はその領域内に留まります。
 
-例では、列幅と行高さが70ポイントの4×4テーブルを作成し、`(1, 1)` から `(2, 2)` の 4 つの中心セルを結合します。結果として得られるセルは 2 列と 2 行にまたがりますが、テーブルの基礎グリッドは 4 列 4 行のままです。結合されたセルの内容や書式設定にアクセスするには、左上の位置を使用します。この例では `$table->get_Item(1, 1)` を使用します。結合範囲内の他の位置はテーブル グリッドの一部として残り、範囲外のセルのインデックスは変更されません。
+この例では、列幅・行高さが 70 ポイントの 4×4 テーブルを作成し、`(1, 1)` から `(2, 2)` の 4 つの中央セルを結合します。結果のセルは 2 列 × 2 行にまたがりますが、テーブルの基礎グリッドは 4 列 × 4 行のままです。結合セルの内容や書式にアクセスするには、左上位置 `$table->get_Item(1, 1)` を使用します。結合範囲外のセルインデックスは変わりません。
 
 ```php
 use aspose\slides\Presentation;
@@ -114,11 +169,11 @@ try {
 
 ## **テーブル セルの分割**
 
-前の例でセルを結合すると、テーブルのグリッドが保持されます。セルを分割すると新しいグリッド列が追加され、右側のセルの列インデックスが変わる可能性があります。Aspose.Slides は PowerPoint のテーブル グリッド モデルに従います。
+前の例でセルを結合すると、テーブルのグリッドは保持されます。セルを分割すると新しいグリッド列が導入され、右側のセルの列インデックスが変更されることがあります。Aspose.Slides は PowerPoint のテーブル グリッド モデルに従います。
 
-この例では、列幅と行高さが70ポイントの4×4テーブルを作成し、セル `(1, 1)` に対して [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) を呼び出します。セルの幅70ポイントの半分を渡して、幅が等しい 2 つのセルを作成します。
+この例では、列幅・行高さが 70 ポイントの 4×4 テーブルを作成し、セル `(1, 1)` に対して [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) を呼び出します。セルの幅 70 ポイントの半分を渡して、幅が等しい 2 つのセルを作成します。
 
-この分割後、2 つの半分は `$table->get_Item(1, 1)` と `$table->get_Item(2, 1)` でアクセスできます。テーブル グリッドは現在 5 列になり、元々列 2 と 3 にあったセルはそれぞれ列 3 と 4 に移動します。行インデックスは変わりません。分割後にセルにアクセスする際は、これら更新された列インデックスを使用してください。
+分割後、2 つの半分は `$table->get_Item(1, 1)` と `$table->get_Item(2, 1)` でアクセスできます。テーブル グリッドは現在 5 列になり、元々列 2 と 3 にあったセルはそれぞれ列 3 と 4 に移動します。行インデックスは変更されません。分割後にセルにアクセスする際は、更新された列インデックスを使用してください。
 
 ```php
 use aspose\slides\Presentation;
@@ -140,16 +195,22 @@ try {
 }
 ```
 
-### **行または列のスパンで結合セルを分割**
+<!-- visual-explanation:manage-cells:start -->
+[![結合されていない 70 ポイントのセルが 2 つの 35 ポイントセルに分割され、5 番目のグリッド列が追加され、右側のインデックスがシフトします。](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-結合テンプレート セルをデータ入力用に準備するには、既存の行境界に沿って分割するために [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) を、列境界に沿って分割するために [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) を使用します。
+*幅の分割はセル (1, 1) に影響し、ゼロベースの (column, row) インデックスを使用します。他の行は両方の新しい列位置にまたがるセルを保持します。*
+<!-- visual-explanation:manage-cells:end -->
 
-`index` 引数は、分割上部の行または左側の列の数をカウントし、結合領域に対して相対的です：
+### **行または列のスパンで結合セルを分割する**
+
+データ入力のために結合テンプレートセルを準備するには、[splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) を使用して既存の行境界に沿って分割するか、[splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) を使用して列境界に沿って分割します。
+
+`index` 引数は、分割の上部部分の行または左部部分の列をカウントし、結合領域に対して相対的です。
 
 - 行の分割: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/)。
 - 列の分割: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/)。
 
-例では、プレゼンテーションの最初のスライドの最初のシェイプがテーブルであり、`(1, 2)` と `(1, 3)` が縦に結合されていることを想定しています。下側の位置から開始し、[getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) と [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) を使用して起点を特定し、両方のスパンを確認します。`splitByRowSpan(1)` は製品名用に行 2 と 3 を分離します。横方向に 2 列結合する場合は、代わりに `splitByColSpan(1)` を使用します。
+この例は、プレゼンテーションに最初のスライドの最初のシェイプとしてテーブルがあり、`(1, 2)` と `(1, 3)` が垂直に結合されていることを前提とします。下部位置から開始し、[getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) と [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) を使用して起点を特定し、両方のスパンを確認します。`splitByRowSpan(1)` は製品名用に行 2 と 3 を分離します。水平の 2 列結合の場合は `splitByColSpan(1)` を使用します。
 
 ```php
 use aspose\slides\Presentation;
@@ -189,15 +250,51 @@ try {
 }
 ```
 
-テーブル グリッドと周囲のセル インデックスは変更されません。結果のセルは座標で取得します。ここでは、両方ともスパンが 1 で、[isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) は `false` を出力します。より大きな領域は、1 回の分割後も部分的に結合されたままになることがあります。
+テーブル グリッドと周囲のセルインデックスは変更されません。結果のセルは座標で取得できます。ここでは両方のセルのスパンは 1 で、[isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) は `false` を返します。1 回の分割後も、領域の一部が結合されたままになることがあります。
 
-元のテキストと書式設定は上部（または左側）のセルに残り、新しいセルは空ですが、塗りつぶし、枠線、余白などのセル書式設定を継承します。分割後にセルにデータを入力し、必要なテキスト書式設定を明示的に設定してください。
+元のテキストと書式は上部（または左部）のセルに残り、新しいセルは空ですが、塗りつぶし、枠、余白などのセル書式を継承します。分割後にセルにデータを入力し、必要に応じてテキスト書式を明示的に設定してください。
 
-保存されたプレゼンテーションには、テンプレートのセル書式設定が保持されたままの "Product A" と "Product B" の個別セルが含まれます。詳細は [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) を参照してください。
+保存されたプレゼンテーションには、テンプレートのセル書式が保持されたまま、別々の「Product A」および「Product B」セルが含まれます。詳細は [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) を参照してください。
+
+### **特定の高さでセルを分割する**
+
+[splitByHeight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyheight/) は上部の高さ（ポイント）を受け取り、[splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) は上部に含める既存グリッド行数を受け取ります。右側の列で 40 ポイントのセルを中央に配置するには、セルの実際の高さから 40 を引き、残りのスペースを上下に均等に分割します。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 160, 160 ];
+    $rowHeights = [ 140 ];
+    
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+    $table->get_Item(0, 0)->getTextFrame()->setText("Left");
+
+    $rightCell = $table->get_Item(1, 0);
+    $height = java_values($rightCell->getHeight());
+    $margin = ($height - 40) / 2;
+
+    $rightCell->splitByHeight($margin);
+    $table->get_Item(1, 1)->splitByHeight(40);
+    $table->get_Item(1, 1)->getTextFrame()->setText("Middle");
+
+    $presentation->save("split_by_height.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+最初の分割でグリッド行が追加され、セル `(1, 1)` の下部は 90 ポイントのまま残ります。2 回目の分割でそのセルを 40 ポイントの中間セルと 50 ポイントの下部セルに分割します。右側の列は上から下へ 50、40、50 ポイントの 3 つのセルになります。左側のセルは 3 行すべてに跨り、元の高さ 140 ポイントを保持します。
+
+![左側のセルがテーブル全体の高さを占め、中央に「Middle」セルがある 3 つの右側セル。](split-by-height.png)
 
 ## **テーブル セルの背景色の変更**
 
-この例では、列幅150ポイント、行高さ50ポイントのテーブルを作成します。[setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) を使用して実体塗りを選択し、[getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) が返す色をセル `(2, 3)`（第3列・第4行）の赤に設定します。
+この例では、列幅 150 ポイント、行高さ 50 ポイントのテーブルを作成します。[setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) で塗りつぶしタイプを実体塗りに設定し、[getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) が返す色を赤に設定して、セル `(2, 3)`（3 列目、4 行目）の背景色を変更します。
 
 ```php
 use aspose\slides\FillType;
@@ -209,7 +306,7 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
 
     $columnWidths = [ 150, 150, 150, 150 ];
-    $rowHeights = [ 50, 50, 50, 50, 50 ];
+    $rowHeights = [ 51, 50, 50, 50, 50 ];
     $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
 
     $cell = $table->get_Item(2, 3);
@@ -222,11 +319,11 @@ try {
 }
 ```
 
-## **テーブル セル内への画像追加**
+## **テーブル セル内に画像を追加する**
 
-この例を実行する前に、入力画像を作業ディレクトリに配置してください。[Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) で画像を読み込み、[addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) を使用してプレゼンテーションの画像コレクションに追加します。その後、画像をセル `(0, 0)`（テーブルの最初のセル）の画像塗りつぶしに割り当てます。
+この例を実行する前に、入力画像を作業ディレクトリに配置してください。[Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) で画像を読み込み、[addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) でプレゼンテーションの画像コレクションに追加します。その後、画像をセル `(0, 0)`（テーブルの最初のセル）の画像塗りつぶしに割り当てます。
 
-[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) は画像を伸張してセルを埋めますが、アスペクト比が変わる可能性があります。列幅と行高さはポイントで指定します。ロードされた画像は、プレゼンテーションに追加された後、`finally` ブロックで破棄されます。
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) は画像をセル全体に伸ばすため、アスペクト比が変わることがあります。列幅と行高さはポイントで指定します。読み込んだ画像は、プレゼンテーションに追加した後、`finally` ブロックで破棄されます。
 
 ```php
 use aspose\slides\FillType;
@@ -262,18 +359,18 @@ try {
 
 ## **FAQ**
 
-**単一セルの各側面につき異なる線の太さやスタイルを設定できますか？**
+**単一セルの各辺に対して異なる線の太さやスタイルを設定できますか？**
 
-はい。[top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) の枠線は個別のプロパティを持つため、各側面の太さやスタイルを異ならせることが可能です。
+はい。[top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)、[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)、[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)、[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) の各枠は個別のプロパティを持つため、各辺の太さやスタイルを別々に設定できます。
 
-**画像をセルの背景として設定した後に列・行のサイズを変更するとどうなりますか？**
+**セルの背景に画像を設定した後、列・行サイズを変更すると画像はどうなりますか？**
 
-動作は [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) に依存します。stretch（伸張）を使用すると、画像は新しいセルサイズに合わせて調整されます。tile（タイル）を使用すると、タイルが再計算されます。
+動作は [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/)（stretch/​tile）に依存します。stretch の場合、画像は新しいセルサイズに合わせて調整され、tile の場合はタイルが再計算されます。
 
 **セル内のすべてのコンテンツにハイパーリンクを割り当てられますか？**
 
-[Hyperlinks](/slides/ja/php-java/manage-hyperlinks/) は、セルのテキストフレーム内のテキスト（部分）レベル、またはテーブル/シェイプ全体のレベルで設定されます。実際には、リンクをセル内の一部のテキストまたはすべてのテキストに割り当てます。
+[Hyperlinks](/slides/ja/php-java/manage-hyperlinks/) はセルのテキスト フレーム内のテキスト（部分）レベル、またはテーブル/シェイプ全体のレベルで設定します。実際には、セル内のテキスト全体または部分にリンクを割り当てます。
 
 **単一セル内で異なるフォントを設定できますか？**
 
-はい。セルのテキストフレームは、[portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/)（ラン）ごとにフォントファミリー、スタイル、サイズ、色などの書式設定を個別に持つことができます。
+はい。セルのテキスト フレームは、フォント ファミリ、スタイル、サイズ、色などを個別に設定できる [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/)（ラン）をサポートしています。

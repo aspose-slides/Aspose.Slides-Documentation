@@ -1,31 +1,31 @@
 ---
-title: Táblacellák kezelése prezentációkban PHP használatával
+title: Táblázatcellák kezelése prezentációkban PHP használatával
 linktitle: Cellák kezelése
 type: docs
 weight: 30
 url: /hu/php-java/manage-cells/
 keywords:
-- táblacella
+- táblázatcella
 - cellák egyesítése
 - szegély eltávolítása
-- cellák felosztása
+- cella felosztása
 - kép a cellában
 - háttérszín
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "PowerPoint táblacellák kezelése PHP-ben: összeolvasztott cellák azonosítása, szegélyek eltávolítása, cellák felosztása, valamint háttérszínek és képek beállítása az Aspose.Slides segítségével PHP számára Java-on keresztül."
+description: "Kezelje a PowerPoint táblázatcellákat PHP-ben: azonosítsa az összevont cellákat, távolítsa el a szegélyeket, bontsa szét a cellákat, és állítsa be a háttérszíneket és képeket az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi a táblacellák elérését és módosítását PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan azonosíthatók az összeolvadt táblacellák, hogyan távolíthatók el a cellaszegélyek, hogyan kezelhető a cellaszámozás összeolvasztás vagy szétbontás után, hogyan változtatható meg egy cella háttérszíne, és hogyan adható kép a táblacellán belül. A példák bemutatják, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezzünk be egy táblát egy diáról, hogyan frissítsük a cella formázását a cella tulajdonságain keresztül, és hogyan menthetjük el a módosított prezentációt PPTX fájlként.
+Aspose.Slides lehetővé teszi, hogy hozzáférjünk és módosítsuk a táblázat celláit a PowerPoint‑prezentációkban. Ez a cikk bemutatja, hogyan lehet azonosítani az összevont (összevonott) táblázatcellákat, eltávolítani a cella kereteit, a cellák számozásával dolgozni az egyesítés vagy szétválasztás után, megváltoztatni egy cella háttérszínét, és képet hozzáadni egy táblázatcellához. A példák azt mutatják, hogyan hozhatunk létre vagy nyithatunk meg egy prezentációt, hogyan szerezhetünk be egy táblát egy diából, hogyan frissíthetjük a cella formázását a cella tulajdonságain keresztül, és hogyan menthetjük el a módosított prezentációt PPTX‑fájlként.
 
-Az Aspose.Slides nullával kezdődő indexeket használ a táblacellák eléréséhez a `(oszlop, sor)` sorrendben.
+Az Aspose.Slides nullától induló indexeket használ a táblázatcellák eléréséhez a `(oszlop, sor)` sorrendben.
 
-## **Összeolvadt táblacella azonosítása**
+## **Összevont táblázatcellák azonosítása**
 
-A példa megnyit egy meglévő prezentációt, és az első dia első alakzatát táblaként használja. Feltételezi, hogy a dia és az alakzat létezik, valamint hogy az alakzat egy tábla. Ezután végigiterál az összes soron és oszlopon, és a [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) segítségével azonosítja az összeolvadt területeket. Minden egyezésnél kiírja a cella koordinátáit `sor;oszlop` sorrendben, a [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), a [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), valamint a régió kezdőkoordinátáit a [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) és a [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) segítségével.
+A példa megnyit egy meglévő prezentációt, és az első dián az első alakzatot táblaként érinti. Feltételezi, hogy a dia és az alakzat létezik, és hogy az alakzat táblázat. Ezután végig iterál az összes soron és oszlopon, és a [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) használatával azonosítja az összevont régiók celláit. Minden egyezésnél kiírja a cella koordinátáit `sor;oszlop` sorrendben, valamint a [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/), és a régió kezdő koordinátáit a [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) és [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) segítségével.
 
 ```php
 use aspose\slides\Presentation;
@@ -55,7 +55,7 @@ try {
 
 ## **Táblacella szegélyek eltávolítása**
 
-Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) objektumot, és adjon egy táblát az első diájához az [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) segítségével. Az oszlopszélességek, sormagasságok és a tábla pozíciója pontban van megadva. A példa mind a négy cellaszegélyt a [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) értékre állítja, így láthatatlanok.
+Hozzon létre egy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) objektumot, és a [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addtable/) segítségével adjon egy táblát az első diájához. Az oszlopszélességek, sormagasságok és a táblázat pozíciója pontban van megadva. A példa négy cellaszegélyt is [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) értékre állít, így láthatatlanok lesznek.
 
 ```php
 use aspose\slides\FillType;
@@ -86,11 +86,65 @@ try {
 }
 ```
 
+## **Átlós cellaszegélyek hozzáadása**
+
+A [getBorderDiagonalDown](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonaldown/) segítségével vonalat húzhat a bal felső sarokból a jobb alsó felé, a [getBorderDiagonalUp](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderdiagonalup/) segítségével pedig a bal alsó sarokból a jobb felső felé. Egy átló megjelölhet egy sarokfejlécet; mindkét átló X‑et alkothat, jelezve, hogy a cella nem alkalmazható.
+
+Minden átlónak saját [LineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) van. Az [getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/getfillformat/) segítségével a [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) használatával válassza a [FillType::Solid](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) értéket, és egy színt a [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) segítségével. A vonal vastagságát pontban a [setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setwidth/) segítségével állítsa be.
+
+A példa egy sorban három cellát hoz létre: egy piros lefelé mutató átlót, egy kék felfelé mutató átlót és mindkét átlót. A felső, alsó, bal és jobb cellaszegélyeket változatlanul hagyja.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 210, 210, 210 ];
+    $rowHeights = [ 160 ];
+    $table = $slide->getShapes()->addTable(45, 130, $columnWidths, $rowHeights);
+
+    $downwardBorder = $table->get_Item(0, 0)->getCellFormat()->getBorderDiagonalDown();
+    $downwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $downwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $downwardBorder->setWidth(3);
+
+    $upwardBorder = $table->get_Item(1, 0)->getCellFormat()->getBorderDiagonalUp();
+    $upwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $upwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $upwardBorder->setWidth(5);
+
+    $crossDownwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalDown();
+    $crossDownwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossDownwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $crossDownwardBorder->setWidth(3);
+
+    $crossUpwardBorder = $table->get_Item(2, 0)->getCellFormat()->getBorderDiagonalUp();
+    $crossUpwardBorder->getFillFormat()->setFillType(FillType::Solid);
+    $crossUpwardBorder->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $crossUpwardBorder->setWidth(5);
+
+    $presentation->save("diagonal_cell_borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az átló csak a cella formázását módosítja. Minden cella egyetlen szövegkeretet őriz meg, amely a [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/gettextframe/) segítségével érhető el. Az átló mindkét oldalán lévő területek nem szerkeszthetők külön-külön.
+
+A mentett tábla, a Microsoft PowerPoint-ben megjelenítve:
+![Három táblacella, amely piros átlót mutat a bal felső saroktól a jobb alsóig, kék átlót a bal alsó saroktól a jobb felsőig, és mindkét átló X‑et alkot.](diagonal-cell-borders.png)
+
+*Balról jobbra: lefelé mutató átló (piros, 3 pt), felfelé mutató átló (kék, 5 pt), és mindkét átló.*
+
 ## **Táblacellák egyesítése**
 
-Használja a [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) metódust egy téglalap alakú cellatartomány egy cellává egyesítéséhez. Adja meg a tartomány bal‑felső és jobb‑alsó sarkának celláit. Az utolsó argumentum határozza meg, hogy az egyesítés tartalmazhat‑e a megadott tartományon kívüli cellákat; a `false` érték a tartományon belül tartja az egyesítést.
+A [mergeCells](https://reference.aspose.com/slides/php-java/aspose.slides/table/mergecells/) segítségével egy téglalap alakú táblacellatartományt egy cellává egyesíthetünk. Adja meg a tartomány bal felső és jobb alsó celláit. Az utolsó argumentum meghatározza, hogy az egyesítés magában foglalhat-e a megadott tartományon kívüli cellákat; a `false` érték az egyesítést a tartományon belül tartja.
 
-A példa egy 4‑by‑4 táblát hoz létre 70 pont széles oszlopokkal és sorokkal, majd egyesíti a négy középső cellát `(1, 1)`‑től `(2, 2)`‑ig. Az eredményül kapott cella két oszlopot és két sort fed le, míg a tábla alaprácsa négy oszlopot és négy sort tartalmaz továbbra is. Az egyesített cella tartalmának vagy formázásának eléréséhez használja a bal‑felső pozíciót: `$table->get_Item(1, 1)` ebben a példában. A többi pozíció a egyesített tartományban a tábla rácsának része marad, ezért a tartományon kívüli cellák indexei nem változnak.
+A példa egy 4‑by‑4 táblát hoz létre 70‑pontos oszlopokkal és sorokkal, majd egyesíti a négy középső cellát a `(1, 1)`‑től `(2, 2)`‑ig tartó tartományban. Az eredményül kapott cella két oszlopot és két sort fed le, míg a tábla alaprácsa négy oszlopot és négy sort tartalmaz továbbra is. Az egyesített cella tartalmához vagy formázásához az első bal pozíciót használja: `$table->get_Item(1, 1)` ebben a példában. A tartományon belüli többi pozíció a tábla rácsának része marad, ezért a tartományon kívüli cellák indexei nem változnak.
 
 ```php
 use aspose\slides\Presentation;
@@ -114,11 +168,11 @@ try {
 
 ## **Táblacellák felosztása**
 
-Az előző példában az egyesítés megőrzi a tábla rácsát. Egy cella felosztása új rácsoloszlopot hozhat létre, és megváltoztathatja a jobbra lévő cellák oszlopindexeit. Az Aspose.Slides a PowerPoint táblarács‑modelljét követi.
+Az előző példában a cellák egyesítése megőrzi a tábla rácsát. Egy cella felosztása új rácsoszlopot hozhat létre, és megváltoztathatja a jobb oldali cellák oszlopszámait. Az Aspose.Slides a PowerPoint táblarács modelljét követi.
 
-Ez a példa egy 4‑by‑4 táblát hoz létre 70 pont széles oszlopokkal és sorokkal, és a `[splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/)` metódust hívja a `(1, 1)` cellán. A cella 70 pont szélességének felét adja át két egyenlő szélességű cella létrehozásához.
+Ez a példa egy 4‑by‑4 táblát hoz létre 70‑pontos oszlopokkal és sorokkal, és a `(1, 1)` cellán meghívja a [splitByWidth](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbywidth/) metódust. A cella 70‑pontos szélességének felét adja át, hogy két egyenlő szélességű cellát hozzon létre.
 
-A felosztás után a két felét a `$table->get_Item(1, 1)` és a `$table->get_Item(2, 1)` segítségével érhetjük el. A tábla rácsa most öt oszlopot tartalmaz: az eredetileg a 2‑ és 3‑as oszlopokban lévő cellák a 3‑as és 4‑es oszlopokba kerülnek. A sorindexek változatlanok maradnak. A felosztás után a cellák elérésénél használja ezeket a frissített oszlopindexeket.
+A felosztás után a két felét `$table->get_Item(1, 1)` és `$table->get_Item(2, 1)` módon érhetjük el. A táblarács most öt oszlopot tartalmaz: az eredetileg a 2‑ és 3‑as oszlopban lévő cellák a 3‑as és 4‑es oszlopba kerülnek. A sorindexek változatlanok maradnak. A felosztás utáni cellák eléréséhez használja ezeket a frissített oszlopszámokat.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,16 +194,22 @@ try {
 }
 ```
 
-### **Összeolvadt cellák felosztása sor‑ vagy oszlop‑kiterjedés szerint**
+<!-- visual-explanation:manage-cells:start -->
+[![Egy nem egyesített 70‑pontos cella két 35‑pontos cellára oszlik, hozzáadva egy ötödik rácsoszlopot és eltolva a jobb oldali indexeket.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-Az összeolvadt sabloncellák adatkitöltéshez való előkészítéséhez használja a [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) metódust egy meglévő sorhatár mentén, vagy a [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) metódust oszlophatár mentén.
+*The width split affects cell (1, 1), using zero-based (column, row) indices. Other rows keep a cell spanning both new column positions.*
+<!-- visual-explanation:manage-cells:end -->
 
-Az `index` argumentum a felosztás felső részében lévő sorokat vagy a bal részben lévő oszlopokat számolja; a megadott szám a összeolvadt régióra vonatkozik:
+### **Összevont cellák felosztása sor- vagy oszlopszélesség alapján**
 
-- Sor‑felosztás: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
-- Oszlop‑felosztás: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+Az összevont sabloncellák adatkitöltésre való előkészítéséhez használja a [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) metódust a meglévő sorhatár mentén történő felosztáshoz, vagy a [splitByColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbycolspan/) metódust az oszlophatár mentén történő felosztáshoz.
 
-A példa feltételezi, hogy a prezentáció első diáján az első alakzat egy tábla, ahol a `(1, 2)` és `(1, 3)` cellák függőlegesen össze vannak olvasztva. Az alsó pozícióból a [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) és a [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) segítségével meghatározza a kiindulási pontot, és ellenőrzi mindkét kiterjedést. A `splitByRowSpan(1)` ezután szétválasztja a 2‑es és 3‑as sorokat a terméknevekhez. Vízszintes kétszintes oszlop‑összeolvasztáshoz használja a `splitByColSpan(1)`-et.
+Az `index` argumentum a felosztás felső részében lévő sorok vagy a bal részben lévő oszlopok számát jelöli; a összevont területhez képest relatív:
+
+- Sorfelosztás: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getrowspan/).
+- Oszlopfelosztás: `0 < index <` [getColSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getcolspan/).
+
+A példa azt feltételezi, hogy a prezentáció első diájának első alakzata egy táblázat, amelyben a `(1, 2)` és `(1, 3)` cellák függőlegesen egyesültek. Az alsó pozíciótól kezdve a [getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstcolumnindex/) és [getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/getfirstrowindex/) segítségével határozza meg a kiindulópontot, és ellenőrzi mindkét átfedést. A `splitByRowSpan(1)` ekkor szétválasztja a 2‑es és 3‑as sorokat a terméknevekhez. Egy vízszintes kétoszlopos egyesítéshez használja a `splitByColSpan(1)`‑et.
 
 ```php
 use aspose\slides\Presentation;
@@ -169,7 +229,7 @@ try {
     {
         $mergedCell->splitByRowSpan(1);
 
-        // A felosztás után a táblából származó cellák lekérése.
+        // A felosztás után lekérdezi a táblából származó cellákat.
         $upperCell = $table->get_Item($firstColumnIndex, $firstRowIndex);
         $lowerCell = $table->get_Item($firstColumnIndex, $firstRowIndex + 1);
         echo "Upper cell merged: " . (java_values($upperCell->isMergedCell()) ? "true" : "false") . PHP_EOL;
@@ -189,15 +249,51 @@ try {
 }
 ```
 
-A táblarács és a környező cellaindexek változatlanok maradnak. A keletkezett cellákat a koordinátáik alapján érje el; itt mindkettő 1‑es kiterjedéssel rendelkezik, és a [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) `false` értéket ad vissza. Nagyobb régiók egy felosztás után is maradhatnak részben összeolvasztva.
+A táblarács és a környező cella indexek változatlanok maradnak. A kapott cellákat a koordinátáik alapján lehet lekérni; itt mindkettő 1‑es átfedéssel rendelkezik, és a [isMergedCell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/ismergedcell/) `false`‑t ad vissza. Nagyobb területek egy felosztás után is részben összevonva maradhatnak.
 
-Az eredeti szöveg és formázás a felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, például a kitöltést, a szegélyeket és a margókat. A felosztás után töltse fel a cellákat, és állítsa be a szükséges szövegformázást explicit módon.
+Az eredeti szöveg és annak formázása az felső (vagy bal) cellában marad; az új cella üres, de örökli a cella formázását, például a kitöltést, a szegélyeket és a margókat. A felosztás után töltse fel a cellákat, és állítsa be a szükséges szövegformázást kifejezetten.
 
-A mentett prezentáció külön „Product A” és „Product B” cellákat tartalmaz, a sablon cellaformázása megtartva. Tekintse meg a [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) részleteit.
+A mentett prezentáció külön "Product A" és "Product B" cellákat tartalmaz, a sablon cellaformázása megmarad. További részletekért lásd a [Cell API Reference](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) oldalt.
 
-## **A táblacella háttérszínének módosítása**
+### **Cellát felosztás meghatározott magasságban**
 
-Ez a példa egy 150 pont széles oszlopokkal és 50 pont magas sorokkal rendelkező táblát hoz létre. A [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) segítségével szilárd kitöltést választ, majd a [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) által visszaadott színt pirosra állítja a `(2, 3)` cellához, ami a harmadik oszlopban és a negyedik sorban található.
+A [splitByHeight](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyheight/) a felső rész magasságát pontban veszi. A [splitByRowSpan](https://reference.aspose.com/slides/php-java/aspose.slides/cell/splitbyrowspan/) a felső részben lévő meglévő rácssorok számát veszi. Egy 40‑pontos cella jobb oszlopban való középre helyezéséhez vonja ki 40‑et a cella tényleges magasságából, és az így megmaradt teret egyenlő részre osztja fel felül és alul.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $columnWidths = [ 160, 160 ];
+    $rowHeights = [ 140 ];
+    
+    $table = $slide->getShapes()->addTable(50, 50, $columnWidths, $rowHeights);
+    $table->get_Item(0, 0)->getTextFrame()->setText("Left");
+
+    $rightCell = $table->get_Item(1, 0);
+    $height = java_values($rightCell->getHeight());
+    $margin = ($height - 40) / 2;
+
+    $rightCell->splitByHeight($margin);
+    $table->get_Item(1, 1)->splitByHeight(40);
+    $table->get_Item(1, 1)->getTextFrame()->setText("Middle");
+
+    $presentation->save("split_by_height.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Az első felosztás egy rácssort ad hozzá, és a `(1, 1)` cellában 90 pontot hagy alul. A második felosztás a cellát egy 40‑pontos középső cellára és egy 50‑pontos alsó cellára bontja. A jobb oszlop most három cellát tartalmaz, magasságuk felülről lefelé 50, 40 és 50 pont. A bal cella mindhárom sort lefedi, és megtartja az eredeti 140‑pontos magasságát.
+
+![A bal cella a teljes táblamagasságot lefedi, mellette három cella van, a középső a középső cellával.](split-by-height.png)
+
+## **Táblacella háttérszínének módosítása**
+
+Ez a példa egy táblát hoz létre 150‑pontos oszlopokkal és 50‑pontos sorokkal. A [setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/setfilltype/) segítségével választ ki egy szilárd kitöltést, és a [getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/getsolidfillcolor/) által visszaadott színt pirosra állítja a `(2, 3)` cellában, ami a harmadik oszlopban és a negyedik sorban található.
 
 ```php
 use aspose\slides\FillType;
@@ -222,11 +318,11 @@ try {
 }
 ```
 
-## **Kép hozzáadása a táblacellába**
+## **Kép hozzáadása egy táblacellához**
 
-A bemeneti képet helyezze a munkakönyvtárba a példa futtatása előtt. A képet a [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) töltik be, és a prezentáció képgyűjteményéhez az [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) segítségével adják hozzá. Ezután a képet a `(0, 0)` cella képkitöltéséhez rendeli, amely a tábla első cellája.
+A bemeneti képet helyezze a munkakönyvtárba, mielőtt futtatná ezt a példát. A [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) segítségével betölti a képet, és a [addImage](https://reference.aspose.com/slides/php-java/aspose.slides/imagecollection/addimage/) segítségével hozzáadja a prezentáció képgyűjteményéhez. Ezután a képet a `(0, 0)` cella (a tábla első cellája) képkitöltéséhez rendeli.
 
-A [PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) a képet a cellába nyújtja, ami megváltoztathatja az arányait. Az oszlopszélességek és sor‑magasságok pontban vannak megadva. A betöltött képet egy `finally` blokkban szabadítják fel, miután hozzáadták a prezentációhoz.
+A [PictureFillMode::Stretch](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) a képet a cellába nyújtja, ami megváltoztathatja a képarányt. Az oszlopszélességek és sormagasságok pontban vannak megadva. A betöltött képet a `finally` blokkban szabadítja fel, miután hozzáadta a prezentációhoz.
 
 ```php
 use aspose\slides\FillType;
@@ -262,18 +358,18 @@ try {
 
 ## **GYIK**
 
-**Beállíthatok különböző vonalvastagságot és stílust a cella egyes oldalaihoz?**
+**Beállíthatok különböző vonalvastagságokat és stílusokat egy cella különböző oldalaira?**
 
-Igen. A [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) szegélyeknek külön‑külön tulajdonságaik vannak, így minden oldal vastagsága és stílusa eltérő lehet.
+Igen. A [top](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/php-java/aspose.slides/cellformat/getborderright/) szegélyeknek külön tulajdonságaik vannak, így minden oldal vastagsága és stílusa különböző lehet.
 
-**Mi történik a képpel, ha a képet egy cella háttérként beállítva módosítom az oszlop/sor méretét?**
+**Mi történik a képpel, ha a képet a cella háttérképként beállítva megváltoztatom az oszlop/sor méretét?**
 
-A viselkedés a [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/) (stretch/tile) függvénye. Nyújtás esetén a kép a új cellához igazodik, csempézés esetén a csempéket újraszámolják.
+A viselkedés a [fill mode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillmode/)‑tól függ (stretch/tile). Nyújtás esetén a kép az új cellához alkalmazkodik; csempézés esetén a csempéket újraszámítják.
 
-**Hozzá tudok-e rendelni hiperhivatkozást a cella teljes tartalmához?**
+**Hozzá tudok-e rendelni hiperhivatkozást a cella összes tartalmához?**
 
-A [Hyperlinks](/slides/hu/php-java/manage-hyperlinks/) beállíthatók a cella szövegkeretén belüli szövegrész (portion) szintjén, vagy a teljes táblához/alakzathoz. Gyakorlati szempontból a linket vagy egy részhez, vagy a cella teljes szövegéhez rendeli.
+A [Hiperhivatkozások](/slides/hu/php-java/manage-hyperlinks/) a cella szövegkeretén belül szöveg (rész) szinten vagy a teljes táblázat/alakzat szintjén állítható be. Gyakorlatban a hivatkozást egy részhez vagy a cella teljes szövegéhez rendeli.
 
-**Beállíthatok-e különböző betűtípusokat egy cellán belül?**
+**Beállíthatok-e különböző betűtípusokat egyetlen cellában?**
 
-Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (futtatások) független formázását – betűcsalád, stílus, méret és szín.
+Igen. A cella szövegkerete támogatja a [portions](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) (szövegrészek) használatát, amelyeknek független a formázása – betűtípus, stílus, méret és szín.

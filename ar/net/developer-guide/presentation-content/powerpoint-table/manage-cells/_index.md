@@ -20,13 +20,13 @@ description: "إدارة خلايا جداول PowerPoint في C#: تحديد ا
 ---
 ## **نظرة عامة**
 
-Aspose.Slides يسمح لك بالوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint التقديمية. يشرح هذا المقال كيفية تحديد خلايا الجداول المدمجة، إزالة حدود الخلايا، العمل مع ترقيم الخلايا بعد دمج أو تقسيم الخلايا، تغيير لون خلفية الخلية، وإضافة صورة داخل خلية جدول. تُظهر الأمثلة كيفية إنشاء أو فتح عرض تقديمي، الحصول على جدول من شريحة، تحديث تنسيق الخلية عبر خصائص الخلية، وحفظ العرض المعدل كملف PPTX.
+Aspose.Slides يتيح لك الوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint. توضح هذه المقالة كيفية التعرف على الخلايا المدمجة في الجداول، وإزالة حدود الخلايا، والعمل مع ترقيم الخلايا بعد الدمج أو التقسيم، وتغيير لون خلفية الخلية، وإضافة صورة داخل خلية الجدول. تُظهر الأمثلة كيفية إنشاء أو فتح عرض تقديمي، الحصول على جدول من شريحة، تحديث تنسيق الخلية عبر خصائص الخلية، وحفظ العرض المعدل كملف PPTX.
 
-يستخدم Aspose.Slides مؤشرات تبدأ من الصفر للوصول إلى خلايا الجداول بالترتيب `(column, row)`.
+Aspose.Slides يستخدم فهارس ذات قاعدة الصفر للوصول إلى خلايا الجداول بترتيب `(column, row)`.
 
 ## **تحديد خلية جدول مدمجة**
 
-يفتح المثال عرضًا تقديميًا موجودًا ويصل إلى الشكل الأول في الشريحة الأولى كجدول. يفترض أن الشريحة والشكل موجودان وأن الشكل جدول. ثم يتكرر عبر جميع الصفوف والأعمدة ويستخدم [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) لتحديد الخلايا في المناطق المدمجة. لكل تطابق، يطبع إحداثيات الخلية بترتيب `row;column`، [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/)، [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/)، وإحداثيات بدء المنطقة، [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) و[FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
+يفتح المثال عرض تقديمي موجود ويصل إلى الشكل الأول في الشريحة الأولى باعتبارها جدولًا. يفترض أن الشريحة والشكل موجودان وأن الشكل هو جدول. ثم يتنقل عبر جميع الصفوف والأعمدة ويستخدم [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) لتحديد الخلايا في المناطق المدمجة. لكل تطابق، يطبع إحداثيات الخلية بترتيب `row;column`، و[RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/)، و[ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/)، وإحداثيات بداية المنطقة، و[FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) و[FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/).
 
 ```csharp
 using System;
@@ -53,7 +53,7 @@ for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 
 ## **إزالة حدود خلايا الجدول**
 
-أنشئ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) وأضف جدولًا إلى الشريحة الأولى باستخدام [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). يتم تحديد عرض الأعمدة وارتفاع الصفوف وموقع الجدول بالنقاط. يضبط المثال جميع حدود الخلايا الأربعة إلى [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/)، مما يجعلها غير مرئية.
+إنشاء [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) وإضافة جدول إلى شريحته الأولى باستخدام [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/). يتم تحديد عرض الأعمدة، ارتفاع الصفوف، وموقع الجدول بالنقاط. يضبط المثال جميع الحدود الأربعة للخلايا إلى [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/)، مما يجعلها غير مرئية.
 
 ```csharp
 using Aspose.Slides;
@@ -77,11 +77,62 @@ foreach (var row in table.Rows)
 presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
+## **إضافة حدود قطرية للخلية**
+
+استخدم [BorderDiagonalDown](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonaldown/) لرسم خط من الزاوية العلوية اليسرى إلى الزاوية السفلية اليمنى، واستخدم [BorderDiagonalUp](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonalup/) لرسم خط من الزاوية السفلية اليسرى إلى الزاوية العلوية اليمنى. يمكن للقطرية أن تشير إلى رأس زاوية؛ ويمكن للقطرين معًا تشكيل X لتحديد الخلية كغير صالحة.
+
+كل قطرية هي [ILineFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/). في [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) الخاص بها، اضبط [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) إلى [FillType.Solid](https://reference.aspose.com/slides/net/aspose.slides/filltype/) واختر [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/). اضبط [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) للخط بالنقاط.
+
+ينشئ المثال ثلاثة خلايا في صف واحد: قطرية سفلية حمراء، قطرية علوية زرقاء، وكلا القطرين. يترك حدود الخلية العلوية والسفلية واليسرى واليمنى دون تغيير.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 210, 210, 210 };
+double[] rowHeights = { 160 };
+var table = slide.Shapes.AddTable(45, 130, columnWidths, rowHeights);
+
+var downwardBorder = table[0, 0].CellFormat.BorderDiagonalDown;
+downwardBorder.FillFormat.FillType = FillType.Solid;
+downwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+downwardBorder.Width = 3;
+
+var upwardBorder = table[1, 0].CellFormat.BorderDiagonalUp;
+upwardBorder.FillFormat.FillType = FillType.Solid;
+upwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+upwardBorder.Width = 5;
+
+var crossDownwardBorder = table[2, 0].CellFormat.BorderDiagonalDown;
+crossDownwardBorder.FillFormat.FillType = FillType.Solid;
+crossDownwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+crossDownwardBorder.Width = 3;
+
+var crossUpwardBorder = table[2, 0].CellFormat.BorderDiagonalUp;
+crossUpwardBorder.FillFormat.FillType = FillType.Solid;
+crossUpwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+crossUpwardBorder.Width = 5;
+
+presentation.Save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+```
+
+القطرية هي خاصية تنسيق، ليست تقسيمًا للخلية. تحتفظ كل خلية بـ[TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) واحد؛ لا يمكن تحرير المناطق على جانبي القطرية بشكل مستقل.
+
+الجدول المحفوظ، معروض في Microsoft PowerPoint:
+
+![ثلاث خلايا جدول تُظهر قطرية حمراء من أعلى اليسار إلى أسفل اليمين، قطرية زرقاء من أسفل اليسار إلى أعلى اليمين، وكلا القطرين يشكلان X.](diagonal-cell-borders.png)
+
+*من اليسار إلى اليمين: قطرية سفلية (أحمر، 3 pt)، قطرية علوية (أزرق، 5 pt)، وكلا القطرين.*
+
 ## **دمج خلايا الجدول**
 
-استخدم [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) لدمج نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاوية العليا اليسرى والزاوية السفلى اليمنى للنطاق. المتغير الأخير يتحكم فيما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `false` يحافظ على الدمج داخل ذلك النطاق.
+استخدم [MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) لدمج نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاويتين العلوية اليسرى والسفلية اليمنى للنطاق. المتغير الأخير يتحكم فيما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `false` يحافظ على دمج داخل ذلك النطاق فقط.
 
-ينشئ المثال جدولًا 4×4 بأعمدة وارتفاعات 70 نقطة، ثم يدمج الخلايا الأربعة المركزية من `(1, 1)` إلى `(2, 2)`. تمتد الخلية الناتجة عبر عمودين وصفين، بينما يبقى الشبكة الأساسية للجدول بأربعة أعمدة وأربعة صفوف. للوصول إلى محتوى أو تنسيق الخلية المدمجة، استخدم موقعها الأعلى الأيسر: `table[1, 1]` في هذا المثال. تظل المواقع الأخرى في النطاق المدمج جزءًا من شبكة الجدول، لذا لا تتغير مؤشرات الخلايا خارج النطاق.
+ينشئ المثال جدولًا 4×4 بأعمدة وصفوف عرضها 70 نقطة، ثم يدمج الأربع خلايا المركزية من `(1, 1)` إلى `(2, 2)`. الخلية الناتجة تمتد عبر عمودين وصفين، بينما يبقى شبكة الجدول الأساسية بأربعة أعمدة وأربعة صفوف. للوصول إلى محتوى أو تنسيق الخلية المدمجة، استخدم موضعها العلوي الأيسر: `table[1, 1]` في هذا المثال. تظل المواقع الأخرى في النطاق المدمج جزءًا من شبكة الجدول، لذا لا تتغير فهارس الخلايا خارج النطاق.
 
 ```csharp
 using Aspose.Slides;
@@ -101,11 +152,11 @@ presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
 
 ## **تقسيم خلايا الجدول**
 
-يحافظ دمج الخلايا في المثال السابق على شبكة الجدول. يمكن أن يُدخل تقسيم خلية عمودًا جديدًا في الشبكة ويغيّر مؤشرات الأعمدة للخلايا الموجودة إلى يمينه. يتبع Aspose.Slides نموذج شبكة الجداول في PowerPoint.
+الحفاظ على شبكة الجدول يحدث عند دمج الخلايا كما هو موضح في المثال السابق. تقسيم خلية قد يُدخل عمود شبكة جديدًا ويغيّر فهارس الأعمدة للخلية التي على يمينها. يتبع Aspose.Slides نموذج شبكة جدول PowerPoint.
 
-ينشئ هذا المثال جدولًا 4×4 بأعمدة وارتفاعات 70 نقطة ويستدعي [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) على الخلية `(1, 1)`. يُمرَّر نصف عرض الخلية البالغ 70 نقطة لإنشاء خليتين بعرض متساوٍ.
+ينشئ هذا المثال جدولًا 4×4 بأعمدة وصفوف عرضها 70 نقطة ويستدعي [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) على الخلية `(1, 1)`. نصف عرض الخلية البالغ 70 نقطة يُمرَّر لإنشاء خليتين بعرض متساوٍ.
 
-بعد هذا التقسيم، تُستَخدم النصفان كـ `table[1, 1]` و`table[2, 1]`. الآن تحتوي شبكة الجدول على خمسة أعمدة: تنتقل الخلايا التي كانت في الأعمدة 2 و3 إلى الأعمدة 3 و4 على التوالي. تظل مؤشرات الصفوف دون تغيير. استخدم مؤشرات الأعمدة المحدثة عند الوصول إلى الخلايا بعد التقسيم.
+بعد هذا التقسيم، تُؤخذ النصفان كـ `table[1, 1]` و`table[2, 1]`. أصبحت شبكة الجدول الآن تحتوي على خمسة أعمدة: الخلايا التي كانت في العمودين 2 و3 تنتقل إلى الأعمدة 3 و4 على التوالي. تبقى فهارس الصفوف دون تغيير. استخدم فهارس الأعمدة المحدثة عند الوصول إلى الخلايا بعد التقسيم.
 
 ```csharp
 using System.Drawing;
@@ -126,14 +177,14 @@ presentation.Save("split_cells.pptx", SaveFormat.Pptx);
 
 ### **تقسيم الخلايا المدمجة حسب امتداد الصف أو العمود**
 
-لتحضير خلايا القالب المدمجة لملء البيانات، استخدم [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) لتقسيم على طول حد الصف الموجود، أو [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) لتقسيم على طول حد العمود.
+لتحضير خلايا القالب المدمجة لتعبئة البيانات، استخدم [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) للتقسيم على طول حد صف موجود، أو [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) للتقسيم على طول حد عمود.
 
-عدد `index` يعدّ الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهو نسبي للمنطقة المدمجة:
+حجة `index` تعد الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهي نسبية إلى المنطقة المدمجة:
 
-- تقسيم الصف: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
-- تقسيم العمود: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+- تقسيم صف: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- تقسيم عمود: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
 
-يفترض المثال وجود عرض تقديمي يحتوي على جدول كأول شكل في الشريحة الأولى، مع دمج رأسي بين `(1, 2)` و`(1, 3)`. يبدأ من الموضع الأسفل، يستخدم [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) و[FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) لتحديد الأصل ويفحص كلا الامتدادين. ثم `SplitByRowSpan(1)` يفصل الصفين 2 و3 لأسماء المنتجات. لدمج أفقي من عمودين، استخدم `SplitByColSpan(1)` بدلاً من ذلك.
+يفترض المثال وجود عرض تقديمي يحتوي على جدول كأول شكل في أول شريحة، حيث تم دمج الخلايا `(1, 2)` و`(1, 3)` عموديًا. يبدأ من الموضع السفلي، يستخدم [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) و[FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) لتحديد الأصل ويفحص كلا الامتدادين. ثم يُنفّذ `SplitByRowSpan(1)` لفصل الصفين 2 و3 لأسماء المنتجات. للدمج الأفقي ذو عمودين، استخدم `SplitByColSpan(1)` بدلاً من ذلك.
 
 ```csharp
 using System;
@@ -170,15 +221,53 @@ else
 }
 ```
 
-تبقى شبكة الجدول ومؤشرات الخلايا المحيطة دون تغيير. استرجع الخلايا الناتجة بواسطة إحداثياتها؛ هنا، كلاهما يمتد بـ 1 وتطبع [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) القيمة `False`. يمكن أن تظل المناطق الأكبر مدمجة جزئيًا بعد تقسيم واحد.
+تبقى شبكة الجدول والفهارس المجاورة للخلايا دون تغيير. استرجع الخلايا الناتجة عبر إحداثياتها؛ هنا، كلاهما يمتدان بمدى 1 وتطبع [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) قيمة `False`. قد تظل مناطق أكبر مدمجة جزئيًا بعد تقسيم واحد.
 
-يبقى النص الأصلي وتنسيقه في الخلية العليا (أو اليسرى)؛ الخلية الجديدة تكون فارغة لكنها تورث تنسيق الخلية مثل الملء والحدود والهوامش. املأ الخلايا بعد التقسيم وحدد أي تنسيق نصي مطلوب صراحةً.
+النص الأصلي وتنسيقه يبقى في الخلية العليا (أو اليسرى)؛ الخلية الجديدة فارغة لكنها ترث تنسيق الخلية مثل التعبئة والحدود والهوامش. عبّئ الخلايا بعد التقسيم واضبط أي تنسيق نصي مطلوب صراحةً.
 
-يحتوي العرض المحفوظ على خلايا "Product A" و"Product B" منفصلة مع الحفاظ على تنسيق خلايا القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) للمزيد من التفاصيل.
+العرض المحفوظ يحتوي على خلايا "Product A" و"Product B" منفصلة مع الحفاظ على تنسيق خلية القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) لمزيد من التفاصيل.
+
+
+<!-- visual-explanation:manage-cells:start -->
+[![الخلية المدمجة في العمود 1، الصفوف 2 و3 تنقسم إلى Product A وProduct B مع نفس فهارس الشبكة.](visual-manage-cells-62c80896698e.svg)](visual-manage-cells-62c80896698e.svg)
+
+*استخدام تقسيم امتداد الصف يستند إلى الحد الموجود. تشغل خلايا Product A وProduct B الموضعين (1, 2) و(1, 3) على التوالي.* 
+<!-- visual-explanation:manage-cells:end -->
+
+### **تقسيم خلية بارتفاع محدد**
+
+[SplitByHeight](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyheight/) يأخذ ارتفاع الجزء العلوي بالنقاط. [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) يأخذ عدد الصفوف الشبكية الموجودة في الجزء العلوي. لتوسيط خلية بارتفاع 40 نقطة في العمود الأيمن، اطرح 40 من الارتفاع الفعلي للخلية ووزّع المساحة المتبقية بالتساوي فوقها وتحتها.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 160, 160 };
+double[] rowHeights = { 140 };
+
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
+table[0, 0].TextFrame.Text = "Left";
+
+var height = table[1, 0].Height;
+var margin = (height - 40) / 2;
+
+table[1, 0].SplitByHeight(margin);
+table[1, 1].SplitByHeight(40);
+table[1, 1].TextFrame.Text = "Middle";
+
+presentation.Save("split_by_height.pptx", SaveFormat.Pptx);
+```
+
+الإضافة الأولى للتقسيم تضيف صف شبكة، وتترك الـ90 نقطة السفلية في `[1, 1]`. التقسيم الثاني يستهدف تلك الخلية ويضيف صفًا آخر أسفلها. الآن يحتوي العمود الأيمن على `[1, 0]` بارتفاع 50 نقطة (`margin`)، و`[1, 1]` بارتفاع 40 نقطة، و`[1, 2]` بارتفاع 50 نقطة (`margin`). الخلية اليسرى تمتد عبر الثلاثة صفوف بارتفاعها الأصلي 140 نقطة.
+
+![الخلية اليسرى تمتد على كامل ارتفاع الجدول بجوار ثلاث خلايا ذات وسط في الوسط.](split-by-height.png)
 
 ## **تغيير لون خلفية خلية الجدول**
 
-ينشئ هذا المثال جدولًا بأعمدة 150 نقطة وصفوف 50 نقطة. يحدد [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) إلى صلب و[SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) إلى الأحمر للخلية `(2, 3)`, في العمود الثالث والصف الرابع.
+ينشئ هذا المثال جدولًا بأعمدة عرضها 150 نقطة وصفوف بارتفاع 50 نقطة. يضبط [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) إلى صلب و[SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) إلى الأحمر للخلية `(2, 3)`، في العمود الثالث والصف الرابع.
 
 ```csharp
 using System.Drawing;
@@ -201,9 +290,9 @@ presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 
 ## **إضافة صورة داخل خلية جدول**
 
-ضع صورة الإدخال في الدليل العامل قبل تشغيل هذا المثال. يحمل المثال الصورة باستخدام [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) ويضيفها إلى مجموعة صور العرض باستخدام [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). ثم يُعيّن الصورة إلى ملء الصورة للخلية `(0, 0)`, الخلية الأولى في الجدول.
+ضع صورة الإدخال في الدليل العامل قبل تشغيل هذا المثال. يتم تحميل الصورة باستخدام [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) وتضيفها إلى مجموعة صور العرض باستخدام [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/). ثم تُعيّن الصورة إلى تعبئة الصورة للخلية `(0, 0)`, أول خلية في الجدول.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) يمدّ الصورة لتملأ الخلية، مما قد يغيّر نسبة أبعادها. عرض الأعمدة وارتفاع الصفوف بالنقاط. تُفكّ صورة التحميل تلقائيًا بواسطة بيان using الخاص بها.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) يمدّد الصورة لملء الخلية، مما قد يغيّر نسبة العرض إلى الارتفاع. أعرض الأعمدة وارتفاع الصفوف بالنقاط. تُصرف الصورة المحملة تلقائيًا بفضل بيان `using`.
 
 ```csharp
 using Aspose.Slides;
@@ -228,18 +317,18 @@ presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 
 ## **الأسئلة الشائعة**
 
-**Can I set different line thicknesses and styles for different sides of a single cell?**
+**هل يمكنني ضبط سماكات وأنماط خطوط مختلفة لجوانب مختلفة من خلية واحدة؟**
 
-Yes. The [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) borders have separate properties, so the thickness and style of each side can differ.
+نعم. حدود [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) لها خصائص منفصلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب.
 
-**What happens to the image if I change the column/row size after setting a picture as the cell’s background?**
+**ماذا يحدث للصورة إذا غيرت حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
 
-The behavior depends on the [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). With stretching, the image adjusts to the new cell; with tiling, the tiles are recalculated.
+السلوك يعتمد على [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile). مع التمدد، تضبط الصورة لتتناسب مع الخلية الجديدة؛ ومع التبليط، تُعاد حساب البلاط.
 
-**Can I assign a hyperlink to all the content of a cell?**
+**هل يمكنني ربط جميع محتوى خلية برابط تشعبي؟**
 
-[Hyperlinks](/slides/ar/net/manage-hyperlinks/) are set at the text (portion) level inside the cell’s text frame or at the level of the entire table/shape. In practice, you assign the link to a portion or to all the text in the cell.
+[Hyperlinks](/slides/ar/net/manage-hyperlinks/) تُضبط على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، تُعيّن الرابط إلى جزء أو إلى كل النص داخل الخلية.
 
-**Can I set different fonts within a single cell?**
+**هل يمكنني ضبط خطوط مختلفة داخل خلية واحدة؟**
 
-Yes. A cell’s text frame supports [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (runs) with independent formatting—font family, style, size, and color.
+نعم. يدعم إطار نص الخلية [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (المقاطع) بتنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.

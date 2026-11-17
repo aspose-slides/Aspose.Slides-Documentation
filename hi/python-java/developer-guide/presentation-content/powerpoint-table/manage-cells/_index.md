@@ -8,24 +8,24 @@ keywords:
 - तालिका कोशिका
 - कोशिकाओं को मिलाएँ
 - सीमा हटाएँ
-- कोशिका विभाजन
+- कोशिका विभाजित करें
 - कोशिका में छवि
 - पृष्ठभूमि रंग
 - PowerPoint
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Python में PowerPoint तालिका कोशिकाओं का प्रबंधन: विलीन कोशिकाओं की पहचान करें, सीमाओं को हटाएँ, कोशिकाओं को विभाजित करें, और Aspose.Slides for Python via Java के साथ पृष्ठभूमि रंग और छवियाँ सेट करें।"
+description: "Python के लिए Java के माध्यम से Aspose.Slides के साथ PowerPoint तालिका कोशिकाओं का प्रबंधन: मिलाए गए कोशिकाओं की पहचान, सीमाओं को हटाना, कोशिकाओं को विभाजित करना, और पृष्ठभूमि रंग व छवियों को सेट करना।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुँचने और उनपर परिवर्तन करने की सुविधा देता है। यह लेख यह बताता है कि विलीन तालिका कोशिकाओं की पहचान कैसे करें, सेल सीमाओं को कैसे हटाएँ, कोशिकाओं के मिलाने या विभाजित करने के बाद क्रमांकण को कैसे संभालें, सेल की पृष्ठभूमि रंग को कैसे बदलें, और तालिका सेल के भीतर एक छवि कैसे जोड़ें। उदाहरण दिखाते हैं कि प्रस्तुतीकरण कैसे बनाएँ या खोलें, स्लाइड से तालिका प्राप्त करें, सेल गुणों के माध्यम से सेल स्वरूपण अपडेट करें, और संशोधित प्रस्तुतीकरण को PPTX फ़ाइल के रूप में सहेजें।
+Aspose.Slides आपको PowerPoint प्रस्तुति में तालिका की कोशिकाओं को एक्सेस करने और संशोधित करने की सुविधा देता है। यह लेख बताता है कि मिलाए गए तालिका कोशिकाओं की पहचान कैसे करें, कोशिका की सीमाओं को कैसे हटाएँ, कोशिकाओं को मिलाने या विभाजित करने के बाद क्रमांक कैसे काम करता है, कोशिका की पृष्ठभूमि रंग कैसे बदलें, और तालिका कोशिका के भीतर एक छवि कैसे जोड़ें। उदाहरण दिखाते हैं कि कैसे प्रस्तुतिकरण बनाया या खोला जाता है, स्लाइड से तालिका प्राप्त की जाती है, कोशिका गुणों के माध्यम से कोशिका स्वरूपण अपडेट किया जाता है, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजा जाता है।
 
-Aspose.Slides शून्य-आधारित सूचकांक का उपयोग करता है ताकि तालिका कोशिकाओं को क्रम `(column, row)` में पहुँच सके।
+Aspose.Slides तालिका की कोशिकाओं को एक्सेस करने के लिए शून्य‑आधारित इंडेक्स का उपयोग करता है, क्रम `(column, row)` में।
 
-## **विलीन तालिका सेल की पहचान करें**
+## **एक मिलाए गए तालिका कोशिका की पहचान करें**
 
-उदाहरण मौजूदा प्रस्तुतीकरण को खोलता है और पहली स्लाइड पर पहले आकार को तालिका के रूप में पहुँचता है। यह मानता है कि स्लाइड और आकार मौजूद हैं और आकार एक तालिका है। इसके बाद यह सभी पंक्तियों और स्तंभों पर पुनरावृति करता है और [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) का उपयोग करके विलीन क्षेत्रों में कोशिकाओं की पहचान करता है। प्रत्येक मेल के लिये यह `row;column` क्रम में सेल निर्देशांक प्रिंट करता है, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), और क्षेत्र की प्रारंभिक निर्देशांक, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) तथा [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex)।
+उदाहरण एक मौजूदा प्रस्तुति खोलता है और पहले स्लाइड की पहली आकृति को तालिका के रूप में एक्सेस करता है। यह मानता है कि स्लाइड और आकृति मौजूद हैं और आकृति एक तालिका है। फिर यह सभी पंक्तियों और स्तम्भों को पार करता है और [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) का उपयोग करके मिलाए गए क्षेत्रों की कोशिकाओं की पहचान करता है। प्रत्येक मिलान के लिए यह `row;column` क्रम में कोशिका निर्देशांक, [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan), [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan), तथा क्षेत्र की प्रारंभिक निर्देशांक, [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) और [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) प्रिंट करता है।
 
 ```python
 import jpype
@@ -52,9 +52,9 @@ finally:
     presentation.dispose()
 ```
 
-## **तालिका सेल की सीमाओं को हटाएँ**
+## **तालिका कोशिका की सीमाएँ हटाएँ**
 
-एक [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) बनाएँ और उसकी पहली स्लाइड पर [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) का उपयोग करके एक तालिका जोड़ें। स्तंभ चौड़ाइयाँ, पंक्ति ऊँचाइयाँ, और तालिका की स्थिति पॉइंट में निर्दिष्ट की जाती है। उदाहरण सभी चार सेल सीमाओं को [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) पर सेट करता है, जिससे वे अदृश्यमान हो जाती हैं।
+एक [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) बनाएँ और उसके पहले स्लाइड में [addTable](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addTable) का उपयोग करके एक तालिका जोड़ें। स्तम्भ चौड़ाई, पंक्ति ऊँचाई, और तालिका की स्थिति बिंदुओं में निर्दिष्ट की गई है। उदाहरण सभी चार कोशिका सीमाओं को [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) सेट करता है, जिससे वे अदृश्य हो जाती हैं।
 
 ```python
 import jpype
@@ -85,11 +85,63 @@ finally:
     presentation.dispose()
 ```
 
+## **तिर्यक कोशिका सीमाएँ जोड़ें**
+
+[tgetBorderDiagonalDown](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalDown) का उपयोग करके ऊपरी‑बाएँ कोने से निचले‑दाएँ कोने तक एक रेखा खींचें, और [getBorderDiagonalUp](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderDiagonalUp) का उपयोग करके निचले‑बाएँ कोने से ऊपरी‑दाएँ कोने तक एक रेखा खींचें। एक तिर्यक कोने के शीर्षक को दर्शा सकता है। दोनों तिर्यक मिलकर X बनाते हैं, जिससे कोशिका 'लागू नहीं' के रूप में चिह्नित होती है।
+
+प्रत्येक तिर्यक एक [LineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/) है। इसके [getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getFillFormat) में, [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) का उपयोग करके [FillType.Solid](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) चुनें और [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) के माध्यम से रंग निर्दिष्ट करें। [setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) से रेखा की चौड़ाई बिंदुओं में सेट करें।
+
+उदाहरण एक पंक्ति में तीन कोशिकाएँ बनाता है: एक लाल नीचे‑तिर्यक, एक नीला ऊपर‑तिर्यक, और दोनों तिर्यकों वाला। यह शीर्ष, नीचे, बाएँ और दाएँ कोशिका सीमाओं को अपरिवर्तित छोड़ देता है।
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, FillType, SaveFormat
+from java.awt import Color
+
+
+def format_border(border, color, width):
+    fill = border.getFillFormat()
+    fill.setFillType(FillType.Solid)
+    fill.getSolidFillColor().setColor(color)
+    border.setWidth(width)
+
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    table = slide.getShapes().addTable(45, 130, [210, 210, 210], [160])
+
+    left_cell = table.get_Item(0, 0).getCellFormat()
+    middle_cell = table.get_Item(1, 0).getCellFormat()
+    right_cell = table.get_Item(2, 0).getCellFormat()
+    format_border(left_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(middle_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+    format_border(right_cell.getBorderDiagonalDown(), Color.RED, 3)
+    format_border(right_cell.getBorderDiagonalUp(), Color.BLUE, 5)
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+एक तिर्यक स्वरूपण गुण है, कोशिका विभाजन नहीं। प्रत्येक कोशिका में एक ही टेक्स्ट फ्रेम रहता है, जिसे आप [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) के माध्यम से एक्सेस कर सकते हैं। तिर्यक के दोनों पक्षों के क्षेत्रों को स्वतंत्र रूप से संपादित नहीं किया जा सकता।
+
+सहेजी गई तालिका, Microsoft PowerPoint में रेंडर की गई:
+
+![तीन तालिका कोशिकाएँ जो बाएँ‑ऊपर से दाएँ‑नीचे तक लाल तिर्यक, बाएँ‑नीचे से दाएँ‑ऊपर तक नीला तिर्यक, और दोनों तिर्यक मिलाकर X दर्शाती हैं।](diagonal-cell-borders.png)
+
+*बाएँ से दाएँ: नीचे की ओर तिर्यक (लाल, 3 pt), ऊपर की ओर तिर्यक (नीला, 5 pt), और दोनों तिर्यक।*
+
 ## **तालिका कोशिकाओं को मिलाएँ**
 
-[mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) का उपयोग करके तालिका कोशिकाओं की आयताकार रेंज को एक ही सेल में संयोजित करें। रेंज के ऊपर‑बाएँ और नीचे‑दाएँ कोनों पर स्थित कोशिकाओं को निर्दिष्ट करें। अंतिम तर्क निर्धारित करता है कि क्या मिलान निर्दिष्ट रेंज के बाहर की कोशिकाओं को शामिल कर सकता है; `False` मिलान को उस रेंज के भीतर रखता है।
+[mergeCells](https://reference.aspose.com/slides/python-java/aspose.slides/table/#mergeCells) का उपयोग करके तालिका कोशिकाओं की आयताकार सीमा को एक कोशिका में संयोजित करें। सीमा के ऊपरी‑बाएँ और निचले‑दाएँ कोनों की कोशिकाओं को निर्दिष्ट करें। अंतिम तर्क नियंत्रित करता है कि क्या मिलाने में निर्दिष्ट सीमा के बाहर की कोशिकाओं को शामिल किया जा सके; `False` मिलाने को केवल उस सीमा के भीतर रखता है।
 
-उदाहरण 70‑पॉइंट स्तंभों और पंक्तियों के साथ 4‑बाय‑4 तालिका बनाता है, फिर केंद्रीय चार कोशिकाओं को `(1, 1)` से `(2, 2)` तक मिलाता है। परिणामी सेल दो स्तंभों और दो पंक्तियों को कवर करता है, जबकि तालिका की मूल ग्रिड चार स्तंभों और चार पंक्तियों को बनाए रखती है। मिलाए गए सेल की सामग्री या स्वरूपण तक पहुँचने के लिये, इस उदाहरण में `table.get_Item(1, 1)` का शीर्ष‑बाएँ स्थान उपयोग करें। मिलान रेंज में अन्य स्थान तालिका ग्रिड का हिस्सा बना रहता है, इसलिए रेंज के बाहर की कोशिकाओं के सूचकांक नहीं बदलते।
+उदाहरण 70‑बिंदु स्तम्भ और पंक्तियों के साथ 4‑बाय‑4 तालिका बनाता है, फिर `(1, 1)` से `(2, 2)` तक के चार केंद्रीय कोशिकाओं को मिलाता है। परिणामी कोशिका दो स्तम्भों और दो पंक्तियों में फैली होती है, जबकि तालिका की मूल ग्रिड चार स्तम्भ और चार पंक्तियों को बनाए रखती है। मिलाए गए कोशिका की सामग्री या स्वरूपण को एक्सेस करने के लिए उसकी ऊपरी‑बाएँ स्थिति का उपयोग करें: इस उदाहरण में `table.get_Item(1, 1)`। मिलाए गए क्षेत्र में अन्य स्थितियाँ तालिका ग्रिड का हिस्सा बनी रहती हैं, इसलिए सीमा के बाहर की कोशिकाओं के संकेतक नहीं बदलते।
 
 ```python
 import jpype
@@ -117,11 +169,11 @@ finally:
 
 ## **तालिका कोशिकाओं को विभाजित करें**
 
-पिछले उदाहरण में कोशिकाओं को मिलाने से तालिका की ग्रिड बनी रहती है। किसी सेल को विभाजित करने से नया ग्रिड स्तंभ बन सकता है और उसके दाएँ स्थित कोशिकाओं के स्तंभ सूचकांक बदल सकते हैं। Aspose.Slides PowerPoint की तालिका ग्रिड मॉडल का अनुसरण करता है।
+पिछले उदाहरण में कोशिकाओं को मिलाने से तालिका की ग्रिड बनी रहती है। एक कोशिका को विभाजित करने से नई ग्रिड स्तम्भ बन सकता है और दाईं ओर की कोशिकाओं के स्तम्भ संकेतक बदल सकते हैं। Aspose.Slides PowerPoint की तालिका ग्रिड मॉडल का पालन करता है।
 
-यह उदाहरण 70‑पॉइंट स्तंभों और पंक्तियों के साथ 4‑बाय‑4 तालिका बनाता है और सेल `(1, 1)` पर [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) को कॉल करता है। सेल की 70‑पॉइंट चौड़ाई का आधा भाग दो समान‑चौड़ाई वाले कोशिकाओं को बनाने के लिये पास किया जाता है।
+यह उदाहरण 70‑बिंदु स्तम्भ और पंक्तियों के साथ 4‑बाय‑4 तालिका बनाता है और कोशिका `(1, 1)` पर [splitByWidth](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByWidth) कॉल करता है। कोशिका की 70‑बिंदु चौड़ाई का आधा भाग दो समान‑चौड़ाई वाली कोशिकाएँ बनाने के लिये पास किया जाता है।
 
-इस विभाजन के बाद, दो भागों को `table.get_Item(1, 1)` तथा `table.get_Item(2, 1)` के रूप में पहुँचा जाता है। तालिका ग्रिड अब पाँच स्तंभ रखती है: मूल रूप से स्तंभ 2 और 3 में स्थित कोशिकाएँ क्रमशः स्तंभ 3 और 4 में चली गई हैं। पंक्ति सूचकांक बदले नहीं रहते। विभाजन के बाद कोशिकाओं तक पहुँचते समय इन अद्यतन स्तंभ सूचकांकों का उपयोग करें।
+इस विभाजन के बाद, दो भागों को `table.get_Item(1, 1)` और `table.get_Item(2, 1)` से एक्सेस किया जाता है। तालिका ग्रिड अब पाँच स्तम्भ रखता है: मूलतः स्तम्भ 2 और 3 में मौजूद कोशिकाएँ क्रमशः स्तम्भ 3 और 4 में चली गईं। पंक्ति संकेतक अपरिवर्तित रहते हैं। विभाजन के बाद कोशिकाओं को एक्सेस करते समय इन अपडेटेड स्तम्भ संकेतकों का उपयोग करें।
 
 ```python
 import jpype
@@ -147,16 +199,22 @@ finally:
     presentation.dispose()
 ```
 
-### **पंक्ति या स्तंभ विस्तार द्वारा मिलाए गए कोशिकाओं को विभाजित करें**
+<!-- visual-explanation:manage-cells:start -->
+[![एक अनमर्ज्ड 70‑बिंदु कोशिका दो 35‑बिंदु कोशिकाओं में विभाजित होती है, जिससे पाँचवाँ ग्रिड स्तम्भ जुड़ता है और दाएँ के संकेतक शिफ्ट होते हैं।](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-डेटा भरने के लिये विलीन टेम्प्लेट कोशिकाओं को तैयार करने हेतु, मौजूदा पंक्ति सीमा के साथ विभाजन के लिये [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) का उपयोग करें, या स्तंभ सीमा के साथ विभाजन के लिये [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) का उपयोग करें।
+*चौड़ाई विभाजन कोशिका (1, 1) को प्रभावित करता है, शून्य‑आधारित (column, row) संकेतक का प्रयोग करते हुए। अन्य पंक्तियाँ दोनों नए स्तम्भ स्थितियों को कवर करने वाली एक कोशिका को रखती हैं।*
+<!-- visual-explanation:manage-cells:end -->
 
-`index` तर्क विभाजन के ऊपरी भाग की पंक्तियों या बाएँ भाग के स्तंभों की गिनती करता है; यह विलीन क्षेत्र के सापेक्ष होता है:
+### **पंक्ति या स्तम्भ स्पैन के द्वारा मिलाए गए कोशिकाओं को विभाजित करें**
+
+मिलाए गए टेम्पलेट कोशिकाओं को डेटा भरने के लिये तैयार करने हेतु, [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) का उपयोग करके मौजूदा पंक्ति सीमा के अनुसार विभाजन करें, या [splitByColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByColSpan) का उपयोग करके स्तम्भ सीमा के अनुसार विभाजन करें।
+
+`index` तर्क विभाजन के बाएँ भाग या ऊपर वाले भाग में पंक्तियों/स्तम्भों की गिनती करता है; यह मिलाए गये क्षेत्र के सापेक्ष होता है:
 
 - पंक्ति विभाजन: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getRowSpan)।
-- स्तंभ विभाजन: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan)।
+- स्तम्भ विभाजन: `0 < index <` [getColSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getColSpan)।
 
-उदाहरण अपेक्षा करता है कि प्रस्तुतीकरण की पहली स्लाइड पर पहला आकार एक तालिका हो, जिसमें `(1, 2)` और `(1, 3)` लंबवत रूप से मिलाए गए हों। निचले स्थान से शुरू करके, यह मूल को खोजने के लिये [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) और [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) का उपयोग करता है और दोनों विस्तारों की जाँच करता है। `splitByRowSpan(1)` फिर उत्पाद नामों के लिये पंक्तियों 2 और 3 को अलग करता है। क्षैतिज दो‑स्तंभ मिलान के लिये, इसके बजाय `splitByColSpan(1)` का उपयोग करें।
+उदाहरण मानता है कि प्रस्तुति में पहले स्लाइड की पहली आकृति एक तालिका है, जिसमें `(1, 2)` और `(1, 3)` ऊर्ध्वाधर रूप से मिलाए गए हैं। निचली स्थिति से शुरू करके यह [getFirstColumnIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstColumnIndex) और [getFirstRowIndex](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getFirstRowIndex) का उपयोग करके मूल बिंदु खोजता है और दोनों स्पैन की जाँच करता है। `splitByRowSpan(1)` तब पंक्तियों 2 और 3 को अलग करता है ताकि उत्पाद नाम रखे जा सकें। क्षैतिज दो‑स्तम्भ मिलान के लिये `splitByColSpan(1)` का उपयोग करें।
 
 ```python
 import jpype
@@ -180,7 +238,7 @@ try:
     if merged_cell.isMergedCell() and merged_cell.getRowSpan() == 2 and merged_cell.getColSpan() == 1:
         merged_cell.splitByRowSpan(1)
 
-        # विभाजन के बाद तालिका से प्राप्त होने वाली कोशिकाओं को प्राप्त करें।
+        # विभाजन के बाद तालिका से प्राप्त हुई कोशिकाओं को प्राप्त करें.
         upper_cell = table.get_Item(first_column_index, first_row_index)
         lower_cell = table.get_Item(first_column_index, first_row_index + 1)
         print(f"Upper cell merged: {upper_cell.isMergedCell()}")
@@ -196,15 +254,50 @@ finally:
     presentation.dispose()
 ```
 
-तालिका ग्रिड और आसपास की सेल सूचकांङ्क अपरिवर्तित रहते हैं। परिणामस्वरूप कोशिकाओं को उनके निर्देशांक से प्राप्त करें; यहाँ दोनों के विस्तार 1 हैं और [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) `False` प्रिंट करता है। एक विभाजन के बाद बड़े क्षेत्रों के कुछ भाग अभी भी भागिक रूप से मिलाए रह सकते हैं।
+तालिका ग्रिड और आसपास की कोशिका संकेतक अपरिवर्तित रहते हैं। परिणामस्वरूप कोशिकाओं को उनके निर्देशांक से प्राप्त करें; यहाँ दोनों की स्पैन 1 है और [isMergedCell](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#isMergedCell) `False` दिखाता है। एक विभाजन के बाद बड़े क्षेत्रों का भाग‑भाग में मिलाए रहना संभव है।
 
-मूल पाठ और उसका स्वरूपण ऊपर (या बाएँ) सेल में बना रहता है; नया सेल खाली है लेकिन भराव, सीमाएँ और मार्जिन जैसी सेल स्वरूपण को विरासत में प्राप्त करता है। विभाजन के बाद कोशिकाओं को भरें और आवश्यक पाठ स्वरूपण को स्पष्ट रूप से सेट करें।
+मूल पाठ और उसका स्वरूपण ऊपर (या बाएँ) कोशिका में बना रहता है; नई कोशिका खाली होती है लेकिन फॉर्मेटिंग जैसे भराव, सीमाएँ, तथा मार्जिन विरासत में लेती है। विभाजन के बाद कोशिकाओं को भरें और आवश्यक किसी भी टेक्स्ट स्वरूपण को स्पष्ट रूप से सेट करें।
 
-सहेजा गया प्रस्तुतीकरण अलग‑अलग "Product A" और "Product B" कोशिकाओं को टेम्प्लेट की सेल स्वरूपण के साथ रखता है। विवरण के लिये [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/) देखें।
+सहेजा गया प्रस्तुति अलग‑अलग "Product A" और "Product B" कोशिकाएँ दिखाता है, जिसमें टेम्पलेट की कोशिका स्वरूपण बनी रहती है। विवरण के लिये देखें [Cell API Reference](https://reference.aspose.com/slides/python-java/aspose.slides/cell/)।
 
-## **तालिका सेल की पृष्ठभूमि रंग बदलें**
+### **निर्दिष्ट ऊँचाई पर एक कोशिका को विभाजित करें**
 
-यह उदाहरण 150‑पॉइंट स्तंभों और 50‑पॉइंट पंक्तियों वाली तालिका बनाता है। यह [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) का उपयोग करके ठोस भराव चुनता है और [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) द्वारा लौटाए गए रंग को लाल सेट करता है, जिससे सेल `(2, 3)` (तीसरा स्तंभ और चौथी पंक्ति) लाल हो जाता है।
+[splitByHeight](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByHeight) ऊपरी भाग की ऊँचाई बिंदुओं में लेता है। [splitByRowSpan](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#splitByRowSpan) ऊपरी भाग में मौजूदा ग्रिड पंक्तियों की संख्या लेता है। 40‑बिंदु की कोशिका को दाएँ स्तम्भ में केंद्रित करने के लिये, कोशिका की वास्तविक ऊँचाई से 40 घटाएँ और शेष स्थान को बराबर‑बराबर ऊपर और नीचे विभाजित करें।
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    table = slide.getShapes().addTable(50, 50, [160, 160], [140])
+    table.get_Item(0, 0).getTextFrame().setText("Left")
+
+    height = table.get_Item(1, 0).getHeight()
+    margin = (height - 40) / 2
+    
+    table.get_Item(1, 0).splitByHeight(margin)
+    table.get_Item(1, 1).splitByHeight(40)
+    table.get_Item(1, 1).getTextFrame().setText("Middle")
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+पहला विभाजन एक ग्रिड पंक्ति जोड़ता है और `(1, 1)` में निचले 90 बिंदु छोड़ता है। दूसरा विभाजन उस कोशिका को 40‑बिंदु मध्य कोशिका और 50‑बिंदु निचली कोशिका में बाँटता है। दाएँ स्तम्भ में अब तीन कोशिकाएँ हैं, ऊँचाइयाँ क्रमशः 50, 40 और 50 बिंदु ऊपर‑से‑नीचे हैं। बायाँ कोशिका सभी तीन पंक्तियों को कवर करता है और अपनी मूल 140 बिंदु की ऊँचाई बनाए रखता है।
+
+![बायाँ कोशिका पूरी तालिका की ऊँचाई को कवर करता है, जबकि तीन कोशिकाएँ मध्य में स्थित हैं।](split-by-height.png)
+
+## **तालिका कोशिका की पृष्ठभूमि रंग बदलें**
+
+यह उदाहरण 150‑बिंदु स्तम्भ और 50‑बिंदु पंक्तियों वाली तालिका बनाता है। यह [setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) का उपयोग करके ठोस भराव चुनता है और [getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) द्वारा प्राप्त रंग को लाल सेट करता है, कोशिका `(2, 3)` के लिये, जो तृतीय स्तम्भ और चतुर्थ पंक्ति में है।
 
 ```python
 import jpype
@@ -233,11 +326,11 @@ finally:
     presentation.dispose()
 ```
 
-## **तालिका सेल के भीतर छवि जोड़ें**
+## **एक तालिका कोशिका के भीतर छवि जोड़ें**
 
-इस उदाहरण को चलाने से पहले इनपुट छवि को कार्य निर्देशिका में रखें। यह छवि को [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) से लोड करता है और प्रस्तुतीकरण की छवि संग्रह में [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) के साथ जोड़ता है। फिर यह छवि को सेल `(0, 0)` (तालिका की पहली कोशिका) के चित्र भराव में असाइन करता है।
+उदाहरण चलाने से पहले इनपुट छवि को कार्य निर्देशिका में रखें। यह छवि को [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) से लोड करता है और प्रस्तुति की इमेज कलेक्शन में [addImage](https://reference.aspose.com/slides/python-java/aspose.slides/imagecollection/#addImage) के साथ जोड़ता है। फिर यह छवि को कोशिका `(0, 0)` के पिक्चर फ़िल में असाइन करता है, जो तालिका की पहली कोशिका है।
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) छवि को सेल में भरने के लिये खींचता है, जिससे इसका अनुपात बदल सकता है। स्तंभ चौड़ाइयाँ और पंक्ति ऊँचाइयाँ पॉइंट में हैं। लोड की गई छवि को `finally` ब्लॉक में प्रस्तुतीकरण में जोड़ने के बाद नष्ट किया जाता है।
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) छवि को कोशिका भरने के लिये फैलाता है, जिससे उसका अनुपात बदल सकता है। स्तम्भ चौड़ाई और पंक्ति ऊँचाई बिंदुओं में हैं। लोड की गई छवि को `finally` ब्लॉक में नष्ट किया जाता है, जब वह प्रस्तुति में जोड़ दी गई हो।
 
 ```python
 import jpype
@@ -273,18 +366,18 @@ finally:
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं एक ही सेल के विभिन्न पक्षों के लिये अलग‑अलग रेखा मोटाई और शैली सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के विभिन्न पक्षों के लिये अलग‑अलग रेखा मोटाई और शैली सेट कर सकता हूँ?**
 
-हाँ। [top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) सीमाओं की अलग‑अलग विशेषताएँ होती हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है।
+हँ। शीर्ष‑[top](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderTop)/नीचे‑[bottom](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderBottom)/बाएँ‑[left](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderLeft)/दाएँ‑[right](https://reference.aspose.com/slides/python-java/aspose.slides/cellformat/#getBorderRight) सीमाओं की अलग‑अलग प्रॉपर्टी होती है, इसलिए प्रत्येक पक्ष की मोटाई व शैली भिन्न हो सकती है।
 
-**यदि मैं चित्र को सेल की पृष्ठभूमि के रूप में सेट करने के बाद स्तंभ/पंक्ति आकार बदलूँ तो छवि क्या करती है?**
+**यदि मैं चित्र को कोशिका की पृष्ठभूमि के रूप में सेट करने के बाद स्तम्भ/पंक्ति का आकार बदलूँ तो क्या होगा?**
 
-व्यवहार [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। स्ट्रेच करने पर छवि नए सेल के अनुसार समायोजित होती है; टाइल करने पर टाइलें पुनःगणना की जाती हैं।
+वर्ताव [fill mode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। स्ट्रेच करने पर चित्र नई कोशिका के अनुसार समायोजित हो जाता है; टाइल करने पर टाइल्स पुनः गणना की जाती हैं।
 
-**क्या मैं सेल की सभी सामग्री को हाइपरलिंक असाइन कर सकता हूँ?**
+**क्या मैं पूरे कोशिका की सामग्री पर एक हाइपरलिंक असाइन कर सकता हूँ?**
 
-[Hyperlinks](/slides/hi/python-java/manage-hyperlinks/) को टेक्स्ट (portion) स्तर पर या संपूर्ण तालिका/आकार स्तर पर सेट किया जाता है। व्यवहार में, आप लिंक को एक भाग या सेल के सभी पाठ पर असाइन करते हैं।
+[Hyperlinks](/slides/hi/python-java/manage-hyperlinks/) को कोशिका के टेक्स्ट (portion) स्तर पर या पूरी तालिका/आकृति स्तर पर सेट किया जाता है। व्यवहार में, आप लिंक को एक पोर्शन या कोशिका के सभी टेक्स्ट पर असाइन करते हैं।
 
-**क्या मैं एक ही सेल के भीतर विभिन्न फॉन्ट सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका के भीतर विभिन्न फ़ॉन्ट सेट कर सकता हूँ?**
 
-हाँ। सेल का टेक्स्ट फ्रेम [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (रन्स) का समर्थन करता है, जिनमें फ़ॉन्ट परिवार, शैली, आकार और रंग जैसी स्वतंत्र स्वरूपण होती है।
+हँ। कोशिका का टेक्स्ट फ्रेम [portions](https://reference.aspose.com/slides/python-java/aspose.slides/portion/) (runs) को समर्थन देता है, जिनमें फ़ॉन्ट फ़ैमिली, शैली, आकार और रंग जैसी स्वतंत्र स्वरूपण हो सकती है।

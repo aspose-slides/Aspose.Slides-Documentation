@@ -1,31 +1,31 @@
 ---
-title: "C++ का उपयोग कर प्रस्तुतियों में तालिका कोशिकाओं को प्रबंधित करें"
-linktitle: "कोशिकाओं को प्रबंधित करें"
+title: C++ का उपयोग करके प्रस्तुतियों में तालिका कोशिकाओं को प्रबंधित करें
+linktitle: कोशिकाओं का प्रबंधन
 type: docs
 weight: 30
 url: /hi/cpp/manage-cells/
 keywords:
-  - "तालिका कोशिका"
-  - "कोशिकाओं को मिलाएँ"
-  - "सीमा हटाएँ"
-  - "कोशिका विभाजित करें"
-  - "कोशिका में चित्र"
-  - "पृष्ठभूमि रंग"
-  - "PowerPoint"
-  - "प्रस्तुति"
-  - "C++"
-  - "Aspose.Slides"
-description: "C++ में PowerPoint तालिका कोशिकाओं को प्रबंधित करें: मर्ज्ड कोशिकाओं की पहचान करें, सीमाओं को हटाएँ, कोशिकाओं को विभाजित करें, और Aspose.Slides for C++ के साथ पृष्ठभूमि रंग और चित्र सेट करें।"
+- तालिका कोशिका
+- कोशिकाओं का मर्ज
+- बॉर्डर हटाएँ
+- कोशिका विभाजित करें
+- कोशिका में छवि
+- पृष्ठभूमि रंग
+- PowerPoint
+- प्रस्तुति
+- C++
+- Aspose.Slides
+description: "C++ के साथ PowerPoint तालिका कोशिकाओं का प्रबंधन: मर्ज की गई कोशिकाओं की पहचान, बॉर्डर हटाना, कोशिकाओं का विभाजन, और Aspose.Slides for C++ के साथ पृष्ठभूमि रंग और छवियों का सेट करना।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुँचने और उन्हें संशोधित करने की अनुमति देता है। यह लेख बताता है कि मर्ज की गई तालिका कोशिकाओं की पहचान कैसे करें, कोशिका की सीमाओं को हटाएँ, मर्ज या विभाजन के बाद कोशिका क्रमांक के साथ काम करें, कोशिका की पृष्ठभूमि रंग बदलें, और तालिका कोशिका के अंदर एक चित्र जोड़ें। उदाहरण दिखाते हैं कि प्रस्तुति कैसे बनाएँ या खोलें, स्लाइड से तालिका प्राप्त करें, कोशिका गुणों के माध्यम से कोशिका फ़ॉर्मेटिंग अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में तालिका कोशिकाओं तक पहुंचने और उन्हें संशोधित करने की अनुमति देता है। यह लेख बताता है कि मर्ज किए गए तालिका कोशिकाओं की पहचान कैसे करें, कोशिका बॉर्डर्स को कैसे हटाएँ, मर्ज या विभाजन के बाद कोशिका क्रमांकन के साथ कैसे कार्य करें, कोशिका की पृष्ठभूमि रंग को कैसे बदलें, और तालिका कोशिका के भीतर छवि कैसे जोड़ें। उदाहरण दर्शाते हैं कि प्रस्तुति कैसे बनाएं या खोलें, स्लाइड से तालिका कैसे प्राप्त करें, कोशिका गुणों के माध्यम से कोशिका स्वरूपण कैसे अपडेट करें, और संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में कैसे सहेजें।
 
-Aspose.Slides शून्य-आधारित सूचकांक का उपयोग करके तालिका कोशिकाओं तक क्रम `(column, row)` में पहुँचता है।
+Aspose.Slides तालिका कोशिकाओं तक पहुंचने के लिए शून्य-आधारित सूचकांक का उपयोग करता है, क्रम `(column, row)` में।
 
-## **मर्ज की गई तालिका कोशिका की पहचान करें**
+## **एक मर्ज की गई तालिका कोशिका की पहचान करें**
 
-उदाहरण मौजूदा प्रस्तुति को खोलता है और पहले स्लाइड पर प्रथम आकार को एक तालिका के रूप में पहुँचता है। यह मानता है कि स्लाइड और आकार मौजूद हैं और आकार एक तालिका है। फिर यह सभी पंक्तियों और स्तंभों के माध्यम से इटरेट करता है और मर्ज की गई क्षेत्रों में कोशिकाओं की पहचान करने के लिए [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) का उपयोग करता है। प्रत्येक मिलान के लिए, यह कोशिका निर्देशांक `row;column` क्रम में प्रिंट करता है, [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), और क्षेत्र के प्रारम्भिक निर्देशांक, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) तथा [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/)।
+उदाहरण एक मौजूदा प्रस्तुति को खोलता है और पहली स्लाइड पर पहली आकृति को तालिका के रूप में पहुँचता है। यह मानता है कि स्लाइड और आकृति मौजूद हैं और आकृति एक तालिका है। फिर यह सभी पंक्तियों और स्तंभों पर पुनरावृति करता है और मर्ज किए गए क्षेत्रों में कोशिकाओं की पहचान करने के लिए [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) का उपयोग करता है। प्रत्येक मिलान के लिए, यह कोशिका समन्वय को `row;column` क्रम में प्रिंट करता है, तथा [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/), [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/), और क्षेत्र के प्रारंभिक समन्वय, [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) और [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) को भी।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,9 +60,9 @@ for (auto rowIndex = 0; rowIndex < rowCount; rowIndex++)
 }
 ```
 
-## **तालिका कोशिका सीमाएँ हटाएँ**
+## **तालिका कोशिका बॉर्डर हटाएँ**
 
-एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) बनाएँ और अपने पहले स्लाइड पर [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) का प्रयोग करके एक तालिका जोड़ें। स्तंभ चौड़ाई, पंक्ति ऊँचाई, और तालिका की स्थिति बिंदुओं (points) में निर्दिष्ट की जाती है। उदाहरण सभी चार कोशिका सीमाओं को [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) पर सेट करता है, जिससे वे अदृश्य हो जाते हैं।
+एक [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) बनाएं और अपनी पहली स्लाइड में [AddTable](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) का उपयोग करके एक तालिका जोड़ें। स्तंभ चौड़ाइयाँ, पंक्ति ऊँचाइयाँ, और तालिका की स्थिति पॉइंट्स में निर्दिष्ट की जाती हैं। उदाहरण सभी चार कोशिका बॉर्डर को [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) पर सेट करता है, जिससे वे अदृश्य हो जाते हैं।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -104,11 +104,78 @@ for (const auto& row : IterateOver(table->get_Rows()))
 presentation->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका कोशिकाओं को मर्ज करें**
+## **विकर्ण कोशिका बॉर्डर जोड़ें**
 
-एक आयताकार सीमा की तालिका कोशिकाओं को एक कोशिका में मिलाने के लिए [MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) का उपयोग करें। सीमा के शीर्ष-बाएँ और निचले-दाएँ कोने की कोशिकाओं को निर्दिष्ट करें। अंतिम तर्क नियंत्रित करता है कि क्या मर्ज निर्दिष्ट सीमा के बाहर की कोशिकाओं को शामिल कर सकता है; `false` मर्ज को उस सीमा के भीतर रखता है।
+[ get_BorderDiagonalDown](https://reference.aspose.com/slides/cpp/aspose.slides/icellformat/get_borderdiagonaldown/) का उपयोग करके शीर्ष-बाएँ कोने से नीचे-दाएँ कोने तक एक रेखा खींचें, और [get_BorderDiagonalUp](https://reference.aspose.com/slides/cpp/aspose.slides/icellformat/get_borderdiagonalup/) का उपयोग करके नीचे-बाएँ कोने से शीर्ष-दाएँ कोने तक एक रेखा खींचें। एक विकर्ण कोने हेडर को संकेत कर सकता है; दोनों विकर्ण मिलकर X बनाते हैं जिससे कोशिका अनुपयुक्त चिन्हित होती है।
 
-उदाहरण 70-पॉइंट स्तंभों और पंक्तियों के साथ 4x4 तालिका बनाता है, फिर `(1, 1)` से `(2, 2)` तक के चार केंद्रीय कोशिकाओं को मर्ज करता है। परिणामी कोशिका दो स्तंभ और दो पंक्तियों को कवर करती है, जबकि तालिका की मूल ग्रिड चार स्तंभ और चार पंक्तियों को बरकरार रखती है। मर्ज की गई कोशिका की सामग्री या फ़ॉर्मेटिंग तक पहुँचने के लिए, इस उदाहरण में उसकी शीर्ष-बाएँ स्थिति का उपयोग करें: `table->idx_get(1, 1)`। मर्ज रेंज में अन्य स्थितियां तालिका ग्रिड का हिस्सा बनी रहती हैं, इसलिए सीमा के बाहर की कोशिकाओं के सूचकांक परिवर्तित नहीं होते।
+प्रत्येक विकर्ण एक [ILineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/) है। उसके भराई तक पहुँचने के लिए [get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_fillformat/) का उपयोग करें, फिर [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ilinefillformat/set_filltype/) को [FillType::Solid](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) के साथ कॉल करें और [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ilinefillformat/get_solidfillcolor/) के माध्यम से एक रंग चुनें। रेखा की चौड़ाई को पॉइंट्स में [set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) से सेट करें।
+
+उदाहरण एक पंक्ति में तीन कोशिकाएँ बनाता है: एक लाल नीचे की ओर विकर्ण, एक नीला ऊपर की ओर विकर्ण, और दोनों विकर्ण। यह शीर्ष, नीचे, बाएँ और दाएँ कोशिका बॉर्डर को अपरिवर्तित रखता है।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/FillType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/array.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({210, 210, 210});
+auto rowHeights = MakeArray<double>({160});
+auto table = slide->get_Shapes()->AddTable(45, 130, columnWidths, rowHeights);
+
+auto downwardBorder = table->idx_get(0, 0)->get_CellFormat()->get_BorderDiagonalDown();
+downwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+downwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+downwardBorder->set_Width(3);
+
+auto upwardBorder = table->idx_get(1, 0)->get_CellFormat()->get_BorderDiagonalUp();
+upwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+upwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+upwardBorder->set_Width(5);
+
+auto crossDownwardBorder = table->idx_get(2, 0)->get_CellFormat()->get_BorderDiagonalDown();
+crossDownwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+crossDownwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+crossDownwardBorder->set_Width(3);
+
+auto crossUpwardBorder = table->idx_get(2, 0)->get_CellFormat()->get_BorderDiagonalUp();
+crossUpwardBorder->get_FillFormat()->set_FillType(FillType::Solid);
+crossUpwardBorder->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+crossUpwardBorder->set_Width(5);
+
+presentation->Save(u"diagonal_cell_borders.pptx", SaveFormat::Pptx);
+```
+
+एक विकर्ण एक स्वरूपण गुण है, कोशिका विभाजन नहीं। प्रत्येक कोशिका में एकल टेक्स्ट फ्रेम रहता है जिसे [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) के माध्यम से पहुँच किया जाता है; विकर्ण के दोनों तरफ के क्षेत्र को स्वतंत्र रूप से संपादित नहीं किया जा सकता।
+
+सहेजी गई तालिका, Microsoft PowerPoint में प्रदर्शित:
+
+![तीन तालिका कोशिकाएँ जो शीर्ष-बायें से नीचे-दायें एक लाल विकर्ण, नीचे-बायें से शीर्ष-दायें एक नीला विकर्ण, और दोनों विकर्ण X बनाते हुए दिखाती हैं।](diagonal-cell-borders.png)
+
+*बाएँ से दाएँ: नीचे की ओर विकर्ण (लाल, 3 pt), ऊपर की ओर विकर्ण (नीला, 5 pt), और दोनों विकर्ण।*
+
+## **तालिका कोशिकाओं को मिलाएँ**
+
+[MergeCells](https://reference.aspose.com/slides/cpp/aspose.slides/itable/mergecells/) का उपयोग करके तालिका कोशिकाओं की आयताकार सीमा को एक कोशिका में संयोजित करें। सीमा के शीर्ष-बाएँ और नीचे-दाएँ कोनों पर स्थित कोशिकाओं को निर्दिष्ट करें। अंतिम तर्क निर्धारित करता है कि मर्ज निर्दिष्ट सीमा से बाहर की कोशिकाओं को शामिल कर सकता है या नहीं; `false` मर्ज को उसी सीमा के भीतर रखता है।
+
+उदाहरण 70-पॉइंट स्तंभों और पंक्तियों वाली 4‑बाय‑4 तालिका बनाता है, फिर `(1, 1)` से `(2, 2)` तक के चार केंद्रीय कोशिकाओं को मर्ज करता है। परिणामी कोशिका दो स्तंभों और दो पंक्तियों को कवर करती है, जबकि तालिका की मूल ग्रिड चार स्तंभ और चार पंक्तियों को बरकरार रखती है। इस उदाहरण में मर्ज की गई कोशिका की सामग्री या स्वरूपण तक पहुँचने के लिए उसके शीर्ष‑बाएँ स्थिति का उपयोग करें: `table->idx_get(1, 1)`। मर्ज रेंज के बाहर की स्थितियाँ ग्रिड का हिस्सा बने रहती हैं, इसलिए रेंज के बाहर की कोशिकाओं के सूचकांक नहीं बदलते।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -138,11 +205,11 @@ presentation->Save(u"merged_cells.pptx", SaveFormat::Pptx);
 
 ## **तालिका कोशिकाओं को विभाजित करें**
 
-पहले उदाहरण में कोशिकाओं को मर्ज करने से तालिका की ग्रिड संरक्षित रहती है। किसी कोशिका को विभाजित करने से नया ग्रिड स्तंभ बन सकता है और उसकी दाईं ओर की कोशिकाओं के स्तंभ सूचकांक बदल सकते हैं। Aspose.Slides PowerPoint की तालिका ग्रिड मॉडल का पालन करता है।
+पिछले उदाहरण में कोशिकाओं को मर्ज करने से तालिका की ग्रिड बरकरार रहती है। किसी कोशिका को विभाजित करने से नया ग्रिड कॉलम जोड़ सकता है और उसके दाएँ स्थित कोशिकाओं के कॉलम सूचकांक बदल सकते हैं। Aspose.Slides PowerPoint की तालिका ग्रिड मॉडल का पालन करता है।
 
-यह उदाहरण 70-पॉइंट स्तंभों और पंक्तियों के साथ 4x4 तालिका बनाता है और कोशिका `(1, 1)` पर [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) को कॉल करता है। कोशिका की 70-पॉइंट चौड़ाई का आधा भाग दो समान-चौड़ाई वाली कोशिकाओं के निर्माण के लिए पास किया जाता है।
+यह उदाहरण 70‑पॉइंट स्तंभों और पंक्तियों वाली 4‑बाय‑4 तालिका बनाता है और कोशिका `(1, 1)` पर [SplitByWidth](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbywidth/) को कॉल करता है। कोशिका की 70‑पॉइंट चौड़ाई का आधा भाग दो समान‑चौड़ाई वाली कोशिकाएँ बनाने के लिए पास किया जाता है।
 
-इस विभाजन के बाद, दोनों हिस्सों तक `table->idx_get(1, 1)` और `table->idx_get(2, 1)` के रूप में पहुँचा जाता है। तालिका ग्रिड अब पाँच स्तंभ रखती है: मूल रूप से स्तंभ 2 और 3 में स्थित कोशिकाएँ क्रमशः स्तंभ 3 और 4 में चली जाती हैं। पंक्ति सूचकांक अपरिवर्तित रहते हैं। विभाजन के बाद कोशिकाओं तक पहुँचते समय इन अद्यतन स्तंभ सूचकांकों का उपयोग करें।
+इस विभाजन के बाद, दो हिस्सों तक `table->idx_get(1, 1)` और `table->idx_get(2, 1)` से पहुँच सकते हैं। तालिका ग्रिड अब पाँच कॉलम रखता है: मूल रूप से कॉलम 2 और 3 में थीं कोशिकाएँ क्रमशः कॉलम 3 और 4 में स्थानांतरित हो गई हैं। पंक्ति सूचकांक समान रहता है। विभाजन के बाद कोशिकाओं तक पहुँचते समय इन अद्यतन कॉलम सूचकांकों का उपयोग करें।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -170,16 +237,20 @@ table->idx_get(1, 1)->SplitByWidth(table->idx_get(1, 1)->get_Width() / 2);
 presentation->Save(u"split_cells.pptx", SaveFormat::Pptx);
 ```
 
-### **पंक्ति या स्तंभ स्पैन द्वारा मर्ज की गई कोशिकाओं को विभाजित करें**
+[![एक अनमर्ज किया गया 70‑पॉइंट कोशिका दो 35‑पॉइंट कोशिकाओं में विभाजित होती है, जिसके कारण पाँचवाँ ग्रिड कॉलम जुड़ता है और दाईं ओर के सूचकांक शिफ्ट होते हैं।](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-डेटा भरने के लिए मर्ज किए गए टेम्पलेट कोशिकाओं को तैयार करने हेतु, मौजूदा पंक्ति सीमा के साथ विभाजन के लिए [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) और स्तंभ सीमा के साथ विभाजन के लिए [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) का उपयोग करें।
+*चौड़ाई विभाजन (1, 1) कोशिका को प्रभावित करता है, शून्य‑आधारित (column, row) संकेतकों का उपयोग करते हुए। अन्य पंक्तियों में कोशिका दोनों नए कॉलम स्थितियों को कवर करती रहती है।*
 
-`index` तर्क विभाजन के ऊपरी भाग में पंक्तियों या बाएँ भाग में स्तंभों की गिनती करता है; यह मर्ज किए गए क्षेत्र के सापेक्ष है:
+### **पंक्ति या कॉलम स्पैन द्वारा मर्ज की गई कोशिकाओं को विभित करें**
+
+डेटा भरने के लिए मर्ज टेम्प्लेट कोशिकाओं को तैयार करने हेतु, मौजूदा पंक्ति सीमा के साथ विभाजन के लिए [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) या कॉलम सीमा के साथ विभाजन के लिए [SplitByColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbycolspan/) का उपयोग करें।
+
+`index` तर्क ऊपर के भाग की पंक्तियों या बाएँ भाग के कॉलमों की गिनती करता है; यह मर्ज रेंज के सापेक्ष है:
 
 - पंक्ति विभाजन: `0 < index <` [get_RowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_rowspan/)।
-- स्तंभ विभाजन: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)।
+- कॉलम विभाजन: `0 < index <` [get_ColSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_colspan/)।
 
-उदाहरण मानता है कि प्रस्तुति में पहले स्लाइड पर प्रथम आकार के रूप में एक तालिका है, जिसमें `(1, 2)` और `(1, 3)` को लंबवत रूप से मर्ज किया गया है। निचली स्थिति से शुरू करते हुए, यह मूल को खोजने के लिए [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) और [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) का उपयोग करता है और दोनों स्पैन को जाँचता है। `SplitByRowSpan(1)` फिर उत्पाद नामों के लिए पंक्तियों 2 और 3 को अलग करता है। क्षैतिज दो-स्तंभ मर्ज के लिए, इसके बजाय `SplitByColSpan(1)` का उपयोग करें।
+उदाहरण अपेक्षा करता है कि प्रस्तुति की पहली स्लाइड पर पहला आकार एक तालिका हो, जहाँ `(1, 2)` और `(1, 3)` ऊर्ध्वाधर रूप से मर्ज हैं। निचली स्थिति से शुरू करते हुए, यह मूल स्थान खोजने के लिए [get_FirstColumnIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstcolumnindex/) और [get_FirstRowIndex](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_firstrowindex/) का उपयोग करता है और दोनों स्पैन की जाँच करता है। `SplitByRowSpan(1)` फिर उत्पाद नामों के लिए पंक्तियों 2 और 3 को अलग करता है। क्षैतिज दो‑कॉलम मर्ज के लिए, `SplitByColSpan(1)` का उपयोग करें।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -209,7 +280,7 @@ if (mergedCell->get_IsMergedCell() && mergedCell->get_RowSpan() == 2 && mergedCe
 {
     mergedCell->SplitByRowSpan(1);
 
-    // विभाजन के बाद तालिका से प्राप्त हुई कोशिकाओं को प्राप्त करें।
+    // स्प्लिट करने के बाद तालिका से प्राप्त होने वाली कोशिकाओं को प्राप्त करें.
     auto upperCell = table->idx_get(firstColumnIndex, firstRowIndex);
     auto lowerCell = table->idx_get(firstColumnIndex, firstRowIndex + 1);
     Console::WriteLine(u"Upper cell merged: {0}", upperCell->get_IsMergedCell());
@@ -226,15 +297,57 @@ else
 }
 ```
 
-तालिका ग्रिड और आसपास की कोशिका सूचकांक अपरिवर्तित रहते हैं। परिणामी कोशिकाओं को उनके निर्देशांक द्वारा प्राप्त करें; यहाँ, दोनों का स्पैन 1 है और [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) `False` प्रिंट करता है। एक विभाजन के बाद भी बड़े क्षेत्रों का कुछ हिस्सा मर्ज्ड रह सकता है।
+तालिका ग्रिड और आसपास की कोशिका सूचकांक अपरिवर्तित रहते हैं। परिणामस्वरूप कोशिकाओं को उनके समन्वय द्वारा पुनः प्राप्त करें; यहाँ दोनों की स्पैन 1 है और [get_IsMergedCell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_ismergedcell/) `False` प्रिंट करता है। एक विभाजन के बाद भी बड़े क्षेत्रों के कुछ हिस्से मर्ज रह सकते हैं।
 
-मौलिक पाठ और उसका फ़ॉर्मेटिंग ऊपर (या बाएँ) कोशिका में बना रहता है; नई कोशिका खाली है लेकिन भराव, सीमाएँ और मार्जिन जैसी कोशिका फ़ॉर्मेटिंग को विरासत में लेती है। विभाजन के बाद कोशिकाओं में डेटा भरें और आवश्यक पाठ फ़ॉर्मेटिंग को स्पष्ट रूप से सेट करें।
+मूल पाठ और उसका स्वरूपण ऊपर (या बाएँ) कोशिका में बना रहता है; नई कोशिका खाली होती है लेकिन भराई, बॉर्डर और मार्जिन जैसे सेल स्वरूपण को विरासत में प्राप्त करती है। विभाजन के बाद कोशिकाओं को भरें और आवश्यक टेक्स्ट स्वरूपण स्पष्ट रूप से सेट करें।
 
-सहेजी गई प्रस्तुति में अलग-अलग "Product A" और "Product B" कोशिकाएँ होती हैं जिनमें टेम्पलेट की कोशिका फ़ॉर्मेटिंग बरकरार रहती है। विवरण के लिए देखें [सेल API रेफ़रेंस](https://reference.aspose.com/slides/cpp/aspose.slides/cell/)।
+सहेजी गई प्रस्तुति में अलग‑अलग "Product A" और "Product B" कोशिकाएँ होती हैं, जिनमें टेम्प्लेट का सेल स्वरूपण बरकरार रहता है। विवरण के लिए देखें [Cell API Reference](https://reference.aspose.com/slides/cpp/aspose.slides/cell/)।
 
-## **तालिका कोशिका की पृष्ठभूमि रंग बदलें**
+### **विशिष्ट ऊँचाई पर कोशिका को विभाजित करें**
 
-यह उदाहरण 150-पॉइंट स्तंभों और 50-पॉइंट पंक्तियों वाली तालिका बनाता है। यह [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) का प्रयोग करके ठोस भराव चुनता है और [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) का उपयोग करके भराव रंग तक पहुँचता है और इसे सेल `(2, 3)` के लिए लाल सेट करता है, जो तीसरे स्तंभ और चौथी पंक्ति में स्थित है।
+[SplitByHeight](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyheight/) ऊपरी भाग की ऊँचाई पॉइंट्स में लेता है। [SplitByRowSpan](https://reference.aspose.com/slides/cpp/aspose.slides/icell/splitbyrowspan/) ऊपरी भाग में मौजूदा ग्रिड पंक्तियों की संख्या लेता है। दाएँ कॉलम में 40‑पॉइंट कोशिका को केंद्रित करने के लिए, कोशिका की वास्तविक ऊँचाई से 40 घटाएँ और शेष स्थान को ऊपर और नीचे बराबर बाँटें।
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/ITextFrame.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto columnWidths = MakeArray<double>({160, 160});
+auto rowHeights = MakeArray<double>({140});
+
+auto table = slide->get_Shapes()->AddTable(50, 50, columnWidths, rowHeights);
+table->idx_get(0, 0)->get_TextFrame()->set_Text(u"Left");
+
+auto height = table->idx_get(1, 0)->get_Height();
+auto margin = (height - 40) / 2;
+
+table->idx_get(1, 0)->SplitByHeight(margin);
+table->idx_get(1, 1)->SplitByHeight(40);
+table->idx_get(1, 1)->get_TextFrame()->set_Text(u"Middle");
+
+presentation->Save(u"split_by_height.pptx", SaveFormat::Pptx);
+```
+
+पहला विभाजन एक ग्रिड पंक्ति जोड़ता है, जिससे नीचे की 90 पॉइंट्स `(1, 1)` पर रहती है। दूसरा विभाजन उस कोशिका को लक्षित करता है और उसके नीचेอีก एक पंक्ति जोड़ता है। दाएँ कॉलम में अब `(1, 0)` 50 पॉइंट्स (`margin`) पर, `(1, 1)` 40 पॉइंट्स पर, और `(1, 2)` 50 पॉइंट्स (`margin`) पर हैं। बायाँ कोशिका अपनी मूल 140‑पॉइंट ऊँचाई पर सभी तीन पंक्तियों को कवर करता है।
+
+![बायाँ कोशिका पूरी तालिका की ऊँचाई को कवर करता है, और उसके बगल में मध्य में तीन कोशिकाएँ हैं।](split-by-height.png)
+
+## **तालिका कोशिका पृष्ठभूमि रंग बदलें**
+
+यह उदाहरण 150‑पॉइंट स्तंभों और 50‑पॉइंट पंक्तियों वाली एक तालिका बनाता है। यह [set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) का उपयोग करके एक ठोस भराई चुनता है और [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) के माध्यम से भराई रंग तक पहुँचता है तथा इसे लाल सेट करता है, ताकि `(2, 3)` कोशिका (तीसरा स्तंभ, चौथी पंक्ति) का रंग लाल हो।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -270,11 +383,11 @@ cell->get_CellFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color:
 presentation->Save(u"cell_background_color.pptx", SaveFormat::Pptx);
 ```
 
-## **तालिका कोशिका के अंदर एक चित्र जोड़ें**
+## **तालिका कोशिका के भीतर एक छवि जोड़ें**
 
-इस उदाहरण को चलाने से पहले इनपुट चित्र को कार्य निर्देशिका में रखें। यह चित्र को [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) का उपयोग करके लोड करता है और उसे प्रस्तुति के इमेज कलेक्शन में [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) से जोड़ता है। फिर यह चित्र को कोशिका `(0, 0)` के पिक्चर फ़िल में असाइन करता है, जो तालिका की पहली कोशिका है।
+इस उदाहरण को चलाने से पहले इनपुट छवि को कार्यशील निर्देशिका में रखें। यह छवि को [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) से लोड करता है और इसे प्रस्तुति की छवि संग्रह में [AddImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimagecollection/addimage/) से जोड़ता है। फिर यह छवि को कोशिका `(0, 0)` (तालिका की पहली कोशिका) के पिक्चर फ़िल में असाइन करता है।
 
-[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) चित्र को सेल में भरने के लिए फैलाता है, जिससे उसका अनुपात बदल सकता है। स्तंभ चौड़ाई और पंक्ति ऊँचाई बिंदुओं (points) में हैं। लोड किया गया चित्र प्रस्तुति में जोड़ने के बाद नष्ट कर दिया जाता है।
+[PictureFillMode::Stretch](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) छवि को कोशिका में भरने के लिये विस्तारित करता है, जिससे उसका अनुपात बदल सकता है। स्तंभ चौड़ाइयाँ और पंक्ति ऊँचाइयाँ पॉइंट्स में हैं। लोड की गई छवि को प्रस्तुति में जोड़ने के बाद समाप्त कर दिया जाता है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -318,20 +431,20 @@ table->idx_get(0, 0)->get_CellFormat()->get_FillFormat()->get_PictureFillFormat(
 presentation->Save(u"table_cell_with_image.pptx", SaveFormat::Pptx);
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
 **क्या मैं एक ही कोशिका के विभिन्न पक्षों के लिए अलग-अलग रेखा मोटाई और शैली सेट कर सकता हूँ?**
 
-हाँ। [top](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[bottom](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[left](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[right](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) सीमाओं के अलग-अलग गुण होते हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग‑अलग हो सकती है।
+हाँ। [ऊपर](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_bordertop/)/[नीचे](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderbottom/)/[बाएँ](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderleft/)/[दाएँ](https://reference.aspose.com/slides/cpp/aspose.slides/cellformat/get_borderright/) बॉर्डर के अलग‑अलग गुण होते हैं, इसलिए प्रत्येक पक्ष की मोटाई और शैली अलग हो सकती है।
 
-**यदि मैं कोशिका की पृष्ठभूमि के रूप में चित्र सेट करने के बाद स्तंभ/पंक्ति का आकार बदलूँ तो चित्र के साथ क्या होता है?**
+**सेल की पृष्ठभूमि में चित्र सेट करने के बाद यदि मैं कॉलम/पंक्ति आकार बदलूँ तो छवि क्या करती है?**
 
-व्यवहार [fill mode](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) पर निर्भर करता है (stretch/tile)। स्ट्रेचिंग के साथ, चित्र नए सेल के अनुसार समायोजित हो जाता है; टाइलिंग के साथ, टाइलें पुनः गणना की जाती हैं।
+व्यवहार चयनित [भरण मोड](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillmode/) (stretch/tile) पर निर्भर करता है। विस्तार (stretch) करने पर छवि नई सेल के अनुसार समायोजित हो जाती है; टाइलिंग (tile) करने पर टाइलें पुनः गणना की जाती हैं।
 
-**क्या मैं एक कोशिका की सभी सामग्री को एक हाइपरलिंक असाइन कर सकता हूँ?**
+**क्या मैं कोशिका की पूरी सामग्री पर हाइपरलिंक लगा सकता हूँ?**
 
-[Hyperlinks](/slides/hi/cpp/manage-hyperlinks/) को कोशिका के टेक्स्ट फ्रेम के भीतर टेक्स्ट (portion) स्तर पर या पूरी तालिका/आकार स्तर पर सेट किया जाता है। व्यवहार में, आप लिंक को किसी भाग या पूरी कोशिका के टेक्स्ट को असाइन करते हैं।
+[हाइपरलिंक](/slides/hi/cpp/manage-hyperlinks/) टेक्स्ट (portion) स्तर पर कोशिका के टेक्स्ट फ्रेम के भीतर या पूरी तालिका/आकृति स्तर पर सेट किया जाता है। व्यवहार में आप लिंक को भाग या पूरी कोशिका के टेक्स्ट पर लागू करते हैं।
 
-**क्या मैं एक ही कोशिका के भीतर विभिन्न फ़ॉन्ट सेट कर सकता हूँ?**
+**क्या मैं एक ही कोशिका में विभिन्न फ़ॉन्ट सेट कर सकता हूँ?**
 
-हाँ। कोशिका के टेक्स्ट फ्रेम में [portions](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (रन) स्वतंत्र फ़ॉर्मेटिंग—फ़ॉन्ट परिवार, शैली, आकार और रंग—का समर्थन करते हैं।
+हाँ। एक कोशिका का टेक्स्ट फ्रेम स्वतंत्र स्वरूपित [खंड](https://reference.aspose.com/slides/cpp/aspose.slides/portion/) (runs) का समर्थन करता है—फ़ॉन्ट फ़ैमिली, शैली, आकार और रंग।
