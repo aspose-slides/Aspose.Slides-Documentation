@@ -9,7 +9,7 @@ keywords:
 - lägg till bildövergång
 - tillämpa bildövergång
 - avancerad bildövergång
-- Morph‑övergång
+- morph‑övergång
 - övergångstyp
 - övergångseffekt
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Applicera bildövergångar, konfigurera automatisk bildfortsättning och anpassa Morph och andra övergångseffekter med Aspose.Slides för Node.js via Java."
+description: "Applicera bildövergångar, konfigurera automatisk bildavancering och anpassa Morph och andra övergångseffekter med Aspose.Slides för Node.js via Java."
 ---
 ## **Översikt**
 
-Bildövergångar styr hur bilder visas under en bildspelspresentation. Med Aspose.Slides for Node.js via Java kan du välja en övergångseffekt för varje bild, konfigurera vidaregång med mus‑klick eller timer och justera alternativ som är specifika för en effekt. Denna artikel använder JavaScript‑exempel för att tillämpa övergångar, ange exakt övergångstid, hantera bildtid och skapa en Morph‑övergång mellan två bilder. Exemplet visar också hur inställningarna sparas till en PPTX‑fil.
+Bildövergångar styr hur bilder visas under ett bildspel. Med Aspose.Slides för Node.js via Java kan du välja en övergångseffekt för varje bild, konfigurera avancerande via musklick eller timer och justera alternativ som är specifika för en effekt. Denna artikel använder JavaScript‑exempel för att tillämpa övergångar, ange exakt övergångstid, hantera bildtidsinställningar och skapa en Morph‑övergång mellan två bilder. Exemplen visar också hur man sparar inställningarna till en PPTX‑fil.
 
 ## **Lägg till bildövergång**
 
-För att lägga till en övergång, ladda en presentation med klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) och kom åt bildens övergångsinställningar via [getSlideShowTransition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Använd [setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setType) med ett värde från enum‑typen [TransitionType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitiontype/), spara sedan presentationen.
+För att tillämpa en övergång, ladda en presentation med klassen [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) och kom åt bildens övergångsinställningar via [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Använd [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) med ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), spara sedan presentationen.
 
-Följande exempel använder en Circle‑övergång på den första bilden och en Comb‑övergång på den andra. Använd en `input.pptx`‑fil med minst två bilder.
+Följande exempel tillämpar en Circle‑övergång på den första bilden och en Comb‑övergång på den andra. Använd en `input.pptx`‑fil med minst två bilder.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,17 +48,67 @@ try {
 }
 ```
 
+## **Hjulövergång**
+
+Metoden [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) i [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) styr antalet radiella sektorer som avslöjar målbilden. Ställ in bildens övergångstyp till Wheel från [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) med [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) innan du får åtkomst till [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) som [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+
+Detta exempel skapar två identiska bildpar: en svart bild följd av en bild med en gul rektangel. Målbilderna använder spokantal på 1 respektive 8, med samma hastighet inställd via [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) och en explicit varaktighet på 8 000 ms via [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) för att göra skillnaden lätt att observera.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slideWidth = presentation.getSlideSize().getSize().getWidth();
+    const slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+    const blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+    blackSlide.getBackground().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(black);
+
+    const destinationSlide = presentation.getSlides().addClone(blackSlide);
+    const rectangle = destinationSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const gold = java.newInstanceSync("java.awt.Color", 255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    const spokeCounts = [1, 8];
+    for (let i = 0; i < spokeCounts.length; i++) {
+        const transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Wheel);
+        const wheelTransition = transition.getValue();
+        wheelTransition.setSpokes(java.newLong(spokeCounts[i]));
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Öppna utskriftspresentationen i PowerPoint och kör bildspelet. Gå från bild 1 till bild 2, sedan från bild 3 till bild 4. I PowerPoint‑uppspelning avslöjar den verifierade spokräkningen 1 bilden med ett medurs svep; den verifierade räknaren 8 avslöjar den genom åtta radiella sektorer samtidigt. Innehållet och övergångstiden är identiska, så skillnaden är antal avslöjande sektorer.
+
 ## **Lägg till avancerad bildövergång**
 
-Du kan konfigurera hur länge en bild förblir på skärmen och om ett musklick går vidare i bildspel. Följande metoder styr detta beteende:
+Du kan konfigurera hur länge en bild förblir på skärmen och om ett musklick avancerar bildspelet. Följande metoder styr detta beteende:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) låter användaren gå vidare genom att klicka med musen.
-- [setAdvanceAfter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) möjliggör automatisk vidaregång.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) anger fördröjningen innan automatisk vidaregång, i millisekunder.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) låter tittaren gå vidare genom att klicka med musen.  
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) möjliggör automatisk avancering.  
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) anger fördröjningen före automatisk avancering, i millisekunder.
 
-Aktivera både klick‑ och tidsstyrd vidaregång så att tittaren kan gå vidare med ett klick eller vänta på timern. För att endast använda timern, skicka `false` till [setAdvanceOnClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Fördröjningen styr när bildspelet går vidare; den bestämmer inte varaktigheten för den visuella övergångseffekten.
+Aktivera både klick‑ och tidsbaserad avancering så att tittaren kan gå vidare med ett klick eller vänta på timern. För att endast använda timern, skicka `false` till [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Fördröjningen styr när bildspelet avancerar; den anger inte varaktigheten för den visuella övergångseffekten.
 
-Detta exempel tilldelar olika effekter till de tre första bilderna och aktiverar automatisk vidaregång efter 3, 5 respektive 7 sekunder. Mus‑klick kan också gå vidare på dessa bilder. Använd en `input.pptx`‑fil med minst tre bilder.
+Detta exempel tilldelar olika effekter till de tre första bilderna och möjliggör automatisk avancering efter 3, 5 respektive 7 sekunder. Mus‑klick kan också avancera dessa bilder. Använd en `input.pptx`‑fil med minst tre bilder.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -93,9 +143,9 @@ try {
 }
 ```
 
-För att kontrollera om tidsstyrd vidaregång är aktiverad, anropa [getAdvanceAfter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Ett lagrat fördröjningsvärde indikerar ensam inte att timern är aktiv.
+För att kontrollera om tidsbaserad avancering är aktiverad, anropas [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Ett lagrat fördröjningsvärde betyder inte att timern är aktiv.
 
-Nästa exempel öppnar filen som sparades ovan, rapporterar varje aktiverad timer och inaktiverar automatisk vidaregång för bilder med en fördröjning längre än två sekunder. Det aktiverar mus‑klick för dessa bilder och sparar de uppdaterade inställningarna.
+Nästa exempel öppnar filen som sparades ovan, rapporterar varje aktiverad timer och inaktiverar automatisk avancering för bilder med en fördröjning större än två sekunder. Det aktiverar mus‑klick för dessa bilder och sparar de uppdaterade inställningarna.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -122,21 +172,27 @@ try {
 }
 ```
 
-## **Styr övergångstiming exakt**
+## **Kontrollera övergångstiden exakt**
 
-Använd [setDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setDuration) för att ange exakt längd på en övergångseffekt i millisekunder. Bildens [getSlideShowTransition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)‑metod exponerar dessa inställningar via [SlideShowTransition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/):
+Använd [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) för att ange den exakt längden på en övergångseffekt i millisekunder. Bildens [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)‑metod exponerar dessa inställningar via [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
 | Metod | Syfte |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Anger varaktigheten för själva övergångseffekten, i millisekunder. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Anger fördröjningen innan bilden automatiskt går vidare, i millisekunder. Skicka `true` till [setAdvanceAfter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) för att aktivera timern. |
-| [setSpeed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Väljer en fördefinierad hastighetskategori från [TransitionSpeed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium eller Fast. Används när ingen exakt varaktighet är angiven. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Anger varaktigheten för själva övergångseffekten, i millisekunder. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Anger fördröjningen innan bilden avancerar automatiskt, i millisekunder. Skicka `true` till [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) för att aktivera timern. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Väljer en fördefinierad hastighetskategori från [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium eller Fast. Används när ingen exakt varaktighet är angiven. |
 
-[setDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setDuration) styr endast övergångseffekten; den avgör inte hur länge bilden förblir synlig. Konfigurera den automatiska fördröjningen separat. När ingen explicit varaktighet har angetts bestämmer Aspose.Slides effektens varaktighet utifrån övergångstypen och värdet i [getSpeed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) styr bara övergångseffekten; den bestämmer inte hur länge bilden förblir synlig. Konfigurera den automatiska avanceringsfördröjningen separat. När ingen explicit varaktighet är satt, bestämmer Aspose.Slides effektens varaktighet utifrån övergångstyp och värdet från [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
 
-### **Tillämpa samma varaktighet på varje bild**
+<!-- visual-explanation:slide-transition:start -->
+[![Separata staplar identifierar övergångstiden på 750 ms och den automatiska avanceringsinställningen på 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-För ett jämnt tempo, applicera samma effekt och exakt varaktighet på varje bild. Detta exempel laddar `input.pptx`, väljer Fade från [TransitionType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitiontype/), och ger varje övergång en varaktighet på 750 ms. Det aktiverar dessutom automatisk vidaregång efter 5 000 ms och inaktiverar vidaregång via mus‑klick, för att sedan spara resultatet som PPTX.
+*Det delade exemplet ger varje bild en Fade‑övergång på 750 ms och aktiverar separat automatisk avancering efter 5 000 ms. Övergångstiden styr effekten; avanceringen styr när bilden lämnas. Dessa staplar är schematiska inställningar, inte en mätt kombinerad tidslinje.*
+<!-- visual-explanation:slide-transition:end -->
+
+### **Använd samma varaktighet för alla bilder**
+
+För ett enhetligt tempo, tillämpa samma effekt och exakt varaktighet på varje bild. Detta exempel laddar `input.pptx`, väljer Fade från [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) och ger varje övergång en varaktighet på 750 ms. Det aktiverar separat automatisk avancering efter 5 000 ms och inaktiverar avancering via mus‑klick, sedan sparas resultatet som PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -149,7 +205,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Konfigurera automatisk vidaregång oberoende av effektens varaktighet.
+        // Konfigurera automatisk avancering oberoende av effektens varaktighet.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -163,7 +219,7 @@ try {
 
 ### **Ange olika varaktigheter för enskilda bilder**
 
-Olika bilder kan ha olika varaktigheter för övergångseffekten. Till exempel kan en titelbild ha en kort övergång och en sektionsintroduktion en längre. Detta exempel sätter 500 ms för den första bilden och 1 200 ms för den andra. Använd en `input.pptx`‑fil med minst två bilder.
+Olika bilder kan ha olika effektvaraktigheter. Till exempel, använd en kort övergång för en titelsida och en längre övergång för ett sektionsintro. Detta exempel sätter 500 ms för den första bilden och 1 200 ms för den andra. Använd en `input.pptx`‑fil med minst två bilder.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -188,15 +244,15 @@ try {
 }
 ```
 
-### **Koordinera övergångar med animerad export**
+### **Koordinera övergångar med animerad utdata**
 
-När du förbereder en [animerad GIF](/slides/sv/nodejs-java/convert-powerpoint-to-animated-gif/), en [HTML5‑presentation](/slides/sv/nodejs-java/export-to-html5/) eller en [video](/slides/sv/nodejs-java/convert-powerpoint-to-video/), ange exakt övergångstid innan export så att tempoet matchar det önskade. Till exempel, använd en 600 ms fade mellan scener och justera varje bilds vidaregångsfördröjning separat för att ge tid för berättelse eller innehåll.
+När du förbereder en [animated GIF](/slides/sv/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/sv/nodejs-java/export-to-html5/) eller [video](/slides/sv/nodejs-java/convert-powerpoint-to-video/), sätt exakta övergångstider före export för att matcha önskat tempo. Till exempel, använd en 600 ms fade mellan scener och justera varje bilds avanceringsfördröjning separat för att ge tid för dess berättelse eller innehåll.
 
-För GIF och video, koordinera bildhastigheten med effektens varaktighet: 600 ms motsvarar 18 ramar vid 30 fps. I HTML5, aktivera animerade övergångar i exportinställningarna. Kontrollera vilka övergångar och tidsalternativ som stöds av det valda formatet och förhandsgranska resultatet för att bekräfta synkronisering.
+För GIF och video, koordinera bildrutesfrekvensen med effektens varaktighet: 600 ms motsvarar 18 ramar vid 30 fps. I HTML5, aktivera animerade övergångar i exportinställningarna. Kontrollera vilka effekter och tidsalternativ som stöds av det valda exportformatet och förhandsgranska resultatet för att bekräfta synkronisering.
 
 ### **Läs en befintlig övergångsvaraktighet**
 
-Anropa [getDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getDuration) innan du ändrar övergången för att avgöra om ett explicit värde är lagrat. Värdet `-1` betyder att ingen explicit varaktighet är satt; ett icke‑negativt värde anger den lagrade varaktigheten i millisekunder. Det odefinierade värdet är inte den beräknade uppspelningsvaraktigheten: Aspose.Slides använder övergångstypen och värdet i [getSpeed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) för att bestämma den varaktigheten. Att sätta en övergångstyp kan initiera en varaktighet, så inspektera de ursprungliga inställningarna först.
+Anropa [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) innan du ändrar övergången för att avgöra om ett explicit värde är lagrat. Ett värde på `-1` betyder att ingen explicit varaktighet är satt; ett icke‑negativt värde anger den lagrade varaktigheten i millisekunder. Det odefinierade värdet är inte den beräknade uppspelningsvaraktigheten: Aspose.Slides använder övergångstypen och värdet från [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) för att bestämma den varaktigheten. Att sätta en övergångstyp kan initiera en varaktighet, så inspektera de ursprungliga inställningarna först.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -221,9 +277,9 @@ try {
 
 ## **Morph‑övergång**
 
-Morph‑övergången animerar förändringar mellan objekt på på varandra följande bilder. För att skapa en enkel Morph‑effekt, klona en bild, flytta eller ändra storlek på ett objekt på klonen och applicera Morph‑övergången på den andra bilden. Detta ger övergången motsvarande objekt att animeras mellan deras ursprungliga och modifierade tillstånd.
+Morph‑övergången animerar förändringar mellan objekt på på varandra följande bilder. För att skapa en enkel Morph‑effekt, klona en bild, flytta eller ändra storlek på ett objekt i klonen och tillämpa Morph‑övergången på den andra bilden. Detta ger övergången motsvarande objekt att animera mellan deras ursprungliga och modifierade tillstånd.
 
-Följande exempel skapar en bild med en textruta, klonar bilden och ändrar rektangelns position och storlek på klonen. Därefter väljer det Morph från [TransitionType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitiontype/)‑enumerationen för den andra bilden. Öppna den sparade filen i en presentationsvisare som stödjer Morph för att se effekten under bildspelet.
+Följande exempel skapar en bild med en textruta, klonar bilden och ändrar rektangelns position och storlek i klonen. Därefter väljs Morph från uppräkningen [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) för den andra bilden. Öppna den sparade filen i en presentationsvisare som stödjer Morph för att se effekten under ett bildspel.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -251,15 +307,15 @@ try {
 
 ## **Morph‑övergångstyper**
 
-[TransitionMorphType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionmorphtype/)-enumerationen styr hur Morph matchar och animerar innehåll:
+Uppräkningen [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) styr hur Morph matchar och animerar innehåll:
 
-- [ByObject](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) behandlar varje form som ett helt objekt.
-- [ByWord](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) animerar text genom att matcha ord där det är möjligt.
-- [ByChar](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) animerar text genom att matcha tecken där det är möjligt.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) behandlar varje form som ett helt objekt.  
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) animerar text genom att matcha ord där det är möjligt.  
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) animerar text genom att matcha tecken där det är möjligt.
 
-Använd [setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setType) för att välja Morph innan du anropar [getValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getValue). Värdet ger då ett [MorphTransition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/morphtransition/)-objekt vars [setMorphType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/morphtransition/#setMorphType)-metod väljer matchningsläget.
+Använd [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) för att välja Morph innan du får åtkomst till [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Värdet ger då ett [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/)-objekt, vars metod [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) väljer matchningsläget.
 
-Detta exempel öppnar presentationen som skapades i föregående sektion och konfigurerar den andra bilden att använda ord‑baserad Morph‑animation.
+Detta exempel öppnar presentationen som skapades i föregående avsnitt och konfigurerar den andra bilden att använda ord‑baserad Morph‑animation.
 
 ```javascript
 const java = require("java");
@@ -288,9 +344,9 @@ try {
 
 ## **Ange övergångseffekter**
 
-Vissa övergångar exponerar ytterligare alternativ, såsom riktning eller om effekten ska starta från en svart skärm. Tillgängliga alternativ beror på den övergång som valts med [setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setType). Ställ in typen först, och använd sedan lämpligt övergångsobjekt från [getValue](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+Vissa övergångar avslöjar ytterligare alternativ, såsom riktning eller om effekten startar från en svart skärm. Tillgängliga alternativ beror på vilken övergång som valts med [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Ställ först in typen, och använd sedan rätt övergångsobjekt via [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-Följande exempel använder en Cut‑övergång på den första bilden i `input.pptx`. Det anropar [setFromBlack](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) via [OptionalBlackTransition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/optionalblacktransition/) så att övergången startar från en svart skärm.
+Följande exempel använder en Cut‑övergång på den första bilden i `input.pptx`. Det anropar [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) via [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) så att övergången börjar från en svart skärm.
 
 ```javascript
 const java = require("java");
@@ -313,20 +369,20 @@ try {
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Kan jag kontrollera uppspelningshastigheten för en bildövergång?**
 
-Ja. Använd [setDuration](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setDuration) när du behöver en exakt effektvaraktighet i millisekunder. Använd [setSpeed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) när en fördefinierad [TransitionSpeed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionspeed/)-kategori – Slow, Medium eller Fast – är tillräcklig och ingen explicit varaktighet har satts. Dessa inställningar styr övergångseffekten oberoende av timern för automatisk vidaregång.
+Ja. Föredra [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) när du behöver en exakt effektvaraktighet i millisekunder. Använd [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) när en fördefinierad [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/)-kategori – Slow, Medium eller Fast – är tillräcklig och ingen explicit varaktighet är satt. Dessa inställningar styr övergångseffekten oberoende av den automatiska avanceringsfördröjningen.
 
-**Kan jag bifoga ljud till en övergång och få den att loopa?**
+**Kan jag fästa ljud till en övergång och låta det loopa?**
 
-Ja. Tilldela inbäddat ljud med [setSound](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setSound), skicka `StartSound` från [TransitionSoundMode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitionsoundmode/)-enumerationen till [setSoundMode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) och aktivera [setSoundLoop](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) med `true`. Ljudet loopar tills nästa ljudhändelse i bildspelet inträffar.
+Ja. Tilldela inbäddat ljud med [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), skicka `StartSound` från uppräkningen [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) till [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) och aktivera [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) med `true`. Ljudet loopar tills nästa ljudhändelse i bildspelet.
 
-**Vad är det snabbaste sättet att tillämpa samma övergång på varje bild?**
+**Vad är det snabbaste sättet att tillämpa samma övergång på alla bilder?**
 
-Iterera igenom presentationens [getSlides](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getSlides)-samling och anropa [setType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#setType) med samma värde för varje bilds övergång. Ställ in timing‑ och effektalternativ i samma loop för att hålla beteendet enhetligt över alla bilder.
+Iterera genom presentationens [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides)-samling och anropa [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) med samma värde för varje bilds övergång. Ställ in eventuella tids‑ och effektalternativ i samma loop för att hålla beteendet konsekvent över alla bilder.
 
 **Hur kan jag kontrollera vilken övergång som för närvarande är inställd på en bild?**
 
-Anropa [getType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideshowtransition/#getType) på bildens [getSlideShowTransition](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)-resultat. Den returnerar ett värde från [TransitionType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/transitiontype/)-enumerationen; None betyder att ingen övergångseffekt är applicerad.
+Anropa [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) på resultatet från bildens [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Det returnerar ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None betyder att ingen övergångseffekt är tillämpad.

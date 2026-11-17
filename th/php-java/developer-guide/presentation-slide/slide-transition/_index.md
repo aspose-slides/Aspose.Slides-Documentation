@@ -1,33 +1,33 @@
 ---
-title: จัดการการเปลี่ยนสไลด์ในการนำเสนอด้วย PHP
-linktitle: การเปลี่ยนสไลด์
+title: จัดการการเปลี่ยนแปลงสไลด์ในงานนำเสนอด้วย PHP
+linktitle: การเปลี่ยนแปลงสไลด์
 type: docs
 weight: 80
 url: /th/php-java/slide-transition/
 keywords:
-- การเปลี่ยนสไลด์
-- เพิ่มการเปลี่ยนสไลด์
-- ใช้การเปลี่ยนสไลด์
-- การเปลี่ยนสไลด์ขั้นสูง
-- การเปลี่ยน Morph
-- ชนิดการเปลี่ยน
-- เอฟเฟกต์การเปลี่ยน
+- การเปลี่ยนแปลงสไลด์
+- เพิ่มการเปลี่ยนแปลงสไลด์
+- ใช้การเปลี่ยนแปลงสไลด์
+- การเปลี่ยนแปลงสไลด์ขั้นสูง
+- การเปลี่ยนแปลงแบบ Morph
+- ประเภทการเปลี่ยนแปลง
+- เอฟเฟกต์การเปลี่ยนแปลง
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ใช้การเปลี่ยนสไลด์, กำหนดการเลื่อนสไลด์อัตโนมัติ, และปรับแต่ง Morph พร้อมเอฟเฟกต์การเปลี่ยนอื่น ๆ ด้วย Aspose.Slides for PHP via Java."
+description: "ใช้การเปลี่ยนแปลงสไลด์, กำหนดค่าการก้าวสไลด์อัตโนมัติ, และปรับแต่ง Morph และเอฟเฟกต์การเปลี่ยนแปลงอื่นๆ ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-การเปลี่ยนสไลด์ควบคุมว่าภาพสไลด์จะแสดงอย่างไรระหว่างการนำเสนอ ด้วย Aspose.Slides for PHP via Java คุณสามารถเลือกเอฟเฟกต์การเปลี่ยนสำหรับแต่ละสไลด์ กำหนดการเลื่อนต่อด้วยการคลิกเมาส์หรือเครื่องจับเวลา และปรับตัวเลือกที่เฉพาะเจาะจงสำหรับเอฟเฟกต์นั้น บทความนี้ใช้ตัวอย่าง PHP เพื่อนำการเปลี่ยนไปใช้ การตั้งค่าระยะเวลาการเปลี่ยนให้แม่นยำ การจัดการเวลาแสดงสไลด์ และสร้างการเปลี่ยน Morph ระหว่างสองสไลด์ ตัวอย่างยังแสดงวิธีบันทึกการตั้งค่าเป็นไฟล์ PPTX
+Slide transitions control how slides appear during a slide show. With Aspose.Slides for PHP via Java, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses PHP examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
 
-## **เพิ่มการเปลี่ยนสไลด์**
+## **Add Slide Transition**
 
-เพื่อใช้การเปลี่ยน โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) และเข้าถึงการตั้งค่าการเปลี่ยนของสไลด์ผ่าน [getSlideShowTransition](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/#getSlideShowTransition) ใช้ [setType](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setType) พร้อมค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitiontype/) จากนั้นบันทึกงานนำเสนอ
+To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and access the slide's transition settings through [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition). Use [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) with a value from the [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) enumeration, then save the presentation.
 
-ตัวอย่างต่อไปนี้ใช้การเปลี่ยน Circle กับสไลด์แรกและการเปลี่ยน Comb กับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
+The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
 
 ```php
 use aspose\slides\Presentation;
@@ -49,17 +49,73 @@ try {
 }
 ```
 
-## **เพิ่มการเปลี่ยนสไลด์ขั้นสูง**
+## **Wheel Transition**
 
-คุณสามารถกำหนดว่าหนึ่งสไลด์จะคงอยู่บนหน้าจอนานเท่าใดและว่าจะให้การคลิกเมาส์ทำให้การนำเสนอเลื่อนไปข้างหน้า วิธีต่อไปนี้ควบคุมพฤติกรรมดังกล่าว:
+The [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) method controls how many radial sectors reveal the destination slide. Use [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) to select Wheel from [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), then call [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) to access the [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/) settings.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) ให้ผู้ชมเลื่อนโดยคลิกเมาส์
-- [setAdvanceAfter](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) เปิดการเลื่อนอัตโนมัติ
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) ระบุความล่าช้าก่อนการเลื่อนอัตโนมัติ เป็นมิลลิวินาที
+The example creates two identical pairs of slides. Each pair starts with a black slide and ends with a slide covered by a gold rectangle. Slide 2 uses one spoke and slide 4 uses eight. Both transitions use the same slow speed, set with [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), and an explicit duration of 8,000 milliseconds, set with [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
 
-เปิดใช้งานทั้งการคลิกและการเลื่อนตามเวลาเพื่อให้ผู้ชมสามารถกดคลิกเพื่อดำเนินการต่อหรือรอจนกว่าเครื่องจับเวลาจะทำงาน หากต้องการใช้เฉพาะเครื่องจับเวลา ให้ส่งค่า `false` ไปยัง [setAdvanceOnClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) ความล่าช้านั้นควบคุมเวลาที่การนำเสนอเลื่อนหน้า ไม่ได้กำหนดระยะเวลาแสดงเอฟเฟกต์การเปลี่ยน
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
 
-ตัวอย่างนี้กำหนดเอฟเฟกต์ที่ต่างกันให้กับสามสไลด์แรกและเปิดการเลื่อนอัตโนมัติหลัง 3, 5 และ 7 วินาที ตามลำดับ การคลิกเมาส์ก็สามารถเลื่อนสไลด์เหล่านี้ได้ด้วย ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสามสไลด์
+$presentation = new Presentation();
+try {
+    $slides = $presentation->getSlides();
+    $width = java_values($presentation->getSlideSize()->getSize()->getWidth());
+    $height = java_values($presentation->getSlideSize()->getSize()->getHeight());
+
+    $blackSlide = $slides->get_Item(0);
+    $blackSlide->getShapes()->clear();
+    $background = $blackSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Solid);
+    $black = new Color(0, 0, 0);
+    $background->getFillFormat()->getSolidFillColor()->setColor($black);
+
+    $destinationSlide = $slides->addClone($blackSlide);
+    $rectangle = $destinationSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, $width, $height);
+    $rectangle->getFillFormat()->setFillType(FillType::Solid);
+    $gold = new Color(255, 215, 0);
+    $rectangle->getFillFormat()->getSolidFillColor()->setColor($gold);
+    $rectangle->getTextFrame()->setText("Wheel transition");
+
+    $slides->addClone($blackSlide);
+    $slides->addClone($destinationSlide);
+
+    foreach ([1 => 1, 3 => 8] as $slideIndex => $spokes) {
+        $transition = $slides->get_Item($slideIndex)->getSlideShowTransition();
+        $transition->setType(TransitionType::Wheel);
+        $transition->getValue()->setSpokes($spokes);
+        $transition->setSpeed(TransitionSpeed::Slow);
+        $transition->setDuration(8000);
+    }
+
+    $presentation->save("wheel-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Open the saved presentation in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see a single clockwise sweep. Then advance from slide 3 to slide 4 to see eight radial sectors reveal the same rectangle simultaneously.
+
+## **Add Advanced Slide Transition**
+
+You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) ให้ผู้ชมกดเมาส์เพื่อไปยังสไลด์ถัดไป
+- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) เปิดใช้งานการก้าวต่ออัตโนมัติ
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) ระบุเวลาหน่วงก่อนการก้าวต่ออัตโนมัติ (หน่วยเป็นมิลลิวินาที)
+
+Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, pass `false` to [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
+
+This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
 
 ```php
 use aspose\slides\Presentation;
@@ -96,9 +152,9 @@ try {
 }
 ```
 
-เพื่อตรวจสอบว่าการเลื่อนตามเวลาเปิดอยู่หรือไม่ ให้เรียก [getAdvanceAfter](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter) ค่าความล่าช้าที่เก็บไว้เพียงอย่างเดียวไม่ได้บ่งบอกว่าเครื่องจับเวลากำลังทำงาน
+To check whether timed advancement is enabled, call [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). A stored delay alone does not indicate that the timer is active.
 
-ตัวอย่างต่อไปเปิดไฟล์ที่บันทึกไว้ข้างต้น รายงานเครื่องจับเวลาที่เปิดอยู่ และปิดการเลื่อนอัตโนมัติสำหรับสไลด์ที่มีความล่าชุมากกว่าสองวินาที แล้วเปิดใช้งานการคลิกเมาส์สำหรับสไลด์เหล่านั้นและบันทึกการตั้งค่าที่อัปเดต
+The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
 
 ```php
 use aspose\slides\Presentation;
@@ -126,21 +182,27 @@ try {
 }
 ```
 
-## **ควบคุมเวลาเปลี่ยนอย่างแม่นยำ**
+## **Control Transition Timing Precisely**
 
-ใช้ [setDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setDuration) เพื่อระบุความยาวที่แน่นอนของเอฟเฟกต์การเปลี่ยนเป็นมิลลิวินาที วิธี [getSlideShowTransition](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/#getSlideShowTransition) ของสไลด์เปิดเผยการตั้งค่าเหล่านี้ผ่าน [SlideShowTransition](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/) :
+Use [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) to specify the exact length of a transition effect in milliseconds. The slide's [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) method exposes these settings through [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/):
 
 | Method | Purpose |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setDuration) | กำหนดระยะเวลาของเอฟเฟกต์การเปลี่ยนเองเป็นมิลลิวินาที |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | กำหนดความล่าช้าก่อนที่สไลด์จะเลื่อนไปโดยอัตโนมัติเป็นมิลลิวินาที ส่งค่า `true` ไปยัง [setAdvanceAfter](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) เพื่อเปิดใช้งานเครื่องจับเวลานี้ |
-| [setSpeed](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setSpeed) | เลือกหมวดความเร็วที่กำหนดไว้ล่วงหน้าจาก enumeration [TransitionSpeed](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionspeed/) : Slow, Medium, หรือ Fast ใช้เมื่อไม่ได้ระบุระยะเวลาที่แน่นอน |
+| [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | กำหนดระยะเวลาของเอฟเฟ็กต์การเปลี่ยนแปลงเอง (มิลลิวินาที) |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | กำหนดเวลาหน่วงก่อนสไลด์จะก้าวต่อโดยอัตโนมัติ (มิลลิวินาที) ให้ส่งค่า `true` ไปยัง [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) เพื่อเปิดใช้การตั้งค่านี้ |
+| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | เลือกความเร็วที่กำหนดไว้ מראשจาก [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) ได้แก่ Slow, Medium หรือ Fast ใช้เมื่อไม่มีการระบุระยะเวลาที่แน่นอน |
 
-[setDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setDuration) ควบคุมเฉพาะเอฟเฟกต์การเปลี่ยน ไม่ได้กำหนดระยะเวลาที่สไลด์ค้างอยู่บนหน้าจอ ให้กำหนดความล่าช้าการเลื่อนอัตโนมัติแยกกัน เมื่อไม่ได้ตั้งค่าระยะเวลาอย่างชัดเจน Aspose.Slides จะกำหนดระยะเวลาเอฟเฟกต์จากประเภทการเปลี่ยนและค่า [getSpeed](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getSpeed)
+[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and the [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) value.
 
-### **ใช้ระยะเวลาเดียวกันกับทุกสไลด์**
+<!-- visual-explanation:slide-transition:start -->
+[![Separate bars identify the 750‑ms transition duration and 5,000‑ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-เพื่อให้จังหวะสอดคล้อง ใช้เอฟเฟกต์และระยะเวลาที่แน่นอนเดียวกันกับทุกสไลด์ ตัวอย่างนี้โหลด `input.pptx` เลือก Fade จาก [TransitionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitiontype/) และกำหนดระยะเวลาให้แต่ละการเปลี่ยนเป็น 750 มิลลิวินาที โดยแยกเปิดการเลื่อนอัตโนมัติหลัง 5,000 มิลลิวินาทีและปิดการเลื่อนด้วยการคลิกเมาส์ จากนั้นบันทึกผลลัพธ์เป็น PPTX
+*ตัวอย่างที่แชร์ให้แต่ละสไลด์มีการเปลี่ยนแปลงแบบ Fade 750 ms และเปิดการก้าวต่ออัตโนมัติที่ 5 000 ms แยกกัน ระยะเวลาเปลี่ยนแปลงควบคุมเอฟเฟ็กต์; การก้าวต่อควบคุมเวลาที่ออกจากสไลด์ แถบเหล่านี้เป็นการตั้งค่าแบบสเกมม่า ไม่ใช่ไทม์ไลน์ที่วัดได้จริง*
+<!-- visual-explanation:slide-transition:end -->
+
+### **Apply the Same Duration to Every Slide**
+
+For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
 
 ```php
 use aspose\slides\Presentation;
@@ -155,7 +217,7 @@ try {
         $transition->setType(TransitionType::Fade);
         $transition->setDuration(750);
 
-        // กำหนดการเลื่อนอัตโนมัติอย่างอิสระจากระยะเวลาเอฟเฟกต์.
+        // กำหนดการก้าวต่ออัตโนมัติแยกจากระยะเวลาเอฟเฟกต์
         $transition->setAdvanceAfter(true);
         $transition->setAdvanceAfterTime(5000);
         $transition->setAdvanceOnClick(false);
@@ -167,9 +229,9 @@ try {
 }
 ```
 
-### **ตั้งค่าระยะเวลาที่แตกต่างสำหรับสไลด์แต่ละอัน**
+### **Set Different Durations for Individual Slides**
 
-สไลด์ต่าง ๆ สามารถใช้ระยะเวลาเอฟเฟกต์ที่ต่างกันได้ ตัวอย่างเช่น ใช้การเปลี่ยนที่สั้นสำหรับสไลด์หัวเรื่องและการเปลี่ยนที่ยาวสำหรับการแนะนำส่วน ตัวอย่างนี้ตั้งค่า 500 มิลลิวินาทีสำหรับสไลด์แรกและ 1,200 มิลลิวินาทีสำหรับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
+Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
 
 ```php
 use aspose\slides\Presentation;
@@ -196,15 +258,15 @@ try {
 }
 ```
 
-### **ประสานการเปลี่ยนกับผลลัพธ์แบบเคลื่อนที่**
+### **Coordinate Transitions with Animated Output**
 
-เมื่อเตรียม [animated GIF](/slides/th/php-java/convert-powerpoint-to-animated-gif/) , [HTML5 presentation](/slides/th/php-java/export-to-html5/) หรือ [video](/slides/th/php-java/convert-powerpoint-to-video/) ให้ตั้งระยะเวลาการเปลี่ยนให้แม่นยำก่อนส่งออกเพื่อให้ตรงกับจังหวะที่ต้องการ ตัวอย่างเช่น ใช้การจาง 600 มิลลิวินาทีระหว่างฉากและปรับความล่าช้าการเลื่อนของแต่ละสไลด์แยกกันเพื่อให้มีเวลาแบ่งปันการบรรยายหรือเนื้อหา
+When preparing an [animated GIF](/slides/th/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/th/php-java/export-to-html5/), or [video](/slides/th/php-java/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600‑millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
 
-สำหรับ GIF และวิดีโอ ให้ประสานอัตราเฟรมของผลลัพธ์กับระยะเวลาเอฟเฟกต์: 600 มิลลิวินาทีเท่ากับ 18 เฟรมที่ 30 เฟรมต่อวินาที ใน HTML5 ให้เปิดการเปลี่ยนแบบเคลื่อนที่ในการตั้งค่าการส่งออก ตรวจสอบเอฟเฟกต์และตัวเลือกเวลาที่รองรับของรูปแบบการส่งออกที่เลือกและดูตัวอย่างผลลัพธ์เพื่อยืนยันการซิงโครไนซ์
+For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
 
-### **อ่านระยะเวลาการเปลี่ยนที่มีอยู่**
+### **Read an Existing Transition Duration**
 
-เรียก [getDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getDuration) ก่อนแก้ไขการเปลี่ยนเพื่อดูว่ามีค่าที่ระบุไว้หรือไม่ ค่าที่เป็น `-1` หมายความว่าไม่ได้ตั้งค่าระยะเวลาที่ชัดเจน ค่าที่ไม่เป็นลบระบุระยะเวลาที่เก็บเป็นมิลลิวินาที ค่าไม่ได้ตั้งค่านี้ไม่ใช่ระยะเวลาการเล่นที่คำนวณ: Aspose.Slides ใช้ประเภทการเปลี่ยนและค่า [getSpeed](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getSpeed) เพื่อกำหนดระยะเวลานั้น การตั้งค่าประเภทการเปลี่ยนอาจทำให้ระยะเวลาเริ่มต้นได้ ดังนั้นตรวจสอบการตั้งค่าเดิมก่อน
+Call [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and the [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) value to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
 
 ```php
 use aspose\slides\Presentation;
@@ -227,11 +289,11 @@ try {
 }
 ```
 
-## **การเปลี่ยน Morph**
+## **Morph Transition**
 
-การเปลี่ยน Morph ทำให้การเปลี่ยนแปลงระหว่างวัตถุบนสไลด์ต่อเนื่องเกิดการเคลื่อนไหว เพื่อสร้างเอฟเฟกต์ Morph อย่างง่าย ให้คัดลอกสไลด์ ย้ายหรือปรับขนาดวัตถุบนสำเนาแล้วใช้การเปลี่ยน Morph กับสไลด์ที่สอง ทำให้วัตถุตรงกันที่ต้องเคลื่อนที่ระหว่างสถานะเดิมและแก้ไข
+The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
 
-ตัวอย่างต่อไปสร้างสไลด์ที่มีสี่เหลี่ยมข้อความ คัดลอกสไลด์และเปลี่ยนตำแหน่งและขนาดของสี่เหลี่ยมบนสำเนา จากนั้นเลือก Morph จาก enumeration [TransitionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitiontype/) สำหรับสไลด์ที่สอง เปิดไฟล์ที่บันทึกไว้ในตัวแสดงงานนำเสนอที่รองรับ Morph เพื่อดูเอฟเฟกต์ระหว่างการนำเสนอ
+The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
 
 ```php
 use aspose\slides\Presentation;
@@ -260,17 +322,17 @@ try {
 }
 ```
 
-## **ประเภทการเปลี่ยน Morph**
+## **Morph Transition Types**
 
-enumeration [TransitionMorphType](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionmorphtype/) ควบคุมวิธีที่ Morph จับคู่และเคลื่อนไหวเนื้อหา:
+The [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) enumeration controls how Morph matches and animates content:
 
-- [ByObject](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionmorphtype/#ByObject) ถือแต่ละรูปร่างเป็นวัตถุทั้งหมด
-- [ByWord](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionmorphtype/#ByWord) เคลื่อนที่ข้อความโดยจับคู่คำเมื่อเป็นไปได้
-- [ByChar](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionmorphtype/#ByChar) เคลื่อนที่ข้อความโดยจับคู่ตัวอักษรเมื่อเป็นไปได้
+- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) ปฏิบัติเช่นแต่ละรูปร่างเป็นออบเจ็กต์ทั้งหมด
+- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) ทำแอนิเมชันข้อความโดยจับคู่คำเมื่อเป็นไปได้
+- [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) ทำแอนิเมชันข้อความโดยจับคู่อักขระเมื่อเป็นไปได้
 
-ใช้ [setType](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setType) เพื่อเลือก Morph ก่อนเข้าถึง [getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getValue) ค่าที่ได้จะให้วัตถุ [MorphTransition](https://reference.aspose.com/slides/th/php-java/aspose.slides/morphtransition/) ซึ่งเมธอด [setMorphType](https://reference.aspose.com/slides/th/php-java/aspose.slides/morphtransition/#setMorphType) เลือกโหมดการจับคู่
+Use [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) to select Morph before accessing [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue). The value then provides a [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/) object, whose [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) method selects the matching mode.
 
-ตัวอย่างนี้เปิดงานนำเสนอที่สร้างในส่วนก่อนหน้าและกำหนดให้สไลด์ที่สองใช้การเคลื่อนไหว Morph ตามคำ
+This example opens the presentation created in the previous section and configures the second slide to use word‑based Morph animation.
 
 ```php
 use aspose\slides\Presentation;
@@ -299,11 +361,11 @@ try {
 }
 ```
 
-## **ตั้งค่าเอฟเฟกต์การเปลี่ยน**
+## **Set Transition Effects**
 
-บางการเปลี่ยนเปิดเผยตัวเลือกเพิ่มเติม เช่น ทิศทางหรือว่าเอฟเฟกต์เริ่มจากหน้าจอสีดำ ตัวเลือกที่ใช้ได้ขึ้นอยู่กับการเปลี่ยนที่เลือกด้วย [setType](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setType) ตั้งค่าชนิดก่อนแล้วใช้วัตถุการเปลี่ยนที่เหมาะสมจาก [getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getValue)
+Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the transition selected with [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Set the type first, then use the appropriate transition object from [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
 
-ตัวอย่างต่อไปใช้การเปลี่ยน Cut กับสไลด์แรกของ `input.pptx` เรียก [setFromBlack](https://reference.aspose.com/slides/th/php-java/aspose.slides/optionalblacktransition/#setFromBlack) ผ่าน [OptionalBlackTransition](https://reference.aspose.com/slides/th/php-java/aspose.slides/optionalblacktransition/) เพื่อให้การเปลี่ยนเริ่มจากหน้าจอสีดำ
+The following example applies a Cut transition to the first slide of `input.pptx`. It calls [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) through [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/) so that the transition starts from a black screen.
 
 ```php
 use aspose\slides\Presentation;
@@ -329,18 +391,18 @@ try {
 
 ## **FAQ**
 
-**ฉันสามารถควบคุมความเร็วการเล่นของการเปลี่ยนสไลด์ได้หรือไม่?**
+**ฉันสามารถควบคุมความเร็วการเล่นของการเปลี่ยนแปลงสไลด์ได้หรือไม่?**
 
-ใช่ ให้ใช้ [setDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setDuration) เมื่อคุณต้องการระยะเวลาเอฟเฟกต์ที่แม่นยำเป็นมิลลิวินาที ใช้ [setSpeed](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setSpeed) เมื่อต้องการหมวดความเร็วที่กำหนดไว้ล่วงหน้าใน [TransitionSpeed](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionspeed/) (Slow, Medium, หรือ Fast) เพียงพอและไม่ได้ตั้งค่าระยะเวลาชัดเจน การตั้งค่าเหล่านี้ควบคุมเอฟเฟกต์การเปลี่ยนโดยอิสระจากความล่าช้าการเลื่อนอัตโนมัติ
+Yes. Prefer [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) when you need an exact effect duration in milliseconds. Use [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
 
-**ฉันสามารถแนบเสียงกับการเปลี่ยนและให้วนซ้ำได้หรือไม่?**
+**ฉันสามารถแนบเสียงไปกับการเปลี่ยนแปลงและตั้งให้ทำซ้ำได้หรือไม่?**
 
-ใช่ กำหนดเสียงฝังด้วย [setSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setSound) ส่งค่า StartSound จาก enumeration [TransitionSoundMode](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitionsoundmode/) ไปยัง [setSoundMode](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setSoundMode) แล้วเปิด [setSoundLoop](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setSoundLoop) ด้วย `true` เสียงจะวนจนกว่าจะมีเหตุการณ์เสียงถัดไปในการนำเสนอ
+Yes. Assign embedded audio with [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), pass StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) enumeration to [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode), and enable [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) with `true`. The audio loops until the next sound event in the slide show.
 
-**วิธีที่เร็วที่สุดในการใช้การเปลี่ยนเดียวกันกับทุกสไลด์คืออะไร?**
+**วิธีที่เร็วที่สุดในการใช้การเปลี่ยนแปลงเดียวกันกับทุกสไลด์คืออะไร?**
 
-วนลูปผ่านคอลเลกชัน [getSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getSlides) ของงานนำเสนอและเรียก [setType](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#setType) ด้วยค่าที่เหมือนกันสำหรับการเปลี่ยนของแต่ละสไลด์ ตั้งค่าตัวเลือกเวลาและเอฟเฟกต์ในลูปเดียวกันเพื่อให้พฤติกรรมสอดคล้องกันทั่วทั้งสไลด์
+Loop through the presentation's [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) collection and call [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) with the same value for each slide's transition. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
 
-**ฉันจะตรวจสอบว่าการเปลี่ยนใดตั้งอยู่บนสไลด์ในขณะนี้ได้อย่างไร?**
+**ฉันจะตรวจสอบว่าการเปลี่ยนแปลงใดถูกตั้งค่าบนสไลด์ปัจจุบันได้อย่างไร?**
 
-เรียก [getType](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideshowtransition/#getType) บนผลลัพธ์ของ [getSlideShowTransition](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseslide/#getSlideShowTransition) ของสไลด์ มันจะส่งค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/transitiontype/) ; None หมายถึงไม่มีเอฟเฟกต์การเปลี่ยนใด ๆ ถูกใช้งาน
+Call [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) on the slide's [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) result. It returns a value from the [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/) enumeration; None means that no transition effect is applied.

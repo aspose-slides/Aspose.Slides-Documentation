@@ -1,5 +1,5 @@
 ---
-title: مدیریت انتقال اسلایدها در ارائه‌ها با استفاده از پایتون از طریق جاوا
+title: مدیریت انتقال اسلایدها در ارائه‌ها با استفاده از Python از طریق Java
 linktitle: انتقال اسلاید
 type: docs
 weight: 80
@@ -8,27 +8,27 @@ keywords:
 - انتقال اسلاید
 - افزودن انتقال اسلاید
 - اعمال انتقال اسلاید
-- انتقال پیشرفته اسلاید
+- انتقال اسلاید پیشرفته
 - انتقال مورف
 - نوع انتقال
 - اثر انتقال
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
-- پایتون
-- جاوا
+- Python
+- Java
 - Aspose.Slides
-description: "اعمال انتقال اسلایدها، پیکربندی پیشرفت خودکار اسلایدها و سفارشی‌سازی اثرات Morph و سایر اثرات انتقال با Aspose.Slides برای پایتون از طریق جاوا."
+description: "انتقال اسلایدها را اعمال کنید، پیشروی خودکار اسلایدها را پیکربندی کنید، و اثرهای Morph و سایر اثرهای انتقال را با Aspose.Slides برای Python از طریق Java سفارشی کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-انتقال اسلایدها نحوه نمایش اسلایدها را در طول نمایش اسلایدها کنترل می‌کند. با Aspose.Slides for Python via Java می‌توانید برای هر اسلاید یک اثر انتقال انتخاب کنید، پیشرفت را با کلیک ماوس یا زمان‌سنج تنظیم کنید و گزینه‌های خاص یک اثر را تنظیم کنید. این مقاله از مثال‌های پایتون برای اعمال انتقال‌ها، تنظیم دقیق مدت زمان انتقال، مدیریت زمان اسلاید و ایجاد یک انتقال Morph بین دو اسلاید استفاده می‌کند. مثال‌ها همچنین نشان می‌دهند که چگونه تنظیمات را در یک فایل PPTX ذخیره کنید.
+انتقالات اسلاید کنترل می‌کند که اسلایدها چگونه در حین نمایش اسلاید ظاهر می‌شوند. با Aspose.Slides برای Python از طریق Java، می‌توانید برای هر اسلاید یک افکت انتقال انتخاب کنید، پیشروی را با کلیک ماوس یا تایمر تنظیم کنید و گزینه‌های خاص یک افکت را تنظیم کنید. این مقاله از مثال‌های Python برای اعمال انتقال‌ها، تنظیم مدت زمان دقیق انتقال، مدیریت زمان اسلاید و ایجاد انتقال Morph بین دو اسلاید استفاده می‌کند. مثال‌ها همچنین نشان می‌دهند که چگونه تنظیمات را در یک فایل PPTX ذخیره کنید.
 
-## **اضافه کردن انتقال اسلاید**
+## **افزودن انتقال اسلاید**
 
-برای اعمال یک انتقال، یک ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) بارگذاری کنید و تنظیمات انتقال اسلاید را از طریق [getSlideShowTransition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getSlideShowTransition) دریافت کنید. از [setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setType) با مقداری از شمارش [TransitionType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitiontype/) استفاده کنید، سپس ارائه را ذخیره کنید.
+برای اعمال یک انتقال، یک ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) بارگذاری کنید و تنظیمات انتقال اسلاید را از طریق [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) دسترسی پیدا کنید. از [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) با مقدار از enum [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) استفاده کنید، سپس ارائه را ذخیره کنید.
 
-مثال زیر یک انتقال Circle را به اسلاید اول و یک انتقال Comb را به اسلاید دوم اعمال می‌کند. از فایلی به نام `input.pptx` که حداقل دو اسلاید دارد استفاده کنید.
+مثال زیر انتقال Circle را به اسلاید اول و انتقال Comb را به اسلاید دوم اعمال می‌کند. از یک فایل `input.pptx` که حداقل دو اسلاید دارد استفاده کنید.
 
 ```python
 import jpype
@@ -52,17 +52,69 @@ finally:
     presentation.dispose()
 ```
 
-## **اضافه کردن انتقال پیشرفته اسلاید**
+## **انتقال چرخ**
 
-می‌توانید مدت زمان ماندن یک اسلاید روی صفحه و این که آیا کلیک ماوس پیشرفت نمایش اسلایدها را انجام می‌دهد یا نه را پیکربندی کنید. روش‌های زیر این رفتار را کنترل می‌کنند:
+از [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) برای انتخاب Wheel از [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) استفاده کنید. سپس با فراخوانی [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) به تنظیمات [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) دسترسی پیدا کنید. متد [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) تعداد بخش‌های شعاعی که اسلاید مقصد را نمایش می‌دهند، کنترل می‌کند.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) به بیننده اجازه می‌دهد با کلیک ماوس پیشرفت کند.
-- [setAdvanceAfter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) پیشرفت خودکار را فعال می‌سازد.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) تاخیر قبل از پیشرفت خودکار را بر حسب میلی‌ثانیه تعیین می‌کند.
+مثال دو جفت اسلاید یکسان ایجاد می‌کند. هر جفت با یک اسلاید سیاه شروع می‌شود و با یک مستطیل طلایی تمام‑اسلاید تمام می‌شود. هر دو اسلاید مقصد از سرعت آهسته یکسانی که با [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) تنظیم شده و مدت زمان صریح ۸۰۰۰ میلی‌ثانیه که با [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) تنظیم شده استفاده می‌کنند. تنها تعداد شاخ‌ها تغییر می‌کند.
 
-هر دو پیشرفت کلیک و زمان‌بندی را فعال کنید تا بیننده بتواند با کلیک یا منتظر تایمر ادامه دهد. برای استفاده فقط از تایمر، `False` را به [setAdvanceOnClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) پاس بدهید. تاخیر زمان‌بندی زمانی که نمایش اسلاید پیش می‌رود را کنترل می‌کند؛ این مقدار مدت زمان اثر بصری انتقال را تعیین نمی‌کند.
+```python
+import jpype
+import asposeslides
 
-این مثال اثرهای مختلفی را به اولین سه اسلاید اختصاص می‌دهد و پیشرفت خودکار را پس از ۳، ۵ و ۷ ثانیه به ترتیب فعال می‌کند. کلیک ماوس نیز می‌تواند این اسلایدها را پیش ببرد. از فایلی به نام `input.pptx` که حداقل سه اسلاید دارد استفاده کنید.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, Presentation, SaveFormat, ShapeType, TransitionSpeed, TransitionType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
+    height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+
+    slides = presentation.getSlides()
+    black_slide = slides.get_Item(0)
+    black_slide.getShapes().clear()
+    background = black_slide.getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Solid)
+    background.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    destination_slide = slides.addClone(black_slide)
+    rectangle = destination_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, width, height)
+    rectangle.getFillFormat().setFillType(FillType.Solid)
+    rectangle.getFillFormat().getSolidFillColor().setColor(Color(255, 215, 0))
+    rectangle.getTextFrame().setText("Wheel transition")
+
+    slides.addClone(black_slide)
+    slides.addClone(destination_slide)
+    for slide_index, spokes in ((1, 1), (3, 8)):
+        transition = slides.get_Item(slide_index).getSlideShowTransition()
+        transition.setType(TransitionType.Wheel)
+        wheel_transition = transition.getValue()
+        wheel_transition.setSpokes(spokes)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(8000)
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+فایل `wheel-transitions.pptx` را در PowerPoint باز کنید و نمایش اسلاید را شروع کنید. از اسلاید ۱ به اسلاید ۲ پیش بروید تا یک sweep ساعتگرد مستطیل طلایی را نشان دهد. سپس از اسلاید ۳ به اسلاید ۴ پیش بروید تا هشت بخش شعاعی همزمان مستطیل را آشکار کنند.
+
+## **افزودن انتقال اسلاید پیشرفته**
+
+می‌توانید مدت زمانی که یک اسلاید روی صفحه می‌ماند و این‌که آیا کلیک ماوس نمایش اسلاید را پیش می‌برد را پیکربندی کنید. متدهای زیر این رفتار را کنترل می‌کنند:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) امکان پیشروی با کلیک ماوس را برای بیننده فعال می‌کند.
+- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) پیشروی خودکار را فعال می‌کند.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) تاخیر قبل از پیشروی خودکار را بر حسب میلی‌ثانیه مشخص می‌کند.
+
+هر دو پیشروی با کلیک و پیشروی زمان‌دار را فعال کنید تا بیننده بتواند با کلیک ادامه دهد یا تا تایمر صبر کند. برای استفاده فقط از تایمر، `False` را به [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) بدهید. تاخیر زمان پیشروی را کنترل می‌کند؛ مدت زمان افکت انتقال بصری را تنظیم نمی‌کند.
+
+این مثال افکت‌های مختلف را به سه اسلاید اول اختصاص می‌دهد و پیشروی خودکار پس از ۳، ۵ و ۷ ثانیه به ترتیب فعال می‌کند. کلیک‌های ماوس نیز می‌توانند این اسلایدها را پیش ببرند. از یک فایل `input.pptx` که حداقل سه اسلاید دارد استفاده کنید.
 
 ```python
 import jpype
@@ -101,9 +153,9 @@ finally:
     presentation.dispose()
 ```
 
-برای بررسی اینکه آیا پیشرفت زمان‌بندی شده فعال است یا نه، [getAdvanceAfter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) را فراخوانی کنید. فقط ذخیره یک تاخیر نشانگر فعال بودن تایمر نیست.
+برای بررسی اینکه آیا پیشروی زمان‌دار فعال است یا نه، [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) را فراخوانی کنید. تنها داشتن یک تاخیر ذخیره‌شده نشان‌دهنده فعال بودن تایمر نیست.
 
-مثال بعدی فایلی را که در بالا ذخیره شد باز می‌کند، هر تایمر فعال را گزارش می‌دهد و پیشرفت خودکار را برای اسلایدهایی که تاخیر بیش از دو ثانیه دارند غیرفعال می‌کند. برای آن اسلایدها کلیک ماوس را فعال می‌کند و تنظیمات به‌روز شده را ذخیره می‌نماید.
+مثال بعدی فایل ذخیره‌شده در بالا را باز می‌کند، هر تایمر فعال را گزارش می‌دهد و پیشروی خودکار را برای اسلایدهایی که تاخیر بیش از دو ثانیه دارند غیرفعال می‌کند. برای آن اسلایدها کلیک ماوس فعال می‌شود و تنظیمات به‌روزرسانی‌شده ذخیره می‌گردد.
 
 ```python
 import jpype
@@ -133,19 +185,25 @@ finally:
 
 ## **کنترل دقیق زمان‌بندی انتقال**
 
-از [setDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setDuration) برای تعیین دقیق طول یک اثر انتقال بر حسب میلی‌ثانیه استفاده کنید. متد [getSlideShowTransition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getSlideShowTransition) اسلاید این تنظیمات را از طریق کلاس [SlideShowTransition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/) در دسترس می‌گذارد:
+از [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) برای مشخص کردن طول دقیق یک افکت انتقال بر حسب میلی‌ثانیه استفاده کنید. متد [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) اسلاید این تنظیمات را از طریق [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/) در دسترس می‌گذارد:
 
-| متد | هدف |
+| Method | Purpose |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setDuration) | مدت زمان خود اثر انتقال را بر حسب میلی‌ثانیه تنظیم می‌کند. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | تاخیر پیشرفت خودکار اسلاید را بر حسب میلی‌ثانیه تنظیم می‌کند. برای فعال کردن این تایمر `True` را به [setAdvanceAfter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) پاس بدهید. |
-| [setSpeed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setSpeed) | یک دسته سرعت پیش‌تعریف‌شده از [TransitionSpeed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionspeed/) انتخاب می‌کند: Slow، Medium یا Fast. زمانی که مدت زمان دقیق مشخص نشده باشد استفاده می‌شود. |
+| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | مدت زمان خود افکت انتقال را بر حسب میلی‌ثانیه تنظیم می‌کند. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | تاخیر قبل از پیشروی خودکار اسلاید را بر حسب میلی‌ثانیه تنظیم می‌کند. برای فعال‌سازی این تایمر `True` را به [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) بدهید. |
+| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | یک دسته سرعت پیش‌تعریف‌شده از [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) را انتخاب می‌کند: Slow، Medium یا Fast. وقتی مدت زمان صریحی تعیین نشده باشد، استفاده می‌شود. |
 
-[setDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setDuration) فقط اثر انتقال را کنترل می‌کند؛ اینکه اسلاید چه مدت قابل مشاهده باشد را تعیین نمی‌کند. تاخیر پیشرفت خودکار را به طور جداگانه پیکربندی کنید. وقتی مدت زمان صریحی تنظیم نشود، Aspose.Slides مدت زمان اثر را از نوع انتقال و مقدار [getSpeed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getSpeed) تعیین می‌کند.
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) فقط افکت انتقال را کنترل می‌کند؛ مدت زمانی که اسلاید دیده می‌شود را تعیین نمی‌کند. تاخیر پیشروی خودکار را جداگانه تنظیم کنید. وقتی مدت زمان صریحی تنظیم نشده باشد، Aspose.Slides مدت زمان افکت را بر اساس نوع انتقال و مقدار [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) محاسبه می‌کند.
 
-### **اعمال همان مدت زمان به همه اسلایدها**
+<!-- visual-explanation:slide-transition:start -->
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-برای حفظ سرعت ثابت، همان اثر و مدت زمان دقیق را به همه اسلایدها اعمال کنید. این مثال `input.pptx` را بارگذاری می‌کند، Fade را از [TransitionType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitiontype/) انتخاب می‌کند و به هر انتقال مدت زمان ۷۵۰ میلی‌ثانیه می‌دهد. به طور جداگانه پیشرفت خودکار را پس از ۵۰۰۰ میلی‌ثانیه فعال می‌کند و پیشرفت با کلیک ماوس را غیرفعال می‌نماید، سپس نتیجه را به صورت PPTX ذخیره می‌کند.
+*نمونه مشترک برای هر اسلاید یک انتقال Fade ۷۵۰‑ms فراهم می‌کند و پیشروی خودکار ۵۰۰۰ ms را جداگانه فعال می‌کند. مدت زمان انتقال فقط افکت را کنترل می‌کند؛ پیشروی زمان خروج از اسلاید را. این نوارها تنظیمات شماتیک هستند، نه یک خط زمان ترکیبی اندازه‌گیری‌شده.*
+<!-- visual-explanation:slide-transition:end -->
+
+### **اعمال یک مدت زمان یکسان بر تمام اسلایدها**
+
+برای حفظ سرعت ثابت، همان افکت و همان مدت زمان دقیق را به همه اسلایدها اعمال کنید. این مثال `input.pptx` را بارگذاری می‌کند، Fade را از [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) انتخاب می‌کند و به هر انتقال یک مدت زمان ۷۵۰ میلی‌ثانیه می‌دهد. پیشروی خودکار را پس از ۵۰۰۰ میلی‌ثانیه جداگانه فعال کرده و پیشروی با کلیک ماوس را غیرفعال می‌کند، سپس نتیجه را به صورت PPTX ذخیره می‌نماید.
 
 ```python
 import jpype
@@ -173,9 +231,9 @@ finally:
     presentation.dispose()
 ```
 
-### **تنظیم مدت زمان‌های متفاوت برای اسلایدهای فردی**
+### **تنظیم مدت زمان‌های متفاوت برای اسلایدهای منفرد**
 
-اسلایدهای مختلف می‌توانند مدت زمان‌های متفاوتی داشته باشند. برای مثال، از یک انتقال کوتاه برای اسلاید عنوان و یک انتقال طولانی‌تر برای معرفی بخش استفاده کنید. این مثال ۵۰۰ میلی‌ثانیه برای اسلاید اول و ۱۲۰۰ میلی‌ثانیه برای اسلاید دوم تنظیم می‌کند. از فایلی به نام `input.pptx` که حداقل دو اسلاید دارد استفاده کنید.
+اسلایدهای مختلف می‌توانند مدت زمان افکت‌های متفاوتی داشته باشند. به عنوان مثال، از یک انتقال کوتاه برای اسلاید عنوان و یک انتقال طولانی‌تر برای معرفی بخش استفاده کنید. این مثال ۵۰۰ میلی‌ثانیه برای اسلاید اول و ۱۲۰۰ میلی‌ثانیه برای اسلاید دوم تنظیم می‌کند. از یک فایل `input.pptx` که حداقل دو اسلاید دارد استفاده کنید.
 
 ```python
 import jpype
@@ -204,15 +262,15 @@ finally:
     presentation.dispose()
 ```
 
-### **هماهنگی انتقال‌ها با خروجی‌های متحرک**
+### **همگام‌سازی انتقال‌ها با خروجی انیمیشنی**
 
-هنگامی که یک [animated GIF](/slides/fa/python-java/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/fa/python-java/export-to-html5/) یا [video](/slides/fa/python-java/convert-powerpoint-to-video/) آماده می‌کنید، قبل از خروجی‌گیری مدت زمان دقیق انتقال‌ها را تنظیم کنید تا با سرعت مطلوب هماهنگ شوند. برای مثال، یک محو شدن ۶۰۰ میلی‌ثانیه‌ای بین صحنه‌ها استفاده کنید و تاخیر پیشرفت هر اسلاید را به طور جداگانه تنظیم کنید تا زمان کافی برای روایت یا محتوای آن داشته باشید.
+هنگام آماده‌سازی یک [animated GIF](/slides/fa/python-java/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/fa/python-java/export-to-html5/) یا [video](/slides/fa/python-java/convert-powerpoint-to-video/)، قبل از خروجی‌گیری مدت زمان دقیق انتقال‌ها را تنظیم کنید تا با سرعت موردنظر هم‌خوانی داشته باشد. به عنوان مثال، از یک fade ۶۰۰ میلی‌ثانیه‌ای بین صحنه‌ها استفاده کنید و تاخیر پیشروی هر اسلاید را جداگانه تنظیم کنید تا زمان کافی برای روایت یا محتوای آن داشته باشید.
 
-برای GIF و ویدیو، نرخ فریم خروجی را با مدت زمان اثر مطابقت دهید: ۶۰۰ میلی‌ثانیه معادل ۱۸ فریم با ۳۰ فریم در ثانیه است. در HTML5، انتقال‌های متحرک را در تنظیمات خروجی فعال کنید. گزینه‌های اثر و زمان‌بندی پشتیبانی‌شده توسط فرمت خروجی انتخابی را بررسی کنید و خروجی را پیش‌نمایش کنید تا از هم‌زمانی اطمینان حاصل شود.
+برای GIF و ویدئو، نرخ فریم خروجی را با مدت زمان افکت هماهنگ کنید: ۶۰۰ میلی‌ثانیه معادل ۱۸ فریم در ۳۰ فریم بر ثانیه است. در HTML5، انتقال‌های انیمیشنی را در تنظیمات خروجی فعال کنید. فرمت خروجی انتخابی را برای اثرات و گزینه‌های زمان‌بندی پشتیبانی‌شده بررسی کنید و برای اطمینان از همگام‌سازی پیش‌نمایش کنید.
 
 ### **خواندن مدت زمان انتقال موجود**
 
-قبل از تغییر انتقال، [getDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getDuration) را فراخوانی کنید تا بررسی کنید آیا مقدار صریحی ذخیره شده است یا نه. مقدار `-1` به این معنی است که هیچ مدت زمان صریحی تنظیم نشده؛ مقدار غیرمنفی مدت زمان ذخیره‌شده را بر حسب میلی‌ثانیه نشان می‌دهد. این مقدار تنظیم نشده، مدت زمان پخش محاسبه‌شده نیست: Aspose.Slides نوع انتقال و مقدار [getSpeed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getSpeed) را برای تعیین آن استفاده می‌کند. تنظیم یک نوع انتقال می‌تواند یک مدت زمان را مقداردهی اولیه کند، بنابراین ابتدا تنظیمات اصلی را بررسی کنید.
+قبل از تغییر انتقال، [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) را فراخوانی کنید تا ببینید آیا مقدار صریحی ذخیره شده است یا نه. مقدار `-1` یعنی هیچ مدت زمان صریحی تنظیم نشده؛ مقدار غیر منفی مدت زمان ذخیره‌شده را بر حسب میلی‌ثانیه نشان می‌دهد. این مقدار تنظیم‌نشده، مدت زمان پخش محاسبه‌شده نیست: Aspose.Slides با استفاده از نوع انتقال و مقدار [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) آن را تعیین می‌کند. تنظیم یک نوع انتقال می‌تواند یک مدت زمان را مقداردهی اولیه کند، بنابراین ابتدا تنظیمات اصلی را بررسی کنید.
 
 ```python
 import jpype
@@ -239,9 +297,9 @@ finally:
 
 ## **انتقال Morph**
 
-انتقال Morph تغییرات بین اشیاء روی اسلایدهای متوالی را انیمیت می‌کند. برای ایجاد یک اثر Morph ساده، یک اسلاید را کلون کنید، شیء‌ای را روی کلون جابه‌جا یا اندازه‌اش را تغییر دهید و انتقال Morph را به اسلاید دوم اعمال کنید. این کار به اشیائی که مطابق هستند اجازه می‌دهد بین حالت اولیه و تغییر یافته انیمیت شوند.
+انتقال Morph تغییرات بین اشیاء روی اسلایدهای متوالی را انیمیشن می‌دهد. برای ایجاد یک اثر ساده Morph، یک اسلاید را کپی کنید، شیء را روی کپی جابه‌جا یا تغییر اندازه دهید و انتقال Morph را به اسلاید دوم اعمال کنید. این کار اشیاء مرتبط را بین حالت اصلی و اصلاح‌شده آن‌ها انیمیشن می‌کند.
 
-مثال زیر یک اسلاید با یک مستطیل متن ایجاد می‌کند، اسلاید را کلون می‌کند و موقعیت و اندازه مستطیل را در کلون تغییر می‌دهد. سپس Morph را از شمارش [TransitionType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitiontype/) برای اسلاید دوم انتخاب می‌کند. فایل ذخیره‌شده را در یک نمایشگر ارائه‌ای که Morph را پشتیبانی می‌کند باز کنید تا اثر را در حین نمایش اسلایدها ببینید.
+مثال زیر یک اسلاید با یک مستطیل متن ایجاد می‌کند، اسلاید را کپی می‌کند و موقعیت و اندازه مستطیل را در کپی تغییر می‌دهد. سپس برای اسلاید دوم Morph را از enum [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) انتخاب می‌کند. فایل ذخیره‌شده را در یک نمایش‌کننده‌ای که Morph را پشتیبانی می‌کند باز کنید تا اثر را در حین نمایش اسلاید ببینید.
 
 ```python
 import jpype
@@ -274,15 +332,15 @@ finally:
 
 ## **انواع انتقال Morph**
 
-شمارش [TransitionMorphType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionmorphtype/) نحوه مطابقت و انیمیشن محتوای Morph را کنترل می‌کند:
+enum [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) نحوه تطبیق و انیمیشن محتوا توسط Morph را کنترل می‌کند:
 
-- [ByObject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionmorphtype/#ByObject) هر شکل را به عنوان یک شیء کامل در نظر می‌گیرد.
-- [ByWord](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionmorphtype/#ByWord) متن را با مطابقت کلمات (در صورت امکان) انیمیت می‌کند.
-- [ByChar](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionmorphtype/#ByChar) متن را با مطابقت کاراکترها (در صورت امکان) انیمیت می‌کند.
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) هر شکل را به عنوان یک شیء کامل در نظر می‌گیرد.
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) متن را با تطبیق کلمات (در صورت امکان) انیمیشن می‌کند.
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) متن را با تطبیق حروف (در صورت امکان) انیمیشن می‌کند.
 
-قبل از دسترسی به [getValue](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getValue) از [setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setType) برای انتخاب Morph استفاده کنید. سپس مقدار برگشتی یک نمونه از کلاس [MorphTransition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/morphtransition/) است که متد [setMorphType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/morphtransition/#setMorphType) حالت مطابقت را انتخاب می‌کند.
+از [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) برای انتخاب Morph قبل از دسترسی به [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) استفاده کنید. سپس مقدار برگشتی یک نمونه از کلاس [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/) است که متد [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) آن حالت تطبیق را انتخاب می‌کند.
 
-این مثال ارائه‌ای که در بخش قبلی ایجاد شد را باز می‌کند و اسلاید دوم را برای استفاده از انیمیشن Morph مبتنی بر کلمه تنظیم می‌نماید.
+این مثال ارائه‌ای را که در بخش قبلی ساخته شد باز می‌کند و اسلاید دوم را برای استفاده از انیمیشن Morph مبتنی بر کلمه تنظیم می‌کند.
 
 ```python
 import jpype
@@ -312,11 +370,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تنظیم اثرهای انتقال**
+## **تنظیم افکت‌های انتقال**
 
-برخی از انتقال‌ها گزینه‌های اضافی مانند جهت یا این که اثر از یک صفحه سیاه شروع شود را در اختیار می‌گذارند. گزینه‌های موجود به انتقالی که با [setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setType) انتخاب شده بستگی دارد. ابتدا نوع را تنظیم کنید، سپس کلاس مناسب را از [getValue](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getValue) استفاده کنید.
+برخی از انتقال‌ها گزینه‌های اضافی مانند جهت یا این که افکت از صفحه سیاه شروع شود را در اختیار می‌گذارند. گزینه‌های موجود به انتقالی که با [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) انتخاب شده بستگی دارد. ابتدا نوع را تنظیم کنید، سپس از کلاس مناسب از طریق [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) استفاده کنید.
 
-مثال زیر یک انتقال Cut را به اولین اسلاید `input.pptx` اعمال می‌کند. از [setFromBlack](https://reference.aspose.com/slides/fa/python-java/aspose.slides/optionalblacktransition/#setFromBlack) از طریق کلاس [OptionalBlackTransition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/optionalblacktransition/) استفاده می‌کند تا انتقال از یک صفحه سیاه آغاز شود.
+مثال زیر یک انتقال Cut را به اسلاید اول `input.pptx` اعمال می‌کند. از طریق [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) متد [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) را فراخوانی می‌کند تا انتقال از صفحه سیاه آغاز شود.
 
 ```python
 import jpype
@@ -343,20 +401,20 @@ finally:
     presentation.dispose()
 ```
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
 **آیا می‌توانم سرعت پخش یک انتقال اسلاید را کنترل کنم؟**
 
-بله. زمانی که به مدت دقیق اثر بر حسب میلی‌ثانیه نیاز دارید، از [setDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setDuration) استفاده کنید. وقتی یک دسته سرعت از پیش تعریف‌شده از [TransitionSpeed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionspeed/) (Slow، Medium یا Fast) کافی است و مقدار صریحی تنظیم نشده، از [setSpeed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setSpeed) استفاده کنید. این تنظیمات اثر انتقال را مستقل از تاخیر پیشرفت خودکار کنترل می‌کنند.
+بله. هنگام نیاز به مدت زمان دقیق افکت بر حسب میلی‌ثانیه، ترجیحاً از [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) استفاده کنید. وقتی یک دسته سرعت پیش‌تعریف‌شده از [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) (Slow، Medium یا Fast) کافی است و مدت زمان صریحی تنظیم نشده، از [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) استفاده کنید. این تنظیمات افکت انتقال را به‌صورت مستقل از تاخیر پیشروی خودکار کنترل می‌کنند.
 
-**آیا می‌توانم صدا را به یک انتقال وصل کنم و آن را حلقه‌دار کنم؟**
+**آیا می‌توانم صوتی را به یک انتقال وصل کنم و آن را حلقه‌ای کنم؟**
 
-بله. صدا را با [setSound](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setSound) اختصاص دهید، مقدار StartSound از شمارش [TransitionSoundMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitionsoundmode/) را به [setSoundMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setSoundMode) پاس بدهید و با `True` به [setSoundLoop](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setSoundLoop) فعال کنید. صدا تا رویداد صوتی بعدی در نمایش اسلایدها حلقه می‌زند.
+بله. صدای داخلی را با [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound) تخصیص دهید، مقدار StartSound از enum [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) را به [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode) بدهید و با `True` به [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) فعال کنید. صدا تا رویداد صوتی بعدی در نمایش اسلاید حلقه می‌زند.
 
-**سریع‌ترین راه برای اعمال همان انتقال به همه اسلایدها چیست؟**
+**سریع‌ترین راه برای اعمال یک انتقال یکسان به تمام اسلایدها چیست؟**
 
-از طریق حلقه‌زدن روی مجموعه [getSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getSlides) ارائه و فراخوانی [setType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#setType) با همان مقدار برای هر اسلاید استفاده کنید. هر گزینه زمان‌بندی و اثر را در همان حلقه تنظیم کنید تا رفتار در تمام اسلایدها یکسان بماند.
+در مجموعه [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) ارائه حلقه بزنید و برای هر اسلاید متد [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) را با همان مقدار فراخوانی کنید. هر تنظیم زمان و گزینه افکت را در همان حلقه تنظیم کنید تا رفتار در تمام اسلایدها یکسان بماند.
 
-**چگونه می‌توانم بررسی کنم که در حال حاضر چه انتقالی روی یک اسلاید تنظیم شده است؟**
+**چگونه می‌توانم بررسی کنم که چه انتقالی در حال حاضر بر روی یک اسلاید تنظیم شده است؟**
 
-روی نتیجه [getSlideShowTransition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getSlideShowTransition) اسلاید، متد [getType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/slideshowtransition/#getType) را فراخوانی کنید. این متد مقداری از شمارش [TransitionType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/transitiontype/) برمی‌گرداند؛ `None_` به این معنی است که هیچ اثر انتقالی اعمال نشده است.
+بر روی نتیجه [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) اسلاید، [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) را فراخوانی کنید. این متد یک مقدار از enum [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) بازمی‌گرداند؛ مقدار None_ نشان می‌دهد که هیچ افکت انتقالی اعمال نشده است.

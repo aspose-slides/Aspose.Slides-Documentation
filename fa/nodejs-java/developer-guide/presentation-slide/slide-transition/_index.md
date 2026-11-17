@@ -6,9 +6,9 @@ weight: 80
 url: /fa/nodejs-java/slide-transition/
 keywords:
 - انتقال اسلاید
-- اضافه کردن انتقال اسلاید
+- افزودن انتقال اسلاید
 - اعمال انتقال اسلاید
-- انتقال اسلاید پیشرفته
+- انتقال پیشرفته اسلاید
 - انتقال مورف
 - نوع انتقال
 - اثر انتقال
@@ -18,17 +18,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "با Aspose.Slides برای Node.js از طریق Java، انتقال‌های اسلاید را اعمال کنید، پیشرفت خودکار اسلایدها را پیکربندی کنید و اثرهای Morph و سایر اثرهای انتقال را سفارشی‌سازی کنید."
+description: "اعمال انتقال‌های اسلاید، پیکربندی پیشرفت خودکار اسلاید، و سفارشی‌سازی انتقال Morph و دیگر اثرات انتقال با Aspose.Slides برای Node.js از طریق Java."
 ---
 ## **نمای کلی**
 
-انتقال اسلایدها نحوه نمایش اسلایدها در حین ارائه را کنترل می‌کند. با Aspose.Slides برای Node.js از طریق Java، می‌توانید برای هر اسلاید یک اثر انتقال انتخاب کنید، پیشرفت را با کلیک ماوس یا تایمر تنظیم کنید و گزینه‌های خاص یک اثر را تنظیم نمایید. این مقاله از مثال‌های JavaScript برای اعمال انتقال‌ها، تنظیم دقیق مدت زمان انتقال، مدیریت زمان اسلاید و ایجاد یک انتقال Morph بین دو اسلاید استفاده می‌کند. مثال‌ها همچنین نحوه ذخیره تنظیمات در یک فایل PPTX را نشان می‌دهند.
+انتقالات اسلاید کنترل می‌کند که اسلایدها در یک نمایش اسلاید چگونه ظاهر می‌شوند. با Aspose.Slides برای Node.js از طریق Java، می‌توانید برای هر اسلاید یک اثر انتقال انتخاب کنید، پیشرفت را با کلیک ماوس یا زمان‌سنج تنظیم کنید و گزینه‌های خاص یک اثر را تنظیم کنید. این مقاله از مثال‌های JavaScript برای اعمال انتقال‌ها، تنظیم دقیق مدت زمان انتقال، مدیریت زمان‌بندی اسلاید و ایجاد یک انتقال Morph بین دو اسلاید استفاده می‌کند. مثال‌ها همچنین نشان می‌دهند چگونه تنظیمات را در یک فایل PPTX ذخیره کنید.
 
 ## **افزودن انتقال اسلاید**
 
-برای اعمال یک انتقال، یک ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) بارگذاری کنید و از طریق [getSlideShowTransition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) به تنظیمات انتقال اسلاید دسترسی پیدا کنید. از [setType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setType) با مقداری از شمارش‌گر [TransitionType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitiontype/) استفاده کنید و سپس ارائه را ذخیره کنید.
+برای اعمال یک انتقال، یک ارائه را با کلاس [ارائه](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) بارگذاری کنید و تنظیمات انتقال اسلاید را از طریق [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) دسترسی پیدا کنید. با استفاده از [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) مقدار از شمارش [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) را تعیین کنید، سپس ارائه را ذخیره کنید.
 
-مثال زیر یک انتقال Circle را به اسلاید اول و یک انتقال Comb را به اسلاید دوم اعمال می‌کند. از فایلی به نام `input.pptx` که حداقل دو اسلاید دارد استفاده کنید.
+مثال زیر انتقال Circle را به اسلاید اول و انتقال Comb را به اسلاید دوم اعمال می‌کند. یک فایل `input.pptx` با حداقل دو اسلاید استفاده کنید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,17 +48,67 @@ try {
 }
 ```
 
-## **افزودن انتقال اسلاید پیشرفته**
+## **انتقال چرخ**
 
-می‌توانید مدت زمان نمایش اسلاید روی صفحه و اینکه آیا کلیک ماوس پیشرفت اسلایدشو را فعال می‌کند یا خیر، تنظیم کنید. متدهای زیر این رفتار را کنترل می‌کنند:
+`[setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes)` متد `[WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/)` تعداد بخش‌های شعاعی که اسلاید مقصد را نشان می‌دهند کنترل می‌کند. نوع انتقال اسلاید را به Wheel از `[TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)` با استفاده از `[setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType)` تنظیم کنید پیش از دسترسی به `[getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue)` به عنوان `[WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/)`.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) اجازه می‌دهد بیننده با کلیک ماوس پیش برود.
-- [setAdvanceAfter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) پیشرفت خودکار را فعال می‌کند.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) تاخیر پیشرفت خودکار را بر حسب میلی‌ثانیه مشخص می‌کند.
+این مثال دو جفت اسلاید یکسان ایجاد می‌کند: یک اسلاید سیاه که به دنبال یک اسلاید با مستطیل طلایی می‌آید. اسلایدهای مقصد از تعداد spoke برابر ۱ و ۸ استفاده می‌کنند، با سرعت یکسانی که از طریق `[setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed)` تنظیم شده و مدت زمان صریح ۸۰۰۰ میلی‌ثانیه که از طریق `[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration)` تنظیم شده تا تفاوت به‌راحتی قابل مشاهده باشد.
 
-هر دو پیشرفت با کلیک و زمان‌بندی را فعال کنید تا بیننده بتواند با کلیک ادامه دهد یا صبر کند تا تایمر پایان یابد. برای استفاده فقط از تایمر، مقدار `false` را به [setAdvanceOnClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) بگذارید. تاخیر زمان‌بندی زمانی را که اسلایدشو پیش می‌رود کنترل می‌کند؛ اما مدت زمان اثر بصری انتقال را تنظیم نمی‌کند.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-این مثال اثرهای متفاوتی را به اولین سه اسلاید اختصاص می‌دهد و پیشرفت خودکار را پس از ۳، ۵ و ۷ ثانیه به ترتیب فعال می‌کند. کلیک‌های ماوس نیز می‌توانند این اسلایدها را پیش ببرند. از فایلی به نام `input.pptx` که حداقل سه اسلاید دارد استفاده کنید.
+const presentation = new slides.Presentation();
+try {
+    const slideWidth = presentation.getSlideSize().getSize().getWidth();
+    const slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+    const blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+    blackSlide.getBackground().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(black);
+
+    const destinationSlide = presentation.getSlides().addClone(blackSlide);
+    const rectangle = destinationSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const gold = java.newInstanceSync("java.awt.Color", 255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    const spokeCounts = [1, 8];
+    for (let i = 0; i < spokeCounts.length; i++) {
+        const transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Wheel);
+        const wheelTransition = transition.getValue();
+        wheelTransition.setSpokes(java.newLong(spokeCounts[i]));
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+پرزنتیشن خروجی را در PowerPoint باز کنید و نمایش اسلاید را اجرا کنید. از اسلاید ۱ به اسلاید ۲، سپس از اسلاید ۳ به اسلاید ۴ پیش بروید. در پخش PowerPoint، شمارش spoke تأیید شده ۱ اسلاید را با یک حرکت ساعت‌گرد نشان می‌دهد؛ شمارش تأیید شده ۸ آن را از طریق هشت بخش شعاعی به‌صورت همزمان نشان می‌دهد. محتوای مقصد و زمان‌بندی انتقال یکسان هستند، بنابراین تفاوت در تعداد بخش‌های نمایان است.
+
+## **افزودن انتقال پیشرفته اسلاید**
+
+می‌توانید مدت زمانی که یک اسلاید روی صفحه می‌ماند و اینکه آیا یک کلیک ماوس نمایش اسلاید را پیش می‌برد تنظیم کنید. متدهای زیر این رفتار را کنترل می‌کنند:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) امکان پیشرفت توسط کلیک ماوس را به بیننده می‌دهد.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) به‌صورت خودکار پیشرفت را فعال می‌کند.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) تاخیر قبل از پیشرفت خودکار را بر حسب میلی‌ثانیه مشخص می‌کند.
+
+هر دو پیشرفت کلیکی و زمان‌بندی‌شده را فعال کنید تا بیننده بتواند با یک کلیک ادامه دهد یا صبر کند تا تایمر فعال شود. برای استفاده فقط از تایمر، `false` را به `[setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick)` پاس دهید. تاخیر زمان‌بندی زمان پیشرفت نمایش اسلاید را کنترل می‌کند؛ این مقدار مدت زمان اثر بصری انتقال را تعیین نمی‌کند.
+
+این مثال افکت‌های مختلفی را به سه اسلاید اول اختصاص می‌دهد و پیشرفت خودکار را پس از ۳، ۵ و ۷ ثانیه به ترتیب فعال می‌کند. کلیک‌های ماوس نیز می‌توانند این اسلایدها را پیش ببرند. از یک فایل `input.pptx` با حداقل سه اسلاید استفاده کنید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -93,9 +143,9 @@ try {
 }
 ```
 
-برای بررسی اینکه آیا پیشرفت زمان‌بندی شده فعال است یا خیر، متد [getAdvanceAfter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) را فراخوانی کنید. فقط داشتن یک تاخیر ذخیره‌شده نشان‌دهنده فعال بودن تایمر نیست.
+برای بررسی اینکه آیا پیشرفت زمان‌بندی‌شده فعال است، `[getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter)` را فراخوانی کنید. فقط داشتن یک تاخیر ذخیره‌شده نشان‌دهنده فعال بودن تایمر نیست.
 
-مثال بعدی فایلی که در بالا ذخیره شد را باز می‌کند، هر تایمر فعال را گزارش می‌دهد و پیشرفت خودکار را برای اسلایدهایی که تاخیر بیش از دو ثانیه دارند غیرفعال می‌کند. برای این اسلایدها کلیک ماوس را فعال می‌سازد و تنظیمات به‌روز شده را ذخیره می‌کند.
+مثال بعدی فایلی را که در بالا ذخیره شد باز می‌کند، هر تایمر فعال را گزارش می‌دهد و پیشرفت خودکار را برای اسلایدهایی که تاخیر بیش از دو ثانیه دارند غیرفعال می‌کند. کلیک‌های ماوس را برای آن اسلایدها فعال می‌کند و تنظیمات به‌روزشده را ذخیره می‌نماید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -124,19 +174,25 @@ try {
 
 ## **کنترل دقیق زمان‌بندی انتقال**
 
-از [setDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setDuration) برای تعیین دقیق طول یک اثر انتقال بر حسب میلی‌ثانیه استفاده کنید. متد [getSlideShowTransition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) اسلاید این تنظیمات را از طریق [SlideShowTransition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/) در اختیار می‌گذارد:
+از `[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration)` برای مشخص کردن طول دقیق یک اثر انتقال بر حسب میلی‌ثانیه استفاده کنید. متد `[getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)` اسلاید این تنظیمات را از طریق `[SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/)` در اختیار می‌گذارد:
 
 | متد | هدف |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | مدت زمان اثر انتقال را به میلی‌ثانیه تنظیم می‌کند. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | تاخیر پیشرفت خودکار اسلاید را به میلی‌ثانیه تنظیم می‌کند. برای فعال‌سازی این تایمر مقدار `true` را به [setAdvanceAfter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) بدهید. |
-| [setSpeed](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | یک دسته سرعت پیش‌تعریف‌شده از [TransitionSpeed](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionspeed/) را انتخاب می‌کند: Slow، Medium یا Fast. وقتی مدت زمان دقیقی مشخص نشده باشد استفاده می‌شود. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | مدت زمان اثر انتقال را به‌صورت میلی‌ثانیه تنظیم می‌کند. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | تاخیر قبل از پیشرفت خودکار اسلاید را به‌صورت میلی‌ثانیه تنظیم می‌کند. برای فعال‌سازی این زمان‌سنج `true` را به `[setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter)` پاس دهید. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | یک دسته‌بندی سرعت پیش‌تعریف شده از `[TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/)` (Slow، Medium یا Fast) را انتخاب می‌کند. زمانی استفاده می‌شود که مدت زمان دقیق مشخص نشده باشد. |
 
-[setDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setDuration) فقط بر اثر انتقال تاثیر می‌گذارد؛ طول زمان نمایش اسلاید را تعیین نمی‌کند. تاخیر پیشرفت خودکار را به‌صورت جداگانه تنظیم کنید. وقتی مدت زمان صریحی تنظیم نشود، Aspose.Slides مدت زمان اثر را بر پایه نوع انتقال و مقدار [getSpeed](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) محاسبه می‌کند.
+`[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration)` فقط اثر انتقال را کنترل می‌کند؛ مدت زمانی که اسلاید روی صفحه می‌ماند را تعیین نمی‌کند. تاخیر پیشرفت خودکار را جداگانه پیکربندی کنید. وقتی مدت زمان صریحی تنظیم نشده باشد، Aspose.Slides مدت زمان اثر را بر اساس نوع انتقال و مقدار `[getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed)` تعیین می‌کند.
+
+<!-- visual-explanation:slide-transition:start -->
+[![نوارهای جداکننده مدت زمان انتقال 750 میلی‌ثانیه و تنظیم پیشرفت خودکار 5,000 میلی‌ثانیه را نشان می‌دهند.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*مثال مشترک به هر اسلاید یک انتقال Fade به مدت 750 میلی‌ثانیه می‌دهد و به‌صورت جداگانه پیشرفت خودکار را پس از 5,000 میلی‌ثانیه فعال می‌کند. مدت زمان انتقال اثر را کنترل می‌کند؛ پیشرفت زمان خروج اسلاید را تعیین می‌کند. این نوارها تنظیمات شماتیک هستند، نه یک خط زمانی ترکیبی اندازه‌گیری شده.*  
+<!-- visual-explanation:slide-transition:end -->
 
 ### **اعمال همان مدت زمان بر تمام اسلایدها**
 
-برای حفظ سرعت یکنواخت، همان اثر و همان مدت زمان دقیق را بر تمام اسلایدها اعمال کنید. این مثال `input.pptx` را بارگذاری می‌کند، Fade را از [TransitionType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitiontype/) انتخاب می‌کند و به هر انتقال مدت ۷۵۰ میلی‌ثانیه می‌دهد. به‌طور جداگانه پیشرفت خودکار پس از ۵۰۰۰ میلی‌ثانیه را فعال و پیشرفت با کلیک ماوس را غیرفعال می‌کند، سپس نتیجه را به صورت PPTX ذخیره می‌کند.
+برای حفظ سرعت یکنواخت، همان اثر و دقیقاً همان مدت زمان را بر تمام اسلایدها اعمال کنید. این مثال `input.pptx` را بارگذاری می‌کند، از `[TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)` Fade را انتخاب می‌کند و به هر انتقال مدت زمان ۷۵۰ میلی‌ثانیه می‌دهد. به‌صورت جداگانه پیشرفت خودکار را پس از 5,000 میلی‌ثانیه فعال کرده و پیشرفت با کلیک ماوس را غیرفعال می‌کند، سپس نتیجه را به صورت PPTX ذخیره می‌کند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -149,7 +205,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // پیکربندی پیشرفت خودکار به طور مستقل از مدت زمان اثر.
+        // پیشرفت خودکار را به‌ طور مستقل از مدت زمان اثر پیکربندی کنید.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -161,9 +217,9 @@ try {
 }
 ```
 
-### **تنظیم مدت زمان‌های متفاوت برای اسلایدهای جداگانه**
+### **تنظیم مدت زمان‌های متفاوت برای اسلایدهای منفرد**
 
-اسلایدهای مختلف می‌توانند مدت زمان اثر متفاوتی داشته باشند. برای مثال، می‌توانید یک انتقال کوتاه برای اسلاید عنوان و یک انتقال طولانی‌تر برای معرفی بخش استفاده کنید. این مثال ۵۰۰ میلی‌ثانیه را برای اسلاید اول و ۱۲۰۰ میلی‌ثانیه را برای اسلاید دوم تنظیم می‌کند. از فایلی به نام `input.pptx` که حداقل دو اسلاید دارد استفاده کنید.
+اسلایدهای مختلف می‌توانند مدت زمان اثر متفاوتی داشته باشند. برای مثال، می‌توانید یک انتقال کوتاه برای اسلاید عنوان و یک انتقال طولانی‌تر برای معرفی بخش استفاده کنید. این مثال برای اسلاید اول 500 میلی‌ثانیه و برای اسلاید دوم 1,200 میلی‌ثانیه تنظیم می‌کند. از یک فایل `input.pptx` با حداقل دو اسلاید استفاده کنید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -188,15 +244,15 @@ try {
 }
 ```
 
-### **هماهنگ‌سازی انتقال‌ها با خروجی انیمیشن‌دار**
+### **هماهنگ‌سازی انتقال‌ها با خروجی انیمیشنی**
 
-هنگام آماده‌سازی یک [animated GIF](/slides/fa/nodejs-java/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/fa/nodejs-java/export-to-html5/)، یا [video](/slides/fa/nodejs-java/convert-powerpoint-to-video/)، قبل از خروجی‌گیری مدت زمان دقیق انتقال‌ها را تنظیم کنید تا با سرعت موردنظر هم‌خوانی داشته باشند. برای مثال، می‌توانید یک محو شدن ۶۰۰ میلی‌ثانیه‌ای بین صحنه‌ها استفاده کنید و تاخیر پیشرفت هر اسلاید را به‌صورت جداگانه تنظیم کنید تا زمان کافی برای روایت یا محتوای آن فراهم شود.
+هنگام تهیه یک [animated GIF](/slides/fa/nodejs-java/convert-powerpoint-to-animated-gif/)، یک [HTML5 presentation](/slides/fa/nodejs-java/export-to-html5/)، یا یک [video](/slides/fa/nodejs-java/convert-powerpoint-to-video/)، قبل از خروجی مدت زمان دقیق انتقال‌ها را تنظیم کنید تا با سرعت مورد نظر هماهنگ باشد. برای مثال، از یک محو شدن 600 میلی‌ثانیه‌ای بین صحنه‌ها استفاده کنید و تاخیر پیشرفت هر اسلاید را به‌صورت جداگانه تنظیم کنید تا زمان کافی برای روایت یا محتوا داشته باشد.
 
-برای GIF و ویدئو، نرخ فریم خروجی را با مدت زمان اثر هماهنگ کنید: ۶۰۰ میلی‌ثانیه برابر است با ۱۸ فریم در ۳۰ فریم بر ثانیه. در HTML5، انتقال‌های انیمیشن‌دار را در تنظیمات خروجی فعال کنید. فرمت خروجی انتخابی را برای پشتیبانی از اثرها و گزینه‌های زمان‌بندی بررسی کنید و خروجی را پیش‌نمایش کنید تا از هم‌زمانی اطمینان حاصل شود.
+برای GIF و ویدیو، نرخ فریم خروجی را با مدت زمان اثر هماهنگ کنید: 600 میلی‌ثانیه معادل 18 فریم در 30 فریم بر ثانیه است. در HTML5، انتقال‌های انیمیشنی را در تنظیمات خروجی فعال کنید. گزینه‌های اثر و زمان‌بندی پشتیبانی‌شده توسط قالب خروجی مورد نظر را بررسی کنید و خروجی را پیش‌نمایش کنید تا همگام‌سازی را تأیید کنید.
 
 ### **خواندن مدت زمان انتقال موجود**
 
-قبل از تغییر انتقال، متد [getDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getDuration) را فراخوانی کنید تا بررسی کنید آیا مقدار صریح ذخیره شده است یا خیر. مقدار `-1` به این معناست که مدت زمان صریحی تنظیم نشده؛ مقدار غیرمنفی مدت زمان ذخیره‌شده بر حسب میلی‌ثانیه را نشان می‌دهد. این مقدار تنظیم نشده، مدت زمان محاسبه‌شده پخش نیست: Aspose.Slides از نوع انتقال و مقدار [getSpeed](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) برای تعیین آن استفاده می‌کند. تنظیم نوع انتقال می‌تواند مدت زمان را مقداردهی اولیه کند، بنابراین ابتدا تنظیمات اصلی را بررسی کنید.
+قبل از تغییر انتقال، `[getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration)` را صدا بزنید تا ببینید آیا مقدار صریحی ذخیره شده است یا نه. مقدار `-1` به این معناست که هیچ مدت زمان صریحی تنظیم نشده؛ مقدار غیرمنفی مدت زمان ذخیره‌شده را بر حسب میلی‌ثانیه مشخص می‌کند. این مقدار تنظیم‌نشده همان مدت زمان پخش محاسبه‌شده نیست: Aspose.Slides بر اساس نوع انتقال و مقدار `[getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed)` آن را تعیین می‌کند. تنظیم نوع انتقال می‌تواند یک مدت زمان اولیه ایجاد کند، بنابراین ابتدا تنظیمات اصلی را بررسی کنید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -221,9 +277,9 @@ try {
 
 ## **انتقال Morph**
 
-انتقال Morph تغییرات بین اشیا در اسلایدهای پی در پی را انیمیشن می‌کند. برای ایجاد یک اثر Morph ساده، یک اسلاید را کلون کنید، یک شی را روی کلون جابجا یا تغییر اندازه دهید و انتقال Morph را به اسلاید دوم اعمال کنید. این کار اشیاء متناظر را برای انیمیشن بین حالت اصلی و تغییر یافته فراهم می‌آورد.
+انتقال Morph تغییرات بین اشیاء در اسلایدهای متوالی را انیمیشن می‌دهد. برای ایجاد یک اثر ساده Morph، یک اسلاید را کلون کنید، یک شیء را در کلون جابه‌جا یا اندازه‌اش را تغییر دهید و انتقال Morph را بر اسلاید دوم اعمال کنید. این کار اشیاء مربوطه را برای انیمیشن بین حالت اصلی و تغییر یافته فراهم می‌کند.
 
-مثال زیر یک اسلاید با یک مستطیل متنی ایجاد می‌کند، اسلاید را کلون می‌کند و موقعیت و اندازه مستطیل را در نسخه کلون شده تغییر می‌دهد. سپس Morph را از شمارش‌گر [TransitionType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitiontype/) برای اسلاید دوم انتخاب می‌کند. فایل ذخیره‌شده را در یک نمایشگر ارائه‌ای که از Morph پشتیبانی می‌کند باز کنید تا اثر را در حین اسلاید شو ببینید.
+مثال زیر یک اسلاید با یک مستطیل متن ایجاد می‌کند، اسلاید را کلون می‌کند و موقعیت و اندازه مستطیل را در کلون تغییر می‌دهد. سپس برای اسلاید دوم Morph را از شمارش `[TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)` انتخاب می‌کند. فایل ذخیره‌شده را در یک برنامه‌ی نمایش ارائه‌ای که Morph را پشتیبانی می‌کند باز کنید تا اثر را در طول نمایش اسلاید ببینید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -251,15 +307,15 @@ try {
 
 ## **انواع انتقال Morph**
 
-شمارش‌گر [TransitionMorphType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionmorphtype/) نحوه مطابقت و انیمیشن محتوای Morph را کنترل می‌کند:
+شمارش `[TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/)` تعیین می‌کند Morph چگونه محتوا را تطبیق داده و انیمیشن می‌دهد:
 
-- [ByObject](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) هر شکل را به عنوان یک شی کلی در نظر می‌گیرد.
-- [ByWord](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) متن را با تطبیق کلمات (در صورت امکان) انیمیشن می‌کند.
-- [ByChar](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) متن را با تطبیق حروف (در صورت امکان) انیمیشن می‌کند.
+- `[ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject)` هر شکل را به‌عنوان یک شیء کامل در نظر می‌گیرد.
+- `[ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord)` متن را با تطبیق کلمات (در صورت امکان) انیمیشن می‌کند.
+- `[ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar)` متن را با تطبیق کاراکترها (در صورت امکان) انیمیشن می‌کند.
 
-برای انتخاب Morph قبل از دسترسی به [getValue](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getValue) از [setType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setType) استفاده کنید. مقدار بازگشتی سپس یک شی [MorphTransition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/morphtransition/) را می‌دهد که متد [setMorphType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/morphtransition/#setMorphType) برای انتخاب حالت مطابقت استفاده می‌شود.
+برای انتخاب Morph قبل از دسترسی به `[getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue)` از `[setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType)` استفاده کنید. مقدار دریافت‌شده یک شیء `[MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/)` است که متد `[setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType)` حالت تطبیق را انتخاب می‌کند.
 
-این مثال ارائه‌ای را که در بخش قبلی ایجاد شد باز می‌کند و اسلاید دوم را برای استفاده از انیمیشن Morph بر پایه کلمه تنظیم می‌کند.
+این مثال ارائه‌ی ساخته‌شده در بخش قبلی را باز می‌کند و اسلاید دوم را برای استفاده از انیمیشن Morph بر پایه کلمه تنظیم می‌کند.
 
 ```javascript
 const java = require("java");
@@ -286,11 +342,11 @@ try {
 }
 ```
 
-## **تنظیم اثرهای انتقال**
+## **تنظیم افکت‌های انتقال**
 
-برخی از انتقال‌ها گزینه‌های اضافی مانند جهت یا اینکه آیا اثر از یک صفحه سیاه شروع می‌شود را افشا می‌کنند. گزینه‌های در دسترس به انتقال انتخاب‌شده با [setType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setType) بستگی دارند. ابتدا نوع را تنظیم کنید، سپس از شی انتقال مناسب که از [getValue](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getValue) دریافت می‌کنید استفاده نمایید.
+برخی انتقال‌ها گزینه‌های اضافی مانند جهت یا این‌که اثر از صفحه سیاه شروع شود را در اختیار می‌گذارند. گزینه‌های موجود به انتقالی که با `[setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType)` انتخاب شده بستگی دارد. ابتدا نوع را تنظیم کنید، سپس از شیء انتقال مناسب که از `[getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue)` دریافت می‌کنید استفاده کنید.
 
-مثال زیر یک انتقال Cut را به اولین اسلاید `input.pptx` اعمال می‌کند. از طریق [OptionalBlackTransition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/optionalblacktransition/) متد [setFromBlack](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) را صدا می‌زند تا انتقال از یک صفحه سیاه شروع شود.
+مثال زیر یک انتقال Cut را به اسلاید اول `input.pptx` اعمال می‌کند. از `[setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack)` از طریق `[OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/)` استفاده می‌کند تا انتقال از صفحه سیاه شروع شود.
 
 ```javascript
 const java = require("java");
@@ -313,20 +369,20 @@ try {
 }
 ```
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
 **آیا می‌توانم سرعت پخش یک انتقال اسلاید را کنترل کنم؟**
 
-بله. وقتی به مدت زمان دقیق اثر بر حسب میلی‌ثانیه نیاز دارید، از [setDuration](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setDuration) استفاده کنید. وقتی یک دسته سرعت پیش‌تعریف‌شده از [TransitionSpeed](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionspeed/) (Slow، Medium یا Fast) کافی است و مدت زمان صریحی تنظیم نشده، از [setSpeed](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) استفاده کنید. این تنظیمات اثر انتقال را مستقل از تاخیر پیشرفت خودکار کنترل می‌کنند.
+بله. وقتی به مدت دقیق اثر بر حسب میلی‌ثانیه نیاز دارید، از `[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration)` استفاده کنید. وقتی یک دسته‌بندی سرعت پیش‌تعریف‌شده از `[TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/)` (Slow، Medium یا Fast) کافی است و مدت زمان صریحی تنظیم نشده، از `[setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed)` استفاده کنید. این تنظیمات اثر انتقال را به‌طور مستقل از تاخیر پیشرفت خودکار کنترل می‌کنند.
 
-**آیا می‌توانم صدا را به یک انتقال وصل کنم و آن را حلقه‌دار کنم؟**
+**آیا می‌توانم صدا را به یک انتقال اضافه کنم و آن را حلقه‌ای کنم؟**
 
-بله. با استفاده از [setSound](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setSound) صدای جاسازی‌شده را اختصاص دهید، مقدار `StartSound` از شمارش‌گر [TransitionSoundMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitionsoundmode/) را به [setSoundMode](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) بدهید و با مقدار `true` برای [setSoundLoop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) حلقه‌پذیر شدن صدا را فعال کنید. صدا تا رویداد صوتی بعدی در اسلاید شو تکرار می‌شود.
+بله. با `[setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound)` صدا را جاسازی کنید، حالت شروع صدا را از شمارش `[TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/)` به `[setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode)` پاس دهید و با `true` `[setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop)` را فعال کنید. صدا تا رخداد صوتی بعدی در نمایش اسلاید حلقه خواهد زد.
 
-**سریع‌ترین راه برای اعمال یک انتقال یکسان به تمام اسلایدها چیست؟**
+**سریع‌ترین راه برای اعمال یک انتقال مشابه به همه اسلایدها چیست؟**
 
-در مجموعه [getSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getSlides) ارائه حلقه بزنید و برای هر اسلاید متد [setType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#setType) را با همان مقدار صدا بزنید. هر گزینه زمان‌بندی و اثر را در همان حلقه تنظیم کنید تا رفتار بین اسلایدها یکنواخت بماند.
+در حلقه‌ای که بر روی مجموعه `[getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides)` ارائه پیمایش می‌کنید، برای هر اسلاید `[setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType)` را با همان مقدار صدا بزنید. هر تنظیم زمان‌بندی و گزینه اثر را در همان حلقه تنظیم کنید تا رفتار در تمام اسلایدها یکسان بماند.
 
-**چگونه می‌توانم بررسی کنم که چه انتقالی هم‌اکنون روی یک اسلاید تنظیم شده است؟**
+**چگونه می‌توانم بررسی کنم که چه انتقالی در حال حاضر بر روی یک اسلاید تنظیم شده است؟**
 
-متد [getType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slideshowtransition/#getType) را بر روی نتیجه‌ی [getSlideShowTransition](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) اسلاید صدا بزنید. این متد یک مقدار از شمارش‌گر [TransitionType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/transitiontype/) برمی‌گرداند؛ مقدار None به این معناست که هیچ اثر انتقالی اعمال نشده است.
+روی نتیجهٔ `[getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)` اسلاید `[getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType)` را فراخوانی کنید. این متد یک مقدار از شمارش `[TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/)` را برمی‌گرداند؛ مقدار `None` به این معناست که هیچ اثر انتقالی اعمال نشده است.

@@ -6,10 +6,10 @@ weight: 80
 url: /ar/androidjava/slide-transition/
 keywords:
 - انتقال الشريحة
-- إضافة انتقال شريحة
-- تطبيق انتقال شريحة
+- إضافة انتقال الشريحة
+- تطبيق انتقال الشريحة
 - انتقال شريحة متقدم
-- انتقال مورف
+- انتقال Morph
 - نوع الانتقال
 - تأثير الانتقال
 - PowerPoint
@@ -18,15 +18,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص انتقالات Morph وغيرها من تأثيرات الانتقال باستخدام Aspose.Slides للـ Android عبر Java."
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص انتقال Morph وتأثيرات الانتقال الأخرى باستخدام Aspose.Slides لنظام Android عبر Java."
 ---
 ## **نظرة عامة**
 
-تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides للـ Android عبر Java، يمكنك اختيار تأثير انتقال لكل شريحة، وتكوين التقدم بالنقر على الفأرة أو المؤقت، وضبط الخيارات الخاصة بتأثير معين. يستخدم هذا المقال أمثلة Java لتطبيق الانتقالات، وتحديد مدد الانتقال الدقيقة، وإدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تُظهر الأمثلة أيضًا كيفية حفظ الإعدادات في ملف PPTX.
+تتحكم الانتقالات بين الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides for Android عبر Java، يمكنك اختيار تأثير انتقال لكل شريحة، تكوين التقدم بالنقر بالفأرة أو المؤقت، وضبط الخيارات الخاصة بكل تأثير. يستخدم هذا المقال أمثلة Java لتطبيق الانتقالات، تحديد مدد الانتقال بدقة، إدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تظهر الأمثلة أيضًا كيفية حفظ الإعدادات إلى ملف PPTX.
 
-## **إضافة انتقال للشرائح**
+## **إضافة انتقال الشريحة**
 
-لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) والوصول إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). استخدم [setType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) مع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
+لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) و الوصول إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). استخدم [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) مع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
 
 التطبيق التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
@@ -48,17 +48,66 @@ try {
 }
 ```
 
+## **انتقال العجلة**
+
+طريقة [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-) من [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) تتحكم في عدد القطاعات الشعاعية التي تكشف الشريحة الهدف. اضبط نوع انتقال الشريحة إلى Wheel من [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) باستخدام [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) قبل الوصول إلى [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) كـ[IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
+
+هذا المثال ينشئ زوجين متماثلين من الشرائح: شريحة سوداء تليها شريحة بها مستطيل ذهبي. تستخدم الشرائح الهدف عدد أسنان 1 و 8، مع نفس السرعة المحددة عبر [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) ومدة صريحة قدرها 8,000 مللي ثانية محددة عبر [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) لجعل الفرق سهل الملاحظة.
+
+```java
+import android.graphics.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    float slideWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+
+    ISlide blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(BackgroundType.OwnBackground);
+    blackSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+    ISlide destinationSlide = presentation.getSlides().addClone(blackSlide);
+    IAutoShape rectangle = destinationSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(FillType.Solid);
+    int gold = Color.rgb(255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    long[] spokeCounts = { 1, 8 };
+    for (int i = 0; i < spokeCounts.length; i++) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(TransitionType.Wheel);
+        IWheelTransition wheelTransition = (IWheelTransition) transition.getValue();
+        wheelTransition.setSpokes(spokeCounts[i]);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+افتح العرض التقديمي الناتج في PowerPoint وشغّل عرض الشرائح. انتقل من الشريحة 1 إلى الشريحة 2، ثم من الشريحة 3 إلى الشريحة 4. في تشغيل PowerPoint، عدد الأسنان 1 يكشف الشريحة بسطرة واحدة دورانية؛ عدد الأسنان 8 يكشفها عبر ثماني قطاعات شعاعية في آن واحد. المحتوى والوقت للانتقال هما متطابقان، لذا الفرق هو عدد قطاعات الكشف.
+
 ## **إضافة انتقال شريحة متقدم**
 
-يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالماوس يتقدم بالعرض. الطرق التالية تتحكم في هذا السلوك:
+يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالفأرة يتقدم بعرض الشرائح. تتحكم الطرق التالية في هذا السلوك:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) يسمح للمشاهد بالتقدم عن طريق النقر بالفأرة.
-- [setAdvanceAfter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) يفعّل التقدم التلقائي.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) يحدّد التأخير قبل التقدم التلقائي، بالمليثانية.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) تسمح للمشاهد بالتقدم بالنقر بالفأرة.
+- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) تمكّن التقدم التلقائي.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) تحدد التأخير قبل التقدم التلقائي، بالمللي ثانية.
 
-فعّل كل من النقر والمؤقت لتسمح للمشاهد بالانتقال بالنقر أو الانتظار حتى يكتمل المؤقت. لاستخدام المؤقت فقط، مرّر `false` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). يتحكم التأخير في وقت تقدم عرض الشرائح؛ ولا يحدد مدة تأثير الانتقال البصري.
+فعّل كل من التقدم بالنقر والوقت لتسمح للمشاهد بالانتقال بالنقر أو الانتظار للمؤقت. لاستخدام المؤقت فقط، مرر `false` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). يتحكم التأخير في وقت تقدم عرض الشرائح؛ لا يحدد مدة تأثير الانتقال البصري.
 
-هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعّل التقدم التلقائي بعد 3، 5، و7 ثوانٍ على التوالي. يمكن للنقرات أيضًا التقدم بهذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعّل التقدم التلقائي بعد 3، 5، و 7 ثوانٍ على التوالي. يمكن للنقر بالفأرة أيضًا تقدم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +142,9 @@ try {
 }
 ```
 
-للتحقق مما إذا كان التقدم المؤقت مفعلًا، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). التخزين المتأخر لا يدل على أن المؤقت نشط.
+للتحقق مما إذا كان التقدم الزمني مُفعَّلًا، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). التخزين المتأخر وحده لا يدل على أن المؤقت نشط.
 
-المثال التالي يفتح الملف المحفوظ أعلاه، يبلغ عن كل مؤقت مفعّل، ويعطل التقدم التلقائي للشرائح التي لديها تأخير أكبر من ثانيتين. يفعّل النقرات لتلك الشرائح ويحفظ الإعدادات المحدثة.
+المثال التالي يفتح الملف المحفوظ أعلاه، يبلغ عن كل مؤقت مفعَّل، ويعطّل التقدم التلقائي للشرائح التي لها تأخير أكبر من ثانيتين. يفعّل النقر بالفأرة لتلك الشرائح ويحفظ الإعدادات المحدثة.
 
 ```java
 import com.aspose.slides.*;
@@ -121,21 +170,27 @@ try {
 }
 ```
 
-## **التحكم بدقة في توقيت الانتقال**
+## **التحكم في توقيت الانتقال بدقة**
 
-استخدم [setDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) لتحديد الطول الدقيق لتأثير الانتقال بالمليثانية. طريقة [getSlideShowTransition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) للشفرة تعرض هذه الإعدادات عبر [ISlideShowTransition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/):
+استخدم [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) لتحديد الطول الدقيق لتأثير الانتقال بالمللي ثانية. تُظهر طريقة [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) في الشريحة هذه الإعدادات عبر [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
 
-| الطريقة | الغرض |
+| طريقة | الغرض |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | يحدد مدة تأثير الانتقال نفسه، بالمليثانية. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | يحدد التأخير قبل تقدم الشريحة تلقائيًا، بالمليثانية. مرّر `true` إلى [setAdvanceAfter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) لتنشيط هذا المؤقت. |
-| [setSpeed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | يختار فئة سرعة مسبقة من تعداد [TransitionSpeed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionspeed/): Slow، Medium، أو Fast. تُستخدم عندما لا يتم تحديد مدة دقيقة. |
+| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | يحدد مدة تأثير الانتقال نفسه، بالمللي ثانية. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | يحدد التأخير قبل تقدم الشريحة تلقائيًا، بالمللي ثانية. مرر `true` إلى [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) لتفعيل هذا المؤقت. |
+| [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | يختار فئة سرعة مسبقة التعريف من [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow، Medium، أو Fast. تُستَخدم عندما لا تُحدَّد مدة صريحة. |
 
-[setDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) يتحكم فقط في تأثير الانتقال؛ ولا يحدد مدة بقاء الشريحة مرئية. اضبط تأخير التقدم التلقائي بشكل منفصل. عندما لا يتم تعيين مدة صريحة، تحدد Aspose.Slides مدة التأثير من نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) .
+[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) يتحكم فقط في تأثير الانتقال؛ لا يحدد مدة بقاء الشريحة مرئية. اضبط تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدَّد مدة صريحة، يحدد Aspose.Slides مدة التأثير استنادًا إلى نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) .
+
+<!-- visual-explanation:slide-transition:start -->
+[![الأعمدة المنفصلة تحدد مدة الانتقال 750 مللي ثانية وإعداد التقدم التلقائي 5,000 مللي ثانية.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*المثال المشترك يمنح كل شريحة انتقال Fade بمدة 750 مللي ثانية ويفعّل التقدم التلقائي بشكل منفصل بعد 5,000 مللي ثانية. مدة الانتقال تتحكم في التأثير؛ التقدم يتحكم متى تُغادر الشريحة. هذه الأعمدة تمثّل إعدادات تخطيطية، ليست مخططًا زمنيًا مشتركًا مقاسًا.*
+<!-- visual-explanation:slide-transition:end -->
 
 ### **تطبيق نفس المدة على كل شريحة**
 
-للحفاظ على إيقاع ثابت، طبق نفس التأثير والمدة الدقيقة على كل شريحة. هذا المثال يحمل `input.pptx`، يختار Fade من تعداد [TransitionType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 مليثانية. يفعّل التقدم التلقائي بعد 5,000 مليثانية ويعطل التقدم بالنقر، ثم يحفظ النتيجة كملف PPTX.
+لتحقيق وتيرة ثابتة، طبّق نفس التأثير والمدة الدقيقة على كل شريحة. هذا المثال يحمل `input.pptx`، يختار Fade من [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 مللي ثانية. يفعّل التقدم التلقائي بعد 5,000 مللي ثانية ويعطل التقدم بالنقر، ثم يحفظ النتيجة كملف PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -147,7 +202,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // تهيئة التقدم التلقائي بشكل مستقل عن مدة التأثير.
+        // تكوين التقدم التلقائي بشكل مستقل عن مدة التأثير.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -159,9 +214,9 @@ try {
 }
 ```
 
-### **تعيين مدد مختلفة للشرائح الفردية**
+### **تحديد مدد مختلفة للشرائح الفردية**
 
-يمكن للشرائح المختلفة أن تستخدم مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. يحدد هذا المثال 500 مليثانية للشريحة الأولى و1,200 مليثانية للشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. هذا المثال يحدد 500 مللي ثانية للشريحة الأولى و 1,200 مللي ثانية للشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
 ```java
 import com.aspose.slides.*;
@@ -186,15 +241,15 @@ try {
 }
 ```
 
-### **تنسيق الانتقالات مع المخرجات المتحركة**
+### **التنسيق بين الانتقالات والإخراج المتحرك**
 
-عند إعداد [animated GIF](/slides/ar/androidjava/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/ar/androidjava/export-to-html5/)، أو [video](/slides/ar/androidjava/convert-powerpoint-to-video/)، عيّن مدد انتقال دقيقة قبل التصدير لتناسب الإيقاع المقصود. على سبيل المثال، استخدم تلاشيًا مدته 600 مليثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بوقت للسرد أو المحتوى.
+عند إعداد [GIF متحرك](/slides/ar/androidjava/convert-powerpoint-to-animated-gif/)، [عرض HTML5](/slides/ar/androidjava/export-to-html5/)، أو [فيديو](/slides/ar/androidjava/convert-powerpoint-to-video/)، حدد مدد الانتقال الدقيقة قبل التصدير لمطابقة الوتيرة المطلوبة. على سبيل المثال، استخدم تلاشيًا بـ 600 مللي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بوقت للتعليق الصوتي أو المحتوى.
 
-بالنسبة للـ GIF والفيديو، نسّق معدل إطارات المخرجات مع مدة التأثير: 600 مليثانية تعادل 18 إطارًا بسرعة 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من التأثيرات وخيارات التوقيت المدعومة للصيغة المختارة، وقم بمعاينة المخرجات لتأكيد التزامن.
+بالنسبة للـ GIF والفيديو، نسّق معدل الإطارات مع مدة التأثير: 600 مللي ثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقّق من تأثيرات وتوقيتات الصيغة المختارة، واعرض معاينة للنتيجة لتأكيد التزامن.
 
 ### **قراءة مدة انتقال موجودة**
 
-استدعِ [getDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مخزنة. القيمة `-1` تعني أنه لم تُحدّد مدة صريحة؛ والقيمة غير السالبة تحدد المدة المخزنة بالمليثانية. القيمة غير المحددة ليست مدة التشغيل المحسوبة: تستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) لتحديد تلك المدة. قد يٍؤدي تعيين نوع الانتقال إلى تهيئة مدة، لذا فحص الإعدادات الأصلية أولاً.
+استدعِ [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مخزونة. القيمة `-1` تعني عدم وجود مدة صريحة؛ القيمة غير السالبة تحدد المدة المخزنة بالمللي ثانية. القيمة غير المحددة ليست مدة التشغيل المحسوبة: يستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) لتحديد تلك المدة. قد يهيئ تحديد نوع الانتقال مدةً، لذا افحص الإعدادات الأصلية أولًا.
 
 ```java
 import com.aspose.slides.*;
@@ -218,9 +273,9 @@ try {
 
 ## **انتقال Morph**
 
-ينشط انتقال Morph التغييرات بين الكائنات على الشرائح المتتالية. لإنشاء تأثير Morph بسيط، انسخ شريحة، حرّك أو غير حجم كائن على النسخة، ثم طبّق انتقال Morph على الشريحة الثانية. يمنح هذا الانتقال الكائنات المقابلة لتُحرك بين حالتها الأصلية والمعدلة.
+ينشط انتقال Morph التغييرات بين الكائنات في الشرائح المتتالية. لإنشاء تأثير Morph بسيط، استنسخ شريحة، حرك أو غيّر حجم كائن على النسخة المستنسخة، ثم طبّق انتقال Morph على الشريحة الثانية. يمنح هذا الانتقال الكائنات المقابلة لتتحرك بين حالتها الأصلية والمعدلة.
 
-التطبيق التالي ينشئ شريحة تحتوي على مستطيل نص، ينسخ الشريحة، ويغيّر موضع وحجم المستطيل على النسخة. ثم يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitiontype/) للشريحة الثانية. افتح الملف المحفوظ في عارض يدعم Morph لتشاهد التأثير أثناء عرض الشرائح.
+التطبيق التالي ينشئ شريحة تحتوي على مستطيل نصي، يستنسخ الشريحة، ويغير موقع وحجم المستطيل على النسخة المستنسخة. ثم يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) للشرائح الثانية. افتح الملف المحفوظ في عارض عرض يدعم Morph لرؤية التأثير أثناء عرض الشرائح.
 
 ```java
 import com.aspose.slides.*;
@@ -248,15 +303,15 @@ try {
 
 ## **أنواع انتقال Morph**
 
-يحدد تعداد [TransitionMorphType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionmorphtype/) كيف يطابق Morph ويُحرك المحتوى:
+تحدد تعداد [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/) كيفية مطابقة المحتوى وتحريكه:
 
-- [ByObject](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) يعامل كل شكل ككائن كامل.
-- [ByWord](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) يحرك النص بمطابقة الكلمات حيثما أمكن.
-- [ByChar](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) يحرك النص بمطابقة الأحرف حيثما أمكن.
+- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) يعامل كل شكل ككائن كامل.
+- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) يحرك النص بمطابقة الكلمات إن أمكن.
+- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) يحرك النص بمطابقة الأحرف إن أمكن.
 
-استخدم [setType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) لاختيار Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getValue--). ثم توفر القيمة واجهة [IMorphTransition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imorphtransition/)، التي يحدد منها الأسلوب [setMorphType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) وضع المطابقة.
+استخدم [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) لاختيار Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--). توفر القيمة بعد ذلك واجهة [IMorphTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/)، التي يختار وضع المطابقة عبر طريقة [setMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-).
 
-يفتح هذا المثال العرض التقديمي الذي أنشئ في القسم السابق ويضبط الشريحة الثانية لاستخدام تأثير Morph القائم على الكلمات.
+هذا المثال يفتح العرض التقديمي الذي تم إنشاؤه في القسم السابق ويضبط الشريحة الثانية لاستخدام حركة Morph على أساس الكلمات.
 
 ```java
 import com.aspose.slides.*;
@@ -285,9 +340,9 @@ try {
 
 ## **تعيين تأثيرات الانتقال**
 
-بعض الانتقالات تكشف عن خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المحدد عبر [setType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). اضبط النوع أولاً، ثم استخدم الواجهة المناسبة من [getValue](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
+بعض الانتقالات تكشف عن خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المحدد عبر [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). اضبط النوع أولاً، ثم استخدم الواجهة المناسبة عبر [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
 
-التطبيق التالي يطبق انتقال Cut على الشريحة الأولى من `input.pptx`. يستدعي [setFromBlack](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) عبر [IOptionalBlackTransition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioptionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
+التطبيق التالي يطبّق انتقال Cut على الشريحة الأولى من `input.pptx`. يستدعي [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) عبر [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
 
 ```java
 import com.aspose.slides.*;
@@ -310,20 +365,20 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
 
-نعم. يفضَّل استخدام [setDuration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) عندما تحتاج إلى مدة تأثير دقيقة بالمليثانية. استخدم [setSpeed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionspeed/) محددة—Slow، Medium، أو Fast—كافية ولا يُحدّد مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال بصورة مستقلة عن تأخير التقدم التلقائي.
+نعم. يفضَّل استخدام [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) عندما تحتاج إلى مدة تأثير دقيقة بالمللي ثانية. استخدم [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) مسبقة التعريف—Slow، Medium، أو Fast—كافية ولا تُحدد مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال بصورة مستقلة عن تأخير التقدم التلقائي.
 
-**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
+**هل يمكنني إرفاق صوت بانتقال وجعله يتكرر؟**
 
-نعم. عيّن صوتًا مضمّنًا عبر [setSound](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-)، مرّر StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-)، وفعل [setSoundLoop](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) بالقيمة `true`. سيُعاد تشغيل الصوت حتى يحدث حدث صوتي آخر في عرض الشرائح.
+نعم. عيِّن صوتًا مدمجًا عبر [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-)، مرّر StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-)، وفعل [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) بالقيمة `true`. سيتكرر الصوت حتى حدث صوتي لاحق في عرض الشرائح.
 
-**ما أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
+**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
 
-قم بالمرور على مجموعة [getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) للعرض التقديمي واستدعِ [setType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) بنفس القيمة لكل شريحة. اضبط أي توقيت أو خيارات تأثير داخل الحلقة نفسها للحفاظ على سلوك موحد عبر الشرائح.
+عبر حلقة تمّر على مجموعة [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) في العرض التقديمي واستدعِ [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) بنفس القيمة لكل شريحة. اضبط أي توقيتات وخيارات تأثير داخل نفس الحلقة للحفاظ على سلوك موحَّد عبر جميع الشرائح.
 
-**كيف يمكنني التحقق من الانتقال المُعيّن حاليًا على شريحة؟**
+**كيف يمكنني التحقق من نوع الانتقال الحالي المحدد على شريحة؟**
 
-استدعِ [getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islideshowtransition/#getType--) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) الخاصة بالشريحة. تُرجع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/transitiontype/); القيمة None تعني عدم تطبيق أي تأثير انتقال.
+استدعِ [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) للشريحة. تُرجع القيمة من تعداد [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/)؛ القيمة None تعني عدم تطبيق أي تأثير انتقال.
