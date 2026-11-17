@@ -1,72 +1,72 @@
 ---
-title: จัดการเอฟเฟ็กต์การแปลงภาพในงานนำเสนอด้วย JavaScript
-linktitle: เอฟเฟ็กต์การแปลงภาพ
+title: จัดการเอฟเฟกต์การแปลงภาพในงานนำเสนอด้วย JavaScript
+linktitle: เอฟเฟกต์การแปลงภาพ
 type: docs
 weight: 11
 url: /th/nodejs-java/image-transform-effects/
 keywords:
 - การแปลงภาพ
-- เอฟเฟ็กต์รูปภาพ
+- เอฟเฟกต์รูปภาพ
 - ความสว่าง
-- ความคอนทราสต์
-- สเกลสีเทา
-- ดูโทน
+- ความแตกต่าง
+- ระดับสีเทา
+- โทนสีคู่
 - สีสัน
 - HSL
 - การแทนที่สี
 - เบลอ
 - ความโปร่งใส
-- เอฟเฟ็กต์อัลฟา
-- เชนเอฟเฟ็กต์
+- เอฟเฟกต์อัลฟา
+- เชนเอฟเฟกต์
 - PowerPoint
 - งานนำเสนอ
 - Node.js
-- JavaScript
+- จาวาสคริปต์
 - Aspose.Slides
-description: "ใช้, สร้างเชน, ตรวจสอบ, ลบ และตรวจสอบเอฟเฟ็กต์การแปลงภาพสำหรับกรอบรูปภาพด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
+description: "นำไปใช้, เชน, ตรวจสอบ, ลบ, และยืนยันเอฟเฟกต์การแปลงภาพสำหรับกรอบรูปด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงลำดับของการดำเนินการแปลงภาพ สำหรับกรอบรูปภาพ ให้เริ่มต้นด้วยกรอบที่มี [Picture](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/) และเข้าถึง [Picture.getImageTransform](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/). คอลเลกชันที่คืนค่า [ImageTransformOperationCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) ให้คุณเพิ่ม ลิสต์ ตรวจสอบ เอาออก และล้างเอฟเฟ็กต์โดยไม่ต้องเขียนทับไบต์ของภาพต้นฉบับ
+Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงลำดับของการดำเนินการแปลงภาพ (image transform operations) . สำหรับกรอบรูป ให้เริ่มจาก [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) ของกรอบและเข้าถึง [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). คอลเลกชัน [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) ที่ส่งกลับมาจะทำให้คุณสามารถเพิ่ม, ลิสต์, ตรวจสอบ, ลบและล้างเอฟเฟกต์โดยไม่ต้องเขียนทับไบต์ของรูปภาพต้นฉบับใหม่
 
-บทความนี้สาธิตขั้นตอนทำงานครบวงจรสำหรับความสว่างและความคอนทราสต์, การแปลงสี, ทำเบลอ, ความโปร่งใส, เชนเอฟเฟ็กต์ตามลำดับ, ค่าที่มีผล, การลบ, และการตรวจสอบรอบ PPTX
+บทความนี้สาธิตเวิร์คฟลว์เต็มสำหรับความสว่างและคอนทราสต์, การแปลงสี, เบลอ, ความโปร่งใส, เชนเอฟเฟกต์ที่เรียงลำดับ, ค่าที่มีประสิทธิภาพ, การลบ, และการตรวจสอบรอบ PPTX
 
-## **ทำความเข้าใจการเป็นเจ้าของเอฟเฟ็กต์และการใช้ซ้ำภาพ**
+## **ทำความเข้าใจความเป็นเจ้าของเอฟเฟกต์และการใช้ภาพซ้ำ**
 
-ทรัพยากรภาพและรูปภาพที่แสดงมันเป็นออบเจ็กต์ที่แตกต่างกัน:
+ทรัพยากรภาพและรูปภาพที่แสดงมันเป็นอ็อบเจ็กต์ที่แตกต่างกัน:
 
-- [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นของพรีเซนเทชัน
-- [Picture](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/) เป็นส่วนของ picture fill และอ้างอิงไปยังทรัพยากรภาพพร้อมกับเก็บคอลเลกชันการแปลงภาพ
-- [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/) คือรูปทรงสไลด์ที่เป็นเจ้าของ picture fill, geometry, การตั้งค่าครอบตัด, และการจัดรูปแบบระดับกรอบอื่น ๆ
+- [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นของงานนำเสนอ
+- [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) เป็นส่วนของการเติมรูปและอ้างอิงทรัพยากรภาพพร้อมกับเก็บคอลเลกชันการแปลงภาพ
+- [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) คือรูปร่างบนสไลด์ที่เป็นเจ้าของการเติมรูป, รูปร่าง, การตัดครอปและการจัดรูปแบบระดับกรอบอื่น ๆ
 
-ดังนั้นการดำเนินการแปลงภาพจะไม่แก้ไขไบต์ใน [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/). เมื่อ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) เดียวกันถูกส่งให้กับ [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/) มากกว่าหนึ่งครั้ง แต่ละ picture frame ใหม่จะได้รับ [Picture](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/) ของตนเองและคอลเลกชันการแปลงของตนเอง การทำให้กรอบหนึ่งเป็นสเกลสีเทาจะไม่ทำให้กรอบอื่นเป็นสเกลสีเทา แม้ว่าทั้งหมดจะใช้ทรัพยากรภาพที่ฝังไว้เดียวกัน
+ดังนั้นการดำเนินการแปลงภาพจะไม่แก้ไขไบต์ใน [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/). เมื่อ [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) เดียวกันถูกส่งให้กับ [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) มากกว่าหนึ่งครั้ง แต่ละกรอบรูปใหม่จะได้รับ [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) ของตนเองและคอลเลกชันการแปลงของตนเอง การทำให้กรอบหนึ่งเป็นระดับสีเทาไม่ทำให้กรอบอื่นเป็นระดับสีเทา แม้ว่าทั้งหมดจะใช้ทรัพยากรภาพฝังเดียวกัน
 
-โมเดล [Picture.getImageTransform](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/) นี้ยังใช้โดย picture fill อื่น ๆ เช่น รูปทรงหรือพื้นหลังสไลด์ ตัวอย่างด้านล่างมุ่งเน้นไปที่ picture frame
+โมเดล [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) นี้ยังถูกใช้โดยการเติมรูปอื่น ๆ เช่น รูปร่างหรือพื้นหลังสไลด์ ตัวอย่างด้านล่างมุ่งเน้นที่กรอบรูป
 
 ## **ใช้ช่วงค่าพารามิเตอร์และหน่วยที่ถูกต้อง**
 
-วิธีการที่สาธิตใช้ช่วงเชิงความหมายและหน่วยต่อไปนี้ อย่าละเลยค่าที่อยู่ในช่วงเหล่านี้แม้เวอร์ชันไลบรารีบางเวอร์ชันอาจไม่ปฏิเสธค่าที่อยู่นอกช่วงโดยทันที; รูปแบบพรีเซนเทชันเป้าหมายอาจทำให้ค่าปกติ, ลบ, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
+เมธอดที่นำเสนอใช้ช่วงความหมายและหน่วยต่อไปนี้ . ให้คงค่าภายในช่วงเหล่านี้แม้เวอร์ชันไลบรารีบางเวอร์ชันอาจไม่ปฏิเสธค่าที่อยู่นอกช่วงทันที; รูปแบบการนำเสนอเป้าหมายอาจทำให้ค่าถูกทำให้เป็นมาตรฐาน, ลบ, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
 
-| การดำเนินการ | พารามิเตอร์ | ช่วงค่าและหน่วยที่ถูกต้อง |
+| การดำเนินการ | พารามิเตอร์ | ช่วงและหน่วยที่ถูกต้อง |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` ถึง `100`, เปอร์เซ็นต์; `0` ไม่เปลี่ยนส่วนประกอบ |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | ไม่มี | ไม่มีพารามิเตอร์ตัวเลข ค่าอัลฟาไม่เปลี่ยน |
-| [addDuotoneEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | สองสีสำหรับพิกเซลมืดและสีอ่อน ช่องสี RGB และอัลฟาใน `java.awt.Color` ใช้ค่า `0` ถึง `255` |
-| [addTintEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Hue อยู่ระหว่าง `0` รวมถึงถึง `360` ไม่รวม, เป็นองศา; amount อยู่ระหว่าง `-100` ถึง `100`, เปอร์เซ็นต์ |
-| [addHSLEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Hue อยู่ระหว่าง `0` รวมถึงถึง `360` ไม่รวม, เป็นองศา; saturation และ luminance อยู่ระหว่าง `-100` ถึง `100`, เปอร์เซ็นต์ |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | สีที่แทนที่ใช้ค่าช่องจาก `0` ถึง `255` ค่าอัลฟ่าเดิมไม่เปลี่ยน |
-| [addBlurEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | radius ต้องไม่เป็นลบและวัดเป็นจุด; `grow` เป็น Boolean ที่กำหนดว่าภาพเบลออาจขยายออกนอกขอบเดิมหรือไม่ |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | เปอร์เซ็นต์ไม่เป็นลบ ใช้ `0` ถึง `100` สำหรับการปรับความทึบธรรมดา: `0` คือโปร่งใสเต็มและ `100` รักษาอัลฟาเดิม |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` ถึง `100`, เปอร์เซ็นต์ความทึบ |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` ถึง `100`, เปอร์เซ็นต์ค่าธreshold ของอัลฟา ค่าใต้มันจะกลายเป็นโปร่งใส; ค่าเท่ากับหรือสูงกว่าจะกลายเป็นทึบ |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` ถึง `100` เปอร์เซ็นต์; `0` จะไม่เปลี่ยนแปลงส่วนประกอบ |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | None | ไม่มีพารามิเตอร์ตัวเลข; แอลฟาไม่เปลี่ยนแปลง |
+| [addDuotoneEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | สองสีสำหรับพิกเซลสีมืดและสีอ่อน; ค่าชannels ของ RGB และแอลฟาใน `java.awt.Color` อยู่ระหว่าง `0` ถึง `255` |
+| [addTintEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Hue อยู่ระหว่าง `0` (รวม) ถึง `360` (ไม่รวม) หน่วยเป็นองศา; amount อยู่ระหว่าง `-100` ถึง `100` เปอร์เซ็นต์ |
+| [addHSLEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Hue อยู่ระหว่าง `0` ถึง `360` (ไม่รวม) หน่วยเป็นองศา; saturation และ luminance อยู่ระหว่าง `-100` ถึง `100` เปอร์เซ็นต์ |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | สีทดแทนใช้ค่า channel ตั้งแต่ `0` ถึง `255`; ค่าแอลฟาเดิมไม่เปลี่ยน |
+| [addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | รัศมีเป็นค่าที่ไม่เป็นลบและวัดเป็น points; `grow` เป็น Boolean ที่ควบคุมว่าภาพเบลออาจขยายออกนอกขอบเดิมหรือไม่ |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | เปอร์เซ็นต์ที่ไม่เป็นลบ ใช้ `0` ถึง `100` สำหรับการปรับความโปร่งใสแบบปกติ: `0` คือโปร่งใสเต็มและ `100` คงค่าที่มีอยู่ |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` ถึง `100` เปอร์เซ็นต์ความทึบ |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` ถึง `100` เปอร์เซ็นต์ค่าแอลฟาเกณฑ์; ค่าต่ำกว่าจะกลายเป็นโปร่งใส; ค่าที่เท่าหรือสูงกว่าจะเป็นทึบเต็ม |
 
-สำหรับการโมเดลอัลฟ่าคงที่ ความโปร่งใสและความทึบเป็นสิ่งที่ตรงกัน ตัวอย่างเช่น ความโปร่งใส 35% มีค่าโมดูลอัลฟ่าเท่ากับ 65%
+สำหรับการปรับแอลฟ่าคงที่ ความโปร่งใสและความทึบเป็นค่าตรงกันข้าม ตัวอย่างเช่น ความโปร่งใส 35% ตรงกับค่าการปรับแอลฟ่า 65%
 
-## **นำความสว่างและความคอนทราสต์ไปใช้**
+## **ใช้ความสว่างและคอนทราสต์**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) คืนค่าอ็อบเจ็กต์ [BrightnessContrast](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/brightnesscontrast/) การตั้งค่าสเกลาร์จะถูกส่งขณะสร้างออบเจ็กต์ [BrightnessContrast.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/brightnesscontrast/) คืนค่าที่คำนวณได้แบบอ่านอย่างเดียวซึ่งสามารถตรวจสอบหรือบันทึกได้
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) คืนค่าอ็อบเจ็กต์ [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) การตั้งค่าสเกลาร์ถูกส่งเมื่อสร้างอ็อบเจ็กต์ . [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) คืนค่าที่คำนวณได้แบบอ่านอย่างเดียวซึ่งสามารถตรวจสอบหรือบันทึกได้
 
-ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และคอนทราสต์ 20% แล้วแสดงภาพตัวอย่างโดยไม่แก้ไขภาพที่ฝังไว้:
+ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และคอนทราสต์ 20% แล้วเรนเดอร์พรีวิวโดยไม่แก้ไขรูปภาพฝัง
 
 ```javascript
 const aspose = {};
@@ -103,13 +103,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยายเอฟเฟ็กต์รูปภาพของ Office 2010 และมีความพกพาน้อยกว่าการใช้เอฟเฟ็กต์ luminance ของ DrawingML มาตรฐาน หากต้องการให้ความสว่างและคอนทราสต์ยังคงแก้ไขได้หลังรอบ PPTX ให้ใช้ [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) และตรวจสอบผลลัพธ์หลังเปิดไฟล์ใหม่ ส่วนของข้อจำกัดรูปแบบอธิบายความแตกต่างนี้อย่างละเอียด
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยายเอฟเฟกต์รูปภาพของ Office 2010 และมีความพกพาน้อยกว่าการปรับระดับความสว่างมาตรฐานของ DrawingML . เมื่อความสว่างและคอนทราสต์ต้องการให้แก้ไขได้หลังการวนรอบ PPTX ให้ใช้ [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) และตรวจสอบผลลัพธ์หลังจากเปิดไฟล์ใหม่ . ส่วนข้อจำกัดของรูปแบบอธิบายความแตกต่างนี้เพิ่มเติม
 
-## **นำการแปลงสีไปใช้**
+## **ใช้การแปลงสี**
 
-เอฟเฟ็กต์สีสามารถนำไปใช้แยกกันกับ picture frame ต่าง ๆ ที่ใช้ทรัพยากรภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้ากรอบและใช้สเกลสีเทา, duotone, tint, การปรับ HSL, และการแทนที่สี
+เอฟเฟกต์สีสามารถนำไปใช้แยกจากกันกับกรอบรูปต่าง ๆ ที่ใช้ทรัพยากรภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้ากรอบและใช้ระดับสีเทา, duotone, tint, การปรับ HSL, และการแทนที่สี
 
-[Duotone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/duotone/) มีพารามิเตอร์สีสองตัวที่แก้ไขได้อิสระ: `color1` ใช้สำหรับพิกเซลมืด, `color2` ใช้สำหรับพิกเซลอ่อน ซึ่งทำให้เป็นตัวอย่างที่ดีของเอฟเฟ็กต์ที่การตั้งค่าซับซ้อนกว่าค่าการสเกลเดียว
+[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) มีพารามิเตอร์สีสองตัวที่แก้ไขได้อย่างอิสระ: `color1` ใช้สำหรับพิกเซลสีมืด, `color2` ใช้สำหรับพิกเซลสีอ่อน . นี้ทำให้เป็นตัวอย่างที่ดีของเอฟเฟกต์ที่ตั้งค่าซับซ้อนกว่าเพียงค่าสเกลาร์เดียว
 
 ```javascript
 const aspose = {};
@@ -152,13 +152,60 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งสีขณะยังคงอัลฟาไว้ แตกต่างจาก [addColorChangeEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) ที่ทำการแม็พสีต้นฉบับหนึ่งไปยังอีกสีหนึ่งและเปิดเผยรูปแบบสีต้นฉบับและเป้าหมาย
+[addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งตัวพร้อมคงค่าแอลฟา . มันจะแตกต่างจาก [addColorChangeEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) ซึ่งแมปสีต้นทางหนึ่งไปยังสีเป้าหมายและเปิดเผยรูปแบบสีต้นทางและเป้าหมายทั้งสอง
 
-## **เพิ่มเบลอ, ความโปร่งใส, และเอฟเฟ็กต์อัลฟา**
+### **ใช้เกณฑ์ความสว่าง (Luminance Threshold)**
 
-[addBlurEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) มีผลต่อทุกช่องสีรวมถึงอัลฟา ตั้งค่า `grow` เป็น `true` เมื่อต้องการให้ขอบเบลอขยายเกินขอบของภาพเดิม
+เกณฑ์ความสว่างสามารถทำให้เครื่องหมายอ่อนบนหน้าสแกนง่ายต่อการแยกจากพื้นหลัง . [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) คงเฉดสีเทาแบบกลาง; [addBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) แมปความสว่างเป็นสีดำหรือสีขาว, ส่วน [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) ใช้เกณฑ์กับค่าแอลฟา
 
-สำหรับความโปร่งใสแบบสม่ำเสมอ ใช้ [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) ซึ่งทำการคูณค่าที่อัลฟ่าทุกค่าที่มีอยู่ ดังนั้นพิกเซลที่โปร่งใสบางส่วนจะยังคงแตกต่างกันตามสัดส่วน [addAlphaReplaceEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) แทนที่ค่าอัลฟ่าทั้งหมดด้วยค่าเดียว [addAlphaBiLevelEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) แปลงอัลฟ่าเป็นสองระดับตาม threshold
+เกณฑ์ความสว่างอยู่ในช่วง 0% ถึง 100% รวม . พิกเซลที่ต่ำกว่าเกณฑ์จะเป็นสีดำ, พิกเซลที่เท่าหรือสูงกว่าเกณฑ์จะเป็นสีขาว . การเพิ่มเกณฑ์ทำให้เฉดสีหลายสีกลายเป็นสีดำเพราะมากกว่าที่ต่ำกว่าจุดตัด
+
+ดาวน์โหลด [grayscale-swatches.png](grayscale-swatches.png) ไปยังไดเรกทอรีทำงาน . แต่ละป้ายบ่งบอกระดับสีเทาต้นฉบับบนสเกล 0‑255 . ตัวอย่างจะวางต้นฉบับข้างสำเนาสองชุดและบันทึกเกณฑ์ของแต่ละสำเนาในงานนำเสนอ
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, slides.SlideSizeScaleType.DoNotScale);
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceImage = slides.Images.fromFile("grayscale-swatches.png");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    const frames = [];
+    for (let i = 0; i < captions.length; i++) {
+        const x = 12 + 240 * i;
+        const label = shapes.addAutoShape(slides.ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        const frame = shapes.addPictureFrame(slides.ShapeType.Rectangle, x, 60, 216, 72, image);
+        frames.push(frame);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60);
+    
+    presentation.save("luminance-threshold.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+เปิดงานนำเสนอผลลัพธ์ใน PowerPoint เพื่อเปรียบเทียบสามกรอบ . สเวชที่มีป้าย 96 มีความสว่างประมาณ 38% (96 จาก 255) . มันจะกลายเป็นสีขาวที่เกณฑ์ 20% และเป็นสีดำที่เกณฑ์ 60%
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **เพิ่มเบลอ, ความโปร่งใส, และเอฟเฟกต์แอลฟ่า**
+
+[addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) มีผลต่อทุกช่องสีรวมทั้งแอลฟา . ตั้งค่า `grow` เป็น `true` เมื่อขอบเบลออาจขยายออกนอกขอบรูปต้นฉบับ
+
+สำหรับความโปร่งใสแบบสม่ำเสมอ ให้ใช้ [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) . มันคูณค่าแอลฟ่าที่มีอยู่ทุกค่า ทำให้พิกเซลที่โปร่งใสบางส่วนยังคงมีอัตราส่วนต่างกันอย่างสัดส่วน . [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) จะกำหนดค่าแอลฟ่าเดียวให้กับทุกพิกเซล . [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) แปลงแอลฟ่าเป็นสองระดับตามเกณฑ์
 
 ```javascript
 const aspose = {};
@@ -198,15 +245,15 @@ try {
 }
 ```
 
-เอฟเฟ็กต์อัลฟ่าอื่น ๆ ที่ไม่มีพารามิเตอร์ ได้แก่ [addAlphaCeilingEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) ซึ่งทำให้ทุกอัลฟ่าที่ไม่เป็นศูนย์เต็มทึบ; [addAlphaFloorEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) ซึ่งทำให้อัลฟ่าที่ต่ำกว่า 100% เต็มโปร่งใส; และ [addAlphaInverseEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) ซึ่งเปลี่ยนอัลฟ่าเป็น `100% - alpha`
+เอฟเฟกต์แอลฟ่าที่ไม่มีพารามิเตอร์อื่นรวมถึง [addAlphaCeilingEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) – ทำให้แอลฟ่าที่ไม่เป็นศูนย์ทั้งหมดเต็มทึบ; [addAlphaFloorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) – ทำให้แอลฟ่าต่ำกว่า 100% ทั้งหมดเต็มโปร่งใส; และ [addAlphaInverseEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) – แปลงแอลฟ่าเป็น `100% - alpha`
 
-## **สร้างเชนเอฟเฟ็กต์ตามลำดับ**
+## **สร้างเชนเอฟเฟกต์ที่เรียงลำดับ**
 
-แต่ละเมธอด `add...Effect` จะเพิ่มอ็อบเจ็กต์ใหม่ต่อท้ายคอลเลกชัน ตัวเรนเดอร์ใช้คอลเลกชันเป็นไพรไลน์ตามลำดับ: ผลลัพธ์ของอ็อบเจ็กต์ที่ 0 กลายเป็นอินพุตของอ็อบเจ็กต์ที่ 1 เป็นต้น ดังนั้นการจัดลำดับอ็อบเจ็กต์เดียวกันในลำดับที่ต่างกันอาจให้ภาพที่แตกต่างกัน
+แต่ละเมธอด `add...Effect` จะเพิ่มอ็อบเจ็กต์ใหม่ลงท้ายคอลเลกชัน . ตัวเรนเดอร์ใช้คอลเลกชันเป็นสายการผลิตที่เรียงลำดับ: ผลลัพธ์ของอ็อบเจ็กต์ 0 เป็นอินพุตของอ็อบเจ็กต์ 1, เป็นต้น . ดังนั้นการใช้เอฟเฟกต์เดียวกันในลำดับที่ต่างกันอาจสร้างภาพที่แตกต่างกัน
 
-ตัวอย่างเช่น การทำสเกลสีเทาก่อน tint จะลบข้อมูลสีอ่อนแล้วทำสีใหม่จากผลลัพธ์ลูมินัส ส่วน tint ก่อนสเกลสีเท่าจะทำให้ tint หายไป อีกตัวอย่างคือการแทนที่อัลฟ่าสามารถเขียนทับค่าอัลฟ่าที่คำนวณจากออปเจ็กต์ก่อนหน้าได้ ในขณะที่การโมเดลอัลฟ่าจะคงความแตกต่างสัมพัทธ์ไว้
+เช่น หากทำระดับสีเทาก่อน tint จะลบข้อมูลสีก่อนแล้วจึงทาตำแหน่งสีใหม่ . ถ้า tint มาก่อนระดับสีเท้า จะลบ tint ไป . เช่นเดียวกัน การแทนที่แอลฟ่าสามารถเขียนทับค่าแอลฟ่าที่คำนวณโดยออบเจ็กต์ก่อนหน้าได้, ขณะที่การปรับแอลฟ่าจะคงความแตกต่างสัมพัทธ์ไว้
 
-ตัวอย่างต่อไปนี้สร้างเชนสี่ออปเจ็กต์ บันทึกเป็น PPTX เปิดพรีเซนเทชันใหม่ ตรวจสอบชนิดออปเจ็กต์และลำดับของพวกมัน แล้วเรนเดอร์ผลลัพธ์ที่เปิดใหม่:
+ตัวอย่างต่อไปสร้างเชนสี่ขั้นตอน, บันทึกเป็น PPTX, เปิดงานนำเสนอใหม่, ตรวจสอบประเภทอ็อบเจ็กต์และลำดับ, แล้วเรนเดอร์ผลลัพธ์ที่เปิดใหม่:
 
 ```javascript
 const aspose = {};
@@ -264,15 +311,21 @@ try {
 }
 ```
 
-คอลเลกชันไม่ได้กำหนดเมทริกซ์ความเข้ากันได้ที่จำกัดให้เอฟเฟ็กต์สี, อัลฟ่า และเบลออยู่ในเชนแยกกัน พวกมันสามารถรวมกันได้ แต่บางการรวมอาจไม่มีประโยชน์ การแทนที่สีคงที่จะลบความแปรปรวนของ RGB ที่เกิดจากเอฟเฟ็กต์สีก่อนหน้า; การทำสเกลสีเทาหลัง duotone จะลบสีที่เลือกสองสี; การ ceiling, floor, replacement หรือ bi-level ของอัลฟ่าสามารถทิ้งรายละเอียดอัลฟ่าที่สร้างมาก่อนได้ สร้างเชนตามลำดับการประมวลผลพิกเซลที่ต้องการ แทนที่จะมองรายการเป็นแฟล็กการจัดรูปแบบที่ไม่มีลำดับ
+คอลเลกชันไม่ได้บังคับให้มีเมทริกซ์ความเข้ากันได้ที่แยกเอฟเฟกต์สี, แอลฟ่า, และเบลอให้อยู่อย่างแยกกัน . สามารถผสมผสานได้, แต่บางการผสมอาจไม่มีประโยชน์ . ตัวอย่างเช่น การแทนที่สีคงที่จะลบการแปรผัน RGB ที่เกิดจากสีก่อนหน้า; การทำระดับสีเทาหลัง duotone จะลบสีสองสีที่เลือก; และเอฟเฟกต์แอลฟ่าแบบ ceiling, floor, replace หรือ bi‑level สามารถกำจัดรายละเอียดแอลฟ่าที่สร้างขึ้นก่อนหน้า . ควรสร้างเชนตามลำดับการประมวลผลพิกเซลที่ต้องการ, ไม่ใช่พิจารณาเป็นแฟล็กการจัดรูปแบบที่ไม่มีลำดับ
 
-## **ตรวจสอบค่าที่แก้ไขได้และค่าที่มีผล**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-ออปเจ็กต์ที่แก้ไขได้คืออ็อบเจ็กต์ที่เก็บอยู่ใน [Picture.getImageTransform](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/). ตามเอฟเฟ็กต์อาจเปิดเผยสมาชิกที่เขียนได้โดยตรง ตัวอย่างเช่น [Blur](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/blur/) เปิดเผย `radius` และ `grow` ที่เขียนได้, [AlphaModulateFixed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/alphamodulatefixed/) เปิดเผย `amount`, และ [AlphaBiLevel](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/alphabilevel/) เปิดเผย `threshold`. เอฟเฟ็กต์สีอย่าง [Duotone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/duotone/) เปิดเผยอ็อบเจ็กต์ [ColorFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colorformat/) ที่แก้ไขได้
+*ในภาพจำลอง Aspose.Slides for .NET 26.11 นี้, การใส่สี tint 220° ที่ 25% จะไม่เปลี่ยนภาพระดับสีเทา. การใส่ tint ก่อนระดับสีเทาจะให้โทนสีที่ต่างกัน*
+<!-- visual-explanation:image-transform-effects:end -->
 
-บางออปเจ็กต์ เช่น [BrightnessContrast](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tint/), และ [AlphaReplace](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/alphareplace/) ไม่เปิดเผยสเกลาร์ที่ใช้สร้างเป็นคุณสมบัติที่เขียนได้ เพื่อตั้งค่าดังกล่าว ให้ลบออปเจ็กต์นั้นและเพิ่มออปเจ็กต์ใหม่ในตำแหน่งที่ต้องการ
+## **ตรวจสอบค่าที่แก้ไขได้และค่าที่มีประสิทธิภาพ**
 
-ข้อมูลที่ได้จาก `getEffective()` คำนวณและเป็นแบบอ่านอย่างเดียว มีประโยชน์ในการแก้ไขสีที่ขึ้นกับธีมและอ่านค่าที่ทำให้เป็นมาตรฐานที่เรนเดอร์ใช้ แต่ไม่ใช่พื้นผิวนการแก้ไขอีกชั้น ตัวอย่างต่อไปนี้ลิสต์เชนและตรวจสอบค่าที่มีผลที่ API ให้มา:
+อ็อบเจ็กต์ที่แก้ไขได้คืออ็อบเจ็กต์ที่เก็บอยู่ใน [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) . ขึ้นอยู่กับเอฟเฟกต์, อาจเปิดเผยสมาชิกที่เขียนได้โดยตรง . ตัวอย่างเช่น, [Blur](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/) เปิดเผย `radius` และ `grow` ที่เขียนได้, [AlphaModulateFixed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphamodulatefixed/) เปิดเผย `amount` ที่เขียนได้, และ [AlphaBiLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphabilevel/) เปิดเผย `threshold` ที่เขียนได้ . เอฟเฟกต์สีเช่น [Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) เปิดเผยอ็อบเจ็กต์ [ColorFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/) ที่แก้ไขได้
+
+บางอ็อบเจ็กต์ เช่น [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tint/), และ [AlphaReplace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphareplace/) ไม่เปิดเผยสเกลาร์การสร้างเป็นคุณสมบัติที่เขียนได้ . เพื่อเปลี่ยนการตั้งค่าเหล่านั้น, ให้ลบเอฟเฟกต์แล้วเพิ่มอ็อบเจ็กต์ทดแทนในตำแหน่งที่ต้องการ
+
+ข้อมูลที่มีประสิทธิภาพที่ `getEffective()` คืนค่ามานั้นเป็นการคำนวณและอ่าน‑อย่าง‑เดียว . มันมีประโยชน์สำหรับการแก้ไขสีที่ขึ้นกับธีมและการอ่านค่าที่ทำให้มาตรฐานซึ่งตัวเรนเดอร์ใช้, แต่ไม่ใช่พื้นผิวการแก้ไขอีกชั้นหนึ่ง . ตัวอย่างต่อไปลิสต์เชนและตรวจสอบค่าที่มีประสิทธิภาพในที่ที่ API ให้ไว้:
 
 ```javascript
 const aspose = {};
@@ -340,11 +393,11 @@ try {
 }
 ```
 
-เอฟเฟ็กต์ที่ไม่มีพารามิเตอร์เช่นสเกลสีเทา, alpha ceiling, และ alpha inverse ยังมีอ็อบเจ็กต์ข้อมูลที่มีผล แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์ ความสำคัญอยู่ที่การมีอยู่และตำแหน่งในคอลเลกชัน
+เอฟเฟกต์ที่ไม่มีพารามิเตอร์เช่นระดับสีเทา, แอลฟ้า ceiling, และแอลฟ้า inverse ยังมีอ็อบเจ็กต์ข้อมูลที่มีประสิทธิภาพ, แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์ . การมีอยู่และตำแหน่งในคอลเลกชันคือข้อมูลสำคัญ
 
-## **ลบหรือเคลียร์การแปลงภาพ**
+## **ลบหรือทำความสะอาดการแปลงภาพ**
 
-ใช้ [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) เพื่อลบออปเจ็กต์หนึ่งตามดัชนี เนื่องจากดัชนีจะสลับหลังการลบ ให้ค้นหาเป้าหมายก่อนแล้วลบหลังจากลิสต์ ใช้ [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) เพื่อลบเชนทั้งหมด
+ใช้ [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) เพื่อลบอ็อบเจ็กต์หนึ่งตามดัชนี . เนื่องจากดัชนีจะเปลี่ยนหลังจากการลบ, ควรค้นหาเป้าหมายก่อนแล้วลบหลังจากลิสต์ . ใช้ [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) เพื่อลบเชนทั้งหมด
 
 ```javascript
 const aspose = {};
@@ -389,38 +442,38 @@ try {
 }
 ```
 
-การลบหรือเคลียร์การแปลงจะเปลี่ยนเฉพาะการจัดรูปแบบของ picture เท่านั้น ไม่ได้ลบ, บีบอัดใหม่, หรือแก้ไขทรัพยากร [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) ที่ใช้ซ้ำ
+การลบหรือทำความสะอาดการแปลงเปลี่ยนเฉพาะการจัดรูปแบบของรูปภาพเท่านั้น . ไม่ได้ลบ, บีบอัด, หรือแก้ไขทรัพยากร [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) ที่ใช้ซ้ำ
 
-## **พิจารณารูปแบบพรีเซนเทชันและเป้าหมายการส่งออก**
+## **พิจารณารูปแบบงานนำเสนอและเป้าหมายการส่งออก**
 
-การแปลงภาพมีต้นกำเนิดจาก DrawingML ดังนั้น PPTX จึงเป็นรูปแบบที่แก้ไขได้แนะนำสำหรับเชนเอฟเฟ็กต์ แม้ใช้ PPTX ยังไม่ทุกออปเจ็กต์มีพกพาเท่ากัน:
+การแปลงภาพเกิดจาก DrawingML, ดังนั้น PPTX เป็นรูปแบบที่ควรแก้ไขสำหรับเชนเอฟเฟกต์ . แม้กับ PPTX, ไม่ใช่ทุกอ็อบเจ็กต์มีพกพาเท่ากัน:
 
-- ออปเจ็กต์ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และออปเจ็กต์อัลฟ่าทั่วไป มีโอกาสอยู่รอดจากรอบ PPTX สูงสุด ควรเปิดไฟล์ที่สร้างแล้วและตรวจสอบคอลเลกชันเมื่อต้องการให้คงที่
-- [BrightnessContrast](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยาย Office 2010 ไม่ใช่ออปเจ็กต์ luminance ของ DrawingML มาตรฐาน สามารถใช้สำหรับการเรนเดอร์ในหน่วยความจำได้ แต่ไม่รับประกันว่าจะคงเป็นออปเจ็กต์ [BrightnessContrast](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/brightnesscontrast/) ที่แก้ไขได้หลังบันทึกและเปิด PPTX ใหม่ ควรใช้ [addLuminanceEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/) สำหรับการปรับความสว่างและคอนทราสต์ที่คงที่
-- รูปแบบไบนารี PPT มีอายุก่อนโมเดลเอฟเฟ็กต์ DrawingML เต็มรูปแบบ การบันทึกเป็น PPT อาจละทิ้งออปเจ็กต์ที่ไม่รองรับ ลดเชนให้อยู่ในส่วนที่สนับสนุน หรือประมาณลักษณะไม่ครบถ้วน อย่าใช้ PPT เป็นรูปแบบตรวจสอบสำหรับเชนที่แก้ไขได้ซับซ้อน
-- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML หรือเอาต์พุตภาพอื่น ๆ จะใช้เชนที่รองรับเพื่อสร้างภาพผลลัพธ์ เอาต์พุตเหล่านี้ไม่บรรจุ [ImageTransformOperationCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imagetransformoperationcollection/); รูปแบบราสเตอร์จะทำให้ผลลัพธ์ฟลัตเทนเป็นพิกเซล และการส่งออกเอกสาร/เวกเตอร์จะเก็บการเรนเดอร์ของตนเอง
-- เอฟเฟ็กต์ไม่ทำให้ภาพที่ลิงก์เป็นอิสระ การเรนเดอร์ภาพที่ลิงก์ยังคงพึ่งพาทรัพยากรที่ลิงก์อยู่เมื่อพรีเซนเทชันโหลด
+- เอฟเฟกต์ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และเอฟเฟกต์แอลฟ่าทั่วไปมีโอกาสอยู่รอดจากรอบ PPTX มากที่สุด . ควรเปิดไฟล์ที่สร้างใหม่และตรวจสอบคอลเลกชันเมื่อการคงค่าเป็นข้อกำหนด
+- [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) เป็นส่วนขยาย Office 2010 ไม่ใช่เอฟเฟกต์ luminance ของ DrawingML มาตรฐาน . สามารถใช้สำหรับการเรนเดอร์ในหน่วยความจำ, แต่ไม่รับประกันว่าจะยังคงเป็นอ็อบเจ็กต์ [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) ที่แก้ไขได้หลังบันทึกและเปิด PPTX ใหม่ . ให้เลือกใช้ [addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) สำหรับการปรับความสว่างและคอนทราสต์ที่คงอยู่
+- รูปแบบไบนารี PPT มีอายุย้อนไปก่อนโมเดลเอฟเฟกต์ DrawingML เต็มรูป . การบันทึกเป็น PPT อาจละเว้นอ็อบเจ็กต์ที่ไม่รองรับ, ลดเชนลงเป็นส่วนที่รองรับ, หรือประมาณลักษณะ . อย่าใช้ PPT เป็นรูปแบบตรวจสอบสำหรับเชนแก้ไขที่ซับซ้อน
+- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML หรือรูปแบบภาพอื่น ๆ จะใช้เชนที่รองรับเพื่อสร้างภาพที่เรนเดอร์ . รูปแบบเหล่านี้ไม่บรรจุ [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) ที่แก้ไขได้; รูปแบบราสเตอร์ทำให้ผลลัพธ์เป็นพิกเซล, การส่งออกเอกสาร/เวกเตอร์เก็บการแสดงผลของตนเอง
+- เอฟเฟกต์ไม่ทำให้ภาพเชื่อมต่อเป็นอิสระ . การเรนเดอร์ภาพเชื่อมต่อยังคงต้องอ้างอิงทรัพยากรที่เชื่อมต่อเมื่อเปิดงานนำเสนอ
 
-ผู้ใช้งานพรีเซนเทชันต่างกันอาจเรนเดอร์กรณีขอบเขตที่แตกต่างกัน โดยเฉพาะเมื่อรวมหลายออปเจ็กต์อัลฟ่าหรือการควอนไนต์สี สำหรับผลลัพธ์สำคัญ ควรทดสอบทั้งรอบการแก้ไขและรูปแบบส่งออกสุดท้ายด้วย Aspose.Slides เวอร์ชันเดียวกับที่ใช้ในการผลิต
+ผู้บริโภคงานนำเสนอที่ต่างกันอาจเรนเดอร์กรณีขอบต่าง ๆ แตกต่างกัน, โดยเฉพาะเมื่อรวมเอฟเฟกต์แอลฟ่าหรือการลดสีหลายออบเจ็กต์ . สำหรับผลลัพธ์สำคัญ, ควรทดสอบทั้งรอบการแก้ไขและรูปแบบส่งออกสุดท้ายด้วยเวอร์ชัน Aspose.Slides ที่ใช้ในระบบการผลิต
 
 ## **คำถามที่พบบ่อย**
 
-**เอฟเฟ็กต์การแปลงภาพทำให้ข้อมูลภาพฝังเปลี่ยนหรือไม่?**
+**เอฟเฟกต์การแปลงภาพแก้ไขข้อมูลภาพฝังหรือไม่?**
 
-ไม่ การดำเนินการเป็นของ [Picture](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/) ที่ใช้โดย picture fill ไบต์ของ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) พื้นฐานยังคงไม่เปลี่ยน
+ไม่ . การดำเนินการเป็นของ [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) ที่ใช้โดยการเติมรูป . ไบต์ของ [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) ด้านล่างคงไม่เปลี่ยน
 
-**สอง picture frame ที่ใช้ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) เดียวกันจะแชร์เอฟเฟ็กต์หรือไม่?**
+**สองกรอบรูปที่ใช้ภาพเดียวกันจะแบ่งเอฟเฟกต์กันหรือไม่?**
 
-ไม่ การใช้ซ้ำ [PPImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ppimage/) ช่วยลดข้อมูลภาพซ้ำซ้อน แต่แต่ละ picture frame ปกติมี [Picture](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/picture/) และคอลเลกชันการแปลงภาพของตนเอง
+ไม่ . การใช้ซ้ำ [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) ช่วยหลีกเลี่ยงข้อมูลภาพซ้ำ, แต่แต่ละกรอบรูปโดยทั่วไปจะมี [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) และคอลเลกชันการแปลงภาพของตนเอง
 
-**สามารถรวมเอฟเฟ็กต์สี, เบลอ, และอัลฟ่าได้หรือไม่?**
+**สามารถผสมสี, เบลอ, และเอฟเฟกต์แอลฟ่าได้หรือไม่?**
 
-ได้ คอลเลกชันรับเอฟเฟ็กต์เหล่านั้นในเชนตามลำดับหนึ่ง พิจารณาผลของแต่ละการดำเนินการต่อผลของการดำเนินการก่อนหน้า เนื่องจากการแทนที่และการตั้งค่าขีดจำกัดอาจลบรายละเอียดสีหรืออัลฟ่าที่สร้างมาก่อน
+ได้ . คอลเลกชันรับพวกมันในเชนที่เรียงลำดับ . พิจารณาว่าแต่ละการดำเนินการทำอะไรกับผลลัพธ์ของอ็อบเจ็กต์ก่อนหน้า, เนื่องจากเอฟเฟกต์แทนที่และเกณฑ์อาจลบรายละเอียดสีหรือแอลฟ่าที่เกิดขึ้นก่อนหน้า
 
-**ทำไมค่าที่มีผลจึงเป็นแบบอ่านอย่างเดียว?**
+**ทำไมค่าที่มีประสิทธิภาพจึงเป็นอ่าน‑อย่าง‑เดียว?**
 
-ข้อมูลที่มีผลเป็นค่าที่คำนวณสำหรับการเรนเดอร์ รวมถึงสีที่แก้ไขตามธีม แก้ไขออปเจ็กต์ที่เก็บในคอลเลกชันเมื่อมีสมาชิกที่เขียนได้; หากไม่มีให้ลบและเพิ่มออปเจ็กต์ใหม่พร้อมพารามิเตอร์การสร้างใหม่
+ข้อมูลที่มีประสิทธิภาพเป็นค่าที่คำนวณสำหรับการเรนเดอร์, รวมถึงสีที่ได้จากธีม . แก้ไขอ็อบเจ็กต์ที่เก็บในคอลเลกชันที่มีสมาชิกเขียนได้; ถ้าไม่มี, ให้ลบและเพิ่มอ็อบเจ็กต์ทดแทนด้วยพารามิเตอร์การสร้างใหม่
 
 **ควรใช้รูปแบบใดเพื่อคงเชนการแปลง?**
 
-ใช้ PPTX และตรวจสอบไฟล์โดยการเปิดใหม่ ไม่แนะนำให้ใช้ PPT เก่าเนื่องจากไม่สามารถแสดงโมเดลเอฟเฟ็กต์ DrawingML อย่างเต็มรูปแบบ และรูปแบบการส่งออกที่เรนเดอร์จะเก็บเฉพาะรูปลักษณ์ ไม่ได้เก็บเอฟเฟ็กต์การแปลงที่แก้ไขได้
+ใช้ PPTX และตรวจสอบไฟล์โดยเปิดใหม่ . PPT เดิมไม่สามารถแสดงโมเดลเอฟเฟกต์ DrawingML เต็มรูปได้, และรูปแบบส่งออกที่เรนเดอร์จะคงลักษณะภาพแต่ไม่คงการแปลงที่แก้ไขได้

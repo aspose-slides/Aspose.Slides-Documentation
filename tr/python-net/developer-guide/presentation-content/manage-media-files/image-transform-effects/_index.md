@@ -1,71 +1,71 @@
 ---
-title: Python ile Sunumlarda Görüntü Dönüştürme Efektlerini Yönetme
-linktitle: Görüntü Dönüştürme Efektleri
+title: Python ile Sunumlarda Görüntü Dönüşüm Efektlerini Yönetin
+linktitle: Görüntü Dönüşüm Efektleri
 type: docs
 weight: 11
 url: /tr/python-net/image-transform-effects/
 keywords:
-- görüntü dönüştürme
+- görüntü dönüşümü
 - resim efekti
 - parlaklık
 - kontrast
 - gri tonlama
-- çift ton
+- ikoton
 - renk tonu
 - HSL
 - renk değiştirme
 - bulanıklaştırma
 - şeffaflık
 - alfa efekti
-- etki zinciri
+- efekt zinciri
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile resim çerçeveleri için görüntü dönüştürme efektlerini uygulayın, zincirleyin, inceleyin, kaldırın ve doğrulayın."
+description: "Aspose.Slides for Python via .NET ile resim çerçeveleri için görüntü dönüşüm efektlerini uygula, zincirle, incele, kaldır ve doğrula."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, resim ayarlarını sıralı bir görüntü dönüştürme işlemleri koleksiyonu olarak temsil eder. Bir resim çerçevesi için, çerçevenin [Resim](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picture/) ile başlayın ve onun [image_transform](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picture/image_transform/) özelliğine erişin. Döndürülen [ImageTransformOperationCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/) yeni etkiler eklemenizi, saymanı, incelemenizi, kaldırmanızı ve temizlemenizi, orijinal görüntü baytlarını yeniden yazmadan sağlar.
+Aspose.Slides, resim ayarlamalarını görüntü dönüşüm işlemlerinin sıralı bir koleksiyonu olarak temsil eder. Bir resim çerçevesi için, çerçevenin [Resim](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) ile başlayın ve onun [image_transform](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image_transform/) özelliğine erişin. Döndürülen [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/) eklemenize, sıralamanıza, incelemenize, kaldırmanıza ve efektleri temizlemenize olanak tanır; orijinal görüntü baytlarını yeniden yazmadan.
 
-Bu makale, parlaklık ve kontrast, renk dönüşümleri, bulanıklaştırma, şeffaflık, sıralı etki zincirleri, etkili değerler, kaldırma ve PPTX turu doğrulaması için eksiksiz bir iş akışını gösterir.
+Bu makale, parlaklık ve kontrast, renk dönüşümleri, bulanıklaştırma, şeffaflık, sıralı efekt zincirleri, etkili değerler, kaldırma ve PPTX tam döndürme doğrulaması için tam bir iş akışını göstermektedir.
 
-## **Etki Sahipliğini ve Görüntü Yeniden Kullanımını Anlamak**
+## **Efekt Sahipliğini ve Görüntü Yeniden Kullanımını Anlayın**
 
-Bir görüntü kaynağı ile onu görüntüleyen resim farklı nesnelerdir:
+Bir görüntü kaynağı ve onu görüntüleyen resim farklı nesnelerdir:
 
-- [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) sunumun sahip olduğu kaynak görüntü verilerini depolar veya başvurur.
-- [Picture](https://reference.aspose.com/slides/tr/python-net/aspose.slides/picture/) bir resim doldurmanın parçasıdır ve bir görüntü kaynağına başvururken görüntü dönüştürme koleksiyonunu saklar.
-- [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/) ilgili resim doldurmayı, geometrileri, kırpma ayarlarını ve diğer çerçeve‑seviyesi biçimlendirmeyi sahip olan slayt şeklidir.
+- [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) sunumun sahip olduğu kaynak görüntü verilerini depolar veya referans verir.
+- [Resim](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) bir resim doldurmanın parçasıdır ve bir görüntü kaynağına referans verir; aynı zamanda görüntü dönüşüm koleksiyonunu depolar.
+- [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) ilgili resim doldurmayı, geometriyi, kırpma ayarlarını ve diğer çerçeve düzeyinde biçimlendirmeleri sahip olan slayt şeklidir.
 
-Bu yüzden, görüntü dönüştürme işlemleri [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) içerisindeki baytları değiştirmez. Aynı `PPImage` birden fazla kez [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/add_picture_frame/) metoduna verildiğinde, her yeni resim çerçevesi kendi `Picture` ve dönüştürme koleksiyonuna sahip olur. Bir çerçeveye gri tonlamayı uygulamak, diğer çerçeveleri gri tonlamaz; tüm çerçeveler aynı gömülü görüntü kaynağını yinelemeye devam eder.
+Bu nedenle, görüntü dönüşüm işlemleri [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) içindeki baytları değiştirmez. Aynı `PPImage` birden fazla kez [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) metoduna geçirilirse, her yeni resim çerçevesi kendi `Resim` ve kendi dönüşüm koleksiyonunu alır. Bir çerçeveye gri tonlama uygulamak diğer çerçeveleri gri tonlamaz, çünkü tüm çerçeveler aynı gömülü görüntü kaynağını yeniden kullanır ancak her biri kendi `Resim` nesnesine sahiptir.
 
-Aynı `Picture.image_transform` modeli, şekil ya da slayt arka planı gibi diğer resim doldurmaları tarafından da kullanılır. Aşağıdaki örnekler yalnızca resim çerçevelerine odaklanır.
+Aynı `Picture.image_transform` modeli şekil doldurması ya da slayt arka planı gibi diğer resim doldurmaları tarafından da kullanılır. Aşağıdaki örnekler yalnızca resim çerçevelerine odaklanır.
 
-## **Geçerli Parametre Aralıklarını ve Birimleri Kullanma**
+## **Geçerli Parametre Aralıkları ve Birimlerini Kullanın**
 
-Gösterilen yöntemler aşağıdaki anlamsal aralıkları ve birimleri kullanır. Belirli bir kütüphane sürümü hemen her sınır dışı değeri reddetmese bile, hedef sunum biçimi kaydetme sırasında ya da PowerPoint dosyayı açtığında geçersiz verileri normalleştirebilir, atabilir veya reddedebilir.
+Gösterilen yöntemler aşağıdaki anlamsal aralıkları ve birimleri kullanır. Bir kütüphane sürümü hemen her geçersiz değeri reddetmese bile bu aralıklarda kalın; hedef sunum formatı kaydetme sırasında veya PowerPoint dosyayı açtığında geçersiz verileri normalleştirebilir, atabilir veya reddedebilir.
 
 | İşlem | Parametreler | Geçerli aralık ve birim |
 |---|---|---|
-| [add_brightness_contrast_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) | `brightness`, `contrast` | `-100` ile `100` arasında, yüzde; `0` bileşeni değiştirmez. |
-| [add_gray_scale_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) | Yok | Sayısal parametre yok. Alfa değişmez. |
-| [add_duotone_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_duotone_effect/) | `color1`, `color2` | Koyu ve açık pikseller için iki renk. RGB ve alfa kanalları `0` ile `255` arasında değer alır. |
-| [add_tint_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_tint_effect/) | `hue`, `amount` | Renk tonu `0` dahil `360` hariç derece; miktar `-100` ile `100` arasında yüzde. |
-| [add_hsl_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_hsl_effect/) | `hue`, `saturation`, `luminance` | Renk tonu `0` dahil `360` hariç derece; doygunluk ve parlaklık `-100` ile `100` arasında yüzde. |
-| [add_color_replace_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) | `color` | Yerine konulan renk kanal değerlerini `0` ile `255` arasında kullanır. Mevcut alfa değerleri değişmez. |
-| [add_blur_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) | `radius`, `grow` | Yarıçap negatif olmayan ve puan cinsinden ölçülür; `grow` bulanık içeriğin orijinal sınırların dışına çıkıp çıkmayacağını belirleyen Boolean bir değerdir. |
-| [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) | `amount` | Negatif olmayan yüzde. Normal opaklık ölçeklemesi için `0` ile `100` kullanın: `0` tamamen transparan, `100` mevcut alfabayı korur. |
-| [add_alpha_replace_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) | `alpha` | `0` ile `100` arasında, yüzde opaklık. |
-| [add_alpha_bi_level_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) | `threshold` | `0` ile `100` arasında, yüzde alfa eşiği. Bu değerin altındaki değerler transparan, eşit veya üzerindekiler opak olur. |
+| [add_brightness_contrast_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) | `brightness`, `contrast` | `-100` ile `100` arasında, yüzde; `0` bileşeni değişmeden bırakır. |
+| [add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) | None | Sayısal parametre yok. Alfa değişmez. |
+| [add_duotone_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_duotone_effect/) | `color1`, `color2` | Karanlık ve açık pikseller için iki renk. RGB ve alfa kanalları `0` ile `255` arasında kullanılır. |
+| [add_tint_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_tint_effect/) | `hue`, `amount` | Ton, derece cinsinden `0` dahil ve `360` hariç; miktar `-100` ile `100` arasında, yüzde. |
+| [add_hsl_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_hsl_effect/) | `hue`, `saturation`, `luminance` | Ton, derece cinsinden `0` dahil ve `360` hariç; doygunluk ve ışıklılık `-100` ile `100` arasında, yüzde. |
+| [add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) | `color` | Değiştirme rengi kanal değerlerini `0` ile `255` arasında kullanır. Mevcut alfa değerleri değişmez. |
+| [add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) | `radius`, `grow` | Yarıçap negatif değildir ve puan olarak ölçülür; `grow` bulanık içeriğin orijinal sınırların dışına çıkıp çıkmayacağını kontrol eden bir Boolean'dır. |
+| [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) | `amount` | Negatif olmayan yüzde. Normal opaklık ölçeklemesi için `0` ile `100` kullanın: `0` tamamen şeffaf, `100` mevcut alfanı korur. |
+| [add_alpha_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) | `alpha` | `0` ile `100` arasında, yüzde opaklık. |
+| [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) | `threshold` | `0` ile `100` arasında, yüzde alfa eşiği. Bu değerin altındaki değerler şeffaf, eşit veya üstündekiler opak olur. |
 
-Sabit alfa modülasyonu için şeffaflık ve opaklık tamamlayıcıdır. Örneğin, %35 şeffaflık alfa modülasyonu miktarı %65’e eşittir.
+Sabit alfa modülasyonu için şeffaflık ve opaklık birbirini tamamlar. Örneğin, %35 şeffaflık %65 alfa modülasyonu miktarına karşılık gelir.
 
-## **Parlaklık ve Kontrast Uygulama**
+## **Parlaklık ve Kontrast Uygula**
 
-[ImageTransformOperationCollection.add_brightness_contrast_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) bir [BrightnessContrast](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/brightnesscontrast/) işlemi döndürür. Skaler ayarlar işlem oluşturulurken sağlanır. [BrightnessContrast.get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/brightnesscontrast/get_effective/) hesaplanmış, yalnızca okunabilen değerleri verir; bu değerler incelenebilir veya kaydedilebilir.
+[ImageTransformOperationCollection.add_brightness_contrast_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) bir [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) işlemi döndürür. İşlem oluşturulduğunda skaler ayarlar sağlanır. [BrightnessContrast.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/get_effective/) hesaplanmış, yalnızca okunabilir değerleri döndürür; bu değerler incelenebilir veya günlüğe kaydedilebilir.
 
-Aşağıdaki örnek parlaklığı %15, kontrastı %20 artırır ve gömülü görüntüyü değiştirmeden bir önizleme oluşturur:
+Aşağıdaki örnek parlaklığı %15, kontrastı %20 artırır ve ardından gömülü görüntüyü değiştirmeden bir ön izleme render eder:
 
 ```python
 import aspose.slides as slides
@@ -88,13 +88,13 @@ with slides.Presentation() as presentation:
         preview.save("brightness-contrast-preview.png")
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/brightnesscontrast/) bir Office 2010 resim‑etki uzantısıdır ve standart DrawingML parlaklık etkisine göre daha az taşınabilir. Parlaklık ve kontrastın PPTX turu sonrası düzenlenebilir kalması gerekiyorsa, [ImageTransformOperationCollection.add_luminance_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) kullanın ve dosyayı yeniden açtıktan sonra sonucu doğrulayın. Biçim sınırlamaları bölümü bu ayrımı daha ayrıntılı açıklar.
+[BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) bir Office 2010 resim‑efekti uzantısıdır ve standart DrawingML ışıklılık efektine göre daha az taşınabilirdir. Parlaklık ve kontrastın bir PPTX tam dönüşünden sonra düzenlenebilir kalması gerekiyorsa, [ImageTransformOperationCollection.add_luminance_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) kullanın ve dosyayı yeniden açtıktan sonra sonucu doğrulayın. Biçim sınırlamaları bölümü bu ayrımı daha ayrıntılı açıklar.
 
-## **Renk Dönüşümlerini Uygulama**
+## **Renk Dönüşümlerini Uygula**
 
-Renk etkileri, aynı görüntü kaynağını kullanan farklı resim çerçevelerine bağımsız olarak uygulanabilir. Aşağıdaki örnek beş çerçeve oluşturur ve gri tonlama, duotone, tonlama, HSL ayarı ve renk değişimini uygular.
+Renk efektleri, aynı görüntü kaynağını yeniden kullanan farklı resim çerçevelerine bağımsız olarak uygulanabilir. Aşağıdaki örnek beş çerçeve oluşturur ve gri tonlama, ikitonu, renk tonu, HSL ayarı ve renk değiştirmeyi uygular.
 
-[Duotone](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/duotone/) iki bağımsız düzenlenebilir renk parametresi içerir: `color1` koyu pikselleri, `color2` açık pikselleri eşler. Bu, ayarları tek bir skaler değerden daha karmaşık bir etki örneği olduğu için faydalı bir örnektir.
+[Duotone](https://reference.aspose.com/slides/python-net/aspose.slides.effects/duotone/) iki bağımsız olarak düzenlenebilir renk parametresi içerir: `color1` koyu pikselleri, `color2` ise açık pikselleri eşler. Bu, ayarları tek bir skaler değerden daha karmaşık bir etki örneği olduğu için yararlı bir örnek oluşturur.
 
 ```python
 import aspose.pydrawing as draw
@@ -127,13 +127,51 @@ with slides.Presentation() as presentation:
     presentation.save("color-transformations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[add_color_replace_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) her pikselin rengini sabit bir renkle değiştirirken alfabayı korur. Bu, bir kaynak rengi başka bir renge eşleyen ve hem kaynak hem hedef renk biçimlerini ortaya çıkaran [add_color_change_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/) yönteminden farklıdır.
+[add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) her pikselin rengini sabit bir renkle değiştirirken alfa değerini korur. Bu, bir kaynak rengi başka bir renge eşleyen ve hem kaynak hem hedef renk biçimlerini ortaya çıkaran [add_color_change_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/) metodundan farklıdır.
 
-## **Bulanıklaştırma, Şeffaflık ve Alfa Etkileri Ekleme**
+### **Luminans Eşiği Uygula**
 
-[add_blur_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) tüm renk kanallarını, alfabı da dahil, etkiler. Bulanık kenarın orijinal resim sınırlarının dışına çıkabileceği durumlarda `grow` parametresini `True` yapın.
+Bir luminans eşiği, taranmış bir sayfadaki hafif izlerin arka plandan daha kolay ayırt edilmesini sağlar. [add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) ara gri tonları korur. [add_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_bi_level_effect/) luminansı siyah veya beyaza eşler, [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) ise opaklığa bir eşik uygular.
 
-Tekdüze şeffaflık için [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) kullanın. Bu yöntem mevcut alfa değerlerini çarparak, yarı saydam piksellerin orantılı olarak farklı kalmasını sağlar. [add_alpha_replace_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) ise tüm piksellere tek bir alfa değeri atar. [add_alpha_bi_level_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) ise bir eşik temelinde alfabı iki seviyeye dönüştürür.
+Luminans eşiği %0 ile %100 arasında, dahil olmak üzere değişir. Eşiğin altındaki pikseller siyah olur. Eşiğe eşit veya üstteki pikseller beyaz olur. Eşiği yükseltmek daha fazla tonu siyaha çevirir çünkü daha fazla ton kesim noktasının altına düşer.
+
+[grayscale-swatches.png](grayscale-swatches.png) dosyasını çalışma dizinine indirin. Her etiket, 0‑255 ölçeğindeki orijinal gri seviyesini gösterir. Örnek, orijinali iki kopyasının yanına koyar ve her kopyanın eşik değerini sunuma kaydeder.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 150, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    with slides.Images.from_file("grayscale-swatches.png") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    def add_frame(x, caption):
+        label = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, 12, 216, 36)
+        label.text_frame.text = caption
+        return shapes.add_picture_frame(slides.ShapeType.RECTANGLE, x, 60, 216, 72, image)
+
+    add_frame(12, "Original")
+
+    low_threshold = add_frame(252, "Threshold 20%")
+    low_threshold.picture_format.picture.image_transform.add_bi_level_effect(20)
+    
+    high_threshold = add_frame(492, "Threshold 60%")
+    high_threshold.picture_format.picture.image_transform.add_bi_level_effect(60)
+
+    presentation.save("luminance-threshold.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Üç çerçeveyi karşılaştırmak için çıktıyı PowerPoint’te açın. 96 etiketli örnek yaklaşık %38 luminansa sahiptir (255 içinde 96). %20 eşiğinde beyaza, %60 eşiğinde ise siyaha dönüşür.
+
+![Orijinal gri ton örnekleri, %20 ve %60 luminans eşikleriyle siyah‑beyaz sonuçların yanında](luminance-threshold.png)
+
+## **Bulanıklık, Şeffaflık ve Alfa Efektleri Ekle**
+
+[add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) tüm renk kanallarını, alfab dahil, etkiler. Bulanık kenar orijinal resim sınırlarının dışına çıkabilecekse `grow` değerini `True` olarak ayarlayın.
+
+Tek tip şeffaflık için [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) kullanın. Bu, mevcut tüm alfa değerlerini çarpar; bu sayede kısmen şeffaf pikseller göreceli olarak farklı kalır. [add_alpha_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) ise tüm piksellere tek bir alfa değeri atar. [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) alfa değerini bir eşik temelinde iki seviyeye dönüştürür.
 
 ```python
 import aspose.slides as slides
@@ -163,15 +201,15 @@ with slides.Presentation() as presentation:
     presentation.save("blur-and-alpha-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Diğer parametresiz alfa işlemleri şunlardır: [add_alpha_ceiling_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_ceiling_effect/) – sıfır olmayan tüm alfaları tamamen opak yapar; [add_alpha_floor_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_floor_effect/) – %100 altındaki tüm alfaları tamamen transparan yapar; ve [add_alpha_inverse_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_inverse_effect/) – alfabı `100% - alpha` olarak değiştirir.
+Diğer parametresiz alfa işlemleri şunları içerir: [add_alpha_ceiling_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_ceiling_effect/), sıfır olmayan tüm alfa değerlerini tamamen opak yapar; [add_alpha_floor_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_floor_effect/), %100’ün altındaki tüm alfabı tamamen şeffaf yapar; ve [add_alpha_inverse_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_inverse_effect/), alfabı `100% - alpha` şeklinde tersine çevirir.
 
-## **Sıralı Bir Etki Zinciri Oluşturma**
+## **Sıralı Bir Efekt Zinciri Oluştur**
 
-Her `add_..._effect` yöntemi yeni bir işlemi koleksiyonun sonuna ekler. İşleyici koleksiyonu sıralı bir boru hattı olarak kullanır: işlem 0’ın çıktısı işlem 1’in girdisi olur ve böyle devam eder. Bu nedenle aynı işlemler farklı bir sırada uygulanırsa farklı bir görüntü elde edilebilir.
+Her `add_..._effect` metodu yeni bir işlemi koleksiyonun sonuna ekler. Renderlayıcı koleksiyonu sıralı bir boru hattı olarak kullanır: işlem 0’ın çıktısı işlem 1’in girdisi olur, vb. Sonuç olarak aynı işlemler farklı bir sırada verildiğinde farklı bir görüntü elde edilir.
 
-Örneğin, önce gri tonlama ardından tonlama, önce renk bilgisini siler, ardından parlaklık sonucunu yeniden renklendirir. Tonlamadan sonra gri tonlama tekrar tonu kaldırır. Benzer şekilde, alfa değiştirme, önceki işlemler tarafından hesaplanan alfa değerlerini geçersiz kılabilir; alfa modülasyonu ise göreceli farkları korur.
+Örneğin, önce gri tonlama ardından renk tonu eklemek önce renk bilgisini kaldırır, ardından luminans sonucunu yeniden renklendirir. Renk tonu ardından gri tonlama ise renk tonunu tekrar kaldırır. Benzer şekilde, alfa değiştirme daha erken işlemler tarafından hesaplanan alfa değerlerini geçersiz kılabilir, alfa modülasyonu ise göreceli farklılıkları korur.
 
-Aşağıdaki örnek dört işlemlik bir zincir oluşturur, PPTX olarak kaydeder, sunumu yeniden açar, hem işlem türlerini hem de sıralarını kontrol eder ve yeniden açılan sonucu işler:
+Aşağıdaki örnek dört işlemden oluşan bir zincir oluşturur, PPTX olarak kaydeder, sunumu yeniden açar, hem işlem türlerini hem de sıralarını kontrol eder ve yeniden açılan sonucu render eder:
 
 ```python
 import aspose.slides as slides
@@ -211,15 +249,21 @@ with slides.Presentation("image-transform-chain.pptx") as reopened_presentation:
         print("The reopened shape is not a picture frame.")
 ```
 
-Koleksiyon, renk, alfa ve bulanıklaştırma işlemlerini ayrı zincirlere sınırlayan bir uyumluluk matrisi zorunluluğu getirmez. Kombine edilebilirler, ancak kombinasyonlar her zaman faydalı olmayabilir. Sabit bir renk değiştirme, önceki renk etkileriyle oluşan RGB varyasyonunu kaldırır; duotone’dan sonra gri tonlama iki seçili rengi ortadan kaldırır; alfa tavan, taban, değiştirme veya iki‑seviyeli işlemler ise daha önce oluşturulan alfa detayını yok edebilir. Zinciri, istenen piksel‑işleme sırasına göre oluşturun; öğeleri sırasız biçimlendirme bayrakları gibi değerlendirmeyin.
+Koleksiyon, renk, alfa ve bulanık işlemleri ayrı zincirlere sınırlayan bir uyumluluk matrisi dayatmaz. İşlemler birleştirilebilir, ancak birleşimler her zaman yararlı olmayabilir. Sabit bir renk değişimi önceki renk efektleri tarafından üretilen RGB varyasyonunu kaldırır; duoton sonrası gri tonlama iki seçilmiş rengi kaldırır; alfa tavan, taban, değiştirme veya iki‑seviye işlemleri önceki alfa detaylarını yok edebilir. Zinciri, istenen piksel işleme sırasına göre oluşturun; öğelerini sırasız biçimleme bayrakları gibi düşünmeyin.
 
-## **Düzenlenebilir ve Etkili Değerleri İnceleme**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Aynı görüntü önce gri tonlamadan sonra renk tonuna, ardından renk tonu önce gri tonlamaya geçer. İki son gri tonlama görüntüsü farklı tonlara sahiptir.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Düzenlenebilir bir işlem, `Picture.image_transform` içinde depolanan nesnedir. Etkiye bağlı olarak, yazılabilir üyeler doğrudan erişilebilir olabilir. Örneğin, [Blur](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/blur/) `radius` ve `grow` özelliklerini, [AlphaModulateFixed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/alphamodulatefixed/) `amount` özelliğini, [AlphaBiLevel](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/alphabilevel/) `threshold` özelliğini sunar. [Duotone](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/duotone/) gibi renk etkileri değiştirilebilir [ColorFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/colorformat/) nesnelerini ortaya çıkarır.
+*Bu görsel, Aspose.Slides for .NET 26.11 tarafından oluşturulmuş bir örnek olup, %25 oranında 220° renk tonu gri tonlama sonrası görüntüyü değiştirmez. Aynı renk tonu gri tonlamadan önce uygulanırsa farklı tonlar elde edilir.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-[BrightnessContrast](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/hsl/), [Tint](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/tint/) ve [AlphaReplace](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/alphareplace/) gibi bazı işlemler, oluşturma skalerlerini yazılabilir özellikler olarak sunmaz. Bu ayarları değiştirmek için işlemi kaldırıp istenen konumda yeni bir işlem ekleyin.
+## **Düzenlenebilir ve Etkili Değerleri İncele**
 
-`get_effective()` tarafından döndürülen etkili veri hesaplanmış ve yalnızca okunabilir bir nesnedir. Tema‑bağımlı renklerin çözülmesi ve işleyicinin kullandığı normalleştirilmiş değerlerin okunması için faydalıdır; ancak başka bir düzenleme yüzeyi değildir. Aşağıdaki örnek zinciri sayar ve ilgili API sağlıyorsa etkili değerleri inceler:
+Düzenlenebilir bir işlem, `Picture.image_transform` içinde saklanan nesnedir. Etkiye bağlı olarak, yazılabilir üyeleri doğrudan ortaya çıkarabilir. Örneğin, [Blur](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/) `radius` ve `grow` özelliklerini, [AlphaModulateFixed](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphamodulatefixed/) `amount` özelliğini ve [AlphaBiLevel](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphabilevel/) `threshold` özelliğini yazılabilir olarak sunar. [Duotone](https://reference.aspose.com/slides/python-net/aspose.slides.effects/duotone/) gibi renk efektleri ise değiştirilebilir [ColorFormat](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/) nesnelerini ortaya çıkarır.
+
+Bazı işlemler, [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-net/aspose.slides.effects/hsl/), [Tint](https://reference.aspose.com/slides/python-net/aspose.slides.effects/tint/) ve [AlphaReplace](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphareplace/) gibi, oluşturma skalerlerini yazılabilir özellikler olarak sunmaz. Bu ayarları değiştirmek için işlemi kaldırın ve gereken konumda yerine yeni bir işlem ekleyin.
+
+`get_effective()` tarafından döndürülen etkili veri hesaplanmış ve yalnızca okunabilir durumdadır. Tema‑bağımlı renkleri çözmek ve renderlayıcının kullandığı normalleştirilmiş değerleri okumak için faydalıdır; ancak başka bir düzenleme yüzeyi değildir. Aşağıdaki örnek zinciri sayar ve ilgili API’nın sağladığı yerde etkili değerleri inceler:
 
 ```python
 import aspose.slides as slides
@@ -273,11 +317,11 @@ with slides.Presentation("image-transform-chain.pptx") as presentation:
                 print("  Alpha threshold: " + str(effect_data.threshold) + "%")
 ```
 
-Parametresiz etkiler (gri tonlama, alfa tavan, alfa tersine) da bir etkili veri nesnesine sahiptir, ancak yazdırılacak skaler ayarları yoktur. Koleksiyondaki varlıkları ve konumları önemli bilgidir.
+Grayscale, alfa tavan ve alfa ters gibi parametresiz efektlerin hâlâ bir etkili‑veri nesnesi vardır, ancak yazdırılacak skaler ayarları yoktur. Bulunmaları ve koleksiyondaki konumları önemli bilgidir.
 
-## **Görüntü Dönüştürmelerini Kaldırma veya Temizleme**
+## **Görüntü Dönüşümlerini Kaldır veya Temizle**
 
-Bir işlemi indeksle kaldırmak için [ImageTransformOperationCollection.remove_at](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/remove_at/) kullanın. Kaldırma sonrası indeksler kaydığı için önce hedefi bulun, ardından sayma işlemi sonrasında kaldırın. Tüm zinciri silmek için `clear()` kullanın.
+Bir işlemi indeksle kaldırmak için [ImageTransformOperationCollection.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/remove_at/) metodunu kullanın. Kaldırma sonrası indeksler kaydığı için önce hedefi arayın ve sayma bitiminde kaldırın. Tüm zinciri kaldırmak için `clear()` kullanın.
 
 ```python
 import aspose.slides as slides
@@ -308,38 +352,38 @@ with slides.Presentation("image-transform-chain.pptx") as presentation:
         presentation.save("image-transforms-cleared.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dönüştürmeleri kaldırmak veya temizlemek yalnızca resim biçimlendirmesini değiştirir. Yeniden kullanılan [PPImage](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ppimage/) kaynağını silmez, yeniden sıkıştırmaz veya başka bir şekilde etkilemez.
+Dönüşümleri kaldırmak veya temizlemek yalnızca resim biçimlendirmesini değiştirir. Yeniden kullanılan [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) kaynağını silmez, yeniden sıkıştırmaz veya başka bir şekilde değiştirmez.
 
-## **Sunum Biçimlerini ve Dışa Aktarım Hedeflerini Düşünme**
+## **Sunum Formatlarını ve Dışa Aktarım Hedeflerini Düşünün**
 
-Görüntü dönüştürmeleri DrawingML’den gelir, bu yüzden PPTX, etki zincirleri için tercih edilen düzenlenebilir formattır. PPTX içinde bile her işlem aynı taşınabilirliğe sahip değildir:
+Görüntü dönüşümleri DrawingML’den türemiştir; bu yüzden PPTX, efekt zincirleri için tercih edilen düzenlenebilir formattır. PPTX ile bile, her işlem aynı taşınabilirliğe sahip değildir:
 
-- Luminance, grayscale, duotone, tint, HSL, blur ve yaygın alfa işlemleri gibi standart DrawingML işlemleri PPTX turu sonrası hayatta kalma ihtimali en yüksek olanlardır. Kalıcılık bir gereksinimse, oluşturulan dosyayı her zaman yeniden açın ve koleksiyonu inceleyin.
-- [BrightnessContrast](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/brightnesscontrast/) bir Office 2010 uzantısıdır; standart DrawingML luminance etkisi değildir. Bellek içi işleme için kullanılabilir, ancak PPTX kaydedilip yeniden açıldıktan sonra düzenlenebilir bir `BrightnessContrast` işlemi olarak kalması garanti edilmez. Kalıcı parlaklık ve kontrast ayarları için [add_luminance_effect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) tercih edin.
-- İkili PPT formatı, tam DrawingML etki modelinden önce ortaya çıkmıştır. PPT’ye kaydetmek, desteklenmeyen işlemleri atabilir, zinciri desteklenen bir alt kümeye indirebilir veya görünümü yaklaştırabilir. Karmaşık, düzenlenebilir bir zincir için PPT’yi doğrulama formatı olarak kullanmayın.
-- PNG, JPEG, TIFF, PDF, SVG, HTML gibi görsel çıktılar, zinciri işlenmiş görünüm üzerine uygular. Bu çıktılar düzenlenebilir bir `ImageTransformOperationCollection` içermez; raster formatlar sonucu piksellere dönüştürür, belge ya da vektör dışa aktarımları ise kendi işleme temsillerini saklar.
-- Etkiler, bağlanmış bir görüntüyü kendi içinde barındırılabilir hâle getirmez. Bağlantılı bir resmi işlemek, sunum yüklendiğinde bağlanmış kaynağın erişilebilir olmasına bağlıdır.
+- Luminans, gri tonlama, duotone, renk tonu, HSL, bulanıklaştırma ve yaygın alfa işlemleri gibi standart DrawingML işlemleri PPTX tam dönüşünden sonra en yüksek hayatta kalma şansına sahiptir. Koruma bir gereklilikse, oluşturulan dosyayı her zaman yeniden açın ve koleksiyonu inceleyin.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) standart DrawingML luminans işlemi yerine bir Office 2010 uzantısıdır. Bellek içi renderlamada kullanılabilir, ancak PPTX kaydedilip yeniden açıldıktan sonra düzenlenebilir bir `BrightnessContrast` işlemi olarak kalması garanti değildir. Kalıcı parlaklık ve kontrast ayarlamaları için [add_luminance_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) tercih edin.
+- İkili PPT formatı tam DrawingML efekt modelinden önce gelmiştir. PPT’ye kaydetmek, desteklenmeyen işlemleri atabilir, zinciri desteklenen bir alt kümeye indirebilir veya görünümü yaklaşık olarak oluşturabilir. Karmaşık bir düzenlenebilir zincir için doğrulama formatı olarak PPT kullanmayın.
+- PNG, JPEG, TIFF, PDF, SVG, HTML veya diğer görsel çıktılara renderlamak, desteklenen zinciri renderlanan görünüme uygular. Bu çıktılar düzenlenebilir bir `ImageTransformOperationCollection` içermez; raster formatları sonucu piksellere dönüştürür, belge ya da vektör dışa aktarımları kendi render temsillerini saklar.
+- Efektler, bağlantılı bir görüntüyü kendi içinde bağımlı hâle getirmez. Bağlantılı bir resim renderlandığında, sunum yüklendiğinde bağlantılı kaynağın mevcut olması gerekir.
 
-Farklı sunum tüketicileri, özellikle birkaç alfa veya renk‑kuantizasyon işlemi bir araya geldiğinde, kenar durumlarını farklı yorumlayabilir. Kritik çıktı için, üretimde kullanılan aynı Aspose.Slides sürümüyle düzenlenebilir turu ve nihai dışa aktarma formatını test edin.
+Farklı sunum tüketicileri kenar durumlarını farklı şekilde renderlayabilir, özellikle birkaç alfa veya renk‑kuantizasyon işlemi birleştirildiğinde. Kritik çıktılar için, üretimde kullanılan aynı Aspose.Slides sürümüyle hem düzenlenebilir tam dönüşümü hem de nihai dışa aktarma formatını test edin.
 
 ## **SSS**
 
-**Görüntü dönüştürme etkileri gömülü görüntü verilerini değiştirir mi?**
+**Görüntü dönüşüm efektleri gömülü görüntü verilerini değiştirir mi?**
 
-Hayır. İşlemler, resim doldurmanın kullandığı `Picture` nesnesine aittir. Alttaki `PPImage` baytları değişmez.
+Hayır. İşlemler, resim doldurma tarafından kullanılan `Picture` nesnesine aittir. Alttaki `PPImage` baytları değişmez.
 
-**Aynı görüntüyü kullanan iki resim çerçevesi etkilerini paylaşır mı?**
+**Aynı görüntüyü kullanan iki resim çerçevesi efektlerini paylaşacak mı?**
 
-Hayır. `PPImage` yeniden kullanmak veri çoğaltmayı önler, ancak her resim çerçevesi genellikle ayrı bir `Picture` ve kendi görüntü dönüştürme koleksiyonuna sahiptir.
+Hayır. Aynı `PPImage` kullanmak görüntü verisinin kopyalanmasını önler, ancak her resim çerçevesi genellikle ayrı bir `Picture` ve ayrı bir görüntü dönüşüm koleksiyonuna sahiptir.
 
-**Renk, bulanıklaştırma ve alfa etkileri birleştirilebilir mi?**
+**Renk, bulanıklaştırma ve alfa efektleri birleştirilebilir mi?**
 
-Evet. Koleksiyon, tek bir sıralı zincirde bunları kabul eder. Her bir işlemin önceki çıktıyı nasıl etkilediğini göz önünde bulundurun; değiştirme ve eşik işlemleri önceki renk ya da alfa detayını yok edebilir.
+Evet. Koleksiyon bunları tek bir sıralı zincirde kabul eder. Önceki işlemin çıktısına ne yaptığını göz önünde bulundurun; değiştirme ve eşik işlemleri önceki renk veya alfa detayını yok edebilir.
 
-**Etkili değerler neden yalnızca okunabilir?**
+**Neden etkili değerler yalnızca okunabilir?**
 
-Etkili veri, renderlama için kullanılan, hesaplanmış değerleri temsil eder; çözülmüş renkler dahildir. Yazılabilir üyeleri olan işlemleri doğrudan düzenleyin; aksi takdirde işlemi kaldırıp yeni oluşturma parametreleriyle bir yenisini ekleyin.
+Etkili veri, renderlama sırasında kullanılan hesaplanmış değerleri temsil eder; çözülmüş renkler dahil. Yazılabilir üyeleri olan işlemleri doğrudan düzenleyin; aksi takdirde işlemi kaldırın ve yeni oluşturma parametreleriyle yerine bir işlem ekleyin.
 
-**Bir dönüştürme zincirini korumak için hangi formatı kullanmalıyım?**
+**Bir dönüşüm zincirini korumak için hangi formatı kullanmalıyım?**
 
-PPTX kullanın ve dosyayı yeniden açarak doğrulayın. Eski PPT, tam DrawingML etki modelini temsil edemez; renderlanan dışa aktarma formatları ise yalnızca görünümü korur, düzenlenebilir dönüştürme işlemlerini içermez.
+PPTX kullanın ve dosyayı yeniden açarak doğrulayın. Eski PPT tam DrawingML efekt modelini temsil edemez; render çıktıları yalnızca görünümü korur, düzenlenebilir dönüşüm işlemlerini içermez.

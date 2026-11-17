@@ -1,6 +1,6 @@
 ---
-title: Beheer afbeeldingstransformatie‑effecten in presentaties met JavaScript
-linktitle: Afbeeldingstransformatie‑effecten
+title: Beheer afbeeldingstransformatie-effecten in presentaties met JavaScript
+linktitle: Afbeeldingstransformatie-effecten
 type: docs
 weight: 11
 url: /nl/nodejs-java/image-transform-effects/
@@ -9,62 +9,62 @@ keywords:
 - afbeeldingseffect
 - helderheid
 - contrast
-- grijswaarden
+- grijstinten
 - duotoon
 - tint
 - HSL
 - kleurvervanging
 - vervaging
 - transparantie
-- alfa‑effect
+- alfadeffect
 - effectketen
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pas afbeeldingstransformatie‑effecten toe, combineer, inspecteer, verwijder en verifieer ze voor afbeelding‑kaders met Aspose.Slides voor Node.js via Java."
+description: "Pas afbeeldingstransformatie-effecten toe, koppel ze, inspecteer, verwijder en verifieer afbeeldingstransformaties voor afbeelding-frames met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt afbeeldingsaanpassingen voor als een geordende verzameling van beeldtransformatie‑operaties. Voor een afbeelding‑kader begin je met de [Picture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) van het kader en roep je [Picture.getImageTransform](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) aan. De geretourneerde [ImageTransformOperationCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) laat je effecten toevoegen, opsommen, inspecteren, verwijderen en opruimen zonder de oorspronkelijke afbeeldingsbytes opnieuw te schrijven.
+Aspose.Slides vertegenwoordigt afbeeldingsaanpassingen als een geordende collectie van beeldtransformatie‑bewerkingen. Voor een afbeelding‑frame start u met het frame‑[Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) en krijgt toegang tot [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). De geretourneerde [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) laat u bewerkingen toevoegen, opsommen, inspecteren, verwijderen en wissen zonder de oorspronkelijke afbeeldingsbytes te herschrijven.
 
 Dit artikel toont een volledige workflow voor helderheid en contrast, kleurtransformaties, vervaging, transparantie, geordende effectketens, effectieve waarden, verwijdering en PPTX round‑trip verificatie.
 
-## **Begrijp eigendom van effecten en hergebruik van afbeeldingen**
+## **Begrijp eigendom van effect en hergebruik van afbeeldingen**
 
-Een afbeelding‑resource en de afbeelding die deze weergeeft zijn verschillende objecten:
+Een afbeeldingsbron en de afbeelding die deze weergeeft zijn verschillende objecten:
 
-- [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) slaat de bronafbeeldingsgegevens op of verwijst ernaar en behoort tot de presentatie.
-- [Picture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) maakt deel uit van een opvul‑afbeelding en verwijst naar een afbeelding‑resource terwijl het de beeldtransformatie‑verzameling opslaat.
-- [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) is de dia‑vorm die de bijbehorende opvul‑afbeelding, geometrie, uitsnijdingsinstellingen en andere formattering op kadriveau bezit.
+- [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) bewaart of verwijst naar de bronafbeeldingsdata die eigendom is van de presentatie.
+- [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) behoort tot een afbeelding‑vulling en verwijst naar een afbeeldingsresource terwijl het de collectie van beeldtransformaties opslaat.
+- [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) is de dia‑vorm die de bijbehorende afbeelding‑vulling, geometrie, uitsnijdingsinstellingen en andere op frame‑niveau opmaak bezit.
 
-Daarom wijzigen beeldtransformatie‑operaties de bytes in [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) niet. Wanneer dezelfde [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) meer dan één keer aan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/) wordt doorgegeven, krijgt elk nieuw afbeelding‑kader zijn eigen [Picture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) en zijn eigen transformatie‑verzameling. Het toepassen van grijswaarden op één kader maakt de andere kaders niet grijs, zelfs niet wanneer ze allemaal dezelfde ingesloten afbeelding‑resource hergebruiken.
+Daarom wijzigen beeldtransformatie‑bewerkingen de bytes in [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) niet. Wanneer dezelfde [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) meer dan één keer wordt doorgegeven aan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/), ontvangt elk nieuw afbeelding‑frame zijn eigen [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) en zijn eigen transformatieverzameling. Het toepassen van grijstinten op één frame maakt de andere frames niet grijstinten, zelfs niet wanneer ze allemaal dezelfde ingesloten afbeeldingsresource hergebruiken.
 
-Hetzelfde [Picture.getImageTransform](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) model wordt ook gebruikt door andere opvul‑afbeeldingen, zoals een vorm‑ of dia‑achtergrond. De onderstaande voorbeelden richten zich op afbeelding‑kaders.
+Hetzelfde [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/)‑model wordt ook gebruikt door andere afbeelding‑vullingen, zoals een vorm of dia‑achtergrond. De onderstaande voorbeelden richten zich op afbeelding‑frames.
 
-## **Gebruik geldige parameter‑bereiken en eenheden**
+## **Gebruik geldige parameterbereiken en eenheden**
 
-De getoonde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, zelfs als een bepaalde bibliotheekversie niet onmiddellijk elke out‑of‑range waarde weigert; het doel‑presentatieformaat kan gegevens normaliseren, weglaten of ongeldige gegevens weigeren tijdens het opslaan of wanneer PowerPoint het bestand opent.
+De gedemonstreerde methoden gebruiken de volgende semantische bereiken en eenheden. Houd waarden binnen deze bereiken, ook al wijst een bepaalde bibliotheekversie niet onmiddellijk elke out‑of‑range‑waarde af; het doel‑presentatieformaat kan tijdens het opslaan of wanneer PowerPoint het bestand opent, ongeldige gegevens normaliseren, weglaten of afwijzen.
 
-| Operatie | Parameters | Geldig bereik en eenheid |
+| Bewerking | Parameters | Geldig bereik en eenheid |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat de component ongewijzigd. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | Geen | Geen numerieke parameters. Alfa blijft ongewijzigd. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB‑ en alfa‑kanalen in `java.awt.Color` gebruiken `0` tot `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; hoeveelheid (`amount`) is `-100` tot `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Tint (`hue`) is `0` inclusief tot `360` exclusief, in graden; verzadiging en luminantie zijn `-100` tot `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | De vervangingskleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfa‑waarden blijven ongewijzigd. |
-| [addBlurEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Straal is niet‑negatief en wordt gemeten in points; `grow` is een Boolean die bepaalt of vervaagd materiaal buiten de oorspronkelijke grenzen mag uitsteken. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Niet‑negatief percentage. Gebruik `0` tot `100` voor gewone opaciteits‑schaling: `0` is volledig transparant en `100` behoudt de bestaande alfa. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` tot `100`, procent opaciteit. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` tot `100`, procent alfa‑drempel. Waarden eronder worden transparant; waarden gelijk aan of hoger worden ondoorzichtig. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` tot `100`, procent; `0` laat het onderdeel ongewijzigd. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | None | Geen numerieke parameters. Alfa blijft ongewijzigd. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Twee kleuren voor donkere en lichte pixels. RGB- en alfacanalen in `java.awt.Color` gebruiken `0` tot `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Hue is `0` inclusief tot `360` exclusief, in graden; amount is `-100` tot `100`, procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Hue is `0` inclusief tot `360` exclusief, in graden; saturation en luminance zijn `-100` tot `100`, procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | De vervangende kleur gebruikt kanaalwaarden van `0` tot `255`. Bestaande alfabwaarden blijven ongewijzigd. |
+| [addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Radius is niet‑negatief en wordt gemeten in points; `grow` is een Boolean die bepaalt of vervaagd inhoud buiten de oorspronkelijke grenzen mag uitsteken. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Niet‑negatief procent. Gebruik `0` tot `100` voor gewone opaciteitsschaal: `0` is volledig transparant en `100` behoudt de bestaande alfa. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` tot `100`, procent opaciteit. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` tot `100`, procent alfa‑drempel. Waarden eronder worden transparant; waarden op of boven de drempel worden ondoorzichtig. |
 
-Voor vaste alfa‑modulatie zijn transparantie en opaciteit complementair. Bijvoorbeeld, 35 % transparantie komt overeen met een alfa‑modulatie‑bedrag van 65 %.
+Voor vaste alfamodulatie zijn transparantie en opaciteit complementair. Bijvoorbeeld, 35 % transparantie komt overeen met een alfa‑modulatie‑hoeveelheid van 65 %.
 
 ## **Pas helderheid en contrast toe**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) retourneert een [BrightnessContrast](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/brightnesscontrast/) operatie. De scalaire instellingen worden meegegeven wanneer de operatie wordt aangemaakt. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/brightnesscontrast/) geeft berekende alleen‑lezen waarden terug die kunnen worden geïnspecteerd of gelogd.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) retourneert een [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/)‑bewerking. De scalare instellingen worden opgegeven wanneer de bewerking wordt gecreëerd. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) retourneert berekende alleen‑lezen waarden die geïnspecteerd of gelogd kunnen worden.
 
 Het volgende voorbeeld verhoogt de helderheid met 15 % en het contrast met 20 %, waarna een voorbeeld wordt gerenderd zonder de ingesloten afbeelding te wijzigen:
 
@@ -103,13 +103,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/brightnesscontrast/) is een Office 2010 afbeelding‑effect extensie en is minder draagbaar dan het standaard DrawingML luminantie‑effect. Wanneer helderheid en contrast na een PPTX‑round‑trip bewerkbaar moeten blijven, gebruik [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) en verifieer het resultaat na het heropenen van het bestand. De sectie over format‑beperkingen legt dit onderscheid uitgebreider uit.
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) is een Office 2010‑afbeelding‑effect‑extensie en is minder draagbaar dan het standaard DrawingML‑luminantie‑effect. Wanneer helderheid en contrast na een PPTX round‑trip bewerkbaar moeten blijven, gebruik dan [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) en verifieer het resultaat na het heropenen van het bestand. De sectie over formaatbeperkingen legt dit onderscheid nader uit.
 
-## **Pas kleurovergangen toe**
+## **Pas kleurtransformaties toe**
 
-Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeelding‑kaders die dezelfde afbeelding‑resource hergebruiken. Het volgende voorbeeld maakt vijf kaders en past grijswaarden, duotone, tint, HSL‑aanpassing en kleur‑vervanging toe.
+Kleureffecten kunnen onafhankelijk worden toegepast op verschillende afbeelding‑frames die één afbeeldingsresource hergebruiken. Het volgende voorbeeld maakt vijf frames en past grijstinten, duotoon, tint, HSL‑aanpassing en kleurvervanging toe.
 
-[Duotone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/duotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` wijst donkere pixels toe, terwijl `color2` lichte pixels wijst. Dit maakt het een nuttig voorbeeld van een effect waarvan de instellingen complexer zijn dan een enkele scalaire waarde.
+[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) bevat twee onafhankelijk bewerkbare kleurparameters: `color1` mappt donkere pixels, terwijl `color2` lichte pixels mappt. Dit maakt het een bruikbaar voorbeeld van een effect waarvan de instellingen complexer zijn dan een enkele scalare waarde.
 
 ```javascript
 const aspose = {};
@@ -152,13 +152,60 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) vervangt de kleur van elke pixel door één vaste kleur terwijl alfa behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/), dat één bronkleur naar een andere afbeeldt en zowel bron‑ als doelkleurformaten blootlegt.
+[addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) vervangt elke pixelkleur door één vaste kleur terwijl alfa behouden blijft. Het verschilt van [addColorChangeEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), dat één bronkleur naar een andere mappt en zowel bron‑ als doel‑kleurformaten blootstelt.
+
+### **Pas een luminantiedrempel toe**
+
+Een luminantiedrempel kan vage markeringen op een gescande pagina beter onderscheidbaar maken ten opzichte van de achtergrond. [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) behoudt tussenliggende grijstinten. [addBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) zet luminantie om in zwart of wit, terwijl [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) een drempel toepast op de opaciteit.
+
+De luminantiedrempel varieert van 0 % tot 100 %, inclusief. Pixels onder de drempel worden zwart. Pixels op of boven de drempel worden wit. Het verhogen van de drempel maakt meer tinten zwart omdat meer van hen onder de cutoff vallen.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) naar de werkmap. Elk label geeft het oorspronkelijke grijsniveau weer op een schaal van 0 tot 255. Het voorbeeld plaatst het origineel naast twee kopieën en slaat de drempel van elke kopie op in de presentatie.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, slides.SlideSizeScaleType.DoNotScale);
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceImage = slides.Images.fromFile("grayscale-swatches.png");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    const frames = [];
+    for (let i = 0; i < captions.length; i++) {
+        const x = 12 + 240 * i;
+        const label = shapes.addAutoShape(slides.ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        const frame = shapes.addPictureFrame(slides.ShapeType.Rectangle, x, 60, 216, 72, image);
+        frames.push(frame);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60);
+    
+    presentation.save("luminance-threshold.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open de gegenereerde presentatie in PowerPoint om de drie frames te vergelijken. Het swatch‑label 96 heeft ongeveer 38 % luminantie (96 van 255). Het wordt wit bij de 20 %‑drempel en zwart bij de 60 %‑drempel.
+
+![Originele grijstinten‑swatches naast de zwart‑wit resultaten bij luminantiedrempels van 20 % en 60 %](luminance-threshold.png)
 
 ## **Voeg vervaging, transparantie en alfa‑effecten toe**
 
-[addBlurEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) beïnvloedt alle kleurkanalen, inclusief alfa. Stel `grow` in op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeeldingsgrenzen mag uitsteken.
+[addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) beïnvloedt alle kleurkanalen, inclusief alfa. Stel `grow` in op `true` wanneer de vervaagde rand buiten de oorspronkelijke afbeeldingsgrenzen mag uitsteken.
 
-Voor uniforme transparantie, gebruik [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/). Het vermenigvuldigt elke bestaande alfadeelwaarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) wijst in plaats daarvan één alfadeelwaarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) converteert alfa naar twee niveaus op basis van een drempel.
+Voor uniforme transparantie, gebruik [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/). Het vermenigvuldigt elke bestaande alfabwaarde, zodat gedeeltelijk transparante pixels proportioneel verschillend blijven. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) kent in plaats daarvan één alfabwaarde toe aan alle pixels. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) zet alfa om in twee niveaus op basis van een drempel.
 
 ```javascript
 const aspose = {};
@@ -198,15 +245,15 @@ try {
 }
 ```
 
-Andere alfa‑operaties zonder parameters omvatten [addAlphaCeilingEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/), die elke niet‑nul alfa volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/), die elke alfa onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/), die alfa wijzigt naar `100% - alpha`.
+Andere alfa‑bewerkingen zonder parameters zijn onder meer [addAlphaCeilingEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), dat elke niet‑nul alfa volledig ondoorzichtig maakt; [addAlphaFloorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), dat elke alfa onder 100 % volledig transparant maakt; en [addAlphaInverseEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), dat alfa verandert naar `100 % - alfa`.
 
 ## **Bouw een geordende effectketen**
 
-Elke `add...Effect`‑methode voegt een nieuwe operatie toe aan het einde van de verzameling. De renderer gebruikt de verzameling als een geordende pijplijn: de uitvoer van operatie 0 wordt de invoer van operatie 1, enzovoort. Daardoor kan dezelfde reeks operaties in een andere volgorde een ander beeld opleveren.
+Elke `add...Effect`‑methode voegt een nieuwe bewerking toe aan het einde van de collectie. De renderer gebruikt de collectie als een geordende pijplijn: de output van bewerking 0 wordt de input van bewerking 1, enzovoort. Daarom kan dezelfde set bewerkingen in een andere volgorde een ander beeld opleveren.
 
-Zo verwijdert grijswaarden gevolgd door tint eerst chromatische informatie en kleurt vervolgens het luminantie‑resultaat opnieuw. Tint gevolgd door grijswaarden verwijdert de tint opnieuw. Evenzo kan alfabewerking de alfabewerkingen van eerdere stappen overschrijven, terwijl alfabemodulatie hun relatieve verschillen behoudt.
+Bijvoorbeeld, grijstinten gevolgd door tint verwijdert eerst chromatische informatie en kleurt vervolgens het luminantie‑resultaat. Tint gevolgd door grijstinten verwijdert de tint opnieuw. Evenzo kan alfa‑vervanging alfa‑waarden die door eerdere bewerkingen zijn berekend overschrijven, terwijl alfamodulatie hun relatieve verschillen behoudt.
 
-Het volgende voorbeeld bouwt een keten van vier operaties, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de operatietypen als hun volgorde, en rendert het heropende resultaat:
+Het volgende voorbeeld bouwt een keten van vier bewerkingen, slaat deze op als PPTX, opent de presentatie opnieuw, controleert zowel de bewerkingstypen als hun volgorde, en rendert het heropende resultaat:
 
 ```javascript
 const aspose = {};
@@ -264,15 +311,21 @@ try {
 }
 ```
 
-De collectie legt geen compatibiliteitsmatrix op die kleur‑, alfa‑ en vervagingsoperaties tot afzonderlijke ketens beperkt. Ze kunnen gecombineerd worden, maar combinaties zijn niet altijd nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is gecreëerd; grijswaarden na duotone verwijdert de twee geselecteerde kleuren; en alfa‑ceiling, floor, vervanging of bi‑level operaties kunnen alfabetaalde details die eerder zijn gemaakt weggooien. Bouw de keten volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te behandelen als ongeordende formatterings‑vlaggen.
+De collectie legt geen compatibiliteitsmatrix op die kleur‑, alfa‑ en vervagingsbewerkingen tot afzonderlijke ketens beperkt. Ze kunnen worden gecombineerd, maar combinaties zijn niet altijd nuttig. Een vaste kleurvervanging verwijdert RGB‑variatie die door eerdere kleureffecten is geproduceerd; grijstinten na duotoon verwijdert de twee geselecteerde kleuren; en alfa‑ceil, floor, replacement of bi‑level‑bewerkingen kunnen alfade­tail die eerder is gecreëerd verwijderen. Bouw de keten volgens de gewenste pixel‑verwerkingsvolgorde in plaats van de items te zien als ongeordende opmaak‑vlaggen.
 
-## **Inspecteer bewerkbare en effectieve waarden**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Dezelfde afbeelding gaat eerst door grijstinten dan tint, en dan door tint dan grijstinten. De twee uiteindelijke grijstinten‑afbeeldingen hebben verschillende tinten.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Een bewerkbare operatie is het object dat is opgeslagen in [Picture.getImageTransform](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/). Afhankelijk van het effect kan het rechtstreeks schrijfbare leden blootstellen. Bijvoorbeeld, [Blur](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/blur/) stelt schrijfbare `radius`‑ en `grow`‑waarden bloot, [AlphaModulateFixed](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/alphamodulatefixed/) stelt een schrijfbare `amount` bloot, en [AlphaBiLevel](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/alphabilevel/) stelt een schrijfbare `threshold` bloot. Kleureffecten zoals [Duotone](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/duotone/) exposen mutabele [ColorFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/colorformat/) objecten.
+*In deze illustratieve Aspose.Slides for .NET 26.11‑rendering laat een tint van 220° op 25 % de grijstinten‑afbeelding ongewijzigd. Het toepassen van dezelfde tint vóór grijstinten levert andere tinten op.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Sommige operaties, waaronder [BrightnessContrast](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tint/) en [AlphaReplace](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/alphareplace/), exposen hun creatiescalairen niet als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijder je de operatie en voeg je een vervanging toe op de vereiste positie.
+## **Inspect bewerkbare en effectieve waarden**
 
-Effectieve gegevens die door `getEffective()` worden geretourneerd, zijn berekend en alleen‑lezen. Ze zijn nuttig om themagebonden kleuren op te lossen en de genormaliseerde waarden te lezen die de renderer gebruikt, maar vormen geen extra bewerkingsoppervlak. Het volgende voorbeeld doorloopt de keten en inspecteert effectieve waarden waar de bijbehorende API ze aanbiedt:
+Een bewerkbare bewerking is het object dat is opgeslagen in [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). Afhankelijk van het effect kan het direct schrijfbare leden blootstellen. Bijvoorbeeld, [Blur](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/) blootstelt schrijfbare `radius`‑ en `grow`‑waarden, [AlphaModulateFixed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphamodulatefixed/) een schrijfbare `amount`, en [AlphaBiLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphabilevel/) een schrijfbare `threshold`. Kleur‑effecten zoals [Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) exposeren mutabele [ColorFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/)‑objecten.
+
+Sommige bewerkingen, inclusief [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tint/), en [AlphaReplace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphareplace/), geven hun creatiescalaren niet bloot als schrijfbare eigenschappen. Om die instellingen te wijzigen, verwijdert u de bewerking en voegt u een vervanging toe op de vereiste positie.
+
+Effectieve gegevens die door `getEffective()` worden geretourneerd, zijn berekend en alleen‑lezen. Ze zijn nuttig voor het oplossen van thema‑afhankelijke kleuren en het lezen van de genormaliseerde waarden die de renderer gebruikt, maar vormen geen extra bewerkingsoppervlak. Het volgende voorbeeld somt de keten op en inspecteert effectieve waarden waar de corresponderende API ze levert:
 
 ```javascript
 const aspose = {};
@@ -340,11 +393,11 @@ try {
 }
 ```
 
-Parameter‑vrije effecten zoals grijswaarden, alfa‑ceiling en alfa‑inverse hebben nog steeds een effectieve‑databron, maar er zijn geen scalaire instellingen om af te drukken. Hun aanwezigheid en positie in de verzameling zijn de belangrijke informatie.
+Effecten zonder parameters, zoals grijstinten, alfa‑ceil en alfa‑inverse, hebben nog steeds een effectieve‑datobject, maar er zijn geen scalare instellingen om af te drukken. Hun aanwezigheid en positie in de collectie zijn de belangrijke informatie.
 
-## **Verwijder of maak afbeeldings‑transformaties leeg**
+## **Verwijder of wis beeldtransformaties**
 
-Gebruik [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) om één operatie te verwijderen op basis van index. Omdat indexen verschuiven na een verwijdering, zoek eerst het doel en verwijder het daarna na het doorlopen. Gebruik [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) om de gehele keten te verwijderen.
+Gebruik [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) om één bewerking op index te verwijderen. Omdat indexen verschuiven na verwijdering, zoekt u eerst naar het doel en verwijdert u het na opsomming. Gebruik [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) om de volledige keten te verwijderen.
 
 ```javascript
 const aspose = {};
@@ -389,38 +442,38 @@ try {
 }
 ```
 
-Het verwijderen of leegmaken van transformaties wijzigt alleen de afbeelding‑formatterings­eigenschappen. Het verwijdert, recomprimeert of wijzigt op andere wijze niet de hergebruikte [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) resource.
+Het verwijderen of wissen van transformaties verandert alleen de afbeelding‑opmaak. Het verwijdert, recomprimeert of wijzigt de hergebruikte [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑resource niet.
 
-## **Houd rekening met presentatie‑formaten en export‑doelen**
+## **Overweeg presentatiefomaten en exportdoelen**
 
-Afbeeldings‑transformaties ontstaan in DrawingML, dus PPTX is het voorkeurs‑bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke operatie dezelfde portabiliteit:
+Beeldtransformaties ontstaan in DrawingML, dus PPTX is het geprefereerde bewerkbare formaat voor effectketens. Zelfs met PPTX heeft niet elke bewerking identieke draagbaarheid:
 
-- Standaard DrawingML‑operaties zoals luminantie, grijswaarden, duotone, tint, HSL, vervaging en gangbare alfa‑operaties hebben de grootste kans om een PPTX‑round‑trip te overleven. Open het gegenereerde bestand altijd opnieuw en inspecteer de verzameling wanneer behoud een vereiste is.
-- [BrightnessContrast](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/brightnesscontrast/) is een Office 2010‑extensie in plaats van de standaard DrawingML luminantie‑operatie. Het kan voor in‑memory rendering worden gebruikt, maar er is geen garantie dat het na opslaan en heropenen van PPTX bewerkbaar blijft als [BrightnessContrast](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/brightnesscontrast/) operatie. Geef de voorkeur aan [addLuminanceEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/) voor blijvende helderheids‑ en contrast‑aanpassingen.
-- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde operaties weglaten, een keten reduceren tot een ondersteunde subset, of een benadering van het uiterlijk geven. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
-- Renderen naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele uitvoer past de ondersteunde keten toe op het gerenderde uiterlijk. Die uitvoer bevat geen bewerkbare [ImageTransformOperationCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/imagetransformoperationcollection/); rasterformaten flattenen het resultaat naar pixels, en document‑/vector‑exports slaan hun eigen renderrepresentatie op.
-- Effecten maken een gelinkte afbeelding niet zelf‑voorzienend. Het renderen van een gelinkte afbeelding blijft afhankelijk van de beschikbaarheid van de gelinkte bron wanneer de presentatie wordt geladen.
+- Standaard DrawingML‑bewerkingen zoals luminantie, grijstinten, duotoon, tint, HSL, vervaging en veelvoorkomende alfa‑bewerkingen hebben de beste kans om een PPTX‑round‑trip te overleven. Open het gegenereerde bestand altijd opnieuw en inspecteer de collectie wanneer behoud een vereiste is.
+- [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) is een Office 2010‑extensie in plaats van de standaard DrawingML‑luminantie‑bewerking. Het kan worden gebruikt voor in‑memory rendering, maar wordt niet gegarandeerd bewerkbaar behouden als [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/)‑bewerking na opslaan en heropenen van PPTX. Geef de voorkeur aan [addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) voor blijvende helderheids‑ en contrast‑aanpassingen.
+- Het binaire PPT‑formaat bestaat vóór het volledige DrawingML‑effectmodel. Opslaan naar PPT kan niet‑ondersteunde bewerkingen weglaten, een keten reduceren tot een ondersteunde subset, of het uiterlijk benaderen. Gebruik PPT niet als verificatie‑formaat voor een complexe bewerkbare keten.
+- Rendering naar PNG, JPEG, TIFF, PDF, SVG, HTML of andere visuele uitvoer past de ondersteunde keten toe op het gerenderde uiterlijk. Die uitvoer bevat geen bewerkbare [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/); rasterformaten flattenen het resultaat tot pixels, en document‑/vector‑exports slaan hun eigen renderrepresentatie op.
+- Effecten maken een gekoppelde afbeelding niet zelf‑voorzienend. Het renderen van een gekoppelde afbeelding blijft afhankelijk van de beschikbaarheid van de gekoppelde resource wanneer de presentatie wordt geladen.
 
-Verschillende presentatie‑consumenten kunnen randgevallen anders renderen, vooral wanneer meerdere alfa‑ of kleur‑kwantisatie‑operaties gecombineerd worden. Voor kritische uitvoer, test zowel de bewerkbare round‑trip als het uiteindelijke export‑formaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
+Verschillende presentatie‑consumenten kunnen randgevallen anders renderen, vooral wanneer meerdere alfa‑ of kleur‑kwantisatie‑bewerkingen worden gecombineerd. Voor kritieke output test zowel de bewerkbare round‑trip als het uiteindelijke exportformaat met dezelfde Aspose.Slides‑versie die in productie wordt gebruikt.
 
 ## **FAQ**
 
-**Wijzigen afbeelding‑transformatie‑effecten de ingesloten afbeeldingsdata?**
+**Wijzigen beeldtransformatie‑effecten de ingesloten afbeeldingsdata?**
 
-Nee. De operaties behoren tot de [Picture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) die door de opvul‑afbeelding wordt gebruikt. De onderliggende [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) bytes blijven ongewijzigd.
+Nee. De bewerkingen behoren tot de [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) die wordt gebruikt door de afbeelding‑vulling. De onderliggende [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑bytes blijven ongewijzigd.
 
-**Delen twee afbeelding‑kaders die dezelfde afbeelding hergebruiken hun effecten?**
+**Delen twee afbeelding‑frames die dezelfde afbeelding hergebruiken hun effectinstellingen?**
 
-Nee. Het hergebruiken van een [PPImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ppimage/) vermijdt duplicatie van afbeeldingsdata, maar elk afbeelding‑kader heeft normaal gezien een eigen [Picture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/) en eigen beeldtransformatie‑verzameling.
+Nee. Het hergebruiken van een [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) voorkomt dubbele afbeeldingsdata, maar elk afbeelding‑frame heeft normaal gesproken een apart [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) en een eigen beeldtransformatie‑collectie.
 
 **Kunnen kleur‑, vervagings‑ en alfa‑effecten gecombineerd worden?**
 
-Ja. De collectie accepteert ze in één geordende keten. Houd rekening met wat elke operatie doet met de uitvoer van de vorige, want vervang‑ en drempeloperaties kunnen eerdere kleur‑ of alfabeddetails weggooien.
+Ja. De collectie accepteert ze in één geordende keten. Overweeg wat elke bewerking doet met de output van de vorige, omdat vervangings‑ en drempel‑bewerkingen eerdere kleur‑ of alfade­tail kunnen weggooien.
 
 **Waarom zijn effectieve waarden alleen‑lezen?**
 
-Effectieve data representeert berekende waarden die voor rendering worden gebruikt, inclusief opgeloste kleuren. Bewerk de operatie die in de transformatie‑verzameling is opgeslagen waar schrijfbare leden bestaan; verwijder anders de operatie en voeg een vervanging toe met nieuwe creatie‑parameters.
+Effectieve gegevens vertegenwoordigen berekende waarden die worden gebruikt voor rendering, inclusief opgeloste kleuren. Bewerk de bewerking die in de transformatie‑collectie is opgeslagen waar schrijfbare leden bestaan; anders verwijdert u deze en voegt u een vervanging met nieuwe creatie‑parameters toe.
 
-**Welk formaat moet ik gebruiken om een transformatie‑keten te behouden?**
+**Welk formaat moet ik gebruiken om een transform‑keten te behouden?**
 
-Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Het legacy‑PPT‑formaat kan het volledige DrawingML‑effectmodel niet vertegenwoordigen, en gerenderde export‑formaten behouden alleen het uiterlijk, niet de bewerkbare transformatie‑operaties.
+Gebruik PPTX en verifieer het bestand door het opnieuw te openen. Legacy PPT kan het volledige DrawingML‑effectmodel niet weergeven, en gerenderde exportformaten behouden alleen het uiterlijk, niet de bewerkbare transformatie‑bewerkingen.

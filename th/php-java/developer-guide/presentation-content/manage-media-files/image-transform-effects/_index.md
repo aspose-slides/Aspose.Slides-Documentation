@@ -1,5 +1,5 @@
 ---
-title: จัดการเอฟเฟกต์การแปลงภาพในการนำเสนอด้วย PHP
+title: จัดการเอฟเฟกต์การแปลงภาพในงานนำเสนอด้วย PHP
 linktitle: เอฟเฟกต์การแปลงภาพ
 type: docs
 weight: 11
@@ -8,64 +8,62 @@ keywords:
 - การแปลงภาพ
 - เอฟเฟกต์รูปภาพ
 - ความสว่าง
-- ความคอนทราสต์
-- สีเทา
-- โทนคู่
-- โทนสี
+- คอนทราสต์
+- ระดับสีเทา
+- สีคู่
+- สีสัน
 - HSL
 - การแทนที่สี
 - เบลอ
-- ความโปร่งใส
-- เอฟเฟกต์อัลฟา
+- ความโปร่งแสง
+- เอฟเฟกต์อัลฟ่า
 - โซ่เอฟเฟกต์
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ใช้, สร้างโซ่, ตรวจสอบ, ลบ, และยืนยันเอฟเฟกต์การแปลงภาพสำหรับเฟรมรูปภาพด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
+description: "ใช้, เชื่อมต่อ, ตรวจสอบ, ลบ, และยืนยันเอฟเฟกต์การแปลงภาพสำหรับเฟรมรูปภาพด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides แสดงการปรับรูปภาพเป็นคอลเลกชันที่เรียงลำดับของการดำเนินการแปลงภาพ สำหรับเฟรมรูปภาพ ให้เริ่มต้นที่ [Picture](https://reference.aspose.com/slides/th/php-java/aspose.slides/picture/) ของเฟรม แล้วเข้าถึง [Picture::getImageTransform](https://reference.aspose.com/slides/th/php-java/aspose.slides/picture/getimagetransform/). [ImageTransformOperationCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/) ที่คืนค่ามาให้คุณสามารถเพิ่ม, เรียกดู, ตรวจสอบ, ลบ และล้างเอฟเฟ็กต์ได้โดยไม่ต้องเขียนทับไบต์ของภาพต้นฉบับ
+Aspose.Slides แสดงการปรับภาพเป็นคอลเลกชันแบบจัดลำดับของการดำเนินการแปลงรูปภาพ สำหรับเฟรมรูปภาพ ให้เริ่มต้นด้วย [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) และเข้าถึง [Picture::getImageTransform](https://reference.aspose.com/slides/php-java/aspose.slides/picture/getimagetransform/). คอลเลกชัน [ImageTransformOperationCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/) ที่ส่งกลับให้คุณเพิ่ม, อ่านลำดับ, ตรวจสอบ, ลบ, และล้างเอฟเฟกต์โดยไม่ต้องเขียนใหม่ไบต์ของภาพต้นฉบับ
 
-บทความนี้สาธิตเวิร์กฟลว์ครบวงจรสำหรับการปรับความสว่างและคอนทราสต์, การแปลงสี, เบลอ, ความโปร่งใส, โซ่เอฟเฟ็กต์เรียงลำดับ, ค่าที่มีประสิทธิภาพ, การลบ, และการตรวจสอบการรอบ PPTX
+บทความนี้สาธิตเวิร์กโฟลว์สมบูรณ์สำหรับความสว่างและความคอนทราสต์, การแปลงสี, เบลอร์, ความโปร่งแสง, โซ่เอฟเฟกต์แบบจัดลำดับ, ค่าที่มีผล, การลบ, และการตรวจสอบรอบ PPTX
 
-## **ทำความเข้าใจการเป็นเจ้าของเอฟเฟ็กต์และการใช้ซ้ำของภาพ**
+## **ทำความเข้าใจความเป็นเจ้าของเอฟเฟกต์และการใช้ซ้ำภาพ**
 
-ทรัพยากรภาพและรูปภาพที่แสดงภาพนั้นเป็นวัตถุที่แตกต่างกัน:
+- [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นของการนำเสนอ
+- [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) เป็นส่วนของการเติมรูปภาพและอ้างอิงทรัพยากรภาพขณะเก็บคอลเลกชันการแปลงรูปภาพ
+- [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) คือรูปร่างบนสไลด์ที่เป็นเจ้าของการเติมรูปภาพที่เกี่ยวข้อง, รูปร่าง, การตั้งค่าการครอบ, และการฟอร์แมตระดับเฟรมอื่น ๆ
 
-- [PPImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/ppimage/) เก็บหรืออ้างอิงข้อมูลภาพต้นฉบับที่เป็นของงานนำเสนอ
-- [Picture](https://reference.aspose.com/slides/th/php-java/aspose.slides/picture/) เป็นส่วนของการใส่รูปภาพและอ้างอิงทรัพยากรภาพขณะเก็บคอลเลกชันการแปลงภาพ
-- [PictureFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/pictureframe/) คือรูปร่างบนสไลด์ที่เป็นเจ้าของการใส่รูปภาพ, รูปร่างเรขาคณิต, การตั้งค่าการครอป, และการจัดรูปแบบระดับเฟรมอื่น ๆ
+ดังนั้นการดำเนินการแปลงรูปภาพจะไม่แก้ไขไบต์ใน [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/). เมื่อ `PPImage`เดียวกันถูกส่งไปยัง [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) มากกว่าหนึ่งครั้ง, แต่ละเฟรมรูปภาพใหม่จะได้รับ `Picture` ของตนเองและคอลเลกชันแปลงของตนเอง การนำเอฟเฟกต์ระดับสีเทาไปใช้กับเฟรมหนึ่งจะไม่ทำให้เฟรมอื่นเป็นระดับสีเทา แม้ว่าทั้งหมดจะใช้ทรัพยากรภาพฝังเดียวกัน
 
-ดังนั้นการดำเนินการแปลงภาพจะไม่แก้ไขไบต์ใน [PPImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/ppimage/). เมื่อ `PPImage` ตัวเดียวกันถูกส่งไปยัง [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addpictureframe/) มากกว่าหนึ่งครั้ง แต่ละเฟรมรูปภาพใหม่จะได้รับ `Picture` ของตัวเองและคอลเลกชันการแปลงของตัวเอง การทำให้ภาพเป็นสีเทาในเฟรมหนึ่งจะไม่ทำให้เฟรมอื่นเป็นสีเทา แม้ว่าทั้งหมดจะใช้ทรัพยากรภาพแบบฝังเดียวกัน
+โมเดล `Picture::getImageTransform` เดียวกันนี้ยังใช้กับการเติมรูปภาพอื่น ๆ เช่น รูปร่างหรือพื้นหลังสไลด์ ตัวอย่างด้านล่างจึงมุ่งเน้นที่เฟรมรูปภาพ
 
-โมเดล `Picture::getImageTransform` เดียวกันนี้ยังถูกใช้โดยการใส่รูปแบบอื่น ๆ เช่น รูปร่างหรือพื้นหลังสไลด์ ตัวอย่างด้านล่างมุ่งเน้นที่เฟรมรูปภาพ
+## **ใช้ช่วงค่าพารามิเตอร์และหน่วยที่ถูกต้อง**
 
-## **ใช้ช่วงพารามิเตอร์และหน่วยที่ถูกต้อง**
-
-วิธีการที่สาธิตใช้ช่วงความหมายและหน่วยต่อไปนี้   โปรดรักษาค่าที่อยู่ในช่วงเหล่านี้แม้ว่ารุ่นของไลบรารีบางรุ่นอาจไม่ปฏิเสธค่าที่อยู่นอกช่วงทันที; รูปแบบการนำเสนอเป้าหมายอาจทำให้ค่าปกติ, ลบทิ้ง, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
+วิธีการที่แสดงใช้ช่วงค่าความหมายและหน่วยต่อไปนี้ เก็บค่าไว้ในช่วงเหล่านี้แม้เวอร์ชันไลบรารีบางรุ่นอาจไม่ปฏิเสธค่าที่อยู่นอกช่วงทันที; ฟอร์แมตการนำเสนอเป้าหมายอาจทำการทำให้เป็นค่าปกติ, ลบ, หรือปฏิเสธข้อมูลที่ไม่ถูกต้องระหว่างการบันทึกหรือเมื่อ PowerPoint เปิดไฟล์
 
 | การดำเนินการ | พารามิเตอร์ | ช่วงและหน่วยที่ถูกต้อง |
 |---|---|---|
-| [addLuminanceEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` ถึง `100` , เป็นเปอร์เซ็นต์; `0` ไม่เปลี่ยนคอมโพเนนต์ |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | ไม่มี | ไม่มีพารามิเตอร์ตัวเลข; Alpha ไม่เปลี่ยน |
-| [addDuotoneEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | สองสีสำหรับพิกเซลมืดและสว่าง. ช่องสี RGB และ alpha ใน `java.awt.Color` ใช้ค่า `0` ถึง `255` |
-| [addTintEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue อยู่ระหว่าง `0` (รวม) ถึง `360` (ไม่รวม) หน่วยเป็นองศา; amount อยู่ระหว่าง `-100` ถึง `100` , เป็นเปอร์เซ็นต์ |
-| [addHSLEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue อยู่ระหว่าง `0` (รวม) ถึง `360` (ไม่รวม) หน่วยเป็นองศา; saturation และ luminance อยู่ระหว่าง `-100` ถึง `100` , เป็นเปอร์เซ็นต์ |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | สีที่ใช้แทนใช้ค่าช่อง `0` ถึง `255`; ค่า alpha เดิมไม่เปลี่ยน |
-| [addBlurEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | radius ต้องเป็นค่าที่ไม่เป็นลบและวัดเป็น points; `grow` เป็น Boolean ที่กำหนดว่าผลลัพธ์ที่เบลออาจขยายออกนอกขอบเดิมหรือไม่ |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | เปอร์เซ็นต์ที่ไม่เป็นลบ ใช้ `0` ถึง `100` สำหรับการปรับความทึบแบบทั่วไป: `0` หมายถึงโปร่งใสเต็มที่และ `100` รักษา alpha ปัจจุบัน |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` ถึง `100` , เปอร์เซ็นต์ความทึบ |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` ถึง `100` , เปอร์เซ็นต์ค่าเกณฑ์ alpha; ค่าน้อยกว่าเป็นโปร่งใส; ค่าสูงกว่าหรือเท่ากับเป็นทึบ |
+| [addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` ถึง `100` เป็นเปอร์เซ็นต์; `0` ไม่เปลี่ยนคอมโพเนนต์ |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | None | ไม่มีพารามิเตอร์เชิงตัวเลข. Alpha ไม่เปลี่ยนแปลง |
+| [addDuotoneEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | สองสีสำหรับพิกเซลสีเข้มและสีอ่อน. ช่องสี RGB และอัลฟ่าใน `java.awt.Color` ใช้ค่าจาก `0` ถึง `255` |
+| [addTintEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue อยู่ที่ `0` รวมถึงถึง `360` ไม่รวม, หน่วยเป็นองศ; amount อยู่ที่ `-100` ถึง `100` เป็นเปอร์เซ็นต์ |
+| [addHSLEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue อยู่ที่ `0` ถึง `360` (ไม่รวม), หน่วยเป็นองศ; saturation และ luminance อยู่ที่ `-100` ถึง `100` เป็นเปอร์เซ็นต์ |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | สีที่แทนที่ใช้ค่าชานัลจาก `0` ถึง `255`. ค่าที่อัลฟ่าเดิมไม่เปลี่ยนแปลง |
+| [addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Radius เป็นค่าที่ไม่เป็นลบและวัดเป็นจุด; `grow` เป็น Boolean ที่ควบคุมว่าขอบเนื้อหาที่เบลอร์อาจขยายออกนอกขอบเขตต้นฉบับหรือไม่ |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | เปอร์เซ็นต์ที่ไม่เป็นลบ. ใช้ `0` ถึง `100` สำหรับการปรับความทึบแบบปกติ: `0` คือโปร่งใสเต็มและ `100` รักษาอัลฟาที่มีอยู่ |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` ถึง `100` เป็นเปอร์เซ็นต์ความทึบ |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` ถึง `100` เป็นเปอร์เซ็นต์เกณฑ์อัลฟ่า. ค่าต่ำกว่ากลายเป็นโปร่งใส; ค่าสูงกว่าหรือเท่ากลายเป็นทึบ |
 
-สำหรับการมอดูเลต alpha ที่คงที่ ความโปร่งใสและความทึบเป็นค่าตรงกัน ตัวอย่างเช่น ความโปร่งใส 35% ตรงกับค่าโมดูเลท alpha 65%
+สำหรับการปรับอัลฟ่าแบบคงที่ ความโปร่งแสงและความทึบเป็นค่าตรงกันข้าม ตัวอย่างเช่น ความโปร่งแสง 35% มีค่าอัลฟ่าโมดูเลต 65%
 
-## **ปรับความสว่างและคอนทราสต์**
+## **ใช้ความสว่างและความคอนทราสต์**
 
-[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) คืนค่าออบเจ็กต์ [Luminance](https://reference.aspose.com/slides/th/php-java/aspose.slides/luminance/) การตั้งค่าสเกลาร์จะถูกระบุเมื่อสร้างออบเจ็กต์  [Luminance::getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/luminance/geteffective/) คืนค่าที่คำนวณแล้วแบบอ่านได้ซึ่งสามารถตรวจสอบหรือบันทึกได้
+[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) คืนค่าออบเจ็กต์ [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/) การตั้งค่าสเกลาร์จะถูกส่งเมื่อสร้างออบเจ็กต์ [Luminance::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/geteffective/) คืนค่าที่คำนวณได้แบบอ่านอย่างเดียวที่สามารถตรวจสอบหรือบันทึกได้
 
-ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และคอนทราสต์ 20% แล้วแสดงตัวอย่างโดยไม่แก้ไขภาพฝัง:
+ตัวอย่างต่อไปนี้เพิ่มความสว่าง 15% และความคอนทราสต์ 20% แล้วแสดงตัวอย่างโดยไม่แก้ไขภาพฝัง:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -107,13 +105,13 @@ try {
 }
 ```
 
-`Luminance` เป็นเอฟเฟกต์ความสว่างและคอนทราสต์มาตรฐานของ DrawingML เมื่อการตั้งค่าเหล่านั้นต้องการให้แก้ไขได้หลังการรอบ PPTX ให้เปิดไฟล์ที่บันทึกใหม่และตรวจสอบทั้งประเภทการดำเนินการและค่าที่มีประสิทธิภาพ
+`Luminance` เป็นเอฟเฟกต์ความสว่างและความคอนทราสต์มาตรฐานของ DrawingML เมื่อต้องการให้การตั้งค่าเหล่านี้ยังแก้ไขได้หลังจากรอบ PPTX ให้เปิดไฟล์การนำเสนอที่บันทึกไว้ใหม่และตรวจสอบทั้งประเภทการดำเนินการและค่าที่มีผล
 
-## **แปลงสี**
+## **ใช้การแปลงสี**
 
-เอฟเฟกต์สีสามารถนำไปใช้แยกกันบนเฟรมรูปภาพต่าง ๆ ที่ใช้ทรัพยากรภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้าเฟรมและใช้สีเทา, ดูโทน, โทนสี, การปรับ HSL, และการแทนที่สี
+เอฟเฟกต์สีสามารถนำไปใช้แยกกันกับเฟรมรูปภาพต่าง ๆ ที่ใช้ทรัพยากรภาพเดียวกัน ตัวอย่างต่อไปนี้สร้างห้าเฟรมและใช้ระดับสีเทา, ดูโทนสีคู่, สีสัน, การปรับ HSL, และการแทนที่สี
 
-[Duotone](https://reference.aspose.com/slides/th/php-java/aspose.slides/duotone/) มีพารามิเตอร์สีสองตัวที่แก้ไขได้แยกจากกัน: `color1` ใช้สำหรับพิกเซลมืด, `color2` ใช้สำหรับพิกเซลสว่าง ซึ่งทำให้เป็นตัวอย่างที่ดีของเอฟเฟกต์ที่การตั้งค่าซับซ้อนกว่าค่าสเกลาร์เดียว
+[Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) มีพารามิเตอร์สีที่แก้ไขได้สองค่า: `color1` แทนพิกเซลสีเข้ม, `color2` แทนพิกเซลสีอ่อน ซึ่งทำให้เป็นตัวอย่างที่มีการตั้งค่าซับซ้อนกว่าค่าสเกลาร์เดียว
 
 ```php
 use aspose\slides\Images;
@@ -158,13 +156,62 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) แทนที่สีของทุกพิกเซลด้วยสีคงที่หนึ่งสีโดยคงค่า alpha ไว้ แตกต่างจาก [addColorChangeEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/) ที่แม็พสีต้นทางหนึ่งไปยังสีเป้าหมายและเปิดเผยรูปแบบสีต้นทางและเป้าหมายทั้งสอง
+[addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) แทนที่สีของพิกเซลทุกพิกเซลด้วยสีคงที่หนึ่งสีโดยคงค่าอัลฟ่าไว้ ต่างจาก [addColorChangeEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/) ที่แมปสีต้นฉบับหนึ่งไปยังสีเป้าหมายและเปิดเผยรูปแบบสีต้นฉบับและเป้าหมาย
 
-## **เพิ่มเบลอ, ความโปร่งใส, และเอฟเฟกต์ Alpha**
+### **ใช้เกณฑ์ความสว่าง**
 
-[addBlurEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) มีผลต่อทุกช่องสีรวมถึง alpha ตั้งค่า `grow` เป็น `true` เมื่อขอบที่เบลออาจขยายออกนอกขอบภาพเดิม
+เกณฑ์ความสว่างสามารถทำให้เครื่องหมายอ่อนบนหน้าสแกนง่ายต่อการแยกจากพื้นหลังได้ [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) คงเฉดสีเทากลาง [addBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addbileveleffect/) แมพความสว่างเป็นสีดำหรือสีขาว, ขณะที่ [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) ใช้เกณฑ์กับอัลฟ่า
 
-สำหรับความโปร่งใสสม่ำเสมอ ใช้ [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) มันคูณค่า alpha ที่มีอยู่ทุกค่า ดังนั้นพิกเซลที่เป็นบางส่วนโปร่งใสจะยังคงแตกต่างตามสัดส่วน [addAlphaReplaceEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) จะกำหนดค่า alpha หนึ่งค่าให้ทุกพิกเซล [addAlphaBiLevelEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) จะเปลี่ยน alpha เป็นสองระดับตามค่าเกณฑ์
+เกณฑ์ความสว่างอยู่ในช่วง 0% ถึง 100% รวม. พิกเซลที่ต่ำกว่าเกณฑ์จะเป็นสีดำ. พิกเซลที่เท่ากับหรือสูงกว่าเกณฑ์จะเป็นสีขาว. การยกเกณฑ์ขึ้นจะทำให้เฉดสีหลาย ๆ เฉดกลายเป็นสีดำมากขึ้นเนื่องจากอยู่ต่ำกว่าเกณฑ์
+
+ดาวน์โหลด [grayscale-swatches.png](grayscale-swatches.png) ไปยังไดเรกทอรีที่มีสคริปต์ PHP แต่ละป้ายกำกับแสดงระดับสีเทาต้นฉบับบนสเกลจาก 0 ถึง 255 ตัวอย่างจะวางต้นฉบับข้างสำเนาสองฉบับและบันทึกเกณฑ์ของแต่ละสำเนาในงานนำเสนอ
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 150, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $sourceImage = Images::fromFile(__DIR__ . "/grayscale-swatches.png");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
+
+    $captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    $frames = [];
+    foreach ($captions as $index => $caption) {
+        $x = 12 + 240 * $index;
+        $label = $shapes->addAutoShape(ShapeType::Rectangle, $x, 12, 216, 36);
+        $label->getTextFrame()->setText($caption);
+        $frames[] = $shapes->addPictureFrame(ShapeType::Rectangle, $x, 60, 216, 72, $image);
+    }
+
+    $frames[1]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(20);
+    $frames[2]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(60);
+
+    $presentation->save(__DIR__ . "/luminance-threshold.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+เปิดงานนำเสนอที่ได้จากการเรนเดอร์ใน PowerPoint เพื่อตรวจสอบสามเฟรม สวิทซ์ที่มีป้ายกำกับ 96 มีความสว่างประมาณ 38% (96 จาก 255) จะกลายเป็นสีขาวที่เกณฑ์ 20% และสีดำที่เกณฑ์ 60%
+
+![สีสลับระดับสีเทาต้นฉบับด้านข้างผลลัพธ์สีขาว-ดำที่เกณฑ์ความสว่าง 20% และ 60%](luminance-threshold.png)
+
+## **เพิ่มเอฟเฟกต์เบลอร์, ความโปร่งแสง, และอัลฟ่า**
+
+[addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) ส่งผลต่อทุกช่องสีรวมอัลฟ่า ตั้งค่า `grow` เป็น `true` เมื่อขอบเบลอร์อาจขยายออกนอกขอบเขตภาพต้นฉบับ
+
+สำหรับความโปร่งแสงแบบสม่ำเสมอ ให้ใช้ [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). มันคูณค่าอัลฟ่าเดิมทุกค่าดังนั้นพิกเซลที่บางส่วนโปร่งแสงจะยังคงต่างกันตามสัดส่วน [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) จะกำหนดค่าอัลฟ่าเดียวให้กับพิกเซลทั้งหมด [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) แปลงอัลฟ่าเป็นสองระดับตามเกณฑ์
 
 ```php
 use aspose\slides\Images;
@@ -207,15 +254,13 @@ try {
 }
 ```
 
-เอฟเฟกต์ alpha ที่ไม่มีพารามิเตอร์อื่น ๆ ได้แก่ [addAlphaCeilingEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/) ซึ่งทำให้ทุกค่า alpha ที่ไม่เป็นศูนย์กลายเป็นทึบเต็ม, [addAlphaFloorEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/) ทำให้ทุกค่า alpha ต่ำกว่า 100% กลายเป็นโปร่งใสเต็ม, และ [addAlphaInverseEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/) เปลี่ยนค่า alpha เป็น `100% - alpha`
+เอฟเฟกต์อัลฟ่าไม่มีพารามิเตอร์อื่น ๆ รวมถึง [addAlphaCeilingEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/) ที่ทำให้ทุกอัลฟ่าไม่เป็นศูนย์เป็นทึบเต็ม; [addAlphaFloorEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/) ที่ทำให้ทุกอัลฟ่าใต 100% เป็นโปร่งใสเต็ม; และ [addAlphaInverseEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/) ที่เปลี่ยนอัลฟ่าเป็น `100% - alpha`
 
-## **สร้างโซ่เอฟเฟกต์เรียงลำดับ**
+## **สร้างโซ่เอฟเฟกต์แบบจัดลำดับ**
 
-ทุกเมธอด `add...Effect` จะเพิ่มการดำเนินการใหม่เข้าไปที่ส่วนท้ายของคอลเลกชัน ตัวเรนเดอร์ใช้คอลเลกชันเป็นสายการประมวลผลที่เรียงลำดับ: ผลลัพธ์ของการดำเนินการ 0 เป็นอินพุตของการดำเนินการ 1 และต่อไป ดังนั้นการเรียงลำดับที่แตกต่างอาจทำให้ได้ภาพที่แตกต่างกัน
+แต่ละเมธอด `add...Effect` เพิ่มการดำเนินการใหม่ต่อท้ายคอลเลกชัน ตัวเรนเดอร์ใช้คอลเลกชันเป็นสายการประมวลผลที่จัดลำดับ: ผลลัพธ์ของการดำเนินการ 0 จะเป็นอินพุตของการดำเนินการ 1, และต่อไป ดังนั้นการดำเนินการเดียวกันในลำดับที่ต่างกันอาจให้ภาพที่ต่างกัน
 
-เช่น สีเทาตามด้วยโทนสีจะลบข้อมูลสีก่อนแล้วจึงทำให้สีสว่างใหม่อีกครั้ง; โทนสีตามด้วยสีเทาจะลบโทนสีอีกครั้งเช่นกัน เช่นเดียวกับการแทนที่ alpha ที่สามารถทับค่าที่คำนวนโดยการดำเนินการก่อนหน้า, ในขณะที่การมอดูเลต alpha จะคงความแตกต่างสัมพัทธ์ไว้
-
-ตัวอย่างต่อไปนี้สร้างโซ่สี่การดำเนินการ, บันทึกเป็น PPTX, เปิดงานนำเสนอใหม่, ตรวจสอบทั้งประเภทการดำเนินการและลำดับ, แล้วเรนเดอร์ผลลัพธ์ที่เปิดใหม่:
+เช่น การทำสีเทาตามด้วยสีสันจะลบข้อมูลสีก่อนแล้วทำสีใหม่บนผลลัพธ์ความสว่าง ส่วนการทำสีสันตามด้วยสีเทาจะลบสีสันออกอีกครั้ง อย่างเดียวกัน การแทนที่อัลฟ่าอาจเขียนทับค่าอัลฟ่าโดยการดำเนินการก่อนหน้า ในขณะที่การโมดูเลตอัลฟ่ารักษาความแตกต่างสัมพัทธ์ของพวกมัน
 
 ```php
 use aspose\slides\ImageFormat;
@@ -278,15 +323,21 @@ try {
 }
 ```
 
-คอลเลกชันไม่ได้กำหนดเมทริกซ์ความเข้ากันได้ที่จำกัดเอฟเฟกต์สี, alpha, และเบลอให้อยู่ในโซ่แยกกัน สามารถรวมกันได้แต่บางการรวมอาจไม่เป็นประโยชน์ การแทนที่สีคงที่จะลบความแปรผัน RGB ที่เกิดจากเอฟเฟกต์สีก่อนหน้า; สีเทาหลังดูโทนสีจะลบสองสีที่เลือก; และการมอดูเลต, เพดาน, ลบ, หรือเอฟเฟกต์สองระดับของ alpha สามารถกวาดลบรายละเอียด alpha ที่สร้างขึ้นก่อนหน้า สร้างโซ่ตามลำดับการประมวลผลพิกเซลที่ต้องการ แทนที่จะมองรายการเป็นธงฟอร์แมตที่ไม่มีลำดับ
+คอลเลกชันไม่ได้บังคับแผนภูมิความเข้ากันได้ที่จำกัดสี, อัลฟ่า, และเอฟเฟกต์เบลอร์ให้อยู่ในโซ่แยก พวกมันสามารถรวมกันได้แต่ไม่ใช่ทุกการรวมจะมีประโยชน์ การแทนที่สีคงที่ลบความแปรผัน RGB ที่เกิดจากเอฟเฟกต์สีก่อนหน้า; การทำสีเทาหลังดูโทนสีคู่จะลบสองสีที่เลือก; และการทำอัลฟ่า ceiling, floor, replace หรือ bi-level อาจทิ้งรายละเอียดอัลฟ่า ที่สร้างขึ้นก่อนหน้า สร้างโซ่ตามลำดับการประมวลผลพิกเซลที่ต้องการ แทนการมองเป็นแฟลกการฟอร์แมตที่ไม่มีลำดับ
 
-## **ตรวจสอบค่าที่แก้ไขได้และค่าที่มีประสิทธิภาพ**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-การดำเนินการที่แก้ไขได้คือตัวออบเจกต์ที่เก็บใน `Picture::getImageTransform` ขึ้นอยู่กับเอฟเฟกต์อาจเปิดเผยสมาชิกที่เขียนได้โดยตรง ตัวอย่างเช่น [Blur](https://reference.aspose.com/slides/th/php-java/aspose.slides/blur/) เปิดเผย `radius` และ `grow` ที่เขียนได้, [AlphaModulateFixed](https://reference.aspose.com/slides/th/php-java/aspose.slides/alphamodulatefixed/) เปิดเผย `amount` ที่เขียนได้, และ [AlphaBiLevel](https://reference.aspose.com/slides/th/php-java/aspose.slides/alphabilevel/) เปิดเผย `threshold` ที่เขียนได้  เอฟเฟกต์สีเช่น [Duotone](https://reference.aspose.com/slides/th/php-java/aspose.slides/duotone/) เปิดเผยออบเจกต์ [ColorFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/colorformat/) ที่แก้ไขได้
+*ในตัวอย่างการเรนเดอร์ Aspose.Slides for .NET 26.11 นี้, สีสันที่ 220° ที่ 25% ไม่ทำให้ภาพสีเทาเปลี่ยนแปลง. การใช้สีสันเดียวกันก่อนสีเทาให้โทนสีที่แตกต่างกัน.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-บางการดำเนินการรวมถึง [Luminance](https://reference.aspose.com/slides/th/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/th/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/th/php-java/aspose.slides/tint/), และ [AlphaReplace](https://reference.aspose.com/slides/th/php-java/aspose.slides/alphareplace/) ไม่เปิดเผยสเกลาร์การสร้างเป็นคุณสมบัติที่เขียนได้ เพื่อเปลี่ยนการตั้งค่าเหล่านั้น ให้ลบการดำเนินการแล้วเพิ่มออบเจกต์ใหม่ในตำแหน่งที่ต้องการ
+## **ตรวจสอบค่าที่แก้ไขได้และค่าที่มีผล**
 
-ข้อมูลที่มีประสิทธิภาพที่คืนค่าจาก `getEffective()` ถูกคำนวนและอ่านได้อย่างเดียว มีประโยชน์สำหรับการแก้สีที่ขึ้นกับธีมและการอ่านค่าที่ทำให้เป็นมาตรฐานที่เรนเดอร์ใช้ แต่ไม่ใช่พื้นผิวการแก้ไขเพิ่มเติม ตัวอย่างต่อไปนี้เรียกดูโซ่และตรวจสอบค่าที่มีประสิทธิภาพเมื่อ API ที่เกี่ยวข้องให้ข้อมูล:
+การดำเนินการที่แก้ไขได้คือออบเจ็กต์ที่เก็บไว้ใน `Picture::getImageTransform`. ขึ้นอยู่กับเอฟเฟกต์, มันอาจเปิดเผยสมาชิกที่เขียนได้โดยตรง ตัวอย่างเช่น [Blur](https://reference.aspose.com/slides/php-java/aspose.slides/blur/) เปิดเผยค่า `radius` และ `grow` ที่เขียนได้, [AlphaModulateFixed](https://reference.aspose.com/slides/php-java/aspose.slides/alphamodulatefixed/) เปิดเผย `amount` ที่เขียนได้, และ [AlphaBiLevel](https://reference.aspose.com/slides/php-java/aspose.slides/alphabilevel/) เปิดเผย `threshold` ที่เขียนได้ เอฟเฟกต์สีเช่น [Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) เปิดเผยอ็อบเจ็กต์ [ColorFormat](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/) ที่แก้ไขได้
+
+บางการดำเนินการ เช่น [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/php-java/aspose.slides/tint/), และ [AlphaReplace](https://reference.aspose.com/slides/php-java/aspose.slides/alphareplace/) ไม่เปิดเผยสเกลาร์การสร้างเป็นคุณสมบัติที่เขียนได้ เพื่อเปลี่ยนการตั้งค่าเหล่านั้น ให้ลบการดำเนินการและเพิ่มการแทนที่ในตำแหน่งที่ต้องการ
+
+ข้อมูลที่มีผลที่ `getEffective()` คืนมาถูกคำนวณและเป็นแบบอ่านอย่างเดียว มันเป็นประโยชน์สำหรับการแก้สีที่ขึ้นกับธีมและการอ่านค่าที่ทำให้เป็นมาตรฐานที่ตัวเรนเดอร์ใช้ แต่ไม่ได้เป็นพื้นผิวการแก้ไขเพิ่มเติม ตัวอย่างต่อไปนี้อ่านลำดับโซ่และตรวจสอบค่าที่มีผลที่ API ให้มา:
 
 ```php
 use aspose\slides\Presentation;
@@ -350,11 +401,11 @@ try {
 }
 ```
 
-เอฟเฟกต์ที่ไม่มีพารามิเตอร์เช่นสีเทา, เพดาน alpha, และอินเวอร์ส alpha ยังคงมีออบเจกต์ข้อมูลที่มีประสิทธิภาพอยู่ แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์ การมีอยู่และตำแหน่งในคอลเลกชันเป็นข้อมูลสำคัญ
+เอฟเฟกต์ไม่มีพารามิเตอร์เช่นระดับสีเทา, อัลฟ่า ceiling, และอัลฟ่า inverse ยังมีอ็อบเจ็กต์ข้อมูลที่มีผล แต่ไม่มีการตั้งค่าสเกลาร์ให้พิมพ์ การปรากฏและตำแหน่งของพวกมันในคอลเลกชันคือข้อมูลสำคัญ
 
-## **ลบหรือเคลียร์การแปลงภาพ**
+## **ลบหรือเคลียร์การแปลงรูปภาพ**
 
-ใช้ [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/removeat/) เพื่อลบการดำเนินการหนึ่งตามดัชนี เนื่องจากดัชนีจะเปลี่ยนหลังการลบ ให้ค้นหาตัวเป้าหมายก่อนแล้วจึงลบหลังจากเรียกดู ใช้ [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagetransformoperationcollection/clear/) เพื่อลบโซ่ทั้งหมด
+ใช้ [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/removeat/) เพื่อลบการดำเนินการหนึ่งตามดัชนี เนื่องจากดัชนีสับเปลี่ยนหลังการลบ, ควรค้นหาเป้าหมายก่อนและลบหลังจากอ่านลำดับ ใช้ [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/clear/) เพื่อลบโซ่ทั้งหมด
 
 ```php
 use aspose\slides\Presentation;
@@ -400,37 +451,37 @@ try {
 }
 ```
 
-การลบหรือเคลียร์การแปลงจะเปลี่ยนเฉพาะรูปแบบรูปภาพ ไม่ได้ลบ, บีบอัดใหม่, หรือเปลี่ยนแปลงทรัพยากร [PPImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/ppimage/) ที่ใช้ซ้ำ
+การลบหรือเคลียร์การแปลงจะเปลี่ยนเฉพาะการฟอร์แมตรูปภาพเท่านั้น ไม่ได้ลบ, ทำการบีบอัดใหม่, หรือแก้ไขทรัพยากร [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) ที่ใช้ซ้ำ
 
-## **พิจารณารูปแบบการนำเสนอและเป้าหมายการส่งออก**
+## **พิจารณาฟอร์แมตการนำเสนอและเป้าหมายการส่งออก**
 
-การแปลงภาพมีต้นกำเนิดใน DrawingML ดังนั้น PPTX เป็นรูปแบบที่แก้ไขได้ที่แนะนำสำหรับโซ่เอฟเฟกต์ แม้ใน PPTX ก็ไม่ได้ทุกการดำเนินการมีพกพาเดียวกัน:
+การแปลงรูปภาพเริ่มต้นจาก DrawingML ดังนั้น PPTX เป็นฟอร์แมตแก้ไขที่แนะนำสำหรับโซ่เอฟเฟกต์ แม้กับ PPTX ไม่ใช่ทุกการดำเนินการจะพกพาได้อย่างเท่าเทียม:
 
-- การดำเนินการ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และเอฟเฟกต์ alpha ทั่วไป มีโอกาสสูงสุดที่จะรอดผ่านรอบ PPTX  ให้เปิดไฟล์ที่สร้างใหม่และตรวจสอบคอลเลกชันเมื่อต้องการการคงสภาพ
-- รูปแบบไบนารี PPT มีอายุเก่ากว่ารุ่นเต็มของโมเดลเอฟเฟกต์ DrawingML การบันทึกเป็น PPT อาจละเว้นการดำเนินการที่ไม่รองรับ, ลดโซ่ลงเป็นส่วนย่อยที่รองรับ, หรือประมาณลักษณะ อย่าใช้ PPT เป็นรูปแบบตรวจสอบสำหรับโซ่แก้ไขที่ซับซ้อน
-- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML หรือรูปแบบภาพอื่น ๆ จะใช้โซ่ที่สนับสนุนในการสร้างภาพผลลัพธ์ รูปแบบเหล่านี้ไม่ประกอบด้วย `ImageTransformOperationCollection` ที่แก้ไขได้; รูปแบบเรสเตอร์จะทำให้ผลลัพธ์แบนเป็นพิกเซล, และการส่งออกเอกสารหรือเวกเตอร์จะเก็บตัวแทนการเรนเดอร์ของตนเอง
-- เอฟเฟกต์ไม่ได้ทำให้ภาพที่เชื่อมโยงเป็นอิสระ การเรนเดอร์รูปภาพที่เชื่อมโยงยังคงพึ่งพาทรัพยากรที่เชื่อมโยงต้องพร้อมใช้งานเมื่อโหลดงานนำเสนอ
+- การดำเนินการ DrawingML มาตรฐานเช่น luminance, grayscale, duotone, tint, HSL, blur, และเอฟเฟกต์อัลฟ่าโดยทั่วไปมีโอกาสอยู่รอดสูงสุดหลังรอบ PPTX. ควรเปิดไฟล์ที่สร้างขึ้นใหม่และตรวจสอบคอลเลกชันเมื่อการคงรักษาเป็นความต้องการ
+- ฟอร์แมต PPT ไบนารีมีอายุย้อนไปก่อนโมเดลเอฟเฟกต์ DrawingML เต็มรูปแบบ การบันทึกเป็น PPT อาจละเว้นการดำเนินการที่ไม่รองรับ, ลดโซ่ลงเป็นส่วนย่อยที่รองรับ, หรือประมาณผลลัพธ์ อย่าใช้ PPT เพื่อตรวจสอบโซ่แก้ไขที่ซับซ้อน
+- การเรนเดอร์เป็น PNG, JPEG, TIFF, PDF, SVG, HTML หรือเอาต์พุตภาพอื่น ๆ จะใช้โซ่ที่รองรับต่อการแสดงผล ผลลัพธ์เหล่านี้ไม่มี `ImageTransformOperationCollection` ที่แก้ไขได้; ฟอร์แมตเรสเตอร์จะทำให้ผลลัพธ์เป็นพิกเซล, และการส่งออกเอกสารหรือเวกเตอร์จะเก็บการแสดงผลของตนเอง
+- เอฟเฟกต์ไม่ทำให้ภาพที่ลิงก์เป็นไฟล์เดียว การเรนเดอร์ภาพที่ลิงก์ยังคงต้องพึ่งพาทรัพยากรที่ลิงก์อยู่เมื่อโหลดการนำเสนอ
 
-ผู้บริโภคงานนำเสนอที่ต่างกันอาจเรนเดอร์กรณีขอบต่างกันโดยเฉพาะเมื่อมีการรวมหลายเอฟเฟกต์ alpha หรือการควอนตาไซส์สี เพื่อผลลัพธ์ที่สำคัญ ควรทดสอบทั้งรอบการแก้ไขและรูปแบบส่งออกขั้นสุดท้ายด้วย Aspose.Slides รุ่นเดียวกับที่ใช้ในการผลิต
+ผู้บริโภคการนำเสนอที่ต่างกันอาจเรนเดอร์กรณีขอบโค้งต่างกัน โดยเฉพาะเมื่อรวมหลายการดำเนินการอัลฟ่า หรือการควอนไทซ์สี เพื่อตรวจสอบผลลัพธ์สำคัญ ควรทดสอบทั้งรอบการแก้ไขและฟอร์แมตการส่งออกสุดท้ายด้วย Aspose.Slides เวอร์ชันเดียวกับที่ใช้ในการผลิต
 
 ## **คำถามที่พบบ่อย**
 
-**เอฟเฟกต์การแปลงภาพทำให้ข้อมูลภาพฝังเปลี่ยนแปลงหรือไม่?**
+**Do image transform effects modify the embedded image data?**
 
-ไม่ การดำเนินการเป็นของ `Picture` ที่ใช้โดยการใส่รูปภาพ ไบต์ของ `PPImage` ที่อยู่พื้นฐานไม่ถูกแก้ไข
+No. The operations belong to the `Picture` used by the picture fill. The underlying `PPImage` bytes remain unchanged.
 
-**สองเฟรมรูปภาพที่ใช้ภาพเดียวกันจะแชร์เอฟเฟกต์กันหรือไม่?**
+**Will two picture frames that reuse the same image share their effects?**
 
-ไม่ การใช้ `PPImage` ซ้ำช่วยหลีกเลี่ยงข้อมูลภาพซ้ำ, แต่แต่ละเฟรมรูปภาพโดยทั่วไปจะมี `Picture` และคอลเลกชันการแปลงภาพของตนเอง
+No. Reusing a `PPImage` avoids duplicate image data, but each picture frame normally has a separate `Picture` and image transform collection.
 
-**สามารถรวมเอฟเฟกต์สี, เบลอ, และ alpha ได้หรือไม่?**
+**Can color, blur, and alpha effects be combined?**
 
-ได้ คอลเลกชันรับเอฟเฟกต์เหล่านี้ในโซ่เรียงลำดับหนึ่ง ให้พิจารณาว่าแต่ละการดำเนินการทำอะไรกับผลลัพธ์ของการดำเนินการก่อนหน้า เนื่องจากเอฟเฟกต์การแทนที่และเกณฑ์อาจลบรายละเอียดสีหรือ alpha ที่เกิดก่อนหน้า
+Yes. The collection accepts them in one ordered chain. Consider what each operation does to the output of the previous one because replacement and threshold operations may discard earlier color or alpha detail.
 
-**ทำไมค่าที่มีประสิทธิภาพจึงเป็นอ่านอย่างเดียว?**
+**Why are effective values read-only?**
 
-ข้อมูลที่มีประสิทธิภาพเป็นค่าที่คำนวนแล้วใช้สำหรับการเรนเดอร์ รวมถึงสีที่แก้ไขตามธีม ให้แก้ไขการดำเนินการที่เก็บในคอลเลกชันเมื่อมีสมาชิกที่เขียนได้; มิฉะนั้นให้ลบและเพิ่มออบเจกต์ใหม่พร้อมพารามิเตอร์การสร้างใหม่
+Effective data represents calculated values used for rendering, including resolved colors. Edit the operation stored in the transform collection where writable members exist; otherwise remove it and add a replacement with new creation parameters.
 
-**ควรใช้รูปแบบใดเพื่อคงโซ่การแปลง?**
+**Which format should I use to preserve a transform chain?**
 
-ใช้ PPTX และตรวจสอบไฟล์โดยเปิดใหม่อีกครั้ง PPT รุ่นเก่าไม่สามารถแสดงโมเดลเอฟเฟกต์ DrawingML ทั้งหมดได้, และรูปแบบส่งออกที่เรนเดอร์จะเก็บเพียงลักษณะที่แสดงผล ไม่ใช่การดำเนินการแปลงที่แก้ไขได้
+Use PPTX and verify the file by reopening it. Legacy PPT cannot represent the full DrawingML effect model, and rendered export formats preserve appearance rather than editable transform operations.

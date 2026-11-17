@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunumlarda Görüntü Dönüşüm Efektlerini Yönetme
+title: Android'de Sunumlarda Görüntü Dönüşüm Efektlerini Yönet
 linktitle: Görüntü Dönüşüm Efektleri
 type: docs
 weight: 11
@@ -11,62 +11,62 @@ keywords:
 - kontrast
 - gri tonlama
 - ikili ton
-- renk tonu
+- tonlama
 - HSL
 - renk değiştirme
 - bulanıklık
 - şeffaflık
-- alfa etkisi
+- alfa efekti
 - efekt zinciri
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android ile Java üzerinden resim çerçeveleri için görüntü dönüşüm efektlerini uygulayın, zincirleyin, inceleyin, kaldırın ve doğrulayın."
+description: "Aspose.Slides for Android ile Java kullanarak resim çerçeveleri için görüntü dönüşüm efektlerini uygulayın, zincirleyin, inceleyin, kaldırın ve doğrulayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, resim ayarlamalarını görüntü dönüşüm işlemlerinin sıralı bir koleksiyonu olarak temsil eder. Bir resim çerçevesi için, çerçevenin [ISlidesPicture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidespicture/) öğesiyle başlayın ve [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidespicture/#getImageTransform--) öğesine erişin. Döndürülen [IImageTransformOperationCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/) size orijinal görüntü baytlarını yeniden yazmadan, ekleme, sıralama, inceleme, kaldırma ve temizleme işlemlerini yapma imkanı tanır.
+Aspose.Slides, resim ayarlamalarını sıralı bir görüntü dönüşüm işlemleri koleksiyonu olarak temsil eder. Bir resim çerçevesi için, çerçevenin [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) ile başlayın ve [ISlidesPicture.getImageTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/#getImageTransform--) metoduna erişin. Döndürülen [IImageTransformOperationCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/) size orijinal resim baytlarını yeniden yazmadan ekleme, yineleme, inceleme, kaldırma ve temizleme efektleri yapma imkanı verir.
 
-Bu makale parlaklık ve kontrast, renk dönüşümleri, bulanıklık, şeffaflık, sıralı efekt zincirleri, etkili değerler, kaldırma ve PPTX yuvarlak dönüş doğrulaması için tam bir iş akışı gösterir.
+Bu makale parlaklık ve kontrast, renk dönüşümleri, bulanıklık, şeffaflık, sıralı efekt zincirleri, etkin değerler, kaldırma ve PPTX turu doğrulaması için eksiksiz bir iş akışı gösterir.
 
-## **Efekt Sahipliği ve Görüntü Yeniden Kullanımını Anlama**
+## **Efekt Sahipliğini ve Görüntü Yeniden Kullanımını Anlayın**
 
 Bir görüntü kaynağı ve onu gösteren resim farklı nesnelerdir:
 
-- [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) sunum tarafından sahip olunan kaynak görüntü verisini saklar veya referans verir.
-- [ISlidesPicture](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidespicture/) bir resim doldurmanın parçasıdır ve bir görüntü kaynağına başvururken görüntü dönüşüm koleksiyonunu depolar.
-- [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) ilgili resim doldurmayı, geometriyi, kırpma ayarlarını ve diğer çerçeve‑düzeyi biçimlendirmeleri içeren slayt şeklidir.
+- [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) sunumun sahip olduğu kaynak görüntü verilerini depolar veya referans alır.
+- [ISlidesPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) bir resim doldurmanın parçasıdır ve bir görüntü kaynağına başvururken görüntü dönüşüm koleksiyonunu saklar.
+- [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) ilgili resim doldurmayı, geometriyi, kırpma ayarlarını ve diğer çerçeve‑seviyesi biçimlendirmeleri barındıran slayt şeklidir.
 
-Bu nedenle, görüntü dönüşüm işlemleri [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) içindeki baytları değiştirmez. Aynı `IPPImage` [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metoduna birden fazla kez geçirildiğinde, her yeni resim çerçevesi kendi `ISlidesPicture` ve kendi dönüşüm koleksiyonuna sahiptir. Bir çerçeveye gri tonlama uygulanması, diğer çerçeveleri gri tonlamaz; tüm çerçeveler aynı gömülü görüntü kaynağını kullanıyor olsa bile.
+Bu nedenle, görüntü dönüşüm işlemleri [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) içinde bulunan baytları değiştirmez. Aynı `IPPImage` birden fazla kez [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metoduna aktarılırsa, her yeni resim çerçevesi kendi `ISlidesPicture` ve kendi dönüşüm koleksiyonuna sahip olur. Bir çerçeveye gri tonlama (grayscale) uygulanması diğer çerçeveleri gri tonlamaz, çünkü hepsi aynı gömülü görüntü kaynağını yeniden kullanıyor olsa da her çerçeve ayrı bir `ISlidesPicture` kullanır.
 
-Aynı `ISlidesPicture.getImageTransform` modeli, şekil veya slayt arka planı gibi diğer resim doldurmaları tarafından da kullanılır. Aşağıdaki örnekler resim çerçevelerine odaklanır.
+Aynı `ISlidesPicture.getImageTransform` modeli ayrıca şekil veya slayt arka planı gibi diğer resim doldurmalar tarafından da kullanılabilir. Aşağıdaki örnekler resim çerçevelerine odaklanır.
 
-## **Geçerli Parametre Aralıkları ve Birimlerini Kullanma**
+## **Geçerli Parametre Aralıklarını ve Birimleri Kullanın**
 
-Gösterilen metodlar aşağıdaki anlamlı aralıkları ve birimleri kullanır. Belirli bir kütüphane sürümü hemen her dışarıdaki değeri reddetmese bile, değerleri bu aralıkta tutun; hedef sunum biçimi kaydetme sırasında ya da PowerPoint dosyayı açarken geçersiz verileri normalleştirebilir, atabilir veya reddedebilir.
+Gösterilen metodlar aşağıdaki anlamsal aralıkları ve birimleri kullanır. Belirli bir kütüphane sürümü hemen her dış‑aralık değerini reddetmese bile bu aralıklar içinde kalın; hedef sunum biçimi kaydetme sırasında veya PowerPoint dosyayı açtığında geçersiz verileri normalleştirebilir, atabilir veya reddedebilir.
 
 | İşlem | Parametreler | Geçerli aralık ve birim |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` ile `100` arasında, yüzde; `0` bileşeni değiştirmez. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | Yok | Sayısal parametre yok. Alfa değiştirilmez. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Koyu ve açık pikseller için iki renk. `android.graphics.Color` tarafından kullanılan RGB ve alfa kanal değerleri `0` ile `255` arasındadır. |
-| [addTintEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Renk tonu `0` dahil `360` hariç derece cinsinden; miktar `-100` ile `100` arasında, yüzde. |
-| [addHSLEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Renk tonu `0` dahil `360` hariç derece cinsinden; doygunluk ve parlaklık `-100` ile `100` arasında, yüzde. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Değiştirme rengi kanal değerleri `0` ile `255` arasındadır. Mevcut alfa değerleri değiştirilmez. |
-| [addBlurEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Yarıçap sıfırdan büyük ve nokta cinsindendir; `grow` bulanık içeriğin orijinal sınırların dışına çıkıp çıkmayacağını kontrol eden bir Boole değeridir. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Negatif olmayan yüzde. Normal opaklık ölçeklemesi için `0` ile `100` kullanın: `0` tamamen saydam, `100` mevcut alfabı korur. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` ile `100` arasında, yüzde opaklık. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` ile `100` arasında, yüzde alfa eşiği. Bu değerin altındaki pikseller şeffaf, eşit ya da üzerindeki pikseller opaktır. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) | `brightness`, `contrast` | `-100` ile `100` arasında, yüzde; `0` bileşeni değiştirmez. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) | Yok | Sayısal parametre yoktur. Alfa değişmez. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addDuotoneEffect--) | `color1`, `color2` | Koyu ve açık pikseller için iki renk. `android.graphics.Color` tarafından kullanılan RGB ve alfa kanal değerleri `0` ile `255` arasındadır. |
+| [addTintEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addTintEffect-float-float-) | `hue`, `amount` | Ton (`hue`) `0` dahil ile `360` hariç derece cinsinden; miktar (`amount`) `-100` ile `100` arasında, yüzde. |
+| [addHSLEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addHSLEffect-float-float-float-) | `hue`, `saturation`, `luminance` | Ton `0` dahil ile `360` hariç derece; doygunluk ve parlaklık `-100` ile `100` arasında, yüzde. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) | `color` | Değiştirme rengi kanallarını `0` ile `255` arasında alır. Mevcut alfa değerleri değişmez. |
+| [addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) | `radius`, `grow` | Yarıçap negatif olamaz ve puan cinsindendir; `grow` bulanık içeriğin orijinal sınırların dışına çıkıp çıkmayacağını kontrol eden Boolean değerdir. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) | `amount` | Negatif olmayan yüzde. Normal opaklık ölçeklemesi için `0` ile `100` kullanın: `0` tamamen şeffaftır ve `100` mevcut alfanı korur. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) | `alpha` | `0` ile `100` arasında, yüzde opaklık. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) | `threshold` | `0` ile `100` arasında, yüzde alfa eşiği. Bu değerin altındakiler şeffaf, eşit veya üzerindekiler opak olur. |
 
-Sabit alfa modülasyonu için şeffaflık ve opaklık birbirini tamamlar. Örneğin, %35 şeffaflık alfa modülasyonu %65 değerine eşittir.
+Sabit alfa modülasyonu için şeffaflık ve opaklık birbirinin tamamlayıcısıdır. Örneğin, %35 şeffaflık %65 alfa modülasyonu miktarına karşılık gelir.
 
-## **Parlaklık ve Kontrast Uygulama**
+## **Parlaklık ve Kontrast Uygula**
 
-[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) bir [IBrightnessContrast](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibrightnesscontrast/) işlemi döndürür. Oluşturulurken skaler ayarları sağlanır. [IBrightnessContrast.getEffective](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibrightnesscontrast/#getEffective--) hesaplanmış yalnızca‑okunur değerleri döndürür; bu değerler incelenebilir veya kaydedilebilir.
+[IImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBrightnessContrastEffect-float-float-) bir [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/) işlemi döndürür. Ölçekli ayarları işlem oluşturulurken sağlanır. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/#getEffective--) hesaplanmış yalnızca‑okunur değerleri verir; bunlar incelenebilir veya kaydedilebilir.
 
-Aşağıdaki örnek parlaklığı %15, kontrastı %20 artırır ve gömülü görüntüyü değiştirmeden bir ön izleme oluşturur:
+Aşağıdaki örnek parlaklığı %15, kontrastı %20 artırır ve gömülü resmi değiştirmeden bir ön izleme oluşturur:
 
 ```java
 import com.aspose.slides.*;
@@ -102,13 +102,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/brightnesscontrast/) Office 2010 resim‑efekt uzantısıdır ve standart DrawingML parlaklık efektinden daha az taşınabilir. Parlaklık ve kontrastın bir PPTX yuvarlak dönüşten sonra da düzenlenebilir kalması gerekiyorsa, [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) kullanın ve dosyayı yeniden açtıktan sonra sonucu doğrulayın. Biçim sınırlamaları bölümü bu farkı daha ayrıntılı açıklar.
+[BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) bir Office 2010 resim‑efekt uzantısıdır ve standart DrawingML parlaklık efektinden daha az taşınabilirdir. Parlaklık ve kontrast, PPTX turu sonrası da düzenlenebilir kalmalıysa, [IImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) kullanın ve dosyayı yeniden açtıktan sonra sonucu doğrulayın. Biçim sınırlamaları bölümü bu ayrımı daha ayrıntılı açıklar.
 
-## **Renk Dönüşümlerini Uygulama**
+## **Renk Dönüşümlerini Uygula**
 
-Renk efektleri, aynı görüntü kaynağını yeniden kullanan farklı resim çerçevelerine bağımsız olarak uygulanabilir. Aşağıdaki örnek beş çerçeve oluşturur ve sırasıyla gri tonlama, duotone, tonlama, HSL ayarı ve renk değiştirme uygular.
+Renk efektleri, aynı görüntü kaynağını yeniden kullanan farklı resim çerçevelerine bağımsız olarak uygulanabilir. Aşağıdaki örnek beş çerçeve oluşturur ve gri tonlama, duotone, tonlama, HSL ayarı ve renk değiştirme uygular.
 
-[IDuotone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iduotone/) iki bağımsız olarak düzenlenebilir renk parametresi içerir: `color1` koyu pikselleri, `color2` ise açık pikselleri temsil eder. Bu, ayarları tek bir skaler değerden daha karmaşık olan bir efekt örneği olarak faydalıdır.
+[IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) iki bağımsız olarak düzenlenebilir renk parametresi içerir: `color1` koyu pikselleri, `color2` ise açık pikselleri eşler. Bu, ayarları tek bir ölçek değerinden daha karmaşık olan bir etkinin yararlı bir örneğidir.
 
 ```java
 import com.aspose.slides.*;
@@ -150,13 +150,61 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) her pikselin rengini sabit bir renkle değiştirirken alfa kanalını korur. Bu, bir kaynak rengi başka bir renge eşleyen ve hem kaynak hem hedef renk biçimlerini ortaya çıkaran [addColorChangeEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--) metodundan farklıdır.
+[addColorReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorReplaceEffect--) her pikselin rengini sabit bir renkle değiştirirken alfa kanalını korur. Bu, kaynak rengi başka bir renge eşleyen ve hem kaynak hem hedef renk formatlarını ortaya çıkaran [addColorChangeEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addColorChangeEffect--) metodundan farklıdır.
 
-## **Bulanıklık, Şeffaflık ve Alfa Efektleri Ekleme**
+### **Luminans Eşiği Uygula**
 
-[addBlurEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) tüm renk kanallarını, alfabı da dahil, etkiler. Bulanık kenarın orijinal resim sınırlarının dışına çıkabileceği durumlarda `grow` parametresini `true` yapın.
+Bir luminans eşiği, taranmış bir sayfadaki hafif işaretlerin arka plandan ayırt edilmesini kolaylaştırabilir. [addGrayScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addGrayScaleEffect--) ara gri tonları korur. [addBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBiLevelEffect-float-) luminansı siyah ya da beyaza eşler, [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) ise opaklığa bir eşik uygular.
 
-Tek tip şeffaflık için [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) kullanın. Bu, mevcut her alfa değerini çarparak kısmen şeffaf piksellerin oranını korur. [addAlphaReplaceEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) ise tüm piksellere aynı alfa değerini atar. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) alfa değerini bir eşik temelinde iki seviyeye dönüştürür.
+Luminans eşiği %0 ile %100 arasında, iki uç dahil olmak üzere değişir. Eşiğin altındaki pikseller siyah, eşikte ya da üzerindeki pikseller beyaz olur. Eşiği yükseltmek daha fazla tonu siyaha dönüştürür, çünkü daha fazla piksel kesim altına düşer.
+
+[grayscale-swatches.png](grayscale-swatches.png) dosyasını çalışma dizinine indirin. Her etiket, 0‑255 ölçeğindeki orijinal gri seviyeyi gösterir. Örnek, orijinali iki kopyanın yanına yerleştirir ve her kopyanın eşik değerini sunuma kaydeder.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, SlideSizeScaleType.DoNotScale);
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("grayscale-swatches.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    String[] captions = { "Original", "Threshold 20%", "Threshold 60%" };
+    IPictureFrame[] frames = new IPictureFrame[captions.length];
+    for (int i = 0; i < captions.length; i++) {
+        float x = 12 + 240 * i;
+        IAutoShape label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        frames[i] = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20f);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60f);
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Çıktı sunumunu PowerPoint’te açıp üç çerçeveyi karşılaştırın. 96‑lık etiket, yaklaşık %38 luminansa sahiptir (96/255). %20 eşiğinde beyaza, %60 eşiğinde siyaha dönüşür.
+
+![Orijinal gri tonlu örnekler, %20 ve %60 luminans eşiklerinde siyah‑beyaz sonuçların yanında](luminance-threshold.png)
+
+*Bu görsel Aspose.Slides for .NET 26.11 örneğinde, %25 şiddetinde 220° tonlama gri tonlama görüntüsünü değiştirmez. Aynı tonlama gri tonlamadan önce uygulandığında tonlar farklı olur.*
+
+## **Bulanıklık, Şeffaflık ve Alfa Efektleri Ekle**
+
+[addBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addBlurEffect-double-boolean-) tüm renk kanallarını, alfa dahil, etkiler. Bulanık kenarın orijinal resim sınırlarının dışına çıkabileceği durumlarda `grow` değerini `true` olarak ayarlayın.
+
+Tek tip şeffaflık için [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaModulateFixedEffect-float-) kullanın. Bu, mevcut alfa değerlerini çarparak kısmen şeffaf piksellerin orantısal farklılıklarını korur. [addAlphaReplaceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaReplaceEffect-float-) tüm piksellere tek bir alfa değeri atar. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaBiLevelEffect-float-) ise alfa değerini bir eşik temelinde iki seviyeye dönüştürür.
 
 ```java
 import com.aspose.slides.*;
@@ -195,15 +243,15 @@ try {
 }
 ```
 
-Parametresiz diğer alfa işlemleri şunlardır: [addAlphaCeilingEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--) – sıfırdan farklı her alfabı tamamen opak yapar; [addAlphaFloorEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--) – %100 altında kalan her alfabı tamamen şeffaf yapar; ve [addAlphaInverseEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--) – alfabı `100% - alpha` olarak değiştirir.
+Diğer parametresiz alfa işlemleri şunlardır: [addAlphaCeilingEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaCeilingEffect--) tüm sıfır olmayan alfalara %100 opaklık verir; [addAlphaFloorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaFloorEffect--) %100’nin altındaki tüm alfalara %0 şeffaflık verir; ve [addAlphaInverseEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addAlphaInverseEffect--) alfabı `100% - alfa` olarak değiştirir.
 
-## **Sıralı Bir Efekt Zinciri Oluşturma**
+## **Sıralı Bir Etki Zinciri Oluştur**
 
-Her `add...Effect` yöntemi yeni bir işlemi koleksiyonun sonuna ekler. İşleyici koleksiyonu sıralı bir boru hattı olarak kullanır: işlem 0’ın çıktısı işlem 1’in girdisi olur ve bu şekilde devam eder. Dolayısıyla aynı işlemler farklı sırayla uygulandığında farklı bir görüntü elde edilebilir.
+Her `add...Effect` metodu yeni bir işlemi koleksiyonun sonuna ekler. Renderlayıcı koleksiyonu sıralı bir veri yolu olarak kullanır: işlem 0’ın çıktısı işlem 1’in girdisi olur ve böyle devam eder. Dolayısıyla aynı işlemler farklı bir sırada uygulandığında farklı bir görüntü elde edilebilir.
 
-Örneğin, önce gri tonlama sonra tonlama uygulandığında önce renk bilgisi silinir, ardından parlaklık sonucu yeniden renklendirilir. Tonlama ardından gri tonlama ise tonlamayı tekrar kaldırır. Benzer şekilde, alfa değiştirme önceki işlemler tarafından hesaplanan alfa değerlerini geçersiz kılabilir, alfa modülasyonu ise göreceli farkları korur.
+Örneğin, gri tonlama ardından tonlama önce renk bilgisini siler, ardından parlaklık sonucunu yeniden renklendirir. Tonlama ardından gri tonlama ise tonlamayı tekrar kaldırır. Benzer şekilde, alfa değiştirme daha önceki işlemler tarafından hesaplanan alfa değerlerini geçersiz kılabilir, oysa alfa modülasyonu göreceli farklarını korur.
 
-Aşağıdaki örnek dört işlemden oluşan bir zincir oluşturur, PPTX olarak kaydeder, sunumu yeniden açar, hem işlem tiplerini hem de sırasını denetler ve yeniden açılan sonucu işler:
+Aşağıdaki örnek dört işlemden oluşan bir zincir oluşturur, PPTX olarak kaydeder, sunumu yeniden açar, hem işlem tiplerini hem de sırasını kontrol eder ve yeniden açılan sonucu renderlar:
 
 ```java
 import com.aspose.slides.*;
@@ -259,15 +307,22 @@ try {
 }
 ```
 
-Koleksiyon, renk, alfa ve bulanıklık işlemlerini ayrı zincirlere sınırlayan bir uyumluluk matrisi dayatmaz. Birleştirilebilirler, ancak kombinasyonlar her zaman faydalı olmayabilir. Sabit bir renk değiştirme, önceki renk efektleri tarafından üretilen RGB varyasyonunu siler; duotone sonrası gri tonlama iki seçili rengi kaldırır; ve alfa tavan, taban, değiştirme veya iki‑seviye işlemleri, daha önce oluşturulan alfa detaylarını yok edebilir. Zinciri, istenen piksel‑işleme sırasına göre oluşturun; öğeleri sırasız biçim bayrakları gibi düşünmeyin.
+Koleksiyon, renk, alfa ve bulanıklık işlemlerini ayrı zincirlere sınırlayan bir uyumluluk matrisi dayatmaz. Birlikte kullanılabilirler, ama kombinasyonlar her zaman faydalı olmayabilir. Sabit renk değiştirme, önceki renk efektleriyle oluşturulan RGB varyasyonunu kaldırır; duotoneden sonra gri tonlama iki seçili rengi kaldırır; alfa tavan, taban, değiştirme veya iki‑seviyeli işlemler, önceki adımlarda oluşturulan alfa detayını silebilir. Zinciri, istenen piksel‑işleme sırasına göre oluşturun; öğelerini rasgele biçimleme işaretleri gibi düşünmeyin.
 
-## **Düzenlenebilir ve Etkin Değerleri İnceleme**
 
-Düzenlenebilir bir işlem, `ISlidesPicture.getImageTransform` içinde depolanan nesnedir. Efekte bağlı olarak, doğrudan yazılabilir üyeler sunabilir. Örneğin, [IBlur](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iblur/) `radius` ve `grow` değerlerini, [IAlphaModulateFixed](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ialphamodulatefixed/) `amount` değerini, [IAlphaBiLevel](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ialphabilevel/) `threshold` değerini yazılabilir olarak sunar. [IDuotone](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iduotone/) gibi renk efektleri, değiştirilebilir [IColorFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icolorformat/) nesnelerini ortaya çıkarır.
+<!-- visual-explanation:image-transform-effects:start -->
+[![Aynı görüntü önce gri tonlamadan sonra tonlamadan, ardından tonlamadan sonra gri tonlamadan geçer. İki son gri tonlama görüntüsü farklı tonlardadır.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-[IBrightnessContrast](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itint/) ve [IAlphaReplace](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ialphareplace/) gibi bazı işlem arabirimleri, oluşturulma skalerlerini yazılabilir özellik olarak sunmaz. Bu ayarları değiştirmek için işlemi kaldırıp, istenen konumda yeni bir işlem ekleyin.
+*Bu illüstratif Aspose.Slides for .NET 26.11 render’ında, %25 şiddetinde 220° tonlama gri tonlama görüntüsünü değiştirmez. Aynı tonlama gri tonlamadan önce uygulandığında tonlar farklı olur.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-`getEffective()` tarafından döndürülen etkili veri hesaplanmış ve yalnızca‑okunurdur. Tema‑bağımlı renkleri çözümlemek ve işleyicinin kullandığı normalleştirilmiş değerleri okumak için faydalıdır, ancak başka bir düzenleme yüzeyi değildir. Aşağıdaki örnek zinciri sıralar ve ilgili API’nin sağladığı etkili değerleri inceler:
+## **Düzenlenebilir ve Etkin Değerleri İncele**
+
+Düzenlenebilir bir işlem, `ISlidesPicture.getImageTransform` içinde depolanan nesnedir. Etkiye bağlı olarak, yazılabilir üyeler doğrudan ortaya çıkarılabilir. Örneğin, [IBlur](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/) `radius` ve `grow` değerlerini, [IAlphaModulateFixed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphamodulatefixed/) `amount` değerini, [IAlphaBiLevel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphabilevel/) `threshold` değerini yazılabilir olarak sunar. [IDuotone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iduotone/) gibi renk efektleri ise değiştirilebilir [IColorFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/) nesnelerini ortaya çıkarır.
+
+[IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihsl/), [ITint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itint/) ve [IAlphaReplace](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ialphareplace/) gibi bazı işlem arabirimleri, oluşturma ölçeklerini yazılabilir özellikler olarak göstermez. Bu ayarları değiştirmek için işlemi kaldırıp istenen konumda yeni bir işlem ekleyin.
+
+`getEffective()` tarafından döndürülen etkin veri hesaplanmış ve yalnızca‑okunurdur. Tema‑bağımlı renkleri çözümlemek ve renderlayıcının kullandığı normalleştirilmiş değerleri okumak için yararlıdır, ancak düzenleme için ayrı bir yüzey değildir. Aşağıdaki örnek zinciri yineleyerek ilgili API’nin sağladığı yerlerde etkin değerleri inceler:
 
 ```java
 import com.aspose.slides.*;
@@ -331,11 +386,11 @@ try {
 }
 ```
 
-Gri tonlama, alfa tavan ve alfa tersine çevirme gibi parametresiz efektler de bir etkili‑veri nesnesine sahiptir, ancak yazdırılacak skaler ayarları yoktur. Koleksiyondaki varlıkları ve konumları önemli bilgidir.
+Parametresiz efektler (gri tonlama, alfa tavan, alfa tersine çevirme gibi) bir etkin‑veri nesnesine sahiptir, ancak yazdırılacak ölçekli ayarları yoktur. Bulunma ve koleksiyondaki konumları önemli bilgidir.
 
-## **Görüntü Dönüşümlerini Kaldırma veya Temizleme**
+## **Görüntü Dönüşümlerini Kaldır veya Temizle**
 
-Bir işlemi indeksle kaldırmak için [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) kullanın. Kaldırma sonrası indeksler kayar, bu yüzden önce hedefi arayın, ardından sıralama sırasında kaldırın. Tüm zinciri kaldırmak için [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--) kullanın.
+Bir işlemi indeksle kaldırmak için [IImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#removeAt-int-) kullanın. İndeksler kaldırma sonrası kaydığından, önce hedefi bulun ve yinelemeden sonra kaldırın. Tüm zinciri kaldırmak için [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imagetransformoperationcollection/#clear--) metodunu kullanın.
 
 ```java
 import com.aspose.slides.*;
@@ -376,38 +431,38 @@ try {
 }
 ```
 
-Dönüşümleri kaldırmak veya temizlemek yalnızca resim biçimlendirmesini değiştirir. Yeniden kullanılan [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) kaynağı silinmez, yeniden sıkıştırılmaz veya başka bir şekilde değiştirilmez.
+Dönüşümleri kaldırmak veya temizlemek yalnızca resim biçimlendirmesini değiştirir. Yeniden kullanılan [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) kaynağını silmez, yeniden sıkıştırmaz veya başka bir şekilde değiştirmez.
 
 ## **Sunum Biçimlerini ve Dışa Aktarım Hedeflerini Düşünün**
 
-Görüntü dönüşümleri DrawingML içinde ortaya çıkar, bu yüzden PPTX, efekt zincirleri için tercih edilen düzenlenebilir formattır. PPTX bile olsa, her işlem aynı taşınabilirliğe sahip değildir:
+Görüntü dönüşümleri DrawingML içinde ortaya çıkar, bu yüzden PPTX etki zincirleri için tercih edilen düzenlenebilir formattır. PPTX içinde bile, her işlem aynı taşınabilirliğe sahip değildir:
 
-- Luminans, gri tonlama, duotone, tonlama, HSL, bulanıklık ve ortak alfa işlemleri gibi standart DrawingML işlemleri PPTX yuvarlak dönüşünden sonra da kalma olasılığı en yüksek olandır. Kalıcılık bir gereksinimse, oluşturulan dosyayı her zaman yeniden açın ve koleksiyonu kontrol edin.
-- [BrightnessContrast](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/brightnesscontrast/) Office 2010 uzantısıdır, standart DrawingML luminans işlemi değildir. Bellek içi işleme için kullanılabilir, ancak PPTX kaydedilip yeniden açıldıktan sonra düzenlenebilir bir [IBrightnessContrast] olarak kalması garanti değildir. Kalıcı parlaklık ve kontrast ayarları için [addLuminanceEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) tercih edin.
-- İkili PPT formatı, tam DrawingML efekt modelinden önce gelir. PPT’ye kaydetmek, desteklenmeyen işlemleri atabilir, zinciri desteklenen bir alt kümeye indirebilir veya görünümü yaklaşık olarak oluşturabilir. Karmaşık düzenlenebilir bir zincir için PPT’yi doğrulama formatı olarak kullanmayın.
-- PNG, JPEG, TIFF, PDF, SVG, HTML gibi görsel çıktı formatları, desteklenen zinciri işlenmiş görünüme uygular. Bu çıktılar düzenlenebilir bir `IImageTransformOperationCollection` içermez; raster formatları sonucu piksellere döker, belge/vektör dışa aktarımları kendi işleme temsilini saklar.
-- Efektler, bağlantılı bir resmi kendi içinde bağımsız hale getirmez. Bağlantılı bir resmi işlemek, sunum yüklendiğinde bağlantılı kaynağın mevcut olmasına bağlıdır.
+- Luminans, gri tonlama, duotone, tonlama, HSL, bulanıklık ve ortak alfa işlemleri gibi standart DrawingML işlemleri PPTX turunda en yüksek hayatta kalma şansına sahiptir. Oluşturulan dosyayı her zaman yeniden açın ve koleksiyonu kontrol edin; koruma bir gereksinimse bu şarttır.
+- [BrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/brightnesscontrast/) bir Office 2010 uzantısıdır; standart DrawingML luminans işlemi değildir. Bellek içi render için kullanılabilir, fakat kaydedilip PPTX yeniden açıldıktan sonra düzenlenebilir bir [IBrightnessContrast](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibrightnesscontrast/) olarak kalması garanti edilmez. Kalıcı parlaklık ve kontrast ayarları için [addLuminanceEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagetransformoperationcollection/#addLuminanceEffect-float-float-) tercih edilmelidir.
+- Binary PPT formatı tam DrawingML efekt modelinden önce gelir. PPT’ye kaydetmek, desteklenmeyen işlemleri atabilir, zinciri desteklenen bir alt kümeye indirebilir veya görünümü yaklaşık olarak taklit edebilir. Karmaşık düzenlenebilir zincirler için doğrulama formatı olarak PPT kullanmayın.
+- PNG, JPEG, TIFF, PDF, SVG, HTML veya diğer görsel çıktılara renderlamak, desteklenen zinciri render edilen görünüme uygular. Bu çıktılar düzenlenebilir bir `IImageTransformOperationCollection` içermez; raster formatlar sonucu piksel olarak düzleştirir, belge/vektör dışa aktarımları kendi render temsillerini saklar.
+- Efektler bağlantılı bir resmi kendine yeten hâle getirmez. Bağlantılı bir resim renderlanırken, sunum yüklendiğinde bağlanan kaynağın mevcut olması gerekir.
 
-Farklı sunum tüketicileri, özellikle birden çok alfa veya renk‑kuantizasyon işlemi birleştirildiğinde, kenar durumlarını farklı yorumlayabilir. Kritik çıktılar için, üretimde kullanılan aynı Aspose.Slides sürümüyle düzenlenebilir yuvarlak dönüşü ve nihai dışa aktarma formatını test edin.
+Farklı sunum tüketicileri, özellikle birden fazla alfa veya renk‑kuantalama işlemi birleştirildiğinde, kenar durumlarını farklı yorumlayabilir. Kritik çıktılar için aynı Aspose.Slides sürümünü üretimde kullandığınızda, hem düzenlenebilir turu hem de son dışa aktarma formatını test edin.
 
 ## **SSS**
 
-**Görüntü dönüşüm efektleri gömülü görüntü verisini değiştirir mi?**
+**Görüntü dönüşüm efektleri gömülü görüntü verilerini değiştirir mi?**
 
-Hayır. İşlemler, resim doldurması tarafından kullanılan `ISlidesPicture` öğesine aittir. Temel `IPPImage` baytları değişmeden kalır.
+Hayır. İşlemler resim doldurması tarafından kullanılan `ISlidesPicture` içinde yer alır. Altındaki `IPPImage` baytları değişmeden kalır.
 
-**Aynı görüntüyü yeniden kullanan iki resim çerçevesi efektlerini paylaşır mı?**
+**Aynı görüntüyü yeniden kullanan iki resim çerçevesi efektleri paylaşır mı?**
 
-Hayır. `IPPImage` yeniden kullanmak, görüntü verisinin çoğaltılmasını önler, ancak her resim çerçevesi genellikle ayrı bir `ISlidesPicture` ve ayrı bir görüntü dönüşüm koleksiyonuna sahiptir.
+Hayır. `IPPImage` yeniden kullanmak veri çoğaltmayı önler, ancak her resim çerçevesi genellikle ayrı bir `ISlidesPicture` ve ayrı bir görüntü dönüşüm koleksiyonuna sahiptir.
 
-**Renk, bulanıklık ve alpha efektleri birleştirilebilir mi?**
+**Renk, bulanıklık ve alfa efektleri birleştirilebilir mi?**
 
-Evet. Koleksiyon, bunları tek bir sıralı zincirde kabul eder. Önceki işlemin çıktısını sonraki işlem ne şekilde etkilediğini göz önünde bulundurun; değiştirme ve eşik işlemleri önceki renk veya alfa detayını yok edebilir.
+Evet. Koleksiyon tek bir sıralı zincirde bunları kabul eder. Her bir işlemin bir öncekinin çıktısına ne yaptığını düşünün; değiştirme ve eşik işlemleri önceki renk ya da alfa detayını atabilir.
 
 **Etkin değerler neden yalnızca‑okunur?**
 
-Etkin veri, renderleme için kullanılan hesaplanmış değerleri (çözülmüş renkler dahil) temsil eder. Yazılabilir üye bulunan bir işlem varsa, o işlemi koleksiyonda düzenleyin; aksi takdirde işlemi kaldırıp yeni oluşturma parametreleriyle bir yenisini ekleyin.
+Etkin veri, render için kullanılan hesaplanmış değerleri (çözülmüş renkler dahil) temsil eder. Yazılabilir üyeleri olan işlemi koleksiyonda düzenleyin; aksi takdirde işlemi kaldırıp yeni oluşturma parametreleriyle bir yenisini ekleyin.
 
 **Bir dönüşüm zincirini korumak için hangi formatı kullanmalıyım?**
 
-PPTX kullanın ve dosyayı yeniden açarak doğrulayın. Eski PPT, tam DrawingML efekt modelini temsil edemez; renderleme dışa aktarma formatları ise yalnızca görünümü korur, düzenlenebilir dönüşüm işlemlerini içermez.
+PPTX kullanın ve dosyayı yeniden açarak doğrulayın. Eski PPT tam DrawingML efekt modelini temsil edemez; render dışa aktarma formatları yalnızca görünümü korur, düzenlenebilir dönüşüm işlemlerini değil.

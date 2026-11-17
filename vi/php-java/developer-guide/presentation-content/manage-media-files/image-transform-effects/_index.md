@@ -1,5 +1,5 @@
 ---
-title: Quản lý các hiệu ứng biến đổi ảnh trong bản trình chiếu bằng PHP
+title: Quản lý các hiệu ứng biến đổi ảnh trong bài thuyết trình với PHP
 linktitle: Hiệu ứng biến đổi ảnh
 type: docs
 weight: 11
@@ -9,8 +9,8 @@ keywords:
 - hiệu ứng hình ảnh
 - độ sáng
 - độ tương phản
-- thang độ xám
-- đôi sắc
+- xám
+- đôi màu
 - tô màu
 - HSL
 - thay thế màu
@@ -19,53 +19,53 @@ keywords:
 - hiệu ứng alpha
 - chuỗi hiệu ứng
 - PowerPoint
-- bản trình chiếu
+- bài thuyết trình
 - PHP
 - Aspose.Slides
-description: "Áp dụng, tạo chuỗi, kiểm tra, xóa và xác minh các hiệu ứng biến đổi ảnh cho khung hình ảnh bằng Aspose.Slides cho PHP thông qua Java."
+description: "Áp dụng, xâu chuỗi, kiểm tra, xóa và xác minh các hiệu ứng biến đổi ảnh cho khung hình ảnh với Aspose.Slides cho PHP thông qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides biểu diễn các điều chỉnh hình ảnh dưới dạng một bộ sưu tập có thứ tự của các thao tác biến đổi ảnh. Đối với một khung ảnh, bắt đầu với [Picture](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picture/) của khung và truy cập [Picture::getImageTransform](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picture/getimagetransform/). Bộ [ImageTransformOperationCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/) trả về cho phép bạn thêm, liệt kê, kiểm tra, xóa và xóa sạch các hiệu ứng mà không cần ghi lại lại dữ liệu byte ảnh gốc.
+Aspose.Slides biểu diễn các điều chỉnh hình ảnh như một bộ sưu tập có thứ tự các thao tác biến đổi ảnh. Đối với một khung hình ảnh, bắt đầu với [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) của khung và truy cập [Picture::getImageTransform](https://reference.aspose.com/slides/php-java/aspose.slides/picture/getimagetransform/). Bộ sưu tập [ImageTransformOperationCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/) trả về cho phép bạn thêm, liệt kê, kiểm tra, xóa và xóa sạch các hiệu ứng mà không cần ghi lại dữ liệu ảnh gốc.
 
-Bài viết này trình bày một quy trình làm việc hoàn chỉnh cho độ sáng và độ tương phản, biến đổi màu sắc, làm mờ, trong suốt, chuỗi hiệu ứng có thứ tự, giá trị thực tế, loại bỏ và xác minh vòng quay PPTX.
+Bài viết này minh họa quy trình làm việc đầy đủ cho độ sáng và độ tương phản, biến đổi màu, làm mờ, độ trong suốt, chuỗi hiệu ứng có thứ tự, giá trị thực tế, việc xóa, và kiểm chứng vòng quay lại PPTX.
 
-## **Hiểu về quyền sở hữu hiệu ứng và việc tái sử dụng ảnh**
+## **Hiểu quyền sở hữu hiệu ứng và việc tái sử dụng ảnh**
 
 Một tài nguyên ảnh và hình ảnh hiển thị nó là các đối tượng khác nhau:
 
-- [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) lưu trữ hoặc tham chiếu dữ liệu ảnh nguồn do bản trình chiếu sở hữu.
-- [Picture](https://reference.aspose.com/slides/vi/php-java/aspose.slides/picture/) thuộc về một phần nền ảnh và tham chiếu tới tài nguyên ảnh trong khi lưu trữ bộ sưu tập biến đổi ảnh.
-- [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/) là hình dạng trên slide sở hữu phần nền ảnh, hình học, cài đặt cắt và các định dạng cấp khung khác.
+- [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) lưu hoặc tham chiếu dữ liệu ảnh nguồn thuộc bản trình chiếu.
+- [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) thuộc về một fill hình ảnh và tham chiếu tới tài nguyên ảnh đồng thời lưu bộ sưu tập biến đổi ảnh.
+- [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) là hình dạng trên slide sở hữu fill hình ảnh liên quan, hình học, cài đặt cắt và các định dạng cấp khung khác.
 
-Do đó, các thao tác biến đổi ảnh không thay đổi các byte trong [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/). Khi cùng một `PPImage` được truyền cho [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shapecollection/addpictureframe/) nhiều hơn một lần, mỗi khung ảnh mới sẽ nhận một `Picture` và một bộ sưu tập biến đổi riêng. Áp dụng thang độ xám cho một khung không làm các khung khác cũng trở thành thang độ xám, mặc dù tất cả chúng đều tái sử dụng cùng một tài nguyên ảnh được nhúng.
+Do đó, các thao tác biến đổi ảnh không thay đổi byte trong [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/). Khi cùng một `PPImage` được truyền vào [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) nhiều hơn một lần, mỗi khung hình ảnh mới sẽ nhận được `Picture` và bộ sưu tập biến đổi riêng. Áp dụng chuyển đổi xám cho một khung không làm cho các khung khác cũng chuyển sang xám, mặc dù tất cả chúng đều tái sử dụng cùng một tài nguyên ảnh được nhúng.
 
-Mô hình `Picture::getImageTransform` tương tự cũng được sử dụng bởi các phần nền ảnh khác, chẳng hạn như nền hình dạng hoặc nền slide. Các ví dụ dưới đây tập trung vào khung ảnh.
+Mô hình `Picture::getImageTransform` tương tự cũng được sử dụng cho các fill hình ảnh khác, chẳng hạn như hình dạng hoặc nền slide. Các ví dụ bên dưới tập trung vào khung hình ảnh.
 
 ## **Sử dụng phạm vi và đơn vị tham số hợp lệ**
 
-Các phương thức được minh họa sử dụng các phạm vi ngữ nghĩa và đơn vị sau. Giữ các giá trị trong các phạm vi này ngay cả khi một phiên bản thư viện cụ thể không từ chối ngay mọi giá trị ngoài phạm vi; định dạng bản trình chiếu đích có thể chuẩn hoá, bỏ qua hoặc từ chối dữ liệu không hợp lệ trong quá trình lưu hoặc khi PowerPoint mở tệp.
+Các phương thức được minh họa sử dụng các phạm vi ngữ nghĩa và đơn vị sau. Giữ các giá trị trong các phạm vi này ngay cả khi một phiên bản thư viện cụ thể không từ chối ngay mọi giá trị ngoài phạm vi; định dạng bản trình chiếu mục tiêu có thể chuẩn hoá, bỏ qua hoặc từ chối dữ liệu không hợp lệ khi lưu hoặc khi PowerPoint mở file.
 
-| Hoạt động | Tham số | Phạm vi hợp lệ và đơn vị |
+| Thao tác | Tham số | Phạm vi hợp lệ và đơn vị |
 |---|---|---|
-| [addLuminanceEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` tới `100`, phần trăm; `0` giữ thành phần không thay đổi. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | Không có | Không có tham số số. Alpha không thay đổi. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | Hai màu cho các pixel tối và sáng. Kênh RGB và alpha trong `java.awt.Color` dùng giá trị từ `0` tới `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue là `0` bao gồm tới `360` không bao gồm, tính bằng độ; amount là `-100` tới `100`, phần trăm. |
-| [addHSLEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue là `0` bao gồm tới `360` không bao gồm, tính bằng độ; saturation và luminance là `-100` tới `100`, phần trăm. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | Màu thay thế dùng các giá trị kênh từ `0` tới `255`. Các giá trị alpha hiện có không thay đổi. |
-| [addBlurEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Radius không âm và đo bằng points; `grow` là Boolean điều khiển ảnh mờ có thể mở rộng ra ngoài giới hạn gốc hay không. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Phần trăm không âm. Dùng `0` tới `100` cho việc thu nhỏ độ mờ thông thường: `0` hoàn toàn trong suốt và `100` giữ nguyên alpha hiện có. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` tới `100`, phần trăm độ mờ. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` tới `100`, phần trăm ngưỡng alpha. Giá trị dưới ngưỡng trở thành trong suốt; giá trị bằng hoặc trên ngưỡng trở thành không trong suốt. |
+| [addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` tới `100`, phần trăm; `0` giữ thành phần không thay đổi. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | Không có | Không có tham số số. Alpha không thay đổi. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | Hai màu cho pixel tối và sáng. Kênh RGB và alpha trong `java.awt.Color` sử dụng `0` tới `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Hue từ `0` (bao gồm) tới `360` (không bao gồm), đơn vị độ; amount từ `-100` tới `100`, phần trăm. |
+| [addHSLEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Hue từ `0` (bao gồm) tới `360` (không bao gồm), đơn vị độ; saturation và luminance từ `-100` tới `100`, phần trăm. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | Màu thay thế sử dụng giá trị kênh từ `0` tới `255`. Giá trị alpha hiện có không thay đổi. |
+| [addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Bán kính không âm và đo bằng điểm; `grow` là Boolean điều khiển việc nội dung làm mờ có thể mở rộng ra ngoài giới hạn gốc hay không. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Phần trăm không âm. Dùng `0` tới `100` cho việc tỷ lệ độ mờ thông thường: `0` hoàn toàn trong suốt và `100` giữ nguyên alpha hiện có. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` tới `100`, phần trăm độ mờ. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` tới `100`, phần trăm ngưỡng alpha. Giá trị dưới ngưỡng trở thành trong suốt; giá trị bằng hoặc trên ngưỡng trở thành không trong suốt. |
 
-Đối với điều chỉnh alpha cố định, độ trong suốt và độ mờ là các khái niệm đối lập. Ví dụ, độ trong suốt 35 % tương đương với mức điều chỉnh alpha 65 %.
+Đối với việc điều chế alpha cố định, độ trong suốt và độ mờ là các khái niệm bổ sung nhau. Ví dụ, độ trong suốt 35% tương đương với mức điều chế alpha 65%.
 
 ## **Áp dụng độ sáng và độ tương phản**
 
-[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) trả về một thao tác [Luminance](https://reference.aspose.com/slides/vi/php-java/aspose.slides/luminance/). Các thiết lập vô hướng được cung cấp khi tạo thao tác. [Luminance::getEffective](https://reference.aspose.com/slides/vi/php-java/aspose.slides/luminance/geteffective/) trả về các giá trị chỉ đọc đã tính toán mà có thể kiểm tra hoặc ghi log.
+[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) trả về một thao tác [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/). Các cài đặt vô hướng của nó được cung cấp khi tạo thao tác. [Luminance::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/geteffective/) trả về các giá trị chỉ đọc được tính toán, có thể kiểm tra hoặc ghi log.
 
-Ví dụ sau tăng độ sáng lên 15 % và độ tương phản lên 20 %, sau đó hiển thị bản xem trước mà không thay đổi ảnh được nhúng:
+Ví dụ sau tăng độ sáng 15% và độ tương phản 20%, sau đó hiển thị bản xem trước mà không thay đổi ảnh được nhúng:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -107,13 +107,13 @@ try {
 }
 ```
 
-`Luminance` là hiệu ứng độ sáng và độ tương phản chuẩn của DrawingML. Khi các thiết lập này phải vẫn có thể chỉnh sửa sau một vòng quay PPTX, hãy mở lại bản trình chiếu đã lưu và xác minh cả kiểu thao tác và các giá trị thực tế của nó.
+`Luminance` là hiệu ứng độ sáng và độ tương phản chuẩn DrawingML. Khi các cài đặt này phải còn có thể chỉnh sửa sau khi vòng quay PPTX, hãy mở lại bản trình chiếu đã lưu và xác minh cả loại thao tác và các giá trị thực tế của nó.
 
-## **Áp dụng biến đổi màu sắc**
+## **Áp dụng các biến đổi màu**
 
-Các hiệu ứng màu có thể được áp dụng độc lập cho các khung ảnh khác nhau mà tái sử dụng cùng một tài nguyên ảnh. Ví dụ dưới đây tạo năm khung và áp dụng thang độ xám, duotone, tint, điều chỉnh HSL và thay thế màu.
+Các hiệu ứng màu có thể được áp dụng độc lập cho các khung hình ảnh khác nhau mà tái sử dụng cùng một tài nguyên ảnh. Ví dụ sau tạo năm khung và áp dụng chuyển đổi xám, duotone, tint, điều chỉnh HSL và thay thế màu.
 
-[Duotone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/duotone/) chứa hai tham số màu có thể chỉnh sửa độc lập: `color1` ánh xạ các pixel tối, trong khi `color2` ánh xạ các pixel sáng. Điều này làm cho nó trở thành một ví dụ hữu ích về một hiệu ứng có cài đặt phức tạp hơn một giá trị vô hướng duy nhất.
+[Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) chứa hai tham số màu có thể chỉnh sửa độc lập: `color1` ánh xạ các pixel tối, trong khi `color2` ánh xạ các pixel sáng. Đây là một ví dụ hữu ích về hiệu ứng có cài đặt phức tạp hơn một giá trị vô hướng duy nhất.
 
 ```php
 use aspose\slides\Images;
@@ -158,13 +158,62 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) thay thế màu của mỗi pixel bằng một màu cố định trong khi bảo toàn alpha. Nó khác với [addColorChangeEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), thao tác này ánh xạ một màu nguồn sang màu đích và hiển thị cả định dạng màu nguồn và đích.
+[addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) thay thế màu của mỗi pixel bằng một màu cố định trong khi giữ nguyên alpha. Nó khác với [addColorChangeEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), cái mà ánh xạ một màu nguồn thành màu đích và phô bày cả định dạng màu nguồn và đích.
 
-## **Thêm hiệu ứng làm mờ, trong suốt và alpha**
+### **Áp dụng Ngưỡng Luminance**
 
-[addBlurEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) ảnh hưởng đến mọi kênh màu, bao gồm cả alpha. Đặt `grow` thành `true` khi cạnh mờ có thể mở rộng ra ngoài giới hạn ảnh gốc.
+Một ngưỡng luminance có thể làm cho các dấu hiệu mờ trên trang quét dễ phân biệt hơn so với nền. [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) giữ lại các sắc thái xám trung gian. [addBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addbileveleffect/) ánh xạ luminance thành đen hoặc trắng, trong khi [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) áp dụng ngưỡng cho độ trong suốt.
 
-Đối với độ trong suốt đồng nhất, sử dụng [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). Nó nhân mỗi giá trị alpha hiện có, vì vậy các pixel bán trong suốt vẫn giữ tỷ lệ khác nhau. [addAlphaReplaceEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) thay vào đó gán một giá trị alpha cho mọi pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) chuyển đổi alpha thành hai mức dựa trên một ngưỡng.
+Ngưỡng luminance dao động từ 0% tới 100%, bao gồm cả hai đầu. Các pixel dưới ngưỡng trở thành đen. Các pixel ở hoặc trên ngưỡng trở thành trắng. Tăng ngưỡng sẽ làm nhiều sắc thái hơn trở thành đen vì chúng rơi dưới mức cắt.
+
+Tải xuống [grayscale-swatches.png](grayscale-swatches.png) vào thư mục chứa script PHP. Mỗi nhãn hiển thị mức xám gốc trên thang từ 0 đến 255. Ví dụ đặt bản gốc bên cạnh hai bản sao và lưu ngưỡng của mỗi bản sao vào bản trình chiếu.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 150, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $sourceImage = Images::fromFile(__DIR__ . "/grayscale-swatches.png");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
+
+    $captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    $frames = [];
+    foreach ($captions as $index => $caption) {
+        $x = 12 + 240 * $index;
+        $label = $shapes->addAutoShape(ShapeType::Rectangle, $x, 12, 216, 36);
+        $label->getTextFrame()->setText($caption);
+        $frames[] = $shapes->addPictureFrame(ShapeType::Rectangle, $x, 60, 216, 72, $image);
+    }
+
+    $frames[1]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(20);
+    $frames[2]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(60);
+
+    $presentation->save(__DIR__ . "/luminance-threshold.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Mở bản trình chiếu đầu ra trong PowerPoint để so sánh ba khung. Swatch có nhãn 96 có khoảng 38% luminance (96 trên 255). Nó chuyển thành trắng ở ngưỡng 20% và thành đen ở ngưỡng 60%.
+
+![Các mẫu xám gốc bên cạnh kết quả đen‑trắng ở ngưỡng luminance 20% và 60%](luminance-threshold.png)
+
+## **Thêm làm mờ, độ trong suốt và hiệu ứng Alpha**
+
+[addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) ảnh hưởng tới tất cả các kênh màu, bao gồm alpha. Đặt `grow` thành `true` khi cạnh làm mờ có thể mở rộng ra ngoài giới hạn ảnh gốc.
+
+Đối với độ trong suốt đồng đều, dùng [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). Nó nhân mỗi giá trị alpha hiện có, vì vậy các pixel bán trong suốt vẫn giữ tỉ lệ khác nhau. [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) thay vào đó gán một giá trị alpha cho tất cả các pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) chuyển alpha thành hai mức dựa trên một ngưỡng.
 
 ```php
 use aspose\slides\Images;
@@ -207,15 +256,15 @@ try {
 }
 ```
 
-Các thao tác alpha không có tham số khác bao gồm [addAlphaCeilingEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/), làm cho mọi alpha khác 0 trở nên hoàn toàn không trong suốt; [addAlphaFloorEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/), làm cho mọi alpha dưới 100 % trở nên hoàn toàn trong suốt; và [addAlphaInverseEffect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/), đổi alpha thành `100% - alpha`.
+Các thao tác alpha không có tham số khác bao gồm [addAlphaCeilingEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/), làm cho mọi alpha khác 0 trở nên hoàn toàn không trong suốt; [addAlphaFloorEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/), làm mọi alpha dưới 100% thành hoàn toàn trong suốt; và [addAlphaInverseEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/), chuyển alpha thành `100% - alpha`.
 
 ## **Xây dựng chuỗi hiệu ứng có thứ tự**
 
-Mỗi phương thức `add...Effect` thêm một thao tác mới vào cuối bộ sưu tập. Bộ render sử dụng bộ sưu tập như một pipeline có thứ tự: đầu ra của phép toán 0 trở thành đầu vào của phép toán 1, và cứ thế tiếp tục. Do đó, cùng một tập hợp thao tác nhưng theo thứ tự khác có thể tạo ra ảnh khác nhau.
+Mỗi phương thức `add...Effect` thêm một thao tác mới vào cuối bộ sưu tập. Trình render sử dụng bộ sưu tập như một pipeline có thứ tự: đầu ra của thao tác 0 trở thành đầu vào của thao tác 1, và cứ tiếp tục. Do đó, cùng các thao tác nhưng thứ tự khác nhau có thể tạo ra ảnh khác.
 
-Ví dụ, thang độ xám rồi tint đầu tiên loại bỏ thông tin màu và sau đó tô lại kết quả độ sáng. Tint rồi thang độ xám lại loại bỏ tint. Tương tự, thay thế alpha có thể ghi đè các giá trị alpha được tính bởi các thao tác trước, trong khi điều chỉnh alpha bảo toàn sự khác biệt tương đối của chúng.
+Ví dụ, xám rồi tint đầu tiên loại bỏ thông tin màu và sau đó tô lại kết quả luminance. Tint rồi xám lại loại bỏ tint. Tương tự, việc thay thế alpha có thể ghi đè các giá trị alpha được tính bởi các thao tác trước, trong khi điều chế alpha giữ lại sự khác biệt tương đối của chúng.
 
-Ví dụ sau xây dựng một chuỗi bốn thao tác, lưu dưới dạng PPTX, mở lại bản trình chiếu, kiểm tra cả kiểu thao tác và thứ tự của chúng, và hiển thị kết quả đã mở lại:
+Ví dụ sau xây dựng chuỗi bốn thao tác, lưu dưới dạng PPTX, mở lại bản trình chiếu, kiểm tra cả loại thao tác và thứ tự của chúng, và hiển thị kết quả đã mở lại:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -278,15 +327,21 @@ try {
 }
 ```
 
-Bộ sưu tập không áp đặt một ma trận tương thích hạn chế các thao tác màu, alpha và làm mờ vào các chuỗi riêng biệt. Chúng có thể được kết hợp, nhưng không phải lúc nào cũng hữu ích. Thay thế màu cố định sẽ xóa các biến thể RGB được tạo bởi các hiệu ứng màu trước; thang độ xám sau duotone sẽ xóa hai màu đã chọn; và các thao tác alpha ceiling, floor, replacement hoặc bi‑level có thể loại bỏ chi tiết alpha được tạo ra trước. Hãy xây dựng chuỗi theo trình tự xử lý pixel mong muốn thay vì coi các mục là các cờ định dạng không có thứ tự.
+Bộ sưu tập không áp đặt một ma trận tương thích hạn chế các thao tác màu, alpha và làm mờ vào các chuỗi riêng biệt. Chúng có thể được kết hợp, nhưng không phải lúc nào cũng hữu ích. Thay thế màu cố định loại bỏ biến thể RGB do các hiệu ứng màu trước đó tạo ra; xám sau duotone loại bỏ hai màu đã chọn; và các thao tác alpha ceiling, floor, replacement hoặc bi‑level có thể loại bỏ chi tiết alpha được tạo ra trước. Xây dựng chuỗi dựa trên trình tự xử lý pixel mong muốn thay vì coi các mục như các cờ định dạng không thứ tự.
 
-## **Kiểm tra giá trị có thể chỉnh sửa và giá trị thực tế**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Một thao tác có thể chỉnh sửa là đối tượng lưu trong `Picture::getImageTransform`. Tùy thuộc vào hiệu ứng, nó có thể trực tiếp khai báo các thành viên ghi được. Ví dụ, [Blur](https://reference.aspose.com/slides/vi/php-java/aspose.slides/blur/) cung cấp các giá trị ghi được `radius` và `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/vi/php-java/aspose.slides/alphamodulatefixed/) cung cấp `amount` ghi được, và [AlphaBiLevel](https://reference.aspose.com/slides/vi/php-java/aspose.slides/alphabilevel/) cung cấp `threshold` ghi được. Các hiệu ứng màu như [Duotone](https://reference.aspose.com/slides/vi/php-java/aspose.slides/duotone/) cung cấp các đối tượng [ColorFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/colorformat/) có thể thay đổi.
+*Trong bản render Aspose.Slides for .NET 26.11 minh họa này, một tint 220° ở mức 25% để lại hình ảnh xám không thay đổi. Áp dụng cùng một tint trước khi chuyển sang xám tạo ra các tông màu khác nhau.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Một số thao tác, bao gồm [Luminance](https://reference.aspose.com/slides/vi/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/vi/php-java/aspose.slides/tint/) và [AlphaReplace](https://reference.aspose.com/slides/vi/php-java/aspose.slides/alphareplace/), không khai báo các tham số tạo dưới dạng thuộc tính ghi được. Để thay đổi các cài đặt này, cần xóa thao tác và thêm một thao tác thay thế tại vị trí yêu cầu.
+## **Kiểm tra các giá trị có thể chỉnh sửa và giá trị thực tế**
 
-Dữ liệu thực tế trả về bởi `getEffective()` được tính toán và chỉ đọc. Nó hữu ích để giải quyết các màu phụ thuộc chủ đề và đọc các giá trị đã chuẩn hoá mà bộ render sử dụng, nhưng không phải là một bề mặt chỉnh sửa khác. Ví dụ sau liệt kê chuỗi và kiểm tra các giá trị thực tế khi API tương ứng cung cấp chúng:
+Một thao tác có thể chỉnh sửa là đối tượng được lưu trong `Picture::getImageTransform`. Tùy thuộc vào hiệu ứng, nó có thể cung cấp các thành viên ghi được trực tiếp. Ví dụ, [Blur](https://reference.aspose.com/slides/php-java/aspose.slides/blur/) cung cấp các giá trị ghi được `radius` và `grow`, [AlphaModulateFixed](https://reference.aspose.com/slides/php-java/aspose.slides/alphamodulatefixed/) cung cấp một `amount` ghi được, và [AlphaBiLevel](https://reference.aspose.com/slides/php-java/aspose.slides/alphabilevel/) cung cấp một `threshold` ghi được. Các hiệu ứng màu như [Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) cung cấp các đối tượng [ColorFormat](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/) có thể thay đổi.
+
+Một số thao tác, bao gồm [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/php-java/aspose.slides/tint/), và [AlphaReplace](https://reference.aspose.com/slides/php-java/aspose.slides/alphareplace/), không cung cấp các vô hướng tạo ra dưới dạng thuộc tính ghi được. Để thay đổi những cài đặt này, hãy xóa thao tác và thêm một thao tác thay thế ở vị trí yêu cầu.
+
+Dữ liệu thực tế được trả về bởi `getEffective()` được tính toán và chỉ đọc. Nó hữu ích để giải quyết các màu phụ thuộc theme và đọc các giá trị đã chuẩn hoá mà trình render sử dụng, nhưng không phải là một bề mặt chỉnh sửa khác. Ví dụ sau liệt kê chuỗi và kiểm tra các giá trị thực tế ở những nơi API tương ứng cung cấp chúng:
 
 ```php
 use aspose\slides\Presentation;
@@ -350,11 +405,11 @@ try {
 }
 ```
 
-Các hiệu ứng không có tham số như thang độ xám, alpha ceiling và alpha inverse vẫn có một đối tượng dữ liệu thực tế, nhưng không có cài đặt vô hướng để in ra. Sự hiện diện và vị trí của chúng trong bộ sưu tập là thông tin quan trọng.
+Các hiệu ứng không có tham số như xám, alpha ceiling và alpha inverse vẫn có đối tượng dữ liệu thực tế, nhưng không có cài đặt vô hướng để in. Sự tồn tại và vị trí của chúng trong bộ sưu tập là thông tin quan trọng.
 
 ## **Xóa hoặc xóa sạch các biến đổi ảnh**
 
-Sử dụng [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/removeat/) để xóa một thao tác theo chỉ mục. Vì các chỉ mục sẽ dịch chuyển sau khi xóa, hãy tìm kiếm mục tiêu trước và xóa nó sau khi đã liệt kê. Sử dụng [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/vi/php-java/aspose.slides/imagetransformoperationcollection/clear/) để xóa toàn bộ chuỗi.
+Dùng [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/removeat/) để xóa một thao tác theo chỉ mục. Vì các chỉ mục thay đổi sau khi xóa, hãy tìm mục tiêu trước và xóa nó sau khi liệt kê. Dùng [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/clear/) để xóa toàn bộ chuỗi.
 
 ```php
 use aspose\slides\Presentation;
@@ -400,37 +455,37 @@ try {
 }
 ```
 
-Xóa hoặc xóa sạch các biến đổi chỉ thay đổi định dạng hình ảnh. Nó không xóa, nén lại hoặc thay đổi tài nguyên [PPImage](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ppimage/) được tái sử dụng.
+Xóa hoặc xóa sạch các biến đổi chỉ thay đổi định dạng hình ảnh. Nó không xóa, nén lại hoặc thay đổi tài nguyên [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) được tái sử dụng.
 
-## **Cân nhắc định dạng bản trình chiếu và mục tiêu xuất**
+## **Xem xét định dạng bản trình chiếu và mục tiêu xuất khẩu**
 
-Các biến đổi ảnh bắt nguồn từ DrawingML, vì vậy PPTX là định dạng chỉnh sửa ưu tiên cho các chuỗi hiệu ứng. Ngay cả với PPTX, không phải mọi thao tác đều có tính di động tương đương:
+Các biến đổi ảnh bắt nguồn từ DrawingML, vì vậy PPTX là định dạng chỉnh sửa được ưu tiên cho các chuỗi hiệu ứng. Ngay cả với PPTX, không phải mọi thao tác đều có khả năng di chuyển tương thích hoàn toàn:
 
-- Các thao tác DrawingML tiêu chuẩn như luminance, grayscale, duotone, tint, HSL, blur và các thao tác alpha thông thường có khả năng tồn tại cao nhất sau một vòng quay PPTX. Luôn mở lại tệp đã tạo và kiểm tra bộ sưu tập khi việc bảo tồn là yêu cầu.
-- Định dạng PPT nhị phân xuất hiện trước mô hình hiệu ứng DrawingML đầy đủ. Lưu thành PPT có thể bỏ qua các thao tác không được hỗ trợ, giảm chuỗi xuống một tập con được hỗ trợ, hoặc xấp xỉ giao diện. Không nên dùng PPT làm định dạng xác minh cho một chuỗi chỉnh sửa phức tạp.
-- Kết xuất sang PNG, JPEG, TIFF, PDF, SVG, HTML hoặc các đầu ra hình ảnh khác áp dụng chuỗi đã hỗ trợ lên giao diện kết xuất. Các đầu ra này không chứa một `ImageTransformOperationCollection` có thể chỉnh sửa; định dạng raster làm phẳng kết quả thành các pixel, và các xuất tài liệu hoặc vector lưu trữ biểu diễn render riêng của chúng.
-- Hiệu ứng không làm cho một ảnh được liên kết tự chứa. Việc render một hình ảnh liên kết vẫn phụ thuộc vào việc tài nguyên liên kết có sẵn khi bản trình chiếu được tải.
+- Các thao tác DrawingML chuẩn như luminance, grayscale, duotone, tint, HSL, blur và các thao tác alpha phổ biến có khả năng tồn tại sau một vòng quay PPTX tốt nhất. Luôn mở lại tệp đã tạo và kiểm tra bộ sưu tập khi cần bảo tồn.
+- Định dạng PPT nhị phân được tạo ra trước mô hình hiệu ứng DrawingML đầy đủ. Lưu thành PPT có thể bỏ qua các thao tác không được hỗ trợ, giảm chuỗi xuống thành tập hợp được hỗ trợ, hoặc xấp xỉ giao diện. Không sử dụng PPT làm định dạng kiểm chứng cho một chuỗi chỉnh sửa phức tạp.
+- Render ra PNG, JPEG, TIFF, PDF, SVG, HTML hoặc các đầu ra trực quan khác áp dụng chuỗi được hỗ trợ vào kết quả hiển thị. Những đầu ra này không chứa `ImageTransformOperationCollection` có thể chỉnh sửa; các định dạng raster làm phẳng kết quả thành pixel, và các xuất khẩu tài liệu hoặc vector lưu đại diện render riêng của chúng.
+- Các hiệu ứng không làm cho một hình ảnh được liên kết tự chứa. Render một hình ảnh liên kết vẫn phụ thuộc vào tài nguyên liên kết có sẵn khi bản trình chiếu được tải.
 
-Các trình duyệt bản trình chiếu khác nhau có thể render các trường hợp biên khác nhau, đặc biệt khi nhiều thao tác alpha hoặc lượng màu được kết hợp. Đối với đầu ra quan trọng, hãy kiểm tra cả vòng quay chỉnh sửa và định dạng xuất cuối cùng bằng cùng phiên bản Aspose.Slides được sử dụng trong môi trường sản xuất.
+Các trình tiêu thụ bản trình chiếu khác nhau có thể render các trường hợp biên giới khác nhau, đặc biệt khi nhiều thao tác alpha hoặc màu được kết hợp. Đối với đầu ra quan trọng, hãy thử cả vòng quay chỉnh sửa và định dạng xuất cuối cùng với cùng phiên bản Aspose.Slides được dùng trong môi trường sản xuất.
 
 ## **Câu hỏi thường gặp**
 
 **Các hiệu ứng biến đổi ảnh có thay đổi dữ liệu ảnh được nhúng không?**
 
-Không. Các thao tác thuộc về `Picture` được sử dụng bởi phần nền ảnh. Các byte `PPImage` nền tảng vẫn không bị thay đổi.
+Không. Các thao tác thuộc về `Picture` được sử dụng bởi fill hình ảnh. Các byte `PPImage` nền tảng vẫn không bị thay đổi.
 
-**Hai khung ảnh tái sử dụng cùng một ảnh có chia sẻ các hiệu ứng không?**
+**Hai khung hình ảnh tái sử dụng cùng một ảnh có chia sẻ hiệu ứng không?**
 
-Không. Tái sử dụng một `PPImage` tránh trùng lặp dữ liệu ảnh, nhưng mỗi khung ảnh thường có một `Picture` và một bộ sưu tập biến đổi ảnh riêng.
+Không. Tái sử dụng `PPImage` tránh trùng lặp dữ liệu ảnh, nhưng mỗi khung hình ảnh thường có một `Picture` và bộ sưu tập biến đổi ảnh riêng.
 
 **Có thể kết hợp các hiệu ứng màu, làm mờ và alpha không?**
 
-Có. Bộ sưu tập chấp nhận chúng trong một chuỗi có thứ tự. Hãy cân nhắc mỗi thao tác sẽ ảnh hưởng như thế nào tới kết quả của thao tác trước vì các thao tác thay thế và ngưỡng có thể loại bỏ chi tiết màu hoặc alpha đã tạo trước.
+Có. Bộ sưu tập cho phép chúng trong một chuỗi có thứ tự. Hãy cân nhắc tác động của mỗi thao tác lên kết quả của thao tác trước vì các thao tác thay thế và ngưỡng có thể loại bỏ chi tiết màu hoặc alpha đã có.
 
-**Tại sao các giá trị thực tế là chỉ đọc?**
+**Tại sao các giá trị thực tế lại chỉ đọc?**
 
-Dữ liệu thực tế đại diện cho các giá trị đã tính toán dùng cho render, bao gồm các màu đã được giải quyết. Hãy chỉnh sửa thao tác lưu trong bộ sưu tập biến đổi nơi các thành viên ghi được tồn tại; nếu không, hãy xóa nó và thêm một thao tác thay thế với các tham số tạo mới.
+Dữ liệu thực tế đại diện cho các giá trị đã tính toán dùng cho render, bao gồm các màu đã được giải quyết. Chỉnh sửa thao tác lưu trong bộ sưu tập biến đổi nơi có thành viên ghi được; nếu không, hãy xóa và thêm một thao tác thay thế với các tham số tạo mới.
 
-**Định dạng nào nên dùng để bảo tồn một chuỗi biến đổi?**
+**Định dạng nào nên dùng để bảo tồn chuỗi biến đổi?**
 
-Sử dụng PPTX và xác minh tệp bằng cách mở lại. PPT cũ không thể biểu diễn đầy đủ mô hình hiệu ứng DrawingML, và các định dạng xuất render chỉ bảo tồn giao diện chứ không phải các thao tác biến đổi có thể chỉnh sửa.
+Sử dụng PPTX và xác minh tệp bằng cách mở lại. PPT cũ không thể biểu diễn đầy đủ mô hình hiệu ứng DrawingML, và các định dạng xuất khẩu render chỉ bảo tồn giao diện thay vì các thao tác biến đổi có thể chỉnh sửa.

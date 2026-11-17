@@ -1,71 +1,71 @@
 ---
-title: Verwalten von Bildtransformations‑Effekten in Präsentationen mit Python
-linktitle: Bildtransformations‑Effekte
+title: Bildtransformations-Effekte in Präsentationen mit Python verwalten
+linktitle: Bildtransformations-Effekte
 type: docs
 weight: 11
 url: /de/python-net/image-transform-effects/
 keywords:
 - Bildtransformation
-- Bildeffekt
+- Bild-Effekt
 - Helligkeit
 - Kontrast
 - Graustufen
 - Duoton
-- Farbton
+- Tönung
 - HSL
-- Farbe​ersetzung
+- Farbersatz
 - Unschärfe
 - Transparenz
-- Alpha‑Effekt
+- Alpha-Effekt
 - Effektkette
 - PowerPoint
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Bildtransformations‑Effekte für Bildrahmen mit Aspose.Slides für Python via .NET anwenden, verketten, inspizieren, entfernen und verifizieren."
+description: "Anwenden, verketten, inspizieren, entfernen und verifizieren von Bildtransformations-Effekten für Bildrahmen mit Aspose.Slides für Python über .NET."
 ---
 ## **Übersicht**
 
-Aspose.Slides stellt Bildanpassungen als eine geordnete Sammlung von Bildtransformations‑Operationen dar. Für einen Bildrahmen beginnen Sie mit dem **[Bild](https://reference.aspose.com/slides/de/python-net/aspose.slides/picture/)** des Rahmens und greifen auf dessen **[image_transform](https://reference.aspose.com/slides/de/python-net/aspose.slides/picture/image_transform/)**‑Eigenschaft zu. Die zurückgegebene **[ImageTransformOperationCollection](https://reference.aspose.com/slides/de/python-net/aspose.slides/effects/imagetransformoperationcollection/)** ermöglicht das Anhängen, Aufzählen, Inspizieren, Entfernen und Leeren von Effekten, ohne die ursprünglichen Bildbytes neu zu schreiben.
+Aspose.Slides stellt Bildanpassungen als geordnete Sammlung von Bildtransformationsoperationen dar. Für einen Bildrahmen beginnen Sie mit dem [Picture](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) des Rahmens und greifen auf dessen [image_transform](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image_transform/) Eigenschaft zu. Die zurückgegebene [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/) ermöglicht das Anhängen, Aufzählen, Inspizieren, Entfernen und Löschen von Effekten, ohne die ursprünglichen Bildbytes neu zu schreiben.
 
-Dieser Artikel demonstriert einen vollständigen Arbeitsablauf für Helligkeit und Kontrast, Farbtransformationen, Unschärfe, Transparenz, geordnete Effektketten, effektive Werte, Entfernen und die PPTX‑Rundreise‑Verifikation.
+Dieser Artikel demonstriert einen vollständigen Workflow für Helligkeit und Kontrast, Farbtransformationen, Unschärfe, Transparenz, geordnete Effektketten, effektive Werte, Entfernen und PPTX‑Rundtrip‑Verifizierung.
 
-## **Verständnis von Effektbesitz und Bildwiederverwendung**
+## **Verständnis von Effekt‑Eigentümerschaft und Bildwiederverwendung**
 
-Eine Bildressource und das Bild, das sie anzeigt, sind unterschiedliche Objekte:
+Eine Bildressource und das Bild, das sie darstellt, sind unterschiedliche Objekte:
 
-- **[PPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ppimage/)** speichert oder referenziert die Quelldaten des Bildes, die zur Präsentation gehören.
-- **[Picture](https://reference.aspose.com/slides/de/python-net/aspose.slides/picture/)** gehört zu einer Bildfüllung, verweist auf eine Bildressource und enthält die Bildtransformations‑Sammlung.
-- **[PictureFrame](https://reference.aspose.com/slides/de/python-net/aspose.slides/pictureframe/)** ist die Folienform, die die zugehörige Bildfüllung, Geometrie, Beschneidungseinstellungen und weitere rahmenspezifische Formatierungen besitzt.
+- [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) speichert oder referenziert die Quellbilddaten, die zur Präsentation gehören.
+- [Picture](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) gehört zu einer Bildfüllung und verweist auf eine Bildressource, während es die Bildtransformationssammlung speichert.
+- [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) ist die Folienform, die die zugehörige Bildfüllung, Geometrie, Zuschnitt‑Einstellungen und andere Rahmen‑Formatierungen besitzt.
 
-Daher ändern Bildtransformations‑Operationen die Bytes in **[PPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ppimage/)** nicht. Wenn dasselbe `PPImage` mehr als einmal an **[ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_picture_frame/)** übergeben wird, erhält jeder neue Bildrahmen sein eigenes `Picture` und seine eigene Transformations‑Sammlung. Das Anwenden von Graustufen auf einen Rahmen macht die anderen Rahmen nicht graustufig, obwohl alle dieselbe eingebettete Bildressource wiederverwenden.
+Daher ändern Bildtransformationsoperationen nicht die Bytes in [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/). Wenn dasselbe `PPImage` mehrmals an [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) übergeben wird, erhält jeder neue Bildrahmen sein eigenes `Picture` und seine eigene Transformationssammlung. Das Anwenden von Graustufen auf einen Rahmen macht die anderen Rahmen nicht zu Graustufen, obwohl alle dieselbe eingebettete Bildressource wiederverwenden.
 
-Das gleiche **Picture.image_transform**‑Modell wird auch von anderen Bildfüllungen verwendet, etwa einer Form oder einem Folienhintergrund. Die nachfolgenden Beispiele konzentrieren sich auf Bildrahmen.
+Das gleiche `Picture.image_transform`‑Modell wird auch von anderen Bildfüllungen verwendet, z. B. einer Form oder Folien‑Hintergrund. Die nachfolgenden Beispiele konzentrieren sich auf Bildrahmen.
 
 ## **Verwendung gültiger Parameterbereiche und Einheiten**
 
-Die demonstrierten Methoden verwenden die folgenden semantischen Bereiche und Einheiten. Halten Sie die Werte in diesen Bereichen, selbst wenn eine bestimmte Bibliotheksversion nicht sofort jeden Werte‑Außerhalb‑Bereich ablehnt; das Ziel‑Präsentationsformat kann ungültige Daten beim Speichern normalisieren, weglassen oder ablehnen, oder PowerPoint kann die Datei beim Öffnen ablehnen.
+Die demonstrierten Methoden verwenden die folgenden semantischen Bereiche und Einheiten. Halten Sie die Werte in diesen Bereichen, selbst wenn eine bestimmte Bibliotheksversion nicht sofort jeden außerhalb des Bereichs liegenden Wert ablehnt; das Ziel‑Präsentationsformat kann ungültige Daten beim Speichern normalisieren, weglassen oder ablehnen, wenn PowerPoint die Datei öffnet.
 
-| Vorgang | Parameter | Gültiger Bereich und Einheit |
+| Operation | Parameter | Gültiger Bereich und Einheit |
 |---|---|---|
-| [add_brightness_contrast_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) | `brightness`, `contrast` | `-100` bis `100`, Prozent; `0` belässt die Komponente unverändert. |
-| [add_gray_scale_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) | Keine | Keine numerischen Parameter. Alpha bleibt unverändert. |
-| [add_duotone_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_duotone_effect/) | `color1`, `color2` | Zwei Farben für dunkle bzw. helle Pixel. RGB‑ und Alpha‑Kanäle verwenden `0` bis `255`. |
-| [add_tint_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_tint_effect/) | `hue`, `amount` | Farbton ist `0` inkl. bis `360` excl., in Grad; Menge ist `-100` bis `100`, Prozent. |
-| [add_hsl_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_hsl_effect/) | `hue`, `saturation`, `luminance` | Farbton ist `0` inkl. bis `360` excl., in Grad; Sättigung und Luminanz sind `-100` bis `100`, Prozent. |
-| [add_color_replace_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) | `color` | Die Ersatzfarbe verwendet Kanalwerte von `0` bis `255`. Bestehende Alpha‑Werte bleiben unverändert. |
-| [add_blur_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) | `radius`, `grow` | Radius ist nicht negativ und wird in Punkt gemessen; `grow` ist ein Boolescher Wert, der steuert, ob verwischter Inhalt über die ursprünglichen Grenzen hinausreichen darf. |
-| [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) | `amount` | Nicht‑negative Prozentzahl. Verwenden Sie `0` bis `100` für gewöhnliche Opazitäts‑Skalierung: `0` ist völlig transparent und `100` erhält das bestehende Alpha. |
-| [add_alpha_replace_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) | `alpha` | `0` bis `100`, Prozent‑Opazität. |
-| [add_alpha_bi_level_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) | `threshold` | `0` bis `100`, Prozent‑Alpha‑Schwelle. Werte darunter werden transparent; Werte darüber oder gleich werden undurchsichtig. |
+| [add_brightness_contrast_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) | `brightness`, `contrast` | `-100` bis `100`, Prozent; `0` lässt die Komponente unverändert. |
+| [add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) | None | Keine numerischen Parameter. Alpha bleibt unverändert. |
+| [add_duotone_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_duotone_effect/) | `color1`, `color2` | Zwei Farben für dunkle bzw. helle Pixel. RGB‑ und Alpha‑Kanäle verwenden `0` bis `255`. |
+| [add_tint_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_tint_effect/) | `hue`, `amount` | Farbton ist `0` (inklusive) bis `360` (exklusiv) Grad; Betrag ist `-100` bis `100` Prozent. |
+| [add_hsl_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_hsl_effect/) | `hue`, `saturation`, `luminance` | Farbton ist `0` (inklusive) bis `360` (exklusiv) Grad; Sättigung und Luminanz sind `-100` bis `100` Prozent. |
+| [add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) | `color` | Die Ersatzfarbe verwendet Kanalwerte von `0` bis `255`. Vorhandene Alpha‑Werte bleiben unverändert. |
+| [add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) | `radius`, `grow` | Radius ist nichtnegativ und wird in Punkten gemessen; `grow` ist ein Boolescher Wert, der steuert, ob unscharfer Inhalt über die ursprünglichen Grenzen hinaus erweitert werden darf. |
+| [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) | `amount` | Nichtnegatives Prozent. Verwenden Sie `0` bis `100` für die übliche Deckkraftskalierung: `0` ist vollständig transparent und `100` erhält das vorhandene Alpha. |
+| [add_alpha_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) | `alpha` | `0` bis `100` Prozent Deckkraft. |
+| [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) | `threshold` | `0` bis `100` Prozent Alpha‑Schwellenwert. Werte darunter werden transparent; Werte gleich oder darüber werden opa­k. |
 
-Für feste Alpha‑Modulation sind Transparenz und Opazität komplementär. Beispiel: 35 % Transparenz entsprechen einer Alpha‑Modulations‑Menge von 65 %.
+Bei fester Alpha‑Modulation sind Transparenz und Deckkraft komplementär. Zum Beispiel entspricht 35 % Transparenz einem Alpha‑Modulationswert von 65 %.
 
-## **Anwenden von Helligkeit und Kontrast**
+## **Helligkeit und Kontrast anwenden**
 
-[ImageTransformOperationCollection.add_brightness_contrast_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) liefert eine **[BrightnessContrast](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/brightnesscontrast/)**‑Operation. Ihre Skalar‑Einstellungen werden beim Erzeugen der Operation übergeben. **[BrightnessContrast.get_effective](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/brightnesscontrast/get_effective/)** gibt berechnete, nur‑lesbare Werte zurück, die inspiziert oder protokolliert werden können.
+[ImageTransformOperationCollection.add_brightness_contrast_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) gibt eine [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/)‑Operation zurück. Ihre skalar­en Einstellungen werden beim Erstellen der Operation übergeben. [BrightnessContrast.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/get_effective/) liefert berechnete schreibgeschützte Werte, die inspiziert oder protokolliert werden können.
 
-Das folgende Beispiel erhöht die Helligkeit um 15 % und den Kontrast um 20 %, dann rendert es eine Vorschau, ohne das eingebettete Bild zu verändern:
+Das folgende Beispiel erhöht die Helligkeit um 15 % und den Kontrast um 20 % und rendert anschließend eine Vorschau, ohne das eingebettete Bild zu ändern:
 
 ```python
 import aspose.slides as slides
@@ -88,13 +88,13 @@ with slides.Presentation() as presentation:
         preview.save("brightness-contrast-preview.png")
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/brightnesscontrast/) ist eine Office‑2010‑Bild‑Effekt‑Erweiterung und weniger portabel als der standardmäßige DrawingML‑Luminanz‑Effekt. Wenn Helligkeit und Kontrast nach einer PPTX‑Rundreise editierbar bleiben müssen, verwenden Sie **[ImageTransformOperationCollection.add_luminance_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/)** und prüfen Sie das Ergebnis nach dem erneuten Öffnen der Datei. Der Abschnitt *Formatbeschränkungen* erklärt diesen Unterschied ausführlicher.
+[BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) ist eine Office‑2010‑Bildeffekt‑Erweiterung und weniger portabel als der standardmäßige DrawingML‑Luminanz‑Effekt. Wenn Helligkeit und Kontrast nach einem PPTX‑Rundtrip editierbar bleiben müssen, verwenden Sie [ImageTransformOperationCollection.add_luminance_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) und prüfen Sie das Ergebnis nach dem erneuten Öffnen der Datei. Der Abschnitt zu Formatbeschränkungen erklärt diesen Unterschied ausführlicher.
 
-## **Anwenden von Farbtransformationen**
+## **Farbtransformationen anwenden**
 
-Farbeffekte können unabhängig auf verschiedene Bildrahmen angewendet werden, die dieselbe Bildressource wiederverwenden. Das folgende Beispiel erstellt fünf Rahmen und wendet Graustufen, Duotone, Farbton, HSL‑Anpassung und Farbersetzung an.
+Farbeffekte können unabhängig auf verschiedene Bildrahmen angewendet werden, die dieselbe Bildressource wiederverwenden. Das folgende Beispiel erstellt fünf Rahmen und wendet Graustufen, Duotone, Tönung, HSL‑Anpassung und Farb­ersatz an.
 
-**[Duotone](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/duotone/)** enthält zwei unabhängig editierbare Farbparameter: `color1` ordnet dunklen Pixeln zu, während `color2` hellen Pixeln zugeordnet wird. Damit ist es ein nützliches Beispiel für einen Effekt, dessen Einstellungen komplexer sind als ein einzelner Skalarwert.
+[Duotone](https://reference.aspose.com/slides/python-net/aspose.slides.effects/duotone/) enthält zwei unabhängig editierbare Farbparameter: `color1` ordnet dunkle Pixel zu, während `color2` helle Pixel zuordnet. Das macht es zu einem nützlichen Beispiel für einen Effekt, dessen Einstellungen komplexer sind als ein einzelner skalarer Wert.
 
 ```python
 import aspose.pydrawing as draw
@@ -127,13 +127,51 @@ with slides.Presentation() as presentation:
     presentation.save("color-transformations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[add_color_replace_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) ersetzt die Farbe jedes Pixels durch eine feste Farbe und erhält dabei den Alpha‑Wert. Das unterscheidet sich von **[add_color_change_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/)**, das eine Quellfarbe einer Ziel­farbe zuordnet und beide Farbformate offenlegt.
+[add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) ersetzt die Farbe jedes Pixels durch eine feste Farbe und behält dabei das Alpha bei. Es unterscheidet sich von [add_color_change_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/), das eine Quellfarbe in eine andere umwandelt und sowohl Quell‑ als auch Ziel­farbformate bereitstellt.
 
-## **Hinzufügen von Unschärfe, Transparenz und Alpha‑Effekten**
+### **Luminanz‑Schwelle anwenden**
 
-[add_blur_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) wirkt auf alle Farbkanäle, einschließlich Alpha. Setzen Sie `grow` auf `True`, wenn die verwischte Kante über die ursprünglichen Bildgrenzen hinausragen kann.
+Eine Luminanz‑Schwelle kann schwache Markierungen auf einer gescannten Seite leichter vom Hintergrund unterscheiden. [add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) bewahrt Zwischentöne von Grau. [add_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_bi_level_effect/) ordnet die Luminanz Schwarz oder Weiß zu, während [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) eine Schwelle auf die Deckkraft anwendet.
 
-Für einheitliche Transparenz verwenden Sie **[add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/)**. Dieser multipliziert jeden vorhandenen Alpha‑Wert, sodass teilweise transparente Pixel proportional unterschiedlich bleiben. **[add_alpha_replace_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/)** hingegen weist allen Pixeln denselben Alpha‑Wert zu. **[add_alpha_bi_level_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/)** wandelt Alpha anhand einer Schwelle in zwei Stufen um.
+Die Luminanz‑Schwelle reicht von 0 % bis 100 %, inklusive. Pixel unterhalb der Schwelle werden schwarz. Pixel bei oder über der Schwelle werden weiß. Das Anheben der Schwelle macht mehr Grautöne schwarz, weil mehr von ihnen unter den Grenzwert fallen.
+
+Laden Sie [grayscale-swatches.png](grayscale-swatches.png) in das Arbeitsverzeichnis herunter. Jede Beschriftung gibt den ursprünglichen Grauwert auf einer Skala von 0 bis 255 an. Das Beispiel platziert das Original neben zwei Kopien und speichert die Schwelle jeder Kopie in der Präsentation.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 150, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    with slides.Images.from_file("grayscale-swatches.png") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    def add_frame(x, caption):
+        label = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, 12, 216, 36)
+        label.text_frame.text = caption
+        return shapes.add_picture_frame(slides.ShapeType.RECTANGLE, x, 60, 216, 72, image)
+
+    add_frame(12, "Original")
+
+    low_threshold = add_frame(252, "Threshold 20%")
+    low_threshold.picture_format.picture.image_transform.add_bi_level_effect(20)
+    
+    high_threshold = add_frame(492, "Threshold 60%")
+    high_threshold.picture_format.picture.image_transform.add_bi_level_effect(60)
+
+    presentation.save("luminance-threshold.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Öffnen Sie die Ausgabepräsentation in PowerPoint, um die drei Rahmen zu vergleichen. Das Farbfeld mit der Beschriftung 96 hat etwa 38 % Luminanz (96 von 255). Es wird bei einer Schwelle von 20 % weiß und bei 60 % schwarz.
+
+![Originale Graustufenfarbfelder neben den Schwarz‑Weiß‑Ergebnissen bei Luminanz‑Schwellen von 20 % und 60 %](luminance-threshold.png)
+
+## **Unschärfe, Transparenz und Alpha‑Effekte hinzufügen**
+
+[add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) wirkt sich auf alle Farbkanäle, einschließlich Alpha, aus. Setzen Sie `grow` auf `True`, wenn die unscharfe Kante über die ursprünglichen Bildgrenzen hinausreichen kann.
+
+Für einheitliche Transparenz verwenden Sie [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/). Es multipliziert jeden vorhandenen Alpha‑Wert, sodass halbtransparente Pixel proportional unterschiedlich bleiben. [add_alpha_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) weist hingegen allen Pixeln einen Alpha‑Wert zu. [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) wandelt Alpha in zwei Stufen basierend auf einer Schwelle um.
 
 ```python
 import aspose.slides as slides
@@ -163,15 +201,15 @@ with slides.Presentation() as presentation:
     presentation.save("blur-and-alpha-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Weitere parameterfreie Alpha‑Operationen sind **[add_alpha_ceiling_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_ceiling_effect/)** (macht jedes nicht‑null Alpha vollständig undurchsichtig), **[add_alpha_floor_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_floor_effect/)** (macht jedes Alpha unter 100 % vollständig transparent) und **[add_alpha_inverse_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_inverse_effect/)** (setzt Alpha auf `100% - alpha`).
+Weitere parameterfreie Alpha‑Operationen umfassen [add_alpha_ceiling_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_ceiling_effect/), das jedes von Null verschiedene Alpha vollständig undurchsichtig macht; [add_alpha_floor_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_floor_effect/), das jedes Alpha unter 100 % vollständig transparent macht; und [add_alpha_inverse_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_inverse_effect/), das Alpha zu `100% - alpha` ändert.
 
-## **Erstellen einer geordneten Effektkette**
+## **Eine geordnete Effektkette erstellen**
 
-Jede **add_…_effect**‑Methode fügt am Ende der Sammlung eine neue Operation hinzu. Der Renderer nutzt die Sammlung als geordnete Pipeline: Der Ausgang von Operation 0 wird zum Eingang von Operation 1 usw. Folglich kann dieselbe Menge von Operationen in anderer Reihenfolge ein unterschiedliches Bild erzeugen.
+Jede `add_..._effect`‑Methode fügt der Sammlung am Ende eine neue Operation hinzu. Der Renderer nutzt die Sammlung als geordnete Pipeline: Die Ausgabe von Operation 0 wird zum Eingang von Operation 1 und so weiter. Folglich kann dieselben Operationen in anderer Reihenfolge ein anderes Bild erzeugen.
 
-Beispiel: Graustufen gefolgt von Farbton entfernt zunächst chromatische Informationen und färbt dann das Luminanz‑Ergebnis ein. Farbton gefolgt von Graustufen entfernt den Farbton erneut. Ebenso kann Alpha‑Ersetzung Alpha‑Werte überschreiben, die durch frühere Operationen berechnet wurden, während Alpha‑Modulation deren relative Unterschiede bewahrt.
+Beispielsweise entfernt Graustufen gefolgt von Tönung zuerst chromatische Informationen und färbt dann das Luminanz‑Ergebnis um. Tönung gefolgt von Graustufen entfernt die Tönung erneut. Ebenso kann Alpha‑Ersetzung Alpha‑Werte, die von früheren Operationen berechnet wurden, überschreiben, während Alpha‑Modulation deren relative Unterschiede bewahrt.
 
-Das folgende Beispiel baut eine Kette aus vier Operationen, speichert sie als PPTX, öffnet die Präsentation erneut, prüft sowohl die Operationstypen als auch deren Reihenfolge und rendert das erneut geöffnete Ergebnis:
+Das folgende Beispiel erstellt eine Kette aus vier Operationen, speichert sie als PPTX, öffnet die Präsentation erneut, prüft sowohl die Operationstypen als auch deren Reihenfolge und rendert das erneut geöffnete Ergebnis:
 
 ```python
 import aspose.slides as slides
@@ -211,15 +249,21 @@ with slides.Presentation("image-transform-chain.pptx") as reopened_presentation:
         print("The reopened shape is not a picture frame.")
 ```
 
-Die Sammlung erzwingt keine Kompatibilitätsmatrix, die Farb‑, Alpha‑ und Unschärfe‑Operationen auf separate Ketten beschränkt. Sie können kombiniert werden, wobei Kombinationen nicht immer sinnvoll sind. Eine feste Farbersetzung entfernt RGB‑Variationen, die durch frühere Farbeffekte erzeugt wurden; Graustufen nach Duotone entfernen die beiden ausgewählten Farben; und Alpha‑Ceiling, Floor, Replacement oder Bi‑Level können Alpha‑Details verwerfen, die vorher erzeugt wurden. Bauen Sie die Kette entsprechend der gewünschten Pixel‑Verarbeitungs‑Sequenz, anstatt ihre Elemente als ungeordnete Formatierungs‑Flags zu behandeln.
+Die Sammlung erzwingt keine Kompatibilitätsmatrix, die Farb‑, Alpha‑ und Unschärfe‑Operationen auf separate Ketten beschränkt. Sie können kombiniert werden, aber Kombinationen sind nicht immer sinnvoll. Ein fester Farb­ersatz entfernt RGB‑Variationen, die durch frühere Farbeffekte erzeugt wurden; Graustufen nach Duotone entfernen die beiden ausgewählten Farben; und Alpha‑Ceiling-, Floor‑, Ersetzungs‑ oder Bi‑Level‑Operationen können Alpha‑Details, die zuvor erstellt wurden, verwerfen. Erstellen Sie die Kette gemäß der gewünschten Pixel‑Verarbeitungssequenz, anstatt ihre Elemente als ungeordnete Formatierungs‑Flags zu behandeln.
 
-## **Inspizieren editierbarer und effektiver Werte**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Eine editierbare Operation ist das in **Picture.image_transform** gespeicherte Objekt. Je nach Effekt kann es direkt schreibbare Member exponieren. Zum Beispiel exponiert **[Blur](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/blur/)** die schreibbaren Eigenschaften `radius` und `grow`, **[AlphaModulateFixed](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/alphamodulatefixed/)** die schreibbare Eigenschaft `amount` und **[AlphaBiLevel](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/alphabilevel/)** die schreibbare Eigenschaft `threshold`. Farbeffekte wie **[Duotone](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/duotone/)** exponieren veränderbare **[ColorFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/colorformat/)**‑Objekte.
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Einige Operationen, darunter **[BrightnessContrast](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/brightnesscontrast/)**, **[HSL](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/hsl/)**, **[Tint](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/tint/)** und **[AlphaReplace](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/alphareplace/)**, geben ihre Erzeugungs‑Skalarwerte nicht als schreibbare Eigenschaften frei. Um diese Einstellungen zu ändern, entfernen Sie die Operation und fügen Sie an der gewünschten Position eine Ersatz‑Operation hinzu.
+## **Editierbare und effektive Werte inspizieren**
 
-Effektive Daten, die von `get_effective()` zurückgegeben werden, sind berechnet und schreibgeschützt. Sie sind nützlich, um themenabhängige Farben aufzulösen und die normalisierten Werte zu lesen, die der Renderer verwendet, stellen jedoch keine weitere Bearbeitungsoberfläche dar. Das folgende Beispiel enumeriert die Kette und inspiziert effektive Werte, sofern die entsprechende API sie bereitstellt:
+Eine editierbare Operation ist das in `Picture.image_transform` gespeicherte Objekt. Je nach Effekt kann es direkt beschreibbare Member bereitstellen. Zum Beispiel stellt [Blur](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/) die beschreibbaren Eigenschaften `radius` und `grow` bereit, [AlphaModulateFixed](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphamodulatefixed/) stellt die beschreibbare Eigenschaft `amount` bereit, und [AlphaBiLevel](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphabilevel/) stellt die beschreibbare Eigenschaft `threshold` bereit. Farbeffekte wie [Duotone](https://reference.aspose.com/slides/python-net/aspose.slides.effects/duotone/) stellen veränderbare [ColorFormat](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/)‑Objekte bereit.
+
+Einige Operationen, darunter [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-net/aspose.slides.effects/hsl/), [Tint](https://reference.aspose.com/slides/python-net/aspose.slides.effects/tint/), und [AlphaReplace](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphareplace/), stellen ihre Erstellungs‑Skalare nicht als beschreibbare Eigenschaften bereit. Um diese Einstellungen zu ändern, entfernen Sie die Operation und fügen Sie an der erforderlichen Position einen Ersatz hinzu.
+
+Die von `get_effective()` zurückgegebenen effektiven Daten sind berechnet und schreibgeschützt. Sie sind nützlich, um themenabhängige Farben aufzulösen und die normalisierten Werte zu lesen, die der Renderer verwendet, jedoch keine weitere Bearbeitungsoberfläche. Das folgende Beispiel enumeriert die Kette und inspiziert effektive Werte, sofern die entsprechende API sie bereitstellt:
 
 ```python
 import aspose.slides as slides
@@ -273,11 +317,11 @@ with slides.Presentation("image-transform-chain.pptx") as presentation:
                 print("  Alpha threshold: " + str(effect_data.threshold) + "%")
 ```
 
-Parameterfreie Effekte wie Graustufen, Alpha‑Ceiling und Alpha‑Inverse besitzen ebenfalls ein Effektiv‑Daten‑Objekt, jedoch gibt es keine skalaren Einstellungen zum Ausgeben. Ihre Präsenz und Position in der Sammlung sind die relevanten Informationen.
+Parameterfreie Effekte wie Graustufen, Alpha‑Ceiling und Alpha‑Inverse besitzen weiterhin ein effektives Datenobjekt, jedoch gibt es keine skalaren Einstellungen zum Ausgeben. Ihre Existenz und Position in der Sammlung sind die relevanten Informationen.
 
-## **Entfernen oder Leeren von Bildtransformierungen**
+## **Bildtransformierungen entfernen oder löschen**
 
-Verwenden Sie **[ImageTransformOperationCollection.remove_at](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/remove_at/)**, um eine Operation anhand ihres Index zu entfernen. Da sich Indizes nach einem Entfernen verschieben, suchen Sie zuerst das Ziel und entfernen es nach dem Durchlauf. Verwenden Sie `clear()` um die gesamte Kette zu entfernen.
+Verwenden Sie [ImageTransformOperationCollection.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/remove_at/), um eine Operation anhand ihres Index zu entfernen. Da sich Indizes nach einer Entfernung verschieben, suchen Sie zunächst das Ziel und entfernen es nach der Aufzählung. Verwenden Sie `clear()` , um die gesamte Kette zu entfernen.
 
 ```python
 import aspose.slides as slides
@@ -308,38 +352,38 @@ with slides.Presentation("image-transform-chain.pptx") as presentation:
         presentation.save("image-transforms-cleared.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Das Entfernen oder Leeren von Transformierungen ändert nur die Bildformatierung. Es löscht, komprimiert oder verändert nicht die wiederverwendete **[PPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ppimage/)**‑Ressource.
+Das Entfernen oder Löschen von Transformierungen ändert nur die Bildformatierung. Es löscht, komprimiert nicht neu oder ändert die wiederverwendete [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/)‑Ressource nicht.
 
-## **Berücksichtigung von Präsentationsformaten und Exportzielen**
+## **Präsentationsformate und Exportziele berücksichtigen**
 
-Bildtransformierungen stammen aus DrawingML, daher ist PPTX das bevorzugte editierbare Format für Effektketten. Selbst mit PPTX hat nicht jede Operation identische Portabilität:
+Bildtransformierungen stammen aus DrawingML, daher ist PPTX das bevorzugte editierbare Format für Effektketten. Selbst bei PPTX hat nicht jede Operation die gleiche Portabilität:
 
-- Standard‑DrawingML‑Operationen wie Luminanz, Graustufen, Duotone, Farbton, HSL, Unschärfe und gängige Alpha‑Operationen haben die größte Chance, einen PPTX‑Rundtrip zu überstehen. Öffnen Sie die erzeugte Datei stets erneut und prüfen Sie die Sammlung, wenn die Erhaltung ein Muss ist.
-- **[BrightnessContrast](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/brightnesscontrast/)** ist eine Office‑2010‑Erweiterung und nicht die standardmäßige DrawingML‑Luminanz‑Operation. Sie kann für In‑Memory‑Renderings verwendet werden, ist jedoch nicht garantiert als editierbare `BrightnessContrast`‑Operation nach dem Speichern und erneuten Öffnen von PPTX erhalten zu bleiben. Verwenden Sie lieber **[add_luminance_effect](https://reference.aspose.com/slides/de/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/)** für persistente Helligkeits‑ und Kontrast‑Anpassungen.
-- Das binäre PPT‑Format ist älter als das vollständige DrawingML‑Effekt‑Modell. Beim Speichern nach PPT können nicht unterstützte Operationen weggelassen, die Kette auf ein unterstütztes Subset reduziert oder das Aussehen approximiert werden. Verwenden Sie PPT nicht als Verifikationsformat für eine komplexe editierbare Kette.
-- Das Rendern zu PNG, JPEG, TIFF, PDF, SVG, HTML oder anderen visuellen Ausgaben wendet die unterstützte Kette auf das gerenderte Erscheinungsbild an. Diese Ausgaben enthalten keine editierbare **ImageTransformOperationCollection**; Rasterformate flachen das Ergebnis in Pixel ab, und Dokument‑ bzw. Vektor‑Exporte speichern ihre eigene Render‑Darstellung.
+- Standard‑DrawingML‑Operationen wie Luminanz, Graustufen, Duotone, Tönung, HSL, Unschärfe und gängige Alpha‑Operationen haben die höchste Wahrscheinlichkeit, einen PPTX‑Rundtrip zu überstehen. Öffnen Sie die erzeugte Datei immer erneut und prüfen Sie die Sammlung, wenn die Bewahrung erforderlich ist.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) ist eine Office‑2010‑Erweiterung und nicht die standardmäßige DrawingML‑Luminanz‑Operation. Sie kann für In‑Memory‑Rendering verwendet werden, aber es ist nicht garantiert, dass sie nach dem Speichern und erneuten Öffnen von PPTX als editierbare `BrightnessContrast`‑Operation erhalten bleibt. Verwenden Sie bevorzugt [add_luminance_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) für dauerhafte Helligkeits‑ und Kontrast‑Anpassungen.
+- Das binäre PPT‑Format ist älter als das vollständige DrawingML‑Effektmodell. Das Speichern als PPT kann nicht unterstützte Operationen weglassen, eine Kette auf ein unterstütztes Teilset reduzieren oder das Aussehen approximieren. Verwenden Sie PPT nicht als Verifizierungsformat für eine komplexe editierbare Kette.
+- Das Rendern zu PNG, JPEG, TIFF, PDF, SVG, HTML oder anderen visuellen Ausgaben wendet die unterstützte Kette auf das gerenderte Aussehen an. Diese Ausgaben enthalten keine editierbare `ImageTransformOperationCollection`; Rasterformate flachen das Ergebnis in Pixel ab, und Dokument‑ oder Vektor‑Exportformate speichern ihre eigene Render‑Darstellung.
 - Effekte machen ein verknüpftes Bild nicht eigenständig. Das Rendern eines verknüpften Bildes hängt weiterhin davon ab, dass die verknüpfte Ressource beim Laden der Präsentation verfügbar ist.
 
-Verschiedene Präsentations‑Consumer können Randfälle unterschiedlich rendern, besonders wenn mehrere Alpha‑ oder Farb‑Quantisierungs‑Operationen kombiniert werden. Für kritische Ausgaben testen Sie sowohl den editierbaren Rundtrip als auch das endgültige Exportformat mit derselben Aspose.Slides‑Version, die in der Produktion eingesetzt wird.
+Verschiedene Präsentations‑Consumer können Randfälle unterschiedlich rendern, insbesondere wenn mehrere Alpha‑ oder Farb‑Quantisierungs‑Operationen kombiniert werden. Für kritische Ausgaben testen Sie sowohl den editierbaren Rundtrip als auch das endgültige Exportformat mit derselben Aspose.Slides‑Version, die in der Produktion verwendet wird.
 
 ## **FAQ**
 
-**Modifizieren Bildtransformations‑Effekte die eingebetteten Bilddaten?**
+**Ändern Bildtransformations‑Effekte die eingebetteten Bilddaten?**
 
-Nein. Die Operationen gehören zum `Picture`, das von der Bildfüllung verwendet wird. Die zugrunde liegenden `PPImage`‑Bytes bleiben unverändert.
+Nein. Die Operationen gehören zum `Picture`, das für die Bildfüllung verwendet wird. Die zugrunde liegenden `PPImage`‑Bytes bleiben unverändert.
 
-**Teilen zwei Bildrahmen, die dieselbe Bildressource wiederverwenden, ihre Effekte?**
+**Teilen zwei Bildrahmen, die dasselbe Bild wiederverwenden, ihre Effekte?**
 
-Nein. Das Wiederverwenden eines `PPImage` vermeidet doppelte Bilddaten, aber jeder Bildrahmen besitzt in der Regel ein separates `Picture` und eine eigene Transformations‑Sammlung.
+Nein. Das Wiederverwenden eines `PPImage` verhindert doppelte Bilddaten, aber jeder Bildrahmen hat normalerweise ein separates `Picture` und eine eigene Bildtransformationssammlung.
 
 **Können Farb‑, Unschärfe‑ und Alpha‑Effekte kombiniert werden?**
 
-Ja. Die Sammlung akzeptiert sie in einer einzigen geordneten Kette. Berücksichtigen Sie, was jede Operation mit dem Ausgang der vorherigen macht, da Ersetzungs‑ und Schwellen‑Operationen frühere Farb‑ oder Alpha‑Details verwerfen können.
+Ja. Die Sammlung akzeptiert sie in einer geordneten Kette. Berücksichtigen Sie, was jede Operation mit dem Ausgang der vorherigen macht, da Ersetzungs‑ und Schwellen‑Operationen frühere Farb‑ oder Alpha‑Details verwerfen können.
 
 **Warum sind effektive Werte schreibgeschützt?**
 
-Effektive Daten repräsentieren berechnete Werte, die zum Rendern verwendet werden, einschließlich aufgelöster Farben. Bearbeiten Sie die in der Transformations‑Sammlung gespeicherte Operation, sofern schreibbare Member existieren; andernfalls entfernen Sie sie und fügen Sie eine Ersatz‑Operation mit neuen Erzeugungs‑Parametern hinzu.
+Effektive Daten stellen berechnete Werte dar, die für das Rendering verwendet werden, einschließlich aufgelöster Farben. Bearbeiten Sie die in der Transformationssammlung gespeicherte Operation, wenn beschreibbare Member existieren; andernfalls entfernen Sie sie und fügen Sie einen Ersatz mit neuen Erstellungs‑Parametern hinzu.
 
-**Welches Format sollte ich verwenden, um eine Transformations‑Kette zu erhalten?**
+**Welches Format sollte ich verwenden, um eine Transformationskette zu erhalten?**
 
-Verwenden Sie PPTX und verifizieren Sie die Datei, indem Sie sie erneut öffnen. Das ältere PPT‑Format kann das vollständige DrawingML‑Effekt‑Modell nicht darstellen, und gerenderte Exportformate erhalten nur das Aussehen, nicht die editierbaren Transformations‑Operationen.
+Verwenden Sie PPTX und prüfen Sie die Datei, indem Sie sie erneut öffnen. Das alte PPT‑Format kann das vollständige DrawingML‑Effektmodell nicht darstellen, und gerenderte Exportformate bewahren das Aussehen, nicht jedoch editierbare Transformationsoperationen.

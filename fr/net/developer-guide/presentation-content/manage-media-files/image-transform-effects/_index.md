@@ -10,7 +10,7 @@ keywords:
 - luminosité
 - contraste
 - niveaux de gris
-- duo-ton
+- duotone
 - teinte
 - HSL
 - remplacement de couleur
@@ -27,46 +27,46 @@ description: "Appliquer, enchaîner, inspecter, supprimer et vérifier les effet
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides représente les ajustements d’image comme une collection ordonnée d’opérations de transformation d’image. Pour un cadre d’image, commencez avec le [ISlidesPicture](https://reference.aspose.com/slides/fr/net/aspose.slides/islidespicture/) du cadre et accédez à [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/fr/net/aspose.slides/islidespicture/imagetransform/). La [IImageTransformOperationCollection](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/) retournée vous permet d’ajouter, d’énumérer, d’inspecter, de supprimer et de nettoyer les effets sans réécrire les octets de l’image d’origine.
+Aspose.Slides représente les ajustements d'image comme une collection ordonnée d'opérations de transformation d'image. Pour un cadre d'image, commencez avec le cadre [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) et accédez à [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/). La collection retournée [IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/) vous permet d'ajouter, d'énumérer, d'inspecter, de supprimer et d'effacer les effets sans réécrire les octets d'image d'origine.
 
-Cet article montre un flux de travail complet pour la luminosité et le contraste, les transformations de couleur, le flou, la transparence, les chaînes d’effets ordonnées, les valeurs effectives, la suppression et la vérification de la ronde‑trip PPTX.
+Cet article montre un flux de travail complet pour la luminosité et le contraste, les transformations de couleur, le flou, la transparence, les chaînes d'effets ordonnées, les valeurs effectives, la suppression et la vérification d'un aller‑retour PPTX.
 
-## **Comprendre la propriété des effets et la réutilisation d’image**
+## **Comprendre la propriété des effets et la réutilisation d'image**
 
-Une ressource d’image et l’image qui l’affiche sont des objets différents :
+Une ressource d'image et l'image qui l'affiche sont des objets différents :
 
-- [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) stocke ou référence les données d’image source appartenant à la présentation.
-- [ISlidesPicture](https://reference.aspose.com/slides/fr/net/aspose.slides/islidespicture/) appartient à un remplissage d’image et se réfère à une ressource d’image tout en stockant la collection de transformations d’image.
-- [IPictureFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ipictureframe/) est la forme de diapositive qui possède le remplissage d’image concerné, la géométrie, les paramètres de recadrage et d’autres formatages au niveau du cadre.
+- [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) stocke ou référence les données d'image source détenues par la présentation.
+- [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) appartient à un remplissage d'image et fait référence à une ressource d'image tout en stockant la collection de transformations d'image.
+- [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) est la forme de diapositive qui possède le remplissage d'image pertinent, la géométrie, les paramètres de recadrage et d'autres formatages au niveau du cadre.
 
-Par conséquent, les opérations de transformation d’image ne modifient pas les octets du [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/). Lorsque le même `IPPImage` est passé à [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/addpictureframe/) plusieurs fois, chaque nouveau cadre d’image reçoit son propre `ISlidesPicture` et sa propre collection de transformations. Appliquer le niveau de gris à un cadre ne rend pas les autres cadres en niveaux de gris, même si tous réutilisent la même ressource d’image incorporée.
+Par conséquent, les opérations de transformation d'image ne modifient pas les octets de [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). Lorsque le même `IPPImage` est passé à [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) plusieurs fois, chaque nouveau cadre d'image reçoit son propre `ISlidesPicture` et sa propre collection de transformations. Appliquer le niveau de gris à un cadre ne rend pas les autres cadres en niveaux de gris, même si tous réutilisent la même ressource d'image incorporée.
 
-Le même modèle `ISlidesPicture.ImageTransform` est également utilisé par d’autres remplissages d’image, tels qu’une forme ou un arrière‑plan de diapositive. Les exemples ci‑dessous se concentrent sur les cadres d’image.
+Le même modèle `ISlidesPicture.ImageTransform` est également utilisé par d'autres remplissages d'image, tels qu'une forme ou l'arrière‑plan d'une diapositive. Les exemples ci‑dessous se concentrent sur les cadres d'image.
 
-## **Utiliser des plages de paramètres valides et les unités**
+## **Utiliser des intervalles de paramètres valides et des unités**
 
-Les méthodes présentées utilisent les plages sémantiques et unités suivantes. Conservez les valeurs dans ces plages même si une version particulière de la bibliothèque ne rejette pas immédiatement chaque valeur hors plage ; le format de présentation cible peut normaliser, ignorer ou rejeter les données non valides lors de l’enregistrement ou à l’ouverture du fichier par PowerPoint.
+Les méthodes démontrées utilisent les intervalles sémantiques et les unités suivants. Conservez les valeurs dans ces intervalles même si une version particulière de la bibliothèque ne rejette pas immédiatement chaque valeur hors plage ; le format de présentation cible peut normaliser, omettre ou rejeter les données invalides lors de l'enregistrement ou à l'ouverture du fichier par PowerPoint.
 
 | Opération | Paramètres | Plage valide et unité |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` à `100`, pourcent ; `0` laisse le composant inchangé. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | Aucun | Aucun paramètre numérique. L’alpha reste inchangé. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Deux couleurs pour les pixels sombres et clairs. Les canaux RVB et alpha dans `System.Drawing.Color` utilisent `0` à `255`. |
-| [AddTintEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | La teinte est comprise entre `0` inclus et `360` exclus, en degrés ; `amount` est de `-100` à `100`, pourcent. |
-| [AddHSLEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | La teinte est comprise entre `0` inclus et `360` exclus, en degrés ; saturation et luminance sont de `-100` à `100`, pourcent. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | La couleur de remplacement utilise des valeurs de canal de `0` à `255`. Les valeurs alpha existantes restent inchangées. |
-| [AddBlurEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Le rayon est non négatif et mesuré en points ; `grow` est un booléen qui indique si le contenu flou peut dépasser les limites d’origine. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Pourcent non négatif. Utilisez `0` à `100` pour un réglage d’opacité ordinaire : `0` est complètement transparent et `100` conserve l’alpha existant. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` à `100`, pourcent d’opacité. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` à `100`, pourcent de seuil alpha. Les valeurs en dessous deviennent transparentes ; les valeurs égales ou supérieures deviennent opaques. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` à `100`, en pourcentage ; `0` laisse le composant inchangé. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | Aucun | Aucun paramètre numérique. L'alpha reste inchangé. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Deux couleurs pour les pixels sombres et clairs. Les canaux RGB et alpha dans `System.Drawing.Color` utilisent `0` à `255`. |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | La teinte est comprise entre `0` inclus et `360` exclus, en degrés ; le montant est compris entre `-100` et `100`, en pourcentage. |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | La teinte est comprise entre `0` inclus et `360` exclus, en degrés ; la saturation et la luminance sont comprises entre `-100` et `100`, en pourcentage. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | La couleur de remplacement utilise des valeurs de canal de `0` à `255`. Les valeurs alpha existantes restent inchangées. |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Le rayon est non négatif et mesuré en points ; `grow` est un booléen qui contrôle si le contenu flou peut dépasser les limites originales. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Pourcentage non négatif. Utilisez `0` à `100` pour un ajustement d'opacité classique : `0` est totalement transparent et `100` préserve l'alpha existant. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` à `100`, pourcentage d'opacité. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` à `100`, seuil d'alpha en pourcentage. Les valeurs en dessous deviennent transparentes ; les valeurs égales ou supérieures deviennent opaques. |
 
-Pour la modulation alpha fixe, transparence et opacité sont complémentaires. Par exemple, 35 % de transparence correspond à une modulation alpha de 65 %.
+Pour la modulation alpha fixe, la transparence et l'opacité sont complémentaires. Par exemple, 35 % de transparence correspond à une modulation alpha de 65 %.
 
 ## **Appliquer la luminosité et le contraste**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) renvoie une opération [IBrightnessContrast](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ibrightnesscontrast/). Ses paramètres scalaires sont fournis lors de la création de l’opération. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/brightnesscontrast/geteffective/) renvoie des valeurs en lecture seule calculées qui peuvent être inspectées ou consignées.
+[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) retourne une opération [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/). Ses paramètres scalaires sont fournis lors de la création de l'opération. [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/) renvoie des valeurs calculées en lecture seule qui peuvent être inspectées ou consignées.
 
-L’exemple suivant augmente la luminosité de 15 % et le contraste de 20 %, puis génère un aperçu sans modifier l’image incorporée :
+L'exemple suivant augmente la luminosité de 15 % et le contraste de 20 %, puis rend un aperçu sans modifier l'image incorporée :
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/brightnesscontrast/) est une extension d’effet d’image Office 2010 et est moins portable que l’effet de luminance standard DrawingML. Lorsque la luminosité et le contraste doivent rester éditables après un aller‑retour PPTX, utilisez [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) et vérifiez le résultat après réouverture du fichier. La section des limites de format explique cette distinction plus en détail.
+[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) est une extension d'effet d'image Office 2010 et est moins portable que l'effet de luminance standard DrawingML. Lorsque la luminosité et le contraste doivent rester éditables après un aller‑retour PPTX, utilisez [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) et vérifiez le résultat après la réouverture du fichier. La section des limitations de format explique cette distinction plus en détail.
 
 ## **Appliquer des transformations de couleur**
 
-Les effets de couleur peuvent être appliqués indépendamment à différents cadres d’image qui réutilisent une même ressource d’image. L’exemple suivant crée cinq cadres et applique le niveau de gris, le duo‑tone, la teinte, le réglage HSL et le remplacement de couleur.
+Les effets de couleur peuvent être appliqués indépendamment à différents cadres d'image qui réutilisent la même ressource. L'exemple suivant crée cinq cadres et applique le niveau de gris, le duotone, la teinte, l'ajustement HSL et le remplacement de couleur.
 
-[IDuotone](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iduotone/) contient deux paramètres de couleur éditables indépendamment : `Color1` mappe les pixels sombres, tandis que `Color2` mappe les pixels clairs. Cela en fait un exemple utile d’effet dont les réglages sont plus complexes qu’une simple valeur scalaire.
+[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) contient deux paramètres de couleur modifiables indépendamment : `Color1` correspond aux pixels sombres, tandis que `Color2` correspond aux pixels clairs. Cela en fait un exemple utile d'effet dont les réglages sont plus complexes qu'une simple valeur scalaire.
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) remplace la couleur de chaque pixel par une couleur fixe tout en conservant l’alpha. C’est différent de [AddColorChangeEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), qui mappe une couleur source vers une autre et expose les formats couleur source et cible.
+[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) remplace la couleur de chaque pixel par une couleur fixe tout en conservant l'alpha. Il diffère de [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), qui mappe une couleur source vers une autre et expose les deux formats de couleur source et cible.
 
-## **Ajouter le flou, la transparence et les effets alpha**
+### **Appliquer un seuil de luminance**
 
-[AddBlurEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) affecte tous les canaux de couleur, y compris l’alpha. Définissez `grow` sur `true` lorsque le bord flou peut dépasser les limites de l’image d’origine.
+Un seuil de luminance peut rendre les marques faibles d’une page numérisée plus faciles à distinguer de l’arrière‑plan. [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) conserve les nuances intermédiaires de gris. [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) mappe la luminance en noir ou blanc, tandis que [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) applique un seuil à l'opacité.
 
-Pour une transparence uniforme, utilisez [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Il multiplie chaque valeur alpha existante, de sorte que les pixels partiellement transparents restent proportionnellement différents. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) attribue plutôt une même valeur alpha à tous les pixels. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) convertit l’alpha en deux niveaux selon un seuil.
+Le seuil de luminance varie de 0 % à 100 %, inclus. Les pixels en dessous du seuil deviennent noirs. Les pixels au seuil ou au‑dessus deviennent blancs. Augmenter le seuil rend davantage de nuances noires car plus d'entre elles tombent sous la coupure.
+
+Téléchargez [grayscale-swatches.png](grayscale-swatches.png) dans le répertoire de travail. Chaque libellé indique le niveau de gris d'origine sur une échelle de 0 à 255. L'exemple place l'original à côté de deux copies et enregistre le seuil de chaque copie dans la présentation.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Ouvrez la présentation générée dans PowerPoint pour comparer les trois cadres. L'échantillon libellé 96 a environ 38 % de luminance (96 sur 255). Il devient blanc au seuil de 20 % et noir au seuil de 60 %.
+
+![Échantillons de gris d'origine à côté des résultats noir‑et‑blanc aux seuils de luminance de 20 % et 60 %](luminance-threshold.png)
+
+## **Ajouter du flou, de la transparence et des effets alpha**
+
+[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) affecte tous les canaux de couleur, y compris l'alpha. Définissez `grow` à `true` lorsque le bord flou peut dépasser les limites du cadre original.
+
+Pour une transparence uniforme, utilisez [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Il multiplie chaque valeur alpha existante, de sorte que les pixels partiellement transparents restent proportionnellement différents. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) attribue à la place une même valeur alpha à tous les pixels. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) convertit l'alpha en deux niveaux selon un seuil.
 
 ```csharp
 using System.IO;
@@ -171,15 +212,15 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-D’autres opérations alpha sans paramètre incluent [AddAlphaCeilingEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), qui rend tout alpha non nul complètement opaque ; [AddAlphaFloorEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), qui rend tout alpha inférieur à 100 % complètement transparent ; et [AddAlphaInverseEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), qui change l’alpha en `100% - alpha`.
+D'autres opérations alpha sans paramètres incluent [AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), qui rend chaque alpha non nul complètement opaque ; [AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), qui rend chaque alpha inférieur à 100 % complètement transparent ; et [AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), qui change l'alpha en `100% - alpha`.
 
-## **Construire une chaîne d’effets ordonnée**
+## **Construire une chaîne d'effets ordonnée**
 
-Chaque méthode `Add...Effect` ajoute une nouvelle opération à la fin de la collection. Le rendu utilise la collection comme pipeline ordonné : la sortie de l’opération 0 devient l’entrée de l’opération 1, etc. Par conséquent, les mêmes opérations dans un ordre différent peuvent produire une image différente.
+Chaque méthode `Add...Effect` ajoute une nouvelle opération à la fin de la collection. Le moteur de rendu utilise la collection comme pipeline ordonné : la sortie de l'opération 0 devient l'entrée de l'opération 1, et ainsi de suite. Par conséquent, les mêmes opérations dans un ordre différent peuvent produire une image différente.
 
-Par exemple, le niveau de gris suivi d’une teinte supprime d’abord les informations chromatiques puis recolore le résultat de luminance. Une teinte suivie de niveau de gris supprime de nouveau la teinte. De même, le remplacement alpha peut écraser les valeurs alpha calculées par les opérations précédentes, tandis que la modulation alpha préserve leurs différences relatives.
+Par exemple, le niveau de gris suivi d’une teinte supprime d’abord l’information chromatique puis recolore le résultat de luminance. Une teinte suivie de niveau de gris supprime de nouveau la teinte. De même, le remplacement alpha peut écraser les valeurs alpha calculées par les opérations précédentes, tandis que la modulation alpha préserve leurs différences relatives.
 
-L’exemple suivant construit une chaîne de quatre opérations, l’enregistre au format PPTX, rouvre la présentation, vérifie à la fois les types d’opérations et leur ordre, puis rend le résultat rouvert :
+L'exemple suivant construit une chaîne de quatre opérations, l’enregistre en PPTX, rouvre la présentation, vérifie à la fois les types d'opérations et leur ordre, et rend le résultat rouvert :
 
 ```csharp
 using System;
@@ -224,15 +265,22 @@ else
 }
 ```
 
-La collection n’impose pas de matrice de compatibilité qui restreindrait les opérations couleur, alpha et flou à des chaînes distinctes. Elles peuvent être combinées, mais les combinaisons ne sont pas toujours utiles. Un remplacement couleur fixe élimine la variation RVB produite par les effets couleur antérieurs ; le niveau de gris après duo‑tone élimine les deux couleurs sélectionnées ; et les opérations alpha plafond, plancher, remplacement ou bi‑niveau peuvent supprimer les détails alpha créés auparavant. Construisez la chaîne selon la séquence de traitement pixel souhaitée plutôt que de traiter ses éléments comme des drapeaux de formatage non ordonnés.
+La collection n’impose pas de matrice de compatibilité qui restreindrait les opérations de couleur, d'alpha et de flou à des chaînes séparées. Elles peuvent être combinées, mais les combinaisons ne sont pas toujours utiles. Un remplacement de couleur fixe supprime la variation RGB produite par les effets de couleur précédents ; le niveau de gris après duotone supprime les deux couleurs sélectionnées ; et les opérations alpha ceiling, floor, replace ou bi‑level peuvent éliminer les détails alpha créés auparavant. Construisez la chaîne en fonction de la séquence de traitement des pixels souhaitée plutôt que de traiter ses éléments comme des indicateurs de formatage non ordonnés.
 
-## **Inspecter les valeurs éditables et effectives**
 
-Une opération éditable est l’objet stocké dans `ISlidesPicture.ImageTransform`. Selon l’effet, elle peut exposer des membres modifiables directement. Par exemple, [IBlur](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iblur/) expose `Radius` et `Grow` modifiables, [IAlphaModulateFixed](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ialphamodulatefixed/) expose `Amount` modifiable, et [IAlphaBiLevel](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ialphabilevel/) expose `Threshold` modifiable. Les effets couleur tels que [IDuotone](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iduotone/) exposent des objets [IColorFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/icolorformat/) mutables.
+<!-- visual-explanation:image-transform-effects:start -->
+[![La même image passe d'abord par le niveau de gris puis par la teinte, et inversement. Les deux images finales en niveaux de gris ont des tons différents.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Certaines interfaces d’opération, dont [IBrightnessContrast](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/itint/) et [IAlphaReplace](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ialphareplace/), n’exposent pas leurs scalaires de création comme propriétés modifiables. Pour changer ces réglages, supprimez l’opération et ajoutez un remplacement à la position requise.
+*Dans ce rendu illustratif d’Aspose.Slides for .NET 26.11, une teinte de 220° à 25 % laisse l'image en niveaux de gris inchangée. Appliquer la même teinte avant le niveau de gris produit des tons différents.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Les données effectives renvoyées par `GetEffective()` sont calculées et en lecture seule. Elles sont utiles pour résoudre les couleurs dépendantes du thème et lire les valeurs normalisées utilisées par le rendu, mais ce n’est pas une autre surface d’édition. L’exemple suivant énumère la chaîne et inspecte les valeurs effectives lorsque l’API correspondante les fournit :
+## **Inspecter les valeurs modifiables et effectives**
+
+Une opération modifiable est l'objet stocké dans `ISlidesPicture.ImageTransform`. Selon l'effet, il peut exposer des membres accessibles en écriture directement. Par exemple, [IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/) expose `Radius` et `Grow` accessibles en écriture, [IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/) expose `Amount`, et [IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/) expose `Threshold`. Les effets de couleur tels que [IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) exposent des objets [IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/) mutables.
+
+Certaines interfaces d'opération, dont [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/), et [IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/), n'exposent pas leurs scalaires de création comme propriétés modifiables. Pour changer ces paramètres, supprimez l'opération et ajoutez une substitution à la position requise.
+
+Les données effectives renvoyées par `GetEffective()` sont calculées et en lecture seule. Elles sont utiles pour résoudre les couleurs dépendantes du thème et lire les valeurs normalisées utilisées par le moteur de rendu, mais ce n’est pas une autre surface d’édition. L’exemple suivant énumère la chaîne et inspecte les valeurs effectives lorsque l’API correspondante les fournit :
 
 ```csharp
 using System;
@@ -302,11 +350,11 @@ if (pictureFrame != null)
 }
 ```
 
-Les effets sans paramètre comme le niveau de gris, le plafond alpha et l’inverse alpha possèdent également un objet de données effectives, mais il n’y a aucune configuration scalaire à afficher. Leur présence et leur position dans la collection sont les informations importantes.
+Les effets sans paramètres tels que le niveau de gris, alpha ceiling et alpha inverse possèdent toujours un objet de données effectives, mais il n’existe aucun paramètre scalaire à afficher. Leur présence et leur position dans la collection sont les informations importantes.
 
-## **Supprimer ou vider les transformations d’image**
+## **Supprimer ou effacer les transformations d'image**
 
-Utilisez [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) pour supprimer une opération par son indice. Comme les indices changent après une suppression, recherchez d’abord la cible puis supprimez‑la après l’énumération. Utilisez `Clear()` pour supprimer toute la chaîne.
+Utilisez [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) pour supprimer une opération par indice. Comme les indices changent après une suppression, recherchez d’abord la cible puis supprimez‑la après l’énumération. Utilisez `Clear()` pour supprimer toute la chaîne.
 
 ```csharp
 using System;
@@ -344,38 +392,38 @@ if (pictureFrame != null)
 }
 ```
 
-Supprimer ou vider les transformations ne modifie que le formatage de l’image. Cela ne supprime pas, ne recompresse pas et ne modifie pas la ressource [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) réutilisée.
+Supprimer ou effacer les transformations ne modifie que le formatage de l’image. Cela ne supprime pas, ne recomprime pas et ne modifie pas la ressource [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) réutilisée.
 
 ## **Considérer les formats de présentation et les cibles d’exportation**
 
-Les transformations d’image proviennent de DrawingML, donc le PPTX est le format éditable préféré pour les chaînes d’effets. Même avec le PPTX, toutes les opérations ne disposent pas d’une portabilité identique :
+Les transformations d'image proviennent de DrawingML, donc le PPTX est le format éditable privilégié pour les chaînes d'effets. Même avec le PPTX, toutes les opérations n’ont pas la même portabilité :
 
-- Les opérations DrawingML standard telles que luminance, niveau de gris, duo‑tone, teinte, HSL, flou et les opérations alpha courantes ont la meilleure chance de survivre à un aller‑retour PPTX. Rouvrez toujours le fichier généré et inspectez la collection lorsque la conservation est requise.
-- [BrightnessContrast](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/brightnesscontrast/) est une extension Office 2010 plutôt que l’opération standard de luminance DrawingML. Elle peut être utilisée pour le rendu en mémoire, mais il n’est pas garanti qu’elle reste un [IBrightnessContrast](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/ibrightnesscontrast/) éditable après sauvegarde et réouverture du PPTX. Privilégiez [AddLuminanceEffect](https://reference.aspose.com/slides/fr/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) pour des ajustements de luminosité et contraste persistants.
-- Le format binaire PPT précède le modèle complet d’effets DrawingML. Enregistrer au format PPT peut omettre les opérations non prises en charge, réduire une chaîne à un sous‑ensemble supporté ou approximativer l’apparence. N’utilisez pas le PPT comme format de vérification pour une chaîne éditable complexe.
+- Les opérations DrawingML standard telles que la luminance, le niveau de gris, le duotone, la teinte, HSL, le flou et les opérations alpha courantes ont la meilleure chance de survivre à un aller‑retour PPTX. Ré‑ouvrez toujours le fichier généré et inspectez la collection lorsque la conservation est requise.
+- [BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) est une extension Office 2010 plutôt que l'opération de luminance DrawingML standard. Elle peut être utilisée pour le rendu en mémoire, mais il n’est pas garanti qu’elle reste un [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) éditable après l’enregistrement et la réouverture du PPTX. Privilégiez [AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) pour des réglages de luminosité et de contraste persistants.
+- Le format PPT binaire précède le modèle complet d'effets DrawingML. En enregistrant au format PPT, les opérations non prises en charge peuvent être omises, la chaîne peut être réduite à un sous‑ensemble supporté ou l’apparence peut être approximée. N’utilisez pas le PPT comme format de vérification pour une chaîne éditable complexe.
 - Le rendu vers PNG, JPEG, TIFF, PDF, SVG, HTML ou d’autres sorties visuelles applique la chaîne supportée à l’apparence rendue. Ces sorties ne contiennent pas de `IImageTransformOperationCollection` éditable ; les formats raster aplatissent le résultat en pixels, et les exportations document/vector stockent leur propre représentation de rendu.
-- Les effets ne rendent pas une image liée autonome. Le rendu d’une image liée dépend toujours de la disponibilité de la ressource liée lors du chargement de la présentation.
+- Les effets ne rendent pas une image liée autonome. Rendre une image liée dépend toujours de la disponibilité de la ressource liée lors du chargement de la présentation.
 
-Différents consommateurs de présentations peuvent rendre les cas limites différemment, surtout lorsque plusieurs opérations alpha ou de quantification de couleur sont combinées. Pour une sortie critique, testez à la fois le aller‑retour éditable et le format d’export final avec la même version d’Aspose.Slides utilisée en production.
+Différents consommateurs de présentations peuvent rendre les cas limites différemment, surtout lorsque plusieurs opérations alpha ou de quantification de couleur sont combinées. Pour une sortie critique, testez à la fois l’aller‑retour éditable et le format d’export final avec la même version d’Aspose.Slides utilisée en production.
 
 ## **FAQ**
 
-**Les effets de transformation d’image modifient‑ils les données d’image incorporées ?**
+**Les effets de transformation d'image modifient-ils les données d'image incorporées ?**
 
-Non. Les opérations appartiennent au `ISlidesPicture` utilisé par le remplissage d’image. Les octets sous‑jacents du `IPPImage` restent inchangés.
+Non. Les opérations appartiennent au `ISlidesPicture` utilisé par le remplissage d'image. Les octets sous‑jacent de `IPPImage` restent inchangés.
 
-**Deux cadres d’image qui réutilisent la même image partageront‑ils leurs effets ?**
+**Est‑ce que deux cadres d'image qui réutilisent la même image partageront leurs effets ?**
 
-Non. Réutiliser un `IPPImage` évite les doublons de données d’image, mais chaque cadre d’image possède normalement un `ISlidesPicture` séparé et une collection de transformations d’image distincte.
+Non. Réutiliser un `IPPImage` évite la duplication des données d'image, mais chaque cadre d'image possède normalement un `ISlidesPicture` et une collection de transformations d'image distincts.
 
-**Les effets couleur, flou et alpha peuvent‑ils être combinés ?**
+**Les effets de couleur, de flou et d'alpha peuvent-ils être combinés ?**
 
-Oui. La collection les accepte dans une chaîne ordonnée. Considérez ce que chaque opération fait à la sortie de la précédente, car les opérations de remplacement et de seuil peuvent supprimer les détails couleur ou alpha précédents.
+Oui. La collection les accepte dans une chaîne ordonnée. Considérez ce que chaque opération fait à la sortie de la précédente, car les opérations de remplacement et de seuil peuvent éliminer les détails de couleur ou d'alpha précédents.
 
 **Pourquoi les valeurs effectives sont‑elles en lecture seule ?**
 
-Les données effectives représentent les valeurs calculées utilisées pour le rendu, y compris les couleurs résolues. Modifiez l’opération stockée dans la collection de transformations lorsque des membres modifiables existent ; sinon, supprimez‑la et ajoutez un remplacement avec de nouveaux paramètres de création.
+Les données effectives représentent les valeurs calculées utilisées pour le rendu, y compris les couleurs résolues. Modifiez l’opération stockée dans la collection de transformations là où des membres modifiables existent ; sinon, supprimez‑la et ajoutez une substitution avec de nouveaux paramètres de création.
 
 **Quel format devrais‑je utiliser pour préserver une chaîne de transformations ?**
 
-Utilisez le PPTX et vérifiez le fichier en le rouvrant. Le PPT hérité ne peut pas représenter le modèle complet d’effets DrawingML, et les formats d’exportation rendus préservent l’apparence plutôt que les opérations de transformation éditables.
+Utilisez le PPTX et vérifiez le fichier en le réouvrant. Le PPT hérité ne peut pas représenter le modèle complet d’effets DrawingML, et les formats d’exportation rendus conservent l’apparence plutôt que les opérations de transformation éditables.

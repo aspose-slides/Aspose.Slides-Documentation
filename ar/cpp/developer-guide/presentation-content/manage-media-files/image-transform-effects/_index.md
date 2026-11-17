@@ -9,9 +9,9 @@ keywords:
 - تأثير الصورة
 - سطوع
 - تباين
-- تدرج الرمادي
-- ثنائي اللون
-- صبغة
+- تدرج رمادي
+- ثنائي النغمة
+- صبغ
 - HSL
 - استبدال اللون
 - ضبابية
@@ -26,46 +26,46 @@ description: "تطبيق، ربط، فحص، إزالة، والتحقق من ت
 ---
 ## **نظرة عامة**
 
-Aspose.Slides يمثل تعديلات الصورة كمجموعة مرتبة من عمليات تحويل الصورة. بالنسبة لإطار الصورة، ابدأ بإطار [ISlidesPicture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidespicture/) وادخل إلى [ISlidesPicture::get_ImageTransform](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidespicture/get_imagetransform/). المجموعة المعادة [IImageTransformOperationCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/) تسمح لك بإضافة، تعداد، فحص، إزالة، ومسح التأثيرات دون إعادة كتابة بايتات الصورة الأصلية.
+يمثل Aspose.Slides تعديلات الصورة كمجموعة مرتبة من عملیات تحويل الصورة. لإطار صورة، ابدأ بـ [ISlidesPicture](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/) الخاص بالإطار وادخل إلى [ISlidesPicture::get_ImageTransform](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/get_imagetransform/). مجموعة [IImageTransformOperationCollection](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/) التي يتم إرجاعها تتيح لك إلحاق، عد، فحص، حذف، ومسح التأثيرات دون إعادة كتابة بايتات الصورة الأصلية.
 
-هذا المقال يوضح سير عمل كامل للسطوع والتباين، تحويلات الألوان، الضبابية، الشفافية، سلاسل التأثير المرتبة، القيم الفعّالة، الإزالة، والتحقق من جولة PPTX.
+يوضح هذا المقال سير عمل كامل للسطوع والتباين، تحويلات الألوان، الضبابية، الشفافية، سلاسل التأثير المرتبة، القيم الفعّالة، الحذف، والتحقق من جولة PPTX.
 
 ## **فهم ملكية التأثير وإعادة استخدام الصورة**
 
-مصدر الصورة والصورة التي تعرضها كائنان مختلفان:
+مورد الصورة والصورة التي تعرضه كائنات مختلفة:
 
-- [IPPImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ippimage/) يخزّن أو يشير إلى بيانات الصورة المصدر المملوكة للعرض التقديمي.
-- [ISlidesPicture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidespicture/) ينتمي إلى تعبئة صورة ويشير إلى مصدر صورة أثناء تخزين مجموعة تحويل الصورة.
-- [IPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipictureframe/) هو شكل الشريحة الذي يمتلك تعبئة الصورة ذات الصلة، الهندسة، إعدادات القص، وتنسيقات المستوى الإطاري الأخرى.
+- يُخزّن أو يُشير [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) إلى بيانات الصورة المصدرية التي تملكها العروض.
+- ينتمي [ISlidesPicture](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/) إلى تعبئة الصورة ويشير إلى مورد الصورة أثناء تخزين مجموعة تحويل الصورة.
+- يمثل [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) شكل الشريحة الذي يملك تعبئة الصورة ذات الصلة، الهندسة، إعدادات القص, وغيرها من تنسيقات الإطار.
 
-لذلك، عمليات تحويل الصورة لا تعدّل البايتات في [IPPImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ippimage/). عندما يتم تمرير نفس `IPPImage` إلى [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addpictureframe/) أكثر من مرة، كل إطار صورة جديد يحصل على `ISlidesPicture` الخاص به ومجموعة التحويل الخاصة به. تطبيق تدرج الرمادي على إطار واحد لا يجعل الأطر الأخرى رمادية، حتى وإن أعادت جميعها استخدام نفس مصدر الصورة المضمن.
+لذا، عمليات تحويل الصورة لا تعدل البايتات في [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/). عندما يتم تمرير نفس `IPPImage` إلى [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) أكثر من مرة، يحصل كل إطار صورة جديد على `ISlidesPicture` خاص به ومجموعة تحويل خاصة به. تطبيق التدرج الرمادي على إطار واحد لا يجعل الأطر الأخرى رمادية، حتى وإن أعادت جميعها استخدام نفس مورد الصورة المضمّن.
 
-نفس نموذج `ISlidesPicture::get_ImageTransform` يُستعمل أيضاً من قبل تعبئات صور أخرى، مثل شكل أو خلفية شريحة. الأمثلة أدناه تركز على إطارات الصور.
+نفس نموذج `ISlidesPicture::get_ImageTransform` يُستعمل أيضاً بواسطة تعبئات صور أخرى، مثل الشكل أو خلفية الشريحة. تركّز الأمثلة أدناه على إطارات الصور.
 
-## **استخدام نطاقات ومعايير صحيحة للمعاملات والوحدات**
+## **استخدام نطاقات ومعايير صحيحة للمعلمات**
 
-الطرق المعروضة تستخدم النطاقات الدلالية والوحدات التالية. احتفظ بالقيم ضمن هذه النطاقات حتى لو لم يرفض إصدار مكتبة معين القيم الخارجة فوراً؛ قد يقوم تنسيق العرض المستهدف بتطبيع أو حذف أو رفض البيانات غير الصالحة أثناء الحفظ أو عند فتح الملف في PowerPoint.
+الطرق الموضحة تستخدم النطاقات الدلالية والوحدات التالية. حافظ على القيم داخل هذه النطاقات حتى لو لم ترفض نسخة المكتبة المستخدمة القيم خارج النطاق مباشرة؛ قد يقوم تنسيق العرض المستهدف بتطبيع أو حذف أو رفض البيانات غير الصالحة أثناء الحفظ أو عند فتح PowerPoint للملف.
 
 | العملية | المعاملات | النطاق والوحدة الصالحة |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` إلى `100` بالمائة؛ `0` يترك المكوّن دون تغيير. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | لا شيء | لا معاملات رقمية. لا يتغيّر ألفا. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | لونان للبكسلات الداكنة والفاتحة. قيم القنوات RGB وألفا في `System::Drawing::Color` من `0` إلى `255`. |
-| [AddTintEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | `hue` من `0` شامل إلى `360` غير شامل بالدرجات؛ `amount` من `-100` إلى `100` بالمائة. |
-| [AddHSLEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | `hue` من `0` شامل إلى `360` غير شامل بالدرجات؛ التشبع والإضاءة من `-100` إلى `100` بالمائة. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | اللون البديل يستخدم قيم القناة من `0` إلى `255`. قيم ألفا الحالية لا تتغيّر. |
-| [AddBlurEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | نصف القطر غير سالب ويقاس بالنقاط؛ `grow` يتحكم ما إذا كان المحتوى الضبابي قد يمتد خارج الحدود الأصلية. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | نسبة مئوية غير سلبية. استخدم `0` إلى `100` لتقليل الشفافية المعتادة: `0` شفّاف بالكامل و`100` يحافظ على ألفا الحالي. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` إلى `100` بالمائة شفافية. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` إلى `100` بالمائة حد ألفا. القيم الأقل تصبح شفافة؛ القيم عند الحد أو أعلى تصبح غير شفافة. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` إلى `100`، نسبة مئوية؛ `0` يترك المكوّن دون تغيير. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | لا شيء | لا توجد معاملات رقمية. يبقى الألفا دون تغيير. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | لونان للبيكسلات الداكنة والفاتحة. قيم القنوات في `System::Drawing::Color` تتراوح من `0` إلى `255`. |
+| [AddTintEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | درجة الصبغ `hue` من `0` شامل إلى `360` غير شامل، بالدرجات؛ `amount` من `-100` إلى `100`، نسبة مئوية. |
+| [AddHSLEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | `hue` من `0` شامل إلى `360` غير شامل، بالدرجات؛ التشبع والسطوع من `-100` إلى `100`، نسبة مئوية. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | يستخدم اللون البديل قيم القنوات من `0` إلى `255`. قيم الألفا الحالية تبقى دون تغيير. |
+| [AddBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | نصف القطر غير سالب ويُقاس بالنقاط؛ `grow` يحدِّد ما إذا كان المحتوى الضبابي قد يمتد خارج الحدود الأصلية. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | نسبة مئوية غير سلبية. استخدم `0` إلى `100` لتعديل الشفافية المعتاد: `0` يعني شفافية كاملة و`100` يحافظ على الألفا الحالي. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` إلى `100`، نسبة مئوية للشفافية. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` إلى `100`، نسبة مئوية لحدِّ الألفا. القيم الأدنى تصبح شفافة؛ القيم عند الحد أو فوقه تصبح غير شفافة. |
 
-لضبط تعديل ألفا ثابت، الشفافية والعتامة متكاملتان. على سبيل المثال، 35% شفافية تعادل مقدار تعديل ألفا 65%.
+في تعديل الألفا الثابت، الشفافية والعتامة مكملان لبعضهما. على سبيل المثال، شفافية بنسبة 35% تعادل مقدار تعديل ألفا يساوي 65%.
 
 ## **تطبيق السطوع والتباين**
 
-[IImageTransformOperationCollection::AddBrightnessContrastEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) يرجّع عملية [IBrightnessContrast](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ibrightnesscontrast/). تُزود الإعدادات العددية عند إنشاء العملية. طريقة `IBrightnessContrast::GetEffective` تُعيد قيماً محسوبة للقراءة فقط يمكن فحصها أو تسجيلها.
+ترجع [IImageTransformOperationCollection::AddBrightnessContrastEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) عملیات [IBrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ibrightnesscontrast/). يتم تزويد الإعدادات العددية عند إنشاء العملية. تُعيد طريقة `IBrightnessContrast::GetEffective` القيم المقروءة‑فقط المحسوبة التي يمكن فحصها أو تسجيلها.
 
-المثال التالي يزيد السطوع بنسبة 15% والتباين بنسبة 20%، ثم يعرض معاينة دون تعديل الصورة المضمّنة:
+المثال التالي يرفع السطوع بنسبة 15% والتباين بنسبة 20%، ثم يعرض معاينة دون تعديل الصورة المضمّنة:
 
 ```cpp
 #include <DOM/Effects/IBrightnessContrast.h>
@@ -109,13 +109,13 @@ preview->Save(u"brightness-contrast-preview.png", ImageFormat::Png);
 presentation->Dispose();
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/brightnesscontrast/) هو امتداد تأثير صورة Office 2010 وهو أقل قابلية للنقل مقارنة بتأثير السطوع القياسي في DrawingML. عندما يجب أن يبقى السطوع والتباين قابلين للتحرير بعد جولة PPTX، استخدم [IImageTransformOperationCollection::AddLuminanceEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) وتحقق من النتيجة بعد إعادة فتح الملف. يشرح قسم قيود التنسيق هذا الاختلاف بمزيد من التفصيل.
+[BrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/brightnesscontrast/) هو امتداد لتأثير صورة في Office 2010 وهو أقل قابلية للنقل من تأثير السطوع القياسي في DrawingML. عندما يجب أن يبقى السطوع والتباين قابليين للتحرير بعد جولة PPTX، استخدم [IImageTransformOperationCollection::AddLuminanceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) وتحقق من النتيجة بعد إعادة فتح الملف. يوضح قسم قيود الصيغة هذا الفرق بمزيد من التفصيل.
 
 ## **تطبيق تحويلات الألوان**
 
-يمكن تطبيق تأثيرات اللون بشكل مستقل على إطارات صور مختلفة تُعيد استخدام مورد صورة واحد. المثال التالي ينشئ خمس إطارات ويطبق تدرج الرمادي، ثنائي اللون، صبغة، ضبط HSL، واستبدال اللون.
+يمكن تطبيق تأثيرات اللون بشكل مستقل على إطارات صور مختلفة تعيد استخدام مورد صورة واحد. المثال التالي ينشئ خمس إطارات ويطبق التدرج الرمادي، الثنائي النغمة، الصبغ، تعديل HSL، واستبدال اللون.
 
-[IDuotone](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iduotone/) يحتوي على معاملين لونيين قابليين للتحرير بشكل مستقل: `get_Color1` يطابق البكسلات الداكنة، بينما `get_Color2` يطابق البكسلات الفاتحة. هذا يجعله مثالاً مفيداً لتأثير إعداداته أكثر تعقيداً من قيمة عددية واحدة.
+[IDuotone](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iduotone/) يحتوي على معاملين للون يمكن تحريرهما بصورة مستقلة: `get_Color1` يطابق البكسلات الداكنة، بينما `get_Color2` يطابق البكسلات الفاتحة. هذا يجعله مثالاً مفيداً لتأثير إعداداته أكثر تعقيداً من قيمة عددية واحدة.
 
 ```cpp
 #include <DOM/Effects/IColorReplace.h>
@@ -168,13 +168,74 @@ presentation->Save(u"color-transformations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) يستبدل لون كل بكسل بلون ثابت واحد مع الحفاظ على ألفا. إنه مختلف عن [AddColorChangeEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/)، الذي يطابق لون مصدر بلون هدف ويظهر صيغتي اللون للمصدر والهدف.
+[AddColorReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) يستبدل لون كل بكسل بلون ثابت واحد مع الحفاظ على الألفا. يختلف عن [AddColorChangeEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/)، الذي يطابق لون مصدر إلى آخر ويوفر صيغتي اللون المصدر والهدف.
 
-## **إضافة تأثيرات الضبابية والشفافية وألفا**
+### **تطبيق عتبة السطوع**
 
-[AddBlurEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) يؤثر على جميع قنوات اللون، بما في ذلك ألفا. اضبط `grow` إلى `true` عندما قد يمتد الحافة الضبابية خارج حدود الصورة الأصلية.
+يمكن لعتبة السطوع أن تجعل العلامات الخفيفة على صفحة ممسوحة ضوئياً أسهل للتمييز عن الخلفية. [AddGrayScaleEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) يحافظ على درجات الرمادي الوسيطة. [AddBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) يطابق السطوع مع الأسود أو الأبيض، بينما [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) يطبق عتبة على العتامة.
 
-لشفافية موحدة، استخدم [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). فهو يضاعف كل قيمة ألفا موجودة، لذا تبقى البكسلات شبه الشفافة نسبياً مختلفة. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) يعيّن قيمة ألفا واحدة لكل البكسلات. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) يحول ألفا إلى مستويين بناءً على حد.
+يتراوح نطاق عتبة السطوع من 0% إلى 100% شامل. البكسلات تحت العتبة تصبح سوداء. البكسلات عند العتبة أو فوقها تصبح بيضاء. رفع العتبة يجعل المزيد من الدرجات تصبح سوداء لأن المزيد منها يقع تحت الحد.
+
+نزّل [grayscale-swatches.png](grayscale-swatches.png) إلى دليل العمل. كل تسمية تعطي مستوى الرمادي الأصلي على مقياس من 0 إلى 255. يضع المثال الأصلي بجوار نسختين ويحفظ عتبة كل نسخة في العرض.
+
+```cpp
+#include <DOM/Effects/IBiLevel.h>
+#include <DOM/Effects/IImageTransformOperationCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 150, SlideSizeScaleType::DoNotScale);
+auto shapes = presentation->get_Slide(0)->get_Shapes();
+
+auto imageData = File::ReadAllBytes(u"grayscale-swatches.png");
+auto image = presentation->get_Images()->AddImage(imageData);
+
+auto addFrame = [&](float x, const String& caption)
+{
+    auto label = shapes->AddAutoShape(ShapeType::Rectangle, x, 12, 216, 36);
+    label->get_TextFrame()->set_Text(caption);
+    return shapes->AddPictureFrame(ShapeType::Rectangle, x, 60, 216, 72, image);
+};
+
+addFrame(12, u"Original");
+
+auto lowThreshold = addFrame(252, u"Threshold 20%");
+lowThreshold->get_PictureFormat()->get_Picture()->get_ImageTransform()->AddBiLevelEffect(20.0f);
+
+auto highThreshold = addFrame(492, u"Threshold 60%");
+highThreshold->get_PictureFormat()->get_Picture()->get_ImageTransform()->AddBiLevelEffect(60.0f);
+
+presentation->Save(u"luminance-threshold.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+افتح العرض الناتج في PowerPoint للمقارنة بين الإطارات الثلاثة. العينة التي تحمل التسمية 96 لها تقريباً 38% سطوع (96 من 255). تتحول إلى أبيض عند عتبة 20% وإلى أسود عند عتبة 60%.
+
+![عينات رمادية أصلية بجانب النتائج بالأبيض‑ والأسود عند عتبة سطوع 20% و60%](luminance-threshold.png)
+
+## **إضافة ضبابية، شفافية، وتأثيرات ألفا**
+
+[AddBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) يؤثر على جميع قنوات اللون، بما في ذلك الألفا. ضع `grow` إلى `true` عندما قد يمتد الحافة الضبابية خارج حدود الصورة الأصلية.
+
+لشفافية موحدة، استخدم [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). يضرب كل قيمة ألفا موجودة، لذا تبقى البكسلات شبه الشفافة نسبياً مختلفة. [AddAlphaReplaceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) يعيّن قيمة ألفا واحدة لكل البكسلات. [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) يحوّل الألفا إلى مستويين بناءً على عتبة.
 
 ```cpp
 #include <DOM/Effects/IAlphaBiLevel.h>
@@ -224,15 +285,15 @@ presentation->Save(u"blur-and-alpha-effects.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-عمليات ألفا بدون معاملات أخرى تشمل [AddAlphaCeilingEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/)، الذي يجعل كل ألفا غير صفرية غير شفافة تماماً؛ [AddAlphaFloorEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/)، الذي يجعل كل ألفا أقل من 100% شفافة بالكامل؛ و[AddAlphaInverseEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/)، الذي يغيّر ألفا إلى `100% - alpha`.
+تشمل عمليات ألفا الخالية من المعاملات الأخرى [AddAlphaCeilingEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/)، التي تجعل كل ألفا غير الصفرية معتماً بالكامل؛ [AddAlphaFloorEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/)، التي تجعل كل ألفا أقل من 100% شفافة بالكامل؛ و[AddAlphaInverseEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/)، التي تغير الألفا إلى `100% - alpha`.
 
 ## **بناء سلسلة تأثير مرتبة**
 
-كل طريقة `Add...Effect` تُضيف عملية جديدة إلى نهاية المجموعة. يستخدم المرسّخ المجموعة كخط أنابيب مرتب: ناتج العملية 0 يصبح مدخل العملية 1، وهكذا. نتيجةً لذلك، يمكن للعمليات نفسها بترتيب مختلف أن تُنتج صورة مختلفة.
+كل طريقة `Add...Effect` تُلحق عملية جديدة إلى نهاية المجموعة. يستخدم العارض المجموعة كخط أنابيب مرتّب: مخرجات العملية 0 تصير مدخل العملية 1، وهكذا. وبالتالي، يمكن للعمليات نفسها بترتيب مختلف أن تُنتج صورة مختلفة.
 
-على سبيل المثال، تدرج الرمادي يليه صبغة يزيل أولاً المعلومات اللونية ثم يُعيد تلوين نتيجة الإضاءة. صبغة يليه تدرج الرمادي يزيل الصبغة مرة أخرى. بالمثل، استبدال ألفا يمكنه أن يتجاوز قيم ألفا التي حسبتها عمليات سابقة، بينما تعديل ألفا يحافظ على الفروقات النسبية بينها.
+على سبيل المثال، التدرج الرمادي يليه الصبغ يزيل أولاً المعلومات اللونية ثم يعيد تلوين نتيجة السطوع. الصبغ يليه التدرج الرمادي يُعيد حذف الصبغ مرة أخرى. بالمثل، استبدال الألفا يمكن أن يتجاوز قيم الألفا التي حسبتها عمليات سابقة، بينما تعديل الألفا يحافظ على اختلافاتها النسبية.
 
-المثال التالي يبني سلسلة من أربع عمليات، يحفظها كملف PPTX، يعيد فتح العرض، يتحقق من نوعية العمليات وترتيبها، ويُظهر النتيجة المفتوحة مجدداً:
+المثال التالي يبني سلسلة من أربع عمليات، يحفظها كـ PPTX، يعيد فتح العرض، يتحقق من نوعيات العمليات وترتيبها، ثم يُظهر النتيجة المعاد فتحها:
 
 ```cpp
 #include <DOM/Effects/IAlphaModulateFixed.h>
@@ -303,15 +364,21 @@ else
 reopenedPresentation->Dispose();
 ```
 
-المجموعة لا تفرض مصفوفة توافق تقيد عمليات اللون، ألفا، والضبابية إلى سلاسل منفصلة. يمكن دمجها، لكن بعض التركيبات قد لا تكون مفيدة. استبدال اللون الثابت يزيل تنوع RGB الناتج عن تأثيرات لونية سابقة؛ تدرج الرمادي بعد ثنائي اللون يزيل اللونين المختارين؛ عمليات سقف ألفا، أرضية ألفا، الاستبدال أو الثنائي المستوى قد تطيح بتفاصيل ألفا التي أنشئتها عمليات سابقة. ابنِ السلسلة وفق تسلسل معالجة البكسل المطلوب بدلاً من اعتبار عناصرها كأعلام تنسيق غير مرتبة.
+المجموعة لا تفرض مصفوفة توافق تقيد عمليات اللون، الألفا، والضبابية إلى سلاسل منفصلة. يمكن جمعها، لكن الجمع ليس دائماً مفيداً. استبدال اللون الثابت يزيل تباين RGB الناتج عن تأثيرات اللون السابقة؛ التدرج الرمادي بعد الثنائي النغمة يزيل اللونين المحددين؛ وعملية عتبة الألفا (السقف، الأرضية، الاستبدال أو الثنائي) قد تتخلص من تفاصيل الألفا التي أُنتجت في وقت سابق. بّن السلسلة وفق التسلسل المطلوب لمعالجة البكسل بدلاً من اعتبار عناصرها كعلامات تنسيق غير مرتبة.
 
-## **فحص القيم القابلة للتحرير والفعّالة**
+<!-- visual-explanation:image-transform-effects:start -->
+[![نفس الصورة تمر عبر التدرج الرمادي ثم الصبغ، ومن ثم الصبغ ثم التدرج الرمادي. الصورتان النهائيتان بتدرج رمادي لهما نغمات مختلفة.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-عملية قابلة للتحرير هي الكائن المخزن في `ISlidesPicture::get_ImageTransform`. بناءً على التأثير، قد يُظهر أعضاء قابلة للكتابة مباشرة. على سبيل المثال، [IBlur](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iblur/) يُظهر `set_Radius` و`set_Grow`، [IAlphaModulateFixed](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ialphamodulatefixed/) يُظهر `set_Amount`، و[IAlphaBiLevel](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ialphabilevel/) يُظهر `set_Threshold`. تأثيرات اللون مثل [IDuotone](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iduotone/) تُظهر كائنات [IColorFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icolorformat/) قابلة للتعديل.
+*في هذا العرض التوضيحي لـ Aspose.Slides for .NET 26.11، الصبغ بزاوية 220° وبنسبة 25% لا يغيّر الصورة الرمادية. تطبيق الصبغ نفسه قبل التدرج الرمادي ينتج نغمات مختلفة.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-بعض واجهات العمليات، بما في ذلك [IBrightnessContrast](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ibrightnesscontrast/)، [IHSL](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ihsl/)، [ITint](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/itint/)، و[IAlphaReplace](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ialphareplace/)، لا تُظهر المتغيرات الإنشائية كخصائص قابلة للكتابة. لتغيير هذه الإعدادات، احذف العملية وأضف بديلة في الموضع المطلوب.
+## **فحص القيم القابلة للتحرير والقيم الفعّالة**
 
-البيانات الفعّالة التي تُرجعها `GetEffective()` محسوبة للقراءة فقط. هي مفيدة لحل ألوان تعتمد على السمة وقراءة القيم المُطَبَّقة التي يستخدمها المرسّخ، لكنها ليست سطح تحرير آخر. المثال التالي يعدد السلسلة ويفحص القيم الفعّالة لعدة عمليات شائعة:
+العملية القابلة للتحرير هي الكائن المخزن في `ISlidesPicture::get_ImageTransform`. بناءً على التأثير، قد تُظهر أعضاء قابلة للكتابة مباشرة. على سبيل المثال، [IBlur](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/) يُظهر `set_Radius` و `set_Grow`، و[IAlphaModulateFixed](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphamodulatefixed/) يُظهر `set_Amount`، و[IAlphaBiLevel](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphabilevel/) يُظهر `set_Threshold`. تأثيرات اللون مثل [IDuotone](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iduotone/) تُظهر كائنات [IColorFormat](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/) قابلة للتعديل.
+
+بعض واجهات العملية، بما فيها [IBrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ibrightnesscontrast/)، [IHSL](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ihsl/)، [ITint](https://reference.aspose.com/slides/cpp/aspose.slides.effects/itint/)، و[IAlphaReplace](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ialphareplace/)، لا تكشف عن القيم العددية التي أنشئت بها كخصائص قابلة للكتابة. لتغيير تلك الإعدادات، احذف العملية وأضف عملية بديلة في الموضع المطلوب.
+
+البيانات الفعّالة التي تُرجعها `GetEffective()` محسوبة ولا يمكن تعديلها. هي مفيدة لحل ألوان تعتمد على السمة وقراءة القيم المُعالجة التي يستخدمها العارض، لكنها ليست سطح تحرير آخر. المثال التالي يعدّ السلسلة ويفحص القيم الفعّالة لعدة عمليات شائعة:
 
 ```cpp
 #include <DOM/Effects/IAlphaModulateFixed.h>
@@ -394,11 +461,11 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-التأثيرات بدون معاملات مثل تدرج الرمادي، سقف ألفا، وعكس ألفا لا يزال لها كائن بيانات فعّالية، لكن لا توجد إعدادات عددية للطباعة. وجودها وموقعها في المجموعة هو ما يهم.
+التأثيرات الخالية من المعاملات مثل التدرج الرمادي، عتبة الألفا السقفي، والعتبة العكسية لا يزال لديها كائن بيانات فعّالة، لكن لا توجد إعدادات عددية للطباعة. وجودها وموقعها في المجموعة هو ما يهم.
 
 ## **إزالة أو مسح تحويلات الصورة**
 
-استخدم [IImageTransformOperationCollection::RemoveAt](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/removeat/) لإزالة عملية واحدة بحسب الفهرس. بما أن الفهارس تتShift بعد الإزالة، ابحث عن الهدف أولاً وأزله بعد التعداد. استخدم `Clear()` لإزالة السلسلة بالكامل.
+استخدم [IImageTransformOperationCollection::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/removeat/) لإزالة عملية واحدة بحسب الفهرس. لأن الفهارس تتحرك بعد الإزالة، ابحث أولاً عن الهدف ثم احذفه بعد العد. استخدم `Clear()` لإزالة السلسلة بالكامل.
 
 ```cpp
 #include <DOM/Effects/IBlur.h>
@@ -460,38 +527,38 @@ if (pictureFrame != nullptr)
 presentation->Dispose();
 ```
 
-إزالة أو مسح التحويلات يغيّر تنسيق الصورة فقط. ولا يحذف، يعيد ضغط، أو يغيّر مصدر [IPPImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ippimage/) المُعاد استخدامه.
+إزالة أو مسح التحويلات يغيّر تنسيق الصورة فقط. لا يحذف، ولا يعيد ضغط، ولا يغيّر مورد [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) المُعاد استخدامه.
 
-## **مراعاة تنسيقات العرض المستهدف وأهداف التصدير**
+## **مراعاة صيغ العرض وأهداف التصدير**
 
-تنبثق تحويلات الصورة من DrawingML، لذا يُفضَّل تنسيق PPTX القابل للتحرير لسلاسل التأثير. حتى مع PPTX، لا كل عملية لديها قابلية نقل متساوية:
+تعود تحويلات الصورة إلى DrawingML، لذا يُفضَّل PPTX كصيغة تحرير لسلاسل التأثير. حتى مع PPTX، ليست كل عملية لها قابلية نقل متطابقة:
 
-- عمليات DrawingML القياسية مثل السطوع، تدرج الرمادي، ثنائي اللون، الصبغة، HSL، الضبابية، والعمليات الشائعة لألفا لديها أفضل فرصة للبقاء بعد جولة PPTX. أعد فتح الملف المُولَّد وتفحص المجموعة عندما تكون الحفاظ على التعديلات مطلباً.
-- [BrightnessContrast](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/brightnesscontrast/) هو امتداد Office 2010 وليس عملية السطوع القياسية في DrawingML. يمكن استخدامه للتصوير في الذاكرة، لكنه غير مضمون أن يبقى كـ[IBrightnessContrast](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/ibrightnesscontrast/) قابل للتحرير بعد حفظ وإعادة فتح PPTX. فضلاً عن ذلك استخدم [AddLuminanceEffect](https://reference.aspose.com/slides/ar/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) لتعديلات سطوع وتباين مستدامة.
-- تنسيق PPT الثنائي يأتي قبل نموذج تأثير DrawingML الكامل. قد يحذف حفظ إلى PPT عمليات غير مدعومة، يقلل السلسلة إلى مجموعة فرعية مدعومة، أو يقرب المظهر. لا تستخدم PPT كتنسيق تحقق لسلسلة تحريرية معقّدة.
-- التصيير إلى PNG أو JPEG أو TIFF أو PDF أو SVG أو HTML أو أي مخرج بصري آخر يطبق السلسلة المدعومة على المظهر المُصوَّر. تلك المخرجات لا تحتوي على `IImageTransformOperationCollection` قابلة للتحرير؛ صيغ الرستر تسطّح النتيجة إلى بكسلات، والصادرات المستندية أو المتجهة تخزن تمثيلها الخاص للرسوم.
-- التأثيرات لا تجعل الصورة المرتبطة ذاتية الإحتواء. لا يزال تصوير صورة مرتبطة يعتمد على توفر المورد المرتبط عند تحميل العرض.
+- عمليات DrawingML القياسية مثل السطوع، التدرج الرمادي، الثنائي النغمة، الصبغ، HSL، الضبابية، والعمليات الألفا الشائعة لديها أفضل فرصة للبقاء بعد جولة PPTX. تأكد دائماً من إعادة فتح الملف المُنشأ وفحص المجموعة عندما يكون الحفاظ مطلوباً.
+- [BrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/brightnesscontrast/) امتداد Office 2010 وليس عملية السطوع القياسية في DrawingML. يمكن استخدامها للتصيّر داخل الذاكرة، لكنها ليست مضمونة لتبقى [IBrightnessContrast](https://reference.aspose.com/slides/cpp/aspose.slides.effects/ibrightnesscontrast/) قابلة للتحرير بعد الحفظ وإعادة الفتح. فضلًا عن [AddLuminanceEffect](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) لتعديلات السطوع والتباين المستدامة.
+- تنسيق PPT الثنائي يسبق نموذج تأثير DrawingML الكامل. قد يتجاهل حفظ إلى PPT عمليات غير مدعومة، أو يقلل السلسلة إلى مجموعة فرعية مدعومة، أو يقرّب المظهر. لا تستخدم PPT كصيغة تحقق لسلسلة تحرير معقّدة.
+- التصيّر إلى PNG، JPEG، TIFF، PDF، SVG، HTML أو أي مخرجات بصرية أخرى يطبق السلسلة المدعومة على الشكل النهائي. هذه المخرجات لا تحتوي على `IImageTransformOperationCollection` قابل للتحرير؛ صيغ الرستر تُسطّح النتيجة إلى بكسلات، وتصدير المستند أو المتجه يخزن تمثيله الخاص بالرندر.
+- التأثيرات لا تجعل الصورة المرتبطة مكتفية ذاتياً. لا يزال عرض صورة مرتبطة يعتمد على توفر المورد المرتبط عند تحميل العرض.
 
-مستهلكو العروض المختلفون قد يصورون حالات الحافة بصورة مختلفة، خاصةً عندما تُدمج عدة عمليات ألفا أو تكميم ألوان. للخروج الحاسم، اختبر كل من جولة التحرير النهائية وتنسيق التصدير النهائي بنفس نسخة Aspose.Slides المستخدمة في الإنتاج.
+قد يعرض مستهلكو العروض المختلفون حالات الحافة بصورة مختلفة، خصوصاً عندما تُجمع عدة عمليات ألفا أو تكميم ألوان. للنتائج الحرجة، اختبر كلًّا من جولة التحرير النهائية وصيغة التصدير النهائية باستخدام نفس نسخة Aspose.Slides المستخدمة في الإنتاج.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل تعدّ تأثيرات تحويل الصورة بيانات الصورة المضمّنة؟**
+**هل تعدّل تأثيرات تحويل الصورة بيانات الصورة المضمّنة؟**
 
-لا. العمليات تتبع `ISlidesPicture` المستخدمة في تعبئة الصورة. تبقى بايتات `IPPImage` الأساسية دون تغيير.
+لا. العمليات تنتمي إلى `ISlidesPicture` المستخدم في تعبئة الصورة. تبقى بايتات `IPPImage` الأساسية دون تغيير.
 
-**هل تشارك إطارا صورة يعيدان استعمال نفس الصورة تأثيراتهما؟**
+**هل تشارك إطارا صورة يعيدان استخدام نفس الصورة تأثيراتهما؟**
 
-لا. إعادة استخدام `IPPImage` يجنّب تكرار بيانات الصورة، لكن كل إطار صورة عادةً ما يكون له `ISlidesPicture` منفصل ومجموعة تحويل صورة منفصلة.
+لا. إعادة استخدام `IPPImage` تُجنب تكرار بيانات الصورة، لكن كل إطار صورة عادةً ما يمتلك `ISlidesPicture` ومجموعة تحويل منفصلة.
 
-**هل يمكن دمج تأثيرات اللون والضبابية وألفا؟**
+**هل يمكن دمج تأثيرات اللون، الضبابية، والألفا؟**
 
-نعم. المجموعة تقبلهم في سلسلة مرتبة واحدة. ضع في اعتبارك ما تفعله كل عملية على ناتج السابقة لأن عمليات الاستبدال والحد قد تتخلص من تفاصيل اللون أو ألفا السابقة.
+نعم. تقبل المجموعة دمجها في سلسلة مرتبة. ضع في اعتبارك ما تفعله كل عملية على ناتج العملية السابقة لأن عمليات الاستبدال والعتبة قد تُزيل تفاصيل اللون أو الألفا السابقة.
 
 **لماذا القيم الفعّالة للقراءة فقط؟**
 
-البيانات الفعّالة تمثل القيم المحسوبة المستخدمة في التصيير، بما فيها الألوان المحلولة. حرّر العملية المخزنة في مجموعة التحويل حيثما توجد أعضاء قابلة للكتابة؛ وإلا احذفها وأضف بديلة بمعاملات إنشاء جديدة.
+البيانات الفعّالة تمثل القيم المحسوبة المستخدمة في الرندر، بما فيها الألوان المُحلَّة. عدّل العملية المخزّنة في مجموعة التحويل حيث تتوفر أعضاء قابلة للكتابة؛ وإلا احذفها وأضف بديلة بالمعايير الجديدة.
 
-**أي تنسيق ينبغي أن أستخدمه للحفاظ على سلسلة التحويل؟**
+**أي صيغة يجب أن أستخدمها للحفاظ على سلسلة التحويل؟**
 
-استخدم PPTX وتحقق من الملف بإعادة فتحه. لا يمكن لتنسيق PPT القديم تمثيل نموذج تأثير DrawingML الكامل، وتنسيقات التصدير المرئية تحافظ على المظهر فقط وليس على عمليات التحويل القابلة للتحرير.
+استخدم PPTX وتحقق من الملف بإعادة فتحه. لا يمكن لـ PPT التقليدي تمثيل نموذج تأثير DrawingML الكامل، وتنسيقات التصدير النهائية تُحافظ على المظهر فقط دون عمليات تحويل قابلة للتحرير.

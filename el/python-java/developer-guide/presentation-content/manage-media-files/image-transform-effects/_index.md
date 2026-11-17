@@ -9,12 +9,12 @@ keywords:
 - εφέ εικόνας
 - φωτεινότητα
 - αντίθεση
-- γκρι κλίμακα
-- διχρωμία
+- γκρι κλίμακας
+- δυχρωματικό
 - απόχρωση
 - HSL
 - αντικατάσταση χρώματος
-- θόλωση
+- θολούρα
 - διαφάνεια
 - εφέ άλφα
 - αλυσίδα εφέ
@@ -23,50 +23,50 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Εφαρμόστε, συνδέστε, ελέγξτε, αφαιρέστε και επαληθεύστε εφέ μετασχηματισμού εικόνας για πλαίσια εικόνας με το Aspose.Slides για Python μέσω Java."
+description: "Εφαρμόστε, αλυσίδωση, επιθεωρήστε, αφαιρέστε και επαληθεύστε εφέ μετασχηματισμού εικόνας για πλαίσια εικόνας με το Aspose.Slides για Python μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides αντιπροσωπεύει τις ρυθμίσεις εικόνας ως μια διατεταγμένη συλλογή λειτουργιών μετασχηματισμού εικόνας. Για ένα πλαίσιο εικόνας, ξεκινήστε με το [Picture](https://reference.aspose.com/slides/el/python-java/aspose.slides/picture/) του πλαισίου και αποκτήστε πρόσβαση στο [Picture.getImageTransform](https://reference.aspose.com/slides/el/python-java/aspose.slides/picture/#getImageTransform). Η επιστρεφόμενη [ImageTransformOperationCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/) σας επιτρέπει να προσθέτετε, να απαριθμείτε, να εξετάζετε, να αφαιρείτε και να καθαρίζετε τα εφέ χωρίς να ξαναγράψετε τα αρχικά bytes της εικόνας.
+Aspose.Slides αντιπροσωπεύει τις ρυθμίσεις εικόνας ως μια διατεταγμένη συλλογή λειτουργιών μετασχηματισμού εικόνας. Για ένα πλαίσιο εικόνας, ξεκινήστε με το [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) του πλαισίου και αποκτήστε πρόσβαση στο [Picture.getImageTransform](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#getImageTransform). Η επιστρεφόμενη [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/) σας επιτρέπει να προσθέσετε, να απαριθμήσετε, να ελέγξετε, να αφαιρέσετε και να καθαρίσετε τα εφέ χωρίς να ξαναγράψετε τα αρχικά bytes της εικόνας.
 
-Αυτό το άρθρο δείχνει μια πλήρη ροή εργασίας για φωτεινότητα και αντίθεση, μετασχηματισμούς χρώματος, θόλωση, διαφάνεια, διατεταγμένες αλυσίδες εφέ, αποτελεσματικές τιμές, αφαίρεση και επαλήθευση στρογγυλής διαδρομής PPTX.
+Αυτό το άρθρο επιδεικνύει μια πλήρη διαδικασία για φωτεινότητα και αντίθεση, μετασχηματισμούς χρώματος, θολότητα, διαφάνεια, διατεταγμένες αλυσίδες εφέ, αποτελεσματικές τιμές, αφαίρεση και επαλήθευση κύκλου PPTX.
 
-## **Κατανόηση της κυριότητας των εφέ και επαναχρησιμοποίηση της εικόνας**
+## **Κατανόηση Ιδιοκτησίας Εφέ και Επαναχρησιμοποίησης Εικόνας**
 
 Ένας πόρος εικόνας και η εικόνα που την εμφανίζει είναι διαφορετικά αντικείμενα:
 
-- [PPImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/) αποθηκεύει ή αναφέρεται στα δεδομένα της πηγής εικόνας που ανήκουν στην παρουσίαση.
-- [Picture](https://reference.aspose.com/slides/el/python-java/aspose.slides/picture/) ανήκει σε γέμισμα εικόνας και αναφέρεται σε έναν πόρο εικόνας ενώ αποθηκεύει τη συλλογή μετασχηματισμού εικόνας.
-- [PictureFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/pictureframe/) είναι το σχήμα της διαφάνειας που κατέχει το σχετικό γέμισμα εικόνας, τη γεωμετρία, τις ρυθμίσεις περικοπής και άλλες μορφοποιήσεις επιπέδου πλαισίου.
+- Το [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) αποθηκεύει ή αναφέρει τα δεδομένα της πηγαίας εικόνας που ανήκουν στην παρουσίαση.
+- Το [Picture](https://reference.aspose.com/slides/python-java/aspose.slides/picture/) ανήκει σε γέμισμα εικόνας και αναφέρεται σε πόρο εικόνας ενώ αποθηκεύει τη συλλογή μετασχηματισμών εικόνας.
+- Το [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) είναι το σχήμα διαφάνειας που κατέχει το σχετικό γέμισμα εικόνας, τη γεωμετρία, τις ρυθμίσεις περικοπής και άλλες μορφοποιήσεις επιπέδου πλαισίου.
 
-Συνεπώς, οι λειτουργίες μετασχηματισμού εικόνας δεν τροποποιούν τα bytes στο [PPImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/). Όταν το ίδιο `PPImage` περνιέται στην [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapecollection/#addPictureFrame) περισσότερες από μία φορές, κάθε νέο πλαίσιο εικόνας λαμβάνει το δικό του `Picture` και τη δική του συλλογή μετασχηματισμού. Η εφαρμογή γκρι κλίμακας σε ένα πλαίσιο δεν κάνει τα άλλα πλαίσια γκρι κλίμακας, ακόμη και αν όλα επαναχρησιμοποιούν τον ίδιο ενσωματωμένο πόρο εικόνας.
+Ως εκ τούτου, οι λειτουργίες μετασχηματισμού εικόνας δεν τροποποιούν τα bytes στο [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/). Όταν το ίδιο `PPImage` περάσει στο [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) περισσότερες από μία φορές, κάθε νέο πλαίσιο εικόνας λαμβάνει το δικό του `Picture` και τη δική του συλλογή μετασχηματισμού. Η εφαρμογή του γκριτουνου σε ένα πλαίσιο δεν κάνει τα άλλα πλαίσια γκριτουνου, ακόμη και αν όλα επαναχρησιμοποιούν τον ίδιο ενσωματωμένο πόρο εικόνας.
 
-Το ίδιο μοντέλο `Picture.getImageTransform` χρησιμοποιείται επίσης από άλλα γέμιστρα εικόνας, όπως ένα σχήμα ή το φόντο διαφάνειας. Τα παραδείγματα παρακάτω επικεντρώνονται στα πλαίσια εικόνας.
+Το ίδιο μοντέλο `Picture.getImageTransform` χρησιμοποιείται επίσης από άλλα γεμίσματα εικόνας, όπως ένα σχήμα ή το φόντο της διαφάνειας. Τα παραδείγματα παρακάτω εστιάζουν στα πλαίσια εικόνας.
 
-## **Χρήση έγκυρων εύρους παραμέτρων και μονάδων**
+## **Χρήση Έγκυρων Εύρους Παραμέτρων και Μονάδων**
 
-Οι μεθόδοι που παρουσιάζονται χρησιμοποιούν τα ακόλουθα λογικά εύρη και μονάδες. Διατηρήστε τις τιμές εντός αυτών των ορίων ακόμη και αν μια συγκεκριμένη έκδοση της βιβλιοθήκης δεν απορρίπτει αμέσως κάθε έξω από το εύρος τιμή. Η μορφή παρουσίασης-στόχος μπορεί να ομαλοποιήσει, να παραλείψει ή να απορρίψει μη έγκυρα δεδομένα κατά την αποθήκευση ή όταν το PowerPoint ανοίξει το αρχείο.
+Οι επιδεικνυόμενες μέθοδοι χρησιμοποιούν τα ακόλουθα λογικά εύρη και μονάδες. Κρατήστε τις τιμές μέσα σε αυτά τα εύρη ακόμη και αν μια συγκεκριμένη έκδοση της βιβλιοθήκης δεν απορρίπτει αμέσως κάθε τιμή εκτός εύρους· η μορφή παρουσίασης-στόχος μπορεί να κανονικοποιήσει, να παραλείψει ή να απορρίψει μη έγκυρα δεδομένα κατά την αποθήκευση ή όταν το PowerPoint ανοίγει το αρχείο.
 
 | Λειτουργία | Παράμετροι | Έγκυρο εύρος και μονάδα |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` έως `100`, ποσοστό· `0` αφήνει το στοιχείο αμετάβλητο. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | Καμία | Χωρίς αριθμητικές παραμέτρους. Το άλφα παραμένει αμετάβλητο. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Δύο χρώματα για σκοτεινά και φωτεινά pixels. Τα κανάλια RGB και άλφα στο `java.awt.Color` χρησιμοποιούν τιμές `0` έως `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Η απόχρωση είναι `0` (συμπεριλαμβανομένου) έως `360` (αποκλειστικό) μοίρες· το ποσό είναι `-100` έως `100` ποσοστό. |
-| [addHSLEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Η απόχρωση είναι `0` έως `360` μοίρες· κορεσμός και φωτεινότητα είναι `-100` έως `100` ποσοστό. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | Το χρώμα αντικατάστασης χρησιμοποιεί τιμές καναλιών `0` έως `255`. Οι υπάρχουσες τιμές άλφα παραμένουν αμετάβλητες. |
-| [addBlurEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Η ακτίνα είναι μη αρνητική και μετράται σε points· `grow` είναι Boolean που ελέγχει αν το θολό περιεχόμενο μπορεί να εκτείνεται έξω από τα αρχικά όρια. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Μη αρνητικό ποσοστό. Χρησιμοποιήστε `0` έως `100` για τυπική κλιμάκωση αδιαφάνειας: `0` είναι πλήρως διάφανο και `100` διατηρεί το υπάρχον άλφα. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` έως `100` ποσοστό αδιαφάνειας. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` έως `100` ποσοστό κατωφλίου άλφα. Τιμές κάτω από αυτό γίνονται διαφανείς· τιμές ίσες ή πάνω γίνονται αδιαφανείς. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) | `brightness`, `contrast` | `-100` έως `100`, ποσοστό· `0` αφήνει το στοιχείο αμετάβλητο. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) | None | Κανένα αριθμητικό παράμετρο. Το άλφα παραμένει αμετάβλητο. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addDuotoneEffect) | `color1`, `color2` | Δύο χρώματα για σκούρα και ανοιχτά εικονοστοιχεία. Τα κανάλια RGB και άλφα στο `java.awt.Color` χρησιμοποιούν τιμές από `0` έως `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addTintEffect) | `hue`, `amount` | Η απόχρωση είναι `0` (συμπεριλαμβανομένη) μέχρι `360` (α αποκλειστικό), σε μοίρες· το ποσό είναι από `-100` έως `100`, ποσοστό. |
+| [addHSLEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addHSLEffect) | `hue`, `saturation`, `luminance` | Η απόχρωση είναι `0` (συμπεριλαμβανομένη) μέχρι `360` (α αποκλειστικό), σε μοίρες· ο κορεσμός και η φωτεινότητα είναι από `-100` έως `100`, ποσοστό. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) | `color` | Το χρώμα αντικατάστασης χρησιμοποιεί τιμές καναλιών από `0` έως `255`. Οι υπάρχουσες τιμές άλφα παραμένουν αμετάβλητες. |
+| [addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) | `radius`, `grow` | Η ακτίνα είναι μη αρνητική και μετράται σε points· `grow` είναι Boolean που ελέγχει αν το θολό περιεχόμενο μπορεί να επεκταθεί εκτός των αρχικών ορίων. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect) | `amount` | Μη αρνητικό ποσοστό. Χρησιμοποιήστε τιμές από `0` έως `100` για κανονική κλιμάκωση αδιαφάνειας: `0` είναι πλήρως διαφανές και `100` διατηρεί το υπάρχον άλφα. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) | `alpha` | `0` έως `100`, ποσοστό αδιαφάνειας. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) | `threshold` | `0` έως `100`, ποσοστό κατωφλίου άλφα. Τιμές κάτω από αυτό γίνονται διαφανείς· τιμές ίσες ή πάνω γίνονται αδιαφανείς. |
 
-Για σταθερή διαμόρφωση άλφα, η διαφάνεια και η αδιαφάνεια είναι αμοιβαία συμπληρωματικές. Για παράδειγμα, 35 % διαφάνεια αντιστοιχεί σε ποσό διαμόρφωσης άλφα 65 %.
+Για σταθερή διαμόρφωση άλφα, η διαφάνεια και η αδιαφάνεια είναι συμπληρωματικές. Για παράδειγμα, 35% διαφάνεια αντιστοιχεί σε ποσό διαμόρφωσης άλφα 65%.
 
-## **Εφαρμογή φωτεινότητας και αντίθεσης**
+## **Εφαρμογή Φωτεινότητας και Αντίθεσης**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) επιστρέφει μια λειτουργία [BrightnessContrast](https://reference.aspose.com/slides/el/python-java/aspose.slides/brightnesscontrast/). Οι κλιμακωτές ρυθμίσεις παρέχονται κατά τη δημιουργία της λειτουργίας. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/el/python-java/aspose.slides/brightnesscontrast/#getEffective) επιστρέφει υπολογισμένες τιμές μόνο για ανάγνωση που μπορούν να εξεταστούν ή να καταγραφούν.
+Η [ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBrightnessContrastEffect) επιστρέφει μια λειτουργία [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/). Οι βαθμικές ρυθμίσεις της παρέχονται κατά τη δημιουργία της λειτουργίας. Η [BrightnessContrast.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/#getEffective) επιστρέφει υπολογισμένες τιμές μόνο για ανάγνωση που μπορούν να επιθεωρηθούν ή να καταγραφούν.
 
-Το παρακάτω παράδειγμα αυξάνει τη φωτεινότητα κατά 15 % και την αντίθεση κατά 20 %, έπειτα προβάλλει μια προεπισκόπηση χωρίς τροποποίηση της ενσωματωμένης εικόνας:
+Το παρακάτω παράδειγμα αυξάνει τη φωτεινότητα κατά 15% και την αντίθεση κατά 20%, μετά εμφανίζει μια προεπισκόπηση χωρίς να τροποποιήσει την ενσωματωμένη εικόνα:
 
 ```python
 import jpype
@@ -103,16 +103,16 @@ finally:
     presentation.dispose()
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/el/python-java/aspose.slides/brightnesscontrast/) είναι μια επέκταση εφέ εικόνας Office 2010 και είναι λιγότερο φορητό από το τυπικό εφέ luminance του DrawingML. Όταν η φωτεινότητα και η αντίθεση πρέπει να παραμείνουν επεξεργάσιμες μετά από στρογγυλή διαδρομή PPTX, χρησιμοποιήστε το [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) και επαληθεύστε το αποτέλεσμα μετά το άνοιγμα ξανά του αρχείου. Η ενότητα περιορισμών μορφής εξηγεί αυτή τη διάκριση με περισσότερη λεπτομέρεια.
+[BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) είναι μια επέκταση εφέ εικόνας του Office 2010 και είναι λιγότερο φορητή από το τυπικό εφέ φωτεινότητας DrawingML. Όταν η φωτεινότητα και η αντίθεση πρέπει να παραμείνουν επεξεργάσιμες μετά από έναν κύκλο PPTX, χρησιμοποιήστε την [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) και επαληθεύστε το αποτέλεσμα μετά το άνοιγμα του αρχείου. Η ενότητα περιορισμών μορφής εξηγεί αυτή τη διάκριση με περισσότερες λεπτομέρειες.
 
-## **Εφαρμογή μετασχηματισμών χρώματος**
+## **Εφαρμογή Μετασχηματισμών Χρώματος**
 
-Τα εφέ χρώματος μπορούν να εφαρμοστούν ανεξάρτητα σε διαφορετικά πλαίσια εικόνας που επαναχρησιμοποιούν έναν πόρο εικόνας. Το επόμενο παράδειγμα δημιουργεί πέντε πλαίσια και εφαρμόζει γκρι κλίμακα, διχρωμία, απόχρωση, ρύθμιση HSL και αντικατάσταση χρώματος.
+Τα εφέ χρώματος μπορούν να εφαρμοστούν ανεξάρτητα σε διαφορετικά πλαίσια εικόνας που επαναχρησιμοποιούν έναν πόρο εικόνας. Το παρακάτω παράδειγμα δημιουργεί πέντε πλαίσια και εφαρμόζει γκριτουνου, διχρωματικό, απόχρωση, ρύθμιση HSL και αντικατάσταση χρώματος.
 
-[Duotone](https://reference.aspose.com/slides/el/python-java/aspose.slides/duotone/) περιέχει δύο ανεξάρτητα επεξεργάσιμες παραμέτρους χρώματος: το `color1` αντιστοιχεί στα σκοτεινά pixels, ενώ το `color2` στα φωτεινά. Αυτό το καθιστά χρήσιμο παράδειγμα εφέ με πιο σύνθετες ρυθμίσεις από μια μοναδική κλιμακωτή τιμή.
+[Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) περιέχει δύο ανεξάρτητα επεξεργάσιμες παραμέτρους χρώματος: το `color1` αντιστοιχεί στα σκούρα εικονοστοιχεία, ενώ το `color2` στα ανοιχτά. Αυτό το καθιστά ένα χρήσιμο παράδειγμα εφέ των οποίων οι ρυθμίσεις είναι πιο σύνθετες από μια μοναδική βαθμική τιμή.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 from pathlib import Path
 
@@ -153,13 +153,60 @@ finally:
     presentation.dispose()
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) αντικαθιστά το χρώμα κάθε pixel με ένα σταθερό χρώμα διατηρώντας το άλφα. Είναι διαφορετικό από το [addColorChangeEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), το οποίο αντιστοιχίζει ένα χρώμα πηγής σε ένα χρώμα προορισμού και εκθέτει τόσο τη μορφή χρώματος πηγής όσο και προορισμού.
+[addColorReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorReplaceEffect) αντικαθιστά το χρώμα κάθε εικονοστοιχείου με ένα σταθερό χρώμα διατηρώντας το άλφα. Είναι διαφορετικό από το [addColorChangeEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addColorChangeEffect), που αντιστοιχεί ένα χρώμα προέλευσης σε άλλο και εκθέτει και τις μορφές χρώματος πηγής και προορισμού.
 
-## **Προσθέστε θόλωση, διαφάνεια και εφέ άλφα**
+### **Εφαρμογή Κατωφλίου Φωτεινότητας**
 
-[addBlurEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) επηρεάζει όλα τα κανάλια χρώματος, συμπεριλαμβανομένου του άλφα. Ορίστε `grow` σε `True` όταν το θολό άκρο μπορεί να εκτείνεται πέρα από τα αρχικά όρια της εικόνας.
+Ένα κατώφλι φωτεινότητας μπορεί να κάνει τα αχνά σημάδια σε μια σαρωμένη σελίδα πιο εύκολα διακριτά από το φόντο. Το [addGrayScaleEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addGrayScaleEffect) διατηρεί ενδιάμεσες αποχρώσεις του γκρι. Το [addBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBiLevelEffect) αντιστοιχεί τη φωτεινότητα σε μαύρο ή λευκό, ενώ το [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) εφαρμόζει κατώφλι στην αδιαφάνεια.
 
-Για ομοιόμορφη διαφάνεια, χρησιμοποιήστε το [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Πολλαπλασιάζει κάθε υπάρχουσα τιμή άλφα, έτσι ώστε τα ημιδιαφανή pixels να παραμένουν αναλογικά διαφορετικά. Το [addAlphaReplaceEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) αντιθέτως αποδίδει μία τιμή άλφα σε όλα τα pixels. Το [addAlphaBiLevelEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) μετατρέπει το άλφα σε δύο επίπεδα βάσει ενός κατωφλίου.
+Το κατώφλι φωτεινότητας κυμαίνεται από 0% έως 100%, συμπεριλαμβανομένων. Τα εικονοστοιχεία κάτω από το κατώφλι γίνονται μαύρα. Τα εικονοστοιχεία στο ή πάνω από αυτό γίνονται λευκά. Η αύξηση του κατωφλίου μετατρέπει περισσότερες αποχρώσεις σε μαύρο επειδή περισσότερα πέφτουν κάτω από το όριο.
+
+Κατεβάστε το αρχείο [grayscale-swatches.png](grayscale-swatches.png) στον τρέχοντα φάκελο. Κάθε ετικέτα δείχνει το αρχικό επίπεδο γκρι σε κλίμακα από 0 έως 255. Το παράδειγμα τοποθετεί το αρχικό δίπλα σε δύο αντίγραφα και αποθηκεύει το κατώφλι κάθε αντιγράφου στην παρουσίαση.
+
+```python
+import jpype
+import asposeslides
+from pathlib import Path
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720.0, 150.0, SlideSizeScaleType.DoNotScale)
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+
+    image_data = Path("grayscale-swatches.png").read_bytes()
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+
+    frames = []
+    for index, caption in enumerate(("Original", "Threshold 20%", "Threshold 60%")):
+        x = 12 + 240 * index
+        label = shapes.addAutoShape(ShapeType.Rectangle, x, 12, 216, 36)
+        label.getTextFrame().setText(caption)
+        frame = shapes.addPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image)
+        frames.append(frame)
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20.0)
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60.0)
+
+    presentation.save("luminance-threshold.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Ανοίξτε την έξοδο παρουσίασης στο PowerPoint για να συγκρίνετε τα τρία πλαίσια. Η δειγματοληψία με ετικέτα 96 έχει περίπου 38% φωτεινότητα (96 από 255). Γίνεται λευκή στο κατώφλι 20% και μαύρη στο 60% .
+
+![Αρχικές γκρι δειγματοληψίες δίπλα στα αποτελέσματα ασπρόμαυρου στα κατώφλια φωτεινότητας 20% και 60%](luminance-threshold.png)
+
+## **Προσθήκη Θολούσας, Διαφάνειας και Εφέ Άλφα**
+
+[addBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addBlurEffect) επηρεάζει όλα τα κανάλια χρώματος, συμπεριλαμβανομένου του άλφα. Ορίστε το `grow` σε `True` όταν η θολωμένη άκρη μπορεί να επεκταθεί εκτός των αρχικών ορίων της εικόνας.
+
+Για ομοιόμορφη διαφάνεια, χρησιμοποιήστε το [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaModulateFixedEffect). Πολλαπλασιάζει κάθε υπάρχουσα τιμή άλφα, έτσι ώστε τα μερικώς διαφανή εικονοστοιχεία να παραμένουν αναλογικά διαφορετικά. Το [addAlphaReplaceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaReplaceEffect) αντιθέτως αναθέτει μία τιμή άλφα σε όλα τα εικονοστοιχεία. Το [addAlphaBiLevelEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaBiLevelEffect) μετατρέπει το άλφα σε δύο επίπεδα βάσει ενός κατωφλίου.
 
 ```python
 import jpype
@@ -200,15 +247,15 @@ finally:
     presentation.dispose()
 ```
 
-Άλλες λειτουργίες άλφα χωρίς παραμέτρους περιλαμβάνουν το [addAlphaCeilingEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), που κάνει κάθε μη μηδενικό άλφα πλήρως αδιαφανές· το [addAlphaFloorEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), που κάνει κάθε άλφα κάτω από 100 % πλήρως διαφανές· και το [addAlphaInverseEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), που αλλάζει το άλφα σε `100% - alpha`.
+Άλλες λειτουργίες άλφα χωρίς παραμέτρους περιλαμβάνουν το [addAlphaCeilingEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaCeilingEffect), που κάνει κάθε μη μηδενικό άλφα πλήρως αδιαφανές· το [addAlphaFloorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaFloorEffect), που κάνει κάθε άλφα κάτω από 100% πλήρως διαφανές· και το [addAlphaInverseEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addAlphaInverseEffect), που αλλάζει το άλφα σε `100% - alpha`.
 
-## **Δημιουργία διατεταγμένης αλυσίδας εφέ**
+## **Κατασκευή Διατεταγμένης Αλυσίδας Εφέ**
 
-Κάθε μέθοδος `add...Effect` προσθέτει μια νέα λειτουργία στο τέλος της συλλογής. Ο renderer χρησιμοποιεί τη συλλογή ως διατεταγμένο pipeline: η έξοδος της λειτουργίας 0 γίνεται η είσοδος της λειτουργίας 1, κ.ο.κ. Συνεπώς, οι ίδιες λειτουργίες σε διαφορετική σειρά μπορούν να αποδώσουν διαφορετική εικόνα.
+Κάθε `add...Effect` μέθοδος προσθέτει μια νέα λειτουργία στο τέλος της συλλογής. Ο renderer χρησιμοποιεί τη συλλογή ως μια διατεταγμένη pipeline: η έξοδος της λειτουργίας 0 γίνεται η είσοδος της λειτουργίας 1, κλπ. Συνεπώς, οι ίδιες λειτουργίες με διαφορετική σειρά μπορούν να παράγουν διαφορετική εικόνα.
 
-Για παράδειγμα, η γκρι κλίμακα ακολουθούμενη από απόχρωση αφαιρεί πρώτα τις χρωματικές πληροφορίες και στη συνέχεια επαναχρωματίζει το αποτέλεσμα φωτεινότητας. Η απόχρωση ακολουθούμενη από γκρι κλίμακα αφαιρεί εκ νέου την απόχρωση. Παρόμοια, η αντικατάσταση άλφα μπορεί να υπερισχύσει των τιμών άλφα που υπολογίστηκαν από προηγούμενες λειτουργίες, ενώ η διαμόρφωση άλφα διατηρεί τις σχετικές διαφορές τους.
+Για παράδειγμα, το γκριτουνου ακολουθούμενο από απόχρωση αφαιρεί πρώτα την χρωματική πληροφορία και στη συνέχεια επαναχρωματίζει το αποτέλεσμα της φωτεινότητας. Η απόχρωση ακολουθούμενη από γκριτουνου αφαιρεί ξανά την απόχρωση. Ομοίως, η αντικατάσταση άλφα μπορεί να υπερκαλύψει τις τιμές άλφα που υπολογίστηκαν από προηγούμενες λειτουργίες, ενώ η διαμόρφωση άλφα διατηρεί τις σχετικές διαφορές τους.
 
-Το παρακάτω παράδειγμα δημιουργεί μια αλυσίδα τεσσάρων λειτουργιών, τη σώζει ως PPTX, ανοίγει ξανά την παρουσίαση, ελέγχει τόσο τους τύπους λειτουργιών όσο και τη σειρά τους, και προβάλλει το ξαναανοιγμένο αποτέλεσμα:
+Το παρακάτω παράδειγμα δημιουργεί μια αλυσίδα τεσσάρων λειτουργιών, την αποθηκεύει ως PPTX, ανοίγει ξανά την παρουσίαση, ελέγχει τόσο τους τύπους λειτουργιών όσο και τη σειρά τους, και αποδίδει το αποτέλεσμα μετά το άνοιγμα:
 
 ```python
 import jpype
@@ -261,15 +308,19 @@ finally:
     reopened_presentation.dispose()
 ```
 
-Η συλλογή δεν επιβάλλει έναν πίνακα συμβατότητας που περιορίζει τις λειτουργίες χρώματος, άλφα και θόλωσης σε ξεχωριστές αλυσίδες. Μπορούν να συνδυαστούν, αλλά οι συνδυασμοί δεν είναι πάντα χρήσιμοι. Μια σταθερή αντικατάσταση χρώματος αφαιρεί την παραλλαγή RGB που υπήρχε από προηγούμενα εφέ χρώματος· η γκρι κλίμακα μετά από διχρωμία αφαιρεί τα δύο επιλεγμένα χρώματα· και οι λειτουργίες άλφα (ceil, floor, replace, bi‑level) μπορούν να απορρίψουν λεπτομέρειες άλφα που δημιουργήθηκαν νωρίτερα. Κατασκευάστε την αλυσίδα σύμφωνα με την επιθυμητή ακολουθία επεξεργασίας pixel αντί να θεωρείτε τα στοιχεία ως αταξινόμητες σημαίες μορφοποίησης.
+Η συλλογή δεν επιβάλλει έναν πίνακα συμβατότητας που περιορίζει τις λειτουργίες χρώματος, άλφα και θολούσας σε ξεχωριστές αλυσίδες. Μπορούν να συνδυαστούν, αλλά οι συνδυασμοί δεν είναι πάντα χρήσιμοι. Μια σταθερή αντικατάσταση χρώματος αφαιρεί την παραλλαγή RGB που δημιουργήθηκε από προηγούμενα εφέ χρώματος· το γκριτουνου μετά το διχρωματικό αφαιρεί τα δύο επιλεγμένα χρώματα· και οι λειτουργίες άλφα ceiling, floor, replacement ή bi-level μπορούν να απορρίψουν λεπτομέρειες άλφα που δημιουργήθηκαν νωρίτερα. Κατασκευάστε την αλυσίδα σύμφωνα με την επιθυμητή ακολουθία επεξεργασίας εικονοστοιχείων αντί να θεωρείτε τα στοιχεία της ως μη διατεταγμένες σημαίες μορφοποίησης.
 
-## **Επιθεώρηση επεξεργάσιμων και αποτελεσματικών τιμών**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Η ίδια εικόνα περνάει από γκριτουνου τότε απόχρωση, και απόχρωση τότε γκριτουνου. Οι δύο τελικές γκρι εικόνες έχουν διαφορετικούς τόνους.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+<!-- visual-explanation:image-transform-effects:end -->
 
-Μια επεξεργάσιμη λειτουργία είναι το αντικείμενο αποθηκευμένο στο `Picture.getImageTransform`. Ανάλογα με το εφέ, μπορεί να εκθέτει εγγράψιμα μέλη απευθείας. Για παράδειγμα, το [Blur](https://reference.aspose.com/slides/el/python-java/aspose.slides/blur/) εκθέτει εγγράψιμες τιμές `radius` και `grow`, το [AlphaModulateFixed](https://reference.aspose.com/slides/el/python-java/aspose.slides/alphamodulatefixed/) εκθέτει εγγράψιμο `amount`, και το [AlphaBiLevel](https://reference.aspose.com/slides/el/python-java/aspose.slides/alphabilevel/) εκθέτει εγγράψιμο `threshold`. Τα εφέ χρώματος όπως το [Duotone](https://reference.aspose.com/slides/el/python-java/aspose.slides/duotone/) εκθέτουν μεταβλητά αντικείμενα [ColorFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/colorformat/).
+## **Επιθεώρηση Επεξεργάσιμων και Αποτελεσματικών Τιμών**
 
-Κάποιες κλάσεις λειτουργιών, όπως το [BrightnessContrast](https://reference.aspose.com/slides/el/python-java/aspose.slides/brightnesscontrast/), το [HSL](https://reference.aspose.com/slides/el/python-java/aspose.slides/hsl/), το [Tint](https://reference.aspose.com/slides/el/python-java/aspose.slides/tint/), και το [AlphaReplace](https://reference.aspose.com/slides/el/python-java/aspose.slides/alphareplace/), δεν εκθέτουν τα αρχικά τους scalars ως εγγράψιμες ιδιότητες. Για να αλλάξετε αυτές τις ρυθμίσεις, αφαιρέστε τη λειτουργία και προσθέστε μια αντικατάσταση στη ζητούμενη θέση.
+Μια επεξεργάσιμη λειτουργία είναι το αντικείμενο που αποθηκεύεται στο `Picture.getImageTransform`. Ανάλογα με το εφέ, μπορεί να εκθέτει απευθείας επεξεργάσιμα μέλη. Για παράδειγμα, το [Blur](https://reference.aspose.com/slides/python-java/aspose.slides/blur/) εκθέτει επεξεργάσιμες τιμές `radius` και `grow`, το [AlphaModulateFixed](https://reference.aspose.com/slides/python-java/aspose.slides/alphamodulatefixed/) εκθέτει επεξεργάσιμο `amount`, και το [AlphaBiLevel](https://reference.aspose.com/slides/python-java/aspose.slides/alphabilevel/) εκθέτει επεξεργάσιμο `threshold`. Τα εφέ χρώματος όπως το [Duotone](https://reference.aspose.com/slides/python-java/aspose.slides/duotone/) εκθέτουν μεταβλητά αντικείμενα [ColorFormat](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/).
 
-Τα αποτελεσματικά δεδομένα που επιστρέφει το `getEffective` υπολογίζονται και είναι μόνο για ανάγνωση. Είναι χρήσιμα για την επίλυση χρωμάτων εξαρτώμενων από το θέμα και για την ανάγνωση των κανονικοποιημένων τιμών που χρησιμοποιεί ο renderer, αλλά δεν αποτελούν άλλη επιφάνεια επεξεργασίας. Το παρακάτω παράδειγμα απαριθμεί την αλυσίδα και εξετάζει τις αποτελεσματικές τιμές όπου το αντίστοιχο API τις παρέχει:
+Ορισμένες κλάσεις λειτουργίας, όπως τα [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/python-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/python-java/aspose.slides/tint/) και [AlphaReplace](https://reference.aspose.com/slides/python-java/aspose.slides/alphareplace/), δεν εκθέτουν τις δημιουργικές βαθμικές τιμές ως επεξεργάσιμες ιδιότητες. Για να αλλάξετε αυτές τις ρυθμίσεις, αφαιρέστε τη λειτουργία και προσθέστε μια αντικατάσταση στην απαιτούμενη θέση.
+
+Τα αποτελεσματικά δεδομένα που επιστρέφει η `getEffective` υπολογίζονται και είναι μόνο για ανάγνωση. Είναι χρήσιμα για την επίλυση χρωμάτων εξαρτώνται από το θέμα και για την ανάγνωση των κανονικοποιημένων τιμών που χρησιμοποιεί ο renderer, αλλά δεν αποτελούν άλλη επιφάνεια επεξεργασίας. Το παρακάτω παράδειγμα απαριθμεί την αλυσίδα και επιθεωρεί τις αποτελεσματικές τιμές όπου το αντίστοιχο API τις παρέχει:
 
 ```python
 import jpype
@@ -333,11 +384,11 @@ finally:
     presentation.dispose()
 ```
 
-Τα εφέ χωρίς παραμέτρους όπως γκρι κλίμακα, άλφα ceiling και άλφα inverse έχουν ακόμη αντικείμενο αποτελεσματικών δεδομένων, αλλά δεν υπάρχουν κλιμακωτές ρυθμίσεις προς εκτύπωση. Η παρουσία και η θέση τους στη συλλογή είναι η σημαντική πληροφορία.
+Εφέ χωρίς παραμέτρους όπως το γκριτουνου, το alpha ceiling και το alpha inverse διατηρούν ακόμη ένα αντικείμενο αποτελεσματικών δεδομένων, αλλά δεν υπάρχουν βαθμικές ρυθμίσεις για εκτύπωση. Η παρουσία και η θέση τους στη συλλογή είναι η σημαντική πληροφορία.
 
-## **Αφαίρεση ή εκκαθάριση μετασχηματισμών εικόνας**
+## **Αφαίρεση ή Καθαρισμός Μετασχηματισμών Εικόνας**
 
-Χρησιμοποιήστε το [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) για να αφαιρέσετε μια λειτουργία βάσει δείκτη. Επειδή οι δείκτες μετατοπίζονται μετά την αφαίρεση, αναζητήστε πρώτα τον στόχο και αφαιρέστε το μετά την απαρίθμηση. Χρησιμοποιήστε το [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#clear) για να αφαιρέσετε ολόκληρη την αλυσίδα.
+Χρησιμοποιήστε το [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#removeAt) για να αφαιρέσετε μια λειτουργία με βάση το δείκτη. Επειδή οι δείκτες μεταβάλλονται μετά την αφαίρεση, αναζητήστε πρώτα τον στόχο και αφαιρέστε τον μετά την απαρίθμηση. Χρησιμοποιήστε το [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#clear) για να αφαιρέσετε ολόκληρη την αλυσίδα.
 
 ```python
 import jpype
@@ -377,38 +428,38 @@ finally:
     presentation.dispose()
 ```
 
-Η αφαίρεση ή εκκαθάριση των μετασχηματισμών αλλάζει μόνο τη μορφοποίηση της εικόνας. Δεν διαγράφει, δεν επανασυμπιέζει και δεν τροποποιεί με άλλο τρόπο τον επαναχρησιμοποιούμενο πόρο [PPImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/).
+Η αφαίρεση ή ο καθαρισμός των μετασχηματισμών αλλάζει μόνο τη μορφοποίηση της εικόνας. Δεν διαγράφει, δεν συμπιέζει ξανά, ή αλλιώς τροποποιεί τον επαναχρησιμοποιημένο πόρο [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/).
 
-## **Λάβετε υπόψη τις μορφές παρουσίασης και τους προορισμούς εξαγωγής**
+## **Λάβετε υπόψη τις μορφές παρουσίασης και τους στόχους εξαγωγής**
 
-Οι μετασχηματισμοί εικόνας προέρχονται από το DrawingML, έτσι το PPTX είναι η προτιμώμενη επεξεργάσιμη μορφή για αλυσίδες εφέ. Ακόμη και με PPTX, όχι κάθε λειτουργία έχει την ίδια φορητότητα:
+Οι μετασχηματισμοί εικόνας προέρχονται από το DrawingML, επομένως το PPTX είναι η προτιμώμενη επεξεργάσιμη μορφή για αλυσίδες εφέ. Ακόμα και με PPTX, δεν έχει κάθε λειτουργία την ίδια φορητότητα:
 
-- Οι τυπικές λειτουργίες DrawingML όπως luminance, γκρι κλίμακα, διχρωμία, απόχρωση, HSL, θόλωση και κοινές λειτουργίες άλφα έχουν τις μεγαλύτερες πιθανότητες να παραμείνουν μετά από στρογγυλή διαδρομή PPTX. Πάντα ανοίξτε ξανά το παραγόμενο αρχείο και ελέγξτε τη συλλογή όταν η διατήρηση είναι απαίτηση.
-- Το [BrightnessContrast](https://reference.aspose.com/slides/el/python-java/aspose.slides/brightnesscontrast/) είναι μια επέκταση Office 2010 αντί για το τυπικό εφέ luminance του DrawingML. Μπορεί να χρησιμοποιηθεί για ενδομνήμη rendering, αλλά δεν είναι εγγυημένο ότι θα παραμείνει ως επεξεργάσιμο [BrightnessContrast](https://reference.aspose.com/slides/el/python-java/aspose.slides/brightnesscontrast/) μετά την αποθήκευση και πάλι το άνοιγμα του PPTX. Προτιμήστε το [addLuminanceEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) για μόνιμες ρυθμίσεις φωτεινότητας και αντίθεσης.
-- Η δυαδική μορφή PPT προηγήθηκε του πλήρους μοντέλου εφέ DrawingML. Η αποθήκευση σε PPT μπορεί να παραλείψει μη υποστηριζόμενες λειτουργίες, να μειώσει μια αλυσίδα σε υποσύνολο ή να προσεγγίσει την εμφάνιση. Μην χρησιμοποιείτε το PPT ως μορφή επαλήθευσης για μια πολύπλοκη επεξεργάσιμη αλυσίδα.
-- Η απόδοση σε PNG, JPEG, TIFF, PDF, SVG, HTML ή άλλες οπτικές εξόδους εφαρμόζει την υποστηριζόμενη αλυσίδα στην τελική εμφάνιση. Αυτές οι εξόδους δεν περιέχουν επεξεργάσιμη `ImageTransformOperationCollection`; οι raster μορφές επίπεδουν το αποτέλεσμα σε pixel, και οι εξαγωγές εγγράφου/διανύσματος αποθηκεύουν τη δική τους αναπαράσταση rendering.
-- Τα εφέ δεν κάνουν μια συνδεδεμένη εικόνα αυτόνομη. Η απόδοση μιας συνδεδεμένης εικόνας εξακολουθεί να εξαρτάται από τη διαθεσιμότητα του συνδεδεμένου πόρου όταν η παρουσίαση φορτώνεται.
+- Οι τυπικές λειτουργίες DrawingML όπως η φωτεινότητα, το γκριτουνου, το διχρωματικό, η απόχρωση, το HSL, η θολούσα και οι κοινές λειτουργίες άλφα έχουν τις μεγαλύτερες πιθανότητες να επιβιώσουν σε έναν κύκλο PPTX. Πάντα ανοίξτε ξανά το παραγόμενο αρχείο και επιθεωρήστε τη συλλογή όταν απαιτείται διατήρηση.
+- [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) είναι μια επέκταση του Office 2010 αντί για τη στάνταρ λειτουργία φωτεινότητας DrawingML. Μπορεί να χρησιμοποιηθεί για απόδοση στην μνήμη, αλλά δεν εγγυάται ότι θα παραμείνει ως επεξεργάσιμο [BrightnessContrast](https://reference.aspose.com/slides/python-java/aspose.slides/brightnesscontrast/) μετά την αποθήκευση και το άνοιγμα ξανά του PPTX. Προτιμήστε το [addLuminanceEffect](https://reference.aspose.com/slides/python-java/aspose.slides/imagetransformoperationcollection/#addLuminanceEffect) για μόνιμες ρυθμίσεις φωτεινότητας και αντίθεσης.
+- Η δυαδική μορφή PPT προηγήθηκε του πλήρους μοντέλου εφέ DrawingML. Η αποθήκευση σε PPT μπορεί να παραλείψει μη υποστηριζόμενες λειτουργίες, να μειώσει μια αλυσίδα σε υποσύνολο υποστηριζόμενο ή να προσεγγίσει την εμφάνιση. Μην χρησιμοποιείτε το PPT ως μορφή επαλήθευσης για μια σύνθετη επεξεργάσιμη αλυσίδα.
+- Η απόδοση σε PNG, JPEG, TIFF, PDF, SVG, HTML ή άλλες οπτικές εξόδους εφαρμόζει την υποστηριζόμενη αλυσίδα στην απόδοση. Αυτές οι εξόδους δεν περιέχουν μια επεξεργάσιμη `ImageTransformOperationCollection`; οι μορφές raster ισοπεδώνουν το αποτέλεσμα σε εικονοστοιχεία, και οι εξαγωγές εγγράφου/διανύσματος αποθηκεύουν τη δική τους αναπαράσταση απόδοσης.
+- Τα εφέ δεν κάνουν μια συνδεδεμένη εικόνα αυτόνομη. Η απόδοση μιας συνδεδεμένης εικόνας εξακολουθεί να εξαρτάται από τη διαθεσιμότητα του συνδεδεμένου πόρου όταν φορτώνεται η παρουσίαση.
 
-Διαφορετικοί καταναλωτές παρουσίασης μπορεί να αποδώσουν άκρια σενάρια διαφορετικά, ειδικά όταν συνδυάζονται πολλές λειτουργίες άλφα ή χρώματος. Για κρίσιμα αποτελέσματα, δοκιμάστε τόσο την επεξεργάσιμη στρογγυλή διαδρομή όσο και τη τελική μορφή εξαγωγής με την ίδια έκδοση του Aspose.Slides που χρησιμοποιείται στην παραγωγή.
+Διαφορετικοί καταναλωτές παρουσίασης μπορεί να αποδίδουν περιπτώσεις άκρων διαφορετικά, ειδικά όταν συνδυάζονται πολλές λειτουργίες άλφα ή χρωματικού κβαντισμού. Για κρίσιμα αποτελέσματα, δοκιμάστε τόσο τον επεξεργάσιμο κύκλο όσο και τη τελική μορφή εξαγωγής με την ίδια έκδοση του Aspose.Slides που χρησιμοποιείται στην παραγωγή.
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Τροποποιούν τα εφέ μετασχηματισμού εικόνας τα ενσωματωμένα δεδομένα εικόνας;**
 
 Όχι. Οι λειτουργίες ανήκουν στο `Picture` που χρησιμοποιείται από το γέμισμα εικόνας. Τα υποκείμενα bytes του `PPImage` παραμένουν αμετάβλητα.
 
-**Μοιράζονται δύο πλαίσια εικόνας που επαναχρησιμοποιούν την ίδια εικόνα τα εφέ τους;**
+**Θα μοιραστούν δύο πλαίσια εικόνας που επαναχρησιμοποιούν την ίδια εικόνα τα εφέ τους;**
 
-Όχι. Η επαναχρησιμοποίηση ενός `PPImage` αποφεύγει διπλότυπα δεδομένα εικόνας, αλλά κάθε πλαίσιο εικόνας κανονικά έχει ξεχωριστό `Picture` και συλλογή μετασχηματισμού εικόνας.
+Όχι. Η επαναχρησιμοποίηση ενός `PPImage` αποτρέπει τα διπλότυπα δεδομένα εικόνας, αλλά κάθε πλαίσιο εικόνας συνήθως έχει ξεχωριστό `Picture` και συλλογή μετασχηματισμού εικόνας.
 
-**Μπορούν τα εφέ χρώματος, θόλωσης και άλφα να συνδυαστούν;**
+**Μπορούν τα εφέ χρώματος, θολούσας και άλφα να συνδυαστούν;**
 
-Ναι. Η συλλογή τα δέχεται σε μία διατεταγμένη αλυσίδα. Σκεφτείτε τι κάνει κάθε λειτουργία στο αποτέλεσμα της προηγούμενης, επειδή οι λειτουργίες αντικατάστασης και κατωφλίου μπορεί να απορρίψουν χρώμα ή άλφα που δημιουργήθηκε νωρίτερα.
+Ναι. Η συλλογή τα αποδέχεται σε μια διατεταγμένη αλυσίδα. Σκεφτείτε τι κάνει κάθε λειτουργία στην έξοδο της προηγούμενης, επειδή λειτουργίες αντικατάστασης και κατωφλίου μπορεί να απορρίψουν πρώιμες λεπτομέρειες χρώματος ή άλφα.
 
 **Γιατί οι αποτελεσματικές τιμές είναι μόνο για ανάγνωση;**
 
-Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τις υπολογισμένες τιμές που χρησιμοποιούνται για rendering, συμπεριλαμβανομένων των επιλυμένων χρωμάτων. Επεξεργαστείτε τη λειτουργία που αποθηκεύεται στη συλλογή μετασχηματισμού όπου υπάρχουν εγγράψιμα μέλη· διαφορετικά αφαιρέστε τη και προσθέστε μια αντικατάσταση με νέες παραμέτρους δημιουργίας.
+Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν υπολογισμένες τιμές που χρησιμοποιούνται για απόδοση, περιλαμβανομένων των επιλυμένων χρωμάτων. Επεξεργαστείτε τη λειτουργία που είναι αποθηκευμένη στη συλλογή μετασχηματισμών όπου υπάρχουν επεξεργάσιμα μέλη· διαφορετικά αφαιρέστε τη και προσθέστε μια αντικατάσταση με νέες παραμέτρους δημιουργίας.
 
 **Ποια μορφή πρέπει να χρησιμοποιήσω για να διατηρήσω μια αλυσίδα μετασχηματισμού;**
 
-Χρησιμοποιήστε PPTX και επαληθεύστε το αρχείο ανοίγοντας το ξανά. Το παλαιό PPT δεν μπορεί να αναπαραστήσει το πλήρες μοντέλο εφέ DrawingML, ενώ οι μορφές εξαγωγής διατηρούν την εμφάνιση παρά τις επεξεργάσιμες λειτουργίες μετασχηματισμού.
+Χρησιμοποιήστε PPTX και επαληθεύστε το αρχείο ανοίγοντάς το ξανά. Η παλαιά μορφή PPT δεν μπορεί να αναπαραστήσει το πλήρες μοντέλο εφέ DrawingML, και οι μορφές εξαγωγής που αποδίδουν διατηρούν μόνο την εμφάνιση και όχι τις επεξεργάσιμες λειτουργίες μετασχηματισμού.

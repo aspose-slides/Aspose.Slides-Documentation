@@ -11,12 +11,12 @@ keywords:
 - kontrast
 - gråskala
 - duoton
-- nyans
+- toning
 - HSL
-- färgersättning
-- oskärpa
+- färgbyte
+- suddighet
 - transparens
-- alfateffekt
+- alphaeffekt
 - effektkedja
 - PowerPoint
 - presentation
@@ -27,46 +27,46 @@ description: "Applicera, kedja, inspektera, ta bort och verifiera bildtransforme
 ---
 ## **Översikt**
 
-Aspose.Slides representerar bildjusteringar som en ordnad samling av bildtransformationsoperationer. För en bildram, börja med ramens [Picture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/) och gå till [Picture.getImageTransform](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/). Den returnerade [ImageTransformOperationCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) låter dig lägga till, enumerera, inspektera, ta bort och rensa effekter utan att skriva om de ursprungliga bildbytena.
+Aspose.Slides representerar bildjusteringar som en ordnad samling av bildtransformationsoperationer. För en bildram, börja med ramens [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) och anropa [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). Den returnerade [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) låter dig lägga till, iterera, inspektera, ta bort och rensa effekter utan att skriva om de ursprungliga bildbytarna.
 
-Den här artikeln visar ett komplett arbetsflöde för ljusstyrka och kontrast, färgtransformeringar, oskärpa, transparens, ordnade effektkedjor, effektiva värden, borttagning och PPTX‑rundreses‑verifiering.
+Den här artikeln demonstrerar ett komplett arbetsflöde för ljusstyrka och kontrast, färgtransformeringar, suddighet, transparens, ordnade effektkedjor, effektiva värden, borttagning och PPTX‑rundresa‑verifiering.
 
-## **Förstå effektägarskap och bildåteranvändning**
+## **Förstå ägande av effekter och återanvändning av bilder**
 
 En bildresurs och bilden som visar den är olika objekt:
 
-- [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/) lagrar eller refererar källbilddata som tillhör presentationen.
-- [Picture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/) tillhör en bildfyllning och refererar en bildresurs samtidigt som den lagrar bildtransformationssamlingen.
-- [PictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pictureframe/) är bildformen på sliden som äger den relevanta bildfyllningen, geometri, beskärningsinställningar och annan formateringsinformation på ramnivå.
+- [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) lagrar eller refererar till källdata för bilden som ägs av presentationen.
+- [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) tillhör en bildfyllning och refererar till en bildresurs samtidigt som den lagrar samlingen av bildtransformeringar.
+- [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) är bildformen på bilden som äger den relevanta bildfyllningen, geometrin, beskärningsinställningarna och annan ramnivåformatering.
 
-Därför modifierar bildtransformationsoperationer inte bytena i [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/). När samma [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/) skickas till [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/) mer än en gång, får varje ny bildram sin egen [Picture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/) och sin egen transformationssamling. Att applicera gråskala på en ram gör inte de andra ramarna gråskalade, även om alla återanvänder samma inbäddade bildresurs.
+Således modifierar bildtransformationsoperationer inte byten i [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/). När samma [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) skickas till [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) mer än en gång, får varje ny bildram sin egen [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) och sin egen transformeringssamling. Att applicera gråskala på en ram gör inte de andra ramarna gråskala, även om alla återanvänder samma inbäddade bildresurs.
 
-Samma modell för [Picture.getImageTransform](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/) används också av andra bildfyllningar, såsom en form eller bildbakgrund. Exemplen nedan fokuserar på bildramar.
+Samma [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/)‑modell används också av andra bildfyllningar, såsom en form eller bildbakgrund. Exemplen nedan fokuserar på bildramar.
 
 ## **Använd giltiga parameterintervall och enheter**
 
-De demonstrerade metoderna använder följande semantiska intervall och enheter. Håll värden inom dessa intervall även om en viss biblioteksversion inte avvisar varje värde utanför intervallet omedelbart; målpresentationens format kan normalisera, utelämna eller avvisa ogiltiga data vid sparande eller när PowerPoint öppnar filen.
+De demonstrerade metoderna använder följande semantiska intervall och enheter. Håll värden inom dessa intervall även om en viss biblioteks­version inte avvisar varje out‑of‑range‑värde omedelbart; det målformat som presentationen sparas i kan normalisera, utelämna eller avvisa ogiltig data under sparande eller när PowerPoint öppnar filen.
 
 | Operation | Parametrar | Giltigt intervall och enhet |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` till `100`, procent; `0` lämnar komponenten oförändrad. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | Ingen | Inga numeriska parametrar. Alfa är oförändrad. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Två färger för mörka och ljusa pixlar. RGB‑ och alfakanaler i `java.awt.Color` använder `0` till `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Nyansen är `0` inklusiv till `360` exklusiv, i grader; mängden är `-100` till `100`, procent. |
-| [addHSLEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Nyansen är `0` inklusiv till `360` exklusiv, i grader; mättnad och luminans är `-100` till `100`, procent. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | Ersättningsfärgen använder kanalvärden från `0` till `255`. Existerande alfavärden förblir oförändrade. |
-| [addBlurEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Radien är icke‑negativ och mäts i punkter; `grow` är en Boolean som styr om suddigt innehåll får sträcka sig utanför den ursprungliga gränsen. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Icke‑negativ procent. Använd `0` till `100` för vanlig opacitetsskalning: `0` är helt transparent och `100` bevarar den befintliga alfan. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` till `100`, procent opacitet. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` till `100`, procent alfatröskel. Värden under blir transparenta; värden på eller över blir opaka. |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` till `100`, procent; `0` lämnar komponenten oförändrad. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | None | Inga numeriska parametrar. Alfa förblir oförändrad. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | Två färger för mörka och ljusa pixlar. RGB‑ och alfakanaler i `java.awt.Color` använder `0` till `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | Nyans är `0` inklusivt till `360` exklusivt, i grader; mängd är `-100` till `100`, procent. |
+| [addHSLEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | Nyans är `0` inklusivt till `360` exklusivt, i grader; mättnad och luminans är `-100` till `100`, procent. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | Ersättningsfärgen använder kanalvärden från `0` till `255`. Befintliga alfavärden förblir oförändrade. |
+| [addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | Radius är icke‑negativ och mäts i punkter; `grow` är en Boolean som styr om suddigt innehåll får sträcka sig utanför den ursprungliga gränsen. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | Icke‑negativ procent. Använd `0` till `100` för vanlig opacitets­skalning: `0` är helt transparent och `100` bevarar befintlig alfa. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` till `100`, procent opacitet. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` till `100`, procent alfa‑tröskel. Värden under blir transparenta; värden på eller över blir ogenomskinliga. |
 
-För fast alfamodulering är transparens och opacitet komplementära. Till exempel motsvarar 35 % transparens en alfamoduleringsmängd på 65 %.
+För fast alfa‑modulering är transparens och opacitet komplementära. Till exempel motsvarar 35 % transparens en alfa‑moduleringsmängd på 65 %.
 
 ## **Tillämpa ljusstyrka och kontrast**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) returnerar en [BrightnessContrast](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/brightnesscontrast/)‑operation. Dess skalära inställningar ges när operationen skapas. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/brightnesscontrast/) returnerar beräknade skrivskyddade värden som kan inspekteras eller loggas.
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) returnerar en [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/)‑operation. Dess skalära inställningar ges när operationen skapas. [BrightnessContrast.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) returnerar beräknade skrivskyddade värden som kan inspekteras eller loggas.
 
-Följande exempel ökar ljusstyrkan med 15 % och kontrasten med 20 % och renderar sedan en förhandsgranskning utan att modifiera den inbäddade bilden:
+Följande exempel ökar ljusstyrkan med 15 % och kontrasten med 20 %, och renderar sedan en förhandsgranskning utan att modifiera den inbäddade bilden:
 
 ```javascript
 const aspose = {};
@@ -103,13 +103,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/brightnesscontrast/) är en Office 2010‑effektutökning och är mindre portabel än den standardiserade DrawingML‑luminanseffekten. När ljusstyrka och kontrast måste förbli redigerbara efter en PPTX‑rundresa, använd [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) och verifiera resultatet efter att filen öppnats igen. Avsnittet om formatbegränsningar förklarar detta mer i detalj.
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) är en Office 2010‑bild‑effekt‑tillägg och är mindre portabel än den standardiserade DrawingML‑luminanseffekten. När ljusstyrka och kontrast måste förbli redigerbara efter en PPTX‑rundresa, använd [ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) och verifiera resultatet efter att filen har öppnats igen. Avsnittet om formatbegränsningar förklarar denna skillnad mer i detalj.
 
 ## **Tillämpa färgtransformeringar**
 
-Färgeffekter kan appliceras oberoende på olika bildramar som återanvänder samma bildresurs. Följande exempel skapar fem ramar och applicerar gråskala, duotone, nyans, HSL‑justering och färgbyte.
+Färg‑effekter kan appliceras oberoende på olika bildramar som återanvänder en bildresurs. Följande exempel skapar fem ramar och applicerar gråskala, duoton, toning, HSL‑justering och färg‑ersättning.
 
-[Duotone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/duotone/) innehåller två oberoende redigerbara färgparametrar: `color1` mappar mörka pixlar, medan `color2` mappar ljusa pixlar. Detta gör den till ett bra exempel på en effekt vars inställningar är mer komplexa än ett enkelt skalärt värde.
+[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) innehåller två oberoende redigerbara färg‑parametrar: `color1` mappar mörka pixlar, medan `color2` mappar ljusa pixlar. Detta gör den till ett användbart exempel på en effekt vars inställningar är mer komplexa än ett enkelt skalärt värde.
 
 ```javascript
 const aspose = {};
@@ -152,13 +152,60 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) ersätter varje pixels färg med en fast färg samtidigt som alfavärdet bevaras. Det skiljer sig från [addColorChangeEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/), som mappar en källfärg till en annan och exponerar både käll‑ och målformat för färger.
+[addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) ersätter varje pixels färg med en fast färg samtidigt som alfa bevaras. Det skiljer sig från [addColorChangeEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), som mappar en källfärg till en annan och exponerar både käll‑ och mål‑färgformat.
 
-## **Lägg till oskärpa, transparens och alfa‑effekter**
+### **Tillämpa ett luminanströskelvärde**
 
-[addBlurEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) påverkar alla färgkanaler, inklusive alfa. Sätt `grow` till `true` när den suddade kanten kan sträcka sig utanför den ursprungliga bildramens gränser.
+Ett luminanströskelvärde kan göra svaga märken på en skannad sida lättare att skilja från bakgrunden. [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) bevarar mellansteg av grått. [addBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) mappar luminans till svart eller vitt, medan [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) applicerar ett tröskelvärde på opaciteten.
 
-För enhetlig transparens, använd [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/). Den multiplicerar varje befintligt alfavärde, så delvis transparenta pixlar förblir proportionellt olika. [addAlphaReplaceEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) tilldelar istället ett alfavärde till alla pixlar. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) konverterar alfa till två nivåer baserat på en tröskel.
+Luminanströskeln sträcker sig från 0 % till 100 %, inklusive. Pixlar under tröskeln blir svarta. Pixlar på eller över blir vita. Att öka tröskeln gör fler nyanser svarta eftersom fler faller under avgränsningen.
+
+Ladda ner [grayscale-swatches.png](grayscale-swatches.png) till arbetskatalogen. Varje etikett visar den ursprungliga grånivån på en skala från 0 till 255. Exemplet placerar originalet bredvid två kopior och sparar varje kopias tröskel i presentationen.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, slides.SlideSizeScaleType.DoNotScale);
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceImage = slides.Images.fromFile("grayscale-swatches.png");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    const frames = [];
+    for (let i = 0; i < captions.length; i++) {
+        const x = 12 + 240 * i;
+        const label = shapes.addAutoShape(slides.ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        const frame = shapes.addPictureFrame(slides.ShapeType.Rectangle, x, 60, 216, 72, image);
+        frames.push(frame);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60);
+    
+    presentation.save("luminance-threshold.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Öppna den sparade presentationen i PowerPoint för att jämföra de tre ramarna. Switchen med etiketten 96 har ungefär 38 % luminans (96 av 255). Den blir vit vid 20 %-tröskeln och svart vid 60 %-tröskeln.
+
+![Ursprungliga gråskalebitar bredvid de svart‑vita resultaten vid luminanströsklar på 20 % och 60 %](luminance-threshold.png)
+
+## **Lägg till suddighet, transparens och alfaeffekter**
+
+[addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) påverkar alla färgkanaler, inklusive alfa. Sätt `grow` till `true` när den suddade kanten kan sträcka sig utanför den ursprungliga bildens gränser.
+
+För enhetlig transparens, använd [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/). Den multiplicerar varje befintligt alfavärde, så delvis transparenta pixlar förblir proportionellt olika. [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) istället tilldelar ett alfavärde till alla pixlar. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) konverterar alfa till två nivåer baserat på ett tröskelvärde.
 
 ```javascript
 const aspose = {};
@@ -198,15 +245,15 @@ try {
 }
 ```
 
-Andra alfa‑operationer utan parametrar inkluderar [addAlphaCeilingEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/), som gör varje icke‑noll alfa helt ogenomskinlig; [addAlphaFloorEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/), som gör varje alfa under 100 % helt transparent; och [addAlphaInverseEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/), som förändrar alfan till `100% - alpha`.
+Andra alfa‑operationer utan parametrar inkluderar [addAlphaCeilingEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), som gör varje icke‑noll alfa fullt ogenomskinlig; [addAlphaFloorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), som gör varje alfa under 100 % helt transparent; och [addAlphaInverseEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/), som ändrar alfa till `100 % - alfa`.
 
 ## **Bygg en ordnad effektkedja**
 
-Varje `add...Effect`‑metod lägger till en ny operation i slutet av samlingen. Renderaren använder samlingen som en ordnad pipeline: utdata från operation 0 blir indata till operation 1 och så vidare. Därför kan samma operationer i annan ordning ge ett annat resultat.
+Varje `add...Effect`‑metod lägger till en ny operation i slutet av samlingen. Renderaren använder samlingen som en ordnad pipeline: utdata från operation 0 blir indata till operation 1, och så vidare. Följaktligen kan samma operationer i en annan ordning producera en annan bild.
 
-Till exempel, gråskala följt av nyans tar först bort kromatisk information och färglägger sedan luminansresultatet. Nyans följt av gråskala tar bort nyansen igen. På liknande sätt kan alfa‑ersättning överskrida alfa‑värden beräknade av tidigare operationer, medan alfa‑modulering bevarar deras relativa skillnader.
+Till exempel tar gråskala följt av toning först bort kromatiska informationen och färgar sedan om luminansresultatet. Toning följt av gråskala tar bort toningen igen. På samma sätt kan alfa‑ersättning skriva över alfa‑värden som beräknats av tidigare operationer, medan alfa‑modulering bevarar deras relativa skillnader.
 
-Följande exempel bygger en kedja med fyra operationer, sparar den som PPTX, öppnar presentationen igen, kontrollerar både operationstyper och deras ordning samt renderar det återöppnade resultatet:
+Följande exempel bygger en kedja med fyra operationer, sparar den som PPTX, öppnar presentationen igen, kontrollerar både operationstyper och deras ordning, och renderar det återöppnade resultatet:
 
 ```javascript
 const aspose = {};
@@ -264,15 +311,21 @@ try {
 }
 ```
 
-Samlingen påtvingar inte en kompatibilitetsmatris som begränsar färg‑, alfa‑ och oskärpeoperationer till separata kedjor. De kan kombineras, men kombinationerna är inte alltid meningsfulla. En fast färgbyte tar bort RGB‑variation som skapats av tidigare färgeffekter; gråskala efter duotone tar bort de två valda färgerna; och alfa‑tak, golv, ersättning eller tvånivå‑operationer kan förlora alfa‑detalj som skapats tidigare. Bygg kedjan enligt den önskade pixel‑bearbetningssekvensen snarare än att betrakta dess element som oordnade formateringsflaggor.
+Samlingen tvingar inte en kompatibilitetsmatris som begränsar färg‑, alfa‑ och suddighets‑operationer till separata kedjor. De kan kombineras, men kombinationerna är inte alltid användbara. En fast färg‑ersättning tar bort RGB‑variation som producerats av tidigare färgeffekter; gråskala efter duoton tar bort de två valda färgerna; och alfa‑ceiling, floor, replacement eller bi‑level‑operationer kan kasta bort alfa‑detalj som skapats tidigare. Bygg kedjan enligt den önskade pixel‑behandlingssekvensen i stället för att behandla dess objekt som oordnade formateringsflaggor.
+
+<!-- visual-explanation:image-transform-effects:start -->
+[![Samma bild passerar först genom gråskala sedan toning, och toning sedan gråskala. De två slutgiltiga gråskalebilderna har olika nyanser.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
+
+*I denna illustrativa Aspose.Slides for .NET 26.11‑rendering lämnar en 220°‑toning på 25 % den gråskaliga bilden oförändrad. Att applicera samma toning före gråskala ger olika nyanser.*
+<!-- visual-explanation:image-transform-effects:end -->
 
 ## **Inspektera redigerbara och effektiva värden**
 
-En redigerbar operation är objektet lagrat i [Picture.getImageTransform](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/). Beroende på effekten kan den exponera skrivbara medlemmar direkt. Till exempel, [Blur](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/blur/) exponerar skrivbara `radius`‑ och `grow`‑värden, [AlphaModulateFixed](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/alphamodulatefixed/) exponerar en skrivbar `amount`, och [AlphaBiLevel](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/alphabilevel/) exponerar en skrivbar `threshold`. Färgeffekter såsom [Duotone](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/duotone/) exponerar muterbara [ColorFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/colorformat/)-objekt.
+En redigerbar operation är objektet som lagras i [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/). Beroende på effekten kan den exponera skrivbara medlemmar direkt. Till exempel exponerar [Blur](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/) skrivbara `radius`‑ och `grow`‑värden, [AlphaModulateFixed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphamodulatefixed/) exponerar en skrivbar `amount`, och [AlphaBiLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphabilevel/) exponerar en skrivbar `threshold`. Färgeffekter såsom [Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) exponerar muterbara [ColorFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/)-objekt.
 
-Vissa operationer, inklusive [BrightnessContrast](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/tint/) och [AlphaReplace](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/alphareplace/), exponerar inte sina skapande‑skalärer som skrivbara egenskaper. För att ändra dessa inställningar, ta bort operationen och lägg till en ersättare på den önskade positionen.
+Vissa operationer, inklusive [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/), [HSL](https://reference.aspose.com/slides/nodejs-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tint/), och [AlphaReplace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphareplace/), exponerar inte sina skapande‑skalärer som skrivbara egenskaper. För att ändra dessa inställningar, ta bort operationen och lägg till en ersättning på den önskade positionen.
 
-Effektiva data som returneras av `getEffective()` är beräknade och skrivskyddade. De är användbara för att lösa temaberoende färger och läsa de normaliserade värden som renderaren använder, men de är inte en annan redigeringsyta. Följande exempel enumererar kedjan och inspekterar effektiva värden där motsvarande API tillhandahåller dem:
+Effektiva data som returneras av `getEffective()` är beräknade och skrivskyddade. De är användbara för att lösa temaberoende färger och läsa de normaliserade värden som renderaren använder, men de utgör inte en ny redigeringsyta. Följande exempel enumererar kedjan och inspekterar effektiva värden där motsvarande API tillhandahåller dem:
 
 ```javascript
 const aspose = {};
@@ -340,11 +393,11 @@ try {
 }
 ```
 
-Parameterfria effekter såsom gråskala, alfa‑tak och alfa‑invers har fortfarande ett effekt‑datatobjekt, men det finns inga skalära inställningar att skriva ut. Deras närvaro och position i samlingen är den viktiga informationen.
+Effekter utan parametrar såsom gråskala, alfa‑ceiling och alfa‑inverse har fortfarande ett effektivt‑data‑objekt, men det finns inga skalära inställningar att skriva ut. Deras närvaro och position i samlingen är den viktiga informationen.
 
 ## **Ta bort eller rensa bildtransformeringar**
 
-Använd [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) för att ta bort en operation efter index. Eftersom index skiftar efter borttagning, sök först efter målet och ta sedan bort det efter enumeration. Använd [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) för att ta bort hela kedjan.
+Använd [ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) för att ta bort en operation efter index. Eftersom index skiftar efter borttagning, sök först efter måloperationen och ta sedan bort den efter enumeration. Använd [ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) för att ta bort hela kedjan.
 
 ```javascript
 const aspose = {};
@@ -389,38 +442,38 @@ try {
 }
 ```
 
-Att ta bort eller rensa transformationer ändrar bara bildformateringen. Det raderar inte, recomprimerar eller på annat sätt ändrar den återanvända [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/)‑resursen.
+Att ta bort eller rensa transformeringar ändrar endast bildformateringen. Det raderar, komprimerar eller på annat sätt ändrar inte den återanvända [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑resursen.
 
-## **Överväg presentationsformat och exporteringsmål**
+## **Överväg presentationsformat och exportmål**
 
 Bildtransformeringar har sitt ursprung i DrawingML, så PPTX är det föredragna redigerbara formatet för effektkedjor. Även med PPTX har inte varje operation identisk portabilitet:
 
-- Standard‑DrawingML‑operationer såsom luminans, gråskala, duotone, nyans, HSL, oskärpa och vanliga alfa‑operationer har bäst chans att överleva en PPTX‑rundresa. Öppna alltid den genererade filen igen och inspektera samlingen när bevarande är ett krav.
-- [BrightnessContrast](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/brightnesscontrast/) är en Office 2010‑utökning snarare än standard‑DrawingML‑luminansoperation. Den kan användas för rendering i minnet, men den garanteras inte att förbli en redigerbar [BrightnessContrast](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/brightnesscontrast/)‑operation efter sparande och återöppning av PPTX. Föredra [addLuminanceEffect](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/) för beständiga ljusstyrke‑ och kontrastjusteringar.
-- Det binära PPT‑formatet föregick den fullständiga DrawingML‑effektmodellen. Sparning till PPT kan utelämna icke‑stödda operationer, reducera en kedja till ett stöd­format subset eller approximera utseendet. Använd inte PPT som verifieringsformat för en komplex redigerbar kedja.
-- Rendering till PNG, JPEG, TIFF, PDF, SVG, HTML eller andra visuella utdata applicerar den stödjade kedjan på det renderade utseendet. Dessa utdata innehåller inte en redigerbar [ImageTransformOperationCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/imagetransformoperationcollection/); rasterformat plattar ut resultatet till pixlar och dokument‑/vektor‑exporter lagrar sin egen renderingsrepresentation.
-- Effekter gör inte en länkat bild självständig. Rendering av en länkat bild beror fortfarande på att den länkade resursen är tillgänglig när presentationen laddas.
+- Standard‑DrawingML‑operationer såsom luminans, gråskala, duoton, toning, HSL, suddighet och vanliga alfa‑operationer har störst chans att överleva en PPTX‑rundresa. Öppna alltid den genererade filen igen och inspektera samlingen när bevarande är ett krav.
+- [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) är ett Office 2010‑tillägg snarare än den standardiserade DrawingML‑luminansoperationen. Den kan användas för rendering i minnet, men garanteras inte att förbli en redigerbar [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/)‑operation efter sparande och återöppning av PPTX. Föredra [addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) för bestående ljusstyrke‑ och kontrastjusteringar.
+- Det binära PPT‑formatet föregick den fullständiga DrawingML‑effektmodellen. Sparas till PPT kan o‑stödda operationer utelämnas, en kedja reduceras till ett stödt delmängd, eller utseendet approximeras. Använd inte PPT som verifieringsformat för en komplex redigerbar kedja.
+- Rendering till PNG, JPEG, TIFF, PDF, SVG, HTML eller annat visuellt utdata applicerar den stödda kedjan på det renderade utseendet. Dessa utdata innehåller inte en redigerbar [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/); rasterformat flattar resultatet till pixlar, och dokument‑/vektorexporter lagrar sin egen renderingsrepresentation.
+- Effekter gör inte en länkad bild självständig. Rendering av en länkad bild beror fortfarande på att den länkade resursen är tillgänglig när presentationen laddas.
 
-Olika presentationskonsumenter kan rendera kantfall olika, särskilt när flera alfa‑ eller färg‑kvantiseringsoperationer kombineras. För kritisk output, testa både den redigerbara rundresan och det slutgiltiga exportformatet med samma Aspose.Slides‑version som används i produktion.
+Olika presentations‑konsumenter kan rendera kantfall olika, särskilt när flera alfa‑ eller färg‑kvantiserings‑operationer kombineras. För kritisk output, testa både den redigerbara rundresan och det slutliga exportformatet med samma Aspose.Slides‑version som används i produktion.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Ändrar bildtransformeringseffekter den inbäddade bilddata?**
+**Modifierar bildtransform‑effekter den inbäddade bilddata?**
 
-Nej. Operationerna tillhör det [Picture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/) som används av bildfyllningen. De underliggande [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/)‑bytena förblir oförändrade.
+Nej. Operationerna tillhör den [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) som används av bildfyllningen. Den underliggande [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑byten förblir oförändrade.
 
 **Kommer två bildramar som återanvänder samma bild att dela sina effekter?**
 
-Nej. Återanvändning av ett [PPImage](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ppimage/) undviker duplicerad bilddata, men varje bildram har normalt en separat [Picture](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/picture/) och en separat bildtransformationssamling.
+Nej. Återanvändning av en [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) undviker duplicerad bilddata, men varje bildram har normalt sin egen [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) och sin egen bildtransform‑samling.
 
-**Kan färg‑, oskärpa‑ och alfa‑effekter kombineras?**
+**Kan färg-, suddighets‑ och alfa‑effekter kombineras?**
 
-Ja. Samlingen accepterar dem i en ordnad kedja. Överväg vad varje operation gör med utdata från den föregående eftersom ersättnings‑ och tröskeloperationer kan förlora tidigare färg‑ eller alfadetaljer.
+Ja. Samlingen accepterar dem i en enda ordnad kedja. Överväg vad varje operation gör med utdata från den föregående eftersom ersättnings‑ och tröskel‑operationer kan kasta bort tidigare färg‑ eller alfadetaljer.
 
 **Varför är effektiva värden skrivskyddade?**
 
-Effektiva data representerar beräknade värden som används för rendering, inklusive lösta färger. Redigera den operation som lagras i transform‑samlingen där skrivbara medlemmar finns; annars ta bort den och lägg till en ersättare med nya skapande‑parametrar.
+Effektiva data representerar beräknade värden som används för rendering, inklusive lösta färger. Redigera den operation som lagras i transform‑samlingen där skrivbara medlemmar finns; annars ta bort den och lägg till en ersättning med nya skapande‑parametrar.
 
 **Vilket format bör jag använda för att bevara en transform‑kedja?**
 
-Använd PPTX och verifiera filen genom att öppna den igen. Äldre PPT kan inte representera hela DrawingML‑effektmodellen, och renderade exportformat bevarar bara utseendet snarare än redigerbara transform‑operationer.
+Använd PPTX och verifiera filen genom att öppna den igen. Äldre PPT kan inte representera den fullständiga DrawingML‑effektmodellen, och renderade exportformat bevarar bara utseendet snarare än redigerbara transform‑operationer.

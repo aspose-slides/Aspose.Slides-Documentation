@@ -1,72 +1,72 @@
 ---
-title: Διαχείριση εφέ μετασχηματισμού εικόνας σε παρουσιάσεις με .NET
-linktitle: Εφέ μετασχηματισμού εικόνας
+title: Διαχείριση επιδράσεων μετασχηματισμού εικόνας σε παρουσιάσεις με .NET
+linktitle: Επιδράσεις μετασχηματισμού εικόνας
 type: docs
 weight: 11
 url: /el/net/image-transform-effects/
 keywords:
 - μετασχηματισμός εικόνας
-- εφέ εικόνας
+- επίδραση εικόνας
 - φωτεινότητα
 - αντίθεση
-- γκρι κλίμακα
-- δυτονικό
-- χρωματισμός
+- γκρίζα απόχρωση
+- δυότονο
+- απόχρωση
 - HSL
 - αντικατάσταση χρώματος
 - θόλωση
 - διαφάνεια
 - εφέ άλφα
-- αλυσίδα εφέ
+- αλυσίδα επιδράσεων
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Εφαρμόστε, συνδυάστε, ελέγξτε, αφαιρέστε και επαληθεύστε εφέ μετασχηματισμού εικόνας για πλαίσια εικόνας με Aspose.Slides για .NET."
+description: "Εφαρμόστε, αλυσσοποιήστε, επιθεωρήστε, αφαιρέστε και επαληθεύστε τις επιδράσεις μετασχηματισμού εικόνας για πλαίσια εικόνας με Aspose.Slides για .NET."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides αντιπροσωπεύει τις ρυθμίσεις εικόνας ως μια διατεταγμένη συλλογή λειτουργιών μετασχηματισμού εικόνας. Για ένα πλαίσιο εικόνας, ξεκινήστε με το πλαίσιο του [ISlidesPicture](https://reference.aspose.com/slides/el/net/aspose.slides/islidespicture/) και αποκτήστε πρόσβαση στο [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/el/net/aspose.slides/islidespicture/imagetransform/). Η επιστρεφόμενη [IImageTransformOperationCollection](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/) σας επιτρέπει να προσθέτετε, να καταμετράτε, να ελέγχετε, να αφαιρείτε και να καθαρίζετε εφέ χωρίς να ξαναγράψετε τα αρχικά image bytes.
+Το Aspose.Slides αναπαριστά τις ρυθμίσεις εικόνας ως μια ταξινομημένη συλλογή λειτουργιών μετασχηματισμού εικόνας. Για ένα πλαίσιο εικόνας, ξεκινήστε με το [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) και αποκτήστε πρόσβαση στο [ISlidesPicture.ImageTransform](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/imagetransform/). Η επιστρεφόμενη [IImageTransformOperationCollection](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/) σάς επιτρέπει να προσθέτετε, να απαριθμείτε, να ελέγχετε, να αφαιρείτε και να καθαρίζετε τις επιδράσεις χωρίς να ξαναγράψετε τα αρχικά bytes της εικόνας.
 
-Αυτό το άρθρο δείχνει μια πλήρη ροή εργασίας για τη φωτεινότητα και αντίθεση, τις μετασχηματισμούς χρώματος, την θόλωση, τη διαφάνεια, τις διατεταγμένες αλυσίδες εφέ, τις αποτελεσματικές τιμές, την αφαίρεση και την επαλήθευση γύρω από το PPTX.
+Αυτό το άρθρο παρουσιάζει μια πλήρη ροή εργασίας για φωτεινότητα και αντίθεση, μετασχηματισμούς χρώματος, θόλωση, διαφάνεια, αλυσίδες επιδράσεων με σειρά, αποτελεσματικές τιμές, αφαίρεση και επαλήθευση γύρω από το PPTX.
 
-## **Κατανόηση Ιδιοκτησίας Εφέ και Επαναχρησιμοποίησης Εικόνας**
+## **Κατανόηση Ιδιοκτησίας Επιδράσεων και Επαναχρησιμοποίησης Εικόνας**
 
 Ένας πόρος εικόνας και η εικόνα που την εμφανίζει είναι διαφορετικά αντικείμενα:
 
-- [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) αποθηκεύει ή αναφέρει τα δεδομένα πηγής εικόνας που ανήκουν στην παρουσίαση.
-- [ISlidesPicture](https://reference.aspose.com/slides/el/net/aspose.slides/islidespicture/) ανήκει σε γέμιση εικόνας και αναφέρεται σε πόρο εικόνας ενώ αποθηκεύει τη συλλογή μετασχηματισμού εικόνας.
-- [IPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) είναι το σχήμα διαφάνειας που κατέχει το σχετικό γέμισμα εικόνας, τη γεωμετρία, τις ρυθμίσεις περικοπής και άλλες μορφοποιήσεις επιπέδου πλαισίου.
+- [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) αποθηκεύει ή αναφέρει τα δεδομένα της πηγαίας εικόνας που ανήκει στην παρουσίαση.
+- [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) ανήκει σε ένα γέμισμα εικόνας και αναφέρεται σε έναν πόρο εικόνας ενώ αποθηκεύει τη συλλογή μετασχηματισμών εικόνας.
+- [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) είναι το σχήμα της διαφάνειας που κατέχει το σχετικό γέμισμα εικόνας, τη γεωμετρία, τις ρυθμίσεις περικοπής και άλλες μορφοποιήσεις σε επίπεδο πλαισίου.
 
-Συνεπώς, οι λειτουργίες μετασχηματισμού εικόνας δεν τροποποιούν τα bytes στο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/). Όταν το ίδιο `IPPImage` περάσει στο [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addpictureframe/) περισσότερες από μία φορές, κάθε νέο πλαίσιο εικόνας λαμβάνει το δικό του `ISlidesPicture` και τη δική του συλλογή μετασχηματισμού. Η εφαρμογή γκρι κλίμακας σε ένα πλαίσιο δεν κάνει τα άλλα πλαίσια γκρι κλίμακας, ακόμη και αν όλα χρησιμοποιούν τον ίδιο ενσωματωμένο πόρο εικόνας.
+Επομένως, οι λειτουργίες μετασχηματισμού εικόνας δεν τροποποιούν τα byte στο [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/). Όταν το ίδιο `IPPImage` περάσει στο [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) περισσότερες από μία φορές, κάθε νέο πλαίσιο εικόνας λαμβάνει το δικό του `ISlidesPicture` και τη δική του συλλογή μετασχηματισμών. Η εφαρμογή γκρι απόχρωσης (grayscale) σε ένα πλαίσιο δεν κάνει τα άλλα πλαίσια γκρι, ακόμη και αν όλα χρησιμοποιούν τον ίδιο ενσωματωμένο πόρο εικόνας.
 
-Το ίδιο μοντέλο `ISlidesPicture.ImageTransform` χρησιμοποιείται επίσης από άλλες γεμίσεις εικόνας, όπως σχήμα ή φόντο διαφάνειας. Τα παραδείγματα παρακάτω επικεντρώνονται στα πλαίσια εικόνας.
+Το ίδιο μοντέλο `ISlidesPicture.ImageTransform` χρησιμοποιείται επίσης από άλλα γέμισματα εικόνας, όπως ένα σχήμα ή το φόντο μιας διαφάνειας. Τα παραδείγματα παρακάτω επικεντρώνονται στα πλαίσια εικόνας.
 
-## **Χρήση Έγκυρων Διαστημάτων Παραμέτρων και Μονάδων**
+## **Χρήση Έγκυρων Εύρους Παραμέτρων και Μονάδων**
 
-Οι παρουσιαζόμενες μέθοδοι χρησιμοποιούν τα ακόλουθα λογικά διαστήματα και μονάδες. Κρατήστε τις τιμές εντός αυτών των διαστημάτων ακόμα και αν μια συγκεκριμένη έκδοση της βιβλιοθήκης δεν απορρίπτει αμέσως κάθε τιμή εκτός διαστήματος· η μορφή παρουσίασης-στόχος μπορεί να κανονικοποιήσει, να παραλείψει ή να απορρίψει τα μη έγκυρα δεδομένα κατά την αποθήκευση ή όταν το PowerPoint ανοίξει το αρχείο.
+Οι παρουσιάζονται μέθοδοι χρησιμοποιούν τα παρακάτω λογικά εύρη και μονάδες. Κρατήστε τις τιμές εντός αυτών των ορίων ακόμα και αν κάποια έκδοση της βιβλιοθήκης δεν απορρίπτει αμέσως κάθε τιμή εκτός ορίου· η μορφή στόχου της παρουσίασης μπορεί να κανονικοποιήσει, παραλείψει ή απορρίψει μη έγκυρα δεδομένα κατά την αποθήκευση ή όταν το PowerPoint ανοίγει το αρχείο.
 
-| Λειτουργία | Παράμετροι | Έγκυρη εμβέλεια και μονάδα |
+| Λειτουργία | Παράμετροι | Έγκυρο εύρος και μονάδα |
 |---|---|---|
-| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` έως `100`, ποσοστό· `0` αφήνει το στοιχείο αμετάβλητο. |
-| [AddGrayScaleEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | None | Καμία αριθμητική παράμετρος. Το άλφα παραμένει αμετάβλητο. |
-| [AddDuotoneEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Δύο χρώματα για σκοτεινά και φωτεινά pixel. Τα κανάλια RGB και άλφα στο System.Drawing.Color χρησιμοποιούν τιμές από `0` έως `255`. |
-| [AddTintEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | `hue` είναι από `0` (συμπεριλαμβανομένου) έως `360` (μη συμπεριλαμβανομένου) μοίρες· `amount` είναι από `-100` έως `100` ποσοστό. |
-| [AddHSLEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | `hue` είναι από `0` (συμπεριλαμβανομένου) έως `360` (μη συμπεριλαμβανομένου) μοίρες· `saturation` και `luminance` είναι από `-100` έως `100` ποσοστό. |
-| [AddColorReplaceEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | Το χρώμα αντικατάστασης χρησιμοποιεί τιμές καναλιών από `0` έως `255`. Οι υπάρχουσες τιμές άλφα παραμένουν αμετάβλητες. |
-| [AddBlurEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Η ακτίνα είναι μη αρνητική και μετριέται σε σημείο· `grow` είναι Boolean που ελέγχει αν το θολό περιεχόμενο μπορεί να εκτείνεται εκτός των αρχικών ορίων. |
-| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Μη αρνητικό ποσοστό. Χρησιμοποιήστε `0` έως `100` για κανονική κλιμάκωση διαφάνειας: `0` είναι πλήρως διαφανές και `100` διατηρεί το υπάρχον άλφα. |
-| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` έως `100`, ποσοστό αδιαφάνειας. |
-| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` έως `100`, ποσοστό κατωφλίου άλφα. Τιμές κάτω από αυτό γίνονται διαφανείς· τιμές ίσες ή άνω γίνονται αδιαφανείς. |
+| [AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) | `brightness`, `contrast` | `-100` μέχρι `100`, ποσοστό· `0` αφήνει το στοιχείο αμετάβλητο. |
+| [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) | Κανένα | Χωρίς αριθμητικές παραμέτρους. Η άλφα παραμένει αμετάβλητη. |
+| [AddDuotoneEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addduotoneeffect/) | `Color1`, `Color2` | Δύο χρώματα για σκούρα και ανοιχτά pixel. Τα κανάλια RGB και άλφα στο `System.Drawing.Color` χρησιμοποιούν τιμές `0` με `255`. |
+| [AddTintEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Η απόχρωση είναι `0` (συμπεριλαμβανομένη) μέχρι `360` (αποκλειστική) μοίρες· το ποσό είναι `-100` μέχρι `100`, ποσοστό. |
+| [AddHSLEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Η απόχρωση είναι `0` (συμπ.) μέχρι `360` (απ.) μοίρες· ο κορεσμός και η φωτεινότητα είναι `-100` μέχρι `100`, ποσοστό. |
+| [AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) | `Color` | Το χρώμα αντικατάστασης χρησιμοποιεί τιμές καναλιών από `0` μέχρι `255`. Οι υπάρχουσες τιμές άλφα παραμένουν αμετάβλητες. |
+| [AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Η ακτίνα είναι μη αρνητική και μετράται σε points· το `grow` είναι Boolean που ελέγχει αν το θολό περιεχόμενο μπορεί να εκτείνεται εκτός των αρχικών ορίων. |
+| [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Μη αρνητικό ποσοστό. Χρησιμοποιήστε `0` με `100` για τυπική κλιμάκωση διαύγειας: `0` είναι πλήρως διαφανές και `100` διατηρεί την υπάρχουσα άλφα. |
+| [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` με `100`, ποσοστό διαύγειας. |
+| [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` με `100`, ποσοστό κατωφλίου άλφα. Τιμές κάτω από αυτό γίνονται διαφανείς· τιμές ίσες ή πάνω γίνονται αδιαφανείς. |
 
-Για σταθερό μοντέλο άλφα, η διαφάνεια και η αδιαφάνεια είναι συμπληρωματικές. Για παράδειγμα, 35 % διαφάνεια αντιστοιχεί σε ποσό μοντελοποίησης άλφα 65 %.
+Για σταθερή διαμόρφωση άλφα, η διαφάνεια και η αδιαφάνεια είναι αλληλοσυμπληρωματικές. Για παράδειγμα, 35 % διαφάνεια αντιστοιχεί σε ποσό διαμόρφωσης άλφα 65 %.
 
 ## **Εφαρμογή Φωτεινότητας και Αντίθεσης**
 
-[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) επιστρέφει μια λειτουργία [IBrightnessContrast](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ibrightnesscontrast/). Οι μονάδες ρυθμίσεις της παρέχονται όταν δημιουργείται η λειτουργία. Το [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/el/net/aspose.slides.effects/brightnesscontrast/geteffective/) επιστρέφει υπολογισμένες μόνο-ανάγνωση τιμές που μπορούν να ελεγχθούν ή να καταγραφούν.
+[IImageTransformOperationCollection.AddBrightnessContrastEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbrightnesscontrasteffect/) επιστρέφει μια λειτουργία [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/). Οι κλιμακωτές τιμές παρέχονται όταν δημιουργείται η λειτουργία. Το [IBrightnessContrast.GetEffective](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/geteffective/) επιστρέφει υπολογισμένες τιμές μόνο για ανάγνωση που μπορούν να επιθεωρηθούν ή να καταγραφούν.
 
-Το παρακάτω παράδειγμα αυξάνει τη φωτεινότητα κατά 15 % και την αντίθεση κατά 20 %, στη συνέχεια αποδίδει προεπισκόπηση χωρίς να τροποποιεί την ενσωματωμένη εικόνα:
+Το παρακάτω παράδειγμα αυξάνει τη φωτεινότητα κατά 15 % και την αντίθεση κατά 20 %, στη συνέχεια αποδίδει μια προεπισκόπηση χωρίς να τροποποιεί την ενσωματωμένη εικόνα:
 
 ```csharp
 using System;
@@ -92,13 +92,13 @@ using var preview = slide.GetImage();
 preview.Save("brightness-contrast-preview.png", ImageFormat.Png);
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/el/net/aspose.slides.effects/brightnesscontrast/) είναι μια επέκταση εφέ εικόνας του Office 2010 και είναι λιγότερο φορητή από το τυπικό εφέ luminance του DrawingML. Όταν η φωτεινότητα και η αντίθεση πρέπει να παραμείνουν επεξεργάσιμες μετά από κύκλο PPTX, χρησιμοποιήστε το [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) και επαληθεύστε το αποτέλεσμα μετά το άνοιγμα του αρχείου. Η ενότητα περιορισμών μορφοτύπου εξηγεί αυτή τη διάκριση με περισσότερες λεπτομέρειες.
+[BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) είναι μια επέκταση εικόνας του Office 2010 και είναι λιγότερο φορητή από το πρότυπο εφέ luminance του DrawingML. Όταν η φωτεινότητα και η αντίθεση πρέπει να παραμείνουν επεξεργάσιμες μετά από κύκλο αποθήκευσης PPTX, χρησιμοποιήστε το [IImageTransformOperationCollection.AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) και επαληθεύστε το αποτέλεσμα ανοίγοντας ξανά το αρχείο. Η ενότητα περιορισμών μορφής εξηγεί αυτή τη διάκριση με περισσότερες λεπτομέρειες.
 
 ## **Εφαρμογή Μετασχηματισμών Χρώματος**
 
-Τα εφέ χρώματος μπορούν να εφαρμοστούν ανεξάρτητα σε διαφορετικά πλαίσια εικόνας που χρησιμοποιούν τον ίδιο πόρο εικόνας. Το παρακάτω παράδειγμα δημιουργεί πέντε πλαίσια και εφαρμόζει γκρι κλίμακα, duetone, χρωματισμό, ρύθμιση HSL και αντικατάσταση χρώματος.
+Οι επιδράσεις χρώματος μπορούν να εφαρμοστούν ανεξάρτητα σε διαφορετικά πλαίσια εικόνας που επαναχρησιμοποιούν έναν πόρο εικόνας. Το παρακάτω παράδειγμα δημιουργεί πέντε πλαίσια και εφαρμόζει γκρι απόχρωση, δυότονο, απόχρωση (tint), ρύθμιση HSL και αντικατάσταση χρώματος.
 
-[IDuotone](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iduotone/) περιέχει δύο ανεξάρτητα επεξεργάσιμες παραμέτρους χρώματος: το `Color1` αντιστοιχεί σε σκοτεινά pixel, ενώ το `Color2` αντιστοιχεί σε φωτεινά pixel. Αυτό το καθιστά χρήσιμο παράδειγμα εφέ των ρυθμίσεων του οποίου είναι πιο πολύπλοκες από μια μοναδική κλιμακωτή τιμή.
+[IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) περιέχει δύο ανεξάρτητα επεξεργάσιμες παραμέτρους χρώματος: το `Color1` αντιστοιχεί στα σκούρα pixel, ενώ το `Color2` στα ανοιχτά pixel. Αυτό το καθιστά χρήσιμο παράδειγμα μιας επίδρασης των ρυθμίσεων της οποίας είναι πιο πολύπλοκη από μια μοναδική κλιμακωτή τιμή.
 
 ```csharp
 using System.Drawing;
@@ -133,13 +133,54 @@ colorReplacement.Color.Color = Color.CornflowerBlue;
 presentation.Save("color-transformations.pptx", SaveFormat.Pptx);
 ```
 
-[AddColorReplaceEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) αντικαθιστά το χρώμα κάθε pixel με ένα σταθερό χρώμα διατηρώντας το άλφα. Είναι διαφορετικό από το [AddColorChangeEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), το οποίο αντιστοιχίζει ένα χρώμα προέλευσης σε ένα άλλο και εκθέτει και τις μορφές χρώματος προέλευσης και στόχου.
+[AddColorReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorreplaceeffect/) αντικαθιστά το χρώμα κάθε pixel με ένα σταθερό χρώμα διατηρώντας την άλφα. Είναι διαφορετικό από το [AddColorChangeEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addcolorchangeeffect/), το οποίο αντιστοιχίζει ένα χρώμα πηγής σε άλλο και εκθέτει και τις μορφές χρώματος πηγής και προορισμού.
 
-## **Προσθήκη Θόλωσης, Διαφάνειας και Εφέ Άλφα**
+### **Εφαρμογή Κατωφλίου Φωτεινότητας**
 
-[AddBlurEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) επηρεάζει όλα τα κανάλια χρώματος, συμπεριλαμβανομένου του άλφα. Ορίστε `grow` σε `true` όταν η θολή άκρη μπορεί να εκτείνεται πέρα από τα αρχικά όρια της εικόνας.
+Ένα κατώφλι φωτεινότητας μπορεί να κάνει τις αχνές σημαδέσιες σε σκαναρισμένη σελίδα πιο ευδιάκριτες από το φόντο. Το [AddGrayScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addgrayscaleeffect/) διατηρεί ενδιάμεσες αποχρώσεις του γκρι. Το [AddBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addbileveleffect/) αντιστοιχεί τη φωτεινότητα σε μαύρο ή λευκό, ενώ το [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) εφαρμόζει ένα κατώφλι στην αδιαφάνεια.
 
-Για ομοιόμορφη διαφάνεια, χρησιμοποιήστε το [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Πολλαπλασιάζει κάθε υπάρχουσα τιμή άλφα, ώστε τα μερικώς διαφανή pixel να παραμένουν αναλογικά διαφορετικά. Το [AddAlphaReplaceEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) αντιθέτως εκχωρεί μία τιμή άλφα σε όλα τα pixel. Το [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) μετατρέπει το άλφα σε δύο επίπεδα βάσει ενός κατωφλίου.
+Το κατώφλι φωτεινότητας κυμαίνεται από 0 % έως 100 %, και τα pixel κάτω από το κατώφλι γίνονται μαύρα. Τα pixel ίσα ή πάνω γίνονται λευκά. Η αύξηση του κατωφλίου μετατρέπει περισσότερες αποχρώσεις σε μαύρο επειδή περισσότερα pixel πέφτουν κάτω από το όριο.
+
+Κατεβάστε το αρχείο [grayscale-swatches.png](grayscale-swatches.png) στον φάκελο εργασίας. Κάθε ετικέτα δείχνει το αρχικό επίπεδο γκρι σε κλίμακα από 0 έως 255. Το παράδειγμα τοποθετεί το αρχικό δίπλα σε δύο αντίγραφα και αποθηκεύει το κατώφλι του κάθε αντιγράφου στην παρουσίαση.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 150, SlideSizeScaleType.DoNotScale);
+var shapes = presentation.Slides[0].Shapes;
+
+var imageData = File.ReadAllBytes("grayscale-swatches.png");
+var image = presentation.Images.AddImage(imageData);
+
+IPictureFrame AddFrame(float x, string caption)
+{
+    shapes.AddAutoShape(ShapeType.Rectangle, x, 12, 216, 36).TextFrame.Text = caption;
+    return shapes.AddPictureFrame(ShapeType.Rectangle, x, 60, 216, 72, image);
+}
+
+AddFrame(12, "Original");
+
+var lowThreshold = AddFrame(252, "Threshold 20%");
+lowThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(20f);
+
+var highThreshold = AddFrame(492, "Threshold 60%");
+highThreshold.PictureFormat.Picture.ImageTransform.AddBiLevelEffect(60f);
+
+presentation.Save("luminance-threshold.pptx", SaveFormat.Pptx);
+```
+
+Ανοίξτε την παραγόμενη παρουσίαση στο PowerPoint για να συγκρίνετε τα τρία πλαίσια. Το δείγμα με ετικέτα 96 έχει περίπου 38 % φωτεινότητα (96 από 255). Μετατρέπεται σε λευκό στο κατώφλι 20 % και σε μαύρο στο κατώφλι 60 %.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
+## **Προσθήκη Θόλωσης, Διαφάνειας και Επιδράσεων Άλφα**
+
+[AddBlurEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addblureffect/) επηρεάζει όλα τα κανάλια χρώματος, συμπεριλαμβανομένης της άλφα. Ορίστε `grow` σε `true` όταν η θολή άκρη μπορεί να εκτείνεται πέρα από τα αρχικά όρια της εικόνας.
+
+Για ομοιόμορφη διαφάνεια, χρησιμοποιήστε το [AddAlphaModulateFixedEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphamodulatefixedeffect/). Πολλαπλασιάζει κάθε υπάρχουσα τιμή άλφα, ώστε τα μερικώς διαφανή pixel να παραμένουν αναλογικά διαφορετικά. Το [AddAlphaReplaceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphareplaceeffect/) αντιθέτως αντιστοιχίζει μια τιμή άλφα σε όλα τα pixel. Το [AddAlphaBiLevelEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphabileveleffect/) μετατρέπει την άλφα σε δύο επίπεδα βάσει ενός κατωφλίου.
 
 ```csharp
 using System.IO;
@@ -171,13 +212,13 @@ binaryAlphaFrame.PictureFormat.Picture.ImageTransform.AddAlphaInverseEffect();
 presentation.Save("blur-and-alpha-effects.pptx", SaveFormat.Pptx);
 ```
 
-Άλλες λειτουργίες άλφα χωρίς παραμέτρους περιλαμβάνουν το [AddAlphaCeilingEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), που κάνει κάθε μη μηδενικό άλφα πλήρως αδιαφανές· το [AddAlphaFloorEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), που κάνει κάθε άλφα κάτω από 100 % πλήρως διαφανές· και το [AddAlphaInverseEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), που αλλάζει το άλφα σε `100% - alpha`.
+Άλλες λειτουργίες άλφα χωρίς παραμέτρους περιλαμβάνουν το [AddAlphaCeilingEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaceilingeffect/), που κάνει κάθε μη μηδενική άλφα πλήρως αδιαφανή· το [AddAlphaFloorEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphaflooreffect/), που κάνει κάθε άλφα κάτω από 100 % πλήρως διαφανές· και το [AddAlphaInverseEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addalphainverseeffect/), που μετατρέπει την άλφα σε `100% - alpha`.
 
-## **Δημιουργία Διατεταγμένης Αλυσίδας Εφέ**
+## **Δημιουργία Ταξινομημένης Αλυσίδας Επιδράσεων**
 
-Κάθε μέθοδος `Add...Effect` προσθέτει μια νέα λειτουργία στο τέλος της συλλογής. Ο αποδοχέας χρησιμοποιεί τη συλλογή ως διατεταγμένο pipeline: η έξοδος της λειτουργίας 0 γίνεται η είσοδος της λειτουργίας 1, κλπ. Συνεπώς, οι ίδιες λειτουργίες με διαφορετική σειρά μπορούν να παράγουν διαφορετική εικόνα.
+Κάθε μέθοδος `Add...Effect` προσθέτει μια νέα λειτουργία στο τέλος της συλλογής. Ο προδράστης (renderer) χρησιμοποιεί τη συλλογή ως μια ταξινομημένη διαδρομή: η έξοδος της λειτουργίας 0 γίνεται η είσοδος της λειτουργίας 1, κ.ο.κ. Συνεπώς, οι ίδιες λειτουργίες σε διαφορετική σειρά μπορούν να παραγάγουν διαφορετική εικόνα.
 
-Για παράδειγμα, γκρι κλίμακα ακολουθούμενη από χρωματισμό αφαιρεί πρώτα τις χρωματιστές πληροφορίες και μετά επαναχρωματίζει το αποτέλεσμα luminance. Χρωματισμός ακολουθούμενος από γκρι κλίμακα αφαιρεί ξανά τον χρωματισμό. Ομοίως, η αντικατάσταση άλφα μπορεί να παρακάμψει τιμές άλφα που υπολογίστηκαν από παλαιότερες λειτουργίες, ενώ η διαμόρφωση άλφα διατηρεί τις σχετικές διαφορές τους.
+Για παράδειγμα, η γκρι απόχρωση ακολουθούμενη από απόχρωση (tint) πρώτα αφαιρεί τις χρωματικές πληροφορίες και μετά επαναχρωματίζει το αποτέλεσμα της φωτεινότητας. Η απόχρωση πριν τη γκρι απόχρωση αφαιρεί ξανά την απόχρωση. Αντίστοιχα, η αντικατάσταση άλφα μπορεί να υπερισχύσει των τιμών άλφα που υπολογίστηκαν από προγενέστερες λειτουργίες, ενώ η διαμόρφωση άλφα διατηρεί τις σχετικές τους διαφορές.
 
 Το παρακάτω παράδειγμα δημιουργεί μια αλυσίδα τεσσάρων λειτουργιών, την αποθηκεύει ως PPTX, ανοίγει ξανά την παρουσίαση, ελέγχει τόσο τους τύπους λειτουργιών όσο και τη σειρά τους, και αποδίδει το ξαναανοιγμένο αποτέλεσμα:
 
@@ -224,15 +265,21 @@ else
 }
 ```
 
-Η συλλογή δεν επιβάλλει μια μήτρα συμβατότητας που περιορίζει χρώμα, άλφα και λειτουργίες θόλωσης σε ξεχωριστές αλυσίδες. Μπορούν να συνδυαστούν, όμως οι συνδυασμοί δεν είναι πάντα χρήσιμοι. Μια σταθερή αντικατάσταση χρώματος αφαιρεί την μεταβλητότητα RGB που προκάλεσαν προηγούμενα εφέ χρώματος· η γκρι κλίμακα μετά το duetone αφαιρεί τα δύο επιλεγμένα χρώματα· και λειτουργίες άλφα όπως ceiling, floor, replacement ή bi‑level μπορούν να διαγράψουν λεπτομέρειες άλφα που δημιουργήθηκαν νωρίτερα. Κατασκευάστε την αλυσίδα σύμφωνα με τη ζητούμενη ακολουθία επεξεργασίας pixel αντί να θεωρείτε τα στοιχεία της ως μη ταξινομημένες σημαίες μορφοποίησης.
+Η συλλογή δεν επιβάλλει έναν πίνακα συμβατότητας που περιορίζει τις λειτουργίες χρώματος, άλφα και θόλωσης σε χωριστές αλυσίδες. Μπορούν να συνδυαστούν, αλλά οι συνδυασμοί δεν είναι πάντα χρήσιμοι. Η σταθερή αντικατάσταση χρώματος αφαιρεί τις διακυμάνσεις RGB που προέκυψαν από προηγούμενες επιδράσεις χρώματος· η γκρι μετά το δυότονο αφαιρεί τα δύο επιλεγμένα χρώματα· και οι λειτουργίες άλφα ceiling, floor, replacement ή bi‑level μπορούν να καταργήσουν λεπτομέρειες άλφα που δημιουργήθηκαν νωρίτερα. Δημιουργήστε την αλυσίδα σύμφωνα με την επιθυμητή ακολουθία επεξεργασίας pixel και όχι ως αδιάτακτες σημαίες μορφοποίησης.
 
-## **Έλεγχος Επεξεργάσιμων και Αποτελεσματικών Τιμών**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Μια επεξεργάσιμη λειτουργία είναι το αντικείμενο που αποθηκεύεται στο `ISlidesPicture.ImageTransform`. Ανάλογα με το εφέ, μπορεί να εκθέτει εγγράψιμα μέλη απευθείας. Για παράδειγμα, το [IBlur](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iblur/) εκθέτει εγγράψιμα `Radius` και `Grow`, το [IAlphaModulateFixed](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ialphamodulatefixed/) εκθέτει εγγράψιμο `Amount`, και το [IAlphaBiLevel](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ialphabilevel/) εκθέτει εγγράψιμο `Threshold`. Εφέ χρώματος όπως το [IDuotone](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iduotone/) εκθέτουν μεταβλητά αντικείμενα [IColorFormat](https://reference.aspose.com/slides/el/net/aspose.slides/icolorformat/).
+*Σε αυτή την εικονογραφική απόδοση του Aspose.Slides for .NET 26.11, μια απόχρωση 220° με 25 % δεν αλλάζει την γκρι εικόνα. Η εφαρμογή της ίδιας απόχρωσης πριν από τη γκρι απόχρωση παράγει διαφορετικούς τόνους.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Ορισμένες διεπαφές λειτουργιών, όπως τα [IBrightnessContrast](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/el/net/aspose.slides.effects/itint/), και [IAlphaReplace](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ialphareplace/), δεν εκθέτουν τα αρχικά τους scalars ως εγγράψιμες ιδιότητες. Για να αλλάξετε αυτές τις ρυθμίσεις, αφαιρέστε τη λειτουργία και προσθέστε μια αντικατάσταση στην απαιτούμενη θέση.
+## **Επιθεώρηση Επεξεργάσιμων και Αποτελεσματικών Τιμών**
 
-Τα αποτελεσματικά δεδομένα που επιστρέφει το `GetEffective()` υπολογίζονται και είναι μόνο‑ανάγνωση. Είναι χρήσιμα για την επίλυση χρωμάτων εξαρτώμενων από θέμα και για την ανάγνωση των κανονικοποιημένων τιμών που χρησιμοποιεί ο αποδοχέας, αλλά δεν αποτελούν άλλη επιφάνεια επεξεργασίας. Το παρακάτω παράδειγμα καταμετρά την αλυσίδα και ελέγχει τις αποτελεσματικές τιμές όπου το αντίστοιχο API τις παρέχει:
+Μια επεξεργάσιμη λειτουργία είναι το αντικείμενο αποθηκευμένο στο `ISlidesPicture.ImageTransform`. Ανάλογα με την επίδραση, μπορεί να εκθέτει εγγράψιμα μέλη απευθείας. Για παράδειγμα, το [IBlur](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/) εκθέτει εγγράψιμα `Radius` και `Grow`, το [IAlphaModulateFixed](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphamodulatefixed/) εκθέτει εγγράψιμο `Amount`, και το [IAlphaBiLevel](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphabilevel/) εκθέτει εγγράψιμο `Threshold`. Οι επιδράσεις χρώματος όπως το [IDuotone](https://reference.aspose.com/slides/net/aspose.slides.effects/iduotone/) εκθέτουν μεταβλητά αντικείμενα [IColorFormat](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/).
+
+Κάποιες διεπαφές λειτουργιών, όπως τα [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/), [IHSL](https://reference.aspose.com/slides/net/aspose.slides.effects/ihsl/), [ITint](https://reference.aspose.com/slides/net/aspose.slides.effects/itint/), και [IAlphaReplace](https://reference.aspose.com/slides/net/aspose.slides.effects/ialphareplace/), δεν εκθέτουν τα αρχικά τους σκαλοποιημένα δεδομένα ως εγγράψιμες ιδιότητες. Για να αλλάξετε αυτές τις ρυθμίσεις, αφαιρέστε τη λειτουργία και προσθέστε μια αντικατάσταση στη ζητούμενη θέση.
+
+Τα αποτελεσματικά δεδομένα που επιστρέφει το `GetEffective()` είναι υπολογισμένα και μόνο για ανάγνωση. Είναι χρήσιμα για την επίλυση χρωμάτων εξαρτώμενων από το θέμα και για την ανάγνωση των κανονικοποιημένων τιμών που χρησιμοποιεί ο προδράστης, αλλά δεν αποτελούν άλλη επιφάνεια επεξεργασίας. Το παρακάτω παράδειγμα απαριθμεί την αλυσίδα και επιθεωρεί τις αποτελεσματικές τιμές όπου το αντίστοιχο API τις παρέχει:
 
 ```csharp
 using System;
@@ -302,11 +349,11 @@ if (pictureFrame != null)
 }
 ```
 
-Οι λειτουργίες χωρίς παραμέτρους όπως γκρι κλίμακα, αλφα ceiling και αλφα inverse διαθέτουν ακόμη αντικείμενο αποτελεσματικών δεδομένων, αλλά δεν υπάρχουν scalar ρυθμίσεις προς εκτύπωση. Η παρουσία και η θέση τους στη συλλογή είναι οι σημαντικές πληροφορίες.
+Οι λειτουργίες χωρίς παραμέτρους, όπως η γκρι απόχρωση, το αλφα ceiling και το αλφα inverse, έχουν επίσης αντικείμενο αποτελεσματικών δεδομένων, αλλά δεν υπάρχουν κλιμακωτές τιμές για εκτύπωση. Η παρουσία και η θέση τους στη συλλογή είναι η σημαντική πληροφορία.
 
-## **Αφαίρεση ή Καθαρισμός Μετασχηματισμών Εικόνας**
+## **Αφαίρεση ή Εκκαθάριση Μετασχηματισμών Εικόνας**
 
-Χρησιμοποιήστε το [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) για να αφαιρέσετε μια λειτουργία με βάση το δείκτη. Επειδή οι δείκτες μετατοπίζονται μετά την αφαίρεση, αναζητήστε πρώτα τον στόχο και αφαιρέστε τον μετά την καταμέτρηση. Χρησιμοποιήστε `Clear()` για να αφαιρέσετε ολόκληρη την αλυσίδα.
+Χρησιμοποιήστε το [IImageTransformOperationCollection.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/removeat/) για να αφαιρέσετε μια λειτουργία βάσει δείκτη. Επειδή οι δείκτες μετατοπίζονται μετά την αφαίρεση, αναζητήστε πρώτα τον στόχο και αφαιρέστε τον μετά την απαρίθμηση. Χρησιμοποιήστε το `Clear()` για να αφαιρέσετε ολόκληρη την αλυσίδα.
 
 ```csharp
 using System;
@@ -344,38 +391,38 @@ if (pictureFrame != null)
 }
 ```
 
-Η αφαίρεση ή ο καθαρισμός των μετασχηματισμών αλλάζει μόνο τη μορφοποίηση της εικόνας. Δεν διαγράφει, δεν συμπιέζει ξανά και δεν τροποποιεί με άλλο τρόπο τον επαναχρησιμοποιούμενο πόρο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/).
+Η αφαίρεση ή η εκκαθάριση των μετασχηματισμών αλλάζει μόνο τη μορφοποίηση της εικόνας. Δεν διαγράφει, δεν συμπιέζει ξανά και δεν τροποποιεί τον επαναχρησιμοποιούμενο πόρο [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/).
 
-## **Λήψη Υπόψη Μορφών Παρουσίασης και Στόχων Εξαγωγής**
+## **Σκέψη Μορφών Παρουσίασης και Στόχων Εξαγωγής**
 
-Οι μετασχηματισμοί εικόνας προέρχονται από το DrawingML, επομένως το PPTX είναι η προτιμώμενη επεξεργάσιμη μορφή για αλυσίδες εφέ. Ακόμη και με PPTX, δεν έχει κάθε λειτουργία την ίδια φορητότητα:
+Οι μετασχηματισμοί εικόνας προέρχονται από το DrawingML, επομένως το PPTX είναι η προτιμώμενη επεξεργάσιμη μορφή για αλυσίδες επιδράσεων. Ακόμα και με PPTX, δεν είναι όλες οι λειτουργίες εξίσου φορητές:
 
-- Οι τυπικές λειτουργίες DrawingML όπως luminance, grayscale, duotone, tint, HSL, blur και κοινές λειτουργίες άλφα έχουν την καλύτερη πιθανότητα να επιβιώσουν σε κύκλο PPTX. Πάντα ανοίξτε ξανά το παραχθέν αρχείο και ελέγξτε τη συλλογή όταν η διατήρηση είναι απαίτηση.
-- Το [BrightnessContrast](https://reference.aspose.com/slides/el/net/aspose.slides.effects/brightnesscontrast/) είναι μια επέκταση Office 2010 αντί για την τυπική λειτουργία luminance του DrawingML. Μπορεί να χρησιμοποιηθεί για απόδοση εν ενόσειρα, αλλά δεν είναι εγγυημένο ότι θα παραμείνει ως επεξεργάσιμο [IBrightnessContrast](https://reference.aspose.com/slides/el/net/aspose.slides.effects/ibrightnesscontrast/) μετά την αποθήκευση και το άνοιγμα του PPTX. Προτιμήστε το [AddLuminanceEffect](https://reference.aspose.com/slides/el/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) για επίμονες ρυθμίσεις φωτεινότητας και αντίθεσης.
-- Η δυαδική μορφή PPT προηγήθηκε του πλήρους μοντέλου εφέ DrawingML. Η αποθήκευση σε PPT μπορεί να παραλείψει μη υποστηριζόμενες λειτουργίες, να μειώσει μια αλυσίδα σε ένα υποστηριζόμενο υποσύνολο ή να προσεγγίσει την εμφάνιση. Μην χρησιμοποιείτε το PPT ως μορφή επαλήθευσης για σύνθετη επεξεργάσιμη αλυσίδα.
-- Η απόδοση σε PNG, JPEG, TIFF, PDF, SVG, HTML ή άλλα οπτικά αρχεία εφαρμόζει την υποστηριζόμενη αλυσίδα στην απόδοση. Αυτές οι εξαγωγές δεν περιέχουν επεξεργάσιμο `IImageTransformOperationCollection`; οι μορφές raster ισοσταθμίζουν το αποτέλεσμα σε pixel, ενώ οι εξαγωγές εγγράφου/διανύσματος αποθηκεύουν τη δική τους αναπαράσταση απόδοσης.
-- Τα εφέ δεν κάνουν μια συνδεδεμένη εικόνα αυτόνομη. Η απόδοση μιας συνδεδεμένης εικόνας εξακολουθεί να εξαρτάται από τη διαθεσιμότητα του συνδεδεμένου πόρου όταν φορτώνεται η παρουσίαση.
+- Οι τυπικές λειτουργίες DrawingML όπως luminance, grayscale, duotone, tint, HSL, blur και κοινές λειτουργίες άλφα έχουν τις καλύτερες πιθανότητες να παραμείνουν μετά από κύκλο αποθήκευσης PPTX. Πάντα ανοίξτε ξανά το παραγόμενο αρχείο και επιθεωρήστε τη συλλογή όταν η διατήρηση είναι απαραίτητη.
+- Το [BrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/brightnesscontrast/) είναι μια επέκταση του Office 2010 και όχι η τυπική λειτουργία luminance του DrawingML. Μπορεί να χρησιμοποιηθεί για απόδοση εν όρους μνήμης, αλλά δεν εγγυάται ότι θα παραμείνει ως επεξεργάσιμο [IBrightnessContrast](https://reference.aspose.com/slides/net/aspose.slides.effects/ibrightnesscontrast/) μετά την αποθήκευση και ξαναφόρτωση του PPTX. Προτιμήστε το [AddLuminanceEffect](https://reference.aspose.com/slides/net/aspose.slides.effects/iimagetransformoperationcollection/addluminanceeffect/) για μόνιμες ρυθμίσεις φωτεινότητας και αντίθεσης.
+- Η δυαδική μορφή PPT προπορεύεται του πλήρους μοντέλου αποτελεσμάτων DrawingML. Η αποθήκευση σε PPT μπορεί να παραλείψει μη υποστηριζόμενες λειτουργίες, να μειώσει την αλυσίδα σε υποσύνολο ή να προσεγγίσει την εμφάνιση. Μην χρησιμοποιείτε το PPT ως μορφή επαλήθευσης για μια πολύπλοκη επεξεργάσιμη αλυσίδα.
+- Η απόδοση σε PNG, JPEG, TIFF, PDF, SVG, HTML ή άλλες οπτικές εξόδους εφαρμόζει την υποστηριζόμενη αλυσίδα στην αποδιδόμενη εμφάνιση. Αυτές οι εξόδους δεν περιέχουν την επεξεργάσιμη `IImageTransformOperationCollection`; οι μορφές raster ισοπεδώνουν το αποτέλεσμα σε pixel, ενώ οι εξαγωγές εγγράφου/διανύσματος αποθηκεύουν τη δική τους αναπαράσταση απόδοσης.
+- Οι επιδράσεις δεν κάνουν μια συνδεδεμένη εικόνα αυτόνομη. Η απόδοση μιας συνδεδεμένης εικόνας εξακολουθεί να εξαρτάται από τη διαθεσιμότητα του συνδεδεμένου πόρου όταν φορτώνεται η παρουσίαση.
 
-Διάφοροι καταναλωτές παρουσίασης μπορεί να αποδίδουν περιπτώσεις άκρων διαφορετικά, ειδικά όταν συνδυάζονται πολλές λειτουργίες άλφα ή χρωματικής ποσοτικοποίησης. Για κρίσιμη έξοδο, δοκιμάστε τόσο τον επεξεργάσιμο κύκλο όσο και την τελική μορφή εξαγωγής με την ίδια έκδοση Aspose.Slides που χρησιμοποιείται στην παραγωγή.
+Διαφορετικοί καταναλωτές παρουσιάσεων μπορεί να αποδίδουν περιπτώσεις ορίων διαφορετικά, ειδικά όταν συνδυάζονται πολλές λειτουργίες άλφα ή χρωματικής κβαντοποίησης. Για κρίσιμα αποτελέσματα, δοκιμάστε τόσο τον επεξεργάσιμο κύκλο όσο και τη μορφή τελικής εξαγωγής με την ίδια έκδοση του Aspose.Slides που χρησιμοποιείται στην παραγωγή.
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Τροποποιούν οι λειτουργίες μετασχηματισμού εικόνας τα ενσωματωμένα δεδομένα εικόνας;**
+**Τροποποιούν οι επιδράσεις μετασχηματισμού εικόνας τα ενσωματωμένα δεδομένα εικόνας;**
 
-Όχι. Οι λειτουργίες ανήκουν στο `ISlidesPicture` που χρησιμοποιείται από τη γέμιση εικόνας. Τα υποκείμενα bytes του `IPPImage` παραμένουν αμετάβλητα.
+Όχι. Οι λειτουργίες ανήκουν στο `ISlidesPicture` που χρησιμοποιείται από το γέμισμα εικόνας. Τα υποκείμενα byte του `IPPImage` παραμένουν αμετάβλητα.
 
-**Μοιράζονται δύο πλαίσια εικόνας που χρησιμοποιούν την ίδια εικόνα τα εφέ τους;**
+**Θα μοιραστούν δύο πλαίσια εικόνας που επαναχρησιμοποιούν την ίδια εικόνα τις επιδράσεις τους;**
 
-Όχι. Η επαναχρησιμοποίηση ενός `IPPImage` αποτρέπει την επανάληψη δεδομένων εικόνας, αλλά κάθε πλαίσιο εικόνας συνήθως έχει ξεχωριστό `ISlidesPicture` και συλλογή μετασχηματισμού εικόνας.
+Όχι. Η επαναχρήση ενός `IPPImage` αποφεύγει διπλά δεδομένα εικόνας, αλλά κάθε πλαίσιο εικόνας συνήθως έχει ξεχωριστό `ISlidesPicture` και τη δική του συλλογή μετασχηματισμών εικόνας.
 
-**Μπορούν να συνδυαστούν χρωματικά, θολής και άλφα εφέ;**
+**Μπορούν να συνδυαστούν οι επιδράσεις χρώματος, θόλωσης και άλφα;**
 
-Ναι. Η συλλογή τα αποδέχεται σε μία διατεταγμένη αλυσίδα. Σκεφτείτε τι κάνει κάθε λειτουργία στην έξοδο της προηγούμενης, επειδή οι λειτουργίες αντικατάστασης και κατωφλίου μπορούν να διαγράψουν χρώμα ή άλφα που είχαν παραχθεί νωρίτερα.
+Ναι. Η συλλογή τις αποδέχεται σε μια ταξινομημένη αλυσίδα. Σκεφτείτε τι κάνει κάθε λειτουργία στην έξοδο της προηγούμενης, επειδή οι λειτουργίες αντικατάστασης και κατωφλίου μπορούν να εξαφανίσουν χρωματικές ή άλφα λεπτομέρειες από προηγούμενες λειτουργίες.
 
-**Γιατί οι αποτελεσματικές τιμές είναι μόνο‑ανάγνωση;**
+**Γιατί οι αποτελεσματικές τιμές είναι μόνο για ανάγνωση;**
 
-Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν υπολογισμένες τιμές που χρησιμοποιούνται για απόδοση, συμπεριλαμβανομένων των επιλυμένων χρωμάτων. Επεξεργαστείτε τη λειτουργία που αποθηκεύεται στη συλλογή μετασχηματισμού όπου υπάρχουν εγγράψιμα μέλη· διαφορετικά αφαιρέστε τη και προσθέστε μια αντικατάσταση με νέες παραμέτρους δημιουργίας.
+Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν υπολογισμένες τιμές που χρησιμοποιούνται για απόδοση, συμπεριλαμβανομένων των επιλυμένων χρωμάτων. Επεξεργαστείτε τη λειτουργία που είναι αποθηκευμένη στη συλλογή μετασχηματισμών όπου υπάρχουν εγγράψιμα μέλη· διαφορετικά αφαιρέστε την και προσθέστε μια αντικατάσταση με νέα αρχικά παραμέτρους.
 
 **Ποια μορφή πρέπει να χρησιμοποιήσω για να διατηρήσω μια αλυσίδα μετασχηματισμών;**
 
-Χρησιμοποιήστε PPTX και επαληθεύστε το αρχείο ανοίγοντάς το ξανά. Η παλαιότερη μορφή PPT δεν μπορεί να αντιπροσωπεύσει το πλήρες μοντέλο εφέ DrawingML, ενώ οι μορφές εξαγωγής αποθηκεύουν την εμφάνιση αντί για επεξεργάσιμες λειτουργίες μετασχηματισμού.
+Χρησιμοποιήστε PPTX και επαληθεύστε το αρχείο ανοίγοντας το ξανά. Η παλαιότερη μορφή PPT δεν μπορεί να αντιπροσωπεύσει το πλήρες μοντέλο αποτελεσμάτων DrawingML, και οι μορφές εξαγωγής διατηρούν μόνο την εμφάνιση, όχι τις επεξεργάσιμες λειτουργίες μετασχηματισμού.

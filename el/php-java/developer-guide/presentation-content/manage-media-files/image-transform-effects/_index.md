@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση εφέ μετασχηματισμού εικόνας σε παρουσιάσεις με PHP
-linktitle: Εφέ μετασχηματισμού εικόνας
+title: Διαχείριση Εφέ Μετασχηματισμού Εικόνας σε Παρουσιάσεις με PHP
+linktitle: Εφέ Μετασχηματισμού Εικόνας
 type: docs
 weight: 11
 url: /el/php-java/image-transform-effects/
@@ -10,7 +10,7 @@ keywords:
 - φωτεινότητα
 - αντίθεση
 - γκρι κλίμακα
-- δυοχρωματισμός
+- διχρωματισμός
 - απόχρωση
 - HSL
 - αντικατάσταση χρώματος
@@ -26,46 +26,44 @@ description: "Εφαρμόστε, συνδυάστε, ελέγξτε, αφαιρ
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides παρουσιάζει τις ρυθμίσεις εικόνας ως μια διατεταγμένη συλλογή λειτουργιών μετασχηματισμού εικόνας. Για ένα πλαίσιο εικόνας, ξεκινήστε με το [Picture](https://reference.aspose.com/slides/el/php-java/aspose.slides/picture/) του πλαισίου και αποκτήστε πρόσβαση στο [Picture::getImageTransform](https://reference.aspose.com/slides/el/php-java/aspose.slides/picture/getimagetransform/). Η επιστρεφόμενη [ImageTransformOperationCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/) σάς επιτρέπει να προσθέσετε, να απαριθμήσετε, να εξετάσετε, να αφαιρέσετε και να διαγράψετε εφέ χωρίς να ξαναγράψετε τα αρχικά δεδομένα εικόνας.
+Το Aspose.Slides αντιπροσωπεύει τις ρυθμίσεις μιας εικόνας ως μια διατεταγμένη συλλογή λειτουργιών μετασχηματισμού εικόνας. Για ένα πλαίσιο εικόνας, ξεκινήστε με το [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) του πλαισίου και αποκτήστε πρόσβαση στην [Picture::getImageTransform](https://reference.aspose.com/slides/php-java/aspose.slides/picture/getimagetransform/). Η επιστρεφόμενη [ImageTransformOperationCollection](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/) σάς επιτρέπει να προσθέσετε, να καταγράψετε, να ελέγξετε, να αφαιρέσετε και να εκκαθαρίσετε εφέ χωρίς να ξαναγράψετε τα αρχικά bytes της εικόνας.
 
-Αυτό το άρθρο δείχνει μια πλήρη ροή εργασίας για φωτεινότητα και αντίθεση, μετασχηματισμούς χρώματος, θόλωση, διαφάνεια, διατεταγμένα αλυσίδες εφέ, αποτελεσματικές τιμές, αφαίρεση και επαλήθευση στρογγυλής διαδρομής PPTX.
+Το παρόν άρθρο παρουσιάζει μια πλήρη ροή εργασίας για φωτεινότητα και αντίθεση, μετασχηματισμούς χρώματος, θόλωμα, διαφάνεια, διατεταγμένες αλυσίδες εφέ, αποτελεσματικές τιμές, αφαίρεση και επαλήθευση στρογγυλής διαδρομής PPTX.
 
-## **Κατανόηση της κυριότητας του εφέ και επαναχρησιμοποίηση της εικόνας**
+## **Κατανόηση της Ιδιοκτησίας των Εφέ και Επαναχρησιμοποίηση Εικόνας**
 
-Ένας πόρος εικόνας και η εικόνα που την εμφανίζει είναι διαφορετικά αντικείμενα:
+- [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) αποθηκεύει ή αναφέρει τα δεδομένα της πηγαίας εικόνας που ανήκει στην παρουσίαση.
+- [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/picture/) ανήκει σε μια γεμιστική εικόνα και αναφέρεται σε πόρο εικόνας ενώ αποθηκεύει τη συλλογή μετασχηματισμού εικόνας.
+- [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) είναι το σχήμα διαφάνειας που κατέχει τη σχετική γεμιστική εικόνα, τη γεωμετρία, τις ρυθμίσεις περικοπής και άλλες μορφοποιήσεις επιπέδου πλαισίου.
 
-- [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/) αποθηκεύει ή αναφέρεται στα δεδομένα της πηγής εικόνας που ανήκουν στην παρουσίαση.
-- [Picture](https://reference.aspose.com/slides/el/php-java/aspose.slides/picture/) ανήκει σε γέμισμα εικόνας και αναφέρεται σε πόρο εικόνας ενώ αποθηκεύει τη συλλογή μετασχηματισμών εικόνας.
-- [PictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/pictureframe/) είναι το σχήμα διαφάνειας που κατέχει το σχετικό γέμισμα εικόνας, τη γεωμετρία, τις ρυθμίσεις κοπής και άλλες μορφοποιήσεις επιπέδου πλαισίου.
+Άρα, οι λειτουργίες μετασχηματισμού εικόνας δεν τροποποιούν τα bytes του [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/). Όταν το ίδιο `PPImage` παρέχεται στη μέθοδο [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) περισσότερες από μία φορές, κάθε νέο πλαίσιο εικόνας λαμβάνει το δικό του `Picture` και τη δική του συλλογή μετασχηματισμών. Η εφαρμογή γκρι κλίμακας σε ένα πλαίσιο δεν επηρεάζει τα άλλα πλαίσια, ακόμα κι αν όλα χρησιμοποιούν τον ίδιο ενσωματωμένο πόρο εικόνας.
 
-Κατά συνέπεια, οι λειτουργίες μετασχηματισμού εικόνας δεν τροποποιούν τα byte στο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/). Όταν το ίδιο `PPImage` περνάει στο [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/addpictureframe/) περισσότερες από μία φορές, κάθε νέο πλαίσιο εικόνας λαμβάνει το δικό του `Picture` και τη δική του συλλογή μετασχηματισμών. Η εφαρμογή γκρι κλίμακας σε ένα πλαίσιο δεν κάνει τα άλλα πλαίσια γκρι κλίμακας, ακόμη και αν όλα χρησιμοποιούν τον ίδιο ενσωματωμένο πόρο εικόνας.
+Το ίδιο μοντέλο [Picture::getImageTransform] χρησιμοποιείται επίσης από άλλες γεμιστικές εικόνες, όπως ένα σχήμα ή το φόντο διαφάνειας. Τα παραδείγματα παρακάτω εστιάζουν στα πλαίσια εικόνας.
 
-Το ίδιο μοντέλο `Picture::getImageTransform` χρησιμοποιείται επίσης από άλλα γέμισματα εικόνας, όπως σχήμα ή φόντο διαφάνειας. Τα παραδείγματα παρακάτω εστιάζουν στα πλαίσια εικόνας.
+## **Χρήση Έγκυρων Εύρους Παραμέτρων και Μονάδων**
 
-## **Χρήση έγκυρων περιοχών παραμέτρων και μονάδων**
-
-Οι παρουσιάζοντες μέθοδοι χρησιμοποιούν τις παρακάτω σημασιολογικές περιοχές και μονάδες. Διατηρήστε τις τιμές σε αυτές τις περιοχές ακόμη κι αν κάποια έκδοση της βιβλιοθήκης δεν απορρίπτει άμεσα κάθε εκτός περιοχής τιμή· η μορφή παρουσίασης-στόχος μπορεί να κανονικοποιήσει, παραλείψει ή απορρίψει λανθασμένα δεδομένα κατά την αποθήκευση ή όταν το PowerPoint ανοίξει το αρχείο.
+Οι παρουσιαζόμενες μέθοδοι χρησιμοποιούν τα ακόλουθα σημασιολογικά εύρη και μονάδες. Διατηρήστε τις τιμές εντός αυτών των ορίων, ακόμη και αν μια συγκεκριμένη έκδοση της βιβλιοθήκης δεν απορρίπτει αμέσως κάθε τιμή εκτός εύρους· η στοχευμένη μορφή παρουσίασης μπορεί να κανονικοποιήσει, παραλείψει ή απορρίψει μη έγκυρα δεδομένα κατά την αποθήκευση ή όταν το PowerPoint ανοίξει το αρχείο.
 
 | Λειτουργία | Παράμετροι | Έγκυρο εύρος και μονάδα |
 |---|---|---|
-| [addLuminanceEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` έως `100`, ποσοστό· `0` αφήνει το στοιχείο αμετάβλητο. |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | None | Δεν υπάρχουν αριθμητικές παράμετροι. Το άλφα παραμένει αμετάβλητο. |
-| [addDuotoneEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | Δύο χρώματα για σκοτεινά και φωτεινά pixel. Τα κανάλια RGB και άλφα στο `java.awt.Color` χρησιμοποιούν τιμές `0` έως `255`. |
-| [addTintEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | Η απόχρωση είναι `0` (συμπεριλαμβανομένου) έως `360` (εξαίρετο), σε μοίρες· το ποσό είναι `-100` έως `100`, ποσοστό. |
-| [addHSLEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | Η απόχρωση είναι `0` έως `360` (εξαίρετο), σε μοίρες· ο κορεσμός και η φωτεινότητα είναι `-100` έως `100`, ποσοστό. |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | Το αντικατάσταση χρώματος χρησιμοποιεί τιμές καναλιού από `0` έως `255`. Τα υπάρχοντα άλφα παραμένουν αμετάβλητα. |
-| [addBlurEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | Η ακτίνα είναι μη αρνητική και μετριέται σε points· `grow` είναι Boolean που ελέγχει αν το θολό περιεχόμενο μπορεί να εκτείνεται εκτός των αρχικών ορίων. |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | Μη αρνητικό ποσοστό. Χρησιμοποιήστε `0` έως `100` για συνηθισμένη κλιμάκωση αδιαφάνειας: `0` είναι πλήρως διαφανές και `100` διατηρεί το υπάρχον άλφα. |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `0` έως `100`, ποσοστό αδιαφάνειας. |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `0` έως `100`, ποσοστό κατωφλίου άλφα. Τιμές κάτω από αυτό γίνονται διαφανείς· τιμές ίσες ή άνω γίνονται αδιαφανείς. |
+| [addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) | `brightness`, `contrast` | `-100` έως `100`, τοις εκατό· το `0` αφήνει το στοιχείο αμετάβλητο. |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) | None | Δεν υπάρχουν αριθμητικές παράμετροι. Το άλφα παραμένει αμετάβλητο. |
+| [addDuotoneEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addduotoneeffect/) | `color1`, `color2` | Δύο χρώματα για σκοτεινά και ανοιχτά εικονοστοιχεία. Τα κανάλια RGB και άλφα στο `java.awt.Color` χρησιμοποιούν τιμές από `0` έως `255`. |
+| [addTintEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addtinteffect/) | `hue`, `amount` | `hue` είναι από `0` (συμπεριλαμβανομένου) έως `360` (αποκλεισμένου), σε μοίρες· `amount` είναι από `-100` έως `100`, τοις εκατό. |
+| [addHSLEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addhsleffect/) | `hue`, `saturation`, `luminance` | `hue` είναι από `0` (συμπεριλαμβανομένου) έως `360` (αποκλεισμένου), σε μοίρες· `saturation` και `luminance` είναι από `-100` έως `100`, τοις εκατό. |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) | `color` | Το χρώμα αντικατάστασης χρησιμοποιεί τιμές καναλιών από `0` έως `255`. Οι υπάρχουσες τιμές άλφα παραμένουν αμετάβλητες. |
+| [addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) | `radius`, `grow` | `radius` είναι μη αρνητικός και μετράται σε πόντους· `grow` είναι Boolean που ελέγχει αν το θολό περιεχόμενο μπορεί να επεκταθεί εκτός των αρχικών ορίων. |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/) | `amount` | `amount` μη αρνητικό ποσοστό. Χρησιμοποιήστε τιμές από `0` έως `100` για κανονική κλιμάκωση αδιαφάνειας: το `0` είναι πλήρως διαφανές και το `100` διατηρεί το υπάρχον άλφα. |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) | `alpha` | `alpha` από `0` έως `100`, ποσοστό αδιαφάνειας. |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) | `threshold` | `threshold` από `0` έως `100`, ποσοστό κατωφλίου άλφα. Τιμές κάτω από αυτό καθίστανται διαφανείς· τιμές ίσες ή ανώτερες γίνονται αδιαφανείς. |
 
-Για σταθερή διαμόρφωση άλφα, η διαφάνεια και η αδιαφάνεια είναι συμπληρωματικές. Για παράδειγμα, 35 % διαφάνεια αντιστοιχεί σε ποσό διαμόρφωσης άλφα 65 %.
+Για σταθερή διαφάνεια, το ποσοστό διαφάνειας και η αδιαφάνεια είναι αμοιβαία συμπληρωματικά. Για παράδειγμα, 35 % διαφάνεια αντιστοιχεί σε ποσοστό αλφα 65 %.
 
-## **Εφαρμογή φωτεινότητας και αντίθεσης**
+## **Εφαρμογή Φωτεινότητας και Αντίθεσης**
 
-[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) επιστρέφει μια λειτουργία [Luminance](https://reference.aspose.com/slides/el/php-java/aspose.slides/luminance/). Οι βαθμωτές ρυθμίσεις του παρέχονται όταν δημιουργείται η λειτουργία. [Luminance::getEffective](https://reference.aspose.com/slides/el/php-java/aspose.slides/luminance/geteffective/) επιστρέφει υπολογισμένες τιμές μόνο για ανάγνωση που μπορούν να εξεταστούν ή να καταγραφούν.
+[ImageTransformOperationCollection::addLuminanceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addluminanceeffect/) επιστρέφει μια λειτουργία [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/). Οι βαθμωτοί ρυθμίσεις του παρέχονται όταν η λειτουργία δημιουργείται. Η μέθοδος [Luminance::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/geteffective/) επιστρέφει υπολογισμένες τιμές μόνο για ανάγνωση που μπορούν να εξεταστούν ή να καταγραφούν.
 
-Το ακόλουθο παράδειγμα αυξάνει τη φωτεινότητα κατά 15 % και την αντίθεση κατά 20 %, έπειτα εμφανίζει προεπισκόπηση χωρίς να τροποποιεί την ενσωματωμένη εικόνα:
+Το παρακάτω παράδειγμα αυξάνει τη φωτεινότητα κατά 15 % και την αντίθεση κατά 20 %, και στη συνέχεια αποδίδει μια προεπισκόπηση χωρίς να τροποποιήσει την ενσωματωμένη εικόνα:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -107,13 +105,13 @@ try {
 }
 ```
 
-`Luminance` είναι το τυπικό εφέ φωτεινότητας και αντίθεσης του DrawingML. Όταν αυτές οι ρυθμίσεις πρέπει να παραμείνουν επεξεργάσιμες μετά από στρογγυλή διαδρομή PPTX, ανοίξτε ξανά την αποθηκευμένη παρουσίαση και επαληθεύστε τόσο τον τύπο λειτουργίας όσο και τις αποτελεσματικές τιμές.
+Το `Luminance` είναι το τυπικό εφέ φωτεινότητας και αντίθεσης του DrawingML. Όταν αυτές οι ρυθμίσεις πρέπει να παραμείνουν επεξεργάσιμες μετά από στρογγυλή διαδρομή PPTX, ανοίξτε ξανά την αποθηκευμένη παρουσίαση και επαληθεύστε τόσο τον τύπο της λειτουργίας όσο και τις αποτελεσματικές τιμές.
 
-## **Εφαρμογή μετασχηματισμών χρώματος**
+## **Εφαρμογή Μετασχηματισμών Χρώματος**
 
-Τα εφέ χρώματος μπορούν να εφαρμοστούν ανεξάρτητα σε διαφορετικά πλαίσια εικόνας που επαναχρησιμοποιούν έναν πόρο εικόνας. Το ακόλουθο παράδειγμα δημιουργεί πέντε πλαίσια και εφαρμόζει γκρι κλίμακα, δυοχρωματισμό, απόχρωση, ρύθμιση HSL και αντικατάσταση χρώματος.
+Τα εφέ χρώματος μπορούν να εφαρμοστούν ανεξάρτητα σε διαφορετικά πλαίσια εικόνας που χρησιμοποιούν τον ίδιο πόρο εικόνας. Το παρακάτω παράδειγμα δημιουργεί πέντε πλαίσια και εφαρμόζει γκρι κλίμακα, διχρωματισμό, απόχρωση, ρύθμιση HSL και αντικατάσταση χρώματος.
 
-[Duotone](https://reference.aspose.com/slides/el/php-java/aspose.slides/duotone/) περιέχει δύο ανεξάρτητα επεξεργάσιμες παραμέτρους χρώματος: `color1` αντιστοιχεί στα σκοτεινά pixel, ενώ `color2` στα φωτεινά pixel. Αυτό το καθιστά χρήσιμο παράδειγμα εφέ του οποίου οι ρυθμίσεις είναι πιο σύνθετες από μία μόνο βαθμωτή τιμή.
+[Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) περιλαμβάνει δύο ανεξάρτητα επεξεργάσιμες παραμέτρους χρώματος: το `color1` αντιστοιχεί σε σκοτεινά εικονοστοιχεία, ενώ το `color2` αντιστοιχεί σε ανοιχτά. Αυτό το καθιστά ένα χρήσιμο παράδειγμα εφέ με πιο σύνθετες ρυθμίσεις από μια απλή βαθμωτή τιμή.
 
 ```php
 use aspose\slides\Images;
@@ -158,13 +156,62 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) αντικαθιστά κάθε χρώμα pixel με ένα σταθερό χρώμα διατηρώντας το άλφα. Είναι διαφορετικό από το [addColorChangeEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), το οποίο αντιστοιχίζει ένα χρώμα προέλευσης σε άλλο και εκθέτει και τις μορφές χρώματος προέλευσης και στόχου.
+[addColorReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorreplaceeffect/) αντικαθιστά το χρώμα κάθε εικονοστοιχείου με ένα σταθερό χρώμα, διατηρώντας το άλφα. Είναι διαφορετικό από το [addColorChangeEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addcolorchangeeffect/), το οποίο αντιστοιχίζει ένα χρώμα προέλευσης σε άλλο και εκθέτει και τις μορφές χρώματος προέλευσης και στόχου.
 
-## **Προσθήκη θόλωσης, διαφανούς και άλφα εφέ**
+### **Εφαρμογή Κατωφλίου Φωτεινότητας**
 
-[addBlurEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) επηρεάζει όλα τα κανάλια χρώματος, συμπεριλαμβανομένου του άλφα. Ορίστε `grow` σε `true` όταν η θολή άκρη μπορεί να εκτείνεται πέρα από τα αρχικά όρια εικόνας.
+Ένα κατώφλι φωτεινότητας μπορεί να κάνει τα αχνά σημάδια σε μια σαρωμένη σελίδα πιο ευδιάκριτα από το φόντο. Το [addGrayScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addgrayscaleeffect/) διατηρεί ενδιάμεσες αποχρώσεις του γκρι. Το [addBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addbileveleffect/) χαρτογραφεί τη φωτεινότητα σε μαύρο ή λευκό, ενώ το [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) εφαρμόζει ένα κατώφλι στην αδιαφάνεια.
 
-Για ομοιόμορφη διαφάνεια, χρησιμοποιήστε [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). Πολλαπλασιάζει κάθε υπάρχουσα τιμή άλφα, έτσι ώστε τα μερικώς διαφανή pixel να παραμένουν ανάλογα διαφορετικά. [addAlphaReplaceEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) αντιθέτως αναθέτει μία τιμή άλφα σε όλα τα pixel. [addAlphaBiLevelEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) μετατρέπει το άλφα σε δύο επίπεδα βάσει ενός κατωφλίου.
+Το κατώφλι φωτεινότητας κυμαίνεται από 0 % έως 100 %, περιλαμβανομένων. Τα εικονοστοιχεία κάτω από το κατώφλι γίνονται μαύρα. Τα εικονοστοιχεία ίσα ή άνω του κατωφλίου γίνονται λευκά. Η αύξηση του κατωφλίου κάνει περισσότερες αποχρώσεις μαύρες επειδή περισσότερα εικονοστοιχεία πέφτουν κάτω από το όριο.
+
+Κατεβάστε το αρχείο [grayscale-swatches.png](grayscale-swatches.png) στον φάκελο που περιέχει το script PHP. Κάθε ετικέτα δείχνει το αρχικό επίπεδο γκρι σε κλίμακα από 0 έως 255. Το παράδειγμα τοποθετεί το αρχικό δίπλα σε δύο αντίγραφα και αποθηκεύει το κατώφλι κάθε αντιγράφου στην παρουσίαση.
+
+```php
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 150, SlideSizeScaleType::DoNotScale);
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+
+    $sourceImage = Images::fromFile(__DIR__ . "/grayscale-swatches.png");
+    try {
+        $image = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
+
+    $captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    $frames = [];
+    foreach ($captions as $index => $caption) {
+        $x = 12 + 240 * $index;
+        $label = $shapes->addAutoShape(ShapeType::Rectangle, $x, 12, 216, 36);
+        $label->getTextFrame()->setText($caption);
+        $frames[] = $shapes->addPictureFrame(ShapeType::Rectangle, $x, 60, 216, 72, $image);
+    }
+
+    $frames[1]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(20);
+    $frames[2]->getPictureFormat()->getPicture()->getImageTransform()->addBiLevelEffect(60);
+
+    $presentation->save(__DIR__ . "/luminance-threshold.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ανοίξτε την παραγόμενη παρουσίαση στο PowerPoint για να συγκρίνετε τα τρία πλαίσια. Το δείγμα με ετικέτα 96 έχει περίπου 38 % φωτεινότητα (96 από 255). Στο κατώφλι 20 % γίνεται λευκό και στο κατώφλι 60 % γίνεται μαύρο.
+
+![Αρχικά δείγματα γκρι δίπλα στα μαύρο‑λευκά αποτελέσματα σε κατώφλια φωτεινότητας 20% και 60%](luminance-threshold.png)
+
+## **Προσθήκη Θολώματος, Διαφάνειας και Άλφα Εφέ**
+
+[addBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addblureffect/) επηρεάζει όλα τα κανάλια χρώματος, συμπεριλαμβανομένου του άλφα. Ορίστε το `grow` σε `true` όταν η θολή άκρη μπορεί να επεκταθεί πέρα από τα αρχικά όρια της εικόνας.
+
+Για ομοιόμορφη διαφάνεια, χρησιμοποιήστε το [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphamodulatefixedeffect/). Πολλαπλασιάζει κάθε υπάρχουσα τιμή άλφα, έτσι ώστε τα μερικώς διαφανή εικονοστοιχεία να παραμένουν αναλογικά διαφορετικά. Το [addAlphaReplaceEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphareplaceeffect/) αντιθέτως εκχωρεί μία τιμή άλφα σε όλα τα εικονοστοιχεία. Το [addAlphaBiLevelEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphabileveleffect/) μετατρέπει το άλφα σε δύο επίπεδα βάσει ενός κατωφλίου.
 
 ```php
 use aspose\slides\Images;
@@ -207,15 +254,15 @@ try {
 }
 ```
 
-Άλλες λειτουργίες άλφα χωρίς παραμέτρους είναι [addAlphaCeilingEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/), η οποία κάνει κάθε μη μηδενικό άλφα πλήρως αδιαφανές· [addAlphaFloorEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/), η οποία κάνει κάθε άλφα κάτω από 100 % πλήρως διαφανές· και [addAlphaInverseEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/), η οποία αλλάζει το άλφα σε `100% - alpha`.
+Άλλες λειτουργίες άλφα χωρίς παραμέτρους περιλαμβάνουν το [addAlphaCeilingEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaceilingeffect/), που κάνει κάθε μη μηδενικό άλφα πλήρως αδιαπαστέο· το [addAlphaFloorEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphaflooreffect/), που κάνει κάθε άλφα κάτω από 100 % πλήρως διαφανές· και το [addAlphaInverseEffect](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/addalphainverseeffect/), που μετατρέπει το άλφα σε `100% - alpha`.
 
-## **Κατασκευή διατεταγμένης αλυσίδας εφέ**
+## **Δημιουργία Διατεταγμένης Αλυσίδας Εφέ**
 
-Κάθε μέθοδος `add...Effect` προσθέτει μια νέα λειτουργία στο τέλος της συλλογής. Ο προγράμματος απόδοσης χρησιμοποιεί τη συλλογή ως διατεταγμένο pipeline: η έξοδος της λειτουργίας 0 γίνεται η είσοδος της λειτουργίας 1, κ.ο.κ. Συνεπώς, οι ίδιες λειτουργίες σε διαφορετική σειρά μπορούν να παράγουν διαφορετική εικόνα.
+Κάθε μέθοδος `add...Effect` προσθέτει μια νέα λειτουργία στο τέλος της συλλογής. Ο αποδότης χρησιμοποιεί τη συλλογή ως μια διατεταγμένη διαδρομή: η έξοδος της λειτουργίας 0 γίνεται η είσοδος της λειτουργίας 1, κλπ. Ως εκ τούτου, οι ίδιες λειτουργίες με διαφορετική σειρά μπορούν να παράγουν διαφορετική εικόνα.
 
-Για παράδειγμα, η γκρι κλίμακα ακολουθούμενη από απόχρωση αφαιρεί πρώτα τις χρωματικές πληροφορίες και έπειτα επαναχρωματίζει το αποτέλεσμα φωτεινότητας. Η απόχρωση ακολουθούμενη από γκρι κλίμακα αφαιρεί την απόχρωση εκ νέου. Παρομοίως, η αντικατάσταση άλφα μπορεί να παρακάμπτει τιμές άλφα που υπολογίστηκαν από προγενέστερες λειτουργίες, ενώ η διαμόρφωση άλφα διατηρεί τις σχετικές διαφορές τους.
+Για παράδειγμα, η γκρι κλίμακα ακολουθούμενη από απόχρωση πρώτα αφαιρεί την χρωματική πληροφορία και στη συνέχεια επαναχρωματίζει το αποτέλεσμα φωτεινότητας. Η απόχρωση ακολουθούμενη από γκρι κλίμακα αφαιρεί ξανά την απόχρωση. Ομοίως, η αντικατάσταση άλφα μπορεί να υπερισχύσει των τιμών άλφα που υπολογίστηκαν από προηγούμενες λειτουργίες, ενώ η διαμόρφωση άλφα διατηρεί τις σχετικές τους διαφορές.
 
-Το ακόλουθο παράδειγμα δημιουργεί μια αλυσίδα τεσσάρων λειτουργιών, την αποθηκεύει ως PPTX, ξαναανοίγει την παρουσίαση, ελέγχει τόσο τους τύπους λειτουργίας όσο και τη σειρά τους, και αποδίδει το αποτέλεσμα μετά το άνοιγμα:
+Το παρακάτω παράδειγμα δημιουργεί μια αλυσίδα τεσσάρων λειτουργιών, την αποθηκεύει ως PPTX, ξανανοίγει την παρουσίαση, ελέγχει τους τύπους των λειτουργιών και τη σειρά τους, και αποδίδει το επανανοιγμένο αποτέλεσμα:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -278,15 +325,21 @@ try {
 }
 ```
 
-Η συλλογή δεν επιβάλλει έναν πίνακα συμβατότητας που περιορίζει τις λειτουργίες χρώματος, άλφα και θόλωσης σε ξεχωριστές αλυσίδες. Μπορούν να συνδυαστούν, αλλά οι συνδυασμοί δεν είναι πάντα χρήσιμοι. Μια σταθερή αντικατάσταση χρώματος αφαιρεί την ποικιλία RGB που παρήχθη από προηγούμενα εφέ χρώματος· η γκρι κλίμακα μετά από δυοχρωματισμό αφαιρεί τα δύο επιλεγμένα χρώματα· και οι λειτουργίες άλφα οροφής, δαπέδου, αντικατάστασης ή δυο επιπέδων μπορούν να απορρίψουν λεπτομέρειες άλφα που δημιουργήθηκαν νωρίτερα. Δημιουργήστε την αλυσίδα σύμφωνα με την επιθυμητή σειρά επεξεργασίας pixel αντί να θεωρείτε τα στοιχεία της ως μη διατεταγμένες σημαίες μορφοποίησης.
+Η συλλογή δεν επιβάλλει έναν πίνακα συμβατότητας που περιορίζει χρωματικές, άλφα και θολές λειτουργίες σε ξεχωριστές αλυσίδες. Μπορούν να συνδυαστούν, αλλά δεν είναι πάντα χρήσιμοι. Μια σταθερή αντικατάσταση χρώματος αφαιρεί την ποικιλία RGB που δημιουργήθηκε από προηγούμενα χρωματικά εφέ· η γκρι κλίμακα μετά από διχρωματισμό αφαιρεί τα δύο επιλεγμένα χρώματα· και οι λειτουργίες άλφα ceiling, floor, replacement ή bi‑level μπορούν να απορρίψουν λεπτομέρειες άλφα που δημιουργήθηκαν νωρίτερα. Κατασκευάστε την αλυσίδα σύμφωνα με την επιθυμητή σειρά επεξεργασίας εικονοστοιχείων αντί να τη θεωρείτε ως ασυνεχή σύνολο σημαιών μορφοποίησης.
 
-## **Επιθεώρηση επεξεργάσιμων και αποτελεσματικών τιμών**
+<!-- visual-explanation:image-transform-effects:start -->
+[![Η ίδια εικόνα περνάει πρώτα από γκρι κλίμακα, έπειτα από απόχρωση, και το αντίστροφο. Οι δύο τελικές εικόνες γκρι κλίμακας έχουν διαφορετικές αποχρώσεις.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-Μια επεξεργάσιμη λειτουργία είναι το αντικείμενο που αποθηκεύεται στο `Picture::getImageTransform`. Ανάλογα με το εφέ, μπορεί να εκθέτει εγγράψιμα μέλη απευθείας. Για παράδειγμα, το [Blur](https://reference.aspose.com/slides/el/php-java/aspose.slides/blur/) εκθέτει εγγράψιμες τιμές `radius` και `grow`, το [AlphaModulateFixed](https://reference.aspose.com/slides/el/php-java/aspose.slides/alphamodulatefixed/) εκθέτει εγγράψιμο `amount`, και το [AlphaBiLevel](https://reference.aspose.com/slides/el/php-java/aspose.slides/alphabilevel/) εκθέτει εγγράψιμο `threshold`. Τα εφέ χρώματος όπως το [Duotone](https://reference.aspose.com/slides/el/php-java/aspose.slides/duotone/) εκθέτουν μεταβλητά αντικείμενα [ColorFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/colorformat/).
+*Στην εικονική απόδοση Aspose.Slides for .NET 26.11, μία απόχρωση 220° με 25 % αφήνει την εικόνα σε γκρι κλίμακα αμετάβλητη. Η εφαρμογή της ίδιας απόχρωσης πριν από τη γκρι κλίμακα παράγει διαφορετικές αποχρώσεις.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-Ορισμένες λειτουργίες, όπως [Luminance](https://reference.aspose.com/slides/el/php-java/aspose.slides/luminance/), [HSL](https://reference.aspose.com/slides/el/php-java/aspose.slides/hsl/), [Tint](https://reference.aspose.com/slides/el/php-java/aspose.slides/tint/) και [AlphaReplace](https://reference.aspose.com/slides/el/php-java/aspose.slides/alphareplace/), δεν εκθέτουν τις δημιουργικές τους βαθμωτές τιμές ως εγγράψιμες ιδιότητες. Για να αλλάξετε αυτές τις ρυθμίσεις, αφαιρέστε τη λειτουργία και προσθέστε μια αντικατάσταση στη ζητούμενη θέση.
+## **Έλεγχος Επεξεργάσιμων και Αποτελεσματικών Τιμών**
 
-Τα αποτελεσματικά δεδομένα που επιστρέφει το `getEffective()` υπολογίζονται και είναι μόνο για ανάγνωση. Είναι χρήσιμα για την επίλυση χρωμάτων εξαρτώμενων από το θέμα και για την ανάγνωση των κανονικοποιημένων τιμών που χρησιμοποιεί ο προγράμματος απόδοσης, αλλά δεν αποτελούν άλλη επιφάνεια επεξεργασίας. Το παρακάτω παράδειγμα απαριθμεί την αλυσίδα και εξετάζει τις αποτελεσματικές τιμές όπου το αντίστοιχο API τις παρέχει:
+Μια επεξεργάσιμη λειτουργία είναι το αντικείμενο που αποθηκεύεται στο `Picture::getImageTransform`. Ανάλογα με το εφέ, μπορεί να εκθέτει εγγράψιμα μέλη άμεσα. Για παράδειγμα, το [Blur](https://reference.aspose.com/slides/php-java/aspose.slides/blur/) εκθέτει εγγράψιμες τιμές `radius` και `grow`, το [AlphaModulateFixed](https://reference.aspose.com/slides/php-java/aspose.slides/alphamodulatefixed/) εκθέτει εγγράψιμη τιμή `amount`, και το [AlphaBiLevel](https://reference.aspose.com/slides/php-java/aspose.slides/alphabilevel/) εκθέτει εγγράψιμη τιμή `threshold`. Τα χρωματικά εφέ όπως το [Duotone](https://reference.aspose.com/slides/php-java/aspose.slides/duotone/) εκθέτουν μεταβλητά αντικείμενα [ColorFormat](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/).
+
+Κάποιες λειτουργίες, όπως το [Luminance](https://reference.aspose.com/slides/php-java/aspose.slides/luminance/), το [HSL](https://reference.aspose.com/slides/php-java/aspose.slides/hsl/), το [Tint](https://reference.aspose.com/slides/php-java/aspose.slides/tint/), και το [AlphaReplace](https://reference.aspose.com/slides/php-java/aspose.slides/alphareplace/), δεν εκθέτουν τα αρχικά τους βαθμωτά ως εγγράψιμες ιδιότητες. Για να αλλάξετε αυτές τις ρυθμίσεις, αφαιρέστε τη λειτουργία και προσθέστε μια αντικατάσταση στη χρειαζόμενη θέση.
+
+Τα αποτελεσματικά δεδομένα που επιστρέφει η `getEffective()` υπολογίζονται και είναι μόνο για ανάγνωση. Είναι χρήσιμα για την επίλυση χρωμάτων που εξαρτώνται από το θέμα και για την ανάγνωση των κανονικοποιημένων τιμών που χρησιμοποιεί ο αποδότης, αλλά δεν αποτελούν άλλη επιφάνεια επεξεργασίας. Το παρακάτω παράδειγμα καταμετρά την αλυσίδα και ελέγχει τις αποτελεσματικές τιμές όπου το αντίστοιχο API τις παρέχει:
 
 ```php
 use aspose\slides\Presentation;
@@ -350,11 +403,11 @@ try {
 }
 ```
 
-Τα εφέ χωρίς παραμέτρους όπως η γκρι κλίμακα, η οροφή άλφα και η αντίστροφη άλφα έχουν ακόμα αντικείμενο αποτελεσματικών δεδομένων, αλλά δεν υπάρχει βαθμωτή ρύθμιση για εκτύπωση. Η παρουσία τους και η θέση τους στη συλλογή είναι η σημαντική πληροφορία.
+Οι λειτουργίες χωρίς παραμέτρους όπως η γκρι κλίμακα, το αλφα ceiling και το αλφα inverse έχουν επίσης αντικείμενο αποτελεσματικών δεδομένων, αλλά δεν υπάρχουν βαθμωτές ρυθμίσεις για εκτύπωση. Η παρουσία τους και η θέση τους στη συλλογή είναι οι σημαντικές πληροφορίες.
 
-## **Αφαίρεση ή εκκαθάριση μετασχηματισμών εικόνας**
+## **Αφαίρεση ή Εκκαθάριση Μετασχηματισμών Εικόνας**
 
-Χρησιμοποιήστε το [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/removeat/) για να αφαιρέσετε μια λειτουργία με βάση το ευρετήριο. Επειδή τα ευρετήρια μετατοπίζονται μετά την αφαίρεση, αναζητήστε πρώτα το στόχο και αφαιρέστε το μετά την απαρίθμηση. Χρησιμοποιήστε το [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/el/php-java/aspose.slides/imagetransformoperationcollection/clear/) για να αφαιρέσετε ολόκληρη την αλυσίδα.
+Χρησιμοποιήστε τη μέθοδο [ImageTransformOperationCollection::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/removeat/) για να αφαιρέσετε μια λειτουργία κατά δείκτη. Επειδή οι δείκτες μετατοπίζονται μετά την αφαίρεση, εντοπίστε πρώτα τον στόχο και αφαιρέστε τον μετά την καταγραφή. Χρησιμοποιήστε τη μέθοδο [ImageTransformOperationCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/imagetransformoperationcollection/clear/) για να αφαιρέσετε ολόκληρη την αλυσίδα.
 
 ```php
 use aspose\slides\Presentation;
@@ -400,37 +453,37 @@ try {
 }
 ```
 
-Η αφαίρεση ή η εκκαθάριση των μετασχηματισμών αλλάζει μόνο τη μορφοποίηση της εικόνας. Δεν διαγράφει, δεν συμπιέζει ξανά και δεν τροποποιεί με κανέναν τρόπο τον επαναχρησιμοποιούμενο πόρο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
+Η αφαίρεση ή η εκκαθάριση των μετασχηματισμών αλλάζει μόνο τη μορφοποίηση της εικόνας. Δεν διαγράφει, δεν συμπιέζει ξανά και δεν τροποποιεί τον επαναχρησιμοποιημένο πόρο [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
 
-## **Λάβετε υπόψη τις μορφές παρουσίασης και τους προορισμούς εξαγωγής**
+## **Σκεφτείτε τις Μορφές Παρουσίασης και τους Στόχους Εξαγωγής**
 
-Οι μετασχηματισμοί εικόνας προέρχονται από το DrawingML, έτσι το PPTX είναι η προτιμώμενη μορφή επεξεργάσιμης αλυσίδας εφέ. Ακόμη και με PPTX, δεν έχουν όλες οι λειτουργίες την ίδια φορητότητα:
+Οι μετασχηματισμοί εικόνας προέρχονται από το DrawingML, έτσι το PPTX είναι η προτιμώμενη επεξεργάσιμη μορφή για αλυσίδες εφέ. Ακόμη και με PPTX, δεν έχει κάθε λειτουργία την ίδια φορητότητα:
 
-- Οι τυπικές λειτουργίες DrawingML όπως luminance, grayscale, duotone, tint, HSL, blur και κοινές λειτουργίες άλφα έχουν την καλύτερη πιθανότητα να επιβιώσουν από στρογγυλή διαδρομή PPTX. Πάντα ανοίξτε ξανά το παραγόμενο αρχείο και ελέγξτε τη συλλογή όταν η διατήρηση είναι απαραίτητη.
-- Η δυαδική μορφή PPT είναι παλαιότερη από το πλήρες μοντέλο εφέ DrawingML. Η αποθήκευση σε PPT μπορεί να παραλείψει μη υποστηριζόμενες λειτουργίες, να μειώσει μια αλυσίδα σε υποσύνολο που υποστηρίζεται ή να προσεγγίσει την εμφάνιση. Μην χρησιμοποιείτε το PPT ως μορφή επαλήθευσης για σύνθετη επεξεργάσιμη αλυσίδα.
-- Η απόδοση σε PNG, JPEG, TIFF, PDF, SVG, HTML ή άλλη οπτική έξοδο εφαρμόζει την υποστηριζόμενη αλυσίδα στην εμφανιζόμενη εικόνα. Αυτές οι εξόδους δεν περιέχουν επεξεργάσιμη `ImageTransformOperationCollection`; οι μορφές raster ισοπεδώνουν το αποτέλεσμα σε pixel, και οι εξαγωγές εγγράφου ή διανυσματικής μορφής αποθηκεύουν τη δική τους αναπαράσταση απόδοσης.
-- Τα εφέ δεν κάνουν μια συνδεδεμένη εικόνα αυτόνομη. Η απόδοση μιας συνδεδεμένης εικόνας εξακολουθεί να εξαρτάται από τη διαθεσιμότητα του συνδεδεμένου πόρου όταν η παρουσίαση φορτώνεται.
+- Οι τυπικές λειτουργίες DrawingML όπως luminance, grayscale, duotone, tint, HSL, blur και κοινές λειτουργίες άλφα έχουν τις καλύτερες πιθανότητες να επιβιώσουν μετά από στρογγυλή διαδρομή PPTX. Πάντα ανοίξτε ξανά το παραγόμενο αρχείο και ελέγξτε τη συλλογή όταν η διατήρηση είναι απαραίτητη.
+- Η δυαδική μορφή PPT προϋπάρχει του πλήρους μοντέλου εφέ DrawingML. Η αποθήκευση σε PPT μπορεί να παραλείψει μη υποστηριζόμενες λειτουργίες, να μειώσει μια αλυσίδα σε ένα υποσύνολο ή να προσομοιώσει την εμφάνιση. Μην χρησιμοποιείτε το PPT ως μορφή επαλήθευσης για μια σύνθετη επεξεργάσιμη αλυσίδα.
+- Η απόδοση σε PNG, JPEG, TIFF, PDF, SVG, HTML ή άλλες οπτικές εξόδους εφαρμόζει την υποστηριζόμενη αλυσίδα στην απεικόνιση. Αυτές οι εξόδους δεν περιέχουν ένα επεξεργάσιμο `ImageTransformOperationCollection`; οι μορφές raster ισοπεδώνουν το αποτέλεσμα σε εικονοστοιχεία, ενώ οι εξαγωγές εγγράφου ή διανυσματικού τύπου αποθηκεύουν τη δική τους αναπαράσταση απόδοσης.
+- Τα εφέ δεν κάνουν μια συνδεδεμένη εικόνα αυτόνομα ενσωματωμένη. Η απόδοση μιας συνδεδεμένης εικόνας εξακολουθεί να εξαρτάται από τη διαθεσιμότητα του συνδεδεμένου πόρου όταν η παρουσίαση φορτώνεται.
 
-Διαφορετικοί καταναλωτές παρουσίασης μπορεί να αποδίδουν περιθώρια διαφορετικά, ειδικά όταν συνδυάζονται πολλές λειτουργίες άλφα ή χρωματικής κβαντοποίησης. Για κρίσιμη έξοδο, δοκιμάστε τόσο τη στρογγυλή διαδρομή επεξεργασίας όσο και την τελική μορφή εξαγωγής με την ίδια έκδοση του Aspose.Slides που χρησιμοποιείται στην παραγωγή.
+Διαφορετικοί καταναλωτές παρουσιάσεων μπορεί να αποδίδουν ακρογωνιαίους όρους διαφορετικά, ειδικά όταν συνδυάζονται πολλές λειτουργίες άλφα ή χρωματικού κβαντισμού. Για κρίσιμα αποτελέσματα, δοκιμάστε τόσο την επεξεργάσιμη στρογγυλή διαδρομή όσο και την τελική μορφή εξαγωγής με την ίδια έκδοση του Aspose.Slides που χρησιμοποιείται στην παραγωγή.
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Τροποποιούν οι λειτουργίες μετασχηματισμού εικόνας τα ενσωματωμένα δεδομένα εικόνας;**
+**Τροποποιούν τα εφέ μετασχηματισμού εικόνας τα ενσωματωμένα δεδομένα της εικόνας;**
 
-Όχι. Οι λειτουργίες ανήκουν στο `Picture` που χρησιμοποιείται από το γέμισμα εικόνας. Τα υποκείμενα byte του `PPImage` παραμένουν αμετάβλητα.
+Όχι. Οι λειτουργίες ανήκουν στο `Picture` που χρησιμοποιείται από το γεμιστικό της εικόνας. Τα υποκείμενα bytes του `PPImage` παραμένουν αμετάβλητα.
 
-**Μοιράζονται δύο πλαίσια εικόνας που επαναχρησιμοποιούν την ίδια εικόνα τα εφέ τους;**
+**Θα μοιραστούν δύο πλαίσια εικόνας που χρησιμοποιούν την ίδια εικόνα τα εφέ τους;**
 
-Όχι. Η επαναχρησιμοποίηση ενός `PPImage` αποφεύγει διπλότυπα δεδομένα εικόνας, αλλά κάθε πλαίσιο εικόνας συνήθως έχει ξεχωριστό `Picture` και συλλογή μετασχηματισμών εικόνας.
+Όχι. Η επαναχρησιμοποίηση ενός `PPImage` αποφεύγει διπλότυπα δεδομένα εικόνας, αλλά κάθε πλαίσιο εικόνας συνήθως έχει ξεχωριστό `Picture` και τη δική του συλλογή μετασχηματισμών εικόνας.
 
-**Μπορούν τα εφέ χρώματος, θόλωσης και άλφα να συνδυαστούν;**
+**Μπορούν να συνδυαστούν χρωματικά, θολά και άλφα εφέ;**
 
-Ναι. Η συλλογή τα αποδέχεται σε μία διατεταγμένη αλυσίδα. Σκεφτείτε τι κάνει κάθε λειτουργία στην έξοδο της προηγούμενης, επειδή οι λειτουργίες αντικατάστασης και κατωφλίου μπορεί να απορρίψουν χρώμα ή άλφα που δημιουργήθηκαν νωρίτερα.
+Ναι. Η συλλογή τα αποδέχεται σε μία διατεταγμένη αλυσίδα. Λάβετε υπόψη τι κάνει κάθε λειτουργία στην έξοδο της προηγούμενης, καθώς οι λειτουργίες αντικατάστασης και κατωφλίου μπορεί να απορρίψουν χρωματικές ή άλφα λεπτομέρειες από προηγούμενα βήματα.
 
 **Γιατί οι αποτελεσματικές τιμές είναι μόνο για ανάγνωση;**
 
-Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τις υπολογισμένες τιμές που χρησιμοποιούνται για απόδοση, συμπεριλαμβανομένων των επιλυμένων χρωμάτων. Επεξεργασθείτε τη λειτουργία που αποθηκεύεται στη συλλογή μετασχηματισμού όπου υπάρχουν εγγράψιμα μέλη· διαφορετικά αφαιρέστε τη και προσθέστε μια αντικατάσταση με νέες παραμέτρους δημιουργίας.
+Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τις υπολογισθείσες τιμές που χρησιμοποιούνται για απόδοση, συμπεριλαμβανομένων των επιλυμένων χρωμάτων. Επεξεργαστείτε τη λειτουργία που αποθηκεύεται στη συλλογή μετασχηματισμών όπου υπάρχουν εγγράψιμα μέλη· διαφορετικά αφαιρέστε τη και προσθέστε μια αντικατάσταση με νέες παραμέτρους δημιουργίας.
 
-**Ποια μορφή πρέπει να χρησιμοποιήσω για τη διατήρηση μιας αλυσίδας μετασχηματισμών;**
+**Ποια μορφή πρέπει να χρησιμοποιήσω για να διατηρήσω μια αλυσίδα μετασχηματισμών;**
 
-Χρησιμοποιήστε PPTX και επαληθεύστε το αρχείο ανοίγοντας το ξανά. Το παλαιό PPT δεν μπορεί να αναπαραστήσει όλο το μοντέλο εφέ DrawingML, και οι εξαγώμενες μορφές διατήρούν την εμφάνιση αντί για επεξεργάσιμες λειτουργίες μετασχηματισμού.
+Χρησιμοποιήστε PPTX και επαληθεύστε το αρχείο ανοίγοντάς το ξανά. Η κληρονομική μορφή PPT δεν μπορεί να αντιπροσωπεύσει όλο το μοντέλο εφέ DrawingML, ενώ οι εξαγώγιμες μορφές εμφάνισης διατηρούν μόνο την εμφάνιση και όχι τις επεξεργάσιμες λειτουργίες μετασχηματισμού.

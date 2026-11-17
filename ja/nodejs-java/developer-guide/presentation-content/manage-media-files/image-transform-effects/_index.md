@@ -1,5 +1,5 @@
 ---
-title: JavaScript でプレゼンテーションの画像変換効果を管理する
+title: JavaScript を使用したプレゼンテーションでの画像変換効果の管理
 linktitle: 画像変換効果
 type: docs
 weight: 11
@@ -17,56 +17,56 @@ keywords:
 - ぼかし
 - 透明度
 - アルファ効果
-- 効果チェーン
+- エフェクトチェーン
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js を使用して、画像フレームの画像変換効果を適用、チェーン化、検査、削除、および検証します。"
+description: "Aspose.Slides for Node.js を使用して、画像フレームの画像変換効果を適用、連結、検査、削除、検証します。"
 ---
 ## **概要**
 
-Aspose.Slides は画像の調整を画像変換操作の順序付けられたコレクションとして表します。画像フレームの場合、フレームの [Picture](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) から開始し、[Picture.getImageTransform](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) にアクセスします。返される [ImageTransformOperationCollection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用すると、元の画像バイトを書き換えることなく、効果を追加、列挙、検査、削除、クリアできます。
+Aspose.Slides は画像調整を画像変換操作の順序付きコレクションとして表します。画像フレームの場合、フレームの [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) から開始し、[Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) にアクセスします。返される [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用すると、元の画像バイトを書き換えることなく、効果を追加、列挙、検査、削除、クリアできます。
 
-この記事では、明るさとコントラスト、カラー変換、ぼかし、透明度、順序付けられた効果チェーン、実効値、削除、および PPTX の往復検証の完全なワークフローを示します。
+この記事では、明るさとコントラスト、色変換、ぼかし、透明度、順序付けられたエフェクトチェーン、実効値、削除、および PPTX ラウンドトリップ検証の完全なワークフローを示します。
 
-## **効果の所有権と画像再利用の理解**
+## **エフェクトの所有権と画像の再利用を理解する**
 
-画像リソースとそれを表示する画像は別オブジェクトです。
+An image resource and the picture that displays it are different objects:
 
-- [PPImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ppimage/) はプレゼンテーションが所有するソース画像データを格納または参照します。
-- [Picture](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) は画像塗りつぶしに属し、画像リソースを参照しながら画像変換コレクションを保持します。
-- [PictureFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pictureframe/) はスライド上のシェイプで、該当する画像塗りつぶし、ジオメトリ、切り抜き設定、その他フレームレベルの書式設定を所有します。
+- [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) はプレゼンテーションが所有するソース画像データを格納または参照します。
+- [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) は画像塗りつぶしに属し、画像リソースを参照しながら画像変換コレクションを保持します。
+- [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) は、該当する画像塗りつぶし、ジオメトリ、クロップ設定、およびその他のフレームレベルの書式設定を所有するスライド形状です。
 
-したがって、画像変換操作は [PPImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ppimage/) のバイトを変更しません。同じ [PPImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ppimage/) を [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/) に複数回渡すと、各新しい画像フレームは独自の [Picture](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) と独自の変換コレクションを受け取ります。1 つのフレームにグレースケールを適用しても、他のフレームがグレースケールになることはありません。すべてが同じ埋め込み画像リソースを再利用しているからです。
+したがって、画像変換操作は [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) のバイトを変更しません。同じ [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) が [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) に複数回渡されると、各新しい画像フレームは独自の [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) と独自の変換コレクションを受け取ります。1 つのフレームにグレイスケールを適用しても、他のフレームがグレイスケールになることはありません。同じ埋め込み画像リソースを再利用していてもです。
 
-同じ [Picture.getImageTransform](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) モデルは、シェイプやスライド背景など他の画像塗りつぶしでも使用されます。以下の例は画像フレームに焦点を当てています。
+同じ [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) モデルは、シェイプやスライドの背景など他の画像塗りつぶしでも使用されます。以下の例は画像フレームに焦点を当てています。
 
-## **有効なパラメータ範囲と単位の使用**
+## **有効なパラメータ範囲と単位を使用する**
 
-示されているメソッドは以下の意味的範囲と単位を使用します。特定のライブラリ バージョンがすぐにすべての範囲外値を拒否しなくても、これらの範囲内に収めてください。ターゲットのプレゼンテーション形式は、保存時または PowerPoint がファイルを開く際に無効なデータを正規化、除外、または拒否する可能性があります。
+示されたメソッドは以下の意味的範囲と単位を使用します。たとえ特定のライブラリバージョンがすべての範囲外の値を即座に拒否しなくても、これらの範囲内に値を保ってください。対象のプレゼンテーション形式は、保存時や PowerPoint がファイルを開く際にデータを正規化、除外、または拒否する可能性があります。
 
-| 操作 | パラメータ | 有効範囲と単位 |
+| 操作 | パラメータ | 有効な範囲と単位 |
 |---|---|---|
-| [addBrightnessContrastEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100`〜`100`、パーセント；`0` はコンポーネントを変更しません。 |
-| [addGrayScaleEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | なし | 数値パラメータはありません。アルファは変更されません。 |
-| [addDuotoneEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | 暗部と明部のピクセル用の 2 色。`java.awt.Color` の RGB とアルファは `0`〜`255`。 |
-| [addTintEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | 色相は `0`（含む）〜`360`（除く）度、`amount` は `-100`〜`100` パーセント。 |
-| [addHSLEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | 色相は `0`（含む）〜`360`（除く）度、彩度と輝度は `-100`〜`100` パーセント。 |
-| [addColorReplaceEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | 置換色はチャンネル値 `0`〜`255`。既存のアルファは変更されません。 |
-| [addBlurEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | 半径は非負でポイント単位、`grow` はぼかし領域が元の境界を超えるかを制御するブール値。 |
-| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | 非負パーセント。通常の不透明度スケーリングは `0`〜`100`：`0` は完全に透明、`100` は既存のアルファを保持。 |
-| [addAlphaReplaceEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0`〜`100` パーセントの不透明度。 |
-| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0`〜`100` パーセントのアルファ閾値。閾値未満は透明、以上は不透明。 |
+| [addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `brightness`, `contrast` | `-100` から `100` (パーセント); `0` はコンポーネントを変更しません。 |
+| [addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | None | なし。数値パラメータはありません。アルファは変わりません。 |
+| [addDuotoneEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color1`, `color2` | 暗部と明部のピクセル用の 2 つの色。`java.awt.Color` の RGB およびアルファチャンネルは `0` から `255` を使用します。 |
+| [addTintEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `amount` | 色相は `0` 以上 `360` 未満（度）; 量は `-100` から `100` (パーセント)。 |
+| [addHSLEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `hue`, `saturation`, `luminance` | 色相は `0` 以上 `360` 未満（度）; 彩度と輝度は `-100` から `100` (パーセント)。 |
+| [addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `color` | 置換カラーはチャンネル値 `0` から `255` を使用します。既存のアルファ値は変更されません。 |
+| [addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `radius`, `grow` | 半径は負でなくポイントで測定されます; `grow` はブール値で、ぼかし領域が元の境界外に拡張できるかを制御します。 |
+| [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `amount` | 負でないパーセント。一般的な不透明度スケーリングには `0` から `100` を使用します: `0` は完全に透明、`100` は既存のアルファを保持します。 |
+| [addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `alpha` | `0` から `100` (パーセント) の不透明度。 |
+| [addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) | `threshold` | `0` から `100` (パーセント) のアルファしきい値。その以下は透明になり、以上は不透明になります。 |
 
 固定アルファ変調の場合、透明度と不透明度は補完関係にあります。たとえば、35% の透明度はアルファ変調量 65% に相当します。
 
-## **明るさとコントラストの適用**
+## **明るさとコントラストを適用する**
 
-[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) は [BrightnessContrast](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/brightnesscontrast/) 操作を返します。スカラー設定は操作作成時に供給されます。[BrightnessContrast.getEffective](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/brightnesscontrast/) は算出された読み取り専用値を返し、検査やログに利用できます。
+[ImageTransformOperationCollection.addBrightnessContrastEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) は [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) 操作を返します。そのスカラー設定は操作作成時に提供されます。[BrightnessContrast.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) は計算された読み取り専用値を返し、検査またはログに記録できます。
 
-以下の例は明るさを 15% 、コントラストを 20% 増加させ、埋め込み画像を変更せずにプレビューをレンダリングします。
+以下の例は明るさを 15% 、コントラストを 20% 上げ、埋め込み画像を変更せずにプレビューをレンダリングします。
 
 ```javascript
 const aspose = {};
@@ -103,13 +103,13 @@ try {
 }
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/brightnesscontrast/) は Office 2010 の画像効果拡張で、標準の DrawingML 輝度効果ほど移植性が高くありません。明るさとコントラストを PPTX 往復後も編集可能にしたい場合は、[ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用し、ファイル再オープン後に結果を検証してください。形式制限のセクションでこの違いを詳述しています。
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) は Office 2010 の画像効果拡張で、標準の DrawingML 輝度効果より移植性が低いです。明るさとコントラストを PPTX ラウンドトリップ後も編集可能にする必要がある場合は、[ImageTransformOperationCollection.addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用し、ファイルを再度開いた後に結果を検証してください。この違いは「フォーマット制限」セクションで詳しく説明されています。
 
-## **カラー変換の適用**
+## **色変換を適用する**
 
-カラー効果は、同一画像リソースを再利用する複数の画像フレームに対して独立して適用できます。以下の例は 5 つのフレームを作成し、グレースケール、デュオトーン、ティント、HSL 調整、カラー置換を適用します。
+色効果は、同一画像リソースを再利用する複数の画像フレームに対して個別に適用できます。以下の例は 5 つのフレームを作成し、グレースケール、デュオトーン、ティント、HSL 調整、カラー置換を適用します。
 
-[Duotone](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/duotone/) には 2 つの独立して編集可能なカラー パラメータがあります：`color1` が暗部ピクセル、`color2` が明部ピクセルにマッピングされます。これは単一スカラー値よりも設定が複雑な効果の有用な例です。
+[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) には、暗いピクセルに対応する `color1` と明るいピクセルに対応する `color2` の 2 つの独立編集可能なカラー パラメータが含まれます。これは、設定が単一のスカラー値よりも複雑な効果の有用な例です。
 
 ```javascript
 const aspose = {};
@@ -152,13 +152,60 @@ try {
 }
 ```
 
-[addColorReplaceEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) はすべてのピクセルの色を固定色に置き換え、アルファは保持します。これは、ソース色を別の色にマッピングし、両方のカラー形式を公開する [addColorChangeEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) とは異なります。
+[addColorReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) はアルファを保持しつつ、すべてのピクセルの色を固定の色に置き換えます。これは、ソースカラーを別のカラーにマッピングし、ソースとターゲットの両方のカラー形式を公開する [addColorChangeEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) とは異なります。
 
-## **ぼかし、透明度、アルファ効果の追加**
+### **輝度しきい値を適用する**
 
-[addBlurEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) はアルファを含むすべてのカラー チャネルに影響します。ぼかしエッジが元の画像境界を超える可能性がある場合は `grow` を `true` に設定してください。
+輝度しきい値は、スキャンしたページ上のかすかな痕跡を背景から区別しやすくします。[addGrayScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) は中間のグレー階調を保持します。[addBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) は輝度を黒または白にマッピングし、[addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) は不透明度にしきい値を適用します。
 
-均一な透明度には [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用します。これは既存のすべてのアルファ値に乗算するため、部分的に透明なピクセルは比例的に異なるままです。[addAlphaReplaceEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) はすべてのピクセルに単一のアルファ値を割り当てます。[addAlphaBiLevelEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) は閾値に基づいてアルファを 2 段階に変換します。
+輝度しきい値は 0% から 100%（両端含む）です。しきい値未満のピクセルは黒になり、しきい値以上のピクセルは白になります。しきい値を上げると、カットオフ以下になる階調が増えるため、より多くの色調が黒になります。
+
+[grayscale-swatches.png](grayscale-swatches.png) を作業ディレクトリにダウンロードしてください。各ラベルは 0 から 255 のスケールで元のグレーレベルを示します。例では元画像を 2 つのコピーの横に配置し、各コピーのしきい値をプレゼンテーションに保存します。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 150, slides.SlideSizeScaleType.DoNotScale);
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceImage = slides.Images.fromFile("grayscale-swatches.png");
+    let image;
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
+
+    const captions = ["Original", "Threshold 20%", "Threshold 60%"];
+    const frames = [];
+    for (let i = 0; i < captions.length; i++) {
+        const x = 12 + 240 * i;
+        const label = shapes.addAutoShape(slides.ShapeType.Rectangle, x, 12, 216, 36);
+        label.getTextFrame().setText(captions[i]);
+        const frame = shapes.addPictureFrame(slides.ShapeType.Rectangle, x, 60, 216, 72, image);
+        frames.push(frame);
+    }
+
+    frames[1].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(20);
+    frames[2].getPictureFormat().getPicture().getImageTransform().addBiLevelEffect(60);
+    
+    presentation.save("luminance-threshold.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPoint で出力プレゼンテーションを開き、3 つのフレームを比較してください。ラベル 96 のスウォッチは約 38% の輝度（255 のうち 96）です。20% のしきい値で白に、60% のしきい値で黒になります。
+
+![元のグレースケールスウォッチと、輝度しきい値 20% と 60% の黒白結果を並べたもの](luminance-threshold.png)
+
+## **ぼかし、透明度、アルファ効果を追加する**
+
+[addBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) はアルファを含むすべてのカラーチャンネルに影響します。ぼかしエッジが元画像の境界を超える可能性がある場合は `grow` を `true` に設定してください。
+
+均一な透明度には [addAlphaModulateFixedEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用します。既存のすべてのアルファ値に乗算するため、部分的に透明なピクセルは比例的に異なるままです。[addAlphaReplaceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) はすべてのピクセルに単一のアルファ値を割り当てます。[addAlphaBiLevelEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) はしきい値に基づいてアルファを 2 段階に変換します。
 
 ```javascript
 const aspose = {};
@@ -198,15 +245,15 @@ try {
 }
 ```
 
-パラメータなしの他のアルファ操作には、すべての非ゼロアルファを完全に不透明にする [addAlphaCeilingEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/)、すべてのアルファを 100% 未満で完全に透明にする [addAlphaFloorEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/)、および `100% - alpha` に変更する [addAlphaInverseEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) があります。
+その他のパラメータなしのアルファ操作として、[addAlphaCeilingEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) はゼロ以外のすべてのアルファを完全に不透明にし、[addAlphaFloorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) は 100% 未満のすべてのアルファを完全に透明にし、[addAlphaInverseEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) はアルファを `100% - alpha` に変換します。
 
-## **順序付けられた効果チェーンの構築**
+## **順序付きエフェクトチェーンを構築する**
 
-すべての `add...Effect` メソッドは新しい操作をコレクションの末尾に追加します。レンダラーはコレクションを順序付けられたパイプラインとして使用し、操作 0 の出力が操作 1 の入力となります。そのため、同じ操作でも順序が異なると異なる画像が生成されます。
+すべての `add...Effect` メソッドはコレクションの末尾に新しい操作を追加します。レンダラーはコレクションを順序付けられたパイプラインとして使用し、操作 0 の出力が操作 1 の入力となります。したがって、同じ操作でも順序を変えると異なる画像になることがあります。
 
-たとえば、グレースケールの後にティントを適用するとまず色情報が除去され、次に輝度結果が再着色されます。ティントの後にグレースケールを適用するとティントが再び除去されます。同様に、アルファ置換は以前の操作で算出されたアルファ値を上書きできますが、アルファ変調は相対的な差を保持します。
+例として、グレースケールの後にティントを適用すると、まず色情報が除去され、次に輝度結果が再着色されます。ティントの後にグレースケールを適用すると、ティントが再び除去されます。同様に、アルファ置換は以前の操作で計算されたアルファ値を上書きでき、アルファ変調はそれらの相対的な違いを保持します。
 
-以下の例は 4 つの操作からなるチェーンを構築し、PPTX として保存後にプレゼンテーションを再オープンし、操作タイプと順序の両方をチェックし、再オープンした結果をレンダリングします。
+以下の例は 4 つの操作チェーンを構築し、PPTX として保存し、プレゼンテーションを再度開き、操作の種類と順序を確認し、再開された結果をレンダリングします。
 
 ```javascript
 const aspose = {};
@@ -264,15 +311,21 @@ try {
 }
 ```
 
-コレクションはカラー、アルファ、ぼかし操作を別々のチェーンに制限する互換性マトリックスを課しません。組み合わせて使用できますが、常に有用とは限りません。固定カラー置換は以前のカラー効果で生成された RGB の変化を削除します。デュオトーンの後にグレースケールを適用すると 2 つの選択色が失われます。アルファの天井、床、置換、二段階操作は以前に作成されたアルファの詳細を破棄する可能性があります。目的のピクセル処理シーケンスに従ってチェーンを構築し、項目を順不同の書式フラグとして扱わないでください。
+コレクションは、カラー、アルファ、ぼかし操作を別々のチェーンに制限する互換性マトリックスを課しません。これらは組み合わせ可能ですが、組み合わせが常に有用とは限りません。固定カラー置換は以前のカラー効果で生じた RGB 変化を除去し、デュオトーンの後のグレースケールは選択された二色を除去し、アルファの天井、床、置換、または二段階操作は以前に作成されたアルファ詳細を破棄することがあります。項目を順不同の書式設定フラグとして扱うのではなく、望ましいピクセル処理シーケンスに従ってチェーンを構築してください。
 
-## **編集可能な値と実効値の検査**
+<!-- visual-explanation:image-transform-effects:start -->
+[![同じ画像がグレースケール→ティント、またはティント→グレースケールの順に通過します。最終的な 2 つのグレースケール画像は異なるトーンになります。](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-編集可能な操作は [Picture.getImageTransform](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) に格納されているオブジェクトです。効果に応じて、直接書き込み可能なメンバーを公開する場合があります。たとえば、[Blur](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/blur/) は書き込み可能な `radius` と `grow` を、[AlphaModulateFixed](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/alphamodulatefixed/) は書き込み可能な `amount` を、[AlphaBiLevel](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/alphabilevel/) は書き込み可能な `threshold` を公開します。 [Duotone](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/duotone/) のようなカラー効果は可変的な [ColorFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/colorformat/) オブジェクトを公開します。
+*この Aspose.Slides for .NET 26.11 のイラスト的なレンダリングでは、220° のティントを 25% で適用するとグレースケール画像は変わりません。同じティントをグレースケールの前に適用すると異なるトーンになります。*
+<!-- visual-explanation:image-transform-effects:end -->
 
-[BrightnessContrast](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/brightnesscontrast/)、[HSL](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/hsl/)、[Tint](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tint/)、[AlphaReplace](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/alphareplace/) などの操作は、作成時のスカラーを書き込み可能プロパティとして公開しません。設定を変更するには、該当操作を削除し、必要な位置に新しい操作を追加してください。
+## **編集可能および実効値を検査する**
 
-`getEffective()` が返す実効データは計算済みで読み取り専用です。テーマ依存の色を解決したり、レンダラが使用する正規化値を取得したりするのに便利ですが、別の編集対象ではありません。以下の例はチェーンを列挙し、対応する API が提供する場合に実効値を検査します。
+編集可能な操作は [Picture.getImageTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) に格納されているオブジェクトです。エフェクトに応じて、書き込み可能なメンバーを直接公開する場合があります。例えば、[Blur](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/) は書き込み可能な `radius` と `grow` 値を公開し、[AlphaModulateFixed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphamodulatefixed/) は書き込み可能な `amount` を、[AlphaBiLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphabilevel/) は書き込み可能な `threshold` を公開します。[Duotone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/duotone/) のようなカラー効果は変更可能な [ColorFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/) オブジェクトを公開します。
+
+[BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/)、[HSL](https://reference.aspose.com/slides/nodejs-java/aspose.slides/hsl/)、[Tint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tint/)、[AlphaReplace](https://reference.aspose.com/slides/nodejs-java/aspose.slides/alphareplace/) などの一部の操作は、作成時のスカラーを書き込み可能なプロパティとして公開しません。これらの設定を変更するには、操作を削除し、必要な位置に置き換えの操作を追加してください。
+
+`getEffective()` が返す実効データは計算済みの読み取り専用です。テーマ依存のカラーを解決したり、レンダラーが使用する正規化された値を取得したりするのに有用ですが、別の編集対象ではありません。以下の例はチェーンを列挙し、対応する API が提供する場合に実効値を検査します。
 
 ```javascript
 const aspose = {};
@@ -340,11 +393,11 @@ try {
 }
 ```
 
-グレースケール、アルファ天井、アルファ逆転などパラメータなしの効果でも実効データオブジェクトは存在しますが、出力すべきスカラー設定はありません。コレクション内での存在と位置が重要な情報です。
+グレースケール、アルファ天井、アルファ反転などのパラメータ不要の効果でも実効データオブジェクトは存在しますが、出力すべきスカラー設定はありません。重要なのはそれらの存在とコレクション内の位置です。
 
-## **画像変換の削除またはクリア**
+## **画像変換を削除またはクリアする**
 
-[ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用してインデックスで 1 つの操作を削除します。削除後はインデックスがシフトするため、最初に対象を検索し、列挙後に削除してください。[ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用するとチェーン全体を削除できます。
+[ImageTransformOperationCollection.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用してインデックスで操作を 1 つ削除します。削除後にインデックスがシフトするため、最初に対象を検索し、列挙後に削除してください。[ImageTransformOperationCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) を使用すると、チェーン全体を削除できます。
 
 ```javascript
 const aspose = {};
@@ -389,38 +442,38 @@ try {
 }
 ```
 
-変換を削除またはクリアしても画像の書式設定のみが変更されます。再利用されている [PPImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ppimage/) リソースは削除、再圧縮、またはその他の変更は行われません。
+変換を削除またはクリアしても、画像の書式設定のみが変更されます。再利用されている [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) リソースは削除、再圧縮、またはその他の変更は行われません。
 
-## **プレゼンテーション形式とエクスポート先の考慮**
+## **プレゼンテーション形式とエクスポート対象を検討する**
 
-画像変換は DrawingML から派生しているため、効果チェーンの編集可能形式としては PPTX が推奨されます。PPTX でもすべての操作が同等の移植性を持つわけではありません。
+画像変換は DrawingML から派生するため、エフェクトチェーンの編集可能な形式として PPTX が推奨されます。PPTX でも、すべての操作が同じ移植性を持つわけではありません:
 
-- 輝度、グレースケール、デュオトーン、ティント、HSL、ぼかし、一般的なアルファ操作など標準 DrawingML 操作は PPTX 往復で残存する可能性が最も高いです。永続性が必要な場合は、生成したファイルを必ず再オープンし、コレクションを検査してください。
-- [BrightnessContrast](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/brightnesscontrast/) は標準 DrawingML 輝度操作ではなく Office 2010 の拡張です。インメモリ描画には使用できますが、保存後に PPTX を再オープンした際に編集可能な [BrightnessContrast](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/brightnesscontrast/) 操作として残る保証はありません。永続的な明るさ・コントラスト調整には [addLuminanceEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) を優先してください。
-- バイナリ PPT 形式は完全な DrawingML 効果モデルが登場する以前のものです。PPT に保存すると未対応の操作が省略されたり、チェーンがサポート対象のサブセットに縮小されたり、外観が近似されたりします。複雑な編集可能チェーンの検証形式として PPT を使用しないでください。
-- PNG、JPEG、TIFF、PDF、SVG、HTML などのビジュアル出力は、サポートされたチェーンをレンダリング結果に適用します。これらの出力には編集可能な [ImageTransformOperationCollection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/imagetransformoperationcollection/) は含まれません。ラスタ形式は結果をピクセルにフラット化し、文書/ベクタ形式のエクスポートはそれぞれ独自のレンダリング表現を格納します。
-- 効果はリンク画像を自己完結型にしません。リンク画像をレンダリングする際は、プレゼンテーション読み込み時にリンクリソースが利用可能である必要があります。
+- 輝度、グレースケール、デュオトーン、ティント、HSL、ぼかし、一般的なアルファ操作などの標準 DrawingML 操作は、PPTX ラウンドトリップで維持される可能性が最も高いです。保存性が求められる場合は、常に生成ファイルを再度開き、コレクションを検査してください。
+- [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) は標準の DrawingML 輝度操作ではなく Office 2010 の拡張です。インメモリレンダリングには使用できますが、PPTX を保存・再オープンした後に編集可能な [BrightnessContrast](https://reference.aspose.com/slides/nodejs-java/aspose.slides/brightnesscontrast/) 操作として残る保証はありません。永続的な明るさとコントラスト調整には [addLuminanceEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) を優先してください。
+- バイナリ PPT 形式は完全な DrawingML エフェクトモデルよりも前に作られました。PPT に保存するとサポートされない操作が省かれ、チェーンがサポートされるサブセットに縮小されるか、外観が近似されることがあります。複雑な編集可能チェーンの検証形式として PPT を使用しないでください。
+- PNG、JPEG、TIFF、PDF、SVG、HTML などへのレンダリングは、サポートされたチェーンを描画結果に適用します。これらの出力には編集可能な [ImageTransformOperationCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagetransformoperationcollection/) は含まれません。ラスタ形式は結果をピクセルにフラット化し、ドキュメント/ベクトルエクスポートは独自のレンダリング表現を保存します。
+- エフェクトはリンクされた画像を自己完結させません。リンク画像のレンダリングは、プレゼンテーション読み込み時にリンクリソースが利用可能であることに依存します。
 
-複数のアルファやカラー量子化操作を組み合わせた場合、異なるプレゼンテーション ビューアはエッジケースを異なる結果で描画することがあります。重要な出力の場合は、実稼働で使用している Aspose.Slides バージョンで、編集可能な往復と最終エクスポート形式の両方をテストしてください。
+異なるプレゼンテーションの閲覧者は、特に複数のアルファやカラー量子化操作が組み合わさる場合に、エッジケースの描画が異なることがあります。重要な出力では、編集可能なラウンドトリップと最終エクスポート形式の両方を、実運用で使用している同じ Aspose.Slides バージョンでテストしてください。
 
-## **FAQ**
+## **よくある質問**
 
-**画像変換効果は埋め込み画像データを変更しますか？**
+**画像変換エフェクトは埋め込み画像データを変更しますか？**
 
-いいえ。操作は画像塗りつぶしで使用される [Picture](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) に属します。基盤となる [PPImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ppimage/) バイトは変更されません。
+いいえ。操作は画像塗りつぶしで使用される [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) に属します。基礎となる [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) バイトは変更されません。
 
-**同じ画像を再利用する 2 つの画像フレームは効果を共有しますか？**
+**同じ画像を再利用する 2 つの画像フレームはエフェクトを共有しますか？**
 
-いいえ。[PPImage](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ppimage/) を再利用すると画像データの重複が回避されますが、各画像フレームは通常、個別の [Picture](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/picture/) と画像変換コレクションを持ちます。
+いいえ。[PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) を再利用すると画像データの重複は避けられますが、各画像フレームは通常個別の [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/) と画像変換コレクションを持ちます。
 
 **カラー、ぼかし、アルファ効果は組み合わせられますか？**
 
-はい。コレクションは 1 つの順序付けられたチェーンとして受け入れます。各操作が前の出力に与える影響を考慮してください。置換や閾値操作は以前のカラーまたはアルファの詳細を破棄する場合があります。
+はい。コレクションは 1 つの順序付きチェーンとして受け入れます。置換やしきい値の操作は以前のカラーやアルファの詳細を破棄する可能性があるため、各操作が前の出力に何を行うかを考慮してください。
 
-**実効値が読み取り専用なのはなぜですか？**
+**なぜ実効値は読み取り専用ですか？**
 
-実効データはレンダリングに使用される計算値で、解決されたカラーなどを含みます。書き込み可能なメンバーがある操作はそのまま編集してください。そうでない場合は操作を削除し、新しい作成パラメータで置換してください。
+実効データは、解決されたカラーを含む、レンダリングに使用される計算値を表します。書き込み可能なメンバーがある場合は、変換コレクションに格納された操作を編集してください。そうでない場合は、操作を削除し、新しい作成パラメータで置き換えを追加してください。
 
-**どの形式を使えば変換チェーンを保持できますか？**
+**どの形式を使用すれば変換チェーンを保持できますか？**
 
-PPTX を使用し、ファイルを再オープンして検証してください。レガシー PPT は完全な DrawingML 効果モデルを表現できず、レンダリング出力形式は外観を保持しますが編集可能な変換操作は保存されません。
+PPTX を使用し、ファイルを再度開いて検証してください。従来の PPT は完全な DrawingML エフェクトモデルを表現できず、レンダリングされたエクスポート形式は外観を保持しますが、編集可能な変換操作は保持しません。

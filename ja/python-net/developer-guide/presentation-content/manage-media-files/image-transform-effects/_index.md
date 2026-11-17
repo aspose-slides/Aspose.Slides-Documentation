@@ -1,12 +1,12 @@
 ---
-title: Python を使用したプレゼンテーションの画像変換効果の管理
-linktitle: 画像変換効果
+title: Pythonでプレゼンテーションの画像変換エフェクトを管理する
+linktitle: 画像変換エフェクト
 type: docs
 weight: 11
 url: /ja/python-net/image-transform-effects/
 keywords:
 - 画像変換
-- 画像効果
+- 画像エフェクト
 - 明るさ
 - コントラスト
 - グレースケール
@@ -16,56 +16,56 @@ keywords:
 - カラー置換
 - ぼかし
 - 透明度
-- アルファ効果
-- 効果チェーン
+- アルファエフェクト
+- エフェクトチェーン
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、画像フレームの画像変換効果を適用、チェーン化、検査、削除、検証します。"
+description: "Aspose.Slides for Python via .NET を使用して、画像フレームの画像変換エフェクトを適用、チェーン化、検査、削除、および検証する。"
 ---
 ## **概要**
 
-Aspose.Slides は画像変換操作の順序付けられたコレクションとして画像調整を表します。画像フレームの場合、フレームの [Picture](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picture/) から開始し、その [image_transform](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picture/image_transform/) プロパティにアクセスします。返される [ImageTransformOperationCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/effects/imagetransformoperationcollection/) を使用すると、元の画像バイトを書き換えることなく、効果の追加、列挙、検査、削除、クリアが可能です。
+Aspose.Slides は画像変換操作の順序付きコレクションとして画像調整を表現します。画像フレームの場合、フレームの [Picture](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) とその [image_transform](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image_transform/) プロパティから開始します。返される [ImageTransformOperationCollection](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/) を使用すると、元の画像バイトを書き換えることなく、エフェクトを追加、列挙、検査、削除、クリアできます。
 
-本記事では、明るさとコントラスト、カラー変換、ぼかし、透明度、順序付けられた効果チェーン、実効値、削除、そして PPTX の往復検証までの完全なワークフローを示します。
+この記事では、明るさとコントラスト、カラー変換、ぼかし、透明度、順序付けられたエフェクトチェーン、実効値、削除、そして PPTX の往復検証の完全なワークフローを示します。
 
-## **効果の所有権と画像の再利用を理解する**
+## **エフェクトの所有権と画像の再利用の理解**
 
-画像リソースとそれを表示する画像は別々のオブジェクトです。
+画像リソースとそれを表示する画像は別々のオブジェクトです：
 
-- [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) はプレゼンテーションが所有するソース画像データを格納または参照します。
-- [Picture](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picture/) は画像塗りつぶしに属し、画像リソースを参照しながら画像変換コレクションを保持します。
-- [PictureFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pictureframe/) はスライド上のシェイプで、該当する画像塗りつぶし、ジオメトリ、クロップ設定、その他フレームレベルの書式設定を所有します。
+- [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) はプレゼンテーションが所有するソース画像データを保存または参照します。
+- [Picture](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) は画像塗りつぶしに属し、画像リソースを参照しつつ画像変換コレクションを保持します。
+- [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) はスライド形状で、関連する画像塗りつぶし、ジオメトリ、トリミング設定、その他フレームレベルの書式設定を所有します。
 
-したがって、画像変換操作は [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) のバイトを変更しません。同じ `PPImage` を [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shapecollection/add_picture_frame/) に複数回渡すと、各新しい画像フレームは独自の `Picture` と独自の変換コレクションを受け取ります。あるフレームにグレースケールを適用しても、他のフレームがグレースケールになることはありません。すべてのフレームが同じ埋め込み画像リソースを再利用しているからです。
+したがって、画像変換操作は [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) のバイトを変更しません。同じ `PPImage` を [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) に複数回渡すと、各新しい画像フレームは独自の `Picture` と変換コレクションを取得します。あるフレームにグレースケールを適用しても、他のフレームがグレースケールになることはありません。すべてが同じ埋め込み画像リソースを再利用しているからです。
 
-同じ `Picture.image_transform` モデルは、シェイプやスライドの背景など、他の画像塗りつぶしでも使用されます。以下の例は画像フレームに焦点を当てています。
+同じ `Picture.image_transform` モデルは、シェイプやスライドの背景など他の画像塗りつぶしでも使用されます。以下の例は画像フレームに焦点を当てています。
 
-## **有効なパラメータ範囲と単位を使用する**
+## **有効なパラメータ範囲と単位の使用**
 
-示されたメソッドは以下の意味的範囲と単位を使用します。特定のライブラリバージョンがすべての範囲外値を即座に拒否しなくても、これらの範囲内に収めてください。対象のプレゼンテーション形式は、保存時または PowerPoint がファイルを開く際に正規化、除外、または無効データを拒否する可能性があります。
+デモンストレーションで使用するメソッドは以下の意味的範囲と単位を使用します。特定のライブラリ バージョンがすべての範囲外値を即座に拒否しなくても、これらの範囲内に値を保ってください。ターゲットのプレゼンテーション形式は保存時または PowerPoint がファイルを開く際にデータを正規化、除外、または拒否する可能性があります。
 
 | 操作 | パラメータ | 有効範囲と単位 |
 |---|---|---|
-| [add_brightness_contrast_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) | `brightness`, `contrast` | `-100`〜`100`、パーセント；`0` はその要素を変更しません。 |
-| [add_gray_scale_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) | なし | 数値パラメータはありません。アルファは変更されません。 |
-| [add_duotone_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_duotone_effect/) | `color1`, `color2` | 暗部と明部のピクセル用の2色。RGB とアルファは `0`〜`255`。 |
-| [add_tint_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_tint_effect/) | `hue`, `amount` | 色相は `0`（含む）から `360`（除く）度；`amount` は `-100`〜`100` パーセント。 |
-| [add_hsl_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_hsl_effect/) | `hue`, `saturation`, `luminance` | 色相は `0`（含む）から `360`（除く）度；彩度と輝度は `-100`〜`100` パーセント。 |
-| [add_color_replace_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) | `color` | 置換色は `0`〜`255` のチャネル値を使用。既存のアルファは変更されません。 |
-| [add_blur_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) | `radius`, `grow` | 半径は非負でポイント単位；`grow` はブーリアンで、ぼかし領域が元の境界を超えるか制御します。 |
-| [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) | `amount` | 非負パーセント。普通の不透明度スケーリングには `0`〜`100` を使用：`0` は完全に透明、`100` は既存のアルファを保持。 |
-| [add_alpha_replace_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) | `alpha` | `0`〜`100` パーセントの不透明度。 |
-| [add_alpha_bi_level_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) | `threshold` | `0`〜`100` パーセントのアルファ閾値。閾値未満は透明、以上は不透明になります。 |
+| [add_brightness_contrast_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) | `brightness`, `contrast` | `-100` から `100` まで、パーセンテージ; `0` はコンポーネントを変更しません。 |
+| [add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) | None | 数値パラメータはありません。アルファは変更されません。 |
+| [add_duotone_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_duotone_effect/) | `color1`, `color2` | 暗部と明部のピクセル用に 2 つの色を指定します。RGB とアルファチャンネルは `0` から `255` を使用します。 |
+| [add_tint_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_tint_effect/) | `hue`, `amount` | 色相は `0` を含み `360` 未満、度単位です；量は `-100` から `100` のパーセンテージです。 |
+| [add_hsl_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_hsl_effect/) | `hue`, `saturation`, `luminance` | 色相は `0` を含み `360` 未満、度単位です；彩度と輝度は `-100` から `100` のパーセンテージです。 |
+| [add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) | `color` | 置換色は各チャンネルが `0` から `255` の値を使用します。既存のアルファ値は変更されません。 |
+| [add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) | `radius`, `grow` | 半径は非負でポイント単位です；`grow` はブーリアンで、ぼかし領域が元の境界の外に拡張できるかを制御します。 |
+| [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) | `amount` | 非負のパーセンテージです。通常の不透明度スケーリングには `0` から `100` を使用します：`0` は完全に透明、`100` は既存のアルファを保持します。 |
+| [add_alpha_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) | `alpha` | `0` から `100` のパーセンテージで不透明度を指定します。 |
+| [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) | `threshold` | `0` から `100` のパーセンテージでアルファしきい値を指定します。しきい値未満は透明になり、しきい値以上は不透明になります。 |
 
-固定アルファ変調の場合、透明度と不透明度は補完関係にあります。例として、35% の透明度はアルファ変調量 65% に相当します。
+固定アルファ変調の場合、透明度と不透明度は補数関係です。例えば、透明度 35% はアルファ変調量 65% に相当します。
 
-## **明るさとコントラストを適用する**
+## **明るさとコントラストの適用**
 
-[ImageTransformOperationCollection.add_brightness_contrast_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) は [BrightnessContrast](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/brightnesscontrast/) 操作を返します。スカラー設定は操作作成時に提供されます。[BrightnessContrast.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/brightnesscontrast/get_effective/) は計算された読み取り専用値を返し、検査またはログに記録できます。
+[ImageTransformOperationCollection.add_brightness_contrast_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_brightness_contrast_effect/) は [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) 操作を返します。スカラー設定は操作作成時に提供されます。[BrightnessContrast.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/get_effective/) は計算された読み取り専用の値を返し、検査やログ出力が可能です。
 
-以下の例は明るさを 15% 、コントラストを 20% 増加させ、埋め込み画像を変更せずにプレビューをレンダリングします。
+以下の例は明るさを 15%、コントラストを 20% 増加させ、埋め込み画像を変更せずにプレビューをレンダリングします。
 
 ```python
 import aspose.slides as slides
@@ -88,13 +88,13 @@ with slides.Presentation() as presentation:
         preview.save("brightness-contrast-preview.png")
 ```
 
-[BrightnessContrast](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/brightnesscontrast/) は Office 2010 の画像効果拡張であり、標準の DrawingML 輝度効果ほど移植性が高くありません。明るさとコントラストを PPTX の往復後も編集可能に保ちたい場合は、[ImageTransformOperationCollection.add_luminance_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) を使用し、ファイルを再度開いた後に結果を検証してください。形式の制限セクションでこの違いを詳しく説明しています。
+[BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) は Office 2010 の画像エフェクト拡張で、標準の DrawingML 輝度エフェクトほど移植性が高くありません。明るさとコントラストを PPTX の往復後も編集可能に保つ必要がある場合は、[ImageTransformOperationCollection.add_luminance_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) を使用し、ファイルを再オープンして結果を検証してください。フォーマット制限のセクションでこの違いについて詳しく説明しています。
 
-## **カラー変換を適用する**
+## **カラー変換の適用**
 
-カラー効果は、同一画像リソースを再利用する複数の画像フレームに対して個別に適用できます。以下の例は 5 つのフレームを作成し、グレースケール、デュオトーン、ティント、HSL 調整、カラー置換を適用します。
+カラーエフェクトは、同一画像リソースを再利用する複数の画像フレームに対して個別に適用できます。以下の例は 5 つのフレームを作成し、グレースケール、デュオトーン、ティント、HSL 調整、カラー置換を適用します。
 
-[Duotone](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/duotone/) には `color1`（暗いピクセルにマップ）と `color2`（明るいピクセルにマップ）の 2 つの独立編集可能なカラー パラメータがあります。これは単一スカラー値よりも設定が複雑な効果の有用な例です。
+[Duotone](https://reference.aspose.com/slides/python-net/aspose.slides.effects/duotone/) には、暗部ピクセルに対応する `color1` と明部ピクセルに対応する `color2` の 2 つの独立した編集可能なカラー パラメータがあります。これは、設定が単一スカラー値よりも複雑なエフェクトの有用な例です。
 
 ```python
 import aspose.pydrawing as draw
@@ -127,13 +127,51 @@ with slides.Presentation() as presentation:
     presentation.save("color-transformations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[add_color_replace_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) はすべてのピクセルのカラーを固定色に置き換え、アルファは保持します。これは、ソースカラーを別のカラーにマップし、両方のカラー形式を公開する [add_color_change_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/) とは異なります。
+[add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) はすべてのピクセルの色を固定色に置換し、アルファは保持します。[add_color_change_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/) とは異なり、後者はあるソースカラーを別のカラーにマッピングし、ソースとターゲットの両方のカラー形式を公開します。
 
-## **ぼかし、透明度、アルファ効果を追加する**
+### **輝度しきい値の適用**
 
-[add_blur_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) はアルファを含むすべてのカラー チャネルに影響します。ぼかしエッジが元の画像領域を超える可能性がある場合は、`grow` を `True` に設定してください。
+輝度しきい値を使用すると、スキャンしたページ上のかすかな印刷が背景と区別しやすくなります。[add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) は中間のグレー階調を保持します。[add_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_bi_level_effect/) は輝度を黒または白にマッピングし、[add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) は不透明度にしきい値を適用します。
 
-均一な透明度には [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) を使用します。これは既存のすべてのアルファ値に乗算し、部分的に透明なピクセルは比例的に異なるまま残ります。[add_alpha_replace_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) はすべてのピクセルに単一のアルファ値を割り当てます。[add_alpha_bi_level_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) は閾値に基づいてアルファを 2 段階に変換します。
+輝度しきい値の範囲は 0% から 100%（両端含む）です。しきい値未満のピクセルは黒になり、しきい値以上のピクセルは白になります。しきい値を上げると、カットオフ未満になる階調が増えるため、より多くの色が黒になります。
+
+[grayscale-swatches.png](grayscale-swatches.png) を作業ディレクトリにダウンロードしてください。各ラベルは 0 から 255 のスケールで元のグレーレベルを示します。例では元画像を 2 つのコピーの横に配置し、各コピーのしきい値をプレゼンテーションに保存します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 150, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    with slides.Images.from_file("grayscale-swatches.png") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    def add_frame(x, caption):
+        label = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, 12, 216, 36)
+        label.text_frame.text = caption
+        return shapes.add_picture_frame(slides.ShapeType.RECTANGLE, x, 60, 216, 72, image)
+
+    add_frame(12, "Original")
+
+    low_threshold = add_frame(252, "Threshold 20%")
+    low_threshold.picture_format.picture.image_transform.add_bi_level_effect(20)
+    
+    high_threshold = add_frame(492, "Threshold 60%")
+    high_threshold.picture_format.picture.image_transform.add_bi_level_effect(60)
+
+    presentation.save("luminance-threshold.pptx", slides.export.SaveFormat.PPTX)
+```
+
+PowerPoint で出力されたプレゼンテーションを開き、3 つのフレームを比較してください。ラベルが 96 のスウォッチは約 38% の輝度（255 のうち 96）です。20% のしきい値で白に、60% のしきい値で黒になります。
+
+![20% と 60% の輝度しきい値での白黒結果を横に並べた元のグレースケールスウォッチ](luminance-threshold.png)
+
+## **ぼかし、透明度、およびアルファ効果の追加**
+
+[add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) はアルファを含むすべてのカラーチャンネルに影響します。ぼかしエッジが元の画像境界を超える可能性がある場合は、`grow` を `True` に設定してください。
+
+均一な透明度には [add_alpha_modulate_fixed_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_modulate_fixed_effect/) を使用します。既存のアルファ値すべてに乗算するため、部分的に透明なピクセルは比例的に異なるままです。[add_alpha_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_replace_effect/) はすべてのピクセルに単一のアルファ値を割り当てます。[add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) はしきい値に基づいてアルファを 2 つのレベルに変換します。
 
 ```python
 import aspose.slides as slides
@@ -163,15 +201,15 @@ with slides.Presentation() as presentation:
     presentation.save("blur-and-alpha-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-パラメータなしのその他のアルファ操作には、非ゼロのすべてのアルファを完全に不透明にする [add_alpha_ceiling_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_ceiling_effect/)、アルファが 100% 未満のものを完全に透明にする [add_alpha_floor_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_floor_effect/)、および `100% - alpha` に変換する [add_alpha_inverse_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_inverse_effect/) があります。
+他のパラメータなしのアルファ操作には、[add_alpha_ceiling_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_ceiling_effect/)（非ゼロのアルファをすべて完全に不透明にする）、[add_alpha_floor_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_floor_effect/)（100% 未満のアルファをすべて完全に透明にする）、[add_alpha_inverse_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_inverse_effect/)（アルファを `100% - alpha` に変換する）が含まれます。
 
-## **順序付けられた効果チェーンを構築する**
+## **順序付けられたエフェクトチェーンの構築**
 
-すべての `add_..._effect` メソッドはコレクションの末尾に新しい操作を追加します。レンダラーはコレクションを順序付けられたパイプラインとして使用し、操作 0 の出力が操作 1 の入力となります。そのため、同じ操作でも順序が異なると異なる画像が生成されます。
+`add_..._effect` メソッドはすべて、新しい操作をコレクションの末尾に追加します。レンダラーはコレクションを順序付けられたパイプラインとして使用し、操作 0 の出力が操作 1 の入力となります。したがって、同じ操作でも順序を変えると異なる画像が生成されます。
 
-例として、グレースケールの後にティントを適用すると、最初に色情報が除去され、次に輝度結果が再着色されます。ティントの後にグレースケールを適用するとティントが再び除去されます。同様に、アルファ置換は先行操作で計算されたアルファを上書きできますが、アルファ変調は相対的な差異を維持します。
+例として、グレースケールの後にティントを適用すると、まず色相情報が除去され、次に輝度結果に再着色されます。ティントの後にグレースケールを適用すると、ティントが再び除去されます。同様に、アルファ置換は前の操作で計算されたアルファ値を上書きできますが、アルファ変調は相対的な差異を保持します。
 
-以下の例は 4 つの操作からなるチェーンを構築し、PPTX として保存し、プレゼンテーションを再度開いて操作タイプと順序をチェックし、再オープンした結果をレンダリングします。
+以下の例は 4 つの操作からなるチェーンを構築し、PPTX として保存し、プレゼンテーションを再オープンして操作種別と順序の両方を確認し、再オープンした結果をレンダリングします。
 
 ```python
 import aspose.slides as slides
@@ -211,15 +249,21 @@ with slides.Presentation("image-transform-chain.pptx") as reopened_presentation:
         print("The reopened shape is not a picture frame.")
 ```
 
-このコレクションはカラー、アルファ、ぼかし操作を別々のチェーンに制限する互換性マトリックスを課しません。組み合わせは可能ですが、常に有用とは限りません。固定カラー置換は先行のカラー効果で生じた RGB のばらつきを除去します。デュオトーンの後にグレースケールを適用すると 2 色が消えます。アルファの天井、床、置換、二値化操作は、以前に作成されたアルファの詳細を破棄することがあります。項目を無秩序な書式フラグとしてではなく、望ましいピクセル処理シーケンスに基づいてチェーンを構築してください。
+コレクションは、カラー、アルファ、ぼかし操作を別々のチェーンに制限する互換性マトリックスを課しません。これらは組み合わせ可能ですが、組み合わせが常に有用というわけではありません。固定カラー置換は以前のカラーエフェクトで生成された RGB のばらつきを除去します。デュオトーンの後にグレースケールを適用すると、選択された 2 色が削除されます。また、アルファのシーリング、フロア、置換、またはバイレベル操作は、以前に作成されたアルファの詳細を破棄する可能性があります。項目を順序なしの書式フラグとして扱うのではなく、目的とするピクセル処理シーケンスに従ってチェーンを構築してください。
 
-## **編集可能な値と実効値を検査する**
+<!-- visual-explanation:image-transform-effects:start -->
+[![The same image passes through grayscale then tint, and tint then grayscale. The two final grayscale images have different tones.](visual-image-transform-effects-49aa72211f3a.svg)](visual-image-transform-effects-49aa72211f3a.svg)
 
-編集可能な操作は `Picture.image_transform` に格納されたオブジェクトです。効果に応じて、直接書き込み可能なメンバーを公開する場合があります。例として、[Blur](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/blur/) は書き込み可能な `radius` と `grow` プロパティを、[AlphaModulateFixed](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/alphamodulatefixed/) は書き込み可能な `amount`、[AlphaBiLevel](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/alphabilevel/) は書き込み可能な `threshold` を公開します。 [Duotone](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/duotone/) のようなカラー効果は可変の [ColorFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/colorformat/) オブジェクトを公開します。
+*In this illustrative Aspose.Slides for .NET 26.11 render, a 220° tint at 25% leaves the grayscale image unchanged. Applying the same tint before grayscale produces different tones.*
+<!-- visual-explanation:image-transform-effects:end -->
 
-一部の操作、例えば [BrightnessContrast](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/brightnesscontrast/)、[HSL](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/hsl/)、[Tint](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/tint/)、[AlphaReplace](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/alphareplace/) は、作成時のスカラーを書き込み可能プロパティとして公開しません。これらの設定を変更するには、操作を削除し、必要な位置に置き換える必要があります。
+## **編集可能な値と実効値の検査**
 
-`get_effective()` が返す実効データは計算済みで読み取り専用です。テーマ依存のカラー解決や、レンダラーが使用する正規化値の取得に便利ですが、別の編集対象ではありません。以下の例はチェーンを列挙し、対応する API が提供する場合に実効値を検査します。
+編集可能な操作は `Picture.image_transform` に格納されているオブジェクトです。エフェクトに応じて、直接書き込み可能なメンバーを公開する場合があります。例として、[Blur](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/) は書き込み可能な `radius` と `grow` プロパティを公開し、[AlphaModulateFixed](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphamodulatefixed/) は書き込み可能な `amount` プロパティを、[AlphaBiLevel](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphabilevel/) は書き込み可能な `threshold` プロパティを公開します。[Duotone](https://reference.aspose.com/slides/python-net/aspose.slides.effects/duotone/) などのカラーエフェクトは変更可能な [ColorFormat](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/) オブジェクトを公開します。
+
+[BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/)、[HSL](https://reference.aspose.com/slides/python-net/aspose.slides.effects/hsl/)、[Tint](https://reference.aspose.com/slides/python-net/aspose.slides.effects/tint/)、[AlphaReplace](https://reference.aspose.com/slides/python-net/aspose.slides.effects/alphareplace/) などの一部の操作は、作成時のスカラーを書き込み可能なプロパティとして公開しません。これらの設定を変更するには、操作を削除し、必要な位置に置き換える操作を追加してください。
+
+`get_effective()` が返す実効データは計算済みで読み取り専用です。テーマ依存のカラー解決や、レンダラーが使用する正規化値の取得に便利ですが、別の編集対象ではありません。以下の例はチェーンを列挙し、対応する API が提供する実効値を検査します。
 
 ```python
 import aspose.slides as slides
@@ -273,11 +317,11 @@ with slides.Presentation("image-transform-chain.pptx") as presentation:
                 print("  Alpha threshold: " + str(effect_data.threshold) + "%")
 ```
 
-グレースケール、アルファ天井、アルファ逆転などのパラメータなし効果にも実効データオブジェクトは存在しますが、出力すべきスカラー設定はありません。コレクション内での存在と位置が重要な情報となります。
+グレースケール、アルファシーリング、アルファインバースなどのパラメータなしのエフェクトでも実効データオブジェクトは存在しますが、印刷すべきスカラー設定はありません。コレクション内での存在と位置が重要な情報です。
 
-## **画像変換を削除またはクリアする**
+## **画像変換の削除またはクリア**
 
-[ImageTransformOperationCollection.remove_at](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/remove_at/) を使用してインデックスで 1 つの操作を削除します。削除後はインデックスがシフトするため、対象を先に検索し、列挙後に削除してください。`clear()` を使えばチェーン全体を削除できます。
+[ImageTransformOperationCollection.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/remove_at/) を使用してインデックスで操作を 1 つ削除します。削除後はインデックスがシフトするため、最初に対象を検索し、列挙後に削除してください。`clear()` を使用するとチェーン全体を削除できます。
 
 ```python
 import aspose.slides as slides
@@ -308,38 +352,38 @@ with slides.Presentation("image-transform-chain.pptx") as presentation:
         presentation.save("image-transforms-cleared.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-変換を削除またはクリアしても、画像の書式設定のみが変更されます。再利用されている [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) リソースは削除、再圧縮、またはその他の変更を受けません。
+変換の削除またはクリアは画像の書式設定のみを変更し、再利用される [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) リソースを削除、再圧縮、またはその他の変更は行いません。
 
-## **プレゼンテーション形式とエクスポート先を考慮する**
+## **プレゼンテーションフォーマットとエクスポート対象の検討**
 
-画像変換は DrawingML から派生しているため、効果チェーンの編集可能形式としては PPTX が推奨されます。PPTX でもすべての操作が同等の移植性を持つわけではありません。
+画像変換は DrawingML から派生するため、エフェクトチェーンの編集可能なフォーマットとしては PPTX が推奨されます。PPTX でも、すべての操作が同等の移植性を持つわけではありません：
 
-- DrawingML 標準の操作（輝度、グレースケール、デュオトーン、ティント、HSL、ぼかし、一般的なアルファ操作）は PPTX の往復で残る可能性が最も高いです。永続性が必要な場合は、生成したファイルを必ず再オープンし、コレクションを確認してください。
-- [BrightnessContrast](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/brightnesscontrast/) は Office 2010 の拡張であり、標準の DrawingML 輝度操作ではありません。メモリ内レンダリングには使用可能ですが、保存後に PPTX を再度開いた際に編集可能な `BrightnessContrast` 操作として残る保証はありません。永続的な明るさ・コントラスト調整には [add_luminance_effect](https://reference.aspose.com/slides/ja/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) を使用してください。
-- バイナリ PPT 形式は完全な DrawingML 効果モデルの登場以前のものです。PPT に保存すると、未サポートの操作が省略されたり、チェーンがサポート対象のサブセットに縮小されたり、外観が近似されることがあります。複雑な編集可能チェーンの検証形式として PPT を使用しないでください。
-- PNG、JPEG、TIFF、PDF、SVG、HTML などのビジュアル出力は、サポートされたチェーンをレンダリング結果に適用します。これらの出力には編集可能な `ImageTransformOperationCollection` が含まれません。ラスタ形式は結果をピクセルに平坦化し、文書やベクタ形式のエクスポートは独自のレンダリング表現を保持します。
-- 効果はリンク画像を自己完結型にしません。リンク画像をレンダリングする場合、プレゼンテーション読み込み時にリンクリソースが利用可能である必要があります。
+- 輝度、グレースケール、デュオトーン、ティント、HSL、ぼかし、一般的なアルファ操作などの標準 DrawingML 操作は、PPTX の往復で残存する可能性が最も高いです。保存性が必要な場合は、常に生成ファイルを再オープンしてコレクションを検査してください。
+- [BrightnessContrast](https://reference.aspose.com/slides/python-net/aspose.slides.effects/brightnesscontrast/) は標準 DrawingML 輝度操作ではなく Office 2010 の拡張です。インメモリ描画には使用できますが、保存および PPTX 再オープン後に編集可能な `BrightnessContrast` 操作として残る保証はありません。永続的な明るさ・コントラスト調整には [add_luminance_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_luminance_effect/) を使用してください。
+- バイナリ PPT フォーマットは完全な DrawingML エフェクトモデルよりも前に策定されました。PPT に保存すると、サポートされていない操作が省かれたり、チェーンがサポートされたサブセットに縮小されたり、外観が近似されます。複雑な編集可能チェーンの検証フォーマットとして PPT を使用しないでください。
+- PNG、JPEG、TIFF、PDF、SVG、HTML などへのレンダリングは、サポートされたチェーンを描画結果に適用します。これらの出力には編集可能な `ImageTransformOperationCollection` は含まれません。ラスタ形式は結果をピクセルにフラット化し、ドキュメントやベクター出力は独自のレンダリング表現を保持します。
+- エフェクトはリンクされた画像を自己完結にしません。リンク画像のレンダリングは、プレゼンテーションが読み込まれる際にリンクリソースが利用可能であることに依存します。
 
-複数のアルファやカラー量子化操作を組み合わせた場合、異なるプレゼンテーションビューアはエッジケースを異なる結果で描画することがあります。重要な出力については、同一の Aspose.Slides バージョンで編集往復と最終エクスポート形式の両方をテストしてください。
+異なるプレゼンテーションビューアは、特に複数のアルファやカラー量子化操作が組み合わされた場合に、エッジケースを異なる方法でレンダリングすることがあります。重要な出力の場合は、実編集の往復と最終エクスポート形式の両方を、実運用で使用している同じ Aspose.Slides バージョンでテストしてください。
 
-## **FAQ**
+## **よくある質問**
 
-**画像変換効果は埋め込み画像データを変更しますか？**
+**画像変換エフェクトは埋め込み画像データを変更しますか？**
 
-いいえ。操作は画像塗りつぶしで使用される `Picture` に属します。基礎となる `PPImage` バイトは変更されません。
+いいえ。操作は画像塗りつぶしで使用される `Picture` に属します。基になる `PPImage` バイトは変更されません。
 
-**同じ画像を再利用する 2 つの画像フレームは効果を共有しますか？**
+**同じ画像を再利用する 2 つの画像フレームはエフェクトを共有しますか？**
 
-いいえ。`PPImage` を再利用して画像データの重複を防げますが、各画像フレームは通常別々の `Picture` と画像変換コレクションを持ちます。
+いいえ。`PPImage` を再利用して画像データの重複を防げますが、各画像フレームは通常、個別の `Picture` と画像変換コレクションを持ちます。
 
-**カラー、ぼかし、アルファ効果は組み合わせられますか？**
+**カラー、ぼかし、アルファエフェクトは組み合わせ可能ですか？**
 
-はい。コレクションは 1 つの順序付けられたチェーンとして受け入れます。置換や閾値操作が前段のカラーやアルファの詳細を破棄する可能性があるため、各操作が前の出力に与える影響を考慮してください。
+はい。コレクションは 1 つの順序付けられたチェーンとして受け入れます。各操作が前の結果にどのように影響するかを考慮してください。置換やしきい値操作は、以前のカラーやアルファの詳細を破棄する可能性があります。
 
 **実効値が読み取り専用なのはなぜですか？**
 
-実効データはレンダリングに使用される計算結果を表し、解決されたカラーを含みます。書き込み可能なメンバーがある操作は変換コレクション内のオブジェクトを直接編集してください。書き込み可能なプロパティがない場合は、操作を削除して新しい作成パラメータで置き換えてください。
+実効データはレンダリングに使用される計算値を表し、解決されたカラーを含みます。書き込み可能なメンバーがある操作はその場所で編集してください。そうでない場合は操作を削除し、新しい作成パラメータで置き換えてください。
 
-**変換チェーンを保持するにはどの形式を使用すべきですか？**
+**変換チェーンを保持するにはどのフォーマットを使用すべきですか？**
 
-PPTX を使用し、ファイルを再度開いて確認してください。レガシー PPT は完全な DrawingML 効果モデルを表現できず、レンダリングされたエクスポート形式は外観を保持しますが編集可能な変換操作は保持しません。
+PPTX を使用し、ファイルを再オープンして確認してください。レガシー PPT は完全な DrawingML エフェクトモデルを表現できず、レンダリング出力形式は外観を保持しますが編集可能な変換操作は含みません。
