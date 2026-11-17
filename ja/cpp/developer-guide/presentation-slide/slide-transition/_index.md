@@ -9,7 +9,7 @@ keywords:
 - スライド トランジションの追加
 - スライド トランジションの適用
 - 高度なスライド トランジション
-- モーフ トランジション
+- Morph トランジション
 - トランジション タイプ
 - トランジション 効果
 - PowerPoint
@@ -21,13 +21,13 @@ description: "Aspose.Slides for C++ を使用してスライド トランジシ�
 ---
 ## **概要**
 
-スライド トランジションは、スライドショー中にスライドがどのように表示されるかを制御します。Aspose.Slides for C++ を使用すると、各スライドにトランジション効果を選択し、マウスクリックまたはタイマーによる進行を設定し、効果固有のオプションを調整できます。この記事では、C++ のサンプルを使用してトランジションを適用し、正確なトランジション時間を設定し、スライドのタイミングを管理し、2 つのスライド間に Morph トランジションを作成する方法を示します。また、設定を PPTX ファイルに保存する方法も示しています。
+スライド トランジションは、スライドショー中にスライドが表示される方法を制御します。Aspose.Slides for C++ を使用すると、各スライドにトランジション効果を選択し、マウスクリックまたはタイマーによる進行を設定し、効果固有のオプションを調整できます。この記事では、C++ の例を使用してトランジションを適用し、正確なトランジション期間を設定し、スライドのタイミングを管理し、2 つのスライド間で Morph トランジションを作成します。また、設定を PPTX ファイルに保存する方法も示しています。
 
 ## **スライド トランジションの追加**
 
-トランジションを適用するには、[Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスでプレゼンテーションを読み込み、[get_SlideShowTransition](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) を介してスライドのトランジション設定にアクセスします。[set_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_type/) に [TransitionType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitiontype/) 列挙体の値を渡してから、プレゼンテーションを保存します。
+トランジションを適用するには、[Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスでプレゼンテーションを読み込み、[get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) を介してスライドのトランジション設定にアクセスします。[set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) を [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 列挙体の値で呼び出し、その後プレゼンテーションを保存します。
 
-次の例は、最初のスライドに Circle トランジションを、2 番目のスライドに Comb トランジションを適用します。少なくとも 2 枚のスライドが含まれる `input.pptx` ファイルを使用してください。
+次の例は、最初のスライドに Circle トランジションを、2 番目のスライドに Comb トランジションを適用します。2 枚以上のスライドが含まれる `input.pptx` ファイルを使用してください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,17 +60,91 @@ else
 presentation->Dispose();
 ```
 
+## **ホイール トランジション**
+
+[set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) メソッドは、[IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) の目的スライドを表示する放射状セクタの数を制御します。[TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) の Wheel を使用して [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) を呼び出し、[IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) として [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) にアクセスする前に行います。
+
+この例は、黒いスライドと金色の矩形が描かれたスライドの 2 つの同一ペアを作成します。目的スライドはスポーク数を 1 と 8 に設定し、[set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) で同じ速度を設定し、[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) で明示的に 8,000 ミリ秒の期間を設定して違いが観察しやすくしています。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideShowTransition/IWheelTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <cstdint>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto presentation = MakeObject<Presentation>();
+auto slideWidth = presentation->get_SlideSize()->get_Size().get_Width();
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+
+auto blackSlide = presentation->get_Slide(0);
+blackSlide->get_Shapes()->Clear();
+blackSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+blackSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+blackSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+auto destinationSlide = presentation->get_Slides()->AddClone(blackSlide);
+auto rectangle = destinationSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, slideWidth, slideHeight);
+rectangle->get_FillFormat()->set_FillType(FillType::Solid);
+rectangle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gold());
+rectangle->get_TextFrame()->set_Text(u"Wheel transition");
+
+presentation->get_Slides()->AddClone(blackSlide);
+presentation->get_Slides()->AddClone(destinationSlide);
+
+const uint32_t spokeCounts[] = { 1, 8 };
+for (auto i = 0; i < 2; i++)
+{
+    auto transition = presentation->get_Slide(i * 2 + 1)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Wheel);
+    auto wheelTransition = ExplicitCast<IWheelTransition>(transition->get_Value());
+    wheelTransition->set_Spokes(spokeCounts[i]);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(8000);
+}
+
+presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+PowerPoint で出力プレゼンテーションを開き、スライドショーを実行します。スライド 1 からスライド 2、次にスライド 3 からスライド 4 へ進みます。PowerPoint の再生では、スポーク数 1 が確認された場合は時計回りに 1 回のスイープでスライドが表示され、スポーク数 8 が確認された場合は 8 つの放射状セクタが同時に表示されます。目的のコンテンツとトランジションのタイミングは同一なので、違いは表示セクタの数だけです。
+
 ## **高度なスライド トランジションの追加**
 
-スライドが画面に表示される時間や、マウスクリックでスライドショーを進めるかどうかを構成できます。以下のメソッドがこの動作を制御します。
+スライドが画面に表示され続ける時間や、マウスクリックでスライドショーを進めるかどうかを構成できます。以下のメソッドがこの動作を制御します：
 
-- [set_AdvanceOnClick](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) は、マウスクリックで進めることを許可します。  
-- [set_AdvanceAfter](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_advanceafter/) は自動進行を有効にします。  
-- [set_AdvanceAfterTime](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) は、自動進行までの遅延時間（ミリ秒）を指定します。
+- [set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) はマウスクリックで進めることを許可します。
+- [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) は自動的に進行するようにします。
+- [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) は自動的に進行するまでの遅延（ミリ秒）を指定します。
 
-クリックとタイマーの両方を有効にすると、クリックで進めることも、タイマーが経過するのを待つこともできます。タイマーのみを使用する場合は、[set_AdvanceOnClick](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) に `false` を渡します。遅延はスライドショーの進行時期を制御しますが、ビジュアル トランジション効果の持続時間を設定するものではありません。
+クリックとタイマーの両方の進行を有効にすると、クリックで進めるか、タイマーが切れるのを待つかのどちらでもスライドショーを進められます。タイマーのみを使用する場合は、[set_AdvanceOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceonclick/) に `false` を渡して呼び出します。遅延はスライドショーが進むタイミングを制御しますが、視覚的なトランジション効果の期間は設定しません。
 
-この例は、最初の 3 枚のスライドにそれぞれ異なる効果を割り当て、3 秒、5 秒、7 秒後に自動進行するように設定します。マウスクリックでもこれらのスライドは進められます。少なくとも 3 枚のスライドがある `input.pptx` を使用してください。
+この例は、最初の 3 枚のスライドに異なる効果を割り当て、3 秒、5 秒、7 秒後に自動的に進むようにします。マウスクリックでもこれらのスライドを進めることができます。3 枚以上のスライドが含まれる `input.pptx` ファイルを使用してください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -118,9 +192,9 @@ else
 presentation->Dispose();
 ```
 
-タイマー進行が有効かどうかを確認するには、[get_AdvanceAfter](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_advanceafter/) を呼び出します。保存された遅延だけでは、タイマーがアクティブかどうかは判断できません。
+タイマーによる進行が有効かどうかを確認するには、[get_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_advanceafter/) を呼び出します。保存された遅延だけではタイマーがアクティブであることを示しません。
 
-次の例は、上記で保存したファイルを開き、タイマーが有効なスライドを報告し、遅延が 2 秒を超えるスライドの自動進行を無効にします。これらのスライドではマウスクリックを有効にし、更新された設定を保存します。
+次の例は、上記で保存したファイルを開き、各有効なタイマーを報告し、遅延が 2 秒を超えるスライドの自動進行を無効にします。そのスライドではマウスクリックを有効にし、更新された設定を保存します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -157,21 +231,27 @@ presentation->Save(u"adjusted-transitions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **トランジション時間を正確に制御する**
+## **トランジション タイミングを正確に制御する**
 
-[set_Duration](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_duration/) を使用して、トランジション効果の正確な長さ（ミリ秒）を指定します。スライドの [get_SlideShowTransition](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) メソッドは、[ISlideShowTransition](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/) を介してこれらの設定を公開します。
+トランジション効果の正確な長さ（ミリ秒）を指定するには、[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) を使用します。スライドの [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) メソッドは、[ISlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/) を通じてこれらの設定を公開します。
 
 | メソッド | 目的 |
 | --- | --- |
-| [set_Duration](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_duration/) | トランジション効果自体の持続時間（ミリ秒）を設定します。 |
-| [set_AdvanceAfterTime](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | スライドが自動的に進むまでの遅延（ミリ秒）を設定します。タイマーを有効にするには、[set_AdvanceAfter](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_advanceafter/) に `true` を渡します。 |
-| [set_Speed](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_speed/) | [TransitionSpeed](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionspeed/) 列挙体の事前定義された速度カテゴリ（Slow、Medium、Fast）を選択します。正確な期間が指定されていない場合に使用されます。 |
+| [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) | トランジション効果自体の期間をミリ秒で設定します。 |
+| [set_AdvanceAfterTime](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceaftertime/) | スライドが自動的に進むまでの遅延をミリ秒で設定します。タイマーを有効にするには `true` を指定して [set_AdvanceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_advanceafter/) を呼び出します。 |
+| [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) | 事前定義された速度カテゴリ（[TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow、Medium、Fast）から選択します。正確な期間が指定されていない場合に使用されます。 |
 
-[set_Duration](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_duration/) はトランジション効果のみを制御し、スライドが画面に残る時間は決定しません。自動進行遅延は別途設定してください。明示的な期間が設定されていない場合、Aspose.Slides はトランジションの種類と [get_Speed](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_speed/) が返す値から効果の持続時間を算出します。
+[set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) はトランジション効果のみを制御し、スライドが表示され続ける時間は決定しません。自動進行の遅延は別途設定してください。明示的な期間が設定されていない場合、Aspose.Slides はトランジションタイプと [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) が返す値を使用して効果の期間を決定します。
+
+<!-- visual-explanation:slide-transition:start -->
+[![個別のバーが 750 ms のトランジション期間と 5,000 ms の自動進行設定を示しています。](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*この共有例では、各スライドに 750 ms の Fade トランジションを設定し、別途 5,000 ms の自動進行を有効にします。トランジション期間は効果を制御し、進行はスライドを離れるタイミングを制御します。これらのバーは概略設定であり、測定された統合タイムラインではありません。*
+<!-- visual-explanation:slide-transition:end -->
 
 ### **すべてのスライドに同じ期間を適用する**
 
-一定のペースを保つために、すべてのスライドに同じ効果と正確な期間を適用します。この例は `input.pptx` を読み込み、[TransitionType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitiontype/) から Fade を選択し、各トランジションに 750 ミリ秒の期間を設定します。自動進行は 5,000 ミリ秒後に有効にし、マウスクリックによる進行は無効にして、結果を PPTX として保存します。
+一定のペースを保つために、すべてのスライドに同じ効果と正確な期間を適用します。この例は `input.pptx` を読み込み、[TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) から Fade を選択し、各トランジションに 750 ミリ秒の期間を設定します。また、5,000 ミリ秒後の自動進行を別途有効にし、マウスクリックによる進行を無効にしてから、結果を PPTX として保存します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -194,7 +274,7 @@ for (auto&& slide : presentation->get_Slides())
     transition->set_Type(TransitionType::Fade);
     transition->set_Duration(750);
 
-    // エフェクトの持続時間とは別に自動進行を設定します。
+    // 効果の期間とは独立して自動進行を設定します。
     transition->set_AdvanceAfter(true);
     transition->set_AdvanceAfterTime(5000);
     transition->set_AdvanceOnClick(false);
@@ -207,7 +287,7 @@ presentation->Dispose();
 
 ### **スライドごとに異なる期間を設定する**
 
-スライドごとに異なる効果期間を使用できます。たとえば、タイトルスライドには短いトランジションを、セクション導入スライドには長いトランジションを設定します。この例は、最初のスライドに 500 ミリ秒、2 番目のスライドに 1,200 ミリ秒を設定します。少なくとも 2 枚のスライドがある `input.pptx` を使用してください。
+スライドごとに異なる効果期間を使用できます。例えば、タイトルスライドには短いトランジション、セクション導入スライドには長いトランジションを使用します。この例では、最初のスライドに 500 ミリ秒、2 番目のスライドに 1,200 ミリ秒を設定します。2 枚以上のスライドが含まれる `input.pptx` ファイルを使用してください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -245,15 +325,15 @@ else
 presentation->Dispose();
 ```
 
-### **アニメーション出力とトランジションを調整する**
+### **アニメーション出力とトランジションを連携させる**
 
-[animated GIF](/slides/ja/cpp/convert-powerpoint-to-animated-gif/)、[HTML5 プレゼンテーション](/slides/ja/cpp/export-to-html5/)、または [ビデオ](/slides/ja/cpp/convert-powerpoint-to-video/) を作成する際は、エクスポート前に正確なトランジション期間を設定して意図したペースに合わせます。たとえば、シーン間に 600 ミリ秒のフェードを使用し、各スライドの進行遅延を別々に調整してナレーションやコンテンツの時間を確保します。
+[animated GIF](/slides/ja/cpp/convert-powerpoint-to-animated-gif/)、[HTML5 presentation](/slides/ja/cpp/export-to-html5/)、または [video](/slides/ja/cpp/convert-powerpoint-to-video/) を作成する際は、エクスポート前に正確なトランジション期間を設定して意図したペースに合わせます。例えば、シーン間に 600 ミリ秒のフェードを使用し、各スライドの進行遅延を個別に調整してナレーションやコンテンツの時間を確保します。
 
-GIF とビデオの場合、フレームレートと効果期間を合わせます。600 ミリ秒は 30 fps で 18 フレームに相当します。HTML5 では、エクスポート設定でアニメーション トランジションを有効にします。選択したエクスポート形式がサポートする効果とタイミング オプションを確認し、プレビューで同期を確認してください。
+GIF およびビデオの場合、出力フレームレートと効果期間を合わせます。600 ミリ秒は 30 fps の場合 18 フレームに相当します。HTML5 では、エクスポート設定でアニメーション トランジションを有効にします。選択したエクスポート形式がサポートする効果とタイミングオプションを確認し、出力をプレビューして同期を確認してください。
 
 ### **既存のトランジション期間を読み取る**
 
-トランジションを変更する前に [get_Duration](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_duration/) を呼び出して、明示的な値が格納されているか確認します。`-1` は明示的な期間が設定されていないことを意味し、0 以上の値はミリ秒単位で格納された期間を示します。未設定の値は再生時間の計算結果ではなく、Aspose.Slides はトランジションの種類と [get_Speed](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_speed/) が返す値からその期間を導出します。トランジションの種類を設定すると期間が初期化されることがあるため、まず元の設定を検査してください。
+トランジションを変更する前に [get_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_duration/) を呼び出して、明示的な値が保存されているか確認します。`-1` の値は明示的な期間が設定されていないことを意味し、0 以上の値はミリ秒単位で保存された期間を示します。未設定の値は計算された再生期間ではありません。Aspose.Slides はトランジションタイプと [get_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_speed/) が返す値を使用して期間を決定します。トランジションタイプを設定すると期間が初期化されることがあるため、まず元の設定を調べてください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -289,9 +369,9 @@ presentation->Dispose();
 
 ## **Morph トランジション**
 
-Morph トランジションは、連続するスライド間のオブジェクトの変化をアニメーション化します。シンプルな Morph 効果を作成するには、スライドをコピーし、コピー上のオブジェクトを移動またはサイズ変更し、2 番目のスライドに Morph トランジションを適用します。これにより、元の状態と変更後の状態の間で対応するオブジェクトがアニメーション化されます。
+Morph トランジションは、連続するスライド間のオブジェクトの変化をアニメーション化します。シンプルな Morph 効果を作成するには、スライドをクローンし、クローン上のオブジェクトを移動またはサイズ変更し、2 番目のスライドに Morph トランジションを適用します。これにより、対応するオブジェクトが元の状態と変更後の状態の間でアニメーションします。
 
-以下の例は、テキスト矩形を含むスライドを作成し、そのスライドを複製してコピー上の矩形の位置とサイズを変更します。次に、2 番目のスライドの [TransitionType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitiontype/) 列挙体で Morph を選択します。Morph をサポートするプレゼンテーション ビューアで保存されたファイルを開くと、スライドショー中に効果が確認できます。
+次の例は、テキスト矩形を含むスライドを作成し、スライドをクローンして、クローン上の矩形の位置とサイズを変更します。その後、2 番目のスライドの [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 列挙体から Morph を選択します。Morph をサポートするプレゼンテーションビューアで保存されたファイルを開き、スライドショー中の効果を確認してください。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -331,17 +411,17 @@ presentation->Save(u"morph-transition.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Morph トランジションの種類**
+## **Morph トランジション タイプ**
 
-[TransitionMorphType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionmorphtype/) 列挙体は、Morph がコンテンツをどのようにマッチングしてアニメーション化するかを制御します。
+[TransitionMorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) 列挙体は、Morph がコンテンツをどのようにマッチングしアニメーション化するかを制御します：
 
-- [ByObject](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionmorphtype/) は、各シェイプ全体をオブジェクトとして扱います。  
-- [ByWord](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionmorphtype/) は、可能な限り単語単位でテキストをアニメーション化します。  
-- [ByChar](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionmorphtype/) は、可能な限り文字単位でテキストをアニメーション化します。
+- [ByObject](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) は各シェイプを全体のオブジェクトとして扱います。
+- [ByWord](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) は可能な場合、単語単位でテキストをマッチングしてアニメーションします。
+- [ByChar](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionmorphtype/) は可能な場合、文字単位でテキストをマッチングしてアニメーションします。
 
-Morph を選択したら、[set_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_type/) で Morph を設定し、[get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_value/) で取得したインターフェイスから [IMorphTransition](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/imorphtransition/) を取得し、[set_MorphType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) でマッチングモードを選択します。
+[set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) に Morph を指定してから [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) にアクセスします。その値は [IMorphTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/) インターフェイスを提供し、[set_MorphType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/imorphtransition/set_morphtype/) メソッドでマッチングモードを選択します。
 
-この例は前節で作成したプレゼンテーションを開き、2 番目のスライドで単語ベースの Morph アニメーションを設定します。
+この例は、前のセクションで作成したプレゼンテーションを開き、2 番目のスライドを単語ベースの Morph アニメーションになるように構成します。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -389,9 +469,9 @@ presentation->Dispose();
 
 ## **トランジション効果の設定**
 
-一部のトランジションは、方向や黒画面から開始するかどうかなどの追加オプションを公開しています。利用できるオプションは選択したトランジションのタイプに依存します。まずタイプを設定し、次に [get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_value/) が返す適切なインターフェイスを使用します。
+一部のトランジションは、方向や効果が黒画面から開始するかなどの追加オプションを提供します。利用可能なオプションは選択したトランジションタイプに依存します。まずタイプを設定し、次に [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) が返す適切なインターフェイスを使用します。
 
-以下の例は、`input.pptx` の最初のスライドに Cut トランジションを適用します。[IOptionalBlackTransition](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/ioptionalblacktransition/) を介して [set_FromBlack](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) に `true` を渡し、黒画面から開始するようにします。
+次の例は、`input.pptx` の最初のスライドに Cut トランジションを適用します。[IOptionalBlackTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/) を介して [set_FromBlack](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/ioptionalblacktransition/set_fromblack/) に `true` を渡し、トランジションを黒画面から開始させます。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -432,16 +512,16 @@ presentation->Dispose();
 
 **スライド トランジションの再生速度を制御できますか？**
 
-はい。正確な効果時間（ミリ秒）が必要な場合は、[set_Duration](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_duration/) を使用してください。事前定義された [TransitionSpeed](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionspeed/) カテゴリ（Slow、Medium、Fast）で十分で明示的な期間を設定しない場合は、[set_Speed](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_speed/) を使用します。これらの設定は自動進行遅延とは独立してトランジション効果を制御します。
+はい。ミリ秒単位で正確な効果期間が必要な場合は [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) を使用してください。事前定義された速度カテゴリ（[TransitionSpeed](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionspeed/): Slow、Medium、Fast）が十分で明示的な期間が設定されていない場合は [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) を使用します。これらの設定は、トランジション効果を自動進行遅延とは独立して制御します。
 
-**トランジションに音声を添付してループさせることはできますか？**
+**トランジションにオーディオを添付し、ループさせることはできますか？**
 
-はい。[set_Sound](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_sound/) で埋め込み音声を割り当て、[set_SoundMode](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_soundmode/) に [TransitionSoundMode](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitionsoundmode/) 列挙体の StartSound を指定し、[set_SoundLoop](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_soundloop/) でループを有効にします。音声はスライドショーの次の音声イベントが発生するまでループし続けます。
+はい。[set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_sound/) で埋め込みオーディオを割り当て、[set_SoundMode](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundmode/) に [TransitionSoundMode](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitionsoundmode/) 列挙体の StartSound を指定し、[set_SoundLoop](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_soundloop/) でループを有効にします。オーディオはスライドショーの次のサウンド イベントが発生するまでループ再生されます。
 
-**すべてのスライドに同じトランジションを適用する最速の方法は？**
+**すべてのスライドに同じトランジションを適用する最速の方法は何ですか？**
 
-プレゼンテーションの [get_Slides](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_slides/) が返すコレクションをループし、各スライドのトランジションに対して同じ値で [set_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/set_type/) を呼び出します。同じループ内でタイミングや効果オプションも設定すれば、スライド間で動作が一貫します。
+プレゼンテーションの [get_Slides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slides/) メソッドが返すコレクションをループし、各スライドのトランジションに対して同じ値で [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) を呼び出します。同じループ内でタイミングや効果オプションも設定すれば、スライド全体で一貫した動作になります。
 
 **スライドに現在設定されているトランジションを確認する方法は？**
 
-スライドの [get_SlideShowTransition](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) が返すトランジションに対して [get_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islideshowtransition/get_type/) を呼び出します。返されるのは [TransitionType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.slideshow/transitiontype/) 列挙体の値です。None が返された場合、トランジション効果は適用されていません。
+スライドの [get_SlideShowTransition](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideshowtransition/) メソッドで取得したトランジションに対して [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_type/) を呼び出します。返されるのは [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) 列挙体の値で、None はトランジション効果が設定されていないことを意味します。

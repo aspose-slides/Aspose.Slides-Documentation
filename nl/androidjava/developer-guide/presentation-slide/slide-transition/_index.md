@@ -1,15 +1,15 @@
 ---
-title: Beheer dia‑overgangen in presentaties op Android
-linktitle: Dia‑overgang
+title: Beheer diaovergangen in presentaties op Android
+linktitle: Diaovergang
 type: docs
 weight: 80
 url: /nl/androidjava/slide-transition/
 keywords:
-- dia‑overgang
-- dia‑overgang toevoegen
-- dia‑overgang toepassen
-- geavanceerde dia‑overgang
-- morph‑overgang
+- diaovergang
+- diaovergang toevoegen
+- diaovergang toepassen
+- geavanceerde diaovergang
+- morph-overgang
 - overgangstype
 - overgangseffect
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dia‑overgangen toepassen, automatische voortzetting van dia's configureren en Morph‑ en andere overgangseffecten aanpassen met Aspose.Slides voor Android via Java."
+description: "Pas diaovergangen toe, configureer automatische voortzetting van dia's, en pas Morph en andere overgangseffecten aan met Aspose.Slides voor Android via Java."
 ---
 ## **Overzicht**
 
-Slide transitions control how slides appear during a slide show. With Aspose.Slides for Android via Java, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses Java examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
+Diaovergangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides for Android via Java kun je een overgangseffect voor elke dia kiezen, de voortgang per muisklik of timer configureren, en opties aanpassen die specifiek zijn voor een effect. Dit artikel gebruikt Java‑voorbeelden om overgangen toe te passen, exacte overgangsduraties in te stellen, de tijd van dia's te beheren en een Morph‑overgang tussen twee dia's te maken. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
-## **Dia‑overgang toevoegen**
+## **Diaovergang toevoegen**
 
-To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) class and access the slide's transition settings through [getSlideShowTransition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Use [setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) with a value from the [TransitionType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitiontype/) enumeration, then save the presentation.
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑klasse en krijg je toegang tot de overgangsinstellingen van de dia via [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Gebruik [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) met een waarde uit de enumeratie [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/), en sla vervolgens de presentatie op.
 
-The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met ten minste twee dia's.
 
 ```java
 import com.aspose.slides.*;
@@ -48,17 +48,66 @@ try {
 }
 ```
 
-## **Geavanceerde dia‑overgang toevoegen**
+## **Wiel‑overgang**
 
-You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
+De [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-)‑methode van [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) bepaalt het aantal radiale sectoren dat de bestemmingsdia onthult. Stel het overgangstype van de dia in op Wheel via [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) met [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) voordat je [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) benadert als [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) laat de kijker vooruitgaan door te klikken met de muis.
-- [setAdvanceAfter](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) schakelt automatische voortzetting in.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) specificeert de vertraging vóór automatische voortzetting, in milliseconden.
+Dit voorbeeld maakt twee identieke paar dia's: een zwarte dia gevolgd door een dia met een gouden rechthoek. De bestemmingsdia's gebruiken respectievelijk 1 en 8 spaken, met dezelfde snelheid ingesteld via [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) en een expliciete duur van 8 000 milliseconden ingesteld via [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) om het verschil duidelijk waarneembaar te maken.
 
-Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, pass `false` to [setAdvanceOnClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
+```java
+import android.graphics.Color;
+import com.aspose.slides.*;
 
-This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
+Presentation presentation = new Presentation();
+try {
+    float slideWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+
+    ISlide blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(BackgroundType.OwnBackground);
+    blackSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+    ISlide destinationSlide = presentation.getSlides().addClone(blackSlide);
+    IAutoShape rectangle = destinationSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(FillType.Solid);
+    int gold = Color.rgb(255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    long[] spokeCounts = { 1, 8 };
+    for (int i = 0; i < spokeCounts.length; i++) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(TransitionType.Wheel);
+        IWheelTransition wheelTransition = (IWheelTransition) transition.getValue();
+        wheelTransition.setSpokes(spokeCounts[i]);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open de uitvoerpresentatie in PowerPoint en start de diavoorstelling. Ga van dia 1 naar dia 2 en vervolgens van dia 3 naar dia 4. In PowerPoint‑afspelen onthult de geverifieerde spoelwaarde van 1 de dia met één klokwijzer‑sweep; de geverifieerde waarde van 8 onthult deze via acht radiale sectoren tegelijk. De inhoud en de timing van de overgang zijn identiek, dus het verschil zit in het aantal onthullingssectoren.
+
+## **Geavanceerde diaovergang toevoegen**
+
+Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende methoden regelen dit gedrag:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) staat de kijker toe om per muisklik vooruit te gaan.
+- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) maakt automatische voortzetting mogelijk.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) specificeert de vertraging vóór automatische voortzetting, in milliseconden.
+
+Schakel zowel klik‑ als tijds‑voortzetting in zodat de kijker kan doorgaan met een klik of wachten op de timer. Om alleen de timer te gebruiken, geef `false` door aan [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). De vertraging bepaalt wanneer de diavoorstelling wordt voortgezet; hij stelt de duur van het visuele overgangseffect niet in.
+
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatische voortzetting in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia's ook voortzetten. Gebruik een `input.pptx`‑bestand met ten minste drie dia's.
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +142,9 @@ try {
 }
 ```
 
-To check whether timed advancement is enabled, call [getAdvanceAfter](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). A stored delay alone does not indicate that the timer is active.
+Om te controleren of tijds‑voortzetting is ingeschakeld, roep je [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) op. Een opgeslagen vertraging op zich geeft niet aan dat de timer actief is.
 
-The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
+Het volgende voorbeeld opent het eerder opgeslagen bestand, rapporteert elke ingeschakelde timer en schakelt automatische voortzetting uit voor dia's met een vertraging groter dan twee seconden. Het schakelt muisklikken voor die dia's in en slaat de bijgewerkte instellingen op.
 
 ```java
 import com.aspose.slides.*;
@@ -121,21 +170,27 @@ try {
 }
 ```
 
-## **Precisie bij timing van overgangen**
+## **Overgangstijd nauwkeurig regelen**
 
-Use [setDuration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) to specify the exact length of a transition effect in milliseconds. The slide's [getSlideShowTransition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) method exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/):
+Gebruik [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--)‑methode van de dia exposeert deze instellingen via [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
 
 | Methode | Doel |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Stelt de vertraging in vóór dat de dia automatisch wordt voortgezet, in milliseconden. Geef `true` door aan [setAdvanceAfter](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) om deze timer te activeren. |
-| [setSpeed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium, of Fast. Het wordt gebruikt wanneer geen exacte duur is gespecificeerd. |
+| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Stelt de vertraging in voordat de dia automatisch wordt voortgezet, in milliseconden. Geef `true` door aan [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) om deze timer te activeren. |
+| [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium, of Fast. Wordt gebruikt wanneer geen exacte duur is opgegeven. |
 
-[setDuration] controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and the [getSpeed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) value.
+[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) beïnvloedt alleen het overgangseffect; het bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortzettingsvertraging apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur aan de hand van het overgangstype en de [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--)‑waarde.
 
-### **Zelfde duur toepassen op elke dia**
+<!-- visual-explanation:slide-transition:start -->
+[![Aparte balken geven de overgangsduur van 750‑ms en de automatische voortgangsinstelling van 5 000‑ms weer.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
+*Het gedeelde voorbeeld geeft elke dia een Fade‑overgang van 750 ms en schakelt automatisch voortzetten na 5 000 ms in. De overgangsduur bepaalt het effect; voortzetten bepaalt wanneer de dia wordt verlaten. Deze balken zijn schematische instellingen, geen gemeten gecombineerde tijdlijn.*
+<!-- visual-explanation:slide-transition:end -->
+
+### **Dezelfde duur toepassen op elke dia**
+
+Voor een consistente timing pas je hetzelfde effect en dezelfde exacte duur toe op elke dia. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/), en geeft elke overgang een duur van 750 milliseconden. Het schakelt apart automatische voortzetting in na 5 000 milliseconden en schakelt voortzetting per muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -147,7 +202,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // Configureer automatische voortzetting, onafhankelijk van de duur van het effect.
+        // Stel automatische voortzetting in onafhankelijk van de effectduur.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -159,9 +214,9 @@ try {
 }
 ```
 
-### **Verschillende duur instellen per individuele dia**
+### **Verschillende duraties instellen voor individuele dia's**
 
-Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
+Verschillende dia's kunnen verschillende effectduur hebben. Bijvoorbeeld, gebruik een korte overgang voor een titel-dia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1 200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met ten minste twee dia's.
 
 ```java
 import com.aspose.slides.*;
@@ -186,15 +241,15 @@ try {
 }
 ```
 
-### **Overgangen afstemmen op geanimeerde uitvoer**
+### **Overgangen coördineren met geanimeerde output**
 
-When preparing an [animated GIF](/slides/nl/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/nl/androidjava/export-to-html5/), or [video](/slides/nl/androidjava/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
+Bij het maken van een [animated GIF](/slides/nl/androidjava/convert-powerpoint-to-animated-gif/), een [HTML5 presentation](/slides/nl/androidjava/export-to-html5/) of een [video](/slides/nl/androidjava/convert-powerpoint-to-video/), stel je exacte overgangsduren in vóór export om de gewenste timing te matchen. Gebruik bijvoorbeeld een fade van 600 ms tussen scènes en stel de voortzettingsvertraging van elke dia apart in zodat er tijd is voor de bijbehorende voice‑over of inhoud.
 
-For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
+Voor GIF‑ en video‑output stem je het frame‑rate af op de effectduur: 600 ms komt overeen met 18 frames bij 30 fps. In HTML5 schakel je geanimeerde overgangen in de exportinstellingen in. Controleer welke effecten en timingopties worden ondersteund door het gekozen exportformaat en bekijk een voorbeeld om de synchronisatie te bevestigen.
 
 ### **Bestaande overgangsduur lezen**
 
-Call [getDuration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and the [getSpeed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) value to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
+Roep [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) aan voordat je de overgang wijzigt om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden aan. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides bepaalt de duur aan de hand van het overgangstype en de [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--)‑waarde. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
 
 ```java
 import com.aspose.slides.*;
@@ -218,9 +273,9 @@ try {
 
 ## **Morph‑overgang**
 
-The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
+De Morph‑overgang animeert veranderingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑effect te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Dit geeft de overgang de bijbehorende objecten om te animeren tussen hun oorspronkelijke en gewijzigde toestand.
 
-The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia, en wijzigt de positie en grootte van de rechthoek op de kloon. Daarna selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatiewer die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
 ```java
 import com.aspose.slides.*;
@@ -248,15 +303,13 @@ try {
 
 ## **Morph‑overgangstypen**
 
-The [TransitionMorphType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionmorphtype/) enumeration controls how Morph matches and animates content:
+De enumeratie [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/) bepaalt hoe Morph inhoud overeenkomt en animeert:
 
-- [ByObject](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) behandelt elke vorm als één geheel.
-- [ByWord](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) animeert tekst door woorden te matchen waar mogelijk.
-- [ByChar](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) animeert tekst door karakters te matchen waar mogelijk.
+- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) behandelt elke vorm als één geheel.
+- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) animeert tekst door waar mogelijk woorden te matchen.
+- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) animeert tekst door waar mogelijk tekens te matchen.
 
-Use [setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) to select Morph before accessing [getValue](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getValue--). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imorphtransition/) interface, whose [setMorphType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) method selects the matching mode.
-
-This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
+Gebruik [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) om Morph te selecteren voordat je [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) benadert. De verkregen waarde levert de [IMorphTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/)‑interface, waarvan de [setMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-)‑methode de overeenkomende modus selecteert.
 
 ```java
 import com.aspose.slides.*;
@@ -285,9 +338,9 @@ try {
 
 ## **Overgangseffecten instellen**
 
-Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the transition selected with [setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). Set the type first, then use the appropriate interface from [getValue](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
+Sommige overgangen geven extra opties vrij, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van de overgang die met [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) is geselecteerd. Stel eerst het type in en gebruik vervolgens de juiste interface via [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
 
-The following example applies a Cut transition to the first slide of `input.pptx`. It calls [setFromBlack](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) through [IOptionalBlackTransition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioptionalblacktransition/) so that the transition starts from a black screen.
+Het volgende voorbeeld past een Cut‑overgang toe op de eerste dia van `input.pptx`. Het roept [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) aan via [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/) zodat de overgang start vanaf een zwart scherm.
 
 ```java
 import com.aspose.slides.*;
@@ -312,18 +365,18 @@ try {
 
 ## **FAQ**
 
-**Kan ik de afspeelsnelheid van een dia‑overgang regelen?**
+**Kan ik de afspeelsnelheid van een diaovergang regelen?**
 
-Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionspeed/)‑categorie—Slow, Medium of Fast—volstaat en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de vertraging voor automatische voortzetting.
+Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/)‑categorie — Slow, Medium of Fast — voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de automatische voortzettingsvertraging.
 
-**Kan ik audio aan een overgang koppelen en laten herhalen?**
+**Kan ik audio aan een overgang toevoegen en laten herhalen?**
 
-Ja. Wijs ingesloten audio toe met [setSound](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), geef StartSound uit de enumeratie [TransitionSoundMode](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitionsoundmode/) door aan [setSoundMode](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), en schakel [setSoundLoop](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) in met `true`. De audio wordt herhaald tot het volgende geluidsevent in de diavoorstelling.
+Ja. Wijs ingesloten audio toe met [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), geef StartSound uit de [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/)‑enumeratie door aan [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), en activeer [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) met `true`. Het geluid blijft herhalen tot het volgende geluidsevenement in de diavoorstelling.
 
 **Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Loop door de [getSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getSlides--)‑collectie van de presentatie en roep [setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) aan met dezelfde waarde voor de overgang van elke dia. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
+Loop door de [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--)‑collectie van de presentatie en roep [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) aan met dezelfde waarde voor elke dia‑overgang. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
 
 **Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
 
-Roep [getType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islideshowtransition/#getType--) aan op het resultaat van [getSlideShowTransition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/transitiontype/)‑enumeratie; None betekent dat er geen overgangseffect is toegepast.
+Roep [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) aan op het resultaat van [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) van de dia. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/)‑enumeratie; None betekent dat er geen overgangseffect is toegepast.

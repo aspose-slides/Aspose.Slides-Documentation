@@ -10,25 +10,25 @@ keywords:
 - diaátmenet alkalmazása
 - fejlett diaátmenet
 - Morph átmenet
-- átmenettípus
-- átmeneti hatás
+- átmenet típusa
+- átmenet hatása
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Alkalmazzon diaátmeneteket, állítson be automatikus dia előrehaladást, és testreszabja a Morph és egyéb átmeneti hatásokat az Aspose.Slides for Python via Java használatával."
+description: "Alkalmazzon diaátmeneteket, konfigurálja az automatikus dia előrehaladást, és testreszabhatja a Morph és egyéb átmeneti effektusokat az Aspose.Slides for Python via Java segítségével."
 ---
 ## **Áttekintés**
 
-A diavetítés átmenetek szabályozzák, hogyan jelennek meg a diák egy diavetítés során. Az Aspose.Slides for Python via Java segítségével minden diára kiválaszthat egy átmenet‑effektust, beállíthatja a léptetést egérkattintással vagy időzítéssel, és módosíthatja az effektusra jellemző beállításokat. Ez a cikk Python példákat használ az átmenetek alkalmazására, pontos átmenet‑idők beállítására, a diák időzítésének kezelésére, valamint egy Morph átmenet létrehozására két dia között. A példák azt is bemutatják, hogyan menthetőek a beállítások PPTX fájlba.
+A diaátmenetek szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for Python via Java segítségével kiválaszthat egy átmeneti effektet minden diára, beállíthatja a haladást egérkattintással vagy időzítővel, és módosíthatja az effektusra jellemző opciókat. Ez a cikk Python példákat használ átmenetek alkalmazásához, pontos átmeneti időtartamok beállításához, a diák időzítésének kezeléséhez, valamint egy Morph átmenet létrehozásához két dia között. A példák azt is bemutatják, hogyan menthetőek a beállítások PPTX fájlba.
 
-## **Átmenet hozzáadása diához**
+## **Diaátmenet hozzáadása**
 
-Átmenet alkalmazásához töltse be a bemutatót a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztállyal, és érje el a dia átmeneti beállításait a [getSlideShowTransition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getSlideShowTransition) segítségével. Használja a [setType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setType) metódust a [TransitionType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitiontype/) enumeráció egy értékével, majd mentse a bemutatót.
+A diaátmenet alkalmazásához töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) osztállyal, és érje el a dia átmenet beállításait a [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) segítségével. Használja a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) metódust a [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) felsorolás egy értékével, majd mentse a prezentációt.
 
-Az alábbi példa Circle átmenetet alkalmaz az első diára és Comb átmenetet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+Az alábbi példa egy Circle átmenetet alkalmaz az első diára, és egy Comb átmenetet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```python
 import jpype
@@ -52,17 +52,69 @@ finally:
     presentation.dispose()
 ```
 
-## **Speciális átmenet hozzáadása diához**
+## **Kerék átmenet**
 
-Beállíthatja, hogy a dia mennyi ideig maradjon a képernyőn, és hogy egérkattintás lépteti‑e a diavetítést. A következő metódusok vezérlik ezt a viselkedést:
+Használja a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) metódust a Wheel kiválasztásához a [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) felsorolásból. Ezután hívja a [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) metódust a [WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/) beállításainak eléréséhez. Ennek a [setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes) metódusának segítségével állítható, hány radiális szektor fedje fel a cél diát.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) lehetővé teszi a nézőnek, hogy egérkattintással lépjen tovább.
-- [setAdvanceAfter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) automatikus előrehaladást tesz lehetővé.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) a késleltetést adja meg milliszekundumban az automatikus előrehaladás előtt.
+A példa két azonos diapárt hoz létre. Minden pár egy fekete diával kezdődik, és egy teljes diát kitöltő arany téglalappal ér véget. Mindkét cél dia ugyanazzal a lassú sebességgel rendelkezik, amelyet a [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) állít be, és ugyanazzal a 8 000 ms explicit időtartammal, amelyet a [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) állít be. Csak a szektorok száma változik.
 
-Engedélyezze mind a kattintást, mind az időzített előrehaladást, így a néző kattintással vagy a várakozással léphet tovább. Ha csak az időzítőt szeretné használni, adjon át `False` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metódusnak. A késleltetés azt szabályozza, mikor lép tovább a diavetítés; nem a vizuális átmenet időtartamát állítja be.
+```python
+import jpype
+import asposeslides
 
-Ez a példa különböző effektusokat rendel az első három diához, és automatikus előrehaladást állít be 3, 5 és 7 másodperc után. Egérkattintással is léptethetők ezek a diák. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, Presentation, SaveFormat, ShapeType, TransitionSpeed, TransitionType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
+    height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+
+    slides = presentation.getSlides()
+    black_slide = slides.get_Item(0)
+    black_slide.getShapes().clear()
+    background = black_slide.getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Solid)
+    background.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    destination_slide = slides.addClone(black_slide)
+    rectangle = destination_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, width, height)
+    rectangle.getFillFormat().setFillType(FillType.Solid)
+    rectangle.getFillFormat().getSolidFillColor().setColor(Color(255, 215, 0))
+    rectangle.getTextFrame().setText("Wheel transition")
+
+    slides.addClone(black_slide)
+    slides.addClone(destination_slide)
+    for slide_index, spokes in ((1, 1), (3, 8)):
+        transition = slides.get_Item(slide_index).getSlideShowTransition()
+        transition.setType(TransitionType.Wheel)
+        wheel_transition = transition.getValue()
+        wheel_transition.setSpokes(spokes)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(8000)
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Nyissa meg a `wheel-transitions.pptx` fájlt a PowerPointban, és indítsa el a diavetítést. Haladjon az 1‑es diáról a 2‑es diára, hogy egy óramutató járásával megegyező körív fedje fel az arany téglalapot. Ezután haladjon a 3‑as diáról a 4‑es diára, hogy nyolc radiális szektor fedje fel egyszerre ugyanazt a téglalapot.
+
+## **Fejlett diaátmenet hozzáadása**
+
+Konfigurálhatja, mennyi ideig marad a dia a képernyőn, és hogy egérkattintás-e vagy időzítő hozza-e előre a diavetítést. A következő metódusok szabályozzák ezt a viselkedést:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) lehetővé teszi a néző számára, hogy az egérkattintással továbbhaladjon.
+- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) engedélyezi az automatikus előrehaladást.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) határozza meg az automatikus előrehaladás előtti késleltetést ezredmásodpercben.
+
+Engedélyezze mind a kattintást, mind az időzített előrehaladást, hogy a néző kattintással vagy a várakozással léphessen tovább. Ha csak az időzítőt szeretné használni, adja át a `False` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) metódusnak. A késleltetés azt szabályozza, mikor halad előre a diavetítés; nem határozza meg a vizuális átmeneti effektus időtartamát.
+
+Ez a példa különböző effektusokat rendel az első három diához, és automatikus előrehaladást engedélyez 3, 5 és 7 másodperc után, rendre. Egérkattintással is előre lehet lépni ezeken a diákon. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
 
 ```python
 import jpype
@@ -101,9 +153,9 @@ finally:
     presentation.dispose()
 ```
 
-Az időzített előrehaladás engedélyezésének ellenőrzéséhez hívja meg a [getAdvanceAfter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metódust. A tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
+Annak ellenőrzéséhez, hogy az időzített előrehaladás engedélyezve van-e, hívja a [getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter) metódust. A tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
 
-A következő példa megnyitja a fenti példában mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást a két másodpercnél nagyobb késleltetésű diák esetén. Ezekhez a diákhoz engedélyezi az egérkattintást, majd elmenti a módosított beállításokat.
+A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást azoknál a diáknál, amelyeknél a késleltetés nagyobb mint két másodperc. Ezeknél a diáknál engedélyezi az egérkattintást, majd menti a frissített beállításokat.
 
 ```python
 import jpype
@@ -131,21 +183,27 @@ finally:
     presentation.dispose()
 ```
 
-## **Az átmenet időzítésének pontos szabályozása**
+## **Az átmenet időzítésének pontos vezérlése**
 
-Használja a [setDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setDuration) metódust az átmenet‑effektus pontos hossza milliszekundumban történő megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getSlideShowTransition) metódusa ezekkel a beállításokkal rendelkezik a [SlideShowTransition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/) osztályon keresztül:
+Használja a [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) metódust egy átmeneti effektus pontos hosszának ezredmásodpercben történő megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) metódusa ezeket a beállításokat a [SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/) osztályon keresztül teszi elérhetővé:
 
-| Metódus | Cél |
+| Módszer | Cél |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setDuration) | Beállítja magának az átmenet‑effektusnak az időtartamát milliszekundumban. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Beállítja az automatikus előrehaladás előtti késleltetést milliszekundumban. A [setAdvanceAfter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) meghívásával aktiválható ez az időzítő. |
-| [setSpeed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setSpeed) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionspeed/) enumerációból: Slow, Medium vagy Fast. Akkor használatos, ha nincs megadva pontos időtartam. |
+| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | Beállítja az átmeneti effektus tényleges időtartamát ezredmásodpercben. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Beállítja a diák automatikus előrehaladása előtti késleltetést ezredmásodpercben. Pass `True` to [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) to activate this timer. |
+| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) felsorolásból: Slow, Medium vagy Fast. Akkor használatos, ha nincs megadva pontos időtartam. |
 
-A [setDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setDuration) csak az átmenet‑effektust befolyásolja; nem határozza meg, mennyi ideig marad a dia látható. Az automatikus előrehaladás késleltetését külön kell beállítani. Ha nincs kifejezett időtartam megadva, az Aspose.Slides a átmenet típusa és a [getSpeed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getSpeed) értéke alapján határozza meg az effektus időtartamát.
+A [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) csak az átmeneti effektust irányítja; nem határozza meg, mennyi ideig látható a dia. Az automatikus előrehaladási késleltetést külön kell konfigurálni. Ha nincs explicit időtartam beállítva, az Aspose.Slides a transition type és a [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) érték alapján határozza meg az effektus időtartamát.
+
+<!-- visual-explanation:slide-transition:start -->
+[![A különálló sávok a 750‑ms‑es átmeneti időtartamot és az 5 000‑ms‑es automatikus előrehaladási beállítást mutatják.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*A megosztott példa minden diára 750 ms‑es Fade átmenetet ad, és külön engedélyezi az automatikus előrehaladást 5 000 ms‑nél. Az átmeneti időtartam az effektust, az előrehaladás pedig azt szabályozza, hogy mikor lépjünk a következő diára. Ezek a sávok szimbolikus beállítások, nem egy mérő kombinált idővonal.*
+<!-- visual-explanation:slide-transition:end -->
 
 ### **Azonos időtartam alkalmazása minden diára**
 
-A konzisztens tempó érdekében alkalmazzon ugyanazt az effektust és pontos időtartamot minden diára. Ez a példa betölti a `input.pptx` fájlt, kiválasztja a Fade átmenetet a [TransitionType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitiontype/) enumerációból, és minden átmenetnek 750 milliszekundumos időt állít be. Külön engedélyezi az automatikus előrehaladást 5 000 milliszekundum után, letiltja az egérkattintásos léptetést, majd az eredményt PPTX‑ként menti.
+Az egységes ütemezés érdekében alkalmazza ugyanazt az effektust és pontos időtartamot minden diára. Ez a példa betölti a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) felsorolásból a Fade‑t választja, és minden átmenetnek 750 ms‑es időtartamot ad. Külön engedélyezi az automatikus előrehaladást 5 000 ms után, letiltja az egérkattintást, majd menti az eredményt PPTX‑ként.
 
 ```python
 import jpype
@@ -163,7 +221,7 @@ try:
         transition.setType(TransitionType.Fade)
         transition.setDuration(750)
 
-        # Konfigurálja az automatikus előrehaladást az effektus időtartamától függetlenül.
+        # Az automatikus előrehaladást állítsa be függetlenül az effektus időtartamától.
         transition.setAdvanceAfter(True)
         transition.setAdvanceAfterTime(5000)
         transition.setAdvanceOnClick(False)
@@ -173,9 +231,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Eltérő időtartamok beállítása egyedi diákhoz**
+### **Különböző időtartamok beállítása egyedi diákhoz**
 
-Különböző diák különböző effektus‑időket használhatnak. Például a címdiára rövid átmenetet, a szekcióbevezetőre hosszabbat alkalmazhat. Ez a példa 500 milliszekundumot állít be az első diára, és 1 200 milliszekundumot a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+Külön diák különböző effektus időtartamot használhatnak. Például egy cím dián rövid átmenetet, egy szekció bevezetőjénél hosszabb átmenetet alkalmazhat. Ez a példa az első diára 500 ms‑et, a másodikra 1 200 ms‑et állít be. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```python
 import jpype
@@ -204,15 +262,15 @@ finally:
     presentation.dispose()
 ```
 
-### **Átmenetek összehangolása animált kimenettel**
+### **Átmenetek koordinálása animált kimenettel**
 
-Amikor [animált GIF](/slides/hu/python-java/convert-powerpoint-to-animated-gif/), [HTML5 prezentáció](/slides/hu/python-java/export-to-html5/) vagy [videó](/slides/hu/python-java/convert-powerpoint-to-video/) exportál, állítsa be a pontos átmenet‑időket a kimenet előtt, hogy az ütem a kívánt legyen. Például használjon 600 milliszekundumos fade‑ot a jelenetek között, és külön állítsa be minden dia előrehaladási késleltetését a narráció vagy a tartalom időtartamának megfelelően.
+Ha [animated GIF](/slides/hu/python-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/hu/python-java/export-to-html5/) vagy [video](/slides/hu/python-java/convert-powerpoint-to-video/) készül, állítsa be a pontos átmeneti időtartamokat az exportálás előtt, hogy megfeleljenek a kívánt ütemezésnek. Például használjon 600 ms‑es fade‑et a jelenetek között, és állítsa be minden dia előrehaladási késleltetését külön-külön, hogy elegendő legyen a narráció vagy a tartalom számára.
 
-GIF‑nél és videónál a kimeneti képkockasebességet hangolja az effektus időtartamához: 600 milliszekundum 30 fps‑nél 18 képkockának felel meg. HTML5‑ben engedélyezze az animált átmeneteket az exportbeállításokban. Ellenőrizze a kiválasztott exportformátum által támogatott effektusokat és időzítési lehetőségeket, és tekintse meg az előnézetet a szinkronizáció ellenőrzéséhez.
+A GIF és videó esetében szinkronizálja a kimeneti képkocka‑sebességet az effektus időtartamával: 600 ms 18 képkocka 30 fps‑nél. HTML5‑ben engedélyezze az animált átmeneteket az export beállításaiban. Ellenőrizze az adott export formátum támogatott effektusait és időzítési opcióit, és tekintse meg az eredményt a szinkronizáció ellenőrzéséhez.
 
-### **Meglévő átmenet‑idő kiolvasása**
+### **Meglévő átmeneti időtartam beolvasása**
 
-Módosítás előtt hívja meg a [getDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getDuration) metódust, hogy megállapítsa, van‑e tárolt explicite érték. A `-1` érték azt jelenti, hogy nincs megadva explicit időtartam; egy nem negatív érték a tárolt időt milliszekundumban adja vissza. A nem beállított érték nem a lejátszási idő, mivel az Aspose.Slides a TransitionType‑ból és a [getSpeed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getSpeed) értékéből számolja ki. Egy átmenettípus beállítása inicializálhat egy időtartamot, ezért először ellenőrizze az eredeti beállításokat.
+Hívja a [getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration) metódust az átmenet módosítása előtt, hogy megállapítsa, tárolt‑e explicit érték. A `-1` érték azt jelenti, hogy nincs explicit időtartam beállítva; egy nem negatív érték a tárolt ezredmásodperces időtartamot adja meg. A nem beállított érték nem a számított lejátszási időtartam: az Aspose.Slides a transition type és a [getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed) érték alapján határozza meg azt. Egy átmenet típus beállítása inicializálhat időtartamot, ezért először vizsgálja meg az eredeti beállításokat.
 
 ```python
 import jpype
@@ -239,9 +297,9 @@ finally:
 
 ## **Morph átmenet**
 
-A Morph átmenet animálja a változásokat az egymást követő diák objektumai között. Egy egyszerű Morph effektus létrehozásához klónozzon egy diát, mozdítsa vagy méretezze át az objektumot a klónon, és alkalmazza a Morph átmenetet a második diára. Így a megfelelő objektumok animálódnak az eredeti és a módosított állapotuk között.
+A Morph átmenet animálja az objektumok változását egymást követő diákon. Egy egyszerű Morph effektus létrehozásához klónozzon egy diát, mozdítsa vagy méretezze át egy objektumot a klónon, és alkalmazza a Morph átmenetet a második diára. Így az átmenet az eredeti és a módosított állapot között animálja a megfelelő objektumokat.
 
-Az alábbi példa egy szövegdobozt tartalmazó diát hoz létre, klónozza a diát, majd a klónon módosítja a téglalap pozícióját és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitiontype/) enumerációból a Morph‑ot választja ki a második diára. Nyissa meg a mentett fájlt egy Morph‑ot támogató prezentációs nézőben, hogy lássa a hatást egy diavetítés során.
+Az alábbi példa egy szöveges téglalappal rendelkező diát hoz létre, klónozza azt, majd a klónon megváltoztatja a téglalap pozícióját és méretét. Ezután a [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) felsorolásból a Morph‑ot választja a második diához. Nyissa meg a mentett fájlt egy olyan prezentációs megjelenítőben, amely támogatja a Morph‑ot, hogy lássa az effektust diavetítés közben.
 
 ```python
 import jpype
@@ -272,17 +330,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Morph átmenet típusai**
+## **Morph átmenet típusok**
 
-A [TransitionMorphType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionmorphtype/) enumeráció szabályozza, hogy a Morph hogyan párosítja és animálja a tartalmat:
+A [TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) felsorolás szabályozza, hogyan illeszkedik és animálja a Morph a tartalmat:
 
-- [ByObject](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionmorphtype/#ByObject) minden alakzatot egész objektumként kezel.
-- [ByWord](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionmorphtype/#ByWord) a szöveget szavak szerint párosítja, ha lehetséges.
-- [ByChar](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionmorphtype/#ByChar) a szöveget karakterek szerint párosítja, ha lehetséges.
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) az egyes alakzatokat egész objektumként kezeli.
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) a szöveget szavak egyezésével animálja, ahol lehetséges.
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) a szöveget karakterek egyezésével animálja, ahol lehetséges.
 
-Használja a [setType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setType) metódust a Morph kiválasztásához, mielőtt a [getValue](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getValue) metódust meghívná. A visszakapott érték ekkor egy [MorphTransition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/morphtransition/) osztálypéldány, amelynek a [setMorphType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/morphtransition/#setMorphType) metódusa a párosítási módot választja ki.
-
-Ez a példa megnyitja az előző szakaszban létrehozott prezentációt, és a második diát szó‑alapú Morph animációra konfigurálja.
+Használja a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) metódust a Morph kiválasztásához, mielőtt hozzáférne a [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) metódushoz. Ekkor a visszatérési érték a [MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/) osztály egy példánya, amelynek a [setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType) metódusa választja ki a megfelelő módot.
 
 ```python
 import jpype
@@ -312,11 +368,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Átmeneti effektusok beállítása**
+## **Átmeneti effektek beállítása**
 
-Néhány átmenet további opciókat is felkínál, például irányt vagy azt, hogy a hatás fekete képernyőből indul-e. A rendelkezésre álló opciók a [setType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setType) által kiválasztott átmenettől függenek. Először állítsa be a típust, majd a megfelelő osztályt a [getValue](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getValue) segítségével.
+Néhány átmenet további opciókat is kínál, például irányt vagy azt, hogy az effektus fekete képernyőről induljon-e. A rendelkezésre álló opciók a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) által kiválasztott átmenettől függnek. Állítsa be először a típust, majd a [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue) megfelelő osztályával használja a kapcsolódó beállításokat.
 
-Az alábbi példa egy Cut átmenetet alkalmaz a `input.pptx` első diájára. A [setFromBlack](https://reference.aspose.com/slides/hu/python-java/aspose.slides/optionalblacktransition/#setFromBlack) metódust az [OptionalBlackTransition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/optionalblacktransition/) osztályon keresztül hívja meg, hogy a tranzíció fekete képernyőből induljon.
+Az alábbi példa egy Cut átmenetet alkalmaz az `input.pptx` első diájára. A [OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/) osztály [setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack) metódusával állítja be, hogy az átmenet fekete képernyőről induljon.
 
 ```python
 import jpype
@@ -345,18 +401,18 @@ finally:
 
 ## **GYIK**
 
-**Kezelhetem a diák átmeneteinek lejátszási sebességét?**
+**Kezelhetem a diaátmenet lejátszási sebességét?**
 
-Igen. Használja a [setDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setDuration) metódust, ha pontos effektus‑időt szeretne megadni milliszekundumban. Használja a [setSpeed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setSpeed) metódust, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionspeed/) kategória – Slow, Medium vagy Fast – elegendő, és nincs explicite beállítva időtartam. Ezek a beállítások csak az átmenet‑effektust szabályozzák, függetlenül az automatikus előrehaladási késleltetéstől.
+Igen. Használja a [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) metódust, ha pontos effektus-időtartamot szeretne meghatározni ezredmásodpercben. Használja a [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) metódust, ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/) kategória (Slow, Medium vagy Fast) elegendő, és nincs explicit időtartam beállítva. Ezek a beállítások az átmeneti effektust irányítják, függetlenül az automatikus előrehaladási késleltetéstől.
 
-**Csatolhatok hangot az átmenethez, és hagyhatom, hogy ismétlődjön?**
+**Csatolhatok hangot egy átmenethez, és hagyhatom, hogy ismétlődjön?**
 
-Igen. A beágyazott hangot a [setSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setSound) metódussal adhatja hozzá, a [TransitionSoundMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitionsoundmode/) enumerációból a StartSound‑t a [setSoundMode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setSoundMode) metódusnak adja át, és a [setSoundLoop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setSoundLoop) metódussal `True` értéket állít be. A hang addig ismétlődik, amíg a diavetítésben nem következik egy új hangesemény.
+Igen. Az [setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound) metódussal adhat hozzá beágyazott hangot, a [TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/) felsorolásból a StartSound értéket adja át az [setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode) metódusnak, és a [setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop) metódussal `True` értéket állít be. A hang a következő hangeseményig a diavetítésben ismétlődik.
 
-**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet alkalmazzam minden diára?**
+**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet alkalmazzuk minden diára?**
 
-Iterálja végig a prezentáció [getSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getSlides) gyűjteményét, és minden dia átmenetére hívja meg a [setType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#setType) metódust ugyanazzal az értékkel. Az időzítési és effektus‑opciókat ugyanabban a ciklusban állítsa be, hogy a viselkedés minden dián konzisztens legyen.
+Iteráljon a prezentáció [getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides) gyűjteményén, és minden dia átmenetéhez hívja a [setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType) metódust azonos értékkel. A felhasználható időzítési és effektus beállításokat ugyanabban a ciklusban állítsa be, hogy a viselkedés minden dián konzisztens maradjon.
 
-**Hogyan tudom ellenőrizni, hogy jelenleg milyen átmenet van beállítva egy dián?**
+**Hogyan ellenőrizhetem, hogy melyik átmenet van jelenleg beállítva egy dián?**
 
-Hívja meg a [getType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowtransition/#getType) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getSlideShowTransition) eredményén. Ez egy értéket ad vissza a [TransitionType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/transitiontype/) enumerációból; a None_ azt jelenti, hogy nincs alkalmazva átmenet‑effektus.
+Hívja a [getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) eredményén. Ez a [TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/) felsorolásból egy értéket ad vissza; a None_ azt jelenti, hogy nincs átmeneti effektus alkalmazva.

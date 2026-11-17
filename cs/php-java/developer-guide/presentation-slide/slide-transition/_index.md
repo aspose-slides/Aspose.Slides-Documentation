@@ -7,7 +7,7 @@ url: /cs/php-java/slide-transition/
 keywords:
 - přechod snímku
 - přidání přechodu snímku
-- použití přechodu snímku
+- aplikace přechodu snímku
 - pokročilý přechod snímku
 - Morph přechod
 - typ přechodu
@@ -17,15 +17,15 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Použijte přechody snímků, nastavte automatické posunování snímků a přizpůsobte Morph a další efekty přechodů s Aspose.Slides pro PHP pomocí Java."
+description: "Použijte přechody snímků, nakonfigurujte automatické přecházení snímků a přizpůsobte Morph a další efekty přechodů pomocí Aspose.Slides pro PHP prostřednictvím Java."
 ---
 ## **Přehled**
 
-Přechody snímků řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides pro PHP pomocí Java můžete pro každý snímek vybrat efekt přechodu, nastavit postupování kliknutím myši nebo časovačem a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v PHP k použití přechodů, nastavení přesné délky přechodu, správě časování snímků a vytvoření Morph přechodu mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
+Posuvné přechody řídí, jak se snímky zobrazují během prezentace. S Aspose.Slides for PHP via Java můžete pro každý snímek vybrat efekt přechodu, nakonfigurovat přechod pomocí kliknutí myší nebo časovače a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v PHP k aplikaci přechodů, nastavení přesných trvání přechodů, správě načasování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
 ## **Přidání přechodu snímku**
 
-Chcete‑li použít přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) a získáte nastavení přechodu snímku pomocí [getSlideShowTransition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/#getSlideShowTransition). Použijte [setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setType) s hodnotou z výčtu [TransitionType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitiontype/), poté uložte prezentaci.
+Chcete‑li aplikovat přechod, načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) a získáte nastavení přechodu snímku pomocí [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition). Použijte [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) s hodnotou z výčtu [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), pak prezentaci uložte.
 
 Následující příklad použije přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
@@ -49,17 +49,71 @@ try {
 }
 ```
 
+## **Kolečkový přechod**
+
+Metoda [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) určuje, kolik radiálních sektorů odhalí cílový snímek. Použijte [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) pro výběr Wheel z [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), pak zavolejte [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) pro získání nastavení [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/).
+
+Příklad vytvoří dva identické páry snímků. Každý pár začíná černým snímkem a končí snímkem pokrytým zlatým obdélníkem. Snímek 2 používá jeden paprsek a snímek 4 osm. Oba přechody používají stejné pomalé tempo, nastavené pomocí [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), a explicitní trvání 8 000 ms, nastavené pomocí [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slides = $presentation->getSlides();
+    $width = java_values($presentation->getSlideSize()->getSize()->getWidth());
+    $height = java_values($presentation->getSlideSize()->getSize()->getHeight());
+
+    $blackSlide = $slides->get_Item(0);
+    $blackSlide->getShapes()->clear();
+    $background = $blackSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Solid);
+    $black = new Color(0, 0, 0);
+    $background->getFillFormat()->getSolidFillColor()->setColor($black);
+
+    $destinationSlide = $slides->addClone($blackSlide);
+    $rectangle = $destinationSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, $width, $height);
+    $rectangle->getFillFormat()->setFillType(FillType::Solid);
+    $gold = new Color(255, 215, 0);
+    $rectangle->getFillFormat()->getSolidFillColor()->setColor($gold);
+    $rectangle->getTextFrame()->setText("Wheel transition");
+
+    $slides->addClone($blackSlide);
+    $slides->addClone($destinationSlide);
+
+    foreach ([1 => 1, 3 => 8] as $slideIndex => $spokes) {
+        $transition = $slides->get_Item($slideIndex)->getSlideShowTransition();
+        $transition->setType(TransitionType::Wheel);
+        $transition->getValue()->setSpokes($spokes);
+        $transition->setSpeed(TransitionSpeed::Slow);
+        $transition->setDuration(8000);
+    }
+
+    $presentation->save("wheel-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Otevřete uloženou prezentaci v PowerPointu a spusťte prezentaci. Přesuňte se ze snímku 1 na snímek 2 a uvidíte jediný otáčivý pohyb po směru hodinových ručiček. Pak přejděte ze snímku 3 na snímek 4 a uvidíte, jak osm radiálních sektorů zároveň odhalí stejný obdélník.
+
 ## **Přidání pokročilého přechodu snímku**
 
-Můžete nastavit, jak dlouho snímek zůstane na obrazovce, a zda kliknutí myší posune prezentaci dál. Následující metody řídí toto chování:
+- [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) umožňuje divákovi přechod kliknutím myši.  
+- [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) umožňuje automatické přecházení.  
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) určuje zpoždění před automatickým přecházením v milisekundách.
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) umožňuje divákovi pokračovat kliknutím myši.
-- [setAdvanceAfter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) povoluje automatické postupování.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) určuje zpoždění před automatickým postupem v milisekundách.
+Povolte jak kliknutí, tak časované přecházení, aby si divák mohl buď kliknutím pokračovat, nebo počkat na časovač. Chcete‑li použít jen časovač, předejte `false` metodě [setAdvanceOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Zpoždění určuje, kdy se prezentace posune dál; nenastavuje délku vizuálního efektu přechodu.
 
-Povolte jak kliknutí, tak časované postupování, aby divák mohl pokračovat kliknutím nebo počkat na časovač. Chcete‑li použít pouze časovač, předáte `false` metodě [setAdvanceOnClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Zpoždění určuje, kdy se prezentace posune dál; nenastavuje délku vizuálního efektu přechodu.
-
-Tento příklad přiřadí různé efekty prvním třem snímkům a povolí automatické postupování po 3, 5 a 7 sekundách. Na tyto snímky lze také postupovat kliknutím myši. Použijte soubor `input.pptx` s alespoň třemi snímky.
+Tento příklad přiřadí prvnímu třem snímkům různé efekty a povolí automatické přecházení po 3, 5 a 7 sekundách. Kliknutí myší mohou tyto snímky také přejít. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```php
 use aspose\slides\Presentation;
@@ -96,9 +150,9 @@ try {
 }
 ```
 
-Pro kontrolu, zda je časované postupování povoleno, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Pouze uložené zpoždění neznamená, že je časovač aktivní.
+Pro kontrolu, zda je časované přecházení povoleno, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Pouze uložené zpoždění neznamená, že je časovač aktivní.
 
-Další příklad otevře výše uložený soubor, vypíše každý povolený časovač a pro snímky s zpožděním delším než dvě sekundy zakáže automatické postupování. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatické přecházení pro snímky se zpožděním delším než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```php
 use aspose\slides\Presentation;
@@ -126,21 +180,27 @@ try {
 }
 ```
 
-## **Přesné řízení načasování přechodu**
+## **Přesné řízení časování přechodu**
 
-Pro určení přesné délky efektu použijte [setDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setDuration). Metoda [getSlideShowTransition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/#getSlideShowTransition) třídy BaseSlide poskytuje tato nastavení přes objekt [SlideShowTransition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/):
+Použijte [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) k určení přesné délky efektu přechodu v milisekundách. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) snímku expose tyto nastavení prostřednictvím [SlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/):
 
 | Metoda | Účel |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setDuration) | Nastavuje dobu trvání samotného efektu přechodu v milisekundách. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Nastavuje zpoždění před automatickým posunem snímku v milisekundách. Pro aktivaci tohoto časovače předávejte `true` metodě [setAdvanceAfter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter). |
-| [setSpeed](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setSpeed) | Vybere předdefinovanou kategorii rychlosti z [TransitionSpeed](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, pokud není zadána přesná doba trvání. |
+| [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) | Nastavuje trvání samotného efektu přechodu v milisekundách. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Nastavuje zpoždění před automatickým přechodem snímku v milisekundách. Pro aktivaci časovače předávejte `true` metodě [setAdvanceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter). |
+| [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed) | Vybere předdefinovanou rychlostní kategorii z [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadáno přesné trvání. |
 
-[setDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setDuration) ovlivňuje jen efekt přechodu; neurčuje, jak dlouho zůstane snímek viditelný. Zpoždění automatického posunu nastavte samostatně. Pokud není nastavená explicitní doba, Aspose.Slides určí dobu trvání efektu z typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration) ovlivňuje jen efekt přechodu; nedefinuje, jak dlouho snímek zůstane viditelný. Zpoždění automatického přechodu nastavte zvlášť. Když není nastaveno explicitní trvání, Aspose.Slides určuje dobu efektu z typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed).
 
-### **Použití stejné délky na každý snímek**
+<!-- visual-explanation:slide-transition:start -->
+[![Oddělené pruhy zobrazují trvání přechodu 750 ms a nastavení automatického přechodu 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-Pro jednotné tempo použijte stejný efekt a přesnou dobu na všechny snímky. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitiontype/) a každému přechodu nastaví dobu 750 ms. Samostatně povolí automatické postupování po 5 000 ms a zakáže postupování kliknutím, poté výsledek uloží jako PPTX.
+*Sdílený příklad dává každému snímku 750 ms přechod Fade a samostatně povoluje automatické přecházení po 5 000 ms. Trvání přechodu řídí efekt; přecházení řídí, kdy snímek opustit. Tyto pruhy jsou schematické nastavení, nikoli měřená kombinovaná časová osa.*
+<!-- visual-explanation:slide-transition:end -->
+
+### **Použít stejné trvání na každý snímek**
+
+Pro konzistentní tempo aplikujte stejný efekt a přesné trvání na každý snímek. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), a nastaví každému přechodu trvání 750 ms. Samostatně povolí automatické přecházení po 5 000 ms a zakáže přecházení kliknutím myši, poté výsledek uloží jako PPTX.
 
 ```php
 use aspose\slides\Presentation;
@@ -155,7 +215,7 @@ try {
         $transition->setType(TransitionType::Fade);
         $transition->setDuration(750);
 
-        // Nastavte automatické postupování nezávisle na délce trvání efektu.
+        // Nastavte automatické přecházení nezávisle na trvání efektu.
         $transition->setAdvanceAfter(true);
         $transition->setAdvanceAfterTime(5000);
         $transition->setAdvanceOnClick(false);
@@ -167,9 +227,9 @@ try {
 }
 ```
 
-### **Nastavení různých délek pro jednotlivé snímky**
+### **Nastavit různá trvání pro jednotlivé snímky**
 
-Různé snímky mohou mít odlišné délky efektu. Například pro úvodní snímek použijte krátký přechod a pro úvod sekce delší. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+Různé snímky mohou používat různá trvání efektů. Například použijte krátký přechod pro úvodní snímek a delší přechod pro úvod sekce. Tento příklad nastaví 500 ms pro první snímek a 1 200 ms pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```php
 use aspose\slides\Presentation;
@@ -196,15 +256,15 @@ try {
 }
 ```
 
-### **Koordinace přechodů s animovaným výstupem**
+### **Koordinovat přechody s animovaným výstupem**
 
-Při přípravě [animated GIF](/slides/cs/php-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/php-java/export-to-html5/) nebo [video](/slides/cs/php-java/convert-powerpoint-to-video/) nastavte přesné doby přechodů před exportem, aby odpovídaly požadovanému tempu. Například použijte 600 ms fade mezi scénami a samostatně upravte zpoždění posunu každého snímku, aby byl dostatek času na jeho výklad nebo obsah.
+Když připravujete [animovaný GIF](/slides/cs/php-java/convert-powerpoint-to-animated-gif/), [HTML5 prezentaci](/slides/cs/php-java/export-to-html5/) nebo [video](/slides/cs/php-java/convert-powerpoint-to-video/), nastavte přesná trvání přechodů před exportem, aby odpovídala zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a upravte zpoždění automatického přecházení každého snímku zvlášť, aby byl čas na jeho výklad či obsah.
 
-Pro GIF a video koordinujte výstupní snímkovou frekvenci s délkou efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte, jaké efekty a možnosti načasování podporuje zvolený formát, a předem si prohlédněte výstup, abyste ověřili synchronizaci.
+U GIFu a videa koordinujte frekvenci snímků s délkou efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte podporované efekty a časové možnosti zvoleného formátu a předem si výstup prohlédněte, abyste potvrdili synchronizaci.
 
-### **Čtení existující délky přechodu**
+### **Načíst existující trvání přechodu**
 
-Před úpravou přechodu zavolejte [getDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getDuration), abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že žádná explicitní délka není nastavena; ne‑negativní hodnota udává uloženou délku v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getSpeed) k určení této doby. Nastavení typu přechodu může inicializovat délku, proto nejprve prozkoumejte původní nastavení.
+Zavolejte [getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getDuration) před úpravou přechodu, abyste zjistili, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že žádné explicitní trvání není nastaveno; ne‑záporná hodnota udává uložené trvání v milisekundách. Nenastavená hodnota není vypočtená doba přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getSpeed) k určení této doby. Nastavení typu přechodu může inicializovat trvání, proto nejprve zkontrolujte původní nastavení.
 
 ```php
 use aspose\slides\Presentation;
@@ -227,11 +287,11 @@ try {
 }
 ```
 
-## **Morph přechod**
+## **Přechod Morph**
 
-Morph přechod animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého Morph efektu klonujte snímek, přesunte nebo změňte velikost objektu v klonu a na druhý snímek aplikujte Morph přechod. Tím se přechodu přiřadí odpovídající objekty, které se budou animovat mezi původním a upraveným stavem.
+Přechod Morph animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph klonujte snímek, posuňte nebo změňte velikost objektu v klonu a použijte přechod Morph na druhý snímek. Tím dáte přechodu odpovídající objekty, které se budou animovat mezi původním a upraveným stavem.
 
-Následující příklad vytvoří snímek s textovým obdélníkem, klonuje snímek a změní pozici a velikost obdélníku v klonu. Poté pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a uvidíte efekt během prezentace.
+Následující příklad vytvoří snímek s textovým obdélníkem, klonuje snímek a změní pozici a velikost obdélníka v klonu. Pak pro druhý snímek vybere Morph z výčtu [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/). Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
 
 ```php
 use aspose\slides\Presentation;
@@ -260,17 +320,15 @@ try {
 }
 ```
 
-## **Typy Morph přechodu**
+## **Typy přechodu Morph**
 
-Výčet [TransitionMorphType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionmorphtype/) určuje, jak Morph přiřazuje a animuje obsah:
+Výčet [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/) řídí, jak Morph spojuje a animuje obsah:
 
-- [ByObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionmorphtype/#ByObject) považuje každý tvar za celý objekt.
-- [ByWord](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionmorphtype/#ByWord) animuje text porovnáním slov, kde je to možné.
-- [ByChar](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionmorphtype/#ByChar) animuje text porovnáním znaků, kde je to možné.
+- [ByObject](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByObject) považuje každý tvar za celý objekt.  
+- [ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByWord) animuje text porovnáním slov, kde je to možné.  
+- [ByChar](https://reference.aspose.com/slides/php-java/aspose.slides/transitionmorphtype/#ByChar) animuje text porovnáním znaků, kde je to možné.
 
-Pro výběr Morph použijte [setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setType) před voláním [getValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getValue). Výsledek poskytne objekt [MorphTransition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/morphtransition/), jehož metoda [setMorphType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/morphtransition/#setMorphType) vybere požadovaný režim.
-
-Tento příklad otevře prezentaci vytvořenou v předchozí kapitole a nastaví druhý snímek k animaci Morph na úrovni slov.
+Použijte [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) pro výběr Morph před přístupem k [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue). Hodnota pak poskytne objekt [MorphTransition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/), jehož metoda [setMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/#setMorphType) vybírá režim párování.
 
 ```php
 use aspose\slides\Presentation;
@@ -299,11 +357,11 @@ try {
 }
 ```
 
-## **Nastavení efektů přechodu**
+## **Nastavit efekty přechodu**
 
-Některé přechody nabízejí další možnosti, například směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu vybraném pomocí [setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setType). Nejprve nastavte typ a poté použijte odpovídající objekt přechodu získaný přes [getValue](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getValue).
+Některé přechody vystavují další možnosti, jako je směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu vybraném pomocí [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType). Nejprve nastavte typ, pak použijte odpovídající objekt přechodu z [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue).
 
-Následující příklad použije Cut přechod na první snímek `input.pptx`. Volá [setFromBlack](https://reference.aspose.com/slides/cs/php-java/aspose.slides/optionalblacktransition/#setFromBlack) prostřednictvím [OptionalBlackTransition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/optionalblacktransition/), aby přechod začínal z černé obrazovky.
+Následující příklad použije přechod Cut na první snímek souboru `input.pptx`. Zavolá [setFromBlack](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/#setFromBlack) prostřednictvím [OptionalBlackTransition](https://reference.aspose.com/slides/php-java/aspose.slides/optionalblacktransition/), aby přechod začínal z černé obrazovky.
 
 ```php
 use aspose\slides\Presentation;
@@ -329,18 +387,18 @@ try {
 
 ## **Často kladené otázky**
 
-**Mohu řídit rychlost přehrávání přechodu snímku?**
+**Mohu ovládat rychlost přehrávání přechodu snímku?**
 
-Ano. Upřednostněte [setDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setDuration), když potřebujete přesnou dobu trvání efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setSpeed), pokud stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionspeed/) – Slow, Medium nebo Fast – a není nastavena explicitní délka. Tato nastavení řídí pouze efekt přechodu, nezávisle na zpoždění automatického posunu.
+Ano. Upřednostněte [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration), když potřebujete přesnou dobu efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), pokud stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/): Slow, Medium nebo Fast, a není nastaveno explicitní trvání. Tato nastavení řídí efekt přechodu nezávisle na zpoždění automatického přecházení.
 
 **Mohu k přechodu přiřadit audio a nechat ho opakovat?**
 
-Ano. Přidejte vložené audio pomocí [setSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setSound), předáte `StartSound` z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitionsoundmode/) metodě [setSoundMode](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setSoundMode) a povolíte [setSoundLoop](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setSoundLoop) s hodnotou `true`. Audio bude přehráváno ve smyčce, dokud nedojde k dalšímu zvukovému události v prezentaci.
+Ano. Přiřaďte vložené audio pomocí [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSound), předáte StartSound z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/transitionsoundmode/) metodě [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundMode) a povolíte [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSoundLoop) s hodnotou `true`. Audio se bude opakovat, dokud v prezentaci nedojde k dalšímu zvukovému události.
 
-**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na všechny snímky?**
+**Jaký je nejrychlejší způsob, jak aplikovat stejný přechod na každý snímek?**
 
-Projděte kolekci [getSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getSlides) prezentace a pro každý snímek zavolejte [setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#setType) se stejnou hodnotou. V tomtéž cyklu nastavte také případné časování a možnosti efektu, aby chování bylo konzistentní napříč snímky.
+Procházejte kolekci [getSlides](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlides) prezentace a zavolejte [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) se stejnou hodnotou pro každý snímek. V rámci stejné smyčky nastavte i časování a možnosti efektu, aby chování zůstalo konzistentní napříč snímky.
 
 **Jak mohu zjistit, který přechod je aktuálně nastaven na snímku?**
 
-Zavolejte [getType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slideshowtransition/#getType) na výsledku [getSlideShowTransition](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseslide/#getSlideShowTransition) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/transitiontype/); `None` znamená, že žádný přechod není aplikován.
+Zavolejte [getType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getType) na výsledek [getSlideShowTransition](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/); None znamená, že není aplikován žádný přechod.

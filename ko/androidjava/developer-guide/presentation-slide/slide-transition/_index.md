@@ -1,5 +1,5 @@
 ---
-title: Android 프레젠테이션에서 슬라이드 전환 관리
+title: Android에서 프레젠테이션의 슬라이드 전환 관리
 linktitle: 슬라이드 전환
 type: docs
 weight: 80
@@ -9,26 +9,26 @@ keywords:
 - 슬라이드 전환 추가
 - 슬라이드 전환 적용
 - 고급 슬라이드 전환
-- Morph 전환
+- 모프 전환
 - 전환 유형
 - 전환 효과
-- PowerPoint
-- OpenDocument
+- 파워포인트
+- 오픈도큐먼트
 - 프레젠테이션
-- Android
-- Java
+- 안드로이드
+- 자바
 - Aspose.Slides
 description: "Aspose.Slides for Android via Java를 사용하여 슬라이드 전환을 적용하고 자동 슬라이드 진행을 구성하며 Morph 및 기타 전환 효과를 사용자 정의합니다."
 ---
 ## **개요**
 
-슬라이드 전환은 슬라이드 쇼 중 슬라이드가 나타나는 방식을 제어합니다. Aspose.Slides for Android via Java를 사용하면 각 슬라이드에 전환 효과를 선택하고, 마우스 클릭 또는 타이머에 의한 진행을 구성하며, 효과별 옵션을 조정할 수 있습니다. 이 문서에서는 Java 예제를 사용하여 전환을 적용하고, 정확한 전환 지속 시간을 설정하고, 슬라이드 타이밍을 관리하며, 두 슬라이드 사이에 Morph 전환을 만드는 방법을 보여줍니다. 예제는 설정을 PPTX 파일로 저장하는 방법도 포함합니다.
+Slide transitions control how slides appear during a slide show. With Aspose.Slides for Android via Java, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses Java examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
 
 ## **슬라이드 전환 추가**
 
-전환을 적용하려면 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스로 프레젠테이션을 로드하고, [getSlideShowTransition](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--)을 통해 슬라이드의 전환 설정에 접근합니다. [setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setType-int-)에 [TransitionType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitiontype/) 열거형의 값을 지정한 뒤 프레젠테이션을 저장하십시오.
+To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class and access the slide's transition settings through [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Use [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) with a value from the [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) enumeration, then save the presentation.
 
-다음 예제는 첫 번째 슬라이드에 Circle 전환을, 두 번째 슬라이드에 Comb 전환을 적용합니다. 최소 두 개 슬라이드가 있는 `input.pptx` 파일을 사용하십시오.
+The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
 
 ```java
 import com.aspose.slides.*;
@@ -48,17 +48,66 @@ try {
 }
 ```
 
+## **Wheel 전환**
+
+The [setSpokes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/#setSpokes-long-) method of [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition type to Wheel from [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) using [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) before accessing [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--) as [IWheelTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iwheeltransition/).
+
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same speed set through [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) and an explicit duration of 8,000 milliseconds set through [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) to make the difference easy to observe.
+
+```java
+import android.graphics.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    float slideWidth = (float) presentation.getSlideSize().getSize().getWidth();
+    float slideHeight = (float) presentation.getSlideSize().getSize().getHeight();
+
+    ISlide blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(BackgroundType.OwnBackground);
+    blackSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+    ISlide destinationSlide = presentation.getSlides().addClone(blackSlide);
+    IAutoShape rectangle = destinationSlide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(FillType.Solid);
+    int gold = Color.rgb(255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    long[] spokeCounts = { 1, 8 };
+    for (int i = 0; i < spokeCounts.length; i++) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(TransitionType.Wheel);
+        IWheelTransition wheelTransition = (IWheelTransition) transition.getValue();
+        wheelTransition.setSpokes(spokeCounts[i]);
+        transition.setSpeed(TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
 ## **고급 슬라이드 전환 추가**
 
-슬라이드가 화면에 남아 있는 시간과 마우스 클릭으로 쇼를 진행할지 여부를 구성할 수 있습니다. 다음 메서드가 해당 동작을 제어합니다.
+You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) 시청자가 마우스를 클릭하여 슬라이드 쇼를 진행하도록 허용합니다.
-- [setAdvanceAfter](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) 자동 진행을 활성화합니다.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) 자동 진행 전의 지연 시간을 밀리초 단위로 지정합니다.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) allows the viewer to advance by clicking the mouse.
+- [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) enables automatic advancement.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) specifies the delay before automatic advancement, in milliseconds.
 
-클릭과 타이머 기반 진행을 모두 활성화하면 시청자는 클릭하거나 타이머가 끝날 때까지 기다릴 수 있습니다. 타이머만 사용하려면 [setAdvanceOnClick]에 `false`를 전달하십시오. 지연 시간은 슬라이드 쇼가 언제 진행되는지를 제어하며, 시각적 전환 효과의 지속 시간을 설정하지는 않습니다.
+Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, pass `false` to [setAdvanceOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
 
-다음 예제는 첫 세 슬라이드에 서로 다른 효과를 지정하고 각각 3초, 5초, 7초 후에 자동 진행하도록 설정합니다. 마우스 클릭으로도 슬라이드를 전환할 수 있습니다. 최소 세 개 슬라이드가 있는 `input.pptx` 파일을 사용하십시오.
+This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
 
 ```java
 import com.aspose.slides.*;
@@ -93,9 +142,9 @@ try {
 }
 ```
 
-타이머 기반 진행이 활성화되었는지 확인하려면 [getAdvanceAfter](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--)을 호출하십시오. 저장된 지연 시간만으로는 타이머가 활성화되었는지 판단할 수 없습니다.
+To check whether timed advancement is enabled, call [getAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). A stored delay alone does not indicate that the timer is active.
 
-다음 예제는 위에서 저장한 파일을 열고, 각 슬라이드에 설정된 타이머를 보고, 2초를 초과하는 지연 시간이 있는 슬라이드의 자동 진행을 비활성화합니다. 해당 슬라이드에 마우스 클릭 진행을 활성화하고, 업데이트된 설정을 저장합니다.
+The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
 
 ```java
 import com.aspose.slides.*;
@@ -121,21 +170,27 @@ try {
 }
 ```
 
-## **전환 타이밍 정확히 제어**
+## **전환 타이밍 정확히 제어하기**
 
-[setDuration](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-)을 사용하여 전환 효과의 정확한 길이를 밀리초 단위로 지정합니다. 슬라이드의 [getSlideShowTransition](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) 메서드를 통해 [ISlideShowTransition](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/)에서 이러한 설정에 접근할 수 있습니다.
+Use [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) to specify the exact length of a transition effect in milliseconds. The slide's [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) method exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/):
 
-| 메서드 | 목적 |
+| Method | Purpose |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | 전환 효과 자체의 지속 시간을 밀리초 단위로 설정합니다. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | 슬라이드가 자동으로 진행되기 전의 지연 시간을 밀리초 단위로 설정합니다. 이 타이머를 활성화하려면 [setAdvanceAfter](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-)에 `true`를 전달합니다. |
-| [setSpeed](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | [TransitionSpeed](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionspeed/)에서 정의된 속도 카테고리(느림, 보통, 빠름) 중 하나를 선택합니다. 정확한 지속 시간을 지정하지 않은 경우에 사용됩니다. |
+| [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Sets the duration of the transition effect itself, in milliseconds. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Sets the delay before the slide advances automatically, in milliseconds. Pass `true` to [setAdvanceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) to activate this timer. |
+| [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Selects a predefined speed category from [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/): Slow, Medium, or Fast. It is used when an exact duration is not specified. |
 
-[setDuration](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-)은 전환 효과만 제어하며, 슬라이드가 화면에 남아 있는 시간을 결정하지는 않습니다. 자동 진행 지연은 별도로 구성하십시오. 명시적인 지속 시간이 설정되지 않으면 Aspose.Slides는 전환 유형과 [getSpeed](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) 값을 기준으로 효과 지속 시간을 자동으로 결정합니다.
+[setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and the [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) value.
 
-### **모든 슬라이드에 동일한 지속 시간 적용**
+<!-- visual-explanation:slide-transition:start -->
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-일관된 템포를 유지하려면 모든 슬라이드에 동일한 효과와 정확한 지속 시간을 적용합니다. 다음 예제는 `input.pptx`를 로드하고, [TransitionType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitiontype/)에서 Fade를 선택한 뒤 각 전환에 750밀리초의 지속 시간을 부여합니다. 또한 자동 진행을 5,000밀리초 후에 활성화하고 마우스 클릭 진행을 비활성화한 뒤 결과를 PPTX로 저장합니다.
+*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
+<!-- visual-explanation:slide-transition:end -->
+
+### **모든 슬라이드에 동일한 지속 시간 적용하기**
+
+For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -147,7 +202,7 @@ try {
         transition.setType(TransitionType.Fade);
         transition.setDuration(750);
 
-        // 자동 진행을 효과 지속 시간과 별개로 구성합니다.
+        // 효과 지속 시간과 별도로 자동 진행을 구성합니다.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -159,9 +214,9 @@ try {
 }
 ```
 
-### **개별 슬라이드에 서로 다른 지속 시간 설정**
+### **개별 슬라이드에 서로 다른 지속 시간 설정하기**
 
-슬라이드마다 다른 효과 지속 시간을 사용할 수 있습니다. 예를 들어 제목 슬라이드에는 짧은 전환을, 섹션 소개 슬라이드에는 긴 전환을 적용합니다. 다음 예제는 첫 번째 슬라이드에 500밀리초, 두 번째 슬라이드에 1,200밀리초를 설정합니다. 최소 두 개 슬라이드가 있는 `input.pptx` 파일을 사용하십시오.
+Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
 
 ```java
 import com.aspose.slides.*;
@@ -186,15 +241,15 @@ try {
 }
 ```
 
-### **애니메이션 출력과 전환 동기화**
+### **애니메이션 출력과 전환 동기화하기**
 
-[animated GIF](/slides/ko/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/androidjava/export-to-html5/), 또는 [video](/slides/ko/androidjava/convert-powerpoint-to-video/)를 준비할 때는 내보내기 전에 정확한 전환 지속 시간을 설정하여 원하는 템포와 맞추십시오. 예를 들어 장면 사이에 600밀리초 페이드 전환을 사용하고, 각 슬라이드의 진행 지연을 개별적으로 조정하여 내레이션이나 콘텐츠가 재생될 시간을 확보합니다.
+When preparing an [animated GIF](/slides/ko/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/androidjava/export-to-html5/), or [video](/slides/ko/androidjava/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
 
-GIF 및 비디오의 경우 프레임 레이트와 효과 지속 시간을 맞추어야 합니다. 600밀리초는 30프레임/초일 때 18프레임에 해당합니다. HTML5에서는 내보내기 설정에서 애니메이션 전환을 활성화하십시오. 선택한 내보내기 형식이 지원하는 효과와 타이밍 옵션을 확인하고, 출력물을 미리 보기하여 동기화를 검증하십시오.
+For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
 
-### **기존 전환 지속 시간 읽기**
+### **기존 전환 지속 시간 읽어오기**
 
-전환을 수정하기 전에 [getDuration](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getDuration--)을 호출하여 명시적인 값이 저장되어 있는지 확인하십시오. `-1` 값은 명시적인 지속 시간이 설정되지 않았음을 의미하고, 0 이상 값은 밀리초 단위의 저장된 지속 시간을 나타냅니다. 이 값은 계산된 재생 지속 시간이 아니며, Aspose.Slides는 전환 유형과 [getSpeed](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) 값을 기반으로 지속 시간을 결정합니다. 전환 유형을 설정하면 지속 시간이 초기화될 수 있으므로 원래 설정을 먼저 검사하십시오.
+Call [getDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and the [getSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) value to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
 
 ```java
 import com.aspose.slides.*;
@@ -218,9 +273,9 @@ try {
 
 ## **Morph 전환**
 
-Morph 전환은 연속된 슬라이드에 있는 객체 간의 변화에 애니메이션을 적용합니다. 간단한 Morph 효과를 만들려면 슬라이드를 복제하고, 복제본에서 객체를 이동하거나 크기를 조정한 뒤 두 번째 슬라이드에 Morph 전환을 적용합니다. 이렇게 하면 원본과 수정된 상태 사이를 애니메이션으로 연결할 수 있습니다.
+The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
 
-다음 예제는 텍스트 사각형이 있는 슬라이드를 만들고, 슬라이드를 복제한 뒤 복제본에서 사각형의 위치와 크기를 변경합니다. 그런 다음 두 번째 슬라이드에 [TransitionType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitiontype/) 열거형에서 Morph를 선택합니다. Morph를 지원하는 프레젠테이션 뷰어에서 저장된 파일을 열면 슬라이드 쇼 중 효과를 확인할 수 있습니다.
+The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
 
 ```java
 import com.aspose.slides.*;
@@ -248,15 +303,15 @@ try {
 
 ## **Morph 전환 유형**
 
-[TransitionMorphType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionmorphtype/) 열거형은 Morph가 콘텐츠를 매칭하고 애니메이션하는 방식을 제어합니다.
+The [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/) enumeration controls how Morph matches and animates content:
 
-- [ByObject](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) 각 도형을 전체 객체로 취급합니다.
-- [ByWord](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) 가능한 경우 단어를 매칭하여 텍스트를 애니메이션합니다.
-- [ByChar](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) 가능한 경우 문자를 매칭하여 텍스트를 애니메이션합니다.
+- [ByObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) treats each shape as a whole object.
+- [ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) animates text by matching words where possible.
+- [ByChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) animates text by matching characters where possible.
 
-[setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setType-int-)으로 Morph를 선택한 뒤 [getValue](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getValue--)을 호출하면 [IMorphTransition](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imorphtransition/) 인터페이스를 얻을 수 있으며, 해당 인터페이스의 [setMorphType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) 메서드로 매칭 모드를 선택합니다.
+Use [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) to select Morph before accessing [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/) interface, whose [setMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) method selects the matching mode.
 
-다음 예제는 이전 섹션에서 만든 프레젠테이션을 열고 두 번째 슬라이드에 단어 기반 Morph 애니메이션을 설정합니다.
+This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
 
 ```java
 import com.aspose.slides.*;
@@ -283,11 +338,11 @@ try {
 }
 ```
 
-## **전환 효과 설정**
+## **전환 효과 설정하기**
 
-일부 전환은 방향이나 검은 화면에서 시작 여부와 같은 추가 옵션을 제공합니다. 사용 가능한 옵션은 [setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setType-int-)으로 선택한 전환에 따라 다릅니다. 먼저 유형을 설정한 뒤 [getValue](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getValue--)에서 해당 인터페이스를 사용하십시오.
+Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the transition selected with [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). Set the type first, then use the appropriate interface from [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
 
-다음 예제는 `input.pptx`의 첫 번째 슬라이드에 Cut 전환을 적용하고, [IOptionalBlackTransition](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ioptionalblacktransition/)를 통해 [setFromBlack](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-)을 호출하여 전환이 검은 화면에서 시작하도록 합니다.
+The following example applies a Cut transition to the first slide of `input.pptx`. It calls [setFromBlack](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) through [IOptionalBlackTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioptionalblacktransition/) so that the transition starts from a black screen.
 
 ```java
 import com.aspose.slides.*;
@@ -312,18 +367,18 @@ try {
 
 ## **FAQ**
 
-**슬라이드 전환의 재생 속도를 제어할 수 있나요?**
+**Can I control the playback speed of a slide transition?**
 
-예. 정확한 효과 지속 시간을 밀리초 단위로 지정해야 할 경우 [setDuration](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-)을 사용하십시오. 미리 정의된 [TransitionSpeed](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionspeed/) 카테고리(느림, 보통, 빠름)만으로 충분하고 명시적인 지속 시간을 지정하지 않을 경우 [setSpeed](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-)를 사용하십시오. 이러한 설정은 자동 진행 지연과는 별개로 전환 효과만 제어합니다.
+Yes. Prefer [setDuration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) when you need an exact effect duration in milliseconds. Use [setSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
 
-**전환에 오디오를 첨부하고 반복 재생할 수 있나요?**
+**Can I attach audio to a transition and make it loop?**
 
-예. [setSound](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-)으로 내장 오디오를 지정하고, [TransitionSoundMode](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitionsoundmode/) 열거형의 StartSound를 [setSoundMode](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-)에 전달한 뒤, [setSoundLoop](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-)을 `true`로 설정하십시오. 오디오는 슬라이드 쇼에서 다음 사운드 이벤트가 발생할 때까지 반복 재생됩니다.
+Yes. Assign embedded audio with [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), pass StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionsoundmode/) enumeration to [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), and enable [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) with `true`. The audio loops until the next sound event in the slide show.
 
-**모든 슬라이드에 동일한 전환을 적용하는 가장 빠른 방법은 무엇인가요?**
+**What's the fastest way to apply the same transition to every slide?**
 
-프레젠테이션의 [getSlides](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/#getSlides--) 컬렉션을 순회하면서 각 슬라이드의 전환에 대해 동일한 값을 [setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#setType-int-)에 지정하십시오. 동일한 루프 안에서 타이밍 및 효과 옵션도 설정하면 슬라이드 전체에 일관된 동작을 유지할 수 있습니다.
+Loop through the presentation's [getSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) collection and call [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) with the same value for each slide's transition. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
 
-**슬라이드에 현재 설정된 전환을 어떻게 확인할 수 있나요?**
+**How can I check which transition is currently set on a slide?**
 
-슬라이드의 [getSlideShowTransition](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) 결과에 대해 [getType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/islideshowtransition/#getType--)를 호출하십시오. 반환값은 [TransitionType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/transitiontype/) 열거형의 값이며, None이면 전환 효과가 적용되지 않은 것입니다.
+Call [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islideshowtransition/#getType--) on the slide's [getSlideShowTransition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) result. It returns a value from the [TransitionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitiontype/) enumeration; None means that no transition effect is applied.

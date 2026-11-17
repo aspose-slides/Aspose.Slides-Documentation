@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Transições de Slides em Apresentações Usando JavaScript
+title: Gerenciar Transições de Slide em Apresentações Usando JavaScript
 linktitle: Transição de Slide
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - adicionar transição de slide
 - aplicar transição de slide
 - transição de slide avançada
-- transição morph
+- transição Morph
 - tipo de transição
 - efeito de transição
 - PowerPoint
@@ -18,15 +18,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aplicar transições de slides, configurar o avanço automático dos slides e personalizar Morph e outros efeitos de transição com Aspose.Slides para Node.js via Java."
+description: "Aplicar transições de slide, configurar o avanço automático dos slides e personalizar Morph e outros efeitos de transição com Aspose.Slides para Node.js via Java."
 ---
 ## **Visão geral**
 
-As transições de slide controlam como os slides aparecem durante uma apresentação. Com Aspose.Slides para Node.js via Java, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou por temporizador e ajustar opções específicas de um efeito. Este artigo usa exemplos em JavaScript para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
+As transições de slides controlam como os slides aparecem durante uma apresentação. Com Aspose.Slides para Node.js via Java, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou temporizador e ajustar opções específicas de um efeito. Este artigo usa exemplos em JavaScript para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
 
-## **Adicionar transição ao slide**
+## **Adicionar transição de slide**
 
-Para aplicar uma transição, carregue uma apresentação com a classe [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) e acesse as configurações de transição do slide através de [getSlideShowTransition](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Use [setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setType) com um valor da enumeração [TransitionType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitiontype/), depois salve a apresentação.
+Para aplicar uma transição, carregue uma apresentação com a classe [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) e acesse as configurações de transição do slide através de [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Use [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) com um valor da enumeração [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), depois salve a apresentação.
 
 O exemplo a seguir aplica uma transição Circle ao primeiro slide e uma transição Comb ao segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
 
@@ -48,15 +48,65 @@ try {
 }
 ```
 
-## **Adicionar transição avançada ao slide**
+## **Transição Wheel**
+
+O método [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) da classe [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) controla o número de setores radiais que revelam o slide de destino. Defina o tipo de transição do slide para Wheel a partir de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) usando [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) antes de acessar [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) como [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+
+Este exemplo cria dois pares idênticos de slides: um slide preto seguido de um slide com um retângulo dourado. Os slides de destino usam contagens de raios de 1 e 8, com a mesma velocidade definida por [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) e uma duração explícita de 8 000 milissegundos definida por [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) para facilitar a observação da diferença.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slideWidth = presentation.getSlideSize().getSize().getWidth();
+    const slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+    const blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+    blackSlide.getBackground().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(black);
+
+    const destinationSlide = presentation.getSlides().addClone(blackSlide);
+    const rectangle = destinationSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const gold = java.newInstanceSync("java.awt.Color", 255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    const spokeCounts = [1, 8];
+    for (let i = 0; i < spokeCounts.length; i++) {
+        const transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Wheel);
+        const wheelTransition = transition.getValue();
+        wheelTransition.setSpokes(java.newLong(spokeCounts[i]));
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Abra a apresentação de saída no PowerPoint e execute a apresentação. Avance do slide 1 para o slide 2, depois do slide 3 para o slide 4. Na reprodução no PowerPoint, a contagem verificada de 1 revela o slide com uma varredura no sentido horário; a contagem verificada de 8 o revela através de oito setores radiais simultaneamente. O conteúdo de destino e o tempo da transição são idênticos, portanto a diferença está no número de setores de revelação.
+
+## **Adicionar transição avançada de slide**
 
 Você pode configurar quanto tempo um slide permanece na tela e se um clique do mouse avança a apresentação. Os métodos a seguir controlam esse comportamento:
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) permite que o visualizador avance clicando o mouse.
-- [setAdvanceAfter](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) habilita o avanço automático.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) especifica o atraso antes do avanço automático, em milissegundos.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) permite que o visualizador avance ao clicar o mouse.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) habilita o avanço automático.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) especifica o atraso antes do avanço automático, em milissegundos.
 
-Habilite tanto o avanço por clique quanto por tempo para que o visualizador avance com um clique ou aguarde o temporizador. Para usar apenas o temporizador, passe `false` para [setAdvanceOnClick](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). O atraso controla quando a apresentação avança; ele não define a duração do efeito visual de transição.
+Habilite tanto o avanço por clique quanto o cronometrado para que o visualizador avance com um clique ou espere o temporizador. Para usar apenas o temporizador, passe `false` para [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). O atraso controla quando a apresentação avança; ele não define a duração do efeito visual da transição.
 
 Este exemplo atribui efeitos diferentes aos três primeiros slides e habilita o avanço automático após 3, 5 e 7 segundos, respectivamente. Cliques do mouse também podem avançar esses slides. Use um arquivo `input.pptx` com pelo menos três slides.
 
@@ -93,7 +143,7 @@ try {
 }
 ```
 
-Para verificar se o avanço cronometrado está habilitado, chame [getAdvanceAfter](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Um atraso armazenado não indica que o temporizador esteja ativo.
+Para verificar se o avanço cronometrado está habilitado, chame [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Um atraso armazenado sozinho não indica que o temporizador está ativo.
 
 O próximo exemplo abre o arquivo salvo acima, relata cada temporizador habilitado e desabilita o avanço automático para slides com atraso maior que dois segundos. Ele habilita cliques do mouse para esses slides e salva as configurações atualizadas.
 
@@ -124,19 +174,25 @@ try {
 
 ## **Controlar o tempo da transição com precisão**
 
-Use [setDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setDuration) para especificar o comprimento exato de um efeito de transição em milissegundos. O método [getSlideShowTransition](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) do slide expõe essas configurações por meio de [SlideShowTransition](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/) :
+Use [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) para especificar o comprimento exato de um efeito de transição em milissegundos. O método [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) do slide expõe essas configurações através de [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
 | Método | Propósito |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Define a duração do efeito de transição em si, em milissegundos. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Define o atraso antes de o slide avançar automaticamente, em milissegundos. Passe `true` para [setAdvanceAfter](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) para ativar esse temporizador. |
-| [setSpeed](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Seleciona uma categoria de velocidade predefinida da enumeração [TransitionSpeed](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium ou Fast. É usada quando uma duração exata não é especificada. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Define a duração do próprio efeito de transição, em milissegundos. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Define o atraso antes que o slide avance automaticamente, em milissegundos. Passe `true` para [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) para ativar esse temporizador. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Seleciona uma categoria de velocidade predefinida da enumeração [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium ou Fast. É usada quando uma duração exata não é especificada. |
 
-[setDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setDuration) controla apenas o efeito de transição; ele não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor de [getSpeed](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) controla apenas o efeito da transição; não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor de [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+
+<!-- visual-explanation:slide-transition:start -->
+[![Barras separadas identificam a duração da transição de 750 ms e a configuração de avanço automático de 5 000 ms.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*O exemplo compartilhado atribui a cada slide uma transição Fade de 750 ms e habilita separadamente o avanço automático em 5 000 ms. A duração da transição controla o efeito; o avanço controla quando deixar o slide. Essas barras são configurações esquemáticas, não uma linha do tempo combinada medida.*
+<!-- visual-explanation:slide-transition:end -->
 
 ### **Aplicar a mesma duração a todos os slides**
 
-Para um ritmo consistente, aplique o mesmo efeito e a mesma duração exata a cada slide. Este exemplo carrega `input.pptx`, seleciona Fade da enumeração [TransitionType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitiontype/), e define a duração de cada transição em 750 milissegundos. Ele habilita separadamente o avanço automático após 5.000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
+Para um ritmo consistente, aplique o mesmo efeito e a mesma duração exata a cada slide. Este exemplo carrega `input.pptx`, seleciona Fade a partir de [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) e define 750 milissegundos como duração de cada transição. Ele habilita separadamente o avanço automático após 5 000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -149,7 +205,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Configure o avanço automático independentemente da duração do efeito.
+        // Configurar avanço automático independentemente da duração do efeito.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -163,7 +219,7 @@ try {
 
 ### **Definir durações diferentes para slides individuais**
 
-Slides diferentes podem usar durações de efeito diferentes. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de uma seção. Este exemplo define 500 milissegundos para o primeiro slide e 1.200 milissegundos para o segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
+Slides diferentes podem usar durações de efeito distintas. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de uma seção. Este exemplo define 500 milissegundos para o primeiro slide e 1 200 milissegundos para o segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -188,15 +244,15 @@ try {
 }
 ```
 
-### **Sincronizar transições com saída animada**
+### ** Coordenar transições com saída animada**
 
-Ao preparar um [animated GIF](/slides/pt/nodejs-java/convert-powerpoint-to-animated-gif/), uma [HTML5 presentation](/slides/pt/nodejs-java/export-to-html5/) ou um [video](/slides/pt/nodejs-java/convert-powerpoint-to-video/), defina durações de transição exatas antes da exportação para corresponder ao ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste o atraso de avanço de cada slide separadamente para permitir tempo para narração ou conteúdo.
+Ao preparar um [animated GIF](/slides/pt/nodejs-java/convert-powerpoint-to-animated-gif/), uma [HTML5 presentation](/slides/pt/nodejs-java/export-to-html5/) ou um [video](/slides/pt/nodejs-java/convert-powerpoint-to-video/), defina durações exatas de transição antes da exportação para corresponder ao ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste separadamente o atraso de avanço de cada slide para permitir tempo para sua narração ou conteúdo.
 
-Para GIF e vídeo, coordene a taxa de quadros da saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 quadros por segundo. Em HTML5, habilite transições animadas nas configurações de exportação. Verifique os efeitos e opções de tempo suportados pelo formato de exportação escolhido e pré-visualize a saída para confirmar a sincronização.
+Para GIF e vídeo, coordene a taxa de quadros de saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 quadros por segundo. No HTML5, habilite transições animadas nas opções de exportação. Verifique os efeitos e opções de tempo suportados pelo formato de exportação escolhido e visualize a saída para confirmar a sincronização.
 
 ### **Ler a duração de uma transição existente**
 
-Chame [getDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getDuration) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor de `-1` indica que nenhuma duração explícita foi definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração de reprodução calculada: Aspose.Slides usa o tipo de transição e o valor de [getSpeed](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspeccione as configurações originais primeiro.
+Chame [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor `-1` significa que nenhuma duração explícita foi definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração de reprodução calculada: Aspose.Slides usa o tipo de transição e o valor de [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspecione as configurações originais primeiro.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -221,9 +277,9 @@ try {
 
 ## **Transição Morph**
 
-A transição Morph anima alterações entre objetos em slides consecutivos. Para criar um efeito Morph simples, clone um slide, mova ou redimensione um objeto no clone e aplique a transição Morph ao segundo slide. Isso fornece aos objetos correspondentes a animação entre seus estados original e modificado.
+A transição Morph anima mudanças entre objetos em slides consecutivos. Para criar um efeito Morph simples, clone um slide, mova ou redimensione um objeto no clone e aplique a transição Morph ao segundo slide. Isso fornece aos objetos correspondentes a animação entre seus estados original e modificado.
 
-O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph da enumeração [TransitionType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que suporte Morph para ver o efeito durante a apresentação.
+O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph a partir da enumeração [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que suporte Morph para ver o efeito durante a apresentação.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -249,15 +305,15 @@ try {
 }
 ```
 
-## **Tipos de transição Morph**
+## **Tipos de Transição Morph**
 
-A enumeração [TransitionMorphType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionmorphtype/) controla como o Morph corresponde e anima o conteúdo:
+A enumeração [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) controla como o Morph combina e anima o conteúdo:
 
-- [ByObject](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) trata cada forma como um objeto completo.
-- [ByWord](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) anima o texto correspondendo palavras, quando possível.
-- [ByChar](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) anima o texto correspondendo caracteres, quando possível.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) trata cada forma como um objeto completo.
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) anima texto combinando palavras quando possível.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) anima texto combinando caracteres quando possível.
 
-Use [setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setType) para selecionar Morph antes de acessar [getValue](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getValue). O valor então fornece um objeto [MorphTransition](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/morphtransition/), cujo método [setMorphType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/morphtransition/#setMorphType) seleciona o modo de correspondência.
+Use [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) para selecionar Morph antes de acessar [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). O valor então fornece um objeto [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), cujo método [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType) seleciona o modo de correspondência.
 
 Este exemplo abre a apresentação criada na seção anterior e configura o segundo slide para usar animação Morph baseada em palavras.
 
@@ -288,9 +344,9 @@ try {
 
 ## **Definir efeitos de transição**
 
-Algumas transições expõem opções adicionais, como direção ou se o efeito inicia a partir de uma tela preta. As opções disponíveis dependem da transição selecionada com [setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setType). Defina o tipo primeiro, então use o objeto de transição apropriado obtido por [getValue](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+Algumas transições expõem opções adicionais, como direção ou se o efeito começa a partir de uma tela preta. As opções disponíveis dependem da transição selecionada com [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Defina o tipo primeiro, depois use o objeto de transição apropriado obtido via [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-O exemplo a seguir aplica uma transição Cut ao primeiro slide de `input.pptx`. Ele chama [setFromBlack](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) através de [OptionalBlackTransition](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/optionalblacktransition/) para que a transição inicie a partir de uma tela preta.
+O exemplo a seguir aplica uma transição Cut ao primeiro slide de `input.pptx`. Ele chama [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) através de [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) para que a transição comece a partir de uma tela preta.
 
 ```javascript
 const java = require("java");
@@ -317,16 +373,16 @@ try {
 
 **Posso controlar a velocidade de reprodução de uma transição de slide?**
 
-Sim. Prefira [setDuration](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setDuration) quando precisar de uma duração exata do efeito em milissegundos. Use [setSpeed](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) quando uma categoria predefinida de [TransitionSpeed](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionspeed/) — Slow, Medium ou Fast — for suficiente e nenhuma duração explícita for definida. Essas configurações controlam o efeito de transição independentemente do atraso de avanço automático.
+Sim. Prefira [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) quando precisar de uma duração exata do efeito em milissegundos. Use [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) quando uma categoria predefinida de [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) – Slow, Medium ou Fast – for suficiente e nenhuma duração explícita for definida. Essas configurações controlam o efeito da transição independentemente do atraso de avanço automático.
 
-**Posso anexar áudio a uma transição e fazê‑lo repetir?**
+**Posso anexar áudio a uma transição e fazer loop?**
 
-Sim. Defina áudio incorporado com [setSound](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setSound), passe StartSound da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitionsoundmode/) para [setSoundMode](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) e habilite [setSoundLoop](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) com `true`. O áudio se repete até o próximo evento sonoro na apresentação.
+Sim. Atribua áudio incorporado com [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), passe StartSound da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) para [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) e habilite [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) com `true`. O áudio gera loop até o próximo evento sonoro na apresentação.
 
-**Qual é a maneira mais rápida de aplicar a mesma transição a todos os slides?**
+**Qual a maneira mais rápida de aplicar a mesma transição a todos os slides?**
 
-Percorra a coleção [getSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/#getSlides) da apresentação e chame [setType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#setType) com o mesmo valor para a transição de cada slide. Defina quaisquer opções de tempo e efeito no mesmo loop para manter o comportamento consistente em todos os slides.
+Percorra a coleção [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) da apresentação e chame [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) com o mesmo valor para a transição de cada slide. Defina quaisquer opções de tempo e efeito no mesmo laço para manter o comportamento consistente em todos os slides.
 
-**Como posso verificar qual transição está definida atualmente em um slide?**
+**Como posso verificar qual transição está atualmente definida em um slide?**
 
-Chame [getType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/slideshowtransition/#getType) no resultado de [getSlideShowTransition](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) do slide. Ele retorna um valor da enumeração [TransitionType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/transitiontype/); None significa que nenhum efeito de transição foi aplicado.
+Chame [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) no resultado de [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) do slide. Ele retorna um valor da enumeração [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None significa que nenhum efeito de transição foi aplicado.

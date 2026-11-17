@@ -1,5 +1,5 @@
 ---
-title: .NET에서 프레젠테이션 슬라이드 전환 관리
+title: .NET에서 프레젠테이션의 슬라이드 전환 관리
 linktitle: 슬라이드 전환
 type: docs
 weight: 90
@@ -9,7 +9,7 @@ keywords:
 - 슬라이드 전환 추가
 - 슬라이드 전환 적용
 - 고급 슬라이드 전환
-- Morph 전환
+- 모프 전환
 - 전환 유형
 - 전환 효과
 - PowerPoint
@@ -18,17 +18,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET을 사용하여 슬라이드 전환을 적용하고, 자동 슬라이드 진행을 구성하며, Morph 및 기타 전환 효과를 사용자 지정합니다."
+description: "Aspose.Slides for .NET를 사용하여 슬라이드 전환을 적용하고 자동 슬라이드 진행을 구성하며 Morph 및 기타 전환 효과를 사용자 지정합니다."
 ---
 ## **개요**
 
-슬라이드 전환은 슬라이드 쇼 중 슬라이드가 나타나는 방식을 제어합니다. Aspose.Slides for .NET을 사용하면 각 슬라이드에 전환 효과를 선택하고, 마우스 클릭 또는 타이머에 의한 진행을 구성하며, 효과별 옵션을 조정할 수 있습니다. 이 문서에서는 C# 예제를 사용하여 전환을 적용하고, 정확한 전환 지속 시간을 설정하며, 슬라이드 타이밍을 관리하고 두 슬라이드 간에 Morph 전환을 만드는 방법을 보여줍니다. 예제는 또한 설정을 PPTX 파일로 저장하는 방법을 보여줍니다.
+Slide transitions control how slides appear during a slide show. With Aspose.Slides for .NET, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses C# examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
 
 ## **슬라이드 전환 추가**
 
-전환을 적용하려면 [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/) 클래스로 프레젠테이션을 로드하고 슬라이드의 [SlideShowTransition](https://reference.aspose.com/slides/ko/net/aspose.slides/ibaseslide/slideshowtransition/) 속성에 접근합니다. [Type](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/type/)을 [TransitionType](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitiontype/) 열거형의 값으로 설정한 후 프레젠테이션을 저장합니다.
+To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and access the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property. Set its [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration, then save the presentation.
 
-다음 예제는 첫 번째 슬라이드에 Circle 전환을, 두 번째 슬라이드에 Comb 전환을 적용합니다. 최소 두 개의 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
+The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
 
 ```csharp
 using System;
@@ -51,17 +51,64 @@ else
 }
 ```
 
+## **Wheel 전환**
+
+The [Spokes](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/spokes/) property of [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Wheel from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) before accessing [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/) as [IWheelTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/iwheeltransition/).
+
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) and an explicit [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) of 8,000 milliseconds to make the difference easy to observe.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+var slideWidth = presentation.SlideSize.Size.Width;
+var slideHeight = presentation.SlideSize.Size.Height;
+
+var blackSlide = presentation.Slides[0];
+blackSlide.Shapes.Clear();
+blackSlide.Background.Type = BackgroundType.OwnBackground;
+blackSlide.Background.FillFormat.FillType = FillType.Solid;
+blackSlide.Background.FillFormat.SolidFillColor.Color = Color.Black;
+
+var destinationSlide = presentation.Slides.AddClone(blackSlide);
+var rectangle = destinationSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+rectangle.FillFormat.FillType = FillType.Solid;
+rectangle.FillFormat.SolidFillColor.Color = Color.Gold;
+rectangle.TextFrame.Text = "Wheel transition";
+
+presentation.Slides.AddClone(blackSlide);
+presentation.Slides.AddClone(destinationSlide);
+
+var spokeCounts = new uint[] { 1, 8 };
+for (var i = 0; i < spokeCounts.Length; i++)
+{
+    var transition = presentation.Slides[i * 2 + 1].SlideShowTransition;
+    transition.Type = TransitionType.Wheel;
+    var wheelTransition = (IWheelTransition)transition.Value;
+    wheelTransition.Spokes = spokeCounts[i];
+    transition.Speed = TransitionSpeed.Slow;
+    transition.Duration = 8000;
+}
+
+presentation.Save("wheel-transitions.pptx", SaveFormat.Pptx);
+```
+
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
 ## **고급 슬라이드 전환 추가**
 
-슬라이드가 화면에 머무는 시간과 마우스 클릭으로 슬라이드 쇼를 진행할지 여부를 구성할 수 있습니다. 다음 속성이 이 동작을 제어합니다:
+You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:
 
-- [AdvanceOnClick](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/advanceonclick/) 사용자가 마우스를 클릭하여 진행할 수 있도록 합니다.
-- [AdvanceAfter](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/advanceafter/) 자동 진행을 가능하게 합니다.
-- [AdvanceAfterTime](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/advanceaftertime/) 자동 진행 전 지연 시간을 밀리초 단위로 지정합니다.
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) allows the viewer to advance by clicking the mouse.
+- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) enables automatic advancement.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) specifies the delay before automatic advancement, in milliseconds.
 
-클릭과 타이머 기반 진행을 모두 활성화하면 사용자가 클릭으로 진행하거나 타이머가 끝날 때까지 기다릴 수 있습니다. 타이머만 사용하려면 [AdvanceOnClick](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/advanceonclick/)을 `false`로 설정하십시오. 지연 시간은 슬라이드 쇼가 언제 진행되는지를 제어하며, 시각적 전환 효과의 지속 시간을 설정하지는 않습니다.
+Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, set [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) to `false`. The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
 
-다음 예제는 첫 번째 세 슬라이드에 서로 다른 효과를 지정하고 각각 3초, 5초, 7초 후에 자동 진행을 활성화합니다. 마우스 클릭으로도 이러한 슬라이드를 진행할 수 있습니다. 최소 세 개의 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
+This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
 
 ```csharp
 using System;
@@ -99,9 +146,9 @@ else
 }
 ```
 
-타이머 기반 진행이 활성화되었는지 확인하려면 [AdvanceAfter](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/advanceafter/)를 읽으십시오. 저장된 지연 시간만으로는 타이머가 활성 상태임을 의미하지 않습니다.
+To check whether timed advancement is enabled, read [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). A stored delay alone does not indicate that the timer is active.
 
-다음 예제는 위에서 저장한 파일을 열고, 활성화된 타이머를 각각 보고, 2초보다 큰 지연 시간이 있는 슬라이드에 대해 자동 진행을 비활성화합니다. 해당 슬라이드에 대해서는 마우스 클릭을 활성화하고 업데이트된 설정을 저장합니다.
+The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
 
 ```csharp
 using System;
@@ -129,21 +176,21 @@ foreach (var slide in presentation.Slides)
 presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
 ```
 
-## **전환 타이밍을 정확히 제어**
+## **전환 타이밍을 정확하게 제어**
 
-[Duration](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/duration/)을 사용하여 전환 효과의 정확한 길이를 밀리초 단위로 지정합니다. 슬라이드의 [SlideShowTransition](https://reference.aspose.com/slides/ko/net/aspose.slides/ibaseslide/slideshowtransition/) 속성은 [ISlideShowTransition](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/)을 통해 이러한 설정을 노출합니다:
+Use [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) to specify the exact length of a transition effect in milliseconds. The slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
 
-| 속성 | 용도 |
+| 속성 | 목적 |
 | --- | --- |
-| [Duration](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/duration/) | 전환 효과 자체의 지속 시간을 밀리초 단위로 설정합니다. |
-| [AdvanceAfterTime](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | 슬라이드가 자동으로 진행되기 전의 지연 시간을 밀리초 단위로 설정합니다. 이 타이머를 활성화하려면 [AdvanceAfter](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/advanceafter/)를 사용하십시오. |
-| [Speed](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/speed/) | [TransitionSpeed](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionspeed/)에서 사전 정의된 속도 범주(느림, 보통, 빠름) 중 하나를 선택합니다. 정확한 지속 시간이 지정되지 않은 경우에 사용됩니다. |
+| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | 전환 효과 자체의 지속 시간을 밀리초 단위로 설정합니다. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | 슬라이드가 자동으로 전환되기 전의 지연 시간을 밀리초 단위로 설정합니다. 이 타이머를 활성화하려면 [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/)를 사용하십시오. |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) 열거형에서 Slow, Medium, Fast 중 하나를 선택합니다. 정확한 지속 시간이 지정되지 않은 경우 사용됩니다. |
 
-[Duration](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/duration/)은 전환 효과만을 제어하며, 슬라이드가 화면에 머무는 시간을 결정하지는 않습니다. 자동 진행 지연은 별도로 구성하십시오. 명시적인 지속 시간이 설정되지 않은 경우 Aspose.Slides는 전환 유형과 [Speed](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/speed/) 값을 기반으로 효과 지속 시간을 결정합니다.
+[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) value.
 
-### **모든 슬라이드에 동일한 지속 시간 적용**
+### **모든 슬라이드에 동일한 기간 적용**
 
-일관된 템포를 위해 모든 슬라이드에 동일한 효과와 정확한 지속 시간을 적용합니다. 이 예제는 `input.pptx`를 로드하고, [TransitionType](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitiontype/)에서 Fade를 선택한 뒤 각 전환에 750밀리초의 지속 시간을 부여합니다. 자동 진행은 5,000밀리초 후에 별도로 활성화하고 마우스 클릭 진행은 비활성화한 뒤 결과를 PPTX로 저장합니다.
+For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -167,9 +214,9 @@ foreach (var slide in presentation.Slides)
 presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
 ```
 
-### **개별 슬라이드에 다른 지속 시간 설정**
+### **개별 슬라이드에 서로 다른 기간 설정**
 
-다른 슬라이드가 서로 다른 효과 지속 시간을 사용할 수 있습니다. 예를 들어 제목 슬라이드에는 짧은 전환을, 섹션 소개 슬라이드에는 더 긴 전환을 사용할 수 있습니다. 이 예제는 첫 번째 슬라이드에 500밀리초, 두 번째 슬라이드에 1,200밀리초를 설정합니다. 최소 두 개의 슬라이드가 포함된 `input.pptx` 파일을 사용하십시오.
+Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
 
 ```csharp
 using System;
@@ -197,15 +244,15 @@ else
 }
 ```
 
-### **애니메이션 출력과 전환 조정**
+### **애니메이션 출력과 전환 연계**
 
-[animated GIF](/slides/ko/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/ko/net/export-to-html5/) 또는 [video](/slides/ko/net/convert-powerpoint-to-video/)를 준비할 때, 의도된 템포에 맞추기 위해 내보내기 전에 정확한 전환 지속 시간을 설정하십시오. 예를 들어 장면 사이에 600밀리초 페이드를 사용하고, 각 슬라이드의 진행 지연을 별도로 조정하여 내레이션이나 콘텐츠가 재생될 시간을 확보합니다.
+When preparing an [애니메이션 GIF](/slides/ko/net/convert-powerpoint-to-animated-gif/), [HTML5 프레젠테이션](/slides/ko/net/export-to-html5/), or [비디오](/slides/ko/net/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
 
-GIF 및 비디오의 경우 출력 프레임 레이트를 효과 지속 시간과 맞추어야 합니다. 600밀리초는 30fps에서 18프레임에 해당합니다. HTML5에서는 내보내기 설정에서 애니메이션 전환을 활성화하십시오. 선택한 내보내기 형식이 지원하는 효과 및 타이밍 옵션을 확인하고, 동기화를 확인하기 위해 출력을 미리 보기하십시오.
+For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
 
-### **기존 전환 지속 시간 읽기**
+### **기존 전환 기간 읽기**
 
-전환을 수정하기 전에 [Duration](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/duration/)을 읽어 명시적인 값이 저장되어 있는지 확인하십시오. `-1`값은 명시적인 지속 시간이 설정되지 않았음을 의미하고, 0 이상의 값은 밀리초 단위로 저장된 지속 시간을 지정합니다. 설정되지 않은 값은 계산된 재생 지속 시간이 아니며, Aspose.Slides는 전환 유형과 [Speed](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/speed/)를 사용하여 해당 지속 시간을 결정합니다. 전환 유형을 설정하면 지속 시간이 초기화될 수 있으므로 먼저 원래 설정을 검사하십시오.
+Read [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
 
 ```csharp
 using System;
@@ -231,7 +278,9 @@ foreach (var slide in presentation.Slides)
 
 ## **Morph 전환**
 
-Morph 전환은 연속된 슬라이드에 있는 객체 간의 변화를 애니메이션합니다. 간단한 Morph 효과를 만들려면 슬라이드를 복제하고, 복제본에서 객체를 이동하거나 크기를 조정한 뒤 두 번째 슬라이드에 Morph 전환을 적용합니다. 이렇게 하면 전환이 원본 상태와 수정된 상태 사이의 해당 객체를 애니메이션하도록 합니다.
+The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
+
+The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
 
 ```csharp
 using Aspose.Slides;
@@ -258,13 +307,15 @@ presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 
 ## **Morph 전환 유형**
 
-[TransitionMorphType](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionmorphtype/) 열거형은 Morph가 콘텐츠를 일치시키고 애니메이션하는 방식을 제어합니다:
+The [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) enumeration controls how Morph matches and animates content:
 
-- [ByObject](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionmorphtype/) 각 도형을 전체 객체로 취급합니다.
-- [ByWord](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionmorphtype/) 가능한 경우 단어를 일치시켜 텍스트를 애니메이션합니다.
-- [ByChar](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionmorphtype/) 가능한 경우 글자를 일치시켜 텍스트를 애니메이션합니다.
+- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) treats each shape as a whole object.
+- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching words where possible.
+- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching characters where possible.
 
-전환 [Type](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/type/)을 Morph로 설정한 다음 [Value](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/value/)에 접근하십시오. 이 값은 [IMorphTransition](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/imorphtransition/) 인터페이스를 제공하며, 해당 인터페이스의 [MorphType](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/imorphtransition/morphtype/) 속성을 사용해 매칭 모드를 선택합니다.
+Set the transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Morph before accessing its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) interface, whose [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) property selects the matching mode.
+
+This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
 
 ```csharp
 using System;
@@ -295,11 +346,17 @@ else
 }
 ```
 
+<!-- visual-explanation:slide-transition:start -->
+[![Morph 매칭 단위가 전체 도형, 개별 단어 및 개별 문자로 표시됩니다.](visual-slide-transition-76bdbee41cb7.svg)](visual-slide-transition-76bdbee41cb7.svg)
+
+*Morph는 가능한 경우 전체 도형, 단어 또는 문자를 매칭할 수 있습니다. 이 상자들은 움직임이 아닌 매칭 단위를 식별합니다. 예제에서는 두 번째 슬라이드에서 ByWord를 선택했습니다.*
+<!-- visual-explanation:slide-transition:end -->
+
 ## **전환 효과 설정**
 
-일부 전환은 방향이나 효과가 검은 화면에서 시작하는지 여부와 같은 추가 옵션을 제공합니다. 사용 가능한 옵션은 선택된 전환 [Type](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/type/)에 따라 달라집니다. 먼저 유형을 설정하고, 그 다음 [Value](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/value/)에서 적절한 인터페이스를 사용하십시오.
+Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the selected transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Set the type first, then use the appropriate interface from its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
 
-다음 예제는 `input.pptx`의 첫 번째 슬라이드에 Cut 전환을 적용합니다. [IOptionalBlackTransition](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/ioptionalblacktransition/)을 통해 [FromBlack](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/)을 설정하여 전환이 검은 화면에서 시작하도록 합니다.
+The following example applies a Cut transition to the first slide of `input.pptx`. It sets [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) through [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) so that the transition starts from a black screen.
 
 ```csharp
 using System;
@@ -326,16 +383,16 @@ else
 
 **슬라이드 전환의 재생 속도를 제어할 수 있나요?**
 
-예. 밀리초 단위의 정확한 효과 지속 시간이 필요할 경우 [Duration](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/duration/)을 사용하십시오. 사전 정의된 [TransitionSpeed](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionspeed/) 카테고리(느림, 보통, 빠름)만으로 충분하고 명시적인 지속 시간이 설정되지 않은 경우에는 [Speed](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/slideshowtransition/speed/)을 사용하십시오. 이러한 설정은 자동 진행 지연과 별도로 전환 효과를 제어합니다.
+Yes. Prefer [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) when you need an exact effect duration in milliseconds. Use [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
 
-**전환에 오디오를 연결하고 반복 재생할 수 있나요?**
+**전환에 오디오를 첨부하고 반복 재생하도록 할 수 있나요?**
 
-예. [Sound](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/sound/)에 포함된 오디오를 지정하고, [TransitionSoundMode](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitionsoundmode/) 열거형에서 `StartSound`로 [SoundMode](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/soundmode/)를 설정한 뒤 [SoundLoop](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/soundloop/)을 활성화하십시오. 오디오는 슬라이드 쇼에서 다음 사운드 이벤트가 발생할 때까지 반복됩니다.
+Yes. Assign embedded audio to [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), set [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) to StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) enumeration, and enable [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). The audio loops until the next sound event in the slide show.
 
-**모든 슬라이드에 동일한 전환을 가장 빠르게 적용하는 방법은 무엇인가요?**
+**모든 슬라이드에 동일한 전환을 적용하는 가장 빠른 방법은 무엇인가요?**
 
-프레젠테이션의 [Slides](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation/slides/ko/) 컬렉션을 순회하면서 각 슬라이드의 전환 [Type](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/type/)을 동일한 값으로 설정하십시오. 같은 루프에서 타이밍 및 효과 옵션을 설정하면 슬라이드 간 동작을 일관되게 유지할 수 있습니다.
+Loop through the presentation's [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection and set each slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to the same value. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
 
-**슬라이드에 현재 설정된 전환을 어떻게 확인할 수 있나요?**
+**현재 슬라이드에 설정된 전환을 어떻게 확인할 수 있나요?**
 
-슬라이드의 [SlideShowTransition](https://reference.aspose.com/slides/ko/net/aspose.slides/ibaseslide/slideshowtransition/)에서 [Type](https://reference.aspose.com/slides/ko/net/aspose.slides/islideshowtransition/type/) 속성을 읽으십시오. 이 값은 [TransitionType](https://reference.aspose.com/slides/ko/net/aspose.slides.slideshow/transitiontype/) 열거형 중 하나이며, `None`이면 전환 효과가 적용되지 않은 것입니다.
+Read the [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) property from the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). It returns a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration; None means that no transition effect is applied.

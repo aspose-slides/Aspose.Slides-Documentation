@@ -1,34 +1,34 @@
 ---
-title: 使用 Python via Java 在簡報中管理投影片轉場
-linktitle: 投影片轉場
+title: 使用 Python via Java 管理簡報中的投影片過渡
+linktitle: 投影片過渡
 type: docs
 weight: 80
 url: /zh-hant/python-java/slide-transition/
 keywords:
-- 投影片轉場
-- 新增投影片轉場
-- 套用投影片轉場
-- 進階投影片轉場
-- Morph 轉場
-- 轉場類型
-- 轉場效果
+- 投影片過渡
+- 新增投影片過渡
+- 套用投影片過渡
+- 進階投影片過渡
+- Morph 過渡
+- 過渡類型
+- 過渡效果
 - PowerPoint
 - OpenDocument
 - 簡報
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 套用投影片轉場、設定自動投影片前進，並自訂 Morph 及其他轉場效果。"
+description: "使用 Aspose.Slides for Python via Java 套用投影片過渡、設定自動投影片前進，並自訂 Morph 以及其他過渡效果。"
 ---
-## **概觀**
+## **概述**
 
-投影片轉場控制投影片在投影片放映過程中的顯示方式。使用 Aspose.Slides for Python via Java，您可以為每張投影片選擇轉場效果、設定以滑鼠點擊或計時器方式前進，並調整針對特定效果的選項。本文使用 Python 範例說明如何套用轉場、設定精確的轉場持續時間、管理投影片計時，並在兩張投影片之間建立 Morph 轉場。這些範例也展示如何將設定儲存為 PPTX 檔案。
+投影片過渡控制投影片在投影片放映期間的顯示方式。使用 Aspose.Slides for Python via Java，您可以為每張投影片選擇過渡效果、設定滑鼠點擊或計時器的前進方式，並調整特定效果的選項。本文使用 Python 範例套用過渡、設定精確的過渡持續時間、管理投影片計時，並在兩張投影片之間建立 Morph 過渡。範例還說明如何將設定儲存為 PPTX 檔案。
 
-## **新增投影片轉場**
+## **新增投影片過渡**
 
-若要套用轉場，請使用 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別載入簡報，並透過 [getSlideShowTransition](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getSlideShowTransition) 取得投影片的轉場設定。使用來自 [TransitionType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitiontype/) 列舉的值呼叫 [setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setType)，最後儲存簡報。
+要套用過渡，使用[簡報](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)類別載入簡報，並透過[getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition)存取投影片的過渡設定。使用[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType)，傳入[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)列舉中的值，然後儲存簡報。
 
-以下範例對第一張投影片套用 Circle 轉場，對第二張投影片套用 Comb 轉場。請使用至少包含兩張投影片的 `input.pptx` 檔案。
+以下範例將 Circle 過渡套用於第一張投影片，將 Comb 過渡套用於第二張。請使用至少包含兩張投影片的 `input.pptx` 檔案。
 
 ```python
 import jpype
@@ -52,17 +52,69 @@ finally:
     presentation.dispose()
 ```
 
-## **新增進階投影片轉場**
+## **輪形過渡**
 
-您可以設定投影片在螢幕上停留的時間以及是否透過滑鼠點擊推進投影片放映。以下方法可控制此行為：
+使用[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType)從[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)中選取 Wheel。然後呼叫[getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue)以存取[WheelTransition](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/)設定。其[setSpokes](https://reference.aspose.com/slides/python-java/aspose.slides/wheeltransition/#setSpokes)方法控制有多少輻射扇形會顯示目標投影片。
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) 允許觀眾點擊滑鼠前進。
-- [setAdvanceAfter](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 啟用自動前進。
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) 指定自動前進前的延遲時間（毫秒）。
+此範例建立兩組相同的投影片。每組以黑色投影片開始，並以全投影片的金色矩形結束。兩個目標投影片皆使用相同的慢速（透過[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed)設定）以及相同的明確持續時間 8,000 毫秒（透過[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration)設定）。僅改變扇形的數量。
 
-同時啟用點擊與計時前進，讓觀眾可點擊繼續或等待計時器。若僅使用計時器，請將 `False` 傳遞給 [setAdvanceOnClick](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick)。延遲時間決定投影片放映何時前進；它不會設定視覺轉場效果的持續時間。
+```python
+import jpype
+import asposeslides
 
-此範例將不同效果指派給前三張投影片，並分別在 3、5、7 秒後啟用自動前進。也可透過滑鼠點擊前進這些投影片。請使用至少包含三張投影片的 `input.pptx` 檔案。
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, Presentation, SaveFormat, ShapeType, TransitionSpeed, TransitionType
+
+Color = jpype.JClass("java.awt.Color")
+presentation = Presentation()
+try:
+    width = jpype.JFloat(presentation.getSlideSize().getSize().getWidth())
+    height = jpype.JFloat(presentation.getSlideSize().getSize().getHeight())
+
+    slides = presentation.getSlides()
+    black_slide = slides.get_Item(0)
+    black_slide.getShapes().clear()
+    background = black_slide.getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Solid)
+    background.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+    destination_slide = slides.addClone(black_slide)
+    rectangle = destination_slide.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, width, height)
+    rectangle.getFillFormat().setFillType(FillType.Solid)
+    rectangle.getFillFormat().getSolidFillColor().setColor(Color(255, 215, 0))
+    rectangle.getTextFrame().setText("Wheel transition")
+
+    slides.addClone(black_slide)
+    slides.addClone(destination_slide)
+    for slide_index, spokes in ((1, 1), (3, 8)):
+        transition = slides.get_Item(slide_index).getSlideShowTransition()
+        transition.setType(TransitionType.Wheel)
+        wheel_transition = transition.getValue()
+        wheel_transition.setSpokes(spokes)
+        transition.setSpeed(TransitionSpeed.Slow)
+        transition.setDuration(8000)
+
+    presentation.save("wheel-transitions.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+在 PowerPoint 中開啟 `wheel-transitions.pptx`，然後開始投影片放映。從投影片 1 前進至投影片 2，即可看到一次順時針掃描揭示金色矩形。接著從投影片 3 前進至投影片 4，即可看到八個輻射扇形同時揭示相同的矩形。
+
+## **新增進階投影片過渡**
+
+您可以設定投影片在畫面上停留的時間以及是否透過滑鼠點擊前進投影片放映。以下方法可控制此行為：
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) 允許觀眾透過點擊滑鼠前進。
+- [setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 啟用自動前進。
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) 指定自動前進前的延遲時間（以毫秒為單位）。
+
+啟用點擊與計時雙重前進，讓觀眾可點擊前進或等待計時器。若僅使用計時器，請將 `False` 傳遞給[setAdvanceOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceOnClick)。此延遲控制投影片放映何時前進；它不會設定視覺過渡效果的持續時間。
+
+此範例將不同效果指派給前三張投影片，並分別在 3、5、7 秒後啟用自動前進。滑鼠點擊亦可前進這些投影片。請使用至少包含三張投影片的 `input.pptx` 檔案。
 
 ```python
 import jpype
@@ -101,7 +153,7 @@ finally:
     presentation.dispose()
 ```
 
-若要檢查是否已啟用計時前進，請呼叫 [getAdvanceAfter](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter)。僅有儲存的延遲並不表示計時器已啟動。
+若要檢查是否已啟用計時前進，請呼叫[getAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getAdvanceAfter)。僅有儲存的延遲並不表示計時器已啟動。
 
 下一個範例開啟上述已儲存的檔案，報告每個已啟用的計時器，並對延遲超過兩秒的投影片停用自動前進。對這些投影片啟用滑鼠點擊，並儲存更新後的設定。
 
@@ -131,21 +183,25 @@ finally:
     presentation.dispose()
 ```
 
-## **精確控制轉場計時**
+## **精確控制過渡時序**
 
-使用 [setDuration](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setDuration) 可在毫秒級指定轉場效果的精確長度。投影片的 [getSlideShowTransition](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getSlideShowTransition) 方法透過 [SlideShowTransition](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/) 透露這些設定：
+使用[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration)以毫秒為單位指定過渡效果的精確長度。投影片的[getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition)方法透過[SlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/)暴露這些設定：
 
 | 方法 | 目的 |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setDuration) | 設定轉場效果本身的持續時間（毫秒）。 |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | 設定投影片自動前進前的延遲時間（毫秒）。將 `True` 傳給 [setAdvanceAfter](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 以啟用此計時器。 |
-| [setSpeed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setSpeed) | 從 [TransitionSpeed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionspeed/) 中選取預定義的速度類別：Slow、Medium 或 Fast。當未指定精確持續時間時使用此設定。 |
+| [setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) | 設定過渡效果本身的持續時間（以毫秒為單位）。 |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | 設定投影片自動前進前的延遲時間（以毫秒為單位）。傳遞 `True` 給[setAdvanceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setAdvanceAfter)以啟用此計時器。 |
+| [setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed) | 從[TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)選取預定義的速度類別：Slow、Medium 或 Fast。當未指定精確持續時間時使用此設定。 |
 
-[setDuration] 僅控制轉場效果；它不決定投影片的可見時間。請分別設定自動前進的延遲時間。若未設定明確的持續時間，Aspose.Slides 會根據轉場類型與 [getSpeed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getSpeed) 的值計算效果持續時間。
+[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration) 只控制過渡效果；它不會決定投影片的可見時間。請另行設定自動前進的延遲。若未設定明確的持續時間，Aspose.Slides 會根據過渡類型與[getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed)的值來決定效果持續時間。
 
-### **將相同持續時間套用至每張投影片**
+[![分別的條形指示 750 毫秒的過渡持續時間和 5,000 毫秒的自動前進設定.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
 
-為了保持一致的節奏，請將相同的效果與精確持續時間套用至每張投影片。此範例載入 `input.pptx`，從 [TransitionType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitiontype/) 中選取 Fade，並將每個轉場的持續時間設為 750 毫秒。再分別啟用 5,000 毫秒後的自動前進，並停用滑鼠點擊前進，最後將結果儲存為 PPTX。
+*共享範例為每張投影片設定 750 毫秒的淡出過渡，並分別在 5,000 毫秒後啟用自動前進。過渡持續時間控制效果；前進時間控制何時離開投影片。這些條形是示意設定，非實測的合併時間軸。*
+
+### **將相同持續時間套用於每張投影片**
+
+為了保持節奏一致，將相同的效果與精確持續時間套用於每張投影片。此範例載入 `input.pptx`，從[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)選擇 Fade，並將每個過渡的持續時間設定為 750 毫秒。它分別在 5,000 毫秒後啟用自動前進，且停用滑鼠點擊前進，最後將結果儲存為 PPTX。
 
 ```python
 import jpype
@@ -163,7 +219,7 @@ try:
         transition.setType(TransitionType.Fade)
         transition.setDuration(750)
 
-        # 獨立於效果持續時間配置自動前進。
+        # 配置自動前進，與效果持續時間無關。
         transition.setAdvanceAfter(True)
         transition.setAdvanceAfterTime(5000)
         transition.setAdvanceOnClick(False)
@@ -175,7 +231,7 @@ finally:
 
 ### **為個別投影片設定不同持續時間**
 
-不同的投影片可以使用不同的效果持續時間。例如，為標題投影片使用較短的轉場，為章節介紹使用較長的轉場。此範例將第一張投影片設定為 500 毫秒，第二張設定為 1,200 毫秒。請使用至少包含兩張投影片的 `input.pptx` 檔案。
+不同的投影片可以使用不同的效果持續時間。例如，為標題投影片使用較短的過渡，為章節介紹使用較長的過渡。此範例將第一張投影片設定為 500 毫秒，第二張設定為 1,200 毫秒。請使用至少包含兩張投影片的 `input.pptx` 檔案。
 
 ```python
 import jpype
@@ -204,15 +260,15 @@ finally:
     presentation.dispose()
 ```
 
-### **協調轉場與動畫輸出**
+### **將過渡與動畫輸出協調**
 
-在準備 [animated GIF](/slides/zh-hant/python-java/convert-powerpoint-to-animated-gif/)、[HTML5 簡報](/slides/zh-hant/python-java/export-to-html5/) 或 [video](/slides/zh-hant/python-java/convert-powerpoint-to-video/) 時，請在匯出前設定精確的轉場持續時間，以符合預期的節奏。例如，在畫面之間使用 600 毫秒的淡入淡出，並分別調整每張投影片的前進延遲，以留出旁白或內容的時間。
+在準備[動畫 GIF](/slides/zh-hant/python-java/convert-powerpoint-to-animated-gif/)、[HTML5 簡報](/slides/zh-hant/python-java/export-to-html5/)、或[影片](/slides/zh-hant/python-java/convert-powerpoint-to-video/)時，請在匯出前設定精確的過渡持續時間，以符合預期節奏。例如，在場景之間使用 600 毫秒的淡出，並分別調整每張投影片的前進延遲，以留出旁白或內容的時間。
 
-對於 GIF 和 video，請將輸出幀率與效果持續時間協調：600 毫秒相當於 30 fps 時的 18 幀。在 HTML5 中，於匯出設定中啟用動畫轉場。檢查所選匯出格式支援的效果與計時選項，並預覽輸出以確認同步。
+對於 GIF 與影片，請將輸出幀率與效果持續時間協調：600 毫秒相當於 30 幀每秒時的 18 幀。於 HTML5 中，於匯出設定中啟用動畫過渡。檢查所選匯出格式支援的效果與時序選項，並預覽輸出以確認同步。
 
-### **讀取現有轉場持續時間**
+### **讀取現有過渡持續時間**
 
-在修改轉場之前呼叫 [getDuration](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getDuration) 以判斷是否已儲存明確的值。`-1` 表示未設定 explicit 持續時間；非負值則指定以毫秒為單位的儲存持續時間。未設定的值並非計算出的播放持續時間：Aspose.Slides 會根據轉場類型與 [getSpeed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getSpeed) 的值來決定該持續時間。設定轉場類型時可能會初始化持續時間，因此請先檢查原始設定。
+在修改過渡之前，先呼叫[getDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getDuration)以判斷是否已儲存明確的值。`-1` 表示未設定明確的持續時間；非負值則指定以毫秒為單位的儲存持續時間。未設定的值並非計算出的播放持續時間：Aspose.Slides 會根據過渡類型與[getSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getSpeed)的值來決定該持續時間。設定過渡類型可能會初始化持續時間，因此請先檢查原始設定。
 
 ```python
 import jpype
@@ -237,11 +293,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Morph 轉場**
+## **Morph 過渡**
 
-Morph 轉場會在連續投影片之間對物件的變化進行動畫。若要建立簡單的 Morph 效果，請複製一張投影片、在複製品上移動或調整物件大小，並對第二張投影片套用 Morph 轉場。這樣可讓相對應的物件在原始與修改後的狀態之間進行動畫。
+Morph 過渡會在連續投影片之間動畫化物件的變化。要建立簡單的 Morph 效果，先複製投影片，於複製稿上移動或調整物件大小，然後將 Morph 過渡套用於第二張投影片。此方式讓過渡對應的物件在原始與修改後的狀態之間進行動畫。
 
-以下範例建立一張包含文字矩形的投影片，複製該投影片，並在複製品上變更矩形的位置與大小。接著為第二張投影片從 [TransitionType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitiontype/) 列舉中選取 Morph。於支援 Morph 的簡報檢視器中開啟儲存的檔案，即可在投影片放映時看到效果。
+以下範例建立一張含文字矩形的投影片，複製該投影片，並在複製稿上變更矩形的位置與大小。接著於第二張投影片從[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)列舉中選取 Morph。於支援 Morph 的簡報檢視器中開啟已儲存的檔案，即可在投影片放映時看到效果。
 
 ```python
 import jpype
@@ -272,15 +328,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Morph 轉場類型**
+## **Morph 過渡類型**
 
-[TransitionMorphType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionmorphtype/) 列舉控制 Morph 如何匹配與動畫化內容：
+[TransitionMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/) 列舉控制 Morph 如何匹配與動畫化內容：
 
-- [ByObject](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionmorphtype/#ByObject) 將每個形狀視為整體物件。
-- [ByWord](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionmorphtype/#ByWord) 盡可能以匹配單詞的方式動畫化文字。
-- [ByChar](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionmorphtype/#ByChar) 盡可能以匹配字元的方式動畫化文字。
+- [ByObject](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByObject) 將每個形狀視為完整物件。
+- [ByWord](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByWord) 盡可能以單字匹配方式動畫化文字。
+- [ByChar](https://reference.aspose.com/slides/python-java/aspose.slides/transitionmorphtype/#ByChar) 盡可能以字元匹配方式動畫化文字。
 
-在存取 [getValue](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getValue) 之前，使用 [setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setType) 來選取 Morph。此時返回的值是一個 [MorphTransition](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/morphtransition/) 類別的實例，其 [setMorphType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/morphtransition/#setMorphType) 方法用於選擇匹配模式。
+在存取[getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue)之前，使用[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType)選取 Morph。此時返回值為[MorphTransition](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/)類別的實例，其[setMorphType](https://reference.aspose.com/slides/python-java/aspose.slides/morphtransition/#setMorphType)方法可選擇匹配模式。
 
 ```python
 import jpype
@@ -310,11 +366,11 @@ finally:
     presentation.dispose()
 ```
 
-## **設定轉場效果**
+## **設定過渡效果**
 
-某些轉場提供額外選項，例如方向或是否從黑屏開始。可用的選項取決於使用 [setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setType) 所選的轉場。請先設定類型，然後使用 [getValue](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getValue) 回傳的相應類別。
+某些過渡具備額外選項，例如方向或是否從黑色畫面開始。可用的選項取決於使用[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType)所選的過渡。請先設定類型，然後從[getValue](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getValue)取得相應的類別。
 
-以下範例對 `input.pptx` 的第一張投影片套用 Cut 轉場。它透過 [OptionalBlackTransition](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/optionalblacktransition/) 呼叫 [setFromBlack](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/optionalblacktransition/#setFromBlack)，使轉場從黑屏開始。
+以下範例將 Cut 過渡套用於 `input.pptx` 的第一張投影片。它透過[OptionalBlackTransition](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/)呼叫[setFromBlack](https://reference.aspose.com/slides/python-java/aspose.slides/optionalblacktransition/#setFromBlack)，使過渡從黑色畫面開始。
 
 ```python
 import jpype
@@ -341,20 +397,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **常見問題**
 
-**我可以控制投影片轉場的播放速度嗎？**
+**我可以控制投影片過渡的播放速度嗎？**
 
-可以。當您需要以毫秒為單位的精確效果持續時間時，請使用 [setDuration](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setDuration)。若預先定義的 [TransitionSpeed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionspeed/) 類別（Slow、Medium 或 Fast）已足夠且未設定具體持續時間，則使用 [setSpeed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setSpeed)。這些設定會獨立於自動前進延遲，僅控制轉場效果。
+是。當您需要以毫秒為單位的精確效果持續時間時，請使用[setDuration](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setDuration)。當預定義的[TransitionSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/transitionspeed/)類別（Slow、Medium 或 Fast）已足夠且未設定明確持續時間時，請使用[setSpeed](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSpeed)。這些設定會獨立於自動前進延遲，僅控制過渡效果。
 
-**我可以為轉場加入音訊並讓它循環播放嗎？**
+**我可以將音訊附加到過渡並使其循環播放嗎？**
 
-可以。使用 [setSound](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setSound) 指定內嵌音訊，將 [TransitionSoundMode](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitionsoundmode/) 列舉中的 StartSound 傳給 [setSoundMode](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setSoundMode)，並以 `True` 啟用 [setSoundLoop](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setSoundLoop)。音訊會持續循環，直至投影片放映中的下一個音效事件。
+是。可使用[setSound](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSound)指定嵌入式音訊，將[TransitionSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/transitionsoundmode/)列舉中的 StartSound 傳遞給[setSoundMode](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundMode)，並以 `True` 啟用[setSoundLoop](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setSoundLoop)。音訊會持續循環，直到投影片放映中的下一個音效事件為止。
 
-**將相同轉場套用至每張投影片的最快方法是什麼？**
+**將相同過渡套用於每張投影片的最快方法是什麼？**
 
-遍歷簡報的 [getSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlides) 集合，對每張投影片的轉場呼叫相同值的 [setType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#setType)。在同一迴圈中設定所有計時與效果選項，以保持各投影片行為一致。
+遍歷簡報的[getSlides](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getSlides)集合，對每張投影片的過渡呼叫[setType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#setType)並使用相同的值。於同一迴圈中設定任何時序與效果選項，以確保所有投影片的行為一致。
 
-**我如何檢查投影片上目前設定的轉場是什麼？**
+**我如何檢查投影片上目前設定的過渡是什麼？**
 
-對投影片的 [getSlideShowTransition](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getSlideShowTransition) 結果呼叫 [getType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slideshowtransition/#getType)。它會回傳來自 [TransitionType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/transitiontype/) 列舉的值；None_ 表示未套用任何轉場效果。
+對投影片的[getSlideShowTransition](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition)結果呼叫[getType](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowtransition/#getType)。它會返回[TransitionType](https://reference.aspose.com/slides/python-java/aspose.slides/transitiontype/)列舉中的值；None_ 表示未套用任何過渡效果。

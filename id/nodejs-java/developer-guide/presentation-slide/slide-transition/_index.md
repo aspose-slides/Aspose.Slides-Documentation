@@ -6,10 +6,10 @@ weight: 80
 url: /id/nodejs-java/slide-transition/
 keywords:
 - transisi slide
-- menambahkan transisi slide
-- menerapkan transisi slide
+- tambahkan transisi slide
+- terapkan transisi slide
 - transisi slide lanjutan
-- transisi morph
+- transisi Morph
 - tipe transisi
 - efek transisi
 - PowerPoint
@@ -18,15 +18,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Terapkan transisi slide, konfigurasikan kemajuan slide otomatis, dan sesuaikan transisi Morph serta efek transisi lainnya dengan Aspose.Slides untuk Node.js melalui Java."
+description: "Terapkan transisi slide, konfigurasikan pergantian slide otomatis, dan sesuaikan Morph serta efek transisi lainnya dengan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Ikhtisar**
 
-Transisi slide mengontrol cara slide muncul selama pertunjukan slide. Dengan Aspose.Slides untuk Node.js melalui Java, Anda dapat memilih efek transisi untuk setiap slide, mengonfigurasi kemajuan dengan klik mouse atau timer, dan menyesuaikan opsi khusus untuk sebuah efek. Artikel ini menggunakan contoh JavaScript untuk menerapkan transisi, mengatur durasi transisi yang tepat, mengelola waktu slide, dan membuat transisi Morph antara dua slide. Contoh-contoh juga menunjukkan cara menyimpan pengaturan ke file PPTX.
+Transisi slide mengontrol bagaimana slide muncul selama pertunjukan slide. Dengan Aspose.Slides untuk Node.js via Java, Anda dapat memilih efek transisi untuk setiap slide, mengonfigurasi pergantian lewat klik mouse atau timer, dan menyesuaikan opsi khusus untuk sebuah efek. Artikel ini menggunakan contoh JavaScript untuk menerapkan transisi, mengatur durasi transisi yang tepat, mengelola waktu slide, dan membuat transisi Morph antara dua slide. Contoh-contoh juga menunjukkan cara menyimpan pengaturan ke file PPTX.
 
-## **Menambahkan Transisi Slide**
+## **Tambahkan Transisi Slide**
 
-Untuk menerapkan transisi, muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) dan akses pengaturan transisi slide melalui [getSlideShowTransition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Gunakan [setType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setType) dengan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitiontype/), lalu simpan presentasi.
+Untuk menerapkan transisi, muat presentasi dengan kelas [Presentasi](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) dan akses pengaturan transisi slide melalui [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Gunakan [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) dengan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), lalu simpan presentasi.
 
 Contoh berikut menerapkan transisi Circle pada slide pertama dan transisi Comb pada slide kedua. Gunakan file `input.pptx` dengan setidaknya dua slide.
 
@@ -48,17 +48,67 @@ try {
 }
 ```
 
-## **Menambahkan Transisi Slide Lanjutan**
+## **Transisi Roda**
 
-Anda dapat mengonfigurasi berapa lama sebuah slide tetap di layar dan apakah klik mouse melanjutkan pertunjukan slide. Metode berikut mengontrol perilaku ini:
+Metode [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) dari [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) mengontrol jumlah sektor radial yang mengungkap slide tujuan. Atur tipe transisi slide ke Wheel dari [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) menggunakan [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) sebelum mengakses [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) sebagai [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
 
-- [setAdvanceOnClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) memungkinkan penonton melanjutkan dengan mengklik mouse.
-- [setAdvanceAfter](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) mengaktifkan kemajuan otomatis.
-- [setAdvanceAfterTime](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) menentukan penundaan sebelum kemajuan otomatis, dalam milidetik.
+Contoh ini membuat dua pasang slide identik: slide hitam diikuti slide dengan persegi panjang emas. Slide tujuan menggunakan jumlah spoke 1 dan 8, dengan kecepatan yang sama ditetapkan melalui [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) dan durasi eksplisit 8.000 milidetik yang ditetapkan melalui [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) sehingga perbedaannya mudah diamati.
 
-Aktifkan kedua kemajuan klik dan berwaktu agar penonton dapat melanjutkan dengan klik atau menunggu timer. Untuk hanya menggunakan timer, kirim `false` ke [setAdvanceOnClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Penundaan mengatur kapan pertunjukan slide maju; itu tidak mengatur durasi efek transisi visual.
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
 
-Contoh ini menetapkan efek berbeda pada tiga slide pertama dan mengaktifkan kemajuan otomatis setelah 3, 5, dan 7 detik masing‑masing. Klik mouse juga dapat maju slide‑slide ini. Gunakan file `input.pptx` dengan setidaknya tiga slide.
+const presentation = new slides.Presentation();
+try {
+    const slideWidth = presentation.getSlideSize().getSize().getWidth();
+    const slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+    const blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+    blackSlide.getBackground().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(black);
+
+    const destinationSlide = presentation.getSlides().addClone(blackSlide);
+    const rectangle = destinationSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const gold = java.newInstanceSync("java.awt.Color", 255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    const spokeCounts = [1, 8];
+    for (let i = 0; i < spokeCounts.length; i++) {
+        const transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Wheel);
+        const wheelTransition = transition.getValue();
+        wheelTransition.setSpokes(java.newLong(spokeCounts[i]));
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Buka presentasi output di PowerPoint dan jalankan pertunjukan slide. Lanjutkan dari slide 1 ke slide 2, lalu dari slide 3 ke slide 4. Dalam pemutaran PowerPoint, jumlah spoke yang diverifikasi 1 mengungkap slide dengan satu sapuan searah jarum jam; jumlah 8 mengungkapnya melalui delapan sektor radial secara bersamaan. Konten tujuan dan timing transisi identik, sehingga perbedaannya terletak pada jumlah sektor pengungkapan.
+
+## **Tambahkan Transisi Slide Lanjutan**
+
+Anda dapat mengonfigurasi berapa lama slide tetap di layar dan apakah klik mouse melanjutkan pertunjukan slide. Metode berikut mengontrol perilaku ini:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) memungkinkan penonton melanjutkan dengan mengklik mouse.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) mengaktifkan pergantian otomatis.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) menentukan jeda sebelum pergantian otomatis, dalam milidetik.
+
+Aktifkan kedua jenis pergantian klik dan berbasis waktu agar penonton dapat melanjutkan dengan klik atau menunggu timer. Untuk menggunakan hanya timer, berikan `false` ke [setAdvanceOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Jeda mengontrol kapan pertunjukan slide melanjutkan; tidak mengatur durasi efek transisi visual.
+
+Contoh ini menetapkan efek berbeda untuk tiga slide pertama dan mengaktifkan pergantian otomatis setelah 3, 5, dan 7 detik masing‑masing. Klik mouse juga dapat melanjutkan slide‑slide ini. Gunakan file `input.pptx` dengan setidaknya tiga slide.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -93,9 +143,9 @@ try {
 }
 ```
 
-Untuk memeriksa apakah kemajuan berwaktu diaktifkan, panggil [getAdvanceAfter](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Penundaan yang disimpan saja tidak menunjukkan bahwa timer aktif.
+Untuk memeriksa apakah pergantian berbasis waktu diaktifkan, panggil [getAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Penundaan yang disimpan saja tidak menunjukkan bahwa timer aktif.
 
-Contoh berikut membuka file yang disimpan di atas, melaporkan setiap timer yang diaktifkan, dan menonaktifkan kemajuan otomatis untuk slide dengan penundaan lebih dari dua detik. Ia mengaktifkan klik mouse untuk slide‑slide tersebut dan menyimpan pengaturan yang diperbarui.
+Contoh berikut membuka file yang disimpan di atas, melaporkan setiap timer yang diaktifkan, dan menonaktifkan pergantian otomatis untuk slide dengan penundaan lebih dari dua detik. Ia mengaktifkan klik mouse untuk slide tersebut dan menyimpan pengaturan yang diperbarui.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -122,21 +172,27 @@ try {
 }
 ```
 
-## **Mengontrol Waktu Transisi Secara Tepat**
+## **Kontrol Waktu Transisi secara Presisi**
 
-Gunakan [setDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setDuration) untuk menentukan panjang tepat efek transisi dalam milidetik. Metode [getSlideShowTransition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) pada slide mengekspos pengaturan ini melalui [SlideShowTransition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/):
+Gunakan [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) untuk menentukan panjang tepat efek transisi dalam milidetik. Metode [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) slide mengungkapkan pengaturan ini melalui [SlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/):
 
 | Metode | Tujuan |
 | --- | --- |
-| [setDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Mengatur durasi efek transisi itu sendiri, dalam milidetik. |
-| [setAdvanceAfterTime](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Mengatur penundaan sebelum slide maju secara otomatis, dalam milidetik. Kirim `true` ke [setAdvanceAfter](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) untuk mengaktifkan timer ini. |
-| [setSpeed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Memilih kategori kecepatan yang telah ditentukan dari [TransitionSpeed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium, atau Fast. Ini digunakan ketika durasi tepat tidak ditentukan. |
+| [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Menetapkan durasi efek transisi itu sendiri, dalam milidetik. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Menetapkan jeda sebelum slide melanjutkan otomatis, dalam milidetik. Berikan `true` ke [setAdvanceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) untuk mengaktifkan timer ini. |
+| [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Memilih kategori kecepatan yang telah ditentukan dari [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium, atau Fast. Digunakan bila durasi eksak tidak ditentukan. |
 
-[setDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setDuration) mengontrol hanya efek transisi; ia tidak menentukan berapa lama slide tetap terlihat. Konfigurasikan penundaan kemajuan otomatis secara terpisah. Ketika tidak ada durasi eksplisit yang ditetapkan, Aspose.Slides menentukan durasi efek dari jenis transisi dan nilai [getSpeed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+[setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) mengontrol hanya efek transisi; tidak menentukan berapa lama slide tetap terlihat. Konfigurasikan jeda pergantian otomatis secara terpisah. Ketika tidak ada durasi eksplisit yang disetel, Aspose.Slides menentukan durasi efek dari tipe transisi dan nilai [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+
+<!-- visual-explanation:slide-transition:start -->
+[![Separate bars identify the 750-ms transition duration and 5,000-ms automatic advancement setting.](visual-slide-transition-1f705a740cf6.svg)](visual-slide-transition-1f705a740cf6.svg)
+
+*The shared example gives each slide a 750-ms Fade transition and separately enables automatic advancement at 5,000 ms. Transition duration controls the effect; advancement controls when to leave the slide. These bars are schematic settings, not a measured combined timeline.*
+<!-- visual-explanation:slide-transition:end -->
 
 ### **Terapkan Durasi yang Sama pada Setiap Slide**
 
-Untuk ritme yang konsisten, terapkan efek yang sama dan durasi tepat pada setiap slide. Contoh ini memuat `input.pptx`, memilih Fade dari [TransitionType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitiontype/), dan memberi setiap transisi durasi 750 milidetik. Ia secara terpisah mengaktifkan kemajuan otomatis setelah 5.000 milidetik dan menonaktifkan kemajuan melalui klik mouse, lalu menyimpan hasilnya sebagai PPTX.
+Untuk menjaga kecepatan yang konsisten, terapkan efek yang sama dan durasi tepat pada setiap slide. Contoh ini memuat `input.pptx`, memilih Fade dari [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/), dan memberikan setiap transisi durasi 750 milidetik. Ia secara terpisah mengaktifkan pergantian otomatis setelah 5.000 milidetik dan menonaktifkan pergantian dengan klik mouse, lalu menyimpan hasilnya sebagai PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -149,7 +205,7 @@ try {
         transition.setType(slides.TransitionType.Fade);
         transition.setDuration(750);
 
-        // Konfigurasikan kemajuan otomatis secara terpisah dari durasi efek.
+        // Konfigurasikan perpindahan otomatis secara terpisah dari durasi efek.
         transition.setAdvanceAfter(true);
         transition.setAdvanceAfterTime(5000);
         transition.setAdvanceOnClick(false);
@@ -161,7 +217,7 @@ try {
 }
 ```
 
-### **Atur Durasi Berbeda untuk Setiap Slide**
+### **Atur Durasi Berbeda untuk Slide Individual**
 
 Slide yang berbeda dapat menggunakan durasi efek yang berbeda. Misalnya, gunakan transisi singkat untuk slide judul dan transisi lebih lama untuk pengantar bagian. Contoh ini menetapkan 500 milidetik untuk slide pertama dan 1.200 milidetik untuk slide kedua. Gunakan file `input.pptx` dengan setidaknya dua slide.
 
@@ -190,13 +246,13 @@ try {
 
 ### **Koordinasikan Transisi dengan Output Animasi**
 
-Saat menyiapkan sebuah [animated GIF](/slides/id/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/id/nodejs-java/export-to-html5/), atau [video](/slides/id/nodejs-java/convert-powerpoint-to-video/), setel durasi transisi yang tepat sebelum diekspor agar sesuai dengan kecepatan yang diinginkan. Misalnya, gunakan fade 600 milidetik antara adegan, dan sesuaikan penundaan kemajuan tiap slide secara terpisah untuk memberi waktu pada narasi atau kontennya.
+Saat menyiapkan [animated GIF](/slides/id/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/id/nodejs-java/export-to-html5/), atau [video](/slides/id/nodejs-java/convert-powerpoint-to-video/), atur durasi transisi yang tepat sebelum mengekspor agar sesuai dengan kecepatan yang diinginkan. Misalnya, gunakan fade 600 milidetik antar adegan, dan sesuaikan jeda pergantian setiap slide secara terpisah untuk memberi waktu pada narasi atau konten masing‑masing.
 
-Untuk GIF dan video, koordinasikan frame rate output dengan durasi efek: 600 milidetik setara dengan 18 frame pada 30 frame per detik. Pada HTML5, aktifkan transisi animasi di pengaturan ekspor. Periksa efek dan opsi timing yang didukung oleh format ekspor yang dipilih, dan pratinjau output untuk memastikan sinkronisasi.
+Untuk GIF dan video, koordinasikan frame rate output dengan durasi efek: 600 milidetik bersamaan dengan 18 frame pada 30 frame per detik. Pada HTML5, aktifkan transisi animasi dalam pengaturan ekspor. Periksa efek dan opsi waktu yang didukung oleh format ekspor yang dipilih, serta pratinjau output untuk memastikan sinkronisasi.
 
 ### **Baca Durasi Transisi yang Ada**
 
-Panggil [getDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getDuration) sebelum mengubah transisi untuk menentukan apakah nilai eksplisit tersimpan. Nilai `-1` berarti tidak ada durasi eksplisit yang ditetapkan; nilai non‑negatif menentukan durasi yang disimpan dalam milidetik. Nilai yang tidak diset bukan durasi pemutaran yang dihitung: Aspose.Slides menggunakan jenis transisi dan nilai [getSpeed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) untuk menentukan durasi tersebut. Menetapkan jenis transisi dapat menginisialisasi durasi, jadi periksa pengaturan asli terlebih dahulu.
+Panggil [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getDuration) sebelum memodifikasi transisi untuk menentukan apakah nilai eksplisit disimpan. Nilai `-1` berarti tidak ada durasi eksplisit yang disetel; nilai non‑negatif menentukan durasi yang disimpan dalam milidetik. Nilai yang tidak disetel bukan durasi pemutaran yang dihitung: Aspose.Slides menggunakan tipe transisi dan nilai [getSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) untuk menentukan durasi tersebut. Menetapkan tipe transisi dapat menginisialisasi durasi, jadi periksa pengaturan asli terlebih dahulu.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -221,9 +277,9 @@ try {
 
 ## **Transisi Morph**
 
-Transisi Morph menganimasi perubahan antara objek pada slide berurutan. Untuk membuat efek Morph sederhana, kloning sebuah slide, pindahkan atau ubah ukuran sebuah objek pada klon, dan terapkan transisi Morph pada slide kedua. Ini memberikan objek yang sesuai untuk dianimasikan antara keadaan asli dan yang dimodifikasi.
+Transisi Morph menganimasikan perubahan antar objek pada slide berurutan. Untuk membuat efek Morph sederhana, gandakan slide, pindahkan atau ubah ukuran objek pada salinan, dan terapkan transisi Morph pada slide kedua. Ini memberi transisi objek yang bersesuaian untuk dianimasikan antara keadaan asli dan yang dimodifikasi.
 
-Contoh berikut membuat slide dengan persegi panjang teks, mengkloning slide, dan mengubah posisi serta ukuran persegi panjang pada klon. Kemudian ia memilih Morph dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitiontype/) untuk slide kedua. Buka file yang disimpan dalam penampil presentasi yang mendukung Morph untuk melihat efeknya selama pertunjukan slide.
+Contoh berikut membuat slide dengan persegi panjang teks, menggandakan slide, dan mengubah posisi serta ukuran persegi panjang pada salinan. Kemudian ia memilih Morph dari enumerasi [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) untuk slide kedua. Buka file yang disimpan di penampil presentasi yang mendukung Morph untuk melihat efek selama pertunjukan slide.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -251,13 +307,13 @@ try {
 
 ## **Jenis Transisi Morph**
 
-Enumerasi [TransitionMorphType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionmorphtype/) mengontrol bagaimana Morph mencocokkan dan menganimasi konten:
+Enumerasi [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/) mengontrol cara Morph mencocokkan dan menganimasikan konten:
 
-- [ByObject](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) menganggap setiap bentuk sebagai satu objek keseluruhan.
-- [ByWord](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) menganimasi teks dengan mencocokkan kata‑kata bila memungkinkan.
-- [ByChar](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) menganimasi teks dengan mencocokkan karakter bila memungkinkan.
+- [ByObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) memperlakukan setiap bentuk sebagai satu objek keseluruhan.
+- [ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) menganimasikan teks dengan mencocokkan kata‑kata bila memungkinkan.
+- [ByChar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) menganimasikan teks dengan mencocokkan karakter bila memungkinkan.
 
-Gunakan [setType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setType) untuk memilih Morph sebelum mengakses [getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getValue). Nilai tersebut kemudian menyediakan objek [MorphTransition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/morphtransition/), yang metode [setMorphType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/morphtransition/#setMorphType)‑nya memilih mode pencocokan.
+Gunakan [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) untuk memilih Morph sebelum mengakses [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue). Nilai tersebut kemudian memberikan objek [MorphTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/), yang metode [setMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/morphtransition/#setMorphType)‑nya memilih mode pencocokan.
 
 Contoh ini membuka presentasi yang dibuat pada bagian sebelumnya dan mengonfigurasi slide kedua untuk menggunakan animasi Morph berbasis kata.
 
@@ -288,9 +344,9 @@ try {
 
 ## **Atur Efek Transisi**
 
-Beberapa transisi mengungkapkan opsi tambahan, seperti arah atau apakah efek dimulai dari layar hitam. Opsi yang tersedia bergantung pada transisi yang dipilih dengan [setType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setType). Tetapkan jenis terlebih dahulu, kemudian gunakan objek transisi yang sesuai dari [getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+Beberapa transisi membuka opsi tambahan, seperti arah atau apakah efek dimulai dari layar hitam. Opsi yang tersedia bergantung pada transisi yang dipilih dengan [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType). Tetapkan tipe terlebih dahulu, lalu gunakan objek transisi yang tepat dari [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-Contoh berikut menerapkan transisi Cut pada slide pertama `input.pptx`. Ia memanggil [setFromBlack](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) melalui [OptionalBlackTransition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/optionalblacktransition/) sehingga transisi dimulai dari layar hitam.
+Contoh berikut menerapkan transisi Cut pada slide pertama `input.pptx`. Ia memanggil [setFromBlack](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) melalui [OptionalBlackTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/optionalblacktransition/) sehingga transisi dimulai dari layar hitam.
 
 ```javascript
 const java = require("java");
@@ -317,16 +373,16 @@ try {
 
 **Apakah saya dapat mengontrol kecepatan pemutaran transisi slide?**
 
-Ya. Utamakan [setDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setDuration) saat Anda membutuhkan durasi efek yang tepat dalam milidetik. Gunakan [setSpeed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) ketika kategori [TransitionSpeed](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionspeed/) yang telah ditentukan—Slow, Medium, atau Fast—cukup dan tidak ada durasi eksplisit yang disetel. Pengaturan ini mengontrol efek transisi secara terpisah dari penundaan kemajuan otomatis.
+Ya. Pilih [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) ketika Anda memerlukan durasi efek yang tepat dalam milidetik. Gunakan [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) ketika kategori [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) yang telah ditentukan—Slow, Medium, atau Fast—cukup dan tidak ada durasi eksplisit yang disetel. Pengaturan ini mengontrol efek transisi secara terpisah dari jeda pergantian otomatis.
 
-**Apakah saya dapat melampirkan audio ke transisi dan membuatnya berulang?**
+**Apakah saya dapat menambahkan audio ke transisi dan membuatnya berulang?**
 
-Ya. Tetapkan audio tersemat dengan [setSound](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setSound), kirim `StartSound` dari enumerasi [TransitionSoundMode](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitionsoundmode/) ke [setSoundMode](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode), dan aktifkan [setSoundLoop](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) dengan `true`. Audio akan berulang hingga event suara berikutnya dalam pertunjukan slide.
+Ya. Tetapkan audio tersemat dengan [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSound), berikan StartSound dari enumerasi [TransitionSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionsoundmode/) ke [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode), dan aktifkan [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) dengan `true`. Audio akan berulang hingga peristiwa suara berikutnya dalam pertunjukan slide.
 
 **Apa cara tercepat untuk menerapkan transisi yang sama pada setiap slide?**
 
-Iterasi melalui koleksi [getSlides](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getSlides) pada presentasi dan panggil [setType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#setType) dengan nilai yang sama untuk setiap transisi slide. Atur opsi timing dan efek apapun dalam loop yang sama untuk menjaga perilaku konsisten di seluruh slide.
+Iterasikan koleksi [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides) pada presentasi dan panggil [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) dengan nilai yang sama untuk transisi tiap slide. Tetapkan opsi waktu dan efek apa pun dalam loop yang sama agar perilaku tetap konsisten di seluruh slide.
 
 **Bagaimana cara memeriksa transisi apa yang saat ini diterapkan pada sebuah slide?**
 
-Panggil [getType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideshowtransition/#getType) pada hasil [getSlideShowTransition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) slide. Ia mengembalikan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/transitiontype/); `None` berarti tidak ada efek transisi yang diterapkan.
+Panggil [getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getType) pada hasil [getSlideShowTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) slide. Ia mengembalikan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/); None berarti tidak ada efek transisi yang diterapkan.
