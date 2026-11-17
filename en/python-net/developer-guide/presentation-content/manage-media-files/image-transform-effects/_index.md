@@ -130,6 +130,44 @@ with slides.Presentation() as presentation:
 
 [add_color_replace_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_replace_effect/) replaces every pixel's color with one fixed color while preserving alpha. It is different from [add_color_change_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_color_change_effect/), which maps one source color to another and exposes both source and target color formats.
 
+### **Apply a Luminance Threshold**
+
+A luminance threshold can make faint marks on a scanned page easier to distinguish from the background. [add_gray_scale_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_gray_scale_effect/) preserves intermediate shades of gray. [add_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_bi_level_effect/) maps luminance to black or white, while [add_alpha_bi_level_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_alpha_bi_level_effect/) applies a threshold to opacity.
+
+The luminance threshold ranges from 0% to 100%, inclusive. Pixels below the threshold become black. Pixels at or above it become white. Raising the threshold turns more shades black because more of them fall below the cutoff.
+
+Download [grayscale-swatches.png](grayscale-swatches.png) to the working directory. Each label gives the original gray level on a scale from 0 to 255. The example places the original beside two copies and saves each copy's threshold in the presentation.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 150, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    shapes = presentation.slides[0].shapes
+
+    with slides.Images.from_file("grayscale-swatches.png") as source_image:
+        image = presentation.images.add_image(source_image)
+
+    def add_frame(x, caption):
+        label = shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, 12, 216, 36)
+        label.text_frame.text = caption
+        return shapes.add_picture_frame(slides.ShapeType.RECTANGLE, x, 60, 216, 72, image)
+
+    add_frame(12, "Original")
+
+    low_threshold = add_frame(252, "Threshold 20%")
+    low_threshold.picture_format.picture.image_transform.add_bi_level_effect(20)
+    
+    high_threshold = add_frame(492, "Threshold 60%")
+    high_threshold.picture_format.picture.image_transform.add_bi_level_effect(60)
+
+    presentation.save("luminance-threshold.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Open the output presentation in PowerPoint to compare the three frames. The swatch labeled 96 has about 38% luminance (96 out of 255). It turns white at the 20% threshold and black at the 60% threshold.
+
+![Original grayscale swatches beside the black-and-white results at luminance thresholds of 20% and 60%](luminance-threshold.png)
+
 ## **Add Blur, Transparency, and Alpha Effects**
 
 [add_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides.effects/imagetransformoperationcollection/add_blur_effect/) affects all color channels, including alpha. Set `grow` to `True` when the blurred edge may extend beyond the original picture bounds.
