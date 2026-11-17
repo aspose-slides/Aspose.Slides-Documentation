@@ -1,13 +1,13 @@
 ---
 title: Quản lý các ô bảng trong bản trình bày bằng JavaScript
-linktitle: Quản lý ô
+linktitle: Quản lý Ô
 type: docs
 weight: 30
 url: /vi/nodejs-java/manage-cells/
 keywords:
 - ô bảng
 - hợp nhất ô
-- xóa đường viền
+- xóa viền
 - tách ô
 - hình ảnh trong ô
 - màu nền
@@ -16,17 +16,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Quản lý các ô bảng PowerPoint trong JavaScript: xác định các ô đã hợp nhất, xóa đường viền, tách ô, và đặt màu nền cùng hình ảnh bằng Aspose.Slides cho Node.js qua Java."
+description: "Quản lý các ô bảng PowerPoint trong JavaScript: xác định các ô đã hợp nhất, xóa viền, tách ô, và đặt màu nền và hình ảnh bằng Aspose.Slides cho Node.js qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn truy cập và sửa đổi các ô bảng trong bản trình bày PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa đường viền ô, làm việc với việc đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô và chèn hình ảnh vào bên trong ô bảng. Các ví dụ cho thấy cách tạo hoặc mở một bản trình bày, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính ô, và lưu bản trình bày đã sửa đổi dưới dạng tệp PPTX.
+Aspose.Slides cho phép bạn truy cập và chỉnh sửa các ô bảng trong bản trình bày PowerPoint. Bài viết này giải thích cách xác định các ô bảng đã hợp nhất, xóa viền ô, làm việc với đánh số ô sau khi hợp nhất hoặc tách ô, thay đổi màu nền của ô và thêm hình ảnh vào bên trong một ô bảng. Các ví dụ minh họa cách tạo hoặc mở bản trình bày, lấy bảng từ một slide, cập nhật định dạng ô thông qua các thuộc tính của ô, và lưu bản trình chiếu đã sửa dưới dạng tệp PPTX.
 
 Aspose.Slides sử dụng chỉ mục bắt đầu từ 0 để truy cập các ô bảng theo thứ tự `(cột, hàng)`.
 
 ## **Xác định ô bảng đã hợp nhất**
 
-Ví dụ mở một bản trình bày hiện có và truy cập hình dạng đầu tiên trên slide đầu tiên dưới dạng bảng. Nó giả định rằng slide và hình dạng tồn tại và hình dạng là một bảng. Sau đó nó lặp qua tất cả các hàng và cột và sử dụng [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) để xác định các ô trong vùng hợp nhất. Đối với mỗi kết quả phù hợp, nó in tọa độ ô theo thứ tự `hàng;cột`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), và tọa độ bắt đầu của vùng, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) và [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
+Ví dụ mở một bản trình bày hiện có và truy cập hình dạng đầu tiên trên slide đầu tiên dưới dạng bảng. Giả sử slide và hình dạng tồn tại và hình dạng là bảng. Sau đó duyệt qua mọi hàng và cột và sử dụng [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) để xác định các ô trong vùng hợp nhất. Đối với mỗi khớp, nó in tọa độ ô theo thứ tự `hàng;cột`, [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/), [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/), và tọa độ bắt đầu của vùng, [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) và [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -52,9 +52,9 @@ try {
 }
 ```
 
-## **Xóa đường viền ô bảng**
+## **Xóa viền ô bảng**
 
-Tạo một [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) và thêm một bảng vào slide đầu tiên của nó bằng [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Độ rộng cột, chiều cao hàng và vị trí bảng được chỉ định bằng điểm. Ví dụ này đặt tất cả bốn đường viền ô thành [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), khiến chúng không hiển thị.
+Tạo một [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) và thêm bảng vào slide đầu tiên bằng [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/). Độ rộng cột, chiều cao hàng và vị trí bảng được chỉ định bằng điểm. Ví dụ đặt cả bốn viền ô thành [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/), khiến chúng không hiển thị.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -85,11 +85,65 @@ try {
 }
 ```
 
-## **Hợp nhất các ô bảng**
+## **Thêm viền chéo cho ô**
 
-Sử dụng [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) để kết hợp một phạm vi hình chữ nhật các ô bảng thành một ô duy nhất. Xác định các ô ở góc trên‑trái và góc dưới‑phải của phạm vi. Tham số cuối cùng điều khiển việc hợp nhất có cho phép bao gồm các ô bên ngoài phạm vi đã chỉ định hay không; `false` giữ cho hợp nhất chỉ nằm trong phạm vi đó.
+Sử dụng [getBorderDiagonalDown](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderdiagonaldown/) để vẽ một đường từ góc trên‑trái đến góc dưới‑phải, và [getBorderDiagonalUp](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderdiagonalup/) để vẽ một đường từ góc dưới‑trái đến góc trên‑phải. Đường chéo có thể đánh dấu tiêu đề góc; hai đường chéo cùng nhau tạo thành chữ X để đánh dấu ô không áp dụng.
 
-Ví dụ tạo một bảng 4x4 với các cột và hàng có độ rộng 70 điểm, sau đó hợp nhất bốn ô ở giữa từ `(1, 1)` tới `(2, 2)`. Ô kết quả trải rộng qua hai cột và hai hàng, trong khi lưới cơ bản của bảng vẫn giữ bốn cột và bốn hàng. Để truy cập nội dung hoặc định dạng của ô đã hợp nhất, sử dụng vị trí trên‑trái của nó: `table.get_Item(1, 1)` trong ví dụ này. Các vị trí còn lại trong phạm vi hợp nhất vẫn là một phần của lưới bảng, vì vậy các chỉ mục của các ô ngoài phạm vi không thay đổi.
+Mỗi đường chéo là một [LineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/). Trong [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/), dùng [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) để chọn [FillType.Solid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) và chọn màu qua [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/). Đặt độ rộng của đường bằng điểm bằng [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/).
+
+Ví dụ tạo ba ô trong một hàng: một đường chéo xuống màu đỏ, một đường chéo lên màu xanh lam và cả hai đường chéo. Các viền trên, dưới, trái và phải của ô giữ nguyên.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [210, 210, 210]);
+    const rowHeights = java.newArray("double", [160]);
+    const table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    const downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    downwardBorder.setWidth(3);
+
+    const upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    upwardBorder.setWidth(5);
+
+    const crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    crossDownwardBorder.setWidth(3);
+
+    const crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Đường chéo là thuộc tính định dạng, không phải tách ô. Mỗi ô giữ một khung văn bản duy nhất, truy cập qua [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/gettextframe/); các vùng ở hai bên của đường chéo không thể chỉnh sửa độc lập.
+
+Bảng đã lưu, được hiển thị trong Microsoft PowerPoint:
+
+![Ba ô bảng hiển thị một đường chéo đỏ từ trên‑trái đến dưới‑phải, một đường chéo xanh lam từ dưới‑trái đến trên‑phải, và cả hai đường chéo tạo thành chữ X.](diagonal-cell-borders.png)
+
+*Trái sang phải: đường chéo xuống (đỏ, 3 pt), đường chéo lên (xanh lam, 5 pt), và cả hai đường chéo.*
+
+## **Hợp nhất ô bảng**
+
+Sử dụng [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) để kết hợp một vùng hình chữ nhật của các ô thành một ô. Xác định các ô ở góc trên‑trái và góc dưới‑phải của vùng. Đối số cuối cùng điều khiển việc hợp nhất có thể bao gồm các ô ngoài phạm vi đã chỉ định; `false` giữ hợp nhất trong phạm vi đó.
+
+Ví dụ tạo bảng 4×4 với cột và hàng có độ rộng 70 điểm, sau đó hợp nhất bốn ô trung tâm từ `(1, 1)` đến `(2, 2)`. Ô kết quả phủ rộng hai cột và hai hàng, trong khi lưới cơ bản của bảng vẫn giữ bốn cột và bốn hàng. Để truy cập nội dung hoặc định dạng của ô đã hợp nhất, dùng vị trí góc trên‑trái: `table.get_Item(1, 1)` trong ví dụ này. Các vị trí khác trong vùng hợp nhất vẫn là một phần của lưới bảng, vì vậy chỉ số của các ô ngoài vùng không thay đổi.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,13 +165,13 @@ try {
 }
 ```
 
-## **Tách các ô bảng**
+## **Tách ô bảng**
 
-Việc hợp nhất các ô trong ví dụ trước giữ nguyên lưới của bảng. Tách một ô có thể tạo thêm một cột lưới mới và thay đổi chỉ mục cột của các ô nằm bên phải nó. Aspose.Slides tuân theo mô hình lưới bảng của PowerPoint.
+Việc hợp nhất ô trong ví dụ trước giữ nguyên lưới bảng. Tách một ô có thể tạo thêm một cột lưới mới và thay đổi chỉ số cột của các ô nằm bên phải nó. Aspose.Slides tuân theo mô hình lưới bảng của PowerPoint.
 
-Ví dụ này tạo một bảng 4x4 với các cột và hàng có độ rộng 70 điểm và gọi [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) trên ô `(1, 1)`. Một nửa độ rộng 70 điểm của ô được truyền vào để tạo hai ô có độ rộng bằng nhau.
+Ví dụ này tạo bảng 4×4 với cột và hàng có độ rộng 70 điểm và gọi [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) trên ô `(1, 1)`. Một nửa độ rộng 70 điểm của ô được truyền vào để tạo hai ô có độ rộng bằng nhau.
 
-Sau khi tách, hai nửa được truy cập dưới dạng `table.get_Item(1, 1)` và `table.get_Item(2, 1)`. Lưới bảng giờ có năm cột: các ô ban đầu ở cột 2 và 3 di chuyển tới cột 3 và 4 tương ứng. Các chỉ mục hàng không thay đổi. Hãy sử dụng các chỉ mục cột đã cập nhật khi truy cập các ô sau khi tách.
+Sau khi tách, hai nửa được truy cập dưới dạng `table.get_Item(1, 1)` và `table.get_Item(2, 1)`. Lưới bảng hiện có năm cột: các ô ban đầu ở cột 2 và 3 chuyển sang cột 3 và 4 tương ứng. Chỉ số hàng giữ nguyên. Sử dụng các chỉ số cột đã cập nhật khi truy cập ô sau khi tách.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -139,16 +193,22 @@ try {
 }
 ```
 
-### **Tách các ô đã hợp nhất theo độ rộng hàng hoặc cột**
+<!-- visual-explanation:manage-cells:start -->
+[![Một ô 70 điểm chưa hợp nhất tách thành hai ô 35 điểm, thêm một cột lưới thứ năm và dịch các chỉ số sang phải.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-Để chuẩn bị các ô mẫu đã hợp nhất cho việc đưa dữ liệu, sử dụng [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) để tách theo ranh giới hàng hiện có, hoặc [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) để tách theo ranh giới cột.
+*Việc tách độ rộng ảnh hưởng đến ô (1, 1), sử dụng chỉ số bắt đầu từ 0 (cột, hàng). Các hàng khác giữ ô phủ cả hai vị trí cột mới.*
+<!-- visual-explanation:manage-cells:end -->
 
-Tham số `index` đếm số hàng ở phần trên hoặc số cột ở phần trái của phần tách; nó tương đối với vùng đã hợp nhất:
+### **Tách ô đã hợp nhất theo hàng hoặc cột**
+
+Để chuẩn bị các ô mẫu đã hợp nhất cho việc nhập dữ liệu, sử dụng [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) để tách theo ranh giới hàng hiện có, hoặc [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) để tách theo ranh giới cột.
+
+Đối số `index` đếm số hàng ở phần trên hoặc số cột ở phần trái của phép tách; nó tương đối với vùng đã hợp nhất:
 
 - Tách hàng: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
 - Tách cột: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
 
-Ví dụ giả sử bản trình bày có một bảng là hình dạng đầu tiên trên slide đầu tiên, với các ô `(1, 2)` và `(1, 3)` đã hợp nhất theo chiều dọc. Bắt đầu từ vị trí phía dưới, nó sử dụng [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) và [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) để xác định gốc và kiểm tra cả hai phạm vi. `splitByRowSpan(1)` sau đó tách các hàng 2 và 3 cho tên sản phẩm. Đối với một hợp nhất ngang hai cột, thay vào đó sử dụng `splitByColSpan(1)`.
+Ví dụ giả định bản trình bày có một bảng là hình dạng đầu tiên trên slide đầu tiên, với `(1, 2)` và `(1, 3)` hợp nhất theo chiều dọc. Bắt đầu từ vị trí thấp hơn, nó dùng [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) và [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) để xác định nguồn gốc và kiểm tra cả hai phạm vi. `splitByRowSpan(1)` sau đó tách các hàng 2 và 3 cho tên sản phẩm. Đối với hợp nhất ngang hai cột, dùng `splitByColSpan(1)` thay thế.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -185,15 +245,50 @@ try {
 }
 ```
 
-Lưới bảng và các chỉ mục ô xung quanh vẫn không thay đổi. Lấy các ô kết quả theo tọa độ của chúng; ở đây, cả hai ô đều có phạm vi là 1 và [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) trả về `false`. Các vùng lớn hơn có thể vẫn còn phần nào được hợp nhất sau một lần tách.
+Lưới bảng và các chỉ số ô xung quanh không thay đổi. Lấy các ô kết quả theo tọa độ; ở đây, cả hai đều có phạm vi 1 và [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) trả về `false`. Các vùng lớn hơn có thể vẫn còn một phần hợp nhất sau một lần tách.
 
-Văn bản gốc và định dạng của nó vẫn nằm trong ô trên (hoặc trái); ô mới trống nhưng kế thừa định dạng ô như màu nền, đường viền và lề. Hãy điền dữ liệu vào các ô sau khi tách và thiết lập bất kỳ định dạng văn bản nào cần thiết một cách rõ ràng.
+Văn bản gốc và định dạng của nó vẫn ở ô trên (hoặc trái); ô mới rỗng nhưng kế thừa định dạng ô như màu nền, viền và lề. Hãy điền dữ liệu vào các ô sau khi tách và đặt bất kỳ định dạng văn bản cần thiết nào một cách rõ ràng.
 
-Bản trình bày đã lưu sẽ chứa các ô “Product A” và “Product B” riêng biệt với định dạng ô mẫu được giữ nguyên. Xem [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) để biết chi tiết.
+Bản trình bày đã lưu chứa các ô “Product A” và “Product B” riêng biệt với định dạng ô mẫu được giữ nguyên. Xem [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) để biết chi tiết.
 
-## **Thay đổi màu nền của ô bảng**
+### **Tách ô theo chiều cao cụ thể**
 
-Ví dụ này tạo một bảng với các cột 150 điểm và các hàng 50 điểm. Nó sử dụng [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) để chọn màu nền đặc và đặt màu trả về bởi [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) thành màu đỏ cho ô `(2, 3)`, tức là cột thứ ba và hàng thứ tư.
+[splitByHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyheight/) nhận chiều cao của phần trên bằng điểm. [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) nhận số hàng lưới hiện có ở phần trên. Để căn giữa một ô 40 điểm trong cột phải, trừ 40 điểm từ chiều cao thực tế của ô và chia phần còn lại đều lên trên và dưới ô.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [160, 160]);
+    const rowHeights = java.newArray("double", [140]);
+
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    const height = table.get_Item(1, 0).getHeight();
+    const margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Lần tách đầu tiên thêm một hàng lưới và để lại 90 điểm ở ô `(1, 1)`. Lần tách thứ hai chia ô đó thành một ô giữa 40 điểm và một ô dưới 50 điểm. Cột phải hiện có ba ô với chiều cao lần lượt là 50, 40 và 50 điểm từ trên xuống dưới. Ô trái phủ ba hàng và giữ nguyên chiều cao gốc 140 điểm.
+
+![Ô trái phủ toàn bộ chiều cao bảng bên cạnh ba ô có “Middle” ở giữa.](split-by-height.png)
+
+## **Thay đổi màu nền ô bảng**
+
+Ví dụ này tạo bảng với cột 150 điểm và hàng 50 điểm. Nó sử dụng [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) để chọn tô đầy đặc và đặt màu trả về bởi [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) thành màu đỏ cho ô `(2, 3)`, nằm ở cột thứ ba và hàng thứ tư.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -217,11 +312,11 @@ try {
 }
 ```
 
-## **Thêm hình ảnh vào bên trong một ô bảng**
+## **Thêm hình ảnh vào bên trong ô bảng**
 
-Đặt hình ảnh đầu vào vào thư mục làm việc trước khi chạy ví dụ này. Nó tải hình ảnh bằng [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) và thêm nó vào bộ sưu tập hình ảnh của bản trình bày bằng [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). Sau đó nó gán hình ảnh cho phần fill dạng ảnh của ô `(0, 0)`, ô đầu tiên trong bảng.
+Đặt hình ảnh đầu vào trong thư mục làm việc trước khi chạy ví dụ này. Nó tải hình ảnh bằng [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) và thêm nó vào bộ sưu tập hình ảnh của bản trình bày bằng [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/). Sau đó gán hình ảnh cho nền picture fill của ô `(0, 0)`, ô đầu tiên trong bảng.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) kéo dài hình ảnh để lấp đầy ô, có thể làm thay đổi tỷ lệ khung hình. Độ rộng cột và chiều cao hàng được tính bằng điểm. Hình ảnh đã tải sẽ được giải phóng trong khối `finally` sau khi đã được thêm vào bản trình bày.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) kéo dài hình ảnh để lấp đầy ô, có thể thay đổi tỷ lệ khung hình. Độ rộng cột và chiều cao hàng tính bằng điểm. Hình ảnh đã tải sẽ được giải phóng trong khối `finally` sau khi được thêm vào bản trình bày.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -255,18 +350,18 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt độ dày và kiểu đường viền khác nhau cho từng phía của một ô duy nhất không?**
+**Tôi có thể đặt độ dày và kiểu đường viền khác nhau cho các phía của một ô duy nhất không?**
 
-Có. Các đường viền [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) có thuộc tính riêng, vì vậy độ dày và kiểu của mỗi phía có thể khác nhau.
+Có. Các viền [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) có các thuộc tính riêng, vì vậy độ dày và kiểu của mỗi phía có thể khác nhau.
 
-**Điều gì sẽ xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đặt ảnh làm nền cho ô?**
+**Điều gì xảy ra với hình ảnh nếu tôi thay đổi kích thước cột/hàng sau khi đã đặt picture làm nền cho ô?**
 
-Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Khi kéo dài, hình ảnh sẽ điều chỉnh theo ô mới; khi xếp lát, các ô ảnh sẽ được tính lại.
+Hành vi phụ thuộc vào [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile). Khi kéo dài, hình ảnh sẽ điều chỉnh theo ô mới; khi gạch lát, các ô sẽ được tính lại.
 
 **Tôi có thể gán siêu liên kết cho toàn bộ nội dung của một ô không?**
 
-[Hyperlinks](/slides/vi/nodejs-java/manage-hyperlinks/) được đặt ở mức văn bản (phần) bên trong khung văn bản của ô hoặc ở mức toàn bộ bảng/hình dạng. Trong thực tế, bạn gán liên kết cho một phần hoặc cho toàn bộ văn bản trong ô.
+[Hyperlinks](/slides/vi/nodejs-java/manage-hyperlinks/) được đặt ở mức văn bản (phần) bên trong khung văn bản của ô hoặc ở mức toàn bộ bảng/hình dạng. Thực tế, bạn gán liên kết cho một phần hoặc cho toàn bộ văn bản trong ô.
 
-**Tôi có thể đặt các phông chữ khác nhau trong cùng một ô không?**
+**Tôi có thể đặt phông chữ khác nhau trong cùng một ô không?**
 
-Có. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (run) với định dạng độc lập — họa tiết phông, kiểu, kích thước và màu.
+Có. Khung văn bản của ô hỗ trợ [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (run) với định dạng độc lập—gia đình phông, kiểu, kích thước và màu.

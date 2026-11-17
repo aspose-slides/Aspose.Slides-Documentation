@@ -1,5 +1,5 @@
 ---
-title: إدارة خلايا الجداول في العروض التقديمية باستخدام Java
+title: إدارة خلايا الجدول في العروض التقديمية باستخدام Java
 linktitle: إدارة الخلايا
 type: docs
 weight: 30
@@ -15,17 +15,17 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "إدارة خلايا جداول PowerPoint في Java: تحديد الخلايا المدمجة، إزالة الحدود، تقسيم الخلايا، وتعيين ألوان الخلفية والصور باستخدام Aspose.Slides for Java."
+description: "إدارة خلايا جداول PowerPoint في Java: تحديد الخلايا المدمجة، إزالة الحدود، تقسيم الخلايا، وتعيين ألوان الخلفية والصور باستخدام Aspose.Slides لـ Java."
 ---
 ## **نظرة عامة**
 
-تتيح لك Aspose.Slides الوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint التقديمية. توضح هذه المقالة كيفية تحديد خلايا الجدول المدمجة، وإزالة حدود الخلية، والعمل مع ترقيم الخلايا بعد الدمج أو الفصل، وتغيير لون خلفية الخلية، وإضافة صورة داخل خلية جدول. تُظهر الأمثلة كيفية إنشاء عرض تقديمي أو فتحه، والحصول على جدول من شريحة، وتحديث تنسيق الخلية من خلال خصائص الخلية، وحفظ العرض التقديمي المعدل كملف PPTX.
+Aspose.Slides يتيح لك الوصول إلى خلايا الجداول وتعديلها في عروض PowerPoint. يوضح هذا المقال كيفية التعرف على خلايا الجداول المدمجة، إزالة حدود الخلايا، التعامل مع ترقيم الخلايا بعد الدمج أو الانقسام، تغيير لون خلفية الخلية، وإضافة صورة داخل خلية جدول. تُظهر الأمثلة كيفية إنشاء أو فتح عرض تقديمي، الحصول على جدول من شريحة، تحديث تنسيق الخلية عبر خصائص الخلية، وحفظ العرض المعدل كملف PPTX.
 
-تستخدم Aspose.Slides فهارس تبدأ من الصفر للوصول إلى خلايا الجدول بالترتيب `(column, row)`.
+Aspose.Slides يستخدم فهارس تبدأ من الصفر للوصول إلى خلايا الجداول بالترتيب `(العمود, الصف)`.
 
 ## **تحديد خلية جدول مدمجة**
 
-يفتح المثال عرض تقديمي موجودًا ويصل إلى الشكل الأول في الشريحة الأولى باعتبارها جدولًا. يفترض أن الشريحة والشكل موجودان وأن الشكل هو جدول. ثم يتجول عبر جميع الصفوف والأعمدة ويستخدم [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) لتحديد الخلايا في المناطق المدمجة. لكل مطابقة، يطبع إحداثيات الخلية بترتيب `row;column`، [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--)، [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--)، وإحداثيات بداية المنطقة، [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) و [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
+يفتح المثال عرضًا تقديميًا موجودًا ويصل إلى الشكل الأول في الشريحة الأولى كجدول. يفترض أن الشريحة والشكل موجودان وأن الشكل جدول. ثم يتكرر عبر جميع الصفوف والأعمدة ويستخدم [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) لتحديد الخلايا في المناطق المدمجة. لكل مطابقة، يطبع إحداثيات الخلية بترتيب `row;column`، [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--)، [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--)، وإحداثيات بداية المنطقة، [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) و[getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
 import com.aspose.slides.*;
@@ -53,9 +53,9 @@ try {
 }
 ```
 
-## **إزالة حدود خلية الجدول**
+## **إزالة حدود خلايا الجدول**
 
-أنشئ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) وأضف جدولًا إلى شريحته الأولى باستخدام [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). يتم تحديد عرض الأعمدة وارتفاع الصفوف وموقع الجدول بالنقاط. يحدد المثال جميع حدود الخلية الأربعة إلى [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/)، مما يجعلها غير مرئية.
+إنشاء [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) وإضافة جدول إلى شريحته الأولى باستخدام [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). يتم تحديد عرض الأعمدة، ارتفاع الصفوف، وموقع الجدول بالنقاط. يضبط المثال جميع الحدود الأربعة للخلية إلى [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/)، مما يجعلها غير مرئية.
 
 ```java
 import com.aspose.slides.*;
@@ -83,11 +83,65 @@ try {
 }
 ```
 
+## **إضافة حدود قطرية للخلية**
+
+استخدم [getBorderDiagonalDown](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalDown--) لرسم خط من الزاوية العليا اليسرى إلى الزاوية السفلى اليمنى، و[getBorderDiagonalUp](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalUp--) لرسم خط من الزاوية السفلى اليسرى إلى الزاوية العليا اليمنى. يمكن أن يشير القطر إلى عنوان زاوية؛ كلا القطرين يمكن أن يشكلا حرف X لتحديد أن الخلية غير قابلة للتطبيق.
+
+كل قطر هو [ILineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/). في [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) الخاص به، استخدم [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) لاختيار [FillType.Solid](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) واختر لونًا عبر [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--). اضبط عرض الخط بالنقاط باستخدام [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-).
+
+يخلق المثال ثلاث خلايا في صف واحد: قطري سفلي أحمر، قطري علوي أزرق، وكلا القطرين. يترك حدود الخلية العلوية، السفلية، اليسرى، واليمنى دون تغيير.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+القطر هو خاصية تنسيق، ليس تقسيمًا للخلية. كل خلية تحتفظ بإطار نص واحد، يتم الوصول إليه عبر [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--); لا يمكن تحرير المناطق على جانبي القطر بشكل مستقل.
+
+الجدول المحفوظ، المعروض في Microsoft PowerPoint:
+
+![ثلاث خلايا جدول تظهر قطريًا أحمر من أعلى اليسار إلى أسفل اليمين، قطريًا أزرق من أسفل اليسار إلى أعلى اليمين، وكلا القطرين يشكلان X.](diagonal-cell-borders.png)
+
+*من اليسار إلى اليمين: قطري سفلي (أحمر، 3 نقطة)، قطري علوي (أزرق، 5 نقاط)، وكلا القطرين.*
+
 ## **دمج خلايا الجدول**
 
-استخدم [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) لدمج نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاوية العليا اليسرى والزاوية السفلى اليمنى للنطاق. يتحكم الوسيط الأخير فيما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `false` يبقي الدمج داخل ذلك النطاق.
+استخدم [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) لجمع نطاق مستطيل من خلايا الجدول في خلية واحدة. حدد الخلايا في الزاوية العليا اليسرى والزاوية السفلى اليمنى للنطاق. التحكم النهائي يحدد ما إذا كان الدمج قد يشمل خلايا خارج النطاق المحدد؛ `false` يحافظ على الدمج داخل ذلك النطاق.
 
-يُنشئ المثال جدولًا 4×4 بأعمدة وصفوف 70 نقطة، ثم يدمج الأربع خلايا المركزية من `(1, 1)` إلى `(2, 2)`. الخلية الناتجة تمتد على عمودين وصفين، بينما يبقى شبكة الجدول الأساسية بأربع أعمدة ورباع صفوف. للوصول إلى محتوى أو تنسيق الخلية المدمجة، استخدم موقعها العلوي الأيسر: `table.get_Item(1, 1)` في هذا المثال. المواقع الأخرى في النطاق المدمج تظل جزءًا من شبكة الجدول، لذلك لا تتغير فهارس الخلايا خارج النطاق.
+ينشئ المثال جدولًا 4×4 بأعمدة وصفوف بارتفاع 70 نقطة، ثم يدمج الأربع خلايا المركزية من `(1, 1)` إلى `(2, 2)`. الخلية الناتجة تمتد عبر عمودين وصفين، بينما يظل شبكة الجدول الأساسية بأربعة أعمدة وأربعة صفوف. للوصول إلى محتوى أو تنسيق الخلية المدمجة، استخدم موضعها الأعلى الأيسر: `table.get_Item(1, 1)` في هذا المثال. تبقى المواقع الأخرى في النطاق المدمج جزءًا من شبكة الجدول، وبالتالي لا تتغير فهارس الخلايا خارج النطاق.
 
 ```java
 import com.aspose.slides.*;
@@ -110,11 +164,11 @@ try {
 
 ## **تقسيم خلايا الجدول**
 
-يحافظ دمج الخلايا في المثال السابق على شبكة الجدول. قد يؤدي تقسيم خلية إلى إدخال عمود شبكة جديد وتغيير فهارس الأعمدة للخلايا التي على يمينها. تتبع Aspose.Slides نموذج شبكة جداول PowerPoint.
+يحافظ دمج الخلايا في المثال السابق على شبكة الجدول. يمكن أن يؤدي تقسيم خلية إلى إضافة عمود شبكة جديد وتغيير فهارس الأعمدة للخلايا التي على يمينها. تتبع Aspose.Slides نموذج شبكة جدول PowerPoint.
 
-ينشئ هذا المثال جدولًا 4×4 بأعمدة وصفوف 70 نقطة ويستدعي [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) على الخلية `(1, 1)`. يتم تمرير نصف عرض الخلية البالغ 70 نقطة لإنشاء خليتين ذات عرض متساوٍ.
+يخلق هذا المثال جدولًا 4×4 بأعمدة وصفوف بارتفاع 70 نقطة ويستدعي [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) على الخلية `(1, 1)`. يُمرَّر نصف عرض الخلية البالغ 70 نقطة لإنشاء خليتين بعرض متساوٍ.
 
-بعد هذا التقسيم، يتم الوصول إلى النصفين عبر `table.get_Item(1, 1)` و `table.get_Item(2, 1)`. أصبحت شبكة الجدول الآن تحتوي على خمسة أعمدة: الخلايا التي كانت في الأعمدة 2 و 3 تنتقل إلى الأعمدة 3 و 4 على التوالي. تبقى فهارس الصفوف دون تغيير. استخدم فهارس الأعمدة المحدّثة عند الوصول إلى الخلايا بعد التقسيم.
+بعد هذا التقسيم، يتم الوصول إلى النصفين كـ `table.get_Item(1, 1)` و`table.get_Item(2, 1)`. أصبحت شبكة الجدول الآن تحتوي على خمسة أعمدة: الخلايا الأصلية في العمودين 2 و3 تنتقل إلى الأعمدة 3 و4 على التوالي. تبقى فهارس الصفوف دون تغيير. استخدم هذه الفهارس المحدثة عند الوصول إلى الخلايا بعد التقسيم.
 
 ```java
 import com.aspose.slides.*;
@@ -135,16 +189,22 @@ try {
 }
 ```
 
-### **تقسيم الخلايا المدمجة حسب صف أو عمود**
+<!-- visual-explanation:manage-cells:start -->
+[![خلية واحدة بعرض 70 نقطة تنقسم إلى خليتين بعرض 35 نقطة، مما يضيف عمود شبكة خامس ويُحرك الفهارس إلى اليمين.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-لتحضير خلايا القالب المدمجة لتعبئة البيانات، استخدم [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) للتقسيم على طول حد صف موجود، أو استخدم [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) للتقسيم على طول حد عمود.
+*تقسيم العرض يؤثر على الخلية (1, 1)، باستخدام فهارس صفرية (العمود، الصف). الصفوف الأخرى تحتفظ بخلية تمتد عبر موضع العمودين الجديدين.*
+<!-- visual-explanation:manage-cells:end -->
 
-المعامل `index` يحسب الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهو نسبي للمنطقة المدمجة:
+### **تقسيم خلايا مدمجة حسب امتداد الصف أو العمود**
 
-- تقسيم الصف: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
-- تقسيم العمود: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+لتحضير خلايا القالب المدمجة لتعبئة البيانات، استخدم [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) للتقسيم على حدود صف موجود، أو [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) للتقسيم على حد عمود.
 
-يتوقع المثال وجود عرض تقديمي يحتوي على جدول كأول شكل في أول شريحة، مع دمج رأسي للخلية `(1, 2)` و `(1, 3)`. بدءًا من الموضع السفلي، يستخدم [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) و [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) لتحديد الأصل ويفحص كلا الامتدادين. ثم يفقم `splitByRowSpan(1)` لفصل الصفين 2 و 3 لأسماء المنتجات. بالنسبة لدمج أفقي على عمودين، استخدم `splitByColSpan(1)` بدلاً من ذلك.
+معامل `index` يعد الصفوف في الجزء العلوي أو الأعمدة في الجزء الأيسر من التقسيم؛ وهو نسبي للمنطقة المدمجة:
+
+- تقسيم صف: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- تقسيم عمود: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+
+يفترض المثال وجود عرض تقديمي يحتوي على جدول كأول شكل في أول شريحة، مع دمج رأسي بين `(1, 2)` و`(1, 3)`. بدءًا من الموضع السفلي، يستخدم [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) و[getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) لتحديد الأصل ويتحقق من كلا الامتدادين. ثم `splitByRowSpan(1)` يفصل الصفين 2 و3 لأسماء المنتجات. للدمج الأفقي لعمودين، استخدم `splitByColSpan(1)` بدلاً من ذلك.
 
 ```java
 import com.aspose.slides.*;
@@ -163,7 +223,7 @@ try {
     {
         mergedCell.splitByRowSpan(1);
 
-        // استرجاع الخلايا الناتجة من الجدول بعد التقسيم.
+        // استرجع الخلايا الناتجة من الجدول بعد التقسيم.
         ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         System.out.println("Upper cell merged: " + upperCell.isMergedCell());
@@ -183,15 +243,49 @@ try {
 }
 ```
 
-تبقى شبكة الجدول وفهارس الخلايا المحيطة دون تغيير. استرجع الخلايا الناتجة بإحداثياتها؛ هنا، كلاهما يمتد إلى 1 وتطبع [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) القيمة `false`. يمكن أن تبقى المناطق الأكبر مدمجة جزئيًا بعد تقسيم واحد.
+تظل شبكة الجدول وفهارس الخلايا المحيطة دون تغيير. استرجع الخلايا الناتجة حسب إحداثياتها؛ هنا، كلاهما يمتدان إلى 1 وتطبع [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) `false`. يمكن أن تظل المناطق الأكبر مدمجة جزئيًا بعد تقسم واحد.
 
-النص الأصلي وتنسيقه يبقى في الخلية العليا (أو اليسرى)؛ الخلية الجديدة فارغة لكنها ترث تنسيق الخلية مثل التعبئة والحدود والهامش. املأ الخلايا بعد التقسيم وحدد أي تنسيق نص مطلوب صراحةً.
+يبقى النص الأصلي وتنسيقه في الخلية العليا (أو اليسرى)؛ الخلية الجديدة فارغة لكنها ترث تنسيق الخلية مثل التعبئة، الحدود، والهوامش. ملء الخلايا بعد التقسيم وضبط أي تنسيق نص مطلوب صراحةً.
 
-العرض التقديمي المحفوظ يحتوي على خلايا "Product A" و "Product B" منفصلة مع الحفاظ على تنسيق خلية القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) للمزيد من التفاصيل.
+العرض التقديمي المحفوظ يحتوي على خلايا منفصلة "Product A" و"Product B" مع الحفاظ على تنسيق خلية القالب. راجع [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) للمزيد من التفاصيل.
+
+### **تقسيم خلية بارتفاع محدد**
+
+[splitByHeight](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByHeight-double-) يأخذ ارتفاع الجزء العلوي بالنقاط. [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) يأخذ عدد الصفوف الموجودة في الجزء العلوي. لتوسيط خلية بارتفاع 40 نقطة في العمود الأيمن، اطرح 40 من ارتفاع الخلية الفعلي وقسِّم المساحة المتبقية بالتساوي فوقها وتحتها.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+    
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+الإضافة الأولى تُضيف صف شبكة وتترك 90 نقطة سفلية في الخلية `(1, 1)`. الإضافة الثانية تقسم تلك الخلية إلى خلية وسطى بارتفاع 40 نقطة وخلية سفلية بارتفاع 50 نقطة. الآن يحتوي العمود الأيمن على ثلاث خلايا بارتفاعات 50، 40، و50 نقطة من الأعلى إلى الأسفل. الخلية اليسرى تمتد عبر جميع الصفوف الثلاث وتحتفظ بارتفاعها الأصلي 140 نقطة.
+
+![الخلية اليسرى تمتد على كامل ارتفاع الجدول بجوار ثلاث خلايا مع "Middle" في المركز.](split-by-height.png)
 
 ## **تغيير لون خلفية خلية الجدول**
 
-ينشئ هذا المثال جدولًا بأعمدة 150 نقطة وصفوف 50 نقطة. يستخدم [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) لاختيار تعبئة صلبة ويضبط اللون الذي تُعيده [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) إلى الأحمر للخلية `(2, 3)`, في العمود الثالث والصف الرابع.
+ينشئ هذا المثال جدولًا بأعمدة 150 نقطة وصفوف 50 نقطة. يستخدم [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) لاختيار تعبئة صلبة ويضبط اللون الذي تُعيده [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) إلى الأحمر للخلية `(2, 3)`, أي العمود الثالث والصف الرابع.
 
 ```java
 import com.aspose.slides.*;
@@ -217,9 +311,9 @@ try {
 
 ## **إضافة صورة داخل خلية جدول**
 
-ضع الصورة المدخلة في دليل العمل قبل تشغيل هذا المثال. يتم تحميل الصورة باستخدام [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) وإضافتها إلى مجموعة صور العرض التقديمي باستخدام [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). ثم يُعيّن الصورة إلى تعبئة الصورة للخلية `(0, 0)`, أول خلية في الجدول.
+ضع الصورة المدخلة في الدليل العامل قبل تشغيل هذا المثال. يتم تحميل الصورة عبر [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) وتضاف إلى مجموعة صور العرض عبر [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). ثم يتم تعيين الصورة إلى تعبئة الصورة للخلية `(0, 0)`, الخلية الأولى في الجدول.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) يمد الصورة لملء الخلية، مما قد يغير نسبة أبعادها. عرض الأعمدة وارتفاع الصفوف بالنقاط. يتم تحرير الصورة المحملة في كتلة `finally` بعد إضافتها إلى العرض التقديمي.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) يمد الصورة لملء الخلية، ما قد يغيّر نسبة أبعادها. عرض الأعمدة وارتفاع الصفوف بالنقاط. يتم التخلص من الصورة المحملة في كتلة `finally` بعد إضافتها إلى العرض.
 
 ```java
 import com.aspose.slides.*;
@@ -250,20 +344,20 @@ try {
 }
 ```
 
-## **الأسئلة المتداولة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تعيين سماكات خطوط وأنماط مختلفة لجوانب مختلفة من خلية واحدة؟**
+**هل يمكنني تعيين سماكات وأنماط خطوط مختلفة لأوجه مختلفة من نفس الخلية؟**
 
-نعم. حدود [العلوي](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[السفلي](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[اليساري](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[اليمني](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) لها خصائص منفصلة، لذا يمكن أن تختلف سماكة كل جانب ونمطه.
+نعم. حدود [الأعلى](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[السفلى](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[اليسرى](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[اليمنى](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) لها خصائص منفصلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب.
 
 **ماذا يحدث للصورة إذا غيرت حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
 
-السلوك يعتمد على [وضع التعبئة](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (تمدد/تلبيس). مع التمدد، تتكيف الصورة مع الخلية الجديدة؛ مع التلبيس، تُعاد حساب البلاط.
+السلوك يعتمد على [وضع التعبئة](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (تمدد/بلاط). مع التمدد، تعدل الصورة لتتناسب مع الخلية الجديدة؛ ومع البلاط، يتم إعادة حساب البلاط.
 
-**هل يمكنني تعيين ارتباط تشعبي لجميع محتوى الخلية؟**
+**هل يمكنني ربط تمامًا كل محتوى الخلية برابط تشعبي؟**
 
-[الروابط التشعبية](/slides/ar/java/manage-hyperlinks/) تُحدد على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بالكامل. عمليًا، تعيين الرابط إلى جزء أو إلى كل النص في الخلية.
+[الروابط التشعبية](/slides/ar/java/manage-hyperlinks/) تُحدد على مستوى النص (الجزء) داخل إطار نص الخلية أو على مستوى الجدول/الشكل بأكمله. عمليًا، يمكنك ربط الجزء أو كل النص داخل الخلية.
 
 **هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
 
-نعم. يدعم إطار نص الخلية [الأجزاء](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (المقاطع) مع تنسيق مستقل — عائلة الخط، النمط، الحجم، واللون.
+نعم. إطار نص الخلية يدعم [الأجزاء](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (القطع) مع تنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.

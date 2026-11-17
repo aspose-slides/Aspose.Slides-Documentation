@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Tablo Hücrelerini Yönetme (.NET)
+title: PowerPoint Sunumlarında Tablo Hücrelerini .NET'te Yönetme
 linktitle: Hücreleri Yönet
 type: docs
 weight: 30
@@ -7,7 +7,7 @@ url: /tr/net/manage-cells/
 keywords:
 - tablo hücresi
 - hücre birleştirme
-- kenar kaldırma
+- kenarlık kaldırma
 - hücre bölme
 - hücrede resim
 - arka plan rengi
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# ile PowerPoint tablo hücrelerini yönetin: birleştirilmiş hücreleri tanımlayın, kenarları kaldırın, hücreleri bölün ve .NET için Aspose.Slides ile arka plan renklerini ve resimleri ayarlayın."
+description: "C# ile PowerPoint tablo hücrelerini yönetin: birleştirilmiş hücreleri tanımlayın, kenarlıkları kaldırın, hücreleri bölün ve .NET için Aspose.Slides ile arka plan renklerini ve resimleri ayarlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarındaki tablo hücrelerine erişmenizi ve bu hücreleri değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, hücreleri birleştirdikten veya ayırdıktan sonra hücre numaralandırmasıyla nasıl çalışacağınızı, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine nasıl resim ekleyeceğinizi açıklar. Örnekler, bir sunumu nasıl oluşturup açacağınızı, bir slayttan tablo almayı, hücre özellikleri aracılığıyla hücre biçimlendirmesini güncellemeyi ve değiştirilen sunumu PPTX dosyası olarak kaydetmeyi gösterir.
+Aspose.Slides, PowerPoint sunumlarında tablo hücrelerine erişmenizi ve bunları değiştirmenizi sağlar. Bu makale, birleştirilmiş tablo hücrelerini nasıl tanımlayacağınızı, hücre kenarlıklarını nasıl kaldıracağınızı, birleştirme veya bölme işleminden sonra hücre numaralandırmasıyla nasıl çalışacağınızı, bir hücrenin arka plan rengini nasıl değiştireceğinizi ve bir tablo hücresine resim eklemeyi açıklar. Örnekler, bir sunumu nasıl oluşturup açacağınızı, bir slayttan tablo almayı, hücre özellikleri aracılığıyla hücre biçimlendirmesini güncellemeyi ve değiştirilmiş sunumu PPTX dosyası olarak kaydetmeyi gösterir.
 
-Aspose.Slides, tablo hücrelerine `(sütun, satır)` sırasıyla sıfır tabanlı indeksler kullanarak erişir.
+Aspose.Slides, tablo hücrelerine `(column, row)` sırasıyla sıfır tabanlı dizinler kullanarak erişir.
 
 ## **Birleştirilmiş Tablo Hücresini Tanımlama**
 
-Bu örnek, mevcut bir sunumu açar ve ilk slayttaki ilk şekle tablo olarak erişir. Slayt ve şeklin mevcut olduğunu ve şeklin bir tablo olduğunu varsayar. Ardından tüm satır ve sütunlar arasında döner ve birleştirilmiş bölgelerdeki hücreleri tanımlamak için [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) yöntemini kullanır. Eşleşen her hücre için, hücre koordinatlarını `satır;sütun` sırasıyla, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/), ve bölgenin başlangıç koordinatlarını [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) ve [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) olarak yazdırır.
+Örnek, mevcut bir sunumu açar ve ilk slayttaki ilk şekle tablo olarak erişir. Slayt ve şeklin mevcut olduğunu ve şeklin bir tablo olduğunu varsayar. Ardından tüm satır ve sütunları dolaşır ve birleştirilmiş bölgelerdeki hücreleri tanımlamak için [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) yöntemini kullanır. Her eşleşme için hücre koordinatlarını `row;column` sırasıyla, [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/), [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/) ve bölgenin başlangıç koordinatlarını, [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) ve [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) yazar.
 
 ```csharp
 using System;
@@ -51,9 +51,9 @@ for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
 }
 ```
 
-## **Tablo Hücre Kenarlıklarını Kaldırma**
+## **Tablo Hücresi Kenarlıklarını Kaldırma**
 
-Bir [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturun ve ilk slaydına [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) kullanarak bir tablo ekleyin. Sütun genişlikleri, satır yükseklikleri ve tablo konumu puan cinsinden belirtilir. Örnek, dört hücre kenarlığının tümünü [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) olarak ayarlayarak görünmez hâle getirir.
+[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) oluşturun ve ilk slaytına [AddTable](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addtable/) kullanarak bir tablo ekleyin. Sütun genişlikleri, satır yükseklikleri ve tablo konumu puan cinsinden belirtilir. Örnek, dört hücre kenarlığını da [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/) olarak ayarlar ve böylece kenarlıklar görünmez hâle gelir.
 
 ```csharp
 using Aspose.Slides;
@@ -77,11 +77,62 @@ foreach (var row in table.Rows)
 presentation.Save("table.pptx", SaveFormat.Pptx);
 ```
 
+## **Köşegen Hücre Kenarlıkları Ekleme**
+
+[BorderDiagonalDown](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonaldown/) kullanarak sol üst köşeden sağ alt köşeye, [BorderDiagonalUp](https://reference.aspose.com/slides/net/aspose.slides/icellformat/borderdiagonalup/) ile sol alt köşeden sağ üst köşeye bir çizgi çizin. Köşegen bir köşe başlığı işaretleyebilir; iki köşegen bir X oluşturabilir ve hücreyi geçerli olmadığını gösterebilir.
+
+Her köşegen bir [ILineFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/) nesnesidir. Bunun [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/fillformat/) içinde, [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) değerini [FillType.Solid](https://reference.aspose.com/slides/net/aspose.slides/filltype/) olarak ayarlayın ve bir [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) seçin. Çizginin [Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) değerini puan cinsinden belirleyin.
+
+Örnek, bir satırda üç hücre oluşturur: kırmızı aşağı yönlü köşegen, mavi yukarı yönlü köşegen ve her iki köşegen. Üst, alt, sol ve sağ hücre kenarlıkları değişmeden bırakılır.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 210, 210, 210 };
+double[] rowHeights = { 160 };
+var table = slide.Shapes.AddTable(45, 130, columnWidths, rowHeights);
+
+var downwardBorder = table[0, 0].CellFormat.BorderDiagonalDown;
+downwardBorder.FillFormat.FillType = FillType.Solid;
+downwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+downwardBorder.Width = 3;
+
+var upwardBorder = table[1, 0].CellFormat.BorderDiagonalUp;
+upwardBorder.FillFormat.FillType = FillType.Solid;
+upwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+upwardBorder.Width = 5;
+
+var crossDownwardBorder = table[2, 0].CellFormat.BorderDiagonalDown;
+crossDownwardBorder.FillFormat.FillType = FillType.Solid;
+crossDownwardBorder.FillFormat.SolidFillColor.Color = Color.Red;
+crossDownwardBorder.Width = 3;
+
+var crossUpwardBorder = table[2, 0].CellFormat.BorderDiagonalUp;
+crossUpwardBorder.FillFormat.FillType = FillType.Solid;
+crossUpwardBorder.FillFormat.SolidFillColor.Color = Color.Blue;
+crossUpwardBorder.Width = 5;
+
+presentation.Save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+```
+
+Köşegen bir biçimlendirme özelliğidir, hücrenin bölünmesi değildir. Her hücre tek bir [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/icell/textframe/) tutar; köşegenin iki tarafındaki bölgeler bağımsız olarak düzenlenemez.
+
+Kaydedilen tablo, Microsoft PowerPoint’te görüntülenir:
+
+![Üst‑soldan alt‑sağa kırmızı köşegen, alt‑soldan üst‑sağa mavi köşegen ve iki köşegenin X oluşturduğu üç tablo hücresi.](diagonal-cell-borders.png)
+
+*Soldan sağa: aşağı yönlü köşegen (kırmızı, 3 pt), yukarı yönlü köşegen (mavi, 5 pt) ve her iki köşegen.*
+
 ## **Tablo Hücrelerini Birleştirme**
 
-[MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) kullanarak bir dikdörtgen tablo hücresi aralığını tek bir hücrede birleştirin. Aralığın sol‑üst ve sağ‑alt köşelerindeki hücreleri belirtin. Son argüman, birleştirmenin belirtilen aralığın dışındaki hücreleri içermesine izin verilip verilmeyeceğini kontrol eder; `false` birleştirmenin bu aralık içinde kalmasını sağlar.
+[MergeCells](https://reference.aspose.com/slides/net/aspose.slides/itable/mergecells/) kullanarak bir tablo hücresi dikdörtgen aralığını tek bir hücreye birleştirin. Aralığın sol üst ve sağ alt köşelerindeki hücreleri belirtin. Son parametre, birleştirmenin belirtilen aralığın dışındaki hücreleri içerip içermeyeceğini kontrol eder; `false` değeri birleştirmenin yalnızca bu aralık içinde kalmasını sağlar.
 
-Örnek, 70 puan genişliğinde sütun ve satıra sahip 4×4 bir tablo oluşturur ve ardından `(1, 1)` ile `(2, 2)` arasındaki dört merkezi hücreyi birleştirir. Ortaya çıkan hücre iki sütun ve iki satırı kapsar, ancak tablonun temel ızgarası dört sütun ve dört satır olarak kalır. Birleştirilmiş hücrenin içeriğine veya biçimlendirmesine erişmek için sol‑üst konumunu kullanın: bu örnekte `table[1, 1]`. Birleştirme aralığındaki diğer konumlar tablo ızgarasının bir parçası olarak kalır, bu yüzden aralık dışındaki hücrelerin indeksleri değişmez.
+Örnek, 70 puan genişliğinde sütunlar ve satırlar içeren 4x4 bir tablo oluşturur ve ardından `(1, 1)` ile `(2, 2)` arasındaki dört merkezi hücreyi birleştirir. Oluşan hücre iki sütun ve iki satır kapsar, ancak tablonun temel ızgarası dört sütun ve dört satır olarak kalır. Birleştirilen hücrenin içeriğine veya biçimlendirmesine erişmek için sol‑üst konumunu kullanın: bu örnekte `table[1, 1]`. Birleşim aralığındaki diğer konumlar tablo ızgarasının bir parçası olmaya devam eder, bu yüzden aralığın dışındaki hücrelerin indeksleri değişmez.
 
 ```csharp
 using Aspose.Slides;
@@ -101,11 +152,11 @@ presentation.Save("merged_cells.pptx", SaveFormat.Pptx);
 
 ## **Tablo Hücrelerini Bölme**
 
-Önceki örnekte hücrelerin birleştirilmesi tablo ızgarasını korur. Bir hücreyi bölmek, yeni bir ızgara sütunu ekleyebilir ve sağındaki hücrelerin sütun indekslerini değiştirebilir. Aspose.Slides, PowerPoint'in tablo ızgara modelini takip eder.
+Önceki örnekte hücreleri birleştirmek tablo ızgarasını korur. Bir hücreyi bölmek yeni bir ızgara sütunu ekleyebilir ve sağındaki hücrelerin sütun indekslerini değiştirebilir. Aspose.Slides, PowerPoint'in tablo ızgara modelini izler.
 
-Bu örnek, 70 puan genişliğinde sütun ve satıra sahip 4×4 bir tablo oluşturur ve `(1, 1)` hücresinde [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) metodunu çağırır. Hücrenin 70 puan genişliğinin yarısı iki eşit genişlikte hücre oluşturmak için kullanılır.
+Bu örnek, 70 puan sütun ve satırlara sahip 4x4 bir tablo oluşturur ve `(1, 1)` hücresi üzerinde [SplitByWidth](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbywidth/) yöntemini çağırır. Hücrenin 70 puanlık genişliğinin yarısı iki eşit genişlikte hücre oluşturmak için kullanılır.
 
-Bu bölünmeden sonra, iki yarı `table[1, 1]` ve `table[2, 1]` olarak erişilir. Tablo ızgarası artık beş sütuna sahiptir: başlangıçta 2 ve 3. sütunlarda bulunan hücreler sırasıyla 3 ve 4. sütunlara taşınır. Satır indeksleri değişmez. Bölünmeden sonraki hücre erişimlerinde bu güncellenmiş sütun indekslerini kullanın.
+Bu bölünmeden sonra iki yarı `table[1, 1]` ve `table[2, 1]` olarak erişilir. Tablo ızgarası şimdi beş sütuna sahiptir: önceki 2 ve 3. sütunlardaki hücreler sırasıyla 3 ve 4. sütunlara taşınır. Satır indeksleri değişmez. Bölünmeden sonra hücrelere erişirken bu güncellenmiş sütun indekslerini kullanın.
 
 ```csharp
 using System.Drawing;
@@ -124,16 +175,16 @@ table[1, 1].SplitByWidth(table[1, 1].Width / 2);
 presentation.Save("split_cells.pptx", SaveFormat.Pptx);
 ```
 
-### **Satır veya Sütun Kapsamıyla Birleştirilmiş Hücreleri Bölme**
+### **Birleştirilmiş Hücreleri Satır veya Sütun Genişliğine Göre Bölme**
 
-Birleştirilmiş şablon hücrelerini veri doldurma için hazırlamak üzere, mevcut bir satır sınırı boyunca bölmek için [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) ve bir sütun sınırı boyunca bölmek için [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) kullanın.
+Veri doldurmak için birleştirilmiş şablon hücrelerini hazırlamak amacıyla, mevcut bir satır sınırına göre bölmek için [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) ve bir sütun sınırına göre bölmek için [SplitByColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbycolspan/) kullanın.
 
-`index` parametresi, bölünmenin üst kısmındaki satırları veya sol kısmındaki sütunları sayar; birleştirilmiş bölgeye görecelidir:
+`index` argümanı, bölünmenin üst kısmındaki satırları ya da sol kısmındaki sütunları sayar; birleştirilmiş bölgeye görecelidir:
 
-- Satır bölmesi: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
-- Sütun bölmesi: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
+- Satır bölünmesi: `0 < index <` [RowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/rowspan/).
+- Sütun bölünmesi: `0 < index <` [ColSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/colspan/).
 
-Örnek, sunumun ilk slaytındaki ilk şeklin bir tablo olduğunu ve `(1, 2)` ile `(1, 3)` hücrelerinin dikey olarak birleştirildiğini varsayar. Alt konumdan başlayarak, kökeni bulmak için [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) ve [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) kullanır ve her iki kapsamı da kontrol eder. `SplitByRowSpan(1)` ardından ürün adları için 2. ve 3. satırları ayırır. Yatay iki sütun birleştirme için bunun yerine `SplitByColSpan(1)` kullanın.
+Örnek, bir sunumun ilk slaytındaki ilk şeklin bir tablo olmasını ve `(1, 2)` ile `(1, 3)` hücrelerinin dikey olarak birleştirilmiş olmasını varsayar. Alt konumdan başlayarak, başlangıcı bulmak için [FirstColumnIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstcolumnindex/) ve [FirstRowIndex](https://reference.aspose.com/slides/net/aspose.slides/icell/firstrowindex/) kullanır ve her iki kapsamı da kontrol eder. `SplitByRowSpan(1)` ardından ürün adları için 2. ve 3. satırları ayırır. Yatay iki sütun birleştirme için `SplitByColSpan(1)` kullanın.
 
 ```csharp
 using System;
@@ -153,7 +204,7 @@ if (mergedCell.IsMergedCell && mergedCell.RowSpan == 2 && mergedCell.ColSpan == 
 {
     mergedCell.SplitByRowSpan(1);
 
-    // Bölme işleminden sonra tablodan elde edilen hücreleri alın.
+    // Bölme işleminden sonra tablodan oluşan hücreleri al.
     var upperCell = table[firstColumnIndex, firstRowIndex];
     var lowerCell = table[firstColumnIndex, firstRowIndex + 1];
     Console.WriteLine($"Upper cell merged: {upperCell.IsMergedCell}");
@@ -170,15 +221,52 @@ else
 }
 ```
 
-Tablo ızgarası ve çevresindeki hücre indeksleri değişmez. Oluşan hücreleri koordinatlarıyla alın; burada ikisinin de kapsamı 1 ve [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) `False` yazdırır. Daha büyük bölgeler tek bir bölünmeden sonra bile kısmen birleştirilmiş kalabilir.
+Tablo ızgarası ve çevre hücre indeksleri değişmez. Ortaya çıkan hücreleri koordinatlarıyla alın; burada her ikisi de 1 kapsamına sahiptir ve [IsMergedCell](https://reference.aspose.com/slides/net/aspose.slides/icell/ismergedcell/) `False` yazar. Daha büyük bölgeler bir bölünmeden sonra kısmen birleştirilmiş kalabilir.
 
-Orijinal metin ve biçimlendirmesi üst (veya sol) hücrede kalır; yeni hücre boş olur ancak doldurma, kenarlıklar ve kenar boşlukları gibi hücre biçimlendirmesini devralır. Hücreleri bölündükten sonra doldurun ve gerekli metin biçimlendirmesini açıkça ayarlayın.
+Orijinal metin ve biçimlendirmesi üst (veya sol) hücrede kalır; yeni hücre boş olur ancak dolgu, kenarlık ve kenar boşlukları gibi hücre biçimlendirmesini devralır. Hücreleri bölündükten sonra doldurun ve gerekli metin biçimlendirmesini açıkça ayarlayın.
 
-Kaydedilen sunum, şablonun hücre biçimlendirmesini koruyan ayrı "Product A" ve "Product B" hücreleri içerir. Ayrıntılar için [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) bölümüne bakın.
+Kaydedilen sunum, şablonun hücre biçimlendirmesini koruyan ayrı "Product A" ve "Product B" hücrelerini içerir. Ayrıntılar için [Cell API Reference](https://reference.aspose.com/slides/net/aspose.slides/cell/) sayfasına bakın.
 
-## **Tablo Hücre Arka Plan Rengini Değiştirme**
+<!-- visual-explanation:manage-cells:start -->
+[![1. sütundaki, 2 ve 3. satırlardaki birleştirilmiş hücre, aynı ızgara indeksleriyle Product A ve Product B olarak bölünür.](visual-manage-cells-62c80896698e.svg)](visual-manage-cells-62c80896698e.svg)
 
-Bu örnek, 150 puan genişliğinde sütun ve 50 puan yüksekliğinde satırlara sahip bir tablo oluşturur. `(2, 3)` hücresi için (üçüncü sütun, dördüncü satır) [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) değerini solid ve [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) değerini kırmızı olarak ayarlar.
+*Satır‑kapsamı bölmesi mevcut sınırı kullanır. Product A ve Product B sırasıyla (1, 2) ve (1, 3) konumlarını işler.*
+<!-- visual-explanation:manage-cells:end -->
+
+### **Belirli Bir Yüksekliğe Göre Hücre Bölme**
+
+[SplitByHeight](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyheight/) üst kısmın yüksekliğini puan cinsinden alır. [SplitByRowSpan](https://reference.aspose.com/slides/net/aspose.slides/icell/splitbyrowspan/) üst kısımda bulunan mevcut ızgara satır sayısını alır. Sağ sütunda 40 puanlık bir hücreyi ortalamak için, hücrenin gerçek yüksekliğinden 40 çıkartın ve kalan alanı üstte ve altta eşit olarak bölün.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+double[] columnWidths = { 160, 160 };
+double[] rowHeights = { 140 };
+
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
+table[0, 0].TextFrame.Text = "Left";
+
+var height = table[1, 0].Height;
+var margin = (height - 40) / 2;
+
+table[1, 0].SplitByHeight(margin);
+table[1, 1].SplitByHeight(40);
+table[1, 1].TextFrame.Text = "Middle";
+
+presentation.Save("split_by_height.pptx", SaveFormat.Pptx);
+```
+
+İlk bölme bir ızgara satırı ekler ve alt 90 puanı `[1, 1]` konumunda bırakır. İkinci bölme bu hücreyi hedef alır ve altına bir satır daha ekler. Sağ sütun artık `[1, 0]` 50 puan (`margin`), `[1, 1]` 40 puan ve `[1, 2]` 50 puan (`margin`) içerir. Sol hücre, orijinal 140 puan yüksekliğinde üç satırı da kapsar.
+
+![Sol hücre, ortada Middle bulunan üç hücrenin yanında tablo yüksekliğinin tamamını kaplar.](split-by-height.png)
+
+## **Tablo Hücresi Arka Plan Rengini Değiştirme**
+
+Bu örnek, 150 puan genişliğinde sütunlar ve 50 puan yüksekliğinde satırlarla bir tablo oluşturur. `(2, 3)` hücresi için (üçüncü sütun, dördüncü satır) [FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) değerini solid ve [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) değerini kırmızı olarak ayarlar.
 
 ```csharp
 using System.Drawing;
@@ -199,11 +287,11 @@ cell.CellFormat.FillFormat.SolidFillColor.Color = Color.Red;
 presentation.Save("cell_background_color.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Tablo Hücresi İçine Resim Ekleme**
+## **Tablo Hücresi İçine Resim Ekleme**
 
-Bu örneği çalıştırmadan önce girdi resmini çalışma dizinine koyun. Resmi [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) ile yükler ve sunumun resim koleksiyonuna [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) ile ekler. Ardından resmi, tablonun ilk hücresi olan `(0, 0)` hücresinin resim doldurmasına atar.
+Bu örneği çalıştırmadan önce giriş resmini çalışma dizinine koyun. Resmi [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) ile yükler ve [AddImage](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection/addimage/) ile sunumun görüntü koleksiyonuna ekler. Ardından resmi, tablodaki ilk hücre olan `(0, 0)` hücresinin resim dolgusuna atar.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) resmi hücreyi dolduracak şekilde uzatır, bu da en‑boy oranını değiştirebilir. Sütun genişlikleri ve satır yükseklikleri puan cinsindendir. Yüklenen resim, using bildirimi sayesinde otomatik olarak serbest bırakılır.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) resmi hücreyi dolduracak şekilde gerer, bu da en‑boy oranının değişmesine neden olabilir. Sütun genişlikleri ve satır yükseklikleri puan cinsindendir. Yüklenen resim, using ifadesiyle otomatik olarak serbest bırakılır.
 
 ```csharp
 using Aspose.Slides;
@@ -230,16 +318,16 @@ presentation.Save("table_cell_with_image.pptx", SaveFormat.Pptx);
 
 **Tek bir hücrenin farklı kenarları için farklı çizgi kalınlıkları ve stilleri ayarlayabilir miyim?**
 
-Evet. [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) kenarlıklarının ayrı özellikleri vardır, böylece her bir kenarın kalınlığı ve stili farklı olabilir.
+Evet. [top](https://reference.aspose.com/slides/net/aspose.slides/cellformat/bordertop/)/[bottom](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderbottom/)/[left](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderleft/)/[right](https://reference.aspose.com/slides/net/aspose.slides/cellformat/borderright/) kenarlıklarının ayrı özellikleri vardır, bu yüzden her bir kenarın kalınlığı ve stili farklı olabilir.
 
 **Bir resmi hücrenin arka planı olarak ayarladıktan sonra sütun/satır boyutunu değiştirirsem ne olur?**
 
-Davranış, [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile) değerine bağlıdır. Stretch seçildiğinde resim yeni hücreye uyacak şekilde ayarlanır; tile seçildiğinde ise döşemeler yeniden hesaplanır.
+Davranış, [fill mode](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) (stretch/tile) değerine bağlıdır. Germe (stretch) seçildiğinde, resim yeni hücreye uyacak şekilde ayarlanır; döşeme (tile) seçildiğinde, döşemeler yeniden hesaplanır.
 
-**Bir hücrenin tüm içeriğine bir hiperbağlantı atayabilir miyim?**
+**Bir hücrenin tüm içeriğine bir hiperlink atayabilir miyim?**
 
-[Hyperlinks](/slides/tr/net/manage-hyperlinks/) hücrenin metin çerçevesindeki metin (parça) düzeyinde ya da tüm tablo/şekil düzeyinde ayarlanır. Pratikte, bağlantıyı bir parçaya veya hücredeki tüm metne atarsınız.
+[Hyperlinks](/slides/tr/net/manage-hyperlinks/) hücrenin metin çerçevesi içindeki metin (parça) düzeyinde veya tüm tablo/şekil seviyesinde ayarlanır. Pratikte, bağlantıyı bir parçaya ya da hücredeki tüm metne atarsınız.
 
 **Tek bir hücre içinde farklı yazı tipleri ayarlayabilir miyim?**
 
-Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirmeye sahip [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (run'lar) — yazı tipi ailesi, stil, boyut ve renk — destekler.
+Evet. Bir hücrenin metin çerçevesi, bağımsız biçimlendirmeye sahip [portions](https://reference.aspose.com/slides/net/aspose.slides/portion/) (çalıştırmalar) – yazı tipi ailesi, stil, boyut ve renk – destekler.

@@ -6,7 +6,7 @@ weight: 30
 url: /id/androidjava/manage-cells/
 keywords:
 - sel tabel
-- menggabungkan sel
+- gabungkan sel
 - hapus batas
 - pisahkan sel
 - gambar dalam sel
@@ -20,13 +20,13 @@ description: "Kelola sel tabel PowerPoint di Android: identifikasi sel yang diga
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabung, menghapus batas sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contoh menunjukkan cara membuat atau membuka presentasi, mendapatkan tabel dari sebuah slide, memperbarui format sel melalui properti sel, dan menyimpan presentasi yang dimodifikasi sebagai file PPTX.
+Aspose.Slides memungkinkan Anda mengakses dan memodifikasi sel tabel dalam presentasi PowerPoint. Artikel ini menjelaskan cara mengidentifikasi sel tabel yang digabung, menghapus batas sel, bekerja dengan penomoran sel setelah menggabungkan atau memisahkan sel, mengubah warna latar belakang sel, dan menambahkan gambar di dalam sel tabel. Contoh-contohnya menunjukkan cara membuat atau membuka presentasi, mengambil tabel dari slide, memperbarui format sel melalui properti sel, dan menyimpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 Aspose.Slides menggunakan indeks berbasis nol untuk mengakses sel tabel dalam urutan `(column, row)`.
 
-## **Mengidentifikasi Sel Tabel yang Digabung**
+## **Identifikasi Sel Tabel yang Digabung**
 
-Contoh membuka presentasi yang ada dan mengakses bentuk pertama pada slide pertama sebagai tabel. Diasumsikan bahwa slide dan bentuk ada dan bentuk tersebut adalah tabel. Kemudian iterasi melalui semua baris dan kolom dan menggunakan [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) untuk mengidentifikasi sel dalam wilayah yang digabung. Untuk setiap kecocokan, ia mencetak koordinat sel dalam urutan `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), dan koordinat awal wilayah, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) dan [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
+Contoh ini membuka presentasi yang ada dan mengakses bentuk pertama pada slide pertama sebagai tabel. Ia mengasumsikan bahwa slide dan bentuk tersebut ada dan bahwa bentuk tersebut adalah tabel. Kemudian ia mengiterasi semua baris dan kolom dan menggunakan [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) untuk mengidentifikasi sel dalam wilayah yang digabung. Untuk setiap kecocokan, ia mencetak koordinat sel dalam urutan `row;column`, [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--), dan koordinat awal wilayah, [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) dan [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
 import com.aspose.slides.*;
@@ -54,9 +54,9 @@ try {
 }
 ```
 
-## **Menghapus Garis Batas Sel Tabel**
+## **Hapus Batas Sel Tabel**
 
-Buat sebuah [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) dan tambahkan tabel ke slide pertamanya dengan [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Lebar kolom, tinggi baris, dan posisi tabel ditentukan dalam poin. Contoh mengatur keempat batas sel menjadi [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), sehingga tidak terlihat.
+Buatan [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) dan tambahkan tabel ke slide pertamanya dengan [addTable](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Lebar kolom, tinggi baris, dan posisi tabel ditentukan dalam poin. Contoh ini mengatur keempat batas sel menjadi [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), sehingga tidak terlihat.
 
 ```java
 import com.aspose.slides.*;
@@ -84,11 +84,65 @@ try {
 }
 ```
 
-## **Menggabungkan Sel Tabel**
+## **Tambahkan Batas Sel Diagonal**
 
-Gunakan [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) untuk menggabungkan rentang persegi panjang sel tabel menjadi satu sel. Tentukan sel pada pojok kiri‑atas dan kanan‑bawah dari rentang. Argumen terakhir mengontrol apakah penggabungan dapat mencakup sel di luar rentang yang ditentukan; `false` menjaga penggabungan tetap dalam rentang tersebut.
+Gunakan [getBorderDiagonalDown](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalDown--) untuk menggambar garis dari sudut kiri atas ke kanan bawah, dan [getBorderDiagonalUp](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icellformat/#getBorderDiagonalUp--) untuk menggambar garis dari sudut kiri bawah ke kanan atas. Diagonal dapat menandai header sudut; kedua diagonal dapat membentuk X untuk menandai sel tidak berlaku.
 
-Contoh membuat tabel 4×4 dengan kolom dan baris 70 poin, kemudian menggabungkan empat sel tengah dari `(1, 1)` sampai `(2, 2)`. Sel yang dihasilkan mencakup dua kolom dan dua baris, sementara grid tabel yang mendasarinya tetap memiliki empat kolom dan empat baris. Untuk mengakses konten atau format sel yang digabung, gunakan posisi kiri‑atasnya: `table.get_Item(1, 1)` dalam contoh ini. Posisi lain dalam rentang yang digabung tetap menjadi bagian dari grid tabel, sehingga indeks sel di luar rentang tidak berubah.
+Setiap diagonal adalah [ILineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/). Pada [getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getFillFormat--), gunakan [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) untuk memilih [FillType.Solid](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) dan pilih warna melalui [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--). Atur lebar garis dalam poin dengan [setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-).
+
+Contoh ini membuat tiga sel dalam satu baris: diagonal ke bawah berwarna merah, diagonal ke atas berwarna biru, dan kedua diagonal. Batas sel atas, bawah, kiri, dan kanan tetap tidak berubah.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Diagonal adalah properti pemformatan, bukan pemisahan sel. Setiap sel mempertahankan satu bingkai teks tunggal, yang dapat diakses melalui [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getTextFrame--); wilayah di kedua sisi diagonal tidak dapat diedit secara terpisah.
+
+The saved table, rendered in Microsoft PowerPoint:
+
+![Tiga sel tabel yang menunjukkan diagonal merah dari kiri atas ke kanan bawah, diagonal biru dari kiri bawah ke kanan atas, dan kedua diagonal membentuk X.](diagonal-cell-borders.png)
+
+*Kiri ke kanan: diagonal ke bawah (merah, 3 pt), diagonal ke atas (biru, 5 pt), dan kedua diagonal.*
+
+## **Gabungkan Sel Tabel**
+
+Gunakan [mergeCells](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) untuk menggabungkan rentang sel tabel berbentuk persegi panjang menjadi satu sel. Tentukan sel di sudut kiri atas dan kanan bawah dari rentang tersebut. Argumen terakhir mengontrol apakah penggabungan dapat menyertakan sel di luar rentang yang ditentukan; `false` menjaga penggabungan tetap dalam rentang itu.
+
+Contoh ini membuat tabel 4x4 dengan kolom dan baris 70 poin, lalu menggabungkan empat sel tengah dari `(1, 1)` hingga `(2, 2)`. Sel yang dihasilkan mencakup dua kolom dan dua baris, sementara grid tabel yang mendasarinya tetap berisi empat kolom dan empat baris. Untuk mengakses konten atau pemformatan sel yang digabung, gunakan posisi kiri atasnya: `table.get_Item(1, 1)` dalam contoh ini. Posisi lain dalam rentang yang digabung tetap menjadi bagian dari grid tabel, sehingga indeks sel di luar rentang tidak berubah.
 
 ```java
 import com.aspose.slides.*;
@@ -109,13 +163,13 @@ try {
 }
 ```
 
-## **Memisahkan Sel Tabel**
+## **Pisahkan Sel Tabel**
 
-Menggabungkan sel pada contoh sebelumnya mempertahankan grid tabel. Memisahkan sel dapat menambah kolom grid baru dan mengubah indeks kolom sel di sebelah kanannya. Aspose.Slides mengikuti model grid tabel PowerPoint.
+Menggabungkan sel dalam contoh sebelumnya mempertahankan grid tabel. Memisahkan sel dapat memperkenalkan kolom grid baru dan mengubah indeks kolom sel di sebelah kanannya. Aspose.Slides mengikuti model grid tabel PowerPoint.
 
-Contoh ini membuat tabel 4×4 dengan kolom dan baris 70 poin dan memanggil [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) pada sel `(1, 1)`. Setengah lebar sel 70 poin diberikan untuk membuat dua sel dengan lebar sama.
+Contoh ini membuat tabel 4x4 dengan kolom dan baris 70 poin dan memanggil [splitByWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByWidth-double-) pada sel `(1, 1)`. Setengah lebar 70 poin sel tersebut diberikan untuk membuat dua sel dengan lebar yang sama.
 
-Setelah pemisahan ini, dua bagian diakses sebagai `table.get_Item(1, 1)` dan `table.get_Item(2, 1)`. Grid tabel kini memiliki lima kolom: sel yang semula berada di kolom 2 dan 3 berpindah ke kolom 3 dan 4 masing‑masing. Indeks baris tetap tidak berubah. Gunakan indeks kolom yang diperbarui saat mengakses sel setelah pemisahan.
+Setelah pemisahan ini, dua bagian tersebut diakses sebagai `table.get_Item(1, 1)` dan `table.get_Item(2, 1)`. Grid tabel kini memiliki lima kolom: sel yang semula berada di kolom 2 dan 3 berpindah ke kolom 3 dan 4, masing‑masing. Indeks baris tetap tidak berubah. Gunakan indeks kolom yang telah diperbarui ini saat mengakses sel setelah pemisahan.
 
 ```java
 import com.aspose.slides.*;
@@ -136,16 +190,22 @@ try {
 }
 ```
 
-### **Memisahkan Sel yang Digabung Berdasarkan Baris atau Kolom**
+<!-- visual-explanation:manage-cells:start -->
+[![Sebuah sel 70 poin yang belum digabung dibagi menjadi dua sel 35 poin, menambahkan kolom grid kelima dan menggeser indeks ke kanannya.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-Untuk menyiapkan sel templat yang digabung agar dapat diisi data, gunakan [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) untuk memisahkan sepanjang batas baris yang ada, atau [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) untuk memisahkan sepanjang batas kolom.
+*Pemecahan lebar memengaruhi sel (1, 1), menggunakan indeks berbasis nol (kolom, baris). Baris lain mempertahankan sel yang mencakup kedua posisi kolom baru.*
+<!-- visual-explanation:manage-cells:end -->
 
-Argumen `index` menghitung baris di bagian atas atau kolom di bagian kiri dari pemisahan; nilainya relatif terhadap wilayah yang digabung:
+### **Pisahkan Sel yang Digabung berdasarkan Rentang Baris atau Kolom**
 
-- Row split: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
-- Column split: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
+Untuk menyiapkan sel template yang digabung untuk pengisian data, gunakan [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) untuk memisahkan sepanjang batas baris yang ada, atau [splitByColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByColSpan-int-) untuk memisahkan sepanjang batas kolom.
 
-Contoh mengasumsikan presentasi memiliki tabel sebagai bentuk pertama pada slide pertama, dengan sel `(1, 2)` dan `(1, 3)` digabung secara vertikal. Dimulai dari posisi bawah, contoh menggunakan [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) dan [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) untuk menemukan asal dan memeriksa kedua rentang. `splitByRowSpan(1)` kemudian memisahkan baris 2 dan 3 untuk nama produk. Untuk penggabungan horizontal dua kolom, gunakan `splitByColSpan(1)` sebagai gantinya.
+Argumen `index` menghitung baris di bagian atas atau kolom di bagian kiri pemisahan; nilainya relatif terhadap wilayah yang digabung:
+
+- Pemisahan baris: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getRowSpan--).
+- Pemisahan kolom: `0 < index <` [getColSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getColSpan--).
+
+Contoh ini mengasumsikan sebuah presentasi memiliki tabel sebagai bentuk pertama pada slide pertama, dengan `(1, 2)` dan `(1, 3)` digabung secara vertikal. Mulai dari posisi bawah, ia menggunakan [getFirstColumnIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstColumnIndex--) dan [getFirstRowIndex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#getFirstRowIndex--) untuk menemukan asal dan memeriksa kedua rentang. `splitByRowSpan(1)` kemudian memisahkan baris 2 dan 3 untuk nama produk. Untuk penggabungan dua kolom secara horizontal, gunakan `splitByColSpan(1)` sebagai gantinya.
 
 ```java
 import com.aspose.slides.*;
@@ -164,7 +224,7 @@ try {
     {
         mergedCell.splitByRowSpan(1);
 
-        // Ambil sel hasil dari tabel setelah pemisahan.
+        // Ambil sel yang dihasilkan dari tabel setelah pemisahan.
         ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         System.out.println("Upper cell merged: " + upperCell.isMergedCell());
@@ -184,15 +244,49 @@ try {
 }
 ```
 
-Grid tabel dan indeks sel di sekitarnya tetap tidak berubah. Ambil sel hasil dengan koordinatnya; di sini, keduanya memiliki rentang 1 dan [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) menghasilkan `false`. Wilayah yang lebih besar dapat tetap sebagian digabung setelah satu pemisahan.
+Grid tabel dan indeks sel di sekitarnya tetap tidak berubah. Dapatkan sel yang dihasilkan berdasarkan koordinatnya; di sini, keduanya memiliki rentang 1 dan [isMergedCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#isMergedCell--) mencetak `false`. Wilayah yang lebih besar dapat tetap sebagian digabung setelah satu pemisahan.
 
-Teks asli dan formatnya tetap berada di sel atas (atau kiri); sel baru kosong tetapi mewarisi format sel seperti isi, batas, dan margin. Isi sel setelah pemisahan dan tetapkan format teks yang diperlukan secara eksplisit.
+Teks asli dan pemformatannya tetap berada di sel atas (atau kiri); sel baru kosong namun mewarisi pemformatan sel seperti isian, batas, dan margin. Isi sel setelah memisahkan dan atur pemformatan teks yang diperlukan secara eksplisit.
 
-Presentasi yang disimpan berisi sel “Product A” dan “Product B” terpisah dengan format sel templat yang dipertahankan. Lihat [Referensi API Sel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) untuk detail.
+Presentasi yang disimpan berisi sel "Product A" dan "Product B" terpisah dengan pemformatan sel template yang dipertahankan. Lihat [Referensi API Sel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cell/) untuk detail.
 
-## **Mengubah Warna Latar Belakang Sel Tabel**
+### **Pisahkan Sel pada Tinggi Tertentu**
 
-Contoh ini membuat tabel dengan kolom 150 poin dan baris 50 poin. Ia menggunakan [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) untuk memilih isi solid dan mengatur warna yang dikembalikan oleh [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) menjadi merah untuk sel `(2, 3)`, yaitu kolom ketiga dan baris keempat.
+[splitByHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByHeight-double-) mengambil tinggi bagian atas dalam poin. [splitByRowSpan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icell/#splitByRowSpan-int-) mengambil jumlah baris grid yang ada di bagian atas. Untuk menempatkan sel 40 poin di tengah kolom kanan, kurangi 40 dari tinggi sebenarnya sel tersebut dan bagi sisa ruang secara merata di atas dan di bawahnya.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pemisahan pertama menambahkan baris grid dan meninggalkan 90 poin di bagian bawah sel `(1, 1)`. Pemisahan kedua membagi sel tersebut menjadi sel tengah 40 poin dan sel bawah 50 poin. Kolom kanan kini memiliki tiga sel dengan tinggi 50, 40, dan 50 poin dari atas ke bawah. Sel kiri mencakup ketiga baris dan mempertahankan tinggi aslinya 140 poin.
+
+![Sel kiri mencakup seluruh tinggi tabel di samping tiga sel dengan Middle di tengah.](split-by-height.png)
+
+## **Ubah Warna Latar Belakang Sel Tabel**
+
+Contoh ini membuat tabel dengan kolom 150 poin dan baris 50 poin. Ia menggunakan [setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) untuk memilih isian padat dan mengatur warna yang dikembalikan oleh [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) menjadi merah untuk sel `(2, 3)`, di kolom ketiga dan baris keempat.
 
 ```java
 import com.aspose.slides.*;
@@ -216,11 +310,11 @@ try {
 }
 ```
 
-## **Menambahkan Gambar Di Dalam Sel Tabel**
+## **Tambahkan Gambar di Dalam Sel Tabel**
 
-Letakkan gambar input dalam direktori kerja sebelum menjalankan contoh ini. Gambar dimuat dengan [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) dan ditambahkan ke koleksi gambar presentasi dengan [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Selanjutnya gambar ditetapkan ke isian gambar sel `(0, 0)`, sel pertama dalam tabel.
+Tempatkan gambar input di direktori kerja sebelum menjalankan contoh ini. Ia memuat gambar dengan [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) dan menambahkannya ke koleksi gambar presentasi dengan [addImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Kemudian gambar tersebut diberikan ke isian gambar sel `(0, 0)`, sel pertama dalam tabel.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) memperpanjang gambar agar mengisi sel, yang dapat mengubah rasio aspeknya. Lebar kolom dan tinggi baris dalam poin. Gambar yang dimuat dibuang dalam blok `finally` setelah ditambahkan ke presentasi.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) memperluas gambar untuk mengisi sel, yang dapat mengubah rasio aspeknya. Lebar kolom dan tinggi baris dalam poin. Gambar yang dimuat dibuang dalam blok `finally` setelah ditambahkan ke presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -253,18 +347,18 @@ try {
 
 ## **FAQ**
 
-**Apakah saya dapat mengatur ketebalan garis dan gaya yang berbeda untuk sisi yang berbeda dari satu sel?**
+**Apakah saya dapat mengatur ketebalan dan gaya garis yang berbeda untuk sisi yang berbeda dari satu sel?**
 
-Ya. Batas [top](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) memiliki properti terpisah, sehingga ketebalan dan gaya setiap sisi dapat berbeda.
+Ya. Batas [atas](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderTop--)/[bawah](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderBottom--)/[kiri](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderLeft--)/[kanan](https://reference.aspose.com/slides/androidjava/com.aspose.slides/cellformat/#getBorderRight--) memiliki properti terpisah, sehingga ketebalan dan gaya tiap sisi dapat berbeda.
 
 **Apa yang terjadi pada gambar jika saya mengubah ukuran kolom/baris setelah menetapkan gambar sebagai latar belakang sel?**
 
-Perilaku tergantung pada [mode isi](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/) (stretch/tile). Dengan stretch, gambar menyesuaikan diri dengan sel yang baru; dengan tile, ubin dihitung ulang.
+Perilakunya tergantung pada [mode isian](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillmode/). Dengan perpanjangan, gambar menyesuaikan diri dengan sel baru; dengan pola ubin, ubin dihitung ulang.
 
 **Apakah saya dapat menetapkan hyperlink ke seluruh konten sel?**
 
-[Hyperlink](/slides/id/androidjava/manage-hyperlinks/) diatur pada tingkat teks (bagian) di dalam bingkai teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menetapkan tautan ke bagian atau ke seluruh teks dalam sel.
+[Hyperlinks](/slides/id/androidjava/manage-hyperlinks/) diatur pada tingkat teks (bagian) di dalam bingkai teks sel atau pada tingkat seluruh tabel/bentuk. Pada praktiknya, Anda menetapkan tautan ke bagian atau ke seluruh teks dalam sel.
 
 **Apakah saya dapat mengatur font yang berbeda dalam satu sel?**
 
-Ya. Bingkai teks sel mendukung [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (run) dengan format independen—famili font, gaya, ukuran, dan warna.
+Ya. Bingkai teks sel mendukung [portions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portion/) (run) dengan pemformatan independen—jenis font, gaya, ukuran, dan warna.

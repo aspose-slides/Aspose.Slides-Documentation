@@ -1,31 +1,31 @@
 ---
-title: Java を使用したプレゼンテーションのテーブルセル管理
+title: Java を使用してプレゼンテーションのテーブルセルを管理
 linktitle: セルの管理
 type: docs
 weight: 30
 url: /ja/java/manage-cells/
 keywords:
 - テーブルセル
-- セルの結合
-- 枠線の削除
-- セルの分割
-- セル内の画像
+- セル結合
+- 罫線削除
+- セル分割
+- セル内画像
 - 背景色
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Java で PowerPoint のテーブルセルを管理します: 結合セルの識別、枠線の削除、セルの分割、背景色と画像の設定を Aspose.Slides for Java で実行します。"
+description: "Java で PowerPoint のテーブルセルを管理: 結合セルの識別、罫線の削除、セルの分割、背景色や画像の設定を Aspose.Slides for Java で行う。"
 ---
 ## **概要**
 
-Aspose.Slides を使用すると、PowerPoint プレゼンテーション内のテーブルセルにアクセスして変更できます。この記事では、結合されたテーブルセルの特定、セルの枠線の削除、セルの結合または分割後の番号付けの操作、セルの背景色の変更、テーブルセル内への画像の追加方法について説明します。サンプルでは、プレゼンテーションの作成またはオープン、スライドからテーブルの取得、セルプロパティによるセル書式の更新、そして変更されたプレゼンテーションを PPTX ファイルとして保存する方法を示しています。
+Aspose.Slides を使用すると、PowerPoint プレゼンテーション内のテーブルセルにアクセスして変更できます。本記事では、結合されたテーブルセルの識別、セルの罫線の削除、結合または分割後のセル番号の操作、セルの背景色の変更、テーブルセル内への画像追加方法について説明します。例は、プレゼンテーションの作成または開く方法、スライドからテーブルを取得する方法、セルプロパティを介してセルの書式設定を更新する方法、そして変更されたプレゼンテーションを PPTX ファイルとして保存する方法を示しています。
 
-Aspose.Slides は、テーブルセルへアクセスする際に 0 から始まるインデックスを使用し、順序は `(column, row)` です。
+Aspose.Slides は、テーブルセルへ `(column, row)` の順序でゼロベースのインデックスを使用してアクセスします。
 
 ## **結合されたテーブルセルの識別**
 
-この例では既存のプレゼンテーションを開き、最初のスライドの最初のシェイプをテーブルとして取得します。スライドとシェイプが存在し、シェイプがテーブルであることを前提としています。その後、すべての行と列を反復し、[isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) を使用して結合領域内のセルを特定します。マッチする各セルについて、`row;column` の順序でセル座標、[getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--)、[getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--)、および領域の開始座標である [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) と [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) を出力します。
+この例は既存のプレゼンテーションを開き、1 枚目のスライドの最初のシェイプをテーブルとして取得します。スライドとシェイプが存在し、シェイプがテーブルであることを前提としています。その後、すべての行と列をループし、[isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) を使用して結合領域内のセルを識別します。マッチした各セルについて、`row;column` の順序でセル座標、[getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--)、[getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--)、および領域の開始座標である [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) と [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) を出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -53,9 +53,9 @@ try {
 }
 ```
 
-## **テーブルセルの枠線の削除**
+## **テーブルセルの罫線の削除**
 
-[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) を作成し、[addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) を使用して最初のスライドにテーブルを追加します。列幅、行高さ、テーブルの位置はポイント単位で指定します。この例では、すべてのセル枠線を [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) に設定し、枠線を非表示にします。
+[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) を作成し、[addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) を使用して最初のスライドにテーブルを追加します。列幅、行高さ、テーブルの位置はポイントで指定します。この例では、すべてのセル罫線を [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) に設定して非表示にします。
 
 ```java
 import com.aspose.slides.*;
@@ -83,11 +83,65 @@ try {
 }
 ```
 
+## **対角罫線の追加**
+
+[getBorderDiagonalDown](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalDown--) を使用して左上隅から右下隅へ線を描画し、[getBorderDiagonalUp](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalUp--) を使用して左下隅から右上隅へ線を描画します。対角線はコーナーヘッダーを示すことができ、両方の対角線を組み合わせて X 記号を作り、セルが適用外であることを示すことができます。
+
+各対角線は [ILineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) です。その [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--) で、[setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) を使用して [FillType.Solid](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) を選択し、[getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) で色を指定します。線の幅は [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) でポイント単位で設定します。
+
+この例では 1 行に 3 つのセルを作成し、赤い下向き対角線、青い上向き対角線、そして両方の対角線を設定します。上、下、左、右の罫線は変更せずに残します。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+対角線は書式プロパティであり、セルの分割ではありません。各セルは単一のテキストフレームを保持し、[getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) で取得できます。対角線の両側の領域を個別に編集することはできません。
+
+Microsoft PowerPoint でレンダリングされた保存されたテーブル:
+
+![Three table cells showing a red diagonal from top-left to bottom-right, a blue diagonal from bottom-left to top-right, and both diagonals forming an X.](diagonal-cell-borders.png)
+
+*左から右へ: 下向き対角線 (赤、3 pt)、上向き対角線 (青、5 pt)、および両方の対角線。*
+
 ## **テーブルセルの結合**
 
-[mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) を使用して、矩形領域のテーブルセルを 1 つのセルに結合します。範囲の左上隅と右下隅のセルを指定します。最後の引数は、結合が指定範囲外のセルを含むかどうかを制御し、`false` の場合は範囲内に留まります。
+[mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) を使用して、矩形領域のテーブルセルを 1 つのセルに結合します。結合範囲の左上セルと右下セルを指定します。最後の引数は、結合が指定範囲外のセルを含むかどうかを制御します。`false` に設定すると結合はその範囲内にとどまります。
 
-この例では、70 ポイントの列幅と行高さを持つ 4×4 のテーブルを作成し、`(1, 1)` から `(2, 2)` の中央の 4 つのセルを結合します。結果のセルは 2 列分と 2 行分に跨り、テーブルの基礎グリッドは 4 列 4 行のままです。この例では結合されたセルの内容や書式にアクセスするために、左上位置 `table.get_Item(1, 1)` を使用します。結合範囲内の他の位置はテーブルグリッドの一部であり、範囲外のセルインデックスは変更されません。
+この例では、列幅・行高さが 70 ポイントの 4×4 テーブルを作成し、`(1, 1)` から `(2, 2)` の 4 つの中央セルを結合します。結果のセルは 2 列と 2 行にまたがりますが、テーブルの基礎グリッドは 4 列 4 行のままです。結合セルの内容や書式にアクセスするには、左上位置 `table.get_Item(1, 1)` を使用します。結合範囲外のセル位置は変更されません。
 
 ```java
 import com.aspose.slides.*;
@@ -110,11 +164,11 @@ try {
 
 ## **テーブルセルの分割**
 
-前の例でセルを結合するとテーブルのグリッドは保持されます。セルを分割すると新しいグリッド列が追加され、右側のセルの列インデックスが変わることがあります。Aspose.Slides は PowerPoint のテーブルグリッドモデルに従います。
+前の例でセルを結合した場合でも、テーブルのグリッドは保持されます。セルを分割すると新しいグリッド列が追加され、右側のセルの列インデックスが変わることがあります。Aspose.Slides は PowerPoint のテーブルグリッドモデルに従います。
 
-この例では、70 ポイントの列幅と行高さを持つ 4×4 のテーブルを作成し、セル `(1, 1)` に対して [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) を呼び出します。セルの幅 70 ポイントの半分を渡して、同幅の 2 つのセルを作成します。
+この例では、列幅・行高さが 70 ポイントの 4×4 テーブルを作成し、セル `(1, 1)` に対して [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) を呼び出します。セルの 70 ポイント幅の半分を渡して、幅が同じ 2 つのセルを作成します。
 
-この分割後、2 つの半分は `table.get_Item(1, 1)` と `table.get_Item(2, 1)` でアクセスできます。テーブルグリッドは現在 5 列になり、元々列 2 と列 3 にあったセルはそれぞれ列 3 と列 4 に移動します。行インデックスは変わりません。分割後にセルへアクセスする際は、これら更新された列インデックスを使用してください。
+分割後、2 つの半分は `table.get_Item(1, 1)` と `table.get_Item(2, 1)` でアクセスできます。テーブルグリッドは 5 列になり、元々列 2 と列 3 にあったセルはそれぞれ列 3 と列 4 に移動します。行インデックスは変わりません。分割後にセルにアクセスするときは、更新された列インデックスを使用してください。
 
 ```java
 import com.aspose.slides.*;
@@ -135,16 +189,22 @@ try {
 }
 ```
 
-### **行または列のスパンによる結合セルの分割**
+<!-- visual-explanation:manage-cells:start -->
+[![An unmerged 70-point cell splits into two 35-point cells, adding a fifth grid column and shifting the indices to its right.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-結合されたテンプレートセルをデータ入力用に準備するには、既存の行境界に沿って分割するために [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) を使用し、列境界に沿って分割する場合は [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) を使用します。
+*幅の分割はセル (1, 1) に影響し、ゼロベースの (column, row) インデックスを使用します。他の行は両方の新しい列位置にまたがるセルを保持します。*
+<!-- visual-explanation:manage-cells:end -->
 
-`index` 引数は、分割の上部部分の行数または左側部分の列数をカウントし、結合領域に対して相対的です。
+### **行または列のスパンで結合セルを分割**
+
+マージされたテンプレートセルをデータ入力用に準備するには、[splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) を使用して既存の行境界に沿って分割するか、[splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) を使用して列境界に沿って分割します。
+
+`index` 引数は、分割の上部部分の行数または左側部分の列数を表し、結合領域を基準に相対的です。
 
 - 行分割: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--)。
 - 列分割: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--)。
 
-この例では、プレゼンテーションの最初のスライドの最初のシェイプがテーブルであり、`(1, 2)` と `(1, 3)` が縦に結合されていることを前提としています。下側の位置から開始し、[getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) と [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) を使用して起点を特定し、両方のスパンを確認します。`splitByRowSpan(1)` は製品名用に行 2 と 3 を分離します。横方向の 2 列結合の場合は、代わりに `splitByColSpan(1)` を使用します。
+この例では、プレゼンテーションの最初のスライドの最初のシェイプがテーブルであり、`(1, 2)` と `(1, 3)` が縦に結合されていることを前提とします。下側の位置から開始し、[getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) と [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) で起点を特定し、両方のスパンを確認します。`splitByRowSpan(1)` は製品名用に行 2 と行 3 を分割します。横方向の 2 列結合の場合は、代わりに `splitByColSpan(1)` を使用します。
 
 ```java
 import com.aspose.slides.*;
@@ -163,7 +223,7 @@ try {
     {
         mergedCell.splitByRowSpan(1);
 
-        // 分割後にテーブルから得られたセルを取得します。
+        // 分割後にテーブルから得られるセルを取得します。
         ICell upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         ICell lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         System.out.println("Upper cell merged: " + upperCell.isMergedCell());
@@ -183,15 +243,49 @@ try {
 }
 ```
 
-テーブルグリッドと周囲のセルインデックスは変更されません。座標で結果のセルを取得すると、ここでは両方ともスパンが 1 であり、[isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) は `false` を返します。大きな領域は 1 回の分割後も部分的に結合されたままにできることがあります。
+テーブルグリッドと周囲のセルインデックスは変更されません。結果のセルは座標で取得できます。ここでは両方のセルのスパンは 1 で、[isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) は `false` を返します。1 回の分割後も部分的に結合されたままの大きな領域が残ることがあります。
 
-元のテキストと書式設定は上部（または左側）のセルに残り、新しいセルは空ですが、塗りつぶし、枠線、余白などのセル書式を継承します。分割後にセルにデータを入力し、必要なテキスト書式設定を明示的に設定してください。
+元のテキストと書式は上部（または左部）のセルに残り、新しいセルは空ですが、塗りつぶし、罫線、余白などのセル書式を継承します。分割後にセルにデータを入力し、必要なテキスト書式を明示的に設定してください。
 
-保存されたプレゼンテーションには、テンプレートのセル書式が保持されたまま、"Product A" と "Product B" の別々のセルが含まれます。詳細は [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) を参照してください。
+保存されたプレゼンテーションには、テンプレートのセル書式が保持されたまま、別々の「Product A」および「Product B」セルが含まれます。詳細は [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) を参照してください。
+
+### **特定の高さでセルを分割**
+
+[splitByHeight](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByHeight-double-) は上部部分の高さ（ポイント）を受け取り、[splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) は上部部分の既存グリッド行数を受け取ります。右列の 40 ポイントセルを中央に配置するには、セルの実際の高さから 40 を引き、残りのスペースを上下に均等に分配します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+    
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+最初の分割でグリッド行が追加され、セル `(1, 1)` の下部に 90 ポイントが残ります。2 回目の分割でそのセルが 40 ポイントの中間セルと 50 ポイントの下部セルに分かれます。右列は上から順に高さ 50、40、50 ポイントの 3 つのセルになります。左側のセルは 3 行すべてにまたがり、元の高さ 140 ポイントを保持します。
+
+![The left cell spans the full table height beside three cells with Middle in the center.](split-by-height.png)
 
 ## **テーブルセルの背景色の変更**
 
-この例では、150 ポイントの列幅と 50 ポイントの行高さを持つテーブルを作成します。[setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) を使用して単色塗りつぶしを選択し、[getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) が返す色を赤に設定して、列 3 行 4 のセル `(2, 3)` に適用します。
+この例では、列幅 150 ポイント、行高さ 50 ポイントのテーブルを作成します。[setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) を使用して実体塗りつぶしを選択し、[getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) が返す色を赤に設定して、セル `(2, 3)`（3 列目・4 行目）の背景色を変更します。
 
 ```java
 import com.aspose.slides.*;
@@ -215,11 +309,11 @@ try {
 }
 ```
 
-## **テーブルセル内への画像の追加**
+## **テーブルセル内に画像を追加**
 
-この例を実行する前に、入力画像を作業ディレクトリに配置してください。画像は [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) で読み込み、[addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-) を使ってプレゼンテーションの画像コレクションに追加します。次に、画像をテーブルの最初のセルである `(0, 0)` のピクチャー塗りつぶしに割り当てます。
+サンプルを実行する前に、入力画像を作業ディレクトリに配置してください。画像は [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) で読み込み、[addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-) を使用してプレゼンテーションの画像コレクションに追加します。その後、画像をテーブルの最初のセル `(0, 0)` のピクチャーフィルとして割り当てます。
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) は画像を伸張してセル全体を埋めますが、アスペクト比が変わる可能性があります。列幅と行高さはポイント単位です。読み込んだ画像は、プレゼンテーションに追加された後、`finally` ブロックで破棄されます。
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) は画像をセル全体に伸ばすため、アスペクト比が変わることがあります。列幅と行高さはポイントで指定します。読み込んだ画像は、プレゼンテーションに追加された後、`finally` ブロックで破棄されます。
 
 ```java
 import com.aspose.slides.*;
@@ -250,20 +344,20 @@ try {
 }
 ```
 
-## **よくある質問**
+## **FAQ**
 
 **単一セルの各辺に対して異なる線の太さやスタイルを設定できますか？**
 
-はい。[top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) の枠線は個別のプロパティを持つため、各辺の太さやスタイルを異しく設定できます。
+はい。[top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)、[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)、[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)、[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) の罫線は別々のプロパティとして管理されているため、各辺の太さやスタイルを個別に設定できます。
 
-**セルの背景に画像を設定した後、列や行のサイズを変更すると画像はどうなりますか？**
+**セルの背景に画像を設定した後で列・行のサイズを変更すると画像はどうなりますか？**
 
-動作は [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) に依存します。伸張 (stretch) の場合、画像は新しいセルサイズに合わせて調整されます。タイル (tile) の場合、タイルが再計算されます。
+動作は [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/)（stretch / tile）に依存します。ストレッチの場合、画像は新しいセルサイズに合わせて調整されます。タイルの場合はタイルが再計算されます。
 
-**セル内の全コンテンツにハイパーリンクを割り当てることはできますか？**
+**セル内のすべてのコンテンツにハイパーリンクを割り当てられますか？**
 
-[Hyperlinks](/slides/ja/java/manage-hyperlinks/) は、セルのテキストフレーム内のテキスト（ポーション）レベル、またはテーブル/シェイプ全体のレベルで設定されます。実際には、セル内の一部または全テキストにリンクを割り当てます。
+[Hyperlinks](/slides/ja/java/manage-hyperlinks/) はセルのテキストフレーム内のテキスト（ポーション）レベル、またはテーブル/シェイプ全体のレベルで設定します。実務では、テキストの一部またはセル内のすべてのテキストにリンクを割り当てます。
 
-**単一セル内で異なるフォントを設定できますか？**
+**単一セル内でフォントを異なるものに設定できますか？**
 
-はい。セルのテキストフレームは、[portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/)（ラン）ごとにフォントファミリー、スタイル、サイズ、色などの独立した書式設定をサポートしています。
+はい。セルのテキストフレームは [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/)（ラン）をサポートしており、フォントファミリ、スタイル、サイズ、色などを個別に設定できます。

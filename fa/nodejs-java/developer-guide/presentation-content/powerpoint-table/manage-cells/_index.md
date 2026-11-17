@@ -11,22 +11,22 @@ keywords:
 - تقسیم سلول
 - تصویر در سلول
 - رنگ پس‌زمینه
-- پاورپوینت
+- PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "مدیریت سلول‌های جدول PowerPoint در JavaScript: شناسایی سلول‌های ادغام‌شده، حذف حاشیه‌ها، تقسیم سلول‌ها، و تنظیم رنگ‌های پس‌زمینه و تصاویر با Aspose.Slides برای Node.js از طریق Java."
+description: "مدیریت سلول‌های جدول PowerPoint در JavaScript: شناسایی سلول‌های ترکیب‌شده، حذف حاشیه‌ها، تقسیم سلول‌ها، و تنظیم رنگ پس‌زمینه و تصاویر با Aspose.Slides برای Node.js از طریق Java."
 ---
 ## **نمای کلی**
 
-Aspose.Slides به شما امکان دسترسی و تغییر سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله توضیح می‌دهد که چگونه سلول‌های جدول ادغام‌شده را شناسایی کنید، حاشیه‌های سلول را حذف کنید، با شماره‌گذاری سلول پس از ادغام یا تقسیم سلول‌ها کار کنید، رنگ پس‌زمینه سلول را تغییر دهید و یک تصویر را داخل سلول جدول اضافه کنید. مثال‌ها نشان می‌دهند چگونه یک ارائه را ایجاد یا باز کنید، یک جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائه‌ی اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+Aspose.Slides به شما امکان دسترسی و اصلاح سلول‌های جدول در ارائه‌های PowerPoint را می‌دهد. این مقاله توضیح می‌دهد چگونه سلول‌های جدول ترکیب‌شده را شناسایی کنید، مرزهای سلول را حذف کنید، پس از ترکیب یا تقسیم سلول‌ها با شماره‌گذاری سلول کار کنید، رنگ پس‌زمینه یک سلول را تغییر دهید و یک تصویر را داخل یک سلول جدول اضافه کنید. مثال‌ها نشان می‌دهند چگونه یک ارائه را ایجاد یا باز کنید، جدول را از یک اسلاید دریافت کنید، قالب‌بندی سلول را از طریق ویژگی‌های سلول به‌روزرسانی کنید و ارائه‌ی اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-Aspose.Slides از ایندکس‌های صفر‑پایه برای دسترسی به سلول‌های جدول به ترتیب `(ستون، سطر)` استفاده می‌کند.
+Aspose.Slides از ایندکس‌های صفر‑پایه برای دسترسی به سلول‌های جدول به ترتیب `(column, row)` استفاده می‌کند.
 
-## **شناسایی یک سلول جدول ادغام‌شده**
+## **شناسایی یک سلول جدول ترکیب‌شده**
 
-مثال یک ارائه موجود را باز می‌کند و اولین شکل را در اولین اسلاید به صورت جدول دسترسی می‌یابد. فرض می‌کند که اسلاید و شکل وجود دارند و شکل یک جدول است. سپس تمام سطرها و ستون‌ها را پیمایش می‌کند و از [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) برای شناسایی سلول‌های در نواحی ادغام‌شده استفاده می‌کند. برای هر تطابق، مختصات سلول را به ترتیب `row;column`، [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/)، [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/)، و مختصات شروع ناحیه، [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) و [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) چاپ می‌کند.
+مثال یک ارائه موجود را باز می‌کند و اولین شکل روی اولین اسلاید را به‌عنوان جدول دسترسی می‌یابد. فرض می‌شود اسلاید و شکل وجود دارند و شکل یک جدول است. سپس بر تمام ردیف‌ها و ستون‌ها پیمایش می‌کند و از [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) برای شناسایی سلول‌های در نواحی ترکیب‌شده استفاده می‌کند. برای هر تطابق، مختصات سلول را به ترتیب `row;column` چاپ می‌کند، [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/)، [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/)، و مختصات شروع ناحیه، [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) و [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) را نمایش می‌دهد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -54,7 +54,7 @@ try {
 
 ## **حذف حاشیه‌های سلول جدول**
 
-یک [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد کنید و یک جدول را به اولین اسلاید آن با استفاده از [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/) اضافه کنید. عرض ستون‌ها، ارتفاع سطرها و موقعیت جدول به پوینت مشخص می‌شوند. مثال تمام چهار حاشیه سلول را به [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) تنظیم می‌کند تا نامرئی شوند.
+مثال یک [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ایجاد می‌کند و یک جدول را به اولین اسلاید آن با [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addtable/) اضافه می‌نماید. عرض ستون‌ها، ارتفاع ردیف‌ها و موقعیت جدول بر حسب پوینت مشخص می‌شوند. این مثال تمام چارچوب حاشیه سلول را به [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) تنظیم می‌کند تا نامرئی شوند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -85,11 +85,63 @@ try {
 }
 ```
 
+## **افزودن حاشیه‌های مورب به سلول**
+
+از [getBorderDiagonalDown](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderdiagonaldown/) برای رسم خطی از گوشه بالا‑چپ به پایین‑راست و از [getBorderDiagonalUp](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderdiagonalup/) برای رسم خطی از گوشه پایین‑چپ به بالا‑راست استفاده کنید. یک خط مورب می‌تواند سربرگ گوشه‌ای باشد؛ هر دو خط مورب می‌توانند یک X را برای نشان‌دادن سلول غیرقابل‌استفاده تشکیل دهند.
+
+هر مورب یک [LineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) است. در [getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/getfillformat/) آن، از [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) برای انتخاب [FillType.Solid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) استفاده کنید و رنگ را از طریق [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) انتخاب کنید. با [setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setwidth/) عرض خط را بر حسب پوینت تنظیم کنید.
+
+این مثال سه سلول در یک ردیف ایجاد می‌کند: یک مورب نزولی قرمز، یک مورب صعودی آبی، و هر دو مورب. حاشیه‌های بالا، پایین، چپ و راست سلول دست نخورده می‌مانند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [210, 210, 210]);
+    const rowHeights = java.newArray("double", [160]);
+    const table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    const downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    downwardBorder.setWidth(3);
+
+    const upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    upwardBorder.setWidth(5);
+
+    const crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    crossDownwardBorder.setWidth(3);
+
+    const crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+یک مورب یک ویژگی قالب‌بندی است، نه تقسیم سلول. هر سلول یک فریم متن واحد دارد که از طریق [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/gettextframe/) دسترسی می‌شود؛ نواحی هر دو طرف یک مورب نمی‌تواند به‌صورت مستقل ویرایش شود.
+
+![سه سلول جدول که یک خط مورب قرمز از بالا‑چپ به پایین‑راست، یک خط مورب آبی از پایین‑چپ به بالا‑راست، و هر دو مورب تشکیل یک X را نشان می‌دهند.](diagonal-cell-borders.png)
+
+*از چپ به راست: مورب نزولی (قرمز، ۳ پوینت)، مورب صعودی (آبی، ۵ پوینت) و هر دو مورب.*
+
 ## **ادغام سلول‌های جدول**
 
-از [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) برای ترکیب یک بازه مستطیلی از سلول‌های جدول به یک سلول استفاده کنید. سلول‌های گوشه بالا‑چپ و پایین‑راست بازه را مشخص کنید. آرگومان نهایی تعیین می‌کند که آیا ادغام می‌تواند شامل سلول‌های خارج از بازه مشخص شده باشد یا نه؛ `false` ادغام را درون همان بازه نگه می‌دارد.
+از [mergeCells](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/mergecells/) برای ترکیب یک بازه مستطیلی از سلول‌های جدول به یک سلول استفاده کنید. سلول‌های گوشه بالا‑چپ و پایین‑راست بازه را مشخص کنید. آرگومان نهایی کنترل می‌کند که آیا ادغام می‌تواند شامل سلول‌های خارج از بازه مشخص شده باشد؛ `false` ادغام را در همان بازه نگه می‌دارد.
 
-مثال یک جدول 4×4 با ستون‌ها و سطرهای 70 پوینت ایجاد می‌کند، سپس چهار سلول مرکزی را از `(1, 1)` تا `(2, 2)` ادغام می‌نماید. سلول حاصل دو ستون و دو سطر را پوشش می‌دهد، در حالی که شبکه‑ی پایه جدول همچنان چهار ستون و چهار سطر را نگه می‌دارد. برای دسترسی به محتوای یا قالب‌بندی سلول ادغام‌شده، موقعیت بالا‑چپ آن را استفاده کنید: `table.get_Item(1, 1)` در این مثال. سایر موقعیت‌های در بازه ادغام‌شده همچنان جزئی از شبکه جدول باقی می‌مانند، بنابراین ایندکس‌های سلول‌های خارج از بازه تغییر نمی‌کنند.
+این مثال جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰ پوینت ایجاد می‌کند، سپس چهار سلول مرکزی از `(1, 1)` تا `(2, 2)` را ادغام می‌کند. سلول حاصل دو ستون و دو ردیف را در بر می‌گیرد، در حالی که شبکهٔ زیرین جدول چهار ستون و چهار ردیف را حفظ می‌کند. برای دسترسی به محتوای یا قالب‌بندی سلول ترکیب‌شده، از موقعیت بالا‑چپ آن استفاده کنید: `table.get_Item(1, 1)` در این مثال. سایر موقعیت‌های در بازه ترکیب‌شده همچنان بخشی از شبکه جدول باقی می‌مانند، بنابراین ایندکس‌های سلول‌های خارج از بازه تغییر نمی‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -113,11 +165,11 @@ try {
 
 ## **تقسیم سلول‌های جدول**
 
-ادغام سلول‌ها در مثال قبلی شبکه جدول را حفظ می‌کند. تقسیم یک سلول می‌تواند یک ستون جدید در شبکه ایجاد کند و ایندکس‌های ستون سلول‌های سمت راست آن را تغییر دهد. Aspose.Slides از مدل شبکه جدول PowerPoint پیروی می‌کند.
+ادغام سلول‌ها در مثال قبلی ساختار شبکه جدول را حفظ می‌کند. تقسیم یک سلول می‌تواند یک ستون شبکه جدید ایجاد کند و ایندکس‌های ستون سلول‌های سمت راست آن را تغییر دهد. Aspose.Slides مدل شبکه جدول PowerPoint را دنبال می‌کند.
 
-این مثال یک جدول 4×4 با ستون‌ها و سطرهای 70 پوینت ایجاد می‌کند و بر روی سلول `(1, 1)` متد [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) را فراخوانی می‌کند. نیمی از عرض 70 پوینت سلول برای ایجاد دو سلول با عرض مساوی استفاده می‌شود.
+این مثال جدول ۴×۴ با ستون‌ها و ردیف‌های ۷۰ پوینت ایجاد می‌کند و بر روی سلول `(1, 1)` از [splitByWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbywidth/) صدا می‌زند. نصف عرض ۷۰ پوینت سلول به‌عنوان مقدار برای ایجاد دو سلول با عرض برابر استفاده می‌شود.
 
-پس از این تقسیم، دو نیم به صورت `table.get_Item(1, 1)` و `table.get_Item(2, 1)` دسترسی پیدا می‌کنند. شبکه جدول اکنون پنج ستون دارد: سلول‌های اصلی در ستون‌های 2 و 3 به ستون‌های 3 و 4 منتقل می‌شوند. ایندکس‌های سطر بدون تغییر باقی می‌مانند. هنگام دسترسی به سلول‌ها پس از تقسیم، از این ایندکس‌های ستون به‌روز شده استفاده کنید.
+پس از این تقسیم، دو نیمه به صورت `table.get_Item(1, 1)` و `table.get_Item(2, 1)` قابل دسترسی هستند. شبکه جدول اکنون پنج ستون دارد: سلول‌های اصلی در ستون‌های ۲ و ۳ به ستون‌های ۳ و ۴ منتقل می‌شوند. ایندکس‌های ردیف بدون تغییر می‌مانند. هنگام دسترسی به سلول‌ها پس از تقسیم، از این ایندکس‌های به‌روز شده استفاده کنید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -139,16 +191,22 @@ try {
 }
 ```
 
-### **تقسیم سلول‌های ادغام‌شده بر اساس طول سطر یا ستون**
+<!-- visual-explanation:manage-cells:start -->
+[![یک سلول ۷۰ پوینت که ادغام نشده به دو سلول ۳۵ پوینت تقسیم می‌شود، ستون پنجم شبکه را اضافه می‌کند و ایندکس‌ها را به سمت راست جابه‌جا می‌کند.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
 
-برای آماده‌سازی سلول‌های الگو ادغام‌شده برای پر کردن داده‌ها، از [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) برای تقسیم بر اساس مرز سطر موجود، یا از [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) برای تقسیم بر اساس مرز ستون استفاده کنید.
+*تقسیم عرض بر سلول (1, 1) تأثیر می‌گذارد و از ایندکس‌های صفر‑پایه (ستون، ردیف) استفاده می‌کند. سایر ردیف‌ها یک سلول دارند که هر دو موقعیت ستون جدید را پوشش می‌دهد.*
+<!-- visual-explanation:manage-cells:end -->
 
-آرگومان `index` ردیف‌ها را در بخش بالایی یا ستون‌ها را در بخش چپ تقسیم می‌شمارد؛ این مقدار نسبت به ناحیه ادغام‌شده است:
+### **تقسیم سلول‌های ترکیب‌شده بر اساس ردیف یا ستون**
 
-- تقسیم سطر: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).  
+برای آماده‌سازی سلول‌های قالب ترکیب‌شده برای پرکردن داده‌ها، از [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) برای تقسیم بر اساس مرز ردیف موجود، یا [splitByColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbycolspan/) برای تقسیم بر اساس مرز ستون استفاده کنید.
+
+آرگومان `index` ردیف‌ها را در قسمت بالایی یا ستون‌ها را در قسمت چپ تقسیم می‌شمارید؛ این مقدار نسبت به ناحیه ترکیب‌شده است:
+
+- تقسیم ردیف: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getrowspan/).
 - تقسیم ستون: `0 < index <` [getColSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getcolspan/).
 
-مثال انتظار دارد که ارائه حاوی جدولی به عنوان اولین شکل در اولین اسلاید باشد، به طوری که سلول‌های `(1, 2)` و `(1, 3)` به صورت عمودی ادغام شده باشند. از موقعیت پایین شروع می‌کند و با استفاده از [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) و [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) مبدأ را پیدا کرده و هر دو طول را بررسی می‌کند. سپس `splitByRowSpan(1)` ردیف‌های 2 و 3 را برای نام‌های محصول جدا می‌کند. برای ادغام افقی دو ستونی، به جای آن از `splitByColSpan(1)` استفاده کنید.
+مثال انتظار دارد ارائه‌ای داشته باشد که جدول به‌عنوان اولین شکل در اولین اسلاید باشد، با ترکیب عمودی `(1, 2)` و `(1, 3)`. از موقعیت پایین شروع می‌کند و از [getFirstColumnIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstcolumnindex/) و [getFirstRowIndex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/getfirstrowindex/) برای یافتن مبدأ استفاده می‌کند و هر دو بازه را بررسی می‌کند. سپس `splitByRowSpan(1)` ردیف‌های ۲ و ۳ را برای نام محصولات جدا می‌کند. برای ترکیب افقی دو ستونی، به‌جای آن از `splitByColSpan(1)` استفاده کنید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -167,7 +225,7 @@ try {
     if (mergedCell.isMergedCell() && mergedCell.getRowSpan() == 2 && mergedCell.getColSpan() == 1) {
         mergedCell.splitByRowSpan(1);
 
-        // سلول‌های حاصل‌شده را پس از تقسیم از جدول بازیابی کنید.
+        // سلول‌های حاصل پس از تقسیم را از جدول بازیابی کنید.
         const upperCell = table.get_Item(firstColumnIndex, firstRowIndex);
         const lowerCell = table.get_Item(firstColumnIndex, firstRowIndex + 1);
         console.log("Upper cell merged: " + upperCell.isMergedCell());
@@ -185,15 +243,50 @@ try {
 }
 ```
 
-شبکه جدول و ایندکس‌های سلول‌های اطراف بدون تغییر می‌مانند. سلول‌های حاصل را با استفاده از مختصات آنها بازیابی کنید؛ در اینجا هر دو طول 1 دارند و [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) `false` را چاپ می‌کند. نواحی بزرگ‌تر می‌توانند پس از یک تقسیم به‌صورت جزئی ادغام باقی بمانند.
+شبکه جدول و ایندکس‌های سلول‌های اطراف بدون تغییر می‌مانند. سلول‌های حاصل را با مختصاتشان بازیابی کنید؛ در اینجا هر دو بازه Span برابر ۱ دارند و [isMergedCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/ismergedcell/) `false` چاپ می‌کند. نواحی بزرگ‌تر می‌توانند پس از یک تقسیم همچنان جزئی ترکیب‌شده باقی بمانند.
 
-متن اصلی و قالب‌بندی‌ آن در سلول بالا (یا چپ) باقی می‌ماند؛ سلول جدید خالی است اما قالب‌بندی سلول مانند پرکن، حاشیه‌ها و حاشیه‌های داخلی را به ارث می‌برد. پس از تقسیم، سلول‌ها را پر کنید و هر قالب‌بندی متنی موردنیاز را به‌صورت صریح تنظیم کنید.
+متن اصلی و قالب‌بندی آن در سلول بالایی (یا چپ) باقی می‌ماند؛ سلول جدید خالی است اما قالب‌بندی سلول مانند پر، حاشیه‌ها و حاشیه داخلی را به ارث می‌برد. پس از تقسیم، سلول‌ها را پر کنید و هر قالب‌بندی متنی مورد نیاز را صریحاً تنظیم کنید.
 
-اطلاعات ذخیره‌شده ارائه شامل سلول‌های جداگانه «Product A» و «Product B» با حفظ قالب‌بندی سلول قالب است. برای جزئیات به [مرجع API سلول](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) مراجعه کنید.
+ارائه ذخیره‌شده سلول‌های جداگانه «محصول A» و «محصول B» را با حفظ قالب‌بندی سلول قالب نشان می‌دهد. برای جزئیات به [Cell API Reference](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) مراجعه کنید.
+
+### **تقسیم یک سلول با ارتفاع مشخص**
+
+[splitByHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyheight/) ارتفاع بخش بالایی را بر حسب پوینت می‌گیرد. [splitByRowSpan](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/splitbyrowspan/) تعداد ردیف‌های موجود در بخش بالایی را می‌گیرد. برای مرکز کردن یک سلول ۴۰ پوینت در ستون راست، ۴۰ را از ارتفاع واقعی سلول کم کنید و فضای باقی‌مانده را به‌صورت مساوی بالای و پایین آن تقسیم کنید.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const columnWidths = java.newArray("double", [160, 160]);
+    const rowHeights = java.newArray("double", [140]);
+
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    const height = table.get_Item(1, 0).getHeight();
+    const margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+اولین تقسیم یک ردیف شبکه اضافه می‌کند و ۹۰ پوینت پایین را در سلول `(1, 1)` می‌گذارد. تقسیم دوم آن سلول را به یک سلول میانی ۴۰ پوینت و یک سلول پایینی ۵۰ پوینت تبدیل می‌کند. ستون راست اکنون سه سلول با ارتفاع‌های ۵۰، ۴۰ و ۵۰ پوینت از بالا به پایین دارد. سلول چپ تمام سه ردیف را پوشش می‌دهد و ارتفاع اصلی ۱۴۰ پوینت خود را حفظ می‌کند.
+
+![سلول چپ تمام ارتفاع جدول را در کنار سه سلول با «Middle» در مرکز پوشش می‌دهد.](split-by-height.png)
 
 ## **تغییر رنگ پس‌زمینه سلول جدول**
 
-این مثال یک جدول با ستون‌های 150 پوینت و سطرهای 50 پوینت ایجاد می‌کند. از [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) برای انتخاب پرکن جامد استفاده می‌کند و رنگ بازگشته از [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) را برای سلول `(2, 3)` (ستون سوم و ردیف چهارم) به رنگ قرمز تنظیم می‌نماید.
+این مثال جدول با ستون‌های ۱۵۰ پوینت و ردیف‌های ۵۰ پوینت ایجاد می‌کند. از [setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/setfilltype/) برای انتخاب پر کردن جامد استفاده می‌کند و رنگ بازگردانده‌شده توسط [getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/getsolidfillcolor/) را برای سلول `(2, 3)` که در ستون سوم و ردیف چهارم است، به قرمز تنظیم می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -219,9 +312,9 @@ try {
 
 ## **افزودن تصویر داخل یک سلول جدول**
 
-قبل از اجرای این مثال، تصویر ورودی را در پوشه کاری قرار دهید. تصویر را با استفاده از [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images#fromFile) بارگذاری می‌کند و با [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/) به مجموعه تصویرهای ارائه اضافه می‌نماید. سپس تصویر را به پرکن تصویر سلول `(0, 0)` که اولین سلول جدول است، اختصاص می‌دهد.
+تصویر ورودی را قبل از اجرای این مثال در پوشه کاری قرار دهید. تصویر را با [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) بارگیری می‌کند و با [addImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imagecollection/addimage/) به مجموعه تصویرهای ارائه اضافه می‌نماید. سپس تصویر را به پر کردن تصویری سلول `(0, 0)`، اولین سلول جدول، اختصاص می‌دهد.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) تصویر را برای پر کردن سلول کش می‌کند که ممکن است نسبت تصویر را تغییر دهد. عرض ستون‌ها و ارتفاع سطرها بر حسب پوینت است. تصویر بارگذاری‌شده پس از افزودن به ارائه در یک بلوک `finally` آزاد (dispose) می‌شود.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) تصویر را برای پر کردن سلول کش می‌کند که ممکن است نسبت تصویر را تغییر دهد. عرض ستون‌ها و ارتفاع ردیف‌ها بر حسب پوینت است. تصویر بارگیری‌شده پس از افزودن به ارائه در یک بلوک `finally` آزاد می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -253,20 +346,20 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **FAQ**
 
-**آیا می‌توانم ضخامت و سبک خطوط مختلفی برای هر سمت یک سلول تنظیم کنم؟**
+**آیا می‌توانم ضخامت و سبک خطوط مختلف برای طرف‌های مختلف یک سلول تنظیم کنم؟**
 
-بله. حاشیه‌های [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) دارای خصوصیات جداگانه‌ای هستند، بنابراین ضخامت و سبک هر سمت می‌تواند متفاوت باشد.
+بله. حاشیه‌های [top](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getbordertop/)/[bottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderbottom/)/[left](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderleft/)/[right](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cellformat/getborderright/) دارای ویژگی‌های جداگانه هستند، بنابراین ضخامت و سبک هر طرف می‌تواند متفاوت باشد.
 
-**اگر پس از تنظیم یک تصویر به‌عنوان پس‌زمینه سلول، اندازه ستون/سطر را تغییر دهم، چه اتفاقی برای تصویر می‌افتد؟**
+**چه اتفاقی برای تصویر می‌افتد اگر پس از تنظیم یک تصویر به عنوان پس‌زمینه سلول، اندازه ستون/ردیف را تغییر دهم؟**
 
-رفتار بستگی به [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) دارد. با کشیدن (stretch)، تصویر با سلول جدید سازگار می‌شود؛ با کاشی‌کاری (tile)، کاشی‌ها مجدداً محاسبه می‌شوند.
+رفتار بستگی به [fill mode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillmode/) (stretch/tile) دارد. در حالت کشش، تصویر با سلول جدید سازگار می‌شود؛ در حالت کاشی، کاشی‌ها بازمحاسبه می‌شوند.
 
-**آیا می‌توانم یک لینک به تمام محتوای یک سلول اختصاص دهم؟**
+**آیا می‌توانم یک پیوند فراگیر به تمام محتوای یک سلول اختصاص دهم؟**
 
-[پیوندها](/slides/fa/nodejs-java/manage-hyperlinks/) در سطح متن (بخش) داخل فریم متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، لینک را به یک بخش یا به تمام متن داخل سلول اختصاص می‌دهید.
+[Hyperlinks](/slides/fa/nodejs-java/manage-hyperlinks/) در سطح متن (قسمت) داخل فریم متن سلول یا در سطح کل جدول/شکل تنظیم می‌شوند. در عمل، پیوند را به یک قسمت یا به تمام متن داخل سلول اختصاص می‌دهید.
 
-**آیا می‌توانم فونت‌های مختلفی در یک سلول تنظیم کنم؟**
+**آیا می‌توانم فونت‌های متفاوتی را در یک سلول واحد تنظیم کنم؟**
 
-بله. فریم متن سلول از [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (بخش‌ها) با قالب‌بندی مستقل—خانواده فونت، سبک، اندازه و رنگ—پشتیبانی می‌کند.
+بله. فریم متن یک سلول از [portions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) (بخش‌ها) با قالب‌بندی مستقل پشتیبانی می‌کند—خانوادهٔ قلم، سبک، اندازه و رنگ.

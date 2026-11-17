@@ -1,31 +1,31 @@
 ---
-title: Gestire le celle della tabella nelle presentazioni con Java
+title: Gestire le celle della tabella nelle presentazioni usando Java
 linktitle: Gestire le celle
 type: docs
 weight: 30
 url: /it/java/manage-cells/
 keywords:
-  - cella della tabella
-  - unire celle
-  - rimuovere bordo
-  - dividere cella
-  - immagine nella cella
-  - colore di sfondo
-  - PowerPoint
-  - presentazione
-  - Java
-  - Aspose.Slides
-description: "Gestisci le celle delle tabelle PowerPoint in Java: identifica le celle unite, rimuovi i bordi, dividi le celle e imposta colori di sfondo e immagini con Aspose.Slides per Java."
+- cella della tabella
+- unire celle
+- rimuovere bordo
+- dividere cella
+- immagine nella cella
+- colore di sfondo
+- PowerPoint
+- presentazione
+- Java
+- Aspose.Slides
+description: "Gestisci le celle delle tabelle PowerPoint in Java: individua le celle unite, rimuovi i bordi, dividi le celle e imposta colori di sfondo e immagini con Aspose.Slides per Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di accedere e modificare le celle di una tabella nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle di tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l'unione o la divisione delle celle, modificare il colore di sfondo di una cella e aggiungere un'immagine all'interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
+Aspose.Slides consente di accedere e modificare le celle di una tabella nelle presentazioni PowerPoint. Questo articolo spiega come identificare le celle di tabella unite, rimuovere i bordi delle celle, gestire la numerazione delle celle dopo l'unione o la divisione delle celle, cambiare il colore di sfondo di una cella e aggiungere un'immagine all'interno di una cella di tabella. Gli esempi mostrano come creare o aprire una presentazione, ottenere una tabella da una diapositiva, aggiornare la formattazione delle celle tramite le proprietà della cella e salvare la presentazione modificata come file PPTX.
 
-Aspose.Slides utilizza indici a base zero per accedere alle celle della tabella nell'ordine `(column, row)`.
+Aspose.Slides utilizza indici basati su zero per accedere alle celle della tabella nell'ordine `(colonna, riga)`.
 
 ## **Identificare una cella di tabella unita**
 
-L'esempio apre una presentazione esistente e accede alla prima forma nella prima diapositiva come tabella. Si presume che la diapositiva e la forma esistano e che la forma sia una tabella. Poi itera attraverso tutte le righe e le colonne e utilizza [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) per identificare le celle nelle regioni unite. Per ogni corrispondenza, stampa le coordinate della cella nell'ordine `row;column`, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--), e le coordinate iniziali della regione, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) e [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
+L'esempio apre una presentazione esistente e accede alla prima forma nella prima diapositiva come tabella. Si assume che la diapositiva e la forma esistano e che la forma sia una tabella. Quindi itera attraverso tutte le righe e colonne e utilizza [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) per identificare le celle nelle regioni unite. Per ogni corrispondenza, stampa le coordinate della cella nell'ordine `riga;colonna`, [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--), [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--), e le coordinate di inizio della regione, [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) e [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--).
 
 ```java
 import com.aspose.slides.*;
@@ -53,9 +53,9 @@ try {
 }
 ```
 
-## **Rimuovere i bordi delle celle della tabella**
+## **Rimuovere i bordi della cella della tabella**
 
-Crea una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) e aggiungi una tabella alla sua prima diapositiva con [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). Le larghezze delle colonne, le altezze delle righe e la posizione della tabella sono specificate in punti. L'esempio imposta tutti e quattro i bordi della cella su [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), rendendoli invisibili.
+Crea una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) e aggiungi una tabella alla sua prima diapositiva con [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---). La larghezza delle colonne, l'altezza delle righe e la posizione della tabella sono specificate in punti. L'esempio imposta tutti e quattro i bordi della cella su [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/), rendendoli invisibili.
 
 ```java
 import com.aspose.slides.*;
@@ -83,11 +83,65 @@ try {
 }
 ```
 
+## **Aggiungere bordi diagonali alla cella**
+
+Usa [getBorderDiagonalDown](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalDown--) per disegnare una linea dall'angolo in alto a sinistra a quello in basso a destra, e [getBorderDiagonalUp](https://reference.aspose.com/slides/java/com.aspose.slides/icellformat/#getBorderDiagonalUp--) per disegnare una linea dall'angolo in basso a sinistra a quello in alto a destra. Una diagonale può contrassegnare un'intestazione di angolo; entrambe le diagonali possono formare una X per indicare che la cella non è applicabile.
+
+Ogni diagonale è un [ILineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/). Nel suo [getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getFillFormat--), usa [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) per selezionare [FillType.Solid](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) e scegli un colore tramite [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--). Imposta la larghezza della linea in punti con [setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-).
+
+L'esempio crea tre celle in una riga: una diagonale rossa verso il basso, una diagonale blu verso l'alto e entrambe le diagonali. Lascia invariati i bordi superiore, inferiore, sinistro e destro della cella.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 210, 210, 210 };
+    double[] rowHeights = { 160 };
+    ITable table = slide.getShapes().addTable(45, 130, columnWidths, rowHeights);
+
+    ILineFormat downwardBorder = table.get_Item(0, 0).getCellFormat().getBorderDiagonalDown();
+    downwardBorder.getFillFormat().setFillType(FillType.Solid);
+    downwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    downwardBorder.setWidth(3);
+
+    ILineFormat upwardBorder = table.get_Item(1, 0).getCellFormat().getBorderDiagonalUp();
+    upwardBorder.getFillFormat().setFillType(FillType.Solid);
+    upwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    upwardBorder.setWidth(5);
+
+    ILineFormat crossDownwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalDown();
+    crossDownwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossDownwardBorder.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    crossDownwardBorder.setWidth(3);
+
+    ILineFormat crossUpwardBorder = table.get_Item(2, 0).getCellFormat().getBorderDiagonalUp();
+    crossUpwardBorder.getFillFormat().setFillType(FillType.Solid);
+    crossUpwardBorder.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    crossUpwardBorder.setWidth(5);
+
+    presentation.save("diagonal_cell_borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Una diagonale è una proprietà di formattazione, non una divisione della cella. Ogni cella mantiene un unico frame di testo, accessibile tramite [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--); le regioni su entrambi i lati di una diagonale non possono essere modificate indipendentemente.
+
+La tabella salvata, resa in Microsoft PowerPoint:
+
+![Tre celle della tabella che mostrano una diagonale rossa dall'angolo in alto a sinistra a quello in basso a destra, una diagonale blu dall'angolo in basso a sinistra a quello in alto a destra, e entrambe le diagonali che formano una X.](diagonal-cell-borders.png)
+
+*Da sinistra a destra: diagonale verso il basso (rossa, 3 pt), diagonale verso l'alto (blu, 5 pt) e entrambe le diagonali.*
+
 ## **Unire le celle della tabella**
 
-Usa [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) per combinare un intervallo rettangolare di celle della tabella in una singola cella. Specifica le celle negli angoli in alto a sinistra e in basso a destra dell'intervallo. L'ultimo argomento controlla se l'unione può includere celle al di fuori dell'intervallo specificato; `false` mantiene l'unione all'interno di quell'intervallo.
+Usa [mergeCells](https://reference.aspose.com/slides/java/com.aspose.slides/itable/#mergeCells-com.aspose.slides.ICell-com.aspose.slides.ICell-boolean-) per combinare un intervallo rettangolare di celle della tabella in un'unica cella. Specifica le celle negli angoli in alto a sinistra e in basso a destra dell'intervallo. L'argomento finale controlla se l'unione può includere celle al di fuori dell'intervallo specificato; `false` mantiene l'unione all'interno di quell'intervallo.
 
-L'esempio crea una tabella 4x4 con colonne e righe di 70 punti, quindi unisce le quattro celle centrali da `(1, 1)` a `(2, 2)`. La cella risultante occupa due colonne e due righe, mentre la griglia sottostante della tabella mantiene quattro colonne e quattro righe. Per accedere al contenuto o alla formattazione della cella unita, usa la sua posizione in alto a sinistra: `table.get_Item(1, 1)` in questo esempio. Le altre posizioni nell'intervallo unito rimangono parte della griglia della tabella, quindi gli indici delle celle al di fuori dell'intervallo non cambiano.
+L'esempio crea una tabella 4x4 con colonne e righe da 70 punti, quindi unisce le quattro celle centrali da `(1, 1)` a `(2, 2)`. La cella risultante si estende su due colonne e due righe, mentre la griglia sottostante della tabella mantiene quattro colonne e quattro righe. Per accedere al contenuto o alla formattazione della cella unita, usa la sua posizione in alto a sinistra: `table.get_Item(1, 1)` in questo esempio. Le altre posizioni nell'intervallo unito rimangono parte della griglia della tabella, quindi gli indici delle celle al di fuori dell'intervallo non cambiano.
 
 ```java
 import com.aspose.slides.*;
@@ -110,11 +164,11 @@ try {
 
 ## **Dividere le celle della tabella**
 
-L'unione delle celle nell'esempio precedente preserva la griglia della tabella. Dividere una cella può introdurre una nuova colonna nella griglia e modificare gli indici di colonna delle celle a destra. Aspose.Slides segue il modello di griglia delle tabelle di PowerPoint.
+Unire le celle nell'esempio precedente preserva la griglia della tabella. Dividere una cella può introdurre una nuova colonna nella griglia e modificare gli indici di colonna delle celle a destra. Aspose.Slides segue il modello di griglia delle tabelle di PowerPoint.
 
-Questo esempio crea una tabella 4x4 con colonne e righe di 70 punti e chiama [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) sulla cella `(1, 1)`. Metà della larghezza di 70 punti della cella viene passata per creare due celle di larghezza uguale.
+Questo esempio crea una tabella 4x4 con colonne e righe da 70 punti e chiama [splitByWidth](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByWidth-double-) sulla cella `(1, 1)`. Metà della larghezza di 70 punti della cella viene passata per creare due celle di larghezza uguale.
 
-Dopo questa divisione, le due metà sono accessibili come `table.get_Item(1, 1)` e `table.get_Item(2, 1)`. La griglia della tabella ora ha cinque colonne: le celle originariamente nelle colonne 2 e 3 si spostano rispettivamente nelle colonne 3 e 4. Gli indici delle righe rimangono invariati. Usa questi indici di colonna aggiornati quando accedi alle celle dopo la divisione.
+Dopo questa divisione, le due metà sono accessibili come `table.get_Item(1, 1)` e `table.get_Item(2, 1)`. La griglia della tabella ora ha cinque colonne: le celle originariamente nelle colonne 2 e 3 si spostano nelle colonne 3 e 4, rispettivamente. Gli indici di riga rimangono invariati. Usa questi indici di colonna aggiornati quando accedi alle celle dopo la divisione.
 
 ```java
 import com.aspose.slides.*;
@@ -135,16 +189,22 @@ try {
 }
 ```
 
+<!-- visual-explanation:manage-cells:start -->
+[![Una cella non unita da 70 punti si divide in due celle da 35 punti, aggiungendo una quinta colonna della griglia e spostando gli indici a destra.](visual-manage-cells-04c40789d81c.svg)](visual-manage-cells-04c40789d81c.svg)
+
+*La divisione della larghezza interessa la cella (1, 1), usando indici basati su zero (colonna, riga). Le altre righe mantengono una cella che si estende su entrambe le nuove posizioni di colonna.*  
+<!-- visual-explanation:manage-cells:end -->
+
 ### **Dividere le celle unite per intervallo di riga o colonna**
 
-Per preparare le celle modello unite per il popolamento dei dati, usa [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) per dividere lungo una linea di suddivisione di riga esistente, oppure [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) per dividere lungo una linea di colonna.
+Per preparare le celle modello unite per la popolazione dei dati, usa [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) per dividere lungo un confine di riga esistente, o [splitByColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByColSpan-int-) per dividere lungo un confine di colonna.
 
 L'argomento `index` conta le righe nella parte superiore o le colonne nella parte sinistra della divisione; è relativo alla regione unita:
 
-- Divisione di riga: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
-- Divisione di colonna: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
+- Divisione per riga: `0 < index <` [getRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getRowSpan--).
+- Divisione per colonna: `0 < index <` [getColSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getColSpan--).
 
-L'esempio presuppone che una presentazione contenga una tabella come prima forma nella prima diapositiva, con `(1, 2)` e `(1, 3)` unite verticalmente. Partendo dalla posizione inferiore, utilizza [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) e [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) per individuare l'origine e verifica entrambi gli span. `splitByRowSpan(1)` separa quindi le righe 2 e 3 per i nomi dei prodotti. Per un'unione orizzontale di due colonne, usa invece `splitByColSpan(1)`.
+L'esempio si aspetta che una presentazione abbia una tabella come prima forma nella prima diapositiva, con `(1, 2)` e `(1, 3)` unite verticalmente. Partendo dalla posizione inferiore, utilizza [getFirstColumnIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstColumnIndex--) e [getFirstRowIndex](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getFirstRowIndex--) per individuare l'origine e verifica entrambi gli intervalli. `splitByRowSpan(1)` separa le righe 2 e 3 per i nomi dei prodotti. Per un'unione orizzontale a due colonne, usa invece `splitByColSpan(1)`.
 
 ```java
 import com.aspose.slides.*;
@@ -183,15 +243,49 @@ try {
 }
 ```
 
-La griglia della tabella e gli indici delle celle circostanti rimangono invariati. Recupera le celle risultanti tramite le loro coordinate; qui entrambe hanno span di 1 e [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) stampa `false`. Regioni più grandi possono rimanere parzialmente unite dopo una divisione.
+La griglia della tabella e gli indici delle celle circostanti rimangono invariati. Recupera le celle risultanti tramite le loro coordinate; qui entrambe hanno intervalli di 1 e [isMergedCell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#isMergedCell--) stampa `false`. Regioni più ampie possono rimanere parzialmente unite dopo una divisione.
 
-Il testo originale e la sua formattazione rimangono nella cella superiore (o sinistra); la nuova cella è vuota ma eredita la formattazione della cella come riempimento, bordi e margini. Popola le celle dopo la divisione e imposta esplicitamente qualsiasi formattazione del testo necessaria.
+Il testo originale e la sua formattazione rimangono nella cella superiore (o sinistra); la nuova cella è vuota ma eredita la formattazione della cella, come riempimento, bordi e margini. Popola le celle dopo la divisione e imposta esplicitamente eventuali formattazioni di testo necessarie.
 
-La presentazione salvata contiene celle separate "Product A" e "Product B" con la formattazione della cella del modello mantenuta. Consulta la [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) per i dettagli.
+La presentazione salvata contiene celle separate “Product A” e “Product B” con la formattazione della cella del modello mantenuta. Consulta la [Cell API Reference](https://reference.aspose.com/slides/java/com.aspose.slides/cell/) per i dettagli.
+
+### **Dividere una cella a un'altezza specifica**
+
+[splitByHeight](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByHeight-double-) prende l'altezza della parte superiore in punti. [splitByRowSpan](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#splitByRowSpan-int-) prende il numero di righe della griglia esistenti nella parte superiore. Per centrare una cella da 40 punti nella colonna di destra, sottrai 40 dall'altezza reale della cella e distribuisci lo spazio rimanente equamente sopra e sotto di essa.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    double[] columnWidths = { 160, 160 };
+    double[] rowHeights = { 140 };
+    
+    ITable table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    table.get_Item(0, 0).getTextFrame().setText("Left");
+
+    double height = table.get_Item(1, 0).getHeight();
+    double margin = (height - 40) / 2;
+
+    table.get_Item(1, 0).splitByHeight(margin);
+    table.get_Item(1, 1).splitByHeight(40);
+    table.get_Item(1, 1).getTextFrame().setText("Middle");
+
+    presentation.save("split_by_height.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+La prima divisione aggiunge una riga alla griglia e lascia i 90 punti inferiori nella cella `(1, 1)`. La seconda divisione divide quella cella in una cella centrale da 40 punti e una cella inferiore da 50 punti. La colonna di destra ora ha tre celle con altezze di 50, 40 e 50 punti dall'alto al basso. La cella sinistra si estende su tutte e tre le righe e mantiene la sua altezza originale di 140 punti.
+
+![La cella sinistra si estende per l'intera altezza della tabella accanto a tre celle con al centro la cella "Middle".](split-by-height.png)
 
 ## **Modificare il colore di sfondo della cella della tabella**
 
-Questo esempio crea una tabella con colonne di 150 punti e righe di 50 punti. Utilizza [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) per selezionare un riempimento solido e imposta il colore restituito da [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) su rosso per la cella `(2, 3)`, nella terza colonna e quarta riga.
+Questo esempio crea una tabella con colonne da 150 punti e righe da 50 punti. Usa [setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) per selezionare un riempimento solido e imposta il colore restituito da [getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--) su rosso per la cella `(2, 3)`, nella terza colonna e quarta riga.
 
 ```java
 import com.aspose.slides.*;
@@ -217,9 +311,9 @@ try {
 
 ## **Aggiungere un'immagine all'interno di una cella della tabella**
 
-Posiziona l'immagine di input nella directory di lavoro prima di eseguire questo esempio. Carica l'immagine con [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) e la aggiunge alla collezione di immagini della presentazione con [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Quindi assegna l'immagine al riempimento immagine della cella `(0, 0)`, la prima cella nella tabella.
+Posiziona l'immagine di input nella directory di lavoro prima di eseguire questo esempio. Carica l'immagine con [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) e la aggiunge alla raccolta di immagini della presentazione con [addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-com.aspose.slides.IImage-). Quindi assegna l'immagine al riempimento immagine della cella `(0, 0)`, la prima cella della tabella.
 
-[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) allunga l'immagine per riempire la cella, il che può modificare il suo rapporto d'aspetto. Le larghezze delle colonne e le altezze delle righe sono in punti. L'immagine caricata viene rilasciata in un blocco `finally` dopo essere stata aggiunta alla presentazione.
+[PictureFillMode.Stretch](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) allunga l'immagine per riempire la cella, il che può modificare il rapporto d'aspetto. Le larghezze delle colonne e le altezze delle righe sono in punti. L'immagine caricata viene liberata in un blocco `finally` dopo essere stata aggiunta alla presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -254,11 +348,11 @@ try {
 
 **Posso impostare spessori e stili di linea diversi per i diversi lati di una singola cella?**
 
-Sì. I bordi [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) hanno proprietà separate, quindi lo spessore e lo stile di ciascun lato possono differire.
+Sì. I bordi [top](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderTop--)/[bottom](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderBottom--)/[left](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderLeft--)/[right](https://reference.aspose.com/slides/java/com.aspose.slides/cellformat/#getBorderRight--) hanno proprietà separate, quindi lo spessore e lo stile di ogni lato possono differire.
 
-**Cosa succede all'immagine se modifico le dimensioni della colonna/riga dopo aver impostato un'immagine come sfondo della cella?**
+**Cosa succede all'immagine se modifico la dimensione della colonna/riga dopo aver impostato un'immagine come sfondo della cella?**
 
-Il comportamento dipende dal [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le piastrelle vengono ricalcolate.
+Il comportamento dipende dal [fill mode](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillmode/) (stretch/tile). Con lo stretching, l'immagine si adatta alla nuova cella; con il tiling, le tessere vengono ricalcolate.
 
 **Posso assegnare un collegamento ipertestuale a tutto il contenuto di una cella?**
 
@@ -266,4 +360,4 @@ Il comportamento dipende dal [fill mode](https://reference.aspose.com/slides/jav
 
 **Posso impostare caratteri diversi all'interno di una singola cella?**
 
-Sì. Il frame di testo di una cella supporta le [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (run) con formattazione indipendente — famiglia di caratteri, stile, dimensione e colore.
+Sì. Il frame di testo di una cella supporta [portions](https://reference.aspose.com/slides/java/com.aspose.slides/portion/) (run) con formattazione indipendente—famiglia del carattere, stile, dimensione e colore.
