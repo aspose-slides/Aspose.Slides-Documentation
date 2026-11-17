@@ -49,6 +49,56 @@ try {
 }
 ```
 
+## **Wheel Transition**
+
+The [setSpokes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/#setSpokes) method of [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition type to Wheel from [TransitionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitiontype/) using [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setType) before accessing [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#getValue) as [WheelTransition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/wheeltransition/).
+
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same speed set through [setSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) and an explicit duration of 8,000 milliseconds set through [setDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/#setDuration) to make the difference easy to observe.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slideWidth = presentation.getSlideSize().getSize().getWidth();
+    const slideHeight = presentation.getSlideSize().getSize().getHeight();
+
+    const blackSlide = presentation.getSlides().get_Item(0);
+    blackSlide.getShapes().clear();
+    blackSlide.getBackground().setType(java.newByte(slides.BackgroundType.OwnBackground));
+    blackSlide.getBackground().getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+    blackSlide.getBackground().getFillFormat().getSolidFillColor().setColor(black);
+
+    const destinationSlide = presentation.getSlides().addClone(blackSlide);
+    const rectangle = destinationSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 0, 0, slideWidth, slideHeight);
+    rectangle.getFillFormat().setFillType(java.newByte(slides.FillType.Solid));
+    const gold = java.newInstanceSync("java.awt.Color", 255, 215, 0);
+    rectangle.getFillFormat().getSolidFillColor().setColor(gold);
+    rectangle.getTextFrame().setText("Wheel transition");
+
+    presentation.getSlides().addClone(blackSlide);
+    presentation.getSlides().addClone(destinationSlide);
+
+    const spokeCounts = [1, 8];
+    for (let i = 0; i < spokeCounts.length; i++) {
+        const transition = presentation.getSlides().get_Item(i * 2 + 1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Wheel);
+        const wheelTransition = transition.getValue();
+        wheelTransition.setSpokes(java.newLong(spokeCounts[i]));
+        transition.setSpeed(slides.TransitionSpeed.Slow);
+        transition.setDuration(8000);
+    }
+
+    presentation.save("wheel-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:

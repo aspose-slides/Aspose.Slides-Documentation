@@ -43,6 +43,48 @@ with slides.Presentation("input.pptx") as presentation:
         print("The input presentation must contain at least two slides.")
 ```
 
+## **Wheel Transition**
+
+The [spokes](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/spokes/) property of [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/) controls the number of radial sectors that reveal the destination slide. Set the slide's transition [type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/) to WHEEL from [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) before accessing [value](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/value/) as [WheelTransition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/wheeltransition/).
+
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) and an explicit [duration](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/duration/) of 8,000 milliseconds to make the difference easy to observe.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide_width = presentation.slide_size.size.width
+    slide_height = presentation.slide_size.size.height
+
+    black_slide = presentation.slides[0]
+    black_slide.shapes.clear()
+    black_slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    black_slide.background.fill_format.fill_type = slides.FillType.SOLID
+    black_slide.background.fill_format.solid_fill_color.preset_color = slides.PresetColor.BLACK
+
+    destination_slide = presentation.slides.add_clone(black_slide)
+    rectangle = destination_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, slide_width, slide_height)
+    rectangle.fill_format.fill_type = slides.FillType.SOLID
+    rectangle.fill_format.solid_fill_color.preset_color = slides.PresetColor.GOLD
+    rectangle.text_frame.text = "Wheel transition"
+
+    presentation.slides.add_clone(black_slide)
+    presentation.slides.add_clone(destination_slide)
+
+    spoke_counts = [1, 8]
+    for i, spoke_count in enumerate(spoke_counts):
+        transition = presentation.slides[i * 2 + 1].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.WHEEL
+        wheel_transition = transition.value
+        wheel_transition.spokes = spoke_count
+        transition.speed = slides.slideshow.TransitionSpeed.SLOW
+        transition.duration = 8000
+
+    presentation.save("wheel-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:

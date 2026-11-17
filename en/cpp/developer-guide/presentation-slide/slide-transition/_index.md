@@ -61,6 +61,81 @@ else
 presentation->Dispose();
 ```
 
+## **Wheel Transition**
+
+The [set_Spokes](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/set_spokes/) method of [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/) controls the number of radial sectors that reveal the destination slide. Call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_type/) with Wheel from [TransitionType](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/transitiontype/) before accessing [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/get_value/) as [IWheelTransition](https://reference.aspose.com/slides/cpp/aspose.slides.slideshow/iwheeltransition/).
+
+This example creates two identical pairs of slides: a black slide followed by a slide with a gold rectangle. The destination slides use spoke counts of 1 and 8, with the same speed set through [set_Speed](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_speed/) and an explicit duration of 8,000 milliseconds set through [set_Duration](https://reference.aspose.com/slides/cpp/aspose.slides/islideshowtransition/set_duration/) to make the difference easy to observe.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/IBackground.h>
+#include <DOM/BackgroundType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideShowTransition/IWheelTransition.h>
+#include <DOM/SlideShowTransition/ITransitionValueBase.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <DOM/SlideShowTransition/TransitionSpeed.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+#include <cstdint>
+
+using namespace System;
+using namespace System::Drawing;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::SlideShow;
+
+auto presentation = MakeObject<Presentation>();
+auto slideWidth = presentation->get_SlideSize()->get_Size().get_Width();
+auto slideHeight = presentation->get_SlideSize()->get_Size().get_Height();
+
+auto blackSlide = presentation->get_Slide(0);
+blackSlide->get_Shapes()->Clear();
+blackSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+blackSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+blackSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+auto destinationSlide = presentation->get_Slides()->AddClone(blackSlide);
+auto rectangle = destinationSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, slideWidth, slideHeight);
+rectangle->get_FillFormat()->set_FillType(FillType::Solid);
+rectangle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gold());
+rectangle->get_TextFrame()->set_Text(u"Wheel transition");
+
+presentation->get_Slides()->AddClone(blackSlide);
+presentation->get_Slides()->AddClone(destinationSlide);
+
+const uint32_t spokeCounts[] = { 1, 8 };
+for (auto i = 0; i < 2; i++)
+{
+    auto transition = presentation->get_Slide(i * 2 + 1)->get_SlideShowTransition();
+    transition->set_Type(TransitionType::Wheel);
+    auto wheelTransition = ExplicitCast<IWheelTransition>(transition->get_Value());
+    wheelTransition->set_Spokes(spokeCounts[i]);
+    transition->set_Speed(TransitionSpeed::Slow);
+    transition->set_Duration(8000);
+}
+
+presentation->Save(u"wheel-transitions.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+Open the output presentation in PowerPoint and run the slide show. Advance from slide 1 to slide 2, then from slide 3 to slide 4. In PowerPoint playback, the verified spoke count of 1 reveals the slide with one clockwise sweep; the verified count of 8 reveals it through eight radial sectors simultaneously. The destination content and transition timing are identical, so the difference is the number of reveal sectors.
+
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:

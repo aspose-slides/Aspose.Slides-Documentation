@@ -50,6 +50,62 @@ try {
 }
 ```
 
+## **Wheel Transition**
+
+The [setSpokes](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/#setSpokes) method controls how many radial sectors reveal the destination slide. Use [setType](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setType) to select Wheel from [TransitionType](https://reference.aspose.com/slides/php-java/aspose.slides/transitiontype/), then call [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#getValue) to access the [WheelTransition](https://reference.aspose.com/slides/php-java/aspose.slides/wheeltransition/) settings.
+
+The example creates two identical pairs of slides. Each pair starts with a black slide and ends with a slide covered by a gold rectangle. Slide 2 uses one spoke and slide 4 uses eight. Both transitions use the same slow speed, set with [setSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setSpeed), and an explicit duration of 8,000 milliseconds, set with [setDuration](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/#setDuration).
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionSpeed;
+use aspose\slides\TransitionType;
+use java\awt\Color;
+
+$presentation = new Presentation();
+try {
+    $slides = $presentation->getSlides();
+    $width = java_values($presentation->getSlideSize()->getSize()->getWidth());
+    $height = java_values($presentation->getSlideSize()->getSize()->getHeight());
+
+    $blackSlide = $slides->get_Item(0);
+    $blackSlide->getShapes()->clear();
+    $background = $blackSlide->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Solid);
+    $black = new Color(0, 0, 0);
+    $background->getFillFormat()->getSolidFillColor()->setColor($black);
+
+    $destinationSlide = $slides->addClone($blackSlide);
+    $rectangle = $destinationSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, $width, $height);
+    $rectangle->getFillFormat()->setFillType(FillType::Solid);
+    $gold = new Color(255, 215, 0);
+    $rectangle->getFillFormat()->getSolidFillColor()->setColor($gold);
+    $rectangle->getTextFrame()->setText("Wheel transition");
+
+    $slides->addClone($blackSlide);
+    $slides->addClone($destinationSlide);
+
+    foreach ([1 => 1, 3 => 8] as $slideIndex => $spokes) {
+        $transition = $slides->get_Item($slideIndex)->getSlideShowTransition();
+        $transition->setType(TransitionType::Wheel);
+        $transition->getValue()->setSpokes($spokes);
+        $transition->setSpeed(TransitionSpeed::Slow);
+        $transition->setDuration(8000);
+    }
+
+    $presentation->save("wheel-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Open the saved presentation in PowerPoint and start the slide show. Advance from slide 1 to slide 2 to see a single clockwise sweep. Then advance from slide 3 to slide 4 to see eight radial sectors reveal the same rectangle simultaneously.
+
 ## **Add Advanced Slide Transition**
 
 You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following methods control this behavior:
