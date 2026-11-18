@@ -1,51 +1,51 @@
 ---
-title: Matematikai egyenletek hozzáadása PowerPoint prezentációkhoz PHP-ben
-linktitle: PowerPoint matematikai egyenletek
+title: Matematikai egyenletek hozzáadása PowerPoint előadásokhoz PHP-ben
+linktitle: PowerPoint Matematikai Egyenletek
 type: docs
 weight: 80
 url: /hu/php-java/powerpoint-math-equations/
 keywords:
 - matematikai egyenlet
 - matematikai szimbólum
-- matematikai formula
+- matematikai képlet
 - matematikai szöveg
 - matematikai egyenlet hozzáadása
 - matematikai szimbólum hozzáadása
-- matematikai formula hozzáadása
+- matematikai képlet hozzáadása
 - matematikai szöveg hozzáadása
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for PHP via Java segítségével, OMML támogatással, formázási vezérléssel és áttekinthető PHP kódmintákkal."
+description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for PHP via Java segítségével, OMML támogatással, formázási vezérlőkkel és érthető PHP kódrészletekkel."
 ---
 ## **Áttekintés**
 
-PowerPoint tárolja a képleteket Office Math Markup Language (OMML) formátumban. Az Aspose.Slides for PHP via Java segítségével programozott módon ugyanilyen matematikai tartalmakat hozhat létre: törtöket, gyököket, függvényeket, határokat, N-áris operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
+PowerPoint egyenleteket az Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for PHP via Java segítségével programozott módon létrehozhatja ugyanazt a matematikai tartalmat: törtök, gyökök, függvények, határok, N-értes operátorok, mátrixok, tömbök és formázott matematikai blokkok.
 
-A PowerPointban a felhasználók általában a **Insert > Equation** menüből adnak hozzá egyenleteket:
+A PowerPoint‑ban a felhasználók általában a **Insert > Equation** menüből adnak hozzá egyenleteket:
 
-![PowerPoint Beszúrás lap az Egyenlet parancs kiválasztva](powerpoint-math-equations_1.png)
+![PowerPoint Beszúrás lap, a Képlet parancs kijelölve](powerpoint-math-equations_1.png)
 
 Az eredmény szerkeszthető matematikai szöveg a dián:
 
-![Egy PowerPoint dia szerkeszthető matematikai egyenlettel](powerpoint-math-equations_2.png)
+![PowerPoint dia szerkeszthető matematikai képlettel](powerpoint-math-equations_2.png)
 
-Az Aspose.Slides három fő objektumon keresztül építi fel ezt a matematikai szöveget:
+Az Aspose.Slides három fő objektum segítségével építi fel ezt a matematikai szöveget:
 
-- Egy matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) hoz létre, az a forma, amely tartalmazza az egyenletet.
-- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) tárolja a matematikai tartalmat az alakzat szövegkeretében.
-- [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) objektumot tartalmaz.
+- A matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) hoz létre, az a forma, amely a képletet tartalmazza.
+- A [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) a matematikai tartalmat a forma szövegkeretén belül tárolja.
+- A [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) objektumot tartalmaz.
 
-A lenti példák a [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) és a [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) folyékony metódusait használják a kód rövid és olvasható tartásához.
+Az alábbi legtöbb példa a [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) és a [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) folyékony metódusait használja a kód rövid és olvasható tartásához.
 
-MathML export esetén lásd a [Export Math Equations from Presentations in PHP via Java](/slides/hu/php-java/exporting-math-equations/) című cikket.
+MathML export szcenáriókhoz lásd a [Exportálja a matematikai egyenleteket a prezentációkból PHP‑on keresztül Java‑val](/slides/hu/php-java/exporting-math-equations/).
 
 ## **Egyenlet létrehozása**
 
-Ez a példa a [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) használatával hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz-tételt:
+Ez a példa a [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) használatával hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz‑tételt:
 
-![A c négyzet egyenlő a négyzet plusz b négyzet](powerpoint-math-equations_3.png)
+![A c² = a² + b² egyenlet](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -73,15 +73,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) egy olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), és hozzáadja a matematikai blokkokat vagy elemeket.
+{{% alert color="info" title="Note" %}}
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), és hozzáadja a matematikai blokkokat vagy elemeket.
 {{% /alert %}}
 
-## **Törtök hozzáadása**
+## **Törtek hozzáadása**
 
-A [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) használatával hozható létre tört. A tört stílusát a [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/) segítségével választhatja ki.
+A [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) használatával hozhat létre törtet. A [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/) segítségével választhat tömtípus stílust.
 
-![Egy ferde matematikai tört, amely az 1/x-et ábrázolja](powerpoint-math-equations_4.png)
+![Ferde tört, 1/x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-Vertekesített tört esetén használja a [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar)-t:
+Egymás fölé helyezett tört esetén használja a [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
@@ -113,9 +113,9 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **Gyökök hozzáadása**
 
-A [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) használatával hozható létre négyzetgyök, köbgyök vagy egyéb gyök. A jelenlegi elem lesz az alap, az argumentum pedig a gyök fokát adja meg.
+A [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) segítségével hozhat létre négyzetgyököt, köbgyököt vagy más gyököt. A jelenlegi elem lesz az alap, és az argumentum a gyök fokát jelöli.
 
-![Egy n-dik gyök kifejezés, x a gyökjel alatt](powerpoint-math-equations_5.png)
+![n-dik gyök kifejezés, x a gyökjel alatt](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,11 +139,45 @@ try {
 }
 ```
 
+### **A négyzetgyök fokának megjelenítése vagy elrejtése**
+
+A négyzetgyök megjeleníthet egy explicit 2‑t vagy használhatja a hagyományos √x jelölést. A [MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) metódusa szabályozza, melyik forma jelenik meg. Mindkét forma megtartja a 2 fokot és az x radikandust a szerkeszthető egyenletben.
+
+![Ugyanaz a négyzetgyök, baloldalon látható fok, jobboldalon rejtett](square-root-degree.png)
+
+A példa ugyanazt a négyzetgyököt kétszer menti. A `visible-degree.pptx` fájlban a 2 látható. A `hidden-degree.pptx` fájlban rejtett.
+
+```php
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $radical = (new MathematicalText("x"))->radical("2");
+
+    $shape = $slide->getShapes()->addMathShape(20, 20, 200, 100);
+    $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->getMathParagraph()->add(new MathBlock($radical));
+
+    $radical->setHideDegree(false);
+    $presentation->save("visible-degree.pptx", SaveFormat::Pptx);
+
+    $radical->setHideDegree(true);
+    $presentation->save("hidden-degree.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **Függvények és határok hozzáadása**
 
-A [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) vagy a [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) használatával hozhatók létre függvények, például `sin(x)`, `log(x)`, vagy egyedi függvénynevek. Határok esetén helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) elembe, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
+A [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) vagy [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) használatával adhat meg függvényeket, például `sin(x)`, `log(x)`, vagy egyedi függvényneveket. Határok esetén helyezze a `lim`‑et egy [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) objektumba, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![Az x határértéke, amikor x a végtelentől közelít](powerpoint-math-equations_8.png)
+![x határa, ahogy x a végtelenhez közelít](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -168,17 +202,17 @@ try {
 }
 ```
 
-Egyedi függvénynév esetén tegye a függvénynevet a jelenlegi elemmé, és hívja meg a [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) a argumentummal:
+Egyedi függvénynév esetén tegye a függvénynevet a jelenlegi elemnek, és hívja meg a [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function)‑t a argumentummal:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **N-áris operátorok és integrálok hozzáadása**
+## **N-értékű operátorok és integrálok hozzáadása**
 
-Az [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) használatával hozhatók létre összeadások, uniók, metszetek és egyéb nagy operátorok. Az [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) integrálokhoz. Mindkét módszer lehetővé teszi a alsó és felső határ megadását.
+A [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) használatával adhat hozzá összegeket, uniókat, metszeteket és más nagy operátorokat. A [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) integrálokhoz. Mindkét módszerrel beállíthatja az alsó és felső határokat.
 
-![Egy összegzés alsó és felső határral](powerpoint-math-equations_7.png)
+![Összegzés alsó és felső határokkal](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,9 +239,9 @@ try {
 }
 ```
 
-Az N-áris operátorok nagy operátorok opcionális határral. Az egyszerű operátorok, mint a `+`, `-`, és `=` általában [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) segítségével kerülnek hozzáadásra és összefűzésre a kifejezésben.
+Az N-értékű operátorok nagy operátorokhoz opcionális határokkal használhatók. Egyszerű operátorok, mint a `+`, `-`, és `=` általában [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) segítségével kerülnek a kifejezésbe.
 
-Integrálhoz használja a [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral)-t:
+Integrálhoz használja a [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral)‑t:
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
@@ -216,7 +250,7 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **Mátrixok hozzáadása**
 
-A [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) használatával hozhatók létre sorok és oszlopok. A mátrixok alapértelmezésben nem tartalmaznak zárójeleket, ezért zárójelek, szögletes vagy kapcsos zárójelek szükségesek a mátrix köré.
+A [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) sorokhoz és oszlopokhoz használatos. Alapértelmezésben a mátrixok nem tartalmaznak zárójeleket, ezért szükség esetén zárja be a mátrixot zárójelek, szögletes vagy kapcsos zárójelek közé.
 
 ![Két soros matematikai mátrix egy üres cellával](powerpoint-math-equations_10.png)
 
@@ -248,9 +282,9 @@ try {
 
 ## **Egyenlet tömbök hozzáadása**
 
-A [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) használatával hozhatók létre igazított egyenletek vagy függőleges kifejezéstack.
+Használja a [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray)‑t, ha igazított egyenletekre vagy függőleges kifejezéstömbre van szükség.
 
-![Függőleges matematikai tömb, ahol x föntről y alatt](powerpoint-math-equations_11.png)
+![Függőleges matematikai tömb, x felett y](powerpoint-math-equations_11.png)
 
 ```php
 $presentation = new Presentation();
@@ -277,9 +311,9 @@ try {
 
 ### **Tömb igazítása a környező elemekkel**
 
-[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) szabályozza a tömb függőleges igazítását a mellette lévő matematikai elemekhez képest. Az alábbi példában összehasonlítják az igazítást az első sor, a tömb középpontja és az utolsó sor esetén.
+A [setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) szabályozza egy tömb függőleges igazítását a mellette lévő matematikai elemekhez képest. Az alábbi példa az első sor, a tömb középpontja és az utolsó sor igazítását mutatja.
 
-A következő példa három azonos tömböt hoz létre, mindegyik három sorral és a szomszédos `A=` és `=B` elemekkel. Minden matematikai szöveg Cambria Math betűtípust használ 24 pontos méretben. Csak a tömb igazítása változik.
+A következő példa három azonos tömböt hoz létre, mindegyik három sorral és a szomszédos elemekkel `A=` és `=B`. Minden matematikai szöveg Cambria Math betűtípussal, 24 pont mérettel. Csak a tömb igazítása változik.
 
 ```php
 use aspose\slides\FillType;
@@ -343,17 +377,17 @@ try {
 }
 ```
 
-Az alábbi összehasonlítás a mentett PowerPoint bemutatót mutatja. Figyelje meg az `A=` és `=B` helyzetét minden tömb mellett.
+Az alábbi összehasonlítás a PowerPoint‑ban mentett prezentációt mutatja. Figyelje meg az `A=` és `=B` pozícióját minden tömb mellett.
 
-![Egyenlet tömbök PowerPointban felső, középső és alsó igazítással, azonos szomszédos elemekkel](equation-array-alignment.png)
+![Egyenlet tömbök PowerPoint‑ban felső, középső és alsó igazítással, azonos szomszédos elemekkel](equation-array-alignment.png)
 
 ### **Sorok távolságának beállítása**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) kiválasztja a sorok közti távolság szabályát a tömbben. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) numerikus értéket ad meg egy explicit távolság szabálynál, és a beépített szabályokat figyelmen kívül hagyja.
+A [setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) választja ki a sorok közti távolság szabályát a tömbön belül. A [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) numerikus értéket ad meg egy kifejezett távolság szabályhoz, és a beépített szabályok figyelmen kívül hagyják.
 
-A pontos távolságnál az értéket pontban mérik. Az arányos távolságnál fél sorban: a példában a `3` érték 1,5 sort jelent. Mindkét tulajdonságot állítsa be explicit érték megadása esetén; csak a numerikus érték változtatása nem választ szabályt.
+A pontos távolság esetén az értéket pontban mérjük. Proporcionális távolságnál fél sorokban: a példában a `3` érték 1.5 sorra utal. Mindkét tulajdonságot állítsa be kifejezett érték megadásakor; csak a numerikus érték módosítása nem választ szabályt.
 
-Az alábbi példa öt bemutatót ment ugyanazzal az egyenlettel, igazítással és betűbeállítással. Az első három előre beállított szabályt használ, az utolsó kettő explicit értékeket mutat.
+Az alábbi példa öt prezentációt ment ugyanazzal az egyenlettel, igazítással és betűtípusbeállítással. Az első három előre beállítottakat használ; az utolsó kettő kifejezett értékeket mutat.
 
 ```php
 use aspose\slides\FontData;
@@ -411,13 +445,13 @@ foreach ($settings as $name => [$rule, $spacing]) {
 }
 ```
 
-A tömb sorok közti távolsága különbözik a bekezdés távolságtól. A [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) és [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) a környező bekezdés körül ad szóközt, nem a tömb sorok között. Hasonlóképpen a [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) a teljes matematikai bekezdést helyezi el vízszintesen; nem felülírja a tömb függőleges igazítási beállítását.
+A tömb sorok távolsága különbözik a bekezdés távolságától. A [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) és [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) a környező bekezdés körül ad távolságot, nem a tömb sorai között. Hasonlóképpen, a [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) a teljes matematikai bekezdést vízszintesen helyezi el; nem helyettesíti a tömb függőleges igazítási beállítását.
 
 ## **Trigonometrikus függvények hozzáadása**
 
-Használja a [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) metódust, ha az argumentum a jelenlegi elem, és a függvény neve ismert.
+Használja a [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction)‑t, ha az argumentum a jelenlegi elem, és a függvény neve ismert.
 
-![A cos trigonometrikus függvény 2x-re alkalmazva](powerpoint-math-equations_6.png)
+![A cos trigonometrikus függvény 2x‑re alkalmazva](powerpoint-math-equations_6.png)
 
 ```php
 $presentation = new Presentation();
@@ -443,9 +477,9 @@ try {
 
 ## **Alsó- és felsőindexek hozzáadása**
 
-Használja az alsó- és felsőindex segédeszközöket a mutatók és hatványok hozzáadásához. Ha a mutatók a bázis bal oldalán kell megjelenni, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) metódust.
+Használja az alsó- és felsőindex segédfüggvényeket indexekhez és hatványokhoz. Ha az indexeknek az alap bal oldalán kell megjelenniük, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)‑t.
 
-![Nagy Y betű baloldali 1 alsóindexkel és n felsőindexkel](powerpoint-math-equations_9.png)
+![Nagy Y betű bal oldali alsóindexe 1 és felsőindexe n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -471,9 +505,9 @@ try {
 
 ## **Határolók hozzáadása**
 
-A [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) használatával helyezhet kifejezést határolók közé. Több elemet tartalmazó határoló kifejezésekhez beállíthat elválasztó karaktert is.
+Használja a [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) parancsot egy kifejezés határolókon belül elhelyezéséhez. Számos elemet tartalmazó határoló kifejezésekhez beállíthat elválasztó karaktert is.
 
-![Egy határoló kifejezés, amely x, y és z elemeket tartalmaz, függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
+![Határoló kifejezés, amely x, y és z‑t tartalmaz, függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -502,9 +536,9 @@ try {
 
 ### **Határolók mérete és igazítása**
 
-Adjon `true` értéket a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) hívásnak, hogy a zárójelek egy magas operandus körül nőjenek, vagy adjon `false`-t a normál méret megtartásához. Használja a [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) egy a két [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) érték közül. A `Centered` a zárójeleket a matematikai tengely közepére helyezi, amely az egyenlőségjel közepén halad. A `Match` a zárójeleket a tartalommal igazítja. Mindkét beállítás csak a határolókat érinti. A kifejezés belseje változatlan.
+A `true` értéket adja át a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) metódusnak, hogy a zárójelek egy magas operandus körül nőjenek, vagy `false`‑t adjon meg, hogy normál méretűek maradjanak. Használja a [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) egyik két [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) értékével. A `Centered` középre helyezi a zárójeleket a matematikai tengelyen, amely az egyenlőségjel közepén halad. A `Match` azokat a zárójeleket a tartalomhoz igazítja. Mindkét beállítás csak a határolókat érinti. A bennük lévő kifejezés változatlan marad.
 
-A példa egy törtet helyez el az `x` kitevőjébe, így a kifejezés a vonal fölött hosszabb, mint alatta. Mind a négy egyenlet ugyanazokat a zárójeleket és betűbeállításokat használja.
+A példa egy törtet helyez az `x` kitevőjébe, így a kifejezés a baseline fölött nagyobb, mint alatta. A négy egyenlet ugyanazokat a zárójeleket és betűtípus beállításokat használja.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -538,15 +572,15 @@ try {
 }
 ```
 
-PowerPointban hasonlítsa össze a sorokat a növekedés hatásának megtekintéséhez. A felső sorban a zárójelek nőnek, hogy befoglalják az exponenset, és mindkét alakzat hasonló. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójelek (`Centered`) az egyenlőségjellel igazodnak, míg a jobboldali (`Match`) magasabban helyezkednek el a kifejezés körül.
+PowerPoint‑ban hasonlítsa össze a sorokat a növekedés hatásának megtekintéséhez. A felső sorban a zárójelek növekednek, hogy körbezzék a kitevőt, és mindkét alakzat hasonló. Az alsó sorban a növekedés ki van kapcsolva. A bal oldali kisebb zárójelek (`Centered`) az egyenlőségjellel igazodnak, míg a jobb oldali (`Match`) magasabban helyezkednek el a kifejezés körül.
 
-![Négy egyenlet PowerPointban, a határoló növekedés bekapcsolva felül és kikapcsolva alul, bal oldalon Centered, jobban Match](delimiter-sizing.png)
+![Négy egyenlet PowerPoint‑ban, a határolók növekedés engedélyezve felül, letiltva alul, bal oldalon Centered, jobb oldalon Match](delimiter-sizing.png)
 
-## **Határdoboz hozzáadása**
+## **Határoló keret hozzáadása**
 
-Hívja meg a [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) metódust egy törtön, hogy keretet adjon az egész kifejezésnek. Az így visszakapott [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) alapértelmezésben mind a négy oldalt megjeleníti. Használja a [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) és [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) metódusokat az egyes oldalak eltávolításához.
+Hívja a [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) metódust egy törtön, hogy az egész kifejezést keretbe foglalja. A visszakapott [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) alapértelmezésben mind a négy oldalt mutatja. Használja a [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) és [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) metódusokat egyedi oldalak eltávolításához.
 
-A példa hat példányt helyez el ugyanabból a törtből egy diára. A törlés szemléltetéséhez rejtse el mind a négy oldalt, és adjon `true`-t a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) hívásnak a felfelé ívelő átlóhoz (↗), vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) hívásnak a lefelé ívelő átlóhoz (↘). A [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) vagy [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) is használható bármely látható oldalkombinációval.
+A példa hat példányban helyezi el ugyanazt a törtet egy dián. A törlés megjelenítéséhez rejtse el mind a négy oldalt, és adja át a `true` értéket a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) metódusnak egy emelkedő átlóhoz (↗), vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) metódusnak egy süllyedő átlóhoz (↘). Használhatja a [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) vagy [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) metódusokat is bármely látható oldal kombinációval.
 
 ```php
 use aspose\slides\MathBlock;
@@ -593,24 +627,24 @@ try {
 }
 ```
 
-![Hat szerkeszthető tört PowerPointban. Felső sor: teljes keret, alsó és bal oldal, felfelé ívelő átló. Alsó sor: lefelé ívelő átló, vízszintes vonal, függőleges vonal teljes kerettel.](border-box-fractions.png)
+![Hat szerkeszthető tört PowerPoint‑ban. Felső sor: teljes keret, alsó és bal oldal, emelkedő átló. Alsó sor: süllyedő átló, vízszintes átló, függőleges átló teljes kerettel](border-box-fractions.png)
 
-Ezen a törtön a vízszintes áthúzás átfedi a tört vonalát. A függőleges áthúzás áthalad a számláló és a nevező felett, miközben a környező keret látható marad. Ezek a vonalak a teljes kifejezést díszítik. A hagyományos szöveg áthúzása csak a szövegrész karaktereit érinti. A PowerPointban a bemutató újranyitása után továbbra is szerkesztheti a számlálót és a nevezőt külön-külön.
+Ezen a törtön a vízszintes átló átfedi a törtvonalat. A függőleges átló átszeli a számlálót és a nevezőt, miközben a környező keret látható marad. Ezek a vonalak az egész kifejezést díszítik. A normál szöveg áthúzása a szövegtömb karaktereire vonatkozik. A prezentáció PowerPoint‑ban való újbóli megnyitása után is szerkesztheti a számlálót és a nevezőt külön‑külön.
 
 ## **Láthatóság és elrendezés vezérlése fantom elemekkel**
 
-Egy kifejezést csomagoljon be a [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) segítségével, hogy önállóan szabályozza a láthatóságát és a képlethez hozzájáruló helyet. A [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) metódusok a következőket irányítják:
+Tegye egy [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) objektumba a kifejezést, hogy önállóan szabályozza a láthatóságát és a egyenlethez hozzájáruló helyet. A [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) metódusok a következőket vezérlik:
 
-| Metódus | Hatás |
+| Módszer | Hatás |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | `false` megadásával elrejti a kifejezést. Méretei továbbra is hozzájárulnak az elrendezéshez, hacsak a lenti megfelelő metódusok nem kapnak `true`-t. |
-| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | A kifejezés vízszintes szélességét nullának tekinti, így a szomszédos elemek közelebb helyezkedhetnek el. |
-| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | Az emelkedő (baseline fölötti magasság) nullának tekinti. Ez csökkentheti a szomszédos elemek fölötti lefoglalt helyet. |
-| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | A leereszkedés (baseline alatti mélység) nullának tekinti. Ez a törtvonalat vagy más tartalmat a kifejezés alatt közelebb hozhatja a szomszédokhoz. |
+| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | A `false` érték elrejti a kifejezést. Méretei továbbra is hozzájárulnak az elrendezéshez, hacsak az alábbi metódusok nem kapnak `true` értéket. |
+| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | A kifejezés vízszintes szélességét nullának tekinti, így a szomszédos elemek közelebb kerülhetnek egymáshoz. |
+| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | A felemelkedését, az alapvonal feletti magasságot nullának tekinti. Ez csökkentheti a szomszédos elemek fölött fenntartott helyet. |
+| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | A süllyedését, az alapvonal alatti mélységet nullának tekinti. Ez a törtvonalat vagy más tartalmat a kifejezés alatt közelebb hozhat a szomszédokhoz. |
 
-A baseline a referencia vonal, amelyen a hagyományos matematikai betűk állnak. A tartalom elrejtése nem távolítja el a méreteket, és egy dimenzió nullának tekintése sem törli a kifejezést. Az alap kifejezés elérhető a [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) segítségével. A [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) `true`-ra állításával újra megjeleníthető; a dimenzió beállítások változatlanok maradnak.
+Az alapvonal az a referencia vonal, amelyen a normál matematikai betűk helyezkednek el. A tartalom elrejtése nem távolítja el a méreteket, és a dimenzió nullává tétele sem törli a kifejezést. A mögöttes kifejezés továbbra is elérhető a [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) segítségével. A `true` érték átadása a [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) metódusnak visszaállítja a megjelenítést; a dimenzió beállítások változatlanok maradnak.
 
-Az alábbi példa öt egymás melletti változatot hoz létre: egy látható tört, egy rejtett tört, amely helyet tart fenn, és három rejtett tört, amelynél egy dimenzió nullának van beállítva. Minden változat ugyanazt a környező kifejezést és 24 pontos Cambria Math betűt használ. Minden egyenlet alakzat ugyanazzal a felső pozícióval rendelkezik, amelyet a szürke segédvonal jelöl. A fantom elhelyezése egy külső tört számlálójában megkönnyíti a függőleges elrendezés változásainak megfigyelését.
+Az alábbi példa öt egymás melletti változatot hoz létre: egy látható tört, egy helyet foglaló rejtett tört, és három rejtett tört, amelynél egy dimenzió nullára van állítva. Minden változat ugyanazt a környező kifejezést és Cambria Math 24 pont betűtípust használja. Az összes egyenlet alakzatnak ugyanaz a felső pozíciója, szürke segédvonallal jelölve. A fantom elhelyezése egy külső tört számlálójában könnyebben láthatóvá teszi a függőleges elrendezés változásait.
 
 ```php
 use aspose\slides\FillType;
@@ -686,13 +720,13 @@ try {
 }
 ```
 
-![Öt egyenlet PowerPointban, látható tört, helyet tartó rejtett tört, és ZeroWidth, ZeroAsc vagy ZeroDesc engedélyezett rejtett törtek összehasonlítása](math-phantom.png)
+![Öt egyenlet PowerPoint‑ban, összehasonlítva egy látható törtet, egy helyet foglaló rejtett törtet, és a ZeroWidth, ZeroAsc vagy ZeroDesc engedélyezett rejtett törteket](math-phantom.png)
 
-## **Tagok csoportosítása**
+## **Csoportosítás**
 
-A [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) használatával helyezhet el egy csoportosító karaktert egy kifejezés fölé vagy alá. Egy határral címkézheti a csoportosított tagokat.
+Használja a [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) metódust egy csoportosító karakter kifejezés fölé vagy alá helyezéséhez. Adj hozzá egy határt a csoportosított tagok feliratozásához.
 
-![Az x + y kifejezés csoportosítva, alatta a 'any text' feliratval](powerpoint-math-equations_15.png)
+![A x + y kifejezés csoportosítva, alatta bármilyen szöveg felirattal](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -719,9 +753,9 @@ try {
 
 ## **Matematikai elemek formázása**
 
-Használja a formázó segédeszközöket csak ott, ahol a képletet tisztábbá teszik. Például az [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) egy sávot helyez a matematikai elem fölé.
+Csak ott használja a formázó segédeket, ahol egyértelművé teszik a képletet. Például a [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) egy sávot helyez egy matematikai elem fölé.
 
-![ABC matematikai kifejezés overbarral](powerpoint-math-equations_14.png)
+![Matematikai kifejezés ABC felül egy sávval](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -746,9 +780,9 @@ try {
 
 ### **Szöveg formázása meglévő egyenletben**
 
-A meglévő egyenlet szövegének formázásához járja be minden matematikai blokk elemtörzsét. A [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) csak a közvetlen gyerekeket adja vissza, ezért rekurzívan kell meghívni, hogy elérje a törtök, indexek, gyökök és egyéb beágyazott struktúrák szövegét. Ellenőrizze a jelenlegi elemet és annak gyermekeit is, hogy a kiinduló elemet is belevegye, ha az [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) objektum.
+Az egész meglévő egyenlet szövegének formázásához járja be minden matematikai blokk elemfáját. A [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) csak a közvetlen gyermekeket adja vissza, ezért rekurzívan kell hívni, hogy elérje a tört, fel‑ és alsóindex, gyök és egyéb beágyazott struktúrák szövegét. Ellenőrizze a jelenlegi elemet és annak gyermekeit, hogy belefoglalja a kezdőelemet, ha az [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/)‑t.
 
-Ez a példa azt feltételezi, hogy az `input.pptx` egy olyan egyenletet tartalmaz, mint `z = xᵢ / ∛y`, ahol a tört számlálója alsóindexet, a nevezője pedig gyököt tartalmaz. Ha csak a blokk legfelső szintű elemeit dolgozná fel, a tört belső szövegét kihagyja. A példa megtalálja a matematikai részeket a diák szövegkereteiben, a blokkokat a [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) segítségével éri el, és a [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight)‑t használja a betűméret 28 pontra állításához minden szövegelem [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) metódusán keresztül.
+Ez a példa feltételezi, hogy a `input.pptx` egy olyan egyenletet tartalmaz, mint `z = xᵢ / ∛y`, amelynek a törtben a számláló alindexet, a nevezőben pedig gyököt tartalmaz. Ha csak a blokk felső szintű elemeit dolgozza fel, a törtben lévő szöveget figyelmen kívül hagyja. A példa megtalálja a matematikai részeket a diák szövegkereteiben, hozzáfér a blokkokhoz a [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) segítségével, és a [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) használatával 28 pont betűméretet állít be minden szövegelemen keresztül a [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) metóduson.
 
 ```php
 use aspose\slides\Presentation;
@@ -804,9 +838,9 @@ try {
 }
 ```
 
-Az elmentett bemutató minden szinten tartalmazza a frissített szövegformázást a feldolgozott egyenletekben, miközben megőrzi a szövegtartalmat és a matematikai szerkezetet.
+A mentett prezentáció minden szintjén tartalmazza a frissített szövegformázást minden feldolgozott egyenletnél, miközben megőrzi a szövegtartalmat és a matematikai szerkezetet.
 
-## **Gyorsreferencia**
+## **Gyors hivatkozás**
 
 | Feladat | Fő API |
 | --- | --- |
@@ -817,24 +851,24 @@ Az elmentett bemutató minden szinten tartalmazza a frissített szövegformázá
 | Függvények hozzáadása | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Gyökök hozzáadása | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Határok hozzáadása | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Baloldali indexek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Összeadások és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Baloldali fel‑ és alsóindexek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Összegek és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Mátrixok hozzáadása | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
 | Egyenlet tömbök hozzáadása | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Határolók hozzáadása | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Sávok és keretek hozzáadása | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Vonalak és keretek hozzáadása | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Tagok csoportosítása | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **GYIK**
 
-**Szerkeszthetek már létező PowerPoint egyenletet?**
+**Szerkeszthetek meglévő PowerPoint egyenletet?**
 
-Igen. Nyissa meg a bemutatót, keresse meg azt az alakzatot, amely egy [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), és frissítse a bekezdésben lévő matematikai blokkokat.
+Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amely [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), és frissítse a matematikai blokkokat az adott bekezdésben.
 
-**A egyenletek szerkeszthető PowerPoint matematikaként vannak mentve?**
+**Az egyenletek szerkeszthető PowerPoint‑képletként vannak elmentve?**
 
-Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office-matematikai tartalomként írja.
+Igen. PPTX formátumba mentéskor az Aspose.Slides a egyenletet szerkeszthető Office Math tartalomként írja.
 
 **Exportálhatok egyenleteket LaTeX‑be?**
 
-Igen. Szerezze meg az egyenlet [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) objektumát a [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) segítségével, és hívja meg a [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) metódust a közvetlen exportáláshoz. Teljes példáért tekintse meg a [Export Math Equations from Presentations in PHP via Java](/slides/hu/php-java/exporting-math-equations/#export-math-equations-to-latex) oldalt.
+Igen. Szerezze meg a képlet [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) objektumát a [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) segítségével, és hívja meg a [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) metódust a közvetlen exportáláshoz. Teljes példáért tekintse meg a [Export Math Equations from Presentations in PHP via Java](/slides/hu/php-java/exporting-math-equations/#export-math-equations-to-latex) oldalt.

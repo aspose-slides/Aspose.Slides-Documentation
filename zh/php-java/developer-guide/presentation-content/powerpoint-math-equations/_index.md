@@ -7,11 +7,11 @@ url: /zh/php-java/powerpoint-math-equations/
 keywords:
 - 数学公式
 - 数学符号
-- 数学表达式
+- 数学公式
 - 数学文本
 - 添加数学公式
 - 添加数学符号
-- 添加数学表达式
+- 添加数学公式
 - 添加数学文本
 - PowerPoint
 - 演示文稿
@@ -21,31 +21,31 @@ description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint PPT 和 PPTX 
 ---
 ## **概述**
 
-PowerPoint 将公式存储为 Office Math Markup Language (OMML)。使用 Aspose.Slides for PHP via Java，您可以以编程方式创建相同类型的数学内容：分数、根式、函数、极限、N 元运算符、矩阵、数组以及格式化的数学块。
+PowerPoint 将公式存储为 Office Math Markup Language（OMML）。使用 Aspose.Slides for PHP via Java，您可以以编程方式创建相同类型的数学内容：分数、根式、函数、极限、N 元运算符、矩阵、数组和格式化的数学块。
 
-在 PowerPoint 中，用户通常通过 **Insert > Equation** 添加公式：
+在 PowerPoint 中，用户通常通过 **插入 > 公式** 添加公式：
 
-![PowerPoint 插入选项卡中已选择 Equation 命令](powerpoint-math-equations_1.png)
+![PowerPoint 插入选项卡中已选择公式命令](powerpoint-math-equations_1.png)
 
-结果是在幻灯片上可编辑的数学文本：
+结果是幻灯片上的可编辑数学文本：
 
 ![包含可编辑数学公式的 PowerPoint 幻灯片](powerpoint-math-equations_2.png)
 
 Aspose.Slides 通过三个主要对象构建该数学文本：
 
-- 使用 [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) 创建的数学形状，是包含公式的形状。
+- 使用 [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) 创建的数学形状是包含公式的形状。
 - [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) 在形状文本框中存储数学内容。
 - [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) 包含一个或多个 [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) 对象。
 
-下面的大多数示例使用 [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) 和来自 [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) 的流式方法，以保持代码简洁易读。
+下面的大多数示例使用 [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) 和来自 [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) 的流畅方法，以保持代码简短且易读。
 
-有关 MathML 导出场景，请参阅 [在 PHP via Java 中从演示文稿导出数学公式](/slides/zh/php-java/exporting-math-equations/)。
+有关 MathML 导出场景，请参阅 [在 PHP via Java 中导出演示文稿的数学公式](/slides/zh/php-java/exporting-math-equations/)。
 
 ## **创建公式**
 
-此示例使用 [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) 创建数学形状并添加勾股定理：
+此示例使用 [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) 创建一个数学形状并添加勾股定理：
 
-![公式 c² = a² + b²](powerpoint-math-equations_3.png)
+![c² = a² + b² 公式](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -74,7 +74,7 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) 创建一个已包含数学段落的形状。访问第一个 [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/)，调用 [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph)，并向其添加数学块或数学元素。
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) 创建的形状已经包含一个数学段落。访问第一个 [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/)，调用 [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph)，并向其添加数学块或数学元素。
 {{% /alert %}}
 
 ## **添加分数**
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-对于堆叠式分数，使用 [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar):
+对于堆叠分数，请使用 [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar)：
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
@@ -113,9 +113,9 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **添加根式**
 
-使用 [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) 创建平方根、立方根或其他根。当前元素成为基底，参数成为指数。
+使用 [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) 创建平方根、立方根或其他根式。当前元素成为基底，参数成为指数。
 
-![在根号符号下有 x 的 n 次根表达式](powerpoint-math-equations_5.png)
+![根号下有 x 的 n 次根表达式](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,11 +139,45 @@ try {
 }
 ```
 
+### **显示或隐藏平方根的指数**
+
+平方根可以显示显式的 2，或使用常规的 √x 记号。[MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) 的 [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) 方法控制显示哪种形式。两种形式都保留指数 2 和被开方数 x 在可编辑公式中。
+
+![相同的平方根，左侧指数可见，右侧隐藏](square-root-degree.png)
+
+示例将相同的平方根保存两次。在 `visible-degree.pptx` 中，2 可见；在 `hidden-degree.pptx` 中，2 隐藏。
+
+```php
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $radical = (new MathematicalText("x"))->radical("2");
+
+    $shape = $slide->getShapes()->addMathShape(20, 20, 200, 100);
+    $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->getMathParagraph()->add(new MathBlock($radical));
+
+    $radical->setHideDegree(false);
+    $presentation->save("visible-degree.pptx", SaveFormat::Pptx);
+
+    $radical->setHideDegree(true);
+    $presentation->save("hidden-degree.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **添加函数和极限**
 
-使用 [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) 或 [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) 来表示函数，例如 `sin(x)`、`log(x)` 或自定义函数名。对于极限，将 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/)，或使用 [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit)。
+使用 [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) 或 [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) 处理 `sin(x)`、`log(x)` 等函数或自定义函数名。对于极限，将 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) 或使用 [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit)。
 
-![当 x 趋向无穷大时的极限](powerpoint-math-equations_8.png)
+![x 趋于无穷大的极限](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -168,7 +202,7 @@ try {
 }
 ```
 
-对于自定义函数名，将函数名设为当前元素，并使用其参数调用 [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function):
+对于自定义函数名，将函数名设为当前元素，然后使用其参数调用 [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function)：
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
@@ -176,9 +210,9 @@ $customFunction = (new MathematicalText("f"))->function("x + 1");
 
 ## **添加 N 元运算符和积分**
 
-使用 [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) 来表示求和、并集、交集和其他大型运算符。使用 [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) 表示积分。两种方法均可设置上下限。
+使用 [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#nary) 处理求和、并集、交集等大型运算符。使用 [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) 处理积分。两种方法均可设置上下限。
 
-![带上下限的求和](powerpoint-math-equations_7.png)
+![带上下限的求和符号](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,7 +239,7 @@ try {
 }
 ```
 
-N 元运算符用于可选上下限的大型运算符。`+`、`-`、`=` 等简单运算符通常使用 [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) 添加并拼接到表达式中。
+N 元运算符用于可选上下限的大型运算符。`+`、`-`、`=` 等简单运算符通常作为 [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) 添加并连接到表达式中。
 
 对于积分，使用 [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral)：
 
@@ -216,9 +250,9 @@ $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 
 ## **添加矩阵**
 
-使用 [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) 处理行和列。矩阵默认不包含括号，如需括号、方括号或大括号需自行包裹。
+使用 [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) 处理行和列。矩阵默认不包含括号，如需括号、方括号或大括号，请自行包裹矩阵。
 
-![一个包含两个行且有一个空单元格的数学矩阵](powerpoint-math-equations_10.png)
+![一个两行数学矩阵，其中有一个空单元格](powerpoint-math-equations_10.png)
 
 ```php
 $presentation = new Presentation();
@@ -246,11 +280,11 @@ try {
 }
 ```
 
-## **添加公式数组**
+## **添加方程数组**
 
-使用 [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) 当需要对齐的公式或垂直堆叠的表达式时。
+当需要对齐的公式或垂直堆叠的表达式时，使用 [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray)。
 
-![一个垂直的数学数组，x 在 y 之上](powerpoint-math-equations_11.png)
+![垂直数学数组，x 在 y 之上](powerpoint-math-equations_11.png)
 
 ```php
 $presentation = new Presentation();
@@ -275,11 +309,11 @@ try {
 }
 ```
 
-### **对齐数组与周围元素**
+### **将数组与周围元素对齐**
 
-[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) 控制数组相对于旁边数学元素的垂直对齐。下面的示例比较第一行、数组中心和最后一行的对齐方式。
+[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) 控制数组相对于其旁边数学元素的垂直对齐。下面的示例比较了第一行、数组中心和最后一行的对齐方式。
 
-以下示例创建三个相同的数组，每个数组有三行，并在两侧放置相邻元素 `A=` 和 `=B`。所有数学文本使用 Cambria Math，字号 24pt。唯一变化的是数组的对齐方式。
+以下示例创建了三个相同的数组，每个数组有三行，并在两侧放置 `A=` 和 `=B`。所有数学文本使用 Cambria Math，字号 24pt。唯一变化的是数组的对齐方式。
 
 ```php
 use aspose\slides\FillType;
@@ -343,17 +377,17 @@ try {
 }
 ```
 
-下面的对比显示了在 PowerPoint 中保存的演示文稿。请注意每个数组旁边的 `A=` 和 `=B` 的位置。
+下面的比较显示了在 PowerPoint 中保存的演示文稿。请注意每个数组旁边的 `A=` 和 `=B` 的位置。
 
-![PowerPoint 中的公式数组，分别使用顶部、居中和底部对齐，并具有相同的相邻元素](equation-array-alignment.png)
+![PowerPoint 中的方程数组，分别为顶部、居中和底部对齐，且相邻元素相同](equation-array-alignment.png)
 
 ### **配置行间距**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) 选择数组内部行的间距规则。[setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) 为显式间距规则提供数值，如果使用预设规则则会被忽略。
+[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) 选择数组内部行的间距规则。[setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) 为显式间距规则提供数值，预设规则会忽略此数值。
 
-精确间距的数值以磅为单位。比例间距以半行计量：示例中的数值 `3` 表示 1.5 行。指定显式数值时请同时设置两项属性，仅更改数值本身不会选择间距规则。
+对于精确间距，数值以点为单位。对于比例间距，数值以半行计：示例中数值 `3` 表示 1.5 行。指定显式数值时请同时设置两属性，仅更改数值不会选择间距规则。
 
-下面的示例保存了五个演示文稿，公式、对齐和字体设置相同。前三使用预设，后两显示显式数值。
+下面的示例保存了五个演示文稿，公式、对齐和字体设置相同。前三个使用预设，后两个显示显式数值。
 
 ```php
 use aspose\slides\FontData;
@@ -411,13 +445,13 @@ foreach ($settings as $name => [$rule, $spacing]) {
 }
 ```
 
-数组行间距独立于段落间距。[setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) 和 [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) 为包含段落的上下留白，而不是数组行之间的间距。同样，[MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) 水平定位整个数学段落，不会覆盖数组的垂直对齐设置。
+数组行间距独立于段落间距。[setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) 和 [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) 为包含段落的上下添加空间，而不是数组行之间的空间。同样，[MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) 只水平定位整个数学段落，不会替代数组的垂直对齐设置。
 
 ## **添加三角函数**
 
-当参数是当前元素且函数名已知时，使用 [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction)。
+当参数为当前元素且函数名已知时，使用 [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction)。
 
-![三角函数 cos 作用于 2x](powerpoint-math-equations_6.png)
+![对 2x 应用的三角函数 cos](powerpoint-math-equations_6.png)
 
 ```php
 $presentation = new Presentation();
@@ -443,9 +477,9 @@ try {
 
 ## **添加下标和上标**
 
-使用下标和上标帮助函数处理索引和幂。当索引需要出现在基底左侧时，使用 [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)。
+使用下标和上标帮助函数处理索引和幂。当索引必须出现在基底左侧时，使用 [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)。
 
-![大写字母 Y，左侧下标 1 和上标 n](powerpoint-math-equations_9.png)
+![左侧带下标 1 和上标 n 的大写字母 Y](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -471,9 +505,9 @@ try {
 
 ## **添加分隔符**
 
-使用 [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) 将表达式放入分隔符中。对于包含多个元素的分隔符表达式，还可以设置分隔字符。
+使用 [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) 将表达式放入分隔符中。对于包含多个元素的分隔符表达式，还可以设置分隔符字符。
 
-![包含 x、y、z 并以竖线分隔的分隔符表达式](powerpoint-math-equations_13.png)
+![用竖线分隔的 x、y、z 的分隔符表达式](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -500,11 +534,11 @@ try {
 }
 ```
 
-### **大小和对齐分隔符**
+### **分隔符的大小和对齐**
 
-将 `true` 传递给 [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) 使括号随较高的操作数伸长，或传 `false` 保持默认大小。使用 [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) 并选择两种 [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) 值之一。`Centered` 将括号居中于数学轴（等号中线），`Match` 使其与所围内容对齐。两种设置仅影响分隔符，内部表达式保持不变。
+将 `true` 传递给 [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) 使括号随高操作数伸展，传 `false` 则保持常规大小。使用 [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) 并选择 [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) 中的两个值之一。`Centered` 将括号居中于数学轴（该轴穿过等号中部），`Match` 与所围内容对齐。两种设置仅影响分隔符，内部表达式保持不变。
 
-示例在 `x` 的指数位置放置一个分数，使表达式在基线以上的伸展大于基线以下。四个公式使用相同的括号和字体设置。
+示例将分数放在 `x` 的指数中，使表达式在基线以上的伸展大于基线以下。所有四个公式使用相同的括号和字体设置。
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -538,15 +572,15 @@ try {
 }
 ```
 
-在 PowerPoint 中比较行可观察到伸长效果。顶部行的括号随指数伸长，两种形状看起来相同。底部行关闭伸长，左侧的较小括号（`Centered`）与等号对齐，右侧的（`Match`）则在表达式上方稍高。
+在 PowerPoint 中对比各行可看到伸展效果。顶部行的括号随指数伸展，两个形状看起来相同。底部行未启用伸展，左侧的较小括号（`Centered`）与等号对齐，右侧的（`Match`）则在表达式上方更高。
 
-![PowerPoint 中四个公式，上方启用分隔符增长、下方未启用，左侧为 Centered，右侧为 Match](delimiter-sizing.png)
+![PowerPoint 中四个方程，上排启用分隔符增长，下排禁用，左侧为 Centered，右侧为 Match](delimiter-sizing.png)
 
 ## **添加边框框**
 
-对分数调用 [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) 可为整个表达式加框。返回的 [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) 默认显示四条边。使用 [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop)、[setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom)、[setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) 和 [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) 可单独隐藏边。
+对分数调用 [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) 可为整个表达式添加边框。返回的 [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) 默认显示四条边。使用 [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop)、[setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom)、[setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) 和 [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) 可单独隐藏边。
 
-示例在同一幻灯片上放置六个相同的分数。为显示消除效果，隐藏四条边并将 `true` 传给 [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) 生成上升对角线 (↗)；或传给 [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) 生成下降对角线 (↘)。也可以使用 [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) 或 [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) 并任意组合可见边。
+示例在一张幻灯片上放置相同分数的六个副本。为了显示抵消效果，隐藏四条边并将 `true` 传递给 [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) 以得到上升对角线 (↗)，或传给 [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) 以得到下降对角线 (↘)。也可以使用 [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) 或 [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical)，并任意组合可见的边。
 
 ```php
 use aspose\slides\MathBlock;
@@ -593,24 +627,24 @@ try {
 }
 ```
 
-![PowerPoint 中的六个可编辑分数。上行：完整边框、底部和左侧边框、上升对角线。下行：下降对角线、水平划线、垂直划线并带完整边框。](border-box-fractions.png)
+![PowerPoint 中的六个可编辑分数。上排：完整边框、底部和左侧边框、上升对角线。下排：下降对角线、水平划线、垂直划线并带完整边框。](border-box-fractions.png)
 
-在此分数上，水平划线与分数线重叠。垂直划线穿过分子和分母，而周围的边框保持可见。这些线装饰整个表达式。普通文本的删除线仅作用于文本运行中的字符。重新在 PowerPoint 中打开演示文稿后，仍可分别编辑分子和分母。
+在此分数中，水平划线会覆盖分数线。垂直划线穿过分子和分母，而周围的边框仍然可见。这些线装饰整个表达式。普通文本的删除线仅作用于文本运行中的字符。重新打开 PowerPoint 后，仍可分别编辑分子和分母。
 
-## **使用幻影元素控制可见性和布局**
+## **使用幽灵元素控制可见性和布局**
 
-将表达式包裹在 [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) 中，可独立控制其可见性以及对公式布局的占位。[MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) 方法控制以下内容：
+将表达式包裹在 [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) 中，可独立控制其可见性以及在公式中占用的空间。[MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) 的方法如下表所示：
 
-| Method | Effect |
+| 方法 | 效果 |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | 传入 `false` 可隐藏表达式。除非下面相应的方法接收 `true`，否则其尺寸仍会影响布局。 |
-| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | 将表达式的水平宽度视为零，使相邻元素能够更靠近。 |
-| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | 将其上升高度（基线以上的部分）视为零，可减少上方预留空间。 |
-| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | 将其下降深度（基线以下的部分）视为零，可使分数线或其他内容更靠近相邻元素。 |
+| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | 将 `false` 传入可隐藏表达式。除非下面相应的方法接收 `true`，否则其尺寸仍会影响布局。 |
+| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | 将表达式的水平宽度视为零，使相邻元素可以更靠近。 |
+| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | 将其上升度（基线以上的高度）视为零，可减少相邻元素上方保留的空间。 |
+| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | 将其下降度（基线以下的深度）视为零，可使分数线或其他位于表达式下方的内容更靠近相邻元素。 |
 
-基线是普通数学字母所坐落的参考线。隐藏内容并不会移除其尺寸，将尺寸视为零也不会删除表达式。底层表达式仍可通过 [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) 访问。将 `true` 传给 [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) 可再次显示，尺寸设置保持不变。
+基线是普通数学字母所在的参考线。隐藏内容不会删除其尺寸，将尺寸视为零也不会删除表达式。底层表达式仍可通过 [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) 访问。将 `true` 传入 [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) 可再次显示，尺寸设置保持不变。
 
-下面的示例创建了五种并排变体：可见分数、保留空间的隐藏分数，以及三个将某一维度视为零的隐藏分数。每种变体使用相同的外围表达式和 Cambria Math，字号 24pt。所有公式形状的顶部位置相同，以灰色参考线标记。将幻影放在外部分数的分子中，可更直观地看到垂直布局的变化。
+下面的示例创建了五种并排变体：一个可见分数、一个保留空间的隐藏分数，以及三个将单一维度设为零的隐藏分数。每种变体使用相同的外围表达式和 Cambria Math，字号 24pt。所有公式形状的顶部位置相同，由灰色指南标记。将幽灵放在外部分数的分子中，可更直观地看到垂直布局变化。
 
 ```php
 use aspose\slides\FillType;
@@ -686,13 +720,13 @@ try {
 }
 ```
 
-![PowerPoint 中的五个公式，比较可见分数、保留空间的隐藏分数以及启用 ZeroWidth、ZeroAsc 或 ZeroDesc 的隐藏分数](math-phantom.png)
+![PowerPoint 中的五个公式，比较可见分数、保留空间的隐藏分数，以及启用 ZeroWidth、ZeroAsc 或 ZeroDesc 的隐藏分数](math-phantom.png)
 
-## **组合项**
+## **对项分组**
 
 使用 [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) 在表达式上方或下方放置分组字符。添加极限可为分组项标注标签。
 
-![表达式 x + y 被分组并在下方加上标签 任意文本](powerpoint-math-equations_15.png)
+![表达式 x + y 分组，下面带有标签 any text](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -719,7 +753,7 @@ try {
 
 ## **格式化数学元素**
 
-仅在有助于阐明公式时使用格式化辅助方法。例如，[overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) 可在数学元素上方加横线。
+仅在有助于阐明公式时使用格式化帮助方法。例如，[overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) 在数学元素上方添加横线。
 
 ![带上划线的数学表达式 ABC](powerpoint-math-equations_14.png)
 
@@ -746,9 +780,9 @@ try {
 
 ### **在现有公式中格式化文本**
 
-要对现有公式的全部文本进行格式化，需要遍历每个数学块的元素树。[MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) 只返回直接子元素，需要递归调用以访问分数、上下标、根式等内部文本。检查当前元素及其子元素，以便在当前元素为 [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) 时也能包括在内。
+要在现有公式中对文本进行格式化，需要遍历每个数学块的元素树。[MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) 只返回直接子元素，因此需递归调用以达到分数、上下标、根式及其他嵌套结构内部的文本。检查当前元素及其子元素，以在起始元素为 [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) 时也进行处理。
 
-本示例假设 `input.pptx` 包含类似 `z = xᵢ / ∛y` 的公式，其中分数的分子含有下标，分母含有根式。仅处理块的顶层元素会遗漏分数内部的文本。示例在幻灯片文本框中查找数学段落，使用 [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) 获取块，并通过每个文本元素的 [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) 方法调用 [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) 将字体大小设为 28 磅。
+此示例假设 `input.pptx` 包含类似 `z = xᵢ / ∛y` 的公式，其中分子含有下标，分母含有根式。如果仅处理块的顶层元素，将会漏掉分数内部的文本。示例在幻灯片文本框中查找数学段落，使用 [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) 获取其块，并通过每个文本元素的 [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) 方法调用 [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) 将字体大小设为 28 点。
 
 ```php
 use aspose\slides\Presentation;
@@ -804,14 +838,14 @@ try {
 }
 ```
 
-保存的演示文稿在每个处理过的公式的每个层级上都更新了文本格式，同时保留了文本内容和数学结构。
+保存的演示文稿在每个已处理公式的每一层都包含了更新后的文本格式，同时保留了文本内容和数学结构。
 
 ## **快速参考**
 
-| Task | Main API |
+| 任务 | 主要 API |
 | --- | --- |
 | 创建数学文本 | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
-| 合并元素 | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| 组合元素 | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | 创建分数 | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | 添加上标或下标 | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | 添加函数 | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
@@ -820,10 +854,10 @@ try {
 | 添加左侧脚本 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | 添加求和和积分 | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | 添加矩阵 | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
-| 添加公式数组 | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| 添加方程数组 | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | 添加分隔符 | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| 添加横线和边框 | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| 组合项 | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| 添加上划线和边框 | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| 分组项 | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **常见问题**
 
@@ -831,10 +865,10 @@ try {
 
 是的。打开演示文稿，找到包含 [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) 的形状，调用 [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph)，并更新该段落中的数学块。
 
-**公式是否会保存为可编辑的 PowerPoint 数学内容？**
+**公式会以可编辑的 PowerPoint 数学形式保存吗？**
 
-是的。将文档保存为 PPTX 时，Aspose.Slides 会将公式写入可编辑的 Office Math 内容。
+是的。保存为 PPTX 时，Aspose.Slides 将公式写入可编辑的 Office Math 内容。
 
 **我可以将公式导出为 LaTeX 吗？**
 
-是的。先通过其 [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) 获取公式的 [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/)，然后调用 [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) 直接导出。完整示例请参阅 [在 PHP via Java 中从演示文稿导出数学公式](/slides/zh/php-java/exporting-math-equations/#export-math-equations-to-latex)。
+是的。从其 [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) 获取公式的 [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/)，然后调用 [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) 直接导出。完整示例请参阅 [在 PHP via Java 中导出演示文稿的数学公式](/slides/zh/php-java/exporting-math-equations/#export-math-equations-to-latex)。
