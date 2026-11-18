@@ -136,6 +136,35 @@ mathParagraph.Add(new MathBlock(radical));
 presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
+### **Show or Hide the Degree of a Square Root**
+
+A square root can display an explicit 2 or use the conventional √x notation. The [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) property of [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) controls which form appears. Both forms retain the degree 2 and the radicand x in the editable equation.
+
+![The same square root with HideDegree set to false on the left and true on the right](square-root-degree.png)
+
+The example saves the same square root twice. In `visible-degree.pptx` the 2 is visible. In `hidden-degree.pptx` it is hidden.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var radical = new MathematicalText("x").Radical("2");
+
+var shape = slide.Shapes.AddMathShape(20, 20, 200, 100);
+var portion = (IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+portion.MathParagraph.Add(new MathBlock(radical));
+
+radical.HideDegree = false;
+presentation.Save("visible-degree.pptx", SaveFormat.Pptx);
+
+radical.HideDegree = true;
+presentation.Save("hidden-degree.pptx", SaveFormat.Pptx);
+```
+
 ## **Add Functions and Limits**
 
 Use [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) or [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) or use [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).

@@ -160,6 +160,43 @@ finally:
     presentation.dispose()
 ```
 
+### **Show or Hide the Degree of a Square Root**
+
+A square root can display an explicit 2 or use the conventional √x notation. The [setHideDegree](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/#setHideDegree) method of [MathRadical](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/) controls which form appears. Both forms retain the degree 2 and the radicand x in the editable equation.
+
+![The same square root with the degree visible on the left and hidden on the right](square-root-degree.png)
+
+The example saves the same square root twice. In `visible-degree.pptx`, the 2 is visible. In `hidden-degree.pptx`, it is hidden.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import MathBlock, MathematicalText, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    radical = MathematicalText("x").radical("2")
+    math_block = MathBlock(radical)
+
+    math_shape = slide.getShapes().addMathShape(20, 20, 200, 100)
+    math_paragraph = math_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph()
+    math_paragraph.add(math_block)
+
+    radical.setHideDegree(False)
+    presentation.save("visible-degree.pptx", SaveFormat.Pptx)
+
+    radical.setHideDegree(True)
+    presentation.save("hidden-degree.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
 ## **Add Functions and Limits**
 
 Use [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) or [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) or use [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit).
