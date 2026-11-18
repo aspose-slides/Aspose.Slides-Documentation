@@ -1,6 +1,6 @@
 ---
-title: Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w PHP
-linktitle: Utwórz lub zaktualizuj wykresy
+title: Utwórz lub Zaktualizuj wykresy w prezentacjach PowerPoint w PHP
+linktitle: Utwórz lub Zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/php-java/create-chart/
@@ -15,45 +15,47 @@ keywords:
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowo‑wąsowy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
 - wykres radarowy
-- wykres wielokategorialny
+- wykres wielokategorii
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Utwórz i dostosuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides for PHP via Java. Dodawaj, formatuj i edytuj wykresy korzystając z praktycznych przykładów kodu w PHP."
+description: "Utwórz i dostosuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP via Java. Dodawaj, formatuj i edytuj wykresy za pomocą praktycznych przykładów kodu w PHP."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla PHP via Java. Nauczysz się programowo dodawać wykres do slajdu, wypełniać go danymi oraz stosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach PHP, upraszczając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla PHP via Java. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach PHP, upraszczając proces tworzenia prezentacji opartych na danych.
 
-## **Utwórz wykres**
+## **Utworzenie wykresu**
 
-Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu widoczne w tabeli lub arkuszu kalkulacyjnym.
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
 
 **Dlaczego tworzyć wykresy?**
 
 Korzystając z wykresów, możesz:
 
-* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie w prezentacji;
-* ujawniać wzorce i trendy w danych;
-* wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać wartości odstające, aberracje, odchylenia, błędy i nonsensowne dane;
-* komunikować lub prezentować złożone dane.
+* zagregować, skondensować lub podsumować duże ilości danych na pojedynczym slajdzie prezentacji;
+* ujawnić wzorce i trendy w danych;
+* określić kierunek i dynamikę danych w czasie lub względem konkretnej jednostki miary;
+* wykryć wartości odstające, aberracje, odchylenia, błędy i nielogiczne dane;
+* przekazać lub przedstawić skomplikowane dane.
 
-W PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno zwykłe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
+W programie PowerPoint wykresy tworzy się za pomocą funkcji *Wstawianie*, która udostępnia szablony do projektowania wielu typów wykresów. Dzięki Aspose.Slides możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach), jak i wykresy niestandardowe.
 
 {{% alert color="info" title="Note" %}}
+
 Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) w przestrzeni nazw [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
+
 {{% /alert %}}
 
-### **Utwórz wykresy kolumnowe grupowane**
+### **Utworzenie wykresów kolumnowych grupowanych**
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu kolumnowego grupowanego, który porównuje dwie serie w trzech kategoriach. Serie używają wypełnień na czerwono i zielono, a poszczególne etykiety przedstawiają nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu kolumnowego grupowanego, który porównuje dwie serie w trzech kategoriach. Serie używają wypełnień czerwonym i zielonym, a poszczególne etykiety wyświetlają nazwy kategorii, nazwy serii oraz wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
 ```php
 use aspose\slides\ChartType;
@@ -141,9 +143,9 @@ Wynik:
 
 ![Wykres kolumnowy grupowany](clustered_column_chart.png)
 
-### **Utwórz wykresy punktowe**
+### **Utworzenie wykresów punktowych**
 
-Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub demonstrowania korelacji między dwoma zmiennymi.
+Wykresy punktowe (znane także jako wykresy rozrzutu lub wykresy XY) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
 
 Użyj wykresu punktowego, gdy:
 
@@ -152,7 +154,7 @@ Użyj wykresu punktowego, gdy:
 * chcesz określić, czy dwie zmienne są ze sobą powiązane;
 * masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
 
-Ten przykład wykreśla dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii ze znacznikami‑gwiazdkami, natomiast druga używa wygładzonych linii ze znacznikami‑kołami; obie używają rozmiaru markera 10, konfigurowanego za pomocą [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) kontroluje kształt markera.
+Ten przykład rysuje dwa zestawy wartości X‑Y. Pierwsza seria używa linii prostych z markerami‑gwiazdkami, a druga — linii wygładzonych z markerami‑kół; obie używają rozmiaru markera 10, ustawionego przy pomocy [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) kontroluje kształt markera.
 
 ```php
 use aspose\slides\ChartType;
@@ -225,11 +227,11 @@ Wynik:
 
 ![Wykres punktowy](scatter_chart.png)
 
-### **Utwórz wykresy kołowe**
+### **Utworzenie wykresów kołowych**
 
-Wykresy kołowe są najlepsze do pokazania relacji części‑do‑całości w danych, szczególnie gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jednakże, jeśli Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe najlepiej nadają się do prezentacji zależności części od całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy fragment ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) ustawia pierwszy fragment, aby zaczynał się pod kątem 180 stopni.
+Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy fragment ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) ustawia pierwszy fragment na start od 180 stopni.
 
 ```php
 use aspose\slides\ChartType;
@@ -343,13 +345,13 @@ Wynik:
 
 ![Wykres kołowy](pie_chart.png)
 
-Aby poprawić czytelność etykiet poza kołem, zobacz [Format Leader Lines](/slides/pl/php-java/chart-data-label/#format-leader-lines) – przykład pozycjonowania etykiet i dostosowywania koloru, szerokości, przezroczystości oraz stylu kreski linii.
+Aby poprawić czytelność etykiet znajdujących się poza wykresem kołowym, zobacz [Formatowanie linii prowadzących](/slides/pl/php-java/chart-data-label/#format-leader-lines) dla przykładu, który pozycjonuje etykiety i dostosowuje kolor, szerokość, przezroczystość oraz styl kreskowania linii.
 
-### **Utwórz wykresy liniowe**
+### **Utworzenie wykresów liniowych**
 
-Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
+Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podświetlać anomalie w seriach danych i nie tylko.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu liniowego z domyślną serią i kategoriami, a następnie zapisuje prezentację jako PPTX.
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -371,7 +373,7 @@ finally
 }
 ```
 
-Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były połączone kreskami, wywołaj [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) z wartością z [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+Domyślnie punkty na wykresie liniowym są połączone prostymi liniami ciągłymi. Jeśli chcesz, aby punkty były połączone kreskami, wywołaj [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) z wartością z [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -401,11 +403,11 @@ Wynik:
 
 ![Wykres liniowy](line_chart.png)
 
-### **Utwórz wykresy mapy drzewa**
+### **Utworzenie wykresów mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze do danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi wkładaczami w każdej kategorii.
+Wykresy mapy drzewa najlepiej nadają się do danych sprzedażowych, gdy chcesz pokazać relatywny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi wkładaczami w każdej kategorii.
 
-Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pnie i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) przypisuje pnie na poziomie grupowania 1 i gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety nadrzędne identyfikują hierarchię.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pnie i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) przypisuje pnie na poziomie grupowania 1 oraz gałęzie na poziomie 2. Wartości określają relatywne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety rodziców identyfikują hierarchię.
 
 ```php
 use aspose\slides\ChartType;
@@ -491,24 +493,24 @@ Wynik:
 
 ![Wykres mapy drzewa](treemap_chart.png)
 
-### **Utwórz wykresy wodospadowe**
+### **Utworzenie wykresów wodospadowych**
 
-Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do ostatecznej wartości. Na przykład podział zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” pomiędzy poprzednią a nową wartością bieżącą, a kolumny sumaryczne rozciągają się od zera do skumulowanej wartości.
+Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Na przykład rozłożenie zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” między poprzednią a nową wartością bieżącą, a kolumny sumaryczne rozciągają się od zera do skumulowanej wartości.
 
 Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
 
-| Kategoria | Wartość skoroszytu | Typ kolumny |
+| Kategoria | Wartość w skoroszycie | Typ kolumny |
 | --- | ---: | --- |
 | Przychód | 1000 | Wzrost |
-| Koszty sprzedaży | -400 | Spadek |
-| Zysk brutto | 600 | Pośredni łączny |
+| Koszt sprzedaży | -400 | Spadek |
+| Zysk brutto | 600 | Suma pośrednia |
 | Koszty operacyjne | -200 | Spadek |
-| Inny przychód | 50 | Wzrost |
-| Zysk netto | 450 | Ostateczny łączny |
+| Inne przychody | 50 | Wzrost |
+| Zysk netto | 450 | Suma końcowa |
 
-Aby oznaczyć punkt jako pośredni lub ostateczny łączny, wywołaj jego metodę [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) z wartością `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumarycznego. Kolumna sumaryczna wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
+Aby oznaczyć punkt jako sumę pośrednią lub końcową, wywołaj jego metodę [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) z wartością `true`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Metoda oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumarycznego. Kolumna sumaryczna wyświetla skumulowaną wartość bez ponownego jej dodawania do wartości bieżącej.
 
-Ten pełny przykład PHP tworzy wykres przy użyciu członka `Waterfall` z [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B wartości. Każda komórka z wartością jest dodawana za pomocą [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów zerobazowe `2` i `5` identyfikują pośrednie i ostateczne sumy. Wywołanie [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) z `true` wyświetla kwoty na kolumnach. Nie wymaga żadnej wejściowej prezentacji ani skoroszytu.
+Ten kompletny przykład PHP tworzy wykres przy użyciu członka `Waterfall` wyliczenia [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana za pomocą [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indeksy punktów zero‑based `2` i `5` identyfikują sumy pośrednie i końcowe. Wywołanie [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) z `true` wyświetla kwoty na kolumnach. Żadna prezentacja ani skoroszyt wejściowy nie są wymagane.
 
 ```php
 use aspose\slides\ChartType;
@@ -548,7 +550,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // Trzeci i szósty punkt reprezentują sumy, a nie dodatkowe zmiany.
+    // Trzeci i szósty punkt reprezentują sumy, nie dodatkowe zmiany.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -562,17 +564,23 @@ finally
 }
 ```
 
-Wywołaj metodę [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) na poziomie serii z wartością `true`, aby wyświetlić linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień wywołanie metody w przykładzie na `$series->setShowConnectorLines(false);` przed zapisaniem. Zmienia to tylko widoczność linii, nie dane ani sumy.
+Wywołaj metodę na poziomie serii [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) z `true`, aby wyświetlić linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień wywołanie metody w przykładzie na `$series->setShowConnectorLines(false);` przed zapisem. Zmienia to tylko widoczność linii, nie dane ani sumy.
 
 Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy są rysowane od zera:
 
-![Wykres wodospadowy pokazujący przychód, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łącznikowymi](waterfall_chart.png)
+![Wykres wodospadowy pokazujący przychody, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łącznikowymi](waterfall_chart.png)
 
-### **Utwórz wykresy giełdowe**
+### **Utworzenie wykresów giełdowych**
 
 Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-Ten przykład tworzy wykres otwarcia‑maksimum‑minimum‑zamknięcia z czterema seriami w tej kolejności i trzema kategoriami. Metoda [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) włącza paski wzrostu/spadku, a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) kontroluje linie wysokich‑niskich, które pokazują zakresy cen, podczas gdy linie serii i drobne poziome linie siatki są ukryte.
+Ten przykład tworzy wykres typu open‑high‑low‑close z czterema seriami w tej kolejności i trzema kategoriami. Metoda [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) włącza słupki wzrostu/spadku, a [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) kontroluje linie high‑low, które pokazują zakres cen, podczas gdy indywidualne linie serii i drobne poziome linie siatki są ukryte.
+
+Menedżer zwrócony przez [getUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getupdownbars/) udostępnia osobne obiekty formatowania poprzez [getUpBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getupbarsformat/) i [getDownBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getdownbarsformat/). Użyj metod [getFill](https://reference.aspose.com/slides/php-java/aspose.slides/format/getfill/) i [getLine](https://reference.aspose.com/slides/php-java/aspose.slides/format/getline/) każdego obiektu, aby niezależnie ustawić wypełnienie i obrys. Ten przykład używa zielonych słupków z ciemno‑zielonymi obramowaniami dla rosnących interwałów oraz pomarańczowo‑czerwonych słupków z ciemnoczerwonymi obramowaniami dla spadających interwałów.
+
+Podaj wartości liczbowe dla wszystkich czterech serii w każdej kategorii, przy czym High i Low obejmują Open i Close. Słupki porównują Close z Open **w tej samej kategorii**, a nie z poprzednią kategorią: A spada z 72 do 25, podczas gdy B rośnie z 25 do 38, a C rośnie z 38 do 50. Równe wartości Open i Close nie tworzą widocznego wypełnionego interwału. Słupki up/down rozciągają się od Open do Close; linie high‑low rozciągają się od Low do High. Te słupki należą do grupy serii i nie są zwykłymi seriami wykresu słupkowego.
+
+To formatowanie działa również z wykresami [Line i LineWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) zawierającymi co najmniej dwie serie w tej samej grupie oraz odpowiednie wartości liczbowe dla każdej kategorii. Dla tych nie‑skumulowanych wykresów liniowych, słupki up/down porównują pierwszą i ostatnią serię: wyższa ostatnia wartość generuje słupek wzrostu, niższa – słupek spadku. Odwrócenie serii odwraca klasyfikację. Poniższy przykład używa [OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/); nie zakładaj, że inne warianty giełdowe, skumulowane‑liniowe lub 3D używają tej samej struktury danych czy interpretacji interwału.
 
 ```php
 use aspose\slides\ChartType;
@@ -585,7 +593,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
@@ -637,7 +645,20 @@ try
     $valueCell = $workbook->getCell(0, 3, 4, 50);
     $series->getDataPoints()->addDataPointForStockSeries($valueCell);
 
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
+    $upDownBars = $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars();
+    $upDownBars->setUpDownBars(true);
+
+    $upDownBars->getUpBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 50, 205, 50));
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 100, 0));
+    $upDownBars->getUpBarsFormat()->getLine()->setWidth(2);
+
+    $upDownBars->getDownBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 69, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->setWidth(2);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
 
     for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
@@ -656,15 +677,15 @@ finally
 }
 ```
 
-Wynik:
+Wynik, wyeksportowany z programu PowerPoint:
 
-![Wykres giełdowy](stock_chart.png)
+![Wykres giełdowy z pomarańczowo‑czerwonym spadkiem dla A oraz zielonymi wzrostami dla B i C](stock_chart.png)
 
-### **Utwórz wykresy pudełkowo‑wąsowe**
+### **Utworzenie wykresów pudełkowych i wąsowych**
 
-Wykresy pudełkowo‑wąsowe służą do wyświetlania rozkładu danych, podsumowując kluczowe miary statystyczne, takie jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, pozwalając szybko zrozumieć zmienność danych i zidentyfikować anomalie.
+Wykresy pudełkowe i wąsowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować ewentualne anomalie.
 
-Ten przykład tworzy wykres pudełkowo‑wąsowy z sześciu wartości. Metoda [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) wybiera wyłączny sposób obliczania kwartylów. Przykład również włącza linie średniej, znaczniki średniej, wewnętrzne punkty i punkty odstające.
+Ten przykład tworzy wykres pudełkowy i wąsowy z sześciu wartości. Metoda [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) wybiera wyłączny sposób obliczania kwartylów. Przykład włącza także linie średniej, znaczniki średniej, wewnętrzne punkty oraz punkty odstające.
 
 ```php
 use aspose\slides\ChartType;
@@ -727,11 +748,11 @@ finally
 }
 ```
 
-### **Utwórz wykresy lejkowe**
+### **Utworzenie wykresów lejkowych**
 
-Wykresy lejkowe służą do wizualizacji procesów obejmujących kolejne etapy, gdzie objętość danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, przy czym wolumen danych maleje wraz z postępem od jednego kroku do następnego. Są szczególnie przydatne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł oraz śledzeniu efektywności procesów sprzedaży lub marketingu.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do dodania wykresu lejkowego do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
+Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do dodania wykresu lejkowego do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane ośmioma kategoriami i wartościami od 50 do 500, a następnie zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać przynajmniej jeden slajd.
 
 ```php
 use aspose\slides\ChartType;
@@ -791,11 +812,11 @@ Wynik:
 
 ![Wykres lejkowy](funnel_chart.png)
 
-### **Utwórz wykresy promieniowe**
+### **Utworzenie wykresów promieniowych**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje części‑do‑całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, kompaktowym formacie.
+Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować zależności części od całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, zwartym formacie.
 
-Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pnie i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) przypisuje pnie na poziomie grupowania 1 i gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
+Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pnie i dwie gałęzie. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) przypisuje pnie na poziomie grupowania 1 oraz gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich relatywne rozmiary.
 
 ```php
 use aspose\slides\ChartType;
@@ -878,15 +899,15 @@ Wynik:
 
 ![Wykres promieniowy](sunburst_chart.png)
 
-### **Utwórz wykresy histogramu**
+### **Utworzenie wykresów histogramów**
 
-Wykresy histogramu pokazują, jak wartości liczbowe są rozłożone w przedziałach (binach). Dla miesięcznych raportów o czasach przetwarzania zamówień używaj tej samej szerokości binu i progów, aby utrzymać spójność przedziałów i ułatwić porównania rozkładów.
+Histogramy przedstawiają, jak wartości liczbowe są rozłożone w przedziałach (koszach). Dla comiesięcznych raportów czasu przetwarzania zamówień używaj tej samej szerokości kosza i progów, aby utrzymać spójność przedziałów i ułatwić porównywanie rozkładów.
 
-Wywołaj [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) na osi poziomej z trybem z [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) ma zastosowanie tylko do `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) ma zastosowanie tylko do `ByNumberOfBins`. Użyj `Automatic`, aby pozwolić wykresowi wybrać biny.
+Wywołaj [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) na osi poziomej z trybem z [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) ma zastosowanie tylko do `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) tylko do `ByNumberOfBins`. Użyj `Automatic`, aby pozwolić wykresowi wybrać kosze.
 
-#### **Użyj stałej szerokości bина**
+#### **Użyj stałej szerokości przedziału**
 
-Ten przykład grupuje czasy przetwarzania w 10‑minutowych przedziałach, z oddzielnymi binami dla czasów ≤ 10 min i > 40 min. Włącz te biny za pomocą [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) i [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Przy podawaniu explicite progów przez [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) i [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), wywołaj [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) i [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) z `false`.
+Ten przykład grupuje czasy przetwarzania w przedziały 10‑minutowe, z osobnymi koszami dla czasu ≤ 10 min i > 40 min. Włącz te kosze przy pomocy [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) i [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Gdy podajesz wyraźne progi przez [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) i [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), wywołaj [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) i [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) z `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -936,13 +957,13 @@ finally
 }
 ```
 
-Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w binach **3, 4, 4, 4 i 2**. Bin podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Bin przepełnienia zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; oba wartości równe `40` pozostają w poprzednim przedziale. Biny wewnętrzne zawierają wartości większe niż ich dolna granica i mniejsze lub równe górnej granicy.
+Prezentacja wyświetlona w programie PowerPoint pokazuje liczbę elementów w koszach **3, 4, 4, 4 i 2**. Kosz podprzedziałowy zawiera `5, 10, 10`, więc jego prog jest inkluzywny. Kosz nadprzedziałowy zawiera tylko `41, 50`, więc jego prog jest wykluczający; oba wyniki równe `40` pozostają w poprzednim przedziale. Kosze wewnętrzne zawierają wartości większe od dolnej granicy i mniejsze lub równe górnej granicy.
 
-![Histogram z 10‑minutowymi binami i explicite progami podprzepływu i przepełnienia](histogram_bin_width.png)
+![Histogram z przedziałami 10‑minutowymi i wyraźnymi progami podprzedziału i nadprzedziału](histogram_bin_width.png)
 
-#### **Określ liczbę binów**
+#### **Określ liczbę przedziałów**
 
-Dla stałego poziomu szczegółowości zamiast stałych przedziałów, żądaj pięciu binów dla tych samych danych. Ten przykład pozostawia wyłączone biny podprzepływu i przepełnienia. Wykres określa szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
+Dla stałego poziomu szczegółowości zamiast stałych przedziałów poproś o pięć koszy dla tych samych danych. Ten przykład wyłącza kosze podprzedziałowe i nadprzedziałowe. Wykres wyznacza szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -986,15 +1007,15 @@ finally
 }
 ```
 
-Pięć binów ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
+Pięć koszy ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem o stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
 
-![Histogram z pięcioma binami obliczonymi z tych samych danych](histogram_bin_count.png)
+![Histogram z pięcioma przedziałami obliczonymi na podstawie tych samych danych](histogram_bin_count.png)
 
-### **Utwórz wykresy radarowe**
+### **Utworzenie wykresów radarowych**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych metrykach wydajności lub atrybutach.
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikowania wzorców, mocnych i słabych stron w różnych miarach wydajności lub atrybutach.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu radarowego z domyślną serią i kategoriami, a następnie zapisuje prezentację jako PPTX.
+Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu radarowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -1020,11 +1041,11 @@ Wynik:
 
 ![Wykres radarowy](radar_chart.png)
 
-### **Utwórz wykresy wielokategorialne**
+### **Utworzenie wykresów wielokategorii**
 
-Wykresy wielokategorialne są używane do wyświetlania danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając porównanie wartości w wielu wymiarach jednocześnie. Są szczególnie pomocne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorii służą do prezentacji danych, które obejmują więcej niż jedną grupę kategorialną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zestawach danych.
 
-Ten przykład tworzy wykres kolumnowy grupowany z ośmioma kategoriami rozmieszczonymi w czterech parach. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
+Ten przykład tworzy wykres kolumnowy grupowany z ośmioma kategoriami ułożonymi w cztery pary. Metoda [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z zarówno indywidualnymi, jak i grupowymi etykietami.
 
 ```php
 use aspose\slides\ChartType;
@@ -1100,13 +1121,71 @@ finally
 
 Wynik:
 
-![Wykres wielokategorialny](multi_category_chart.png)
+![Wykres wielokategorii](multi_category_chart.png)
 
-### **Utwórz wykresy mapowe**
+#### **Usunięcie etykiety kwartału**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych przez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne do analizy trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, wizualnie atrakcyjny sposób.
+Pobierz plik [quarters.pptx](quarters.pptx) i umieść go w tym samym katalogu co skrypt PHP. Jego wykres pokazuje dziewięć miesięcy i jedną serię sprzedaży z wartościami od 10 do 18. Na osi kategorii Q1 obejmuje styczeń‑marzec, Q2 kwiecień‑czerwiec, a Q3 lipiec‑wrzesień.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do przeglądania w PowerPoint.
+Kwiecień jest czwartą kategorią (indeks 3) i posiada etykietę Q2. Użyj [getGroupingLevels](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getgroupinglevels/) aby uzyskać poziomy grupowania kwietnia, a następnie wywołaj [deleteGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) z poziomem 1, aby usunąć jego etykietę kwartału. Poziom 0 reprezentuje sam miesiąc i nie może być usunięty tą metodą.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation(__DIR__ . "/quarters.pptx");
+try
+{
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $april = $chart->getChartData()->getCategories()->get_Item(3);
+    $april->getGroupingLevels()->deleteGroupingItem(1);
+
+    $presentation->save(__DIR__ . "/quarters-updated.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+
+$reopened = new Presentation(__DIR__ . "/quarters-updated.pptx");
+try
+{
+    $updatedChart = $reopened->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $updatedChart->getChartData();
+
+    $months = [];
+    $categories = $data->getCategories();
+    
+    for ($i = 0; $i < java_values($categories->size()); $i++)
+    {
+        $months[] = (string)$categories->get_Item($i)->getAsCell()->getValue();
+    }
+
+    $sales = [];
+    $points = $data->getSeries()->get_Item(0)->getDataPoints();
+    for ($i = 0; $i < java_values($points->size()); $i++)
+    {
+        $sales[] = (string)$points->get_Item($i)->getValue()->getData();
+    }
+
+    echo implode(", ", $months), PHP_EOL;
+    echo implode(", ", $sales), PHP_EOL;
+}
+finally
+{
+    $reopened->dispose();
+}
+```
+
+Po ponownym otwarciu wykresu przykład wypisuje oryginalne miesiące (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) oraz wartości sprzedaży (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) w tej samej kolejności. Otwórz `quarters-updated.pptx` w programie PowerPoint, aby porównać etykiety osi. Etykieta Q2 oraz granica grupy przed kwietniem znikają, więc Q1 obejmuje styczeń‑czerwiec. Q3 nadal zaczyna się w lipcu.
+
+![Etykiety kwartałów przed i po usunięciu. Po lewej Q2 obejmuje kwiecień‑czerwiec. Po prawej Q1 obejmuje styczeń‑czerwiec](quarter-label-comparison.png)
+
+### **Utworzenie wykresów mapowych**
+
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne przy analizie trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, atrakcyjny wizualnie sposób.
+
+Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do przeglądania w programie PowerPoint.
 
 ```php
 use aspose\slides\ChartType;
@@ -1133,16 +1212,16 @@ Wynik:
 ![Wykres mapowy](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Powyższy obraz pokazuje zapisany plik prezentacji otwarty w PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane prawidłowo, ale nie rysuje samych wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany do PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+
+Powyższy obrazek pokazuje zapisaną prezentację otwartą w programie PowerPoint. Aspose.Slides prawidłowo zapisuje wykres mapowy i jego dane, ale sam nie rysuje wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF czy SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+
 {{% /alert %}}
 
-### **Utwórz wykresy kombinowane**
-
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym wykresie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
+### **Utworzenie wykresów kombinowanych**
 
 ![Wykres kombinowany](combination_chart.png)
 
-Ten przykład łączy dwie serie kolumn grupowanych z serią liniową w czterech kategoriach. Kolumny używają podstawowej pionowej osi, podczas gdy [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) umieszcza linię na drugiej pionowej osi po prawej stronie. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
+Ten przykład łączy dwie serie kolumnowe grupowane z serią liniową w czterech kategoriach. Kolumny wykorzystują pierwotną pionową oś, natomiast [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) umieszcza linię na drugorzędnej pionowej osi po prawej stronie. Funkcje pomocnicze konfigurowują tytuł, legendę, etykiety osi i linie siatki.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1314,11 +1393,11 @@ function setAxisTitle($axis, $axisTitle)
 createComboChart();
 ```
 
-## **Aktualizuj wykresy**
+## **Aktualizacja wykresów**
 
-Aspose.Slides for PHP via Java umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Ta funkcjonalność upraszcza proces utrzymywania prezentacji na bieżąco z dynamiczną zawartością i zapewnia, że wykresy dokładnie odzwierciedlają aktualne dane i standardy wizualne.
+Aspose.Slides dla PHP via Java umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymywania prezentacji w aktualnym stanie przy dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
 
-Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy etykietach kategorii w kolumnie A i nazwach serii w pierwszym wierszu pierwszego arkusza. Przykład używa [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na skupione cylindry poprzez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na skumulowane cylindry poprzez [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1384,11 +1463,11 @@ finally
 
 ## **Ustaw zakres danych dla wykresu**
 
-Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/php-java/chart-workbook/#retrieve-a-charts-data-range).
+Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Pobierz zakres danych wykresu](/slides/pl/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for PHP via Java zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment arkusza do wykresu, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że Twoje prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides dla PHP via Java zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo aktualizujesz i synchronizujesz wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i precyzyjne informacje.
 
-Ten przykład używa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
+Ten przykład używa [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A oraz trzema wartościami w kolumnie B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1420,11 +1499,11 @@ finally
 }
 ```
 
-## **Użyj domyślnych znaczników w wykresach**
+## **Używanie domyślnych znaczników w wykresach**
 
-Kiedy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
-Ten przykład używa [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu z dwiema seriami liniowymi i legendą. Ustawienia znacznika dostępne przez [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `null`, podczas gdy druga ma wartość dla każdej kategorii.
+Ten przykład wykorzystuje [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) do utworzenia wykresu z dwoma seriami liniowymi i legendą. Ustawienia znacznika dostępne przez [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakująca wartość, reprezentowaną przez `null`, podczas gdy druga ma wartość dla każdej kategorii.
 
 ```php
 use aspose\slides\ChartType;
@@ -1491,18 +1570,18 @@ finally
 
 ## **FAQ**
 
-**Jakie typy wykresów są obsługiwane przez Aspose.Slides for PHP via Java?**
+**Jakie typy wykresów są obsługiwane przez Aspose.Slides dla PHP via Java?**
 
-Aspose.Slides for PHP via Java obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, obszarowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides dla PHP via Java obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najodpowiedniejszy typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Ten proces integruje wykres bezpośrednio w Twojej prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio z Twoją prezentacją.
 
-**Jak mogę zaktualizować dane wyświetlane w wykresie?**
+**Jak mogę zaktualizować dane wyświetlane na wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), usuwając wszelkie domyślne serie i kategorie, a następnie dodając własne dane. To umożliwia programowe odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides for PHP via Java zapewnia rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides dla PHP via Java oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

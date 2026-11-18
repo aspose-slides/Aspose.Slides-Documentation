@@ -1,6 +1,6 @@
 ---
 title: PHP में PowerPoint प्रस्तुति चार्ट बनाएं या अपडेट करें
-linktitle: चार्ट बनाएं या अपडेट करें
+linktitle: चार्ट बनाएँ या अपडेट करें
 type: docs
 weight: 10
 url: /hi/php-java/create-chart/
@@ -15,8 +15,8 @@ keywords:
 - लाइन चार्ट
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
-- बॉक्स और व्हिस्कर चार्ट
-- फनल चार्ट
+- बॉक्स एण्ड व्हिस्कर चार्ट
+- फ़नल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रेडार चार्ट
@@ -25,33 +25,35 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। PHP में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फॉर्मेट करें और संपादित करें।"
+description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। PHP में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, स्वरूपित करें और संपादित करें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-यह लेख Aspose.Slides for PHP via Java का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक रूप से स्लाइड में चार्ट कैसे जोड़ें, उसे डेटा के साथ भरें, और आपके विशिष्ट डिजाइन आवश्यकताओं के अनुरूप विभिन्न फॉर्मेटिंग विकल्प लागू करें। पूरे लेख में, विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को प्रारंभ करने से लेकर सीरीज़, एक्स‑अक्स और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके, आप PHP अनुप्रयोगों में डायनामिक चार्ट निर्माण को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑संचालित प्रस्तुतियों को बनाना सरल हो जाएगा।
+यह लेख Aspose.Slides for PHP via Java का उपयोग करके चार्ट बनाने और अनुकूलित करने पर एक विस्तृत गाइड प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, उसे डेटा से भरें, और आपके विशिष्ट डिजाइन आवश्यकताओं के अनुसार विभिन्न स्वरूपण विकल्प लागू करें। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर श्रृंखला, अक्ष और लीजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके आप PHP अनुप्रयोगों में डायनामिक चार्ट जेनरेशन को सहजता से एकीकृत कर सकेंगे, जिससे डेटा-ड्रिवन प्रस्तुतियों का निर्माण सरल हो जाएगा।
 
-## **चार्ट बनाएं**
+## **एक चार्ट बनाएं**
 
-चार्ट डेटा को तेज़ी से दृश्यात्मक बनाते हैं और ऐसी समझ प्रदान करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होती।
+चार्ट डेटा को जल्दी से विज़ुअलाइज़ करने और ऐसे अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
 **चार्ट क्यों बनाएं?**
 
-* एक ही स्लाइड में बड़ी मात्रा में डेटा को समेकित, संक्षिप्त या सारांशित करें;
-* डेटा में पैटर्न और रुझानों को उजागर करें;
-* समय के साथ या किसी विशिष्ट माप इकाई के संबंध में डेटा की दिशा और गति का अनुमान लगाएं;
-* आउट्लायर, विचलन, त्रुटियों और अयथार्थ डेटा को पहचानों;
-* जटिल डेटा को संवादित या प्रस्तुत करें।
+चार्ट का उपयोग करके आप:
 
-PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्पलेट प्रदान करता है। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+* एक स्लाइड में बड़ी मात्रा में डेटा को एकत्रित, संक्षिप्त या सारांशित कर सकते हैं;
+* डेटा में पैटर्न और रुझान उजागर कर सकते हैं;
+* समय के साथ या किसी विशिष्ट माप इकाई के संदर्भ में डेटा की दिशा और गति निर्धारित कर सकते हैं;
+* अपवाद, विचलन, त्रुटियाँ और निरर्थक डेटा को पहचान सकते हैं;
+* जटिल डेटा को संप्रेषित या प्रस्तुत कर सकते हैं।
+
+PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट बनाने के टेम्पलेट्स का उपयोग कर सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides में [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) एनेमरेशन का उपयोग करें। यह एनेमरेशन [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) नेमस्पेस में स्थित है। इस एनेमरेशन के मान विभिन्न चार्ट प्रकारों के अनुरूप होते हैं।
+[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeration का उपयोग [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) नेमस्पेस में करें। इस enumeration के मान विभिन्न चार्ट प्रकारों के अनुरूप होते हैं।
 {{% /alert %}}
 
-### **समूहित कॉलम चार्ट बनाएं**
+### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके एक समूहित कॉलम चार्ट बनाता है जो दो श्रृंखलाओं की तीन श्रेणियों में तुलना करता है। श्रृंखलाएँ लाल और हरे रंग के फ़िल से भरी जाती हैं, और व्यक्तिगत लेबल्स श्रेणी नाम, श्रृंखला नाम और मान दर्शाते हैं। वर्कशीट सूचकांक 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को दर्शाता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन श्रेणियों में दो श्रृंखलाओं की तुलना करता है। श्रृंखलाएँ लाल और हरे रंग की भरावट का उपयोग करती हैं, और व्यक्तिगत लेबल श्रेणी नाम, श्रृंखला नाम और मान को दर्शाते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को दर्शाता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -137,20 +139,20 @@ finally
 
 परिणाम:
 
-![समूहित कॉलम चार्ट](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **स्कैटर चार्ट बनाएं**
 
-स्कैटर चार्ट (जिन्हें स्कैटर प्लॉट या X‑Y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
+स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x-y ग्राफ़ भी कहा जाता है) अक्सर दो चरों के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
 
-स्कैटर चार्ट का उपयोग तब करें जब:
+स्कैटर चार्ट का उपयोग करें जब:
 
-* आपके पास युग्मित संख्यात्मक डेटा हो।
-* दो चर परस्पर अच्छी तरह से जुड़े हों।
-* आप यह निर्धारित करना चाहते हों कि दोनों चर संबंधित हैं या नहीं।
-* आपके पास एक स्वतंत्र चर हो जिसके कई मान एक आश्रित चर के लिए हों।
+* आपके पास युग्मित संख्यात्मक डेटा हो;
+* आपके पास दो ऐसे चरों हों जो आपस में अच्छी तरह मेल खाते हों;
+* आप निर्धारित करना चाहते हों कि दोनों चरों का आपसी संबंध है या नहीं;
+* आपके पास एक स्वतंत्र चर हो जिसके कई मान निर्भर चर के लिए हों।
 
-यह उदाहरण दो सेट X‑Y मानों को प्लॉट करता है। पहली श्रृंखला सीधी रेखाओं के साथ स्टार मार्कर उपयोग करती है, जबकि दूसरी स्मूथ रेखाओं के साथ सर्कल मार्कर; दोनों का मार्कर आकार 10 है, जिसे [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) से कॉन्फ़िगर किया गया है। [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) मेथड मार्कर के आकार को नियंत्रित करता है।
+यह उदाहरण दो x-y मान सेट को प्लॉट करता है। पहली श्रृंखला सीधे रेखाओं के साथ स्टार मार्कर का प्रयोग करती है, जबकि दूसरी स्मूद रेखाओं के साथ सर्कल मार्कर का; दोनों की मार्कर साइज 10 है, जिसे [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) से कॉन्फ़िगर किया गया है। [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) मेथड मार्कर के आकार को नियंत्रित करता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -221,13 +223,13 @@ finally
 
 परिणाम:
 
-![स्कैटर चार्ट](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग‑से‑पूरा संबंध दर्शाने के लिए सबसे अच्छे होते हैं, विशेष रूप से जब डेटा में श्रेणी लेबल्स के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
+पाई चार्ट डेटा में भाग-से-सम्पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट पर विचार कर सकते हैं।
 
-यह उदाहरण तीन तिमाही मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न मान, प्रतिशत और श्रृंखला जानकारी के संयोजन दिखाते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) मेथड पहली स्लाइस को 180 डिग्री से शुरू करता है।
+यह उदाहरण तीन त्रैमासिक मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस में कस्टम भरावट और बॉर्डर है, और लेबल विभिन्न संयोजनों में मान, प्रतिशत और श्रृंखला जानकारी प्रदर्शित करते हैं। [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) मेथड पहले स्लाइस को 180 डिग्री से शुरू करता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -339,13 +341,13 @@ finally
 
 परिणाम:
 
-![पाई चार्ट](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-बाहरी लेबलों की पठनीयता सुधारने के लिए, [Format Leader Lines](/slides/hi/php-java/chart-data-label/#format-leader-lines) देखें, जहाँ लेबल की स्थिति और लाइनों का रंग, चौड़ाई, पारदर्शिता एवं डैश स्टाइल कस्टमाइज़ किया गया है।
+पाई के बाहर के लेबल की पठनीयता सुधारने के लिए, [Format Leader Lines](/slides/hi/php-java/chart-data-label/#format-leader-lines) देखें, जिसमें लेबल की स्थिति और रेखाओं का रंग, चौड़ाई, अपारदर्शिता और डैश शैली को कस्टमाइज़ करने का उदाहरण है।
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिन्हें लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे अच्छे होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप बड़ी मात्रा में डेटा एक साथ तुलना कर सकते हैं, समय के साथ परिवर्तन व रुझानों को ट्रैक कर सकते हैं, डेटा श्रृंखला में असामान्यताओं को उजागर कर सकते हैं, आदि।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मानों में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप एक बड़ी मात्रा में डेटा की तुलना एक साथ कर सकते हैं, समय के साथ परिवर्तन और रुझान ट्रैक कर सकते हैं, डेटा श्रृंखला में विसंगतियों को उजागर कर सकते हैं, आदि।
 
 यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट श्रृंखला और श्रेणियों के साथ एक लाइन चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
 
@@ -369,7 +371,7 @@ finally
 }
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट पर बिंदु सीधी निरंतर रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश से जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) को [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) से मान के साथ कॉल करें:
+डिफ़ॉल्ट रूप से, लाइन चार्ट के बिंदुओं को सीधी निरंतर रेखाओं से जोड़ा जाता है। यदि आप बिंदुओं को डैश द्वारा जोड़ना चाहते हैं, तो [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) को [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) के मान के साथ कॉल करें:
 
 ```php
 use aspose\slides\ChartType;
@@ -397,13 +399,13 @@ finally
 
 परिणाम:
 
-![लाइन चार्ट](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट उन बिक्री डेटा के लिए सबसे अच्छे होते हैं जहाँ आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम्स पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम पर जल्दी ध्यान आकर्षित करना चाहते हैं।
 
-यह उदाहरण चार टहनियों और दो शाखाओं में समूहित आठ पत्तियों के साथ एक ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) मेथड टहनी को समूह स्तर 1 और शाखा को स्तर 2 पर असाइन करता है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम को दर्शाते हैं।
+यह उदाहरण आठ लीव्स को चार स्टेम और दो ब्रांच में समूहित एक ट्री मैप बनाता है। [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) मेथड स्तर 1 पर स्टेम और स्तर 2 पर ब्रांच असाइन करता है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम को पहचानते हैं।
 
 ```php
 use aspose\slides\ChartType;
@@ -487,26 +489,26 @@ finally
 
 परिणाम:
 
-![ट्री मैप चार्ट](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **वॉटरफ़ॉल चार्ट बनाएं**
 
-वॉटरफ़ॉल चार्ट यह दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ विभाजन राजस्व से शुरू हो सकता है, लागत घटा सकता है, और अन्य आय जोड़ सकता है। परिवर्तन कॉलम पिछले और नए चल रहे मानों के बीच फ्लोट करते हैं, जबकि कुल कॉलम शून्य से लेकर संचयी मान तक विस्तारित होते हैं।
+वॉटरफ़ॉल चार्ट दिखाते हैं कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ विभाजन राजस्व से शुरू हो सकता है, लागत घटा सकता है, और अन्य आय जोड़ सकता है। परिवर्तन स्तंभ पूर्ववर्ती और नए चल रहे मान के बीच तैरते हैं, जबकि कुल स्तंभ शून्य से संचयी मान तक विस्तारित होते हैं।
 
-निम्नलिखित उदाहरण हजारों अमेरिकी डॉलर में राशियों का उपयोग करता है:
+नीचे दिया गया उदाहरण हजारों अमेरिकी डॉलर में राशि का उपयोग करता है:
 
-| श्रेणी | वर्कबुक मान | कॉलम प्रकार |
+| श्रेणी | वर्कबुक मान | स्तंभ प्रकार |
 | --- | ---: | --- |
 | राजस्व | 1000 | वृद्धि |
 | बिक्री लागत | -400 | कमी |
 | सकल लाभ | 600 | मध्यवर्ती कुल |
-| संचालन खर्च | -200 | कमी |
+| परिचालन खर्च | -200 | कमी |
 | अन्य आय | 50 | वृद्धि |
 | शुद्ध लाभ | 450 | अंतिम कुल |
 
-किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने के लिए, उसके [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) मेथड को `true` के साथ कॉल करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचित राशि प्रदान करें: `600` सकल लाभ (`1000 - 400`) के लिए और `450` शुद्ध लाभ (`600 - 200 + 50`) के लिए। यह मेथड कॉलम को कुल के रूप में चिन्हित करता है; यह सेल मान की गणना या भराव नहीं करता। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न दें। कुल कॉलम संचित मान को दिखाता है बिना उसे फिर से चल रहे मान में जोड़ें।
+किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने के लिए, उसके [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) मेथड को `true` के साथ कॉल करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचयी राशि दें: `600` सकल लाभ के लिए (`1000 - 400`) और `450` शुद्ध लाभ के लिए (`600 - 200 + 50`)। यह मेथड स्तंभ को कुल के रूप में चिह्नित करता है; यह सेल मान की गणना नहीं करता। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न दें। कुल स्तंभ बिना दोबारा जोड़ते हुए संचयी मान दिखाता है।
 
-यह पूरा PHP उदाहरण [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा को साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट सूचकांक `0` पहली वर्कशीट चुनता है; कॉलम A में श्रेणी नाम और कॉलम B में मान होते हैं। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) से जोड़ा जाता है। शून्य‑आधारित बिंदु सूचकांक `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल को पहचानते हैं। [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) को `true` के साथ कॉल करने से मान कॉलम पर प्रदर्शित होते हैं। इनपुट प्रस्तुति या वर्कबुक की आवश्यकता नहीं है।
+यह पूर्ण PHP उदाहरण `Waterfall` सदस्य का उपयोग करके [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) से एक चार्ट बनाता है, डिफ़ॉल्ट डेटा को साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली वर्कशीट चुनता है; कॉलम A श्रेणी नाम रखता है और कॉलम B मान रखता है। प्रत्येक मान सेल को [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) से जोड़ा जाता है। शून्य-आधारित बिंदु इंडेक्स `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल को पहचानते हैं। [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) को `true` के साथ कॉल करने से मान स्तंभों पर दिखते हैं। इनपुट प्रस्तुति या वर्कबुक आवश्यक नहीं है।
 
 ```php
 use aspose\slides\ChartType;
@@ -546,7 +548,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // तीसरे और छठे बिंदु कुल दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
+    // तीसरा और छठा बिंदु कुल दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -560,17 +562,23 @@ finally
 }
 ```
 
-श्रृंखला‑स्तर के [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) मेथड को `true` के साथ कॉल करने से क्रमिक कॉलमों को जोड़ने वाली रेखाएँ दिखाई देती हैं और चल रहा मान अनुसरण करना आसान हो जाता है। इन रेखाओं को छिपाने के लिए, उदाहरण में मेथड कॉल को `$series->setShowConnectorLines(false);` से बदलें और फिर सहेजें। यह केवल रेखा की दृश्यता बदलता है, डेटा या कुल नहीं।
+श्रृंखला-स्तर के [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) मेथड को `true` करने से क्रमागत स्तंभों को जोड़ने वाली रेखाएँ दिखती हैं और चल रहा मान अधिक स्पष्ट होता है। इन रेखाओं को छिपाने के लिए, उदाहरण में मेथड कॉल को `$series->setShowConnectorLines(false);` से बदलें और फिर सहेजें। यह केवल रेखा की दृश्यता को बदलता है, डेटा या कुल को नहीं।
 
-सहेजी गई प्रस्तुति में 600 का सकल लाभ और 450 का शुद्ध लाभ दिखाया गया है, दोनों कुल शून्य से शुरू होते हैं:
+सहेजी गई प्रस्तुति दिखाती है 600 का सकल लाभ और 450 का शुद्ध लाभ, दोनों कुल शून्य से शुरू होते हैं:
 
-![वॉटरफ़ॉल चार्ट जिसमें राजस्व, लागत, 600 का सकल लाभ और 450 का शुद्ध लाभ, मान लेबल और कनेक्टर लाइन्स के साथ](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **स्टॉक चार्ट बनाएं**
 
-स्टॉक चार्ट खुले, उच्च, निम्न और बंद कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए उपयोग किए जाते हैं, जिससे बाजार रुझान और अस्थिरता का विश्लेषण आसान हो जाता है। वे स्टॉक प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
+स्टॉक चार्ट वित्तीय डेटा जैसे ओपन, हाई, लो और क्लोज़ कीमतों को प्रदर्शित करने के लिए उपयोग होते हैं, जिससे आप बाजार रुझान और अस्थिरता का विश्लेषण कर सकते हैं। ये चार्ट स्टॉक प्रदर्शन पर आवश्यक अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
 
-यह उदाहरण चार श्रृंखलाओं के साथ एक ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है और तीन श्रेणियों को परिभाषित करता है। [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) हाई‑लो लाइन्स को नियंत्रित करता है जो मूल्य रेंज दिखाती हैं, जबकि व्यक्तिगत श्रृंखला रेखाएँ और लघु क्षैतिज ग्रिडलाइन छिपी रहती हैं।
+यह उदाहरण चार श्रृंखलाओं के साथ एक ओपन-हाई-लो-क्लोज़ चार्ट बनाता है, क्रमशः और तीन श्रेणियों के साथ। [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) मेथड अप/डाउन बार सक्षम करता है, और [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) हाई-लो रेखाओं को नियंत्रित करता है जो कीमत रेंज दिखाते हैं, जबकि व्यक्तिगत श्रृंखला रेखाएँ और छोटे क्षैतिज ग्रिडलाइन छिपी रहती हैं।
+
+[getUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getupdownbars/) द्वारा लौटाया गया मैनेजर [getUpBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getupbarsformat/) और [getDownBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getdownbarsformat/) के माध्यम से अलग-अलग फ़ॉर्मेटिंग ऑब्जेक्ट प्रदान करता है। प्रत्येक ऑब्जेक्ट की [getFill](https://reference.aspose.com/slides/php-java/aspose.slides/format/getfill/) और [getLine](https://reference.aspose.com/slides/php-java/aspose.slides/format/getline/) मेथड्स का उपयोग करके उसका भराव और रूपरेखा स्वतंत्र रूप से सेट करें। यह उदाहरण बढ़ते इंटरवल के लिए गहरे हरे किनारे वाले हरे बार और घटते इंटरवल के लिए गहरे लाल किनारे वाले नारंगी‑लाल बार उपयोग करता है।
+
+सभी चार श्रृंखलाओं के लिए प्रत्येक श्रेणी में संख्यात्मक मान प्रदान करें, हाई और लो ओपन और क्लोज़ को घेरते हैं। बार एक ही श्रेणी के भीतर क्लोज़ की तुलना ओपन से करते हैं, न कि पिछले श्रेणी से: A 72 से 25 तक गिरता है, जबकि B 25 से 38 तक बढ़ता है और C 38 से 50 तक बढ़ता है। समान ओपन और क्लोज़ मान कोई दृश्यमान भरा इंटरवल नहीं बनाते। अप/डाउन बार ओपन‑क्लोज़ को कवर करते हैं; हाई‑लो रेखाएँ लो‑हाई को कवर करती हैं। ये बार श्रृंखला समूह का हिस्सा होते हैं, साधारण बार‑चार्ट श्रृंखला नहीं।
+
+यह फ़ॉर्मेटिंग उन [Line and LineWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) चार्ट्स पर भी लागू होती है जिनमें कम से कम दो श्रृंखलाएँ समान समूह में हों और प्रत्येक श्रेणी के लिए संख्यात्मक मान उपलब्ध हों। इन नॉन‑स्टैक्ड लाइन चार्ट्स में, अप/डाउन बार पहली और अंतिम श्रृंखला की तुलना करते हैं: उच्च अंतिम मान अप‑बार बनाता है, और निम्न अंतिम मान डाउँ‑बार बनाता है। श्रृंखलाओं को बदलने से वर्गीकरण उल्टा हो जाता है। नीचे का उदाहरण [OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) का उपयोग करता है; अन्य स्टॉक, स्टैक्ड‑लाइन या 3D वेरिएंट समान डेटा व्यवस्थित या इंटरवल व्याख्या नहीं रखते, इसका अनुमान न लगाएँ।
 
 ```php
 use aspose\slides\ChartType;
@@ -583,7 +591,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
@@ -635,7 +643,20 @@ try
     $valueCell = $workbook->getCell(0, 3, 4, 50);
     $series->getDataPoints()->addDataPointForStockSeries($valueCell);
 
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
+    $upDownBars = $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars();
+    $upDownBars->setUpDownBars(true);
+
+    $upDownBars->getUpBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 50, 205, 50));
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 100, 0));
+    $upDownBars->getUpBarsFormat()->getLine()->setWidth(2);
+
+    $upDownBars->getDownBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 69, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->setWidth(2);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
 
     for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
@@ -654,15 +675,15 @@ finally
 }
 ```
 
-परिणाम:
+परिणाम, PowerPoint से निर्यातित:
 
-![स्टॉक चार्ट](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **बॉक्स और whisker चार्ट बनाएं**
+### **बॉक्स एण्ड व्हिस्कर चार्ट बनाएं**
 
-बॉक्स और whisker चार्ट डेटा के वितरण को प्रमुख सांख्यिकीय माप, जैसे माध्यिका, क्वार्टाइल और संभावित आउट्लायर, को सारांशित करके प्रदर्शित करते हैं। ये अन्वेषी डेटा विश्लेषण और सांख्यिकीय अध्ययन में डेटा की विविधता को जल्दी समझने और किसी भी असामान्यताओं की पहचान करने में विशेष रूप से उपयोगी होते हैं।
+बॉक्स एण्ड व्हिस्कर चार्ट डेटा वितरण को मुख्य सांख्यिकीय माप जैसे मध्यमान, क्वार्टाइल और संभावित अपवाद बिंदु दर्शाकर दिखाते हैं। वे खोजी डेटा विश्लेषण और सांख्यिकीय अध्ययन में विशेष रूप से उपयोगी होते हैं, जिससे डेटा विविधता को जल्दी समझा जा सके और किसी भी विसंगति की पहचान की जा सके।
 
-यह उदाहरण छह मानों से एक बॉक्स और whisker चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) मेथड विशेष क्वार्टाइल गणना चुनता है। उदाहरण में औसत रेखाएँ, औसत मार्कर, आंतरिक बिंदु और आउट्लायर बिंदु भी सक्रिय किए गए हैं।
+यह उदाहरण छह मानों से एक बॉक्स एण्ड व्हिस्कर चार्ट बनाता है। [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) मेथड विशिष्ट क्वार्टाइल गणना चुनता है। उदाहरण में मीन्स लाइन्स, मीन्स मार्कर्स, इनर पॉइंट्स और अपवाद बिंदु भी सक्षम किए गए हैं।
 
 ```php
 use aspose\slides\ChartType;
@@ -725,11 +746,11 @@ finally
 }
 ```
 
-### **फनल चार्ट बनाएं**
+### **फ़नल चार्ट बनाएं**
 
-फनल चार्ट क्रमिक चरणों वाली प्रक्रियाओं को दृश्यात्मक करने के लिए उपयोग किए जाते हैं, जहाँ डेटा की मात्रा अगले चरण में जाने पर घटती जाती है। ये परिवर्तन दरों का विश्लेषण, बाधाओं की पहचान और बिक्री या विपणन प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से सहायक होते हैं।
+फ़नल चार्ट उन प्रक्रियाओं को विज़ुअलाइज़ करने के लिए उपयोग होते हैं जिनमें क्रमिक चरण होते हैं, जहाँ डेटा की मात्रा एक चरण से अगले चरण तक घटती जाती है। ये रूपांतरण दरों का विश्लेषण, बाधाओं की पहचान, और बिक्री या मार्केटिंग प्रक्रिया की दक्षता ट्रैक करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में एक फनल चार्ट जोड़ता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदल देता है, फिर अद्यतन प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ने के लिए [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदल देता है, फिर अपडेटेड प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
 
 ```php
 use aspose\slides\ChartType;
@@ -787,13 +808,13 @@ finally
 
 परिणाम:
 
-![फनल चार्ट](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **सनबर्स्ट चार्ट बनाएं**
 
-सनबर्स्ट चार्ट पदानुक्रमित डेटा को दृश्यात्मक करने के लिए उपयोग होते हैं, जहाँ स्तरों को समाहित वृत्तों के रूप में दिखाया जाता है। ये भाग‑से‑पूरा संबंध को स्पष्ट और संक्षिप्त रूप में दर्शाते हैं और नेस्टेड श्रेणियों एवं उपश्रेणियों को प्रदर्शित करने के लिए आदर्श हैं।
+सनबर्स्ट चार्ट पदानुक्रमित डेटा को विज़ुअलाइज़ करने के लिए उपयोग होते हैं, जिसमें स्तरों को समानांतर रिंग्स के रूप में दर्शाया जाता है। ये भाग‑से‑सम्पूर्ण संबंधों को स्पष्ट रूप से प्रस्तुत करते हैं और नेस्टेड श्रेणियों और उप‑श्रेणियों को संकुचित फ़ॉर्मेट में दर्शाने के लिए आदर्श होते हैं।
 
-यह उदाहरण आठ पत्तियों को चार टहनियों और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) मेथड टहनी को समूह स्तर 1 और शाखा को स्तर 2 पर असाइन करता है। श्रेणी लेबल से खंड पहचाने जाते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
+यह उदाहरण आठ लीव्स को चार स्टेम और दो ब्रांच में समूहित एक सनबर्स्ट चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) मेथड स्तर 1 पर स्टेम और स्तर 2 पर ब्रांच असाइन करता है। श्रेणी लेबल सेगमेंट को पहचानते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
 
 ```php
 use aspose\slides\ChartType;
@@ -874,17 +895,17 @@ finally
 
 परिणाम:
 
-![सनबर्स्ट चार्ट](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
 ### **हिस्टोग्राम चार्ट बनाएं**
 
-हिस्टोग्राम चार्ट संख्यात्मक मानों के अंतराल (बिन) में वितरण को दर्शाते हैं। मासिक ऑर्डर प्रोसेसिंग समय के रिपोर्ट में, समान बिन चौड़ाई और थ्रेशहोल्ड का उपयोग करके अंतराल सुसंगत रखे जा सकते हैं, जिससे वितरण की तुलना आसान हो जाती है।
+हिस्टोग्राम चार्ट दिखाते हैं कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित होते हैं। मासिक रिपोर्ट में ऑर्डर प्रोसेसिंग टाइम्स के लिए, समान बिन चौड़ाई और थ्रेशहोल्ड का उपयोग करके अंतराल को स्थिर रखें और वितरण की तुलना आसान बनाएं।
 
-हॉरिज़ॉन्टल एक्स‑अक्स पर [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) को [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) के मोड से सेट करें। [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) केवल `ByBinWidth` के लिए लागू होता है; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) केवल `ByNumberOfBins` के लिए। `Automatic` का उपयोग करने से चार्ट बिन खुद चुन लेगा।
+हॉरिज़ोंटल अक्ष पर [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) को [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) के मोड के साथ कॉल करें। [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) केवल `ByBinWidth` के लिए लागू होता है; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) केवल `ByNumberOfBins` के लिए। `Automatic` का उपयोग करके चार्ट को बिन चुनने दें।
 
 #### **स्थिर बिन चौड़ाई का उपयोग करें**
 
-यह उदाहरण प्रोसेसिंग टाइम को 10‑मिनट अंतराल में समूहित करता है, जहाँ 10 मिनट या कम और 40 मिनट से अधिक के लिए अलग बिन बनाए जाते हैं। इन बिन को [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) और [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) से सक्षम करें। जब स्पष्ट थ्रेशहोल्ड को [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) और [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) से प्रदान किया जाता है, तो [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) और [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) को `false` के साथ कॉल करें।
+यह उदाहरण प्रोसेसिंग टाइम्स को 10‑मिनट अंतराल में वर्गीकृत करता है, जिसमें 10 मिनट या उससे कम और 40 मिनट से अधिक के लिए अलग‑अलग बिन होते हैं। इन बिन्स को [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) और [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) से सक्षम करें। जब आप स्पष्ट थ्रेशहोल्ड को [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) और [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) से प्रदान करते हैं, तो [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) और [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) को `false` के साथ कॉल करें।
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -934,13 +955,13 @@ finally
 }
 ```
 
-PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशहोल्ड सम्मिलित है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशहोल्ड अपवर्जित है; `40` के बराबर मान पहले अंतराल में रहते हैं। आंतरिक बिन अपने निचले सीमा से बड़े और ऊपरी सीमा तक (समावेशी) मान रखते हैं।
+PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए उसका थ्रेशहोल्ड समावेशी है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए उसका थ्रेशहोल्ड बाह्य है; दोनों `40` मान पूर्ववर्ती अंतराल में रहते हैं। अंदरूनी बिन में मान उनकी निचली सीमा से अधिक और ऊपरी सीमा से कम या बराबर होते हैं।
 
-![10‑मिनट बिन और स्पष्ट अंडरफ़्लो एवं ओवरफ़्लो थ्रेशहोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
 #### **बिन की संख्या निर्दिष्ट करें**
 
-स्थिर अंतराल के बजाय स्थिर विवरण स्तर के लिए, वही डेटा पर पाँच बिन का अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को निष्क्रिय रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्टों के बीच बदल सकती हैं।
+स्थिर अंतराल के बजाय स्थिर विवरण स्तर के लिए, उसी डेटा के लिए पाँच बिन का अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को बंद रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्ट के बीच बदल सकती हैं।
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -984,13 +1005,13 @@ finally
 }
 ```
 
-पाँच बिन की काउंट **4, 4, 4, 4, और 1** हैं। ऊपर दर्शाए गए स्थिर‑चौड़ाई परिणाम से तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
+पाँच बिन का काउंट **4, 4, 4, 4, और 1** है। ऊपर के स्थिर‑चौड़ाई परिणाम से इस वितरण की तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ अलग हैं।
 
-![एक ही डेटा से गणना किए गए पाँच बिन वाले हिस्टोग्राम](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **रेडार चार्ट बनाएं**
 
-रेडार चार्ट मल्टीवेरिएट डेटा को दो‑आयामी रूप में प्रदर्शित करने के लिए उपयोग होते हैं, जिससे कई वेरिएबल्स की एक साथ तुलना आसान होती है। ये कई प्रदर्शन मीट्रिक या गुणों में पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से सहायक होते हैं।
+रेडार चार्ट मल्टीवेरिएट डेटा को दो‑आयामी रूप में प्रदर्शित करते हैं, जिससे कई चरों की एक साथ तुलना आसान हो जाती है। ये कई प्रदर्शन मीट्रिक या गुणों में पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
 
 यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट श्रृंखला और श्रेणियों के साथ एक रेडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
 
@@ -1016,13 +1037,13 @@ finally
 
 परिणाम:
 
-![रेडार चार्ट](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
 ### **मल्टी‑कैटेगरी चार्ट बनाएं**
 
-मल्टी‑कैटेगरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग होते हैं जिनमें एक से अधिक श्रेणी समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। ये जटिल, बहु‑परत डेटा सेट में रुझान और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
+मल्टी‑कैटेगरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग होते हैं जिनमें एक से अधिक श्रेणीबद्ध समूह शामिल होते हैं, जिससे आप कई आयामों में मानों की एक साथ तुलना कर सकते हैं। ये जटिल, बहु‑परत डेटा सेट में रुझान और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण चार जोड़े में व्यवस्थित आठ श्रेणियों के साथ एक समूहित कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) मेथड प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देता है, जिससे व्यक्तिगत और समूह दोनों लेबल वाली श्रेणी अक्ष बनती है।
+यह उदाहरण चार जोड़ों में व्यवस्थित आठ श्रेणियों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) मेथड प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देता है, जिससे व्यक्तिगत और समूह दोनों लेबलों वाला श्रेणी अक्ष बनता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -1098,13 +1119,71 @@ finally
 
 परिणाम:
 
-![मल्टी‑कैटेगरी चार्ट](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
+
+#### **एक तिमाही लेबल हटाएं**
+
+[quarters.pptx](quarters.pptx) को डाउनलोड करके PHP स्क्रिप्ट वाली उसी डायरेक्टरी में रखें। इसका चार्ट नौ महीने और मूल्य 10‑18 के साथ एकल बिक्री श्रृंखला दिखाता है। श्रेणी अक्ष पर, Q1 जनवरी‑मार्च, Q2 अप्रैल‑जून, Q3 जुलाई‑सितंबर तक फैला है।
+
+अप्रैल चौथी श्रेणी (इंडेक्स 3) है और Q2 लेबल रखती है। अप्रैल के समूह स्तरों को प्राप्त करने के लिए [getGroupingLevels](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getgroupinglevels/) का उपयोग करें, फिर स्तर 1 के साथ [deleteGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) को कॉल करके उसका तिमाही लेबल हटाएँ। स्तर 0 स्वयं माह को दर्शाता है और इस मेथड से हटाया नहीं जा सकता।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation(__DIR__ . "/quarters.pptx");
+try
+{
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $april = $chart->getChartData()->getCategories()->get_Item(3);
+    $april->getGroupingLevels()->deleteGroupingItem(1);
+
+    $presentation->save(__DIR__ . "/quarters-updated.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+
+$reopened = new Presentation(__DIR__ . "/quarters-updated.pptx");
+try
+{
+    $updatedChart = $reopened->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $updatedChart->getChartData();
+
+    $months = [];
+    $categories = $data->getCategories();
+    
+    for ($i = 0; $i < java_values($categories->size()); $i++)
+    {
+        $months[] = (string)$categories->get_Item($i)->getAsCell()->getValue();
+    }
+
+    $sales = [];
+    $points = $data->getSeries()->get_Item(0)->getDataPoints();
+    for ($i = 0; $i < java_values($points->size()); $i++)
+    {
+        $sales[] = (string)$points->get_Item($i)->getValue()->getData();
+    }
+
+    echo implode(", ", $months), PHP_EOL;
+    echo implode(", ", $sales), PHP_EOL;
+}
+finally
+{
+    $reopened->dispose();
+}
+```
+
+चार्ट को पुनः खोलने पर, उदाहरण मूल महीनों (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) और बिक्री मान (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) को समान क्रम में प्रिंट करता है। `quarters-updated.pptx` को PowerPoint में खोलकर अक्ष लेबल की तुलना करें। Q2 लेबल और अप्रैल से पहले का समूह सीमा हट जाता है, इसलिए Q1 जनवरी‑जून तक फैला है। Q3 अभी भी जुलाई से शुरू होता है।
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
 
 ### **मैप चार्ट बनाएं**
 
-मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों (जैसे देशों, राज्यों या शहरों) से जोड़कर दृश्यात्मक करने के लिए उपयोग होते हैं। ये क्षेत्रीय रुझान, जनसांख्यिकीय डेटा और स्थानिक वितरण का स्पष्ट एवं आकर्षक विश्लेषण करने में अत्यंत उपयोगी होते हैं।
+मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों जैसे देशों, राज्यों या शहरों से मैप करके विज़ुअलाइज़ करने के लिए उपयोग होते हैं। ये क्षेत्रीय रुझान, जनसांख्यिकीय डेटा, और स्थानिक वितरण को स्पष्ट और आकर्षक रूप में विश्लेषण करने में विशेष रूप से उपयोगी होते हैं।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और PowerPoint में देखने के लिए सहेजता है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और इसे PowerPoint में देखने के लिए सहेजता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -1128,19 +1207,19 @@ finally
 
 परिणाम:
 
-![मैप चार्ट](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-उपरोक्त चित्र में सहेजी गई प्रस्तुति को PowerPoint में खोला गया है। Aspose.Slides मैप चार्ट और उसका डेटा सही ढंग से लिखता है, लेकिन स्वयं मैप चार्ट को रेंडर नहीं करता: जब कोई स्लाइड जिसमें मैप चार्ट हो, छवि में या PDF या SVG में परिवर्तित की जाती है, तो चार्ट क्षेत्र खाली दिखता है। उसी स्लाइड के अन्य आकार प्रभावित नहीं होते।
+ऊपर की तस्वीर सहेजी गई प्रस्तुति को PowerPoint में खोलते हुए दिखाती है। Aspose.Slides मैप चार्ट और उसके डेटा को सही ढंग से लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब कोई स्लाइड जिसमें मैप चार्ट हो, उसे इमेज में रेंडर किया जाता है या PDF या SVG में परिवर्तित किया जाता है, तो चार्ट एरिया खाली दिखाई देता है। उसी स्लाइड के अन्य आकार प्रभावित नहीं होते।
 {{% /alert %}}
 
 ### **कॉम्बिनेशन चार्ट बनाएं**
 
-एक कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को जोड़ता है। यह चार्ट दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या विश्लेषण करने में सहायता करता है, जिससे उनके बीच के संबंधों की पहचान संभव होती है।
+कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को संयोजित करता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या विश्लेषण करने देता है, जिससे उनके संबंधों की पहचान आसान होती है।
 
-![कॉम्बिनेशन चार्ट](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-यह उदाहरण दो समूहित कॉलम श्रृंखलाओं को एक लाइन श्रृंखला के साथ चार श्रेणियों में जोड़ता है। कॉलम प्राथमिक वर्टिकल अक्ष का उपयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) लाइन को दाएँ तरफ दूसरे वर्टिकल अक्ष पर रखता है। सहायक फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
+यह उदाहरण चार श्रेणियों में दो क्लस्टर्ड कॉलम श्रृंखलाओं को एक लाइन श्रृंखला के साथ संयोजित करता है। कॉलम प्राथमिक वर्टिकल अक्ष का उपयोग करते हैं, जबकि [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) लाइन को दाएँ ओर द्वितीयक वर्टिकल अक्ष पर रखता है। हेल्पर फ़ंक्शन शीर्षक, लीजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1314,9 +1393,9 @@ createComboChart();
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for PHP via Java आपको PowerPoint चार्ट को डेटा, फॉर्मेटिंग और स्टाइलिंग में बदलाव करके अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुतियों को गतिशील सामग्री के साथ अद्यतन रखने की प्रक्रिया को सरल बनाती है और यह सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से दर्शाते रहें।
+Aspose.Slides for PHP via Java आपको प्रस्तुति में चार्ट को डेटा, स्वरूपण और स्टाइलिंग संशोधित करके अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुति को गतिशील सामग्री के साथ अद्यतित रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सही ढंग से दर्शाते रहें।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट को अपडेट करता है। इसे प्रत्येक श्रृंखला में तीन डेटा पॉइंट के साथ दो कॉलम श्रृंखलाओं की आवश्यकता होती है, जहाँ श्रेणी लेबल कॉलम A में और श्रृंखला नाम पहली शीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) का उपयोग करके वर्कबुक सेल बदलता है, श्रृंखला मान अपडेट करता है, तीसरी श्रृंखला जोड़ता है, और [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) द्वारा चार्ट को समूहित सिलेंडर में बदलता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाली दो कॉलम श्रृंखलाएँ आवश्यक हैं, जहाँ श्रेणी लेबल कॉलम A में और श्रृंखला नाम पहले वर्कशीट की पहली पंक्ति में होते हैं। उदाहरण [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) का उपयोग करके वर्कबुक सेल बदलता है, श्रृंखला मान अपडेट करता है, तीसरी श्रृंखला जोड़ता है, और [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) के माध्यम से चार्ट को क्लस्टर्ड सिलिंडर में बदलता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -1382,11 +1461,11 @@ finally
 
 ## **चार्ट के लिए डेटा रेंज सेट करें**
 
-किसी मौजूदा चार्ट द्वारा उपयोग की गई रेंज को देखने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/php-java/chart-workbook/#retrieve-a-charts-data-range)।
+किसी मौजूदा चार्ट द्वारा उपयोग की जा रही रेंज को जांचने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/php-java/chart-workbook/#retrieve-a-charts-data-range)।
 
-Aspose.Slides for PHP via Java आपके चार्ट के डेटा के स्रोत के रूप में वर्कशीट से एक विशिष्ट डेटा रेंज निर्धारित करने की लचीलापन प्रदान करता है। इसका मतलब है कि आप सीधे अपनी वर्कशीट के एक भाग को चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि किन कोशिकाओं से श्रृंखला और श्रेणियाँ बनेंगी। परिणामस्वरूप, आप अपने चार्ट को नवीनतम वर्कशीट डेटा परिवर्तन के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुतियों में वर्तमान और सटीक जानकारी बनी रहती है।
+Aspose.Slides for PHP via Java आपको वर्कशीट से विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन प्रदान करता है। इसका अर्थ है कि आप वर्कशीट के किसी भाग को सीधे चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकेंगे कि कौन‑से सेल्स श्रृंखलाओं और श्रेणियों में योगदान देंगे। परिणामस्वरूप, आप अपने वर्कशीट में नवीनतम डेटा परिवर्तन के साथ चार्ट को आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपके PowerPoint प्रस्तुतीकरण में वर्तमान और सटीक जानकारी प्रतिबिंबित होगी।
 
-यह उदाहरण [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में उस शीट और एक भरी हुई रेंज होना चाहिए, जहाँ पहली पंक्ति में श्रृंखला शीर्षक, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
+यह उदाहरण [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` सेट करता है। चार्ट वर्कबुक में वह वर्कशीट और एक भरपूर रेंज होना चाहिए, जहाँ पहली पंक्ति में श्रृंखला हेडिंग, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
 
 ```php
 use aspose\slides\Presentation;
@@ -1418,11 +1497,11 @@ finally
 }
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
+## **चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट श्रृंखला को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिम्बॉल मिलता है।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर का उपयोग करते हैं, तो प्रत्येक चार्ट श्रृंखला को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर प्रतीक मिल जाता है।
 
-यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके दो लाइन श्रृंखलाओं और एक लेजेंड के साथ चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) के माध्यम से प्राप्त मार्कर सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर सिम्बॉल को बरकरार रखती हैं। पहली श्रृंखला में एक नकारात्मक मान और एक गायब मान `null` द्वारा दर्शाया गया है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
+यह उदाहरण [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) का उपयोग करके दो लाइन श्रृंखलाओं और एक लीजेंड के साथ एक चार्ट बनाता है। [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) के माध्यम से एक्सेस किए गए मार्कर सेटिंग्स स्वचालित रूप से निर्धारित मार्कर प्रतीकों को बनाए रखते हैं। पहली श्रृंखला में एक नकारात्मक मान और एक मिसिंग मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
 
 ```php
 use aspose\slides\ChartType;
@@ -1489,18 +1568,18 @@ finally
 
 ## **FAQ**
 
-**Aspose.Slides for PHP via Java द्वारा कौन‑से चार्ट प्रकार समर्थित हैं?**
+**Aspose.Slides for PHP via Java द्वारा समर्थित चार्ट प्रकार कौन‑से हैं?**
 
-Aspose.Slides for PHP via Java कई प्रकार के चार्ट को समर्थन देता है, जिनमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन जरूरतों के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की सुविधा देता है।
+Aspose.Slides for PHP via Java बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य सहित विस्तृत चार्ट प्रकारों का समर्थन करता है। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन की आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**मैं स्लाइड में नया चार्ट कैसे जोड़ूँ?**
+**मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-एक नया चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास का एक ऑब्जेक्ट बनाते हैं, इच्छित स्लाइड को उसके सूचकांक से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
+चार्ट जोड़ने के लिए पहले आप [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसकी इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने के मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
 
-**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट कर सकता हूं?**
 
-आप चार्ट के डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) तक पहुँच कर कोई भी डिफ़ॉल्ट श्रृंखला और श्रेणियाँ साफ़ कर सकते हैं, फिर अपनी कस्टम डेटा जोड़ सकते हैं। यह आपको प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ ताज़ा करने की अनुमति देता है।
+आप chart के डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) तक पहुंचकर, किसी भी डिफ़ॉल्ट श्रृंखला और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर अपडेट कर सकते हैं। इससे आप प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रीफ़्रेश कर सकते हैं।
 
-**क्या मैं चार्ट की उपस्थिति को अनुकूलित कर सकता हूँ?**
+**क्या मैं चार्ट की उपस्थिति को कस्टमाइज़ कर सकता हूं?**
 
-हां, Aspose.Slides for PHP via Java विस्तृत अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फॉर्मेटिंग तत्वों को बदलकर चार्ट की उपस्थिति को अपनी विशिष्ट डिजाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+हाँ, Aspose.Slides for PHP via Java व्यापक कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लीजेंड और अन्य फ़ॉर्मेटिंग तत्वों को अपनी विशेष डिज़ाइन आवश्यकताओं के अनुसार बदल सकते हैं।

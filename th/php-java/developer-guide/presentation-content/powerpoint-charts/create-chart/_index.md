@@ -11,49 +11,49 @@ keywords:
 - เปลี่ยนแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
-- แผนภูมิเวงกลม
+- แผนภูมิวงกลม
 - แผนภูมิเส้น
-- แผนภูมิเพาต์แมพ
-- แผนภูมิตลาดหุ้น
-- แผนภูมิกล่องและวิสเกอร์
-- แผนภูมิกรวย
-- แผนภูมิรังสี
-- แผนภูมิฮิสโตแกรม
-- แผนภูมิเรดาร์
-- แผนภูมิหลายหมวด
+- แผนภูมิต้นไม้
+- แผนภูมิหุ้น
+- แผนภูมิ Box and Whisker
+- แผนภูมิกระบอก
+- แผนภูมิ Sunburst
+- แผนภูมิ Histogram
+- แผนภูมิ Radar
+- แผนภูมิมัลติเกรต
 - PowerPoint
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดเชิงปฏิบัติใน PHP."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ทำงานได้จริงใน PHP."
 ---
-## **ภาพรวม**
+## **Overview**
 
-บทความนี้ให้คำแนะนำอย่างครบถ้วนเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for PHP via Java คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์แบบโปรแกรม, เติมข้อมูลเข้าไป, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ ให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความจะมีตัวอย่างโค้ดละเอียดที่แสดงขั้นตอนแต่ละขั้นตอน ตั้งแต่การสร้าง Presentation และออบเจ็กต์แผนภูมิ ไปจนถึงการกำหนดซีรีส์, แกน, และคีย์ลิเคิล โดยการทำตามคำแนะนำนี้ คุณจะเข้าใจวิธีการรวมการสร้างแผนภูมิแบบไดนามิกเข้าไปในแอปพลิเคชัน PHP ของคุณ ได้อย่างราบรื่นและประหยัดเวลาในการสร้างงานนำเสนอที่ใช้ข้อมูลเป็นฐาน
+บทความนี้ให้คำแนะนำอย่างครอบคลุมเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides สำหรับ PHP ผ่าน Java คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิลงในสไลด์โดยโปรแกรม, เติมข้อมูลลงในแผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ ให้ตรงกับความต้องการออกแบบของคุณ ในบทความนี้ ตัวอย่างโค้ดย่อยละเอียดยิบจะแสดงแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์ Chart ไปจนถึงการกำหนดค่าซีรีส์, แกน, และเลเจนด์ โดยการทำตามคำแนะนำนี้ คุณจะเข้าใจอย่างถ่องแท้ถึงการผสมผสานการสร้างแผนภูมิโดนไดนามิกเข้าสู่แอปพลิเคชัน PHP ของคุณ ทำให้กระบวนการสร้างการนำเสนอที่อิงข้อมูลเป็นเรื่องง่ายขึ้น
 
-## **สร้างแผนภูมิ**
+## **Create a Chart**
 
-แผนภูมิช่วยให้ผู้คนมองเห็นข้อมูลได้อย่างรวดเร็วและค้นพบข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและได้ข้อมูลเชิงลึกที่อาจไม่ชัดเจนในตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-โดยใช้แผนภูมิ คุณสามารถ:
+ใช้แผนภูมิคุณสามารถ:
 
-* รวม, ย่อลง, หรือสรุปข้อมูลปริมาณมากในสไลด์เดียวของงานนำเสนอ;
-* เปิดเผยรูปแบบและแนวโน้มในข้อมูล;
-* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดที่กำหนด;
-* ตรวจจับค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่สมเหตุสมผล;
+* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากในสไลด์เดียวของการนำเสนอ;
+* แสดงรูปแบบและแนวโน้มของข้อมูล;
+* สรุปแนวทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยการวัดเฉพาะ;
+* ค้นหาค่าผิดปกติ, ความเบี่ยงเบน, ความคลาดเคลื่อน, ความผิดพลาด, และข้อมูลที่ไม่มีเหตุผล;
 * สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งให้เทมเพลตสำหรับออกแบบแผนภูมิต่าง ๆ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิสแตนดาร์ด (อิงตามประเภทแผนภูมิที่นิยม) และแผนภูมิที่กำหนดเองได้ทั้งสองแบบ
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งให้เทมเพลตสำหรับออกแบบแผนภูมิมากมาย โดยใช้ Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (อิงจากประเภทแผนภูมิยอดนิยม) และแผนภูกแบบกำหนดเองได้
 
 {{% alert color="info" title="Note" %}}
-ใช้ enumeration [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) ในเนมสเปซ [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
+ใช้ enumeration [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) ใน namespace [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) ค่าที่อยู่ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
 {{% /alert %}}
 
-### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
+### **Create Clustered Column Charts**
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสองซีรีส์ในสามหมวดหมู่ ซีรีส์ใช้สีเติมแดงและสีเขียวและป้ายกำกับแต่ละรายการแสดงชื่อหมวดหมู่, ชื่อซีรีส์, และค่า ดัชนี Worksheet 0 หมายถึงแผ่นแรกในเวิร์กบุ๊กแผนภูมิที่ฝังอยู่
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิคอลัมน์แบบจัดกลุ่มที่เปรียบเทียบสองซีรีส์ในสามหมวดหมู่ ซีรีส์ใช้การเติมสีแดงและสีเขียว และป้ายกำกับแสดงชื่อหมวดหมู่, ชื่อซีรีส์, และค่าต่าง ๆ ดัชนี Worksheet 0 หมายถึงแผ่นแรกในเวิร์กบุ๊กแผนภูมิที่ฝังอยู่
 
 ```php
 use aspose\slides\ChartType;
@@ -139,20 +139,20 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **สร้างแผนภูมิกระจาย (Scatter)**
+### **Create Scatter Charts**
 
-แผนภูมิกระจาย (หรือที่เรียกว่ากราฟสแคตเทอร์หรือกราฟ x‑y) มักใช้เพื่อค้นหารูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+แผนภูมิกระจาย (หรือที่เรียกว่ากราฟกระจาย) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
 ใช้แผนภูมิกระจายเมื่อ:
 
-* คุณมีข้อมูลเชิงตัวเลขเป็นคู่;
-* มีสองตัวแปรที่สัมพันธ์กันอย่างดี;
-* คุณต้องการตรวจสอบว่าตัวแปรทั้งสองมีความสัมพันธ์หรือไม่;
-* มีตัวแปรอิสระที่มีค่าหลายค่าเพื่อกำหนดค่าตัวแปรตาม
+* คุณมีข้อมูลตัวเลขเป็นคู่
+* คุณมีสองตัวแปรที่สัมพันธ์กันดี
+* คุณต้องการตรวจสอบว่าทั้งสองตัวแปรมีความสัมพันธ์หรือไม่
+* คุณมีตัวแปรอิสระที่มีค่าหลายค่าสำหรับตัวแปรตาม
 
-ตัวอย่างนี้พล็อตค่าชุด x‑y สองชุด ชุดแรกใช้เส้นตรงกับเครื่องหมายดาว และชุดที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งสองใช้ขนาดเครื่องหมาย 10 โดยกำหนดผ่าน [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) วิธี [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) ควบคุมรูปทรงเครื่องหมาย
+ตัวอย่างนี้พล็อตค่าตำแหน่ง x‑y สองชุด ซีรีส์แรกใช้เส้นตรงกับเครื่องหมายดาว, ส่วนซีรีส์ที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งสองใช้ขนาดเครื่องหมาย 10 ซึ่งกำหนดโดย [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). วิธี [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) ควบคุมรูปแบบเครื่องหมาย
 
 ```php
 use aspose\slides\ChartType;
@@ -223,13 +223,13 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิกระจาย](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **สร้างแผนภูมิวงกลม (Pie)**
+### **Create Pie Charts**
 
-แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับเชิงหมวดหมู่พร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายกำกับจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
+แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล, โดยเฉพาะเมื่อข้อมูลมีป้ายประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีส่วนหรือป้ายจำนวนมาก คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมที่มีค่าครึ่งปีสามค่า แต่ละชิ้นมีการเติมสีและขอบที่กำหนดเองและป้ายกำกับแสดงการรวมค่าต่าง ๆ, เปอร์เซ็นต์, และข้อมูลซีรีส์ วิธี [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) กำหนดให้ชิ้นแรกเริ่มที่ 180 องศา
+ตัวอย่างนี้สร้างแผนภูมวงกลมที่มีค่าครึ่งปีสามค่า แต่ละส่วนมีการเติมสีและเส้นขอบกำหนดเอง, ป้ายแสดงการผสมค่าต่าง ๆ, ร้อยละ, และข้อมูลซีรีส์ วิธี [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) กำหนดให้ส่วนแรกเริ่มที่ 180 องศา
 
 ```php
 use aspose\slides\ChartType;
@@ -341,15 +341,15 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิวงกลม](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-เพื่อปรับปรุงความชัดเจนของป้ายกำกับที่อยู่นอกวงกลม ดูตัวอย่าง [Format Leader Lines](/slides/th/php-java/chart-data-label/#format-leader-lines) เพื่อจัดตำแหน่งป้ายกำกับและกำหนดสี, ความกว้าง, ความโปร่งแสง, และรูปแบบเส้นของเส้นนำ
+เพื่อปรับปรุงความอ่านง่ายของป้ายนอกวงกลม,ดูตัวอย่าง [Format Leader Lines](/slides/th/php-java/chart-data-label/#format-leader-lines) ที่แสดงวิธีจัดตำแหน่งป้ายและปรับสี, ความกว้าง, ความโปร่งใส, และรูปแบบขีดของเส้น
 
-### **สร้างแผนภูมิเส้น (Line)**
+### **Create Line Charts**
 
-แผนภูมิเส้น (หรือกราฟเส้น) เหมาะกับสถานการณ์ที่ต้องการแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นค่านอกมาตรฐานในซีรีส์ข้อมูล, ฯลฯ
+แผนภูมิเส้น (หรือที่เรียกว่ากราฟเส้น) เหมาะกับสถานการณ์ที่ต้องการแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติในซีรีส์ข้อมูล, และอื่น ๆ
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิเส้นด้วยซีรีส์และหมวดหมู่เริ่มต้น แล้วบันทึกเป็น PPTX
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิเส้นด้วยซีรีส์และหมวดหมู่เริ่มต้น, แล้วบันทึกเป็น PPTX
 
 ```php
 use aspose\slides\ChartType;
@@ -371,7 +371,7 @@ finally
 }
 ```
 
-โดยปกติ จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ ให้เรียกใช้ [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+โดยค่าเริ่มต้น จุดในแผนภูมิเส้นจะเชื่อมด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมด้วยเส้นขีดให้เรียก [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -399,13 +399,13 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิเส้น](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **สร้างแผนภูมิแผนที่ต้นไม้ (Tree Map)**
+### **Create Tree Map Charts**
 
-แผนภูมิแผนที่ต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่มีส่วนร่วมมากในแต่ละหมวดหมู่
+แผนภูมิต้นไม้ (Tree Map) เหมาะกับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้สนับสนุนหลักในแต่ละหมวดหมู่
 
-ตัวอย่างนี้สร้างแผนภูมิต้นไม้ที่มีใบแปดใบจัดกลุ่มเป็นสเต็มสี่และสาขาสองโดยใช้วิธี [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) เพื่อกำหนดสเต็มที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าต่าง ๆ กำหนดขนาดสี่เหลี่ยมสัมพัทธ์ ในขณะที่ป้ายกำกับหมวดและป้ายกำกับพาเรนท์ที่ซ้อนกันบ่งบอกลำดับชั้น
+ตัวอย่างนี้สร้าง Tree Map ที่มีใบแปดใบจัดเป็นสี่กิ่งและสองสาขา วิธี [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) กำหนดกิ่งที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าเหล่านี้กำหนดขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายหมวดหมู่และป้ายพาเรนต์ที่ทับซ้อนกันระบุโครงสร้างชั้นลำดับ
 
 ```php
 use aspose\slides\ChartType;
@@ -489,26 +489,26 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิแผนที่ต้นไม้](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **สร้างแผนภูมิไดอาโมด์ (Waterfall)**
+### **Create Waterfall Charts**
 
-แผนภูมิโดดเด่น (Waterfall) แสดงว่าการเปลี่ยนแปลงบวกและลบส่งผลต่อค่าท้ายสุดอย่างไร ตัวอย่างเช่น การสรุปกำไรสามารถเริ่มด้วยรายได้, ลบต้นทุน, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าก่อนหน้าและค่าปัจจุบัน ในขณะที่คอลัมน์รวมขยายจากศูนย์ถึงค่าที่สะสม
+แผนภูมือน้ำตกแสดงการเปลี่ยนแปลงบวกและลบที่มีผลต่อค่าขั้นสุดท้าย ตัวอย่างเช่น การแยกกำไรอาจเริ่มจากรายได้, ลดด้วยต้นทุน, แล้วเพิ่มด้วยรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าก่อนหน้าและค่าปัจจุบัน, ส่วนคอลัมน์รวมขยายจากศูนย์ถึงค่าที่สะสม
 
-ตัวอย่างต่อไปนี้ใช้จำนวนเป็นพันดอลลาร์สหรัฐ:
+ตารางตัวอย่าง:
 
-| หมวด | ค่าในเวิร์กบุ๊ก | ชนิดคอลัมน์ |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| รายได้ | 1000 | เพิ่ม |
-| ต้นทุนขาย | -400 | ลด |
-| กำไรขั้นต้น | 600 | รวมระหว่าง |
-| ค่าใช้จ่ายในการดำเนินงาน | -200 | ลด |
-| รายได้อื่น | 50 | เพิ่ม |
-| กำไรสุทธิ | 450 | รวมสุดท้าย |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-เพื่อกำหนดจุดเป็นรวมระหว่างหรือรวมสุดท้าย ให้เรียกวิธี [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) ของจุดนั้นด้วย `true` และใส่ค่าที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`) วิธีนี้ทำเครื่องหมายคอลัมน์ว่าเป็นรวม; มันไม่ได้คำนวณหรือเติมค่าเซลล์ อย่าใช้ศูนย์เป็นเพลสโฮลเดอร์ หรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดรวม คอลัมน์รวมจะแสดงค่าที่สะสมโดยไม่เพิ่มอีกครั้งต่อค่าไหล
+เพื่อกำหนดจุดให้เป็นค่าเป็นกลางหรือค่าขั้นสุดท้าย เรียกเมธอด [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) ของจุดนั้นด้วย `true` และใส่ค่าที่สะสมจริงลงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`). เมธอดนี้ทำเครื่องหมายคอลัมน์เป็นค่าขั้นสุดท้าย; มันไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดค่าขั้นสุดท้าย คอลัมน์รวมจะแสดงค่าที่สะสมโดยไม่เพิ่มอีกครั้งในค่าเดินหน้า
 
-ตัวอย่าง PHP ครบชุดนี้สร้างแผนภูมิด้วยสมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), ลบข้อมูลเริ่มต้น, แล้วเติมข้อมูลในเวิร์กบุ๊กที่ฝังอยู่ ดัชนี Worksheet `0` เลือกเวิร์กชีตแรก; คอลัมน์ A มีชื่อหมวด, คอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) ดัชนีจุดที่เริ่มจากศูนย์ `2` และ `5` ระบุรวมระหว่างและรวมสุดท้าย การเรียก [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) ด้วย `true` แสดงจำนวนบนคอลัมน์ ไม่จำเป็นต้องมี Presentation หรือเวิร์กบุ๊กเข้า
+ตัวอย่าง PHP ทั้งหมดนี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), ล้างข้อมูลเริ่มต้น, แล้วเติมเวิร์กบุ๊กฝัง ตัวชี้ดัชนี Worksheet `0` เลือกเวิร์กชีตแรก; คอลัมน์ A มีชื่อหมวดหมู่, คอลัมน์ B มีค่า แต่ละค่าจะเพิ่มด้วย [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). ดัชนีจุดเริ่มจากศูนย์ `2` และ `5` ระบุค่าขั้นกลางและค่าขั้นสุดท้าย การเรียก [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) ด้วย `true` ทำให้จำนวนแสดงบนคอลัมน์ ไม่ต้องมีการนำเข้าการนำเสนอหรือเวิร์กบุ๊ก
 
 ```php
 use aspose\slides\ChartType;
@@ -548,7 +548,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // จุดที่สามและหกเป็นค่ารวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+    // จุดที่สามและหกเป็นค่ารวม, ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -562,17 +562,23 @@ finally
 }
 ```
 
-เรียกวิธีระดับซีรีส์ [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) ด้วย `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่าที่ไหลตามง่ายต่อการติดตาม หากต้องการซ่อนเส้นเหล่านี้ ให้แทนที่การเรียกเมธอดในตัวอย่างด้วย `$series->setShowConnectorLines(false);` ก่อนบันทึก วิธีนี้เปลี่ยนเฉพาะการมองเห็นเส้น ไม่กระทบกับข้อมูลหรือค่ารวม
+เรียกเมธอดระดับซีรีส์ [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) ด้วย `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่อง ทำให้การติดตามค่าเดินหน้าง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ให้แทนที่การเรียกเมธอดในตัวอย่างด้วย `$series->setShowConnectorLines(false);` ก่อนบันทึก การเปลี่ยนแปลงนี้มีผลเฉพาะการมองเห็นเส้น ไม่กระทบข้อมูลหรือค่าขั้นสุดท้าย
 
-Presentation ที่บันทึกแสดงกำไรขั้นต้นที่ 600 และกำไรสุทธิที่ 450 โดยทั้งสองค่าถูกวาดจากศูนย์:
+การบันทึกการนำเสนอแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองค่าถูกวาดจากศูนย์:
 
-![แผนภูมิโดดเด่นแสดงรายได้, ต้นทุน, กำไรขั้นต้น 600, และกำไรสุทธิ 450 พร้อมป้ายค่าและเส้นเชื่อม](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **สร้างแผนภูมิเส้นหุ้น (Stock)**
+### **Create Stock Charts**
 
-แผนภูมิเส้นหุ้นใช้เพื่อแสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, และ ปิด ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลสำคัญเกี่ยวกับผลการดำเนินงานของหุ้น ช่วยให้นักลงทุนและนักวิเคราะห์ตัดสินใจอย่างมีข้อมูล
+แผนภูมิหุ้นใช้เพื่อแสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, และปิด, ช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด มันให้ข้อมูลสำคัญเกี่ยวกับประสิทธิภาพหุ้นเพื่อช่วยนักลงทุนและนักวิเคราะห์ทำการตัดสินใจ
 
-ตัวอย่างนี้สร้างแผนภูมิ OHLC (เปิด‑สูง‑ต่ำ‑ปิด) ด้วยสี่ซีรีส์ตามลำดับและสามหมวด วิธี [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) เปิดใช้งานแถบขึ้น‑ลง และ [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) ควบคุมเส้นสูง‑ต่ำที่แสดงช่วงราคา ส่วนเส้นของแต่ละซีรีส์และเส้นแนวนอนย่อยจะถูกซ่อน
+ตัวอย่างนี้สร้างแผนภูมิ Open‑High‑Low‑Close (OHLC) ที่มีสี่ซีรีส์ตามลำดับและสามหมวดหมู่ เมธอด [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) เปิดใช้งานแถบขึ้น/ลง, และ [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) ควบคุมเส้น high‑low ที่แสดงช่วงราคา, ส่วนเส้นซีรีส์และเส้นกริดแนวนอนย่อยจะถูกซ่อน
+
+ผู้จัดการที่ได้จาก [getUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getupdownbars/) ให้เข้าถึงออบเจ็กต์ฟอร์แมตแยกกันผ่าน [getUpBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getupbarsformat/) และ [getDownBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getdownbarsformat/). ใช้เมธอด [getFill](https://reference.aspose.com/slides/php-java/aspose.slides/format/getfill/) และ [getLine](https://reference.aspose.com/slides/php-java/aspose.slides/format/getline/) ของแต่ละออบเจ็กต์เพื่อกำหนดสีเติมและขอบอย่างอิสระ ตัวอย่างนี้ใช้แถบสีเขียวกับขอบสีเขียวเข้มสำหรับช่วงที่ราคาเพิ่ม, และแถบสีส้ม‑แดงกับขอบสีแดงเข้มสำหรับช่วงที่ราคา下降
+
+ใส่ค่าตัวเลขสำหรับทั้งสี่ซีรีส์ในแต่ละหมวดหมู่, โดย High และ Low ครอบคลุม Open และ Close แถบเปรียบเทียบ Close กับ Open **ภายในหมวดหมู่เดียวกัน**, ไม่ได้เปรียบเทียบกับหมวดหมู่ก่อนหน้า: A ลดจาก 72 ไป 25, ขณะที่ B เพิ่มจาก 25 ไป 38 และ C เพิ่มจาก 38 ไป 50. ค่าที่ Open และ Close เท่ากันจะไม่มีช่วงสีเติมใด ๆ แถบ up/down ครอบคลุม Open‑Close; เส้น high‑low ครอบคลุม Low‑High. แถบเหล่านี้เป็นส่วนของกลุ่มซีรีส์และไม่ใช่ซีรีส์แผนภูมิบาร์ธรรมดา
+
+รูปแบบนี้ยังทำงานกับแผนภูมิ [Line and LineWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) ที่มีอย่างน้อยสองซีรีส์ในกลุ่มเดียวกันและค่าตัวเลขที่สอดคล้องในแต่ละหมวดหมู่ สำหรับแผนภูมิเส้นที่ไม่เป็น stacked, แถบ up/down เปรียบเทียบซีรีส์แรกและสุดท้าย: ค่าสุดท้ายสูงกว่าจะทำให้แถบขึ้น, ค่าต่ำกว่าจะทำให้แถบลง การสลับซีรีส์จะสลับการจำแนก ตัวอย่างต่อไปใช้ [OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/); อย่าสมมุติว่า stock, stacked‑line, หรือเวอร์ชัน 3D อื่น ๆ ใช้การจัดเรียงข้อมูลหรือการตีความช่วงเดียวกัน
 
 ```php
 use aspose\slides\ChartType;
@@ -585,7 +591,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
@@ -637,7 +643,20 @@ try
     $valueCell = $workbook->getCell(0, 3, 4, 50);
     $series->getDataPoints()->addDataPointForStockSeries($valueCell);
 
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
+    $upDownBars = $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars();
+    $upDownBars->setUpDownBars(true);
+
+    $upDownBars->getUpBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 50, 205, 50));
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 100, 0));
+    $upDownBars->getUpBarsFormat()->getLine()->setWidth(2);
+
+    $upDownBars->getDownBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 69, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->setWidth(2);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
 
     for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
@@ -656,15 +675,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+ผลลัพธ์ที่ส่งออกจาก PowerPoint:
 
-![แผนภูมิเส้นหุ้น](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **สร้างแผนภูมิกล่องและวิสเกอร์ (Box and Whisker)**
+### **Create Box and Whisker Charts**
 
-แผนภูมิกล่องและวิสเกอร์ใช้เพื่อแสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น มัธยฐาน, ควอร์ไทล์, และค่าผิดปกติ มักใช้ในงานวิเคราะห์ข้อมูลเชิงสำรวจและการศึกษาเชิงสถิติเพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
+แผนภูมิ Box and Whisker ใช้เพื่อแสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น มัธยฐาน, ควอร์ไทล์, และค่าตัวอย่างที่อาจเป็น outlier เหมาะสำหรับการวิเคราะห์ข้อมูลเชิงสำรวจและการศึกษาทางสถิติ เพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
 
-ตัวอย่างนี้สร้างแผนภูมิกล่องและวิสเกอร์จากห้าค่า วิธี [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) เลือกการคำนวณควอร์ไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดภายใน, และจุดผิดปกติ
+ตัวอย่างนี้สร้างแผนภูมิ Box and Whisker จากห้าค่า เมธอด [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) เลือกการคำนวณควอร์ไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดภายใน, และจุด outlier
 
 ```php
 use aspose\slides\ChartType;
@@ -727,11 +746,11 @@ finally
 }
 ```
 
-### **สร้างแผนภูมิกรวย (Funnel)**
+### **Create Funnel Charts**
 
-แผนภูมิกรวยใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปอีกขั้นตอนหนึ่ง เหมาะสำหรับวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมิ Funnel ใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปอีกขั้นตอนหนึ่ง เหมาะกับการวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อเพิ่มแผนภูมิกรวยลงในสไลด์แรกของ Presentation ที่มีอยู่ แล้วแทนที่ข้อมูลเริ่มต้นด้วยห้าหมวดและค่าตั้งแต่ 50 ถึง 500 จากนั้นบันทึก Presentation ที่อัปเดต Presentation ต้องมีอย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อเพิ่มแผนภูมิ Funnel ไปยังสไลด์แรกของการนำเสนอที่มีอยู่ มันแทนที่ข้อมูลเริ่มต้นด้วยห้าหมวดหมู่และค่าตั้งแต่ 50 ถึง 500 แล้วบันทึกการนำเสนอที่อัปเดต การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์
 
 ```php
 use aspose\slides\ChartType;
@@ -789,13 +808,13 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิกรวย](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **สร้างแผนภูมิรังสี (Sunburst)**
+### **Create Sunburst Charts**
 
-แผนภูมิกระจายรังสีใช้เพื่อแสดงข้อมูลเชิงลำดับขั้นโดยแสดงระดับเป็นวงกลมรอบศูนย์ ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนและเหมาะสำหรับแสดงหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
+แผนภูมิ Sunburst ใช้เพื่อแสดงข้อมูลเชิงลำดับขั้นโดยแสดงระดับเป็นวงแหวนศูนย์กลาง ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนและเหมาะกับการแทนหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบที่ชัดเจนและกระชับ
 
-ตัวอย่างนี้สร้างแผนภูมิรังสีที่มีใบแปดใบจัดกลุ่มเป็นสเต็มสี่และสาขาสองโดยใช้วิธี [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) เพื่อกำหนดสเต็มที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายกำกับหมวดระบุส่วนต่าง ๆ และค่าตัดสินขนาดสัมพัทธ์
+ตัวอย่างนี้สร้างแผนภูมิ Sunburst ที่มีใบแปดใบจัดเป็นสี่กิ่งและสองสาขา เมธอด [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) กำหนดกิ่งที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายหมวดหมู่ระบุส่วนต่าง ๆ, ค่าเป็นตัวกำหนดขนาดสัมพัทธ์
 
 ```php
 use aspose\slides\ChartType;
@@ -876,17 +895,17 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิรังสี](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **สร้างแผนภูมิฮิสโตแกรม (Histogram)**
+### **Create Histogram Charts**
 
-แผนภูมิเฮิสโตแกรมแสดงว่าค่าตัวเลขกระจายตามช่วง (bins) อย่างไร สำหรับรายงานรายเดือนเกี่ยวกับเวลาประมวลผลคำสั่งซื้อ ให้ใช้ความกว้างของ bin และขีดจำกัดเดียวกันเพื่อให้ช่วงสม่ำเสมอและทำให้การเปรียบเทียบการกระจายง่ายขึ้น
+แผนภูมิ Histogram แสดงการกระจายของค่าตัวเลขในช่วง (bins) ต่าง ๆ สำหรับรายงานประจำเดือนเกี่ยวกับเวลาการประมวลผลคำสั่งซื้อ ให้ใช้ความกว้าง bin และค่า threshold เดียวกันเพื่อให้ช่วงสอดคล้องและทำให้การเปรียบเทียบการกระจายง่ายขึ้น
 
-เรียก [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) บนแกนแนวนอนพร้อมโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) ใช้เฉพาะเมื่อเลือก `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) ใช้เฉพาะเมื่อเลือก `ByNumberOfBins` ใช้ `Automatic` เพื่อให้แผนภูมิเลือก bin อัตโนมัติ
+เรียก [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) บนแกนแนวนอนด้วยโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) ใช้ได้เฉพาะกับ `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) ใช้ได้เฉพาะกับ `ByNumberOfBins`. ใช้ `Automatic` เพื่อให้แผนภูมิตัดสินใจเลือก bin เอง
 
-#### **ใช้ความกว้างของ Bin คงที่**
+#### **Use a Fixed Bin Width**
 
-ตัวอย่างนี้จัดกลุ่มเวลาประมวลผลเป็นช่วง 10 นาที พร้อม bin แยกสำหรับเวลาน้อยกว่าหรือเท่ากับ 10 นาทีและเวลามากกว่า 40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) และ [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) เมื่อระบุขีดจำกัดชัดเจนผ่าน [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) และ [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) ให้เรียก [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) และ [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) ด้วย `false`
+ตัวอย่างนี้จัดเวลาประมวลผลเป็นช่วง 10 นาที, โดยมี bin แยกสำหรับเวลาที่ ≤10 นาทีและ >40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) และ [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). เมื่อกำหนด threshold อย่างชัดเจนผ่าน [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) และ [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), เรียก [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) และ [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) ด้วย `false`
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -936,13 +955,13 @@ finally
 }
 ```
 
-Presentation ที่แสดงใน PowerPoint มีจำนวน bin **3, 4, 4, 4, และ 2** Bin ต่ำสุดรวม `5, 10, 10` ดังนั้นขีดจำกัดเป็น inclusive Bin สูงสุดรวมเฉพาะ `41, 50` ดังนั้นขีดจำกัดเป็น exclusive; ค่า `40` ยังคงอยู่ในช่วงก่อนหน้า Bin ภายในรวมค่าที่มากกว่าขอบล่างและน้อยกว่าหรือเท่ากับขอบบน
+การนำเสนอที่แสดงใน PowerPoint มีจำนวนในแต่ละ bin **3, 4, 4, 4, และ 2**. bin underflow มีค่า `5, 10, 10` จึงรวมค่าที่เท่ากับ threshold, bin overflow มีค่า `41, 50` เท่านั้นจึงไม่รวมค่า `40`; ค่าที่เท่ากับ `40` จะอยู่ใน bin ก่อนหน้า bin ภายในมีค่ามากกว่าขอบล่างและน้อยกว่าหรือเท่ากับขอบบน
 
-![ฮิสโตแกรมช่วง 10 นาทีพร้อมขีดจำกัด underflow และ overflow ชัดเจน](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **ระบุจำนวน Bin**
+#### **Specify the Number of Bins**
 
-หากต้องการระดับความละเอียดคงที่แทนการกำหนดช่วง ให้ขอ 5 bin สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดใช้งาน bin underflow และ overflow แผนภูมิกำหนดความกว้างจากช่วงข้อมูล ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
+สำหรับระดับรายละเอียดคงที่แทนที่การกำหนดช่วงคงที่ ให้ขอ bin จำนวน 5 สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดการใช้งาน bin underflow และ overflow แผนภูมิคำนวณความกว้างจากช่วงข้อมูล ดังนั้นขอบอาจเปลี่ยนระหว่างรายงาน
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -986,15 +1005,15 @@ finally
 }
 ```
 
-ห้าบินมีจำนวน **4, 4, 4, 4, และ 1** เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าที่ใส่เดียวกัน แต่ขอบเขตต่างกัน
+ห้าบินมีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าข้อมูลเหมือนเดิมแต่ขอบต่างกัน
 
-![ฮิสโตแกรม 5 bin คำนวณจากข้อมูลเดียวกัน](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **สร้างแผนภูมิเสา (Radar)**
+### **Create Radar Charts**
 
-แผนภูมิเสาใช้เพื่อแสดงข้อมูลหลายมิติในรูปแบบสองมิติ ช่วยให้เปรียบเทียบตัวแปรหลายตัวพร้อมกันได้ง่าย เหมาะสำหรับระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะ
+แผนภูมิ Radar ใช้เพื่อแสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ, ช่วยให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะสำหรับการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะ
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิเสาที่มีซีรีส์และหมวดหมู่เริ่มต้นแล้วบันทึกเป็น PPTX
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิ Radar ด้วยซีรีส์และหมวดหมู่เริ่มต้น, แล้วบันทึกเป็น PPTX
 
 ```php
 use aspose\slides\ChartType;
@@ -1018,13 +1037,13 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิเสา](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **สร้างแผนภูมิหลายหมวด (Multi-Category)**
+### **Create Multi-Category Charts**
 
-แผนภูมิหลายหมวดใช้เพื่อแสดงข้อมูลที่มีการจัดกลุ่มเชิงหมวดหลายระดับพร้อมกัน ช่วยให้คุณเปรียบเทียบค่าผ่านหลายมิติได้พร้อมกัน เหมาะสำหรับวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อนหลายชั้น
+แผนภูมิหลายหมวดหมู่ใช้เพื่อแสดงข้อมูลที่มีการจัดกลุ่มหลายระดับ, ช่วยให้เปรียบเทียบค่าในหลายมิติพร้อมกัน เหมาะเมื่อคุณต้องการวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อนหลายชั้น
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปดหมวดจัดเป็นสี่คู่ วิธี [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) ให้แต่ละคู่มีป้ายกำกับร่วมที่ระดับการจัดกลุ่ม 1 ทำให้แกนหมวดมีป้ายกำกับส่วนบุคคลและกลุ่มรวมกัน
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มที่มีแปดหมวดหมู่จัดเป็นสี่คู่ เมธอด [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) ให้แต่ละคู่อีกป้ายร่วมที่ระดับการจัดกลุ่ม 1, ทำให้แกนหมวดหมู่มีทั้งป้ายเดี่ยวและป้ายกลุ่ม
 
 ```php
 use aspose\slides\ChartType;
@@ -1100,13 +1119,71 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิหลายหมวด](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **สร้างแผนภูมิแผนที่ (Map)**
+#### **Remove a Quarter Label**
 
-แผนภูมิแผนที่ใช้เพื่อแสดงข้อมูลเชิงภูมิศาสตร์โดยแมพข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง เหมาะสำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
+ดาวน์โหลด [quarters.pptx](quarters.pptx) แล้ววางไว้ในไดเรกทอรีเดียวกับสคริปต์ PHP ของคุณ แผนภูมิในไฟล์นี้แสดงเดือนเก้าเดือนและซีรีส์ยอดขายเดียวที่มีค่า 10‑18 บนแกนหมวดหมู่ Q1 ครอบคลุมมกราคม‑มีนาคม, Q2 ครอบคลุมเมษายน‑มิถุนายน, Q3 ครอบคลุมกรกฎาคม‑กันยายน
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิแผนที่พร้อมข้อมูลทางภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
+เมษายนเป็นหมวดที่สี่ (ดัชนี 3) และมีป้าย Q2 ใช้ [getGroupingLevels](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getgroupinglevels/) เพื่อเข้าถึงระดับการจัดกลุ่มของเมษายน, แล้วเรียก [deleteGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) ด้วยระดับ 1 เพื่อลบป้ายไตรมาส ระดับ 0 คือเดือนเองและไม่สามารถลบได้โดยเมธอดนี้
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation(__DIR__ . "/quarters.pptx");
+try
+{
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $april = $chart->getChartData()->getCategories()->get_Item(3);
+    $april->getGroupingLevels()->deleteGroupingItem(1);
+
+    $presentation->save(__DIR__ . "/quarters-updated.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+
+$reopened = new Presentation(__DIR__ . "/quarters-updated.pptx");
+try
+{
+    $updatedChart = $reopened->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $updatedChart->getChartData();
+
+    $months = [];
+    $categories = $data->getCategories();
+    
+    for ($i = 0; $i < java_values($categories->size()); $i++)
+    {
+        $months[] = (string)$categories->get_Item($i)->getAsCell()->getValue();
+    }
+
+    $sales = [];
+    $points = $data->getSeries()->get_Item(0)->getDataPoints();
+    for ($i = 0; $i < java_values($points->size()); $i++)
+    {
+        $sales[] = (string)$points->get_Item($i)->getValue()->getData();
+    }
+
+    echo implode(", ", $months), PHP_EOL;
+    echo implode(", ", $sales), PHP_EOL;
+}
+finally
+{
+    $reopened->dispose();
+}
+```
+
+หลังจากเปิดแผนภูมิใหม่ ตัวอย่างจะแสดงเดือนต้นฉบับ (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) และค่าขาย (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) ตามลำดับเดียวกัน เปิดไฟล์ `quarters-updated.pptx` ใน PowerPoint เพื่อเปรียบเทียบป้ายแกน ป้าย Q2 และขอบกลุ่มก่อนเมษายนหายไป, ทำให้ Q1 ครอบคลุมมกราคม‑มิถุนายน, Q3 ยังคงเริ่มในเดือนกรกฎาคม
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
+### **Create Map Charts**
+
+แผนภูมิเพิ่มเติม (Map) ใช้เพื่อแสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลกับตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง เหมาะกับการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
+
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิแผนที่ด้วยข้อมูลภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
 
 ```php
 use aspose\slides\ChartType;
@@ -1130,19 +1207,19 @@ finally
 
 ผลลัพธ์:
 
-![แผนภูมิแผนที่](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-รูปภาพข้างต้นแสดง Presentation ที่บันทึกแล้วเปิดใน PowerPoint Aspose.Slides เขียนแผนภูมิแผนที่และข้อมูลของมันได้อย่างถูกต้อง แต่ไม่ได้วาดแผนภูมิแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมินี้ถูกแปลงเป็นภาพหรือแปลงเป็น PDF หรือ SVG พื้นที่แผนภูมิจะแม่นเลย รูปทรงอื่นบนสไลด์เดียวกันไม่มีผลกระทบ
+ภาพด้านบนแสดงการเปิดการนำเสนอที่บันทึกใน PowerPoint Aspose.Slides เขียนแผนภูมิแผนที่และข้อมูลของมันอย่างถูกต้อง, แต่ไม่ได้วาดแผนภูมิแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมินี้ถูกรันเดอร์เป็นภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะเป็นสีฟาก. รูปร่างอื่นๆ ในสไลด์เดียวกันไม่ได้รับผลกระทบ
 {{% /alert %}}
 
-### **สร้างแผนภูมิผสม (Combination)**
+### **Create Combination Charts**
 
-แผนภูมิผสม (หรือ combo chart) ผสานสองประเภทแผนภูมิหรือมากกว่าบนกราฟเดียว แผนภูมินี้ช่วยให้คุณเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลสองชุดหรือมากกว่า ช่วยระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น
+แผนภูมิแบบผสม (หรือ combo chart) รวมสองประเภทแผนภูมิหรือมากกว่าภายในกราฟเดียว แผนภูมินี้ช่วยให้คุณเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างของชุดข้อมูลหลายชุด, ช่วยระบุความสัมพันธ์ระหว่างข้อมูล
 
-![แผนภูมิผสม](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-ตัวอย่างนี้ผสานสองซีรีส์คอลัมน์แบบกลุ่มกับซีรีส์เส้นในสี่หมวด คอลัมน์ใช้แกนตั้งแนวตั้งหลัก ในขณะที่ [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) วางเส้นบนแกนตั้งแนวตั้งรองด้านขวา ฟังก์ชันช่วยตั้งค่าชื่อเรื่อง, คีย์ลิเคิล, ป้ายแกน, และเส้นตาราง
+ตัวอย่างนี้รวมสองซีรีส์คอลัมน์แบบจัดกลุ่มกับซีรีส์เส้นในสี่หมวดหมู่ คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วน [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) วางเส้นบนแกนแนวตั้งรองด้านขวา ฟังก์ชันช่วยกำหนดหัวเรื่อง, เลเจนด์, ป้ายแกน, และเส้นกริด
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1316,9 +1393,9 @@ createComboChart();
 
 ## **Update Charts**
 
-Aspose.Slides for PHP via Java ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint โดยการแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ สิ่งนี้ทำให้การรักษา Presentation ให้ทันสมัยด้วยเนื้อหาไดนามิกง่ายขึ้นและทำให้แผนภูมิตรงกับข้อมูลปัจจุบันและมาตรฐานการแสดงผล
+Aspose.Slides สำหรับ PHP ผ่าน Java ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ สิ่งนี้ทำให้การรักษาการนำเสนอให้ทันสมัยด้วยเนื้อหาไดนามิกง่ายขึ้นและรับประกันว่าแผนภูมิจะแสดงข้อมูลปัจจุบันและมาตรฐานภาพที่ถูกต้อง
 
-ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของ Presentation ที่มีอยู่ ต้องการสองซีรีส์คอลัมน์ที่มีแต่ละ 3 จุดข้อมูล, ป้ายหมวดในคอลัมน์ A และชื่อซีรีส์ในแถวแรกของเวิร์กชีตแรก ตัวอย่างใช้ [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) เพื่อเปลี่ยนเซลล์เวิร์กบุ๊ก, อัปเดตค่าของซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนแผนภูมิเป็นรูปทรงกระบอกแบบกลุ่มผ่าน [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/)
+ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเข้าที่มีอยู่ ต้องการสองซีรีส์คอลัมน์ที่มีจุดข้อมูลแต่ละจุดสามค่า, ป้ายหมวดหมู่ในคอลัมน์ A และชื่อซีรีส์ในแถวแรกของเวิร์กชีตแรก ตัวอย่างใช้ [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) เพื่อเปลี่ยนเซลล์เวิร์กบุ๊ก, อัปเดตค่าซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนแผนภูมิเป็นทรงกระบอกจัดกลุ่มผ่าน [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/)
 
 ```php
 use aspose\slides\ChartType;
@@ -1384,11 +1461,11 @@ finally
 
 ## **Set Data Range for a Chart**
 
-เพื่อดูช่วงที่แผนภูมิใช้งานอยู่แล้วให้ดูที่ [Retrieve a Chart's Data Range](/slides/th/php-java/chart-workbook/#retrieve-a-charts-data-range)
+เพื่อดูช่วงข้อมูลที่แผนภูมิมีอยู่แล้ว, ดูที่ [Retrieve a Chart's Data Range](/slides/th/php-java/chart-workbook/#retrieve-a-charts-data-range)
 
-Aspose.Slides for PHP via Java ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากเวิร์กชีตเป็นแหล่งข้อมูลของแผนภูมิของคุณ นั่นหมายความว่าคุณสามารถแมปส่วนของเวิร์กชีตตรงกับแผนภูมิได้โดยตรง ควบคุมเซลล์ใดบ้างที่มีส่วนร่วมในซีรีส์และหมวดของแผนภูมิ ผลลัพธ์คือคุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดในเวิร์กชีตได้อย่างง่ายดาย ทำให้ Presentation ของคุณสะท้อนข้อมูลที่เป็นปัจจุบันและแม่นยำ
+Aspose.Slides สำหรับ PHP ผ่าน Java ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากเวิร์กชีตเป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ ซึ่งหมายความว่าคุณสามารถแมปส่วนของเวิร์กชีตโดยตรงกับแผนภูมิ, ควบคุมว่าเซลล์ใดบ้างที่มีส่วนร่วมในซีรีส์และหมวดหมู่ของแผนภูมิได้ ดังนั้นคุณจึงอัปเดตและซิงโครไนซ์แผนภูมิกับการเปลี่ยนแปลงข้อมูลล่าสุดในเวิร์กชีตได้ง่าย, ทำให้การนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่เป็นปัจจุบันและถูกต้อง
 
-ตัวอย่างนี้ใช้ [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) เพื่อตั้งแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของ Presentation ที่มีอยู่เป็น `Sheet1!A1:B4` เวิร์กบุ๊กของแผนภูมิต้องมีเวิร์กชีตนั้นและช่วงข้อมูลที่เต็มด้วยหัวเรื่องซีรีส์ในแถวแรก, ป้ายหมวดในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
+ตัวอย่างนี้ใช้ [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) เพื่อตั้งแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเข้าที่มีอยู่เป็น `Sheet1!A1:B4`. เวิร์กบุ๊กของแผนภูมิต้องมีแผ่นงานนั้นและช่วงที่เป็นข้อมูลที่มีหัวเรื่องซีรีส์ในแถวแรก, ป้ายหมวดหมู่ในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
 
 ```php
 use aspose\slides\Presentation;
@@ -1422,9 +1499,9 @@ finally
 
 ## **Use Default Markers in Charts**
 
-เมื่อคุณใช้เครื่องหมายเริ่มต้นในแผนภูมิแต่ละซีรีส์จะได้รับสัญลักษณ์เครื่องหมายเริ่มต้นที่ต่างกันโดยอัตโนมัติ
+เมื่อใช้เครื่องหมายเริ่มต้นในแผนภูมิ, แต่ละซีรีส์ของแผนภูมิจะได้รับเครื่องหมายเริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและคีย์ลิเคิล การตั้งค่าตัวทำเครื่องหมายที่เข้าถึงผ่าน [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) รักษาสัญลักษณ์เครื่องหมายที่ระบบกำหนดให้โดยอัตโนมัติ ซีรีส์แรกมีค่าติดลบและค่าที่หายไป (null) ส่วนซีรีส์ที่สองมีค่าทุกหมวด
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและเลเจนด์ การตั้งค่าเครื่องหมายที่เข้าถึงผ่าน [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) คงสาธารณะเครื่องหมายที่กำหนดโดยอัตโนมัติ ซีรีส์แรกมีค่าติดลบและค่าที่หายไป (`null`), ส่วนซีรีส์ที่สองมีค่าทั้งหมดในแต่ละหมวดหมู่
 
 ```php
 use aspose\slides\ChartType;
@@ -1491,18 +1568,18 @@ finally
 
 ## **FAQ**
 
-**Aspose.Slides for PHP via Java รองรับประเภทแผนภูมิใดบ้าง?**
+**What chart types are supported by Aspose.Slides for PHP via Java?**
 
-Aspose.Slides for PHP via Java รองรับแผนภูมิมากมาย รวมถึงแผนภูมิบาร์, เส้น, วงกลม, พื้นที่, กระจาย, ฮิสโตแกรม, รังสี, และอื่น ๆ อีกหลายประเภท ความยืดหยุ่นนี้ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides for PHP via Java รองรับประเภทแผนภูมิหลากหลาย รวมถึงแถบ, เส้น, วงกลม, พื้นที่, กระจาย, histogram, radar, และอื่น ๆ อีกมาก ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
 
-**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
+**How do I add a new chart to a slide?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ดึงสไลด์ที่ต้องการโดยใช้ดัชนีของมัน แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ โดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น ขั้นตอนนี้จะผสานแผนภูมิเข้าไปใน Presentation ของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ, คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ก่อน, ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ, ระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะผสานแผนภูมิเข้าสู่การนำเสนอของคุณโดยตรง
 
-**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
+**How can I update the data displayed in a chart?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) เคลียร์ซีรีส์และหมวดเริ่มต้น แล้วเพิ่มข้อมูลของคุณเอง วิธีนี้ทำให้คุณรีเฟรชแผนภูมิโดยอัตโนมัติเพื่อสะท้อนข้อมูลล่าสุด
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), ลบซีรีส์และหมวดหมู่เริ่มต้น, แล้วเพิ่มข้อมูลแบบกำหนดเองของคุณเอง ซึ่งทำให้คุณรีเฟรชแผนภูมิเพื่อแสดงข้อมูลล่าสุดได้ตามโปรแกรม
 
-**สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
+**Is it possible to customize the appearance of the chart?**
 
-ได้, Aspose.Slides for PHP via Java มีตัวเลือกการปรับแต่งหลากหลาย คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, คีย์ลิเคิล, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงตามความต้องการออกแบบของคุณอย่างแม่นยำ
+ใช่, Aspose.Slides for PHP via Java มีตัวเลือกการปรับแต่งที่หลากหลาย คุณสามารถแก้ไขสี, แบบอักษร, ป้าย, เลเจนด์, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงตามความต้องการออกแบบของคุณได้อย่างเต็มที่.

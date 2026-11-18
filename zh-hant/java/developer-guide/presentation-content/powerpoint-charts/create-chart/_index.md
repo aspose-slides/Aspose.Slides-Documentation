@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /zh-hant/java/create-chart/
 keywords:
-- 新增圖表
+- 添加圖表
 - 建立圖表
 - 編輯圖表
 - 更改圖表
@@ -14,11 +14,11 @@ keywords:
 - 圓形圖
 - 折線圖
 - 樹狀圖
-- 股票圖
-- 箱形圖與鬚鬚圖
+- 股票圖表
+- 箱形與鬍鬚圖
 - 漏斗圖
-- 子母圖
-- 長條圖
+- 日射圖
+- 直方圖
 - 雷達圖
 - 多類別圖表
 - PowerPoint
@@ -27,33 +27,33 @@ keywords:
 - Aspose.Slides
 description: "使用 Aspose.Slides for Java 在 PowerPoint 簡報中建立與自訂圖表。透過實用的 Java 程式碼範例，新增、格式化與編輯圖表。"
 ---
-## **概覽**
+## **概述**
 
-本篇文章提供了使用 Aspose.Slides for Java 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表新增至投影片、填入資料，並套用各種格式設定以符合特定設計需求。整篇文章透過詳細的程式碼範例說明每一步驟，從初始化簡報與圖表物件，到設定系列、座標軸與圖例。依循本指南，您將能深入了解如何在 Java 應用程式中整合動態圖表產生，並簡化資料驅動簡報的製作流程。
+本文提供了使用 Aspose.Slides for Java 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表新增至投影片、填入資料，並套用各種格式選項以符合特定設計需求。整篇文章以詳細的程式碼範例說明每個步驟，從初始化簡報與圖表物件到設定系列、座標軸與圖例。遵循本指南，您將能熟練將動態圖表生成整合至 Java 應用程式中，簡化資料驅動投影片的製作流程。
 
 ## **建立圖表**
 
-圖表可協助使用者快速視覺化資料，並發掘表格或試算表中不易立即看出的洞見。
+圖表可協助使用者快速視覺化資料，發掘在表格或試算表中不易立即看出的見解。
 
-**為什麼要建立圖表？**
+**為何要建立圖表？**
 
 使用圖表，您可以：
 
-* 在單一投影片中彙總、濃縮或摘要大量資料；
-* 揭示資料中的模式與趨勢；
-* 推斷資料隨時間或特定測量單位的方向與勢頭；
-* 找出異常值、偏差、錯誤與不合理資料；
-* 以圖形方式傳達或展示複雜資料。
+* 在單一投影片上彙總、濃縮或摘要大量資料；
+* 顯示資料中的模式與趨勢；
+* 推斷資料隨時間或特定單位的走向與動能；
+* 發現異常值、偏差、錯誤與不合理資料；
+* 傳達或展示複雜資料。
 
-在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供多種圖表範本供設計使用。使用 Aspose.Slides，您既能建立一般圖表（基於常見圖表類型），亦能建立自訂圖表。
+在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供多種圖表範本。使用 Aspose.Slides，您可以建立一般圖表（依常見圖表類型）以及自訂圖表。
 
 {{% alert color="info" title="Note" %}}
-使用 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 列舉於 [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) 套件中。此列舉之值對應不同的圖表類型。
+使用 [ChartType 列舉](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)（位於 [com.aspose.slides 套件](https://reference.aspose.com/slides/java/com.aspose.slides/)）中對應不同圖表類型的值。
 {{% /alert %}}
 
-### **建立叢集柱狀圖**
+### **建立叢集直條圖**
 
-此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個比較兩個系列於三個類別的叢集柱狀圖。系列使用紅色與綠色填色，個別標籤顯示類別名稱、系列名稱與數值。工作表索引 0 代表嵌入圖表活頁簿的第一張工作表。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個叢集直條圖，比較兩個系列在三個類別的資料。系列使用紅色與綠色填色，個別標籤示範類別名稱、系列名稱與數值。工作表索引 0 代表嵌入圖表工作簿的第一張工作表。
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +134,20 @@ finally
 
 結果：
 
-![叢集柱狀圖](clustered_column_chart.png)
+![叢集直條圖](clustered_column_chart.png)
 
 ### **建立散佈圖**
 
-散佈圖（亦稱散佈圖或 x‑y 圖）常用於檢查模式或展示兩個變數之間的相關性。
+散佈圖（亦稱散點圖或 x‑y 圖）常用於檢查兩個變數之間的模式或相關性。
 
-在以下情況使用散佈圖：
+當符合以下情形時使用散佈圖：
 
-* 您有成對的數值資料。
-* 您有兩個相互關聯的變數。
-* 您想判斷兩個變數是否相關。
-* 您有一個獨立變數對於一個因變數有多個值。
+* 具有成對的數值資料；
+* 兩個變數彼此關聯緊密；
+* 想判斷兩個變數是否相關；
+* 有一個獨立變數對應多個依賴變數值。
 
-此範例繪製兩組 x‑y 值。第一個系列使用直線加星形標記，第二個系列使用平滑線加圓形標記；兩者皆使用大小為 10 的標記，透過 [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) 設定。 [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) 方法控制標記形狀。
+此範例繪製兩組 x‑y 值。第一系列使用直線加星形標記，第二系列使用平滑線加圓形標記；兩者皆以 10 為標記大小，透過 [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-) 設定。標記形狀則由 [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) 控制。
 
 ```java
 import com.aspose.slides.*;
@@ -219,9 +219,9 @@ finally
 
 ### **建立圓形圖**
 
-圓形圖最適合用來顯示資料的部分與整體關係，尤其當資料包含具有數值的類別標籤時。但若資料包含大量部份或標籤，建議改用長條圖。
+圓形圖最適合用來顯示資料的部分與整體關係，特別是資料包含類別標籤與數值時。然而，如果資料的部份或標籤過多，建議改用長條圖。
 
-此範例建立具有三個季節值的圓形圖。每個切片皆設定自訂填色與邊框，標籤顯示不同組合的數值、百分比與系列資訊。 [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) 方法將第一切片起始角度設為 180 度。
+此範例建立一個含三個季節值的圓形圖。每個切片都有自訂填色與邊框，標籤顯示不同組合的數值、百分比與系列資訊。使用 [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) 將第一切片起始角度設為 180 度。
 
 ```java
 import com.aspose.slides.*;
@@ -324,13 +324,13 @@ finally
 
 ![圓形圖](pie_chart.png)
 
-若要改善圓形圖外部標籤的可讀性，請參閱 [Format Leader Lines](/slides/zh-hant/java/chart-data-label/#format-leader-lines) 以取得設定標籤位置與自訂線條顏色、寬度、透明度與虛線樣式的範例。
+若要改善圓形圖外側標籤的可讀性，請參考 [Format Leader Lines](/slides/zh-hant/java/chart-data-label/#format-leader-lines) 中示範如何調整標籤位置並自訂線條的顏色、寬度、透明度與虛線樣式。
 
 ### **建立折線圖**
 
-折線圖（亦稱折線圖）最適合用於說明隨時間變化的數值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料系列中的異常，等等。
+折線圖（亦稱折線圖表）最適合用於展示隨時間變化的數值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料系列中的異常等。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個具預設系列與類別的折線圖，然後將簡報儲存為 PPTX。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個預設系列與類別的折線圖，並將簡報儲存為 PPTX。
 
 ```java
 import com.aspose.slides.*;
@@ -350,7 +350,7 @@ finally
 }
 ```
 
-預設情況下，折線圖的資料點以連續直線相連。若希望以虛線相連，請呼叫 [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-)，並使用來自 [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) 的值：
+預設情況下，折線圖的點會以直線連接。若要改為虛線，可呼叫 [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-)，並傳入 [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) 中的值：
 
 ```java
 import com.aspose.slides.*;
@@ -377,11 +377,11 @@ finally
 
 ![折線圖](line_chart.png)
 
-### **建立樹狀圖（Tree Map）**
+### **建立樹狀圖**
 
-樹狀圖最適合用於銷售資料，讓您顯示資料類別的相對大小，並快速注意到每個類別中貢獻較大的項目。
+樹狀圖最適合用於銷售資料，當您想顯示資料類別的相對大小，並快速凸顯每個類別中佔較大貢獻的項目時。
 
-此範例建立一個包含八個葉節點、四個主幹與兩條分支的樹狀圖。 [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 方法在分組層級 1 指定主幹，層級 2 指定分支。值決定相對矩形大小，類別標籤與重疊的父標籤說明層級結構。
+此範例建立一個包含八個葉子、分為四個主幹與兩個分支的樹狀圖。使用 [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 在分組層級 1 指定主幹、層級 2 指定分支。數值決定矩形相對大小，類別標籤與重疊的父層標籤說明層級結構。
 
 ```java
 import com.aspose.slides.*;
@@ -466,9 +466,9 @@ finally
 
 ### **建立瀑布圖**
 
-瀑布圖顯示正負變化如何共同導致最終值。例如，利潤分解可由營收開始、扣除成本，並加上其他收入。變動欄位在先前與新累計值之間浮動，而總計欄位則由零延伸至累積值。
+瀑布圖顯示正向與負向變化如何共同構成最終數值。例如，利潤可從營收開始、減去成本、再加上其他收入。變動欄位在前一個與新累計值之間浮動，而總計欄位則從 0 延伸至累積值。
 
-以下範例使用千美元為單位的金額：
+以下範例使用千美元為單位：
 
 | Category | Workbook value | Column type |
 | --- | ---: | --- |
@@ -479,9 +479,9 @@ finally
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-若要將資料點標示為中間或最終總計，請以 `true` 呼叫其 [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) 方法，並在該點的活頁簿儲存格中提供實際累積金額：毛利為 `600`（`1000 - 400`），淨利為 `450`（`600 - 200 + 50`）。此方法僅將欄位標記為總計，並不會計算或填入儲存格值。請勿使用零作為佔位符或為總計點提供其他變動。總計欄位僅顯示累積值，不會再將其加回跑動值。
+若要將點標示為中間或最終總計，請以 `true` 呼叫其 [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) 方法。於該點的工作簿儲存格填入實際累計金額：毛利為 `600`（`1000 - 400`），淨利為 `450`（`600 - 200 + 50`）。此方法僅標記欄位為總計，並不計算或填入儲存格值。請勿使用 0 作為佔位，亦不要為總計點再提供其他變動。總計欄位會顯示累積值，但不會再次加回跑動值。
 
-此完整 Java 範例使用 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 的 `Waterfall` 成員建立圖表，清除預設資料，並填入嵌入活頁簿。工作表索引 `0` 代表第一張工作表；A 欄為類別名稱，B 欄為數值。每個數值儲存格皆透過 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) 新增。零基點索引 `2` 與 `5` 分別標示中間與最終總計。呼叫 [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 並傳入 `true`，即可在欄位上顯示金額。此範例不需要輸入簡報或活頁簿。
+完整的 Java 範例使用 [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) 的 `Waterfall` 成員建立圖表，清除預設資料，並填入內嵌工作簿。工作表索引 `0` 代表第一張工作表；A 欄放置類別名稱，B 欄放置數值。每個數值儲存格皆以 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-) 新增。零基點索引 `2` 與 `5` 分別標示中間與最終總計。以 `true` 呼叫 [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) 可在欄位上顯示金額。此範例不需要輸入簡報或工作簿。
 
 ```java
 import com.aspose.slides.*;
@@ -519,7 +519,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // 第三和第六個點代表總計，而非額外變化。
+    // 第三和第六個點代表總計，而不是額外變化。
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -533,27 +533,34 @@ finally
 }
 ```
 
-在系列層級呼叫 [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) 並傳入 `true`，可顯示連接連續欄位的線條，使跑動值更易追蹤。若要隱藏這些線條，請在儲存前將範例中的呼叫改為 `series.setShowConnectorLines(false);`。此變更僅影響線條可見性，不會改變資料或總計。
+於系列層級呼叫 [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) 並傳入 `true`，即可顯示連接連續欄位的線條，使跑動值更易追蹤。若要隱藏這些線條，請在儲存前將範例中的 `series.setShowConnectorLines(true);` 改為 `series.setShowConnectorLines(false);`。此變更僅影響線條可見性，並不改變資料或總計。
 
-儲存的簡報顯示毛利 600 與淨利 450，兩個總計皆從零開始繪製：
+儲存的簡報顯示毛利 600、淨利 450，兩個總計皆從 0 開始：
 
-![顯示營收、成本、毛利 600 與淨利 450，含數值標籤與連接線的瀑布圖](waterfall_chart.png)
+![顯示營收、成本、毛利 600 與淨利 450，且帶有數值標籤與連接線的瀑布圖](waterfall_chart.png)
 
-### **建立股票圖**
+### **建立股票圖表**
 
-股票圖用於顯示開盤價、最高價、最低價與收盤價等金融資料，協助分析市場趨勢與波動性。它提供關鍵的股票表現洞見，協助投資者與分析師作出明智決策。
+股票圖表用於呈現開盤價、最高價、最低價與收盤價等金融資料，協助分析市場趨勢與波動性。它們提供關於股票表現的關鍵見解，幫助投資者與分析師作出明智決策。
 
-此範例依序建立四個系列的開盤‑最高‑最低‑收盤圖，並包含三個類別。 [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) 方法啟用上/下棒，且 [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) 控制顯示價格區間的高低線，同時隱藏個別系列線條與次要水平格線。
+此範例建立一個依序包含四個系列、三個類別的開‑高‑低‑收圖表。使用 [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) 開啟上下棒，並透過 [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) 控制顯示價格區間的高低線，同時隱藏個別系列線條與次要水平格線。
+
+由 [getUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) 取得的管理器，提供 [getUpBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) 與 [getDownBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--) 兩個獨立格式物件。可分別使用每個物件的 [getFill](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getFill--) 與 [getLine](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getLine--) 方法設定填色與輪廓。此範例為上升區間使用深綠輪廓的綠色棒，下降區間使用深紅輪廓的橙紅色棒。
+
+為每個類別提供四個系列的數值，且最高與最低值包圍開盤與收盤值。棒狀圖比較的是同一類別內的收盤與開盤，而非與前一類別比較：A 從 72 下降至 25，B 從 25 上升至 38，C 從 38 上升至 50。開盤與收盤相同時不產生可見的填滿區間。上下棒覆蓋開盤‑收盤區間；高低線覆蓋最低‑最高區間。這些棒屬於系列群組，而非普通的長條圖系列。
+
+此格式亦適用於至少兩個系列位於同一群組、且每個類別都有對應數值的 [Line 與 LineWithMarkers 圖表](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)。對於這類非堆疊折線圖，上下棒比較第一個與最後一個系列：最後一個值較高則顯示上棒，較低則顯示下棒。交換系列順序會反轉分類。以下範例使用 [OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)，請勿假設其他股票、堆疊折線或 3D 變體使用相同資料排列或區間解讀方式。
 
 ```java
 import com.aspose.slides.*;
+import java.awt.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -605,7 +612,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(new Color(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(new Color(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -623,15 +643,15 @@ finally
 }
 ```
 
-結果：
+結果（從 PowerPoint 匯出）：
 
-![股票圖](stock_chart.png)
+![股票圖表，A 為橙紅色下降區間，B 與 C 為綠色上升區間](stock_chart.png)
 
-### **建立箱形圖與鬚鬚圖**
+### **建立箱形與鬍鬚圖**
 
-箱形圖與鬚鬚圖用於以摘要方式顯示資料分布，概括統計量如中位數、四分位數與可能的離群值。它們在探索性資料分析與統計研究中特別有用，可快速了解資料變異性並辨識異常。
+箱形與鬍鬚圖用於以統計要素（如中位數、四分位數與可能的異常值）顯示資料分佈。於探索性資料分析與統計研究中，可快速了解資料變異性並識別異常。
 
-此範例使用六個值建立箱形圖與鬚鬚圖。 [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) 方法選擇排除法四分位計算。範例同時啟用平均線、平均標記、內部點與離群點。
+此範例從六個數值建立箱形與鬍鬚圖。使用 [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) 以排除法計算四分位數。範例同時啟用平均線、平均標記、內部點與異常點。
 
 ```java
 import com.aspose.slides.*;
@@ -693,9 +713,9 @@ finally
 
 ### **建立漏斗圖**
 
-漏斗圖用於視覺化包含連續階段的流程，資料量會隨每一步逐漸減少。它們特別適合分析轉換率、找出瓶頸，並追蹤銷售或行銷流程的效率。
+漏斗圖用於視覺化具順序階段的流程，資料量會隨步驟前進而逐漸減少。此圖表特別適合分析轉換率、找出瓶頸，以及追蹤銷售或行銷流程的效率。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 將漏斗圖加入現有簡報的第一張投影片。它以六個類別與 50 至 500 的值取代預設資料，然後儲存更新後的簡報。輸入簡報必須至少包含一張投影片。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 在既有簡報的第一張投影片新增漏斗圖。取代預設資料為六個類別，值介於 50 到 500，最後儲存更新後的簡報。輸入簡報必須至少包含一張投影片。
 
 ```java
 import com.aspose.slides.*;
@@ -753,11 +773,11 @@ finally
 
 ![漏斗圖](funnel_chart.png)
 
-### **建立子母圖（Sunburst）**
+### **建立日射圖**
 
-子母圖用於視覺化階層資料，將層級以同心環方式呈現。它有助於說明部分與整體的關係，且適合以緊湊、清晰的格式呈現巢狀類別與子類別。
+日射圖用於以同心環方式視覺化階層資料，顯示部分與整體的關係，適合呈現巢狀類別與子類別的緊湊圖形。
 
-此範例建立一個包含八個葉節點、四個主幹與兩條分支的子母圖。 [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 方法在分組層級 1 指定主幹，層級 2 指定分支。類別標籤說明各區段，數值決定相對大小。
+此範例建立一個包含八個葉子、分為四個主幹與兩個分支的日射圖。使用 [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 在分組層級 1 指定主幹、層級 2 指定分支。類別標籤說明各區段，數值決定其相對大小。
 
 ```java
 import com.aspose.slides.*;
@@ -836,17 +856,17 @@ finally
 
 結果：
 
-![子母圖](sunburst_chart.png)
+![日射圖](sunburst_chart.png)
 
-### **建立長條圖（Histogram）**
+### **建立直方圖**
 
-長條圖顯示數值在區間（箱形）內的分布情況。對於每月訂單處理時間的報告，使用相同的箱寬與閾值可保持區間一致，讓分布更易比較。
+直方圖顯示數值在區間（箱）中的分布情形。於每月訂單處理時間報表，可使用相同箱寬與閾值，以保持區間一致，便於比較分布。
 
-對水平座標軸呼叫 [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) 並傳入來自 [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) 的模式。 [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) 僅適用於 `ByBinWidth`；[setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) 僅適用於 `ByNumberOfBins`。使用 `Automatic` 可讓圖表自行決定箱形。
+在水平座標軸上呼叫 [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-)，傳入 [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/) 的模式。`ByBinWidth` 時使用 [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-)，`ByNumberOfBins` 時使用 [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-)。若使用 `Automatic`，圖表會自行決定箱子。
 
 #### **使用固定箱寬**
 
-此範例將處理時間以 10 分鐘為間隔分箱，並為 ≤10 分鐘與 >40 分鐘的時間設置獨立箱形。透過 [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) 與 [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) 啟用這兩個箱形。若以 [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) 與 [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-) 明確指定閾值，則同時將 [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) 與 [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) 設為 `false`。
+此範例將處理時間分成 10 分鐘區間，並為 ≤10 分鐘與 >40 分鐘各設置獨立箱。可透過 [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) 與 [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-) 啟用這兩個箱。若以明確閾值呼叫 [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) 與 [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-)，則需將 [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) 與 [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) 設為 `false`。
 
 ```java
 import com.aspose.slides.*;
@@ -893,13 +913,13 @@ finally
 }
 ```
 
-PowerPoint 中的簡報顯示箱形計數為 **3, 4, 4, 4, 2**。低位箱包含 `5, 10, 10`，因此其閾值為包含式。高位箱僅包含 `41, 50`，閾值為排除式；`40` 仍屬於前一區間。內部箱包含大於下界且小於等於上界的值。
+在 PowerPoint 中的簡報顯示箱子計數為 **3、4、4、4、2**。Underflow 箱包含 `5、10、10`，因此其閾值為含等；Overflow 箱僅包含 `41、50`，其閾值為不含等；等於 `40` 的值仍屬於前一區間。內部箱子包含大於下界且小於或等於上界的值。
 
-![以 10 分鐘箱寬及明確的低位與高位閾值的長條圖](histogram_bin_width.png)
+![以 10 分鐘箱寬及明確 underflow 與 overflow 閾值的直方圖](histogram_bin_width.png)
 
 #### **指定箱數**
 
-若希望以固定的詳細程度而非固定區間，請為相同資料指定五個箱形。此範例停用低位與高位箱。圖表根據資料範圍自行決定箱寬，故邊界可能在不同報告間變化。
+若想以固定的細節層級而非固定區間，可要求產生五個箱。此範例未啟用 underflow 與 overflow 箱。圖表根據資料範圍計算箱寬，因而在不同報表間邊界可能變動。
 
 ```java
 import com.aspose.slides.*;
@@ -940,15 +960,15 @@ finally
 }
 ```
 
-五個箱的計數分別為 **4, 4, 4, 4, 1**。將此分布與前述固定寬度結果比較：輸入值相同，但邊界不同。
+五個箱的計數分別為 **4、4、4、4、1**。將此分布與上方固定寬度結果比較：輸入值相同，但邊界不同。
 
-![從相同資料計算出的五個箱的長條圖](histogram_bin_count.png)
+![以相同資料計算的五箱直方圖](histogram_bin_count.png)
 
 ### **建立雷達圖**
 
-雷達圖用於以二維形式展示多變量資料，方便同時比較多個變數。它特別適合辨識多項績效指標或屬性之間的模式、優勢與弱點。
+雷達圖用於以二維形式顯示多變量資料，讓多個變數可同時比較。特別適合辨識多項績效指標或屬性之間的模式、強項與弱點。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個具預設系列與類別的雷達圖，然後將簡報儲存為 PPTX。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立預設系列與類別的雷達圖，並將簡報儲存為 PPTX。
 
 ```java
 import com.aspose.slides.*;
@@ -974,9 +994,9 @@ finally
 
 ### **建立多類別圖表**
 
-多類別圖表用於顯示涉及多個類別分組的資料，讓您能在多維度上同時比較數值。當需分析複雜、多層次資料集的趨勢與關聯時，此類圖表特別有幫助。
+多類別圖表用於顯示涉及多個類別分組的資料，讓您同時比較多維度的數值。當需要分析複雜、多層次資料集的趨勢與關係時，此圖表特別有用。
 
-此範例建立一個具有八個類別、分為四對的叢集柱狀圖。 [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 方法於分組層級 1 為每對設定共用標籤，產生同時顯示個別與群組標籤的類別軸。
+此範例建立一個包含八個類別、以四對方式排列的叢集直條圖。透過 [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) 為每對設定分組層級 1 的共用標籤，產生同時具備個別與群組標籤的類別軸。
 
 ```java
 import com.aspose.slides.*;
@@ -1052,11 +1072,56 @@ finally
 
 ![多類別圖表](multi_category_chart.png)
 
+#### **移除季節標籤**
+
+下載 [quarters.pptx](quarters.pptx) 並放置於工作目錄。其圖表顯示九個月份與單一銷售系列，數值從 10 到 18。類別軸上，Q1 包含一月至三月，Q2 包含四月至六月，Q3 包含七月至九月。
+
+四月為第四個類別（索引 3），其標籤為 Q2。使用 [getGroupingLevels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getGroupingLevels--) 取得四月的分組層級，接著以層級 1 呼叫 [deleteGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) 移除其季節標籤。層級 0 代表月份本身，不能以此方法移除。
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    StringJoiner months = new StringJoiner(", ");
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    StringJoiner sales = new StringJoiner(", ");
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(months);
+    System.out.println(sales);
+} finally {
+    reopened.dispose();
+}
+```
+
+重新開啟圖表後，範例會依原順序印出月份 (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) 與銷售數值 (`10, 11, 12, 13, 14, 15, 16, 17, 18`)。於 PowerPoint 開啟 `quarters-updated.pptx` 可比較軸標籤。Q2 標籤以及四月前的群組邊界消失，故 Q1 現在涵蓋一月至六月。Q3 仍從七月開始。
+
+![移除前後的季節標籤比較。左側 Q2 包含四月至六月。右側 Q1 包含一月至六月。](quarter-label-comparison.png)
+
 ### **建立地圖圖表**
 
-地圖圖表用於將資訊對映至特定位置（如國家、州或城市），以視覺化地理資料。它們在分析區域趨勢、人口統計與空間分布時特別有用，且能提供清晰且具吸引力的視覺呈現。
+地圖圖表用於將資訊映射至國家、州或城市等特定位置，視覺化地理資料。此方式特別適合分析區域趨勢、人口統計與空間分佈，且具備清晰且具吸引力的視覺效果。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個具預設地理資料的地圖圖表，並儲存以供 PowerPoint 檢視。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立預設地理資料的地圖圖表，並儲存以供 PowerPoint 檢視。
 
 ```java
 import com.aspose.slides.*;
@@ -1081,16 +1146,16 @@ finally
 ![地圖圖表](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-上圖顯示已於 PowerPoint 開啟的儲存簡報。Aspose.Slides 正確寫入地圖圖表及其資料，但不會自行繪製地圖圖表：當投影片渲染為影像或轉換為 PDF 或 SVG 時，圖表區域會呈現為空白。相同投影片上的其他形狀不受影響。
+上圖顯示已於 PowerPoint 開啟的儲存簡報。Aspose.Slides 能正確寫入地圖圖表與其資料，但不會自行繪製地圖圖表：當投影片被渲染為影像或轉換為 PDF、SVG 時，圖表區域會呈現空白。同一投影片上的其他圖形不受影響。
 {{% /alert %}}
 
 ### **建立組合圖表**
 
-組合圖（或稱 combo 圖）將兩種以上的圖表類型結合於同一圖形。此圖表讓您突出、比較或檢視多組資料之間的差異，協助辨識它們之間的關聯。
+組合圖表（或 combo chart）在同一圖形中結合兩種或以上的圖表類型。此圖表可讓您突顯、比較或檢視多組資料之間的差異，協助辨識其關聯性。
 
-![組合圖](combination_chart.png)
+![組合圖表](combination_chart.png)
 
-此範例將兩個叢集柱系列與一條折線系列結合於四個類別。柱形使用主要垂直軸，而 [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) 將折線放置於右側的次要垂直軸。輔助函式負責設定標題、圖例、座標軸標籤與格線。
+此範例將兩個叢集直條系列與一條折線系列於四個類別上結合。直條使用主要垂直軸，而透過 [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) 將折線放置於右側的次要垂直軸。輔助函式負責設定標題、圖例、座標軸標籤與格線。
 
 ```java
 import com.aspose.slides.*;
@@ -1261,9 +1326,9 @@ example.createComboChart();
 
 ## **更新圖表**
 
-Aspose.Slides for Java 允許您透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了維持簡報與動態內容同步的流程，確保圖表能正確反映最新資料與視覺標準。
+Aspose.Slides for Java 允許您透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了保持簡報與動態內容同步的流程，確保圖表能正確反映最新資料與視覺標準。
 
-此範例更新現有簡報第一張投影片中名為「My chart」的圖表。它需要兩個系列、每個系列三個資料點，類別標籤位於 A 欄，系列名稱位於第一工作表的第一列。範例使用 [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) 變更活頁簿儲存格，更新系列值，新增第三個系列，並透過 [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) 將圖表改為叢集圓柱體。
+此範例更新既有簡報第一張投影片中名稱為「My chart」的圖表。它需要兩個每含三個資料點的欄系列，類別標籤位於 A 欄，系列名稱位於第一張工作表的第一列。範例使用 [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) 變更工作簿儲存格，更新系列值，新增第三個系列，並透過 [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-) 將圖表改為叢集圓柱。
 
 ```java
 import com.aspose.slides.*;
@@ -1325,11 +1390,11 @@ finally
 
 ## **為圖表設定資料範圍**
 
-若要檢視現有圖表已使用的範圍，請參閱 [Retrieve a Chart's Data Range](/slides/zh-hant/java/chart-workbook/#retrieve-a-charts-data-range)。
+若要檢視現有圖表已使用的範圍，請參考 [Retrieve a Chart's Data Range](/slides/zh-hant/java/chart-workbook/#retrieve-a-charts-data-range)。
 
-Aspose.Slides for Java 提供彈性，允許您從工作表指定特定資料範圍作為圖表資料來源。這意味著您可以直接將工作表的部份映射至圖表，控制哪些儲存格貢獻於圖表的系列與類別。如此一來，您可輕鬆更新並同步圖表與工作表中的最新資料變更，確保 PowerPoint 簡報反映當前且正確的資訊。
+Aspose.Slides for Java 提供彈性，允許您從工作表的特定資料範圍定義圖表資料來源。這表示您可以直接將工作表的某部份對映至圖表，控制哪些儲存格貢獻於系列與類別。如此一來，您可輕鬆更新與同步圖表，使簡報始終反映最新且正確的資訊。
 
-此範例使用 [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) 將名為「My chart」的圖表資料來源設定為 `Sheet1!A1:B4`。圖表活頁簿必須包含該工作表且有填滿的範圍，第一列為系列標題，A 欄為類別標籤，B 欄為三個數值。
+此範例使用 [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-)，將既有簡報第一張投影片中名稱為「My chart」的圖表資料來源設定為 `Sheet1!A1:B4`。圖表工作簿必須包含該工作表，且該範圍需有第一列的系列標題、A 欄的類別標籤，以及 B 欄的三個數值。
 
 ```java
 import com.aspose.slides.*;
@@ -1360,9 +1425,9 @@ finally
 
 ## **在圖表中使用預設標記**
 
-使用預設標記時，每個圖表系列會自動分配不同的預設標記符號。
+使用預設標記時，系統會自動為每個圖表系列指派不同的預設標記符號。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立一個含兩條折線系列與圖例的圖表。透過 [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) 取得的標記設定，保留自動指派的標記符號。第一個系列包含負值與缺失值（以 `null` 表示），第二個系列則為每個類別都有值。
+此範例使用 [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 建立含兩條折線系列與圖例的圖表。透過 [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) 取得的標記設定，保留自動分配的標記符號。第一系列包含負值與缺失值（以 `null` 代表），第二系列則在每個類別皆有值。
 
 ```java
 import com.aspose.slides.*;
@@ -1425,20 +1490,22 @@ finally
 }
 ```
 
-## **常見問題**
+## **常見問題 FAQs**
 
 **Aspose.Slides for Java 支援哪些圖表類型？**
 
-Aspose.Slides for Java 支援廣泛的圖表類型，包括長條圖、折線圖、圓形圖、區域圖、散佈圖、長條圖、雷達圖等。此彈性讓您可依資料視覺化需求選擇最合適的圖表類型。
+Aspose.Slides for Java 支援包括長條圖、折線圖、圓形圖、面積圖、散佈圖、直方圖、雷達圖等多種圖表類型，讓您能選擇最適合的圖表呈現資料。
 
-**如何在投影片中新增圖表？**
+**如何在投影片上新增圖表？**
 
-要新增圖表，首先建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 類別的實例，依索引取得目標投影片，然後呼叫新增圖表的方法，指定圖表類型與初始資料。此流程可直接將圖表整合至簡報中。
+首先建立 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 物件，依索引取回目標投影片，然後呼叫新增圖表的方法，指定圖表類型與初始資料，即可將圖表直接嵌入簡報。
 
 **如何更新圖表中顯示的資料？**
 
-您可以透過存取圖表的資料活頁簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/))，清除預設系列與類別，然後加入自訂資料，進而程式化刷新圖表以反映最新資料。
+您可透過存取圖表的資料工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/))，清除預設系列與類別，然後加入自訂資料，以程式方式刷新圖表內容。
 
-**可以自訂圖表的外觀嗎？**
+**可以自訂圖表外觀嗎？**
 
-可以，Aspose.Slides for Java 提供完整的自訂選項。您可以修改顏色、字型、標籤、圖例與其他格式元素，以符合特定設計需求。
+可以。Aspose.Slides for Java 提供廣泛的自訂選項，您可變更顏色、字型、標籤、圖例以及其他格式元素，以符合特定設計需求。
+
+相關功能：[Create editable charts](/slides/zh-hant/features/create-charts/).

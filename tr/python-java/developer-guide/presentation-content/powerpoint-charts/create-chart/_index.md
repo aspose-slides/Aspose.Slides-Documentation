@@ -1,6 +1,6 @@
 ---
 title: Python'da PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
-linktitle: Grafik Oluşturma veya Güncelleme
+linktitle: Grafiklerini Oluştur veya Güncelle
 type: docs
 weight: 10
 url: /tr/python-java/create-chart/
@@ -14,13 +14,13 @@ keywords:
 - pasta grafiği
 - çizgi grafiği
 - ağaç haritası grafiği
-- stok grafiği
+- hisse senedi grafiği
 - kutu ve bıyık grafiği
 - huni grafiği
 - güneş patlaması grafiği
 - histogram grafiği
 - radar grafiği
-- çok kategorili grafik
+- çok kategori grafiği
 - PowerPoint
 - sunum
 - Python
@@ -30,31 +30,31 @@ description: "Aspose.Slides for Python via Java kullanarak PowerPoint sunumları
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via Java kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği slayta programlı olarak nasıl ekleyeceğinizi, veri ile nasıl dolduracağınızı ve tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejandları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, Python uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini hızlandıracaksınız.
+Bu makale, Aspose.Slides for Python via Java kullanarak grafiklerin nasıl oluşturulacağını ve özelleştirileceğini kapsamlı bir şekilde anlatır. Bir slayta programlı olarak grafik eklemeyi, verileri doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunum ve grafik nesnesinin başlatılmasından seriler, eksenler ve legend'ların yapılandırılmasına kadar her adımı gösteren ayrıntılı kod örnekleri yer alır. Bu kılavuzu izleyerek, dinamik grafik oluşturmayı Python uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirir ve bir tablo ya da elektronik tablodan hemen fark edilmeyen içgörüleri ortaya çıkarır.
+Grafikler, verileri hızlı bir şekilde görselleştirerek, bir tablo ya da elektronik tablodan hemen anlaşılmayan içgörüler elde etmeyi sağlar.
 
-**Neden Grafik Oluşturmalı?**
+**Grafik Neden Oluşturulur?**
 
-Grafiklerle şunları yapabilirsiniz:
+Grafik kullanarak şunları yapabilirsiniz:
 
-* tek bir slayt içinde büyük miktarda veriyi toplamak, sıkıştırmak ya da özetlemek;
-* veri içindeki desen ve eğilimleri ortaya çıkarmak;
-* zaman içinde ya da belirli bir ölçüm birimiyle verinin yönünü ve ivmesini belirlemek;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
-* karmaşık verileri iletişim kurmak ya da sunmak.
+* büyük miktarda veriyi tek bir slaytta birleştirme, sıkıştırma veya özetleme;
+* verideki kalıp ve eğilimleri ortaya çıkarma;
+* zaman içinde ya da belirli bir ölçü birimine göre verinin yönünü ve ivmesini çıkarma;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etme;
+* karmaşık verileri iletişim kurma veya sunma.
 
-PowerPoint’te, *Ekle* işlevi aracılığıyla birçok grafik türü için şablonlar sunan bir grafik oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint’te, *Insert* işlevi aracılığıyla birçok grafik türü için şablonlar sunan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-[ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) sayımını [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) paketinde kullanın. Bu sayımdaki değerler farklı grafik türlerine karşılık gelir.
+Use the [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) enumeration in the [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) package. The values in this enumeration correspond to different chart types.
 {{% /alert %}}
 
-### **Küme Sütun Grafikleri Oluşturma**
+### **Kümelenmiş Sütun Grafiklerini Oluşturma**
 
-Bu örnek, iki seriyi üç kategori üzerinden karşılaştıran bir kümelenmiş sütun grafik oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır. Seriler kırmızı ve yeşil doldurmalar kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfaya işaret eder.
+Bu örnek, iki seriyi üç kategori üzerinden karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır. Seriler kırmızı ve yeşil doldurmalar kullanır ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
 
 ```python
 import jpype
@@ -139,20 +139,20 @@ finally:
 
 Sonuç:
 
-![Küme Sütun Grafiği](clustered_column_chart.png)
+![Kümelenmiş Sütun grafiği](clustered_column_chart.png)
 
-### **Dağılım Grafikleri Oluşturma**
+### **Saçılım Grafiklerini Oluşturma**
 
-Dağılım grafikleri (dağılım çizimleri ya da x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için kullanılır.
+Saçılım grafikleri (diğer adıyla dağılım grafiği veya x‑y grafiği), iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için sıkça kullanılır.
 
-Aşağıdaki durumlarda dağılım grafiği kullanın:
+Bir saçılım grafiği kullanın:
 
-* Çift sayısal veriniz olduğunda.
-* Birbirini iyi tamamlayan iki değişkeniniz olduğunda.
+* Eşlenik sayısal verileriniz olduğunda.
+* Birbirine iyi uyum sağlayan iki değişkeniniz olduğunda.
 * İki değişkenin ilişkili olup olmadığını belirlemek istediğinizde.
 * Bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz olduğunda.
 
-Bu örnek iki x‑y değeri kümesini çizer. İlk seri yıldız işaretli düz çizgiler kullanırken, ikincisi dairesel işaretli yumuşak çizgiler kullanır; her ikisi de [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize) ile 10 boyutunda işaretçiye sahiptir. İşaretçi şeklini kontrol eden yöntem [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol)’dir.
+Bu örnek, iki x‑y değeri kümesini çizer. İlk seri yıldız işaretçileriyle düz çizgiler kullanırken, ikincisi daire işaretçileriyle pürüzsüz çizgiler kullanır; her iki seri de [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize) ile 10 boyutunda işaretçi ve [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) ile işaretçi şekli ayarlar.
 
 ```python
 import jpype
@@ -222,13 +222,13 @@ finally:
 
 Sonuç:
 
-![Dağılım Grafiği](scatter_chart.png)
+![Saçılım grafiği](scatter_chart.png)
 
-### **Pasta Grafikleri Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle sayısal değer içeren kategorik etiketler bulunduğunda, veri içindeki parça‑bütün ilişkisini göstermek için en uygun olanlardır. Ancak veriniz çok sayıda parça ya da etiket içeriyorsa, bir çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikleri, özellikle kategorik etiketleri sayısal değerlerle içeren verilerde, bütün‑parça ilişkisini göstermek için en uygunudur. Ancak veriniz çok sayıda parça ya da etiket içeriyorsa çubuk grafik kullanmayı düşünebilirsiniz.
 
-Bu örnek, üç çeyrek değerle bir pasta grafik oluşturur. Her dilim özel bir dolgu ve kenarlığa sahiptir ve etiketler değer, yüzde ve seri bilgisinin farklı kombinasyonlarını gösterir. İlk dilimin 180 derece başlamasını ayarlayan yöntem [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle)’dir.
+Bu örnek, üç çeyrek değeri içeren bir pasta grafiği oluşturur. Her dilim özelleştirilmiş bir doldurma ve kenarlık sahip olup, etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) yöntemi ilk dilimin 180 derece başlamasını sağlar.
 
 ```python
 import jpype
@@ -334,15 +334,15 @@ finally:
 
 Sonuç:
 
-![Pasta Grafiği](pie_chart.png)
+![Pasta grafiği](pie_chart.png)
 
-Etiketlerin okunabilirliğini artırmak için dışarıdaki etiketlerin konumlandırıldığı ve hatların renk, kalınlık, şeffaflık ve kesikli stilinin özelleştirildiği bir örnek görmek için [Biçimlendirme Lider Çizgileri](/slides/tr/python-java/chart-data-label/#format-leader-lines) bölümüne bakın.
+Pasta dışındaki etiketlerin okunabilirliğini artırmak için, etiketleri konumlandıran ve çizgi renkleri, kalınlığı, saydamlığı ve kesikli stilini özelleştiren bir örnek için [Format Leader Lines](/slides/tr/python-java/chart-data-label/#format-leader-lines) bölümüne bakın.
 
-### **Çizgi Grafikleri Oluşturma**
+### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (çizgi diyagramları olarak da bilinir), değerlerin zaman içinde nasıl değiştiğini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içinde değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
+Çizgi grafikler (diğer adıyla çizgi diyagramları), zaman içinde değer değişimlerini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişimleri ve eğilimleri izleyebilir, veri serilerindeki anomalileri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-Bu örnek, varsayılan seri ve kategorilere sahip bir çizgi grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır ve ardından sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır ve sunumu PPTX olarak kaydeder.
 
 ```python
 import jpype
@@ -364,7 +364,7 @@ finally:
     presentation.dispose()
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar düz, kesintisiz çizgilerle birleştirilir. Noktaların tireli bir çizgi ile birleştirilmesini istiyorsanız, [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) değerlerinden biriyle [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) metodunu çağırın:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz kesintisiz çizgilerle bağlanır. Noktaların kesikli çizgilerle bağlanmasını istiyorsanız, [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) yöntemini [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) içindeki bir değerle çağırın:
 
 ```python
 import jpype
@@ -389,13 +389,13 @@ finally:
 
 Sonuç:
 
-![Çizgi Grafiği](line_chart.png)
+![Çizgi grafiği](line_chart.png)
 
 ### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikler, satış verilerini her kategori içinde büyük katkı sağlayan öğelere dikkat çekerken veri kategorilerinin göreceli boyutlarını göstermek için en uygunudur.
+Ağaç haritası grafikleri, veri kategorilerinin relatif boyutlarını göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğiniz satış verileri için en uygunudur.
 
-Bu örnek, dört gövde ve iki dal içinde gruplandırılmış sekiz yaprakla bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, 1. grup seviyesindeki gövdeleri ve 2. seviyedeki dalları atar. Değerler, dikdörtgenlerin göreceli boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi gösterir.
+Bu örnek, dört dal ve iki dalcık içinde gruplandırılmış sekiz yaprak içeren bir ağaç haritası oluşturur. [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi birinci grup seviyesindeki dalları ve ikinci seviyedeki dalcıkları atar. Değerler rectangle boyutlarını belirlerken, kategori etiketleri ve üst üste binen ana etiketler hiyerarşiyi tanımlar.
 
 ```python
 import jpype
@@ -478,15 +478,15 @@ finally:
 
 Sonuç:
 
-![Ağaç Haritası Grafiği](treemap_chart.png)
+![Ağaç haritası grafiği](treemap_chart.png)
 
-### **Şelale Grafikleri Oluşturma**
+### **Şelale Grafiklerini Oluşturma**
 
-Şelale grafiği, pozitif ve negatif değişimlerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar kırılımı geliri başlangıç noktası alıp maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni çalışan değerler arasında yüzerken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
+Şelale grafiği, pozitif ve negatif değişimlerin nihai bir değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar dağılımı gelirden başlar, maliyetler düşülür ve diğer gelirler eklenir. Değişim sütunları önceki ve yeni yürütülen değerler arasında yüzerken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
 
-Aşağıdaki örnek, binlerca ABD doları cinsinden tutarları kullanır:
+Aşağıdaki örnek, binlerce ABD doları cinsinden tutarları kullanır:
 
-| Kategori | Çalışma Kitabı Değeri | Sütun Türü |
+| Kategori | Çalışma kitabı değeri | Sütun türü |
 | --- | ---: | --- |
 | Revenue | 1000 | Increase |
 | Cost of sales | -400 | Decrease |
@@ -495,16 +495,16 @@ Aşağıdaki örnek, binlerca ABD doları cinsinden tutarları kullanır:
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-Bir noktayı ara toplam veya nihai toplam olarak işaretlemek için, `True` ile [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) metodunu çağırın. O noktaya ait çalışma kitabı hücresine gerçek birikimli tutarı girin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Metod sütunu toplam olarak işaretler; hücre değerini hesaplamaz ya da doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam noktasına başka bir değişiklik eklemeyin. Toplam sütun, birikimli değeri gösterir, ancak değeri tekrar çalışan değere eklemez.
+Bir noktayı ara toplam ya da nihai toplam olarak işaretlemek için, `True` ile [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) yöntemini çağırın. Gerçek birikmiş tutarı, o noktanın çalışma kitabı hücresine yerleştirin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Yöntem sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı tutucu olarak kullanmayın ve toplam noktası için başka bir değişim eklemeyin. Toplam sütun birikmiş değeri gösterir, ancak bunu yürütülen değere tekrar eklemez.
 
-Bu tam Python örneği, [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) öğesinin `Waterfall` üyesini kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk sayfayı seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) ile eklenir. Sıfır‑bazlı nokta indeksleri `2` ve `5` ara ve nihai toplamları tanımlar. `True` ile [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) metodunu çağırmak, tutarların sütunlarda gösterilmesini sağlar. Giriş sunumu veya çalışma kitabı gerektirmez.
+Bu tam Python örneği, [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) içindeki `Waterfall` üyesini kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk sayfayı seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries) ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5`, ara ve nihai toplamları tanımlar. `True` ile [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) çağrısı, miktarların sütunlarda gösterilmesini sağlar. Giriş sunumu ya da çalışma kitabı gerekli değildir.
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
@@ -538,7 +538,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikler değildir.
+    # Üçüncü ve altıncı noktalar ek değişiklikler değil, toplamları temsil eder.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -549,17 +549,23 @@ finally:
     presentation.dispose()
 ```
 
-Seri‑seviyesindeki [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) metodunu `True` ile çağırarak ardışık sütunları bağlayan hatları gösterin ve çalışan değerin izlenmesini kolaylaştırın. Bu hatları gizlemek için örnekteki metod çağrısını `series.setShowConnectorLines(False)` ile değiştirip kaydedin. Bu sadece hatların görünürlüğünü değiştirir, veri ya da toplamları etkilemez.
+Seri‑düzeyinde [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) yöntemini `True` olarak çağırmak, ardışık sütunları bağlayan hataları gösterir ve yürütülen değerin takibini kolaylaştırır. Bu hataları gizlemek için, örnekteki yöntemi `series.setShowConnectorLines(False)` ile değiştirip kaydedin. Bu yalnızca çizgi görünürlüğünü değiştirir, veri ya da toplamları etkilemez.
 
-Kaydedilen sunum, 600 brüt kar ve 450 net karı sıfırdan çizer:
+Kaydedilen sunum, brüt karı 600 ve net karı 450 olarak gösterir; her iki toplam da sıfırdan başlar:
 
-![Şelale grafiği, gelir, maliyetler, 600 brüt kar ve 450 net kar, değer etiketleri ve bağlayıcı hatlarla](waterfall_chart.png)
+![Şelale grafiği, gelir, maliyet, 600 brüt kar ve 450 net kar, değer etiketleri ve bağlayıcı hatlarla](waterfall_chart.png)
 
-### **Stok Grafiklerini Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturma**
 
-Stok grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa eğilimlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik içgörüler sağlayarak yatırımcılara ve analistlere bilinçli kararlar almada destek olur.
+Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa eğilimlerini ve dalgalanmaları analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritİk içgörüler sağlayarak yatırımcılara ve analistlere bilinçli kararlar almada destek olur.
 
-Bu örnek, dört seriyi sırasıyla açılış‑yüksek‑düşük‑kapanış şeklinde ve üç kategori ile bir stok grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) yöntemi yukarı/aşağı çubukları etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) yüksek‑düşük hatlarını kontrol eder; bireysel seri çizgileri ve ince yatay ızgara çizgileri gizlenir.
+Bu örnek, dört seriyi (açılış‑yüksek‑düşük‑kapanış sırasıyla) ve üç kategori içeren bir OHLC (Open‑High‑Low‑Close) grafiği oluşturur. [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) yöntemi yükseliş/ düşüş çubuklarını etkinleştirir ve [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) yöntemi fiyat aralıklarını gösteren yüksek‑düşük çizgileri kontrol eder; bireysel seri çizgileri ve ince yatay ızgara çizgileri gizlenir.
+
+[getUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getUpDownBars) tarafından döndürülen yöneticinin [getUpBarsFormat](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#getUpBarsFormat) ve [getDownBarsFormat](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#getDownBarsFormat) üzerinden ayrı biçim nesneleri sunulur. Her nesnenin [getFill](https://reference.aspose.com/slides/python-java/aspose.slides/format/#getFill) ve [getLine](https://reference.aspose.com/slides/python-java/aspose.slides/format/#getLine) yöntemleriyle doldurma ve kontur bağımsız olarak ayarlanabilir. Bu örnek, yükselen periyotlar için koyu‑yeşil kenarlıklı yeşil çubuklar ve düşen periyotlar için koyu‑kırmızı kenarlıklı turuncu‑kırmızı çubuklar kullanır.
+
+Her kategori için dört serinin sayısal değerlerini sağlayın; Yüksek ve Düşük, Açılış ve Kapanış’ı kapsar. Çubuklar aynı kategori içinde Kapanış‑Açılış karşılaştırması yapar, önceki kategoriyle değil: A 72’den 25’e düşerken, B 25’den 38’e ve C 38’den 50’ye yükselir. Açılış ve Kapanış aynı olduğunda görünür doldurulmuş bir periyot oluşmaz. Yukarı‑aşağı çubuklar Açılış‑Kapanış aralığını, yüksek‑düşük çizgileri Düşük‑Yüksek aralığını kapsar. Bu çubuklar seri grubuna aittir ve normal çubuk‑grafik serileri değildir.
+
+Bu biçimlendirme, aynı grup içinde en az iki seri ve her kategori için sayısal değerler bulunan [Line ve LineWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) grafikleri için de çalışır. Bu yığının olmayan çizgi grafiklerde, yukarı‑aşağı çubuklar ilk ve son seriyi karşılaştırır: daha yüksek son değer bir yukarı çubuğu, daha düşük son değer bir aşağı çubuğu üretir. Serileri tersine çevirmek sınıflandırmayı tersine çevirir. Aşağıdaki örnek [OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) kullanır; diğer hisse, yığılmış‑çizgi veya 3D varyantların aynı veri düzeni veya aralık yorumlamasını kullandığını varsaymayın.
 
 ```python
 import jpype
@@ -570,11 +576,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
 
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, False)
+    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, False)
 
     workbook = chart.getChartData().getChartDataWorkbook()
 
@@ -626,7 +634,24 @@ try:
     value_cell = workbook.getCell(0, 3, 4, 50)
     series.getDataPoints().addDataPointForStockSeries(value_cell)
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(True)
+    up_down_bars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars()
+    up_down_bars.setUpDownBars(True)
+
+    up_down_bars.getUpBarsFormat().getFill().setFillType(FillType.Solid)
+    up_fill_color = Color(50, 205, 50)
+    up_down_bars.getUpBarsFormat().getFill().getSolidFillColor().setColor(up_fill_color)
+    up_down_bars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    up_line_color = Color(0, 100, 0)
+    up_down_bars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(up_line_color)
+    up_down_bars.getUpBarsFormat().getLine().setWidth(2)
+
+    up_down_bars.getDownBarsFormat().getFill().setFillType(FillType.Solid)
+    down_fill_color = Color(255, 69, 0)
+    up_down_bars.getDownBarsFormat().getFill().getSolidFillColor().setColor(down_fill_color)
+    up_down_bars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    down_line_color = Color(139, 0, 0)
+    up_down_bars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(down_line_color)
+    up_down_bars.getDownBarsFormat().getLine().setWidth(2)
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
 
     for stock_series in chart.getChartData().getSeries():
@@ -639,13 +664,13 @@ finally:
     presentation.dispose()
 ```
 
-Sonuç:
+Sonuç, PowerPoint’ten dışa aktarıldı:
 
-![Stok Grafiği](stock_chart.png)
+![A düşen turuncu‑kırmızı periyodu A için ve yükselen yeşil periyotları B ve C için gösteren hisse senedi grafiği](stock_chart.png)
 
 ### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-Kutu ve bıyık grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için, veri değişkenliğini hızlıca anlamak ve anomalileri tespit etmek açısından özellikle faydalıdır.
+Kutu ve bıyık grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek verinin dağılımını göstermeye yarar. Özellikle keşifsel veri analizi ve istatistiksel çalışmalarta veri varyansını hızlıca anlamak ve anormallikleri belirlemek için faydalıdır.
 
 Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) yöntemi, dışlayıcı çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı nokta gösterimini etkinleştirir.
 
@@ -711,9 +736,9 @@ finally:
 
 ### **Huni Grafiklerini Oluşturma**
 
-Huni grafikler, bir sürecin ardışık aşamalarını görselleştirir; veri hacmi bir adımdan diğerine geçtikçe azalır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
+Huni grafikler, bir sürecin ardışık adımlarını görselleştirirken, her adımda veri hacminin azaldığı durumları göstermek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır. Varsayılan verileri altı kategori ve 50‑500 arasında değerlerle değiştirir ve ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
+Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır. Varsayılan veriyi altı kategori ve 50‑‑500 aralığındaki değerlerle değiştirir ve güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
 ```python
 import jpype
@@ -771,13 +796,13 @@ finally:
 
 Sonuç:
 
-![Huni Grafiği](funnel_chart.png)
+![Huni grafik](funnel_chart.png)
 
-### **Güneş Patlaması Grafikleri Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturma**
 
-Güneş patlaması grafikler, hiyerarşik verileri görselleştirir; seviyeler konsantrik halkalar olarak gösterilir. Parça‑bütün ilişkilerini açıklamaya yardımcı olur ve iç içe geçmiş kategorileri ve alt‑kategorileri net ve kompakt bir biçimde temsil etmek için idealdir.
+Güneş patlaması grafikleri, katmanlı halkalar şeklinde seviyeleri göstererek hiyerarşik verileri görselleştirir. Parça‑bütün ilişkilerini açıklamaya yardımcı olur ve iç içe geçmiş kategorileri net, kompakt bir biçimde temsil etmek için idealdir.
 
-Bu örnek, dört gövde ve iki dal içinde gruplandırılmış sekiz yaprakla bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, 1. grup seviyesindeki gövdeleri ve 2. seviyedeki dalları atar. Kategori etiketleri segmentleri tanımlar ve değerler göreceli boyutlarını belirler.
+Bu örnek, dört dal ve iki dalcık içinde gruplandırılmış sekiz yaprak içeren bir güneş patlaması grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi birinci grup seviyesindeki dalları ve ikinci seviyedeki dalcıkları atar. Kategori etiketleri segmentleri tanımlar, değerler ise göreli boyutlarını belirler.
 
 ```python
 import jpype
@@ -858,17 +883,17 @@ finally:
 
 Sonuç:
 
-![Güneş Patlaması Grafiği](sunburst_chart.png)
+![Güneş patlaması grafiği](sunburst_chart.png)
 
 ### **Histogram Grafiklerini Oluşturma**
 
-Histogramlar, sayısal değerlerin aralıklar (kova) içinde nasıl dağıldığını gösterir. Sipariş işleme süreleri gibi aylık raporlar için aynı kova genişliğini ve eşiklerini koruyarak aralıkları tutarlı tutabilir ve dağılımları karşılaştırmayı kolaylaştırabilirsiniz.
+Histogram grafikler, sayısal değerlerin aralıklara (bin) nasıl dağıldığını gösterir. Aylık sipariş işleme süresi raporları için aynı bin genişliği ve eşiklerini kullanarak aralıkları tutarlı tutabilir ve dağılımları karşılaştırmayı kolaylaştırabilirsiniz.
 
-Yatay eksende [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/) içinden bir mod ile [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) metodunu çağırın. `ByBinWidth` için yalnızca [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) uygulanır; `ByNumberOfBins` için yalnızca [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) uygulanır. `Automatic` seçeneği, grafiğin kova sayısını kendisinin seçmesini sağlar.
+Yatay eksende, [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/) içindeki bir modla [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) çağırın. `ByBinWidth` için sadece [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) uygulanır; `ByNumberOfBins` için sadece [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) uygulanır. `Automatic` seçeneği, grafiğin binleri kendisinin seçmesini sağlar.
 
-#### **Sabit Kova Genişliği Kullan**
+#### **Sabit Bin Genişliği Kullanma**
 
-Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya kadar ve 40 dakikadan üzeri ayrı kovalarla temsil eder. Bu kovaları [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) ve [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) ile etkinleştirin. Açık eşik değerleri sağlamak için [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) ve [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) metodlarını kullandıktan sonra, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) metodlarını `False` olarak ayarlayın.
+Bu örnek, işleme sürelerini 10 dakikalık aralıklara gruplar; 10 dakikadan az veya eşit ve 40 dakikadan fazla süreler için ayrı binler oluşturur. Bu binleri [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) ve [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) ile etkinleştirin. Açık eşikler sağlamak için [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) ve [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin) kullanırken, [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) ve [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) metodlarını `False` olarak ayarlayın.
 
 ```python
 import jpype
@@ -915,13 +940,13 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** adet kova içerir. Alt kova `5, 10, 10` değerlerini içerdiğinden eşiği dahil edicidir. Üst kova yalnızca `41, 50` değerlerini içerdiğinden eşiği dışlayıcıdır; `40` değerleri önceki aralıkta kalır. İç kovalarda değerler alt sınırdan büyük ve üst sınırdan küçük ya da eşittir.
+PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** bin sayısı içerir. Alt akış bin’i `5, 10, 10` değerlerini kapsar, bu yüzden eşik dahil edicidir. Üst akış bin’i yalnızca `41, 50` değerlerini kapsar, bu yüzden eşik dışlayıcıdır; `40` değerleri önceki aralıkta kalır. İç binler, alt sınırdan büyük ve üst sınırdan eşit ya da küçük değerleri içerir.
 
-![10 dakikalık kovalar ve açık alt/üst eşiklerle histogram](histogram_bin_width.png)
+![10 dakikalık binler ve açık alt/üst akış eşikleriyle histogram](histogram_bin_width.png)
 
-#### **Kova Sayısını Belirle**
+#### **Bin Sayısını Belirleme**
 
-Sabit aralıklar yerine sabit ayrıntı seviyesi istiyorsanız, aynı veri için beş kova isteyin. Bu örnek, alt ve üst kovaları devre dışı bırakır. Grafik, veri aralığından genişliği hesaplar; bu nedenle sınırlar raporlar arasında değişebilir.
+Sabit aralıklar yerine sabit ayrıntı seviyesi isteniyorsa, aynı veri için beş bin talep edin. Bu örnek alt ve üst akış bin’lerini devre dışı bırakır. Grafik, veri aralığından genişliği belirler; bu nedenle sınırlar raporlar arasında değişebilir.
 
 ```python
 import jpype
@@ -962,15 +987,15 @@ finally:
     presentation.dispose()
 ```
 
-Beş kova **4, 4, 4, 4 ve 1** adet içerir. Yukarıdaki sabit‑genişlik sonucuyla karşılaştırın: girdi değerleri aynı, ancak sınırlar farklıdır.
+Beş binin sayısı **4, 4, 4, 4 ve 1** olarak görülür. Bu dağılımı sabit‑genişlik sonucuyla karşılaştırın: giriş değerleri aynı ancak sınırlar farklıdır.
 
-![Aynı veriden hesaplanan beş kova ile histogram](histogram_bin_count.png)
+![Aynı veriden hesaplanan beş binli histogram](histogram_bin_count.png)
 
 ### **Radar Grafiklerini Oluşturma**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta gösterir ve birden fazla değişkeni aynı anda kolayca karşılaştırmanıza olanak tanır. Performans ölçütleri ya da özellikler gibi birden çok metriği değerlendirirken desenleri, güçlü ve zayıf yönleri tanımlamak için özellikle yararlıdır.
+Radar grafikler, çok değişkenli veriyi iki boyutlu bir formatta göstererek birkaç değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri ya da özellikler arasındaki kalıp, güçlü ve zayıf yönleri tanımlamak için özellikle faydalıdır.
 
-Bu örnek, varsayılan seri ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır ve ardından sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır ve sunumu PPTX olarak kaydeder.
 
 ```python
 import jpype
@@ -994,13 +1019,13 @@ finally:
 
 Sonuç:
 
-![Radar Grafiği](radar_chart.png)
+![Radar grafiği](radar_chart.png)
 
-### **Çok Kategorili Grafikler Oluşturma**
+### **Çok‑Kategori Grafiklerini Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategori gruplaması içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden çok boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde eğilimleri ve ilişkileri analiz etmeniz gerektiğinde özellikle faydalıdır.
+Çok‑kategori grafikler, birden fazla kategorik gruplamayı içeren verileri göstermek ve değerleri aynı anda birden fazla boyutta karşılaştırmak için kullanılır. Karmaşık, çok katmanlı veri setlerinde eğilimleri ve ilişkileri analiz etmek istediğinizde özellikle yararlıdır.
 
-Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriye sahip bir kümelenmiş sütun grafik oluşturur. [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, her çifte grup seviyesinde ortak bir etiket verir; böylece hem bireysel hem de grup etiketlerinden oluşan bir kategori ekseni elde edilir.
+Bu örnek, dört çift içinde sekiz kategori düzenlenmiş bir kümelenmiş sütun grafiği oluşturur. [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) yöntemi, her çifti birinci grup seviyesinde ortak bir etiketle işaretler; böylece hem bireysel hem grup etiketlerini taşıyan bir kategori ekseni elde edilir.
 
 ```python
 import jpype
@@ -1076,13 +1101,54 @@ finally:
 
 Sonuç:
 
-![Çok Kategorili Grafik](multi_category_chart.png)
+![Çok‑kategori grafiği](multi_category_chart.png)
+
+#### **Bir Çeyrek Etiketini Kaldırma**
+
+[quarters.pptx](quarters.pptx) dosyasını indirin ve çalışma dizinine koyun. Grafik, dokuz ay ve 10‑‑18 aralığında değerleri olan tek bir satış serisi içerir. Kategori ekseninde, Q1 Ocak‑‑Mart, Q2 Nisan‑‑Haziran ve Q3 Temmuz‑‑Eylül olarak yayılmıştır.
+
+Nisan, dördüncü kategori (indeks 3) ve Q2 etiketini tutar. Nisan’ın grup seviyelerine erişmek için [getGroupingLevels](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/#getGroupingLevels) çağırın, ardından birinci seviyede etiketini kaldırmak için [deleteGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#deleteGroupingItem) yöntemini kullanın. Seviye 0 ayı temsil eder ve bu yöntem ile kaldırılamaz.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("quarters.pptx")
+try:
+    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    april = chart.getChartData().getCategories().get_Item(3)
+    april.getGroupingLevels().deleteGroupingItem(1)
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+reopened = Presentation("quarters-updated.pptx")
+try:
+    chart = reopened.getSlides().get_Item(0).getShapes().get_Item(0)
+    data = chart.getChartData()
+    
+    points = data.getSeries().get_Item(0).getDataPoints()
+    print(", ".join(str(month.getAsCell().getValue()) for month in data.getCategories()))
+    print(", ".join(str(point.getValue().getData()) for point in points))
+finally:
+    reopened.dispose()
+```
+
+Grafik yeniden açıldığında, örnek orijinal ayları (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) ve satış değerlerini (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) aynı sırada yazdırır. `quarters-updated.pptx` dosyasını PowerPoint’te açarak eksen etiketlerini karşılaştırın. Q2 etiketi ve Nisan öncesindeki grup sınırı kaybolur, böylece Q1 Ocak‑‑Haziran’a uzanır. Q3 hâlâ Temmuz’da başlar.
+
+![Kaldırma öncesi ve sonrası çeyrek etiketleri. Sol tarafta Q2 Nisan‑‑Haziran, sağ tarafta Q1 Ocak‑‑Haziran](quarter-label-comparison.png)
 
 ### **Harita Grafiklerini Oluşturma**
 
-Harita grafikler, verileri ülkeler, eyaletler ya da şehirler gibi belirli konumlara eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak çekici bir şekilde analiz etmek için özellikle uygundur.
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara veri eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak çekici bir şekilde analiz etmek için özellikle yararlıdır.
 
-Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
+Bu örnek, varsayılan coğrafi veriyi kullanan bir harita grafiği oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
 
 ```python
 import jpype
@@ -1106,30 +1172,31 @@ finally:
 
 Sonuç:
 
-![Harita Grafiği](map_chart.png)
+![Harita grafiği](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, kaydedilen sunumun PowerPoint’te açılmış halini gösterir. Aspose.Slides, harita grafiği ve verilerini doğru şekilde yazar, ancak kendisi harita grafiklerini çizmeyecektir: bir slayt harita grafiği içeriyorsa ve bu slayt bir görsele, PDF’ye ya da SVG’ye dönüştürülürse, grafik alanı boş çıkar. Aynı slayd üzerindeki diğer şekiller etkilenmez.
+
+Yukarıdaki resim, kaydedilen sunumun PowerPoint’te açılmış halini gösterir. Aspose.Slides harita grafiğini ve verisini doğru olarak yazar, ancak harita grafiğini kendisi çizmez: bir slayt içinde harita grafiği bir görüntüye, PDF’ye ya da SVG’ye dönüştürülürken grafik alanı boş çıkar. Aynı slaydın diğer şekilleri etkilenmez.
 {{% /alert %}}
 
 ### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon (combo) grafiği, tek bir diyagramda iki ya da daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza ya da incelemenize olanak tanır ve ilişkileri ortaya çıkarmanıza yardımcı olur.
+Kombinasyon grafiği (veya combo grafik), tek bir grafikte iki ya da daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri ortaya çıkarmanıza yardımcı olur.
 
-![Kombinasyon Grafiği](combination_chart.png)
+![Kombinasyon grafiği](combination_chart.png)
 
-Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisi ile bir çizgi serisini birleştirir. Sütunlar birincil dikey ekseni kullanırken, [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) çizgiyi sağ tarafta ikincil bir dikey eksene yerleştirir. Yardımcı işlevler başlığı, lejandı, eksen etiketlerini ve ızgara çizgilerini yapılandırır.
+Bu örnek, dört kategori üzerinde iki kümelenmiş sütun serisi ve bir çizgi serisi birleştirir. Sütunlar birincil dikey ekseni kullanırken, [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) çizgiyi sağdaki ikincil dikey eksene yerleştirir. Yardımcı işlevler başlığı, legend’ı, eksen etiketlerini ve ızgara çizgilerini yapılandırır.
 
 ```python
-import jpype
+import jpade
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpade.isJVMStarted():
+    jpade.startJVM()
 
 from asposeslides.api import AxisPositionType, ChartType, CrossesType, FillType, LegendPositionType, NullableBool, Presentation, SaveFormat
 
-Color = jpype.JClass("java.awt.Color")
+Color = jpade.JClass("java.awt.Color")
 
 def create_combo_chart():
     presentation = Presentation()
@@ -1150,7 +1217,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # Set the chart title.
+    # Grafik başlığını ayarla.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1159,18 +1226,18 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # Set the chart legend.
+    # Grafik lejantını ayarla.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # Delete the default generated series and categories.
+    # Varsayılan oluşturulan serileri ve kategorileri sil.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     worksheet_index = 0
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # Add new categories.
+    # Yeni kategoriler ekle.
     cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
     chart.getChartData().getCategories().add(cell)
     cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
@@ -1180,11 +1247,11 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # Add the first series.
+    # İlk seriyi ekle.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
-    series.getParentSeriesGroup().setOverlap(jpype.JByte(-25))
+    series.getParentSeriesGroup().setOverlap(jpade.JByte(-25))
     series.getParentSeriesGroup().setGapWidth(220)
 
     cell = workbook.getCell(worksheet_index, 1, 1, 4.3)
@@ -1205,7 +1272,7 @@ def add_second_series_to_chart(chart):
     series_name_cell = workbook.getCell(worksheet_index, 0, 2, "Series 2")
     series = chart.getChartData().getSeries().add(series_name_cell, ChartType.ClusteredColumn)
 
-    series.getParentSeriesGroup().setOverlap(jpype.JByte(-25))
+    series.getParentSeriesGroup().setOverlap(jpade.JByte(-25))
     series.getParentSeriesGroup().setGapWidth(220)
 
     cell = workbook.getCell(worksheet_index, 1, 2, 2.4)
@@ -1236,28 +1303,28 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # Set the horizontal axis.
+    # Yatay ekseni ayarla.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Set the vertical axis.
+    # Dikey ekseni ayarla.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Set the vertical major gridlines color.
+    # Dikey ana ızgara çizgileri rengini ayarla.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # Set the secondary horizontal axis.
+    # İkincil yatay ekseni ayarla.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1265,7 +1332,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # Set the secondary vertical axis.
+    # İkincil dikey ekseni ayarla.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1288,9 +1355,9 @@ create_combo_chart()
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for Python via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, sunumları dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru şekilde yansıtmasını sağlar.
+Aspose.Slides for Python via Java, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, dinamik içeriğe sahip sunumları güncel tutma sürecini basitleştirir ve grafiklerin mevcut verileri ve görsel standartları doğru yansıtmasını garantiler.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her birinin üç veri noktasına sahip iki sütun serisi gerekir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType) aracılığıyla kümelenmiş silindir tipine dönüştürür.
+Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafik üzerinde güncelleme yapar. Her birinde üç veri noktasına sahip iki sütun serisi gerekir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType) ile kümelenmiş silindirlere dönüştürür.
 
 ```python
 import jpype
@@ -1348,13 +1415,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Bir Grafik İçin Veri Aralığını Ayarlama**
+## **Bir Grafik İçin Veri Aralığını Belirleme**
 
-Mevcut bir grafiğin zaten kullandığı aralığı incelemek için [Bir Grafiğin Veri Aralığını Al](/slides/tr/python-java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
+Mevcut bir grafik tarafından zaten kullanılan aralığı incelemek için, [Retrieve a Chart's Data Range](/slides/tr/python-java/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for Python via Java, bir çalışma sayfasındaki belirli bir veri aralığını grafiğinizin veri kaynağı olarak tanımlamanıza esneklik sağlar. Bu sayede, çalışma sayfanızın yalnızca bir bölümünü grafiğe eşleyebilir, hangi hücrelerin seri ve kategori verisine katkıda bulunacağını kontrol edebilirsiniz. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, PowerPoint sunumlarınızın güncel ve doğru bilgiler içermesini sağlayabilirsiniz.
+Aspose.Slides for Python via Java, bir çalışma sayfasından belirli bir veri aralığını grafik verilerinizin kaynağı olarak tanımlamanıza esneklik sağlar. Bu, çalışma sayfanızın bir bölümünü doğrudan grafiğe eşlemenize, grafik serileri ve kategorileri için hangi hücrelerin katılacağını kontrol etmenize olanak tanır. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, böylece PowerPoint sunumlarınız güncel ve doğru bilgi yansıtır.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) metodunu kullanır. Grafik çalışma kitabında bu çalışma sayfası ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer bulunan doldurulmuş bir aralık bulunmalıdır.
+Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafik için veri kaynağını `Sheet1!A1:B4` olarak ayarlamak üzere [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) yöntemini kullanır. Grafik çalışma kitabının o çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir dolu aralığı içermesi gerekir.
 
 ```python
 import jpype
@@ -1381,11 +1448,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Grafiklerde Varsayılan İşaretleyicileri Kullanma**
+## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretleyicileri kullandığınızda, her bir grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
 
-Bu örnek, iki çizgi serisi ve bir lejand içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır. [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) aracılığıyla erişilen işaretçi ayarları, otomatik olarak atanmış işaretçi sembollerini korur. İlk seri negatif bir değer ve eksik bir değer (`None` ile temsil edilir) içerirken, ikincisi her kategori için bir değere sahiptir.
+Bu örnek, iki çizgi serisi ve bir legend içeren bir grafik oluşturmak için [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) kullanır. [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) aracılığıyla erişilen işaretçi ayarları, otomatik atanmış işaretçi sembollerini korur. İlk seri negatif bir değer ve `None` ile temsil edilen eksik bir değer içerirken, ikinci seri her kategori için bir değere sahiptir.
 
 ```python
 import jpype
@@ -1454,16 +1521,16 @@ finally:
 
 **Aspose.Slides for Python via Java tarafından hangi grafik türleri desteklenir?**
 
-Aspose.Slides for Python via Java, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha pek çok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenize olanak tanır.
+Aspose.Slides for Python via Java, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınız için en uygun grafik türünü seçmenize olanak tanır.
 
-**Bir slayda yeni bir grafik nasıl eklenir?**
+**Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verisini belirterek bir grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik türü ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem grafik doğrudan sunumunuza entegre eder.
 
 **Bir grafikte gösterilen veriler nasıl güncellenir?**
 
-Bir grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu sayede, grafiği programlı olarak en son verileri yansıtacak şekilde yenileyebilirsiniz.
+Bir grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, özelleştirilmiş verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemeyi sağlar.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for Python via Java geniş özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.
+Evet, Aspose.Slides for Python via Java kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, legend’ları ve diğer biçimlendirme öğelerini, grafik tasarım gereksinimlerinize göre şekillendirebilirsiniz.

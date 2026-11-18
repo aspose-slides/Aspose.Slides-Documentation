@@ -15,37 +15,37 @@ keywords:
 - लाइन चार्ट
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
-- बॉक्स एंड व्हिस्कर चार्ट
-- फ़नल चार्ट
+- बॉक्स और व्हिस्कर चार्ट
+- फनल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
 - रेडार चार्ट
 - मल्टीकैटेगरी चार्ट
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। Python में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, फ़ॉर्मैट करें और संपादित करें।"
+description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट बनाएं और अनुकूलित करें। Python में व्यावहारिक कोड उदाहरणों के साथ चार्ट जोड़ें, स्वरूपित करें और संपादित करें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-यह लेख Aspose.Slides for Python via .NET का उपयोग करके चार्ट बनाने और अनुकूलित करने के बारे में एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामेटिक रूप से स्लाइड में चार्ट जोड़ें, डेटा से उसे भरें, और विभिन्न फ़ॉर्मैटिंग विकल्प लागू करके अपने विशिष्ट डिज़ाइन आवश्यकताओं को पूरा करें। लेख के दौरान विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को इनिशियलाइज़ करने से लेकर सीरीज़, अक्ष, और लीज़ेंड को कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके आप अपने Python एप्लिकेशन्स में डायनेमिक चार्ट जेनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवेन प्रस्तुतियों का निर्माण सरल हो जाएगा।
+यह लेख Aspose.Slides for Python via .NET का उपयोग करके चार्ट बनाने और अनुकूलित करने के लिए एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि कैसे प्रोग्रामmatically एक चार्ट को स्लाइड में जोड़ें, उसे डेटा से भरें, और विभिन्न स्वरूपण विकल्पों को लागू करके अपनी विशिष्ट डिजाइन आवश्यकताओं के अनुरूप बनाएं। लेख में विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को प्रारंभ करने से लेकर श्रृंखला, अक्ष और लीजेंड कॉन्फ़िगर करने तक। इस मार्गदर्शिका का पालन करके आप पायथन अनुप्रयोगों में गतिशील चार्ट निर्माण को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑चालित प्रस्तुतियों का निर्माण सरल हो जाता है।
 
-## **एक चार्ट बनाएं**
+## **चार्ट बनाएं**
 
-चार्ट लोगों को डेटा को जल्दी विज़ुअलाइज़ करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होतीं।
+चार्ट लोगों को जल्दी से डेटा को दृश्य रूप में प्रस्तुत करने और उन अंतर्दृष्टियों को प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* प्रस्तुति में एक ही स्लाइड पर बड़ी मात्रा में डेटा को एकत्र, संक्षिप्त या सारांशित कर सकते हैं;
-* डेटा में पैटर्न और प्रवृत्तियों को उजागर कर सकते हैं;
-* समय के साथ या किसी विशिष्ट माप इकाई के संदर्भ में डेटा की दिशा और गति का अनुमान लगा सकते हैं;
-* अपवर्जन, विसंगतियों, त्रुटियों और असंगत डेटा को पहचान सकते हैं;
+* एक ही स्लाइड में बड़ी मात्रा में डेटा को सारांशित, संक्षिप्त या संकलित कर सकते हैं;
+* डेटा में पैटर्न और रुझानों को उजागर कर सकते हैं;
+* समय के साथ या किसी विशेष माप इकाई के संबंध में डेटा की दिशा और गति का अनुमान लगा सकते हैं;
+* अपवाद, विचलन, त्रुटियां और निरर्थक डेटा की पहचान कर सकते हैं;
 * जटिल डेटा को संप्रेषित या प्रस्तुत कर सकते हैं।
 
-PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से कई प्रकार के चार्ट टेम्पलेट का उपयोग करके चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्पलेट प्रदान करता है। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
 Use the [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) enumeration under the [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) module. The values in this enumeration correspond to different chart types.
@@ -53,7 +53,7 @@ Use the [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides
 
 ### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह उदाहरण [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन श्रेणियों में दो सीरीज़ की तुलना करता है। सीरीज़ लाल और हरे फ़िल्स का उपयोग करती हैं, और व्यक्तिगत लेबल श्रेणी नाम, सीरीज़ नाम, और मान दर्शाते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को संदर्भित करता है।
+This example uses [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
 
 ```python
 import aspose.pydrawing as draw
@@ -128,20 +128,20 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
 
 ### **स्कैटर चार्ट बनाएं**
 
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) अक्सर दो वेरिएबल्स के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
+Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
 
-स्कैटर चार्ट का उपयोग तब करें जब:
+Use a scatter chart when:
 
-* आपके पास युग्मित संख्यात्मक डेटा हो।
-* दो वेरिएबल्स एक-दूसरे के साथ अच्छी तरह जुड़ते हों।
-* आप यह निर्धारित करना चाहते हों कि दोनों वेरिएबल्स संबंधित हैं या नहीं।
-* आपके पास एक स्वतंत्र वेरिएबल हो जिसके कई मान एक निर्भर वेरिएबल के लिए हों।
+* You have paired numerical data.
+* You have two variables that pair well together.
+* You want to determine whether the two variables are related.
+* You have an independent variable that has multiple values for a dependent variable.
 
-यह उदाहरण दो सेट x‑y मानों को प्लॉट करता है। पहली सीरीज़ स्टार मार्कर के साथ सीधी रेखाएँ उपयोग करती है, जबकि दूसरी स्मूद रेखाएँ सर्कल मार्कर के साथ; दोनों का [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 10 है। [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) प्रॉपर्टी मार्कर आकार को नियंत्रित करती है।
+This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) of 10. The [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) property controls the marker shape.
 
 ```python
 import aspose.slides as slides
@@ -203,13 +203,13 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Scatter chart](scatter_chart.png)
+![स्कैटर चार्ट](scatter_chart.png)
 
 ### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग‑से‑पूरा संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल के साथ संख्यात्मक मान हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट पर विचार कर सकते हैं।
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
 
-यह उदाहरण तीन तिमाही मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न संयोजनों में मान, प्रतिशत, और सीरीज़ जानकारी दिखाते हैं। [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) प्रॉपर्टी पहला स्लाइस 180 डिग्री से शुरू करती है।
+This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) property sets the first slice to start at 180 degrees.
 
 ```python
 import aspose.pydrawing as draw
@@ -304,15 +304,15 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Pie chart](pie_chart.png)
+![पाई चार्ट](pie_chart.png)
 
-लेबल को पाई के बाहर पढ़ने योग्य बनाने के लिए, उदाहरण देखें [Format Leader Lines](/slides/hi/python-net/chart-data-label/#format-leader-lines) जो लेबल की स्थिति और लाइनों के रंग, चौड़ाई, पारदर्शिता, तथा डैश शैली को कस्टमाइज़ करता है।
+लेबल को पाई के बाहर पढ़ने योग्य बनाने के लिए, **[Format Leader Lines](/slides/hi/python-net/chart-data-label/#format-leader-lines)** देखें, जहाँ लेबल की स्थिति और रेखाओं के रंग, चौड़ाई, पारदर्शिता और डैश शैली को कस्टमाइज़ किया जा सकता है।
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में बदलाव दिखाना चाहते हैं। लाइन चार्ट के साथ आप बड़ी मात्रा में डेटा को एक साथ तुलना कर सकते हैं, समय के साथ बदलाव और प्रवृत्तियों को ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
+Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
 
-यह उदाहरण [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक लाइन चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+This example uses [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) to create a line chart with the default series and categories, then saves the presentation as PPTX.
 
 ```python
 import aspose.slides as slides
@@ -326,7 +326,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट के बिंदु सीधी निरंतर रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश के साथ जोड़ना चाहते हैं, तो [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) को [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) के किसी मान पर सेट करें:
+By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, set [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) to a value from [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -343,13 +343,13 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Line chart](line_chart.png)
+![लाइन चार्ट](line_chart.png)
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए उपयोगी होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी के भीतर बड़े योगदानकर्ता आइटम पर जल्दी ध्यान आकर्षित करना चाहते हैं।
+Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
 
-यह उदाहरण चार टोकरे (stems) और दो शाखाओं (branches) में समूहित आठ लीफ़ के साथ एक ट्री मैप बनाता है। [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) मेथड समूह स्तर 1 पर टोकरे और स्तर 2 पर शाखाएं असाइन करता है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम को पहचानते हैं।
+This example creates a tree map with eight leaves grouped into four stems and two branches. The [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
 
 ```python
 import aspose.slides as slides
@@ -424,26 +424,24 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Treemap chart](treemap_chart.png)
+![ट्री मैप चार्ट](treemap_chart.png)
 
-### **वॉटरफ़ॉल चार्ट बनाएं**
+### **वॉटरफॉल चार्ट बनाएं**
 
-वॉटरफ़ॉल चार्ट दिखाता है कि सकारात्मक और नकारात्मक बदलाव अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ विभाजन राजस्व से शुरू हो सकता है, लागत घटाई जा सकती है, और अन्य आय जोड़ी जा सकती है। परिवर्तन कॉलम पिछले और नए रनिंग मान के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचित मान तक विस्तारित होते हैं।
+A waterfall chart shows how positive and negative changes contribute to a final value. For example, a profit breakdown can start with revenue, subtract costs, and add other income. Change columns float between the previous and new running values, while total columns extend from zero to the accumulated value.
 
-नीचे दिया गया उदाहरण हजारों US डॉलर में राशि का उपयोग करता है:
-
-| श्रेणी | वर्कबुक मान | स्तंभ प्रकार |
+| श्रेणी | वर्कबुक मान | कॉलम प्रकार |
 | --- | ---: | --- |
-| राजस्व | 1000 | Increase |
-| बिक्री लागत | -400 | Decrease |
-| सकल लाभ | 600 | Intermediate total |
-| परिचालन खर्च | -200 | Decrease |
-| अन्य आय | 50 | Increase |
-| शुद्ध लाभ | 450 | Final total |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-बिंदु को इंटरमीडिएट या फ़ाइनल टोटल के रूप में चिह्नित करने के लिए, उसका [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) प्रॉपर्टी `True` सेट करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचित राशि प्रदान करें: सकल लाभ के लिए `600` (`1000 - 400`) और शुद्ध लाभ के लिए `450` (`600 - 200 + 50`)। यह प्रॉपर्टी कॉलम को टोटल के रूप में मार्क करती है; यह सेल मान की गणना या भराव नहीं करती। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या टोटल पॉइंट के लिए कोई अन्य परिवर्तन न दें। एक टोटल कॉलम संचित मान दिखाता है बिना उसे फिर से रनिंग मान में जोड़ें।
+To mark a point as an intermediate or final total, set its [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) property to `True`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The property marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
 
-यह पूरा C# उदाहरण [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) के `Waterfall` सदस्य का उपयोग करके एक चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली वर्कशीट चुनता है; कॉलम A में श्रेणी नाम और कॉलम B में मान होते हैं। प्रत्येक मान सेल को [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) से जोड़ा जाता है। शून्य‑आधारित पॉइंट इंडेक्स `2` और `5` क्रमशः इंटरमीडिएट और फ़ाइनल टोटल की पहचान करते हैं। [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) को सक्षम करने से मान कॉलम पर दिखते हैं। इनपुट प्रस्तुति या वर्कबुक की आवश्यकता नहीं है।
+This complete C# example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). The zero-based point indices `2` and `5` identify the intermediate and final totals. Enabling [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) displays the amounts on the columns. No input presentation or workbook is required.
 
 ```python
 import aspose.slides as slides
@@ -478,7 +476,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # तीसरा और छठा बिंदु कुल को दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
+    # तीसरे और छठे बिंदु कुल को दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -487,26 +485,33 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-सीरीज़‑लेवल पर [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) प्रॉपर्टी को `True` सेट करके क्रमिक कॉलम को जोड़ने वाली लाइनों को दिखाया जा सकता है जिससे रनिंग वैल्यू को फॉलो करना आसान हो जाता है। इन लाइनों को छिपाने के लिए, उदाहरण में असाइनमेंट को `series.show_connector_lines = False` से बदलें और फिर सहेजें। इससे केवल लाइन की दृश्यता बदलती है, डेटा या टोटल नहीं।
+Set the series-level [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) property to `True` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the assignment in the example with `series.show_connector_lines = False` before saving. This changes only the line visibility, not the data or totals.
 
-सहेजी गई प्रस्तुति में 600 का सकल लाभ और 450 का शुद्ध लाभ दिखता है, दोनों टोटल शून्य से प्रारंभ होते हैं:
+Saved presentation shows gross profit of 600 and net profit of 450, with both totals drawn from zero:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![वॉटरफॉल चित्र जिसमें राजस्व, लागत, 600 का ग्रॉस प्रॉफिट, और 450 का नेट प्रॉफिट दिखाया गया है, साथ में वैल्यू लेबल और कनेक्टर लाइनों के साथ](waterfall_chart.png)
 
 ### **स्टॉक चार्ट बनाएं**
 
-स्टॉक चार्ट वित्तीय डेटा जैसे ओपन, हाई, लो, और क्लोज़ प्राइस दर्शाने के लिए उपयोग किए जाते हैं, जिससे बाजार प्रवृत्तियों और अस्थिरता का विश्लेषण संभव होता है। वे स्टॉक प्रदर्शन के महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
+Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
 
-यह उदाहरण चार श्रृंखलाओं के साथ एक ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है, क्रम में तथा तीन श्रेणियों के साथ। [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) प्रॉपर्टी अप/डाउन बार को सक्षम करती है, और [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) हाई‑लो लाइनों को नियंत्रित करती है जो प्राइस रेंज दिखाती हैं, जबकि व्यक्तिगत सीरीज़ लाइनों और माइनर हॉरिज़ॉन्टल ग्रिडलाइन छिपी रहती हैं।
+This example creates an open‑high‑low‑close chart with four series in that order and three categories. The [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) property enables up/down bars, and [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) controls the high‑low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
+
+The [up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/up_down_bars/) manager exposes separate [up_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/up_bars_format/) and [down_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/down_bars_format/) objects. Use each object's [fill](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/fill/) and [line](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/line/) properties to set its fill and outline independently. This example uses green bars with dark‑green outlines for rising intervals and orange‑red bars with dark‑red outlines for falling intervals.
+
+Provide numeric values for all four series at each category, with High and Low enclosing Open and Close. The bars compare Close with Open **within the same category**, not with the previous category: A falls from 72 to 25, while B rises from 25 to 38 and C rises from 38 to 50. Equal Open and Close values produce no visible filled interval. Up/down bars span Open–Close; high‑low lines span Low–High. These bars belong to the series group and are not ordinary bar‑chart series.
+
+This formatting also works with [LINE and LINE_WITH_MARKERS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) charts containing at least two series in the same group and corresponding numeric values for each category. For these non‑stacked line charts, up/down bars compare the first and last series: a higher last value produces an up bar, and a lower last value produces a down bar. Reversing those series reverses the classification. The example below uses [OPEN_HIGH_LOW_CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/); do not assume that other stock, stacked‑line, or 3D variants use the same data arrangement or interval interpretation.
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 150, False)
 
     workbook = chart.chart_data.chart_data_workbook
 
@@ -558,7 +563,20 @@ with slides.Presentation() as presentation:
     value_cell = workbook.get_cell(0, 3, 4, 50)
     series.data_points.add_data_point_for_stock_series(value_cell)
 
-    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
+    up_down_bars = chart.chart_data.series_groups[0].up_down_bars
+    up_down_bars.has_up_down_bars = True
+
+    up_down_bars.up_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.fill.solid_fill_color.color = draw.Color.lime_green
+    up_down_bars.up_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_green
+    up_down_bars.up_bars_format.line.width = 2
+
+    up_down_bars.down_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.fill.solid_fill_color.color = draw.Color.orange_red
+    up_down_bars.down_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_red
+    up_down_bars.down_bars_format.line.width = 2
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
     for stock_series in chart.chart_data.series:
@@ -569,15 +587,15 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-परिणाम:
+परिणाम (PowerPoint से निर्यात किया गया):
 
-![The Stock chart](stock_chart.png)
+![ऑरेंज‑रेड फॉलिंग इंटरवल वाले A और ग्रीन राइज़िंग इंटरवल वाले B और C के साथ स्टॉक चार्ट](stock_chart.png)
 
-### **बॉक्स एंड व्हिस्कर चार्ट बनाएं**
+### **बॉक्स और व्हिस्कर चार्ट बनाएं**
 
-बॉक्स एंड व्हिस्कर चार्ट डेटा के वितरण को प्रमुख सांख्यिकीय मापों—जैसे मीडियन, क्वारटाइल, और संभावित अपवर्जन—का सारांश प्रस्तुत करके दर्शाते हैं। वे विशेष रूप से एक्स्प्लोरटरी डेटा एनालिसिस और सांख्यिकीय अध्ययन में उपयोगी होते हैं ताकि डेटा वेरिएबिलिटी को जल्दी समझा जा सके और किसी भी विसंगति की पहचान की जा सके।
+Box and whisker charts are used to display the distribution of data by summarizing key statistical measures, such as the median, quartiles, and potential outliers. They are particularly useful in exploratory data analysis and statistical studies to quickly understand data variability and identify any anomalies.
 
-यह उदाहरण छह मानों से एक बॉक्स एंड व्हिस्कर चार्ट बनाता है। [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) प्रॉपर्टी एक्सक्लूसिव क्वारटाइल गणना चुनती है। उदाहरण में मी mean लाइन्स, मी mean मार्कर्स, इnner पॉइंट्स, और आऊटलायर पॉइंट्स को भी सक्षम किया गया है।
+This example creates a box and whisker chart from six values. The [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) property selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
 
 ```python
 import aspose.slides as slides
@@ -631,11 +649,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **फ़नल चार्ट बनाएं**
+### **फनल चार्ट बनाएं**
 
-फ़नल चार्ट प्रक्रियाओं को दृश्यात्मक बनाने के लिए उपयोग किए जाते हैं जिनमें क्रमिक चरण हों, जहाँ डेटा की मात्रा प्रत्येक चरण के साथ घटती जाती है। वे विशेषकर रूपांतरण दरों का विश्लेषण, बाधाओं की पहचान, और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता ट्रैक करने में मदद करते हैं।
+Funnel charts are used to visualize processes that involve sequential stages, where the volume of data decreases as it progresses from one step to the next. They are especially helpful for analyzing conversion rates, identifying bottlenecks, and tracking the efficiency of sales or marketing processes.
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर एक फ़नल चार्ट जोड़ने के लिए [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदलता है, फिर अपडेटेड प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
+This example uses [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
 
 ```python
 import aspose.slides as slides
@@ -685,13 +703,13 @@ with slides.Presentation("test.pptx") as presentation:
 
 परिणाम:
 
-![The Funnel chart](funnel_chart.png)
+![फनल चार्ट](funnel_chart.png)
 
 ### **सनबर्स्ट चार्ट बनाएं**
 
-सनबर्स्ट चार्ट पदानुक्रमिक डेटा को दृश्यात्मक बनाने के लिए उपयोग होते हैं, जहाँ स्तर घूर्णीय रिंग के रूप में प्रदर्शित होते हैं। वे भाग‑से‑पूरा संबंधों को दर्शाते हैं और नेस्टेड श्रेणियों तथा उप‑श्रेणियों को स्पष्ट, संकुचित प्रारूप में प्रस्तुत करने के लिए आदर्श हैं।
+Sunburst charts are used to visualize hierarchical data, displaying levels as concentric rings. They help illustrate part‑to‑whole relationships and are ideal for representing nested categories and subcategories in a clear, compact format.
 
-यह उदाहरण आठ लीफ़ को चार टोकरे और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) मेथड समूह स्तर 1 पर टोकरे और स्तर 2 पर शाखाएँ असाइन करता है। श्रेणी लेबल खंडों की पहचान करते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
+This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
 
 ```python
 import aspose.slides as slides
@@ -764,17 +782,17 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Sunburst chart](sunburst_chart.png)
+![सनबर्स्ट चार्ट](sunburst_chart.png)
 
 ### **हिस्टोग्राम चार्ट बनाएं**
 
-हिस्टोग्राम चार्ट दिखाते हैं कि संख्यात्मक मान कैसे अंतराल (bins) में वितरित होते हैं। मासिक रिपोर्ट में ऑर्डर प्रोसेसिंग टाइम के लिए एक ही बिन चौड़ाई और थ्रेशोल्ड रखें ताकि अंतराल सुसंगत रहें और वितरण की तुलना आसान हो।
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-हॉरिज़ॉन्टल अक्ष पर [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) को [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) के किसी मोड पर सेट करें। [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) केवल `BY_BIN_WIDTH` के लिए लागू होता है; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) केवल `BY_NUMBER_OF_BINS` के लिए। `AUTOMATIC` का उपयोग करने पर चार्ट बिन स्वयं चुनता है।
+Set the horizontal axis [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) to a mode from [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) applies only to `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) applies only to `BY_NUMBER_OF_BINS`. Use `AUTOMATIC` to let the chart choose the bins.
 
 #### **स्थिर बिन चौड़ाई का उपयोग करें**
 
-यह उदाहरण प्रोसेसिंग टाइम को 10‑मिनट अंतराल में समूहित करता है, जहाँ 10 मिनट या उससे कम और 40 मिनट से अधिक के लिए अलग बिन होते हैं। इन बिन को [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) और [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) के साथ सक्षम करें। स्पष्ट [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) और [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) थ्रेशोल्ड प्रदान करने पर, [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) और [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) को `False` सेट करें।
+This example groups processing times into 10‑minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) and [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). When supplying explicit [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) and [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) thresholds, set [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) and [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) to `False`.
 
 ```python
 import aspose.slides as slides
@@ -813,13 +831,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-PowerPoint में प्रदर्शित प्रस्तुति बिन गिनती **3, 4, 4, 4, और 2** दिखाती है। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशोल्ड इन्क्लूसिव है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशोल्ड एक्सक्लूसिव है; दोनों मान `40` पूर्ववर्ती अंतराल में रहते हैं। इंटीरियर बिन में मान उनके निचले बॉउंडरी से बड़े और ऊपर की बॉउंडरी से छोटे या बराबर होते हैं।
+PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन `5, 10, 10` को शामिल करता है, इसलिए इसकी सीमा समावेशी है। ओवरफ़्लो बिन केवल `41, 50` को शामिल करता है, इसलिए इसकी सीमा बहिष्करणी है; दोनों मान `40` पूर्ववर्ती अंतराल में रहते हैं। आंतरिक बिन के मान नीचे की सीमा से बड़े और ऊपर की सीमा से छोटे या बराबर होते हैं।
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![10‑मिनट बिन और स्पष्ट अंडरफ़्लो तथा ओवरफ़्लो थ्रेशहोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
 
 #### **बिन की संख्या निर्दिष्ट करें**
 
-स्थिर अंतराल के बजाय स्थिर विवरण स्तर के लिए, समान डेटा पर पाँच बिनों का अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को अक्षम छोड़ता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमाएँ रिपोर्ट से रिपोर्ट बदल सकती हैं।
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
 
 ```python
 import aspose.slides as slides
@@ -852,15 +870,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-पाँच बिनों की गिनती **4, 4, 4, 4, और 1** है। इस वितरण की तुलना ऊपर के स्थिर‑चौड़ाई परिणाम से करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
+पाँच बिन में काउंट **4, 4, 4, 4, और 1** है। ऊपर के स्थिर‑चौड़ाई परिणाम से वितरण की तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![एक ही डेटा से गणना किए गए पाँच बिन के साथ हिस्टोग्राम](histogram_bin_count.png)
 
 ### **रेडार चार्ट बनाएं**
 
-रेडार चार्ट बहु‑चर डेटा को द्वि‑आयामी रूप में प्रदर्शित करने के लिए उपयोग होते हैं, जिससे कई वेरिएबल्स की एक साथ आसान तुलना सम्भव होती है। वे कई प्रदर्शन मीट्रिक्स या गुणों के बीच पैटर्न, ताकत, और कमजोरियों की पहचान में विशेष रूप से उपयोगी होते हैं।
+Radar charts are used to display multivariate data in a two‑dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
 
-यह उदाहरण [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक रेडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+This example uses [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
 
 ```python
 import aspose.slides as slides
@@ -876,13 +894,13 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Radar chart](radar_chart.png)
+![रेडार चार्ट](radar_chart.png)
 
-### **मल्टी‑कॅटेगरी चार्ट बनाएं**
+### **मल्टी-कैटेगरी चार्ट बनाएं**
 
-मल्टी‑कॅटेगरी चार्ट उन डेटा को दिखाने के लिए उपयोग होते हैं जिनमें एक से अधिक श्रेणीगत समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। वे जटिल, बहु‑स्तरीय डेटा सेट में रुझान और संबंधों का विश्लेषण करने में विशेष रूप से मददगार होते हैं।
+Multi‑category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi‑layered datasets.
 
-यह उदाहरण चार जोड़े में व्यवस्थित आठ श्रेणियों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) मेथड प्रत्येक जोड़े को समूह स्तर 1 पर साझा लेबल देता है, जिससे एक श्रेणी अक्ष बनता है जिसमें व्यक्तिगत और समूह दोनों लेबल होते हैं।
+This example creates a clustered column chart with eight categories arranged in four pairs. The [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
 
 ```python
 import aspose.slides as slides
@@ -950,13 +968,39 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The multi category chart](multi_category_chart.png)
+![मल्टी कैटेगरी चार्ट](multi_category_chart.png)
+
+#### **एक क्वार्टर लेबल हटाएं**
+
+Download [quarters.pptx](quarters.pptx) and place it in the working directory. Its chart shows nine months and a single sales series with values from 10 through 18. The category axis has three quarter labels: Q1 spans Jan–Mar, Q2 spans Apr–Jun, and Q3 spans Jul–Sep.
+
+April is the fourth category and the one on which Q2 was explicitly set. Call [delete_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/delete_grouping_item/) on April's [grouping_levels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/grouping_levels/) collection. The level is relative to April: level 1 is its quarter, and level 0 is the month itself. The method cannot remove the leaf category at level 0.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("quarters.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    april = chart.chart_data.categories[3]
+    april.grouping_levels.delete_grouping_item(1)
+    
+    presentation.save("quarters-updated.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("quarters-updated.pptx") as reopened:
+    data = reopened.slides[0].shapes[0].chart_data
+    print(", ".join(str(month.as_cell.value) for month in data.categories))
+    print(", ".join(str(point.value.data) for point in data.series[0].data_points))
+```
+
+पुनः खोलिए गई चार्ट मूल महीने (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) और बिक्री मान (`10, 11, 12, 13, 14, 15, 16, 17, 18`) को उसी क्रम में प्रदर्शित करती है। `quarters-updated.pptx` को PowerPoint में खोलें और अक्ष लेबल की तुलना करें। Q2 लेबल और अप्रैल से पहले का समूह सीमा हट गया है, इसलिए Q1 जनवरी से जून तक फैलता है। Q3 अभी भी जुलाई से शुरू होता है।
+
+![लेबल हटाने से पहले और बाद के क्वार्टर लेबल। बाएं में Q2 अप्रैल से जून तक फैला है। दाएं में Q1 जनवरी से जून तक फैला है।](quarter-label-comparison.png)
 
 ### **मैप चार्ट बनाएं**
 
-मैप चार्ट भौगोलिक डेटा को विशिष्ट स्थानों (देश, राज्य, शहर) पर मैप करके दृश्यात्मक बनाने के लिए उपयोग होते हैं। वे क्षेत्रीय रुझान, जनसांख्यिकीय डेटा, और स्थानिक वितरण का विश्लेषण स्पष्ट, आकर्षक रूप में करने में मदद करते हैं।
+Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
 
-यह उदाहरण [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और इसे PowerPoint में देखने के लिए सहेजता है।
+This example uses [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
 
 ```python
 import aspose.slides as slides
@@ -972,19 +1016,19 @@ with slides.Presentation() as presentation:
 
 परिणाम:
 
-![The Map chart](map_chart.png)
+![मैप चार्ट](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-उपरोक्त चित्र में सहेजी गई प्रस्तुति PowerPoint में खुली हुई दिखाई देती है। Aspose.Slides मैप चार्ट और उसके डेटा को सही ढंग से लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब किसी स्लाइड को इमेज या PDF या SVG में रेंडर किया जाता है, तो चार्ट क्षेत्र खाली रह जाता है। उसी स्लाइड के अन्य शैप्स पर इसका कोई असर नहीं पड़ता।
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
 {{% /alert %}}
 
-### **कंबिनेशन चार्ट बनाएं**
+### **कॉम्बिनेशन चार्ट बनाएं**
 
-कंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को संयोजित करता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने में मदद करता है, जिससे उनके बीच संबंधों की पहचान आसान हो जाती है।
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![The combination chart](combination_chart.png)
+![कॉम्बिनेशन चार्ट](combination_chart.png)
 
-यह उदाहरण दो क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ चार श्रेणियों पर संयोजित करता है। कॉलम प्राइमरी वर्टिकल अक्ष का उपयोग करते हैं, जबकि [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) लाइन को दाएँ ओर एक सेकेंडरी वर्टिकल अक्ष पर रखता है। सहायक फ़ंक्शन शीर्षक, लीज़ेंड, अक्ष लेबल, और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
+This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
 
 ```python
 import aspose.pydrawing as draw
@@ -1132,9 +1176,9 @@ create_combo_chart()
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for Python via .NET आपको PowerPoint चार्ट को डेटा, फ़ॉर्मैटिंग, और स्टाइलिंग को संशोधित करके अपडेट करने की सुविधा देता है। यह कार्यक्षमता प्रस्तुतियों को डायनेमिक कंटेंट के साथ अद्यतन रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और विज़ुअल मानकों को सटीक रूप से प्रतिबिंबित करें।
+Aspose.Slides for Python via .NET enables you to update PowerPoint charts by modifying chart data, formatting, and styling. This functionality simplifies the process of keeping presentations up-to-date with dynamic content and ensures that charts accurately reflect current data and visual standards.
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाले दो कॉलम सीरीज़ की आवश्यकता होती है, जहाँ श्रेणी लेबल कॉलम A में और सीरीज़ नाम पहले वर्कशीट की पहली पंक्ति में होते हैं। उदाहरण [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) का उपयोग करके वर्कबुक सेल्स को बदलता है, सीरीज़ मानों को अपडेट करता है, तीसरी सीरीज़ जोड़ता है, और [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) के माध्यम से चार्ट को क्लस्टर्ड सिलेंडर में बदलता है।
+This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1186,11 +1230,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **चार्ट के लिए डेटा रेंज सेट करें**
 
-किसी मौजूदा चार्ट द्वारा उपयोग की गई रेंज को देखना है तो देखें [Retrieve a Chart's Data Range](/slides/hi/python-net/chart-workbook/#retrieve-a-charts-data-range)।
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/hi/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Python via .NET आपको वर्कशीट से एक विशिष्ट डेटा रेंज को अपने चार्ट के स्रोत डेटा के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप सीधे अपनी वर्कशीट का एक भाग चार्ट से मैप कर सकते हैं, जिससे आप तय कर सकते हैं कि कौन से सेल चार्ट की सीरीज़ और श्रेणियों में योगदान देंगे। परिणामस्वरूप, आप अपने चार्ट को वर्कशीट में नवीनतम डेटा बदलाओं के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, जिससे आपकी PowerPoint प्रस्तुतियां वर्तमान और सटीक जानकारी को प्रतिबिंबित करती हैं।
+Aspose.Slides for Python via .NET provides the flexibility to define a specific data range from a worksheet as the source for your chart's data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 
-यह उदाहरण [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में वह वर्कशीट और एक भरी हुई रेंज मौजूद होनी चाहिए, जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में श्रेणी लेबल, और कॉलम B में तीन मान हों।
+This example uses [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
 
 ```python
 import aspose.slides as slides
@@ -1209,11 +1253,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
+## **चार्ट में डिफॉल्ट मार्कर का उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से एक अलग डिफ़ॉल्ट मार्कर सिम्बॉल मिल जाता है।
+When you use default markers in charts, each chart series gets a different default marker symbol automatically.
 
-यह उदाहरण [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करके दो लाइन सीरीज़ और एक लीज़ेंड वाला चार्ट बनाता है। [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) सेटिंग्स स्वतः असाइन किए गए मार्कर सिम्बॉल को बरकरार रखती हैं। पहली सीरीज़ में एक नकारात्मक मान और एक मिसिंग वैल्यू (`None`) है, जबकि दूसरी में हर श्रेणी के लिए मान है।
+This example uses [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) to create a chart with two line series and a legend. The [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) settings retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `None`, while the second has a value for every category.
 
 ```python
 import aspose.slides as slides
@@ -1270,20 +1314,22 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **Aspose.Slides for Python via .NET द्वारा कौन से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides for Python via .NET कई प्रकार के चार्ट समर्थित करता है, जिसमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार, और कई अन्य शामिल हैं। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन आवश्यकताओं के अनुसार सबसे उपयुक्त चार्ट प्रकार चुनने की सुविधा देता है।
+Aspose.Slides for Python via .NET कई प्रकार के चार्ट का समर्थन करता है, जिनमें बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य शामिल हैं। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
 
-**मैं स्लाइड पर नया चार्ट कैसे जोड़ूँ?**
+**मैं स्लाइड में नया चार्ट कैसे जोड़ूं?**
 
-चार्ट जोड़ने के लिए पहले आप [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट होते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में सम्मिलित करती है।
+नया चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की विधि को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट किया जाता है। यह प्रक्रिया सीधे आपके प्रस्तुति में चार्ट को एकीकृत करती है।
 
-**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
+**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूं?**
 
-आप चार्ट के डेटा को उसके डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) तक पहुंच कर अपडेट कर सकते हैं, किसी भी डिफ़ॉल्ट सीरीज़ और श्रेणियों को साफ़ कर दें, और फिर अपनी कस्टम डेटा जोड़ें। इससे आप प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रिफ्रेश कर सकते हैं।
+आप चार्ट के डेटा को उसके डेटा वर्कबुक ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) तक पहुँचकर, डिफॉल्ट श्रृंखला और श्रेणियों को साफ़ करके, और अपनी कस्टम डेटा जोड़कर अपडेट कर सकते हैं। इससे आप प्रोग्रामmatically चार्ट को नवीनतम डेटा के अनुसार रीफ़्रेश कर सकते हैं।
 
-**क्या मैं चार्ट की उपस्थिति को अनुकूलित कर सकता हूँ?**
+**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हाँ, Aspose.Slides for Python via .NET व्यापक कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लीज़ेंड, और अन्य फ़ॉर्मैटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुरूप बना सकते हैं।
+हाँ, Aspose.Slides for Python via .NET व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लीजेंड तथा अन्य स्वरूपण तत्वों को बदलकर चार्ट की उपस्थिति को अपनी विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार तैयार कर सकते हैं।
+
+संबंधित सुविधा: [संपादन योग्य चार्ट बनाएं](/slides/hi/features/create-charts/).

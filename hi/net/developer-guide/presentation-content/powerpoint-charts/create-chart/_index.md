@@ -1,6 +1,6 @@
 ---
-title: PowerPoint प्रस्तुति चार्ट बनाना या अपडेट करना .NET में
-linktitle: चार्ट बनाएं या अपडेट करें
+title: PowerPoint प्रस्तुति चार्ट बनाएँ या अपडेट करें .NET में
+linktitle: चार्ट बनाएँ या अपडेट करें
 type: docs
 weight: 10
 url: /hi/net/create-chart/
@@ -15,12 +15,12 @@ keywords:
 - लाइन चार्ट
 - ट्री मैप चार्ट
 - स्टॉक चार्ट
-- बॉक्स एंड विस्कर चार्ट
+- बॉक्स और व्हिस्कर चार्ट
 - फ़नल चार्ट
 - सनबर्स्ट चार्ट
 - हिस्टोग्राम चार्ट
-- राडार चार्ट
-- मल्टीकैटेगरी चार्ट
+- रेडार चार्ट
+- बहु-श्रेणी चार्ट
 - PowerPoint
 - प्रस्तुति
 - .NET
@@ -30,31 +30,33 @@ description: "Aspose.Slides for .NET का उपयोग करके PowerPo
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for .NET का उपयोग करके चार्ट बनाने और अनुकूलित करने के बारे में एक व्यापक मार्गदर्शिका प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक रूप से स्लाइड में एक चार्ट कैसे जोड़ें, उसे डेटा से भरें, और आपके विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार विभिन्न फ़ॉर्मेटिंग विकल्प कैसे लागू करें। लेख के दौरान विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रारंभिक प्रस्तुति और चार्ट ऑब्जेक्ट से लेकर सीरीज़, अक्ष और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके आप अपने .NET अनुप्रयोगों में गतिशील चार्ट निर्माण को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा-आधारित प्रस्तुतियों का निर्माण आसान हो जाएगा।
+यह लेख Aspose.Slides for .NET का उपयोग करके चार्ट बनाने और अनुकूलित करने के बारे में एक व्यापक गाइड प्रदान करता है। आप सीखेंगे कि प्रोग्रामेटिक रूप से स्लाइड में चार्ट कैसे जोड़ें, उसे डेटा से भरें, और विभिन्न फ़ॉर्मेटिंग विकल्प लागू करके अपने विशिष्ट डिज़ाइन आवश्यकताओं से मेल करें। लेख के दौरान विस्तृत कोड उदाहरण प्रत्येक चरण को दर्शाते हैं, प्रस्तुति और चार्ट ऑब्जेक्ट को प्रारंभ करने से लेकर सीरीज़, अक्ष और लेजेंड को कॉन्फ़िगर करने तक। इस गाइड का पालन करके, आप अपने .NET अनुप्रयोगों में डायनेमिक चार्ट जनरेशन को एकीकृत करने की ठोस समझ प्राप्त करेंगे, जिससे डेटा‑ड्रिवन प्रस्तुतियों का निर्माण सरल हो जाएगा।
 
 ## **चार्ट बनाएं**
 
-चार्ट लोगों को डेटा को जल्दी से दृश्य रूप में समझने और ऐसी अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होती।
+चार्ट लोगों को डेटा को जल्दी से विज़ुअलाइज़ करने और ऐसे अंतर्दृष्टि प्राप्त करने में मदद करते हैं जो तालिका या स्प्रेडशीट से तुरंत स्पष्ट नहीं होते।
 
 **चार्ट क्यों बनाएं?**
 
 चार्ट का उपयोग करके आप:
 
-* प्रस्तुति की एक ही स्लाइड में बड़ी मात्रा में डेटा को एकत्रित, संक्षिप्त या सारांशित कर सकते हैं;
+* एक ही स्लाइड में बड़ी मात्रा में डेटा को संक्षिप्त, समेकित या सारांशित कर सकते हैं;
 * डेटा में पैटर्न और रुझान उजागर कर सकते हैं;
-* समय के साथ या किसी विशिष्ट माप इकाई के सापेक्ष डेटा की दिशा और गति समझ सकते हैं;
-* अपवर्जन, विचलन, त्रुटियां और अयथार्थ डेटा की पहचान कर सकते हैं;
-* जटिल डेटा को संवादित या प्रस्तुत कर सकते हैं।
+* समय या विशिष्ट माप इकाई के संदर्भ में डेटा की दिशा और गति निर्धारित कर सकते हैं;
+* अपवाद, विचलन, त्रुटियाँ और असंगत डेटा को पहचान सकते हैं;
+* जटिल डेटा को प्रभावी ढंग से संप्रेषित या प्रस्तुत कर सकते हैं।
 
-PowerPoint में आप *Insert* फ़ंक्शन के माध्यम से विभिन्न प्रकार के चार्ट टेम्पलेट का उपयोग करके चार्ट बना सकते हैं। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
+PowerPoint में, आप *Insert* फ़ंक्शन के माध्यम से चार्ट बना सकते हैं, जो कई प्रकार के चार्ट डिज़ाइन करने के लिए टेम्पलेट प्रदान करता है। Aspose.Slides का उपयोग करके आप सामान्य चार्ट (लोकप्रिय चार्ट प्रकारों पर आधारित) और कस्टम चार्ट दोनों बना सकते हैं।
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+
+[Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) नेमस्पेस के तहत [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) एनेमरेशन का उपयोग करें। इस एनेमरेशन के मान विभिन्न चार्ट प्रकारों के अनुरूप होते हैं।
+
 {{% /alert %}}
 
 ### **क्लस्टर्ड कॉलम चार्ट बनाएं**
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन वर्गों में दो सीरीज़ की तुलना करता है। सीरीज़ लाल और हरे फ़िल से भरते हैं, और व्यक्तिगत लेबल वर्ग नाम, सीरीज़ नाम और मान प्रदर्शित करते हैं। वर्कशीट सूचकांक 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को संदर्भित करता है।
+यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके एक क्लस्टर्ड कॉलम चार्ट बनाता है जो तीन श्रेणियों में दो सीरीज़ की तुलना करता है। सीरीज़ में लाल और हरे फ़िल होते हैं, और व्यक्तिगत लेबल श्रेणी के नाम, सीरीज़ के नाम और मान प्रदर्शित करते हैं। वर्कशीट इंडेक्स 0 एम्बेडेड चार्ट वर्कबुक की पहली शीट को दर्शाता है।
 
 ```csharp
 using System.Drawing;
@@ -130,20 +132,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![क्लस्टर्ड कॉलम चार्ट](clustered_column_chart.png)
 
 ### **स्कैटर चार्ट बनाएं**
 
-स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x-y ग्राफ़ भी कहा जाता है) अक्सर दो चर के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
+स्कैटर चार्ट (जिसे स्कैटर प्लॉट या x‑y ग्राफ़ भी कहा जाता है) अक्सर दो वेरिएबल्स के बीच पैटर्न या सहसंबंध जांचने के लिए उपयोग किए जाते हैं।
 
 स्कैटर चार्ट का उपयोग तब करें जब:
 
-* आपके पास युग्मित संख्यात्मक डेटा हो।
-* आपके पास दो ऐसे चर हों जो अच्छी तरह से जुड़ते हों।
-* आप निर्धारित करना चाहते हों कि क्या दो चर संबंधित हैं।
-* आपके पास एक स्वतंत्र चर हो जिसके कई मान एक आश्रित चर के लिए हों।
+* आपके पास जोड़ी गई संख्यात्मक डेटा हो।
+* दो वेरिएबल्स एक साथ अच्छी तरह फिट हों।
+* आप यह निर्धारित करना चाहते हों कि दोनों वेरिएबल्स संबंधित हैं या नहीं।
+* आपके पास एक स्वतंत्र वेरिएबल हो जिसके लिए आश्रित वेरिएबल के कई मान हों।
 
-यह उदाहरण दो सेट के x-y मानों को प्लॉट करता है। पहली सीरीज़ स्टार मार्कर के साथ सीधी रेखाएँ उपयोग करती है, जबकि दूसरी स्मूथ रेखाएँ सर्कल मार्कर के साथ; दोनों का [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 10 है। [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) प्रॉपर्टी मार्कर का आकार नियंत्रित करती है।
+यह उदाहरण दो सेट x‑y मान प्लॉट करता है। पहली सीरीज़ में तारों के साथ सीधी रेखाएँ हैं, जबकि दूसरी में गोलाकार मार्कर के साथ स्मूद रेखाएँ; दोनों का [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) 10 है। मार्कर का आकार [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) प्रॉपर्टी द्वारा नियंत्रित होता है।
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +208,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Scatter chart](scatter_chart.png)
+![स्कैटर चार्ट](scatter_chart.png)
 
 ### **पाई चार्ट बनाएं**
 
-पाई चार्ट डेटा में भाग-से-सम्पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल संख्यात्मक मानों के साथ हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हैं, तो बार चार्ट का उपयोग करने पर विचार करें।
+पाई चार्ट डेटा में भाग‑से‑सम्पूर्ण संबंध दिखाने के लिए सबसे उपयुक्त होते हैं, विशेषकर जब डेटा में श्रेणीबद्ध लेबल संख्यात्मक मानों के साथ हों। हालांकि, यदि आपके डेटा में कई भाग या लेबल हों, तो आप बार चार्ट का उपयोग करने पर विचार कर सकते हैं।
 
-यह उदाहरण तीन त्रैमासिक मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस में कस्टम फ़िल और बॉर्डर है, और लेबल विभिन्न संयोजनों में मान, प्रतिशत और सीरीज़ जानकारी प्रदर्शित करते हैं। [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) प्रॉपर्टी पहला स्लाइस 180 डिग्री पर शुरू करती है।
+यह उदाहरण तीन तिमाही मानों के साथ एक पाई चार्ट बनाता है। प्रत्येक स्लाइस का कस्टम फ़िल और बॉर्डर होता है, और लेबल विभिन्न संयोजन (मान, प्रतिशत, सीरीज़ जानकारी) दिखाते हैं। [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) प्रॉपर्टी पहले स्लाइस को 180 डिग्री पर शुरू करती है।
 
 ```csharp
 using System.Drawing;
@@ -308,15 +310,15 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Pie chart](pie_chart.png)
+![पाई चार्ट](pie_chart.png)
 
-लेबल की पठनीयता बढ़ाने के लिए, देखें [Format Leader Lines](/slides/hi/net/chart-data-label/#format-leader-lines) जिसमें लेबल को स्थित करने और लाइन के रंग, चौड़ाई, पारदर्शिता और डैश शैली को अनुकूलित करने का उदाहरण है।
+पाई के बाहर लेबल की पठनीयता सुधारने के लिए, [Format Leader Lines](/slides/hi/net/chart-data-label/#format-leader-lines) देखें ताकि लेबल को स्थित किया जा सके और लाइन की रंग, चौड़ाई, पारदर्शिता और डैश शैली को अनुकूलित किया जा सके।
 
 ### **लाइन चार्ट बनाएं**
 
-लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) सबसे उपयुक्त तब होते हैं जब आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप बड़े डेटा सेट की तुलना एक साथ कर सकते हैं, समय के साथ परिवर्तन और रुझान ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
+लाइन चार्ट (जिसे लाइन ग्राफ़ भी कहा जाता है) उन स्थितियों में सबसे उपयुक्त होते हैं जहाँ आप समय के साथ मान में परिवर्तन दिखाना चाहते हैं। लाइन चार्ट का उपयोग करके आप बड़ी मात्रा में डेटा की तुलना कर सकते हैं, समय के साथ परिवर्तन और रुझान ट्रैक कर सकते हैं, डेटा सीरीज़ में विसंगतियों को उजागर कर सकते हैं, आदि।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट सीरीज़ और वर्गों के साथ एक लाइन चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक लाइन चार्ट बनाता है, फिर प्रस्तुतिकरण को PPTX के रूप में सहेजता है।
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +333,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदुओं को सीधी निरंतर रेखा से जोड़ा जाता है। यदि आप बिंदुओं को डैश से जोड़ना चाहते हैं, तो [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) को [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) से कोई मान सेट करें:
+डिफ़ॉल्ट रूप से, लाइन चार्ट में बिंदु सीधे निरन्तर रेखाओं से जुड़े होते हैं। यदि आप बिंदुओं को डैश से जोड़ना चाहते हैं, तो [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) को [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) के मान से सेट करें:
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +352,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 परिणाम:
 
-![The Line chart](line_chart.png)
+![लाइन चार्ट](line_chart.png)
 
 ### **ट्री मैप चार्ट बनाएं**
 
-ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा वर्गों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक वर्ग में बड़े योगदानकर्ताओं को जल्दी से उजागर करना चाहते हैं।
+ट्री मैप चार्ट बिक्री डेटा के लिए सबसे उपयुक्त होते हैं जब आप डेटा श्रेणियों के सापेक्ष आकार दिखाना चाहते हैं और प्रत्येक श्रेणी में बड़े योगदानकर्ता आइटम पर जल्दी से ध्यान आकर्षित करना चाहते हैं।
 
-यह उदाहरण आठ लीफ़ को चार स्टेम और दो शाखाओं में समूहित करके एक ट्री मैप बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड स्टेम को ग्रुपिंग लेवल 1 और शाखाओं को लेवल 2 पर असाइन करता है। मान प्रतिच्छेद के आकार निर्धारित करते हैं, जबकि वर्ग लेबल और ओवरलैपिंग पैरेंट लेबल पदानुक्रम को दर्शाते हैं।
+यह उदाहरण आठ पत्तियों को चार स्टेम और दो ब्रांच में समूहित करके एक ट्री मैप बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड स्टेम को समूह स्तर 1 और ब्रांच को स्तर 2 पर असाइन करता है। मान सापेक्ष आयत आकार निर्धारित करते हैं, जबकि श्रेणी लेबल और ओवरलैपिंग पेरेंट लेबल पदानुक्रम पहचानते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -432,26 +434,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Treemap chart](treemap_chart.png)
+![ट्रीमैप चार्ट](treemap_chart.png)
 
-### **वॉटरफ़ॉल चार्ट बनाएं**
+### **वॉटरफॉल चार्ट बनाएं**
 
-वॉटरफ़ॉल चार्ट दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, मुनाफ़ा विभाजन राजस्व से शुरू हो सकता है, लागत घटा सकता है, और अन्य आय जोड़ सकता है। परिवर्तन स्तंभ पूर्व और नई चल मानों के बीच तैरते हैं, जबकि कुल स्तंभ शून्य से संचयी मान तक विस्तारित होते हैं।
+वॉटरफॉल चार्ट दिखाता है कि सकारात्मक और नकारात्मक परिवर्तन अंतिम मान में कैसे योगदान देते हैं। उदाहरण के लिए, लाभ विभाजन राजस्व से शुरू हो सकता है, लागत घटा सकते हैं, और अन्य आय जोड़ सकते हैं। परिवर्तन कॉलम पिछले और नए चल रहे मान के बीच तैरते हैं, जबकि कुल कॉलम शून्य से संचित मान तक विस्तार करता है।
 
-निम्न उदाहरण हजारों अमेरिकी डॉलर में राशियां उपयोग करता है:
+निम्नलिखित उदाहरण हजारों अमेरिकी डॉलर में राशियों का उपयोग करता है:
 
-| वर्ग | वर्कबुक मान | स्तंभ प्रकार |
+| श्रेणी | वर्कबुक मान | कॉलम प्रकार |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| राजस्व | 1000 | वृद्धि |
+| बिक्री लागत | -400 | घटाव |
+| सकल लाभ | 600 | मध्यवर्ती कुल |
+| परिचालन खर्च | -200 | घटाव |
+| अन्य आय | 50 | वृद्धि |
+| शुद्ध लाभ | 450 | अंतिम कुल |
 
-किसी बिंदु को मध्यस्थ या अंतिम कुल के रूप में चिह्नित करने के लिए, उसकी [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) प्रॉपर्टी को `true` सेट करें। उस बिंदु की वर्कबुक सेल में वास्तविक संचयी राशि प्रदान करें: कुल लाभ के लिए `600` (`1000 - 400`) और शुद्ध लाभ के लिए `450` (`600 - 200 + 50`)। यह प्रॉपर्टी स्तंभ को कुल के रूप में चिह्नित करती है; यह सेल मान की गणना या प्रविष्टि नहीं करता। शून्य को प्लेसहोल्डर के रूप में न उपयोग करें या कुल बिंदु के लिए कोई अन्य परिवर्तन न जोड़ें। कुल स्तंभ संचयी मान को दिखाता है बिना उसे दोबारा चल मान में जोड़े। 
+किसी बिंदु को मध्यवर्ती या अंतिम कुल के रूप में चिह्नित करने के लिए, उसके [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) प्रॉपर्टी को `true` सेट करें। उस बिंदु के वर्कबुक सेल में वास्तविक संचित राशि प्रदान करें: सकल लाभ के लिए `600` (`1000 - 400`) और शुद्ध लाभ के लिए `450` (`600 - 200 + 50`)। यह प्रॉपर्टी कॉलम को कुल के रूप में चिन्हित करती है; यह सेल मान की गणना या भराव नहीं करती। शून्य को प्लेसहोल्डर के रूप में उपयोग न करें या कुल बिंदु के लिए कोई अतिरिक्त परिवर्तन न दें। कुल कॉलम संचित मान को बिना दोबारा जोड़ने के दिखाता है।
 
-यह पूर्ण C# उदाहरण [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) के `Waterfall` सदस्य का उपयोग करके एक चार्ट बनाता है, डिफ़ॉल्ट डेटा को साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट सूचकांक `0` पहली वर्कशीट चुनता है; स्तंभ A में वर्ग नाम और स्तंभ B में मान होते हैं। प्रत्येक मान सेल को [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) से जोड़ा जाता है। शून्य-आधारित बिंदु सूचकांक `2` और `5` क्रमशः मध्यस्थ और अंतिम कुल को पहचानते हैं। [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) को सक्षम करने से मान स्तंभों पर दिखाए जाते हैं। इनपुट प्रस्तुति या वर्कबुक की आवश्यकता नहीं है।
+यह पूर्ण C# उदाहरण [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) के `Waterfall` सदस्य का उपयोग करके चार्ट बनाता है, डिफ़ॉल्ट डेटा साफ़ करता है, और एम्बेडेड वर्कबुक को भरता है। वर्कशीट इंडेक्स `0` पहली वर्कशीट चयन करता है; कॉलम A श्रेणी नाम रखता है और कॉलम B मान रखता है। प्रत्येक मान सेल को [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) से जोड़ा जाता है। शून्य‑आधारित बिंदु इंडेक्स `2` और `5` क्रमशः मध्यवर्ती और अंतिम कुल पहचानते हैं। [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) को सक्षम करने से कॉलम पर राशि दिखती है। इनपुट प्रस्तुति या वर्कबुक की आवश्यकता नहीं है।
 
 ```csharp
 using Aspose.Slides;
@@ -489,7 +491,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// तीसरा और छठा बिंदु कुल दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
+// तीसरे और छठे बिंदु कुल को दर्शाते हैं, अतिरिक्त परिवर्तन नहीं।
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -498,19 +500,26 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-सीरीज़ स्तर पर [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) प्रॉपर्टी को `true` सेट करने से क्रमबद्ध स्तंभों को जोड़ने वाली लाइनों को दिखाया जाता है और चल मान को फॉलो करना आसान होता है। इन लाइनों को छिपाने के लिए, कोड में `series.ShowConnectorLines = false;` असाइनमेंट रखकर सहेजें। यह केवल लाइन की दृश्यता बदलता है, डेटा या कुल को नहीं।
+सीरीज़‑लेवल [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) प्रॉपर्टी को `true` सेट करके क्रमिक कॉलम को जोड़ने वाली रेखाएँ दिखाएँ और चलती हुई मान को अधिक स्पष्ट बनाएं। इन रेखियों को छिपाने के लिए, उदाहरण में असाइनमेंट को `series.ShowConnectorLines = false;` से बदलें, फिर सहेजें। यह केवल रेखा की दृश्यता को बदलता है, न कि डेटा या कुल को।
 
-सहेजी गई प्रस्तुति में 600 का कुल लाभ और 450 का शुद्ध लाभ दिखाता है, दोनों शून्य से शुरू होते हैं:
+सहेजा गया प्रस्तुति राजस्व 600 और शुद्ध लाभ 450 दिखाता है, दोनों कुल शून्य से शुरू होते हैं:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![वॉटरफॉल चार्ट जिसमें राजस्व, लागत, 600 का सकल लाभ और 450 का शुद्ध लाभ दिखाया गया है, मूल्य लेबल और कनेक्टर लाइनों के साथ](waterfall_chart.png)
 
 ### **स्टॉक चार्ट बनाएं**
 
-स्टॉक चार्ट वित्तीय डेटा जैसे ओपन, हाई, लो, और क्लोज़ कीमतों को प्रदर्शित करने के लिए उपयोग होते हैं, जिससे बाजार रुझान और अस्थिरता का विश्लेषण किया जा सके। ये स्टॉक प्रदर्शन पर आवश्यक अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
+स्टॉक चार्ट खुले, उच्च, निम्न और बंद कीमतों जैसे वित्तीय डेटा को प्रदर्शित करने के लिए उपयोग किए जाते हैं, जिससे बाजार रुझान और अस्थिरता का विश्लेषण किया जा सके। वे स्टॉक प्रदर्शन पर महत्वपूर्ण अंतर्दृष्टि प्रदान करते हैं, जिससे निवेशकों और विश्लेषकों को सूचित निर्णय लेने में मदद मिलती है।
 
-यह उदाहरण चार क्रम में चार सीरीज़ और तीन वर्गों के साथ एक ओपन-हाई-लो-क्लोज़ चार्ट बनाता है। [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) प्रॉपर्टी अप/डाउन बार सक्षम करती है, और [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) हाई-लो लाइनों को नियंत्रित करती है जो कीमत रेंज दर्शाती हैं, जबकि व्यक्तिगत सीरीज़ लाइनों और छोटे क्षैतिज ग्रिडलाइन को छिपाया गया है।
+यह उदाहरण चार श्रृंखलाएँ (क्रमशः Open‑High‑Low‑Close) और तीन श्रेणियों के साथ एक ओपन‑हाई‑लो‑क्लोज़ चार्ट बनाता है। [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) प्रॉपर्टी अप/डाउन बार को सक्षम करती है, और [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) उच्च‑निम्न रेखाओं को नियंत्रित करती है जो मूल्य रेंज दिखाती हैं, जबकि व्यक्तिगत श्रृंखला रेखाएँ और छोटे क्षैतिज ग्रिडलाइन छिपे हुए हैं।
+
+[UpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/updownbars/) मैनेजर अलग‑अलग [UpBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/upbarsformat/) और [DownBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/downbarsformat/) ऑब्जेक्ट्स प्रदान करता है। प्रत्येक ऑब्जेक्ट की [Fill](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/fill/) और [Line](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/line/) प्रॉपर्टी का उपयोग करके उसका फ़िल और आउटलाइन स्वतंत्र रूप से सेट करें। यह उदाहरण वृद्धि अवधि के लिए गहरे‑हरे आउटलाइन वाले हरे बार और गिरावट अवधि के लिए गहरे‑लाल आउटलाइन वाले नारंगी‑लाल बार उपयोग करता है।
+
+सभी चार श्रृंखलाओं के लिए प्रत्येक श्रेणी पर संख्यात्मक मान प्रदान करें, जहाँ High और Low, Open और Close को घेरते हैं। बार उसी श्रेणी में Close को Open के साथ तुलना करते हैं, न कि पिछली श्रेणी से: A 72 से 25 तक गिरता है, जबकि B 25 से 38 तक बढ़ता है और C 38 से 50 तक बढ़ता है। समान Open और Close मान कोई दर्शनीय फ़िल्ड अंतराल नहीं बनाते। अप/डाउन बार Open‑Close को कवर करते हैं; हाई‑लो रेखाएँ Low‑High को। ये बार श्रृंखला समूह से संबंधित हैं, सामान्य बार‑चार्ट श्रृंखला नहीं।
+
+यह फ़ॉर्मेटिंग उन [Line और LineWithMarkers](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) चार्टों में भी काम करती है जिनमें समान समूह में कम से कम दो श्रृंखलाएँ और प्रत्येक श्रेणी के लिए संख्यात्मक मान हों। इन गैर‑स्टैक्ड लाइन चार्टों के लिए, अप/डाउन बार पहली और अंतिम श्रृंखला की तुलना करते हैं: अधिक अंतिम मान एक अप‑बार बनाता है, और कम अंतिम मान एक डाउन्‑बार बनाता है। श्रृंखलाओं को उल्टा करने से वर्गीकरण उलट जाता है। नीचे दिया गया उदाहरण [OpenHighLowClose](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) का प्रयोग करता है; यह मानना न रखें कि अन्य स्टॉक, स्टैक्ड‑लाइन या 3D वेरिएंट समान डेटा व्यवस्था या अंतराल व्याख्या का उपयोग करते हैं।
 
 ```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -518,7 +527,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
 var workbook = chart.ChartData.ChartDataWorkbook;
 
@@ -570,7 +579,21 @@ series.DataPoints.AddDataPointForStockSeries(valueCell);
 valueCell = workbook.GetCell(0, 3, 4, 50);
 series.DataPoints.AddDataPointForStockSeries(valueCell);
 
-chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+var upDownBars = chart.ChartData.SeriesGroups[0].UpDownBars;
+upDownBars.HasUpDownBars = true;
+
+upDownBars.UpBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Fill.SolidFillColor.Color = Color.LimeGreen;
+upDownBars.UpBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+upDownBars.UpBarsFormat.Line.Width = 2;
+
+upDownBars.DownBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Fill.SolidFillColor.Color = Color.OrangeRed;
+upDownBars.DownBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkRed;
+upDownBars.DownBarsFormat.Line.Width = 2;
+
 chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
 foreach (var stockSeries in chart.ChartData.Series)
@@ -583,15 +606,15 @@ chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType
 presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
-परिणाम:
+परिणाम, PowerPoint से निर्यात किया गया:
 
-![The Stock chart](stock_chart.png)
+![स्टॉक चार्ट जिसमें A के लिए नारंगी‑लाल गिरते अंतराल और B तथा C के लिए हरे उठते अंतराल हैं](stock_chart.png)
 
-### **बॉक्स एंड विस्कर चार्ट बनाएं**
+### **बॉक्स और व्हिस्कर चार्ट बनाएं**
 
-बॉक्स एंड विस्कर चार्ट डेटा के वितरण को प्रमुख सांख्यिकीय माप जैसे मध्यक, चतुर्थांश और संभावित अपवर्जन को संक्षेप में दिखाकर प्रदर्शित करते हैं। ये अन्वेषणात्मक डेटा विश्लेषण और सांख्यिकीय अध्ययन में डेटा परिवर्तनशीलता को जल्दी समझने और किसी भी विसंगति की पहचान करने में उपयोगी होते हैं।
+बॉक्स और व्हिस्कर चार्ट डेटा वितरण को मुख्य सांख्यिकीय माप (जैसे माध्यिका, क्वार्टाइल और संभावित आउट्लायर) का सारांश लेकर प्रदर्शित करते हैं। ये अन्वेषी डेटा विश्लेषण और सांख्यिकीय अध्ययन में डेटा वैरिएशन को जल्दी समझने और किसी भी विसंगति की पहचान करने में विशेष रूप से उपयोगी होते हैं।
 
-यह उदाहरण छह मानों से एक बॉक्स एंड विस्कर चार्ट बनाता है। [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) प्रॉपर्टी अनन्य चतुर्थांश गणना चुनती है। उदाहरण में मीन्स लाइनों, मीन्स मार्करों, आंतरिक बिंदुओं और अपवर्जन बिंदुओं को भी सक्षम किया गया है।
+यह उदाहरण छह मानों से एक बॉक्स और व्हिस्कर चार्ट बनाता है। [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) प्रॉपर्टी विशेष क्वार्टाइल गणना का चयन करती है। उदाहरण में औसत रेखाएँ, औसत मार्कर, आंतरिक बिंदु और आउट्लायर बिंदु भी सक्षम किए गए हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -648,9 +671,9 @@ presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 
 ### **फ़नल चार्ट बनाएं**
 
-फ़नल चार्ट क्रमिक चरणों वाली प्रक्रियाओं को दृश्य रूप में प्रस्तुत करने के लिए उपयोग होते हैं, जहाँ डेटा की मात्रा प्रत्येक चरण के साथ घटती जाती है। ये परिवर्तन दरों का विश्लेषण, बाधाओं की पहचान, और बिक्री या विपणन प्रक्रिया की दक्षता ट्रैक करने में विशेष रूप से मददगार होते हैं।
+फ़नल चार्ट उन प्रक्रियाओं को विज़ुअलाइज़ करने के लिए उपयोग किए जाते हैं जिनमें क्रमिक चरण होते हैं, जहाँ डेटा मात्रा प्रत्येक चरण के साथ घटती जाती है। ये परिवर्तन दरों का विश्लेषण, बाधाओं की पहचान और बिक्री या मार्केटिंग प्रक्रियाओं की दक्षता को ट्रैक करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ने के लिए [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करता है। यह डिफ़ॉल्ट डेटा को छह वर्गों और 50 से 500 तक की मानों वाले डेटा से बदलता है, फिर अपडेटेड प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होनी चाहिए।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में एक फ़नल चार्ट जोड़ने के लिए [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करता है। यह डिफ़ॉल्ट डेटा को छह श्रेणियों और 50 से 500 तक के मानों से बदलता है, फिर अद्यतन प्रस्तुति को सहेजता है। इनपुट प्रस्तुति में कम से कम एक स्लाइड होना आवश्यक है।
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +724,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Funnel chart](funnel_chart.png)
+![फ़नल चार्ट](funnel_chart.png)
 
 ### **सनबर्स्ट चार्ट बनाएं**
 
-सनबर्स्ट चार्ट पदानुक्रमित डेटा को दृश्य रूप में प्रस्तुत करते हैं, स्तरों को समानांतर रिंग्स के रूप में दिखाते हैं। ये भाग-से-सम्पूर्ण संबंध को स्पष्ट व संक्षिप्त रूप में दर्शाते हैं और नेस्टेड वर्गों एवं उपवर्गों को दर्शाने के लिए आदर्श होते हैं।
+सनबर्स्ट चार्ट पदानुक्रमिक डेटा को समकेंद्रित रिंग्स के रूप में दर्शाते हैं। ये भाग‑से‑सम्पूर्ण संबंधों को स्पष्ट रूप से दिखाते हैं और नेस्टेड श्रेणियों और उप‑श्रेणियों को संक्षिप्त रूप में प्रस्तुत करने के लिए आदर्श होते हैं।
 
-यह उदाहरण आठ लीफ़ को चार स्टेम और दो शाखाओं में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड स्टेम को ग्रुपिंग लेवल 1 और शाखाओं को लेवल 2 पर असाइन करता है। वर्ग लेबल खंडों की पहचान करते हैं, और मान उनके सापेक्ष आकार निर्धारित करते हैं।
+यह उदाहरण आठ पत्तियों को चार स्टेम और दो ब्रांच में समूहित करके एक सनबर्स्ट चार्ट बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड स्टेम को समूह स्तर 1 और ब्राच को स्तर 2 पर असाइन करता है। श्रेणी लेबल खंडों की पहचान करते हैं, और मान उनका सापेक्ष आकार निर्धारित करते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -781,17 +804,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Sunburst chart](sunburst_chart.png)
+![सनबर्स्ट चार्ट](sunburst_chart.png)
 
 ### **हिस्टोग्राम चार्ट बनाएं**
 
-हिस्टोग्राम चार्ट दिखाते हैं कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित होते हैं। मासिक ऑर्डर प्रोसेसिंग समय रिपोर्टों के लिए समान बिन चौड़ाई और थ्रेशोल्ड का उपयोग करें ताकि अंतराल सुसंगत रहें और वितरण की तुलना आसान हो।
+हिस्टोग्राम चार्ट दिखाते हैं कि संख्यात्मक मान अंतराल (बिन) में कैसे वितरित होते हैं। मासिक रिपोर्ट में ऑर्डर प्रोसेसिंग टाइम के लिए समान बिन चौड़ाई और थ्रेशहोल्ड रखें ताकि अंतराल स्थिर रहें और वितरण की तुलना आसान हो।
 
-क्षैतिज अक्ष [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) को [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) के किसी मोड पर सेट करें। [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) केवल `ByBinWidth` के लिये लागू होता है; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) केवल `ByNumberOfBins` के लिये। `Automatic` का उपयोग करके चार्ट को बिन चुनने दें।
+क्षैतिज अक्ष [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) को [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) के मोड से सेट करें। [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) केवल `ByBinWidth` में लागू होता है; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) केवल `ByNumberOfBins` में। बिन चुनने के लिए `Automatic` उपयोग करें।
 
 #### **स्थिर बिन चौड़ाई का उपयोग करें**
 
-यह उदाहरण प्रोसेसिंग समय को 10 मिनट के अंतराल में समूहित करता है, जिसमें 10 मिनट या उससे कम और 40 मिनट से अधिक के लिए अलग बिन होते हैं। इन बिन को [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) और [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) से सक्षम करें। स्पष्ट [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) और [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) थ्रेशोल्ड प्रदान करते समय, [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) और [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) को `false` सेट करें।
+यह उदाहरण प्रोसेसिंग टाइम को 10‑मिनट अंतराल में समूहित करता है, जहाँ 10 मिनट या उससे कम और 40 मिनट से अधिक मानों के लिए अलग बिन होते हैं। इन बिन को [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) और [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) से सक्रिय करें। स्पष्ट [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) और [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) थ्रेशहोल्ड सेट करने पर, [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) और [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) को `false` सेट करें।
 
 ```csharp
 using Aspose.Slides;
@@ -833,13 +856,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-PowerPoint में प्रदर्शित प्रस्तुति में बिन गणनाएँ **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशोल्ड समावेशी है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशोल्ड बहिष्करणीय है; `40` मान पूर्ववर्ती अंतराल में रहता है। अंतरिक बिन में मान उनके निचले सीमा से बड़े और ऊपरी सीमा से छोटे या बराबर होते हैं।
+PowerPoint में प्रदर्शित प्रस्तुति में बिन काउंट **3, 4, 4, 4, और 2** हैं। अंडरफ़्लो बिन में `5, 10, 10` शामिल हैं, इसलिए इसका थ्रेशहोल्ड समावेशी है। ओवरफ़्लो बिन में केवल `41, 50` शामिल हैं, इसलिए इसका थ्रेशहोल्ड अपवर्जक है; दोनों `40` मान पूर्ववर्ती अंतराल में रहते हैं। भीतर के बिन अपने निचले सीमा से बड़े और ऊपर की सीमा के बराबर या छोटे मान रखते हैं।
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![10‑मिनट बिन और स्पष्ट अंडरफ़्लो/ओवरफ़्लो थ्रेशहोल्ड के साथ हिस्टोग्राम](histogram_bin_width.png)
 
 #### **बिन की संख्या निर्दिष्ट करें**
 
-स्थिर अंतराल की बजाय स्थिर विवरण स्तर के लिए, वही डेटा के लिए पाँच बिन का अनुरोध करें। इस उदाहरण में अंडरफ़्लो और ओवरफ़्लो बिन अक्षम हैं। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमा रिपोर्ट के बीच बदल सकती है।
+स्थिर अंतराल के बजाय स्थिर विवरण स्तर के लिए, समान डेटा पर पाँच बिन अनुरोध करें। यह उदाहरण अंडरफ़्लो और ओवरफ़्लो बिन को निष्क्रिय रखता है। चार्ट डेटा रेंज से चौड़ाई निर्धारित करता है, इसलिए सीमा रिपोर्टों के बीच बदल सकती है।
 
 ```csharp
 using Aspose.Slides;
@@ -875,15 +898,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-पाँच बिन की गणनाएँ **4, 4, 4, 4, और 1** हैं। ऊपर की स्थिर-चौड़ाई परिणाम से इस वितरण की तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
+पाँच बिन में काउंट **4, 4, 4, 4, और 1** हैं। इसे पिछले स्थिर‑चौड़ाई परिणाम से तुलना करें: इनपुट मान समान हैं, लेकिन सीमाएँ भिन्न हैं।
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![समान डेटा से गणना किए गए पाँच बिन के साथ हिस्टोग्राम](histogram_bin_count.png)
 
-### **राडार चार्ट बनाएं**
+### **रेडार चार्ट बनाएं**
 
-राडार चार्ट बहु-चर डेटा को दो-आयामी प्रारूप में प्रदर्शित करते हैं, जिससे कई चरों की एक साथ तुलना आसान हो जाती है। ये कई प्रदर्शन मीट्रिक या गुणों में पैटर्न, ताकत और कमजोरियों की पहचान करने के लिए विशेष रूप से उपयोगी होते हैं।
+रेडार चार्ट बहु‑चर डेटा को दो‑आयामी रूप में प्रदर्शित करते हैं, जिससे कई चर की एक साथ तुलना आसान हो जाती है। ये कई प्रदर्शन मीट्रिक्स या गुणों के बीच पैटर्न, ताकत और कमजोरियों की पहचान करने में विशेष रूप से उपयोगी होते हैं।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट सीरीज़ और वर्गों के साथ एक राडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
+यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट सीरीज़ और श्रेणियों के साथ एक रेडार चार्ट बनाता है, फिर प्रस्तुति को PPTX के रूप में सहेजता है।
 
 ```csharp
 using Aspose.Slides;
@@ -900,13 +923,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Radar chart](radar_chart.png)
+![रेडार चार्ट](radar_chart.png)
 
-### **मल्टी-कैटेगरी चार्ट बनाएं**
+### **मल्टी‑कैटегरी चार्ट बनाएं**
 
-मल्टी-कैटेगरी चार्ट उन डेटा को प्रदर्शित करने के लिए उपयोग होते हैं जिनमें एक से अधिक वर्गीकरण समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। ये जटिल, बहु-स्तरीय डेटासेट में रुझान और संबंधों का विश्लेषण करने में विशेष रूप से मददगार होते हैं।
+मल्टी‑कैटегरी चार्ट उन डेटा को दर्शाते हैं जिनमें एक से अधिक श्रेणी समूह होते हैं, जिससे आप कई आयामों में मानों की तुलना एक साथ कर सकते हैं। ये जटिल, बहु‑परत डेटा सेट के प्रवृत्तियों और संबंधों का विश्लेषण करने में विशेष रूप से सहायक होते हैं।
 
-यह उदाहरण चार जोड़ों में व्यवस्थित आठ वर्गों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड प्रत्येक जोड़े को ग्रुपिंग लेवल 1 पर साझा लेबल देता है, जिससे वर्ग अक्ष में व्यक्तिगत और समूह लेबल दोनों प्रदर्शित होते हैं।
+यह उदाहरण चार जोड़ी में व्यवस्थित आठ श्रेणियों के साथ एक क्लस्टर्ड कॉलम चार्ट बनाता है। [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) मेथड प्रत्येक जोड़ी को समूह स्तर 1 पर साझा लेबल देता है, जिससे व्यक्तिगत और समूह दोनों लेबल वाला श्रेणी अक्ष बनता है।
 
 ```csharp
 using Aspose.Slides;
@@ -975,13 +998,47 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The multi category chart](multi_category_chart.png)
+![मल्टी‑कैटегरी चार्ट](multi_category_chart.png)
+
+#### **एक क्वार्टर लेबल हटाएँ**
+
+[quarters.pptx](quarters.pptx) डाउनलोड करें और इसे कार्य निर्देशिका में रखें। इसका चार्ट नौ महीने और 10‑18 तक के मानों वाले एकल बिक्री श्रृंखला को दर्शाता है। श्रेणी अक्ष में तीन क्वार्टर लेबल हैं: Q1 जनवरी‑मार्च, Q2 अप्रैल‑जून, Q3 जुलाई‑सितंबर को शामिल करता है।
+
+अप्रैल चौथी श्रेणी है और वह जहाँ Q2 स्पष्ट रूप से सेट किया गया था। अप्रैल की [GroupingLevels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/groupinglevels/) कलेक्शन पर [DeleteGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) कॉल करें। स्तर अप्रैल के सापेक्ष है: स्तर 1 उसका क्वार्टर है, और स्तर 0 महीना स्वयं। यह मेथड स्तर 0 पर पत्ती श्रेणी को नहीं हटा सकता।
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation("quarters.pptx"))
+{
+    var chart = (IChart)presentation.Slides[0].Shapes[0];
+    var april = chart.ChartData.Categories[3];
+    april.GroupingLevels.DeleteGroupingItem(1);
+
+    presentation.Save("quarters-updated.pptx", SaveFormat.Pptx);
+}
+
+using var reopened = new Presentation("quarters-updated.pptx");
+var updatedChart = (IChart)reopened.Slides[0].Shapes[0];
+var data = updatedChart.ChartData;
+
+Console.WriteLine(string.Join(", ", data.Categories.Select(month => month.AsCell.Value)));
+Console.WriteLine(string.Join(", ", data.Series[0].DataPoints.Select(point => point.Value.Data)));
+```
+
+पुनः खोला गया चार्ट मूल महीनों (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) और बिक्री मान (`10, 11, 12, 13, 14, 15, 16, 17, 18`) को वही क्रम में प्रिंट करता है। `quarters-updated.pptx` को PowerPoint में खोलें और अक्ष लेबल की तुलना करें। Q2 लेबल और अप्रैल से पहले का समूह सीमा हट गया है, इसलिए Q1 जनवरी से जून तक विस्तृत है। Q3 अभी भी जुलाई से शुरू होता है।
+
+![लेबल हटाने से पहले और बाद की तुलना। बाएँ तरफ Q2 अप्रैल‑जून को कवर करता है, दायें तरफ Q1 जनवरी‑जून को कवर करता है।](quarter-label-comparison.png)
 
 ### **मैप चार्ट बनाएं**
 
-मैप चार्ट भौगोलिक डेटा को देशों, राज्यों या शहरों जैसी विशिष्ट स्थानों पर मैप करके दृश्य रूप में प्रस्तुत करते हैं। ये क्षेत्रीय रुझान, जनसांख्यिकीय डेटा, और स्थानिक वितरण का स्पष्ट व आकर्षक तरीके से विश्लेषण करने में विशेष रूप से उपयोगी होते हैं।
+मैप चार्ट भौगोलिक डेटा को देशों, राज्यों या शहरों जैसी विशिष्ट स्थानों पर मानचित्रित करके विज़ुअलाइज़ करने के लिए उपयोग होते हैं। ये क्षेत्रीय रुझानों, जनसांख्यिकीय डेटा और स्थानिक वितरण का स्पष्ट, आकर्षक दृश्य प्रदान करते हैं।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट भू-स्थानिक डेटा के साथ एक मैप चार्ट बनाता है और PowerPoint में देखने हेतु सहेजता है।
+यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके डिफ़ॉल्ट भौगोलिक डेटा के साथ एक मैप चार्ट बनाता है और इसे PowerPoint में देखने के लिए सहेजता है।
 
 ```csharp
 using Aspose.Slides;
@@ -998,19 +1055,21 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![The Map chart](map_chart.png)
+![मैप चार्ट](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+
+ऊपर की तस्वीर सहेजे गए प्रस्तुति को PowerPoint में खोलकर दर्शाती है। Aspose.Slides मैप चार्ट और उसका डेटा सही ढंग से लिखता है, लेकिन स्वयं मैप चार्ट नहीं बनाता: जब कोई स्लाइड जिसमें मैप चार्ट हो, चित्र में रेंडर या PDF/SVG में परिवर्तित की जाती है, तो चार्ट क्षेत्र खाली दिखाई देता है। उसी स्लाइड के अन्य आकार प्रभावित नहीं होते।
+
 {{% /alert %}}
 
-### **कॉम्बिनेशन चार्ट बनाएं**
+### **कंबिनेशन चार्ट बनाएं**
 
-कॉम्बिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को संयोजित करता है। यह चार्ट दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने की अनुमति देता है, जिससे आप उनके बीच संबंध पहचान सकते हैं।
+कंबिनेशन चार्ट (या कॉम्बो चार्ट) एक ही ग्राफ़ में दो या अधिक चार्ट प्रकारों को मिलाता है। यह चार्ट आपको दो या अधिक डेटा सेट के बीच अंतर को उजागर, तुलना या जांचने में मदद करता है, जिससे आप उनके बीच संबंध पहचान सकते हैं।
 
-![The combination chart](combination_chart.png)
+![कंबिनेशन चार्ट](combination_chart.png)
 
-यह उदाहरण चार क्लस्टर्ड कॉलम सीरीज़ को एक लाइन सीरीज़ के साथ चार वर्गों में संयोजित करता है। कॉलम प्राथमिक लंबवत अक्ष का उपयोग करते हैं, जबकि [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) लाइन को दाएँ पर द्वितीयक लंबवत अक्ष पर रखता है। सहायक फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
+यह उदाहरण चार क्लस्टर्ड कॉलम श्रृंखला को चार श्रेणियों के साथ एक लाइन श्रृंखला के साथ मिलाता है। कॉलम प्राथमिक वर्टिकल अक्ष का उपयोग करते हैं, जबकि [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) लाइन को दाएं द्वितीयक वर्टिकल अक्ष पर रखता है। हेल्पर फ़ंक्शन शीर्षक, लेजेंड, अक्ष लेबल और ग्रिडलाइन को कॉन्फ़िगर करते हैं।
 
 ```csharp
 using System.Drawing;
@@ -1172,9 +1231,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **चार्ट अपडेट करें**
 
-Aspose.Slides for .NET आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेटिंग और स्टाइलिंग संशोधित करके अपडेट करने में सक्षम बनाता है। यह सुविधा प्रस्तुतियों को गतिशील सामग्री के साथ अद्यतन रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से दर्शाते रहें।
+Aspose.Slides for .NET आपको PowerPoint चार्ट को डेटा, फ़ॉर्मेट और स्टाइलिंग में परिवर्तन करके अपडेट करने की अनुमति देता है। यह कार्यक्षमता प्रस्तुतियों को डायनेमिक सामग्री के साथ अद्यतित रखने की प्रक्रिया को सरल बनाती है और सुनिश्चित करती है कि चार्ट वर्तमान डेटा और दृश्य मानकों को सटीक रूप से दर्शाते रहें।
 
-यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट को अपडेट करता है। इसमें प्रत्येक में तीन डेटा पॉइंट वाले दो कॉलम सीरीज़ की आवश्यकता होती है, जहाँ वर्ग लेबल कॉलम A में और सीरीज़ नाम पहली पंक्ति में होते हैं। उदाहरण [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) का उपयोग करके वर्कबुक सेल बदलता है, सीरीज़ मान अपडेट करता है, तृतीय सीरीज़ जोड़ता है, और [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) के माध्यम से चार्ट को क्लस्टर्ड सिलेंडर में बदलता है।
+यह उदाहरण मौजूदा प्रस्तुति की पहली स्लाइड में "My chart" नामक चार्ट को अपडेट करता है। इसके लिए दो कॉलम श्रृंखला चाहिए जिनमें प्रत्येक में तीन डेटा बिंदु हों, श्रेणी लेबल कॉलम A में और श्रृंखला नाम पहले वर्कशीट की पहली पंक्ति में। उदाहरण [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) का उपयोग करके वर्कबुक सेल बदलता है, श्रृंखला मान अपडेट करता है, तीसरी श्रृंखला जोड़ता है, और [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) के माध्यम से चार्ट को क्लस्टर्ड सिलेंडर में बदलता है।
 
 ```csharp
 using Aspose.Slides;
@@ -1230,11 +1289,11 @@ presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 
 ## **चार्ट के लिए डेटा रेंज सेट करें**
 
-किसी मौजूदा चार्ट द्वारा पहले उपयोग की गई रेंज को देखने के लिए देखें [Retrieve a Chart's Data Range](/slides/hi/net/chart-workbook/#retrieve-a-charts-data-range)।
+किसी मौजूदा चार्ट द्वारा उपयोग किए गए रेंज को देखने के लिए, देखें [Retrieve a Chart's Data Range](/slides/hi/net/chart-workbook/#retrieve-a-charts-data-range)।
 
-Aspose.Slides for .NET आपको वर्कशीट से विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन प्रदान करता है। इसका अर्थ है कि आप सीधे वर्कशीट के किसी भाग को चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन से सेल चार्ट की सीरीज़ और वर्गों में योगदान देते हैं। परिणामस्वरूप, आप अपने चार्ट को वर्कशीट में नवीनतम डेटा बदलावों के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, यह सुनिश्चित करते हुए कि आपके PowerPoint प्रस्तुतियां वर्तमान और सटीक जानकारी को दर्शाती रहें।
+Aspose.Slides for .NET आपको वर्कशीट से विशिष्ट डेटा रेंज को अपने चार्ट के डेटा स्रोत के रूप में परिभाषित करने की लचीलापन देता है। इसका अर्थ है कि आप सीधे वर्कशीट का एक भाग चार्ट से मैप कर सकते हैं, जिससे आप नियंत्रित कर सकते हैं कि कौन‑से सेल्स चार्ट की सीरीज़ और श्रेणियों में योगदान करते हैं। परिणामस्वरूप, आप अपने चार्ट को शीट में नवीनतम डेटा परिवर्तन के साथ आसानी से अपडेट और सिंक्रनाइज़ कर सकते हैं, यह सुनिश्चित करते हुए कि आपकी PowerPoint प्रस्तुतियाँ वर्तमान और सटीक जानकारी को प्रतिबिंबित करें।
 
-यह उदाहरण [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) का उपयोग करके मौजूदा प्रस्तुति की पहली स्लाइड पर "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में वह वर्कशीट और एक भरपूर रेंज होना चाहिए, जिसमें पहली पंक्ति में सीरीज़ हेडिंग, कॉलम A में वर्ग लेबल, और कॉलम B में तीन मान हों।
+यह उदाहरण [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) का उपयोग करके पहले स्लाइड में "My chart" नामक चार्ट के डेटा स्रोत को `Sheet1!A1:B4` पर सेट करता है। चार्ट वर्कबुक में उस वर्कशीट और भरित रेंज होना चाहिए, जहाँ पहली पंक्ति में श्रृंखला शीर्षक, कॉलम A में श्रेणी लेबल और कॉलम B में तीन मान हों।
 
 ```csharp
 using Aspose.Slides;
@@ -1259,9 +1318,9 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 ## **चार्ट में डिफ़ॉल्ट मार्कर उपयोग करें**
 
-जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट सीरीज़ को स्वचालित रूप से अलग डिफ़ॉल्ट मार्कर प्रतीक मिलते हैं।
+जब आप चार्ट में डिफ़ॉल्ट मार्कर उपयोग करते हैं, तो प्रत्येक चार्ट श्रृंखला को स्वतः एक अलग डिफ़ॉल्ट मार्कर प्रतीक सौंपा जाता है।
 
-यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके दो लाइन सीरीज़ और एक लेजेंड वाले चार्ट बनाता है। [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) सेटिंग्स स्वचालित रूप से असाइन किए गए मार्कर प्रतीकों को बरकरार रखती हैं। पहली सीरीज़ में एक नकारात्मक मान और एक गुम मान (`null`) है, जबकि दूसरी में प्रत्येक वर्ग के लिए मान है।
+यह उदाहरण [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) का उपयोग करके दो लाइन श्रृंखला और एक लेजेंड वाला चार्ट बनाता है। [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) सेटिंग्स स्वचालित रूप से सौंपे गए मार्कर प्रतीकों को बनाए रखती हैं। पहली श्रृंखला में एक नकारात्मक मान और एक गायब मान (`null`) है, जबकि दूसरी में प्रत्येक श्रेणी के लिए मान है।
 
 ```csharp
 using Aspose.Slides;
@@ -1319,20 +1378,22 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**Aspose.Slides for .NET द्वारा समर्थित चार्ट प्रकार कौन‑से हैं?**
+**Aspose.Slides for .NET द्वारा कौन‑से चार्ट प्रकार समर्थित हैं?**
 
-Aspose.Slides for .NET बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, राडार और कई अन्य सहित व्यापक चार्ट प्रकारों को समर्थन देता है। यह लचीलापन आपको अपने डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की अनुमति देता है।
+Aspose.Slides for .NET बार, लाइन, पाई, एरिया, स्कैटर, हिस्टोग्राम, रेडार और कई अन्य सहित विस्तृत चार्ट प्रकारों का समर्थन करता है। यह लचीलापन आपको डेटा विज़ुअलाइज़ेशन आवश्यकताओं के लिए सबसे उपयुक्त चार्ट प्रकार चुनने की सुविधा देता है।
 
-**मैं स्लाइड में नया चार्ट कैसे जोड़ूँ?**
+**स्लाइड में नया चार्ट कैसे जोड़ें?**
 
-एक चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके सूचकांक से प्राप्त करते हैं, और फिर चार्ट जोड़ने की विधि को कॉल करते हैं, जिसमें चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
+चार्ट जोड़ने के लिए, पहले आप [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) क्लास की एक इंस्टेंस बनाते हैं, इच्छित स्लाइड को उसके इंडेक्स से प्राप्त करते हैं, और फिर चार्ट जोड़ने की मेथड को कॉल करके चार्ट प्रकार और प्रारंभिक डेटा निर्दिष्ट करते हैं। यह प्रक्रिया चार्ट को सीधे आपकी प्रस्तुति में एकीकृत करती है।
 
-**मैं चार्ट में प्रदर्शित डेटा को कैसे अपडेट करूँ?**
+**चार्ट में प्रदर्शित डेटा को कैसे अपडेट करें?**
 
-आप एक चार्ट के डेटा को उसके डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) तक पहुंचकर, किसी भी डिफ़ॉल्ट सीरीज़ और वर्गों को साफ़ करके, और फिर अपना कस्टम डेटा जोड़कर अपडेट कर सकते हैं। यह आपको प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के अनुसार रिफ्रेश करने की सुविधा देता है।
+आप चार्ट के डेटा वर्कबुक ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) तक पहुंच कर किसी भी डिफ़ॉल्ट श्रृंखला और श्रेणियों को साफ़ कर सकते हैं, और फिर अपनी कस्टम डेटा जोड़ सकते हैं। इससे आप प्रोग्रामेटिक रूप से चार्ट को नवीनतम डेटा के साथ रीफ़्रेश कर सकते हैं।
 
-**क्या चार्ट की उपस्थिति को कस्टमाइज़ करना संभव है?**
+**क्या चार्ट की उपस्थिति को अनुकूलित करना संभव है?**
 
-हाँ, Aspose.Slides for .NET विस्तृत कस्टमाइज़ेशन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+हां, Aspose.Slides for .NET व्यापक अनुकूलन विकल्प प्रदान करता है। आप रंग, फ़ॉन्ट, लेबल, लेजेंड और अन्य फ़ॉर्मेटिंग तत्वों को संशोधित करके चार्ट की उपस्थिति को अपने विशिष्ट डिज़ाइन आवश्यकताओं के अनुसार ढाल सकते हैं।
+
+संबंधित सुविधा: [Create editable charts](/slides/hi/features/create-charts/).

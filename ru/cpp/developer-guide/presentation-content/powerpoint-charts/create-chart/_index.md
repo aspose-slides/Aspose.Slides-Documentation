@@ -1,6 +1,6 @@
 ---
-title: Создать или обновить диаграммы PowerPoint в C++
-linktitle: Создать или обновить диаграммы
+title: Создание или обновление диаграмм презентаций PowerPoint в C++
+linktitle: Создание или обновление диаграмм
 type: docs
 weight: 10
 url: /ru/cpp/create-chart/
@@ -15,47 +15,47 @@ keywords:
 - точечная диаграмма
 - круговая диаграмма
 - линейная диаграмма
-- иерархическая диаграмма
+- диаграмма Tree Map
 - биржевая диаграмма
-- ящик-усы диаграмма
+- коробочная диаграмма
 - воронкообразная диаграмма
-- лучевая диаграмма
+- солнцеобразная диаграмма
 - гистограмма
-- радиальная диаграмма
-- многоклассовая диаграмма
+- радарная диаграмма
+- многоуровневая диаграмма
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides for C++. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на C++."
+description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для C++. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на C++."
 ---
 ## **Обзор**
 
-В этой статье представлено полное руководство по созданию и настройке диаграмм с использованием Aspose.Slides for C++. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, чтобы соответствовать вашим требованиям к дизайну. На протяжении статьи детальные примеры кода иллюстрируют каждый шаг — от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите твёрдое понимание интеграции динамического создания диаграмм в ваши C++‑приложения, упростив процесс создания презентаций, основанных на данных.
+В этой статье представлено полное руководство по созданию и настройке диаграмм с помощью Aspose.Slides для C++. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные варианты форматирования для соответствия вашим требованиям дизайна. На протяжении всей статьи подробные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическую генерацию диаграмм в ваши C++‑приложения, упростив процесс создания презентаций, основанных на данных.
 
 ## **Создание диаграммы**
 
-Диаграммы помогают быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронной таблицы.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть неочевидны из таблицы или электронных таблиц.
 
 **Зачем создавать диаграммы?**
 
 С помощью диаграмм вы можете:
 
 * агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации;
-* выявлять шаблоны и тенденции в данных;
+* раскрывать закономерности и тенденции в данных;
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения;
-* обнаруживать выбросы, аномалии, отклонения, ошибки и неверные данные;
-* эффективно передавать сложную информацию.
+* обнаруживать выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
+* передавать или представлять сложные данные.
 
-В PowerPoint диаграммы создаются через функцию *Insert*, которая предоставляет шаблоны для многих типов диаграмм. С помощью Aspose.Slides вы можете создавать как стандартные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы с помощью функции *Insert*, которая предоставляет шаблоны для разработки множества типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-Используйте перечисление [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) в пространстве имён [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Значения в этом перечислении соответствуют различным типам диаграмм.
+Используйте перечисление [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) из пространства имён [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Значения в этом перечислении соответствуют различным типам диаграмм.
 {{% /alert %}}
 
-### **Создание сгруппированных столбцовых диаграмм**
+### **Создание сгруппированных столбчатых диаграмм**
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для создания сгруппированной столбцовой диаграммы, сравнивающей две серии по трем категориям. Серии используют красные и зелёные заливки, а отдельные метки показывают названия категорий, названия серий и значения. Индекс листа 0 соответствует первому листу во встроенной книге диаграммы.
+В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для создания сгруппированной столбчатой диаграммы, сравнивающей два ряда по трем категориям. Ряды используют красные и зелёные заливки, а отдельные подписи демонстрируют названия категорий, названия рядов и значения. Индекс листа 0 указывает на первый лист встроенной книги диаграммы.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -169,16 +169,16 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ### **Создание точечных диаграмм**
 
-Точечные диаграммы (известные также как scatter plots или графики x‑y) часто используют для проверки наличия шаблонов или демонстрации корреляций между двумя переменными.
+Точечные диаграммы (также известные как scatter plot или графики x‑y) часто используют для проверки наличия закономерностей или демонстрации корреляций между двумя переменными.
 
 Используйте точечную диаграмму, когда:
 
 * У вас есть парные числовые данные.
-* У вас есть две переменные, которые логично сочетаются.
-* Вы хотите определить, связаны ли эти переменные.
-* У вас есть независимая переменная, имеющая несколько значений для зависимой переменной.
+* У вас есть две переменные, которые логично сопоставляются.
+* Вы хотите определить, связаны ли две переменные между собой.
+* У вас есть независимая переменная с несколькими значениями для зависимой переменной.
 
-В этом примере построены два набора точек x‑y. Первая серия использует прямые линии со звёздными маркерами, вторая — сглаженные линии с круглыми маркерами; обе используют размер маркера 10, задаваемый через [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Метод [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) управляет формой маркера.
+В этом примере построены два набора значений x‑y. Первый ряд использует сплошные линии со звёздочными маркерами, второй — сглаженные линии с круглыми маркерами; оба используют размер маркера 10, задаваемый методом [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Метод [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) управляет формой маркера.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -272,9 +272,9 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего подходят для отображения соотношения «часть‑целое» в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если у вас много частей или меток, стоит рассмотреть использование столбцовой диаграммы.
+Круговые диаграммы лучше всего использовать для отображения соотношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если данных слишком много или меток много, имеет смысл воспользоваться гистограммой.
 
-В этом примере создаётся круговая диаграмма с тремя квартальными значениями. Каждый сектор имеет индивидуальную заливку и границу, а метки показывают различные комбинации значений, процентов и информации о серии. Метод [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) задаёт стартовый угол первого сектора — 180 градусов.
+В этом примере создаётся круговая диаграмма с тремя квартальными значениями. Каждый сектор имеет пользовательскую заливку и границу, а подписи отображают разные комбинации значений, процентов и информации о ряду. Метод [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) задаёт стартовый угол первого сектора в 180 градусов.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -413,13 +413,13 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 ![The Pie chart](pie_chart.png)
 
-Для улучшения читаемости меток за пределами круга см. [Format Leader Lines](/slides/ru/cpp/chart-data-label/#format-leader-lines) — пример позиционирования меток и настройки цвета, ширины, прозрачности и типа штриха линий.
+Для улучшения читаемости подписей за пределами круга см. [Format Leader Lines](/slides/ru/cpp/chart-data-label/#format-leader-lines) — пример позиционирования подписей и настройки цвета, ширины, прозрачности и стиля штрихов линии‑связки.
 
 ### **Создание линейных диаграмм**
 
-Линейные диаграммы (или линейные графики) лучше всего использовать, когда нужно показать изменение значений во времени. С их помощью можно сравнивать большой объём данных одновременно, отслеживать изменения и тенденции, выделять аномалии в рядах данных и многое другое.
+Линейные диаграммы (также известные как line graphs) лучше всего использовать, когда необходимо показать изменения значения во времени. С помощью линейной диаграммы можно одновременно сравнивать большой объём данных, отслеживать изменения и тенденции, выделять аномалии в рядах и многое другое.
 
-В этом примере с помощью [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) создаётся линейная диаграмма с серией и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
+В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для создания линейной диаграммы с рядами и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -451,7 +451,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-По умолчанию точки на линейной диаграмме соединяются сплошными прямыми линиями. Чтобы соединить их пунктиром, вызовите [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) с одним из значений [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+По умолчанию точки линейной диаграммы соединяются сплошными прямыми линиями. Чтобы соединить их пунктиром, вызовите [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) с одним из значений перечисления [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -490,11 +490,11 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 ![The Line chart](line_chart.png)
 
-### **Создание иерархических (Tree Map) диаграмм**
+### **Создание диаграмм Tree Map**
 
-Иерархические диаграммы (Tree Map) лучше всего подходят для данных о продажах, когда нужно показать относительный размер категорий и быстро обратить внимание на крупные вклады в каждой категории.
+Диаграммы Tree Map лучше всего использовать для данных о продажах, когда необходимо показать относительный размер категорий и быстро привлечь внимание к элементам, вносящим наибольший вклад в каждую категорию.
 
-В этом примере создаётся иерархическая диаграмма с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы уровню группировки 1 и ветви уровню 2. Значения определяют относительные размеры прямоугольников, а метки категорий и перекрывающиеся метки родителей отражают иерархию.
+В этом примере создаётся Tree Map с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы на уровень группировки 1 и ветви на уровень 2. Значения определяют относительные размеры прямоугольников, а метки категорий и перекрывающиеся родительские метки показывают иерархию.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -602,11 +602,11 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 ![The Treemap chart](treemap_chart.png)
 
-### **Создание каскадных (Waterfall) диаграмм**
+### **Создание каскадных диаграмм**
 
-Каскадная диаграмма показывает, как положительные и отрицательные изменения влияют на конечное значение. Например, разбивка прибыли может начинаться с выручки, вычитать расходы и добавлять прочие доходы. Столбцы‑изменения «плавают» между предыдущим и новым накопленным значением, а столбцы‑итоги идут от нуля до накопленного результата.
+Каскадная (waterfall) диаграмма показывает, как положительные и отрицательные изменения влияют на конечное значение. Например, разбивка прибыли может начинаться с доходов, потом вычитаться расходы и добавляться прочие доходы. Столбцы‑изменения «плавают» между предыдущим и новым накопленным значением, а итоговые столбцы идут от нуля до накопленного результата.
 
-Пример использует суммы в тысячах долларов США:
+Ниже приведён пример с суммами в тысячах долларов США:
 
 | Категория | Значение в книге | Тип столбца |
 | --- | ---: | --- |
@@ -615,11 +615,11 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 | Валовая прибыль | 600 | Промежуточный итог |
 | Операционные расходы | -200 | Уменьшение |
 | Прочие доходы | 50 | Увеличение |
-| Чистая прибыль | 450 | Финальный итог |
+| Чистая прибыль | 450 | Итоговый итог |
 
-Чтобы пометить точку как промежуточный или финальный итог, вызовите её метод [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) со значением `true`. В соответствующей ячейке книги укажите реальное накопленное значение: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Метод лишь помечает столбец как итог; он не вычисляет и не заполняет значение ячейки. Не используйте ноль в качестве заполнителя и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без двойного добавления к текущему.
+Чтобы пометить точку как промежуточный или итоговый результат, вызовите её метод [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) со значением `true`. Укажите реальное накопленное значение в ячейке книги этой точки: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Метод помечает столбец как итоговый; он не вычисляет и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец показывает накопленное значение без его повторного добавления к текущему результату.
 
-Этот полный пример на C++ создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), очищает данные по умолчанию и заполняет встроенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждый элемент добавляется через [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Нулевые индексы точек `2` и `5` указывают промежуточный и финальный итоги. Передача `true` в [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) отображает суммы на столбцах. Входная презентация или книга не требуются.
+Этот полный пример на C++ создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), очищает данные по умолчанию и заполняет встроенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждый значение добавляется с помощью [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Индексы точек `2` и `5` (нумерация с нуля) идентифицируют промежуточный и итоговый итог. Передача `true` в [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) отображает суммы на столбцах. Входная презентация или книга не требуются.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -702,21 +702,28 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Вызов метода уровня серии [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) со значением `true` отображает линии, соединяющие соседние столбцы, облегчая отслеживание текущего значения. Чтобы скрыть эти линии, замените присваивание в примере на `series->set_ShowConnectorLines(false);` перед сохранением. Это меняет только видимость линий, но не данные или итоги.
+Вызов метода уровня ряда [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) со значением `true` отображает линии, соединяющие последовательные столбцы, и упрощает отслеживание текущего значения. Чтобы скрыть эти линии, замените присваивание в примере на `series->set_ShowConnectorLines(false);` перед сохранением. Это изменит только видимость линий, но не данные и итоговые значения.
 
-Сохранённая презентация показывает валовую прибыль 600 и чистую прибыль 450, оба итога построены от нуля:
+Сохранённая презентация показывает валовую прибыль 600 и чистую прибыль 450, оба итога считаются от нуля:
 
 ![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Создание биржевых (Stock) диаграмм**
+### **Создание биржевых диаграмм**
 
-Биржевые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимума, минимума и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важную информацию о динамике акций, поддерживая инвесторов и аналитиков в процессе принятия решений.
+Биржевые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимума, минимума и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важные сведения о динамике акций, помогая инвесторам и аналитикам принимать обоснованные решения.
 
-В этом примере создаётся диаграмма открытие‑максимум‑минимум‑закрытие с четырьмя сериями в указанном порядке и тремя категориями. Метод [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) включает полосы повышения/понижения, а [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) управляет линиями максимум‑минimum, показывающими диапазоны цен; линии отдельных серий и мелкие горизонтальные сетки скрыты.
+В этом примере создаётся диаграмма Open‑High‑Low‑Close с четырьмя рядами в указанном порядке и тремя категориями. Метод [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) включается полосы вверх/вниз, а [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) управляет линиями high‑low, показывающими диапазон цен; при этом линии отдельных рядов и мелкие горизонтальные линии сетки скрыты.
+
+Менеджер, возвращаемый методом [get_UpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_updownbars/), предоставляет отдельные объекты форматирования через [get_UpBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_upbarsformat/) и [get_DownBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_downbarsformat/). Используйте методы [get_Fill](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_fill/) и [get_Line](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_line/) каждого объекта для независимой настройки заливки и контура. В этом примере использованы зелёные полосы с тёмно‑зелёными контурами для растущих интервалов и оранжево‑красные полосы с тёмно‑красными контурами для падающих интервалов.
+
+Укажите числовые значения для всех четырёх рядов в каждой категории, где High и Low охватывают Open и Close. Полосы сравнивают Close с Open **в рамках одной категории**, а не с предыдущей: A падает с 72 до 25, тогда как B растёт с 25 до 38, а C — с 38 до 50. При одинаковых значениях Open и Close интервал не отображается. Полосы вверх/вниз охватывают диапазон Open‑Close; линии high‑low — диапазон Low‑High. Эти полосы относятся к группе рядов и не являются обычными столбцами.
+
+Такое форматирование также работает с диаграммами [Line and LineWithMarkers](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), содержащими как минимум два ряда в одной группе и соответствующие числовые значения для каждой категории. Для этих не‑слоённых линейных диаграмм полосы вверх/вниз сравнивают первый и последний ряд: более высокий последний показатель создаёт восходящую полосу, более низкий — нисходящую. Поменяв местами ряды, меняется и классификация. Пример ниже использует [OpenHighLowClose](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/); не следует полагать, что другие биржевые, слоённые линейные или 3D‑варианты используют ту же схему данных или интерпретацию интервалов.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
 #include <system/shared_ptr.h>
+#include <drawing/color.h>
 #include <system/object_ext.h>
 #include <system/string.h>
 #include <DOM/Chart/ChartType.h>
@@ -746,6 +753,7 @@ presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 
 using namespace System;
+using namespace System::Drawing;
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
@@ -753,7 +761,7 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
@@ -805,7 +813,21 @@ series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 valueCell = workbook->GetCell(0, 3, 4, ObjectExt::Box(50));
 series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 
-chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars(true);
+auto upDownBars = chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars();
+upDownBars->set_HasUpDownBars(true);
+
+upDownBars->get_UpBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_LimeGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->set_Width(2);
+
+upDownBars->get_DownBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_OrangeRed());
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkRed());
+upDownBars->get_DownBarsFormat()->get_Line()->set_Width(2);
+
 chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
 for (auto stockSeries : chart->get_ChartData()->get_Series())
@@ -818,15 +840,15 @@ chart->get_Axes()->get_VerticalAxis()->get_MinorGridLinesFormat()->get_Line()->g
 presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 ```
 
-Результат:
+Результат, экспортированный из PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **Создание ящиков‑усы (Box and Whisker) диаграмм**
+### **Создание коробчатых (Box and Whisker) диаграмм**
 
-Ящики‑усы используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартиль и возможные выбросы. Они особенно полезны в исследовательском анализе и статистических исследованиях для быстрого понимания вариативности данных и выявления аномалий.
+Коробчатые диаграммы используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартали и потенциальные выбросы. Они особенно полезны в исследовательском анализе и статистических studies для быстрого понимания изменчивости данных и выявления аномалий.
 
-В этом примере создаётся ящик‑усы по шести значениям. Метод [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) выбирает эксклюзивный расчёт квартилей. Пример также включает линии среднего, маркеры среднего, внутренние точки и точки‑выбросы.
+В этом примере создаётся коробчатая диаграмма из шести значений. Метод [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) выбирает эксклюзивный расчёт квартилей. Пример также включает линии среднего, маркеры среднего, внутренние точки и точки‑выбросы.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,11 +929,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Создание воронкообразных (Funnel) диаграмм**
+### **Создание воронкообразных диаграмм**
 
-Воронкообразные диаграммы визуализируют процессы, состоящие из последовательных этапов, где объём данных уменьшается от шага к шагу. Они полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности процессов продаж или маркетинга.
+Воронкообразные диаграммы используют для визуализации процессов, включающих последовательные этапы, где объём данных уменьшается по мере продвижения от одного шага к другому. Они особенно полезны для анализа коэффициентов конверсии, выявления «узких мест» и отслеживания эффективности процессов продаж или маркетинга.
 
-В этом примере с помощью [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) добавляется воронкообразная диаграмма на первый слайд существующей презентации. Данные заменяются на шесть категорий со значениями от 50 до 500, после чего презентация сохраняется. Входная презентация должна содержать как минимум один слайд.
+В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для добавления воронкообразной диаграммы на первый слайд существующей презентации. Она заменяет данные по умолчанию на шесть категорий со значениями от 50 до 500, после чего сохраняет обновлённую презентацию. Входная презентация должна содержать как минимум один слайд.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -988,11 +1010,11 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 ![The Funnel chart](funnel_chart.png)
 
-### **Создание лучевых (Sunburst) диаграмм**
+### **Создание радиальных (Sunburst) диаграмм**
 
-Лучевые диаграммы визуализируют иерархические данные, отображая уровни в виде концентрических колец. Они помогают показать соотношения часть‑целое и идеальны для представления вложенных категорий и подкатегорий в компактном виде.
+Radiальные (Sunburst) диаграммы используют для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают иллюстрировать соотношения часть‑к‑целому и идеальны для представления вложенных категорий в компактном виде.
 
-В этом примере создаётся лучевая диаграмма с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы уровню 1 и ветви уровню 2. Метки категорий определяют сегменты, а значения задают их относительные размеры.
+В этом примере создаётся Sunburst‑диаграмма с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы на уровень группировки 1 и ветви на уровень 2. Метки категорий определяют сегменты, а значения задают их относительные размеры.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1097,15 +1119,15 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 ![The Sunburst chart](sunburst_chart.png)
 
-### **Создание гистограмм (Histogram) диаграмм**
+### **Создание гистограмм**
 
-Гистограммы показывают распределение числовых значений по интервалам (бин). Для ежемесячных отчётов о времени обработки заказов используйте одинаковую ширину бина и пороги, чтобы интервалы оставались согласованными и сравнение распределений было проще.
+Гистограммы показывают, как числовые значения распределяются по интервалам (bins). Для ежемесячных отчётов о времени обработки заказов используйте одинаковую ширину бина и пороги, чтобы интервалы оставались согласованными и сравнение распределений было проще.
 
-Вызовите метод горизонтальной оси [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) с режимом из [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) применяется только к `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) — только к `ByNumberOfBins`. Используйте `Automatic`, чтобы диаграмма сама определила интервалы.
+Вызовите у горизонтальной оси метод [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) с режимом из [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). Метод [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) применяется только к `ByBinWidth`; метод [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) — только к `ByNumberOfBins`. Используйте `Automatic`, чтобы позволить диаграмме самостоятельно выбрать бины.
 
-#### **Использовать фиксированную ширину бина**
+#### **Использование фиксированной ширины бина**
 
-В этом примере времена обработки группируются в интервалы по 10 минут, с отдельными бинами для времени ≤ 10 минут и > 40 минут. Включите такие бины через [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) и [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). При явном указании порогов через [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) и [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) вызовите [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) и [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) со значением `false`.
+В этом примере времена обработки группируются в интервалы по 10 минут, с отдельными бинами для времени ≤ 10 минут и > 40 минут. Включите эти бины с помощью [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) и [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). При указании явных порогов через [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) и [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) вызовите [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) и [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) со значением `false`.
 
 ```cpp
 #include <system/array.h>
@@ -1175,13 +1197,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Презентация в PowerPoint показывает количества в бинах **3, 4, 4, 4, 2**. Бин «underflow» включает `5, 10, 10`, поэтому его порог включителен. Бин «overflow» включает только `41, 50`, поэтому его порог исключителен; значения равные `40` остаются в предыдущем интервале. Внутренние бины содержат значения > нижней границы и ≤ верхней границы.
+Презентация, отображаемая в PowerPoint, показывает количества в бинах **3, 4, 4, 4 и 2**. Бин недопотока включает `5, 10, 10`, поэтому его порог включителен. Бин перепотока включает только `41, 50`, поэтому его порог исключителен; оба значения `40` остаются в предыдущем интервале. Внутренние бины содержат значения > нижней границы и ≤ верхней границы.
 
 ![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Указать количество бинов**
+#### **Указание количества бинов**
 
-Для фиксированного уровня детализации вместо фиксированных интервалов запросите пять бинов для тех же данных. В этом примере бины «underflow» и «overflow» отключены. Диаграмма определяет ширину из диапазона данных, поэтому границы могут изменяться между отчётами.
+Для фиксированного уровня детализации вместо фиксированных интервалов запросите пять бинов для тех же данных. В этом примере бины недо‑ и перепотока отключены. Диаграмма определяет ширину из диапазона данных, поэтому границы могут изменяться между отчётами.
 
 ```cpp
 #include <system/array.h>
@@ -1245,15 +1267,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-Пять бинов имеют количества **4, 4, 4, 4, 1**. Сравните это распределение с результатом фиксированной ширины выше: входные значения одинаковы, но границы различаются.
+Пять бинов имеют количества **4, 4, 4, 4 и 1**. Сравните это распределение с результатом фиксированной ширины выше: входные значения одинаковы, но границы различаются.
 
 ![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
 ### **Создание радиальных (Radar) диаграмм**
 
-Радиальные диаграммы отображают многомерные данные в двумерном виде, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления шаблонов, сильных и слабых сторон по множеству метрик производительности или атрибутов.
+Радиальные диаграммы используют для отображения многовариантных данных в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления закономерностей, сильных и слабых сторон по нескольким метрикам производительности или атрибутам.
 
-В этом примере с помощью [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) создаётся радиальная диаграмма с серией и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
+В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для создания радиальной диаграммы с рядами и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1289,11 +1311,11 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 ![The Radar chart](radar_chart.png)
 
-### **Создание многоклассовых (Multi-Category) диаграмм**
+### **Создание многоуровневых диаграмм**
 
-Многоклассовые диаграммы позволяют отображать данные, включающие более одной категориальной группировки, давая возможность сравнивать значения по нескольким измерениям одновременно. Они особенно полезны при анализе тенденций и взаимосвязей в сложных многослойных наборах данных.
+Многоуровневые диаграммы используют для отображения данных, включающих более одной категориальной группировки, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны, когда нужно анализировать тенденции и взаимосвязи в сложных, многоуровневых наборах данных.
 
-В этом примере создаётся сгруппированная столбцовая диаграмма с восемью категориями, расположенными в четырёх парах. Метод [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) задаёт каждой паре общий ярлык уровня 1, формируя ось категории с отдельными и групповыми метками.
+В этом примере создаётся сгруппированная столбчатая диаграмма с восемью категориями, расположенными в четырёх парах. Метод [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) присваивает каждой паре общую метку на уровне группировки 1, формируя ось категорий с отдельными и групповыми метками.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1390,11 +1412,72 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 ![The multi category chart](multi_category_chart.png)
 
-### **Создание картографических (Map) диаграмм**
+#### **Удаление метки квартала**
 
-Картографические диаграммы визуализируют географические данные, сопоставляя информацию с конкретными локациями, такими как страны, штаты или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядной форме.
+Скачайте [quarters.pptx](quarters.pptx) и разместите её в рабочей директории. На её диаграмме показаны девять месяцев и один ряд продаж со значениями от 10 до 18. Ось категорий имеет три метки кварталов: Q1 охватывает Jan‑Mar, Q2 — Apr‑Jun, Q3 — Jul‑Sep.
 
-В этом примере с помощью [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) создаётся карта с данными по умолчанию, после чего файл сохраняется для просмотра в PowerPoint.
+Апрель — четвёртая категория и та, для которой явно установлена метка Q2. Вызовите [DeleteGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) у коллекции [get_GroupingLevels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_groupinglevels/) для апреля. Уровень относится к апрелю: уровень 1 — его квартал, уровень 0 — сам месяц. Метод не может удалить листовую категорию уровня 0.
+
+```cpp
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>(u"quarters.pptx");
+
+auto chart = ExplicitCast<IChart>(presentation->get_Slide(0)->get_Shape(0));
+auto april = chart->get_ChartData()->get_Categories()->idx_get(3);
+april->get_GroupingLevels()->DeleteGroupingItem(1);
+
+presentation->Save(u"quarters-updated.pptx", SaveFormat::Pptx);
+
+auto reopened = MakeObject<Presentation>(u"quarters-updated.pptx");
+auto updatedChart = ExplicitCast<IChart>(reopened->get_Slide(0)->get_Shape(0));
+auto data = updatedChart->get_ChartData();
+
+auto categories = data->get_Categories();
+for (auto i = 0; i < categories->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(categories->idx_get(i)->get_AsCell()->get_Value()->ToString());
+}
+Console::WriteLine();
+
+auto points = data->get_Series()->idx_get(0)->get_DataPoints();
+for (auto i = 0; i < points->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(points->idx_get(i)->get_Value()->get_Data()->ToString());
+}
+Console::WriteLine();
+```
+
+Переоткрытая диаграмма выводит исходные месяцы (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) и значения продаж (`10, 11, 12, 13, 14, 15, 16, 17, 18`) в том же порядке. Откройте `quarters-updated.pptx` в PowerPoint, чтобы сравнить метки оси. Метка Q2 и граница группы перед апрелем исчезают, поэтому Q1 охватывает январь‑июнь. Q3 по‑прежнему начинается в июле.
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
+### **Создание картографических диаграмм**
+
+Картографические диаграммы используют для визуализации географических данных, сопоставляя информацию с конкретными локациями, такими как страны, штаты или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядном виде.
+
+В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для создания картографической диаграммы с данными по умолчанию и сохранения её для просмотра в PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1431,16 +1514,16 @@ presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Изображение выше показывает сохранённую презентацию, открытую в PowerPoint. Aspose.Slides корректно записывает карту и её данные, но сама не рисует картографические диаграммы: при рендеринге слайда в изображение или конвертации в PDF/SVG область диаграммы будет пустой. Остальные элементы слайда остаются без изменений.
+Изображение выше показывает сохранённую презентацию, открывшуюся в PowerPoint. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но сама не рисует такие диаграммы: при рендеринге слайда с такой диаграммой в изображение или конвертации в PDF или SVG область диаграммы остаётся пустой. Другие фигуры на том же слайде не затронуты.
 {{% /alert %}}
 
 ### **Создание комбинированных диаграмм**
 
-Комбинированная (combo) диаграмма объединяет два или более типа диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между наборами данных, помогая выявлять их взаимосвязи.
+Комбинированная (combo) диаграмма сочетает два или более типа диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая идентифицировать их взаимосвязи.
 
 ![The combination chart](combination_chart.png)
 
-В этом примере комбинируются две сгруппированные столбцовые серии и линейная серия по четырём категориям. Столбцы используют основную вертикальную ось, тогда как [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и сетку.
+В этом примере комбинируются два ряда сгруппированных столбцов с линейным рядом по четырём категориям. Столбцы используют основную вертикальную ось, а [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и линии сетки.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1651,9 +1734,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Обновление диаграмм**
 
-Aspose.Slides for C++ позволяет обновлять диаграммы PowerPoint, изменяя данные, форматирование и стиль. Эта возможность упрощает поддержание презентаций в актуальном состоянии с динамическим содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
+Aspose.Slides для C++ позволяет обновлять диаграммы PowerPoint, изменяя данные, форматирование и стиль. Эта возможность упрощает процесс поддержания презентаций в актуальном состоянии с динамичным содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
 
-В примере обновляется диаграмма с именем «My chart» на первом слайде существующей презентации. Требуются две колонные серии по три точки данных каждая, метки категорий в столбце A и имена серий в первой строке первой книги. Пример использует [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) для изменения ячеек книги, обновляет значения серий, добавляет третью серию и меняет тип диаграммы на сгруппированные цилиндры через [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+В этом примере обновляется диаграмма с именем «My chart» на первом слайде существующей презентации. Требуются два ряда столбцов по три точки данных каждый, метки категорий в колонке A и имена рядов в первой строке первого листа. Пример использует [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) для изменения ячеек книги, обновляет значения рядов, добавляет третий ряд и меняет тип диаграммы на сгруппированные цилиндры через [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1738,9 +1821,9 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 Чтобы просмотреть диапазон, уже используемый существующей диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for C++ предоставляет возможность задать конкретный диапазон данных из листа как источник для диаграммы. Это позволяет напрямую сопоставить часть листа с диаграммой, контролируя, какие ячейки участвуют в сериях и категориях. Благодаря этому легко обновлять и синхронизировать диаграммы с последними изменениями в листе, обеспечивая актуальность и точность информации в ваших презентациях PowerPoint.
+Aspose.Slides для C++ предоставляет гибкость определения конкретного диапазона данных из листа в качестве источника для диаграммы. Это означает, что вы можете напрямую сопоставить часть листа с диаграммой, контролируя, какие ячейки участвуют в рядах и категориях. В результате легко обновлять и синхронизировать диаграммы с последними изменениями данных в листе, обеспечивая актуальность и точность информации в презентациях PowerPoint.
 
-В примере используется [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) для установки источника данных диаграммы с именем «My chart» на первом слайде существующей презентации на `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком серии в первой строке, метками категорий в столбце A и тремя значениями в столбце B.
+В этом примере используется [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) для установки источника данных диаграммы с именем «My chart» на первом слайде существующей презентации в `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком ряда в первой строке, метками категорий в колонке A и тремя значениями в колонке B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1782,11 +1865,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Использование маркеров по умолчанию в диаграммах**
+## **Использование стандартных маркеров в диаграммах**
 
-При использовании маркеров по умолчанию каждая серия диаграммы автоматически получает различный символ маркера.
+При использовании стандартных маркеров в диаграммах каждый ряд получает автоматически различный символ маркера.
 
-В примере с помощью [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) создаётся диаграмма с двумя линейными сериями и легендой. Настройки [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) сохраняют автоматически назначенные символы маркеров. Первая серия содержит отрицательное значение и отсутствие значения, представляемое `nullptr`, в то время как вторая имеет значение для каждой категории.
+В этом примере используется [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) для создания диаграммы с двумя линейными рядами и легендой. Настройки [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) сохраняют автоматически назначенные символы маркеров. Первый ряд включает отрицательное значение и пропущенное значение, представленное `nullptr`, второй — значение для каждой категории.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1874,18 +1957,20 @@ presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Какие типы диаграмм поддерживает Aspose.Slides for C++?**
+**Какие типы диаграмм поддерживает Aspose.Slides для C++?**
 
-Aspose.Slides for C++ поддерживает широкий спектр типов диаграмм, включая столбцовые, линейные, круговые, площадные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
+Aspose.Slides для C++ поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбирать наиболее подходящий тип диаграммы для визуализации ваших данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), получите нужный слайд по индексу и вызовите метод для добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму непосредственно в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), получите нужный слайд по индексу и вызовите метод для добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс интегрирует диаграмму напрямую в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив её рабочую книгу данных ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), очистив любые серии и категории по умолчанию и затем добавив свои собственные данные. Это позволяет программно обновлять диаграмму в соответствии с последними данными.
+Вы можете обновить данные диаграммы, получив доступ к её книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), очистив любые ряды и категории по умолчанию, затем добавив свои собственные данные. Это позволяет программно обновлять диаграмму, отражая последние данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides for C++ предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, метки, легенды и другие элементы форматирования, адаптируя внешний вид диаграммы под конкретные требования вашего дизайна.
+Да, Aspose.Slides для C++ предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, адаптируя внешний вид диаграммы под конкретные требования дизайна.
+
+Связанная функция: [Create editable charts](/slides/ru/features/create-charts/).

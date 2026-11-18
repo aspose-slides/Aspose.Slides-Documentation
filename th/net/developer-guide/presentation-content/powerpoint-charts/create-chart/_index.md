@@ -11,50 +11,50 @@ keywords:
 - เปลี่ยนแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
-- แผนภูมิคอบ
+- แผนภูมิวงกลม
 - แผนภูมิเส้น
-- แผนภูมิต้นไม้
-- แผนภูมิตลาดหุ้น
-- แผนภูมิกล่องและขีด
-- แผนภูมิกระบอก
-- แผนภูดิดวงอาทิตย์
+- แผนภูมิแผนที่ต้นไม้
+- แผนภูมิหุ้น
+- แผนภูมิกล่องและหนวด
+- แผนภูมิกรวย
+- แผนภูมิดวงอาทิตย์
 - แผนภูมิฮิสโตแกรม
-- แผนภูมิเสาตราส่วน
-- แผนภูมิหลายประเภท
+- แผนภูมิกระจุก
+- แผนภูมิหลายหมวด
 - PowerPoint
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ .NET เพิ่ม, จัดรูปแบบ และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดเชิงปฏิบัติใน C#."
+description: "สร้างและปรับแต่งแผนภูมิในการนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน C#."
 ---
 ## **ภาพรวม**
 
-บทความนี้ให้คำแนะนำอย่างครบถ้วนเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิเข้าสไลด์แบบโปรแกรมเมติก เติมข้อมูลลงในแผนภูมิ และกำหนดรูปแบบต่าง ๆ ให้ตรงกับความต้องการออกแบบของคุณ ทั้งหมดนี้มีตัวอย่างโค้ดที่ละเอียดอธิบายทุกขั้นตอน ตั้งแต่การเริ่มต้น Presentation และออบเจ็กต์แผนภูมิ ไปจนถึงการตั้งค่า Series, Axis, และ Legend โดยทำตามคำแนะนำนี้ คุณจะมีความเข้าใจที่มั่นคงในการผสานการสร้างแผนภูมิกระ dynamy เข้ากับแอปพลิเคชัน .NET ของคุณ ทำให้การสร้างการนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
+บทความนี้ให้คำแนะนำอย่างละเอียดเกี่ยวกับการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for .NET คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์ด้วยโค้ด, เติมข้อมูลเข้าไป, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการในการออกแบบของคุณThroughout the article, detailed code examples illustrate each step, from initializing the presentation and chart object to configuring series, axes, and legends. By following this guide, you'll gain a solid understanding of how to integrate dynamic chart generation into your .NET applications, streamlining the process of creating data-driven presentations.
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้คนมองเห็นข้อมูลได้อย่างรวดเร็วและค้นพบข้อมูลเชิงลึกที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้งานมองเห็นข้อมูลได้อย่างรวดเร็วและสังเกตแนวคิดที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-ด้วยแผนภูมิ คุณสามารถ:
+การใช้แผนภูมิ คุณสามารถ:
 
-* สรุปหรือย่อข้อมูลขนาดใหญ่ลงในสไลด์เดียวของการนำเสนอ
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล
-* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเปรียบเทียบตามหน่วยวัดเฉพาะ
-* ตรวจพบค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีเหตุผล
-* ถ่ายทอดข้อมูลที่ซับซ้อนให้เข้าใจง่าย
+* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากในสไลด์เดียว;
+* เปิดเผยรูปแบบและแนวโน้มของข้อมูล;
+* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือหน่วยวัดที่ระบุ;
+* พบค่าผิดปกติ, ความเบียดเส้น, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีเหตุผล;
+* สื่อสารหรืออธิบายข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านเมนู *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิหลายประเภท ส่วนด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิที่นิยม) หรือแผนภูมิที่กำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีเทมเพลตให้เลือกออกแบบหลายประเภท ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิยอดนิยม) และแผนภูมิที่กำหนดเองได้
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+ใช้ enumeration [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) ภายใต้เนมสเปซ [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
 {{% /alert %}}
 
-### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม (Clustered Column Charts)**
+### **สร้าง Clustered Column Charts**
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสองชุดข้อมูลในสามประเภท ชุดข้อมูลใช้สีเติมสีแดงและสีเขียว และป้ายกำกับแต่ละรายการแสดงชื่อประเภท, ชื่อชุดข้อมูลและค่าต่าง ๆ ดัชนี Worksheet 0 หมายถึงแผ่นแรกในเวิร์กบุ๊กแผนภูมิที่ฝังไว้
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้าง clustered column chart ที่เปรียบเทียบสอง series ผ่านสามประเภท โดย series ใช้สีเติมสีแดงและสีเขียว และป้ายกำกับแสดงชื่อประเภท, ชื่อ series, และค่า ดัชนี Worksheet 0 หมายถึงชีตแรกใน workbook ของแผนภูมิที่ฝังอยู่
 
 ```csharp
 using System.Drawing;
@@ -130,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **สร้างแผนภูมิกระจาย (Scatter Charts)**
+### **สร้าง Scatter Charts**
 
-แผนภูมิกระจาย (หรือที่เรียกกันว่า scatter plot หรือกราฟ x‑y) มักใช้เพื่อค้นหารูปแบบหรือแสดงความสัมพันธ์ระหว่างตัวแปรสองตัว
+Scatter charts (หรือ scatter plots, x‑y graphs) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
-ใช้แผนภูมิกระจายเมื่อ:
+ใช้ scatter chart เมื่อต้องการ:
 
 * มีข้อมูลตัวเลขเป็นคู่
-* มีสองตัวแปรที่จับคู่กันได้อย่างดี
-* ต้องการตรวจสอบว่าตัวแปรสองตัวเกี่ยวข้องกันหรือไม่
+* มีสองตัวแปรที่สัมพันธ์กันดี
+* ต้องการตรวจสอบว่าตัวแปรสองตัวมีความสัมพันธ์หรือไม่
 * มีตัวแปรอิสระที่มีค่าหลายค่าเพื่อกำหนดค่าตัวแปรตาม
 
-ตัวอย่างนี้พล็อตสองชุดของค่า x‑y ชุดแรกใช้เส้นตรงกับเครื่องหมายดาว, ส่วนชุดที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งสองชุดใช้ [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) ขนาด 10 คุณลักษณะ [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) ควบคุมรูปแบบของเครื่องหมาย
+ตัวอย่างนี้พล็อตค่าชุด x‑y สองชุด ชุดแรกใช้เส้นตรงกับ marker รูปดาว, ชุดที่สองใช้เส้นสมูทกับ marker รูปวงกลม; ทั้งสองใช้ [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) = 10. คุณสมบัติ [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) ควบคุมรูปแบบ marker
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิกระจาย](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **สร้างแผนภูมิวงกลม (Pie Charts)**
+### **สร้าง Pie Charts**
 
-แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับตามประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายกำกับหลายส่วน อาจพิจารณาใช้แผนภูมิกล่องแทน
+Pie charts เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายกำกับประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีหลายส่วนหรือหลายป้ายกำกับ ควรพิจารณาใช้ bar chart แทน
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมที่มีค่าครึ่งไตรมาสสามค่า แต่ละสไลซ์มีการเติมสีและขอบแบบกำหนดเองและป้ายแสดงการผสมค่าต่าง ๆ, ร้อยละ, และข้อมูลชุดข้อมูล คุณลักษณะ [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) ให้สไลซ์แรกเริ่มที่ 180 องศา
+ตัวอย่างนี้สร้าง pie chart ที่มีค่าครึ่งไตรมาสสามค่า แต่ละสไลซ์มีการเติมสีและขอบแบบกำหนดเอง, ป้ายแสดงค่าต่าง ๆ, ร้อยละ, และข้อมูล series. คุณสมบัติ [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) ตั้งให้สไลซ์แรกเริ่มที่ 180 องศา
 
 ```csharp
 using System.Drawing;
@@ -308,15 +308,15 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิวงกลม](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-เพื่อปรับปรุงความอ่านง่ายของป้ายกำกับที่อยู่ด้านนอกของวงกลม ดูตัวอย่าง [Format Leader Lines](/slides/th/net/chart-data-label/#format-leader-lines) ที่อธิบายวิธีจัดตำแหน่งป้ายและปรับสี, ความกว้าง, ความโปร่งใส และรูปแบบเส้นของเส้นเชื่อม
+เพื่อทำให้ป้ายที่อยู่ด้านนอก pie อ่านง่ายขึ้น ดูตัวอย่าง [Format Leader Lines](/slides/th/net/chart-data-label/#format-leader-lines) ที่อธิบายการจัดตำแหน่งป้ายและการปรับสี, ความกว้าง, ความโปร่งใส, และสไตล์ของเส้นเชื่อม
 
-### **สร้างแผนภูมิเส้น (Line Charts)**
+### **สร้าง Line Charts**
 
-แผนภูมิเส้น (หรือที่เรียกว่า line graph) เหมาะกับสถานการณ์ที่ต้องแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้น คุณสามารถเปรียบเทียบข้อมูลจำนวนมากในครั้งเดียว ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา เน้นความผิดปกติในชุดข้อมูล และอื่น ๆ
+Line charts (หรือ line graphs) เหมาะกับสถานการณ์ที่ต้องการแสดงการเปลี่ยนแปลงของค่าในช่วงเวลา การใช้ line chart คุณสามารถเปรียบเทียบข้อมูลจำนวนมากในคราวเดียว, ติดตามการเปลี่ยนแปลงและแนวโน้ม, ไฮไลท์ความผิดปกติของ series ฯลฯ
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิเส้นด้วยชุดข้อมูลและประเภทเริ่มต้น แล้วบันทึกเป็นไฟล์ PPTX
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้าง line chart ด้วย series และ categories เริ่มต้น, แล้วบันทึกเป็น PPTX
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ ให้ตั้งค่า [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) เป็นค่าหนึ่งจาก [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+โดยปกติ จุดบน line chart จะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้เชื่อมด้วยเส้นขีด ใหตั้งค่า [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) เป็นค่าจาก [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/)
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +350,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 ผลลัพธ์:
 
-![แผนภูมิเส้น](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **สร้างแผนภูมิต้นไม้ (Tree Map Charts)**
+### **สร้าง Tree Map Charts**
 
-แผนภูมิต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของประเภทข้อมูลและเน้นรายการที่มีส่วนร่วมสูงในแต่ละประเภทอย่างรวดเร็ว
+Tree map charts เหมาะกับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปที่รายการที่มีส่วนแบ่งสูงในแต่ละหมวด
 
-ตัวอย่างนี้สร้างแผนภูมิต้นไม้ที่มีใบแปดใบจัดเป็นสี่กลุ่มหลักและสองสาขา วิธีการ [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนดสเตมที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าต่าง ๆ กำหนดขนาดสี่เหลี่ยมสัมพัทธ์ ส่วนป้ายประเภทและป้ายผู้ปกครองที่ซ้อนทับบ่งบอกลำดับชั้น
+ตัวอย่างนี้สร้าง tree map ที่มีใบแปดใบจัดเป็นสี่ stem และสอง branch. วิธี [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนด stem ที่ระดับการจัดกลุ่ม 1 และ branch ที่ระดับ 2 ค่าใช้ในการกำหนดขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายหมวดและป้ายพาเรนท์ที่ทับซ้อนบ่งบอกลำดับชั้น
 
 ```csharp
 using Aspose.Slides;
@@ -432,13 +432,13 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิต้นไม้](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **สร้างแผนภูมิน้ำตก (Waterfall Charts)**
+### **สร้าง Waterfall Charts**
 
-แผนภูมน้ำตกแสดงว่าการเปลี่ยนแปลงบวกและลบมีส่วนช่วยให้ได้ค่าผลลัพธ์สุดท้ายอย่างไร ตัวอย่างเช่น การแจกแจงกำไรอาจเริ่มจากรายได้, หักค่าใช้จ่าย, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยอยู่ระหว่างค่าที่ทำงานก่อนหน้าและค่าที่ใหม่ ขณะที่คอลัมน์รวมจะเริ่มจากศูนย์ไปจนถึงค่าที่สะสม
+Waterfall chart แสดงว่าการเปลี่ยนแปลงบวกและลบมีผลต่อค่าขั้นสุดท้ายอย่างไร ตัวอย่างเช่น การสรุปกำไรอาจเริ่มจากรายได้, ลบต้นทุน, เพิ่มรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าก่อนหน้าและค่าปัจจุบัน, ส่วนคอลัมน์รวมต่อจากศูนย์ถึงค่าที่สะสม
 
-ตัวอย่างต่อไปนี้ใช้จำนวนเงินเป็นพันดอลลาร์สหรัฐ:
+ตัวอย่างต่อไปใช้จำนวนในหน่วยพันดอลลาร์สหรัฐ:
 
 | Category | Workbook value | Column type |
 | --- | ---: | --- |
@@ -449,9 +449,9 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 | Other income | 50 | Increase |
 | Net profit | 450 | Final total |
 
-เพื่อกำหนดจุดเป็นผลรวมชั่วคราวหรือสุดท้าย ให้ตั้งค่า [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) เป็น `true` และใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`) คุณสมบัตินี้ทำเครื่องหมายคอลัมน์ว่าเป็นผลรวม; มันไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดผลรวม คอลัมน์ผลรวมจะแสดงค่าที่สะสมโดยไม่เพิ่มค่าอีกครั้งในค่าที่ทำงาน
+เพื่อทำให้จุดเป็น intermediate หรือ final total ให้ตั้งคุณสมบัติ [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) เป็น `true` และใส่จำนวนที่สะสมจริงในเซลล์ workbook ของจุดนั้น: `600` สำหรับ gross profit (`1000 - 400`) และ `450` สำหรับ net profit (`600 - 200 + 50`). คุณสมบัตินี้ทำเครื่องหมายคอลัมน์ว่าเป็น total; ไม่ได้คำนวณหรือเติมค่าเซลล์ อย่าใช้ศูนย์เป็น placeholder หรือใส่การเปลี่ยนแปลงอื่นสำหรับจุด total. คอลัมน์ total จะแสดงค่าที่สะสมโดยไม่เพิ่มอีกครั้งในค่ารันนิ่ง
 
-ตัวอย่าง C# ทั้งหมดนี้สร้างแผนภูมิด้วยสมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, และเติมเวิร์กบุ๊กที่ฝังอยู่ ดัชนี Worksheet `0` เลือกแผ่นแรก; คอลัมน์ A มีชื่อประเภทและคอลัมน์ B มีค่าต่าง ๆ ค่าแต่ละเซลล์ถูกเพิ่มด้วย [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). ดัชนีจุดฐานศูนย์ `2` และ `5` ระบุผลรวมชั่วคราวและผลรวมสุดท้าย การเปิดใช้งาน [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) แสดงจำนวนบนคอลัมน์ ไม่ต้องมีการนำเข้าการนำเสนอหรือเวิร์กบุ๊กใด ๆ
+ตัวอย่าง C# นี้สร้างแผนภูมิด้วยสมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), ล้างข้อมูลเริ่มต้น, แล้วเติม workbook ที่ฝังอยู่ ดัชนี Worksheet `0` เลือกชีตแรก; คอลัมน์ A มีชื่อประเภท, คอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). ดัชนีจุดฐานศูนย์ `2` และ `5` ระบุ total ระหว่างและสุดท้าย การเปิดใช้ [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) แสดงจำนวนบนคอลัมน์ ไม่จำเป็นต้องมี presentation หรือ workbook อินพุต
 
 ```csharp
 using Aspose.Slides;
@@ -489,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// จุดที่สามและหกแสดงเป็นผลรวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+// จุดที่สามและจุดที่หกเป็นยอดรวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -498,19 +498,26 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-ตั้งค่า [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) ระดับชุดข้อมูลเป็น `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่าที่ทำงานง่ายต่อการติดตาม หากต้องการซ่อนเส้นเหล่านี้ ให้เปลี่ยนการกำหนดค่าในตัวอย่างเป็น `series.ShowConnectorLines = false;` ก่อนบันทึก การเปลี่ยนแปลงนี้มีผลต่อการมองเห็นเส้นเท่านั้น ไม่กระทบต่อข้อมูลหรือผลรวม
+ตั้งคุณสมบัติ series‑level [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) เป็น `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่ารันนิ่งติดตามง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ให้แทนที่การกำหนดในตัวอย่างด้วย `series.ShowConnectorLines = false;` ก่อนบันทึก การเปลี่ยนแปลงนี้มีผลต่อการมองเห็นเส้นเท่านั้น ไม่กระทบต่อข้อมูลหรือ total
 
-ภาพนำเสนอที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450 โดยผลรวมทั้งสองเริ่มจากศูนย์:
+Presentation ที่บันทึกแสดง gross profit 600 และ net profit 450, ทั้งสอง total เริ่มจากศูนย์:
 
-![แผนภูมน้ำตกที่แสดงรายได้, ค่าใช้จ่าย, กำไรขั้นต้น 600, และกำไรสุทธิ 450 พร้อมป้ายค่าและเส้นเชื่อม](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **สร้างแผนภูมิเส้นหุ้น (Stock Charts)**
+### **สร้าง Stock Charts**
 
-แผนภูมิเส้นหุ้นใช้เพื่อแสดงข้อมูลการเงินเช่น ราคาเปิด, ราคาสูง, ราคาต่ำ, และราคาปิด ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลเชิงลึกที่สำคัญต่อการทำงานของหุ้น ช่วยนักลงทุนและนักวิเคราะห์ตัดสินใจอย่างมีข้อมูล
+Stock charts ใช้แสดงข้อมูลการเงินเช่นราคาเปิด, สูง, ต่ำ, ปิด เพื่อช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด พวกมันให้ข้อมูลเชิงลึกสำคัญเกี่ยวกับประสิทธิภาพหุ้น ช่วยนักลงทุนและนักวิเคราะห์ทำการตัดสินใจ
 
-ตัวอย่างนี้สร้างแผนภูมิเส้นเปิด‑สูง‑ต่ำ‑ปิด (OHLC) ด้วยสี่ชุดข้อมูลตามลำดับและสามประเภท คุณลักษณะ [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) เปิดใช้งานแถบขึ้น/ลง, ส่วน [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) ควบคุมเส้นสูง‑ต่ำที่แสดงช่วงราคา; เส้นชุดข้อมูลแต่ละชุดและเส้นกริดแนวนอนรองถูกซ่อน
+ตัวอย่างนี้สร้าง open‑high‑low‑close chart ที่มีสี่ series ตามลำดับและสามประเภท คุณสมบัติ [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) เปิดใช้งานแถบขึ้น/ลง, และ [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) ควบคุมเส้น high‑low ที่แสดงช่วงราคา, ขณะเดียวกันเส้น series แต่ละตัวและเส้นกริดแนวนอนรองถูกซ่อนไว้
+
+[UpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/updownbars/) manager มีวัตถุ [UpBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/upbarsformat/) และ [DownBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/downbarsformat/) แยกกัน ใช้คุณสมบัติ [Fill](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/fill/) และ [Line](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/line/) ของแต่ละวัตถุตั้งสีเติมและเส้นขอบอย่างอิสระ ตัวอย่างนี้ใช้แถบสีเขียวกับขอบเขียวเข้มสำหรับช่วงที่ขึ้น, และแถบสีส้ม‑แดงกับขอบแดงเข้มสำหรับช่วงที่ลง
+
+ใส่ค่าตัวเลขให้กับสี่ series ทุกประเภท, โดย High และ Low ล้อมรอบ Open และ Close. แถบเปรียบเทียบ Close กับ Open **ภายในประเภทเดียวกัน**, ไม่ใช่กับประเภทก่อนหน้า: A ลดจาก 72 เหลือ 25, B เพิ่มจาก 25 เหลือ 38, C เพิ่มจาก 38 เหลือ 50. หาก Open และ Close เท่ากัน จะไม่มีช่วงที่เติมสีแสดงขึ้น. แถบ up/down ครอบ Open‑Close; เส้น high‑low ครอบ Low‑High. แถบเหล่านี้เป็นส่วนของ series group ไม่ใช่ series ของแผนภูมิแท่งธรรมดา
+
+รูปแบบนี้ทำงานกับแผนภูมิ [Line and LineWithMarkers](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) ที่มีอย่างน้อยสอง series ในกลุ่มเดียวกันและค่าตัวเลขที่สอดคล้องกันสำหรับแต่ละประเภท. สำหรับ line chart ที่ไม่ stacked, แถบ up/down จะเปรียบเทียบ series แรกและสุดท้าย: ค่าตัวสุดท้ายสูงกว่าจะให้แถบ up, ค่าตัวสุดท้ายต่ำกว่าจะให้แถบ down. การสลับ series จะสลับการจัดประเภท. ตัวอย่างด้านล่างใช้ [OpenHighLowClose](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/); อย่าสมมติว่า stock, stacked‑line, หรือ 3D รุ่นอื่นใช้โครงสร้างข้อมูลหรือการตีความช่วงเดียวกัน
 
 ```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -518,7 +525,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
 var workbook = chart.ChartData.ChartDataWorkbook;
 
@@ -570,7 +577,21 @@ series.DataPoints.AddDataPointForStockSeries(valueCell);
 valueCell = workbook.GetCell(0, 3, 4, 50);
 series.DataPoints.AddDataPointForStockSeries(valueCell);
 
-chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+var upDownBars = chart.ChartData.SeriesGroups[0].UpDownBars;
+upDownBars.HasUpDownBars = true;
+
+upDownBars.UpBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Fill.SolidFillColor.Color = Color.LimeGreen;
+upDownBars.UpBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+upDownBars.UpBarsFormat.Line.Width = 2;
+
+upDownBars.DownBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Fill.SolidFillColor.Color = Color.OrangeRed;
+upDownBars.DownBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkRed;
+upDownBars.DownBarsFormat.Line.Width = 2;
+
 chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
 foreach (var stockSeries in chart.ChartData.Series)
@@ -583,15 +604,15 @@ chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType
 presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
-ผลลัพธ์:
+ผลลัพธ์ที่ส่งออกจาก PowerPoint:
 
-![แผนภูมิเส้นหุ้น](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **สร้างแผนภูมิกล่องและขีด (Box and Whisker Charts)**
+### **สร้าง Box and Whisker Charts**
 
-แผนภูมิกล่องและขีดใช้เพื่อแสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น ค่ากลาง, ควอร์ไทล์, และค่าผิดปกติ เหมาะอย่างยิ่งในการวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ เพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
+Box and whisker charts ใช้แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น ค่า median, quartiles, และ outlier ที่อาจเกิดขึ้น เหมาะสำหรับการวิเคราะห์สำรวจและการศึกษาสถิติ เพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
 
-ตัวอย่างนี้สร้างแผนภูมิกล่องและขีดจากหกค่า คุณลักษณะ [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) กำหนดให้คำนวณควอร์ไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดในกล่อง, และจุดค่าผิดปกติ
+ตัวอย่างนี้สร้าง box and whisker chart จากหกค่า. คุณสมบัติ [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) เลือกการคำนวน quartile แบบ exclusive. ตัวอย่างยังเปิด mean lines, mean markers, inner points, และ outlier points
 
 ```csharp
 using Aspose.Slides;
@@ -646,11 +667,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **สร้างแผนภูมิกระบอก (Funnel Charts)**
+### **สร้าง Funnel Charts**
 
-แผนภูมิกระบอกใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อตรงจากขั้นตอนหนึ่งไปยังขั้นตอนต่อไป เหมาะสำหรับวิเคราะห์อัตราการเปลี่ยนแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+Funnel charts ใช้แสดงกระบวนการที่มีขั้นตอนต่อเนื่อง โดยปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปยังขั้นตอนต่อไป เหมาะสำหรับการวิเคราะห์อัตราการแปลง, การระบุคอขวด, และการติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อเพิ่มแผนภูมิกระบอกลงในสไลด์แรกของการนำเสนอที่มีอยู่ แทนที่ข้อมูลเริ่มต้นด้วยหกประเภทและค่าตั้งแต่ 50 ถึง 500 แล้วบันทึกการนำเสนอที่อัปเดต การนำเสนออินพุตต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อเพิ่ม funnel chart ไปยังสไลด์แรกของ presentation ที่มีอยู่แล้ว แทนที่ข้อมูลเริ่มต้นด้วยหกประเภทและค่าตั้งแต่ 50 ถึง 500, แล้วบันทึก presentation ที่อัปเดต. Presentation อินพุตต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +722,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิกระบอก](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **สร้างแผนภูมิดวงอาทิตย์ (Sunburst Charts)**
+### **สร้าง Sunburst Charts**
 
-แผนภูมิดวงอาทิตย์ใช้เพื่อแสดงข้อมูลเชิงลำดับชั้น โดยแสดงระดับต่าง ๆ เป็นวงกลมรอบศูนย์ ช่วยอธิบายความสัมพันธ์ส่วนต่อทั้งหมดและเหมาะสำหรับการแสดงประเภทและหมวดหมู่ที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
+Sunburst charts ใช้แสดงข้อมูลเชิงลำดับชั้นเป็นวงแหวนทรงศูนย์กลางหลายระดับ ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนทั้งหมดและเหมาะกับการแสดงหมวดหมู่และหมวดย่อยที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
 
-ตัวอย่างนี้สร้างแผนภูมิดวงอาทิตย์ที่มีใบแปดใบจัดเป็นสี่สเตมและสองสาขา วิธีการ [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนดสเตมที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายประเภทระบุส่วนต่าง ๆ และค่าต่าง ๆ กำหนดขนาดสัมพัทธ์ของพวกมัน
+ตัวอย่างนี้สร้าง sunburst chart ที่มีแปดใบจัดเป็นสี่ stem และสอง branch. วิธี [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) กำหนด stem ที่ระดับ 1 และ branch ที่ระดับ 2. ป้ายประเภทบ่งบอกส่วนต่าง ๆ, ค่ากำหนดขนาดสัมพัทธ์ของแต่ละส่วน
 
 ```csharp
 using Aspose.Slides;
@@ -781,17 +802,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิดวงอาทิตย์](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **สร้างแผนภูมิเฮิสโทแกรม (Histogram Charts)**
+### **สร้าง Histogram Charts**
 
-แผนภูมิเฮิสโทแกรมแสดงการกระจายของค่าตัวเลขในช่วง (bins) ต่าง ๆ สำหรับรายงานประจำเดือนเกี่ยวกับระยะเวลาดำเนินการสั่งซื้อ ใช้ความกว้างของ bin และเกณฑ์เดียวกันเพื่อให้ช่วงเวลาคงที่และทำให้การเปรียบเทียบการกระจายง่ายขึ้น
+Histogram charts แสดงการกระจายของค่าตัวเลขตามช่วง (bins). สำหรับรายงานเดือนเกี่ยวกับเวลาในการประมวลผลคำสั่ง, ใช้ความกว้างของ bin และเกณฑ์เดียวกันเพื่อให้ช่วงสม่ำเสมอและเปรียบเทียบการกระจายได้ง่าย
 
-ตั้งค่าแกนแนวนอน [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) เป็นโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) ใช้ได้เฉพาะกับ `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) ใช้ได้เฉพาะกับ `ByNumberOfBins`. ใช้ `Automatic` เพื่อให้แผนภูมิกำหนด bin เอง
+ตั้งค่าระบบแนวนอน [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) ให้เป็นโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) ใช้เฉพาะกับ `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) ใช้เฉพาะกับ `ByNumberOfBins`. ใช้ `Automatic` ให้แผนภูมิตัดสินใจเลือก bin เอง
 
-#### **ใช้ความกว้างของ Bin คงที่**
+#### **ใช้ Bin Width คงที่**
 
-ตัวอย่างนี้จัดกลุ่มระยะเวลาการประมวลผลเป็นช่วง 10 นาที โดยมี bin แยกสำหรับระยะเวลาน้อยกว่าหรือเท่ากับ 10 นาทีและมากกว่า 40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) และ [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). เมื่อตั้งค่าเกณฑ์ [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) และ [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) อย่างชัดเจน ให้ตั้งค่า [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) และ [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) เป็น `false`
+ตัวอย่างนี้จัดกลุ่มเวลาในการประมวลผลเป็นช่วง 10 นาที, มี bin แยกสำหรับ ≤10 นาทีและ >40 นาที เปิดใช้ bin เหล่านี้ด้วย [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) และ [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). เมื่อกำหนด thresholds ด้วย [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) และ [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/), ตั้ง [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) และ [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) เป็น `false`
 
 ```csharp
 using Aspose.Slides;
@@ -833,13 +854,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-การนำเสนอที่แสดงใน PowerPoint มีจำนวน bin **3, 4, 4, 4, และ 2**. Bin underflow รวม `5, 10, 10` ดังนั้นเกณฑ์เป็น inclusive. Bin overflow มีเพียง `41, 50` ดังนั้นเกณฑ์เป็น exclusive; ค่าที่เท่ากับ `40` จะยังคงอยู่ในช่วงก่อนหน้า. Bin ภายในมีค่ามากกว่าขอบล่างและน้อยกว่าหรือเท่ากับขอบบน
+Presentation ใน PowerPoint แสดงจำนวนในแต่ละ bin **3, 4, 4, 4, และ 2**. Bin underflow มีค่า `5, 10, 10` ดังนั้นเกณฑ์รวมถึงค่าเหล่านั้น. Bin overflow มีค่า `41, 50` ดังนั้นเกณฑ์ไม่รวมค่าเหล่านั้น; ค่า `40` อยู่ใน bin ก่อนหน้า. Bin ภายในมีค่ามากกว่าขอบล่างและไม่เกินขอบบน
 
-![Histogram with 10‑minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
 #### **ระบุจำนวน Bin**
 
-หากต้องการระดับรายละเอียดคงที่แทนช่วงคงที่ ให้กำหนดให้ใช้ห้าตำแหน่ง bin สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดใช้งาน bin underflow และ overflow แผนภูมิคำนวณความกว้างจากช่วงข้อมูล ดังนั้นขอบเขตอาจเปลี่ยนแปลงระหว่างรายงาน
+เพื่อให้ระดับรายละเอียดคงที่แทนการกำหนดช่วงคงที่, ขอ 5 bin สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดการใช้งาน bin underflow และ overflow. แผนภูมิคำนวณความกว้างจากช่วงข้อมูล, ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
 
 ```csharp
 using Aspose.Slides;
@@ -875,15 +896,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-ห้าตำแหน่ง bin มีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าข้อมูลเดียวกัน แต่ขอบเขตต่างกัน
+ห้าค่า bin มีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าต่าง ๆ เหมือนกัน แต่ขอบเขตต่างกัน
 
 ![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **สร้างแผนภูมิเสาตราส่วน (Radar Charts)**
+### **สร้าง Radar Charts**
 
-แผนภูมิเสาตราส่วนใช้เพื่อแสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย เหมาะสำหรับการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะของการทำงาน
+Radar charts ใช้แสดงข้อมูลหลายมิติในรูปแบบสองมิติ, ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย. เหมาะสำหรับระบุรูปแบบ, จุดแข็ง, และจุดอ่อนของเมตริกหรือคุณสมบัติหลายประการ
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิเสาตราส่วนด้วยชุดข้อมูลและประเภทเริ่มต้น แล้วบันทึกเป็นไฟล์ PPTX
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้าง radar chart ด้วย series และ categories เริ่มต้น, แล้วบันทึกเป็น PPTX
 
 ```csharp
 using Aspose.Slides;
@@ -900,13 +921,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิเสาตราส่วน](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **สร้างแผนภูมิมีหลายประเภท (Multi-Category Charts)**
+### **สร้าง Multi-Category Charts**
 
-แผนภูมิมีหลายประเภทใช้เพื่อแสดงข้อมูลที่มีการจัดกลุ่มตามประเภทหลายระดับพร้อมกัน ช่วยให้คุณเปรียบเทียบค่าข้ามหลายมิติได้พร้อมกัน มีประโยชน์เมื่อต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
+Multi-category charts ใช้แสดงข้อมูลที่มีการจัดกลุ่มประเภทหลายระดับพร้อมกัน, ช่วยเปรียบเทียบค่าข้ามมิติต่าง ๆ ได้พร้อมกัน. มีประโยชน์เมื่อจำเป็นต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปดประเภทจัดเป็นสี่คู่ วิธีการ [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1 ทำให้แกนประเภทมีทั้งป้ายแบบเดี่ยวและแบบกลุ่ม
+ตัวอย่างนี้สร้าง clustered column chart ที่มีแปดประเภทจัดเป็นสี่คู่. วิธี [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1, ทำให้แกนประเภทมีป้ายปัจเจกและป้ายกลุ่มร่วม
 
 ```csharp
 using Aspose.Slides;
@@ -975,13 +996,47 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิหลายประเภท](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **สร้างแผนภูมิเสา (Map Charts)**
+#### **ลบป้ายไตรมาส**
 
-แผนภูมิเสาใช้เพื่อแสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง เหมาะสำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและน่าสนใจ
+ดาวน์โหลด [quarters.pptx](quarters.pptx) แล้ววางในไดเรกทอรีทำงาน. แผนภูมิโดยมันแสดง 9 เดือนและ series การขายหนึ่ง series ค่า 10‑18. แกนประเภทมีป้ายไตรมาสสามอัน: Q1 ครอบ Jan–Mar, Q2 ครอบ Apr–Jun, Q3 ครอบ Jul–Sep.
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิเสาโดยใช้ข้อมูลทางภูมิศาสตร์เริ่มต้นแล้วบันทึกเพื่อเปิดดูใน PowerPoint
+เดือนเมษายนคือประเภทที่สี่และเป็นที่ที่ตั้งค่า Q2 ไว้อย่างชัดเจน. เรียกใช้ [DeleteGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) บนคอลเล็กชัน [GroupingLevels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/groupinglevels/) ของเดือนเมษายน. ระดับสัมพันธ์กับเมษายน: ระดับ 1 คือไตรมาส, ระดับ 0 คือเดือนเอง. เมธอดไม่สามารถลบ leaf category ที่ระดับ 0 ได้
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation("quarters.pptx"))
+{
+    var chart = (IChart)presentation.Slides[0].Shapes[0];
+    var april = chart.ChartData.Categories[3];
+    april.GroupingLevels.DeleteGroupingItem(1);
+
+    presentation.Save("quarters-updated.pptx", SaveFormat.Pptx);
+}
+
+using var reopened = new Presentation("quarters-updated.pptx");
+var updatedChart = (IChart)reopened.Slides[0].Shapes[0];
+var data = updatedChart.ChartData;
+
+Console.WriteLine(string.Join(", ", data.Categories.Select(month => month.AsCell.Value)));
+Console.WriteLine(string.Join(", ", data.Series[0].DataPoints.Select(point => point.Value.Data)));
+```
+
+แผนภูมิที่เปิดใหม่พิมพ์เดือนเดิม (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) และค่าการขาย (`10, 11, 12, 13, 14, 15, 16, 17, 18`) ตามลำดับเดิม. เปิด `quarters-updated.pptx` ใน PowerPoint เพื่อตรวจสอบการเปรียบเทียบป้ายแกน. ป้าย Q2 และเส้นแบ่งกลุ่มก่อนเดือนเมษายนหายไป, ดังนั้น Q1 ครอบ Jan‑Jun. Q3 ยังคงเริ่มต้นในเดือนกรกฎาคม
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
+### **สร้าง Map Charts**
+
+Map charts ใช้แสดงข้อมูลภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะเช่น ประเทศ, รัฐ, หรือเมือง เหมาะสำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
+
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้าง map chart ด้วยข้อมูลภูมิศาสตร์เริ่มต้น แล้วบันทึกเพื่อดูใน PowerPoint
 
 ```csharp
 using Aspose.Slides;
@@ -998,19 +1053,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![แผนภูมิเสา](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+รูปภาพด้านบนแสดง presentation ที่บันทึกแล้วเปิดใน PowerPoint. Aspose.Slides เขียน map chart และข้อมูลได้ถูกต้อง, แต่ไม่ได้วาด map chart ด้วยตัวเอง: เมื่อสไลด์ที่มี map chart ถูกเรนเดอร์เป็นภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะเป็นสีว่าง. รูปทรงอื่นบนสไลด์เดียวกันไม่มีผลกระทบ
 {{% /alert %}}
 
-### **สร้างแผนภูมิผสม (Combination Charts)**
+### **สร้าง Combination Charts**
 
-แผนภูมิผสม (หรือ combo chart) รวมประเภทแผนภูมิสองประเภทหรือมากกว่าลงในกราฟเดียว ทำให้คุณสามารถเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุดได้ ช่วยระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น
+Combination chart (หรือ combo chart) ผสานสองหรือหลายประเภทแผนภูมิไว้ในกราฟเดียว ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด, ช่วยระบุความสัมพันธ์ระหว่างข้อมูลเหล่านั้น
 
-![แผนภูมิผสม](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-ตัวอย่างนี้รวมสองชุดคอลัมน์แบบกลุ่มกับชุดเส้นหนึ่งชุดในสี่ประเภท คอลัมน์ใช้แกนแนวตั้งหลัก ส่วน [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) วางเส้นบนแกนแนวตั้งรองด้านขวา ฟังก์ชันช่วยเหลือกำหนดค่าชื่อเรื่อง, ตำนาน, ป้ายแกน, และเส้นตาราง
+ตัวอย่างนี้ผสานสอง series ของ clustered column กับ series ของ line ในสี่ประเภท. คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วน [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) วาง line บนแกนแนวตั้งรองขวา. ฟังก์ชันช่วยตั้งชื่อ, legend, ป้ายแกน, และเส้นกริด
 
 ```csharp
 using System.Drawing;
@@ -1170,11 +1225,11 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **อัปเดตแผนภูมิ (Update Charts)**
+## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for .NET ทำให้คุณอัปเดตแผนภูมิ PowerPoint ได้โดยการแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ ฟีเจอร์นี้ช่วยให้การทำให้การนำเสนอเป็นปัจจุบันด้วยเนื้อหาแบบไดนามิกง่ายขึ้น และทำให้แผนภูมิสื่อสารข้อมูลและมาตรฐานการแสดงผลอย่างแม่นยำ
+Aspose.Slides for .NET ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ สิ่งนี้ทำให้การรักษา presentation ให้ทันสมัยด้วยเนื้อหาไดนามิกง่ายขึ้นและรับประกันว่าแผนภูมิสะท้อนข้อมูลและมาตรฐานการออกแบบปัจจุบันอย่างแม่นยำ
 
-ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเสนอที่มีอยู่ ต้องมีสองชุดคอลัมน์แต่ละชุดมีสามจุดข้อมูล, ป้ายประเภทอยู่ในคอลัมน์ A และชื่อชุดข้อมูลอยู่ในแถวแรกของแผ่นงานแรก ตัวอย่างใช้ [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) เพื่อเปลี่ยนค่าในเซลล์เวิร์กบุ๊ก, อัปเดตค่าชุดข้อมูล, เพิ่มชุดที่สาม, และเปลี่ยนประเภทแผนภูมเป็น cylinder แบบกลุ่มผ่าน [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/)
+ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของ presentation ที่มีอยู่แล้ว ต้องมี series คอลัมน์สอง series, แต่ละ series มีจุดข้อมูลสามจุด, ป้ายประเภทอยู่ในคอลัมน์ A และชื่อ series อยู่ในแถวแรกของ worksheet แรก ตัวอย่างใช้ [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) เพื่อเปลี่ยนค่า workbook, อัปเดตค่าของ series, เพิ่ม series ที่สาม, และเปลี่ยนแผนภูมิเป็น clustered cylinders ผ่าน [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/)
 
 ```csharp
 using Aspose.Slides;
@@ -1228,13 +1283,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ (Set Data Range for a Chart)**
+## **ตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อดูช่วงที่ใช้งานแล้วของแผนภูมิที่มีอยู่ ให้ดูที่ [Retrieve a Chart's Data Range](/slides/th/net/chart-workbook/#retrieve-a-charts-data-range)
+เพื่อดูช่วงข้อมูลที่แผนภูมิใช้แล้ว, ดู [Retrieve a Chart's Data Range](/slides/th/net/chart-workbook/#retrieve-a-charts-data-range)
 
-Aspose.Slides for .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากแผ่นงานเป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ หมายความว่าคุณสามารถแมปส่วนหนึ่งของแผ่นงานโดยตรงกับแผนภูมิ ทำให้ควบคุมเซลล์ที่ส่งผลต่อชุดข้อมูลและประเภทของแผนภูมิได้อย่างแม่นยำ ผลลัพธ์คือคุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดในแผ่นงานได้อย่างง่ายดาย ทำให้การนำเสนอ PowerPoint ของคุณสื่อสารข้อมูลที่เป็นปัจจุบันและถูกต้อง
+Aspose.Slides for .NET ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจาก worksheet เป็นแหล่งข้อมูลของแผนภูมิของคุณ ซึ่งหมายความว่าคุณสามารถแมปส่วนของ worksheet ไปยังแผนภูมิได้โดยตรง, ควบคุมเซลล์ใดบ้างที่มีส่วนร่วมใน series และประเภทของแผนภูมิ ผลคือคุณสามารถอัปเดตและซิงค์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดใน worksheet ได้ง่าย, ทำให้ presentation ของคุณสื่อข้อมูลที่เป็นปัจจุบันและแม่นยำ
 
-ตัวอย่างนี้ใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) เพื่อตั้งค่าแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของการนำเสนอที่มีอยู่เป็น `Sheet1!A1:B4`. แผ่นงานของแผนภูมิต้องมีแผ่นดังกล่าวและช่วงที่มีหัวเรื่องชุดข้อมูลในแถวแรก, ป้ายประเภทในคอลัมน์ A, และสามค่าที่คอลัมน์ B
+ตัวอย่างนี้ใช้ [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) เพื่อตั้งแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของ presentation ที่มีอยู่เป็น `Sheet1!A1:B4`. workbook ของแผนภูมิต้องมี worksheet นั้นและช่วงที่มีหัว series ในแถวแรก, ป้ายประเภทในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
 
 ```csharp
 using Aspose.Slides;
@@ -1257,11 +1312,11 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **ใช้ตัวชี้เริ่มต้นในแผนภูมิ (Use Default Markers in Charts)**
+## **ใช้ Marker เริ่มต้นในแผนภูมิ**
 
-เมื่อคุณใช้ตัวชี้เริ่มต้นในแผนภูมิ แต่ละชุดข้อมูลของแผนภูมิจะได้รับสัญลักษณ์ตัวชี้เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+เมื่อใช้ marker เริ่มต้นในแผนภูมิ, แต่ละ series จะได้รับสัญลักษณ์ marker เริ่มต้นที่แตกต่างโดยอัตโนมัติ
 
-ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิกับสองชุดเส้นและตำนาน การตั้งค่า [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) รักษาสัญลักษณ์ตัวชี้ที่กำหนดโดยอัตโนมัติ ชุดแรกรวมค่าติดลบและค่าที่หายไป (null) ส่วนชุดที่สองมีค่าในทุกประเภท
+ตัวอย่างนี้ใช้ [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) เพื่อสร้างแผนภูมิที่มีสอง series ของ line และ legend. การตั้งค่า [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) รักษาสัญลักษณ์ marker ที่กำหนดอัตโนมัติ. series แรกมีค่าลบและค่าที่ขาด (`null`), series ที่สองมีค่าทุกประเภท
 
 ```csharp
 using Aspose.Slides;
@@ -1319,20 +1374,22 @@ chart.Legend.Overlay = false;
 presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 ```
 
-## **คำถามที่พบบ่อย (FAQ)**
+## **FAQ**
 
-**แผนภูมิประเภทใดบ้างที่ Aspose.Slides for .NET รองรับ?**
+**Aspose.Slides for .NET รองรับประเภทแผนภูมิใดบ้าง?**
 
-Aspose.Slides for .NET รองรับแผนภูมิหลายประเภท รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ อีกมากมาย ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณที่สุด
+Aspose.Slides for .NET รองรับแผนภูมิกว้างหลายประเภท รวมถึง bar, line, pie, area, scatter, histogram, radar, และอื่น ๆ อีกมากมาย ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะกับการแสดงผลข้อมูลของคุณที่สุด
 
-**ฉันจะเพิ่มแผนภูมิใหม่ในสไลด์ได้อย่างไร?**
+**วิธีเพิ่มแผนภูมิใหม่ลงในสไลด์คืออะไร?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) ดึงสไลด์ที่ต้องการโดยใช้ดัชนี แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ โดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้จะผสานแผนภูมิเข้าไปในการนำเสนอของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ, คุณสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), ดึงสไลด์ตามดัชนีที่ต้องการ, แล้วเรียกเมธอดเพิ่มแผนภูมิโดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้ผสานแผนภูมิเข้าใน presentation ของคุณโดยตรง
 
 **ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), ลบชุดข้อมูลและประเภทเริ่มต้นที่มีอยู่, จากนั้นเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ทำให้คุณรีเฟรชแผนภูมิโดยโปรแกรมให้สะท้อนข้อมูลล่าสุดได้
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูล ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), ลบ series และประเภทเริ่มต้น, แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ ซึ่งช่วยให้คุณรีเฟรชแผนภูมิโดยโปรแกรมตามข้อมูลล่าสุด
 
-**ฉันสามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
+**สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
 
-ได้, Aspose.Slides for .NET มีตัวเลือกการปรับแต่งอย่างครอบคลุม คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, ตำนาน, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้ลักษณะของแผนภูมิตรงตามความต้องการออกแบบของคุณ.
+ได้, Aspose.Slides for .NET มีตัวเลือกการปรับแต่งมากมาย คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, legend, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงกับความต้องการออกแบบของคุณ
+
+Related feature: [Create editable charts](/slides/th/features/create-charts/).

@@ -1,59 +1,63 @@
 ---
-title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσίασης PowerPoint σε C++
-linktitle: Δημιουργία ή Ενημέρωση Διαγραμμάτων
+title: "Δημιουργία ή Ενημέρωση Γραφημάτων Παρουσίασης PowerPoint σε C++"
+linktitle: "Δημιουργία ή Ενημέρωση Γραφημάτων"
 type: docs
 weight: 10
 url: /el/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- προσθήκη διαγράμματος
-- δημιουργία διαγράμματος
-- επεξεργασία διαγράμματος
-- αλλαγή διαγράμματος
-- ενημέρωση διαγράμματος
-- διάγραμμα διασποράς
-- διάγραμμα πίτας
-- διάγραμμα γραμμής
-- διάγραμμα χάρτη δένδρου
-- διάγραμμα μετοχών
-- διάγραμμα box και whisker
-- διάγραμμα χωνίου
-- διάγραμμα ηλιακής έκρηξης
-- διάγραμμα ιστογράμματος
-- διάγραμμα ραντάρ
-- διάγραμμα πολλαπλών κατηγοριών
-- PowerPoint
-- παρουσίαση
-- C++
-- Aspose.Slides
-description: "Δημιουργία και προσαρμογή διαγραμμάτων σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για C++. Προσθήκη, μορφοποίηση και επεξεργασία διαγραμμάτων με πρακτικά παραδείγματα κώδικα σε C++."
+  - "προσθήκη γραφήματος"
+  - "δημιουργία γραφήματος"
+  - "επεξεργασία γραφήματος"
+  - "αλλαγή γραφήματος"
+  - "ενημέρωση γραφήματος"
+  - "διασπορικό γράφημα"
+  - "γράφημα πίτας"
+  - "γραμμικό γράφημα"
+  - "γράφημα δένδρου‑χάρτη"
+  - "γράφημα μετοχής"
+  - "διάγραμμα box και whisker"
+  - "διάγραμμα χωνιού"
+  - "διάγραμμα ηλιακής έκρηξης"
+  - "διάγραμμα ιστόγραμματος"
+  - "διάγραμμα ραντάρ"
+  - "διάγραμμα πολλαπλών κατηγοριών"
+  - "PowerPoint"
+  - "παρουσίαση"
+  - "C++"
+  - "Aspose.Slides"
+description: "Δημιουργήστε και προσαρμόστε γραφήματα σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides for C++. Προσθέστε, μορφοποιήστε και επεξεργαστείτε γραφήματα με πρακτικά παραδείγματα κώδικα σε C++."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργείτε και να προσαρμόζετε διαγράμματα χρησιμοποιώντας το Aspose.Slides for C++. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μία διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα εικονογραφούν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια γερή κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές C++ σας, απλοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε γραφήματα χρησιμοποιώντας το Aspose.Slides for C++. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα γράφημα σε μια διαφίδα, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης για να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίασής σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα επεξηγούν κάθε βήμα, από την έναρξη της παρουσίασης και του αντικειμένου γραφήματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνημμάτων. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια στέρεη κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία γραφημάτων στις εφαρμογές C++, διευκολύνοντας τη δημιουργία παρουσιάσεων βασισμένων σε δεδομένα.
 
-## **Δημιουργία Διαγράμματος**
+## **Δημιουργία Γραφήματος**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα δεδομένα και να αποκτούν ενόραση που ίσως δεν είναι άμεσα προφανής από έναν πίνακα ή λογιστικό φύλλο.
+Τα γραφήματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να αποκτούν διορατικότητα που μπορεί να μην είναι άμεσα ορατή από έναν πίνακα ή λογιστικό φύλλο.
 
-**Γιατί να δημιουργήσετε διαγράμματα;**
+**Γιατί να δημιουργείτε γραφήματα;**
 
-* συγκεντρώνετε, συμπιέζετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μία μόνο διαφάνεια μιας παρουσίασης·  
-* αποκαλύπτετε πρότυπα και τάσεις στα δεδομένα·  
-* συμπεραίνετε τη διεύθυνση και την ορμή των δεδομένων με το χρόνο ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης·  
-* εντοπίζετε ακραίες τιμές, αποκλίσεις, σφάλματα και ακατανόητα δεδομένα·  
-* επικοινωνείτε ή παρουσιάζετε περίπλοκα δεδομένα.
+Με τη χρήση γραφημάτων μπορείτε:
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράµατα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράµατα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράµατα.
+* να συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλα σύνολα δεδομένων σε μία μόνο διαφίδα της παρουσίασης·
+* να αποκαλύψετε πρότυπα και τάσεις στα δεδομένα·
+* να συμπεράνετε τη διεύθυνση και την ορμή των δεδομένων με το χρόνο ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης·
+* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα και ανούσια δεδομένα·
+* να επικοινωνήσετε ή να παρουσιάσετε πολύπλοκα δεδομένα.
+
+Στο PowerPoint, μπορείτε να δημιουργήσετε γραφήματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων γραφημάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά γραφήματα (βάσει δημοφιλών τύπων) όσο και προσαρμοσμένα γραφήματα.
 
 {{% alert color="info" title="Note" %}}
-Χρησιμοποιήστε την απαρίθμηση [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) κάτω από το namespace [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Οι τιμές σε αυτήν την απαρίθμηση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+
+Χρησιμοποιήστε την απαρίθμηση [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) στο χώρο ονομάτων [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/) . Οι τιμές σε αυτήν την απαρίθμηση αντιστοιχούν σε διαφορετικούς τύπους γραφημάτων.
+
 {{% /alert %}}
 
-### **Δημιουργία Στοιβαδών Στήλων**
+### **Δημιουργία Στοίβαστων Στήλων**
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα ομαδοποιημένο στήλης διάγραμμα που συγκρίνει δύο σειρές σε τρεις κατηγορίες. Οι σειρές χρησιμοποιούν κόκκινο και πράσινο γέμισμα, και μεμονωμένες ετικέτες δείχνουν τα ονόματα κατηγοριών, τις ονομασίες σειρών και τις τιμές. Ο δείκτης φύλλου εργασίας 0 αναφέρεται στο πρώτο φύλλο στο ενσωματωμένο βιβλίο εργασίας του διαγράμματος.
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα στοίβαστο γράφημα στήλης που συγκρίνει δύο σειρές σε τρεις κατηγορίες. Οι σειρές χρησιμοποιούν κόκκινη και πράσινη γέμιση, και μεμονωμένες ετικέτες εμφανίζουν τα ονόματα των κατηγοριών, των σειρών και τις τιμές. Ο δείκτης φύλλου εργασίας 0 αναφέρεται στο πρώτο φύλλο του ενσωματωμένου βιβλίου γραφήματος.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -163,20 +167,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Στοιβαδής Στήλης](clustered_column_chart.png)
+![Το γράφημα Στοίβαστης Στήλης](clustered_column_chart.png)
 
-### **Δημιουργία Διάσπαρτων Διαγραμμάτων**
+### **Δημιουργία Διασπορικών Γραφημάτων**
 
-Τα scatter διαγράµατα (επίσης γνωστά ως διαγράµατα διασποράς ή γραφήματα x-y) χρησιμοποιούνται συχνά για τον έλεγχο προτύπων ή την παρουσίαση συσχετισμών μεταξύ δύο μεταβλητών.
+Διασπορικά γραφήματα (γνωστά και ως scatter plots ή x‑y διαγράμματα) χρησιμοποιούνται συχνά για να ελέγχουν τα πρότυπα ή να δείχνουν συσχετισμούς μεταξύ δύο μεταβλητών.
 
-Χρησιμοποιήστε ένα scatter διάγραμμα όταν:
+Χρησιμοποιήστε ένα διασπορικό γράφημα όταν:
 
-* Έχετε αριθμητικά ζεύγος δεδομένων.  
-* Διαθέτετε δύο μεταβλητές που ταιριάζουν μεταξύ τους.  
-* Θέλετε να καθορίσετε εάν οι δύο μεταβλητές είναι σχετικές.  
-* Έχετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή.
+* Διαθέτετε ζεύγους αριθμητικών δεδομένων·
+* Έχετε δύο μεταβλητές που ταιριάζουν καλά μαζί·
+* Θέλετε να προσδιορίσετε αν οι δύο μεταβλητές είναι σχετικές·
+* Διαθέτετε μια ανεξάρτητη μεταβλητή που έχει πολλαπλές τιμές για μια εξαρτημένη μεταβλητή.
 
-Αυτό το παράδειγμα σχεδιάζει δύο σύνολα τιμών x-y. Η πρώτη σειρά χρησιμοποιεί ευθείες γραμμές με δείκτες αστεριού, ενώ η δεύτερη χρησιμοποιεί ομαλές γραμμές με δείκτες κύκλου· και οι δύο χρησιμοποιούν μέγεθος δείκτη 10, ορισμένο με τη μέθοδο [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Η μέθοδος [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) ελέγχει το σχήμα του δείκτη.
+Αυτό το παράδειγμα σχεδιάζει δύο σύνολα τιμών x‑y. Η πρώτη σειρά χρησιμοποιεί ευθείες γραμμές με δείκτες‑αστέρι, ενώ η δεύτερη χρησιμοποιεί εξομαλυνμένες γραμμές με δείκτες‑κύκλο· και οι δύο χρησιμοποιούν μέγεθος δείκτη 10, ορισμένο με τη μέθοδο [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Η μέθοδος [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) ελέγχει το σχήμα του δείκτη.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -266,13 +270,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Scatter](scatter_chart.png)
+![Το γράφημα Scatter](scatter_chart.png)
 
-### **Δημιουργία Πίτας Διαγραμμάτων**
+### **Δημιουργία Πίτας**
 
-Τα pie διαγράµατα είναι ιδανικά για την εμφάνιση της σχέσης μέρος-συνολικό σε δεδομένα, ιδιαίτερα όταν τα δεδομένα περιέχουν κατηγορικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε τη χρήση ραβδωτού διαγράμματος ως εναλλακτική.
+Τα γραφήματα πίτας είναι καλύτερα για την απεικόνιση της σχέσης μέρος‑προς‑ολόκληρο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να σκεφτείτε τη χρήση γραφήματος ράβδου αντί αυτού.
 
-Αυτό το παράδειγμα δημιουργεί ένα pie διάγραμμα με τρεις τριμηνιαίες τιμές. Κάθε φέτα έχει προσαρμοσμένο γέμισμα και περίγραμμα, και οι ετικέτες εμφανίζουν διαφορετικούς συνδυασμούς τιμών, ποσοστών και πληροφοριών σειράς. Η μέθοδος [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) ορίζει την πρώτη φέτα να ξεκινάει από 180 μοίρες.
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα πίτας με τρεις τριμηνιαίες τιμές. Κάθε φέτα έχει προσαρμοσμένη γέμιση και περίγραμμα, και οι ετικέτες εμφανίζουν διαφορετικούς συνδυασμούς τιμών, ποσοστών και πληροφοριών σειράς. Η μέθοδος [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) ορίζει την πρώτη φέτα να ξεκινάει στις 180 μοίρες.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -409,13 +413,15 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Πίτας](pie_chart.png)
+![Το γράφημα Πίτας](pie_chart.png)
 
-Για να βελτιώσετε την αναγνωσιμότητα των ετικετών εκτός της πίτας, δείτε [Διαμόρφωση Γραμμών Καθοδήγησης](/slides/el/cpp/chart-data-label/#format-leader-lines) για ένα παράδειγμα που τοποθετεί ετικέτες και προσαρμόζει το χρώμα, το πλάτος, τη διαφάνεια και το στυλ παύλας των γραμμών.
+Για να βελτιώσετε την αναγνωσιμότητα των ετικετών έξω από την πίτα, δείτε το άρθρο [Format Leader Lines](/slides/el/cpp/chart-data-label/#format-leader-lines) για ένα παράδειγμα που τοποθετεί ετικέτες και προσαρμόζει το χρώμα, το πλάτος, τη διαφάνεια και το στυλ παύλας των γραμμών.
 
-### **Δημιουργία Γραμμικών Διαγραμμάτων**
+### **Δημιουργία Γραμμικών Γραφημάτων**
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα γραμμικό διάγραμμα με τις προεπιλογές σειράς και κατηγοριών, στη συνέχεια αποθηκεύει την παρουσίαση ως PPTX.
+Γραμμικά γραφήματα (γνωστά και ως line graphs) είναι καλύτερα όταν θέλετε να δείξετε αλλαγές στην τιμή με το χρόνο. Με ένα γραμμικό γράφημα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις με το χρόνο, να επισημαίνετε ανωμαλίες στις σειρές δεδομένων και πολλά άλλα.
+
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα γραμμικό γράφημα με τις προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αποθηκεύει την παρουσίαση ως PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -447,7 +453,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα συνδέονται με ευθείες συνεχείς γραμμές. Εάν θέλετε τα σημεία να συνδέονται με παύλες, καλέστε τη μέθοδο [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) με μια τιμή από το [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Από προεπιλογή, τα σημεία σε ένα γραμμικό γράφημα συνδέονται με ευθείες συνεχόμενες γραμμές. Εάν θέλετε τα σημεία να συνδέονται με παύλες, καλέστε τη μέθοδο [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) με τιμή από το [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) :
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -484,11 +490,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Γραμμής](line_chart.png)
+![Το γράφημα Γραμμής](line_chart.png)
 
-### **Δημιουργία Tree Map Διαγραμμάτων**
+### **Δημιουργία Δέντρο‑χαρτών (Tree Map)**
 
-Αυτό το παράδειγμα δημιουργεί ένα tree map με οχτώ φύλλα ομαδοποιημένα σε τέσσερα στελέχη και δύο κλαδικούς κόμβους. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) εκχωρεί τα στελέχη στο επίπεδο ομαδοποίησης 1 και τα κλαδιά στο επίπεδο 2. Οι τιμές καθορίζουν τα σχετικά μεγέθη των ορθογωνίων, ενώ οι ετικέτες κατηγοριών και οι ετικέτες γονέων που επικαλύπτονται αναγνωρίζουν την ιεραρχία.
+Δέντρο‑χαρτογράφηματα είναι κατάλληλα για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συμβάλλουν σημαντικά μέσα σε κάθε κατηγορία.
+
+Αυτό το παράδειγμα δημιουργεί ένα δέντρο‑χαρτο με οκτώ φύλλα ομαδοποιημένα σε τέσσερα στελέχη και δύο κλαδιά. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) εκχωρεί τα στελέχη στο επίπεδο ομαδοποίησης 1 και τα κλαδιά στο επίπεδο 2. Οι τιμές καθορίζουν το σχετικό μέγεθος των ορθογωνίων, ενώ οι ετικέτες κατηγοριών και οι επικαλυπτόμενες γονικές ετικέτες προσδιορίζουν την ιεραρχία.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -536,7 +544,7 @@ chart->get_ChartData()->get_Series()->Clear();
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Κλαδί 1
+// Κλάδος 1
 auto categoryCell = workbook->GetCell(0, u"C1", ObjectExt::Box(String(u"Leaf1")));
 auto leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem1")));
@@ -552,7 +560,7 @@ leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem2")))
 categoryCell = workbook->GetCell(0, u"C4", ObjectExt::Box(String(u"Leaf4")));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-// Κλαδί 2
+// Κλάδος 2
 categoryCell = workbook->GetCell(0, u"C5", ObjectExt::Box(String(u"Leaf5")));
 leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem3")));
@@ -594,13 +602,15 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Tree Map](treemap_chart.png)
+![Το γράφημα Treemap](treemap_chart.png)
 
-### **Δημιουργία Waterfall Διαγραμμάτων**
+### **Δημιουργία Καταρρακών (Waterfall) Γραφημάτων**
 
-Ένα waterfall διάγραμμα δείχνει πώς οι θετικές και αρνητικές αλλαγές συμβάλλουν σε μια τελική τιμή. Για παράδειγμα, μια ανάλυση κερδών μπορεί να ξεκινά με τα έσοδα, να αφαιρεί τα κόστη και να προσθέτει άλλα εισοδήματα. Οι στήλες αλλαγής αιωρούνται μεταξύ των προηγούμενων και νέων τρεχουσών τιμών, ενώ οι συνολικές στήλες εκτείνονται από το μηδέν έως τη συσσωρευμένη τιμή.
+Ένα γράφημα καταρράκτη δείχνει πώς οι θετικές και αρνητικές αλλαγές συμβάλλουν σε τελική τιμή. Για παράδειγμα, η ανάλυση κερδών μπορεί να ξεκινά με τα έσοδα, να αφαιρεί τα κόστη και να προσθέτει άλλα έσοδα. Οι στήλες αλλαγής επιπλέουν μεταξύ των προηγούμενων και νέων τρεχουσών τιμών, ενώ οι στήλες συνόλου εκτείνονται από το μηδέν μέχρι την αθροιστική τιμή.
 
-| Κατηγορία | Τιμή φύλλου εργασίας | Τύπος στήλης |
+Το παρακάτω παράδειγμα χρησιμοποιεί ποσά σε χιλιάδες δολάρια ΗΠΑ:
+
+| Κατηγορία | Τιμή βιβλίου εργασίας | Τύπος στήλης |
 | --- | ---: | --- |
 | Έσοδα | 1000 | Αύξηση |
 | Κόστος πωλήσεων | -400 | Μείωση |
@@ -609,9 +619,9 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 | Άλλα έσοδα | 50 | Αύξηση |
 | Καθαρό κέρδος | 450 | Τελικό σύνολο |
 
-Για να σημειώσετε ένα σημείο ως ενδιάμεσο ή τελικό σύνολο, καλέστε τη μέθοδο [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) με `true`. Παρέχετε το πραγματικό συσσωρευμένο ποσό στο κελί του βιβλίου εργασίας του σημείου: `600` για το μικτό κέρδος (`1000 - 400`) και `450` για το καθαρό κέρδος (`600 - 200 + 50`). Η μέθοδος σημαδεύει τη στήλη ως σύνολο· δεν υπολογίζει ή συμπληρώνει την τιμή του κελιού. Μην χρησιμοποιείτε το μηδέν ως placeholder ή να παρέχετε άλλη αλλαγή για ένα σημείο σύνολο. Μια στήλη σύνολο εμφανίζει τη συσσωρευμένη τιμή χωρίς να την προσθέτει ξανά στη τρέχουσα τιμή.
+Για να σημαδέψετε ένα σημείο ως ενδιάμεσο ή τελικό σύνολο, καλέστε τη μέθοδο [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) με `true`. Εισάγετε την πραγματική αθροιστική ποσότητα στο κελί του βιβλίου εργασίας: `600` για το μικτό κέρδος (`1000 - 400`) και `450` για το καθαρό κέρδος (`600 - 200 + 50`). Η μέθοδος σημαδεύει τη στήλη ως σύνολο· δεν υπολογίζει ή γεμίζει την τιμή του κελιού. Μην χρησιμοποιείτε το μηδέν ως θέση κράτησης ή προσθέτετε άλλη αλλαγή για σημείο σύνολου. Μια στήλη σύνολου εμφανίζει την αθροιστική τιμή χωρίς να την προσθέτει ξανά στην τρέχουσα τιμή.
 
-Αυτό το πλήρες παράδειγμα C++ δημιουργεί ένα διάγραμμα χρησιμοποιώντας το μέλος `Waterfall` της [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), διαγράφει τα προεπιλεγμένα δεδομένα και γεμίζει το ενσωματωμένο βιβλίο εργασίας. Ο δείκτης φύλλου εργασίας `0` επιλέγει το πρώτο φύλλο; η στήλη A περιέχει ονόματα κατηγοριών και η στήλη B περιέχει τιμές. Κάθε κελί προστίθεται με τη μέθοδο [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Οι δείκτες σημείου 0‑βασικοί `2` και `5` ταυτοποιούν τα ενδιάμεσα και τελικά σύνολα. Η παράμετρος `true` στη μέθοδο [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) εμφανίζει τα ποσά στις στήλες. Δεν απαιτείται εισαγωγική παρουσίαση ή βιβλίο εργασίας.
+Αυτό το πλήρες παράδειγμα C++ δημιουργεί ένα γράφημα χρησιμοποιώντας το μέλος `Waterfall` του [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), καθαρίζει τα προεπιλεγμένα δεδομένα και γεμίζει το ενσωματωμένο βιβλίο εργασίας. Ο δείκτης φύλλου εργασίας `0` επιλέγει το πρώτο φύλλο; η στήλη Α περιέχει τα ονόματα των κατηγοριών και η στήλη Β τις τιμές. Κάθε κελί τιμής προστίθεται με τη μέθοδο [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Οι δείκτες σημείων 0‑βάσης `2` και `5` προσδιορίζουν τα ενδιάμεσα και τελικά σύνολα. Περνώντας `true` στη μέθοδο [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) εμφανίζονται τα ποσά στις στήλες. Δεν απαιτείται καθόλου παρουσία ή βιβλίο εργασίας.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -685,7 +695,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Τα τρίτο και έκτο σημεία αντιπροσωπεύουν σύνολα, όχι επιπλέον αλλαγές.
+// Το τρίτο και το έκτο σημείο αντιπροσωπεύουν σύνολα, όχι επιπλέον αλλαγές.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -694,21 +704,28 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Καλέστε τη μέθοδο σε επίπεδο σειράς [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) με `true` για να εμφανίσετε γραμμές σύνδεσης διαδοχικών στηλών και να κάνετε πιο ευανάγνωστη την τρέχουσα τιμή. Για να κρύψετε αυτές τις γραμμές, αντικαταστήστε την εκχώρηση στο παράδειγμα με `series->set_ShowConnectorLines(false);` πριν την αποθήκευση. Αυτό αλλάζει μόνο την ορατότητα των γραμμών, όχι τα δεδομένα ή τα σύνολα.
+Καλέστε την μέθοδο επιπέδου σειράς [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) με `true` για να εμφανιστούν οι γραμμές σύνδεσης των διαδοχικών στηλών και να γίνει πιο εύκολη η παρακολούθηση της τρέχουσας τιμής. Για να κρύψετε αυτές τις γραμμές, αντικαταστήστε την εκχώρηση στο παράδειγμα με `series->set_ShowConnectorLines(false);` πριν την αποθήκευση. Αυτό αλλάζει μόνο την ορατότητα των γραμμών, όχι τα δεδομένα ή τα σύνολα.
 
-Η αποθηκευμένη παρουσίαση δείχνει το μικτό κέρδος 600 και το καθαρό κέρδος 450, με και τα δύο σύνολα να σχεδιάζονται από το μηδέν:
+Η αποθηκευμένη παρουσίαση δείχνει το μικτό κέρδος 600 και το καθαρό κέρδος 450, με τα δύο σύνολα να ξεκινούν από το μηδέν:
 
-![Διάγραμμα Waterfall που δείχνει έσοδα, κόστη, μικτό κέρδος 600 και καθαρό κέρδος 450, με ετικέτες τιμών και γραμμές σύνδεσης](waterfall_chart.png)
+![Γράφημα Waterfall που εμφανίζει έσοδα, κόστη, μικτό κέρδος 600 και καθαρό κέρδος 450, με ετικέτες τιμών και γραμμές σύνδεσης](waterfall_chart.png)
 
-### **Δημιουργία Stock Διαγραμμάτων**
+### **Δημιουργία Στοκ Γραφημάτων**
 
-Τα stock διαγράµατα χρησιμοποιούνται για την εμφάνιση οικονομικών δεδομένων όπως τιμές ανοίγματος, υψηλής, χαμηλής και κλεισίματος, βοηθώντας στην ανάλυση τάσεων της αγοράς και της μεταβλητότητας. Προσφέρουν ουσιώδεις πληροφορίες για την απόδοση των μετοχών, βοηθώντας επενδυτές και αναλυτές να λαμβάνουν ενημερωμένες αποφάσεις.
+Τα στοκ γραφήματα χρησιμοποιούνται για την παρουσίαση οικονομικών δεδομένων όπως ανοίγμαμα, υψηλό, χαμηλό και κλείσιμο τιμών, βοηθώντας στην ανάλυση των τάσεων της αγοράς και της μεταβλητότητας. Παρέχουν ουσιώδεις πληροφορίες για την απόδοση των μετοχών, βοηθώντας επενδυτές και αναλυτές να λαμβάνουν τεκμηριωμένες αποφάσεις.
 
-Αυτό το παράδειγμα δημιουργεί ένα open‑high‑low‑close διάγραμμα με τέσσερις σειρές με αυτή τη σειρά και τρεις κατηγορίες. Η μέθοδος [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) ενεργοποιεί τις μπάρες ανοδικής/καθοδικής κίνησης, και η μέθοδος [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) ελέγχει τις γραμμές υψηλής‑χαμηλής τιμής που δείχνουν τα εύρη τιμών, ενώ οι επιμέρους γραμμές σειρών και οι μικρές οριζόντιες γραμμές πλέγματος είναι κρυμμένες.
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα ανοίγμαμα‑υψηλό‑χαμηλό‑κλείσιμο (OHLC) με τέσσερις σειρές σε αυτή τη σειρά και τρεις κατηγορίες. Η μέθοδος [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) ενεργοποιεί τις ράβδους ανοδ/καθοδ, και η μέθοδος [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) ελέγχει τις γραμμές υψηλότερο‑χαμηλότερο που δείχνουν τα εύρη τιμών, ενώ οι ατομικές γραμμές σειρών και οι μικρές οριζόντιες γραμμές πλέγματος κρύβονται.
+
+Ο διαχειριστής που επιστρέφεται από τη μέθοδο [get_UpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_updownbars/) εκθέτει ξεχωριστά αντικείμενα μορφοποίησης μέσω των μεθόδων [get_UpBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_upbarsformat/) και [get_DownBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_downbarsformat/). Χρησιμοποιήστε τις μεθόδους [get_Fill](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_fill/) και [get_Line](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_line/) του κάθε αντικείμενου για να προσαρμόσετε αυτόνομα τη γέμιση και το περίγραμμα. Αυτό το παράδειγμα χρησιμοποιεί πράσινες ράβδους με σκούρο‑πράσινο περίγραμμα για ανοδικές περιόδους και πορτοκαλο‑κόκκινες ράβδους με σκούρο‑κόκκινο περίγραμμα για καθοδικές περιόδους.
+
+Παρέχετε αριθμητικές τιμές για όλες τις τέσσερις σειρές σε κάθε κατηγορία, με το Υψών και το Χαμηλών να περικλείουν το Άνοιγμα και το Κλείσιμο. Οι ράβδοι συγκρίνουν το Κλείσιμο με το Άνοιγμα **μέσα στην ίδια κατηγορία**, όχι με την προηγούμενη κατηγορία: το Α πέφτει από 72 σε 25, ενώ το Β ανεβαίνει από 25 σε 38 και το Γ ανεβαίνει από 38 σε 50. Ισάξια τιμές Άνοιγμα‑Κλείσιμο δεν παράγουν ορατό γεμάτο διάστημα. Οι ράβδοι ανοδ/καθοδ καλύπτουν το Άνοιγμα‑Κλείσιμο· οι γραμμές υψηλό‑χαμηλό καλύπτουν το Χαμηλό‑Υψηλό. Αυτές οι ράβδοι ανήκουν στην ομάδα σειρών και δεν είναι απλές σειρές ράβδων.
+
+Αυτή η μορφοποίηση λειτουργεί επίσης με γραφήματα [Line and LineWithMarkers](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) που περιέχουν τουλάχιστον δύο σειρές στην ίδια ομάδα και αντίστοιχες αριθμητικές τιμές για κάθε κατηγορία. Για αυτά τα μη‑στρωματικά γραμμικά γραφήματα, οι ράβδοι ανοδ/καθοδ συγκρίνουν την πρώτη και την τελευταία σειρά: μια υψηλότερη τελευταία τιμή παράγει ράβδο ανοδ, ενώ μια χαμηλότερη τελευταία τιμή παράγει ράβδο καθοδ. Αντιστρέφοντας τις σειρές αντιστρέφεται και η ταξινόμηση. Το παρακάτω παράδειγμα χρησιμοποιεί [OpenHighLowClose](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/); μην υποθέτετε ότι άλλα στοκ, συγκεντρωτικά‑γραμμικά ή 3D παραλλαγές χρησιμοποιούν την ίδια διάταξη δεδομένων ή ερμηνεία διαστημάτων.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
 #include <system/shared_ptr.h>
+#include <drawing/color.h>
 #include <system/object_ext.h>
 #include <system/string.h>
 #include <DOM/Chart/ChartType.h>
@@ -738,6 +755,7 @@ presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 
 using namespace System;
+using namespace System::Drawing;
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
@@ -745,7 +763,7 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
@@ -797,7 +815,21 @@ series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 valueCell = workbook->GetCell(0, 3, 4, ObjectExt::Box(50));
 series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 
-chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars(true);
+auto upDownBars = chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars();
+upDownBars->set_HasUpDownBars(true);
+
+upDownBars->get_UpBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_LimeGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->set_Width(2);
+
+upDownBars->get_DownBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_OrangeRed());
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkRed());
+upDownBars->get_DownBarsFormat()->get_Line()->set_Width(2);
+
 chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
 for (auto stockSeries : chart->get_ChartData()->get_Series())
@@ -810,15 +842,15 @@ chart->get_Axes()->get_VerticalAxis()->get_MinorGridLinesFormat()->get_Line()->g
 presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 ```
 
-Το αποτέλεσμα:
+Το αποτέλεσμα, εξαγμένο από το PowerPoint:
 
-![Το διάγραμμα Stock](stock_chart.png)
+![Γράφημα Stock με πορτοκαλο‑κόκκινο πτώση για το Α και πράσινες ανοδικές περιόδους για τα Β και Γ](stock_chart.png)
 
-### **Δημιουργία Box και Whisker Διαγραμμάτων**
+### **Δημιουργία Γραφημάτων Box and Whisker**
 
-Τα box και whisker διαγράµατα χρησιμοποιούνται για την απεικόνιση της κατανομής δεδομένων συγκεντρώνοντας βασικά στατιστικά μέτρα, όπως η διάμεσος, τα τεταρτημόρια και πιθανά ακραία στοιχεία. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και σε στατιστικές μελέτες για την γρήγορη κατανόηση της διασποράς των δεδομένων και την ταυτοποίηση τυχόν ανωμαλιών.
+Τα γραφήματα Box and Whisker χρησιμοποιούνται για την εμφάνιση της κατανομής των δεδομένων συνοψίζοντας βασικά στατιστικά μέτρα, όπως η διάμεσος, τα τεταρτημόρια και οι πιθανές ακραίες τιμές. Είναι ιδιαίτερα χρήσιμα στην εξερευνητική ανάλυση δεδομένων και σε στατιστικές μελέτες για την ταχεία κατανόηση της μεταβλητότητας των δεδομένων και την αναγνώριση τυχόν ανωμαλιών.
 
-Αυτό το παράδειγμα δημιουργεί ένα box και whisker διάγραμμα από έξι τιμές. Η μέθοδος [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) επιλέγει τον αποκλειστικό υπολογισμό τεταρτημορίων. Το παράδειγμα ενεργοποιεί επίσης γραμμές μέσου όρου, δείκτες μέσου, εσωτερικά σημεία και σημεία ακραίων τιμών.
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα Box and Whisker από έξι τιμές. Η μέθοδος [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) επιλέγει τον αποκλειστικό υπολογισμό τεταρτημορίων. Το παράδειγμα ενεργοποιεί επίσης τις γραμμές μέσου όρου, τους δείκτες μέσου, τα εσωτερικά σημεία και τα σημεία ακραίων τιμών.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -899,11 +931,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Δημιουργία Funnel Διαγραμμάτων**
+### **Δημιουργία Funnel Γραφημάτων**
 
-Τα funnel διαγράµατα χρησιμοποιούνται για την οπτικοποίηση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση των ποσοστών μετατροπής, την ταυτοποίηση bottleneck και την παρακολούθηση της αποδοτικότητας των διαδικασιών πώλησης ή μάρκετινγκ.
+Τα γράφημα Funnel χρησιμοποιούνται για την οπτικοποίηση διαδικασιών που περιλαμβάνουν διαδοχικά στάδια, όπου ο όγκος των δεδομένων μειώνεται καθώς προχωρά από το ένα βήμα στο επόμενο. Είναι ιδιαίτερα χρήσιμα για την ανάλυση των ποσοστών μετατροπής, την ταυτοποίηση σημείων συμφόρησης και την παρακολούθηση της αποδοτικότητας των διαδικασιών πωλήσεων ή μάρκετινγκ.
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να προσθέσει ένα funnel διάγραμμα στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Αντικαθιστά τα προεπιλεγμένα δεδομένα με έξι κατηγορίες και τιμές που κυμαίνονται από 50 έως 500, στη συνέχεια αποθηκεύει την ενημερωμένη παρουσίαση. Η εισαγωγική παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφάνεια.
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να προσθέσει ένα γράφημα Funnel στην πρώτη διαφίδα μιας υπάρχουσας παρουσίασης. Αντικαθιστά τα προεπιλεγμένα δεδομένα με έξι κατηγορίες και τιμές από 50 έως 500, στη συνέχεια αποθηκεύει την ενημερωμένη παρουσίαση. Η εισαγόμενη παρουσίαση πρέπει να περιέχει τουλάχιστον μία διαφίδα.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -978,13 +1010,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Funnel](funnel_chart.png)
+![Το γράφημα Funnel](funnel_chart.png)
 
-### **Δημιουργία Sunburst Διαγραμμάτων**
+### **Δημιουργία Sunburst Γραφημάτων**
 
-Τα sunburst διαγράµατα χρησιμοποιούνται για την οπτικοποίηση ιεραρχικών δεδομένων, εμφανίζοντας τα επίπεδα ως κυκλικές στήλες. Βοηθούν στην απεικόνιση σχέσεων μέρος‑συνολικό και είναι ιδανικά για την αναπαράσταση ενσωματωμένων κατηγοριών και υποκατηγοριών με σαφή και συμπαγή μορφή.
+Τα γράφημα Sunburst χρησιμοποιούνται για την απεικόνιση ιεραρχικών δεδομένων, παρουσιάζοντας τα επίπεδα ως συγκλιτικά δαχτυλίδια. Βοηθούν στην απεικόνιση σχέσεων μέρος‑προς‑ολόκληρο και είναι ιδανικά για την αναπαράσταση ενσωματωμένων κατηγοριών και υποκατηγοριών με σαφή, συμπαγή μορφή.
 
-Αυτό το παράδειγμα δημιουργεί ένα sunburst διάγραμμα με οχτώ φύλλα ομαδοποιημένα σε τέσσερα στελέχη και δύο κλαδικούς κόμβους. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) εκχωρεί τα στελέχη στο επίπεδο ομαδοποίησης 1 και τα κλαδιά στο επίπεδο 2. Οι ετικέτες κατηγοριών προσδιορίζουν τα τμήματα, και οι τιμές καθορίζουν τα σχετικά μεγέθη τους.
+Αυτό το παράδειγμα δημιουργεί ένα γράφημα Sunburst με οκτώ φύλλα ομαδοποιημένα σε τέσσερα στελέχη και δύο κλαδιά. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) εκχωρεί τα στελέχη στο επίπεδο ομαδοποίησης 1 και τα κλαδιά στο επίπεδο 2. Οι ετικέτες κατηγοριών ταυτοποιούν τα τμήματα, και οι τιμές καθορίζουν το σχετικό τους μέγεθος.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1031,7 +1063,7 @@ chart->get_ChartData()->get_Series()->Clear();
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Κλαδί 1
+// Κλάδος 1
 auto categoryCell = workbook->GetCell(0, u"C1", ObjectExt::Box(String(u"Leaf1")));
 auto leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem1")));
@@ -1047,7 +1079,7 @@ leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem2")))
 categoryCell = workbook->GetCell(0, u"C4", ObjectExt::Box(String(u"Leaf4")));
 chart->get_ChartData()->get_Categories()->Add(categoryCell);
 
-// Κλαδί 2
+// Κλάδος 2
 categoryCell = workbook->GetCell(0, u"C5", ObjectExt::Box(String(u"Leaf5")));
 leaf = chart->get_ChartData()->get_Categories()->Add(categoryCell);
 leaf->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box(String(u"Stem3")));
@@ -1087,17 +1119,17 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Sunburst](sunburst_chart.png)
+![Το γράφημα Sunburst](sunburst_chart.png)
 
-### **Δημιουργία Histogram Διαγραμμάτων**
+### **Δημιουργία Ιστόγραμμα (Histogram) Γραφημάτων**
 
-Τα histogram διαγράµατα δείχνουν πώς οι αριθμητικές τιμές κατανέμονται σε διαστήματα (bins). Για μηνιαίες αναφορές χρόνου επεξεργασίας παραγγελιών, χρησιμοποιήστε το ίδιο πλάτος bin και τα ίδια όρια για να διατηρήσετε τα διαστήματα συνεπή και να κάνετε τις κατανομές πιο συγκρίσιμες.
+Τα γράφημα ιστόγραμματος δείχνουν πώς οι αριθμητικές τιμές κατανέμονται σε διαστήματα (bins). Για μηνιαίες εκθέσεις χρόνου επεξεργασίας παραγγελιών, χρησιμοποιήστε το ίδιο πλάτος διαστήματος και τα ίδια όρια ώστε τα διαστήματα να παραμένουν συνεπή και οι κατανομές πιο συγκρίσιμες.
 
-Καλέστε τη μέθοδο [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) του οριζόντιου άξονα με μια τιμή από το [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). Η μέθοδος [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) εφαρμόζεται μόνο στο `ByBinWidth`; η μέθοδος [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) εφαρμόζεται μόνο στο `ByNumberOfBins`. Χρησιμοποιήστε `Automatic` για να αφήσετε το διάγραμμα να επιλέξει τα bins.
+Καλέστε τη μέθοδο [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) του οριζόντιου άξονα με μία κατάσταση από το [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). Η μέθοδος [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) εφαρμόζεται μόνο σε `ByBinWidth`· η μέθοδος [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) εφαρμόζεται μόνο σε `ByNumberOfBins`. Χρησιμοποιήστε `Automatic` για να επιτρέψετε στο γράφημα να επιλέξει τα bins.
 
 #### **Χρήση Σταθερού Πλάτους Bin**
 
-Αυτό το παράδειγμα ομαδοποιεί τους χρόνους επεξεργασίας σε διαστήματα 10 λεπτών, με ξεχωριστά bins για χρόνους ≤10 λεπτά και >40 λεπτά. Ενεργοποιήστε αυτά τα bins με τις μεθόδους [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) και [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Όταν παρέχετε ρητά όρια μέσω των [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) και [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), καλέστε τις μεθόδους [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) και [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) με `false`.
+Αυτό το παράδειγμα ομαδοποιεί χρόνους επεξεργασίας σε διαστήματα 10‑λεπτών, με ξεχωριστά bins για χρόνους ≤10 λεπτά και >40 λεπτά. Ενεργοποιήστε αυτά τα bins με τις μεθόδους [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) και [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Καθώς ορίζετε ρητά όρια μέσω των μεθόδων [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) και [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/), καλέστε τις μεθόδους [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) και [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) με `false`.
 
 ```cpp
 #include <system/array.h>
@@ -1167,13 +1199,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Η παρουσίαση που εμφανίζεται στο PowerPoint δείχνει τις καταμετρήσεις bins **3, 4, 4, 4, και 2**. Το bin υποροής περιλαμβάνει `5, 10, 10`, οπότε το όριό του είναι συμπεριληπτικό. Το bin υπερχείλισης περιλαμβάνει μόνο `41, 50`, οπότε το όριό του είναι αποκλειστικό· και οι τιμές ίσες με `40` παραμένουν στο προηγούμενο διάστημα. Τα ενδιάμεσα bins περιέχουν τιμές μεγαλύτερες από το κατώτερο όριό τους και μικρότερες ή ίσες με το ανώτερο όριό τους.
+Η παρουσίαση που εμφανίζεται στο PowerPoint δείχνει μετρήσεις bins **3, 4, 4, 4 και 2**. Το bin υποροής περιέχει `5, 10, 10`, οπότε το όριό του είναι συμπεριληπτικό. Το bin υπερπροσροής περιέχει μόνο `41, 50`, οπότε το όριό του είναι αποκλειστικό· οι τιμές ίσες με `40` παραμένουν στο προηγούμενο διάστημα. Τα εσωτερικά bins περιέχουν τιμές μεγαλύτερες από το κάτω όριο τους και μικρότερες ή ίσες με το άνω όριο.
 
-![Ιστόγραμμα με 10‑λεπτα bins και ρητά όρια υποροής και υπερχείλισης](histogram_bin_width.png)
+![Ιστόγραμμα με διαστήματα 10‑λεπτών και ρητά όρια υποροής/υπέρπροσροής](histogram_bin_width.png)
 
 #### **Καθορισμός Αριθμού Bins**
 
-Για ένα σταθερό επίπεδο λεπτομέρειας αντί για σταθερά διαστήματα, ζητήστε πέντε bins για τα ίδια δεδομένα. Αυτό το παράδειγμα αφήνει απενεργοποιημένα τα bins υποροής και υπερχείλισης. Το διάγραμμα καθορίζει το πλάτος από την έκταση των δεδομένων, επομένως τα όρια μπορεί να αλλάξουν μεταξύ αναφορών.
+Για σταθερό επίπεδο λεπτομέρειας αντί σταθερών διαστημάτων, ζητήστε πέντε bins για τα ίδια δεδομένα. Αυτό το παράδειγμα αφήνει τα bins υποροής και υπερπροσροής απενεργοποιημένα. Το γράφημα καθορίζει το πλάτος από το εύρος των δεδομένων, έτσι τα όρια μπορεί να αλλάξουν μεταξύ αναφορών.
 
 ```cpp
 #include <system/array.h>
@@ -1237,13 +1269,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-Τα πέντε bins έχουν καταμετρήσεις **4, 4, 4, 4, και 1**. Συγκρίνετε αυτή την κατανομή με το αποτέλεσμα σταθερού πλάτους παραπάνω: οι εισαγόμενες τιμές είναι ίδιες, αλλά τα όρια διαφέρουν.
+Τα πέντε bins έχουν μετρήσεις **4, 4, 4, 4 και 1**. Συγκρίνετε αυτή τη κατανομή με το αποτέλεσμα σταθερού πλάτους παραπάνω: οι εισαγόμενες τιμές είναι ίδιες, αλλά τα όρια διαφέρουν.
 
 ![Ιστόγραμμα με πέντε bins υπολογισμένα από τα ίδια δεδομένα](histogram_bin_count.png)
 
-### **Δημιουργία Radar Διαγραμμάτων**
+### **Δημιουργία Radar Γραφημάτων**
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα radar διάγραμμα με τις προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αποθηκεύει την παρουσίαση ως PPTX.
+Τα radar γραφήματα χρησιμοποιούνται για την εμφάνιση πολυμεταβλητών δεδομένων σε δύο‑διαστατική μορφή, επιτρέποντας εύκολη σύγκριση πολλών μεταβλητών ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα για την ταυτοποίηση προτύπων, δυνατοτήτων και αδυναμιών σε πολλαπλές μετρήσεις ή χαρακτηριστικά απόδοσης.
+
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα radar γράφημα με τις προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αποθηκεύει την παρουσίαση ως PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1277,13 +1311,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Radar](radar_chart.png)
+![Το γράφημα Radar](radar_chart.png)
 
-### **Δημιουργία Πολυ-Κατηγορικών Διαγραμμάτων**
+### **Δημιουργία Πολυ‑κατηγορικών Γραφημάτων**
 
-Τα πολυ‑κατηγορικά διαγράµατα χρησιμοποιούνται για την εμφάνιση δεδομένων που αφορούν περισσότερα από ένα κατηγορικά σύνολα, επιτρέποντάς σας να συγκρίνετε τιμές σε πολλαπλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν χρειάζεται να αναλύσετε τάσεις και σχέσεις σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
+Τα πολυ‑κατηγορικά γραφήματα χρησιμοποιούνται για την εμφάνιση δεδομένων που αφορούν περισσότερες από μία κατηγορικές ομαδοποιήσεις, επιτρέποντας τη σύγκριση τιμών σε πολλές διαστάσεις ταυτόχρονα. Είναι ιδιαίτερα χρήσιμα όταν πρέπει να αναλύσετε τάσεις και σχέσεις μέσα σε σύνθετα, πολυεπίπεδα σύνολα δεδομένων.
 
-Αυτό το παράδειγμα δημιουργεί ένα στοιβαδικό στήλης διάγραμμα με οχτώ κατηγορίες διατεταγμένες σε τέσσερα ζεύγη. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) δίνει σε κάθε ζεύγος κοινή ετικέτα στο επίπεδο ομαδοποίησης 1, παράγοντας έναν άξονα κατηγοριών με ατομικές και ομαδικές ετικέτες.
+Αυτό το παράδειγμα δημιουργεί ένα στοίβαστο γράφημα στήλης με οκτώ κατηγορίες διατεταγμένες σε τέσσερα ζεύγη. Η μέθοδος [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) δίνει σε κάθε ζεύγος μια κοινή ετικέτα στο επίπεδο ομαδοποίησης 1, παράγοντας έναν άξονα κατηγοριών με ατομικές και ομαδικές ετικέτες.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1378,17 +1412,78 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα πολλαπλών κατηγοριών](multi_category_chart.png)
+![Το πολυ‑κατηγορικό γράφημα](multi_category_chart.png)
 
-### **Δημιουργία Map Διαγραμμάτων**
+#### **Αφαίρεση Ετικέτας Τριμήνου**
 
-Τα map διαγράµατα χρησιμοποιούνται για την οπτικοποίηση γεωγραφικών δεδομένων χαρτογραφώντας πληροφορίες σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και χωρικών κατανομών με σαφή και ελκυστική οπτική παρουσίαση.
+Κατεβάστε το αρχείο [quarters.pptx](quarters.pptx) και τοποθετήστε το στον κατάλογο εργασίας. Το γράφημά του δείχνει εννέα μήνες και μία σειρά πωλήσεων με τιμές από 10 έως 18. Ο άξονας κατηγορίας έχει τρεις ετικέτες τριμήνου: Q1 καλύπτει Jan‑Mar, Q2 καλύπτει Apr‑Jun και Q3 καλύπτει Jul‑Sep.
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα map διάγραμμα με τα προεπιλεγμένα γεωγραφικά δεδομένα και το αποθηκεύει για προβολή στο PowerPoint.
+Ο Απρίλιος είναι η τέταρτη κατηγορία και η οποία είχε οριστεί ρητά ως Q2. Καλέστε τη μέθοδο [DeleteGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) στη συλλογή [get_GroupingLevels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_groupinglevels/) του Απριλίου. Το επίπεδο είναι σχετικό με τον Απρίλιο: το επίπεδο 1 είναι το τρίμηνό του, το επίπεδο 0 είναι ο ίδιος ο μήνας. Η μέθοδος δεν μπορεί να αφαιρέσει την κατηγορία φύλλου στο επίπεδο 0.
+
+```cpp
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>(u"quarters.pptx");
+
+auto chart = ExplicitCast<IChart>(presentation->get_Slide(0)->get_Shape(0));
+auto april = chart->get_ChartData()->get_Categories()->idx_get(3);
+april->get_GroupingLevels()->DeleteGroupingItem(1);
+
+presentation->Save(u"quarters-updated.pptx", SaveFormat::Pptx);
+
+auto reopened = MakeObject<Presentation>(u"quarters-updated.pptx");
+auto updatedChart = ExplicitCast<IChart>(reopened->get_Slide(0)->get_Shape(0));
+auto data = updatedChart->get_ChartData();
+
+auto categories = data->get_Categories();
+for (auto i = 0; i < categories->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(categories->idx_get(i)->get_AsCell()->get_Value()->ToString());
+}
+Console::WriteLine();
+
+auto points = data->get_Series()->idx_get(0)->get_DataPoints();
+for (auto i = 0; i < points->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(points->idx_get(i)->get_Value()->get_Data()->ToString());
+}
+Console::WriteLine();
+```
+
+Το επανανοιγμένο γράφημα εκτυπώνει τους αρχικούς μήνες (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) και τις τιμές πωλήσεων (`10, 11, 12, 13, 14, 15, 16, 17, 18`) με την ίδια σειρά. Ανοίξτε το `quarters-updated.pptx` στο PowerPoint για σύγκριση των ετικετών άξονα. Η ετικέτα Q2 και το όριο ομάδας πριν από τον Απρίλιο εξαφανίζονται, έτσι το Q1 εκτείνεται από τον Ιανουάριο έως τον Ιούνιο. Το Q3 εξακολουθεί να αρχίζει τον Ιούλιο.
+
+![Ετικέτες τριμήνων πριν και μετά την αφαίρεση. Σαίξ, το Q2 εκτείνεται από Απρίλιο έως Ιούνιο. Δεξιά, το Q1 εκτείνεται από Ιανουάριο έως Ιούνιο.](quarter-label-comparison.png)
+
+### **Δημιουργία Χαρτών (Map) Γραφημάτων**
+
+Τα χάρτες‑γράφημα χρησιμοποιούνται για την οπτικοποίηση γεωγραφικών δεδομένων αντιστοιχίζοντας πληροφορίες σε συγκεκριμένες τοποθεσίες όπως χώρες, πολιτείες ή πόλεις. Είναι ιδιαίτερα χρήσιμα για την ανάλυση περιφερειακών τάσεων, δημογραφικών δεδομένων και χωρικής κατανομής με καθαρό, ελκυστικό τρόπο.
+
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα χάρτη‑γράφημα με τα προεπιλεγμένα γεωγραφικά δεδομένα και το αποθηκεύει για προβολή στο PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
-#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/ChartType>
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
@@ -1408,29 +1503,31 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto presentation = MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
+auto  presentation = MakeObject<Presentation>();
+auto  slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 20, 20, 500, 300);
+auto  chart = slide->get_Shapes()->AddChart(ChartType::Map, 20, 20, 500, 300);
 
-presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"mapChart.pptx", SaveFormat :: Ppt x);
 ```
 
 Το αποτέλεσμα:
 
-![Το διάγραμμα Map](map_chart.png)
+![Το γράφημα Χάρτης](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Η παραπάνω εικόνα δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη στο PowerPoint. Το Aspose.Slides γράφει σωστά το map διάγραμμα και τα δεδομένα του, αλλά δεν σχεδιάζει τα map διαγράµατα μόνο του: όταν μια διαφάνεια που περιέχει ένα τέτοιο διάγραμμα αποδίδεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του διαγράμματος εμφανίζεται κενή. Τα υπόλοιπα σχήματα στην ίδια διαφάνεια παραμένουν αμετάβλητα.
+
+Η εικόνα παραπάνω δείχνει την αποθηκευμένη παρουσίαση ανοιγμένη στο PowerPoint. Το Aspose.Slides γράφει το γράφημα χάρτη και τα δεδομένα του σωστά, αλλά δεν σχεδιάζει τα χάρτες‑γράφημα από μόνο του: όταν μια διαφίδα που περιέχει τέτοιο γράφημα αποδίδεται σε εικόνα ή μετατρέπεται σε PDF ή SVG, η περιοχή του γραφήματος εμφανίζεται κενή. Τα άλλα σχήματα στην ίδια διαφίδα δεν επηρεάζονται.
+
 {{% /alert %}}
 
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
+### **Δημιουργία Συνδυαστικών Γραφημάτων**
 
-Ένα συνδυαστικό διάγραμμα (ή combo διάγραμμα) συνδυάζει δύο ή περισσότερους τύπους διαγράμματος σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να αναδείξετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+Ένα συνδυαστικό γράφημα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους γραφημάτων σε ένα γράφημα. Αυτό το γράφημα σας επιτρέπει να αναδείξετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
 
-![Το συνδυαστικό διάγραμμα](combination_chart.png)
+![Το συνδυαστικό γράφημα](combination_chart.png)
 
-Αυτό το παράδειγμα συνδυάζει δύο σειρές ομαδοποιημένων στηλών με μια σειρά γραμμής σε τέσσερις κατηγορίες. Οι στήλες χρησιμοποιούν τον πρωτεύοντα κατακόρυφο άξονα, ενώ η μέθοδος [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) τοποθετεί τη γραμμή σε δευτερεύοντα κατακόρυφο άξονα στα δεξιά. Οι βοηθητικές λειτουργίες διαμορφώνουν τον τίτλο, την περιοχή, τις ετικέτες των αξόνων και τις γραμμές πλέγματος.
+Αυτό το παράδειγμα συνδυάζει δύο σειρές στοίβαστων στηλών με μια σειρά γραμμής σε τέσσερις κατηγορίες. Οι στήλες χρησιμοποιούν τον κύριο κάθετο άξονα, ενώ η μέθοδος [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) τοποθετεί τη γραμμή σε δευτερεύον κάθετο άξονα στα δεξιά. Οι βοηθητικές συναρτήσεις διαμορφώνουν τον τίτλο, την υπόμνηση, τις ετικέτες άξονα και τις γραμμές πλέγματος.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1639,11 +1736,11 @@ struct ComboChartExample
 ComboChartExample::CreateComboChart();
 ```
 
-## **Ενημέρωση Διαγραμμάτων**
+## **Ενημέρωση Γραφημάτων**
 
-Το Aspose.Slides for C++ σας δίνει τη δυνατότητα να ενημερώσετε διαγράµατα PowerPoint τροποποιώντας τα δεδομένα, τη μορφοποίηση και το στυλ του διαγράμματος. Αυτή η λειτουργικότητα απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και διασφαλίζει ότι τα διαγράµατα αντικατοπτρίζουν με ακρίβεια τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
+Το Aspose.Slides for C++ σάς επιτρέπει να ενημερώσετε γραφήματα PowerPoint τροποποιώντας τα δεδομένα, τη μορφοποίηση και το στυλ του γραφήματος. Αυτή η λειτουργία απλοποιεί τη διαδικασία διατήρησης των παρουσιάσεων ενημερωμένων με δυναμικό περιεχόμενο και διασφαλίζει ότι τα γραφήματα αντανακλούν ακριβώς τα τρέχοντα δεδομένα και τα οπτικά πρότυπα.
 
-Αυτό το παράδειγμα ενημερώνει το διάγραμμα με όνομα "My chart" στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης. Απαιτούνται δύο στήλες σειρών με τρία σημεία δεδομένων η κάθε μία, με ετικέτες κατηγοριών στη στήλη A και ονόματα σειρών στην πρώτη σειρά του πρώτου φύλλου εργασίας. Το παράδειγμα χρησιμοποιεί τη μέθοδο [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) για να αλλάξει τα κελιά του βιβλίου εργασίας, ενημερώνει τις τιμές των σειρών, προσθέτει μια τρίτη σειρά και αλλάζει το τύπο του διαγράμματος σε ομαδοποιημένους κυλίνδρους μέσω της μεθόδου [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Αυτό το παράδειγμα ενημερώνει το γράφημα με όνομα «My chart» στην πρώτη διαφίδα μιας υπάρχουσας παρουσίασης. Απαιτεί δύο σειρές στήλης με τρία σημεία δεδομένων η κάθε μία, με ετικέτες κατηγοριών στη στήλη Α και ονόματα σειρών στην πρώτη γραμμή του πρώτου φύλλου εργασίας. Το παράδειγμα χρησιμοποιεί τη μέθοδο [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) για να αλλάξει κελιά βιβλίου εργασίας, ενημερώνει τις τιμές σειρών, προσθέτει τρίτη σειρά και αλλάζει το γράφημα σε στοίβαστους κυλίνδρους μέσω της μεθόδου [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1724,13 +1821,13 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 ```
 
-## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
+## **Ορισμός Περιοχής Δεδομένων για Γράφημα**
 
-Για να επιθεωρήσετε την περιοχή που χρησιμοποιείται ήδη από ένα υπάρχον διάγραμμα, δείτε [Ανάκτηση Περιοχής Δεδομένων Διαγράμματος](/slides/el/cpp/chart-workbook/#retrieve-a-charts-data-range).
+Για να ελέγξετε την περιοχή που χρησιμοποιείται ήδη από ένα υπάρχον γράφημα, δείτε το άρθρο [Retrieve a Chart's Data Range](/slides/el/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Το Aspose.Slides for C++ παρέχει την ευελιξία να ορίσετε μια συγκεκριμένη περιοχή δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του διαγράμματός σας. Αυτό σημαίνει ότι μπορείτε άμεσα να αντιστοιχίσετε ένα τμήμα του φύλλου εργασίας σας στο διάγραμμα, ελέγχοντας ποια κελιά συμβάλλουν στις σειρές και τις κατηγορίες του διαγράμματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα διαγράμματα με τις πιο πρόσφατες αλλαγές στα δεδομένα του φύλλου, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint αντικατοπτρίζουν τρέχουσες και ακριβείς πληροφορίες.
+Το Aspose.Slides for C++ παρέχει την ευελιξία να ορίσετε μια συγκεκριμένη περιοχή δεδομένων από ένα φύλλο εργασίας ως πηγή για τα δεδομένα του γραφήματός σας. Αυτό σημαίνει ότι μπορείτε να αντιστοιχίσετε άμεσα ένα τμήμα του φύλλου εργασίας σας στο γράφημα, ελέγχοντας ποια κελιά συνεισφέρουν στις σειρές και τις κατηγορίες του γραφήματος. Ως αποτέλεσμα, μπορείτε εύκολα να ενημερώνετε και να συγχρονίζετε τα γραφήματά σας με τις τελευταίες αλλαγές των δεδομένων, διασφαλίζοντας ότι οι παρουσιάσεις PowerPoint σας αντικατοπτρίζουν τρέχουσες και ακριβείς πληροφορίες.
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) για να ορίσει την πηγή δεδομένων του διαγράμματος με όνομα "My chart" στην πρώτη διαφάνεια μιας υπάρχουσας παρουσίασης στο `Sheet1!A1:B4`. Το βιβλίο εργασίας του διαγράμματος πρέπει να περιέχει αυτό το φύλλο και μια πλημμυρισμένη περιοχή με μια επικεφαλίδα σειράς στην πρώτη σειρά, ετικέτες κατηγοριών στη στήλη A και τρεις τιμές στη στήλη B.
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) για να ορίσει την προέλευση δεδομένων του γραφήματος με όνομα «My chart» στην πρώτη διαφίδα μιας υπάρχουσας παρουσίασης στο `Sheet1!A1:B4`. Το βιβλίο εργασίας του γραφήματος πρέπει να περιέχει αυτό το φύλλο και μια συμπληρωμένη περιοχή με κεφαλίδα σειράς στην πρώτη γραμμή, ετικέτες κατηγοριών στη στήλη Α και τρεις τιμές στη στήλη Β.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1772,11 +1869,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
+## **Χρήση Προεπιλεγμένων Δεικτών σε Γραφήματα**
 
-Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράµατα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
+Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε γραφήματα, κάθε σειρά γραφήματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
 
-Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα διάγραμμα με δύο σειρές γραμμής και μια περιοχή. Οι ρυθμίσεις [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) διατηρούν τα αυτόματα εκχωρημένα σύμβολα δείκτη. Η πρώτη σειρά περιλαμβάνει μια αρνητική τιμή και μια ελλιπή τιμή, που αντιπροσωπεύεται από `nullptr`, ενώ η δεύτερη έχει τιμή για κάθε κατηγορία.
+Αυτό το παράδειγμα χρησιμοποιεί τη μέθοδο [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) για να δημιουργήσει ένα γράφημα με δύο σειρές γραμμής και μια υπόμνηση. Οι ρυθμίσεις [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) διατηρούν τα αυτόματα εκχωρηθέντα σύμβολα δείκτη. Η πρώτη σειρά περιλαμβάνει μια αρνητική τιμή και μια τιμή που λείπει, που αντιπροσωπεύεται από `nullptr`, ενώ η δεύτερη έχει τιμή για κάθε κατηγορία.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1862,20 +1959,22 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές Ερωτήσεις (FAQ)**
 
-**Ποιοι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides for C++;**
+**Ποιους τύπους γραφημάτων υποστηρίζει το Aspose.Slides for C++;**
 
-Το Aspose.Slides for C++ υποστηρίζει ένα ευρύ φάσμα τύπων διαγραμμάτων, συμπεριλαμβανομένων bar, line, pie, area, scatter, histogram, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+Το Aspose.Slides for C++ υποστηρίζει μια ευρεία γκάμα τύπων γραφημάτων, συμπεριλαμβανομένων των μπαρ, γραμμής, πίτας, περιοχής, διασπορικού, ιστόγραμμα, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο γραφήματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς προσθέτω ένα νέο διάγραμμα σε μια διαφάνεια;**
+**Πώς προσθέτω νέο γράφημα σε μια διαφίδα;**
 
-Για να προσθέσετε ένα διάγραμμα, δημιουργείτε πρώτα μια παρουσίαση μέσω της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), παίρνετε τη διαφάνειά που θέλετε χρησιμοποιώντας το δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο για προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει άμεσα το διάγραμμα στην παρουσίασή σας.
+Για να προσθέσετε ένα γράφημα, πρώτα δημιουργείτε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), ανακτάτε τη kívόμενη διαφίδα με βάση τον δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο προσθήκης γραφήματος, καθορίζοντας τον τύπο γραφήματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το γράφημα απευθείας στην παρουσίασή σας.
 
-**Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
+**Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα γράφημα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελαύνοντας το βιβλίο δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), διαγράφοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες, και στη συνέχεια προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός γραφήματος προσβάλλοντας το βιβλίο δεδομένων του ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και, στη συνέχεια, προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σας επιτρέπει να ανανεώσετε προγραμματικά το γράφημα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
 
-**Είναι δυνατόν να προσαρμόσετε την εμφάνιση του διαγράμματος;**
+**Μπορώ να προσαρμόσω την εμφάνιση του γραφήματος;**
 
-Ναι, το Aspose.Slides for C++ παρέχει εκτενείς δυνατότητες προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, περιοχές, υπόμνημα και άλλα στοιχεία μορφοποίησης ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις συγκεκριμένες απαιτήσεις σχεδίου σας.
+Ναι, το Aspose.Slides for C++ παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης ώστε να ταιριάζουν στις συγκεκριμένες απαιτήσεις σχεδίασής σας.
+
+Σχετική δυνατότητα: [Create editable charts](/slides/el/features/create-charts/).

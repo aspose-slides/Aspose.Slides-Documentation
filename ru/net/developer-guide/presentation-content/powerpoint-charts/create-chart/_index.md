@@ -1,5 +1,5 @@
 ---
-title: Создание или обновление диаграмм PowerPoint‑презентаций в .NET
+title: Создание или обновление диаграмм PowerPoint презентаций в .NET
 linktitle: Создать или обновить диаграммы
 type: docs
 weight: 10
@@ -10,51 +10,49 @@ keywords:
 - редактировать диаграмму
 - изменить диаграмму
 - обновить диаграмму
-- точечная диаграмма
+- диаграмма рассеяния
 - круговая диаграмма
 - линейная диаграмма
-- диаграмма Tree Map
-- биржевая диаграмма
-- коробчатая диаграмма с усами
+- диаграмма древовидной карты
+- фондовая диаграмма
+- коробчатая диаграмма
 - воронкообразная диаграмма
-- лучевая диаграмма
+- диаграмма Sunburst
 - гистограмма
 - радиальная диаграмма
-- диаграмма с несколькими категориями
+- многокатегориальная диаграмма
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: Создавайте и настраивайте диаграммы в презентациях PowerPoint с использованием Aspose.Slides для .NET. Добавляйте, форматируйте и редактируйте диаграммы с практическими примерами кода на C#.
+description: "Создавайте и настраивайте диаграммы в презентациях PowerPoint с помощью Aspose.Slides для .NET. Добавляйте, форматируйте и редактируйте диаграммы, используя практические примеры кода на C#."
 ---
 ## **Обзор**
 
-Эта статья предоставляет всестороннее руководство по созданию и настройке диаграмм с помощью Aspose.Slides для .NET. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, чтобы соответствовать вашим конкретным требованиям к дизайну. На протяжении статьи детальные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки серий, осей и легенд. Следуя этому руководству, вы получите прочное понимание того, как интегрировать динамическое создание диаграмм в ваши .NET‑приложения, упростив процесс создания презентаций, основанных на данных.
+Эта статья предоставляет исчерпывающее руководство по созданию и настройке диаграмм с помощью Aspose.Slides для .NET. Вы узнаете, как программно добавить диаграмму на слайд, заполнить её данными и применить различные параметры форматирования, соответствующие вашим конкретным требованиям к дизайну. На протяжении всей статьи подробные примеры кода иллюстрируют каждый шаг, от инициализации презентации и объекта диаграммы до настройки рядов, осей и легенд. Следуя этому руководству, вы получите твердое понимание того, как интегрировать динамическое создание диаграмм в ваши .NET‑приложения, упростив процесс создания презентаций, основанных на данных.
 
-## **Создать диаграмму**
+## **Создание диаграммы**
 
-Диаграммы помогают людям быстро визуализировать данные и получать выводы, которые могут быть не очевидны из таблицы или электронных таблиц.
+Диаграммы помогают людям быстро визуализировать данные и получать инсайты, которые могут быть не очевидны из таблицы или электронной таблицы.
 
 **Зачем создавать диаграммы?**
 
-Используя диаграммы, вы можете:
-
-* агрегировать, сжимать или суммировать большие объёмы данных на одном слайде презентации;
-* выявлять шаблоны и тенденции в данных;
+* агрегировать, конденсировать или суммировать большие объёмы данных на одном слайде презентации;
+* выявлять закономерности и тенденции в данных;
 * определять направление и динамику данных во времени или относительно конкретной единицы измерения;
-* обнаруживать выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
-* эффективно представлять сложные данные.
+* выявлять выбросы, аномалии, отклонения, ошибки и бессмысленные данные;
+* коммуницировать или представлять сложные данные.
 
-В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для проектирования множества типов диаграмм. С помощью Aspose.Slides вы можете создавать как обычные диаграммы (на основе популярных типов), так и пользовательские диаграммы.
+В PowerPoint вы можете создавать диаграммы через функцию *Insert*, которая предоставляет шаблоны для создания многих типов диаграмм. С помощью Aspose.Slides можно создавать как обычные диаграммы (основанные на популярных типах), так и пользовательские диаграммы.
 
 {{% alert color="info" title="Note" %}}
-Используйте перечисление [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) в пространстве имён [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Значения этого перечисления соответствуют различным типам диаграмм.
+Используйте перечисление [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) из пространства имён [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/). Значения в этом перечислении соответствуют различным типам диаграмм.
 {{% /alert %}}
 
-### **Создать группированные столбчатые диаграммы**
+### **Создание диаграмм с групповыми столбцами**
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания группированной столбчатой диаграммы, сравнивающей две серии по трём категориям. Серии используют красные и зелёные заливки, а отдельные подписи показывают имена категорий, имена серий и значения. Индекс листа 0 относится к первому листу во встроенной книге диаграмм.
+Этот пример использует [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания диаграммы с групповыми столбцами, сравнивающей два ряда по трем категориям. Ряды используют заливку красным и зелёным цветами, а отдельные подписи демонстрируют названия категорий, названия рядов и значения. Индекс листа 0 относится к первому листу в встроенной рабочей книге диаграммы.
 
 ```csharp
 using System.Drawing;
@@ -130,20 +128,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Диаграмма с групповыми столбцами](clustered_column_chart.png)
 
-### **Создать точечные диаграммы**
+### **Создание диаграмм рассеяния**
 
-Точечные диаграммы (также известные как scatter plots или графики x‑y) часто используют для проверки шаблонов или демонстрации корреляций между двумя переменными.
+Диаграммы рассеяния (известные также как точечные графики или графики x‑y) часто используются для проверки закономерностей или демонстрации корреляций между двумя переменными.
 
-Используйте точечную диаграмму, когда:
+Используйте диаграмму рассеяния, когда:
 
-* у вас есть парные числовые данные;
-* две переменные хорошо сочетаются друг с другом;
-* вы хотите определить, связаны ли две переменные;
-* у вас есть независимая переменная, имеющая несколько значений для зависимой переменной.
+* У вас есть парные числовые данные.
+* У вас есть две переменные, которые хорошо сочетаются.
+* Вы хотите определить, связаны ли две переменные.
+* У вас есть независимая переменная, имеющая несколько значений для зависимой переменной.
 
-В этом примере построены два набора значений x‑y. Первая серия использует прямые линии со звездочками в качестве маркеров, вторая — сглаженные линии с круговыми маркерами; обе используют [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) = 10. Свойство [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) управляет формой маркера.
+Этот пример строит два набора значений x‑y. Первый ряд использует прямые линии со звёздочными маркерами, а второй — плавные линии с круговыми маркерами; оба используют [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) = 10. Свойство [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) управляет формой маркера.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +204,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Scatter chart](scatter_chart.png)
+![Диаграмма рассеяния](scatter_chart.png)
 
-### **Создать круговые диаграммы**
+### **Создание круговых диаграмм**
 
-Круговые диаграммы лучше всего использовать для отображения отношения части к целому, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если в данных много частей или меток, стоит рассмотреть использование гистограммы.
+Круговые диаграммы лучше всего использовать для отображения отношения части к целому в данных, особенно когда данные содержат категориальные метки с числовыми значениями. Однако если ваши данные содержат много частей или меток, возможно, стоит рассмотреть использование гистограммы.
 
-В этом примере создаётся круговая диаграмма с тремя квартальными значениями. Каждый сектор имеет индивидуальную заливку и границу, а подписи отображают различные комбинации значений, процентов и информации о серии. Свойство [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) задаёт начальный угол первого сектора — 180°.
+Этот пример создаёт круговую диаграмму с тремя квартальными значениями. Каждый сегмент имеет пользовательскую заливку и границу, а подписи отображают различные комбинации значений, процентов и информации о рядах. Свойство [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) задаёт стартовый угол первого сегмента в 180 градусов.
 
 ```csharp
 using System.Drawing;
@@ -308,15 +306,15 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Pie chart](pie_chart.png)
+![Круговая диаграмма](pie_chart.png)
 
-Чтобы улучшить читаемость подписей за пределами круга, см. [Format Leader Lines](/slides/ru/net/chart-data-label/#format-leader-lines) для примера, где подписи позиционируются и настраиваются цвет, ширина, прозрачность и стиль штриха линий.
+Чтобы улучшить читаемость подписей за пределами круга, см. [Format Leader Lines](/slides/ru/net/chart-data-label/#format-leader-lines) для примера, где подписи позиционируются и настраивается цвет, ширина, прозрачность и стиль штрихов линий.
 
-### **Создать линейные диаграммы**
+### **Создание линейных диаграмм**
 
-Линейные диаграммы (также известные как line graphs) лучше всего подходят для демонстрации изменения значений со временем. С их помощью можно одновременно сравнивать большие объёмы данных, отслеживать изменения и тенденции, выделять аномалии в сериях и многое другое.
+Линейные диаграммы (также известные как линейные графики) лучше всего использовать в ситуациях, когда нужно продемонстрировать изменение величины во времени. С помощью линейной диаграммы можно одновременно сравнивать большой объём данных, отслеживать изменения и тенденции, выделять аномалии в рядах и многое другое.
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания линейной диаграммы с сериями и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
+Этот пример использует [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания линейной диаграммы с набором рядов и категорий по умолчанию, затем сохраняет презентацию в формате PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +329,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-По умолчанию точки на линейной диаграмме соединяются прямыми непрерывными линиями. Если требуется соединять точки пунктиром, задайте свойству [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) значение из [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
+По умолчанию точки на линейной диаграмме соединяются непрерывными прямыми линиями. Если нужно, чтобы точки соединялись пунктиром, задайте [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) со значением из [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/):
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +348,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Результат:
 
-![The Line chart](line_chart.png)
+![Линейная диаграмма](line_chart.png)
 
-### **Создать диаграммы Tree Map**
+### **Создание диаграмм Tree Map**
 
-Диаграммы Tree Map лучше всего подходят для отображения данных продаж, когда нужно показать относительный размер категорий и быстро обратить внимание на элементы, являющиеся крупными contributors внутри каждой категории.
+Создание диаграмм Tree Map
 
-В этом примере создаётся Tree Map с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы на уровне группировки 1 и ветви на уровне 2. Значения определяют относительные размеры прямоугольников, а метки категорий и перекрывающиеся метки родителей показывают иерархию.
+Этот пример создаёт диаграмму Tree Map с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы на уровне группировки 1 и ветви на уровне 2. Значения определяют относительные размеры прямоугольников, а метки категорий и перекрывающиеся метки родителей показывают иерархию.
 
 ```csharp
 using Aspose.Slides;
@@ -432,13 +430,11 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Treemap chart](treemap_chart.png)
+![Диаграмма Tree Map](treemap_chart.png)
 
-### **Создать водопадные диаграммы**
+### **Создание каскадных диаграмм**
 
-Водопадная диаграмма показывает, как положительные и отрицательные изменения влияют на конечное значение. Например, разбивка прибыли может начинаться с доходов, затем вычитать издержки и добавлять прочие доходы. Столбцы‑изменения «плавают» между предыдущим и новым накопленным значением, а столбцы‑итоги идут от нуля до накопленного значения.
-
-Ниже приведён пример с суммами в тысячах долларов США:
+Каскадная диаграмма показывает, как положительные и отрицательные изменения вносят вклад в конечное значение. Например, разбивка прибыли может начинаться с выручки, вычитать затраты и добавлять прочие доходы. Столбцы‑изменения «плавают» между предыдущим и новым текущим значением, а столбцы‑итоги тянутся от нуля до накопленного значения.
 
 | Категория | Значение в книге | Тип столбца |
 | --- | ---: | --- |
@@ -446,12 +442,12 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 | Себестоимость продаж | -400 | Уменьшение |
 | Валовая прибыль | 600 | Промежуточный итог |
 | Операционные расходы | -200 | Уменьшение |
-| Прочие доходы | 50 | Увеличение |
-| Чистая прибыль | 450 | Финальный итог |
+| Прочий доход | 50 | Увеличение |
+| Чистая прибыль | 450 | Итоговый итог |
 
-Чтобы пометить точку как промежуточный или финальный итог, задайте её свойству [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) значение `true`. Укажите фактическую накопленную сумму в соответствующей ячейке книги: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Свойство лишь помечает столбец как итоговый; оно не вычисляет и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без повторного добавления к текущему значению.
+Чтобы пометить точку как промежуточный или итоговый, задайте её свойству [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) значение `true`. Укажите фактическую накопленную сумму в ячейке рабочей книги этой точки: `600` для валовой прибыли (`1000 - 400`) и `450` для чистой прибыли (`600 - 200 + 50`). Свойство лишь помечает столбец как итог; оно не вычисляет и не заполняет значение ячейки. Не используйте ноль как заполнитель и не задавайте другое изменение для итоговой точки. Итоговый столбец отображает накопленное значение без повторного добавления к текущему значению.
 
-Этот полный пример на C# создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), очищает данные по умолчанию и заполняет встроенную книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждая ячейка со значением добавляется через [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Нулевые индексы точек `2` и `5` идентифицируют промежуточный и финальный итог. Включение [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) отображает суммы на столбцах. Входная презентация или книга не требуются.
+Этот полный пример на C# создаёт диаграмму, используя член `Waterfall` перечисления [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), очищает данные по умолчанию и заполняет встроенную рабочую книгу. Индекс листа `0` выбирает первый лист; столбец A содержит названия категорий, столбец B — значения. Каждый элемент значения добавляется с помощью [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Номера точек, начиная с нуля, `2` и `5` определяют промежуточные и итоговые суммы. Включение [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) выводит суммы на столбцы. Входная презентация или рабочая книга не требуются.
 
 ```csharp
 using Aspose.Slides;
@@ -498,19 +494,24 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Задайте свойству уровня серии [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) значение `true`, чтобы отобразить линии, соединяющие последовательные столбцы, и упростить восприятие текущего значения. Чтобы скрыть эти линии, замените присваивание в примере на `series.ShowConnectorLines = false;` перед сохранением. Это изменит только видимость линий, а не данные или итоги.
+Задайте свойству уровня ряда [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) значение `true`, чтобы отобразить линии, соединяющие последовательные столбцы, и упростить отслеживание текущего значения. Чтобы скрыть эти линии, замените присваивание в примере на `series.ShowConnectorLines = false;` перед сохранением. Это изменит только видимость линий, а не данные или итоги.
 
-Сохранённая презентация показывает валовую прибыль 600 и чистую прибыль 450, при этом оба итога считаются от нуля:
+![Каскадная диаграмма, показывающая выручку, расходы, валовую прибыль 600 и чистую прибыль 450, с метками значений и линиями соединения](waterfall_chart.png)
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+### **Создание фондовых диаграмм**
 
-### **Создать биржевые диаграммы**
+Фондовые диаграммы используются для отображения финансовых данных, таких как цены открытия, максимума, минимума и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важные сведения о динамике акций, способствуя принятию обоснованных решений инвесторами и аналитиками.
 
-Биржевые диаграммы используют данные о ценах открытия, максимума, минимума и закрытия, помогая анализировать рыночные тенденции и волатильность. Они предоставляют важные сведения о динамике акций, облегчая принятие решений инвесторами и аналитиками.
+Этот пример создаёт диаграмму открытие‑максимум‑минимум‑закрытие с четырьмя рядами в указанном порядке и тремя категориями. Свойство [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) включает полосы «вверх/вниз», а [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) управляет линиями «высокий‑низкий», показывающими диапазон цен; при этом линии рядов и мелкие горизонтальные линии сетки скрыты.
 
-В этом примере создаётся диаграмма OHLC (open‑high‑low‑close) с четырьмя сериями в указанном порядке и тремя категориями. Свойство [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) включает столбцы «вверх/вниз», а [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) управляет линиями high‑low, показывающими диапазоны цен; линии отдельных серий и мелкие горизонтальные сетки скрыты.
+Менеджер [UpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/updownbars/) предоставляет отдельные объекты [UpBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/upbarsformat/) и [DownBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/downbarsformat/). Используйте свойства [Fill](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/fill/) и [Line](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/line/) каждого объекта, чтобы задать заполнение и контур независимо. В примере для растущих интервалов используют зелёные бары с тёмно‑зелёным контуром, а для падающих — оранжево‑красные бары с тёмно‑красным контуром.
+
+Задайте числовые значения для всех четырёх рядов в каждой категории, при этом «Высокий» и «Низкий» охватывают «Открытие» и «Закрытие». Бары сравнивают «Закрытие» с «Открытием» **внутри той же категории**, а не с предыдущей: A падает с 72 до 25, B растёт с 25 до 38, C — с 38 до 50. При одинаковых значениях «Открытие» и «Закрытие» заполненный интервал не отображается. Полосы «вверх/вниз» охватывают диапазон «Открытие‑Закрытие», а линии «высокий‑низкий» — диапазон «Низкий‑Высокий». Эти бары принадлежат группе рядов и не являются обычными столбцами.
+
+Такое форматирование также работает с диаграммами [Line and LineWithMarkers](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/), содержащими как минимум два ряда в одной группе и соответствующие числовые значения для каждой категории. Для этих нелинейных диаграмм без наложения полоса «вверх/вниз» сравнивает первый и последний ряд: более высокий последний показатель создаёт восходящую полосу, более низкий — нисходящую. Поменяв порядок рядов, меняется и классификация. Пример ниже использует [OpenHighLowClose](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/); не следует предполагать, что другие фондовые, линейные с накоплением или 3D‑варианты используют ту же схему данных или интерпретацию интервалов.
 
 ```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -518,7 +519,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
 var workbook = chart.ChartData.ChartDataWorkbook;
 
@@ -570,7 +571,21 @@ series.DataPoints.AddDataPointForStockSeries(valueCell);
 valueCell = workbook.GetCell(0, 3, 4, 50);
 series.DataPoints.AddDataPointForStockSeries(valueCell);
 
-chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+var upDownBars = chart.ChartData.SeriesGroups[0].UpDownBars;
+upDownBars.HasUpDownBars = true;
+
+upDownBars.UpBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Fill.SolidFillColor.Color = Color.LimeGreen;
+upDownBars.UpBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+upDownBars.UpBarsFormat.Line.Width = 2;
+
+upDownBars.DownBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Fill.SolidFillColor.Color = Color.OrangeRed;
+upDownBars.DownBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkRed;
+upDownBars.DownBarsFormat.Line.Width = 2;
+
 chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
 foreach (var stockSeries in chart.ChartData.Series)
@@ -583,15 +598,15 @@ chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType
 presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
-Результат:
+Результат, экспортированный из PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Фондовая диаграмма с оранжево‑красным падающим интервалом для A и зелёными растущими интервалами для B и C](stock_chart.png)
 
-### **Создать диаграммы «коробка‑усик»**
+### **Создание диаграмм box and whisker**
 
-Диаграммы «коробка‑усик» отображают распределение данных, суммируя ключевые статистические показатели, такие как медиана, квартали и потенциальные выбросы. Они полезны в исследовательском анализе и статистических исследованиях для быстрого понимания изменчивости данных и выявления аномалий.
+Диаграммы box and whisker используются для отображения распределения данных, суммируя ключевые статистические показатели, такие как медиана, квартали и возможные выбросы. Они особенно полезны в исследовательском анализе данных и статистических исследованиях для быстрого понимания вариативности и обнаружения аномалий.
 
-В этом примере создаётся диаграмма «коробка‑усик» из шести значений. Свойство [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) выбирает исключительный метод расчёта квартилей. Пример также включает линии среднего, маркеры среднего, внутренние точки и выбросы.
+Этот пример создаёт диаграмму box and whisker из шести значений. Свойство [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) выбирает исключительный метод расчёта квартилей. Пример также включает линии среднего, маркеры среднего, внутренние точки и точки‑выбросы.
 
 ```csharp
 using Aspose.Slides;
@@ -646,11 +661,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Создать воронкообразные диаграммы**
+### **Создание воронкообразных диаграмм**
 
-Воронкообразные диаграммы визуализируют процессы, состоящие из последовательных этапов, где объём данных уменьшается с каждым шагом. Они полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности процессов продаж или маркетинга.
+Воронкообразные диаграммы используются для визуализации процессов, включающих последовательные шаги, где объём данных снижается по мере прохождения от одного этапа к другому. Они особенно полезны для анализа коэффициентов конверсии, выявления узких мест и отслеживания эффективности процессов продаж или маркетинга.
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для добавления воронкообразной диаграммы на первый слайд существующей презентации. По умолчанию данные заменяются шестью категориями со значениями от 50 до 500, затем презентация сохраняется. Входная презентация должна содержать минимум один слайд.
+Этот пример использует [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для добавления воронкообразной диаграммы на первый слайд существующей презентации. Он заменяет данные по умолчанию на шесть категорий и значения от 50 до 500, затем сохраняет обновлённую презентацию. Входная презентация должна содержать хотя бы один слайд.
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +716,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Funnel chart](funnel_chart.png)
+![Воронкообразная диаграмма](funnel_chart.png)
 
-### **Создать лучевые диаграммы**
+### **Создание диаграмм Sunburst**
 
-Лучевые диаграммы визуализируют иерархические данные, отображая уровни в виде концентрических колец. Они помогают иллюстрировать отношения часть‑к‑целому и идеальны для представления вложенных категорий и подкатегорий в компактном виде.
+Диаграммы Sunburst используются для визуализации иерархических данных, отображая уровни в виде концентрических колец. Они помогают иллюстрировать отношения часть‑к‑целому и идеально подходят для представления вложенных категорий и подкатегорий в компактном виде.
 
-В этом примере создаётся лучевая диаграмма с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы на уровне 1 и ветви на уровне 2. Метки категорий определяют сегменты, а значения задают их относительные размеры.
+Этот пример создаёт диаграмму Sunburst с восемью листами, сгруппированными в четыре ствола и две ветви. Метод [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) назначает стволы на уровне 1 и ветви на уровне 2. Метки категорий идентифицируют сегменты, а значения определяют их относительные размеры.
 
 ```csharp
 using Aspose.Slides;
@@ -781,17 +796,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Sunburst chart](sunburst_chart.png)
+![Диаграмма Sunburst](sunburst_chart.png)
 
-### **Создать гистограммы**
+### **Создание гистограмм**
 
-Гистограммы показывают распределение числовых значений по интервалам (корзинам). Для ежемесячных отчётов о времени обработки заказов используйте одинаковую ширину корзин и пороги, чтобы интервалы оставались согласованными и распределения было удобно сравнивать.
+Гистограммы показывают, как числовые значения распределены по интервалам (корзинам). Для ежемесячных отчётов о времени обработки заказов используйте одинаковую ширину корзин и пороги, чтобы интервалы оставались согласованными и их было проще сравнивать.
 
-Установите для горизонтальной оси свойство [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) в режим из [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). Параметр [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) применяется только к `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) — только к `ByNumberOfBins`. Используйте `Automatic`, чтобы позволить диаграмме самостоятельно выбирать корзины.
+Установите для горизонтальной оси [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) режим из [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/). Свойство [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) применяется только к `ByBinWidth`; [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) — только к `ByNumberOfBins`. Используйте `Automatic`, чтобы диаграмма сама выбрала корзины.
 
 #### **Использовать фиксированную ширину корзины**
 
-В этом примере время обработки группируется в интервалы по 10 минут, при этом отдельные корзины выделяются для времени ≤ 10 минут и > 40 минут. Включите такие корзины с помощью [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) и [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). При явном указании границ [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) и [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) задайте [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) и [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) в `false`.
+Этот пример группирует время обработки в интервалы по 10 минут, создавая отдельные корзины для значений ≤ 10 минут и > 40 минут. Включите эти корзины с помощью [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) и [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/). При указании явных порогов [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) и [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) задайте [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) и [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) в `false`.
 
 ```csharp
 using Aspose.Slides;
@@ -833,13 +848,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-Презентация в PowerPoint показывает количества в корзинах **3, 4, 4, 4 и 2**. Корзина «underflow» включает `5, 10, 10`, её порог включительный. Корзина «overflow» содержит только `41, 50`, её порог исключительный; значения ровно `40` остаются в предыдущем интервале. Внутренние корзины включают значения, большие их нижней границы и ≤ верхней границы.
+Презентация в PowerPoint показывает количество значений в корзинах **3, 4, 4, 4 и 2**. Корзина «недополнение» (underflow) включает `5, 10, 10`, её порог включителен. Корзина «переполнение» (overflow) включает только `41, 50`, её порог исключителен; оба значения, равные `40`, остаются в предыдущем интервале. Внутренние корзины содержат значения больше нижней границы и меньше или равные верхней границе.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Гистограмма с 10‑минутными корзинами и явными порогами недополнения и переполнения](histogram_bin_width.png)
 
-#### **Задать количество корзин**
+#### **Указать количество корзин**
 
-Для фиксированного уровня детализации вместо фиксированных интервалов запросите пять корзин для тех же данных. В этом примере корзины «underflow» и «overflow» отключены. Диаграмма определяет ширину на основе диапазона данных, поэтому границы могут изменяться между отчётами.
+Для фиксированного уровня детализации, а не фиксированных интервалов, запросите пять корзин для тех же данных. В этом примере корзины недополнения и переполнения отключены. Диаграмма определяет ширину из диапазона данных, поэтому границы могут изменяться между отчётами.
 
 ```csharp
 using Aspose.Slides;
@@ -877,13 +892,13 @@ presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 
 Пять корзин имеют количества **4, 4, 4, 4 и 1**. Сравните это распределение с результатом фиксированной ширины выше: входные значения одинаковы, но границы различаются.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Гистограмма с пятью корзинами, рассчитанными из тех же данных](histogram_bin_count.png)
 
-### **Создать радиальные диаграммы**
+### **Создание радиальных диаграмм**
 
-Радиальные диаграммы отображают многовариантные данные в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления шаблонов, сильных и слабых сторон по множеству метрик или характеристик.
+Радиальные диаграммы используются для отображения многомерных данных в двумерном формате, позволяя легко сравнивать несколько переменных одновременно. Они особенно полезны для выявления шаблонов, сильных и слабых сторон по нескольким показателям производительности или атрибутам.
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания радиальной диаграммы с серией и категориями по умолчанию, после чего презентация сохраняется в формате PPTX.
+Этот пример использует [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания радиальной диаграммы с наборами рядов и категорий по умолчанию, затем сохраняет презентацию в формате PPTX.
 
 ```csharp
 using Aspose.Slides;
@@ -900,13 +915,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Radar chart](radar_chart.png)
+![Радиальная диаграмма](radar_chart.png)
 
-### **Создать диаграммы с несколькими категориями**
+### **Создание многокатегориальных диаграмм**
 
-Диаграммы с несколькими категориями позволяют отображать данные, включающие более одной группировки, что даёт возможность сравнивать значения по нескольким измерениям одновременно. Они особенно полезны при анализе тенденций и взаимосвязей в сложных многослойных наборах данных.
+Многокатегориальные диаграммы используются для отображения данных, охватывающих более одной категорической группы, позволяя сравнивать значения по нескольким измерениям одновременно. Они особенно полезны, когда необходимо анализировать тенденции и взаимосвязи в сложных многослойных наборах данных.
 
-В этом примере создаётся группированная столбчатая диаграмма с восемью категориями, расположенными в четырёх парах. Метод [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) задаёт каждой паре общий ярлык на уровне группировки 1, получая ось категорий с индивидуальными и групповыми метками.
+Этот пример создаёт групповую столбчатую диаграмму с восемью категориями, сгруппированными в четыре пары. Метод [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) задаёт каждой паре общую метку на уровне 1, формируя ось категорий с отдельными и групповыми метками.
 
 ```csharp
 using Aspose.Slides;
@@ -975,13 +990,47 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The multi category chart](multi_category_chart.png)
+![Многокатегориальная диаграмма](multi_category_chart.png)
 
-### **Создать картографические диаграммы**
+#### **Удалить метку квартала**
 
-Картографические диаграммы визуализируют географические данные, сопоставляя информацию с конкретными локациями (странами, штатами, городами). Они полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядном виде.
+Скачайте [quarters.pptx](quarters.pptx) и разместите её в рабочем каталоге. Его диаграмма показывает девять месяцев и один ряд продаж со значениями от 10 до 18. Ось категорий имеет три метки кварталов: Q1 — янв‑март, Q2 — апр‑июн, Q3 — июл‑сент.
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания картографической диаграммы с геоданными по умолчанию, после чего файл сохраняется для просмотра в PowerPoint.
+Апрель — четвёртая категория и та, для которой явно установлена метка Q2. Вызовите [DeleteGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) для коллекции [GroupingLevels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/groupinglevels/) у апреля. Уровень считается относительно апреля: уровень 1 — его квартал, уровень 0 — сам месяц. Метод не может удалить листовую категорию уровня 0.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation("quarters.pptx"))
+{
+    var chart = (IChart)presentation.Slides[0].Shapes[0];
+    var april = chart.ChartData.Categories[3];
+    april.GroupingLevels.DeleteGroupingItem(1);
+
+    presentation.Save("quarters-updated.pptx", SaveFormat.Pptx);
+}
+
+using var reopened = new Presentation("quarters-updated.pptx");
+var updatedChart = (IChart)reopened.Slides[0].Shapes[0];
+var data = updatedChart.ChartData;
+
+Console.WriteLine(string.Join(", ", data.Categories.Select(month => month.AsCell.Value)));
+Console.WriteLine(string.Join(", ", data.Series[0].DataPoints.Select(point => point.Value.Data)));
+```
+
+После повторного открытия диаграмма выводит исходные месяцы (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) и значения продаж (`10, 11, 12, 13, 14, 15, 16, 17, 18`) в том же порядке. Откройте `quarters‑updated.pptx` в PowerPoint, чтобы сравнить метки оси. Метка Q2 и граница группы перед апрелем исчезают, поэтому Q1 охватывает январь‑июнь. Q3 по‑прежнему начинается в июле.
+
+![Метки кварталов до и после удаления. Слева Q2 охватывает апрель‑июнь. Справа Q1 охватывает январь‑июнь.](quarter-label-comparison.png)
+
+### **Создание картографических диаграмм**
+
+Картографические диаграммы используются для визуализации географических данных, сопоставляя информацию с конкретными местоположениями, такими как страны, штаты или города. Они особенно полезны для анализа региональных тенденций, демографических данных и пространственного распределения в наглядном виде.
+
+Этот пример использует [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания картографической диаграммы с данными по умолчанию и сохраняет её для просмотра в PowerPoint.
 
 ```csharp
 using Aspose.Slides;
@@ -998,19 +1047,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Результат:
 
-![The Map chart](map_chart.png)
+![Картографическая диаграмма](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Изображение выше показывает сохранённую презентацию, открывшуюся в PowerPoint. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но сама диаграмма не рисуется: при рендеринге слайда в изображение или преобразовании в PDF/SVG область диаграммы остаётся пустой. Другие фигуры на том же слайде не затрагиваются.
+Изображение выше показывает сохранённую презентацию, открывшуюся в PowerPoint. Aspose.Slides корректно записывает картографическую диаграмму и её данные, но сама не рисует такие диаграммы: при рендеринге слайда, содержащего её, в изображение или при конвертации в PDF или SVG область диаграммы остаётся пустой. Другие фигуры на том же слайде не затрагиваются.
 {{% /alert %}}
 
-### **Создать комбинированные диаграммы**
+### **Создание комбинированных диаграмм**
 
-Комбинированная диаграмма (или combo chart) объединяет два и более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между несколькими наборами данных, помогая установить их взаимосвязи.
+Комбинированная диаграмма (или combo‑диаграмма) объединяет два или более типов диаграмм в одном графике. Такая диаграмма позволяет выделять, сравнивать или исследовать различия между наборами данных, помогая выявлять между ними взаимосвязи.
 
-![The combination chart](combination_chart.png)
+![Комбинированная диаграмма](combination_chart.png)
 
-В этом примере комбинируются две группированные столбчатые серии с линейной серией по четырём категориям. Столбцы используют главную вертикальную ось, а [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и сетку.
+Этот пример объединяет два ряда с групповыми столбцами и один линейный ряд по четырём категориям. Столбцы используют первичную вертикальную ось, а [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) размещает линию на вторичной вертикальной оси справа. Вспомогательные функции настраивают заголовок, легенду, подписи осей и линии сетки.
 
 ```csharp
 using System.Drawing;
@@ -1170,11 +1219,11 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **Обновить диаграммы**
+## **Обновление диаграмм**
 
-Aspose.Slides для .NET позволяет обновлять диаграммы PowerPoint, изменяя их данные, форматирование и стили. Эта возможность упрощает поддержание презентаций в актуальном состоянии с динамичным содержимым и гарантирует, что диаграммы точно отражают текущие данные и визуальные стандарты.
+Aspose.Slides for .NET позволяет обновлять диаграммы PowerPoint, изменяя данные, форматирование и стиль. Эта возможность упрощает процесс поддержания презентаций в актуальном состоянии с динамическим содержимым и обеспечивает точное соответствие диаграмм текущим данным и визуальным стандартам.
 
-В этом примере обновляется диаграмма с именем "My chart" на первом слайде существующей презентации. Требуются две колонные серии по три точки данных каждая, с метками категорий в колонке A и именами серий в первой строке первого листа. Пример использует [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) для изменения ячеек книги, обновляет значения серий, добавляет третью серию и меняет тип диаграммы на группированные цилиндры через [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
+Этот пример обновляет диаграмму с именем "My chart" на первом слайде существующей презентации. Требуются два ряда столбцов по три точки данных каждый, метки категорий в столбце A и имена рядов в первой строке первого листа. Пример использует [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) для изменения ячеек книги, обновляет значения рядов, добавляет третий ряд и меняет тип диаграммы на кластерные цилиндры через [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/).
 
 ```csharp
 using Aspose.Slides;
@@ -1228,13 +1277,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Установить диапазон данных для диаграммы**
+## **Установка диапазона данных для диаграммы**
 
 Чтобы просмотреть диапазон, уже используемый существующей диаграммой, см. [Retrieve a Chart's Data Range](/slides/ru/net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides для .NET предоставляет гибкость определения конкретного диапазона данных из листа в качестве источника данных для вашей диаграммы. Это означает, что вы можете напрямую сопоставлять часть листа с диаграммой, контролируя, какие ячейки участвуют в сериях и категориях диаграммы. В результате вы легко обновляете и синхронизируете диаграммы с последними изменениями данных в листе, обеспечивая актуальность и точность информации в ваших презентациях PowerPoint.
+Aspose.Slides for .NET предоставляет гибкость задать конкретный диапазон данных из листа как источник данных для диаграммы. Это означает, что вы можете напрямую сопоставить часть листа с диаграммой, контролируя, какие ячейки участвуют в рядах и категориях. В результате вы легко обновляете и синхронизируете диаграммы с последними изменениями данных в листе, обеспечивая актуальность и точность ваших презентаций PowerPoint.
 
-В этом примере используется [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) для установки источника данных диаграммы с именем "My chart" на первом слайде существующей презентации в `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком серии в первой строке, метками категорий в колонке A и тремя значениями в колонке B.
+Этот пример использует [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) для установки источника данных диаграммы с именем "My chart" на первом слайде существующей презентации в `Sheet1!A1:B4`. Книга диаграммы должна содержать указанный лист и заполненный диапазон с заголовком ряда в первой строке, метками категорий в столбце A и тремя значениями в столбце B.
 
 ```csharp
 using Aspose.Slides;
@@ -1257,11 +1306,11 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 ```
 
-## **Использовать маркеры по умолчанию в диаграммах**
+## **Использование маркеров по умолчанию в диаграммах**
 
-При использовании маркеров по умолчанию каждая серия диаграммы автоматически получает уникальный символ маркера.
+При использовании маркеров по умолчанию в диаграммах каждый ряд автоматически получает различный маркер.
 
-В этом примере используется [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания диаграммы с двумя линейными сериями и легендой. Настройки [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) сохраняют автоматически назначенные символы маркеров. Первая серия содержит отрицательное значение и пропущенное значение, представленное `null`, вторая — значение для каждой категории.
+Этот пример использует [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) для создания диаграммы с двумя линейными рядами и легендой. Настройки [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) сохраняют автоматически присвоенные символы маркеров. Первый ряд включает отрицательное значение и пропущенное значение, представленное `null`, в то время как второй имеет значение для каждой категории.
 
 ```csharp
 using Aspose.Slides;
@@ -1323,16 +1372,18 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 **Какие типы диаграмм поддерживает Aspose.Slides для .NET?**
 
-Aspose.Slides для .NET поддерживает широкий спектр типов диаграмм, включая столбчатые, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбрать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
+Aspose.Slides для .NET поддерживает широкий спектр типов диаграмм, включая гистограммы, линейные, круговые, областные, точечные, гистограммы, радиальные и многие другие. Эта гибкость позволяет выбирать наиболее подходящий тип диаграммы для ваших задач визуализации данных.
 
 **Как добавить новую диаграмму на слайд?**
 
-Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), получайте нужный слайд по индексу и вызывайте метод добавления диаграммы, указывая тип диаграммы и начальные данные. Этот процесс напрямую интегрирует диаграмму в вашу презентацию.
+Чтобы добавить диаграмму, сначала создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), получите нужный слайд по индексу и затем вызовите метод для добавления диаграммы, указав тип диаграммы и начальные данные. Этот процесс вставляет диаграмму непосредственно в вашу презентацию.
 
 **Как обновить данные, отображаемые в диаграмме?**
 
-Вы можете обновить данные диаграммы, получив доступ к её книге данных ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), очистив любые серии и категории по умолчанию и затем добавив свои пользовательские данные. Это позволяет программно обновлять диаграмму, отражая новейшие данные.
+Вы можете обновить данные диаграммы, получив её рабочую книгу данных ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)), очистив любые ряды и категории по умолчанию, а затем добавив свои собственные данные. Это позволяет программно освежить диаграмму, отражая последние данные.
 
 **Можно ли настроить внешний вид диаграммы?**
 
-Да, Aspose.Slides для .NET предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы под конкретные требования дизайна.
+Да, Aspose.Slides для .NET предоставляет обширные возможности настройки. Вы можете изменять цвета, шрифты, подписи, легенды и другие элементы форматирования, чтобы адаптировать внешний вид диаграммы к вашим специфическим требованиям дизайна.
+
+Связанная функция: [Create editable charts](/slides/ru/features/create-charts/).

@@ -14,10 +14,10 @@ keywords:
 - 饼图
 - 折线图
 - 树状图
-- 股票图表
+- 股票图
 - 箱线图
 - 漏斗图
-- 旭辉图
+- 旭日图
 - 直方图
 - 雷达图
 - 多类别图表
@@ -29,33 +29,30 @@ description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 演示文�
 ---
 ## **概述**
 
-本文提供了使用 Aspose.Slides for Python via .NET 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据以及应用各种格式设置，以满足特定的设计需求。文章中提供了详细的代码示例，演示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。通过本指南，您将深入了解如何在 Python 应用程序中集成动态图表生成，从而简化生成数据驱动的演示文稿的过程。
+本文提供了使用 Aspose.Slides for Python via .NET 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表，填充数据，并应用各种格式设置，以满足特定的设计需求。文章中提供了详细的代码示例，演示了从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。通过本指南，您将掌握在 Python 应用程序中集成动态图表生成的技巧，从而简化生成数据驱动演示文稿的过程。
 
 ## **创建图表**
 
 图表帮助人们快速可视化数据，并获得可能在表格或电子表格中不易察觉的洞见。
 
-**为什么要创建图表？**
+**为何要创建图表？**
 
 使用图表，您可以：
 
-* 在演示文稿的单个幻灯片上聚合、压缩或汇总大量数据；
-* 揭示数据中的模式和趋势；
-* 推断随时间或特定计量单位的数据方向和动量；
-* 发现异常值、偏差、错误和无意义的数据；
-* 传达或展示复杂数据。
+* 在演示文稿的单个幻灯片上汇总、压缩或概括大量数据；
+* 显示数据中的模式和趋势；
+* 推断数据随时间或相对于特定计量单位的方向和动量；
+* 发现异常值、偏差、错误和不合理的数据；
+* 传达或呈现复杂数据。
 
-在 PowerPoint 中，您可以通过 *插入* 功能创建图表，该功能提供了许多图表类型的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行的图表类型）和自定义图表。
+在 PowerPoint 中，您可以通过 *Insert* 功能创建图表，提供多种图表模板用于设计。使用 Aspose.Slides，您可以创建普通图表（基于常见图表类型）和自定义图表。
 
 {{% alert color="info" title="注意" %}}
+使用 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 枚举（位于 [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) 模块）。此枚举中的值对应不同的图表类型。{{% /alert %}}
 
-使用 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 枚举位于 [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/) 模块中。该枚举中的值对应不同的图表类型。
+### **创建簇状柱形图**
 
-{{% /alert %}}
-
-### **创建聚类柱形图**
-
-此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个聚类柱形图，以比较三个类别中的两个系列。两个系列分别使用红色和绿色填充，单独的标签演示了类别名称、系列名称和数值。工作表索引 0 指代嵌入式图表工作簿中的第一张工作表。
+此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个簇状柱形图，以比较三个类别中的两个系列。系列使用红色和绿色填充，单独的标签显示类别名称、系列名称和数值。工作表索引 0 指嵌入式图表工作簿中的第一个工作表。
 
 ```python
 import aspose.pydrawing as draw
@@ -128,22 +125,22 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
-![聚类柱形图](clustered_column_chart.png)
+![聚合柱形图](clustered_column_chart.png)
 
 ### **创建散点图**
 
-散点图（亦称散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。
+散点图（亦称散点图或 x‑y 图）常用于检查模式或演示两个变量之间的相关性。
 
 在以下情况下使用散点图：
 
-* 您拥有配对的数值数据。
-* 您有两个配合良好的变量。
-* 您想确定这两个变量是否相关。
-* 您有一个自变量对应多个因变量的取值。
+* 您拥有配对的数值数据；
+* 您有两个配合良好的变量；
+* 您想确定这两个变量是否相关；
+* 您有一个独立变量对应多个因变量的取值。
 
-此示例绘制了两组 x‑y 值。第一系列使用直线和星形标记，第二系列使用平滑线和圆形标记；两者的 [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 均为 10。[`symbol`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) 属性控制标记的形状。
+此示例绘制两组 x‑y 值。第一系列使用带星形标记的直线，第二系列使用带圆形标记的平滑线；两者的 [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) 均为 10。[symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) 属性控制标记形状。
 
 ```python
 import aspose.slides as slides
@@ -203,15 +200,15 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![散点图](scatter_chart.png)
 
 ### **创建饼图**
 
-饼图最适合展示数据的部分与整体关系，尤其是当数据包含带数值的分类标签时。然而，如果您的数据包含太多部分或标签，建议考虑使用柱形图。
+饼图最适用于显示数据的部分与整体的关系，尤其是当数据包含带数值的分类标签时。不过，如果数据包含许多部分或标签，您可能需要考虑使用条形图。
 
-此示例创建了一个包含三个季度值的饼图。每个扇区都有自定义填充和边框，标签显示了数值、百分比和系列信息的不同组合。[`first_slice_angle`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) 属性将第一扇区的起始角度设置为 180 度。
+此示例创建一个包含三季度数值的饼图。每个切片都有自定义填充和边框，标签显示不同组合的数值、百分比和系列信息。[first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) 属性将第一切片的起始角度设为 180 度。
 
 ```python
 import aspose.pydrawing as draw
@@ -304,17 +301,17 @@ with slides.Presentation() as presentation:
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![饼图](pie_chart.png)
 
-要改进饼图外部标签的可读性，请参阅 [格式引线](/slides/zh/python-net/chart-data-label/#format-leader-lines) 示例，了解如何定位标签并自定义线条的颜色、宽度、透明度和虚线样式。
+要改进饼图外部标签的可读性，请参阅 [Format Leader Lines](/slides/zh/python-net/chart-data-label/#format-leader-lines) 中的示例，了解如何定位标签并自定义线条的颜色、宽度、透明度和虚线样式。
 
 ### **创建折线图**
 
-折线图（亦称折线图）最适合在需要展示随时间变化的数值时使用。使用折线图，您可以一次比较大量数据、跟踪随时间的变化和趋势、突出显示数据系列中的异常等。
+折线图（亦称折线图）最适用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据，跟踪随时间的变化与趋势，突出数据系列中的异常等等。
 
-此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个默认系列和类别的折线图，然后将演示文稿保存为 PPTX。
+此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个默认系列和分类的折线图，然后将演示文稿另存为 PPTX。
 
 ```python
 import aspose.slides as slides
@@ -328,7 +325,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-默认情况下，折线图上的点由直线连续相连。如果希望点之间使用虚线连接，请将 [`dash_style`](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) 设置为来自 [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) 的值：
+默认情况下，折线图的点由直线连续相连。如果希望点之间使用虚线而非实线，请将 [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) 设为 [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) 中的某个值：
 
 ```python
 import aspose.slides as slides
@@ -343,15 +340,15 @@ with slides.Presentation() as presentation:
         series.format.line.dash_style = slides.LineDashStyle.DASH
 ```
 
-生成结果：
+结果：
 
 ![折线图](line_chart.png)
 
 ### **创建树状图**
 
-树状图在您想展示数据类别的相对大小并快速关注每个类别中贡献最大的项目时最为适用。
+树状图最适用于销售数据，能够显示数据类别的相对大小，并快速突出每个类别中贡献较大的项目。
 
-此示例创建了一个包含八个叶子、分为四个主干和两个分支的树状图。[`set_grouping_item`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 方法在分组层级 1 分配主干，在层级 2 分配分支。数值决定相对矩形大小，类别标签和重叠的父标签标识层次结构。
+此示例创建一个包含八个叶子、分为四个主干和两条分支的树状图。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 方法在分组级别 1 分配主干，在级别 2 分配分支。数值决定矩形的相对大小，类别标签和重叠的父标签标识层次结构。
 
 ```python
 import aspose.slides as slides
@@ -424,28 +421,28 @@ with slides.Presentation() as presentation:
     presentation.save("Treemap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![树状图](treemap_chart.png)
 
 ### **创建瀑布图**
 
-瀑布图展示正向和负向变化如何贡献到最终值。例如，利润拆分可以从收入开始，减去成本，再加上其他收入。变化列在前后运行值之间漂浮，而累计列则从零延伸到累计值。
+瀑布图展示正负变化如何累积至最终值。例如，利润细分可以从收入开始，减去成本，再加上其他收入。变化列在前后累计值之间浮动，而总计列则从零延伸至累计值。
 
 以下示例使用以千美元计的金额：
 
-| 类别 | 工作簿值 | 列类型 |
+| 类别 | 工作簿数值 | 列类型 |
 | --- | ---: | --- |
-| 收入 | 1000 | 增加 |
-| 销售成本 | -400 | 减少 |
-| 毛利润 | 600 | 中间累计 |
-| 运营费用 | -200 | 减少 |
-| 其他收入 | 50 | 增加 |
-| 净利润 | 450 | 最终累计 |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-要将点标记为中间或最终累计，请将其 [`set_as_total`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) 属性设为 `True`。在该点的工作簿单元格中提供实际累计金额：毛利润为 `600`（`1000 - 400`），净利润为 `450`（`600 - 200 + 50`）。该属性仅标记列为累计；它不会计算或填充单元格的值。请勿使用零作为占位符，也不要为累计点提供其他变化值。累计列显示累计值，但不会再次将其添加到运行值中。
+若要将点标记为中间或最终总计，请将其 [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) 属性设为 `True`。在该点的工作簿单元格中提供实际累计金额：毛利润为 `600`（`1000 - 400`），净利润为 `450`（`600 - 200 + 50`）。该属性仅将列标记为总计，不会计算或填充值。请勿使用零作为占位符，也不要为总计点提供其他变化值。总计列显示累计值，但不再将其加回运行值。
 
-下面的完整 C# 示例使用 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 的 `Waterfall` 成员创建图表，清除默认数据并填充嵌入式工作簿。工作表索引 `0` 选择第一张工作表；A 列包含类别名称，B 列包含数值。每个数值单元格通过 [`add_data_point_for_waterfall_series`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) 添加。基于零的点索引 `2` 和 `5` 标识中间累计和最终累计。启用 [`show_value`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) 可在列上显示金额。无需输入演示文稿或工作簿。
+此完整的 C# 示例使用 [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 的 `Waterfall` 成员创建图表，清除默认数据并填充嵌入式工作簿。工作表索引 `0` 选择第一个工作表；列 A 包含类别名称，列 B 包含数值。每个数值单元格通过 [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/) 添加。零基点索引 `2` 和 `5` 标识中间和最终总计。启用 [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) 可在列上显示金额。无需输入演示文稿或工作簿。
 
 ```python
 import aspose.slides as slides
@@ -480,7 +477,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(worksheet_index, i + 1, 1, values[i])
         series.data_points.add_data_point_for_waterfall_series(value_cell)
 
-    # 第三个和第六个点表示总计，而不是额外的变化。
+    # 第三和第六个点表示总计，而不是额外的变动。
     series.data_points[2].set_as_total = True
     series.data_points[5].set_as_total = True
     series.show_connector_lines = True
@@ -489,26 +486,33 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-将系列级别的 [`show_connector_lines`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) 属性设为 `True`，即可显示连接连续列的线条，使运行值更易跟踪。若要隐藏这些线条，请在保存前将示例中的赋值替换为 `series.show_connector_lines = False`。此更改仅影响线条可见性，不会影响数据或累计。
+将系列级别的 [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) 属性设为 `True`，即可显示连接相邻列的线，使运行值更易于追踪。若要隐藏这些线，只需在示例中将赋值改为 `series.show_connector_lines = False` 再保存。这仅改变线的可见性，不影响数据或总计。
 
-保存后的演示文稿显示毛利润为 600，净利润为 450，两个累计皆从零开始绘制：
+保存后的演示文稿显示毛利润 600 和净利润 450，两者的总计均从零开始绘制：
 
-![瀑布图显示收入、成本、毛利润 600 和净利润 450，以及数值标签和连接线](waterfall_chart.png)
+![显示收入、成本、毛利润 600 和净利润 450 的瀑布图，带数值标签和连接线](waterfall_chart.png)
 
-### **创建股票图表**
+### **创建股票图**
 
-股票图表用于展示如开盘价、最高价、最低价和收盘价等金融数据，帮助分析市场趋势和波动性。它们提供对股票表现的关键洞察，帮助投资者和分析师做出明智决策。
+股票图用于展示开盘价、最高价、最低价和收盘价等金融数据，帮助分析市场趋势和波动性。它们提供对股票表现的关键洞察，帮助投资者和分析师作出明智决策。
 
-此示例创建了一个包含四个系列（顺序为开盘、最高、最低、收盘）和三个类别的 OHLC 图表。[`has_up_down_bars`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) 属性启用上下柱，[`hi_low_lines_format`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) 控制显示价格区间的高低线，而各系列线条和次要水平网格线被隐藏。
+此示例创建一个按顺序包含四个系列、三个类别的开‑高‑低‑收图。[has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) 属性启用上下条，[hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) 控制显示价格区间的高低线，同时隐藏单独系列线和次要水平网格线。
+
+[up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/up_down_bars/) 管理器提供独立的 [up_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/up_bars_format/) 和 [down_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/down_bars_format/) 对象。使用每个对象的 [fill](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/fill/) 和 [line](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/line/) 属性可分别设置填充和轮廓。本例对上涨区间使用绿色条配深绿轮廓，对下跌区间使用橙红条配深红轮廓。
+
+为每个类别提供四个系列的数值，High 和 Low 包围 Open 和 Close。条形比较的是同一类别内的 Close 与 Open，而不是与前一类别比较：A 从 72 下降到 25，B 从 25 上升到 38，C 从 38 上升到 50。相等的 Open 与 Close 产生不可见的填充区间。上下条跨越 Open‑Close，高低线跨越 Low‑High。这些条属于系列组，而非普通柱形系列。
+
+此格式同样适用于包含至少两个系列且每个类别都有对应数值的 [LINE 和 LINE_WITH_MARKERS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) 图表。对于这些非堆叠折线图，上下条比较的是第一系列和最后一系列：最后一个值更高则显示上条，更低则显示下条。交换系列顺序会颠倒分类。下面的示例使用 [OPEN_HIGH_LOW_CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/)，请勿假设其他股票、堆叠折线或 3D 变体使用相同的数据排列或区间解释。
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 150, False)
 
     workbook = chart.chart_data.chart_data_workbook
 
@@ -560,7 +564,20 @@ with slides.Presentation() as presentation:
     value_cell = workbook.get_cell(0, 3, 4, 50)
     series.data_points.add_data_point_for_stock_series(value_cell)
 
-    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
+    up_down_bars = chart.chart_data.series_groups[0].up_down_bars
+    up_down_bars.has_up_down_bars = True
+
+    up_down_bars.up_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.fill.solid_fill_color.color = draw.Color.lime_green
+    up_down_bars.up_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_green
+    up_down_bars.up_bars_format.line.width = 2
+
+    up_down_bars.down_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.fill.solid_fill_color.color = draw.Color.orange_red
+    up_down_bars.down_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_red
+    up_down_bars.down_bars_format.line.width = 2
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
     for stock_series in chart.chart_data.series:
@@ -571,15 +588,15 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果（从 PowerPoint 导出）：
 
-![股票图表](stock_chart.png)
+![股票图，A 为橙红下跌区间，B 和 C 为绿色上涨区间](stock_chart.png)
 
 ### **创建箱线图**
 
-箱线图用于通过汇总关键统计度量（如中位数、四分位数和潜在异常值）来显示数据分布。它们在探索性数据分析和统计研究中非常有用，可快速了解数据变异性并识别异常。
+箱线图用于通过汇总关键统计度量（如中位数、四分位数和潜在异常值）来显示数据分布。它们在探索性数据分析和统计研究中尤其有用，能够快速了解数据的变异性并识别异常。
 
-此示例使用六个数值创建箱线图。[`quartile_method`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) 属性选择排除法四分位计算。示例还启用了均值线、均值标记、内部点和异常点。
+此示例使用六个数值创建箱线图。[quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) 属性选择排他性四分位计算。示例还启用了均值线、均值标记、内部点和异常点。
 
 ```python
 import aspose.slides as slides
@@ -635,9 +652,9 @@ with slides.Presentation() as presentation:
 
 ### **创建漏斗图**
 
-漏斗图用于可视化包含顺序阶段的过程，数据量随步骤逐步减少。它们特别适用于分析转化率、识别瓶颈以及跟踪销售或营销过程的效率。
+漏斗图用于可视化包含顺序阶段的过程，数据量随步骤推进而递减。它们特别适合分析转化率、识别瓶颈以及跟踪销售或营销过程的效率。
 
-此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 在现有演示文稿的第一张幻灯片上添加漏斗图。它用六个类别和从 50 到 500 的值替换默认数据，然后保存更新后的演示文稿。输入演示文稿必须至少包含一张幻灯片。
+此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 在现有演示文稿的第一张幻灯片上添加漏斗图。它将默认数据替换为六个类别，数值范围从 50 到 500，然后保存更新后的演示文稿。输入演示文稿必须至少包含一张幻灯片。
 
 ```python
 import aspose.slides as slides
@@ -685,15 +702,15 @@ with slides.Presentation("test.pptx") as presentation:
     presentation.save("Funnel.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![漏斗图](funnel_chart.png)
 
 ### **创建旭辉图**
 
-旭辉图用于可视化层级数据，以同心环的形式展示各层级。它们有助于说明部分与整体的关系，特别适合以紧凑、清晰的格式呈现嵌套的类别和子类别。
+旭辉图用于可视化层级数据，以同心环的形式显示层级。它们帮助说明部分与整体的关系，非常适合以紧凑、清晰的方式呈现嵌套的类别和子类别。
 
-此示例创建了一个包含八个叶子、分为四个主干和两个分支的旭辉图。[`set_grouping_item`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 方法在分组层级 1 分配主干，在层级 2 分配分支。类别标签标识各段，数值决定相对大小。
+此示例创建一个包含八个叶子、分为四个主干和两条分支的旭辉图。[set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 方法在分组级别 1 分配主干，在级别 2 分配分支。类别标签标识各段，数值决定相对大小。
 
 ```python
 import aspose.slides as slides
@@ -764,19 +781,19 @@ with slides.Presentation() as presentation:
     presentation.save("Sunburst.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![旭辉图](sunburst_chart.png)
 
 ### **创建直方图**
 
-直方图显示数值在区间（箱）中的分布情况。对于订单处理时间的月度报告，使用相同的箱宽和阈值可保持区间一致，使分布更易比较。
+直方图展示数值在区间（箱）中的分布情况。对于订单处理时间的月报，请使用相同的箱宽和阈值，以保持区间一致性并便于比较分布。
 
-将水平轴的 [`aggregation_type`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) 设置为 [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) 中的模式。[`bin_width`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) 仅在 `BY_BIN_WIDTH` 时生效；[`number_of_bins`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) 仅在 `BY_NUMBER_OF_BINS` 时生效。使用 `AUTOMATIC` 让图表自行选择箱子。
+将水平轴的 [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) 设为 [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/) 中的某种模式。[bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) 仅在 `BY_BIN_WIDTH` 时生效；[number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) 仅在 `BY_NUMBER_OF_BINS` 时生效。使用 `AUTOMATIC` 可让图表自行选择箱。
 
 #### **使用固定箱宽**
 
-此示例将处理时间分组为 10 分钟间隔，并为 ≤10 分钟和 ≥40 分钟的时间单独设箱。通过 [`is_underflow_bin`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) 和 [`is_overflow_bin`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) 启用这些箱。当显式提供 [`underflow_bin`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) 和 [`overflow_bin`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) 阈值时，需将 [`is_automatic_underflow_bin`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) 和 [`is_automatic_overflow_bin`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) 设为 `False`。
+此示例将处理时间分为 10 分钟区间，并为 ≤10 分钟和 >40 分钟的时间单独设箱。通过 [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) 和 [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/) 启用这些箱。提供明确的 [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) 与 [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/) 阈值时，将 [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) 和 [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) 设为 `False`。
 
 ```python
 import aspose.slides as slides
@@ -815,13 +832,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-在 PowerPoint 中显示的演示文稿显示箱计数为 **3、4、4、4、2**。下溢箱包含 `5、10、10`，因此阈值为闭区间。上溢箱仅包含 `41、50`，因此阈值为开区间；等于 `40` 的值仍属于前一个区间。内部箱包含大于下界且小于等于上界的值。
+PowerPoint 中显示的演示文稿的箱计数为 **3、4、4、4、2**。下溢箱包括 `5, 10, 10`，因此阈值为闭区间。上溢箱仅包含 `41, 50`，阈值为开区间；等于 `40` 的值仍属于前一区间。内部箱包含大于下界且小于等于上界的值。
 
-![使用 10 分钟箱宽并显式设置下溢和上溢阈值的直方图](histogram_bin_width.png)
+![直方图，10 分钟箱宽并设有明确的下溢和上溢阈值](histogram_bin_width.png)
 
 #### **指定箱的数量**
 
-若需固定细节层级而非固定区间，可为相同数据请求五个箱。此示例未启用下溢和上溢箱。图表根据数据范围计算宽度，因而边界可能随报告而变。
+若希望固定细节层级而非固定区间，可请求五个箱用于相同数据。此示例关闭下溢和上溢箱。图表根据数据范围决定箱宽，因此边界可能随报告而变化。
 
 ```python
 import aspose.slides as slides
@@ -854,15 +871,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-这五个箱的计数为 **4、4、4、4、1**。将此分布与上述固定宽度结果进行比较：输入值相同，但边界不同。
+五个箱的计数为 **4、4、4、4、1**。将此分布与上面的固定宽度结果进行比较：输入值相同，但边界不同。
 
-![使用相同数据计算出的五箱直方图](histogram_bin_count.png)
+![直方图，使用相同数据计算的五个箱](histogram_bin_count.png)
 
 ### **创建雷达图**
 
-雷达图用于在二维平面上显示多变量数据，方便同时比较多个变量。它们特别适合识别多个绩效指标或属性之间的模式、优势和劣势。
+雷达图用于在二维平面上显示多变量数据，便于同时比较多个变量。它们在识别多个性能指标或属性之间的模式、优势和弱点方面尤其有用。
 
-此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个默认系列和类别的雷达图，然后将演示文稿保存为 PPTX。
+此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个默认系列和分类的雷达图，然后将演示文稿另存为 PPTX。
 
 ```python
 import aspose.slides as slides
@@ -876,15 +893,15 @@ with slides.Presentation() as presentation:
     presentation.save("Radar-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![雷达图](radar_chart.png)
 
 ### **创建多类别图表**
 
-多类别图表用于展示涉及多个分类分组的数据，帮助您在多个维度上同时比较数值。它们在分析复杂、多层数据集的趋势和关系时尤为有用。
+多类别图表用于显示涉及多个分类分组的数据，帮助您在多个维度上同时比较数值。它们在分析复杂、多层数据集的趋势和关系时尤其有帮助。
 
-此示例创建了一个聚类柱形图，包含四对共八个类别。[`set_grouping_item`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 方法在分组层级 1 为每对分配共享标签，从而在类别轴上同时显示单个标签和分组标签。
+此示例创建一个簇状柱形图，包含八个类别，按四对排列。通过 [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) 方法在分组级别 1 为每对分配共享标签，生成既有单独标签又有分组标签的类别轴。
 
 ```python
 import aspose.slides as slides
@@ -950,13 +967,39 @@ with slides.Presentation() as presentation:
     presentation.save("AsposeChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![多类别图表](multi_category_chart.png)
 
+#### **删除季度标签**
+
+下载 [quarters.pptx](quarters.pptx) 并放置在工作目录中。其图表显示九个月和一个销售系列，数值从 10 到 18。类别轴有三个季度标签：Q1 覆盖 Jan‑Mar，Q2 覆盖 Apr‑Jun，Q3 覆盖 Jul‑Sep。
+
+四月是第四个类别，也是显式设置 Q2 的位置。对四月的 [grouping_levels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/grouping_levels/) 集合调用 [delete_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/delete_grouping_item/)。该级别相对于四月：级别 1 为其所在的季度，级别 0 为月份本身。此方法无法删除级别 0 的叶子类别。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("quarters.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    april = chart.chart_data.categories[3]
+    april.grouping_levels.delete_grouping_item(1)
+    
+    presentation.save("quarters-updated.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("quarters-updated.pptx") as reopened:
+    data = reopened.slides[0].shapes[0].chart_data
+    print(", ".join(str(month.as_cell.value) for month in data.categories))
+    print(", ".join(str(point.value.data) for point in data.series[0].data_points))
+```
+
+重新打开的图表按原顺序打印月份（`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`）和销售数值（`10, 11, 12, 13, 14, 15, 16, 17, 18`）。在 PowerPoint 中打开 `quarters-updated.pptx` 可比较轴标签。Q2 标签以及四月前的分组边界消失，导致 Q1 跨越 January 到 June。Q3 仍然从 July 开始。
+
+![删除前后的季度标签。左侧 Q2 跨越 April 到 June，右侧 Q1 跨越 January 到 June。](quarter-label-comparison.png)
+
 ### **创建地图图表**
 
-地图图表用于通过将信息映射到特定地点（如国家、州或城市）来可视化地理数据。它们在分析区域趋势、人口统计数据和空间分布时特别有价值，能够以清晰、视觉吸引的方式呈现。
+地图图表用于通过将信息映射到特定地点（如国家、州或城市）来可视化地理数据。它们在分析区域趋势、人口统计数据和空间分布时非常有用，能够以清晰、视觉上引人入胜的方式呈现。
 
 此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个默认地理数据的地图图表，并保存以供在 PowerPoint 中查看。
 
@@ -972,23 +1015,20 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-生成结果：
+结果：
 
 ![地图图表](map_chart.png)
 
 {{% alert color="info" title="注意" %}}
-
-上图显示在 PowerPoint 中打开的已保存演示文稿。Aspose.Slides 正确写入了地图图表及其数据，但它本身不绘制地图图表：当包含地图图表的幻灯片渲染为图像或转换为 PDF 或 SVG 时，图表区域会出现空白。同一幻灯片上的其他形状不受影响。
-
-{{% /alert %}}
+上图显示的是保存后在 PowerPoint 中打开的演示文稿。Aspose.Slides 能正确写入地图图表及其数据，但本身不绘制地图图表：当包含地图图表的幻灯片渲染为图像或转换为 PDF、SVG 时，图表区域会出现空白。同一幻灯片上的其他形状不受影响。{{% /alert %}}
 
 ### **创建组合图表**
 
-组合图表（或称复合图表）在同一坐标系中结合两种或多种图表类型。该图表可帮助您突出、比较或检查两个或多个数据集之间的差异，从而识别它们之间的关系。
+组合图（或组合图表）在单个图形中混合两种或多种图表类型。此图表可帮助突出、比较或检查两个或多个数据集之间的差异，从而识别它们之间的关系。
 
 ![组合图表](combination_chart.png)
 
-此示例将两个聚类柱形系列与一个折线系列在四个类别上组合。柱形使用主垂直坐标轴，而 [`plot_on_second_axis`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) 将折线放置在右侧的次坐标轴上。辅助函数负责配置标题、图例、坐标轴标签和网格线。
+此示例将两个簇状柱形系列与一个折线系列组合在四个类别上。柱形使用主纵轴，而 [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) 将折线放在右侧的次纵轴上。辅助函数配置标题、图例、轴标签和网格线。
 
 ```python
 import aspose.pydrawing as draw
@@ -1136,9 +1176,9 @@ create_combo_chart()
 
 ## **更新图表**
 
-Aspose.Slides for Python via .NET 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。此功能简化了使用动态内容保持演示文稿最新的过程，并确保图表准确反映当前数据和视觉标准。
+Aspose.Slides for Python via .NET 使您能够通过修改图表数据、格式和样式来更新 PowerPoint 图表。这一功能简化了保持演示文稿与动态内容同步的过程，确保图表准确反映当前数据和视觉标准。
 
-此示例更新现有演示文稿第一张幻灯片中名为 “My chart” 的图表。它要求有两列系列，每列三个数据点，类别标签位于 A 列，系列名称位于第一工作表的首行。示例使用 [`get_cell`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) 更改工作簿单元格，更新系列值，添加第三个系列，并通过 [`type`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) 将图表更改为聚类圆柱体。
+此示例更新现有演示文稿第一张幻灯片上名为 “My chart” 的图表。它要求两个列系列，每个系列包含三个数据点，类别标签位于列 A，系列名称位于第一个工作表的首行。示例使用 [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) 更改工作簿单元格，更新系列值，添加第三个系列，并通过 [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/) 将图表更改为簇状圆柱体。
 
 ```python
 import aspose.slides as slides
@@ -1190,11 +1230,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **为图表设置数据范围**
 
-要检查现有图表已使用的范围，请参阅 [检索图表的数据范围](/slides/zh/python-net/chart-workbook/#retrieve-a-charts-data-range)。
+要检查现有图表已使用的范围，请参阅 [Retrieve a Chart's Data Range](/slides/zh/python-net/chart-workbook/#retrieve-a-charts-data-range)。
 
-Aspose.Slides for Python via .NET 提供了从工作表中定义特定数据范围作为图表数据源的灵活性。这意味着您可以直接将工作表的某一部分映射到图表，从而控制哪些单元格为图表的系列和类别提供数据。因此，您可以轻松更新并同步图表，使其始终反映工作表中的最新数据变化，确保您的 PowerPoint 演示文稿保持准确和及时。
+Aspose.Slides for Python via .NET 提供灵活性，允许您从工作表中定义特定的数据范围作为图表数据源。这意味着您可以直接映射工作表的某一部分到图表，控制哪些单元格贡献给图表的系列和类别。这样，您可以轻松更新并同步图表与工作表的最新数据，确保 PowerPoint 演示文稿反映当前且准确的信息。
 
-此示例使用 [`set_range`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) 将现有演示文稿第一张幻灯片中名为 “My chart” 的图表的数据源设置为 `Sheet1!A1:B4`。图表工作簿必须包含该工作表，并且该范围需已填充，首行是系列标题，A 列是类别标签，B 列包含三个数值。
+此示例使用 [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) 将现有演示文稿第一张幻灯片上名为 “My chart” 的图表的数据源设置为 `Sheet1!A1:B4`。图表工作簿必须包含该工作表，并且该范围需已填充，首行是系列标题，列 A 为类别标签，列 B 为三个数值。
 
 ```python
 import aspose.slides as slides
@@ -1215,9 +1255,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **在图表中使用默认标记**
 
-在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
+当在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
 
-此示例使用 [`add_chart`](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个包含两个折线系列和图例的图表。[`marker`](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) 设置保留了自动分配的标记符号。第一系列包含一个负值和一个缺失值（用 `None` 表示），第二系列在每个类别都有数值。
+此示例使用 [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) 创建一个包含两条折线系列和图例的图表。[marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) 设置保留了自动分配的标记符号。第一系列包含一个负值和一个缺失值（用 `None` 表示），第二系列则在每个类别都有数值。
 
 ```python
 import aspose.slides as slides
@@ -1274,20 +1314,22 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **常见问题解答**
+## **常见问题**
 
 **Aspose.Slides for Python via .NET 支持哪些图表类型？**
 
-Aspose.Slides for Python via .NET 支持多种图表类型，包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图等。这种灵活性使您能够根据数据可视化需求选择最合适的图表类型。
+Aspose.Slides for Python via .NET 支持多种图表类型，包括条形图、折线图、饼图、面积图、散点图、直方图、雷达图等。这种灵活性让您可以为数据可视化需求选择最合适的图表类型。
 
 **如何向幻灯片添加新图表？**
 
-要添加图表，首先创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接集成到演示文稿中。
+要添加图表，首先创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接嵌入演示文稿中。
 
 **如何更新图表中显示的数据？**
 
-您可以通过访问图表的数据工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)），清除默认的系列和类别，然后添加自定义数据，从而以编程方式刷新图表以反映最新数据。
+您可以通过访问其数据工作簿 ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))，清除任何默认系列和类别，然后添加自定义数据来更新图表的数据。这使您能够以编程方式刷新图表以反映最新数据。
 
 **是否可以自定义图表的外观？**
 
-是的，Aspose.Slides for Python via .NET 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例和其他格式元素，以符合特定的设计需求。
+是的，Aspose.Slides for Python via .NET 提供广泛的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以满足特定的设计需求。
+
+相关功能：[Create editable charts](/slides/zh/features/create-charts/).

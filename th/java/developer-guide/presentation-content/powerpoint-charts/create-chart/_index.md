@@ -1,5 +1,5 @@
 ---
-title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ด้วย Java
+title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint ใน Java
 linktitle: สร้างหรืออัปเดตแผนภูมิ
 type: docs
 weight: 10
@@ -11,49 +11,47 @@ keywords:
 - เปลี่ยนแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
-- แผนภูมิวงกลม
+- แผนภูมิพาย
 - แผนภูมิเส้น
-- แผนภูมิต้นไม้
-- แผนภูมิเส้นหุ้น
-- แผนภูมิกล่องและหนวด
-- แผนภูมุกระบอก
+- แผนภูมิตรีแมป
+- แผนภูมิสต็อก
+- แผนภูมิกล่องและวิสเกอร์
+- แผนภูมิกระบอก
 - แผนภูมิดวงอาทิตย์
-- แผนภูมิฮิสโตแกรม
-- แผนภูมิโรบิน
+- แผนภูมิฮิสโทแกรม
+- แผนภูมเรดาร์
 - แผนภูมิหลายหมวดหมู่
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Java เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานได้จริงใน Java."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Java. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดจริงใน Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้เป็นคู่มือครบถ้วนเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Java คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิกับสไลด์แบบโปรแกรม, เติมข้อมูลให้แผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตัวอย่างโค้ดที่ละเอียดในบทความจะแสดงขั้นตอนต่าง ๆ ตั้งแต่การเริ่มต้น Presentation และวัตถุแผนภูมิ ไปจนถึงการกำหนด Series, Axis, และ Legend โดยทำตามคำแนะนำนี้ คุณจะเข้าใจวิธีรวมการสร้างแผนภูมิแบบไดนามิกเข้าสู่แอปพลิเคชัน Java ของคุณ ช่วยให้การสร้างงานนำเสนอที่อิงข้อมูลเป็นเรื่องง่ายยิ่งขึ้น
+บทความนี้ให้คำแนะนำที่ครอบคลุมเกี่ยวกับวิธีการสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Java คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์โดยโปรแกรม, เติมข้อมูลลงในแผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้สอดคล้องกับความต้องการการออกแบบของคุณ รายละเอียดโค้ดตัวอย่างจะอธิบายแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และวัตถุ Chart ไปจนถึงการกำหนด Series, Axis และ Legend โดยการทำตามคำแนะนำนี้ คุณจะเข้าใจวิธีการรวมการสร้างแผนภูมิกระ动态ลงในแอปพลิเคชัน Java ของคุณ, ทำให้กระบวนการสร้างงานนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและได้ข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและได้ข้อมูลเชิงลึกที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-ด้วยแผนภูมิคุณสามารถ:
+* รวม, บีบอัด หรือสรุปข้อมูลจำนวนมากบนสไลด์เดียวในงานนำเสนอ;
+* เปิดเผยรูปแบบและแนวโน้มในข้อมูล;
+* สรุปทิศทางและแรงขับของข้อมูลตามเวลา หรือเทียบกับหน่วยการวัดเฉพาะ;
+* ระบุค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีเหตุผล;
+* สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวของงานนำเสนอ;
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล;
-* พิจารณาทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดที่กำหนด;
-* พบค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีความหมาย;
-* นำเสนอหรืออธิบายข้อมูลที่ซับซ้อน
-
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับการออกแบบหลายประเภทของแผนภูมิ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิทั่วไป (อิงประเภทแผนภูมิที่เป็นที่นิยม) และแผนภูมิที่กำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ที่มาพร้อมกับเทมเพลตสำหรับออกแบบแผนภูมิจำนวนหลายประเภท โดยใช้ Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (อิงจากประเภทแผนภูมิที่นิยม) และแผนภูมิที่กำหนดเองได้
 
 {{% alert color="info" title="Note" %}}
-ใช้ enumeration [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ในแพคเกจ [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
+ใช้การ enumerate [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ในแพ็กเกจ [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) ค่าต่าง ๆ ในการ enumerate นี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ
 {{% /alert %}}
 
-### **สร้าง Clustered Column Charts**
+### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้าง clustered column chart ที่เปรียบเทียบสอง series ระหว่างสามหมวดหมู่ Series ใช้สีเติมสีแดงและสีเขียว และป้ายกำกับแต่ละรายการแสดงชื่อหมวด, ชื่อ series, และค่า Worksheet index 0 หมายถึงชีตแรกใน workbook ของแผนภูมิที่ฝังอยู่
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสอง Series ข้ามสาม Category Series ใช้สีเติมแดงและเขียว, และป้ายกำกับแต่ละรายการแสดงชื่อ Category, ชื่อ Series และค่า Worksheet index 0 หมายถึงแผ่นงานแรกใน workbook ของแผนภูมิที่ฝังไว้
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +132,20 @@ finally
 
 ผลลัพธ์:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
 
-### **สร้าง Scatter Charts**
+### **สร้างแผนภูมิ Scatter**
 
-Scatter chart (หรือ scatter plot, x‑y graph) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างตัวแปรสองตัว
+แผนภูมิ Scatter (หรือที่เรียกว่ากราฟกระจาย) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
 
-ใช้ scatter chart เมื่อ:
+ใช้แผนภูมิ Scatter เมื่อ:
 
-* คุณมีข้อมูลเชิงตัวเลขเป็นคู่
-* ตัวแปรสองตัวทำงานร่วมกันได้ดี
-* คุณต้องการตรวจสอบว่าตัวแปรทั้งสองมีความสัมพันธ์หรือไม่
-* คุณมีตัวแปรอิสระที่มีค่าหลายค่าเพื่ออธิบายตัวแปรตาม
+* คุณมีข้อมูลตัวเลขเป็นคู่
+* คุณมีสองตัวแปรที่จับคู่กันได้ดี
+* คุณต้องการตรวจสอบว่าตัวแปรสองตัวสัมพันธ์กันหรือไม่
+* คุณมีตัวแปรอิสระที่มีหลายค่าสำหรับตัวแปรตาม
 
-ตัวอย่างนี้พล็อตค่า x‑y สองชุด Series แรกใช้เส้นตรงกับเครื่องหมายดาว, ส่วนที่สองใช้เส้นโค้งกับเครื่องหมายวงกลม; ทั้งสองใช้ขนาดเครื่องหมาย 10 โดยกำหนดผ่าน [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). วิธี [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) ควบคุมรูปร่างของเครื่องหมาย
+ตัวอย่างนี้พล็อตค่าชุด x‑y สองชุด Series แรกใช้เส้นตรงกับเครื่องหมายดาว, ส่วนที่สองใช้เส้นโค้งพร้อมเครื่องหมายวงกลม; ทั้งสองใช้ขนาดเครื่องหมาย 10 ซึ่งกำหนดด้วย [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). วิธี [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) ควบคุมรูปแบบเครื่องหมาย
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +213,13 @@ finally
 
 ผลลัพธ์:
 
-![The Scatter chart](scatter_chart.png)
+![แผนภูมิ Scatter](scatter_chart.png)
 
-### **สร้าง Pie Charts**
+### **สร้างแผนภูมิ Pie**
 
-Pie chart เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายหมวดพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลมีหลายส่วนหรือหลายป้าย คุณอาจพิจารณาใช้ bar chart แทน
+แผนภูมิ Pie เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล, โดยเฉพาะเมื่อข้อมูลมีป้ายประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีหลายส่วนหรือหลายป้าย อาจพิจารณาใช้แผนภูมิแท่งแทน
 
-ตัวอย่างนี้สร้าง pie chart ที่มีค่าครึ่งไตรมาสสามค่า แต่ละส่วนมีการเติมสีและเส้นขอบที่กำหนดเอง, ป้ายแสดงค่าต่าง ๆ, เปอร์เซ็นต์ และข้อมูล series. วิธี [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) กำหนดให้ส่วนแรกเริ่มที่ 180 องศา
+ตัวอย่างนี้สร้างแผนภูมิ Pie ที่มีค่าฤดูไตรมาสสามค่า แต่ละชิ้นมีการเติมสีและเส้นขอบที่กำหนดเอง, และป้ายกำกับแสดงการผสมค่าต่าง ๆ, เปอร์เซ็นต์, และข้อมูล Series วิธี [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) กำหนดให้ชิ้นแรกเริ่มที่ 180 องศา
 
 ```java
 import com.aspose.slides.*;
@@ -287,8 +285,7 @@ try
     secondSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
 
     IChartDataPoint thirdSlice = series.getDataPoints().get_Item(2);
-    thirdSlice.getFormat().setFillType(FillType.Solid);
-    thirdSlice.getFormat().getFill().setFillType(FillType.Solid);
+    thirdSlice.getFormat().setFill().setFillType(FillType.Solid);
     thirdSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(255, 127, 80));
 
     thirdSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
@@ -323,15 +320,15 @@ finally
 
 ผลลัพธ์:
 
-![The Pie chart](pie_chart.png)
+![แผนภูมิ Pie](pie_chart.png)
 
-เพื่อปรับปรุงความอ่านง่ายของป้ายที่อยู่นอก pie ดูตัวอย่าง [Format Leader Lines](/slides/th/java/chart-data-label/#format-leader-lines) ที่อธิบายวิธีจัดตำแหน่งป้ายและตั้งค่าสี, ความกว้าง, ความโปร่งแสง, และสไตล์ของเส้น
+เพื่อปรับปรุงความอ่านง่ายของป้ายกำกับด้านนอก Pie, ดู [Format Leader Lines](/slides/th/java/chart-data-label/#format-leader-lines) สำหรับตัวอย่างที่กำหนดตำแหน่งป้ายและปรับสี, ความกว้าง, ความโปร่งแสง, และสไตล์ของเส้น
 
-### **สร้าง Line Charts**
+### **สร้างแผนภูมิ Line**
 
-Line chart (หรือ line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วย line chart คุณสามารถเปรียบเทียบข้อมูลจำนวนมากในคราวเดียว, ตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นข้อแปรปรวนใน series, และอื่น ๆ
+แผนภูมิ Line (หรือกราฟเส้น) เหมาะกับสถานการณ์ที่ต้องแสดงการเปลี่ยนแปลงค่าตามเวลา โดยใช้แผนภูมิ Line คุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, ไฮไลท์ความผิดปกติใน Series และอื่น ๆ
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) สร้าง line chart ด้วย series และ category เริ่มต้น, จากนั้นบันทึกเป็น PPTX
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิ Line ด้วย Series และ Category เริ่มต้น, จากนั้นบันทึกเป็น PPTX
 
 ```java
 import com.aspose.slides.*;
@@ -351,7 +348,7 @@ finally
 }
 ```
 
-ค่าเริ่มต้น, จุดบน line chart จะถูกเชื่อมด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมด้วยเส้นประ ให้เรียก [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/)
+โดยปกติจุดบนแผนภูมิ Line จะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ ให้เรียก [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -376,13 +373,13 @@ finally
 
 ผลลัพธ์:
 
-![The Line chart](line_chart.png)
+![แผนภูมิ Line](line_chart.png)
 
-### **สร้าง Tree Map Charts**
+### **สร้างแผนภูมิ Tree Map**
 
-Tree map chart เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพันธ์ของหมวดข้อมูลและดึงความสนใจไปยังรายการที่เป็นส่วนสำคัญในแต่ละหมวด
+แผนภูมิ Tree Map เหมาะสำหรับข้อมูลการขายเมื่อต้องแสดงขนาดสัมพัทธ์ของ Category และดึงดูดความสนใจไปที่รายการที่เป็นผู้ร่วมสนับสนุนใหญ่ภายในแต่ละ Category
 
-ตัวอย่างนี้สร้าง tree map ที่มีใบแปดใบจัดเป็นสเตมสี่ใบและสาขาสองสาขา วิธี [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) กำหนดสเตมที่ระดับกลุ่ม 1 และสาขาที่ระดับ 2 ค่าแต่ละค่าใช้กำหนดขนาดสี่เหลี่ยมสัมพันธ์, ป้ายหมวดและป้ายพาเรนท์ที่ซ้อนกันบ่งบอกลำดับชั้น
+ตัวอย่างนี้สร้าง Tree Map ที่มีใบแปดใบจัดกลุ่มเป็นสี่ก้านและสองแขนง วิธี [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) กำหนดสี่ก้านที่ระดับ grouping 1 และแขนงที่ระดับ 2 ค่าแสดงขนาดสี่เหลี่ยมสัมพัทธ์, ส่วนป้าย Category และป้ายพาเรนท์ที่ซ้อนทับบ่งบอกลำดับชั้น
 
 ```java
 import com.aspose.slides.*;
@@ -463,26 +460,26 @@ finally
 
 ผลลัพธ์:
 
-![The Treemap chart](treemap_chart.png)
+![แผนภูมิ Treemap](treemap_chart.png)
 
-### **สร้าง Waterfall Charts**
+### **สร้างแผนภูมิ Waterfall**
 
-Waterfall chart แสดงว่าการเปลี่ยนแปลงบวกและลบส่งผลต่อค่าตัวสุดท้ายอย่างไร เช่น การสรุปกำไรอาจเริ่มจากรายได้, ลดด้วยต้นทุน, แล้วเพิ่มด้วยรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงจะลอยระหว่างค่าที่คำนวณไว้ก่อนหน้าและค่าที่ใหม่, ส่วนคอลัมน์รวมจะเริ่มจากศูนย์ถึงค่าที่สะสม
+แผนภูมิ Waterfall แสดงการเปลี่ยนแปลงบวกและลบที่ส่งผลต่อค่าขั้นสุดท้าย ตัวอย่างเช่น การแสดงผลกำไรอาจเริ่มจากรายได้, หักค่าใช้จ่าย, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าก่อนหน้าและค่าปัจจุบัน, ส่วนคอลัมน์รวมขยายจากศูนย์ถึงค่าที่สะสม
 
 ตัวอย่างต่อไปใช้จำนวนเป็นพันดอลลาร์สหรัฐ:
 
-| หมวด | ค่าใน Workbook | ประเภทคอลัมน์ |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| รายได้ | 1000 | เพิ่ม |
-| ต้นทุนการขาย | -400 | ลด |
-| กำไรขั้นต้น | 600 | รวมย่อย |
-| ค่าใช้จ่ายดำเนินการ | -200 | ลด |
-| รายได้อื่น | 50 | เพิ่ม |
-| กำไรสุทธิ | 450 | รวมสุดท้าย |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-เพื่อทำเครื่องหมายจุดเป็นรวมย่อยหรือรวมสุดท้าย ให้เรียกวิธี [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) ของจุดนั้นด้วย `true` พร้อมระบุจำนวนที่สะสมจริงในเซลล์ของ workbook: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`). วิธีนี้เพียงทำเครื่องหมายคอลัมน์ว่าเป็นรวม, ไม่ได้คำนวณหรือเติมค่าในเซลล์ ไม่ควรใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดรวม คอลัมน์รวมจะแสดงค่าที่สะสมโดยไม่เพิ่มอีกครั้งต่อค่าที่กำลังดำเนินอยู่
+เพื่อทำเครื่องหมายจุดเป็นยอดรวมกลางหรือสุดท้าย ให้เรียก [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) ของจุดนั้นด้วย `true`. ระบุจำนวนที่สะสมจริงในเซลล์ workbook ของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`). วิธีนี้ทำเครื่องหมายคอลัมน์ว่าเป็นยอดรวม; ไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดยอดรวม คอลัมน์ยอดรวมจะแสดงค่าที่สะสมโดยไม่เพิ่มซ้ำค่าในค่ารันนิ่ง
 
-ตัวอย่าง Java สมบูรณ์ต่อไปนี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), ลบข้อมูลเริ่มต้น, แล้วเติม workbook ที่ฝังอยู่ Worksheet index `0` เลือกชีตแรก; คอลัมน์ A มีชื่อหมวด, คอลัมน์ B มีค่า. เพิ่มแต่ละค่าโดยใช้ [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). ดัชนีจุดฐานศูนย์ `2` และ `5` ระบุรวมย่อยและรวมสุดท้าย. เรียก [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) ด้วย `true` เพื่อแสดงจำนวนบนคอลัมน์. ไม่ต้องใช้ presentation หรือ workbook เป็นอินพุต
+ตัวอย่าง Java ฉบับเต็มนี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), ล้างข้อมูลเริ่มต้น, แล้วเติม workbook ที่ฝังอยู่ Worksheet index `0` เลือกแผ่นงานแรก; คอลัมน์ A มีชื่อ Category, คอลัมน์ B มีค่า แต่ละเซลล์ค่าถูกเพิ่มด้วย [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). ดัชนีจุด 0‑based `2` และ `5` ระบุตำแหน่งยอดกลางและสุดท้าย การเรียก [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) ด้วย `true` แสดงจำนวนบนคอลัมน์ ไม่ต้องมีการนำเสนอหรือ workbook เข้า
 
 ```java
 import com.aspose.slides.*;
@@ -520,7 +517,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // จุดที่สามและหกเป็นค่ารวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+    // จุดที่สามและหกเป็นยอดรวม, ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -534,27 +531,34 @@ finally
 }
 ```
 
-เรียกวิธีระดับ series [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) ด้วย `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่าที่ดำเนินอยู่ตามง่ายขึ้น. หากต้องการซ่อนเส้นเหล่านี้ ให้เปลี่ยนการเรียกเมธอดในตัวอย่างเป็น `series.setShowConnectorLines(false);` ก่อนบันทึก วิธีนี้เปลี่ยนแค่การมองเห็นเส้น ไม่กระทบข้อมูลหรือค่ารวม
+เรียกวิธีระดับ Series [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) ด้วย `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่อง ทำให้ค่ารันนิ่งตามง่ายขึ้น หากต้องการซ่อนเส้นเหล่านี้ให้แทนที่การเรียกด้วย `series.setShowConnectorLines(false);` ก่อนบันทึก การเปลี่ยนแปลงนี้มีผลเพียงการแสดงเส้นเท่านั้น ไม่กระทบต่อข้อมูลหรือยอดรวม
 
-Presentation ที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองรวมจากศูนย์:
+งานนำเสนอที่บันทึกแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, ทั้งสองยอดรวมเริ่มจากศูนย์:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![แผนภูมิ Waterfall แสดงรายได้, ค่าใช้จ่าย, กำไรขั้นต้น 600, และกำไรสุทธิ 450 พร้อมป้ายค่าและเส้นเชื่อม](waterfall_chart.png)
 
-### **สร้าง Stock Charts**
+### **สร้างแผนภูมิ Stock**
 
-Stock chart ใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูงสุด, ต่ำสุด, และปิด, ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลเชิงลึกที่สำคัญต่อประสิทธิภาพของหุ้นสำหรับนักลงทุนและนักวิเคราะห์
+แผนภูมิ Stock ใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, ปิด, ช่วยวิเคราะห์แนวโน้มตลาดและความผันผวน ให้ข้อมูลเชิงลึกสำคัญต่อประสิทธิภาพหุ้นช่วยนักลงทุนและนักวิเคราะห์ตัดสินใจ
 
-ตัวอย่างนี้สร้าง chart ประเภท open‑high‑low‑close ด้วยสี่ series ตามลำดับและสามหมวด. วิธี [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) เปิดใช้งานแถบขึ้น/ลง, และ [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) ควบคุมเส้น high‑low ที่แสดงช่วงราคา, ในขณะที่เส้น series ส่วนบุคคลและเส้นกริดแนวนอนรองถูกซ่อน
+ตัวอย่างนี้สร้างแผนภูมิ Open‑High‑Low‑Close ที่มีสี่ Series ตามลำดับและสาม Category วิธี [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) เปิดใช้งานแถบขึ้น/ลง, และ [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) ควบคุมเส้น High‑Low ที่แสดงช่วงราคา, ในขณะที่เส้น Series แยกและเส้นกริดแนวนอนย่อยถูกซ่อน
+
+ผู้จัดการที่คืนค่าจาก [getUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) เปิดเผยอ็อบเจกต์ฟอร์แมตแยกผ่าน [getUpBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) และ [getDownBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--). ใช้แต่ละอ็อบเจกต์กับ [getFill](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getFill--) และ [getLine](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getLine--) เพื่อตั้งค่าสีเติมและขอบอย่างอิสระ ตัวอย่างนี้ใช้แถบสีเขียวพร้อมขอบเขียวเข้มสำหรับช่วงขึ้นและแถบสีส้ม‑แดงพร้อมขอบแดงเข้มสำหรับช่วงลง
+
+กำหนดค่าตัวเลขให้ทั้งสี่ Series ในแต่ละ Category, โดย High และ Low ครอบคลุม Open และ Close. แถบเปรียบเทียบ Close กับ Open **ภายใน Category เดียวกัน**, ไม่ใช่กับ Category ก่อนหน้า: A ลดจาก 72 เป็น 25, ในขณะที่ B เพิ่มจาก 25 เป็น 38 และ C เพิ่มจาก 38 เป็น 50. ค่า Open และ Close เท่ากันจะไม่มีช่วงสีเต็ม. แถบขึ้น/ลงครอบคลุม Open‑Close; เส้น High‑Low ครอบคลุม Low‑High. แถบเหล่านี้เป็นส่วนของ Series Group ไม่ใช่ Series แถบปกติ
+
+การจัดรูปแบบนี้ยังทำงานกับแผนภูมิ [Line and LineWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) ที่มีอย่างน้อยสอง Series ในกลุ่มเดียวกันและค่าตัวเลขสำหรับแต่ละ Category. สำหรับแผนภูมิ Line ที่ไม่ stacked, แถบขึ้น/ลงเปรียบเทียบ Series แรกและสุดท้าย: ค่าสุดท้ายสูงกว่าจะได้แถบขึ้น, ต่ำกว่าจะได้แถบลง การสลับ Series จะสลับการจัดประเภท ตัวอย่างด้านล่างใช้ [OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/); อย่าสมมติว่า stock, stacked‑line หรือ variant 3D อื่น ๆ ใช้การจัดเรียงข้อมูลหรือการตีความช่วงเดียวกัน
 
 ```java
 import com.aspose.slides.*;
+import java.awt.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -606,7 +610,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(new Color(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(new Color(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -624,15 +641,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+ผลลัพธ์ที่ส่งออกจาก PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![แผนภูมิ Stock พร้อมช่วงสีส้ม‑แดงลดลงสำหรับ A และช่วงสีเขียวเพิ่มขึ้นสำหรับ B และ C](stock_chart.png)
 
-### **สร้าง Box and Whisker Charts**
+### **สร้างแผนภูมิ Box and Whisker**
 
-Box and whisker chart ใช้แสดงการกระจายของข้อมูลโดยสรุปสถิติหลัก เช่น มัธยฐาน, ควอไทล์, และค่า outlier เหมาะสำหรับการวิเคราะห์ข้อมูลเชิงสำรวจและการศึกษาทางสถิติ เพื่อทำความเข้าใจความแปรผันของข้อมูลและระบุความผิดปกติได้อย่างรวดเร็ว
+แผนภูมิ Box and Whisker ใช้แสดงการกระจายข้อมูลโดยสรุปมาตรการสถิติหลัก เช่น มัธยฐาน, ควอไทล์, และค่าตัวแปรนอก (outliers) มีประโยชน์ในการวิเคราะห์สำรวจและการศึกษาสถิติ เพื่อทำความเข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติอย่างรวดเร็ว
 
-ตัวอย่างนี้สร้าง box and whisker chart จากหกค่า วิธี [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) เลือกการคำนวณ quartile แบบ exclusive. ตัวอย่างยังเปิดใช้งาน mean lines, mean markers, inner points, และ outlier points
+ตัวอย่างนี้สร้างแผนภูมิ Box and Whisker จากห้าค่า วิธี [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) เลือกการคำนวณควอไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, เครื่องหมายค่าเฉลี่ย, จุดใน, และจุดนอก
 
 ```java
 import com.aspose.slides.*;
@@ -692,11 +709,11 @@ finally
 }
 ```
 
-### **สร้าง Funnel Charts**
+### **สร้างแผนภูมิ Funnel**
 
-Funnel chart ใช้แสดงกระบวนการที่มีหลายขั้นตอนโดยปริมาณข้อมูลจะลดลงตามลำดับขั้น บริการนี้ช่วยวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+แผนภูมิ Funnel ใช้เพื่อแสดงกระบวนการที่มีขั้นตอนต่อเนื่อง, ที่ปริมาณข้อมูลจะลดลงเมื่อดำเนินจากขั้นตอนหนึ่งไปยังขั้นตอนต่อไป มีประโยชน์ในการวิเคราะห์อัตราการเปลี่ยนแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพิ่ม funnel chart ไปยังสไลด์แรกของ presentation ที่มีอยู่ แล้วแทนที่ข้อมูลเริ่มต้นด้วยหกหมวดและค่าตั้งแต่ 50 ถึง 500 แล้วบันทึก presentation ที่อัปเดต. presentation อินพุตต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อเพิ่มแผนภูมิ Funnel ไปยังสไลด์แรกของการนำเสนอที่มีอยู่, แทนที่ข้อมูลเริ่มต้นด้วยห้าหมวดและค่าตั้งแต่ 50 ถึง 500, จากนั้นบันทึกการนำเสนอที่อัปเดต การนำเข้าต้องมีอย่างน้อยหนึ่งสไลด์
 
 ```java
 import com.aspose.slides.*;
@@ -752,13 +769,13 @@ finally
 
 ผลลัพธ์:
 
-![The Funnel chart](funnel_chart.png)
+![แผนภูมิ Funnel](funnel_chart.png)
 
-### **สร้าง Sunburst Charts**
+### **สร้างแผนภูมิ Sunburst**
 
-Sunburst chart ใช้แสดงข้อมูลเชิงลำดับขั้นโดยแสดงระดับต่าง ๆ เป็นวงแหวนศูนย์กลาง ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนและเหมาะกับการแสดงหมวดหมู่ที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
+แผนภูมิ Sunburst ใช้เพื่อแสดงข้อมูลเชิงลำดับขั้น, โดยแสดงระดับต่าง ๆ เป็นวงแหวนศูนย์กลาง ช่วยอธิบายความสัมพันธ์ส่วนต่อส่วนและเหมาะสำหรับแสดง Category ย่อยที่ซ้อนกันในรูปแบบที่ชัดเจนและกะทัดรัด
 
-ตัวอย่างนี้สร้าง sunburst chart ที่มีใบแปดใบจัดเป็นสเตมสี่ใบและสาขาสองสาขา วิธี [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) กำหนดสเตมที่ระดับ 1 และสาขาที่ระดับ 2 ป้ายหมวดระบุส่วนต่าง ๆ, ค่ากำหนดขนาดสัมพัทธ์ของแต่ละส่วน
+ตัวอย่างนี้สร้างแผนภูมิ Sunburst ที่มีใบแปดใบจัดกลุ่มเป็นสี่ก้านและสองแขนง วิธี [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) กำหนดก้านที่ระดับ 1 และแขนงที่ระดับ 2 ป้าย Category ระบุส่วน, ค่าตัดสินขนาดสัมพัทธ์
 
 ```java
 import com.aspose.slides.*;
@@ -837,17 +854,17 @@ finally
 
 ผลลัพธ์:
 
-![The Sunburst chart](sunburst_chart.png)
+![แผนภูมิ Sunburst](sunburst_chart.png)
 
-### **สร้าง Histogram Charts**
+### **สร้างแผนภูมิ Histogram**
 
-Histogram แสดงการกระจายของค่าตัวเลขในช่วง (bins). สำหรับรายงานรายเดือนเกี่ยวกับระยะเวลาการประมวลผลคำสั่งซื้อ ควรใช้ความกว้าง bin และค่าเกณฑ์เดียวกันเพื่อให้ช่วงสอดคล้องและทำให้การเปรียบเทียบการกระจายทำได้ง่าย
+แผนภูมิ Histogram แสดงการกระจายค่าตัวเลขตามช่วง (bins). สำหรับรายงานประจำเดือนของเวลาในการประมวลผลคำสั่ง, ใช้ความกว้างบินเดียวกันและเกณฑ์เดียวกันเพื่อให้ช่วงสอดคล้องและทำให้การเปรียบเทียบกระจายง่ายขึ้น
 
-เรียก [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) บนแกนแนวนอนด้วยโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) ใช้กับ `ByBinWidth` เท่านั้น; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) ใช้กับ `ByNumberOfBins` เท่านั้น. ใช้ `Automatic` ให้แผนภูมิกำหนด bin เอง
+เรียก [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) บนแกนแนวนอนด้วยโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). วิธี [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) ใช้ได้เฉพาะกับ `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) ใช้ได้เฉพาะกับ `ByNumberOfBins`. ใช้ `Automatic` เพื่อให้แผนภูมิกำหนดบินเอง
 
 #### **ใช้ความกว้าง Bin คงที่**
 
-ตัวอย่างนี้จัดกลุ่มระยะเวลาประมวลผลเป็นช่วง 10 นาที, มี bin พิเศษสำหรับค่าที่ ≤ 10 นาทีและ > 40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) และ [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-). เมื่อกำหนด threshold อย่างชัดเจนผ่าน [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) และ [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-), เรียก [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) และ [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) ด้วย `false`
+ตัวอย่างนี้จัดกลุ่มเวลาในการประมวลผลเป็นช่วง 10 นาที, พร้อมบินแยกสำหรับเวลาน้อยกว่าหรือเท่ากับ 10 นาทีและเวลามากกว่า 40 นาที เปิดบินเหล่านี้ด้วย [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) และ [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-). เมื่อกำหนดเกณฑ์โดยตรงผ่าน [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) และ [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-), เรียก [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) และ [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) ด้วย `false`
 
 ```java
 import com.aspose.slides.*;
@@ -894,13 +911,13 @@ finally
 }
 ```
 
-การแสดงผลใน PowerPoint มีจำนวน bin **3, 4, 4, 4, และ 2**. Bin underflow มี `5, 10, 10` (threshold รวม), bin overflow มี `41, 50` (threshold ไม่รวม); ค่า `40` อยู่ในช่วงก่อนหน้า. Bin ภายในมีค่า > lower boundary และ ≤ upper boundary
+งานนำเสนอใน PowerPoint แสดงจำนวนบิน **3, 4, 4, 4, และ 2**. บิน underflow รวมค่า `5, 10, 10`, ดังนั้นเกณฑ์เป็น inclusive. บิน overflow มีค่า `41, 50` เท่านั้น, ดังนั้นเกณฑ์เป็น exclusive; ค่า `40` จะอยู่ในช่วงก่อนหน้า. บินภายในมีค่ามากกว่าขอบล่างและน้อยกว่าหรือเท่ากับขอบบน
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram ด้วยบิน 10‑นาทีและเกณฑ์ underflow/overflow ชัดเจน](histogram_bin_width.png)
 
 #### **ระบุจำนวน Bin**
 
-หากต้องการระดับรายละเอียดคงที่แทนช่วงคงที่ ให้กำหนด five bins สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดการใช้งาน bin underflow และ overflow. แผนภูมิคำนวณความกว้างจากช่วงข้อมูล, ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
+สำหรับระดับรายละเอียดคงที่แทนที่จะกำหนดช่วงคงที่, ขอ five bins สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิดบิน underflow และ overflow. แผนภูมิกำหนดความกว้างจากช่วงข้อมูล, ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
 
 ```java
 import com.aspose.slides.*;
@@ -941,15 +958,15 @@ finally
 }
 ```
 
-ห้า bin มีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบกับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าข้อมูลเท่าเดิม แต่ขอบเขตต่างกัน
+ห้าบินมีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลของความกว้างคงที่ข้างต้น: ค่าข้อมูลเดียวกัน, แต่ขอบเขตแตกต่างกัน
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histogram ด้วยห้าบินคำนวณจากข้อมูลเดียวกัน](histogram_bin_count.png)
 
-### **สร้าง Radar Charts**
+### **สร้างแผนภูมิ Radar**
 
-Radar chart ใช้แสดงข้อมูลหลายตัวแปรบนรูปแบบสองมิติ ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันง่าย เหมาะสำหรับระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะ
+แผนภูมิ Radar ใช้แสดงข้อมูลหลายตัวแปรในรูปแบบสองมิติ, ช่วยเปรียบเทียบหลายตัวแปรพร้อมกัน, มีประโยชน์ในการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในหลายเมตริกหรือคุณลักษณะ
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) สร้าง radar chart ด้วย series และ category เริ่มต้น, แล้วบันทึกเป็น PPTX
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิ Radar ด้วย Series และ Category เริ่มต้น, จากนั้นบันทึกเป็น PPTX
 
 ```java
 import com.aspose.slides.*;
@@ -971,13 +988,13 @@ finally
 
 ผลลัพธ์:
 
-![The Radar chart](radar_chart.png)
+![แผนภูมิ Radar](radar_chart.png)
 
-### **สร้าง Multi‑Category Charts**
+### **สร้างแผนภูมิ Multi-Category**
 
-Multi‑category chart ใช้แสดงข้อมูลที่มีการจัดกลุ่มหมวดหลายระดับพร้อมกัน ช่วยให้เปรียบเทียบค่าในหลายมิติได้พร้อมกัน เหมาะเมื่อคุณต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
+แผนภูมิ Multi-Category ใช้แสดงข้อมูลที่มีการจัดกลุ่มประเภทหลายระดับ, ช่วยเปรียบเทียบค่าข้ามหลายมิติพร้อมกัน, เหมาะเมื่อวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลหลายชั้น
 
-ตัวอย่างนี้สร้าง clustered column chart ที่มีแปดหมวดจัดเป็นสี่คู่ วิธี [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ให้แต่ละคู่มีป้ายร่วมที่ระดับกลุ่ม 1 ทำให้แกนหมวดมีทั้งป้ายเดี่ยวและป้ายกลุ่ม
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีแปด Category จัดเรียงเป็นสี่คู่ วิธี [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ให้แต่ละคู่มีป้ายร่วมที่ระดับ grouping 1, สร้างแกน Category ที่มีป้ายแยกและป้ายกลุ่ม
 
 ```java
 import com.aspose.slides.*;
@@ -1051,13 +1068,58 @@ finally
 
 ผลลัพธ์:
 
-![The multi category chart](multi_category_chart.png)
+![แผนภูมิ multi category](multi_category_chart.png)
 
-### **สร้าง Map Charts**
+#### **ลบป้ายไตรมาส**
 
-Map chart ใช้แสดงข้อมูลเชิงภูมิศาสตร์โดยแมพข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง เหมาะสำหรับวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและน่าสนใจ
+ดาวน์โหลด [quarters.pptx](quarters.pptx) และวางไว้ในไดเรกทอรีทำงาน. แผนภูมิของไฟล์นี้แสดงเดือนเก้เดือนและ Series ขายหนึ่งชุดค่าตั้งแต่ 10 ถึง 18. บนแกน Category, Q1 ครอบคลุมมกราคม‑มีนาคม, Q2 ครอบคลุมเมษายน‑มิถุนายน, Q3 ครอบคลุมกรกฎาคม‑กันยายน.
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) สร้าง map chart ด้วยข้อมูลทางภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
+เดือนเมษายนคือ Category ที่สี่ (index 3) และถือป้าย Q2. ใช้ [getGroupingLevels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getGroupingLevels--) เพื่อเข้าถึงระดับ grouping ของเมษายน, แล้วเรียก [deleteGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) ด้วยระดับ 1 เพื่อลบป้ายไตรมาสนั้น. ระดับ 0 แทนเดือนเองและไม่สามารถลบได้ด้วยวิธีนี้
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    StringJoiner months = new StringJoiner(", ");
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    StringJoiner sales = new StringJoiner(", ");
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(months);
+    System.out.println(sales);
+} finally {
+    reopened.dispose();
+}
+```
+
+หลังเปิดแผนภูมิเค้าใหม่ ตัวอย่างพิมพ์เดือนเดิม (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) และค่าการขาย (`10, 11, 12, 13, 14, 15, 16, 17, 18`) ตามลำดับเดียวกัน เปิดไฟล์ `quarters-updated.pptx` ใน PowerPoint เพื่อเปรียบเทียบป้ายแกน. ป้าย Q2 และขอบกลุ่มก่อนเมษายนจะหายไป, ดังนั้น Q1 ครอบคลุมมกราคม‑มิถุนายน. Q3 ยังคงเริ่มเดือนกรกฎาคม
+
+![ป้ายไตรมาสก่อนและหลังการลบ. ด้านซ้าย Q2 ครอบคลุมเมษายน‑มิถุนายน. ด้านขวา Q1 ครอบคลุมมกราคม‑มิถุนายน.](quarter-label-comparison.png)
+
+### **สร้างแผนภูมิ Map**
+
+แผนภูมิ Map ใช้แสดงข้อมูลเชิงภูมิศาสตร์โดยเชื่อมข้อมูลกับตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง มีประโยชน์ในการวิเคราะห์แนวโน้มภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่เห็นภาพชัดเจน
+
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิ Map ด้วยข้อมูลภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
 
 ```java
 import com.aspose.slides.*;
@@ -1067,31 +1129,31 @@ try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 5 00, 300);
+    IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300);
 
     presentation.save("mapChart.pptx", SaveFormat.Pptx);
 }
 finally
 {
-    presentation.save(0);
+    presentation.dispose();
 }
 ```
 
 ผลลัพธ์:
 
-![The Map chart](map_chart.png)
+![แผนภูมิ Map](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-รูปภาพด้านบนแสดง presentation ที่บันทึกแล้วเปิดใน PowerPoint. Aspose.Slides เขียน map chart และข้อมูลได้อย่างถูกต้อง, แต่ไม่ได้วาด map chart เอง: เมื่อสไลด์ที่มี map chart ถูกแปลงเป็นภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะว่างเปล่า. รูปทรงอื่นในสไลด์เดียวกันไม่ถูกกระทบ
+ภาพด้านบนแสดงงานนำเสนอที่บันทึกแล้วเปิดใน PowerPoint. Aspose.Slides เขียนแผนภูมิ Map และข้อมูลของมันได้ถูกต้อง, แต่ไม่ได้วาดแผนภูมิ Map เอง: เมื่อสไลด์ที่มีแผนภูมิ Map ถูกเรนเดอร์เป็นภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะเป็นสีขาว. รูปทรงอื่นบนสไลด์เดียวกันไม่มีผลกระทบ
 {{% /alert %}}
 
-### **สร้าง Combination Charts**
+### **สร้างแผนภูมิ Combination**
 
-Combination chart (หรือ combo chart) ผสานประเภทแผนภูมิสองประเภทหรือมากกว่าในกราฟเดียว ช่วยให้คุณเน้น, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด เพื่อระบุความสัมพันธ์ระหว่างกัน
+แผนภูมิ Combination (หรือ combo chart) รวมสองหรือมากกว่าชนิดแผนภูมิในกราฟเดียว, ช่วยไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด, ทำให้ระบุความสัมพันธ์ระหว่างข้อมูลได้ง่ายขึ้น
 
-![The combination chart](combination_chart.png)
+![แผนภูมิ Combination](combination_chart.png)
 
-ตัวอย่างนี้รวมสอง series ของ clustered column กับ series ของ line ไว้ในสี่หมวด. คอลัมน์ใช้แกนแนวตั้งหลัก, ส่วน line ใช้ [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) วางบนแกนแนวตั้งรองด้านขวา. ฟังก์ชันช่วยเหลือกำหนดหัวเรื่อง, legend, ป้ายแกน, และเส้นกริด
+ตัวอย่างนี้รวมสอง Series คอลัมน์แบบกลุ่มกับ Series เส้นหนึ่งชุดในสี่ Category. คอลัมน์ใช้แกนแนวตั้งหลัก, ในขณะที่ [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) วางเส้นบนแกนแนวตั้งรองด้านขวา. ฟังก์ชันช่วยตั้งค่าชื่อเรื่อง, เลเจนด์, ป้ายแกน, และเส้นตาราง
 
 ```java
 import com.aspose.slides.*;
@@ -1218,7 +1280,7 @@ class ComboChartExample
 
         IAxis verticalAxis = chart.getAxes().getVerticalAxis();
         verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-        verticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
+        verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
         setAxisTitle(verticalAxis, "Y Axis 1");
 
@@ -1239,9 +1301,9 @@ class ComboChartExample
         IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
         secondaryVerticalAxis.setPosition(AxisPositionType.Right);
         secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-        secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
-        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(FillType.NoFill);
-        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+        secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
         setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
     }
@@ -1262,9 +1324,9 @@ example.createComboChart();
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for Java ให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ ฟังก์ชันนี้ทำให้การอัปเดตงานนำเสนอด้วยเนื้อหาไดนามิกเป็นเรื่องง่ายและทำให้แผนภูมิสะท้อนข้อมูลและมาตรฐานการออกแบบล่าสุดได้อย่างแม่นยำ
+Aspose.Slides for Java ช่วยให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูลแผนภูมิ, การจัดรูปแบบ, และสไตล์ การทำเช่นนี้ทำให้การรักษาเนื้อหาให้เป็นปัจจุบันกับข้อมูลไดนามิกง่ายขึ้นและทำให้แผนภูมิสะท้อนข้อมูลและมาตรฐานภาพที่ถูกต้อง
 
-ตัวอย่างนี้อัปเดตแผนภูมิชื่อ “My chart” บนสไลด์แรกของ presentation ที่มีอยู่. ต้องมีสอง series ของคอลัมน์ที่มีจุดข้อมูลสามจุดแต่ละจุด, ป้ายหมวดอยู่ในคอลัมน์ A และชื่อ series อยู่ในแถวแรกของ worksheet แรก. ตัวอย่างใช้ [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) เพื่อเปลี่ยนค่าใน workbook, อัปเดตค่าของ series, เพิ่ม series ที่สาม, และเปลี่ยนประเภทแผนภูมิเป็น clustered cylinders ผ่าน [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-)
+ตัวอย่างนี้อัปเดตแผนภูมิชื่อ "My chart" บนสไลด์แรกของงานนำเสนอที่มีอยู่. ต้องการสอง Series คอลัมน์ที่มีแต่ละ Series สามจุดข้อมูล, โดยป้าย Category อยู่ในคอลัมน์ A และชื่อ Series อยู่ในแถวแรกของแผ่นงานแรก ตัวอย่างใช้ [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) เพื่อเปลี่ยนเซลล์ workbook, อัปเดตค่าของ Series, เพิ่ม Series ที่สาม, และเปลี่ยนแผนภูมิเป็นรูปทรงกระบอกแบบกลุ่มโดยใช้ [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-)
 
 ```java
 import com.aspose.slides.*;
@@ -1326,11 +1388,11 @@ finally
 
 ## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อดูช่วงที่แผนภูมิใช้อยู่แล้ว ให้ดูที่ [Retrieve a Chart's Data Range](/slides/th/java/chart-workbook/#retrieve-a-charts-data-range)
+เพื่อดูช่วงที่ใช้งานโดยแผนภูมิที่มีอยู่แล้ว, ดู [Retrieve a Chart's Data Range](/slides/th/java/chart-workbook/#retrieve-a-charts-data-range)
 
-Aspose.Slides for Java ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจาก worksheet เป็นแหล่งข้อมูลของแผนภูมิของคุณ หมายความว่าคุณสามารถแมพส่วนของ worksheet ไปยังแผนภูมิได้โดยตรง ควบคุมว่าเซลล์ใดมีส่วนร่วมใน series และ category ของแผนภูมิ. ด้วยวิธีนี้คุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดใน worksheet ได้อย่างง่ายดาย ทำให้งานนำเสนอ PowerPoint ของคุณแสดงข้อมูลที่เป็นปัจจุบันและแม่นยำ
+Aspose.Slides for Java ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากแผ่นงานเป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ ซึ่งหมายความว่าคุณสามารถแมปส่วนของแผ่นงานไปยังแผนภูมิได้โดยตรง, ควบคุมว่าเซลล์ใดมีส่วนร่วมใน Series และ Category ของแผนภูมิ ผลที่ได้คือคุณสามารถอัปเดตและซิงโครไนซ์แผนภูมิของคุณกับการเปลี่ยนแปลงข้อมูลล่าสุดในแผ่นงาน, ทำให้งานนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่เป็นปัจจุบันและแม่นยำ
 
-ตัวอย่างนี้ใช้ [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อตั้งค่า data source ของแผนภูมิชื่อ “My chart” บนสไลด์แรกของ presentation ที่มีอยู่เป็น `Sheet1!A1:B4`. Workbook ของแผนภูมิต้องมี worksheet ดังกล่าวและช่วงที่เต็มด้วยหัวเรื่อง series ในแถวแรก, ป้ายหมวดในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
+ตัวอย่างนี้ใช้ [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อตั้งค่าแหล่งข้อมูลของแผนภูมิชื่อ "My chart" บนสไลด์แรกของงานนำเข้าเป็น `Sheet1!A1:B4`. Workbook ของแผนภูมิต้องมีแผ่นงานนั้นและช่วงที่เติมค่าพร้อมหัว Series ในแถวแรก, ป้าย Category ในคอลัมน์ A, และสามค่าที่คอลัมน์ B
 
 ```java
 import com.aspose.slides.*;
@@ -1359,11 +1421,11 @@ finally
 }
 ```
 
-## **ใช้ Default Markers ในแผนภูมิ**
+## **ใช้ Marker เริ่มต้นในแผนภูมิ**
 
-เมื่อใช้ default markers ในแผนภูมิ, แต่ละ series จะได้รับสัญลักษณ์ marker เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+เมื่อใช้ Marker เริ่มต้นในแผนภูมิ, แต่ละ Series จะได้รับสัญลักษณ์ Marker เริ่มต้นที่แตกต่างอัตโนมัติ
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) สร้างแผนภูมิที่มีสอง series แบบ line และ legend. การตั้งค่า marker ที่เข้าถึงผ่าน [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) เก็บสัญลักษณ์ marker ที่กำหนดอัตโนมัติ. Series แรกมีค่าลบและค่าที่หายไป (`null`), ส่วนที่สองมีค่าทุกหมวด
+ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิที่มีสอง Series เส้นและเลเจนด์ การตั้งค่า Marker ที่เข้าถึงได้ผ่าน [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) เก็บสัญลักษณ์ Marker ที่กำหนดโดยอัตโนมัติ Series แรกมีค่าลบและค่าที่หายไป (`null`), ส่วนที่สองมีค่าทุก Category
 
 ```java
 import com.aspose.slides.*;
@@ -1428,18 +1490,20 @@ finally
 
 ## **FAQ**
 
-**Aspose.Slides for Java รองรับประเภทแผนภูมิอะไรบ้าง?**
+**What chart types are supported by Aspose.Slides for Java?**
 
-Aspose.Slides for Java รองรับแผนภูมิหลายประเภท รวมถึง bar, line, pie, area, scatter, histogram, radar และอื่น ๆ อีกมาก ซึ่งทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides for Java รองรับประเภทแผนภูมิหลายประเภท รวมถึง แถบ, เส้น, พาย, พื้นที่, กระจาย, ไฮสโตแกรม, เรดาร์, และอื่น ๆ อีกมากมาย ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมที่สุดสำหรับการแสดงผลข้อมูลของคุณ
 
-**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
+**How do I add a new chart to a slide?**
 
-เพื่อเพิ่มแผนภูมิ, คุณต้องสร้างออบเจกต์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิพร้อมระบุประเภทแผนภูมิและข้อมูลเริ่มต้น วิธีนี้จะผสานแผนภูมิเข้ากับ presentation ของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ, ก่อนอื่นสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) รับสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ, ระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้ทำให้แผนภูมิฝังลงในงานนำเสนอของคุณโดยตรง
 
-**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
+**How can I update the data displayed in a chart?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง data workbook ของแผนภูมิ ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), ลบ series และ category เริ่มต้น, จากนั้นเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ช่วยให้คุณรีเฟรชแผนภูมิโปรแกรมเมติกเพื่อสะท้อนข้อมูลล่าสุดได้
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูล ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), ลบ Series และ Category เริ่มต้น, แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ทำให้คุณรีเฟรชแผนภูมิโดยอัตโนมัติตามข้อมูลล่าสุด
 
-**สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
+**Is it possible to customize the appearance of the chart?**
 
-ได้, Aspose.Slides for Java มีตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, legend, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงตามความต้องการออกแบบของคุณได้อย่างเต็มที่
+ใช่, Aspose.Slides for Java ให้ตัวเลือกการปรับแต่งอย่างกว้างขวาง คุณสามารถแก้ไขสี, ฟอนต์, ป้าย, เลเจนด์, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิเข้ากับความต้องการการออกแบบของคุณ
+
+Related feature: [Create editable charts](/slides/th/features/create-charts/).

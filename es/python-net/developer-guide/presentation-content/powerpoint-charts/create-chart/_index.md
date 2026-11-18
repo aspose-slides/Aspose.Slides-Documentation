@@ -5,13 +5,13 @@ type: docs
 weight: 10
 url: /es/python-net/create-chart/
 keywords:
-- agregar gráfico
+- añadir gráfico
 - crear gráfico
 - editar gráfico
 - cambiar gráfico
 - actualizar gráfico
 - gráfico de dispersión
-- gráfico circular
+- gráfico de sectores
 - gráfico de líneas
 - gráfico de mapa de árbol
 - gráfico bursátil
@@ -25,27 +25,25 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Crear y personalizar gráficos en presentaciones de PowerPoint usando Aspose.Slides para Python via .NET. Añadir, dar formato y editar gráficos con ejemplos prácticos de código en Python."
+description: "Cree y personalice gráficos en presentaciones de PowerPoint utilizando Aspose.Slides para Python a través de .NET. Añada, formatee y edite gráficos con ejemplos de código prácticos en Python."
 ---
-## **Visión general**
+## **Resumen**
 
-Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos utilizando Aspose.Slides for Python via .NET. Aprenderá cómo agregar programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto del gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Python, agilizando el proceso de creación de presentaciones basadas en datos.
+Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos utilizando Aspose.Slides para Python a través de .NET. Aprenderá a añadir programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto del gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Python, simplificando el proceso de crear presentaciones basadas en datos.
 
 ## **Crear un gráfico**
 
-Los gráficos ayudan a las personas a visualizar datos rápidamente y a obtener ideas que pueden no ser evidentes de inmediato a partir de una tabla o hoja de cálculo.
+Los gráficos ayudan a visualizar rápidamente los datos y a obtener información que puede no ser evidente de inmediato a partir de una tabla o una hoja de cálculo.
 
 **¿Por qué crear gráficos?**
 
-Al usar gráficos, puede:
-
-* agregar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación;
-* revelar patrones y tendencias en los datos;
-* deducir la dirección y el impulso de los datos a lo largo del tiempo o respecto a una unidad de medida específica;
-* detectar valores atípicos, aberraciones, desviaciones, errores y datos sin sentido;
+* agrupar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación;
+* exponer patrones y tendencias en los datos;
+* deducir la dirección y el impulso de los datos a lo largo del tiempo o con respecto a una unidad de medida específica;
+* identificar valores atípicos, aberraciones, desviaciones, errores y datos sin sentido;
 * comunicar o presentar datos complejos.
 
-En PowerPoint, puede crear gráficos mediante la función *Insert*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos normales (basados en tipos de gráficos populares) como gráficos personalizados.
+En PowerPoint, puede crear gráficos mediante la función *Insertar*, que proporciona plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos normales (basados en tipos de gráficos populares) como gráficos personalizados.
 
 {{% alert color="info" title="Note" %}}
 Utilice la enumeración [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) bajo el módulo [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Los valores de esta enumeración corresponden a diferentes tipos de gráficos.
@@ -53,7 +51,7 @@ Utilice la enumeración [ChartType](https://reference.aspose.com/slides/python-n
 
 ### **Crear gráficos de columnas agrupadas**
 
-Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series utilizan rellenos rojo y verde, y las etiquetas individuales demuestran los nombres de categoría, los nombres de serie y los valores. El índice de hoja de cálculo 0 se refiere a la primera hoja del libro de trabajo incrustado del gráfico.
+Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series usan rellenos rojo y verde, y las etiquetas individuales muestran los nombres de categoría, los nombres de serie y los valores. El índice de hoja de cálculo 0 se refiere a la primera hoja del libro de trabajo del gráfico incrustado.
 
 ```python
 import aspose.pydrawing as draw
@@ -128,20 +126,20 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![El gráfico de columnas agrupadas](clustered_column_chart.png)
 
 ### **Crear gráficos de dispersión**
 
-Los gráficos de dispersión (también conocidos como diagramas de dispersión o gráficos x‑y) se usan a menudo para comprobar patrones o demostrar correlaciones entre dos variables.
+Los gráficos de dispersión (también conocidos como diagramas de dispersión o gráficos x‑y) se utilizan a menudo para buscar patrones o demostrar correlaciones entre dos variables.
 
 Utilice un gráfico de dispersión cuando:
 
-* tenga datos numéricos pareados;
-* tenga dos variables que se relacionen bien entre sí;
-* quiera determinar si las dos variables están relacionadas;
-* tenga una variable independiente que tenga múltiples valores para una variable dependiente.
+* Disponga de datos numéricos emparejados.
+* Tenga dos variables que se relacionan bien entre sí.
+* Desee determinar si las dos variables están relacionadas.
+* Disponga de una variable independiente que tiene múltiples valores para una variable dependiente.
 
-Este ejemplo traza dos conjuntos de valores x‑y. La primera serie utiliza líneas rectas con marcadores de estrella, mientras que la segunda usa líneas suaves con marcadores de círculo; ambas usan un [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) de 10. La propiedad [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) controla la forma del marcador.
+Este ejemplo traza dos conjuntos de valores x‑y. La primera serie usa líneas rectas con marcadores estrella, mientras que la segunda usa líneas suaves con marcadores círculo; ambas utilizan un [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) de 10. La propiedad [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) controla la forma del marcador.
 
 ```python
 import aspose.slides as slides
@@ -203,13 +201,13 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Scatter chart](scatter_chart.png)
+![El gráfico de dispersión](scatter_chart.png)
 
-### **Crear gráficos circulares**
+### **Crear gráficos de sectores**
 
-Los gráficos circulares se utilizan mejor para mostrar la relación parte‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, podría considerar usar un gráfico de barras en su lugar.
+Los gráficos de sectores son los más adecuados para mostrar la relación parte‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, podría considerar usar un gráfico de barras en su lugar.
 
-Este ejemplo crea un gráfico circular con tres valores trimestrales. Cada sector tiene un relleno y borde personalizados, y las etiquetas muestran diferentes combinaciones de valores, porcentajes e información de la serie. La propiedad [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) establece que el primer sector comience a 180 grados.
+Este ejemplo crea un gráfico de sectores con tres valores trimestrales. Cada porción tiene un relleno y un borde personalizados, y las etiquetas muestran diferentes combinaciones de valores, porcentajes e información de serie. La propiedad [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) establece que la primera porción comience a 180 grados.
 
 ```python
 import aspose.pydrawing as draw
@@ -304,15 +302,15 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Pie chart](pie_chart.png)
+![El gráfico de sectores](pie_chart.png)
 
-Para mejorar la legibilidad de las etiquetas fuera del círculo, consulte [Format Leader Lines](/slides/es/python-net/chart-data-label/#format-leader-lines) para un ejemplo que posiciona las etiquetas y personaliza el color, ancho, transparencia y estilo de guión de las líneas.
+Para mejorar la legibilidad de las etiquetas fuera del sector, consulte [Formato de líneas guía](/slides/es/python-net/chart-data-label/#format-leader-lines) para un ejemplo que posiciona las etiquetas y personaliza el color, el ancho, la transparencia y el estilo de guión de las líneas.
 
 ### **Crear gráficos de líneas**
 
-Los gráficos de líneas (también conocidos como diagramas de líneas) se usan mejor en situaciones en las que desea demostrar cambios en el valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en series de datos, y más.
+Los gráficos de líneas (también conocidos como diagramas de líneas) son los más adecuados en situaciones donde desea demostrar cambios en el valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos de una vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en series de datos, y más.
 
-Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de líneas con la serie y categorías predeterminadas, luego guarda la presentación como PPTX.
+Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de líneas con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```python
 import aspose.slides as slides
@@ -326,7 +324,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Por defecto, los puntos de un gráfico de líneas están unidos por líneas rectas continuas. Si desea que los puntos se unan mediante guiones, establezca [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) a un valor de [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+Por defecto, los puntos en un gráfico de líneas se unen mediante líneas continuas rectas. Si desea que los puntos se unan con guiones, establezca [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) a un valor de [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -343,13 +341,13 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Line chart](line_chart.png)
+![El gráfico de líneas](line_chart.png)
 
 ### **Crear gráficos de mapa de árbol**
 
-Los gráficos de mapa de árbol se usan mejor para datos de ventas cuando desea mostrar el tamaño relativo de las categorías de datos y atraer rápidamente la atención a los elementos que son grandes contribuyentes dentro de cada categoría.
+Los gráficos de mapa de árbol son los más adecuados para datos de ventas cuando se desea mostrar el tamaño relativo de las categorías de datos y llamar rápidamente la atención sobre los elementos que son grandes contribuyentes dentro de cada categoría.
 
-Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro troncos y dos ramas. El método [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) asigna troncos en el nivel de agrupación 1 y ramas en el nivel 2. Los valores determinan el tamaño relativo de los rectángulos, mientras que las etiquetas de categoría y las etiquetas de padres superpuestas identifican la jerarquía.
+Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) asigna tallos en el nivel de agrupación 1 y ramas en el nivel 2. Los valores determinan los tamaños relativos de los rectángulos, mientras que las etiquetas de categoría y las etiquetas de padres superpuestas identifican la jerarquía.
 
 ```python
 import aspose.slides as slides
@@ -424,26 +422,24 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Treemap chart](treemap_chart.png)
+![El gráfico de mapa de árbol](treemap_chart.png)
 
 ### **Crear gráficos de cascada**
 
-Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de ganancias puede iniciar con ingresos, restar costos y añadir otros ingresos. Las columnas de cambio flotan entre los valores acumulados anteriores y los nuevos, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
+Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de beneficios puede comenzar con ingresos, restar costos y añadir otros ingresos. Las columnas de cambio flotan entre los valores acumulados anteriores y nuevos, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
 
-El siguiente ejemplo usa cantidades en miles de dólares estadounidenses:
-
-| Category | Workbook value | Column type |
+| Categoría | Valor del libro de cálculo | Tipo de columna |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| Ingresos | 1000 | Incremento |
+| Costo de ventas | -400 | Disminución |
+| Beneficio bruto | 600 | Total intermedio |
+| Gastos operativos | -200 | Disminución |
+| Otros ingresos | 50 | Incremento |
+| Beneficio neto | 450 | Total final |
 
-Para marcar un punto como total intermedio o final, establezca su propiedad [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) a `True`. Suministre la cantidad acumulada real en la celda del libro correspondiente: `600` para beneficio bruto (`1000 - 400`) y `450` para beneficio neto (`600 - 200 + 50`). La propiedad marca la columna como total; no calcula ni rellena el valor de la celda. No use cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin añadirlo de nuevo al valor en curso.
+Para marcar un punto como total intermedio o final, establezca su propiedad [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) en `True`. Proporcione la cantidad acumulada real en la celda del libro de cálculo de ese punto: `600` para el beneficio bruto (`1000 - 400`) y `450` para el beneficio neto (`600 - 200 + 50`). La propiedad marca la columna como un total; no calcula ni rellena el valor de la celda. No use cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin añadirlo nuevamente al valor corriente.
 
-Este ejemplo completo en C# crea un gráfico usando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), borra los datos predeterminados y rellena el libro de trabajo incrustado. El índice de hoja `0` selecciona la primera hoja; la columna A contiene los nombres de las categorías y la columna B los valores. Cada celda de valor se añade con [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Los índices de punto basados en cero `2` y `5` identifican los totales intermedios y finales. Habilitar [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) muestra las cantidades en las columnas. No se requiere una presentación ni un libro de trabajo de entrada.
+Este ejemplo completo en C# crea un gráfico utilizando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), borra los datos predeterminados y rellena el libro de cálculo incrustado. El índice de hoja de cálculo `0` selecciona la primera hoja; la columna A contiene los nombres de categoría y la columna B contiene los valores. Cada celda de valor se añade con [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Los índices de punto basados en cero `2` y `5` identifican los totales intermedios y finales. Habilitar [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) muestra las cantidades en las columnas. No se requiere una presentación o libro de cálculo de entrada.
 
 ```python
 import aspose.slides as slides
@@ -487,26 +483,31 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Establezca la propiedad a nivel de serie [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) a `True` para mostrar líneas que unen columnas consecutivas y facilitar el seguimiento del valor acumulado. Para ocultar estas líneas, reemplace la asignación en el ejemplo por `series.show_connector_lines = False` antes de guardar. Esto solo cambia la visibilidad de la línea, no los datos ni los totales.
+Establezca la propiedad de nivel de serie [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) en `True` para mostrar líneas que enlazan columnas consecutivas y facilitar el seguimiento del valor acumulado. Para ocultar estas líneas, reemplace la asignación en el ejemplo por `series.show_connector_lines = False` antes de guardar. Esto cambia solo la visibilidad de la línea, no los datos ni los totales.
 
-La presentación guardada muestra un beneficio bruto de 600 y un beneficio neto de 450, con ambos totales dibujados desde cero:
+![Gráfico de cascada que muestra ingresos, costos, beneficio bruto de 600 y beneficio neto de 450, con etiquetas de valores y líneas de conexión](waterfall_chart.png)
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+### **Crear gráficos bursátiles**
 
-### **Crear gráficos de bolsa**
+Los gráficos bursátiles se utilizan para mostrar datos financieros como los precios de apertura, máximo, mínimo y cierre, ayudando a analizar las tendencias del mercado y la volatilidad. Proporcionan información esencial sobre el rendimiento de las acciones, ayudando a inversores y analistas a tomar decisiones informadas.
 
-Los gráficos de bolsa se usan para mostrar datos financieros como precios de apertura, máximo, mínimo y cierre, ayudando a analizar tendencias del mercado y volatilidad. Ofrecen información esencial sobre el rendimiento de las acciones, facilitando a inversores y analistas la toma de decisiones informadas.
+Este ejemplo crea un gráfico de apertura‑máximo‑mínimo‑cierre con cuatro series en ese orden y tres categorías. La propiedad [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) habilita las barras arriba/abajo, y [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las líneas de cuadrícula horizontales menores están ocultas.
 
-Este ejemplo crea un gráfico de apertura‑máximo‑mínimo‑cierre con cuatro series en ese orden y tres categorías. La propiedad [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) habilita las barras arriba/abajo, y [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las líneas de cuadrícula horizontal menores están ocultas.
+El administrador [up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/up_down_bars/) expone objetos separados [up_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/up_bars_format/) y [down_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/down_bars_format/). Utilice las propiedades [fill](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/fill/) y [line](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/line/) de cada objeto para establecer su relleno y contorno de forma independiente. Este ejemplo usa barras verdes con contornos verde oscuro para intervalos ascendentes y barras naranja‑rojas con contornos rojo oscuro para intervalos descendentes.
+
+Proporcione valores numéricos para las cuatro series en cada categoría, con Máximo y Mínimo que encierran Apertura y Cierre. Las barras comparan Cierre con Apertura **dentro de la misma categoría**, no con la categoría anterior: A cae de 72 a 25, mientras que B sube de 25 a 38 y C sube de 38 a 50. Los valores de Apertura y Cierre iguales no generan un intervalo relleno visible. Las barras arriba/abajo abarcan Apertura‑Cierre; las líneas alto‑bajo abarcan Mínimo‑Máximo. Estas barras pertenecen al grupo de series y no son series de gráfico de barras ordinarias.
+
+Este formato también funciona con gráficos [LINE and LINE_WITH_MARKERS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) que contengan al menos dos series en el mismo grupo y valores numéricos correspondientes para cada categoría. Para estos gráficos de línea no apilados, las barras arriba/abajo comparan la primera y la última serie: un último valor mayor produce una barra ascendente, y un último valor menor produce una barra descendente. Invertir esas series invierte la clasificación. El ejemplo a continuación usa [OPEN_HIGH_LOW_CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/); no asuma que otras variantes bursátiles, de línea apilada o 3D usen la misma disposición de datos o interpretación de intervalos.
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 150, False)
 
     workbook = chart.chart_data.chart_data_workbook
 
@@ -558,7 +559,20 @@ with slides.Presentation() as presentation:
     value_cell = workbook.get_cell(0, 3, 4, 50)
     series.data_points.add_data_point_for_stock_series(value_cell)
 
-    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
+    up_down_bars = chart.chart_data.series_groups[0].up_down_bars
+    up_down_bars.has_up_down_bars = True
+
+    up_down_bars.up_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.fill.solid_fill_color.color = draw.Color.lime_green
+    up_down_bars.up_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_green
+    up_down_bars.up_bars_format.line.width = 2
+
+    up_down_bars.down_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.fill.solid_fill_color.color = draw.Color.orange_red
+    up_down_bars.down_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_red
+    up_down_bars.down_bars_format.line.width = 2
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
     for stock_series in chart.chart_data.series:
@@ -569,13 +583,13 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-El resultado:
+El resultado, exportado desde PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Gráfico bursátil con un intervalo descendente naranja-rojo para A y intervalos ascendentes verdes para B y C](stock_chart.png)
 
 ### **Crear gráficos de caja y bigotes**
 
-Los gráficos de caja y bigotes se usan para mostrar la distribución de los datos resumendo medidas estadísticas clave, como la mediana, cuartiles y posibles valores atípicos. Son particularmente útiles en análisis exploratorios de datos y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
+Los gráficos de caja y bigotes se utilizan para mostrar la distribución de los datos mediante la resumición de medidas estadísticas clave, como la mediana, los cuartiles y los posibles valores atípicos. Son particularmente útiles en el análisis exploratorio de datos y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
 
 Este ejemplo crea un gráfico de caja y bigotes a partir de seis valores. La propiedad [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) selecciona el cálculo exclusivo de cuartiles. El ejemplo también habilita líneas de media, marcadores de media, puntos internos y puntos atípicos.
 
@@ -633,9 +647,9 @@ with slides.Presentation() as presentation:
 
 ### **Crear gráficos de embudo**
 
-Los gráficos de embudo se usan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de procesos de venta o marketing.
+Los gráficos de embudo se utilizan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de los procesos de ventas o marketing.
 
-Este ejemplo usa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para añadir un gráfico de embudo a la primera diapositiva de una presentación existente. Reemplaza los datos predeterminados con seis categorías y valores que van de 50 a 500, luego guarda la presentación actualizada. La presentación de entrada debe contener al menos una diapositiva.
+Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para añadir un gráfico de embudo a la primera diapositiva de una presentación existente. Reemplaza los datos predeterminados con seis categorías y valores que van de 50 a 500, y luego guarda la presentación actualizada. La presentación de entrada debe contener al menos una diapositiva.
 
 ```python
 import aspose.slides as slides
@@ -685,13 +699,13 @@ with slides.Presentation("test.pptx") as presentation:
 
 El resultado:
 
-![The Funnel chart](funnel_chart.png)
+![El gráfico de embudo](funnel_chart.png)
 
 ### **Crear gráficos de explosión**
 
-Los gráficos de explosión se usan para visualizar datos jerárquicos, mostrando los niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑todo y son ideales para representar categorías y subcategorías anidadas de forma clara y compacta.
+Los gráficos de explosión se utilizan para visualizar datos jerárquicos, mostrando los niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑todo y son ideales para representar categorías y subcategorías anidadas en un formato claro y compacto.
 
-Este ejemplo crea un gráfico de explosión con ocho hojas agrupadas en cuatro troncos y dos ramas. El método [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) asigna troncos en el nivel de agrupación 1 y ramas en el nivel 2. Las etiquetas de categoría identifican los segmentos y los valores determinan sus tamaños relativos.
+Este ejemplo crea un gráfico de explosión con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) asigna tallos en el nivel de agrupación 1 y ramas en el nivel 2. Las etiquetas de categoría identifican los segmentos, y los valores determinan sus tamaños relativos.
 
 ```python
 import aspose.slides as slides
@@ -764,17 +778,17 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Sunburst chart](sunburst_chart.png)
+![El gráfico de explosión](sunburst_chart.png)
 
 ### **Crear gráficos de histograma**
 
-Los gráficos de histograma muestran cómo se distribuyen los valores numéricos a través de intervalos (cajas). Para informes mensuales sobre tiempos de procesamiento de pedidos, use el mismo ancho de caja y umbrales para mantener los intervalos consistentes y facilitar la comparación de distribuciones.
+Los gráficos de histograma muestran cómo se distribuyen los valores numéricos a lo largo de intervalos (cubetas). Para informes mensuales de tiempos de procesamiento de pedidos, utilice el mismo ancho de cubeta y umbrales para mantener los intervalos consistentes y facilitar la comparación de distribuciones.
 
-Establezca el [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) del eje horizontal a un modo de [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) se aplica solo a `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) se aplica solo a `BY_NUMBER_OF_BINS`. Use `AUTOMATIC` para que el gráfico elija las cajas.
+Establezca el [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) del eje horizontal a un modo de [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) se aplica solo a `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) se aplica solo a `BY_NUMBER_OF_BINS`. Utilice `AUTOMATIC` para que el gráfico elija las cubetas.
 
-#### **Usar un ancho de caja fijo**
+#### **Usar un ancho de cubeta fijo**
 
-Este ejemplo agrupa los tiempos de procesamiento en intervalos de 10 minutos, con cajas separadas para tiempos ≤ 10 min y > 40 min. Active estas cajas con [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) y [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Al suministrar umbrales explícitos de [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) y [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/), establezca [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) y [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) a `False`.
+Este ejemplo agrupa los tiempos de procesamiento en intervalos de 10 minutos, con cubetas separadas para tiempos iguales o inferiores a 10 minutos y superiores a 40 minutos. Habilite estas cubetas con [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) y [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Al proporcionar umbrales explícitos de [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) y [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/), establezca [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) y [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) en `False`.
 
 ```python
 import aspose.slides as slides
@@ -813,13 +827,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La presentación mostrada en PowerPoint indica recuentos de cajas de **3, 4, 4, 4 y 2**. La caja de subflujo incluye `5, 10, 10`, por lo que su umbral es inclusivo. La caja de desbordamiento incluye solo `41, 50`, por lo que su umbral es exclusivo; ambos valores iguales a `40` permanecen en el intervalo anterior. Las cajas internas contienen valores mayores que su límite inferior y menores o iguales que su límite superior.
+La presentación mostrada en PowerPoint muestra recuentos de cubetas de **3, 4, 4, 4 y 2**. La cubeta de subflujo incluye `5, 10, 10`, por lo que su umbral es inclusivo. La cubeta de desbordamiento incluye solo `41, 50`, por lo que su umbral es exclusivo; ambos valores iguales a `40` permanecen en el intervalo anterior. Las cubetas intermedias contienen valores mayores que su límite inferior y menores o iguales que su límite superior.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histograma con cubetas de 10 minutos y umbrales explícitos de subflujo y desbordamiento](histogram_bin_width.png)
 
-#### **Especificar el número de cajas**
+#### **Especificar el número de cubetas**
 
-Para un nivel de detalle fijo en lugar de intervalos fijos, solicite cinco cajas para los mismos datos. Este ejemplo deja desactivadas las cajas de subflujo y desbordamiento. El gráfico determina el ancho a partir del rango de datos, por lo que los límites pueden cambiar entre informes.
+Para un nivel de detalle fijo en lugar de intervalos fijos, solicite cinco cubetas para los mismos datos. Este ejemplo deja desactivadas las cubetas de subflujo y desbordamiento. El gráfico determina el ancho a partir del rango de datos, por lo que los límites pueden cambiar entre informes.
 
 ```python
 import aspose.slides as slides
@@ -852,15 +866,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Las cinco cajas tienen recuentos de **4, 4, 4, 4 y 1**. Compare esta distribución con el resultado de ancho fijo anterior: los valores de entrada son idénticos, pero los límites difieren.
+Las cinco cubetas tienen recuentos de **4, 4, 4, 4 y 1**. Compare esta distribución con el resultado de ancho fijo anterior: los valores de entrada son idénticos, pero los límites difieren.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histograma con cinco cubetas calculadas a partir de los mismos datos](histogram_bin_count.png)
 
 ### **Crear gráficos de radar**
 
-Los gráficos de radar se usan para mostrar datos multivariados en un formato bidimensional, lo que permite comparar fácilmente varias variables simultáneamente. Son particularmente útiles para identificar patrones, fortalezas y debilidades en varios indicadores de rendimiento o atributos.
+Los gráficos de radar se utilizan para mostrar datos multivariados en un formato bidimensional, lo que permite comparar fácilmente varias variables simultáneamente. Son particularmente útiles para identificar patrones, fortalezas y debilidades a través de múltiples métricas o atributos de rendimiento.
 
-Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de radar con la serie y categorías predeterminadas, luego guarda la presentación como PPTX.
+Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de radar con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```python
 import aspose.slides as slides
@@ -876,11 +890,11 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Radar chart](radar_chart.png)
+![El gráfico de radar](radar_chart.png)
 
 ### **Crear gráficos de múltiples categorías**
 
-Los gráficos de múltiples categorías se usan para mostrar datos que involucran más de un agrupamiento categórico, lo que permite comparar valores a través de varias dimensiones simultáneamente. Son particularmente útiles cuando necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y multinivel.
+Los gráficos de múltiples categorías se utilizan para mostrar datos que involucran más de un agrupamiento categórico, lo que permite comparar valores a través de múltiples dimensiones simultáneamente. Son particularmente útiles cuando se necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y de múltiples capas.
 
 Este ejemplo crea un gráfico de columnas agrupadas con ocho categorías organizadas en cuatro pares. El método [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) asigna a cada par una etiqueta compartida en el nivel de agrupación 1, produciendo un eje de categorías con etiquetas individuales y de grupo.
 
@@ -950,11 +964,37 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The multi category chart](multi_category_chart.png)
+![El gráfico de múltiples categorías](multi_category_chart.png)
+
+#### **Eliminar una etiqueta de trimestre**
+
+Descargue [quarters.pptx](quarters.pptx) y colóquelo en el directorio de trabajo. Su gráfico muestra nueve meses y una única serie de ventas con valores de 10 a 18. El eje de categorías tiene tres etiquetas de trimestre: Q1 abarca de ene a mar, Q2 abarca de abr a jun y Q3 abarca de jul a sep.
+
+Abril es la cuarta categoría y la que tiene Q2 establecida explícitamente. Llame a [delete_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/delete_grouping_item/) en la colección [grouping_levels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/grouping_levels/) de abril. El nivel es relativo a abril: el nivel 1 es su trimestre, y el nivel 0 es el mes mismo. El método no puede eliminar la categoría hoja en el nivel 0.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("quarters.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    april = chart.chart_data.categories[3]
+    april.grouping_levels.delete_grouping_item(1)
+    
+    presentation.save("quarters-updated.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("quarters-updated.pptx") as reopened:
+    data = reopened.slides[0].shapes[0].chart_data
+    print(", ".join(str(month.as_cell.value) for month in data.categories))
+    print(", ".join(str(point.value.data) for point in data.series[0].data_points))
+```
+
+El gráfico reabierto muestra los meses originales (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) y los valores de ventas (`10, 11, 12, 13, 14, 15, 16, 17, 18`) en el mismo orden. Abra `quarters-updated.pptx` en PowerPoint para comparar las etiquetas del eje. La etiqueta Q2 y el límite del grupo antes de abril desaparecen, de modo que Q1 abarca de enero a junio. Q3 sigue comenzando en julio.
+
+![Etiquetas de trimestre antes y después de la eliminación. A la izquierda, Q2 abarca de abril a junio. A la derecha, Q1 abarca de enero a junio.](quarter-label-comparison.png)
 
 ### **Crear gráficos de mapa**
 
-Los gráficos de mapa se usan para visualizar datos geográficos asignando información a ubicaciones específicas como países, estados o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de forma clara y visualmente atractiva.
+Los gráficos de mapa se utilizan para visualizar datos geográficos asignando información a ubicaciones específicas como países, provincias o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de manera clara y visualmente atractiva.
 
 Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico de mapa con los datos geográficos predeterminados y lo guarda para su visualización en PowerPoint.
 
@@ -972,19 +1012,19 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![The Map chart](map_chart.png)
+![El gráfico de mapa](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-La imagen anterior muestra la presentación guardada abierta en PowerPoint. Aspose.Slides escribe el gráfico de mapa y sus datos correctamente, pero no dibuja gráficos de mapa por sí mismo: cuando una diapositiva que contiene uno se renderiza a imagen o se convierte a PDF o SVG, el área del gráfico aparece vacía. Otras formas en la misma diapositiva no se ven afectadas.
+La imagen anterior muestra la presentación guardada abierta en PowerPoint. Aspose.Slides escribe el gráfico de mapa y sus datos correctamente, pero no dibuja los gráficos de mapa por sí mismo: cuando una diapositiva que contiene uno se renderiza a una imagen o se convierte a PDF o SVG, el área del gráfico queda en blanco. Otras formas en la misma diapositiva no se ven afectadas.
 {{% /alert %}}
 
 ### **Crear gráficos combinados**
 
-Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos en un solo gráfico. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
+Un gráfico combinado (o combo) combina dos o más tipos de gráficos en un solo diagrama. Este gráfico le permite resaltar, comparar o examinar diferencias entre dos o más conjuntos de datos, ayudándole a identificar relaciones entre ellos.
 
-![The combination chart](combination_chart.png)
+![El gráfico combinado](combination_chart.png)
 
-Este ejemplo combina dos series de columnas agrupadas con una serie de línea a través de cuatro categorías. Las columnas usan el eje vertical principal, mientras que [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de eje y las líneas de cuadrícula.
+Este ejemplo combina dos series de columnas agrupadas con una serie de líneas en cuatro categorías. Las columnas usan el eje vertical primario, mientras que [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de los ejes y las líneas de cuadrícula.
 
 ```python
 import aspose.pydrawing as draw
@@ -1132,9 +1172,9 @@ create_combo_chart()
 
 ## **Actualizar gráficos**
 
-Aspose.Slides for Python via .NET le permite actualizar los gráficos de PowerPoint modificando datos, formato y estilo. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y asegura que los gráficos reflejen con precisión los datos actuales y los estándares visuales.
+Aspose.Slides para Python a través de .NET le permite actualizar gráficos de PowerPoint modificando los datos del gráfico, el formato y el estilo. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y garantiza que los gráficos reflejen con precisión los datos actuales y los estándares visuales.
 
-Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columna con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de serie en la primera fila de la primera hoja de cálculo. El ejemplo usa [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) para cambiar celdas del libro, actualiza los valores de las series, añade una tercera serie y cambia el gráfico a cilindros agrupados mediante [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
+Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columnas con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de series en la primera fila de la primera hoja de cálculo. El ejemplo utiliza [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) para cambiar celdas del libro de cálculo, actualiza los valores de las series, añade una tercera serie y cambia el gráfico a cilindros agrupados mediante [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1184,13 +1224,13 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("AsposeChartModified.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Establecer rango de datos para un gráfico**
+## **Definir rango de datos para un gráfico**
 
-Para inspeccionar el rango ya utilizado por un gráfico existente, vea [Retrieve a Chart's Data Range](/slides/es/python-net/chart-workbook/#retrieve-a-charts-data-range).
+Para inspeccionar el rango ya utilizado por un gráfico existente, consulte [Recuperar el rango de datos de un gráfico](/slides/es/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Python via .NET brinda la flexibilidad de definir un rango de datos específico de una hoja de cálculo como fuente para los datos de su gráfico. Esto significa que puede mapear directamente una parte de su hoja a el gráfico, controlando qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar fácilmente sus gráficos con los últimos cambios de datos en su hoja, asegurando que sus presentaciones de PowerPoint reflejen información actual y precisa.
+Aspose.Slides para Python a través de .NET ofrece la flexibilidad de definir un rango de datos específico de una hoja de cálculo como fuente de los datos de su gráfico. Esto significa que puede mapear directamente una parte de su hoja de cálculo al gráfico, lo que le permite controlar qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar fácilmente sus gráficos con los últimos cambios de datos en su hoja de cálculo, asegurando que sus presentaciones de PowerPoint reflejen información actual y precisa.
 
-Este ejemplo usa [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de datos del gráfico debe contener esa hoja y un rango rellenado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
+Este ejemplo utiliza [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de cálculo del gráfico debe contener esa hoja y un rango poblado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
 
 ```python
 import aspose.slides as slides
@@ -1209,11 +1249,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("SetDataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Usar marcadores predeterminados en gráficos**
+## **Usar marcadores predeterminados en los gráficos**
 
-Al usar marcadores predeterminados en gráficos, cada serie del gráfico recibe automáticamente un símbolo de marcador predeterminado diferente.
+Al usar marcadores predeterminados en los gráficos, cada serie del gráfico recibe automáticamente un símbolo de marcador predeterminado diferente.
 
-Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico con dos series de línea y una leyenda. La configuración de [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) conserva los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor ausente, representado por `None`, mientras que la segunda tiene un valor para cada categoría.
+Este ejemplo utiliza [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) para crear un gráfico con dos series de líneas y una leyenda. La configuración [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) mantiene los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor ausente, representado por `None`, mientras que la segunda tiene un valor para cada categoría.
 
 ```python
 import aspose.slides as slides
@@ -1270,11 +1310,11 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Qué tipos de gráficos son compatibles con Aspose.Slides for Python via .NET?**
+**¿Qué tipos de gráficos son compatibles con Aspose.Slides para Python a través de .NET?**
 
-Aspose.Slides for Python via .NET admite una amplia gama de tipos de gráficos, incluidos barras, líneas, circulares, áreas, dispersión, histogramas, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más apropiado para sus necesidades de visualización de datos.
+Aspose.Slides para Python a través de .NET admite una amplia gama de tipos de gráficos, incluidos de barras, líneas, sectores, áreas, dispersión, histograma, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más adecuado para sus necesidades de visualización de datos.
 
 **¿Cómo añado un nuevo gráfico a una diapositiva?**
 
@@ -1282,8 +1322,10 @@ Para añadir un gráfico, primero crea una instancia de la clase [Presentation](
 
 **¿Cómo puedo actualizar los datos mostrados en un gráfico?**
 
-Puede actualizar los datos de un gráfico accediendo a su libro de datos ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), borrando cualquier serie y categorías predeterminadas, y luego añadiendo sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
+Puede actualizar los datos de un gráfico accediendo a su libro de datos ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), borrando cualquier serie y categoría predeterminada, y luego añadiendo sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
 
 **¿Es posible personalizar la apariencia del gráfico?**
 
-Sí, Aspose.Slides for Python via .NET ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros elementos de formato para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.
+Sí, Aspose.Slides para Python a través de .NET ofrece amplias opciones de personalización. Puede modificar colores, fuentes, etiquetas, leyendas y otros elementos de formato para adaptar la apariencia del gráfico a sus requisitos de diseño específicos.
+
+Funcionalidad relacionada: [Crear gráficos editables](/slides/es/features/create-charts/).

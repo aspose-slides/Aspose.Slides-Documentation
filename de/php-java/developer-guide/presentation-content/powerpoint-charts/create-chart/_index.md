@@ -1,5 +1,5 @@
 ---
-title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen in PHP
+title: PowerPoint-Präsentationsdiagramme in PHP erstellen oder aktualisieren
 linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
@@ -11,47 +11,49 @@ keywords:
 - Diagramm ändern
 - Diagramm aktualisieren
 - Streudiagramm
-- Kuchendiagramm
+- Kreisdiagramm
 - Liniendiagramm
-- Baumdiagramm
-- Börsendiagramm
-- Box- und Whisker-Diagramm
-- Trichterdiagramm
-- Sunburst-Diagramm
-- Histogramm-Diagramm
-- Radar-Diagramm
-- Mehrkategorien-Diagramm
+- Baumkarten-Diagramm
+- Börsen-Diagramm
+- Box‑und‑Whisker-Diagramm
+- Trichter‑Diagramm
+- Sunburst‑Diagramm
+- Histogramm
+- Radar‑Diagramm
+- Mehrkategorien‑Diagramm
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erstellen und Anpassen von Diagrammen in PowerPoint-Präsentationen mit Aspose.Slides für PHP via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code-Beispielen in PHP."
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für PHP via Java. Diagramme hinzufügen, formatieren und bearbeiten mit praxisnahen Code‑Beispielen in PHP."
 ---
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung, wie man Diagramme mit Aspose.Slides für PHP via Java erstellt und anpasst. Sie lernen, wie man programmgesteuert ein Diagramm zu einer Folie hinzufügt, es mit Daten füllt und verschiedene Formatierungsoptionen anwendet, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre PHP‑Anwendungen integrieren und so den Prozess der Erstellung datenbasierter Präsentationen optimieren.
+Dieser Artikel bietet eine umfassende Anleitung, wie Sie Diagramme mit Aspose.Slides für PHP via Java erstellen und anpassen. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen gerecht zu werden. Im gesamten Artikel veranschaulichen detaillierte Code‑Beispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagramm‑Objekts bis hin zur Konfiguration von Reihen, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre PHP‑Anwendungen integrieren und den Prozess der Erstellung datengetriebener Präsentationen vereinfachen.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen dabei, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die in einer Tabelle oder einem Tabellenblatt nicht sofort ersichtlich sind.
+Diagramme helfen dabei, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
+Mit Diagrammen können Sie:
+
 * große Datenmengen auf einer einzelnen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen;
-* Muster und Trends in den Daten aufzeigen;
-* die Richtung und Dynamik der Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten;
-* Ausreißer, Anomalien, Abweichungen, Fehler und unsinnige Daten erkennen;
+* Muster und Trends in Daten aufzeigen;
+* die Richtung und das Momentum von Daten über Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten;
+* Ausreißer, Abweichungen, Fehler und unsinnige Daten erkennen;
 * komplexe Daten kommunizieren oder präsentieren.
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf populären Diagrammtypen) als auch benutzerdefinierte Diagramme erzeugen.
 
-{{% alert color="info" title="Note" %}}
-Verwenden Sie die Aufzählung [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) im Namensraum [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
+{{% alert color="info" title="Hinweis" %}}
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) Aufzählung im [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) Namensraum. Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
 {{% /alert %}}
 
 ### **Gruppierte Säulendiagramme erstellen**
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Serien über drei Kategorien vergleicht. Die Serien verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Seriennamen und Werte. Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt in der eingebetteten Diagramm‑Arbeitsmappe.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein gruppiertes Säulendiagramm zu erstellen, das zwei Reihen über drei Kategorien vergleicht. Die Reihen verwenden rote bzw. grüne Füllungen, und einzelne Beschriftungen zeigen Kategorienamen, Reihen‑Namen und Werte. Arbeitsblatt‑Index 0 bezieht sich auf das erste Blatt im eingebetteten Diagramm‑Arbeitsbuch.
 
 ```php
 use aspose\slides\ChartType;
@@ -139,18 +141,18 @@ Das Ergebnis:
 
 ![Das gruppierte Säulendiagramm](clustered_column_chart.png)
 
-### **Streudiagramme erstellen**
+### **Scatter‑Diagramme erstellen**
 
-Streudiagramme (auch als Scatter‑Plots oder X‑Y‑Diagramme bezeichnet) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
+Scatter‑Diagramme (auch als Punkt‑Diagramme oder x‑y‑Grafiken bekannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
 
-Verwenden Sie ein Streudiagramm, wenn:
+Verwenden Sie ein Scatter‑Diagramm, wenn:
 
-* Sie über numerische Datenpaare verfügen.
-* Sie zwei Variablen haben, die gut zusammenpassen.
-* Sie bestimmen möchten, ob die beiden Variablen miteinander verbunden sind.
-* Sie eine unabhängige Variable haben, die mehrere Werte für eine abhängige Variable aufweist.
+* Sie gepaarte numerische Daten haben.
+* Sie zwei Variablen besitzen, die gut zusammenpassen.
+* Sie feststellen möchten, ob die beiden Variablen miteinander verbunden sind.
+* Sie eine unabhängige Variable haben, die mehrere Werte für eine abhängige Variable besitzt.
 
-Dieses Beispiel zeichnet zwei Sätze von X‑Y‑Werten. Die erste Serie verwendet gerade Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine Markergöße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Die [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/)‑Methode steuert die Markerform.
+Dieses Beispiel zeichnet zwei Sätze von x‑y‑Werten. Die erste Reihe verwendet gerade Linien mit Stern‑Markern, während die zweite glatte Linien mit Kreis‑Markern nutzt; beide verwenden eine Markergöße von 10, konfiguriert mit [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). Die Methode [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) steuert die Markerform.
 
 ```php
 use aspose\slides\ChartType;
@@ -221,13 +223,13 @@ finally
 
 Das Ergebnis:
 
-![Das Streudiagramm](scatter_chart.png)
+![Das Scatter‑Diagramm](scatter_chart.png)
 
-### **Kuchendiagramme erstellen**
+### **Kreisdiagramme erstellen**
 
-Kuchendiagramme werden am besten verwendet, um das Verhältnis von Teil zu Ganzem zu zeigen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen enthalten, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Teile‑zu‑Ganz‑Verhältnis in Daten darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihr Datensatz jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-Dieses Beispiel erstellt ein Kuchendiagramm mit drei Quartalswerten. Jede Scheibe hat eine benutzerdefinierte Füllung und Rahmen, und die Beschriftungen zeigen verschiedene Kombinationen aus Werten, Prozentzahlen und Serieninformationen. Die [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/)-Methode legt den Startwinkel der ersten Scheibe auf 180 Grad fest.
+Dieses Beispiel erstellt ein Kreisdiagramm mit drei Quartalswerten. Jeder Abschnitt hat eine benutzerdefinierte Füllung und Kontur, und die Beschriftungen zeigen verschiedene Kombinationen aus Wert, Prozentsatz und Reihen‑Informationen. Die Methode [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) legt den ersten Abschnitt so fest, dass er bei 180 Grad beginnt.
 
 ```php
 use aspose\slides\ChartType;
@@ -339,15 +341,15 @@ finally
 
 Das Ergebnis:
 
-![Das Kuchendiagramm](pie_chart.png)
+![Das Kreisdiagramm](pie_chart.png)
 
-Um die Lesbarkeit von Beschriftungen außerhalb des Kuchens zu verbessern, siehe [Leitlinien formatieren](/slides/de/php-java/chart-data-label/#format-leader-lines) für ein Beispiel, das Beschriftungen positioniert und die Farbe, Breite, Transparenz und Strichart der Linien anpasst.
+Um die Lesbarkeit von Beschriftungen außerhalb des Kreises zu verbessern, siehe [Format Leader Lines](/slides/de/php-java/chart-data-label/#format-leader-lines) für ein Beispiel, das Beschriftungen positioniert und die Farbe, Breite, Transparenz und Strichart der Linien anpasst.
 
 ### **Liniendiagramme erstellen**
 
-Liniendiagramme (auch als Liniendiagramme bezeichnet) eignen sich am besten für Situationen, in denen Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
+Liniendiagramme (auch als Linien‑Grafiken bekannt) eignen sich am besten, wenn Sie Änderungen von Werten über die Zeit darstellen möchten. Mit einem Liniendiagramm können Sie eine große Datenmenge gleichzeitig vergleichen, Veränderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben und mehr.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Liniendiagramm mit den Standard‑Serien und -Kategorien zu erstellen, und speichert die Präsentation als PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Liniendiagramm mit den Standardreihen und -kategorien zu erstellen, und speichert die Präsentation anschließend als PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +371,7 @@ finally
 }
 ```
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen durch Strich‑Linien verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) auf:
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, rufen Sie [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) mit einem Wert aus [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) auf:
 
 ```php
 use aspose\slides\ChartType;
@@ -399,11 +401,11 @@ Das Ergebnis:
 
 ![Das Liniendiagramm](line_chart.png)
 
-### **Baumdiagramme erstellen**
+### **Baumkarten-Diagramme erstellen**
 
-Baumdiagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die großen Beiträge innerhalb jeder Kategorie hervorheben möchten.
+Baumkarten‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die großen Beitragsleister innerhalb jeder Kategorie hervorheben möchten.
 
-Dieses Beispiel erstellt ein Baumdiagramm mit acht Blättern, die zu vier Stämmen und zwei Zweigen gruppiert sind. Die [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑Methode weist Stämme der Gruppierungsebene 1 und Zweige Ebene 2 zu. Werte bestimmen die relative Rechteckgröße, während Kategoriebeschriftungen und überlappende Elternbeschriftungen die Hierarchie kennzeichnen.
+Dieses Beispiel erstellt eine Baumkarte mit acht Blättern, gruppiert in vier Stämmen und zwei Zweigen. Die Methode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) weist Stämme auf Gruppierungsebene 1 und Zweige auf Ebene 2 zu. Werte bestimmen die relative Rechteckgröße, während Kategorien‑Beschriftungen und überlappende Eltern‑Beschriftungen die Hierarchie kennzeichnen.
 
 ```php
 use aspose\slides\ChartType;
@@ -487,26 +489,26 @@ finally
 
 Das Ergebnis:
 
-![Das Baumdiagramm](treemap_chart.png)
+![Das Baumkarten‑Diagramm](treemap_chart.png)
 
 ### **Wasserfalldiagramme erstellen**
 
-Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Beispielsweise kann eine Gewinnaufstellung mit Umsatz beginnen, Kosten abziehen und andere Erträge hinzufügen. Änderungsspalten schweben zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsäulen von 0 bis zum kumulierten Wert reichen.
+Ein Wasserfalldiagramm zeigt, wie positive und negative Änderungen zu einem Endwert beitragen. Beispielsweise kann eine Gewinn‑Aufschlüsselung mit Umsatz beginnen, Kosten abziehen und weiteres Einkommen hinzufügen. Änderungs‑Spalten schweben zwischen dem vorherigen und dem neuen Laufwert, während Gesamtsäulen von 0 bis zum akkumulierten Wert reichen.
 
 Das folgende Beispiel verwendet Beträge in Tausend US‑Dollar:
 
 | Kategorie | Arbeitsmappenwert | Spaltentyp |
 | --- | ---: | --- |
 | Umsatz | 1000 | Zunahme |
-| Umsatzkosten | -400 | Abnahme |
-| Bruttogewinn | 600 | Zwischensumme |
+| Herstellungskosten | -400 | Abnahme |
+| Bruttogewinn | 600 | Zwischen­summe |
 | Betriebskosten | -200 | Abnahme |
 | Sonstige Erträge | 50 | Zunahme |
-| Nettogewinn | 450 | Endsumme |
+| Jahresüberschuss | 450 | Endsumme |
 
-Um einen Punkt als Zwischensumme oder Endsumme zu kennzeichnen, rufen Sie dessen [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/)‑Methode mit `true` auf. Geben Sie den tatsächlichen kumulierten Betrag in der Arbeitsblattzelle dieses Punktes an: `600` für Bruttogewinn (`1000 - 400`) und `450` für Nettogewinn (`600 - 200 + 50`). Die Methode markiert die Spalte als Summe; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht 0 als Platzhalter und geben Sie keinen anderen Änderungswert für einen Summenpunkt an. Eine Gesamtsäule zeigt den kumulierten Wert, ohne ihn erneut zum Laufwert hinzuzufügen.
+Um einen Punkt als Zwischen‑ oder Endsumme zu kennzeichnen, rufen Sie dessen [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) Methode mit `true` auf. Geben Sie den tatsächlichen akkumulierten Betrag in der Arbeitsmappen‑Zelle dieses Punktes an: `600` für den Bruttogewinn (`1000 - 400`) und `450` für den Jahresüberschuss (`600 - 200 + 50`). Die Methode markiert die Spalte als Summe; sie berechnet oder füllt den Zellenwert nicht. Verwenden Sie nicht 0 als Platzhalter oder geben Sie keinen anderen Änderungswert für einen Summen‑Punkt an. Eine Summen‑Spalte zeigt den akkumulierten Wert an, ohne ihn erneut zum Laufwert hinzuzufügen.
 
-Dieses vollständige PHP‑Beispiel erstellt ein Diagramm mit dem `Waterfall`‑Mitglied von [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), löscht die Standarddaten und füllt die eingebettete Arbeitsmappe. Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B Werte. Jeder Wert wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) hinzugefügt. Die nullbasierten Punktindizes `2` und `5` identifizieren die Zwischensumme bzw. die Endsumme. Durch Aufruf von [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) mit `true` werden die Beträge auf den Säulen angezeigt. Keine Eingabepräsentation oder Arbeitsmappe ist erforderlich.
+Dieses vollständige PHP‑Beispiel erstellt ein Diagramm mithilfe des `Waterfall`‑Members von [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), leert die Standarddaten und füllt das eingebettete Arbeitsbuch. Arbeitsblatt‑Index `0` wählt das erste Arbeitsblatt; Spalte A enthält Kategorienamen und Spalte B Werte. Jeder Werte‑Zelle wird mit [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) hinzugefügt. Die nullbasierten Punkt‑Indizes `2` und `5` identifizieren die Zwischen‑ bzw. Endsummen. Durch Aufruf von [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) mit `true` werden die Beträge auf den Spalten angezeigt. Es wird keine Eingabe‑Präsentation oder ein Arbeitsbuch benötigt.
 
 ```php
 use aspose\slides\ChartType;
@@ -546,7 +548,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // Der dritte und sechste Punkt stellen Summen dar, nicht zusätzliche Änderungen.
+    // Der dritte und der sechste Punkt repräsentieren Summen, nicht zusätzliche Änderungen.
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -560,17 +562,23 @@ finally
 }
 ```
 
-Rufen Sie die Serien‑Methode [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) mit `true` auf, um Verbindungslinien zwischen aufeinanderfolgenden Säulen anzuzeigen und den Laufwert leichter nachvollziehbar zu machen. Um diese Linien zu verbergen, ersetzen Sie den Methodenaufruf im Beispiel durch `$series->setShowConnectorLines(false);` vor dem Speichern. Dies ändert nur die Sichtbarkeit der Linie, nicht die Daten oder Summen.
+Rufen Sie die Reihen‑Methode [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) mit `true` auf, um Linien zwischen aufeinanderfolgenden Spalten anzuzeigen und den Laufwert leichter nachvollziehbar zu machen. Um diese Linien zu verbergen, ersetzen Sie den Methodenaufruf im Beispiel durch `$series->setShowConnectorLines(false);` vor dem Speichern. Dadurch wird nur die Sichtbarkeit der Linien geändert, nicht die Daten oder Summen.
 
-Das gespeicherte Ergebnis zeigt einen Bruttogewinn von 600 und einen Nettogewinn von 450, wobei beide Summen von 0 aus starten:
+Die gespeicherte Präsentation zeigt einen Bruttogewinn von 600 und einen Jahresüberschuss von 450, wobei beide Summen von 0 aus beginnen:
 
-![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Nettogewinn von 450 mit Wertebeschriftungen und Verbindungslinien zeigt](waterfall_chart.png)
+![Wasserfalldiagramm, das Umsatz, Kosten, Bruttogewinn von 600 und Jahresüberschuss von 450 zeigt, mit Werte‑Beschriftungen und Verbindungs‑Linien](waterfall_chart.png)
 
-### **Börsendiagramme erstellen**
+### **Börsen‑Diagramme erstellen**
 
-Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse anzuzeigen und damit Markttrends und Volatilität zu analysieren. Sie liefern wesentliche Einblicke in die Aktienperformance und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+Börsen‑Diagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und damit Markttrends sowie Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren sowie Analysten bei fundierten Entscheidungen.
 
-Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Serien in dieser Reihenfolge und drei Kategorien. Die [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/)‑Methode aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) steuert die Hoch‑Tief‑Linien, die Preisbereiche anzeigen, während die einzelnen Serien‑Linien und die feinen horizontalen Gitternetzlinien ausgeblendet werden.
+Dieses Beispiel erstellt ein Open‑High‑Low‑Close‑Diagramm mit vier Reihen in dieser Reihenfolge und drei Kategorien. Die Methode [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) aktiviert Auf‑/Ab‑Balken, und [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) steuert die Hoch‑Niedrig‑Linien, die die Preis­spannen anzeigen, während die einzelnen Reihen‑Linien und kleinere horizontale Gitterlinien ausgeblendet werden.
+
+Der Manager, der von [getUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getupdownbars/) zurückgegeben wird, stellt separate Formatierungsobjekte über [getUpBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getupbarsformat/) und [getDownBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getdownbarsformat/) bereit. Verwenden Sie die jeweilige Methode [getFill](https://reference.aspose.com/slides/php-java/aspose.slides/format/getfill/) und [getLine](https://reference.aspose.com/slides/php-java/aspose.slides/format/getline/), um Füllung und Kontur unabhängig zu setzen. Dieses Beispiel nutzt grüne Balken mit dunkelgrünen Konturen für steigende Intervalle und orange‑rote Balken mit dunkelroten Konturen für fallende Intervalle.
+
+Geben Sie für jede Kategorie numerische Werte für alle vier Reihen an, wobei Hoch und Tief Open und Close einschließen. Die Balken vergleichen Close mit Open **innerhalb derselben Kategorie**, nicht mit der vorherigen Kategorie: A fällt von 72 auf 25, während B von 25 auf 38 und C von 38 auf 50 steigt. Gleiche Open‑ und Close‑Werte erzeugen kein sichtbares gefülltes Intervall. Auf‑/Ab‑Balken erstrecken sich über Open‑Close; Hoch‑Niedrig‑Linien über Low‑High. Diese Balken gehören zur Reihen‑Gruppe und sind keine normalen Säulendiagramm‑Reihen.
+
+Diese Formatierung funktioniert ebenfalls mit [Line and LineWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) Diagrammen, die mindestens zwei Reihen in derselben Gruppe und entsprechende numerische Werte für jede Kategorie enthalten. Für diese nicht‑gestapelten Liniendiagramme vergleichen Auf‑/Ab‑Balken die erste und letzte Reihe: ein höherer letzter Wert erzeugt einen Auf‑Balken, ein niedrigerer letzter Wert einen Ab‑Balken. Das Vertauschen dieser Reihen kehrt die Klassifizierung um. Das untenstehende Beispiel verwendet [OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/); gehen Sie nicht davon aus, dass andere Börsen‑, gestapelten‑Linien‑ oder 3D‑Varianten dieselbe Daten­anordnung oder Intervall­Interpretation nutzen.
 
 ```php
 use aspose\slides\ChartType;
@@ -583,7 +591,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
@@ -635,7 +643,20 @@ try
     $valueCell = $workbook->getCell(0, 3, 4, 50);
     $series->getDataPoints()->addDataPointForStockSeries($valueCell);
 
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
+    $upDownBars = $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars();
+    $upDownBars->setUpDownBars(true);
+
+    $upDownBars->getUpBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 50, 205, 50));
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 100, 0));
+    $upDownBars->getUpBarsFormat()->getLine()->setWidth(2);
+
+    $upDownBars->getDownBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 69, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->setWidth(2);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
 
     for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
@@ -654,15 +675,15 @@ finally
 }
 ```
 
-Das Ergebnis:
+Das Ergebnis, exportiert aus PowerPoint:
 
-![Das Börsendiagramm](stock_chart.png)
+![Börsen‑Diagramm mit einem orange‑roten fallenden Intervall für A und grünen steigenden Intervallen für B und C](stock_chart.png)
 
-### **Box‑ und Whisker‑Diagramme erstellen**
+### **Box‑und‑Whisker‑Diagramme erstellen**
 
-Box‑ und Whisker‑Diagramme werden verwendet, um die Verteilung von Daten zusammenzufassen, indem Schlüsselstatistiken wie Median, Quartile und mögliche Ausreißer dargestellt werden. Sie sind besonders nützlich in der explorativen Datenanalyse und bei statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu erkennen.
+Box‑und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem zentrale statistische Kennzahlen wie Median, Quartile und mögliche Ausreißer zusammengefasst werden. Sie sind besonders nützlich in explorativen Datenanalysen und statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu identifizieren.
 
-Dieses Beispiel erstellt ein Box‑ und Whisker‑Diagramm aus sechs Werten. Die [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/)‑Methode wählt die exklusive Quartilberechnung. Das Beispiel aktiviert außerdem Mittelwert‑Linien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
+Dieses Beispiel erstellt ein Box‑und‑Whisker‑Diagramm aus sechs Werten. Die Methode [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) wählt die exklusive Quartilsberechnung. Das Beispiel aktiviert außerdem Mittelwertlinien, Mittelwert‑Marker, innere Punkte und Ausreißer‑Punkte.
 
 ```php
 use aspose\slides\ChartType;
@@ -725,11 +746,11 @@ finally
 }
 ```
 
-### **Trichterdiagramme erstellen**
+### **Trichter‑Diagramme erstellen**
 
-Trichterdiagramme visualisieren Prozesse, die sequenzielle Stufen umfassen, wobei das Datenvolumen von einer Stufe zur nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
+Trichter‑Diagramme werden verwendet, um Prozesse zu visualisieren, die sequentielle Stufen umfassen, wobei das Datenvolumen von einem Schritt zum nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketing‑Prozessen.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um einem bestehenden Präsentations‑Slide ein Trichterdiagramm hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert die aktualisierte Präsentation. Die Eingabepresentation muss mindestens einen Folie enthalten.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Trichter‑Diagramm zur ersten Folie einer bestehenden Präsentation hinzuzufügen. Es ersetzt die Standarddaten durch sechs Kategorien und Werte von 50 bis 500 und speichert dann die aktualisierte Präsentation. Die Eingabe‑Präsentation muss mindestens eine Folie enthalten.
 
 ```php
 use aspose\slides\ChartType;
@@ -787,13 +808,13 @@ finally
 
 Das Ergebnis:
 
-![Das Trichterdiagramm](funnel_chart.png)
+![Das Trichter‑Diagramm](funnel_chart.png)
 
 ### **Sunburst‑Diagramme erstellen**
 
-Sunburst‑Diagramme visualisieren hierarchische Daten, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem kompakten Format.
+Sunburst‑Diagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei Ebenen als konzentrische Ringe dargestellt werden. Sie helfen, Teile‑zu‑Ganz‑Beziehungen zu veranschaulichen und eignen sich ideal, um verschachtelte Kategorien und Unterkategorien kompakt darzustellen.
 
-Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, die zu vier Stämmen und zwei Zweigen gruppiert sind. Die [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑Methode weist Stämme der Gruppierungsebene 1 und Zweige Ebene 2 zu. Kategoriebeschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
+Dieses Beispiel erstellt ein Sunburst‑Diagramm mit acht Blättern, gruppiert in vier Stämmen und zwei Zweigen. Die Methode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) weist Stämme Ebene 1 und Zweige Ebene 2 zu. Kategorien‑Beschriftungen identifizieren die Segmente, und die Werte bestimmen ihre relative Größe.
 
 ```php
 use aspose\slides\ChartType;
@@ -878,13 +899,13 @@ Das Ergebnis:
 
 ### **Histogramm‑Diagramme erstellen**
 
-Histogramm‑Diagramme zeigen, wie numerische Werte über Intervalle (Klassen) verteilt sind. Für monatliche Berichte über Auftragsbearbeitungszeiten verwenden Sie dieselbe Klassenbreite und Schwellen, um Intervalle konsistent zu halten und Verteilungen leichter zu vergleichen.
+Histogramm‑Diagramme zeigen, wie numerische Werte über Intervalle (Bins) verteilt sind. Für monatliche Berichte über Auftrags‑Bearbeitungszeiten verwenden Sie dieselbe Bin‑Breite und dieselben Schwellenwerte, um Intervalle konsistent zu halten und Verteilungen leichter vergleichen zu können.
 
-Rufen Sie [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) auf der Horizontalachse mit einem Modus aus [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) auf. [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) gilt nur für `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, damit das Diagramm die Klassen selbst wählt.
+Rufen Sie [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) auf der horizontalen Achse mit einem Modus aus [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) auf. [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) gilt nur für `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) gilt nur für `ByNumberOfBins`. Verwenden Sie `Automatic`, damit das Diagramm die Bins selbst wählt.
 
-#### **Verwenden einer festen Klassenbreite**
+#### **Feste Bin‑Breite verwenden**
 
-Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minuten‑Intervalle, mit separaten Klassen für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Klassen mit [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) und [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Wenn Sie explizite Schwellenwerte über [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) und [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) angeben, rufen Sie [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) und [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) mit `false` auf.
+Dieses Beispiel gruppiert Bearbeitungszeiten in 10‑Minute‑Intervalle, mit separaten Bins für Zeiten ≤ 10 Minuten und > 40 Minuten. Aktivieren Sie diese Bins mit [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) und [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). Wenn Sie explizite Schwellenwerte über [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) und [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) angeben, rufen Sie [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) und [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) mit `false` auf.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -934,13 +955,13 @@ finally
 }
 ```
 
-Die in PowerPoint angezeigte Präsentation zeigt Klassen­zahlen von **3, 4, 4, 4 und 2**. Die Unterklassen‑Klasse enthält `5, 10, 10`, sodass ihr Schwellenwert inklusiv ist. Die Überlauf‑Klasse enthält nur `41, 50`, sodass ihr Schwellenwert exklusiv ist; beide Werte gleich `40` bleiben im vorherigen Intervall. Die Innenklassen enthalten Werte größer als ihre untere Grenze und kleiner‑gleich ihrer oberen Grenze.
+Die in PowerPoint angezeigte Präsentation zeigt Bin‑Zählungen von **3, 4, 4, 4 und 2**. Der Unter‑Bin enthält `5, 10, 10`, daher ist seine Schwelle inklusiv. Der Über‑Bin enthält nur `41, 50`, daher ist seine Schwelle exklusiv; beide Werte gleich `40` bleiben im vorhergehenden Intervall. Die inneren Bins enthalten Werte, die größer als ihre untere Grenze und kleiner‑gleich ihrer oberen Grenze sind.
 
-![Histogramm mit 10‑Minuten‑Klassen und expliziten Unter‑ und Überlauf‑Schwellenwerten](histogram_bin_width.png)
+![Histogramm mit 10‑Minute‑Bins und expliziten Unter‑ und Über‑Schwellenwerten](histogram_bin_width.png)
 
-#### **Angeben der Anzahl von Klassen**
+#### **Anzahl der Bins angeben**
 
-Für ein festes Detaillierungsniveau statt fester Intervalle verlangen Sie fünf Klassen für dieselben Daten. Dieses Beispiel lässt Unter‑ und Überlaufklassen deaktiviert. Das Diagramm ermittelt die Breite aus dem Datenbereich, sodass Grenzen zwischen Berichten variieren können.
+Für ein festes Detailniveau statt fester Intervalle fordern Sie fünf Bins für dieselben Daten an. Dieses Beispiel lässt Unter‑ und Über‑Bins deaktiviert. Das Diagramm ermittelt die Breite aus dem Datenbereich, sodass die Grenzen zwischen Berichten variieren können.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -984,15 +1005,15 @@ finally
 }
 ```
 
-Die fünf Klassen haben Zahlen von **4, 4, 4, 4 und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis der festen Breite oben: Die Eingabewerte sind identisch, aber die Grenzen unterscheiden sich.
+Die fünf Bins haben Zählungen von **4, 4, 4, 4 und 1**. Vergleichen Sie diese Verteilung mit dem Ergebnis fester Breite oben: Die Eingabewerte sind identisch, aber die Grenzen unterscheiden sich.
 
-![Histogramm mit fünf Klassen, berechnet aus denselben Daten](histogram_bin_count.png)
+![Histogramm mit fünf Bins, berechnet aus denselben Daten](histogram_bin_count.png)
 
 ### **Radar‑Diagramme erstellen**
 
-Radar‑Diagramme visualisieren multivariate Daten in einem zweidimensionalen Format und ermöglichen einen einfachen Vergleich mehrerer Variablen gleichzeitig. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungsmetriken oder Attribute hinweg zu identifizieren.
+Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, sodass mehrere Variablen gleichzeitig leicht verglichen werden können. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungs­metriken oder Attribute hinweg zu identifizieren.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Radar‑Diagramm mit den Standard‑Serien und -Kategorien zu erstellen, und speichert die Präsentation als PPTX.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Radar‑Diagramm mit den Standardreihen und -kategorien zu erstellen, und speichert die Präsentation anschließend als PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -1020,9 +1041,9 @@ Das Ergebnis:
 
 ### **Mehrkategorien‑Diagramme erstellen**
 
-Mehrkategorien‑Diagramme zeigen Daten, die mehr als eine kategoriale Gruppierung umfassen, und ermöglichen den Vergleich von Werten über mehrere Dimensionen hinweg. Sie sind besonders hilfreich, wenn Sie Trends und Beziehungen in komplexen, mehrschichtigen Datensätzen analysieren müssen.
+Mehrkategorien‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung enthalten, sodass Werte über mehrere Dimensionen gleichzeitig verglichen werden können. Sie sind besonders hilfreich, wenn Sie Trends und Beziehungen innerhalb komplexer, mehrschichtiger Datensätze analysieren müssen.
 
-Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, die in vier Paare angeordnet sind. Die [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/)‑Methode gibt jedem Paar ein gemeinsames Beschriftungslabel auf Gruppierungsebene 1, wodurch eine Kategorieachse mit Einzel‑ und Gruppenbeschriftungen entsteht.
+Dieses Beispiel erstellt ein gruppiertes Säulendiagramm mit acht Kategorien, angeordnet in vier Paaren. Die Methode [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) gibt jedem Paar ein gemeinsames Label auf Gruppierungsebene 1, wodurch eine Kategorien‑Achse mit sowohl einzelnen als auch Gruppen‑Labels entsteht.
 
 ```php
 use aspose\slides\ChartType;
@@ -1100,9 +1121,67 @@ Das Ergebnis:
 
 ![Das Mehrkategorien‑Diagramm](multi_category_chart.png)
 
+#### **Ein Quartals‑Label entfernen**
+
+Laden Sie [quarters.pptx](quarters.pptx) herunter und legen Sie es im selben Verzeichnis wie das PHP‑Skript ab. Das Diagramm zeigt neun Monate und eine einzige Verkaufsreihe mit Werten von 10 bis 18. Auf der Kategorien‑Achse erstreckt sich Q1 über Januar bis März, Q2 über April bis Juni und Q3 über Juli bis September.
+
+April ist die vierte Kategorie (Index 3) und trägt das Q2‑Label. Verwenden Sie [getGroupingLevels](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getgroupinglevels/), um die Gruppierungsebenen von April zu erhalten, und rufen Sie dann [deleteGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) mit Level 1 auf, um dessen Quartals‑Label zu entfernen. Level 0 repräsentiert den Monat selbst und kann mit dieser Methode nicht entfernt werden.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation(__DIR__ . "/quarters.pptx");
+try
+{
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $april = $chart->getChartData()->getCategories()->get_Item(3);
+    $april->getGroupingLevels()->deleteGroupingItem(1);
+
+    $presentation->save(__DIR__ . "/quarters-updated.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+
+$reopened = new Presentation(__DIR__ . "/quarters-updated.pptx");
+try
+{
+    $updatedChart = $reopened->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $updatedChart->getChartData();
+
+    $months = [];
+    $categories = $data->getCategories();
+    
+    for ($i = 0; $i < java_values($categories->size()); $i++)
+    {
+        $months[] = (string)$categories->get_Item($i)->getAsCell()->getValue();
+    }
+
+    $sales = [];
+    $points = $data->getSeries()->get_Item(0)->getDataPoints();
+    for ($i = 0; $i < java_values($points->size()); $i++)
+    {
+        $sales[] = (string)$points->get_Item($i)->getValue()->getData();
+    }
+
+    echo implode(", ", $months), PHP_EOL;
+    echo implode(", ", $sales), PHP_EOL;
+}
+finally
+{
+    $reopened->dispose();
+}
+```
+
+Nach dem erneuten Öffnen des Diagramms gibt das Beispiel die ursprünglichen Monate (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) und Verkaufswerte (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) in derselben Reihenfolge aus. Öffnen Sie `quarters-updated.pptx` in PowerPoint, um die Achsen‑Beschriftungen zu vergleichen. Das Q2‑Label und die Gruppen‑Grenze vor April verschwinden, sodass Q1 über Januar bis Juni reicht. Q3 beginnt weiterhin im Juli.
+
+![Quartals‑Labels vor und nach dem Entfernen. Links erstreckt sich Q2 über April bis Juni. Rechts erstreckt sich Q1 über Januar bis Juni.](quarter-label-comparison.png)
+
 ### **Karten‑Diagramme erstellen**
 
-Karten‑Diagramme visualisieren geografische Daten, indem Informationen bestimmten Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
+Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Orten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
 
 Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Karten‑Diagramm mit den Standard‑Geodaten zu erstellen und speichert es zur Ansicht in PowerPoint.
 
@@ -1130,17 +1209,17 @@ Das Ergebnis:
 
 ![Das Karten‑Diagramm](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-Das obige Bild zeigt die gespeicherte Präsentation, die in PowerPoint geöffnet wurde. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch keine Karten‑Diagramme selbst: Wenn ein Folie, die ein solches enthält, zu einem Bild gerendert oder in PDF oder SVG konvertiert wird, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
+{{% alert color="info" title="Hinweis" %}}
+Das obige Bild zeigt die gespeicherte Präsentation, geöffnet in PowerPoint. Aspose.Slides schreibt das Karten‑Diagramm und seine Daten korrekt, zeichnet jedoch keine Karten‑Diagramme selbst: Wenn eine Folie, die ein solches Diagramm enthält, zu einem Bild gerendert oder in PDF bzw. SVG konvertiert wird, erscheint der Diagrammbereich leer. Andere Formen auf derselben Folie bleiben unverändert.
 {{% /alert %}}
 
 ### **Kombinations‑Diagramme erstellen**
 
-Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen, was Beziehungen zwischen ihnen verdeutlicht.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen, sodass Beziehungen zwischen ihnen erkennbar werden.
 
-![Das Kombinationsdiagramm](combination_chart.png)
+![Das Kombinations‑Diagramm](combination_chart.png)
 
-Dieses Beispiel kombiniert zwei gruppierte Säulen‑Serien mit einer Linien‑Serie über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) die Linie auf einer sekundären vertikalen Achse rechts platziert. Helfer‑Funktionen konfigurieren Titel, Legende, Achsenbeschriftungen und Gitterlinien.
+Dieses Beispiel kombiniert zwei gruppierte Säulen‑Reihen mit einer Linien‑Reihe über vier Kategorien. Die Säulen verwenden die primäre vertikale Achse, während [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) die Linie auf eine sekundäre vertikale Achse rechts platziert. Die Hilfsfunktionen konfigurieren Titel, Legende, Achsen‑Beschriftungen und Gitterlinien.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1314,9 +1393,9 @@ createComboChart();
 
 ## **Diagramme aktualisieren**
 
-Aspose.Slides für PHP via Java ermöglicht das Aktualisieren von PowerPoint‑Diagrammen durch Ändern von Diagrammdaten, Formatierung und Stil. Diese Funktionalität vereinfacht das Aktualisieren von Präsentationen mit dynamischem Inhalt und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards genau widerspiegeln.
+Aspose.Slides für PHP via Java ermöglicht es Ihnen, PowerPoint‑Diagramme zu aktualisieren, indem Sie Diagrammdaten, Formatierungen und Stile ändern. Diese Funktionalität vereinfacht den Prozess, Präsentationen mit dynamischen Inhalten aktuell zu halten, und sorgt dafür, dass Diagramme aktuelle Daten und visuelle Standards exakt widerspiegeln.
 
-Dieses Beispiel aktualisiert das Diagramm mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spalten‑Serien mit jeweils drei Datenpunkten, wobei Kategorienamen in Spalte A und Seriennamen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/), um Arbeitsblattzellen zu ändern, aktualisiert Serienwerte, fügt eine dritte Serie hinzu und ändert das Diagramm zu gruppierten Zylindern über [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+Dieses Beispiel aktualisiert das Diagramm mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation. Es erfordert zwei Spalten‑Reihen mit jeweils drei Datenpunkten, wobei Kategorienamen in Spalte A und Reihen‑Namen in der ersten Zeile des ersten Arbeitsblatts stehen. Das Beispiel verwendet [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/), um Arbeitsmappen‑Zellen zu ändern, aktualisiert Reihen‑Werte, fügt eine dritte Reihe hinzu und ändert das Diagramm zu gruppierten Zylindern über [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1382,11 +1461,11 @@ finally
 
 ## **Datenbereich für ein Diagramm festlegen**
 
-Um den bereits von einem bestehenden Diagramm genutzten Bereich zu prüfen, siehe [Abrufen des Datenbereichs eines Diagramms](/slides/de/php-java/chart-workbook/#retrieve-a-charts-data-range).
+Um den bereits von einem bestehenden Diagramm genutzten Bereich zu prüfen, siehe [Retrieve a Chart's Data Range](/slides/de/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides für PHP via Java bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, wodurch Sie kontrollieren, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. Dadurch können Sie Diagramme einfach aktualisieren und mit den neuesten Datenänderungen in Ihrem Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und genaue Informationen widerspiegeln.
+Aspose.Slides für PHP via Java bietet die Flexibilität, einen spezifischen Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten zu definieren. Das bedeutet, dass Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen können, wodurch Sie steuern, welche Zellen zu den Reihen und Kategorien des Diagramms beitragen. Dadurch lassen sich Diagramme leicht aktualisieren und mit den neuesten Datenänderungen in Ihrem Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen aktuelle und korrekte Informationen widerspiegeln.
 
-Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/), um die Datenquelle des Diagramms mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Die Diagramm‑Arbeitsmappe muss dieses Arbeitsblatt und einen befüllten Bereich mit einer Serientitelzeile, Kategorienamen in Spalte A und drei Werten in Spalte B enthalten.
+Dieses Beispiel verwendet [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/), um die Datenquelle des Diagramms mit dem Namen "My chart" auf der ersten Folie einer bestehenden Präsentation auf `Sheet1!A1:B4` zu setzen. Das Diagramm‑Arbeitsbuch muss dieses Arbeitsblatt enthalten und einen befüllten Bereich mit einer Reihen‑Überschrift in der ersten Zeile, Kategorienamen in Spalte A und drei Werten in Spalte B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1420,9 +1499,9 @@ finally
 
 ## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagramm‑Serie automatisch ein unterschiedliches Standard‑Marker‑Symbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagramm‑Reihe automatisch ein unterschiedliches Standard‑Marker‑Symbol.
 
-Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Diagramm mit zwei Linien‑Serien und einer Legende zu erstellen. Die über [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) abgerufenen Marker‑Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole. Die erste Serie enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert hat.
+Dieses Beispiel verwendet [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/), um ein Diagramm mit zwei Linien‑Reihen und einer Legende zu erstellen. Die über [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) abgerufenen Marker‑Einstellungen behalten die automatisch zugewiesenen Marker‑Symbole. Die erste Reihe enthält einen negativen Wert und einen fehlenden Wert, dargestellt durch `null`, während die zweite für jede Kategorie einen Wert besitzt.
 
 ```php
 use aspose\slides\ChartType;
@@ -1491,16 +1570,16 @@ finally
 
 **Welche Diagrammtypen werden von Aspose.Slides für PHP via Java unterstützt?**
 
-Aspose.Slides für PHP via Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kuchen, Flächen, Scatter, Histogramme, Radar und viele mehr. Diese Flexibilität ermöglicht Ihnen die Auswahl des am besten geeigneten Diagrammtyps für Ihre Datenvisualisierungs‑Bedürfnisse.
+Aspose.Slides für PHP via Java unterstützt eine breite Palette von Diagrammtypen, darunter Balken, Linien, Kreis, Fläche, Scatter, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierungs‑Bedürfnisse auszuwählen.
 
-**Wie füge ich einer Folie ein neues Diagramm hinzu?**
+**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf die zugehörige Daten‑Arbeitsmappe ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) zugreifen, Standard‑Serien und -Kategorien löschen und Ihre benutzerdefinierten Daten hinzufügen. Dadurch können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten widerzuspiegeln.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf sein Daten‑Arbeitsbuch ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)) zugreifen, die Standard‑Reihen und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. Dadurch lässt sich das Diagramm programmgesteuert auffrischen, um die neuesten Daten widerzuspiegeln.
 
-**Ist es möglich, das Erscheinungsbild des Diagramms anzupassen?**
+**Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides für PHP via Java bietet umfangreiche Anpassungs‑Optionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente verändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides für PHP via Java bietet umfangreiche Anpassungs‑Optionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und weitere Formatierungselemente ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Design‑Anforderungen anzupassen.
