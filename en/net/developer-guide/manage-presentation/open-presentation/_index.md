@@ -47,6 +47,10 @@ using var presentation = new Presentation("sample.pptx");
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
+## Legacy PPT Files on Linux
+
+When loading legacy `.ppt` files in a Linux container, Aspose.Slides may throw `PptReadException: Can't read MSCDFileSystem`. This occurs when the required native SkiaSharp dependencies are not present. Adding the `SkiaSharp` (and, if required, `SkiaSharp.NativeAssets.Linux`) NuGet package resolves the error and allows the presentation to load successfully.
+
 ## **Open Password-Protected Presentations**
 
 An opening password encrypts presentation content. To load the complete presentation, assign the correct password to [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) and pass the options to the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) constructor. Loading fails when the password is missing or incorrect.
