@@ -5,47 +5,47 @@ type: docs
 weight: 80
 url: /tr/php-java/powerpoint-math-equations/
 keywords:
-- matematik denklem
-- matematik sembol
-- matematik formül
-- matematik metin
-- matematik denklem ekle
-- matematik sembol ekle
-- matematik formül ekle
-- matematik metin ekle
+- matematik denklemi
+- matematik sembolü
+- matematik formülü
+- matematik metni
+- matematik denklemi ekle
+- matematik sembolü ekle
+- matematik formülü ekle
+- matematik metni ekle
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve net PHP kod örnekleri sağlar."
+description: "Aspose.Slides for PHP via Java ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve açık PHP kod örnekleri sunar."
 ---
 ## **Genel Bakış**
 
-PowerPoint, denklemleri Office Math Markup Language (OMML) olarak saklar. Aspose.Slides for PHP via Java ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
+PowerPoint denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for PHP via Java ile aynı tür matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
 
-PowerPoint'te kullanıcılar genellikle denklemleri **Ekle > Denklem** üzerinden ekler:
+PowerPoint'te kullanıcılar genellikle denklemleri **Insert > Equation** menüsünden ekler:
 
-![PowerPoint Ekle sekmesi, Denklem komutu seçili](powerpoint-math-equations_1.png)
+![PowerPoint Ekle sekmesi, Equation komutu seçili](powerpoint-math-equations_1.png)
 
 Sonuç, slaytta düzenlenebilir matematik metni olur:
 
-![Düzenlenebilir bir matematik denklemi içeren bir PowerPoint slaytı](powerpoint-math-equations_2.png)
+![Düzenlenebilir bir matematik denklemi içeren PowerPoint slaytı](powerpoint-math-equations_2.png)
 
-Aspose.Slides, bu matematik metnini üç ana nesne aracılığıyla oluşturur:
+Aspose.Slides bu matematik metnini üç ana nesne üzerinden oluşturur:
 
-- Matematik şekli, [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) ile oluşturulur ve denklemi içeren şekildir.
-- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) şekil metin çerçevesi içinde matematik içeriğini saklar.
+- Bir matematik şekli, [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) ile oluşturulur ve denklemi içerir.
+- [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) şekil metin çerçevesi içinde matematik içeriğini depolar.
 - [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) bir veya daha fazla [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) nesnesi içerir.
 
-Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) ve [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) üzerinden gelen akıcı yöntemleri kullanır.
+Aşağıdaki çoğu örnek, kodu kısa ve okunaklı tutmak için [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) ve [MathElementBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) üzerindeki akıcı metodları kullanır.
 
-MathML dışa aktarma senaryoları için, [PHP via Java'da Sunumlardan Matematik Denklemlerini Dışa Aktarma](/slides/tr/php-java/exporting-math-equations/) bölümüne bakın.
+[PHP üzerinden Java ile Sunumlarda Matematik Denklemlerini Dışa Aktarma](/slides/tr/php-java/exporting-math-equations/)
 
 ## **Denklem Oluşturma**
 
-Bu örnek, [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) kullanarak bir matematik şekli oluşturur ve Pisagor teoremini ekler:
+Bu örnek, bir matematik şekli oluşturmak için [addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) kullanır ve Pisagor teoremini ekler:
 
-![c² = a² + b² denklemi](powerpoint-math-equations_3.png)
+![c kare eşittir a kare artı b kare denklemi](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) öğesine erişin, [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) çağırın ve ona matematik blokları veya matematik öğeleri ekleyin.
+[addMathShape](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addMathShape) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) erişin, [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) çağırın ve ona matematik blokları veya matematik öğeleri ekleyin.
 {{% /alert %}}
 
 ## **Kesir Ekleme**
 
-[divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) kullanarak bir kesir oluşturun. [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
+Bir kesir oluşturmak için [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) kullanın. [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
 
-![x ile bölünmüş bir birimi gösteren eğik bir matematik kesiri](powerpoint-math-equations_4.png)
+![x'e bölünmüş bir kesiri gösteren eğik matematik kesiri](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-Üst üste bir kesir için, [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar) kullanın:
+Yığılmış bir kesir için, [MathFractionTypes::Bar](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/#Bar) kullanın:
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
 ```
 
-## **Kökler Ekleme**
+## **Kök Ekleme**
 
-[radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) kullanarak karekök, küpkök veya başka bir kök oluşturabilirsiniz. Mevcut öğe taban olur, argüman ise derecesi olur.
+[radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#radical) kullanarak karekök, küpkök veya diğer kökleri oluşturabilirsiniz. Mevcut öğe taban olur, argüman ise derece olur.
 
-![Kök işareti altında x bulunan n. dereceden kök ifadesi](powerpoint-math-equations_5.png)
+![Kök işareti altında x bulunan n'inci dereceli kök ifadesi](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,11 +139,45 @@ try {
 }
 ```
 
-## **Fonksiyonlar ve Limitler Ekleme**
+### **Karekök Derecesini Gösterme veya Gizleme**
 
-`sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları için [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) veya [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) kullanın. Limitler için, `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit) kullanın.
+Karekök, açıkça 2 gösterilebilir veya geleneksel √x notasyonu kullanılabilir. [MathRadical](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/) üzerindeki [setHideDegree](https://reference.aspose.com/slides/php-java/aspose.slides/mathradical/#setHideDegree) yöntemi hangi biçimin görüneceğini kontrol eder. Her iki biçim de düzenlenebilir denklemede derece 2 ve radikand x'i korur.
 
-![x'in sonsuza yaklaşırken limiti](powerpoint-math-equations_8.png)
+![Sol tarafta derece görünür, sağ tarafta gizli aynı karekök](square-root-degree.png)
+
+Örnek aynı karekökü iki kez kaydeder. `visible-degree.pptx` dosyasında 2 görünür. `hidden-degree.pptx` dosyasında ise gizlidir.
+
+```php
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $radical = (new MathematicalText("x"))->radical("2");
+
+    $shape = $slide->getShapes()->addMathShape(20, 20, 200, 100);
+    $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $portion->getMathParagraph()->add(new MathBlock($radical));
+
+    $radical->setHideDegree(false);
+    $presentation->save("visible-degree.pptx", SaveFormat::Pptx);
+
+    $radical->setHideDegree(true);
+    $presentation->save("hidden-degree.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Fonksiyon ve Limit Ekleme**
+
+`sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları için [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) veya [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#function) kullanın. Limitler için `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setLowerLimit) kullanın.
+
+![x'in sonsuza yaklaştığında limiti](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,18 +239,18 @@ try {
 }
 ```
 
-N-ary operatörler, isteğe bağlı limitli büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) olarak eklenir ve ifadeye katılır.
+N-ary operatörler, isteğe bağlı limitlere sahip büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) olarak eklenir ve ifadeye katılır.
 
-Bir integral için, [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) kullanın:
+İntegral için, [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#integral) kullanın:
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
 $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 ```
 
-## **Matrisler Ekleme**
+## **Matris Ekleme**
 
-[MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) satır ve sütunlar için kullanılır. Matrisler varsayılan olarak parantez içermez, bu yüzden parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi sarın.
+Satırlar ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez, bu nedenle parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi dışarı alın.
 
 ![Bir boş hücreli iki satırlı matematik matrisi](powerpoint-math-equations_10.png)
 
@@ -248,9 +282,9 @@ try {
 
 ## **Denklem Dizileri Ekleme**
 
-Hizalanmış denklemlere veya dikey bir ifade yığınına ihtiyaç duyduğunuzda [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) kullanın.
+Hizalanmış denklemlere veya dikey ifadeler yığınına ihtiyacınız olduğunda [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toMathArray) kullanın.
 
-![x'in y'in üstünde olduğu dikey bir matematik dizisi](powerpoint-math-equations_11.png)
+![x'in y'nin üstünde olduğu dikey matematik dizisi](powerpoint-math-equations_11.png)
 
 ```php
 $presentation = new Presentation();
@@ -275,11 +309,11 @@ try {
 }
 ```
 
-### **Diziyi Çevreleyen Öğelerle Hizalama**
+### **Diziyi Çevresindeki Öğelerle Hizalama**
 
-[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) dizinin dikey hizalamasını yanındaki matematik öğelerine göre kontrol eder. Aşağıdaki örnek, ilk satır, dizinin ortası ve son satır hizalamalarını karşılaştırır.
+[setBaseJustification](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setBaseJustification) bir dizinin yanındaki matematik öğelerine göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizi ortası ve son satır hizalamasını karşılaştırır.
 
-Aşağıdaki örnek, üç satır ve komşu öğeler `A=` ve `=B` olan üç aynı diziyi oluşturur. Tüm matematik metni 24 punto Cambria Math kullanır. Sadece dizi hizalaması değişir.
+Aşağıdaki örnek, üç satır ve komşu öğeler `A=` ve `=B` olan üç aynı diziyi oluşturur. Tüm matematik metni Cambria Math 24 punto kullanır. Sadece dizi hizalaması değişir.
 
 ```php
 use aspose\slides\FillType;
@@ -343,17 +377,17 @@ try {
 }
 ```
 
-Aşağıdaki karşılaştırma, PowerPoint'ta kaydedilen sunumu gösterir. Her dizinin yanındaki `A=` ve `=B` konumuna dikkat edin.
+Aşağıdaki karşılaştırma, kaydedilen sunumu PowerPoint'te gösterir. Her dizinin yanındaki `A=` ve `=B` konumuna dikkat edin.
 
-![PowerPoint'ta Üst, Orta ve Alt hizalama ve aynı çevreleyen öğelerle denklemler dizileri](equation-array-alignment.png)
+![Üst, orta ve alt hizalama ve aynı komşu öğelerle PowerPoint'te denklem dizileri](equation-array-alignment.png)
 
 ### **Satır Aralığını Yapılandırma**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) dizideki satırların aralık kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) açık bir aralık kuralı için sayısal bir değer sağlar ve ön tanımlı kurallar tarafından yok sayılır.
+[setRowSpacingRule](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacingRule) dizi içindeki satırlar için boşluk kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/matharray/#setRowSpacing) belirli bir boşluk kuralı için sayısal değer sağlar ve ön ayar kurallar tarafından yoksayılır.
 
-Tam aralık için değer puan cinsinden ölçülür. Orantılı aralık için yarı satır cinsinden ölçülür: örnekteki `3` değeri 1,5 satır belirtir. Açık bir değer belirtirken her iki özelliği de ayarlayın; yalnızca sayısal değeri değiştirmek bir aralık kuralı seçmez.
+Tam boşluk için değer puan cinsindendir. Orantılı boşluk için yarım satır cinsindendir: örnekteki `3` değeri 1.5 satır anlamına gelir. Belirli bir değer belirtirken her iki özelliği de ayarlayın; sadece sayısal değeri değiştirmek boşluk kuralını seçmez.
 
-Aşağıdaki örnek aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi açık değerleri gösterir.
+Aşağıdaki örnek aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi belirli değerleri gösterir.
 
 ```php
 use aspose\slides\FontData;
@@ -411,11 +445,11 @@ foreach ($settings as $name => [$rule, $spacing]) {
 }
 ```
 
-Dizi satır aralığı, paragraf aralığından ayrıktır. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) diziyi içeren paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Benzer şekilde, [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) tüm matematik paragrafını yatay olarak konumlandırır; dizi dikey hizalama ayarını değiştirmez.
+Dizi satır aralığı paragraf aralığından ayrıktır. [setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter) içeren paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Benzer şekilde, [MathParagraph::setJustification](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#setJustification) tüm matematik paragrafını yatay olarak konumlandırır; dizi dikey hizalama ayarını değiştirmez.
 
 ## **Trigonometrik Fonksiyonlar Ekleme**
 
-İşlev adı biliniyorsa ve argüman mevcut öğe olduğunda, [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) kullanın.
+Argüman mevcut öğe ve fonksiyon adı biliniyorsa [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#asArgumentOfFunction) kullanın.
 
 ![2x'e uygulanan cos trigonometrik fonksiyonu](powerpoint-math-equations_6.png)
 
@@ -441,11 +475,11 @@ try {
 }
 ```
 
-## **Alt ve Üst Simge Ekleme**
+## **Alt Simge ve Üst Simge Ekleme**
 
-İndeksler ve üstel değerler için alt ve üst simge yardımcılarını kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) kullanın.
+İndeksler ve üsler için alt ve üst simge yardımcılarını kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) kullanın.
 
-![Sol tarafı alt simge 1 ve üst simge n olan büyük Y](powerpoint-math-equations_9.png)
+![Sol tarafında alt simge 1 ve üst simge n olan büyük Y](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -469,11 +503,11 @@ try {
 }
 ```
 
-## **Ayraçlar Ekleme**
+## **Sınırlayıcılar Ekleme**
 
-İfadenin etrafına ayraç eklemek için [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) kullanın. Birden fazla öğe içeren ayraç ifadeleri için bir ayırıcı karakter de ayarlayabilirsiniz.
+Bir ifadeyi sınırlayıcıların içine koymak için [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#enclose) kullanın. Birden fazla öğe içeren sınırlayıcı ifadeler için ayırıcı karakter de ayarlayabilirsiniz.
 
-![x, y ve z'yi dikey çubuklarla ayıran bir ayraç ifadesi](powerpoint-math-equations_13.png)
+![x, y ve z'yi dikey çubuklarla ayıran bir sınırlayıcı ifade](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -500,11 +534,11 @@ try {
 }
 ```
 
-### **Ayraçları Boyutlandırma ve Hizalama**
+### **Sınırlayıcıları Boyutlandırma ve Hizalama**
 
-`true` geçerek [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) parantezlerin yüksek operanda göre büyümesini sağlarsınız; `false` geçerek normal boyutlarını korursunuz. [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) iki [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) değerinden biriyle kullanılabilir. `Centered` parantezleri eşit işaretinin ortasından geçen matematik eksenine ortalar. `Match` ise içerilen içeriğe göre hizalar. Her iki ayar sadece ayraçları etkiler; içteki ifade aynı kalır.
+[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) metoduna `true` göndererek parantezlerin yüksek bir operanda göre büyümesine izin verin, ya da `false` göndererek normal boyutunda kalmasını sağlayın. [setDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimiter/#setDelimiterShape) metodunu iki [MathDelimiterShape](https://reference.aspose.com/slides/php-java/aspose.slides/mathdelimitershape/) değerinden biriyle kullanın. `Centered` parantezleri eşit işaretinin ortasından geçen matematik ekseninde ortalar. `Match` onları kapsanan içerikle hizalar. Her iki ayar sadece sınırlayıcıları etkiler. İçteki ifade aynı kalır.
 
-Örnek, `x` üssüne bir kesir koyar, böylece ifade alt çizgiden daha çok yukarı uzanır. Dört denklem aynı parantez ve yazı tipi ayarlarını kullanır.
+Örnek, `x`'in üstine bir kesir koyarak ifadenin temel çizginin üstünde aşağıdan daha fazla uzamasını sağlar. Dört denklem de aynı parantez ve yazı tipi ayarlarını kullanır.
 
 ```php
 use aspose\slides\MathDelimiterShape;
@@ -538,15 +572,15 @@ try {
 }
 ```
 
-PowerPoint'ta satırları karşılaştırarak büyüme etkisini görün. Üst satırda parantezler üssü saracak şekilde büyür ve iki şekil de aynı görünür. Alt satırda büyüme kapalıdır. Soldaki daha küçük parantez (`Centered`) eşit işaretiyle hizalanırken, sağdaki (`Match`) ifade etrafında daha yüksekte durur.
+PowerPoint'te satırları karşılaştırarak büyümenin etkisini görebilirsiniz. Üst satırda, parantezler üst ifadeyi sarmak için büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır. Sol taraftaki ( `Centered`) daha küçük parantez eşit işaretiyle hizalanırken, sağ taraftaki (`Match`) ifadeyi daha yukarıda tutar.
 
-![PowerPoint'ta üstte büyüme etkin, altta devre dışı ayraçlarla dört denklem; sol tarafta Centered, sağ tarafta Match](delimiter-sizing.png)
+![Parantez büyümesi açık ve kapalı olan dört denklem, solda Centered ve sağda Match](delimiter-sizing.png)
 
-## **Bir Kenarlık Kutusu Ekleme**
+## **Kenarlık Kutusu Ekleme**
 
-Bir kesire tüm ifadeyi çerçelemek için [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) çağırın. Dönen [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) varsayılan olarak dört kenarı gösterir. Tek tek kenarları kaldırmak için [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) ve [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) kullanın.
+Bir kesir üzerinde [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#toBorderBox) çağırarak tüm ifadeyi çerçeveleyin. Döndürülen [MathBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/) varsayılan olarak dört yana gösterir. Tek tek kenarları kaldırmak için [setHideTop](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideLeft) ve [setHideRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setHideRight) kullanın.
 
-Örnek, aynı kesirin altı kopyasını bir slayta yerleştirir. İptal gösterimi için tüm dört kenarı gizleyip, yükselen diyagonal (↗) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) veya düşen diyagonal (↘) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) parametresini `true` yapın. Ayrıca herhangi bir kenar kombinasyonu için [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) veya [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) kullanılabilir.
+Örnek, aynı kesirin altı kopyasını bir slaytta yerleştirir. İptali göstermek için dört kenarı da gizleyin ve yükselen diyagonal (↗) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) metoduna `true`, düşen diyagonal (↘) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) metoduna `true` gönderin. Görünür kenarlar için herhangi bir kombinasyonla [setStrikethroughHorizontal](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) veya [setStrikethroughVertical](https://reference.aspose.com/slides/php-java/aspose.slides/mathborderbox/#setStrikethroughVertical) de kullanabilirsiniz.
 
 ```php
 use aspose\slides\MathBlock;
@@ -593,24 +627,24 @@ try {
 }
 ```
 
-![PowerPoint'ta altı düzenlenebilir kesir. Üst satır: tam kenarlık, alt ve sol kenarlar, yükselen diyagonal. Alt satır: düşen diyagonal, yatay çizgi, dikey çizgi ve tam kenarlık.](border-box-fractions.png)
+![PowerPoint'te altı düzenlenebilir kesir. Üst satır: tam kenarlık, alt ve sol kenarlar, yükselen diyagonal. Alt satır: düşen diyagonal, yatay çizgi, tam kenarlıklı dikey çizgi](border-box-fractions.png)
 
-Bu kesirde, yatay çizgi kesir çubuğunun üzerine biner. Dikey çizgi hem payı hem de paydayı keserken çevre kenarı görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üzeri çizgisi yalnızca bir metin çalışmasındaki karakterlere uygulanır. PowerPoint'ta sunumu yeniden açtığınızda pay ve payda bağımsız olarak hâlâ düzenlenebilir.
+Bu kesirde, yatay çizgi kesir çubuğunun üzerine geçer. Dikey çizgi hem payı hem de paydayı keserken çevre kenarlık görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üzeri çizgi bir metin yürütmesindeki karakterlere uygulanır. PowerPoint'te sunumu yeniden açtıktan sonra, pay ve paydayı bağımsız olarak düzenleyebilirsiniz.
 
 ## **Phantom Öğelerle Görünürlük ve Yerleşimi Kontrol Etme**
 
-Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) içinde sararak görünürlüğünü ve denkleme katkı sağladığı alanı bağımsız olarak kontrol edebilirsiniz. [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) yöntemleri şunları kontrol eder:
+Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) içinde sararak görünürlüğünü ve denkleme katkı sağladığı alanı bağımsız olarak kontrol edebilirsiniz. [MathPhantom](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/) metotları şunları kontrol eder:
 
-| Method | Effect |
+| Yöntem | Etkisi |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | `false` geçerek ifadeyi gizleyin. Boyutları hâlâ yerleşime katkıda bulunur, aşağıdaki yöntemler `true` almazsa. |
-| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | İfadenin yatay genişliğini sıfır kabul edin, komşu öğelerin daha yakın gelmesini sağlar. |
-| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | Yüksekliği, yani tabanın üzerindeki yükselişi sıfır kabul edin; bu, komşu öğelerin üzerindeki ayrık alanı azaltabilir. |
-| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | Derinliği, yani tabanın altındaki inişi sıfır kabul edin; bu, bir kesir çubuğu ya da diğer içeriklerin altındaki boşluğu komşulara yaklaştırabilir. |
+| [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) | İfade gizlemek için `false` gönderin. Aşağıdaki ilgili yöntemler `true` almazsa boyutları hâlâ yerleşmeye katkıda bulunur. |
+| [setZeroWidth](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroWidth) | İfadenin yatay genişliğini sıfır olarak kabul eder, komşu öğelerin daha yakın yer almasını sağlar. |
+| [setZeroAsc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroAsc) | Tabana göre yüksekliği, yani yükselişi sıfır olarak kabul eder. Bu, komşu öğelerin üzerindeki ayrılan boşluğu azaltabilir. |
+| [setZeroDesc](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setZeroDesc) | Tabandan aşağıdaki derinliği sıfır olarak kabul eder. Bu, kesir çubuğu veya ifadenin altındaki diğer içerikleri komşulara daha yakın hâle getirebilir. |
 
-Taban çizgisi, normal matematik harflerinin oturduğu referans çizgisidir. İçeriği gizlemek boyutlarını kaldırmaz; bir boyutu sıfır yapmak ifadeyi silmez. Alt ifade, [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) üzerinden hâlâ erişilebilir. Tekrar göstermek için [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) `true` geçin; boyut ayarları değişmeden kalır.
+Alt çizgi, sıradan matematiksel harflerin oturduğu referans çizgidir. İçeriği gizlemek boyutlarını kaldırmaz ve bir boyutu sıfır olarak ele almak ifadeyi silmez. Alt ifadeye [getBase](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#getBase) ile hâlâ erişilebilir. Tekrar görüntülemek için [setShow](https://reference.aspose.com/slides/php-java/aspose.slides/mathphantom/#setShow) metoduna `true` gönderin; boyut ayarları değişmeden kalır.
 
-Aşağıdaki örnek, yan yana beş varyant oluşturur: görünür bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır kabul edilen üç gizli kesir. Her varyant aynı çevre ifadesi ve 24 punto Cambria Math kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir ve gri kılavuzla işaretlenmiştir. Phantom'u dış kesirin payına koymak, dikey yerleşim değişikliklerini görmeyi kolaylaştırır.
+Aşağıdaki örnek, yan yana beş varyant oluşturur: görünür bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır olarak ele alınan üç gizli kesir. Her varyant aynı çevre ifadeyi ve 24 punto Cambria Math kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir, gri kılavuzla işaretlenmiştir. Phantom'u dış kesirin payına yerleştirmek, dikey yerleşim değişikliklerini görmeyi kolaylaştırır.
 
 ```php
 use aspose\slides\FillType;
@@ -686,11 +720,11 @@ try {
 }
 ```
 
-![PowerPoint'ta bir görünür kesir, alan ayıran gizli kesir ve ZeroWidth, ZeroAsc veya ZeroDesc etkin gizli kesirleri karşılaştıran beş denklem](math-phantom.png)
+![PowerPoint'te görünür kesir, alan ayıran gizli kesir ve ZeroWidth, ZeroAsc veya ZeroDesc etkin olan gizli kesirleri karşılaştıran beş denklem](math-phantom.png)
 
 ## **Terimleri Gruplama**
 
-[group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) kullanarak bir ifadeyi üstüne veya altına bir grup karakteri yerleştirin. Gruplanmış terimleri etiketlemek için limit ekleyin.
+Bir ifadeye üstüne veya altına bir grup karakteri koymak için [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#group) kullanın. Gruplanmış terimlere etiket eklemek için bir limit ekleyin.
 
 ![x + y ifadesi, altında herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
 
@@ -719,9 +753,9 @@ try {
 
 ## **Matematik Öğelerini Biçimlendirme**
 
-Formülü sadece açıklığa kavuşturduğu yerlerde biçimlendirme yardımcılarını kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) bir matematik öğesinin üstüne bir çubuk yerleştirir.
+Biçimlendirme yardımcılarını yalnızca formülü netleştirdiği yerlerde kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#overbar) bir matematik öğesinin üzerine bir çubuk koyar.
 
-![Üst çizgiyle ABC matematik ifadesi](powerpoint-math-equations_14.png)
+![Üst çubuğu olan ABC matematik ifadesi](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -746,9 +780,9 @@ try {
 
 ### **Mevcut Bir Denklemede Metni Biçimlendirme**
 
-Mevcut bir denklem boyunca metni biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) yalnızca doğrudan çocukları döner; kesirlerde, üst/alt simgelerde, köklerde ve diğer iç içe yapılar içinde metne ulaşmak için yinelenerek çağırın. Başlangıç öğesi [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) olduğunda da dahil etmek için mevcut öğeyi ve çocuklarını kontrol edin.
+Mevcut bir denklemin içinde metni biçimlendirmek için her matematik bloğunun eleman ağacını dolaşın. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) yalnızca doğrudan çocukları döndürür, bu yüzden kesirler, üst/alt simgeler, kökler ve diğer iç içe yapılar içindeki metne ulaşmak için yinelemeli olarak çağırın. Başlangıç öğesi [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) olduğunda onu da dahil etmek için mevcut öğeyi ve çocuklarını kontrol edin.
 
-Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; bu denklemde payda bir alt simge, payda bir kök vardır. Yalnızca bloğun üst‑seviye öğelerini işlemek kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklara [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) ile erişir ve her metin öğesinin [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) yöntemi aracılığıyla [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) ile yazı boyutunu 28 puana ayarlar.
+Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; burada kesir pay kısmında alt simge, payda kısmında kök vardır. Sadece bloğun üst düzey öğelerini işlememek, kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) üzerinden bloklarına erişir ve her metin öğesinin [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) metoduyla [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) kullanarak yazı tipi boyutunu 28 puana ayarlar.
 
 ```php
 use aspose\slides\Presentation;
@@ -804,37 +838,37 @@ try {
 }
 ```
 
-Kaydedilen sunum, işlenen her denklemin her seviyesindeki güncellenmiş metin biçimlendirmesini içerir; aynı zamanda metin içeriği ve matematik yapısını korur.
+Kaydedilen sunum, işlenen her denklemin tüm seviyelerinde güncellenmiş metin biçimlendirmesini içerir, aynı zamanda metin içeriğini ve matematiksel yapıyı korur.
 
 ## **Hızlı Başvuru**
 
-| Task | Main API |
+| Görev | Ana API |
 | --- | --- |
 | Matematik metni oluşturma | [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/) |
 | Öğeleri birleştirme | [join](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Kesir oluşturma | [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Üst veya alt simge ekleme | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Üst simge veya alt simge ekleme | [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Fonksiyon ekleme | [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Kök ekleme | [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Limit ekleme | [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Sol‑taraflı üst/alt simge ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Toplam ve integral ekleme | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Sol taraflı script ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Toplamalar ve integraller ekleme | [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Matris ekleme | [MathMatrix](https://reference.aspose.com/slides/php-java/aspose.slides/mathmatrix/) |
 | Denklem dizileri ekleme | [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Ayraç ekleme | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
-| Çizgi ve kenarlık ekleme | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Sınırlayıcı ekleme | [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
+| Çubuklar ve kenarlıklar ekleme | [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 | Terimleri gruplama | [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) |
 
 ## **SSS**
 
-**Mevcut bir PowerPoint denklemini düzenleyebilir miyim?**
+**Varolan bir PowerPoint denklemini düzenleyebilir miyim?**
 
 Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) içeren şekli bulun, [getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph) çağırın ve o paragraftaki matematik bloklarını güncelleyin.
 
-**Denklikler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
+**Denklikler düzenlenebilir PowerPoint matematiği olarak kaydedilir mi?**
 
-Evet. PPTX olarak kaydettiğinizde Aspose.Slides, denklemi düzenlenebilir Office matematik içeriği olarak yazar.
+Evet. PPTX olarak kaydettiğinizde Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
 
-**Denklikleri LaTeX'e dışa aktarabilir miyim?**
+**Denklemleri LaTeX'e dışa aktarabilir miyim?**
 
-Evet. Denklemin [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) öğesini, [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) üzerinden alın ve doğrudan [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) çağırarak dışa aktarın. Tam bir örnek için, [PHP via Java'da Sunumlardan Matematik Denklemlerini LaTeX'e Dışa Aktarma](/slides/tr/php-java/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.
+Evet. Denklemin [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) öğesini [MathPortion](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/) üzerinden alın ve doğrudan dışa aktarmak için [MathParagraph::toLatex](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/#toLatex) çağırın. Tam bir örnek için, [PHP üzerinden Java ile Sunumlarda Matematik Denklemlerini Dışa Aktarma](/slides/tr/php-java/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.

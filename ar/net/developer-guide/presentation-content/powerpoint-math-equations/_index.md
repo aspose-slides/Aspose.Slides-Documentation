@@ -1,6 +1,6 @@
 ---
-title: إضافة المعادلات الرياضية إلى عروض PowerPoint التقديمية في .NET
-linktitle: معادلات الرياضيات في PowerPoint
+title: إضافة معادلات رياضية إلى عروض PowerPoint في .NET
+linktitle: معادلات رياضية PowerPoint
 type: docs
 weight: 80
 url: /ar/net/powerpoint-math-equations/
@@ -18,35 +18,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "إدراج وتحرير المعادلات الرياضية في ملفات PowerPoint PPT و PPTX باستخدام Aspose.Slides for .NET، مع دعم OMML، أدوات التحكم في التنسيق، وأمثلة شفرة C# واضحة."
+description: "إدراج وتحرير المعادلات الرياضية في عروض PowerPoint PPT و PPTX باستخدام Aspose.Slides for .NET، مع دعم OMML، وعناصر تحكم التنسيق، وأمثلة شفرة C# واضحة."
 ---
 ## **نظرة عامة**
 
-يخزن PowerPoint المعادلات كـ Office Math Markup Language (OMML). باستخدام Aspose.Slides for .NET، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجيًا: الكسور، الجذور، الدوال، الحدود، عوامل N-ary، المصفوفات، المصفوفات المتعددة، والكتل الرياضية المنسقة.
+PowerPoint يخزن المعادلات بصيغة Office Math Markup Language (OMML). مع Aspose.Slides for .NET، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجياً: الكسور، الجذور، الدوال، الحدود، المشغلات N-ary، المصفوفات، المصفوفات المتعددة، وكتل الرياضيات المنسقة.
 
-في PowerPoint، يضيف المستخدمون عادةً معادلات من **Insert > Equation**:
+في PowerPoint، يضيف المستخدمون عادةً المعادلات من **Insert > Equation**:
 
-![علامة التبويب Insert في PowerPoint مع تحديد أمر Equation](powerpoint-math-equations_1.png)
+![علامة تبويب Insert في PowerPoint مع الأمر Equation محدد](powerpoint-math-equations_1.png)
 
 النتيجة هي نص رياضي قابل للتحرير على الشريحة:
 
 ![شريحة PowerPoint تحتوي على معادلة رياضية قابلة للتحرير](powerpoint-math-equations_2.png)
 
-يبني Aspose.Slides ذلك النص الرياضي من خلال ثلاثة كائنات رئيسية:
+Aspose.Slides يبني هذا النص الرياضي من خلال ثلاثة كائنات رئيسية:
 
-- شكل رياضي، يُنشأ باستخدام [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/)، وهو الشكل الذي يحتوي على المعادلة.
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) يُخزن محتوى الرياضيات داخل إطار نص الشكل.
-- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) يحتوي على كائن واحد أو أكثر من كائنات [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
+- شكل رياضي، يُنشأ باستخدام [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/)، هو الشكل الذي يحتوي على المعادلة.
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) يخزن محتوى الرياضيات داخل إطار نص الشكل.
+- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) يحتوي على كائن أو أكثر من [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
 
-تستخدم معظم الأمثلة أدناه [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) للحفاظ على قصر ووضوح الشيفرة.
+معظم الأمثلة أدناه تستخدم [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) لجعل الشيفرة قصيرة وسهلة القراءة.
 
-للحالات التي تستهدف تصدير MathML، راجع [تصدير المعادلات الرياضية من العروض التقديمية في .NET](/slides/ar/net/exporting-math-equations/).
+للحالات التي تتطلب تصدير MathML، راجع [Export Math Equations from Presentations in .NET](/slides/ar/net/exporting-math-equations/).
 
 ## **إنشاء معادلة**
 
-هذا المثال يستخدم [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) لإنشاء شكل رياضي ويضيف نظرية فيثاغورس:
+هذا المثال يستخدم [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) لإنشاء شكل رياضي ويضيف مبرهنة فيثاغورس:
 
-![المعادلة c² = a² + b²](powerpoint-math-equations_3.png)
+![المعادلة c تربيع تساوي a تربيع زائد b تربيع](powerpoint-math-equations_3.png)
 
 ```csharp
 using Aspose.Slides;
@@ -72,14 +72,16 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) ينشئ شكلاً يحتوي بالفعل على فقرة رياضية. احصل على أول [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)، احصل على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/)، وأضف كتل رياضية أو عناصر رياضية إليه.
+
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) ينشئ شكلاً يحتوي مسبقاً على فقرة رياضية. احصل على أول [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)، ثم على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/)، وأضف كتل أو عناصر رياضية إليها.
+
 {{% /alert %}}
 
 ## **إضافة كسور**
 
 استخدم [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) لإنشاء كسر. يمكنك اختيار نمط الكسر باستخدام [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![كسر رياضي مائل يُظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
+![كسر رياضي مائل يظهر 1 مقسومة على x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -100,7 +102,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-للكسر المتراص، استخدم [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
+لإنشاء كسر مكدس، استخدم [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -110,9 +112,9 @@ var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFraction
 
 ## **إضافة جذور**
 
-استخدم [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) لإنشاء جذر تربيعي، جذر مكعب، أو جذر آخر. العنصر الحالي يصبح القاعدة، والوسيطة تصبح الدرجة.
+استخدم [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) لإنشاء جذر يربي أو مكعب أو أي جذر آخر. العنصر الحالي يصبح القاعدة، والوسيط يصبح الدرجة.
 
-![تعبير جذر من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
+![تعبير جذري من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -133,9 +135,38 @@ mathParagraph.Add(new MathBlock(radical));
 presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
-## **إضافة دوال وحدود**
+### **إظهار أو إخفاء درجة الجذر التربيعي**
 
-استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) أو [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) للدوال مثل `sin(x)`، `log(x)`، أو أسماء دوال مخصصة. للحدود، ضع `lim` في [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) أو استخدم [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+يمكن للجذر التربيعي إظهار الرقم 2 صراحةً أو استخدام الصيغة التقليدية √x. خاصية [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) في [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) تتحكم في الشكل المعروض. كلا الشكلين يحتفظان بالدرجة 2 والجيب x في المعادلة القابلة للتحرير.
+
+![نفس الجذر التربيعي مع HideDegree مضبوط على false على اليسار وtrue على اليمين](square-root-degree.png)
+
+المثال يحفظ نفس الجذر مرتين. في `visible-degree.pptx` يكون الرقم 2 مرئياً. في `hidden-degree.pptx` يكون مخفياً.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var radical = new MathematicalText("x").Radical("2");
+
+var shape = slide.Shapes.AddMathShape(20, 20, 200, 100);
+var portion = (IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+portion.MathParagraph.Add(new MathBlock(radical));
+
+radical.HideDegree = false;
+presentation.Save("visible-degree.pptx", SaveFormat.Pptx);
+
+radical.HideDegree = true;
+presentation.Save("hidden-degree.pptx", SaveFormat.Pptx);
+```
+
+## **إضافة دوال و حدود**
+
+استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) أو [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) للدوال مثل `sin(x)`, `log(x)`, أو أسماء دوال مخصصة. للحدود، ضع `lim` في [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) أو استخدم [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
 ![حد x عندما يقترب x من اللانهاية](powerpoint-math-equations_8.png)
 
@@ -159,7 +190,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-لإنشاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي واستدعِ [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) بالوسيطة الخاصة به:
+لإنشاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي واستدعِ [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) مع وسيطه:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -167,9 +198,9 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **إضافة عوامل N-ary وتكاملات**
+## **إضافة مشغلات N-ary وتكاملات**
 
-استخدم [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) للجمعيات، الاتحاد، التقاطع، وغيرها من العوامل الكبيرة. استخدم [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) للتكاملات. كلا الطريقتين تتيح لك تحديد الحدود السفلية والعلوية.
+استخدم [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) للمجاميع، الاتحادات، التقاطعات، وغيرها من المشغلات الكبيرة. استخدم [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) للتكاملات. كلا الطريقتين تسمحان بتحديد الحدود السفلية والعليا.
 
 ![جمع مع حدود سفلية وعليا](powerpoint-math-equations_7.png)
 
@@ -195,9 +226,9 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-العوامل N-ary مخصصة للعوامل الكبيرة مع حدود اختيارية. العوامل البسيطة مثل `+`، `-`، و `=` عادةً تُضاف كـ [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) وتُدمج في التعبير.
+المشغلات N-ary مخصصة للمشغلات الكبيرة مع حدود اختيارية. المشغلات البسيطة مثل `+`, `-`, `=` عادةً ما تُضاف كـ [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) وتُدمج في التعبير.
 
-للتكامل، استخدم [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
+لإنشاء تكامل، استخدم [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -208,9 +239,9 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **إضافة مصفوفات**
 
-استخدم [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) للصفوف والأعمدة. المصفوفات لا تتضمن أقواسًا افتراضيًا، لذا يجب إحاطة المصفوفة عندما تحتاج إلى قوسين، أقواس مربعة، أو أقواس معقوفة.
+استخدم [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) للصفوف والأعمدة. المصفوفات لا تتضمن أقواساً بشكل افتراضي، لذا قم بإحاطة المصفوفة بأقواس أو أقواس مربعة أو أقواس معقوفة حسب الحاجة.
 
-![مصفوفة رياضية ذات صفين وخلية واحدة فارغة](powerpoint-math-equations_10.png)
+![مصفوفة رياضية ذات صفّين وخانة فارغة واحدة](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -235,11 +266,11 @@ mathParagraph.Add(new MathBlock(matrix));
 presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
-## **إضافة مصفوفات المعادلات**
+## **إضافة مصفوفات معادلات**
 
-استخدم [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) عندما تحتاج إلى معادلات محاذاة أو مجموعة عمودية من التعبيرات.
+استخدم [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) عندما تحتاج إلى معادلات محاذاة أو مجموعة رأسية من التعبيرات.
 
-![مصفوفة رياضية عمودية مع x فوق y](powerpoint-math-equations_11.png)
+![مصفوفة رياضية رأسية مع x فوق y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -261,11 +292,11 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-### **محاذاة المصفوفة مع العناصر المحيطة**
+### **محاذاة مصفوفة مع العناصر المجاورة**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) يتحكم في محاذاة المصفوفة العمودية بالنسبة للعناصر الرياضية المجاورة لها. المثال أدناه يقارن المحاذاة مع الصف الأول، وسط المصفوفة، والصف الأخير.
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) يتحكم في محاذاة المصفوفة رأسياً بالنسبة للعناصر الرياضية التي بجوارها. المثال أدناه يقارن بين المحاذاة مع الصف الأول، مركز المصفوفة، والصف الأخير.
 
-المثال التالي ينشئ ثلاث مصفوفات متماثلة، كل واحدة بثلاث صفوف والعناصر المجاورة `A=` و `=B`. جميع النصوص الرياضية تستخدم خط Cambria Math بحجم 24 نقطة. فقط محاذاة المصفوفة تتغير.
+المثال التالي ينشئ ثلاث مصفوفات متطابقة، كل واحدة بثلاث صفوف والعناصر المجاورة `A=` و `=B`. كل النص الرياضي يستخدم خط Cambria Math بحجم 24 نقطة. يتغير فقط محاذاة المصفوفة.
 
 ```csharp
 using Aspose.Slides;
@@ -312,17 +343,17 @@ MathematicalText CreateText(string value)
 }
 ```
 
-المقارنة التالية تُظهر العرض التقديمي المحفوظ في PowerPoint. لاحظ موضع `A=` و `=B` بجانب كل مصفوفة.
+المقارنة التالية تُظهر العرض المحفوظ في PowerPoint. لاحظ موضع `A=` و `=B` بجانب كل مصفوفة.
 
-![مصفوفات المعادلات في PowerPoint مع محاذاة أعلى، وسط، وأسفل وعناصر محيطة متطابقة](equation-array-alignment.png)
+![مصفوفات معادلات في PowerPoint مع محاذاة أعلى، وسط، وأسفل وعناصر مجاورة متطابقة](equation-array-alignment.png)
 
 ### **تكوين تباعد الصفوف**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) يحدد قاعدة التباعد للصفوف داخل المصفوفة. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) يزود قيمة رقمية لقاعدة تباعد صريحة ويتم تجاهله من قبل القواعد المسبقة.
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) يحدّد قاعدة التباعد للصفوف داخل المصفوفة. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) يقدّم قيمة عددية لقاعدة تباعد صريحة ويُهملها عندما تُستخدم القواعد المسبقة.
 
-للتباعد الدقيق، تُقاس القيمة بالنقاط. للتباعد النسبي، تُقاس بنصف السطر: القيمة `3` في المثال تُشير إلى 1.5 سطر. اضبط الخصيتين معًا عند تحديد قيمة صريحة؛ تعديل القيمة الرقمية فقط لا يختار قاعدة تباعد.
+للتباعد الدقيق، تُقاس القيمة بالنقاط. للتباعد النسبي، تُقاس بنصف أسطر: القيمة `3` في المثال تُحدّد 1.5 سطر. اضبط الخاصيتين معاً عند تحديد قيمة صريحة؛ تعديل القيمة العددية وحدها لا يختار قاعدة التباعد.
 
-المثال أدناه يحفظ خمسة عروض تقديمية بنفس المعادلات، والمحاذاة، وإعدادات الخط. الثلاثة الأولى تستخدم القواعد المسبقة؛ الأخيران يظهران قيمًا صريحة.
+المثال أدناه يحفظ خمس عروض تقديمية بنفس المعادلات، والمحاذاة، وإعدادات الخط. الثلاثة الأولى تستخدم القواعد المسبقة؛ الأخيرتين تُظهران قيم صريحة.
 
 ```csharp
 using Aspose.Slides;
@@ -372,13 +403,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-تباعد صفوف المصفوفة منفصل عن تباعد الفقرة. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) و [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) يضيفان مساحة حول الفقرة المحتوية، وليس بين صفوف المصفوفة. بالمثل، [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) يحدد موضع الفقرة الرياضية بالكامل أفقياً؛ ولا يستبدل إعداد المحاذاة العمودية للمصفوفة.
+تباعد صفوف المصفوفة مستقل عن تباعد الفقرات. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) و [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) يضيفان مساحة حول الفقرة المحتوية، وليس بين صفوف المصفوفة. وبالمثل، [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) يحدد موضع الفقرة الرياضية ككل أفقياً؛ لا يستبدل إعداد المحاذاة العمودية للمصفوفة.
 
-## **إضافة دوال المثلثات**
+## **إضافة دوال مثلثية**
 
-استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) عندما تكون الوسيطة هي العنصر الحالي ويكون اسم الدالة معروفًا.
+استخدم [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) عندما يكون الوسيط هو العنصر الحالي واسم الدالة معروفاً.
 
-![دالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
+![الدالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using Aspose.Slides;
@@ -399,11 +430,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **إضافة مؤشر سفلي ومؤشر علوي**
+## **إضافة مؤشرات وتراكيب علوية**
 
-استخدم المساعدات للمؤشرات السفلية والعلوية للفهارس والطبعات. عندما يجب أن تظهر الفهارس على الجانب الأيسر من القاعدة، استخدم [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+استخدم المساعدين للمؤشرات والتراكيب العلوية للفهارس والقوى. عندما يجب أن تظهر الفهارس على الجانب الأيسر من القاعدة، استخدم [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![حرف Y كبير مع مؤشر سفلي 1 ومؤشر علوي n على الجانب الأيسر](powerpoint-math-equations_9.png)
+![حرف Y كبير مع مؤشر سفلي 1 ومركّب علوي n على اليسار](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -426,7 +457,7 @@ presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 
 ## **إضافة محددات**
 
-استخدم [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) لوضع تعبير داخل محددات. يمكنك أيضًا ضبط حرف الفاصل لتعبيرات المحدد التي تحتوي على عدة عناصر.
+استخدم [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) لوضع تعبير داخل محددات. يمكنك أيضاً ضبط حرف الفاصل لتعبيرات محددات تحتوي على عدة عناصر.
 
 ![تعبير محدد يحتوي على x و y و z مفصول بأشرطة رأسية](powerpoint-math-equations_13.png)
 
@@ -452,11 +483,11 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-### **حجم وتحديد محاذاة المحددات**
+### **حجم وتنسيق المحددات**
 
-اضبط [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) إلى `true` للسماح للأقواس بالنمو حول عامل مرتفع، أو إلى `false` لإبقائها بحجمها الطبيعي. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) يأخذ إحدى قيمتي [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` يوسط الأقواس على المحور الرياضي الذي يمر عبر وسط علامة المساواة. `Match` يضبطها لتتناسب مع المحتوى المحاط. كلا الإعدادين يؤثران فقط على المحددات. التعبير الداخلي يبقى كما هو.
+اضبط [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) إلى `true` للسماح للأقواس بالنمو حول مقدار طويل، أو إلى `false` لإبقائها بحجمها الطبيعي. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) يأخذ إحدى قيمتي [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` يوسّط الأقواس على محور الرياضيات، وهو الخط الذي يمر عبر منتصف علامة المساواة. `Match` يضبطها لتتناسب مع المحتوى المحاط. كلا الإعدادين يؤثران فقط على المحددات. يبقى التعبير الداخلي كما هو.
 
-المثال يضع كسرًا في أسس `x` بحيث يمتد التعبير أعلى من خط القاعدة أكثر من الأسفل. جميع المعادلات الأربعة تستخدم نفس الأقواس وإعدادات الخط.
+المثال يضع كسرًا في أسس `x` بحيث يمتد التعبير أعلى من خط القاعدة أكثر من أسفله. جميع المعادلات الأربعة تستخدم نفس الأقواس وإعدادات الخط.
 
 ```csharp
 using Aspose.Slides;
@@ -489,15 +520,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-في PowerPoint، قارن الصفوف لرؤية تأثير النمو. في الصف العلوي، تنمو الأقواس لتغلق الأس وتبدو متماثلة لكلا الشكلين. في الصف السفلي، يكون النمو معطلاً. الأقواس الأصغر على اليسار (`Centered`) تتماشى مع علامة المساواة، بينما تلك على اليمين (`Match`) تجلس أعلى حول التعبير.
+في PowerPoint، قارن الصفوف لرؤية تأثير النمو. في الصف العلوي، تنمو الأقواس لتغلق الأسس وتبدو متشابهة لكلا الشكلين. في الصف السفلي، يكون النمو معطلاً. الأقواس الأصغر على اليسار (`Centered`) تُحاذى مع علامة المساواة، بينما الأقواس على اليمين (`Match`) تقع أعلى حول التعبير.
 
-![أربع معادلات في PowerPoint مع تمكين نمو المحددات أعلاه وتعطيله أدناه، وCentered على اليسار وMatch على اليمين](delimiter-sizing.png)
+![أربع معادلات في PowerPoint مع تمكين نمو المحددات فوق وإيقافه أدناه، وCentered على اليسار وMatch على اليمين](delimiter-sizing.png)
 
 ## **إضافة صندوق حدود**
 
-استدعِ [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) على كسر لتأطير التعبير كاملًا. الكائن [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) يُظهر الجوانب الأربعة افتراضيًا. استخدم [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/)، [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/)، [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/)، و [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) لإزالة الجوانب الفردية.
+استدعِ [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) على كسر لتأطير التعبير بالكامل. الكائن المرتجع [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) يُظهر الأربعة جوانب بشكل افتراضي. استخدم [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/)، [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/)، [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/)، و [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) لإزالة جوانب فردية.
 
-المثال يضع ست نسخ من نفس الكسر على شريحة واحدة. لإظهار الإلغاء، أخفِ جميع الجوانب الأربعة واضبط [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) للحصول على قطري صاعد (↗) أو [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) للحصول على قطري هابط (↘). يمكنك أيضًا استخدام [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) أو [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) مع أي تركيبة من الجوانب المرئية.
+المثال يضع ست نسخ من نفس الكسر على شريحة واحدة. لإظهار الإلغاء، أخفِ جميع الجوانب الأربعة واضبط [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) للحصول على خط مائل صاعد (↗) أو [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) للحصول على خط مائل هابط (↘). يمكنك أيضاً استخدام [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) أو [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) مع أي تركيبة من الجوانب المرئية.
 
 ```csharp
 using Aspose.Slides;
@@ -535,24 +566,24 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![ستة كسور قابلة للتحرير في PowerPoint. الصف العلوي: حدود كاملة، الجوانب السفلية واليسرى، قطري صاعد. الصف السفلي: قطري هابط، خط أفقي، خط عمودي مع حدود كاملة](border-box-fractions.png)
+![ستة كسور قابلة للتحرير في PowerPoint. الصف العلوي: الحد بالكامل، الجانبان السفلي والأيسر، خط مائل صاعد. الصف السفلي: خط مائل هابط، شطب أفقي، شطب عمودي مع حد كامل.](border-box-fractions.png)
 
-في هذا الكسر، يتقاطع الخط الأفقي مع شريط الكسر. الخط العمودي يقطع كلًا من البسط والمقام بينما يبقى الحد الخارجي مرئيًا. هذه الخطوط تزيّن التعبير كله. خط الشطب النصي العادي يُطبق على الأحرف داخل وحدة النص. بعد إعادة فتح العرض التقديمي في PowerPoint، لا يزال بإمكانك تعديل البسط والمقام بشكل مستقل.
+في هذا الكسر، يتقاطع الشطب الأفقي مع شريط الكسر. الشطب العمودي يقطع كلًا من البسط والمقام بينما يبقى الحد المحيط مرئياً. تُزيّن هذه الخطوط التعبير بأكمله. شطب النص العادي يُطبق على الأحرف داخل مكوّن النص. بعد إعادة فتح العرض التقديمي في PowerPoint، لا يزال بإمكانك تحرير البسط والمقام بشكل مستقل.
 
-## **التحكم في الرؤية والتخطيط باستخدام عناصر Phantom**
+## **التحكم في الوضوح والتنسيق باستخدام عناصر Phantom**
 
-لفِّ التعبير داخل [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) للتحكم في رؤيته والمسافة التي يضيفها إلى معادلة بشكل مستقل. خصائص [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) تتحكم فيما يلي:
+إحاط التعبير بـ [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) للتحكم في وضوحه والمسافة التي يضيفها إلى المعادلة بشكل مستقل. خصائص [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) تتحكم فيما يلي:
 
 | الخاصية | التأثير |
 | --- | --- |
-| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | اضبط إلى `false` لإخفاء التعبير. أبعاده لا تزال تُؤثر على التخطيط ما لم تُضبط الخصائص المقابلة أدناه إلى `true`. |
-| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | اعتبر عرض التعبير الأفقي صفرًا، مما يسمح للعناصر المجاورة بالاقتراب أكثر. |
-| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | اعتبر الصعود (الارتفاع فوق الخط الأساسي) صفرًا. يمكن أن يقلل هذا من المسافة المحجوزة أعلاه. |
-| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | اعتبر النزول (العمق تحت الخط الأساسي) صفرًا. يمكن أن يقترب شريط الكسر أو المحتوى الآخر أسفل التعبير من الجيران. |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | اضبط إلى `false` لإخفاء التعبير. أبعاده لا تزال تُساهم في التخطيط ما لم تُضبط الخصائص المقابلة أدناه إلى `true`. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | يعتبر العرض الأفقي للتعبير صفراً، مما يسمح للعناصر المجاورة بالاقتراب. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | يعتبر الصعود (الارتفاع فوق الخط الأساسي) صفراً. هذا يمكن أن يقلل المسافة المخصصة أعلى العناصر المجاورة. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | يعتبر النزول (العمق أسفل الخط الأساسي) صفراً. يمكن أن يقرب شريط الكسر أو محتوى آخر أسفل التعبير من جيرانه. |
 
-الخط الأساسي هو الخط المرجعي الذي تجلس عليه الأحرف الرياضية العادية. إخفاء المحتوى لا يزيل أبعاده، وتعيين البعد كصفر لا يحذف التعبير. يبقى التعبير الأساسي متاحًا عبر [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). اضبط [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) مرة أخرى إلى `true` لإظهاره مرة أخرى؛ تبقى إعدادات الأبعاد كما هي.
+الخط الأساسي هو الخط المرجعي الذي تجلس فوقه الأحرف الرياضية العادية. إخفاء المحتوى لا يزيل أبعاده، وتعيين بُعدٍ إلى صفر لا يحذف التعبير. يبقى التعبير الأصلي متاحاً عبر [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). اضبط [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) مرة أخرى إلى `true` لعرضه مرة أخرى؛ تبقى إعدادات الأبعاد كما هي.
 
-المثال أدناه يُنشئ خمس متغيّرات جنبًا إلى جنب: كسر مرئي، كسر مخفي يحجز مساحة، وثلاثة كسور مخفية يُعامل أحد أبعادها كصفر. كل متغيّر يستخدم نفس التعبير المحيط وخط Cambria Math بحجم 24 نقطة. جميع أشكال المعادلة لها نفس الموضع العلوي، مميزًا بدليل رمادي. وضع الـ phantom في بسط كسر خارجي يجعل تغييرات التخطيط العمودي أسهل للتمييز.
+المثال أدناه ينشئ خمسة متغيّرات جنباً إلى جنب: كسر مرئي، كسر مخفي يحتفظ بالمسافة، وثلاثة كسور مخفية مع تعيين بُعد واحد إلى صفر. كل متغيّر يستخدم نفس التعبير المحيط وخط Cambria Math بحجم 24 نقطة. جميع أشكال المعادلات لها نفس الموضع العلوي، موضح بالخط الرمادي. وضع Phantom في بسط كسر خارجي يسهل رؤية تغييرات التخطيط العمودي.
 
 ```csharp
 using Aspose.Slides;
@@ -611,13 +642,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-![خمسة معادلات في PowerPoint تقارن بين كسر مرئي، كسر مخفي يحتفظ بالمساحة، وكسرات مخفية مع تمكين ZeroWidth أو ZeroAsc أو ZeroDesc](math-phantom.png)
+![خمسة معادلات في PowerPoint تقارن كسرًا مرئيًا، وكسرًا مخفيًا يحتفظ بالمسافة، وكسرًا مخفيًا مع ZeroWidth أو ZeroAsc أو ZeroDesc مفعّلين](math-phantom.png)
 
 ## **تجميع المصطلحات**
 
 استخدم [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) لوضع حرف تجميع فوق أو تحت تعبير. أضف حدًا لتسمية المصطلحات المجمعة.
 
-![التعبير x زائد y مجمع مع التسمية أي نص أسفله](powerpoint-math-equations_15.png)
+![التعبير x زائد y مجمّع مع تسمية أي نص تحته](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -641,9 +672,9 @@ presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 
 ## **تنسيق عناصر الرياضيات**
 
-استخدم المساعدات للتنسيق فقط حيث توضح الصيغة. على سبيل المثال، [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) يضع شريطًا فوق عنصر رياضي.
+استخدم مساعدات التنسيق فقط عندما تساهم في توضيح الصيغة. على سبيل المثال، [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) يضع شريطًا فوق عنصر رياضي.
 
-![تعبير رياضي ABC مع خط فوقه](powerpoint-math-equations_14.png)
+![تعبير رياضي ABC مع شريط فوقه](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -665,9 +696,9 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 
 ### **تنسيق النص في معادلة موجودة**
 
-لتنسيق النص في معادلة موجودة، استعرض شجرة عناصر كل كتلة رياضية. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) يُعيد الأطفال الفوريين فقط، لذا استدعِه بصورة متكررة للوصول إلى النص داخل الكسور، السكريبتات، الجذور، والهياكل المتداخلة الأخرى. تحقق من العنصر الحالي وكذلك أطفاله لتضمين العنصر الابتدائي عندما يكون [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+لتنسيق النص في معادلة موجودة، استعرض شجرة عناصر كل كتلة رياضية. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) تُعيد الأطفال المباشرين فقط، لذا استدعِها بصورة تكرارية للوصول إلى النص داخل الكسور، النصوص العلوية والسفلية، الجذور، والهياكل المتداخلة الأخرى. افحص العنصر الحالي وكذلك أطفاله لتضمين العنصر الابتدائي عندما يكون [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
 
-هذا المثال يفترض أن العرض التقديمي يحتوي على معادلة مثل `z = xᵢ / ∛y`، حيث يحتوي كسر على مؤشر سفلي في البسط وجذر في المقام. معالجة العناصر العليا فقط للكتلة سيتسبب في فقدان النص داخل الكسر. المثال يجد الأجزاء الرياضية في إطارات نص الشرائح، يصل إلى كتلها عبر [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/)، ويضبط [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) إلى 28 نقطة عبر خاصية [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) لكل عنصر نصي.
+يفترض هذا المثال أن العرض التقديمي يحتوي على معادلة مثل `z = xᵢ / ∛y`، مع كسر يحتوي على مؤشر سفلي في البسط وجذر في المقام. معالجة عناصر المستوى العلوي للكتلة فقط سيتخطى النص داخل الكسر. يجد المثال الأجزاء الرياضية في إطارات نص الشرائح، يصل إلى كتلها عبر [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/)، ويضبط [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) إلى 28 نقطة لكل عنصر نصي عبر خاصية [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/).
 
 ```csharp
 using Aspose.Slides;
@@ -709,37 +740,37 @@ void FormatMathText(IMathElement element)
 }
 ```
 
-العرض التقديمي المحفوظ يحتوي على تنسيق نص محدث على كل مستوى من كل معادلة معالجة، مع الحفاظ على محتوى النص والبنية الرياضية.
+العرض التقديمي المحفوظ يحتوي على تنسيق النص المحدث في كل مستوى من كل معادلة معالجة، مع الحفاظ على محتوى النص والبنية الرياضية.
 
 ## **مرجع سريع**
 
-| المهمة | واجهة برمجة التطبيقات الرئيسية |
+| المهمة | API الرئيسي |
 | --- | --- |
 | إنشاء نص رياضي | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
 | دمج العناصر | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
 | إنشاء كسور | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
-| إضافة مرتفع أو منخفض | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| إضافة أسفل أو أعلى | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
 | إضافة دوال | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | إضافة جذور | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
 | إضافة حدود | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| إضافة سكريبتات على الجانب الأيسر | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| إضافة نصوص على الجانب الأيسر | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | إضافة جمع وتكامل | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
 | إضافة مصفوفات | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
-| إضافة مصفوفات المعادلات | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
+| إضافة مصفوفات معادلات | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
 | إضافة محددات | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
-| إضافة خطوط و حدود | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| إضافة أشرطة وحدود | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
 | تجميع المصطلحات | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكنني تعديل معادلة PowerPoint موجودة؟**
+**هل يمكن تعديل معادلة PowerPoint موجودة؟**
 
-نعم. افتح العرض التقديمي، اعثر على الشكل الذي يحتوي على [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)، احصل على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/)، وقم بتحديث كتل الرياضيات في تلك الفقرة.
+نعم. افتح العرض التقديمي، ابحث عن الشكل الذي يحتوي على [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)، احصل على [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/)، وقم بتحديث كتل الرياضيات في تلك الفقرة.
 
 **هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتحرير؟**
 
-نعم. عند حفظ الملف بصيغة PPTX، يكتب Aspose.Slides المعادلة ك内容 رياضي Office قابل للتحرير.
+نعم. عند الحفظ بصيغة PPTX، يكتب Aspose.Slides المعادلة كـ Office Math محتوى قابل للتحرير.
 
-**هل يمكنني تصدير المعادلات إلى LaTeX؟**
+**هل يمكن تصدير المعادلات إلى LaTeX؟**
 
-نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) من [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)، واستدعِ [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) لتصديرها مباشرة. للحصول على مثال كامل، راجع [تصدير المعادلات الرياضية من العروض التقديمية في .NET](/slides/ar/net/exporting-math-equations/#export-math-equations-to-latex).
+نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) للمعادلة من [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/)، واستدعِ [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) لتصديره مباشرة. للحصول على مثال كامل، راجع [Export Math Equations from Presentations in .NET](/slides/ar/net/exporting-math-equations/#export-math-equations-to-latex).

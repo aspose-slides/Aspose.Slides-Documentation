@@ -18,35 +18,35 @@ keywords:
 - "Android"
 - "Java"
 - "Aspose.Slides"
-description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Android segítségével, OMML támogatással, formázási vezérlőkkel és világos Java kódrészletekkel."
+description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Android segítségével, OMML támogatással, formázási vezérlésekkel és átlátható Java kódrészletekkel."
 ---
 ## **Áttekintés**
 
-A PowerPoint egyenleteket Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Android via Java segítségével programozottan hozhat létre hasonló matematikai tartalmakat: törtöket, gyököket, függvényeket, határokat, N‑árnyú operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
+A PowerPoint egyenleteket az Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Android via Java segítségével programozottan hozhat létre ugyanolyan típusú matematikai tartalmakat: tört, gyökök, függvények, határértékek, N-árnyú operátorok, mátrixok, tömbök és formázott matematikai blokkok.
 
-A PowerPointban a felhasználók általában az **Insert > Equation** menüből adnak hozzá egyenleteket:
+PowerPointban a felhasználók általában egyenleteket adnak hozzá a **Insert > Equation**:
 
-![PowerPoint Beszúrás lap az Egyenlet parancs kiválasztásával](powerpoint-math-equations_1.png)
+![PowerPoint Insert lapfül a Képlet parancs kijelölve](powerpoint-math-equations_1.png)
 
-Az eredmény egy szerkeszthető matematikai szöveg a dián:
+Az eredmény szerkeszthető matematikai szöveg a dián:
 
-![Egy PowerPoint dia, amely szerkeszthető matematikai egyenletet tartalmaz](powerpoint-math-equations_2.png)
+![PowerPoint diára szerkeszthető matematikai egyenlettel](powerpoint-math-equations_2.png)
 
-Aspose.Slides három fő objektumon keresztül építi fel ezt a matematikai szöveget:
+Az Aspose.Slides három fő objektum segítségével építi fel ezt a matematikai szöveget:
 
-- A matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) segítségével hozunk létre, az az alakzat, amely tartalmazza az egyenletet.
+- Egy matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) segítségével hozunk létre, az az alakzat, amely tartalmazza az egyenletet.
 - [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) tárolja a matematikai tartalmat az alakzat szövegdobozában.
 - [MathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathblock/) objektumot tartalmaz.
 
-A legtöbb alábbi példa a [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) és az [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) folyékony metódusait használja, hogy a kód rövid és olvasható maradjon.
+A lenti példák a [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) és az [IMathElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) folyékony metódusait használják a kód rövid és olvasható tartásához.
 
-MathML export esetén lásd a [Matematikai egyenletek exportálása prezentációkból Androidon](/slides/hu/androidjava/exporting-math-equations/) oldalt.
+MathML export esetén lásd a [Export Math Equations from Presentations on Android](/slides/hu/androidjava/exporting-math-equations/) című oldalt.
 
 ## **Egyenlet létrehozása**
 
-Ez a példa a [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) használatával hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz‑tételt:
+Ez a példa a [addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) segítségével hoz létre egy matematikai alakzatot, és hozzáadja a Pitagorasz-tételt:
 
-![A c² = a² + b² egyenlet](powerpoint-math-equations_3.png)
+![Az egyenlet c négyzet egyenlő a négyzet a plusz b négyzet](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -74,15 +74,17 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) egy olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/), meghívja a [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), és hozzáadja a matematikai blokkokat vagy elemeket.
+{{% alert color="info" title="Megjegyzés" %}}
+
+[addMathShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. A első [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) elérésével hívja meg a [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--), majd adja hozzá a matematikai blokkokat vagy elemeket.
+
 {{% /alert %}}
 
 ## **Törtek hozzáadása**
 
-Használja a [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) metódust tört létrehozásához. A törttípus kiválasztásához használhatja a [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) értékeket.
+Használja a [divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) metódust törtek létrehozásához. A törtek stílusát a [MathFractionTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/) segítségével választhatja ki.
 
-![Egy ferdén ábrázolt matematikai tört, amely 1/x-et mutat](powerpoint-math-equations_4.png)
+![Ferde matematikai törtszám, amely egyet mutat elosztva x‑szel](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -106,7 +108,7 @@ try {
 }
 ```
 
-Egy egymásra helyezett tört esetén használja a [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
+Halmozott törthöz használja a [MathFractionTypes.Bar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathfractiontypes/#Bar):
 
 ```java
 import com.aspose.slides.*;
@@ -116,9 +118,9 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **Gyökök hozzáadása**
 
-Használja a [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) metódust négyzetgyök, köbgyök vagy más gyök létrehozásához. Az aktuális elem lesz az alappont, az argumentum pedig a kitevő.
+Használja a [radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) metódust négyzetgyök, köbgyök vagy egyéb gyök létrehozásához. Az aktuális elem lesz az alap, az argumentum pedig a kitevő.
 
-![Egy n‑dik gyök kifejezés, ahol az x a gyökjel alatt van](powerpoint-math-equations_5.png)
+![n‑edik gyök, amelyben az x a gyökjel alatt van](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -142,11 +144,42 @@ try {
 }
 ```
 
-## **Függvények és határok hozzáadása**
+### **A négyzetgyök fokszámának megjelenítése vagy elrejtése**
 
-Használja a [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) vagy a [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) metódust olyan függvényekhez, mint a `sin(x)`, `log(x)`, vagy egyedi függvénynevek. Határok esetén helyezze a `lim`‑et egy [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/) objektumba, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) metódust.
+A négyzetgyök megjeleníthet egy explicit 2‑t, vagy a hagyományos √x jelölést használhatja. Az [IMathRadical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathradical/) [setHideDegree](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathradical/#setHideDegree-boolean-) metódusa szabályozza, melyik forma jelenik meg. Mindkét forma megtartja a 2‑es fokszámot és az x‑et a szerkeszthető egyenletben.
 
-![Az x határa, amikor x a végtelen felé tart](powerpoint-math-equations_8.png)
+![Ugyanaz a négyzetgyök, bal oldalon a fokszám látható, jobb oldalon rejtett](square-root-degree.png)
+
+A példa ugyanazt a négyzetgyököt kétszer menti. A `visible-degree.pptx`‑ben a 2 látható, a `hidden-degree.pptx`‑ben rejtett.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IMathRadical radical = new MathematicalText("x").radical("2");
+
+    IAutoShape shape = slide.getShapes().addMathShape(20, 20, 200, 100);
+    IMathPortion portion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getMathParagraph().add(new MathBlock(radical));
+
+    radical.setHideDegree(false);
+    presentation.save("visible-degree.pptx", SaveFormat.Pptx);
+
+    radical.setHideDegree(true);
+    presentation.save("hidden-degree.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Függvények és határértékek hozzáadása**
+
+Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) vagy a [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) metódust függvényekhez, például `sin(x)`, `log(x)` vagy saját függvénynevekhez. Határértékekhez tegye a `lim`‑et egy [MathLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathlimit/)‑be, vagy használja a [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) metódust.
+
+![Az x határértéke, amikor x a végtelenhez közelít](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -171,7 +204,7 @@ try {
 }
 ```
 
-Egyedi függvénynév esetén, tegye a függvénynevet az aktuális elemmé, és hívja meg a [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) metódust a argumentummal:
+Egyéni függvénynévhez tegye a függvénynevet az aktuális elemként, majd hívja meg a [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-)‑t az argumentummal:
 
 ```java
 import com.aspose.slides.*;
@@ -179,11 +212,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N‑árnyú operátorok és integrálok hozzáadása**
+## **N-árnyú operátorok és integrálok hozzáadása**
 
-Használja a [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) metódust összegekre, uniókra, metszetekre és egyéb nagy operátorokra. Az integrálokhoz használja a [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) metódust. Mindkét módszer lehetővé teszi a felső és alsó határ beállítását.
+Használja a [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) metódust összegzésekhez, uniókhoz, metszetekhez és egyéb nagy operátorokhoz. Az integrálokhoz használja a [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) metódust. Mindkét módszer lehetővé teszi az alsó és felső határértékek beállítását.
 
-![Összegzés alsó és felső határokkal](powerpoint-math-equations_7.png)
+![Összegzés alsó és felső határral](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -210,9 +243,9 @@ try {
 }
 ```
 
-N‑árnyú operátorok nagy operátorok opcionális határokkal. Egyszerű operátorok, mint a `+`, `-` és `=` általában [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/)‑ként kerülnek hozzáadásra, és összeillesztésre kerülnek a kifejezésben.
+Az N-árnyú operátorok nagy operátorok opcionális határokkal. Az egyszerű operátorok, mint a `+`, `-` és `=`, általában [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/)‑ként kerülnek hozzáadásra, és az kifejezésbe fűződnek.
 
-Egy integrálhoz használja a [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) metódust:
+Integrál esetén használja a [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)‑t:
 
 ```java
 import com.aspose.slides.*;
@@ -223,7 +256,7 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Mátrixok hozzáadása**
 
-Használja a [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/)‑t sorok és oszlopok létrehozásához. Alapértelmezés szerint a mátrixok nem tartalmaznak zárójeleket, ezért ha zárójeleket, szögletes vagy kapcsos zárójeleket szeretne, akkor zárja be a mátrixot.
+Használja a [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/)‑t sorok és oszlopok kezeléséhez. A mátrixok alapértelmezés szerint nem tartalmaznak zárójeleket, ezért ha zárójelekre, szögletes vagy kapcsos zárókra van szükség, tegye körül a mátrixot.
 
 ![Két soros matematikai mátrix egy üres cellával](powerpoint-math-equations_10.png)
 
@@ -255,9 +288,9 @@ try {
 
 ## **Egyenlet tömbök hozzáadása**
 
-Használja a [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--)‑t, ha igazított egyenletekre vagy függőleges kifejezéstömbre van szüksége.
+Használja a [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toMathArray--)‑t, ha igazított egyenletekre vagy függőleges kifejezésveremre van szükség.
 
-![Függőleges matematikai tömb, x felül y alatt](powerpoint-math-equations_11.png)
+![Függőleges matematikai tömb, ahol az x az y felett helyezkedik el](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -282,11 +315,11 @@ try {
 }
 ```
 
-### **Tömb igazítása környező elemekkel**
+### **Tömb igazítása a környező elemekhez**
 
-[setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) szabályozza egy tömb függőleges igazítását a mellette lévő matematikai elemekhez képest. Az alábbi példa összehasonlítja az igazítást az első sorral, a tömb középpontjával és az utolsó sorral.
+A [setBaseJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setBaseJustification-int-) szabályozza egy tömb függőleges igazítását a mellette lévő matematikai elemekhez képest. Az alábbi példa az első sor, a tömb középpontja és az utolsó sor igazítását hasonlítja össze.
 
-A következő példa három azonos tömböt hoz létre, mindegyik három sorral és a szomszédos `A=` és `=B` elemekkel. Minden matematikai szöveg Cambria Math betűtípussal, 24 pont méretben jelenik meg. Csak a tömb igazítása változik.
+Az alábbi példa három azonos tömböt hoz létre, mindegyik három sorral, és a szomszédos `A=` és `=B` elemekkel. Minden matematikai szöveg Cambria Math 24 pontos mérettel jelenik meg. Csak a tömb igazítása változik.
 
 ```java
 import com.aspose.slides.*;
@@ -342,17 +375,17 @@ try {
 }
 ```
 
-A következő összehasonlítás a mentett prezentációt mutatja PowerPointban. Figyelje meg a `A=` és `=B` pozícióját minden tömb mellett.
+Az alábbi összehasonlítás megmutatja a PowerPointban mentett prezentációt. Figyelje meg az `A=` és `=B` pozícióját minden tömb mellett.
 
-![Egyenlet tömbök PowerPointban felső, középső és alsó igazítással és azonos szomszédos elemekkel](equation-array-alignment.png)
+![Egyenlet tömbök PowerPointban felső, középső és alsó igazítással, azonos szomszédos elemekkel](equation-array-alignment.png)
 
 ### **Sorok távolságának beállítása**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) választja ki a sorok közti távolság szabályát a tömbön belül. A [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) numerikus értéket ad meg egy explicit távolságszabályhoz, és a preset szabályok figyelmen kívül hagyják.
+A [setRowSpacingRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacingRule-int-) kiválasztja a sorok közti térköz szabályát a tömbben. A [setRowSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imatharray/#setRowSpacing-long-) numerikus értéket ad egy explicit térköz szabályhoz, és a beállított szabályok figyelmen kívül hagyják.
 
-Pontos távolsághoz az értéket pontban mérik. Arányos távolságnál fél sorban értékelik: a példában a `3` érték 1,5 sort jelent. Mindkét tulajdonságot állítsa be explicit érték megadásakor; csak a numerikus érték megváltoztatása nem választ szabályt.
+Pontos távolságnál az érték pontban van mérve. Arányos távolságnál fél sorokban: a példában a `3` érték 1,5 sort jelent. Mindkét tulajdonságot állítsa be explicit érték esetén; csak a numerikus érték módosítása nem választ szabályt.
 
-Az alábbi példa öt prezentációt ment ugyanazzal az egyenlettel, igazítással és betűtípus-beállításokkal. Az első három előre beállított szabályt használ, az utolsó kettő explicit értékeket mutat.
+Az alábbi példa öt prezentációt ment ugyanazzal a képlettel, igazítással és betűtípussal. Az első három előre beállítottakat használ, az utolsó kettő explicit értékeket mutat.
 
 ```java
 import com.aspose.slides.*;
@@ -401,13 +434,13 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-A tömb sorok távolsága különálló a bekezdés távolságtól. A [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) és a [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) a tartalmazó bekezdés körül ad helyet, nem a tömb sorok között. Hasonlóképpen, az [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) a teljes matematikai bekezdést helyezi el vízszintesen; nem felülírja a tömb függőleges igazítási beállítását.
+A tömb sorok távolsága különbözik a bekezdés távolságától. A [setSpaceBefore](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) és a [setSpaceAfter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) a környező bekezdés köré ad helyet, nem a tömb sorai közé. Hasonlóan, az [IMathParagraph.setJustification](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#setJustification-int-) a teljes matematikai bekezdést pozicionálja vízszintesen; nem helyettesíti a tömb függőleges igazítási beállítását.
 
 ## **Trigonometrikus függvények hozzáadása**
 
-Használja a [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) metódust, ha az argumentum az aktuális elem, és a függvény neve ismert.
+Használja az [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) metódust, ha az argumentum az aktuális elem, és a függvény neve ismert.
 
-![A cos trigonometrikus függvény alkalmazva 2x-re](powerpoint-math-equations_6.png)
+![A trigonometrikus függvény cos alkalmazva 2x-re](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -433,9 +466,9 @@ try {
 
 ## **Alsó- és felső indexek hozzáadása**
 
-Használja az alsó- és felső index segédfüggvényeket indexek és hatványok létrehozásához. Ha az indexeknek a bázis bal oldalán kell megjelenniük, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) metódust.
+Használja az alsó- és felső index segítőket indexek és hatványok létrehozásához. Ha az indexeket az alap bal oldalán kell megjeleníteni, használja a [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-)‑t.
 
-![Egy nagy Y betű baloldali alsó indexszel 1 és felső indexszel n](powerpoint-math-equations_9.png)
+![Nagy Y betű baloldali alsó index 1‑gyel és felső index n‑nel](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -461,9 +494,9 @@ try {
 
 ## **Határolók hozzáadása**
 
-Használja a [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) metódust egy kifejezés határolók közé helyezéséhez. Több elemet tartalmazó határoló kifejezéseknél elválasztó karakter is beállítható.
+Használja a [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#enclose-char-char-) metódust kifejezés határolók közé helyezéséhez. Több elemet tartalmazó határolók esetén beállíthat elválasztó karaktert is.
 
-![Egy határoló kifejezés, amely x, y és z-t tartalmaz, függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
+![Határolók, amelyek x‑et, y‑t és z‑t tartalmazzák függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -490,11 +523,11 @@ try {
 }
 ```
 
-### **Határolók méretezése és igazítása**
+### **Határolók mérete és igazítása**
 
-A [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) metódusnak `true` értéket adva a zárójelek kinyúlhatnak egy magas operandus körül, vagy `false` értékkel megtartják normál méretüket. A [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) metódust az egyik két [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) értékkel használja. A `Centered` a zárójeleket a matematikai tengely közepére helyezi, amely áthalad az egyenlőségjel közepén. A `Match` a tartalomhoz igazítja őket. Mindkét beállítás csak a határolókat érinti; a belső kifejezés változatlan marad.
+A [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) **true** értéke lehetővé teszi, hogy a zárójelek a magas operandus körül növekedjenek; **false** esetén normál méretben maradnak. A [setDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) egyike a [MathDelimiterShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathdelimitershape/) értékeknek. A `Centered` a zárójeleket a matematikai tengely közé illeszti, amely az egyenlőségjel közepén halad. A `Match` a tartalomhoz igazítja őket. Mindkét beállítás csak a határolókra hat; a kifejezés belseje változatlan marad.
 
-A példa egy törtet helyez az `x` kitevőjébe, így a kifejezés a vonal felett nagyobb távolságra nyúlik, mint alatta. Mind a négy egyenlet ugyanazt a zárójelet és betűtípusbeállítást használja.
+A példa egy törtet helyez az `x` kitevőjébe, így a kifejezés a bázisvonal fölött magasabb lesz, mint alatta.
 
 ```java
 import com.aspose.slides.*;
@@ -523,15 +556,15 @@ try {
 }
 ```
 
-PowerPointban hasonlítsa össze a sorokat a növekedés hatásának megtekintéséhez. A felső sorban a zárójelek növekednek, hogy befoglalják a kitevőt, és mindkét alakzat egyforma. Az alsó sorban a növekedés ki van kapcsolva. A bal oldali kisebb zárójelek (`Centered`) az egyenlőségjellel igazodnak, míg a jobb oldali (`Match`) magasabban helyezkednek el a kifejezés körül.
+PowerPointban hasonlítsa össze a sorokat a növekedés hatását. A felső sorban a zárójelek növekednek, hogy befoglalják a kitevőt, és mindkét alakzat hasonló. Az alsó sorban a növekedés ki van kapcsolva. A baloldali kisebb zárójelek (`Centered`) az egyenlőségjelhez igazodnak, míg a jobb oldali (`Match`) magasabban helyezkednek el a kifejezés körül.
 
-![Négy egyenlet PowerPointban, a határoló növekedése engedélyezve fent és letiltva lent, a bal oldalon Centered, a jobb oldalon Match](delimiter-sizing.png)
+![Négy egyenlet PowerPointban, a határolók növekedése engedélyezve felül, letiltva alul, bal oldalon Centered, jobb oldalon Match](delimiter-sizing.png)
 
-## **Határoló doboz hozzáadása**
+## **Körvonalas keret hozzáadása**
 
-Hívja meg a [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--) metódust egy törtön, hogy keretet adjon a teljes kifejezésnek. A visszaadott [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) alapértelmezésként négy oldalt jelenít meg. A [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), és [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) metódusokkal távolíthatja el az egyes oldalakat.
+Egy törtön hívja a [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#toBorderBox--)‑t, hogy a teljes kifejezést keretezze. A visszakapott [IMathBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/) alapértelmezésben négy oldalt mutat. Használja a [setHideTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), és a [setHideRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setHideRight-boolean-) metódusokat egyedi oldalak eltávolításához.
 
-A példa hat példányban helyezi el ugyanazt a törtet egy diára. A törlés megjelenítéséhez rejtsük el mind a négy oldalt, és `true` értéket adjon a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) metódusnak egy feljebb irányuló átlóhoz (↗), vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) metódusnak egy lefelé irányuló átlóhoz (↘). Használhatja a [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) vagy a [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) metódusokat is, tetszőleges kombinációban a látható oldalakkal.
+A példa hat példányt helyez el ugyanabból a törtből egy dián. A törlés láthatóságát a négy oldal elrejtésével és a `true` érték átadásával a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-)‑ben egy emelkedő átló (↗) vagy a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-)‑ben egy süllyedő átló (↘) készül. A [setStrikethroughHorizontal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) vagy a [setStrikethroughVertical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) is használható tetszőleges kombinációban látható oldalakon.
 
 ```java
 import com.aspose.slides.*;
@@ -576,24 +609,24 @@ try {
 }
 ```
 
-![Hat szerkeszthető tört PowerPointban. Felső sor: teljes keret, alsó és bal oldal, feljebb irányuló átló. Alsó sor: lefelé irányuló átló, vízszintes áthúzás, függőleges áthúzás teljes kerettel](border-box-fractions.png)
+![Hat szerkeszthető tört PowerPointban. Felső sor: teljes keret, alsó és bal oldalak, emelkedő átló. Alsó sor: süllyedő átló, vízszintes vonal, függőleges vonal teljes kerettel](border-box-fractions.png)
 
-Ezen a törtön a vízszintes áthúzás átfedi a törtvonalat. A függőleges áthúzás áthalad a számláló és a nevező felett, miközben a környező keret látható marad. Ezek a vonalak a teljes kifejezést díszítik. A szöveg áthúzása normál szövegre a karakterekre vonatkozik egy szövegrészben. A prezentáció PowerPointban való újranyitása után is szerkesztheti a számlálót és a nevezőt önállóan.
+Egy tört esetén a vízszintes vonal átfedheti a törtjelvonalat. A függőleges vonal mind a számlálót, mind a nevezőt átszeli, miközben a körvonal látható marad. Ezek a vonalak a teljes kifejezést díszítik. A szokásos szöveg áthúzása karakterekre vonatkozik egy szövegrészen belül. A prezentáció újra megnyitása után a számlálót és a nevezőt továbbra is külön-külön szerkesztheti.
 
-## **Láthatóság és elrendezés vezérlése fantom elemekkel**
+## **A láthatóság és az elrendezés vezérlése Phantom elemekkel**
 
-Csomagolja egy kifejezést a [MathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathphantom/)‑be, hogy önállóan szabályozza a láthatóságát és az egyenlethez hozzájáruló helyet. Az [IMathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/) metódusok a következőket szabályozzák:
+Egy kifejezést becsomagolhat a [MathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathphantom/)‑be, hogy önállóan szabályozza a láthatóságát és az egyenlethez járuló helyet. Az [IMathPhantom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/) metódusai a következőket szabályozzák:
 
-| Metódus | Hatás |
+| Módszer | Hatás |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) | A `false` érték elrejti a kifejezést. Mérete továbbra is hat a layoutra, hacsak a lenti megfelelő metódusok nem kapnak `true` értéket. |
-| [setZeroWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | A kifejezés vízszintes szélességét nullának tekinti, lehetővé téve a szomszédos elemek közelebb kerülését. |
-| [setZeroAsc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | Az emelkedését, a baseline fölötti magasságot nullának tekinti. Ez csökkentheti a fölötte lévő elemeknek fenntartott helyet. |
-| [setZeroDesc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | A süllyedését, a baseline alatti mélységet nullának tekinti. Ez a törtvonalat vagy más tartalmat közelebb hozhat a kifejezés alatti szomszéd elemhez. |
+| [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) | `false` átadása elrejti a kifejezést. Méretei továbbra is részt vesznek az elrendezésben, hacsak a lenti metódusok nem kapnak `true` értéket. |
+| [setZeroWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | A kifejezés vízszintes szélességét nullának tekinti, így a szomszédos elemek közelebb kerülhetnek egymáshoz. |
+| [setZeroAsc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | A felmenetét, vagyis a bázisvonal fölötti magasságot nullának tekinti. Ez csökkentheti a szomszédos elemek fölött lefoglalt helyet. |
+| [setZeroDesc](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | A lemenetét, vagyis a bázisvonal alatti mélységet nullának tekinti. Ez a törtvonalat vagy egyéb tartalmat közelebb hozhat a kifejezés alatti szomszédokhoz. |
 
-A baseline a referencia vonal, amelyen a hagyományos matematikai betűk helyezkednek el. A tartalom elrejtése nem távolítja el a méreteket, és egy dimenzió nullának tekintése sem törli a kifejezést. Az alapról kivehető kifejezés továbbra is elérhető a [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#getBase--) metódussal. A [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-)‑nek `true` értéket adva újra megjeleníthető; a dimenzió beállítások változatlanok maradnak.
+A bázisvonal a referencia vonal, amelyen a normál matematikai betűk elhelyezkednek. A tartalom elrejtése nem távolítja el a méreteket, a méret nullára állítása pedig nem törli a kifejezést. Az alapkifejezés továbbra is elérhető a [getBase](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#getBase--)‑on keresztül. A [setShow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathphantom/#setShow-boolean-) `true`‑ra állításával újra megjeleníthető; a dimenzióbeállítások változatlanok maradnak.
 
-Az alábbi példa öt egymás melletti változatot hoz létre: egy látható tört, egy rejtett tört, amely helyet foglal, valamint három rejtett tört, ahol egy dimenzió nullának van beállítva. Minden változat ugyanazt a környező kifejezést és 24 pont Cambria Math betűtípust használ. Minden egyenlet alakzat azonos felső pozícióval rendelkezik, a szürke segédvonal jelzi. A fantom elhelyezése a külső tört számlálójában könnyebbé teszi a függőleges elrendezés változásainak megfigyelését.
+Az alábbi példa öt egymás melletti változatot hoz létre: egy látható tört, egy rejtett tört, amely helyet foglal, és három rejtett tört, ahol egy dimenzió nullára van állítva. Minden változat ugyanazt a környező kifejezést és Cambria Math 24‑es betűméretet használja. Minden egyenlet alakzat ugyanabban a felső pozícióban helyezkedik el, a szürke segédvonal jelöli. A phantom elhelyezése egy külső tört számlálójába segíti a függőleges elrendezés változásainak láthatóságát.
 
 ```java
 import com.aspose.slides.*;
@@ -662,13 +695,13 @@ try {
 }
 ```
 
-![Öt egyenlet PowerPointban, amelyek összehasonlítják egy látható törtet, egy helyet foglaló rejtett törtet, valamint ZeroWidth, ZeroAsc vagy ZeroDesc bekapcsolt rejtett törteket](math-phantom.png)
+![Öt egyenlet PowerPointban, amely látható törtet, helyet foglaló rejtett törtt, valamint ZeroWidth, ZeroAsc vagy ZeroDesc engedélyezett rejtett törteket hasonlít össze](math-phantom.png)
 
-## **Tagok csoportosítása**
+## **Kifejezések csoportosítása**
 
-Használja a [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) metódust, hogy egy csoportosító karaktert helyezzen egy kifejezés fölé vagy alá. Adj hozzá határt a csoportosított tagok címkézéséhez.
+Használja a [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#group-char-int-int-) metódust, hogy egy csoportosító karaktert helyezzen egy kifejezés fölé vagy alá. Adjunk hozzá egy határértéket a csoportosított kifejezés címkézéséhez.
 
-![Az x + y kifejezés csoportosítva, alatta egy tetszőleges szöveg címkével](powerpoint-math-equations_15.png)
+![Az x plusz y kifejezés csoportosítva, a címke bármilyen szöveg alatta](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -695,9 +728,9 @@ try {
 
 ## **Matematikai elemek formázása**
 
-Csak ott használjon formázó segédfüggvényeket, ahol azok tisztázzák a képletet. Például a [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) egy vonalat helyez a matematikai elem fölé.
+Formázó segédeket csak akkor használjon, ha azok tisztábbá teszik a képletet. Például a [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#overbar--) egy vonalat helyez fel egy matematikai elem fölé.
 
-![ABC matematikai kifejezés felül vonallal](powerpoint-math-equations_14.png)
+![Matematikai kifejezés ABC egy felülvonallal](powerpoint-math-equations_14.png)
 
 ```java
 import com.aspose.slides.*;
@@ -722,9 +755,9 @@ try {
 
 ### **Szöveg formázása meglévő egyenletben**
 
-Egy meglévő egyenlet szövegének formázásához járja be minden matematikai blokk elemfa struktúráját. Az [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) csak a közvetlen gyermekeket adja vissza, ezért rekurzívan kell meghívni, hogy elérje a szöveget törtök, indexek, gyökök és egyéb beágyazott struktúrák belsejében. Ellenőrizze az aktuális elemet és annak gyermekelemeit is, hogy a kezdő elem is bele legyen foglalva, ha az [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) típusú.
+A szöveg formázásához egy meglévő egyenletben bejárja az egyes matematikai blokkok elemtárait. A [IMathElement.getChildren](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/#getChildren--) csak a közvetlen gyermekeket adja vissza, ezért rekurzívan kell meghívni, hogy elérje a szöveget a törtek, indexek, gyökök és egyéb beágyazott struktúrákban. Ellenőrizze az aktuális elemet és annak gyermekeit is, hogy a kiinduló elemet is belevesse, ha az [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) típusú.
 
-Ez a példa feltételezi, hogy az `input.pptx` egy olyan egyenletet tartalmaz, mint a `z = xᵢ / ∛y`, ahol a tört számlálójában alsó index, a nevezőben pedig egy gyök található. Ha csak a blokk felső szintű elemeit dolgozza fel, a tört belsejében lévő szöveget kihagyja. A példa megtalálja a matematikai részeket a diáknak szövegdobozában, hozzáfér a blokkokhoz az [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) segítségével, és a [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) metódussal 28 pont méretűre állítja a betűméretet minden szövegelem [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) metódusán keresztül.
+Ez a példa feltételezi, hogy a `input.pptx` tartalmaz egy egyenletet, például `z = xᵢ / ∛y`, ahol a tört számlálójában index, a nevezőben pedig gyök van. Ha csak a blokk felső szintű elemeit dolgozza fel, a törtben lévő szöveg kimarad. A példa megtalálja a matematikai részeket a dia szövegdobozokban, a blokkokat a [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)‑on keresztül érheti el, és a [setFontHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) segítségével 28 pont betűméretet állít be minden szövegelem [getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/#getFormat--) metódusa által.
 
 ```java
 import com.aspose.slides.*;
@@ -775,37 +808,37 @@ try {
 }
 ```
 
-A mentett prezentáció minden szintjén tartalmazza a frissített szövegformázást a feldolgozott egyenletekben, miközben megőrzi a szövegtartalmat és a matematikai szerkezetet.
+A mentett prezentáció a frissített szövegformázást tartalmazza minden szintben a feldolgozott egyenletekben, miközben megőrzi a szövegtartalmat és a matematikai struktúrát.
 
-## **Gyors referencia**
+## **Gyorsreferencia**
 
 | Feladat | Fő API |
 | --- | --- |
-| Matematikai szöveg létrehozása | [Matematikai szöveg](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
-| Elemek egyesítése | [Elemek egyesítése](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Törtek létrehozása | [Törtek létrehozása](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Matematikai szöveg létrehozása | [MathematicalText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathematicaltext/) |
+| Elemek egyesítése | [IMathElement.join](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Törtek létrehozása | [IMathElement.divide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Felső- vagy alsó index hozzáadása | [setSuperscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Függvények hozzáadása | [function](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Gyökök hozzáadása | [Gyökök hozzáadása](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Határok hozzáadása | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Baloldali indexek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Gyökök hozzáadása | [IMathElement.radical](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Határértékek hozzáadása | [setLowerLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Baloldali szkriptek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Összegzések és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Mátrixok hozzáadása | [MathMatrix](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathmatrix/) |
 | Egyenlet tömbök hozzáadása | [toMathArray](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 | Határolók hozzáadása | [enclose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Vonalak és határolók hozzáadása | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
-| Tagok csoportosítása | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Vonalak és keretek hozzáadása | [overbar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
+| Kifejezések csoportosítása | [group](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathelement/) |
 
 ## **GYIK**
 
-**Szerkeszthetek egy meglévő PowerPoint egyenletet?**
+**Szerkeszthetek meglévő PowerPoint egyenletet?**
 
-Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amely egy [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/) tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) metódust, és frissítse a bekezdésben lévő matematikai blokkokat.
+Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amely [MathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/mathportion/)‑t tartalmaz, hívja meg a [getMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)‑t, és frissítse a bekezdésben lévő matematikai blokkokat.
 
-**Mentéskor az egyenletek szerkeszthető PowerPoint matematikaként vannak-e tárolva?**
+**Az egyenletek szerkeszthető PowerPoint matematikaként vannak mentve?**
 
-Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office math tartalomként írja.
+Igen. PPTX‑ként mentéskor az Aspose.Slides az egyenletet szerkeszthető Office math tartalomként írja ki.
 
-**Exportálhatok egyenleteket LaTeX-be?**
+**Exportálhatok egyenleteket LaTeX‑be?**
 
-Igen. Szerezze meg az egyenlet [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/) objektumát a [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/) segítségével, és hívja a [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) metódust a közvetlen exportáláshoz. Teljes példáért lásd a [Export Math Equations from Presentations in Android via Java](/slides/hu/androidjava/exporting-math-equations/#export-math-equations-to-latex) oldalt.
+Igen. Szerezze meg az egyenlet [IMathParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/)‑ját a [IMathPortion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathportion/)‑ról, majd hívja meg az [IMathParagraph.toLatex](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imathparagraph/#toLatex--) metódust a közvetlen exportáláshoz. Teljes példáért tekintse meg a [Export Math Equations from Presentations in Android via Java](/slides/hu/androidjava/exporting-math-equations/#export-math-equations-to-latex) című oldalát.

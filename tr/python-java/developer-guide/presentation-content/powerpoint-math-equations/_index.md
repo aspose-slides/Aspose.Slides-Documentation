@@ -18,13 +18,13 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java kullanarak PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve açık Python kod örnekleri sağlar."
+description: "Aspose.Slides for Python via Java ile PowerPoint PPT ve PPTX dosyalarına matematik denklemleri ekleyin ve düzenleyin, OMML desteği, biçimlendirme kontrolleri ve açık Python kod örnekleri sunar."
 ---
 ## **Genel Bakış**
 
-PowerPoint denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for Python via Java ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
+PowerPoint, denklemleri Office Math Markup Language (OMML) olarak depolar. Aspose.Slides for Python via Java ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, işlevler, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
 
-PowerPoint'te kullanıcılar genellikle **Ekle > Denklem** menüsünden denklemler ekler:
+PowerPoint'ta, kullanıcılar genellikle denklemleri **Ekle > Denklem** üzerinden eklerler:
 
 ![PowerPoint Ekle sekmesi, Denklem komutu seçili](powerpoint-math-equations_1.png)
 
@@ -32,17 +32,17 @@ Sonuç, slaytta düzenlenebilir matematik metni olur:
 
 ![Düzenlenebilir bir matematik denklemi içeren bir PowerPoint slaytı](powerpoint-math-equations_2.png)
 
-Aspose.Slides, bu matematik metnini üç temel nesne aracılığıyla oluşturur:
+Aspose.Slides, bu matematik metnini üç ana nesne aracılığıyla oluşturur:
 
-- Bir matematik şekli, [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) ile oluşturulur ve denklemi içerir.
-- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) şekil metin çerçevesi içinde matematik içeriğini depolar.
+- Denklemi içeren şekil, [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) ile oluşturulan bir matematik şeklidir.
+- [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) şeklin metin çerçevesi içinde matematik içeriğini saklar.
 - [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) bir veya daha fazla [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) nesnesi içerir.
 
 Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) ve [MathElementBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/) üzerindeki akıcı yöntemleri kullanır.
 
-MathML dışa aktarma senaryoları için, [Sunumlardan Matematik Denklemlerini Python'da Dışa Aktarma](/slides/tr/python-java/exporting-math-equations/) sayfasına bakın.
+MathML dışa aktarma senaryoları için, [Python'da Sunumlardan Matematik Denklemlerini Dışa Aktarma](/slides/tr/python-java/exporting-math-equations/) bölümüne bakın.
 
-## **Denklem Oluşturma**
+## **Bir Denklem Oluşturma**
 
 Bu örnek, bir matematik şekli oluşturmak için [addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) kullanır ve Pisagor teoremini ekler:
 
@@ -76,12 +76,12 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) erişin, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) çağırın ve ona matematik blokları ya da matematik elemanları ekleyin.
+[addMathShape](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addMathShape) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) erişin, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) çağırın ve ona matematik blokları veya matematik öğeleri ekleyin.
 {{% /alert %}}
 
 ## **Kesir Ekleme**
 
-[divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) kullanarak bir kesir oluşturun. [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
+Kesir oluşturmak için [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) kullanın. Bir kesir stili seçmek için [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/) kullanabilirsiniz.
 
 ![x'e bölünmüş bir kesiri gösteren eğik bir matematik kesiri](powerpoint-math-equations_4.png)
 
@@ -111,14 +111,14 @@ finally:
     presentation.dispose()
 ```
 
-Yığılı bir kesir için, [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) kullanın:
+Üst üste bir kesir için [MathFractionTypes.Bar](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/#Bar) kullanın:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpase.startJVM()
 
 from asposeslides.api import MathFractionTypes, MathematicalText
 
@@ -127,9 +127,9 @@ stacked_fraction = MathematicalText("x + 1").divide("y - 1", MathFractionTypes.B
 
 ## **Kökler Ekleme**
 
-[radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) kullanarak kareköklü, küpkökü veya diğer kökleri oluşturun. Mevcut eleman taban olur ve argüman derece olur.
+[radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) bir karekök, küpkök veya diğer kökleri oluşturmak için kullanın. Mevcut öğe taban olur, argüman ise derecesi olur.
 
-![Kök işaretinin altında x bulunan n. dereceden bir kök ifadesi](powerpoint-math-equations_5.png)
+![kök işareti altında x bulunan n'inci dereceli bir kök ifadesi](powerpoint-math-equations_5.png)
 
 ```python
 import jpype
@@ -157,11 +157,48 @@ finally:
     presentation.dispose()
 ```
 
+### **Karekök Derecesini Gösterme veya Gizleme**
+
+Karekök, açık bir 2 gösterebilir ya da geleneksel √x gösterimini kullanabilir. [MathRadical](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/)&#39;in [setHideDegree](https://reference.aspose.com/slides/python-java/aspose.slides/mathradical/#setHideDegree) yöntemi hangi biçimin görüneceğini kontrol eder. Her iki biçim de düzenlenebilir denklemde derece 2 ve radikand x&#39;i korur.
+
+![Derecesi solda gösterilen ve sağda gizlenen aynı karekök](square-root-degree.png)
+
+Örnek aynı karekökü iki kez kaydeder. `visible-degree.pptx` dosyasında 2 görünür. `hidden-degree.pptx` dosyasında gizlidir.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import MathBlock, MathematicalText, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    radical = MathematicalText("x").radical("2")
+    math_block = MathBlock(radical)
+
+    math_shape = slide.getShapes().addMathShape(20, 20, 200, 100)
+    math_paragraph = math_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph()
+    math_paragraph.add(math_block)
+
+    radical.setHideDegree(False)
+    presentation.save("visible-degree.pptx", SaveFormat.Pptx)
+
+    radical.setHideDegree(True)
+    presentation.save("hidden-degree.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
 ## **Fonksiyonlar ve Limitler Ekleme**
 
-`sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları için [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) veya [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) kullanın. Limitler için, `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) kullanın.
+`sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları için [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) veya [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) kullanın. Limitler için `lim`&#39;i bir [MathLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit) kullanın.
 
-![x, ∞'ye yaklaştıkça limit](powerpoint-math-equations_8.png)
+![x'in sonsuza yaklaşırken limiti](powerpoint-math-equations_8.png)
 
 ```python
 import jpype
@@ -189,7 +226,7 @@ finally:
     presentation.dispose()
 ```
 
-Özel bir fonksiyon adı için, fonksiyon adını mevcut eleman yapın ve [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) ile argümanını çağırın:
+Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve argümanı ile [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function) çağırın:
 
 ```python
 import jpype
@@ -205,7 +242,7 @@ custom_function = MathematicalText("f").function("x + 1")
 
 ## **N-ary Operatörler ve İntegraller Ekleme**
 
-Toplamalar, birleşimler, kesişimler ve diğer büyük operatörler için [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) kullanın. İntegraller için [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza olanak tanır.
+Toplamalar, birleşimler, kesişimler ve diğer büyük operatörler için [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary) kullanın. İntegraller için [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza izin verir.
 
 ![Alt ve üst limitli bir toplama](powerpoint-math-equations_7.png)
 
@@ -238,7 +275,7 @@ finally:
     presentation.dispose()
 ```
 
-N-ary operatörler, isteğe bağlı limitli büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) olarak eklenir ve ifadeye birleştirilir.
+N-ary operatörler isteğe bağlı limitlere sahip büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) olarak eklenir ve ifadeye birleştirilir.
 
 İntegral için, [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) kullanın:
 
@@ -256,9 +293,9 @@ integral_base = MathematicalText("x").join(differential)
 integral = integral_base.integral(MathIntegralTypes.Simple, "0", "1")
 ```
 
-## **Matris Ekleme**
+## **Matrisler Ekleme**
 
-Satırlar ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez; bu yüzden parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi kapsayın.
+[MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) satır ve sütunlar için kullanın. Matrisler varsayılan olarak parantez içermez, bu yüzden ihtiyacınız olduğunda parantez, köşeli parantez veya süslü parantez ekleyin.
 
 ![Bir boş hücreli iki satırlı bir matematik matrisi](powerpoint-math-equations_10.png)
 
@@ -300,9 +337,9 @@ finally:
 
 ## **Denklem Dizileri Ekleme**
 
-Hizalanmış denklemler veya ifadelerin dikey yığını gerektiğinde [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) kullanın.
+Yanyana hizalanmış denklemler veya ifadelerin dikey yığını gerektiğinde [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) kullanın.
 
-![x'in y'nin üstünde olduğu dikey bir matematik dizisi](powerpoint-math-equations_11.png)
+![x'in y'nin üzerinde olduğu dikey bir matematik dizisi](powerpoint-math-equations_11.png)
 
 ```python
 import jpype
@@ -330,11 +367,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Bir Diziyi Çevresindeki Elemanlarla Hizalama**
+### **Diziyi Çevreleyen Öğelerle Hizalama**
 
-[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) bir dizinin yanındaki matematiksel elemanlara göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizinin ortası ve son satır hizalamasını karşılaştırır.
+[setBaseJustification](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setBaseJustification) bir dizinin yanında bulunan matematiksel öğelere göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, hizalamayı ilk satır, dizinin ortası ve son satırla karşılaştırır.
 
-Aşağıdaki örnek, her biri üç satır ve komşu elemanlar `A=` ve `=B` olan üç aynı diziyi oluşturur. Tüm matematik metni 24 punto Cambria Math kullanır. Yalnızca dizi hizalaması değişir.
+Aşağıdaki örnek, üç satır ve yanındaki `A=` ve `=B` öğeleriyle üç aynı dizi oluşturur. Tüm matematik metni 24 punto Cambria Math kullanır. Yalnızca dizi hizalaması değişir.
 
 ```python
 import jpype
@@ -388,17 +425,17 @@ finally:
     presentation.dispose()
 ```
 
-Aşağıdaki karşılaştırma, PowerPoint'te kaydedilen sunumu gösterir. `A=` ve `=B` konumuna her dizinin yanında dikkat edin.
+İşte PowerPoint'te kaydedilen sunumun karşılaştırması. `A=` ve `=B` pozisyonlarına her dizi yanında dikkat edin.
 
-![PowerPoint'te Üst, Orta ve Alt hizalamalı ve aynı komşu elemanlara sahip denklemler dizileri](equation-array-alignment.png)
+![Üst, Orta ve Alt hizalama ve aynı yan öğelerle PowerPoint'teki denklem dizileri](equation-array-alignment.png)
 
 ### **Satır Aralığını Yapılandırma**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) dizi içindeki satırlar için aralık kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) açık bir aralık kuralı için sayısal bir değer sağlar ve ön tanımlı kurallar tarafından göz ardı edilir.
+[setRowSpacingRule](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacingRule) dizi içindeki satırlar için boşluk kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/matharray/#setRowSpacing) belirli bir boşluk kuralı için sayısal bir değer sağlar ve ön ayar kurallarını yok sayar.
 
-Tam aralık için değer puan cinsindendir. Orantılı aralık için yarı satır cinsinden ölçülür: örnekte `3` değeri 1,5 satır eder. Açık bir değer belirtirken her iki özelliği de ayarlayın; yalnızca sayısal değeri değiştirmek bir aralık kuralı seçmez.
+Tam boşluk için değer puan cinsindendir. Orantılı boşlukta, yarım satır cinsinden ölçülür: örnekteki `3` değeri 1.5 satır demektir. Belirli bir değer belirtirken her iki özelliği de ayarlayın; sadece sayısal değeri değiştirmek boşluk kuralını seçmez.
 
-Aşağıdaki örnek, aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi açık değerleri gösterir.
+Aşağıdaki örnek aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi belirli değerleri gösterir.
 
 ```python
 import jpype
@@ -442,13 +479,13 @@ for name, rule, spacing in settings:
         presentation.dispose()
 ```
 
-Dizi satır aralığı, paragraf aralığından ayrıdır. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) içerik paragrafının etrafına boşluk ekler, dizi satırları arasında değil. Benzer şekilde, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) tüm matematik paragrafını yatay olarak konumlandırır; dizi dikey hizalama ayarını değiştirmez.
+Dizi satır aralığı paragraf aralığından ayrı bir şeydir. [setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter) içeren paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Benzer şekilde, [MathParagraph.setJustification](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#setJustification) bütün matematik paragrafını yatay olarak konumlandırır; dizinin dikey hizalama ayarını değiştirmez.
 
 ## **Trigonometrik Fonksiyonlar Ekleme**
 
-Argüman mevcut eleman ve fonksiyon adı biliniyorsa [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) kullanın.
+Argüman mevcut öğe ve fonksiyon adı biliniyorsa [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) kullanın.
 
-![2x üzerine uygulanan cos trigonometrik fonksiyonu](powerpoint-math-equations_6.png)
+![cos fonksiyonunun 2x&#39;e uygulanması](powerpoint-math-equations_6.png)
 
 ```python
 import jpype
@@ -476,11 +513,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Alt ve Üst İndisler Ekleme**
+## **Alt ve Üst İndeksler Ekleme**
 
-İndeksler ve üstler için alt ve üst indis yardımcılarını kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) kullanın.
+İndeksler ve üstler için alt ve üst indeks yardımcılarını kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) kullanın.
 
-![Sol taraflı alt indeks 1 ve üst indeks n ile büyük Y](powerpoint-math-equations_9.png)
+![Sol taraflı alt indeks 1 ve üst indeks n olan büyük Y](powerpoint-math-equations_9.png)
 
 ```python
 import jpype
@@ -508,11 +545,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Sınırlayıcılar Ekleme**
+## **Ayraçlar Ekleme**
 
-Bir ifadeyi sınırlayıcıların içine koymak için [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) kullanın. Birkaç eleman içeren sınırlayıcı ifadeler için ayırıcı karakter de ayarlayabilirsiniz.
+[enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) ifadesini ayraçların içine koymak için kullanın. Birden fazla öğe içeren ayraç ifadeleri için ayırıcı karakter de ayarlayabilirsiniz.
 
-![x, y ve z'yi dikey çizgilerle ayıran bir sınırlayıcı ifade](powerpoint-math-equations_13.png)
+![x, y ve z&#39;yi dikey çubuklarla ayıran bir ayraç ifadesi](powerpoint-math-equations_13.png)
 
 ```python
 import jpype
@@ -541,11 +578,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Sınırlayıcıların Boyutu ve Hizalaması**
+### **Ayraçları Boyutlandırma ve Hizalama**
 
-`True` değerini [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)’a geçirerek parantezlerin yüksek bir operanda göre büyümesini sağlayın, ya da `False` geçirerek normal boyutlarını koruyun. [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape)’i iki [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) değerinden biriyle kullanın. `Centered` parantezleri eşit işaretinin ortasından geçen matematik eksenine ortalar. `Match` onları kapsanan içerikle hizalar. Her iki ayar da yalnızca sınırlayıcıları etkiler. İçteki ifade aynı kalır.
+[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)’e `True` verirseniz parantezler yüksek bir işleme uyacak şekilde büyür, `False` verirseniz normal boyutlarında kalır. [setDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimiter/#setDelimiterShape)’i iki [MathDelimiterShape](https://reference.aspose.com/slides/python-java/aspose.slides/mathdelimitershape/) değerinden biriyle kullanın. `Centered` parantezleri eşit işaretinin ortasından geçen matematik eksenine ortalar. `Match` onları içerilen içerikle hizalar. Her iki ayar sadece ayraçları etkiler. İçteki ifade aynı kalır.
 
-Örnek, `x`'in üssüne bir kesir koyar, böylece ifade tabana göre daha yukarı uzanır. Dört denklem de aynı parantez ve yazı tipi ayarlarını kullanır.
+Örnek, `x` üssüne bir kesir yerleştirir, böylece ifade taban çizgisinin üstünde daha fazla uzanır. Dört denklemin tamamı aynı parantezleri ve yazı tipi ayarlarını kullanır.
 
 ```python
 import jpype
@@ -578,15 +615,15 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint'te, büyüme etkisini görmek için satırları karşılaştırın. Üst satırda, parantezler üssü kapsayacak şekilde büyür ve iki şekil için de benzer görünür. Alt satırda büyüme kapalıdır. Sol taraftaki daha küçük parantezler (`Centered`) eşit işaretiyle hizalanırken, sağdaki (`Match`) ifadeyi daha yüksek tutar.
+PowerPoint'te, büyümenin etkisini görmek için satırları karşılaştırın. Üst satırda, parantezler üssü kapsayacak şekilde büyür ve her iki şekil de benzer görünür. Alt satırda, büyüme kapalıdır. Sol taraftaki daha küçük parantezler (`Centered`) eşit işaretiyle hizalanırken, sağ taraftakiler (`Match`) ifadeyi daha yüksek bir şekilde sarar.
 
-![PowerPoint'te büyümesi açık ve kapalı sınırlayıcılarla ve sol tarafta Centered, sağ tarafta Match olan dört denklem](delimiter-sizing.png)
+![Parantez büyümesinin açık ve kapalı olduğu, sol tarafta Centered, sağ tarafta Match olduğu dört denklem](delimiter-sizing.png)
 
-## **Bir Kenarlık Kutusu Ekleme**
+## **Sınır Kutusu Ekleme**
 
-Bir kesir üzerinde [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) çağırarak tüm ifadeyi çerçeveleyin. Dönen [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) varsayılan olarak dört kenarı gösterir. Tek tek kenarları kaldırmak için [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) ve [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) kullanın.
+Bir kesirde tüm ifadeyi çerçevelemek için [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) çağırın. Dönen [MathBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/) varsayılan olarak dört tarafı da gösterir. Tek tek tarafları kaldırmak için [setHideTop](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideLeft) ve [setHideRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setHideRight) kullanın.
 
-Örnek, aynı kesirin altı kopyasını bir slayta yerleştirir. İptal göstermek için, dört kenarı da gizleyin ve yükselen bir diyagonal (↗) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight)’a `True` geçirin veya düşen bir diyagonal (↘) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight)’a `True` geçirin. Görünür kenarların herhangi bir kombinasyonu ile [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) veya [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) da kullanılabilir.
+Örnek, aynı kesirin altı kopyasını bir slayda yerleştirir. İptali göstermek için tüm dört tarafı gizleyin ve yükselen çapraz (↗) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight)’e `True`, düşen çapraz (↘) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight)’e `True` verin. Görünür tarafların herhangi bir kombinasyonuyla [setStrikethroughHorizontal](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) veya [setStrikethroughVertical](https://reference.aspose.com/slides/python-java/aspose.slides/mathborderbox/#setStrikethroughVertical) da kullanılabilir.
 
 ```python
 import jpype
@@ -633,24 +670,24 @@ finally:
     presentation.dispose()
 ```
 
-![PowerPoint'te düzenlenebilir altı kesir. Üst satır: tam kenarlık, alt ve sol kenarlar, yükselen diyagonal. Alt satır: düşen diyagonal, yatay çarpı, tam kenarlı dikey çarpı.](border-box-fractions.png)
+![PowerPoint'te altı düzenlenebilir kesir. Üst satır: tam kenarlık, alt ve sol taraflar, yükselen çapraz. Alt satır: düşen çapraz, yatay çizgi, dikey çizgi ve tam kenarlık.](border-box-fractions.png)
 
-Bu kesirde, yatay çarpı kesir çubuğunun üzerine gelir. Dikey çarpı hem payı hem de paydayı keserken çevresel kenarlık görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üstü çizgi, bir metin aralığındaki karakterlere uygulanır. Sunumu PowerPoint'te yeniden açtıktan sonra, pay ve paydayı bağımsız olarak düzenlemeye devam edebilirsiniz.
+Bu kesirde, yatay çizgi kesir çubuğunun üzerine çıkar. Dikey çizgi hem sayıyı hem de paydayı keserken çevre kenarlık görünür kalır. Bu çizgiler bütün ifadeyi süsler. Normal metin üzeri çizgisi, bir metin yürütmesindeki karakterlere uygulanır. Sunumu PowerPoint'te yeniden açtıktan sonra sayıyı ve paydayı ayrı ayrı düzenleyebilirsiniz.
 
-## **Phantom Elemanlarla Görünürlük ve Düzeni Kontrol Etme**
+## **Phantom Öğelerle Görünürlük ve Düzeni Kontrol Etme**
 
-Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) ile sararak görünürlüğünü ve bir denkleme kattığı alanı bağımsız olarak kontrol edin. [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) yöntemleri aşağıdakileri kontrol eder:
+Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) içinde sararak görünürlüğünü ve bir denkleme katkıda bulunduğu boşluğu bağımsız olarak kontrol edebilirsiniz. [MathPhantom](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/) yöntemleri aşağıdakileri kontrol eder:
 
-| Yöntem | Etki |
+| Yöntem | Etkisi |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | İfadeyi gizlemek için `False` geçirin. Boyutları, aşağıdaki yöntemler `True` alana kadar düzenlemeye katkıda bulunur. |
-| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | İfadenin yatay genişliğini sıfır olarak kabul eder, komşu elemanların birbirine daha yakın gelmesini sağlar. |
-| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | Yukarı doğru yükselişini (baselines üzerindeki yüksekliği) sıfır olarak kabul eder. Bu, komşu elemanların üzerindeki boşluğu azaltabilir. |
-| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | Alt doğru inişini (baselines altındaki derinliği) sıfır olarak kabul eder. Bu, bir kesir çubuğu veya diğer içeriğin ifadenin altındaki öğesini komşularına daha yakın getirebilir. |
+| [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow) | `False` geçirerek ifadeyi gizleyin. Boyutları, aşağıdaki ilgili yöntemler `True` almazsa, düzenlemeye katkıda bulunur. |
+| [setZeroWidth](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroWidth) | İfadenin yatay genişliğini sıfır olarak trakt edin, böylece komşu öğeler daha yakın hareket eder. |
+| [setZeroAsc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroAsc) | Üst yükseklik (baseline üzerindeki yükseklik) sıfır olarak kabul edilir. Bu, komşu öğelerin üzerindeki ayrılan boşluğu azaltabilir. |
+| [setZeroDesc](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setZeroDesc) | Alt iniş (baseline altındaki derinlik) sıfır olarak kabul edilir. Bu, bir kesir çubuğunu veya ifadenin altındaki diğer içeriği komşularına daha yakın taşıyabilir. |
 
-Baseline, normal matematiksel harflerin oturduğu referans çizgisidir. İçeriği gizlemek boyutlarını kaldırmaz, bir boyutu sıfır kabul etmek ifadeyi silmez. Alt ifade, [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase) aracılığıyla hâlâ erişilebilir durumdadır. Tekrar göstermek için [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow)’a `True` geçirin; boyut ayarları değişmeden kalır.
+Baseline, normal matematik harflerinin oturduğu referans çizgidir. İçeriği gizlemek boyutlarını kaldırmaz ve bir boyutu sıfır olarak almak ifadeyi silmez. Alt ifadeye [getBase](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#getBase) aracılığıyla erişilebilir. [setShow](https://reference.aspose.com/slides/python-java/aspose.slides/mathphantom/#setShow)’e `True` geçirerek tekrar gösterin; boyut ayarları değişmeden kalır.
 
-Aşağıdaki örnek, yan yana beş varyant oluşturur: görünür bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır olarak kabul edilen üç gizli kesir. Her varyant aynı çevre ifadesini ve 24 punto Cambria Math'i kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir, gri kılavuzla işaretlenmiştir. Phantom'u dış kesrin payına yerleştirmek, dikey düzen değişikliklerini daha net görmeyi sağlar.
+Aşağıdaki örnek beş yan yana varyant oluşturur: görünür bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır olarak alınmış üç gizli kesir. Her varyant aynı çevre ifadesini ve 24 punto Cambria Math'i kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir, gri kılavuzla işaretlenmiştir. Phantom&#39;u dış kesirin sayısına yerleştirmek, dikey düzen değişikliklerini görmeyi kolaylaştırır.
 
 ```python
 import jpype
@@ -720,13 +757,13 @@ finally:
     presentation.dispose()
 ```
 
-![PowerPoint'te görünür bir kesir, alan ayıran gizli bir kesir ve ZeroWidth, ZeroAsc veya ZeroDesc etkin olan gizli kesirleri karşılaştıran beş denklem](math-phantom.png)
+![Görünür bir kesir, alan ayıran gizli bir kesir ve ZeroWidth, ZeroAsc veya ZeroDesc etkin olan gizli kesirleri karşılaştıran PowerPoint&#39;te beş denklem](math-phantom.png)
 
 ## **Terimleri Gruplama**
 
-[group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) kullanarak bir ifadeye üstünde veya altında bir gruplama karakteri yerleştirin. Gruplanmış terimleri etiketlemek için bir limit ekleyin.
+[group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) ile bir ifadeyi üstüne veya altına bir grup karakteri koyun. Gruplandırılmış terimleri etiketlemek için bir limit ekleyin.
 
-![ifade x + y, altına herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
+![x + y ifadesi, altında herhangi bir metin etiketiyle gruplanmış](powerpoint-math-equations_15.png)
 
 ```python
 import jpype
@@ -754,9 +791,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Matematik Elemanlarını Biçimlendirme**
+## **Matematik Öğelerini Biçimlendirme**
 
-Biçimlendirme yardımcılarını yalnızca formülü netleştirdiği yerlerde kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) bir matematik elemanının üzerine bir çubuk koyar.
+Biçimlendirme yardımcılarını yalnızca formülü netleştirdiği yerlerde kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar) bir matematik öğesinin üzerine bir çubuk ekler.
 
 ![Üst çubuğu olan ABC matematik ifadesi](powerpoint-math-equations_14.png)
 
@@ -788,9 +825,9 @@ finally:
 
 ### **Mevcut Bir Denklemde Metni Biçimlendirme**
 
-Mevcut bir denklemin içinde metni biçimlendirmek için, her matematik bloğunun eleman ağacını dolaşın. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) yalnızca doğrudan çocukları döndürür, bu yüzden kesirler, üst/alt indisler, kökler ve diğer iç içe yapıların içindeki metne ulaşmak için yeniden çağırın. Başlangıç elemanı [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) olduğunda onu da dahil etmek için mevcut elemanı ve çocuklarını kontrol edin.
+Mevcut bir denklemin tüm metnini biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. [MathElementBase.getChildren](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#getChildren) yalnızca doğrudan çocukları döndürür, bu yüzden kesirler, üst/alt indisler, kökler ve diğer iç içe yapılar içindeki metne ulaşmak için özyinelemeli olarak çağırın. Başlangıç öğesi [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) olduğunda da onu dahil etmek için mevcut öğeyi ve çocuklarını kontrol edin.
 
-Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; burada kesir, payda kısmında bir alt indeks ve payda kısmında bir kök içerir. Yalnızca bloğun üst düzey elemanlarını işlemek kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklarına [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) ile erişir ve her metin elemanının [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) yöntemiyle [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) kullanarak yazı tipi boyutunu 28 punto olarak ayarlar.
+Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar, sayısında bir alt indisli kesir ve bir kök içerir. Sadece bloğun üst düzey öğelerini işlemek, kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, [MathPortion.getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) ile bloklarına erişir ve [setFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setFontHeight) ile her metin öğesinin [getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/#getFormat) yöntemi aracılığıyla yazı tipi yüksekliğini 28 puana ayarlar.
 
 ```python
 import jpype
@@ -831,24 +868,24 @@ finally:
     presentation.dispose()
 ```
 
-Kaydedilen sunum, işlenen her denklemin her seviyesinde güncellenmiş metin biçimlendirmesini içerir ve metin içeriği ile matematiksel yapıyı korur.
+Kayıtlı sunum, işlenen her denklemin her seviyesinde güncellenmiş metin biçimlendirmesini içerir, aynı zamanda metin içeriğini ve matematiksel yapıyı korur.
 
 ## **Hızlı Başvuru**
 
 | Görev | Ana API |
 | --- | --- |
 | Matematik metni oluşturma | [MathematicalText](https://reference.aspose.com/slides/python-java/aspose.slides/mathematicaltext/) |
-| Elemanları birleştirme | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
+| Öğeleri birleştirme | [MathElementBase.join](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#join) |
 | Kesirler oluşturma | [MathElementBase.divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) |
-| Üst indis veya alt indis ekleme | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
+| Üst veya alt indeks ekleme | [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript), [setSubscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubscript) |
 | Fonksiyonlar ekleme | [function](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#function), [asArgumentOfFunction](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#asArgumentOfFunction) |
 | Kökler ekleme | [MathElementBase.radical](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#radical) |
 | Limitler ekleme | [setLowerLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setLowerLimit), [setUpperLimit](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setUpperLimit) |
-| Sol taraftaki indis ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
+| Sol taraflı üst/alt indis ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft) |
 | Toplamalar ve integraller ekleme | [nary](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#nary), [integral](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#integral) |
 | Matrisler ekleme | [MathMatrix](https://reference.aspose.com/slides/python-java/aspose.slides/mathmatrix/) |
 | Denklem dizileri ekleme | [toMathArray](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toMathArray) |
-| Sınırlayıcılar ekleme | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
+| Ayraçlar ekleme | [enclose](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#enclose) |
 | Çubuklar ve kenarlıklar ekleme | [overbar](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#overbar), [toBorderBox](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#toBorderBox) |
 | Terimleri gruplama | [group](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#group) |
 
@@ -858,10 +895,10 @@ Kaydedilen sunum, işlenen her denklemin her seviyesinde güncellenmiş metin bi
 
 Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) içeren şekli bulun, [getMathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/#getMathParagraph) çağırın ve o paragraftaki matematik bloklarını güncelleyin.
 
-**Denekler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
+**Denklemler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
 
 Evet. PPTX olarak kaydettiğinizde, Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
 
-**Denekleri LaTeX'e dışa aktarabilir miyim?**
+**Denklileri LaTeX&#39;e dışa aktarabilir miyim?**
 
-Evet. Denklemin [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/)’ını [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/)’ından alın ve doğrudan dışa aktarmak için [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) çağırın. Tam bir örnek için, [Sunumlardan Matematik Denklemlerini Python'da Dışa Aktarma](/slides/tr/python-java/exporting-math-equations/#export-math-equations-to-latex) sayfasına bakın.
+Evet. Denklemin [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) öğesini [MathPortion](https://reference.aspose.com/slides/python-java/aspose.slides/mathportion/) üzerinden alın ve doğrudan dışa aktarmak için [MathParagraph.toLatex](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/#toLatex) çağırın. Tam bir örnek için [Export Math Equations from Presentations in Python](/slides/tr/python-java/exporting-math-equations/#export-math-equations-to-latex) sayfasına bakın.
