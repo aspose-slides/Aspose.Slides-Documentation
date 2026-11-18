@@ -1,5 +1,5 @@
 ---
-title: 在 JavaScript 中為 PowerPoint 簡報新增數學方程式
+title: 在 JavaScript 中將數學方程式新增至 PowerPoint 簡報
 linktitle: PowerPoint 數學方程式
 type: docs
 weight: 80
@@ -18,31 +18,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint PPT 與 PPTX 中插入與編輯數學方程式，支援 OMML、格式控制，以及清晰的 JavaScript 程式碼範例。"
+description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint PPT 和 PPTX 中插入與編輯數學方程式，支援 OMML、格式控制，以及清晰的 JavaScript 程式碼範例。"
 ---
-## **概覽**
+## **概述**
 
-PowerPoint 將方程式儲存為 Office Math Markup Language (OMML)。使用 Aspose.Slides for Node.js via Java，您可以以程式方式建立相同類型的數學內容：分數、根號、函數、極限、N 元運算子、矩陣、陣列，以及格式化的數學區塊。
+PowerPoint 將方程式儲存為 Office Math Markup Language (OMML)。使用 Aspose.Slides for Node.js via Java，您可以以程式方式建立相同類型的數學內容：分數、根號、函數、極限、N 元運算子、矩陣、陣列以及格式化的數學區塊。
 
-在 PowerPoint 中，使用者通常從 **Insert > Equation** 新增方程式：
+在 PowerPoint 中，使用者通常從 **Insert > Equation** 添加方程式：
 
-![PowerPoint 插入標籤頁面，已選取「方程式」指令](powerpoint-math-equations_1.png)
+![PowerPoint 插入索引標籤，已選取方程式指令](powerpoint-math-equations_1.png)
 
 結果是在投影片上可編輯的數學文字：
 
 ![包含可編輯數學方程式的 PowerPoint 投影片](powerpoint-math-equations_2.png)
 
+Aspose.Slides 透過三個主要物件建立此數學文字：
+
 - 數學形狀，使用 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) 建立，是包含方程式的形狀。
-- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) 於形狀文字框內儲存數學內容。
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) 在形狀文字框內儲存數學內容。
 - [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) 包含一個或多個 [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) 物件。
 
-以下大多範例使用 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) 以及來自 [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) 的流暢方法，以保持程式碼簡潔易讀。
+以下大多數範例使用 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) 與 [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) 的串接方法，以保持程式碼簡潔且易讀。
 
-欲了解 MathML 匯出情境，請參閱 [Export Math Equations from Presentations in Node.js via Java](/slides/zh-hant/nodejs-java/exporting-math-equations/)。
+若需 MathML 匯出情境，請參閱 [從簡報匯出數學方程式（Node.js via Java）](/slides/zh-hant/nodejs-java/exporting-math-equations/).
 
 ## **建立方程式**
 
-此範例使用 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) 來建立數學形狀，並加入畢氏定理：
+此範例使用 [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) 建立數學形狀，並加入畢氏定理：
 
 ![方程式 c² = a² + b²](powerpoint-math-equations_3.png)
 
@@ -74,14 +76,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) 建立的形狀已包含數學段落。存取第一個 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)，呼叫 [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)，並向其加入數學區塊或數學元素。
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) 會建立已包含數學段落的形狀。存取第一個 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/)，呼叫 [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)，並向其加入數學區塊或數學元素。
 {{% /alert %}}
 
 ## **加入分數**
 
 使用 [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) 建立分數。您可以使用 [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/) 選擇分數樣式。
 
-![傾斜的數學分數，顯示 1 除以 x](powerpoint-math-equations_4.png)
+![一個斜斜的數學分數，顯示 1 除以 x](powerpoint-math-equations_4.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -106,7 +108,7 @@ try {
 }
 ```
 
-若要堆疊式分數，使用 [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar)：
+若需堆疊式分數，使用 [MathFractionTypes.Bar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/#Bar)：
 
 ```javascript
 var aspose = aspose || {};
@@ -117,9 +119,9 @@ let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1"
 
 ## **加入根號**
 
-使用 [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) 建立平方根、立方根或其他根。當前元素成為底數，參數成為指數。
+使用 [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) 建立平方根、立方根或其他根號。當前元素成為底部，參數則成為指數。
 
-![n 次根號表達式，x 位於根號符號下方](powerpoint-math-equations_5.png)
+![一個 n 次根號表達式，x 位於根號下方](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -144,13 +146,13 @@ try {
 }
 ```
 
-### **顯示或隱藏平方根的次方**
+### **顯示或隱藏平方根的指數**
 
-平方根可以顯示明確的 2，或使用傳統的 √x 符號。[MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) 的 [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree) 方法控制顯示哪種形式。兩種形式皆保留次方 2 與根號內的 x，且在可編輯方程式中保持不變。
+平方根可以顯示明確的 2，或使用傳統的 √x 符號。[MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) 的 [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree) 方法控制顯示哪種形式。兩種形式皆保留指數 2 與被開根號的 x，在可編輯的方程式中。
 
-![相同的平方根，左側顯示次方，右側隱藏次方](square-root-degree.png)
+![相同的平方根，左側指數可見，右側指數隱藏](square-root-degree.png)
 
-此範例將相同的平方根儲存兩次。在 `visible-degree.pptx` 中，2 為可見；在 `hidden-degree.pptx` 中，2 為隱藏。
+此範例將相同的平方根保存兩次。於 `visible-degree.pptx` 中，2 為可見；於 `hidden-degree.pptx` 中，2 為隱藏。
 
 ```javascript
 var aspose = aspose || {};
@@ -178,9 +180,9 @@ try {
 
 ## **加入函數與極限**
 
-使用 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) 或 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) 來建立函數，例如 `sin(x)`、`log(x)` 或自訂函數名稱。對於極限，將 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/)，或使用 [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit)。
+使用 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) 或 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) 來建立如 `sin(x)`、`log(x)` 或自訂函數名稱的函數。對於極限，可將 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/)，或使用 [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit)。
 
-![x 趨近於無限大時的極限](powerpoint-math-equations_8.png)
+![當 x 趨近於無限大時的極限](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -206,7 +208,7 @@ try {
 }
 ```
 
-若使用自訂函數名稱，將函數名稱設為當前元素，並以其參數呼叫 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function)：
+若使用自訂函數名稱，將函數名稱設為當前元素，然後以其參數呼叫 [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function)：
 
 ```javascript
 var aspose = aspose || {};
@@ -217,7 +219,7 @@ let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 
 ## **加入 N 元運算子與積分**
 
-使用 [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) 進行求和、聯集、交集及其他大型運算子。使用 [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) 進行積分。兩種方法皆可設定上下限。
+使用 [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) 進行總和、聯集、交集及其他大型運算子。使用 [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) 進行積分。兩個方法皆可設定上下限。
 
 ![帶有上下限的求和符號](powerpoint-math-equations_7.png)
 
@@ -247,9 +249,9 @@ try {
 }
 ```
 
-N 元運算子用於帶有可選上下限的大型運算子。像 `+`、`-`、`=` 等簡單運算子通常以 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) 加入並串接於表達式中。
+N 元運算子用於帶有可選上下限的大型運算子。簡單運算子如 `+`、`-`、`=` 通常以 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) 加入並串接到表達式中。
 
-若要建立積分，使用 [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral)：
+若要加入積分，使用 [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral)：
 
 ```javascript
 var aspose = aspose || {};
@@ -261,9 +263,9 @@ let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0"
 
 ## **加入矩陣**
 
-使用 [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) 來建立行與列。矩陣預設不含括號，若需要括弧、方括號或大括號，請自行將矩陣包起來。
+使用 [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) 建立行與列。矩陣預設不包含括號，若需括號、方括號或大括號，請自行將矩陣包起來。
 
-![兩列的數學矩陣，其中一格為空](powerpoint-math-equations_10.png)
+![具有兩列且其中一格為空的數學矩陣](powerpoint-math-equations_10.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -292,11 +294,62 @@ try {
 }
 ```
 
+### **編輯現有矩陣**
+
+假設線性代數課程以 `matrix.pptx` 中的係數矩陣開始，該檔案是前述範例所儲存。接下來的練習保留第一個方程式，將第二個方程式換成兩個新方程式，並重新調整變數集合。透過 [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) 開啟現有矩陣，以保留仍適用的係數。
+
+![原始兩列係數矩陣，第一列為 1、x 與空格，第二列為 x、2 與 y](matrix-before-edit.png)
+
+行與列索引從零開始，並指向呼叫時的矩陣狀態。在索引 1 前插入行會將原本的第二行移至索引 2。於索引 2 後插入則會附加新行。刪除第 2 行會移除原始的第二個方程式，並使附加的行上移一個位置。欄位也以相同方式移動。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("matrix.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const matrix = portion.getMathParagraph().get_Item(0).get_Item(0);
+
+    matrix.insertRowBefore(1);
+    matrix.insertRowAfter(2);
+    matrix.deleteRow(2);
+
+    matrix.insertColumnBefore(1);
+    matrix.insertColumnAfter(3);
+    matrix.deleteColumn(3);
+
+    // 新的儲存格最初為 null。先設定非零係數。
+    matrix.set_Item(1, 0, new slides.MathematicalText("12"));
+    matrix.set_Item(1, 1, new slides.MathematicalText("1"));
+    matrix.set_Item(2, 2, new slides.MathematicalText("10"));
+    matrix.set_Item(2, 3, new slides.MathematicalText("1"));
+    for (let row = 0; row < matrix.getRowCount(); row++) {
+        for (let column = 0; column < matrix.getColumnCount(); column++) {
+            if (matrix.get_Item(row, column) == null) {
+                matrix.set_Item(row, column, new slides.MathematicalText("0"));
+            }
+        }
+    }
+
+    matrix.setColumnAlignment(0, slides.MathHorizontalAlignment.Left);
+    matrix.setColumnsAlignment(1, 3, slides.MathHorizontalAlignment.Right);
+
+    presentation.save("updated-matrix.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[setColumnAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnAlignment) 將第一欄對齊左側。[setColumnsAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnsAlignment) 則將從索引 1 開始的三個連續欄位對齊右側。在 `updated-matrix.pptx` 中，矩陣有三個方程式與四個變數。原本第一列的係數 `1` 與 `x` 現在出現在第一與第三欄位。
+
+![更新後的三列矩陣，顯示列 1,0,x,0；12,1,0,0；以及 0,0,10,1](matrix-after-edit.png)
+
 ## **加入方程式陣列**
 
 當需要對齊的方程式或垂直堆疊的表達式時，使用 [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray)。
 
-![垂直的數學陣列，x 位於 y 之上](powerpoint-math-equations_11.png)
+![垂直數學陣列，x 位於 y 之上](powerpoint-math-equations_11.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -324,9 +377,9 @@ try {
 
 ### **將陣列與周圍元素對齊**
 
-[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) 控制陣列相對於旁邊數學元素的垂直對齊方式。以下範例比較首行、陣列中心與末行的對齊。
+[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) 控制陣列相對於旁邊數學元素的垂直對齊方式。以下範例比較第一列、陣列中心與最後一列的對齊效果。
 
-以下範例建立三個相同的陣列，每個皆有三列，且旁邊的元素為 `A=` 與 `=B`。所有數學文字均使用 24 點 Cambria Math。僅改變陣列的對齊方式。
+以下範例建立三個相同的陣列，每個皆有三列，且相鄰元素為 `A=` 與 `=B`。所有數學文字皆採用 Cambria Math 24 點。僅變更陣列的對齊方式。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -379,17 +432,19 @@ try {
 }
 ```
 
-以下比較顯示在 PowerPoint 中儲存的簡報。請注意每個陣列旁的 `A=` 與 `=B` 位置。
+以下比較圖示於 PowerPoint 中儲存的簡報。請留意每個陣列旁的 `A=` 與 `=B` 位置。
 
-![PowerPoint 中的方程式陣列，分別以上、中心、下對齊，且旁邊元素相同](equation-array-alignment.png)
+![在 PowerPoint 中，方程式陣列的上、中心、下對齊，且相鄰元素相同](equation-array-alignment.png)
 
 ### **設定列間距**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) 選擇陣列內列的間距規則。[setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) 提供明確的數值用于間距規則，預設規則會忽略此值。
+[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) 選取陣列內列的間距規則。[setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) 為明確的間距規則提供數值，預設規則會忽略此設定。
 
-若為精確間距，值以點 (points) 為單位。若為比例間距，則以半行為單位：範例中的值 `3` 代表 1.5 行。指定明確數值時需同時設定兩個屬性；僅更改數值不會選擇間距規則。
+若使用精確間距，數值以點 (point) 為單位。若使用比例間距，則以半行為單位：範例中的值 `3` 表示 1.5 行。指定明確數值時同時設定兩個屬性；僅變更數值而不設定間距規則不會生效。
 
-以下範例儲存五個簡報，內容包括相同的方程式、對齊與字型設定。前三個使用預設；最後兩個顯示明確的數值。
+若要在整個方程式中設定列間距，請在 `setRowSpacingRule` 與 `setRowSpacing` 兩個屬性同時設定。
+
+以下範例將相同的方程式、對齊與字型設定保存為五個簡報。前三個使用預設；最後兩個顯示明確的數值。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -436,13 +491,13 @@ for (let i = 0; i < rules.length; i++) {
 }
 ```
 
-陣列的列間距與段落間距分開設定。[setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) 與 [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) 會在包含段落的前後加入空白，而非在陣列列之間。類似地，[MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) 會水平定位整個數學段落；不會取代陣列的垂直對齊設定。
+陣列列間距與段落間距分開設定。[setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) 與 [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) 為包含段落加上前後空白，並不影響陣列列之間的間距。同樣地，[MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) 會水平定位整個數學段落；不會取代陣列的垂直對齊設定。
 
 ## **加入三角函數**
 
-當參數是當前元素且已知函數名稱時，使用 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction)。
+當參數是當前元素且函數名稱已知時，使用 [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction)。
 
-![三角函數 cos 作用於 2x](powerpoint-math-equations_6.png)
+![三角函數 cos 套用於 2x](powerpoint-math-equations_6.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -469,9 +524,9 @@ try {
 
 ## **加入下標與上標**
 
-使用下標與上標輔助函式來處理索引與次方。若索引需顯示在底數左側，請使用 [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)。
+使用下標與上標輔助函式來處理索引與次方。當索引必須出現在基底的左側時，使用 [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft)。
 
-![大寫 Y，左側有下標 1 與上標 n](powerpoint-math-equations_9.png)
+![大寫 Y，左側下標 1 與上標 n](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -498,9 +553,9 @@ try {
 
 ## **加入分隔符號**
 
-使用 [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) 將表達式置於分隔符號內。對於包含多個元素的分隔符號表達式，亦可設定分隔字元。
+使用 [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) 將表達式放入分隔符號中。對於包含多個元素的分隔符號表達式，亦可設定分隔字元。
 
-![包含 x、y、z 且以垂直線分隔的分隔符號表達式](powerpoint-math-equations_13.png)
+![包含 x、y、z，並以垂直線分隔的分隔符號表達式](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -531,9 +586,9 @@ try {
 
 ### **調整分隔符號大小與對齊**
 
-將 `true` 傳入 [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) 使括號依高操作元自動伸長，或傳入 `false` 保持原始大小。使用 [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) 並搭配兩種 [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/) 之一。`Centered` 使括號以數學軸（穿過等號中部）為中心；`Match` 則與內含內容對齊。兩者僅影響分隔符號本身，內部表達式保持不變。
+將 `true` 傳給 [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight)，讓括號依照較高的運算元自動伸長；傳 `false` 則保持正常大小。使用 [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) 搭配兩個 [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/) 之一。`Centered` 使括號居中於數學軸（穿過等號中線），`Match` 則與被包圍內容對齊。這兩個設定僅影響分隔符號本身，內部表達式保持不變。
 
-此範例將分數放在 `x` 的指數位置，使表達式在基線上方的延伸程度大於下方。所有四個方程式皆使用相同的括號與字型設定。
+此範例將分數放於 `x` 的指數上，使表達式在基線上方的延伸超過下方。四個方程式皆使用相同的括號與字型設定。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -563,15 +618,15 @@ try {
 }
 ```
 
-在 PowerPoint 中，比較各列即可看出伸長效果。上列的括號會伸長以包住指數，且兩種形狀看起來相同。下列則關閉伸長。左側較小的括號（`Centered`）與等號對齊，而右側（`Match`）則在表達式上方較高。
+在 PowerPoint 中，比較各列即可看出伸長效果。上列的括號會伸長以包住指數，兩種形狀看起來相同。下列則關閉伸長。左側較小的括號（`Centered`）與等號對齊，右側的（`Match`）則在表達式上方較高。
 
-![PowerPoint 中四個方程式，上方啟用分隔符號伸長、下方關閉，左側使用 Centered，右側使用 Match](delimiter-sizing.png)
+![PowerPoint 中四個方程式，上方啟用分隔符號伸長、下方關閉，左側為 Centered，右側為 Match](delimiter-sizing.png)
 
-## **加入邊框盒**
+## **加入邊框盒子**
 
-對分數呼叫 [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) 可為整個表達式加上框線。預設返回的 [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) 會顯示四個邊。使用 [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop)、[setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom)、[setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) 和 [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) 可移除個別邊。
+對分數呼叫 [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) 以為整個表達式加上框線。回傳的 [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) 預設顯示四個邊。使用 [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop)、[setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom)、[setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) 與 [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) 可移除個別邊。
 
-此範例在同一投影片上放置六個相同的分數。若要示意消除，先隱藏四個邊，然後將 `true` 傳入 [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) 產生向上斜線 (↗)，或傳入 [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) 產生向下斜線 (↘)。亦可使用 [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) 或 [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) 搭配任意可見邊。
+此範例在同一投影片上放置相同分數的六個副本。若要顯示抵消，先隱藏四個邊，然後將 `true` 傳給 [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) 以產生上升對角線 (↗)，或傳給 [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) 以產生下降對角線 (↘)。亦可使用 [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) 或 [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) 搭配任意可見邊的組合。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -614,24 +669,24 @@ try {
 }
 ```
 
-![PowerPoint 中六個可編輯的分數。上列：完整邊框、底部與左側邊框、向上斜線。下列：向下斜線、水平刪除線、垂直刪除線與完整邊框。](border-box-fractions.png)
+![PowerPoint 中六個可編輯的分數。上列：完整邊框、底部與左側、上升對角線。下列：下降對角線、水平刪除線、垂直刪除線加完整邊框。](border-box-fractions.png)
 
-在此分數中，水平刪除線與分數線重疊。垂直刪除線穿過分子與分母，而周圍的邊框仍可見。這些線條裝飾整個表達式。普通文字的刪除線只作用於文字執行中的字元。重新於 PowerPoint 開啟簡報後，仍可獨立編輯分子與分母。
+在此分數上，水平刪除線會與分數線重疊。垂直刪除線穿過分子與分母，同時周圍的邊框仍保持可見。這些線條會裝飾整個表達式。普通文字的刪除線僅套用於文字串中的字元。重新在 PowerPoint 開啟簡報後，仍可分別編輯分子與分母。
 
 ## **使用幻影元素控制可見性與版面配置**
 
-將表達式包在 [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) 中，可獨立控制其可見性與對方程式所貢獻的空間。[MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) 方法可控制以下項目：
+將表達式包裹於 [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) 中，以獨立控制其可見性與對方程式所佔的空間。[MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) 方法可控制以下項目：
 
 | Method | Effect |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | 傳入 `false` 以隱藏表達式。除非下方對應方法傳入 `true`，否則其尺寸仍會影響版面配置。 |
-| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | 將表達式的水平寬度視為零，讓相鄰元素更靠近。 |
-| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | 將其上升高度（基線以上的高度）視為零，可減少相鄰元素上方保留的空間。 |
-| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | 將其下降深度（基線以下的深度）視為零，可使分數線或其他位於表達式下方的內容更靠近相鄰元素。 |
+| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | 傳入 `false` 以隱藏表達式。除非下面相應的方法傳入 `true`，否則其尺寸仍會影響版面配置。 |
+| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | 將表達式的水平寬度視為 0，使相鄰元素可更靠近。 |
+| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | 將其上升度（基線以上的高度）視為 0。這可減少相鄰元素上方保留的空間。 |
+| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | 將其下降度（基線以下的深度）視為 0。這可使分數線或其他表達式下方的內容更貼近相鄰元素。 |
 
-基線是普通數學字母所位於的參考線。隱藏內容不會移除其尺寸，將尺寸視為零亦不會刪除表達式。底層表達式仍可透過 [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase) 取得。傳入 `true` 給 [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) 可再次顯示；尺寸設定保持不變。
+基線是普通數學字母所坐落的參考線。隱藏內容不會移除其尺寸，將尺寸視為零亦不會刪除表達式。底層表達式仍可透過 [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase) 存取。傳入 `true` 給 [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) 可再次顯示；尺寸設定會保持不變。
 
-以下範例建立五個並排變體：可見分數、保留空間的隱藏分數，以及三個將單一維度視為零的隱藏分數。每個變體使用相同的周圍表達式與 24 點 Cambria Math。所有方程式形狀的頂部位置相同，以灰色參考線標示。將幻影放在外層分數的分子中，可更容易觀察垂直版面變化。
+以下範例建立五個並排變體：一個可見的分數、一個保留空間的隱藏分數，以及三個將單一尺寸視為零的隱藏分數。每個變體皆使用相同的周圍表達式與 24 點 Cambria Math。所有方程式形狀的頂部位置相同，以灰色參考線標示。將幻影放在外層分數的分子中，可更容易觀察垂直版面配置的變化。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -697,13 +752,13 @@ try {
 }
 ```
 
-![PowerPoint 中五個方程式，分別比較可見分數、保留空間的隱藏分數，以及啟用 ZeroWidth、ZeroAsc 或 ZeroDesc 的隱藏分數](math-phantom.png)
+![PowerPoint 中的五個方程式，比較可見分數、保留空間的隱藏分數，以及啟用 ZeroWidth、ZeroAsc 或 ZeroDesc 的隱藏分數](math-phantom.png)
 
-## **分組項目**
+## **組合項目**
 
-使用 [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) 可在表達式上方或下方放置分組符號。加入極限可為分組項目加上標籤。
+使用 [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) 將分組字元放於表達式上方或下方。加入極限以為分組的項目標籤。
 
-![將表達式 x 加 y 以分組，且在下方加上任何文字標籤](powerpoint-math-equations_15.png)
+![將表達式 x + y 分組，並在下方加上任意文字標籤](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -732,9 +787,9 @@ try {
 
 ## **格式化數學元素**
 
-僅在有助於說明公式時才使用格式化輔助函式。例如，[overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) 會在數學元素上方加上一條橫線。
+僅在有助於說明公式時使用格式化輔助函式。例如，[overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) 可在數學元素上方加上橫線。
 
-![帶有上橫線的數學表達式 ABC](powerpoint-math-equations_14.png)
+![數學表達式 ABC 加上上橫線](powerpoint-math-equations_14.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -760,9 +815,9 @@ try {
 
 ### **格式化現有方程式中的文字**
 
-要格式化現有方程式中的文字，需遍歷每個數學區塊的元素樹。[MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) 只回傳直接子項，必須遞迴呼叫才能取得分數、上下標、根號及其他巢狀結構內的文字。也要檢查當前元素與其子項，以在元素為 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) 時包含起始元素。
+若要在整個現有方程式中格式化文字，需遍歷每個數學區塊的元素樹。[MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) 只回傳直接子項目，必須遞迴呼叫以取得分數、上下標、根號及其他巢狀結構中的文字。亦需檢查當前元素與其子項目，以在起始元素為 [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) 時將其納入。
 
-此範例假設 `input.pptx` 包含類似 `z = xᵢ / ∛y` 的方程式，其中分數的分子含有下標，分母含有根號。僅處理區塊的頂層元素會遺漏分數內的文字。範例在投影片文字框中找到數學片段，透過 [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) 取得其區塊，並使用 [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 於每個文字元素的 [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) 方法將字型大小設定為 28 點。
+此範例假設 `input.pptx` 包含如 `z = xᵢ / ∛y` 的方程式，分數的分子帶有下標，分母帶有根號。若僅處理區塊的頂層元素，會遺漏分數內的文字。範例在投影片文字框中尋找數學區段，透過 [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) 取得其區塊，並使用 [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 將每個文字元素的 [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) 方法中的字型大小設為 28 點。
 
 ```javascript
 var aspose = aspose || {};
@@ -816,37 +871,37 @@ try {
 }
 ```
 
-儲存的簡報在每個已處理方程式的每個層級都包含更新的文字格式，同時保留文字內容與數學結構。
+儲存的簡報在每個處理過的方程式的各層級都包含已更新的文字格式，且保留其文字內容與數學結構。
 
 ## **快速參考**
 
 | 任務 | 主要 API |
 | --- | --- |
 | 建立數學文字 | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
-| 合併元素 | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 結合元素 | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 建立分數 | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入上標或下標 | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入函數 | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入根號 | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入極限 | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| 加入左側指標 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| 加入求和與積分 | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 加入左側上下標 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 加入總和與積分 | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入矩陣 | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
 | 加入方程式陣列 | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入分隔符號 | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 | 加入橫線與邊框 | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| 分組項目 | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| 組合項目 | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
 ## **常見問題**
 
-**我可以編輯現有的 PowerPoint 方程式嗎？**
+**我可以編輯既有的 PowerPoint 方程式嗎？**
 
-可以。開啟簡報，找到包含 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) 的形狀，呼叫 [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)，並更新該段落中的數學區塊。
+可以。開啟簡報，找出包含 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) 的形狀，呼叫 [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph)，並更新該段落中的數學區塊。
 
-**方程式會儲存為可編輯的 PowerPoint 數學嗎？**
+**方程式會保存為可編輯的 PowerPoint 數學嗎？**
 
-會。儲存為 PPTX 時，Aspose.Slides 會將方程式寫入為可編輯的 Office 數學內容。
+是的。儲存為 PPTX 時，Aspose.Slides 會將方程式寫入為可編輯的 Office 數學內容。
 
 **我可以將方程式匯出為 LaTeX 嗎？**
 
-可以。從其 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) 取得方程式的 [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/)，然後呼叫 [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) 直接匯出。完整範例請參閱 [Export Math Equations from Presentations in Node.js via Java](/slides/zh-hant/nodejs-java/exporting-math-equations/#export-math-equations-to-latex)。
+可以。從其 [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) 取得方程式的 [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/)，然後呼叫 [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) 直接匯出。完整範例請參閱 [從簡報匯出數學方程式（Node.js via Java）](/slides/zh-hant/nodejs-java/exporting-math-equations/#export-math-equations-to-latex)。

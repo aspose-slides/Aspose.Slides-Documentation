@@ -1,5 +1,5 @@
 ---
-title: เพิ่มสมการคณิตศาสตร์ในงานนำเสนอ PowerPoint ด้วย C++
+title: เพิ่มสมการคณิตศาสตร์ลงในงานนำเสนอ PowerPoint ด้วย C++
 linktitle: สมการคณิตศาสตร์ PowerPoint
 type: docs
 weight: 80
@@ -17,33 +17,33 @@ keywords:
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ C++ รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด C++ ที่ชัดเจน"
+description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ C++ รองรับ OMML, การควบคุมรูปแบบ, และตัวอย่างโค้ด C++ ที่ชัดเจน."
 ---
 ## **ภาพรวม**
 
-PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML). ด้วย Aspose.Slides สำหรับ C++ คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันโดยใช้โปรแกรม: เศษส่วน, ราก, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาเรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
+PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML). ด้วย Aspose.Slides for C++ คุณสามารถสร้างเนื้อหาคณิตศาสตร์แบบเดียวกันโดยใช้โปรแกรมได้: เศษส่วน, ราก, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาร์เรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
 
-ใน PowerPoint ผู้ใช้มักเพิ่มสมการจาก **Insert > Equation**:
+ใน PowerPoint ผู้ใช้ทั่วไปจะเพิ่มสมการจาก **Insert > Equation**:
 
-![แท็บ Insert ของ PowerPoint พร้อมคำสั่ง Equation ถูกเลือก](powerpoint-math-equations_1.png)
+![แท็บ Insert ของ PowerPoint ที่เลือกคำสั่ง Equation](powerpoint-math-equations_1.png)
 
-ผลลัพธ์คือตัวอักษรคณิตศาสตร์ที่แก้ไขได้บนสไลด์:
+ผลลัพธ์คือข้อความคณิตศาสตร์ที่สามารถแก้ไขได้บนสไลด์:
 
-![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่แก้ไขได้](powerpoint-math-equations_2.png)
+![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่สามารถแก้ไขได้](powerpoint-math-equations_2.png)
 
-Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านสามวัตถุหลัก:
+Aspose.Slides สร้างข้อความคณิตศาสตร์นั้นผ่านวัตถุหลักสามประเภท:
 
-- รูปคณิตศาสตร์ที่สร้างด้วย [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/), เป็นรูปร่างที่บรรจุสมการ.
-- [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูป.
+- รูปร่างคณิตศาสตร์ที่สร้างด้วย [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/shapecollection/), เป็นรูปร่างที่บรรจุสมการ.
+- [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง.
 - [MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathparagraph/) มีหนึ่งหรือหลายออบเจ็กต์ [MathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathblock/).
 
-ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) และเมธอด fluent จาก [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) เพื่อให้โค้ดสั้นและอ่านง่าย.
+ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) และเมธอดแบบ fluent จาก [IMathElement](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/) เพื่อให้โค้ดสั้นและอ่านง่าย
 
-สำหรับกรณีการส่งออก MathML ดูที่ [ส่งออกสมการคณิตศาสตร์จากงานนำเสนอใน C++](/slides/th/cpp/exporting-math-equations/).
+สำหรับสถานการณ์การส่งออก MathML ดูที่ [Export Math Equations from Presentations in C++](/slides/th/cpp/exporting-math-equations/).
 
 ## **สร้างสมการ**
 
-ตัวอย่างนี้ใช้ [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) เพื่อสร้างรูปคณิตศาสตร์และเพิ่มทฤษฎีบทพีทาโกรัส:
+ตัวอย่างนี้ใช้ [AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มสูตรพีทาโกรัส:
 
 ![สมการ c กำลังสองเท่ากับ a กำลังสองบวก b กำลังสอง](powerpoint-math-equations_3.png)
 
@@ -85,15 +85,15 @@ presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="หมายเหตุ" %}}
-[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) สร้างรูปร่างที่มีพารากราฟคณิตศาสตร์อยู่แล้ว. เข้าถึง [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) ตัวแรก, เรียก [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), และเพิ่มบล็อกคณิตศาสตร์หรือองค์ประกอบคณิตศาสตร์เข้าไป.
+{{% alert color="info" title="Note" %}}
+[AddMathShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addmathshape/) สร้างรูปร่างที่มี MathParagraph อยู่แล้ว เข้าถึง [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/) แรก, เรียก [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), และเพิ่ม MathBlock หรือ MathElement ไปยังมัน.
 {{% /alert %}}
 
 ## **เพิ่มเศษส่วน**
 
-ใช้ [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) เพื่อสร้างเศษส่วน. คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
+ใช้ [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
-![เศษส่วนคณิตศาสตร์เอียงที่แสดงหนึ่งหารด้วย x](powerpoint-math-equations_4.png)
+![เศษส่วนคณิตศาสตร์ที่เอียงแสดง 1 หารด้วย x](powerpoint-math-equations_4.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -141,9 +141,9 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **เพิ่มราก**
 
-ใช้ [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) เพื่อสร้างรากกำลังสอง, รากกำลังสาม, หรือรากอื่น. องค์ประกอบปัจจุบันจะเป็นฐานและอากูเมนต์จะเป็นดีกรี.
+ใช้ [Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) เพื่อสร้างรากกำลังสอง, รากกำลังสาม หรือรากอื่น ๆ ส่วนประกอบปัจจุบันจะเป็นฐานและอากรูเมนต์จะเป็นดีกรี
 
-![นิพจน์ราก n-th ที่มี x ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
+![นิพจน์ราก n-th ที่มี x อยู่ใต้เครื่องหมายราก](powerpoint-math-equations_5.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -180,11 +180,11 @@ presentation->Dispose();
 
 ### **แสดงหรือซ่อนดีกรีของรากกำลังสอง**
 
-รากกำลังสองสามารถแสดงเลข 2 ชัดเจนหรือใช้สัญลักษณ์ √x ดำเนินการตามปกติ. ใช้ [IMathRadical::set_HideDegree](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathradical/set_hidedegree/) เพื่อสลับระหว่างสองรูปแบบ. ทั้งสองรูปแบบยังคงรักษาดีกรี 2 และฐาน x ในสมการที่แก้ไขได้.
+รากกำลังสองสามารถแสดงเลข 2 อย่างชัดเจนหรือใช้สัญลักษณ์ √x ตามปกติ ใช้ [IMathRadical::set_HideDegree](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathradical/set_hidedegree/) เพื่อสลับระหว่างสองรูปแบบนี้ ทั้งสองรูปแบบยังคงเก็บดีกรี 2 และตัว radicand x ไว้ในสมการที่แก้ไขได้
 
-![รากกำลังสองเดียวกันที่มีดีกรีแสดงด้านซ้ายและซ่อนด้านขวา](square-root-degree.png)
+![รากกำลังสองเดียวกันที่ด้านซ้ายแสดงดีกรีและด้านขวาซ่อนดีกรี](square-root-degree.png)
 
-ตัวอย่างบันทึกรากกำลังสองเดียวกันสองครั้ง. ใน `visible-degree.pptx` ดีกรี 2 แสดงออก. ใน `hidden-degree.pptx` ดีกรีถูกซ่อน.
+ตัวอย่างบันทึกรากกำลังสองเดียวกันสองครั้ง ใน `visible-degree.pptx` ดีกรี 2 แสดงอยู่ ใน `hidden-degree.pptx` ดีกรีถูกซ่อน
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -226,9 +226,9 @@ presentation->Dispose();
 
 ## **เพิ่มฟังก์ชันและขีดจำกัด**
 
-ใช้ [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) หรือ [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)`, หรือชื่อฟังก์ชันที่กำหนดเอง. สำหรับขีดจำกัด, ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) หรือใช้ [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
+ใช้ [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) หรือ [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) สำหรับฟังก์ชัน เช่น `sin(x)`, `log(x)` หรือชื่อฟังก์ชันที่กำหนดเอง สำหรับขีดจำกัด, ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) หรือใช้ [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/)
 
-![ขีดจำกัดของ x เมื่อ x เข้าหาอนันต์](powerpoint-math-equations_8.png)
+![ขีดจำกัดของ x เมื่อ x ใกล้ค่าอนันต์](powerpoint-math-equations_8.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -265,7 +265,7 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-สำหรับชื่อฟังก์ชันที่กำหนดเอง, ทำให้ชื่อฟังก์ชันเป็นองค์ประกอบปัจจุบันและเรียก [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) พร้อมอากูเมนต์ของมัน:
+สำหรับชื่อฟังก์ชันที่กำหนดเอง ให้ตั้งชื่อฟังก์ชันเป็นส่วนประกอบปัจจุบันและเรียก [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) พร้อมอากรูเมนต์ของมัน:
 
 ```cpp
 #include <DOM/MathText/MathematicalText.h>
@@ -276,9 +276,9 @@ auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x +
 
 ## **เพิ่มตัวดำเนินการ N-ary และอินทิกรัล**
 
-ใช้ [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) สำหรับผลรวม, ยูเนียน, อินเตอร์เซคชัน, และตัวดำเนินการใหญ่ประเภทอื่น. ใช้ [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) สำหรับอินทิกรัล. ทั้งสองวิธีให้คุณตั้งค่าขีดจำกัดล่างและบน.
+ใช้ [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/) สำหรับการบวกรวม, การรวม, การตัดกัน และตัวดำเนินการขนาดใหญ่อื่น ๆ ใช้ [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) สำหรับอินทิกรัล ทั้งสองวิธีให้คุณตั้งค่าขีดจำกัดล่างและบน
 
-![ผลรวมที่มีขีดจำกัดล่างและบน](powerpoint-math-equations_7.png)
+![การบวกรวมที่มีขีดจำกัดล่างและบน](powerpoint-math-equations_7.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -318,9 +318,9 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการใหญ่ที่มีขีดจำกัดเป็นตัวเลือก. ตัวดำเนินการง่าย เช่น `+`, `-`, และ `=` ส่วนใหญ่จะเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) และเชื่อมต่อเข้ากับนิพจน์.
+ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการขนาดใหญ่ที่มีขีดจำกัดเป็นทางเลือก ตัวดำเนินการง่าย เช่น `+`, `-`, และ `=` มักถูกเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) และรวมเข้าไปในนิพจน์
 
-สำหรับอินทิกรัล, ใช้ [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/):
+สำหรับอินทิกรัล ใช้ [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/):
 
 ```cpp
 #include <DOM/MathText/IMathBlock.h>
@@ -337,9 +337,9 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **เพิ่มเมทริกซ์**
 
-ใช้ [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) สำหรับแถวและคอลัมน์. เมทริกซ์โดยปกติจะไม่มีวงเล็บ, ดังนั้นหากต้องการวงเล็บ, สี่เหลี่ยม หรือปีกกา ให้ใส่เมทริกซ์ไว้ในเครื่องหมายเหล่านั้น.
+ใช้ [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยปกติจะไม่มีวงเล็บ ดังนั้นให้ล้อมเมทริกซ์ด้วยวงเล็บ, กากบาท หรือเครื่องหมายปีกกาเมื่อจำเป็น
 
-![เมทริกซ์คณิตศาสตร์สองแถวที่มีช่องว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
+![เมทริกซ์คณิตศาสตร์สองแถวที่มีเซลล์ว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -381,11 +381,79 @@ presentation->Save(u"matrix.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มอาเรย์สมการ**
+### **แก้ไขเมทริกซ์ที่มีอยู่**
 
-ใช้ [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) เมื่อคุณต้องการสมการที่จัดตำแหน่งหรือสแต็กแนวตั้งของนิพจน์.
+สมมติว่าบทเรียนพีชคณิตเชิงเส้นเริ่มด้วยเมทริกซ์ค่าสัมประสิทธิ์ใน `matrix.pptx` ซึ่งบันทึกด้วยตัวอย่างก่อนหน้า สำหรับแบบฝึกหัดต่อไป ให้คงสมการแรก, แทนที่สมการที่สองด้วยสองสมการใหม่, และปรับชุดตัวแปร เปิดเมทริกซ์ที่มีอยู่ผ่าน [IMathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathmatrix/) เพื่อคงค่าสัมประสิทธิ์ที่ยังใช้ได้
 
-![อาเรย์คณิตศาสตร์แนวตั้งที่ x อยู่เหนือ y](powerpoint-math-equations_11.png)
+![เมทริกซ์ค่าสัมประสิทธิ์สองแถวเดิมที่มีค่า 1, x, และเซลล์ว่างในแถวแรก และ x, 2, y ในแถวสอง](matrix-before-edit.png)
+
+ดัชนีแถวและคอลัมน์เริ่มจากศูนย์และอ้างอิงเมทริกซ์ตามสภาพในแต่ละการเรียก แทรกแถวก่อนดัชนี 1 จะย้ายแถวที่สองเดิมไปที่ดัชนี 2 แทรกหลังดัชนี 2 จะเพิ่มแถวใหม่ การลบแถว 2 จะลบสมการที่สองเดิมและย้ายแถวที่เพิ่มขึ้นมาขึ้นหนึ่งตำแหน่ง คอลัมน์ก็เลื่อนในลักษณะเดียวกัน
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathMatrix.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathPortion.h>
+#include <DOM/MathText/MathHorizontalAlignment.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto presentation = System::MakeObject<Presentation>(u"matrix.pptx");
+
+auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto portion = System::ExplicitCast<IMathPortion>(shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto block = portion->get_MathParagraph()->idx_get(0);
+auto matrix = System::ExplicitCast<IMathMatrix>(block->idx_get(0));
+
+matrix->InsertRowBefore(1);
+matrix->InsertRowAfter(2);
+matrix->DeleteRow(2);
+
+matrix->InsertColumnBefore(1);
+matrix->InsertColumnAfter(3);
+matrix->DeleteColumn(3);
+
+// เซลล์ใหม่เริ่มต้นคือ null. ตั้งค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน.
+matrix->idx_set(1, 0, System::MakeObject<MathematicalText>(u"12"));
+matrix->idx_set(1, 1, System::MakeObject<MathematicalText>(u"1"));
+matrix->idx_set(2, 2, System::MakeObject<MathematicalText>(u"10"));
+matrix->idx_set(2, 3, System::MakeObject<MathematicalText>(u"1"));
+for (auto row = 0; row < matrix->get_RowCount(); ++row)
+{
+    for (auto column = 0; column < matrix->get_ColumnCount(); ++column)
+    {
+        if (matrix->idx_get(row, column) == nullptr)
+            matrix->idx_set(row, column, System::MakeObject<MathematicalText>(u"0"));
+    }
+}
+
+matrix->SetColumnAlignment(0, MathHorizontalAlignment::Left);
+matrix->SetColumnsAlignment(1, 3, MathHorizontalAlignment::Right);
+
+presentation->Save(u"updated-matrix.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+[SetColumnAlignment](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) จัดแนวคอลัมน์แรกไปทางซ้าย [SetColumnsAlignment](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) จัดแนวสามคอลัมน์ต่อเนื่องไปทางขวาตั้งแต่ดัชนี 1 ใน `updated-matrix.pptx` เมทริกซ์มีสามสมการและสี่ตัวแปร ค่าสัมประสิทธิ์แถวแรกเดิม `1` และ `x` ปรากฏในคอลัมน์แรกและคอลัมน์ที่สามแล้ว
+
+![เมทริกซ์สามแถวที่อัปเดตแสดงแถว 1, 0, x, 0; 12, 1, 0, 0; และ 0, 0, 10, 1](matrix-after-edit.png)
+
+## **เพิ่มอาร์เรย์สมการ**
+
+ใช้ [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) เมื่อคุณต้องการสมการที่จัดตำแหน่งหรือสแต็กแนวตั้งของนิพจน์
+
+![อาร์เรย์คณิตศาสตร์แนวตั้งที่มี x อยู่เหนือ y](powerpoint-math-equations_11.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,11 +489,11 @@ presentation->Save(u"equation-array.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **จัดแนวอาเรย์กับองค์ประกอบโดยรอบ**
+### **จัดตำแหน่งอาร์เรย์กับส่วนรอบข้าง**
 
-[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) ควบคุมการจัดแนวแนวตั้งของอาเรย์เมื่อเทียบกับองค์ประกอบคณิตศาสตร์ที่อยู่ข้าง ๆ. ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, กึ่งกลางของอาเรย์, และแถวสุดท้าย.
+[IMathArray::set_BaseJustification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_basejustification/) ควบคุมการจัดแนวแนวตั้งของอาร์เรย์เทียบกับส่วนคณิตศาสตร์ที่อยู่ข้างๆ ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, ศูนย์ของอาร์เรย์, และแถวสุดท้าย
 
-ตัวอย่างต่อไปนี้สร้างอาเรย์ที่เหมือนกันสามชุด, แต่ละชุดมีสามแถวและองค์ประกอบข้างเคียง `A=` และ `=B`. ข้อความคณิตศาสตร์ทั้งหมดใช้แบบอักษร Cambria Math ขนาด 24 จุด. มีเพียงการจัดแนวอาเรย์ที่แตกต่างกัน.
+ตัวอย่างต่อไปสร้างอาร์เรย์สามชุดที่เหมือนกัน โดยแต่ละชุดมีสามแถวและส่วนข้างเคียง `A=` และ `=B`. ข้อความคณิตศาสตร์ทั้งหมดใช้ Cambria Math ขนาด 24 จุด มีเพียงการจัดแนวอาร์เรย์ที่เปลี่ยนแปลง
 
 ```cpp
 #include <system/array.h>
@@ -510,17 +578,17 @@ presentation->Save(u"equation-array-alignment.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-การเปรียบเทียบต่อไปนี้แสดงงานนำเสนอที่บันทึกใน PowerPoint. สังเกตตำแหน่งของ `A=` และ `=B` ข้างแต่ละอาเรย์.
+การเปรียบเทียบต่อไปนี้แสดงการบันทึกพรีเซนเทชันใน PowerPoint โปรดสังเกตตำแหน่งของ `A=` และ `=B` ข้างแต่ละอาร์เรย์
 
-![อาเรย์สมการใน PowerPoint ที่จัดตำแหน่งบน, กลาง, และล่างพร้อมองค์ประกอบโดยรอบที่เหมือนกัน](equation-array-alignment.png)
+![อาร์เรย์สมการใน PowerPoint ที่มีการจัดแนวบน, กลาง, และล่าง พร้อมส่วนข้างเคียงที่เหมือนกัน](equation-array-alignment.png)
 
-### **กำหนดการเว้นบรรทัดแถว**
+### **กำหนดระยะห่างระหว่างแถว**
 
-[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) เลือกกฎการเว้นบรรทัดสำหรับแถวภายในอาเรย์. [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) ให้ค่าตัวเลขสำหรับกฎการเว้นบรรทัดที่ระบุและจะถูกละเว้นโดยกฎที่ตั้งไว้ล่วงหน้า.
+[set_RowSpacingRule](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacingrule/) เลือกกฎการเว้นระยะระหว่างแถวในอาร์เรย์ [set_RowSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imatharray/set_rowspacing/) ให้ค่าตัวเลขสำหรับกฎการเว้นระยะแบบเจาะจงและจะถูกละเว้นเมื่อใช้กฎตั้งต้น
 
-สำหรับการเว้นบรรทัดที่แน่นอน, ค่าจะวัดเป็นจุด. สำหรับการเว้นบรรทัดเชิงสัดส่วน, จะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด. เรียกตัวตั้งค่าสองตัวเมื่อกำหนดค่าตรง; การเปลี่ยนค่าเชิงตัวเลขอย่างเดียวจะไม่เลือกกฎการเว้นบรรทัด.
+สำหรับการเว้นระยะที่แน่นอน ค่าจะวัดเป็นพอยท์ สำหรับการเว้นระยะแบบสัดส่วน ค่าจะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด เรียกทั้งสองเมธอดเมื่อกำหนดค่าที่เจาะจง; การเปลี่ยนค่าเลขเดียวไม่เลือกกฎการเว้นระยะ
 
-ตัวอย่างด้านล่างบันทึกงานนำเสนอห้าชุดที่มีสมการ, การจัดแนว, และการตั้งค่าแบบอักษรเดียวกัน. สามชุดแรกใช้ค่าที่ตั้งไว้ล่วงหน้า; สองชุดสุดท้ายแสดงค่าที่ระบุโดยตรง.
+ตัวอย่างด้านล่างบันทึกพรีเซนเทชันห้าชุดที่มีสมการ, การจัดแนว, และการตั้งค่าฟอนต์เดียวกัน สามชุดแรกใช้ค่าตั้งต้น; สองชุดสุดท้ายแสดงค่าที่เจาะจง
 
 ```cpp
 #include <system/array.h>
@@ -602,13 +670,13 @@ for (const auto& setting : settings)
 }
 ```
 
-การเว้นบรรทัดของอาเรย์แยกจากการเว้นบรรทัดของย่อหน้า. [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) และ [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) เพิ่มช่องว่างรอบย่อหน้าที่บรรจุอาเรย์, ไม่ได้เพิ่มช่องว่างระหว่างแถวของอาเรย์. เช่นเดียวกับนั้น, [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) กำหนดตำแหน่งของย่อหน้าคณิตศาสตร์ทั้งหมดในแนวนอน; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาเรย์.
+ระยะห่างระหว่างแถวของอาร์เรย์แยกจากระยะห่างของย่อหน้า [set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) และ [set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/) เพิ่มช่องว่างรอบย่อหน้าที่บรรจุ ไม่ใช่ระหว่างแถวของอาร์เรย์ เช่นเดียวกับ [IMathParagraph::set_Justification](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/set_justification/) ที่กำหนดตำแหน่งแนวนอนของย่อคณิตศาสตร์ทั้งหมด; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาร์เรย์
 
 ## **เพิ่มฟังก์ชันตรีโกณมิติ**
 
-ใช้ [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) เมื่ออากูเมนต์เป็นองค์ประกอบปัจจุบันและชื่อฟังก์ชันทราบ.
+ใช้ [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) เมื่ออากรูเมนต์เป็นส่วนประกอบปัจจุบันและชื่อฟังก์ชันทราบ
 
-![ฟังก์ชันตรีโกณมิติ cos ที่ใช้กับ 2x](powerpoint-math-equations_6.png)
+![ฟังก์ชันตรีโกณมิติ cos ที่นำไปใช้กับ 2x](powerpoint-math-equations_6.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -644,11 +712,11 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มตัวล่างและตัวบน**
+## **เพิ่มตัวห้อยและตัวยก**
 
-ใช้ตัวช่วยตัวล่างและตัวบนสำหรับดัชนีและกำลัง. เมื่อดัชนีต้องแสดงทางด้านซ้ายของฐาน, ใช้ [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+ใช้ตัวช่วยสำหรับตัวห้อยและตัวยกสำหรับดัชนีและกำลัง เมื่อดัชนีต้องแสดงด้านซ้ายของฐาน ให้ใช้ [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/)
 
-![ตัว Y ตัวพิมพ์ใหญ่ที่มีตัวล่างซ้าย 1 และตัวบน n](powerpoint-math-equations_9.png)
+![ตัวอักษร Y ตัวพิมพ์ใหญ่ที่มีตัวห้อยด้านซ้าย 1 และตัวยกด้านขวา n](powerpoint-math-equations_9.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -683,11 +751,11 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มตัวจำกัด**
+## **เพิ่มตัวขอบเขต**
 
-ใช้ [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) เพื่อใส่นิพจน์ภายในตัวจำกัด. คุณสามารถกำหนดอักขระคั่นสำหรับนิพจน์ตัวจำกัดที่มีหลายองค์ประกอบได้.
+ใช้ [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) เพื่อใส่นิพจน์ภายในตัวขอบเขต คุณยังสามารถตั้งอักขระคั่นสำหรับนิพจน์ที่มีหลายส่วนในตัวขอบเขต
 
-![นิพจน์ตัวจำกัดที่มี x, y, และ z แยกด้วยบาร์แนวตั้ง](powerpoint-math-equations_13.png)
+![นิพจน์ที่มีตัวขอบเขตประกอบด้วย x, y, และ z ที่คั่นด้วยแท่งแนวตั้ง](powerpoint-math-equations_13.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -724,9 +792,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **ขนาดและการจัดแนวตัวจำกัด**
+### **ขนาดและการจัดแนวตัวขอบเขต**
 
-กำหนด `true` ให้ [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) เพื่อให้วงเล็บขยายรอบออปอแรนด์ที่สูง, หรือ `false` เพื่อคงขนาดปกติ. [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) รับค่าอย่างใดอย่างหนึ่งจาก [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/). `Centered` จะจัดศูนย์วงเล็บบนแกนคณิตศาสตร์ที่ผ่านเครื่องหมายเท่า. `Match` จะจัดตำแหน่งให้ตรงกับเนื้อหาที่ล้อมรอบ. ทั้งสองการตั้งค่าไม่มีผลต่อนิพจน์ภายใน.
+ส่งค่า `true` ไปที่ [set_GrowToMatchOperandHeight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_growtomatchoperandheight/) เพื่อให้วงเล็บขยายรอบออเปอแรนด์ที่สูง, หรือ `false` เพื่อคงขนาดปกติ [set_DelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathdelimiter/set_delimitershape/) รับค่าหนึ่งจากสองค่าใน [MathDelimiterShape](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathdelimitershape/). `Centered` จัดศูนย์วงเล็บบนแกนคณิตศาสตร์ที่ผ่านตรงกลางของเครื่องหมายเท่ากับ. `Match` จัดแนวให้ตรงกับเนื้อหาที่ล้อมไว้. ทั้งสองการตั้งค่าส่งผลต่อเฉพาะตัวขอบเขตเท่านั้น นิพจน์ภายในคงเหมือนเดิม
+
+ตัวอย่างนี้ใส่เศษส่วนในดัชนีของ `x` ทำให้นิพจน์ยืดออกเหนือเส้นฐานมากกว่าต่ำกว่า ทั้งสี่สมการใช้วงเล็บและการตั้งค่าฟอนต์เดียวกัน
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -777,15 +847,15 @@ presentation->Save(u"delimiter-sizing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ใน PowerPoint, เปรียบเทียบแถวเพื่อดูผลของการขยาย. แถวบน, วงเล็บขยายเพื่อคลุมเอ็กซโพเนนท์และดูเหมือนกันสำหรับทั้งสองรูปแบบ. แถวล่าง, การขยายปิด. วงเล็บเล็กทางซ้าย (`Centered`) จัดตรงกับเครื่องหมายเท่า, ส่วนวงเล็บขวา (`Match`) อยู่สูงขึ้นรอบนิพจน์.
+ใน PowerPoint, เปรียบเทียบแถวเพื่อดูผลของการขยาย ในแถวบน, วงเล็บขยายเพื่อคลุมดัชนีและดูเหมือนกันสำหรับทั้งสองรูปแบบ ในแถวล่าง, การขยายปิด การวงเล็บเล็กกว่าที่ซ้าย (`Centered`) จัดกับเครื่องหมายเท่ากับ, ขณะที่ด้านขวา (`Match`) อยู่สูงกว่ารอบนิพจน์
 
-![สี่สมการใน PowerPoint ที่เปิดการขยายตัวจำกัดด้านบนและปิดด้านล่าง, และ Centered ทางซ้ายและ Match ทางขวา](delimiter-sizing.png)
+![สี่สมการใน PowerPoint ที่เปิดการขยายตัวขอบเขตด้านบนและปิดการขยายด้านล่าง, และ Centered ด้านซ้าย, Match ด้านขวา](delimiter-sizing.png)
 
-## **เพิ่มกล่องกรอบ**
+## **เพิ่มกรอบขอบ**
 
-เรียก [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) บนเศษส่วนเพื่อกรอบนิพจน์ทั้งหมด. [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) ที่คืนค่ามีสี่ด้านโดยค่าเริ่มต้น. ใช้ [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/), [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/), [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/), และ [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) เพื่อลบด้านใดด้านหนึ่ง.
+เรียก [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) บนเศษส่วนเพื่อกรอบทั้งนิพจน์ [IMathBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/) ที่คืนค่าจะแสดงสี่ด้านโดยค่าเริ่มต้น ใช้ [set_HideTop](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidetop/), [set_HideBottom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hidebottom/), [set_HideLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideleft/), และ [set_HideRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_hideright/) เพื่อลบด้านที่ต้องการ
 
-ตัวอย่างวางเศษส่วนเดียวกันหกสำเนาบนสไลด์เดียว. เพื่อแสดงการยกเลิก, ซ่อนสี่ด้านและกำหนด [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) ให้เป็นเส้นทแยงขึ้น (↗) หรือ [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) ให้เป็นเส้นทแยงลง (↘). สามารถใช้ [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) หรือ [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) ร่วมกับด้านที่ต้องการให้มองเห็น.
+ตัวอย่างนี้วางสำเนาเศษส่วนเดียวกันหกชุดบนสไลด์เดียว เพื่อแสดงการยกเลิก, ซ่อนสี่ด้านทั้งหมดและตั้งค่า [set_StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughbottomlefttotopright/) สำหรับเส้นทแยงมุมขึ้น (↗) หรือ [set_StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughtoplefttobottomright/) สำหรับเส้นทแยงมุมลง (↘) คุณยังสามารถใช้ [set_StrikethroughHorizontal](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughhorizontal/) หรือ [set_StrikethroughVertical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathborderbox/set_strikethroughvertical/) พร้อมการผสมของด้านที่มองเห็นได้
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -845,24 +915,24 @@ presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![หกเศษส่วนที่แก้ไขได้ใน PowerPoint. แถวบน: กรอบเต็ม, ด้านล่างและซ้าย, เส้นทแยงขึ้น. แถวล่าง: เส้นทแยงลง, เส้นขอบแนวนอน, เส้นขอบแนวตั้งกับกรอบเต็ม](border-box-fractions.png)
+![หกเศษส่วนที่แก้ไขได้ใน PowerPoint. แถวบน: กรอบเต็ม, ด้านล่างและซ้าย, เส้นทแยงมุมขึ้น. แถวล่าง: เส้นทแยงมุมลง, เส้นขวางแนวนอน, เส้นขวางแนวตั้งพร้อมกรอบเต็ม.](border-box-fractions.png)
 
-บนเศษส่วนนี้, เส้นขวางแนวนอนทับบาร์ของเศษส่วน. เส้นขวางแนวตั้งข้ามตัวเศษและตัวส่วนในขณะที่กรอบรอบด้านยังคงมองเห็น. เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด. การขีดเส้นคั่นตามปกติจะใช้กับอักขระในรันข้อความ. หลังจากเปิดงานนำเสนอใหม่ใน PowerPoint, คุณยังสามารถแก้ไขตัวเศษและตัวส่วนแยกกันได้.
+บนเศษส่วนนี้ เส้นข้ามแนวนอนทับบาร์ของเศษส่วน เส้นข้ามแนวตั้งข้ามทั้งเศษและส่วนในขณะที่กรอบรอบข้างยังคงมองเห็นได้ เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด การขีดฆ่าในข้อความธรรมดาจะใช้กับตัวอักษรในรันข้อความ หลังจากเปิดพรีเซนเทชันใน PowerPoint อีกครั้ง คุณยังสามารถแก้ไขเศษและส่วนแยกกันได้
 
 ## **ควบคุมการมองเห็นและการจัดวางด้วย Phantom Elements**
 
-ห่อหุ้มนิพจน์ด้วย [MathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathphantom/) เพื่อควบคุมการมองเห็นและช่องว่างที่มันทำให้สมการเปลี่ยนแปลงได้อย่างอิสระ. วิธีตั้งค่าใน [IMathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/) กำหนดสิ่งต่อไปนี้:
+ห่อหุ้มนิพจน์ด้วย [MathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันก่อให้กับสมการแยกจากกัน เมธอด setter ของ [IMathPhantom](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/) ควบคุมดังต่อไปนี้:
 
-| Method | Effect |
+| วิธี | ผล |
 | --- | --- |
-| [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) | กำหนด `false` เพื่อซ่อนนิพจน์. มิติของมันยังคงมีส่วนร่วมในการจัดวางเว้นแต่การตั้งค่าที่เกี่ยวข้องด้านล่างเป็น `true`. |
-| [set_ZeroWidth](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerowidth/) | ถือความกว้างแนวนอนของนิพจน์เป็นศูนย์, ทำให้องค์ประกอบใกล้เคียงเคลื่อนที่เข้ามาใกล้กัน. |
-| [set_ZeroAsc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zeroasc/) | ถือการยกขึ้นของมัน, ความสูงเหนือเส้นฐาน, เป็นศูนย์. สิ่งนี้สามารถลดช่องว่างที่สงวนไว้เหนือองค์ประกอบใกล้เคียง. |
-| [set_ZeroDesc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerodesc/) | ถือการลงลงของมัน, ความลึกต่ำกว่าเส้นฐาน, เป็นศูนย์. สิ่งนี้สามารถย้ายบาร์ของเศษส่วนหรือเนื้อหาอื่นใต้นิพจน์ให้ใกล้กับเพื่อนบ้าน. |
+| [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) | ตั้งค่า `false` เพื่อซ่อนนิพจน์ มิติของมันยังคงมีผลต่อการจัดวาง เว้นแต่การตั้งค่าที่เกี่ยวข้องด้านล่างจะเป็น `true`. |
+| [set_ZeroWidth](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerowidth/) | ถือความกว้างแนวนอนของนิพจน์เป็นศูนย์ ทำให้ส่วนประกอบใกล้เคียงเคลื่อนตัวเข้ามาใกล้กัน. |
+| [set_ZeroAsc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zeroasc/) | ถือการขึ้นของมัน, ความสูงเหนือ baseline, เป็นศูนย์ ซึ่งอาจลดพื้นที่ที่สงวนไว้เหนือส่วนประกอบใกล้เคียง. |
+| [set_ZeroDesc](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_zerodesc/) | ถือการลงของมัน, ความลึกต่ำกว่า baseline, เป็นศูนย์ ซึ่งอาจทำให้บาร์ของเศษส่วนหรือเนื้อหาอื่น ๆ ด้านล่างนิพจน์เคลื่อนเข้ามาใกล้ส่วนประกอบใกล้เคียง. |
 
-Baseline คือเส้นอ้างอิงที่ตัวอักษรคณิตศาสตร์ทั่วไปตั้งอยู่. การซ่อนเนื้อหาไม่ทำให้มิติหายไป, และการถือมิติเป็นศูนย์ไม่ทำให้การแสดงผลหายไป. นิพจน์ฐานยังคงเข้าถึงได้ผ่าน [get_Base](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/get_base/). กำหนด `true` ให้ [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติจะคงเดิม.
+Baseline คือเส้นอ้างอิงที่ตัวอักษรคณิตศาสตร์ทั่วไปนั่งอยู่ การซ่อนเนื้อหาไม่ทำให้มิติลบออกไป และการถือมิติเป็นศูนย์ไม่ลบล้างนิพจน์ นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [get_Base](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/get_base/). ตั้งค่า `true` ไปที่ [set_Show](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathphantom/set_show/) เพื่อแสดงอีกครั้ง; การตั้งค่ามิติจะคงเดิม
 
-ตัวอย่างด้านล่างสร้างห้าตัวแปรเคียงกัน: เศษส่วนที่มองเห็นได้, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และเศษส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc, หรือ ZeroDesc เปิดใช้. แต่ละตัวแปรใช้นิพจน์รอบข้างเดียวกันและ Cambria Math ขนาด 24 จุด. รูปร่างสมการทั้งหมดมีตำแหน่งบนเดียวกัน, ระบุด้วยไกด์สีเทา. การวาง Phantom ในนิพจน์ตัวเศษของเศษส่วนภายนอกทำให้การเปลี่ยนแปลงการจัดวางแนวตั้งมองเห็นได้ง่ายขึ้น.
+ตัวอย่างนี้สร้างห้ารูปแบบข้างเคียงกัน: เศษส่วนที่มองเห็น, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และสามเศษส่วนที่ซ่อนพร้อมหนึ่งมิติเป็นศูนย์ แต่ละรูปแบบใช้นิพจน์รอบข้างเดียวกันและ Cambria Math ขนาด 24 จุด รูปสมการทั้งหมดมีตำแหน่งบนเดียวกันที่แสดงโดยไกด์สีเทา การวาง phantom ในเศษส่วนภายนอกทำให้การเปลี่ยนแปลงการจัดวางแนวตั้งมองเห็นได้ง่ายขึ้น
 
 ```cpp
 #include <array>
@@ -960,13 +1030,13 @@ presentation->Dispose();
 
 ```
 
-![ห้าสมการใน PowerPoint ที่เปรียบเทียบระหว่างเศษส่วนที่มองเห็นได้, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และเศษส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc หรือ ZeroDesc เปิดใช้งาน](math-phantom.png)
+![ห้าสมการใน PowerPoint เปรียบเทียบระหว่างเศษส่วนที่มองเห็น, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และเศษส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc, หรือ ZeroDesc เปิดใช้งาน](math-phantom.png)
 
-## **รวมกลุ่มเทอม**
+## **จัดกลุ่มเทอม**
 
-ใช้ [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) เพื่อวางอักขระการจัดกลุ่มเหนือหรือใต้นิพจน์. เพิ่มขีดจำกัดเพื่อกำหนดป้ายชื่อให้เทอมที่จัดกลุ่ม.
+ใช้ [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) เพื่อวางตัวอักษรจัดกลุ่มเหนือหรือใต้นิพจน์ เพิ่มขีดจำกัดเพื่อระบุเทอมที่จัดกลุ่ม
 
-![นิพจน์ x บวก y ที่กลุ่มพร้อมป้ายกำกับข้อความใดๆ ด้านล่าง](powerpoint-math-equations_15.png)
+![นิพจน์ x บวก y ที่จัดกลุ่มด้วยป้ายกำกับข้อความใด ๆ ด้านล่าง](powerpoint-math-equations_15.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1006,9 +1076,9 @@ presentation->Dispose();
 
 ## **จัดรูปแบบองค์ประกอบคณิตศาสตร์**
 
-ใช้ตัวช่วยการจัดรูปแบบเฉพาะเมื่อช่วยให้สูตรชัดเจน. ตัวอย่างเช่น, [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) วางบาร์เหนือองค์ประกอบคณิตศาสตร์.
+ใช้ตัวช่วยสำหรับการจัดรูปแบบเฉพาะเมื่อทำให้สูตรชัดเจน ตัวอย่างเช่น [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/) วางแถบเหนือส่วนคณิตศาสตร์
 
-![นิพจน์คณิตศาสตร์ ABC ที่มีบาร์เหนือ](powerpoint-math-equations_14.png)
+![นิพจน์คณิตศาสตร์ ABC ที่มีแถบเหนือส่วน](powerpoint-math-equations_14.png)
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1044,9 +1114,9 @@ presentation->Dispose();
 
 ### **จัดรูปแบบข้อความในสมการที่มีอยู่**
 
-เพื่อจัดรูปแบบข้อความทั่วสมการที่มีอยู่, ให้เดินทางผ่านต้นไม้ขององค์ประกอบแต่ละบล็อกคณิตศาสตร์. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) คืนค่าเฉพาะลูกโดยตรง, ดังนั้นให้เรียกแบบเรียกซ้ำเพื่อเข้าถึงข้อความภายในเศษส่วน, สคริปต์, ราก, และโครงสร้างซ้อนอื่น ๆ. ตรวจสอบองค์ประกอบปัจจุบันและลูกของมันเพื่อรวมถึงองค์ประกอบเริ่มต้นเมื่อเป็น [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
+เพื่อจัดรูปแบบข้อความทั่วสมการที่มีอยู่ ให้ท่องต้นไม้ของส่วนประกอบแต่ละ MathBlock. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) คืนเฉพาะลูกโดยตรง จึงต้องเรียกอย่างรีคอร์ซิฟเพื่อเข้าถึงข้อความภายในเศษส่วน, สคริปต์, ราก, และโครงสร้างซ้อนอื่น ๆ ตรวจสอบส่วนประกอบปัจจุบันรวมถึงลูกของมันด้วยเพื่อให้รวมส่วนเริ่มต้นเมื่อเป็น [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
 
-ตัวอย่างนี้สมมติว่าการนำเสนอมีสมการเช่น `z = xᵢ / ∛y`, ที่มีเศษส่วนที่มีตัวล่างในตัวเศษและรากในตัวส่วน. การประมวลผลเฉพาะองค์ประกอบระดับบนของบล็อกจะพลาดข้อความภายในเศษส่วน. ตัวอย่างค้นหาส่วนคณิตศาสตร์ในเฟรมข้อความของสไลด์, เข้าถึงบล็อกผ่าน [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/), และตั้งความสูงแบบอักษรเป็น 28 จุดด้วย [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/), เข้าถึงการจัดรูปแบบผ่านเมธอด [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) ของแต่ละองค์ประกอบข้อความ.
+ตัวอย่างนี้สมมติว่าพรีเซนเทชันมีสมการเช่น `z = xᵢ / ∛y`, โดยมีเศษส่วนที่มีตัวหอยในเศษและรากในส่วน การประมวลผลเฉพาะส่วนระดับบนของบล็อกจะพลาดข้อความในเศษส่วน ตัวอย่างนี้ค้นหา MathPortion ในกรอบข้อความสไลด์, เข้าถึงบล็อกผ่าน [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/), และตั้งความสูงฟอนต์เป็น 28 พอยท์ด้วย [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/), เข้าถึงการจัดรูปแบบผ่านเมธอด [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) ของแต่ละข้อความ
 
 ```cpp
 #include <functional>
@@ -1113,37 +1183,37 @@ presentation->Save(u"formatted-equations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-งานนำเสนอที่บันทึกมีการจัดรูปแบบข้อความที่อัปเดตที่ทุกระดับของแต่ละสมการที่ประมวลผล, ในขณะที่คงรักษาเนื้อหาข้อความและโครงสร้างคณิตศาสตร์ไว้.
+พรีเซนเทชันที่บันทึกไว้มีการอัปเดตการจัดรูปแบบข้อความในทุกระดับของแต่ละสมการที่ประมวลผล, ในขณะที่คงเนื้อหาและโครงสร้างคณิตศาสตร์ไว้
 
 ## **อ้างอิงด่วน**
 
 | งาน | API หลัก |
 | --- | --- |
 | สร้างข้อความคณิตศาสตร์ | [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| รวมองค์ประกอบ | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
+| รวมส่วนประกอบ | [IMathElement.Join](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/join/) |
 | สร้างเศษส่วน | [IMathElement.Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| เพิ่ม ตัวบนหรือ ตัวล่าง | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| เพิ่มตัวยกหรือห้อย | [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | เพิ่มฟังก์ชัน | [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | เพิ่มราก | [IMathElement.Radical](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/radical/) |
 | เพิ่มขีดจำกัด | [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
 | เพิ่มสคริปต์ด้านซ้าย | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| เพิ่มผลรวมและอินทิกรัล | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| เพิ่มการบวกรวมและอินทิกรัล | [Nary](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | เพิ่มเมทริกซ์ | [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathmatrix/) |
-| เพิ่มอาเรย์สมการ | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| เพิ่มตัวจำกัด | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| เพิ่มบาร์และกรอบ | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
-| รวมกลุ่มเทอม | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
+| เพิ่มอาร์เรย์สมการ | [ToMathArray](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| เพิ่มตัวขอบเขต | [Enclose](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| เพิ่มแถบและกรอบ | [Overbar](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| จัดกลุ่มเทอม | [Group](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/group/) |
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
 **ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
 
-ใช่. เปิดงานนำเสนอ, หา shape ที่บรรจุ [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), เรียก [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), และอัปเดตบล็อกคณิตศาสตร์ในพารากราฟนั้น.
+ได้. เปิดพรีเซนเทชัน, ค้นหารูปร่างที่มี [MathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/), เรียก [get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathportion/get_mathparagraph/), และอัปเดต MathBlock ในย่อมนั้น.
 
 **สมการถูกบันทึกเป็นคณิตศาสตร์ PowerPoint ที่แก้ไขได้หรือไม่?**
 
-ใช่. เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่สามารถแก้ไขได้.
+ได้. เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office math ที่แก้ไขได้.
 
 **ฉันสามารถส่งออกสมการเป็น LaTeX ได้หรือไม่?**
 
-ใช่. ดึง [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) จาก [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/), แล้วเรียก [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) เพื่อส่งออกโดยตรง. สำหรับตัวอย่างเต็ม, ดูที่ [ส่งออกสมการคณิตศาสตร์จากงานนำเสนอใน C++](/slides/th/cpp/exporting-math-equations/#export-math-equations-to-latex).
+ได้. รับ [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) ของสมการจาก [IMathPortion](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/), แล้วเรียก [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) เพื่อส่งออกโดยตรง สำหรับตัวอย่างเต็มดูที่ [Export Math Equations from Presentations in C++](/slides/th/cpp/exporting-math-equations/#export-math-equations-to-latex).

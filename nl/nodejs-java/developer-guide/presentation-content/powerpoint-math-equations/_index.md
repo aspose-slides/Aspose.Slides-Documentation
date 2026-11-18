@@ -1,5 +1,5 @@
 ---
-title: Wiskundige vergelijkingen toevoegen aan PowerPoint-presentaties in JavaScript
+title: Voeg wiskundige vergelijkingen toe aan PowerPoint‑presentaties in JavaScript
 linktitle: PowerPoint wiskundige vergelijkingen
 type: docs
 weight: 80
@@ -18,29 +18,29 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor Node.js via Java, met ondersteuning voor OMML, opmaakbesturingen en duidelijke JavaScript-codevoorbeelden."
+description: "Voeg wiskundige vergelijkingen in PowerPoint PPT en PPTX in via Aspose.Slides voor Node.js via Java, met ondersteuning voor OMML, opmaakcontroles en duidelijke JavaScript‑codevoorbeelden."
 ---
 ## **Overzicht**
 
-PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor Node.js via Java kunt u dezelfde soort wiskundige inhoud programmatically maken: breuken, wortels, functies, limieten, N‑aire operatoren, matrices, arrays en geformatteerde wiskundeblokken.
+PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor Node.js via Java kun je dezelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N-ary‑operatoren, matrices, arrays en geformatteerde wiskundige blokken.
 
 In PowerPoint voegen gebruikers normaal gesproken vergelijkingen toe via **Insert > Equation**:
 
-![PowerPoint Invoegen-tab met de opdracht Equation geselecteerd](powerpoint-math-equations_1.png)
+![PowerPoint‑tabblad Invoegen met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
 
 Het resultaat is bewerkbare wiskundige tekst op de dia:
 
-![Een PowerPoint-dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
+![Een PowerPoint‑dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
 
 Aspose.Slides bouwt die wiskundige tekst op via drie hoofdobjecten:
 
-- Een wiskundige vorm, gemaakt met [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), is de vorm die de vergelijking bevat.
-- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) slaat wiskundige inhoud op binnen het tekstkader van de vorm.
-- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) bevat een of meer [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) objecten.
+- Een wiskundige vorm, gecreëerd met [addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape), is de vorm die de vergelijking bevat.
+- [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) slaat wiskundige inhoud op in het tekstframe van de vorm.
+- [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathblock/) objecten.
 
-De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) en de fluent‑methoden van [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) om de code kort en leesbaar te houden.
+De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) en de vloeiende methoden van [MathElementBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) om de code kort en leesbaar te houden.
 
-Voor MathML‑exportscenario's, zie [Math‑equaties exporteren vanuit presentaties in Node.js via Java](/slides/nl/nodejs-java/exporting-math-equations/).
+Voor MathML‑exportscenario's, zie [Exporteer wiskundige vergelijkingen uit presentaties in Node.js via Java](/slides/nl/nodejs-java/exporting-math-equations/).
 
 ## **Maak een vergelijking**
 
@@ -76,12 +76,12 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) maakt een vorm die al een wiskundige alinea bevat. Toegang tot de eerste [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), roep [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) aan, en voeg wiskundige blokken of wiskunde‑elementen toe.
+[addMathShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addMathShape) maakt een vorm die al een wiskundige alinea bevat. Verkrijg de eerste [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), roep [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) aan, en voeg wiskundige blokken of wiskunde‑elementen toe.
 {{% /alert %}}
 
-## **Breuken toevoegen**
+## **Voeg breuken toe**
 
-Gebruik [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) om een breuk te maken. U kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
+Gebruik [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#divide) om een breuk te maken. Je kunt een breuk‑stijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathfractiontypes/).
 
 ![Een scheve wiskundige breuk die één gedeeld door x toont](powerpoint-math-equations_4.png)
 
@@ -117,11 +117,11 @@ aspose.slides = require("aspose.slides.via.java");
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
-## **Wortels toevoegen**
+## **Voeg wortels toe**
 
 Gebruik [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#radical) om een vierkantswortel, cube‑wortel of andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
 
-![Een n‑de wortel uitdrukking met x onder het wortelteken](powerpoint-math-equations_5.png)
+![Een n‑de‑wortel‑expressie met x onder het wortelteken](powerpoint-math-equations_5.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -146,13 +146,13 @@ try {
 }
 ```
 
-### **Graaf van een vierkantswortel weergeven of verbergen**
+### **Toon of verberg de graad van een vierkantswortel**
 
-Een vierkantswortel kan een expliciete 2 weergeven of de gebruikelijke √x‑notatie gebruiken. De [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree)‑methode van [MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) bepaalt welke vorm wordt weergegeven. Beide vormen behouden de graad 2 en de radicand x in de bewerkbare vergelijking.
+Een vierkantswortel kan een expliciete 2 tonen of de conventionele √x‑notatie gebruiken. De [setHideDegree](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/#setHideDegree)‑methode van [MathRadical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathradical/) bepaalt welke vorm wordt getoond. Beide vormen behouden de graad 2 en de radikand x in de bewerkbare vergelijking.
 
 ![Dezelfde vierkantswortel met de graad zichtbaar links en verborgen rechts](square-root-degree.png)
 
-Het voorbeeld slaat dezelfde vierkantswortel twee keer op. In `visible-degree.pptx` is de 2 zichtbaar. In `hidden-degree.pptx` is deze verborgen.
+Het voorbeeld slaat dezelfde vierkantswortel tweemaal op. In `visible-degree.pptx` is de 2 zichtbaar. In `hidden-degree.pptx` is deze verborgen.
 
 ```javascript
 var aspose = aspose || {};
@@ -178,11 +178,11 @@ try {
 }
 ```
 
-## **Functies en limieten toevoegen**
+## **Voeg functies en limieten toe**
 
-Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) of [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) voor functies zoals `sin(x)`, `log(x)`, of aangepaste functienamen. Voor limieten, zet `lim` in een [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) of gebruik [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
+Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) of [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) voor functies zoals `sin(x)`, `log(x)` of aangepaste functienamen. Voor limieten, plaats `lim` in een [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathlimit/) of gebruik [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setLowerLimit).
 
-![De limiet van x wanneer x naar oneindig neigt](powerpoint-math-equations_8.png)
+![De limiet van x wanneer x naar oneindig gaat](powerpoint-math-equations_8.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-Voor een aangepaste functienaam, maak de functienaam het huidige element en roep [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) aan met het argument:
+Voor een aangepaste functienaam, maak de functienaam het huidige element en roep [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#function) aan met zijn argument:
 
 ```javascript
 var aspose = aspose || {};
@@ -217,9 +217,9 @@ aspose.slides = require("aspose.slides.via.java");
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **N‑aire operatoren en integralen toevoegen**
+## **Voeg N‑ary‑operatoren en integralen toe**
 
-Gebruik [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) voor sommaties, unies, intersecties en andere grote operatoren. Gebruik [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) voor integralen. Beide methoden laten u onder‑ en bovengrenzen instellen.
+Gebruik [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#nary) voor sommen, unies, doorsnedes en andere grote operatoren. Gebruik [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral) voor integralen. Beide methoden laten je onder‑ en bovengrenzen instellen.
 
 ![Een sommatie met onder‑ en bovengrenzen](powerpoint-math-equations_7.png)
 
@@ -249,7 +249,7 @@ try {
 }
 ```
 
-N‑aire operatoren zijn voor grote operatoren met optionele limieten. Eenvoudige operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) en samengevoegd in de uitdrukking.
+N‑ary‑operatoren zijn voor grote operatoren met optionele grenzen. Eenvoudige operatoren zoals `+`, `-` en `=` worden doorgaans toegevoegd als [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) en samengevoegd in de expressie.
 
 Voor een integraal, gebruik [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#integral):
 
@@ -261,11 +261,11 @@ let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slide
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Matrices toevoegen**
+## **Voeg matrices toe**
 
-Gebruik [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omsluit de matrix wanneer u ronde haakjes, vierkante haakjes of accolades nodig heeft.
+Gebruik [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omsluit de matrix wanneer je haakjes, vierkante haken of accolades nodig hebt.
 
-![Een matrix met twee rijen met één lege cel](powerpoint-math-equations_10.png)
+![Een wiskundige matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -294,9 +294,60 @@ try {
 }
 ```
 
-## **Vergelijkings‑arrays toevoegen**
+### **Bewerk een bestaande matrix**
 
-Gebruik [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) wanneer u uitgelijnde vergelijkingen of een verticale stapel uitdrukkingen nodig heeft.
+Stel je een lineaire‑algebra‑les voor die begint met de coëfficiëntenmatrix in `matrix.pptx`, opgeslagen door het vorige voorbeeld. Voor de volgende oefening, behoud de eerste vergelijking, vervang de tweede door twee nieuwe vergelijkingen, en actualiseer de set variabelen. Open de bestaande matrix via [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) om de nog geldende coëfficiënten te behouden.
+
+![Originele twee‑rijen coëfficiëntenmatrix met waarden 1, x en een lege cel in de eerste rij en x, 2 en y in de tweede](matrix-before-edit.png)
+
+Rij‑ en kolomindexen beginnen bij nul en verwijzen naar de matrix op het moment van elke aanroep. Het invoegen van een rij vóór index 1 verplaatst de oorspronkelijke tweede rij naar index 2. Invoegen na index 2 voegt vervolgens een rij toe. Het verwijderen van rij 2 verwijdert de oorspronkelijke tweede vergelijking en verschuift de toegevoegde rij één positie omhoog. Kolommen verschuiven op dezelfde manier.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("matrix.pptx");
+try {
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    const matrix = portion.getMathParagraph().get_Item(0).get_Item(0);
+
+    matrix.insertRowBefore(1);
+    matrix.insertRowAfter(2);
+    matrix.deleteRow(2);
+
+    matrix.insertColumnBefore(1);
+    matrix.insertColumnAfter(3);
+    matrix.deleteColumn(3);
+
+    // Nieuwe cellen zijn aanvankelijk null. Stel eerst de niet‑nul coëfficiënten in.
+    matrix.set_Item(1, 0, new slides.MathematicalText("12"));
+    matrix.set_Item(1, 1, new slides.MathematicalText("1"));
+    matrix.set_Item(2, 2, new slides.MathematicalText("10"));
+    matrix.set_Item(2, 3, new slides.MathematicalText("1"));
+    for (let row = 0; row < matrix.getRowCount(); row++) {
+        for (let column = 0; column < matrix.getColumnCount(); column++) {
+            if (matrix.get_Item(row, column) == null) {
+                matrix.set_Item(row, column, new slides.MathematicalText("0"));
+            }
+        }
+    }
+
+    matrix.setColumnAlignment(0, slides.MathHorizontalAlignment.Left);
+    matrix.setColumnsAlignment(1, 3, slides.MathHorizontalAlignment.Right);
+
+    presentation.save("updated-matrix.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[setColumnAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnAlignment) aligneert de eerste kolom naar links. [setColumnsAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/#setColumnsAlignment) aligneert drie opeenvolgende kolommen naar rechts, beginnend bij index 1. In `updated-matrix.pptx` heeft de matrix drie vergelijkingen en vier variabelen. De oorspronkelijke coëfficiënten `1` en `x` uit de eerste rij verschijnen nu in de eerste en derde kolom.
+
+![Bijgewerkte drie‑rijen matrix die de rijen 1, 0, x, 0; 12, 1, 0, 0; en 0, 0, 10, 1 toont](matrix-after-edit.png)
+
+## **Voeg vergelijking‑arrays toe**
+
+Gebruik [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toMathArray) wanneer je uitgelijnde vergelijkingen of een verticale stapel expressies nodig hebt.
 
 ![Een verticale wiskundige array met x boven y](powerpoint-math-equations_11.png)
 
@@ -324,11 +375,11 @@ try {
 }
 ```
 
-### **Een array uitlijnen met omliggende elementen**
+### **Lijn een array uit met omliggende elementen**
 
-[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) bepaalt de verticale uitlijning van een array ten opzichte van de wiskundige elementen ernaast. Het voorbeeld hieronder vergelijkt uitlijning met de eerste rij, het midden van de array en de laatste rij.
+[setBaseJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setBaseJustification) regelt de verticale uitlijning van een array ten opzichte van de wiskundige elementen ernaast. Het voorbeeld hieronder vergelijkt uitlijning met de eerste rij, het midden van de array en de laatste rij.
 
-Het volgende voorbeeld maakt drie identieke arrays, elk met drie rijen en de naburige elementen `A=` en `=B`. Alle wiskundige tekst gebruikt Cambria Math op 24 punten. Alleen de array‑uitlijning wijzigt.
+Het volgende voorbeeld maakt drie identieke arrays, elk met drie rijen en de aangrenzende elementen `A=` en `=B`. Alle wiskundige tekst gebruikt Cambria Math op 24 punten. Alleen de uitlijning van de array verandert.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -383,15 +434,15 @@ try {
 
 De volgende vergelijking toont de opgeslagen presentatie in PowerPoint. Let op de positie van `A=` en `=B` naast elke array.
 
-![Vergelijkings‑arrays in PowerPoint met uitlijning Boven, Midden en Onder en identieke omliggende elementen](equation-array-alignment.png)
+![Vergelijkings‑arrays in PowerPoint met boven‑, midden‑ en onderuitlijning en identieke aangrenzende elementen](equation-array-alignment.png)
 
-### **Rij‑spatiëring configureren**
+### **Configureer rij‑spatiëring**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) selecteert de spatiëringsregel voor rijen binnen de array. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) levert een numerieke waarde voor een expliciete spatiëringsregel en wordt genegeerd door de preset‑regels.
+[setRowSpacingRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacingRule) selecteert de spatiëringsregel voor rijen binnen de array. [setRowSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/matharray/#setRowSpacing) geeft een numerieke waarde voor een expliciete spatiëringsregel en wordt genegeerd door de voorinstellingen.
 
-Voor exacte spatiëring wordt de waarde gemeten in punten. Voor proportionele spatiëring wordt gemeten in halve regels: de waarde `3` in het voorbeeld staat voor 1,5 regels. Stel beide eigenschappen in wanneer u een expliciete waarde opgeeft; alleen de numerieke waarde wijzigen selecteert geen spatiëringsregel.
+Voor exacte spatiëring wordt de waarde gemeten in punten. Voor proportionele spatiëring wordt deze gemeten in halve regels: de waarde `3` in het voorbeeld specificeert 1,5 regels. Stel beide eigenschappen in bij het opgeven van een expliciete waarde; alleen de numerieke waarde wijzigen selecteert geen spatiëringsregel.
 
-Het voorbeeld hieronder slaat vijf presentaties op met dezelfde vergelijkingen, uitlijning en lettertype‑instellingen. De eerste drie gebruiken presets; de laatste twee tonen expliciete waarden.
+Voor een compleet voorbeeld, zie onderstaande voorbeelden.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -438,9 +489,9 @@ for (let i = 0; i < rules.length; i++) {
 }
 ```
 
-Array‑rij‑spatiëring is los van alinea‑spatiëring. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) en [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) voegen ruimte toe rond de omsluitende alinea, niet tussen array‑rijen. Evenzo positioneert [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) de gehele wiskundige alinea horizontaal; het vervangt niet de verticale uitlijningsinstelling van de array.
+Rij‑spatiëring van de array is gescheiden van alinea‑spatiëring. [setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) en [setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter) voegen ruimte toe rond de omvattende alinea, niet tussen array‑rijen. Evenzo positioneert [MathParagraph.setJustification](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#setJustification) de hele wiskundige alinea horizontaal; het vervangt niet de verticale uitlijningsinstelling van de array.
 
-## **Trigonometrische functies toevoegen**
+## **Voeg trigonometrische functies toe**
 
 Gebruik [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#asArgumentOfFunction) wanneer het argument het huidige element is en de functienaam bekend is.
 
@@ -469,11 +520,11 @@ try {
 }
 ```
 
-## **Subscripties en superscripties toevoegen**
+## **Voeg subscripties en superscripties toe**
 
-Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen links van de basis moeten staan, gebruik [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
+Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen aan de linkerkant van de basis moeten verschijnen, gebruik [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#setSubSuperscriptOnTheLeft).
 
-![Een hoofdletter Y met links subscript 1 en superscript n](powerpoint-math-equations_9.png)
+![Een hoofdletter Y met subscript 1 aan de linkerkant en superscript n](powerpoint-math-equations_9.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -498,11 +549,11 @@ try {
 }
 ```
 
-## **Scheidingstekens toevoegen**
+## **Voeg scheidingstekens toe**
 
-Gebruik [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) om een uitdrukking binnen scheidingstekens te plaatsen. U kunt ook een scheidingsteken‑teken instellen voor uitdrukkingen die meerdere elementen bevatten.
+Gebruik [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#enclose) om een expressie binnen scheidingstekens te plaatsen. Je kunt ook een scheidingsteken instellen voor delimiter‑expressies die meerdere elementen bevatten.
 
-![Een scheidingsteken‑expressie met x, y en z gescheiden door verticale balken](powerpoint-math-equations_13.png)
+![Een delimiter‑expressie met x, y en z gescheiden door verticale staven](powerpoint-math-equations_13.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -533,9 +584,9 @@ try {
 
 ### **Grootte en uitlijning van scheidingstekens**
 
-Geef `true` door aan [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) om de haakjes te laten groeien rond een hoge operand, of `false` om ze op normale grootte te houden. Gebruik [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) met een van twee [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/) waarden. `Centered` centreert de haakjes op de wiskundige as, die door het midden van het =‑teken loopt. `Match` lijnt ze uit met de ingesloten inhoud. Beide instellingen beïnvloeden alleen de scheidingstekens. De uitdrukking binnen blijft gelijk.
+Geef `true` door aan [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setGrowToMatchOperandHeight) om de haakjes te laten groeien rondom een hoge operand, of geef `false` door om ze op normale grootte te houden. Gebruik [setDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimiter/#setDelimiterShape) met een van twee [MathDelimiterShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathdelimitershape/)‑waarden. `Centered` centreert de haakjes op de wiskunde‑as, die door het midden van het gelijkteken loopt. `Match` aligneert ze met de ingesloten inhoud. Beide instellingen beïnvloeden alleen de scheidingstekens. De binnenste expressie blijft ongewijzigd.
 
-Het voorbeeld plaatst een breuk in de exponent van `x` zodat de uitdrukking verder boven de basislijn uitsteekt dan hieronder. Alle vier vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
+Het voorbeeld plaatst een breuk in de exponent van `x` zodat de expressie verder boven de basislijn uitsteekt dan eronder. Alle vier de vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -565,15 +616,15 @@ try {
 }
 ```
 
-In PowerPoint, vergelijk de rijen om het effect van groei te zien. In de bovenste rij groeien de haakjes om de exponent te omsluiten en zien ze er voor beide vormen gelijk uit. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`Centered`) lijnen uit met het =‑teken, terwijl die rechts (`Match`) hoger rond de uitdrukking zitten.
+In PowerPoint, vergelijk de rijen om het effect van groei te zien. In de bovenste rij groeien de haakjes om de exponent te omsluiten en zien ze er gelijk uit voor beide vormen. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`Centered`) zijn uitgelijnd met het gelijkteken, terwijl die rechts (`Match`) hoger rond de expressie zitten.
 
-![Vier vergelijkingen in PowerPoint met scheidingsteken‑groei ingeschakeld boven en uitgeschakeld hieronder, en Centered links en Match rechts](delimiter-sizing.png)
+![Vier vergelijkingen in PowerPoint met scheidingsteken‑groei ingeschakeld boven en uitgeschakeld beneden, en `Centered` links en `Match` rechts](delimiter-sizing.png)
 
-## **Een randvak toevoegen**
+## **Voeg een randvak toe**
 
-Roep [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) aan op een breuk om de gehele uitdrukking te omkaderen. Het geretourneerde [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) toont standaard alle vier zijden. Gebruik [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) en [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) om individuele zijden te verwijderen.
+Roep [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#toBorderBox) aan op een breuk om de gehele expressie te omlijsten. Het geretourneerde [MathBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/) toont standaard alle vier kanten. Gebruik [setHideTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideTop), [setHideBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideBottom), [setHideLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideLeft) en [setHideRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setHideRight) om individuele kanten te verwijderen.
 
-Het voorbeeld plaatst zes kopieën van dezelfde breuk op één dia. Om annulering te tonen, verberg alle vier zijden en geef `true` door aan [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) voor een stijgende diagonale (↗) of [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) voor een dalende diagonale (↘). U kunt ook [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) of [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) gebruiken met elke combinatie van zichtbare zijden.
+Het voorbeeld plaatst zes kopieën van dezelfde breuk op één dia. Om annulering te tonen, verberg alle vier kanten en geef `true` door aan [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughBottomLeftToTopRight) voor een stijgende diagonale (↗) of [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughTopLeftToBottomRight) voor een dalende diagonale (↘). Je kunt ook [setStrikethroughHorizontal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughHorizontal) of [setStrikethroughVertical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathborderbox/#setStrikethroughVertical) gebruiken met elke combinatie van zichtbare kanten.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -616,24 +667,24 @@ try {
 }
 ```
 
-![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledige rand, onder‑ en linkerkant, stijgende diagonale. Onderste rij: dalende diagonale, horizontale doorhaling, verticale doorhaling met een volledige rand](border-box-fractions.png)
+![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledige rand, onder‑ en linkerkant, stijgende diagonale. Onderste rij: dalende diagonale, horizontale doorstreping, verticale doorstreping met een volledige rand.](border-box-fractions.png)
 
-Op deze breuk overlapt de horizontale doorhaling de breukstreep. De verticale doorhaling snijdt zowel de teller als de noemer, terwijl de omringende rand zichtbaar blijft. Deze lijnen decoreren de gehele uitdrukking. Een gewone doorhaling van tekst geldt alleen voor tekens in een tekstrun. Na het opnieuw openen van de presentatie in PowerPoint kunt u de teller en noemer nog steeds onafhankelijk bewerken.
+Bij deze breuk overlapt de horizontale doorstreping de breukstreep. De verticale doorstreping doorkruist zowel de teller als de noemer terwijl de omliggende rand zichtbaar blijft. Deze lijnen versieren de hele expressie. Een gewone tekst‑doorstreping geldt voor tekens in een tekstsegment. Na het opnieuw openen van de presentatie in PowerPoint kun je de teller en noemer nog steeds afzonderlijk bewerken.
 
-## **Zichtbaarheid en lay-out regelen met Phantom‑elementen**
+## **Regel zichtbaarheid en lay-out met phantom‑elementen**
 
-Plaats een uitdrukking in een [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) om de zichtbaarheid en de ruimte die hij bijdraagt aan een vergelijking onafhankelijk te regelen. De [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/)‑methoden regelen het volgende:
+Omhul een expressie met [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/) om onafhankelijk de zichtbaarheid en de ruimte die het bijdraagt aan een vergelijking te regelen. De [MathPhantom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/)‑methoden regelen het volgende:
 
-| Method | Effect |
+| Methode | Effect |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Geef `false` door om de uitdrukking te verbergen. De afmetingen blijven bijdragen aan de lay-out tenzij de onderstaande methoden `true` ontvangen. |
-| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | Beschouw de horizontale breedte van de uitdrukking als nul, waardoor naburige elementen dichter bij elkaar kunnen komen. |
-| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Beschouw de stijging (hoogte boven de basislijn) als nul. Dit kan de gereserveerde ruimte boven naburige elementen verminderen. |
-| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Beschouw de daling (diepte onder de basislijn) als nul. Dit kan een breukstreep of andere inhoud onder de uitdrukking dichter bij de buren brengen. |
+| [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) | Geef `false` om de expressie te verbergen. De afmetingen blijven bijdragen aan de lay-out tenzij de onderstaande corresponderende methoden `true` ontvangen. |
+| [setZeroWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroWidth) | Beschouw de horizontale breedte van de expressie als nul, waardoor naburige elementen dichterbij kunnen komen. |
+| [setZeroAsc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroAsc) | Beschouw de stijging, de hoogte boven de basislijn, als nul. Dit kan de gereserveerde ruimte boven naburige elementen verkleinen. |
+| [setZeroDesc](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setZeroDesc) | Beschouw de daling, de diepte onder de basislijn, als nul. Dit kan een breukstreep of andere inhoud onder de expressie dichter bij de buren brengen. |
 
-De basislijn is de referentielijn waarop gewone wiskundige letters staan. Het verbergen van inhoud verwijdert de afmetingen niet, en het behandelen van een afmeting als nul verwijdert de uitdrukking niet. De onderliggende uitdrukking blijft beschikbaar via [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Geef `true` door aan [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) om deze weer te tonen; de afmetingsinstellingen blijven ongewijzigd.
+De basislijn is de referentielijn waarop gewone wiskundige letters rusten. Het verbergen van inhoud verwijdert de afmetingen niet, en een dimensie als nul behandelen verwijdert de expressie niet. De onderliggende expressie blijft beschikbaar via [getBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#getBase). Geef `true` aan [setShow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathphantom/#setShow) om deze opnieuw weer te geven; de dimensie‑instellingen blijven ongewijzigd.
 
-Het voorbeeld hieronder creëert vijf naast‑elkaar varianten: een zichtbare breuk, een verborgen breuk die ruimte reserveert, en drie verborgen breuken met één afmeting als nul behandeld. Elke variant gebruikt dezelfde omringende uitdrukking en Cambria Math op 24 punten. Alle vergelijking‑vormen hebben dezelfde boven‑positie, gemarkeerd door de grijze gids. Het plaatsen van de phantom in de teller van een buitenste breuk maakt de verticale lay‑out‑veranderingen gemakkelijker te zien.
+Het voorbeeld hieronder maakt vijf naast‑elkaar varianten: een zichtbare breuk, een verborgen breuk die ruimte reserveert, en drie verborgen breuken waarbij één dimensie als nul wordt behandeld. Elke variant gebruikt dezelfde omliggende expressie en Cambria Math op 24 punten. Alle vergelijking‑vormen hebben dezelfde bovenste positie, gemarkeerd door de grijze leidraad. Het plaatsen van de phantom in de teller van een buitenste breuk maakt de verticale lay-out‑veranderingen makkelijker te zien.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -701,11 +752,11 @@ try {
 
 ![Vijf vergelijkingen in PowerPoint die een zichtbare breuk, een verborgen breuk die ruimte reserveert, en verborgen breuken met ZeroWidth, ZeroAsc of ZeroDesc ingeschakeld vergelijken](math-phantom.png)
 
-## **Termen groeperen**
+## **Groeperen van termen**
 
-Gebruik [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) om een groepeerteken boven of onder een uitdrukking te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+Gebruik [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#group) om een groepeer‑teken boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
 
-![De uitdrukking x + y gegroepeerd met het label any text hieronder](powerpoint-math-equations_15.png)
+![De expressie x plus y gegroepeerd met het label willekeurige tekst eronder](powerpoint-math-equations_15.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -732,11 +783,11 @@ try {
 }
 ```
 
-## **Wiskundige elementen opmaken**
+## **Formatteer wiskundige elementen**
 
-Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) plaatst een streep boven een wiskunde‑element.
+Gebruik formatteer‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#overbar) plaatst een balk boven een wiskundig element.
 
-![Een wiskundige uitdrukking ABC met een overstreping](powerpoint-math-equations_14.png)
+![Een wiskundige expressie ABC met een overbalk](powerpoint-math-equations_14.png)
 
 ```javascript
 var aspose = aspose || {};
@@ -760,11 +811,11 @@ try {
 }
 ```
 
-### **Tekst opmaken in een bestaande vergelijking**
+### **Formateer tekst in een bestaande vergelijking**
 
-Om tekst door de hele bestaande vergelijking op te maken, doorloop elk wiskundig blok‑elementen‑boom. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) geeft alleen de directe kinderen terug, roep het recursief aan om tekst binnen breuken, scripts, wortels en andere geneste structuren te bereiken. Controleer zowel het huidige element als zijn kinderen om het begin‑element op te nemen wanneer het [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) is.
+Om tekst door een bestaande vergelijking te formatteren, doorloop je de elementboom van elk wiskundig blok. [MathElementBase.getChildren](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/#getChildren) retourneert alleen de directe kinderen, dus roep je dit recursief aan om tekst in breuken, scripts, wortels en andere geneste structuren te bereiken. Controleer zowel het huidige element als zijn kinderen om het start‑element op te nemen wanneer dit [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) is.
 
-Dit voorbeeld gaat ervan uit dat `input.pptx` een vergelijking bevat zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller en een wortel in de noemer bevat. Alleen de boven‑niveau‑elementen van het blok verwerken zou de tekst binnen de breuk missen. Het voorbeeld zoekt wiskundige delen in dia‑tekstkaders, benadert hun blokken via [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) en gebruikt [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) om de lettergrootte op 28 punten te zetten via elke tekstelement‑[getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat) methode.
+Dit voorbeeld gaat ervan uit dat `input.pptx` een vergelijking bevat zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller en een wortel in de noemer bevat. Alleen de top‑niveau‑elementen van het blok verwerken zou de tekst in de breuk missen. Het voorbeeld vindt wiskundige delen in dia‑tekstframes, krijgt hun blokken via [MathPortion.getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph), en gebruikt [setFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) om de lettergrootte op 28 punten te zetten via de [getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/#getFormat)‑methode van elk tekstelement.
 
 ```javascript
 var aspose = aspose || {};
@@ -818,37 +869,37 @@ try {
 }
 ```
 
-De opgeslagen presentatie bevat de bijgewerkte tekstopmaak op elk niveau van elke verwerkte vergelijking, terwijl de tekstinhoud en wiskundige structuur behouden blijven.
+De opgeslagen presentatie bevat de bijgewerkte tekstformattering op elk niveau van elke verwerkte vergelijking, terwijl de tekstinhoud en wiskundige structuur behouden blijven.
 
 ## **Snelle referentie**
 
 | Taak | Hoofd‑API |
 | --- | --- |
-| Wiskundige tekst maken | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
-| Elementen combineren | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Breuken maken | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Superscript of subscript toevoegen | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Functies toevoegen | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Wortels toevoegen | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Limieten toevoegen | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Scripts links toevoegen | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Sommaties en integralen toevoegen | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Matrices toevoegen | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
-| Vergelijkings‑arrays toevoegen | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Scheidingstekens toevoegen | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Balken en randen toevoegen | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
-| Termen groeperen | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Maak wiskundige tekst | [MathematicalText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathematicaltext/) |
+| Combineer elementen | [join](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Maak breuken | [divide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg superscript of subscript toe | [setSuperscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg functies toe | [function](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg wortels toe | [radical](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg limieten toe | [setLowerLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg scripts aan de linkerkant toe | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg sommen en integralen toe | [nary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg matrices toe | [MathMatrix](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathmatrix/) |
+| Voeg vergelijking‑arrays toe | [toMathArray](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg scheidingstekens toe | [enclose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Voeg balken en randen toe | [overbar](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
+| Groeperen van termen | [group](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathelementbase/) |
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Kan ik een bestaande PowerPoint‑vergelijking bewerken?**
 
-Ja. Open de presentatie, zoek de vorm die een [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) bevat, roep [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) aan en werk de wiskundige blokken in die alinea bij.
+Ja. Open de presentatie, vind de vorm die een [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) bevat, roep [getMathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/#getMathParagraph) aan, en werk de wiskundige blokken in die alinea bij.
 
 **Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑wiskunde?**
 
-Ja. Wanneer u opslaat naar PPTX, schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑wiskunde‑inhoud.
+Ja. Wanneer je opslaat naar PPTX, schrijft Aspose.Slides de vergelijking als bewerkbare Office‑wiskunde‑inhoud.
 
 **Kan ik vergelijkingen exporteren naar LaTeX?**
 
-Ja. Haal het [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) op vanuit de bijbehorende [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/), en roep [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) aan om rechtstreeks te exporteren. Voor een compleet voorbeeld, zie [Export Math Equations from Presentations in Node.js via Java](/slides/nl/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).
+Ja. Haal de [MathParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/) van de [MathPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathportion/) op, en roep [MathParagraph.toLatex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mathparagraph/#toLatex) aan om direct te exporteren. Voor een volledig voorbeeld, zie [Exporteer wiskundige vergelijkingen uit presentaties in Node.js via Java](/slides/nl/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).

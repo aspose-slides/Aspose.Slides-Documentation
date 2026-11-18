@@ -1,6 +1,6 @@
 ---
-title: Voeg wiskundige vergelijkingen toe aan PowerPoint-presentaties in Python
-linktitle: PowerPoint-wiskundige vergelijkingen
+title: Wiskundige vergelijkingen toevoegen aan PowerPoint-presentaties in Python
+linktitle: PowerPoint wiskundige vergelijkingen
 type: docs
 weight: 80
 url: /nl/python-net/powerpoint-math-equations/
@@ -17,29 +17,31 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Voeg wiskundige vergelijkingen in te voegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor Python via .NET, met ondersteuning voor OMML, opmaakbesturingen en duidelijke Python-codevoorbeelden."
+description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor Python via .NET, met ondersteuning voor OMML, opmaakelementen en duidelijke Python-codevoorbeelden."
 ---
 ## **Overzicht**
 
-PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor Python via .NET kun je dezelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N‑ary‑operatoren, matrices, arrays en opgemaakte wiskundige blokken.
+PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor Python via .NET kun je hetzelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N‑ary‑operatoren, matrices, arrays en opgemaakte wiskundige blokken.
 
 In PowerPoint voegen gebruikers normaal gesproken vergelijkingen toe via **Insert > Equation**:
 
-![PowerPoint Invoegen-tab met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
+![PowerPoint Invoegen-tabblad met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
 
-![Een PowerPoint‑dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
+Het resultaat is bewerkbare wiskundige tekst op de dia:
 
-Aspose.Slides bouwt die wiskundige tekst via drie hoofdobjecten:
+![Een PowerPoint-dia met een bewerkbare wiskundige vergelijking](powerpoint-math-equations_2.png)
+
+Aspose.Slides bouwt die wiskundige tekst op via drie hoofdobjecten:
 
 - Een wiskundige vorm, gemaakt met [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/), is de vorm die de vergelijking bevat.
 - [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) slaat wiskundige inhoud op in het tekstframe van de vorm.
-- [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) bevat een of meer [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/)-objecten.
+- [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) objecten.
 
-De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) en de fluent‑methoden van [IMathElement](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/) om de code kort en leesbaar te houden.
+De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) en de fluente methoden van [MathElementBase](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/) om de code kort en leesbaar te houden.
 
-Voor MathML‑exportscenario's, zie [Export Math Equations from Presentations in Python via .NET](/slides/nl/python-net/exporting-math-equations/).
+Voor MathML‑exportscenario's, zie [Exporteer wiskundige vergelijkingen vanuit presentaties in Python via .NET](/slides/nl/python-net/exporting-math-equations/).
 
-## **Een vergelijking maken**
+## **Maak een vergelijking**
 
 Dit voorbeeld gebruikt [add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) om een wiskundige vorm te maken en voegt de stelling van Pythagoras toe:
 
@@ -69,15 +71,15 @@ with slides.Presentation() as presentation:
     presentation.save("pythagorean-theorem.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Opmerking" %}}
-[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) maakt een vorm die al een wiskundige alinea bevat. Toegang tot de eerste [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), haal de [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) op, en voeg wiskundige blokken of wiskundige elementen toe.
+{{% alert color="info" title="Note" %}}
+[add_math_shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) maakt een vorm die al een wiskundige alinea bevat. Toegang tot de eerste [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), haal zijn [math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), en voeg wiskundige blokken of wiskundige elementen toe.
 {{% /alert %}}
 
 ## **Breuken toevoegen**
 
-Gebruik [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) om een breuk te maken. Je kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).
+Gebruik [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/) om een breuk te maken. Je kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Een scheefgestelde wiskundige breuk die één gedeeld door x toont](powerpoint-math-equations_4.png)
+![Een scheve wiskundige breuk die één gedeeld door x toont](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -104,11 +106,11 @@ import aspose.slides.mathtext as math
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Wortels toevoegen**
+## **Radicalen toevoegen**
 
-Gebruik [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) om een vierkantswortel, kubuswortel of andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
+Gebruik [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) om een vierkantswortel, kubuswortel of andere wortel te maken. Het huidige element wordt de basis en het argument wordt de graad.
 
-![Een n‑de wortelexpressie met x onder het wortelteken](powerpoint-math-equations_5.png)
+![Een n‑de wortel‑expressie met x onder het wortelteken](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -127,9 +129,37 @@ with slides.Presentation() as presentation:
     presentation.save("radical.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Graad van een vierkantswortel tonen of verbergen**
+
+Een vierkantswortel kan een expliciete 2 tonen of de conventionele √x‑notatie gebruiken. De [hide_degree](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/hide_degree/)‑eigenschap van [MathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathradical/) bepaalt welke vorm verschijnt. Beide vormen behouden graad 2 en radicand x in de bewerkbare vergelijking.
+
+![De vierkantswortel van x met graad 2 zichtbaar links en verborgen rechts](square-root-degree.png)
+
+Het voorbeeld slaat dezelfde vierkantswortel twee keer op. De 2 is zichtbaar in `visible-degree.pptx` en verborgen in `hidden-degree.pptx`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    radical = math.MathematicalText("x").radical("2")
+
+    shape = slide.shapes.add_math_shape(20, 20, 200, 100)
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    portion.math_paragraph.add(math.MathBlock(radical))
+
+    radical.hide_degree = False
+    presentation.save("visible-degree.pptx", slides.export.SaveFormat.PPTX)
+
+    radical.hide_degree = True
+    presentation.save("hidden-degree.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **Functies en limieten toevoegen**
 
-Gebruik [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) of [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) voor functies zoals `sin(x)`, `log(x)` of eigen functienamen. Voor limieten zet je `lim` in een [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) of gebruik je [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
+Gebruik [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) of [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) voor functies zoals `sin(x)`, `log(x)` of eigen functienamen. Voor limieten zet je `lim` in een [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) of gebruik je [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/).
 
 ![De limiet van x wanneer x naar oneindig gaat](powerpoint-math-equations_8.png)
 
@@ -154,7 +184,7 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Voor een eigen functienaam, maak de functienaam het huidige element en roep [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) met het argument aan:
+Voor een eigen functienaam maak je de functienaam het huidige element en roep je [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/) aan met het argument:
 
 ```py
 import aspose.slides.mathtext as math
@@ -162,11 +192,11 @@ import aspose.slides.mathtext as math
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **N‑ary‑operatoren en integralen toevoegen**
+## **N‑ary operators en integralen toevoegen**
 
-Gebruik [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/) voor sommatie, unies, intersecties en andere grote operatoren. Gebruik [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) voor integralen. Beide methoden laten je onder‑ en bovengrenzen instellen.
+Gebruik [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/) voor sommaties, unies, intersecties en andere grote operatoren. Gebruik [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) voor integralen. Beide methoden laten je onder‑ en bovengrenzen instellen.
 
-![Een sommatie met onder‑ en bovengrenzen](powerpoint-math-equations_7.png)
+![Een sommatie met onder‑ en bovengrens](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -191,9 +221,9 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-N‑ary‑operatoren zijn voor grote operatoren met optionele grenzen. Simpele operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) en aan de uitdrukking gekoppeld.
+N‑ary‑operatoren zijn voor grote operatoren met optionele grenzen. Simpele operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) en in de expressie samengevoegd.
 
-Voor een integraal, gebruik [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/):
+Voor een integraal gebruik je [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/):
 
 ```py
 import aspose.slides.mathtext as math
@@ -204,9 +234,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Matrices toevoegen**
 
-Gebruik [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen accolades, dus omsluit de matrix wanneer je haakjes, vierkante haken of accolades nodig hebt.
+Gebruik [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omring de matrix wanneer je haakjes, vierkante haken of accolades nodig hebt.
 
-![Een wiskundige matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
+![Een matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -220,19 +250,63 @@ with slides.Presentation() as presentation:
 
     matrix = math.MathMatrix(2, 3)
 
-    # Een matrix heeft geen eigen haken, dus omsluit hij met haakjes.
-    math_paragraph.add(math.MathBlock(matrix.enclose("(", ")")))
+    matrix[0, 0] = math.MathematicalText("1")
+    matrix[0, 1] = math.MathematicalText("x")
+    matrix[1, 0] = math.MathematicalText("x")
+    matrix[1, 1] = math.MathematicalText("2")
+    matrix[1, 2] = math.MathematicalText("y")
+    math_paragraph.add(math.MathBlock(matrix))
 
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" title="Waarschuwing" %}}
-`MathMatrix` bouwt het raster van rijen en kolommen, stelt de tussenruimtes in en aligneert de kolommen, maar Aspose.Slides voor Python via .NET biedt geen toegang tot een individuele matrixcel. Een in code gemaakte matrix behoudt daarom lege cellen; de cellen van een matrix uit een bestaande presentatie kunnen worden gelezen met `get_children`. Gebruik een vergelijking‑array wanneer je rijen vanuit code wilt vullen.
-{{% /alert %}}
+### **Bestaande matrix bewerken**
+
+Stel je een lineaire‑algebra‑les voor die begint met de coëfficiëntenmatrix in `matrix.pptx`, opgeslagen door het vorige voorbeeld. Voor de volgende oefening behoud je de eerste vergelijking, vervang je de tweede door twee nieuwe vergelijkingen en pas je de variabelen aan. Open de bestaande matrix als een [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) om de nog geldende coëfficiënten te behouden.
+
+![Oorspronkelijke coëfficiëntenmatrix met twee rijen met de waarden 1, x en een lege cel in de eerste rij en x, 2 en y in de tweede](matrix-before-edit.png)
+
+Rij‑ en kolomindexen beginnen bij nul en verwijzen naar de matrix zoals die op het moment van de aanroep bestaat. Een rij vóór index 1 invoegen verplaatst de oorspronkelijke tweede rij naar index 2. Een rij na index 2 invoegen voegt vervolgens een rij toe. Het verwijderen van rij 2 verwijdert de oorspronkelijke tweede vergelijking en verschuift de toegevoegde rij één positie omhoog. Kolommen verschuiven op dezelfde manier.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation("matrix.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    matrix = portion.math_paragraph[0][0]
+
+    matrix.insert_row_before(1)
+    matrix.insert_row_after(2)
+    matrix.delete_row(2)
+
+    matrix.insert_column_before(1)
+    matrix.insert_column_after(3)
+    matrix.delete_column(3)
+
+    matrix[1, 0] = math.MathematicalText("12")
+    matrix[1, 1] = math.MathematicalText("1")
+    matrix[2, 2] = math.MathematicalText("10")
+    matrix[2, 3] = math.MathematicalText("1")
+    for row in range(matrix.row_count):
+        for column in range(matrix.column_count):
+            if matrix[row, column] is None:
+                matrix[row, column] = math.MathematicalText("0")
+
+    matrix.set_column_alignment(0, math.MathHorizontalAlignment.LEFT)
+    matrix.set_columns_alignment(1, 3, math.MathHorizontalAlignment.RIGHT)
+
+    presentation.save("updated-matrix.pptx", slides.export.SaveFormat.PPTX)
+```
+
+[set_column_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_column_alignment/) centreert de eerste kolom naar links. [set_columns_alignment](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/set_columns_alignment/) centreert drie opeenvolgende kolommen naar rechts, beginnend bij index 1. In `updated-matrix.pptx` heeft de matrix drie vergelijkingen en vier variabelen. De oorspronkelijke coëfficiënten van de eerste rij (`1` en `x`) verschijnen nu in de eerste en derde kolom.
+
+![Bijgewerkte matrix met drie rijen met de rijen 1, 0, x, 0; 12, 1, 0, 0; en 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **Vergelijkingsarrays toevoegen**
 
-Gebruik [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) wanneer je uitgelijnde vergelijkingen of een verticale stapel van uitdrukkingen nodig hebt.
+Gebruik [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) wanneer je uitgelijnde vergelijkingen of een verticale stapel van expressies nodig hebt.
 
 ![Een verticale wiskundige array met x boven y](powerpoint-math-equations_11.png)
 
@@ -257,11 +331,11 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Een array uitlijnen met omringende elementen**
+### **Een array uitlijnen met omliggende elementen**
 
-[IMathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/base_justification/) bepaalt de verticale uitlijning van een array ten opzichte van de wiskundige elementen ernaast. Het onderstaande voorbeeld vergelijkt uitlijning met de eerste rij, het midden van de array en de laatste rij.
+[MathArray.base_justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/base_justification/) bepaalt de verticale uitlijning van een array ten opzichte van de wiskundige elementen ernaast. Het voorbeeld hieronder vergelijkt uitlijning met de eerste rij, het midden van de array en de laatste rij.
 
-Het volgende voorbeeld maakt drie identieke arrays, elk met drie rijen en de naburige elementen `A=` en `=B`. Alle wiskundige tekst gebruikt Cambria Math op 24 punten. Alleen de array‑uitlijning verandert.
+Het volgende voorbeeld maakt drie identieke arrays, elk met drie rijen en de aangrenzende elementen `A=` en `=B`. Alle wiskundige tekst gebruikt Cambria Math op 24 pt. Alleen de array‑uitlijning verschilt.
 
 ```py
 import aspose.slides as slides
@@ -309,13 +383,13 @@ with slides.Presentation() as presentation:
 
 De volgende vergelijking toont de opgeslagen presentatie in PowerPoint. Let op de positie van `A=` en `=B` naast elke array.
 
-![Vergelijkingsarrays in PowerPoint met boven-, midden- en onderuitlijning en identieke naastliggende elementen](equation-array-alignment.png)
+![Vergelijkingsarrays in PowerPoint met uitlijning boven, midden en onder en identieke omliggende elementen](equation-array-alignment.png)
 
-### **Rij‑afstand configureren**
+### **Rijafstand configureren**
 
-[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing_rule/) kiest de afstandsregel voor rijen binnen de array. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imatharray/row_spacing/) geeft een numerieke waarde voor een expliciete afstandsregel en wordt genegeerd door de vooraf ingestelde regels.
+[row_spacing_rule](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing_rule/) selecteert de regel voor rij‑afstand binnen de array. [row_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/matharray/row_spacing/) geeft een numerieke waarde voor een expliciete regel en wordt genegeerd door de vooraf ingestelde regels.
 
-Voor exacte afstand wordt de waarde gemeten in punten. Voor proportionele afstand wordt gemeten in halve regels: de waarde `3` in het voorbeeld staat voor 1,5 regels. Stel beide eigenschappen in bij een expliciete waarde; alleen de numerieke waarde wijzigen selecteert geen afstandsregel.
+Voor exacte afstand wordt de waarde gemeten in punten. Voor proportionele afstand wordt gemeten in halve regels: de waarde `3` in het voorbeeld betekent 1,5 regels. Stel beide eigenschappen in wanneer je een expliciete waarde opgeeft; alleen de numerieke waarde wijzigen selecteert de regel niet.
 
 Het voorbeeld hieronder slaat vijf presentaties op met dezelfde vergelijkingen, uitlijning en lettertype‑instellingen. De eerste drie gebruiken presets; de laatste twee tonen expliciete waarden.
 
@@ -362,11 +436,11 @@ for rule, spacing in settings:
         presentation.save(file_name, slides.export.SaveFormat.PPTX)
 ```
 
-Array‑rij‑afstand staat los van alinea‑afstand. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_before/) en [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraphformat/space_after/) voegen ruimte toe rond de omvattende alinea, niet tussen array‑rijen. Evenzo positioneert [IMathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathparagraph/justification/) de hele wiskundige alinea horizontaal; het vervangt niet de verticale uitlijningsinstelling van de array.
+Array‑rijafstand staat los van alinea‑afstand. [space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) en [space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/) voegen ruimte toe rond de omvattende alinea, niet tussen array‑rijen. Evenzo bepaalt [MathParagraph.justification](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/justification/) de horizontale positie van de volledige wiskundige alinea; het vervangt niet de verticale uitlijningsinstelling van de array.
 
 ## **Trigonometrische functies toevoegen**
 
-Gebruik [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) wanneer het argument het huidige element is en de functienaam bekend is.
+Gebruik [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) wanneer het argument het huidige element is en de functienaam bekend is.
 
 ![De trigonometrische functie cos toegepast op 2x](powerpoint-math-equations_6.png)
 
@@ -391,9 +465,9 @@ with slides.Presentation() as presentation:
 
 ## **Subscripties en superscripties toevoegen**
 
-Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen aan de linkerkant van de basis moeten staan, gebruik [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
+Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen links van de basis moeten staan, gebruik je [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/).
 
-![Een hoofdletter Y met links geplaatst subscript 1 en superscript n](powerpoint-math-equations_9.png)
+![Een hoofdletter Y met subscriptoffset 1 links en superscriptoffset n rechts](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -414,9 +488,9 @@ with slides.Presentation() as presentation:
 
 ## **Scheidingstekens toevoegen**
 
-Gebruik [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) om een uitdrukking binnen scheidingstekens te plaatsen. Je kunt ook een scheidingsteken‑teken instellen voor uitdrukkingen die meerdere elementen bevatten.
+Gebruik [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) om een expressie tussen scheidingstekens te plaatsen. Je kunt ook een scheidingsteken‑teken instellen voor expressies die meerdere elementen bevatten.
 
-![Een scheidingsteken‑expressie met x, y en z gescheiden door verticale staven](powerpoint-math-equations_13.png)
+![Een scheidingstekenexpressie met x, y en z gescheiden door verticale strepen](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -443,9 +517,9 @@ with slides.Presentation() as presentation:
 
 ### **Grootte en uitlijning van scheidingstekens**
 
-Stel [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/grow_to_match_operand_height/) in op `True` om de haakjes te laten groeien rond een hoog operand, of op `False` om ze op hun normale grootte te houden. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathdelimiter/delimiter_shape/) neemt een van twee waarden van [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/) aan. `CENTERED` centreert de haakjes op de wiskundige as, die door het midden van het gelijkteken loopt. `MATCH` geeft ze uitgelijnd met de ingesloten inhoud. Beide instellingen beïnvloeden alleen de scheidingstekens. De uitdrukking binnen blijft gelijk.
+Stel [grow_to_match_operand_height](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/grow_to_match_operand_height/) in op `True` om de haakjes te laten groeien rond een hoge operand, of op `False` om ze op normale grootte te houden. [delimiter_shape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimiter/delimiter_shape/) accepteert een van twee waarden van [MathDelimiterShape](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathdelimitershape/). `CENTERED` centreert de haakjes op de wiskundige as, die door het midden van het =‑teken loopt. `MATCH` lijnt ze uit met de ingesloten inhoud. Beide instellingen beïnvloeden alleen de scheidingstekens; de binnenste expressie blijft ongewijzigd.
 
-Het voorbeeld plaatst een breuk in de exponent van `x` zodat de uitdrukking verder boven de basislijn uitstijgt dan eronder. Alle vier de vergelijkingen gebruiken dezelfde haakjes en dezelfde lettertype‑instellingen.
+Het voorbeeld plaatst een breuk in de exponent van `x` zodat de expressie hoger uitsteekt boven de basislijn dan daaronder. Alle vier de vergelijkingen gebruiken dezelfde haakjes en lettertype‑instellingen.
 
 ```python
 import aspose.slides as slides
@@ -476,15 +550,15 @@ with slides.Presentation() as presentation:
     presentation.save("delimiter-sizing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Vergelijk in PowerPoint de rijen om het effect van groei te zien. In de bovenste rij groeien de haakjes om de exponent te omhullen en zien er voor beide vormen gelijk uit. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`CENTERED`) lijnen uit met het gelijkteken, terwijl die rechts (`MATCH`) hoger om de uitdrukking heen zitten.
+In PowerPoint kun je de rijen vergelijken om het effect van groei te zien. In de bovenste rij groeien de haakjes om de exponent heen en zien er gelijk uit voor beide vormen. In de onderste rij is groei uitgeschakeld. De kleinere haakjes links (`CENTERED`) zijn uitgelijnd met het =‑teken, terwijl die rechts (`MATCH`) hoger rond de expressie liggen.
 
-![Vier vergelijkingen in PowerPoint met scheidingsteken‑groei ingeschakeld boven en uitgeschakeld eronder, en Centered links en Match rechts](delimiter-sizing.png)
+![Vier vergelijkingen in PowerPoint met scheidingsteken‑groei ingeschakeld boven en uitgeschakeld beneden, en gecentreerd links en gelijk rechts](delimiter-sizing.png)
 
-## **Een randvak toevoegen**
+## **Een kaderdoos toevoegen**
 
-Roep [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) aan op een breuk om de gehele uitdrukking in een kader te plaatsen. Het geretourneerde [IMathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/) toont standaard alle vier de zijden. Gebruik [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_left/) en [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/hide_right/) om individuele zijden te verwijderen.
+Roep [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) aan op een breuk om de volledige expressie in een kader te plaatsen. Het geretourneerde [MathBorderBox](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/) toont standaard alle vier de zijden. Gebruik [hide_top](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_top/), [hide_bottom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_bottom/), [hide_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_left/) en [hide_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/hide_right/) om individuele zijden te verwijderen.
 
-Het voorbeeld plaatst zes kopieën van dezelfde breuk op één dia. Om een doorhaling te tonen, verberg je alle vier de zijden en stel je [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_bottom_left_to_top_right/) in voor een oplopende diagonaal (↗) of [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_top_left_to_bottom_right/) voor een dalende diagonaal (↘). Je kunt ook [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_horizontal/) of [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathborderbox/strikethrough_vertical/) gebruiken met een willekeurige combinatie van zichtbare zijden.
+Het voorbeeld plaatst zes exemplaren van dezelfde breuk op één dia. Om annulering te tonen, verberg je alle vier de zijden en stel je [strikethrough_bottom_left_to_top_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_bottom_left_to_top_right/) in voor een stijgende diagonale (↗) of [strikethrough_top_left_to_bottom_right](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_top_left_to_bottom_right/) voor een dalende diagonale (↘). Je kunt ook [strikethrough_horizontal](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_horizontal/) of [strikethrough_vertical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathborderbox/strikethrough_vertical/) gebruiken met een willekeurige combinatie van zichtbare zijden.
 
 ```py
 import aspose.slides as slides
@@ -521,24 +595,24 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledige rand, onder‑ en linkerrand, oplopende diagonaal. Onderste rij: dalende diagonaal, horizontale doorhaling, verticale doorhaling met een volledige rand](border-box-fractions.png)
+![Zes bewerkbare breuken in PowerPoint. Bovenste rij: volledig kader, onderste‑ en linkerzijde, stijgende diagonale. Onderste rij: dalende diagonale, horizontale streep, verticale streep met volledig kader.](border-box-fractions.png)
 
-Op deze breuk overlapt de horizontale doorhaling de breukstreep. De verticale doorhaling kruist zowel de teller als de noemer terwijl de omringende rand zichtbaar blijft. Deze lijnen versieren de hele uitdrukking. Gewone tekst‑doorhalingen gelden alleen voor tekens in een tekstreeks. Na het opnieuw openen van de presentatie in PowerPoint kun je de teller en noemer nog steeds onafhankelijk bewerken.
+Op deze breuk overlapt de horizontale streep de breukstreep. De verticale streep doorkruist zowel de teller als de noemer terwijl het omringende kader zichtbaar blijft. Deze lijnen decoreren de hele expressie. Gewone doorhalings‑tekst is van toepassing op tekens in een tekst‑run. Na het opnieuw openen van de presentatie in PowerPoint kun je de teller en noemer nog steeds onafhankelijk bewerken.
 
-## **Zichtbaarheid en lay‑out regelen met Phantom‑elementen**
+## **Zichtbaarheid en lay‑out beheersen met phantom‑elementen**
 
-Omsluit een uitdrukking met [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/) om onafhankelijk de zichtbaarheid en de ruimte die het bijdraagt aan een vergelijking te regelen. De [IMathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/)‑eigenschappen regelen het volgende:
+Omhul een expressie met [MathPhantom](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/) om zowel de zichtbaarheid als de ruimte die het bijdraagt aan een vergelijking onafhankelijk te controleren. De eigenschappen regelen het volgende:
 
 | Eigenschap | Effect |
 | --- | --- |
-| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/show/) | Zet op `False` om de uitdrukking te verbergen. De afmetingen blijven wel bijdragen aan de lay‑out tenzij de onderliggende eigenschappen hieronder op `True` staan. |
-| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_width/) | Beschouw de horizontale breedte van de uitdrukking als nul, waardoor naburige elementen dichterbij kunnen komen. |
-| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_asc/) | Beschouw de stijging (hoogte boven de basislijn) als nul. Dit kan de ruimte boven naburige elementen verminderen. |
-| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/zero_desc/) | Beschouw de afdalende diepte (onder de basislijn) als nul. Dit kan een breukstreep of andere inhoud onder de uitdrukking dichter bij de buren brengen. |
+| [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) | Zet op `False` om de expressie te verbergen. De afmetingen dragen nog steeds bij aan de lay‑out, tenzij de onderliggende eigenschappen hieronder op `True` staan. |
+| [zero_width](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_width/) | Behandelt de horizontale breedte van de expressie als nul, waardoor aangrenzende elementen dichter bij elkaar komen. |
+| [zero_asc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_asc/) | Behandelt de stijging (hoogte boven de basislijn) als nul. Dit kan de ruimte boven aangrenzende elementen verminderen. |
+| [zero_desc](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/zero_desc/) | Behandelt de daling (diepte onder de basislijn) als nul. Dit kan een breukstreep of andere inhoud onder de expressie dichter bij de buren brengen. |
 
-De basislijn is de referentielijn waarop gewone wiskundige letters staan. Het verbergen van inhoud verwijdert de afmetingen niet, en een dimensie op nul stellen verwijdert de uitdrukking niet. De onderliggende uitdrukking blijft beschikbaar via [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/base/). Zet [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathphantom/show/) weer op `True` om deze opnieuw te tonen; de dimensie‑instellingen blijven ongewijzigd.
+De basislijn is de referentielijn waarop gewone wiskundige letters rusten. Een verborgen inhoud verwijdert de afmetingen niet, en een afmeting op nul zetten verwijdert de expressie niet. De onderliggende expressie blijft beschikbaar via [base](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/base/). Zet [show](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathphantom/show/) terug op `True` om deze weer te tonen; de afmetingsinstellingen blijven ongewijzigd.
 
-Het voorbeeld hieronder maakt vijf varianten naast elkaar: een zichtbare breuk, een verborgen breuk die ruimte reserveert, en drie verborgen breuken met één dimensie op nul. Elke variant gebruikt dezelfde omringende uitdrukking en Cambria Math op 24 punten. Alle vergelijkingsvormen hebben dezelfde bovenpositie, gemarkeerd door de grijze gids. Het plaatsen van de phantom in de teller van een buitenste breuk maakt de verticale lay‑out‑veranderingen makkelijker zichtbaar.
+Het voorbeeld hieronder maakt vijf varianten naast elkaar: een zichtbare breuk, een verborgen breuk die ruimte reserveert, en drie verborgen breuken waarbij één afmeting op nul is gezet. Elke variant gebruikt dezelfde omliggende expressie en Cambria Math op 24 pt. Alle vergelijkingsvormen hebben dezelfde bovenpositie, gemarkeerd door de grijze richtlijn. De phantom in de teller van een buitenste breuk maakt de verticale lay‑out‑wijzigingen makkelijker zichtbaar.
 
 ```py
 import aspose.slides as slides
@@ -597,9 +671,10 @@ with slides.Presentation() as presentation:
 
 ![Vijf vergelijkingen in PowerPoint die een zichtbare breuk, een verborgen breuk die ruimte reserveert, en verborgen breuken met ZeroWidth, ZeroAsc of ZeroDesc ingeschakeld vergelijken](math-phantom.png)
 
+
 ## **Termen groeperen**
 
-Gebruik [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) om een groepeer‑teken boven of onder een uitdrukking te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+Gebruik [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) om een groepeerteken boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
 
 ![De expressie x plus y gegroepeerd met het label willekeurige tekst eronder](powerpoint-math-equations_15.png)
 
@@ -626,9 +701,9 @@ with slides.Presentation() as presentation:
 
 ## **Wiskundige elementen opmaken**
 
-Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/) plaatst een balk boven een wiskundig element.
+Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/) plaatst een balk boven een wiskundig element.
 
-![Een wiskundige expressie ABC met een overbalk](powerpoint-math-equations_14.png)
+![Een wiskundige expressie ABC met een overstreept balkje](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -649,9 +724,9 @@ with slides.Presentation() as presentation:
 
 ### **Tekst opmaken in een bestaande vergelijking**
 
-Om tekst door de hele bestaande vergelijking op te maken, doorloop je de elementboom van elk wiskundig blok. [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) geeft alleen de directe kinderen terug, dus roep je deze recursief aan om tekst in breuken, scripts, wortels en andere geneste structuren te bereiken. Controleer zowel het huidige element als de kinderen om het start‑element mee te nemen wanneer het een [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) is.
+Om tekst door een bestaande vergelijking heen op te maken, doorloop je de elementboom van elk wiskundig blok. [MathElementBase.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/get_children/) geeft alleen de directe kinderen terug, dus roep je deze recursief aan om tekst te bereiken binnen breuken, scripts, radicalen en andere geneste structuren. Controleer zowel het huidige element als de kinderen om het start‑element op te nemen wanneer dit een [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) is.
 
-Dit voorbeeld gaat ervan uit dat `input.pptx` een vergelijking bevat zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller heeft en een wortel in de noemer. Alleen de boven‑niveau‑elementen van het blok verwerken zou de tekst in de breuk missen. Het voorbeeld vindt wiskundige delen in dia‑tekstframes, krijgt hun blokken via [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), en stelt [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) in op 28 punten via elke tekstelement‑[format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/)-eigenschap.
+Dit voorbeeld gaat ervan uit dat `input.pptx` een vergelijking bevat zoals `z = xᵢ / ∛y`, met een breuk die een subscript in de teller heeft en een radicaal in de noemer. Alleen de boven‑niveaus van het blok verwerken zou de tekst in de breuk missen. Het voorbeeld vindt wiskundige delen in dia‑tekstframes, opent hun blokken via [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), en stelt [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) in op 28 pt via de [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/)‑eigenschap van elk tekstelement.
 
 ```py
 import aspose.slides as slides
@@ -681,26 +756,26 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("formatted-equations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De opgeslagen presentatie bevat de bijgewerkte tekstopmaak op elk niveau van elke verwerkte vergelijking, terwijl de tekstinhoud en wiskundige structuur behouden blijven.
+De opgeslagen presentatie bevat de bijgewerkte tekst‑opmaak op elk niveau van elke verwerkte vergelijking, terwijl de tekstinhoud en wiskundige structuur behouden blijven.
 
 ## **Snelle referentie**
 
 | Taak | Hoofd‑API |
 | --- | --- |
 | Wiskundige tekst maken | [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/) |
-| Elementen combineren | [IMathElement.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/join/) |
-| Breuken maken | [IMathElement.divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/divide/) |
-| Superscript of subscript toevoegen | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
-| Functies toevoegen | [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
-| Radicalen toevoegen | [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/radical/) |
-| Limieten toevoegen | [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
-| Scripts aan de linkerkant toevoegen | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
-| Sommaties en integralen toevoegen | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/integral/) |
+| Elementen combineren | [MathElementBase.join](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/join/) |
+| Breuken maken | [MathElementBase.divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/) |
+| Superscript of subscript toevoegen | [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/), [set_subscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_subscript/) |
+| Functies toevoegen | [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/function/), [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/as_argument_of_function/) |
+| Radicalen toevoegen | [radical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/radical/) |
+| Limieten toevoegen | [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_upper_limit/) |
+| Scripts links van de basis toevoegen | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_sub_superscript_on_the_left/) |
+| Sommaties en integralen toevoegen | [nary](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/nary/), [integral](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/integral/) |
 | Matrices toevoegen | [MathMatrix](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathmatrix/) |
-| Vergelijkingsarrays toevoegen | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
-| Scheidingstekens toevoegen | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/enclose/) |
-| Strepen en randen toevoegen | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
-| Termen groeperen | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/group/) |
+| Vergelijkingsarrays toevoegen | [to_math_array](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_math_array/) |
+| Scheidingstekens toevoegen | [enclose](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/enclose/) |
+| Balken en kaders toevoegen | [overbar](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/overbar/), [to_border_box](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/to_border_box/) |
+| Termen groeperen | [group](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/group/) |
 
 ## **FAQ**
 
@@ -710,8 +785,8 @@ Ja. Open de presentatie, zoek de vorm die een [MathPortion](https://reference.as
 
 **Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑wiskunde?**
 
-Ja. Wanneer je opslaat naar PPTX, schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑wiskunde‑inhoud.
+Ja. Bij het opslaan als PPTX schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑wiskunde‑inhoud.
 
 **Kan ik vergelijkingen exporteren naar LaTeX?**
 
-Ja. Haal de [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) van de [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) op, en roep [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) aan om deze direct te exporteren. Voor een compleet voorbeeld, zie [Export Math Equations from Presentations in Python via .NET](/slides/nl/python-net/exporting-math-equations/#export-math-equations-to-latex).
+Ja. Haal de [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) op uit de [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/), en roep [MathParagraph.to_latex](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) aan om deze direct te exporteren. Voor een volledig voorbeeld, zie [Exporteer wiskundige vergelijkingen vanuit presentaties in Python via .NET](/slides/nl/python-net/exporting-math-equations/#export-math-equations-to-latex).

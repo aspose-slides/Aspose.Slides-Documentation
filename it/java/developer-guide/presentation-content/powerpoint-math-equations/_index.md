@@ -21,25 +21,25 @@ description: "Inserisci e modifica equazioni matematiche in PowerPoint PPT e PPT
 ---
 ## **Panoramica**
 
-PowerPoint memorizza le equazioni come Office Math Markup Language (OMML). Con Aspose.Slides per Java, è possibile creare lo stesso tipo di contenuto matematico in modo programmatico: frazioni, radici, funzioni, limiti, operatori N‑ari, matrici, array e blocchi matematici formattati.
+PowerPoint memorizza le equazioni come Office Math Markup Language (OMML). Con Aspose.Slides per Java, è possibile creare lo stesso tipo di contenuto matematico in modo programmatico: frazioni, radicali, funzioni, limiti, operatori N-ario, matrici, array e blocchi matematici formattati.
 
-In PowerPoint, gli utenti normalmente aggiungono equazioni da **Inserisci > Equazione**:
+In PowerPoint, gli utenti normalmente aggiungono le equazioni da **Insert > Equation**:
 
-![Scheda Inserisci di PowerPoint con il comando Equazione selezionato](powerpoint-math-equations_1.png)
+![Scheda Insert di PowerPoint con il comando Equation selezionato](powerpoint-math-equations_1.png)
 
 Il risultato è testo matematico modificabile nella diapositiva:
 
 ![Una diapositiva PowerPoint contenente un'equazione matematica modificabile](powerpoint-math-equations_2.png)
 
-Aspose.Slides costruisce quel testo matematico tramite tre oggetti principali:
+Aspose.Slides crea quel testo matematico attraverso tre oggetti principali:
 
 - Una forma matematica, creata con [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), è la forma che contiene l'equazione.
-- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) memorizza il contenuto matematico all'interno del riquadro di testo della forma.
+- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) memorizza il contenuto matematico all'interno del frame di testo della forma.
 - [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) contiene uno o più oggetti [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/).
 
-La maggior parte degli esempi seguenti utilizza [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) e i metodi fluent di [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) per mantenere il codice breve e leggibile.
+La maggior parte degli esempi seguenti utilizza [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) e i metodi fluenti di [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) per mantenere il codice breve e leggibile.
 
-Per scenari di esportazione MathML, vedere [Esporta equazioni matematiche dalle presentazioni in Java](/slides/it/java/exporting-math-equations/).
+Per scenari di esportazione MathML, vedere [Esporta le equazioni matematiche dalle presentazioni in Java](/slides/it/java/exporting-math-equations/).
 
 ## **Crea un'equazione**
 
@@ -74,12 +74,12 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) crea una forma che contiene già un paragrafo matematico. Accedi al primo [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), chiama [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), e aggiungi blocchi matematici o elementi matematici.
+[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) crea una forma che contiene già un paragrafo matematico. Accedere al primo [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), chiamare [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), e aggiungere blocchi matematici o elementi matematici.
 {{% /alert %}}
 
 ## **Aggiungi frazioni**
 
-Usa [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) per creare una frazione. Puoi scegliere uno stile di frazione con [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/).
+Usa [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) per creare una frazione. È possibile scegliere uno stile di frazione con [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/).
 
 ![Una frazione matematica inclinata che mostra uno diviso per x](powerpoint-math-equations_4.png)
 
@@ -113,11 +113,11 @@ import com.aspose.slides.*;
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Aggiungi radici**
+## **Aggiungi radicali**
 
 Usa [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) per creare una radice quadrata, cubica o altra radice. L'elemento corrente diventa la base e l'argomento diventa il grado.
 
-![Un'espressione radice n‑esima con x sotto il segno radicale](powerpoint-math-equations_5.png)
+![Un'espressione radicale di radice n-esima con x sotto il simbolo radicale](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -143,7 +143,7 @@ try {
 
 ### **Mostra o nascondi il grado di una radice quadrata**
 
-Una radice quadrata può visualizzare un 2 esplicito o utilizzare la notazione convenzionale √x. Il metodo [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) della [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) controlla quale forma appare. Entrambe le forme mantengono il grado 2 e il radicando x nell'equazione modificabile.
+Una radice quadrata può mostrare un 2 esplicito o usare la notazione convenzionale √x. Il metodo [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) di [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) controlla quale forma appare. Entrambe le forme conservano il grado 2 e il radicando x nell'equazione modificabile.
 
 ![La stessa radice quadrata con il grado visibile a sinistra e nascosto a destra](square-root-degree.png)
 
@@ -174,7 +174,7 @@ try {
 
 ## **Aggiungi funzioni e limiti**
 
-Usa [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) o [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) per funzioni come `sin(x)`, `log(x)` o nomi di funzioni personalizzate. Per i limiti, inserisci `lim` in un [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) o usa [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
+Usa [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) o [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) per funzioni come `sin(x)`, `log(x)`, o nomi di funzioni personalizzate. Per i limiti, inserisci `lim` in un [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) o usa [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).
 
 ![Il limite di x quando x tende all'infinito](powerpoint-math-equations_8.png)
 
@@ -201,7 +201,7 @@ try {
 }
 ```
 
-Per un nome di funzione personalizzato, rendi il nome della funzione l'elemento corrente e chiama [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) con il suo argomento:
+Per un nome di funzione personalizzato, impostare il nome della funzione come elemento corrente e chiamare [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) con il suo argomento:
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +209,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Aggiungi operatori N‑ari e integrali**
+## **Aggiungi operatori N-ari e integrali**
 
-Usa [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) per somme, unioni, intersezioni e altri operatori grandi. Usa [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) per integrali. Entrambi i metodi consentono di impostare limiti inferiori e superiori.
+Usa [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) per somme, unioni, intersezioni e altri operatori grandi. Usa [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) per gli integrali. Entrambi i metodi consentono di impostare limiti inferiori e superiori.
 
-![Una somma con limiti inferiore e superiore](powerpoint-math-equations_7.png)
+![Una sommatoria con limiti inferiore e superiore](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -240,7 +240,7 @@ try {
 }
 ```
 
-Gli operatori N‑ari sono per grandi operatori con limiti opzionali. Gli operatori semplici come `+`, `-` e `=` sono di solito aggiunti come [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) e uniti nell'espressione.
+Gli operatori N-ari sono per operatori grandi con limiti opzionali. Gli operatori semplici come `+`, `-` e `=` sono solitamente aggiunti come [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) e concatenati nell'espressione.
 
 Per un integrale, usa [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-):
 
@@ -253,7 +253,7 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Aggiungi matrici**
 
-Usa [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) per righe e colonne. Le matrici non includono parentesi per impostazione predefinita, quindi racchiudi la matrice quando ti servono parentesi tonde, quadre o graffe.
+Usa [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) per righe e colonne. Per impostazione predefinita le matrici non includono parentesi, quindi racchiudere la matrice quando servono parentesi tonde, quadre o graffe.
 
 ![Una matrice matematica a due righe con una cella vuota](powerpoint-math-equations_10.png)
 
@@ -283,9 +283,60 @@ try {
 }
 ```
 
+### **Modifica una matrice esistente**
+
+Supponiamo che una lezione di algebra lineare inizi con la matrice dei coefficienti in `matrix.pptx`, salvata dall'esempio precedente. Per il prossimo esercizio, mantieni la prima equazione, sostituisci la seconda con due nuove equazioni e revisiona l'insieme di variabili. Apri la matrice esistente tramite [IMathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/) per conservare i coefficienti ancora validi.
+
+![Matrice dei coefficienti originale a due righe con le voci 1, x e una cella vuota nella prima riga e x, 2 e y nella seconda](matrix-before-edit.png)
+
+Gli indici di riga e colonna iniziano da zero e si riferiscono alla matrice così com'è in ogni chiamata. Inserire una riga prima dell'indice 1 sposta la seconda riga originale all'indice 2. Inserire dopo l'indice 2 aggiunge una riga. Eliminare la riga 2 rimuove la seconda equazione originale e sposta la riga aggiunta di una posizione verso l'alto. Le colonne si spostano allo stesso modo.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("matrix.pptx");
+try {
+    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IMathPortion portion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IMathMatrix matrix = (IMathMatrix) portion.getMathParagraph().get_Item(0).get_Item(0);
+
+    matrix.insertRowBefore(1);
+    matrix.insertRowAfter(2);
+    matrix.deleteRow(2);
+
+    matrix.insertColumnBefore(1);
+    matrix.insertColumnAfter(3);
+    matrix.deleteColumn(3);
+
+    // Le nuove celle sono inizialmente nulle. Imposta prima i coefficienti diversi da zero.
+    matrix.set_Item(1, 0, new MathematicalText("12"));
+    matrix.set_Item(1, 1, new MathematicalText("1"));
+    matrix.set_Item(2, 2, new MathematicalText("10"));
+    matrix.set_Item(2, 3, new MathematicalText("1"));
+    for (int row = 0; row < matrix.getRowCount(); row++) {
+        for (int column = 0; column < matrix.getColumnCount(); column++) {
+            if (matrix.get_Item(row, column) == null) {
+                matrix.set_Item(row, column, new MathematicalText("0"));
+            }
+        }
+    }
+
+    matrix.setColumnAlignment(0, MathHorizontalAlignment.Left);
+    matrix.setColumnsAlignment(1, 3, MathHorizontalAlignment.Right);
+
+    presentation.save("updated-matrix.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[setColumnAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) allinea la prima colonna a sinistra. [setColumnsAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) allinea tre colonne consecutive a destra, a partire dall'indice 1. In `updated-matrix.pptx`, la matrice ha tre equazioni e quattro variabili. I coefficienti originali della prima riga `1` e `x` ora appaiono nella prima e nella terza colonna.
+
+![Matrice aggiornata a tre righe che mostra le righe 1, 0, x, 0; 12, 1, 0, 0; e 0, 0, 10, 1](matrix-after-edit.png)
+
 ## **Aggiungi array di equazioni**
 
-Usa [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) quando ti servono equazioni allineate o una pila verticale di espressioni.
+Usa [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) quando hai bisogno di equazioni allineate o di una pila verticale di espressioni.
 
 ![Un array matematico verticale con x sopra y](powerpoint-math-equations_11.png)
 
@@ -314,9 +365,9 @@ try {
 
 ### **Allinea un array con gli elementi circostanti**
 
-[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) controlla l'allineamento verticale di un array rispetto agli elementi matematici accanto. L'esempio sottostante confronta l'allineamento con la prima riga, il centro dell'array e l'ultima riga.
+[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) controlla l'allineamento verticale di un array rispetto agli elementi matematici accanto. L'esempio seguente confronta l'allineamento con la prima riga, il centro dell'array e l'ultima riga.
 
-L'esempio seguente crea tre array identici, ciascuno con tre righe e gli elementi vicini `A=` e `=B`. Tutto il testo matematico usa Cambria Math a 24 punti. Solo l'allineamento dell'array cambia.
+Il seguente esempio crea tre array identici, ciascuno con tre righe e gli elementi vicini `A=` e `=B`. Tutto il testo matematico utilizza Cambria Math a 24 punti. Solo l'allineamento dell'array cambia.
 
 ```java
 import com.aspose.slides.*;
@@ -372,17 +423,17 @@ try {
 }
 ```
 
-Il confronto seguente mostra la presentazione salvata in PowerPoint. Nota la posizione di `A=` e `=B` accanto a ciascun array.
+Il confronto seguente mostra la presentazione salvata in PowerPoint. Notare la posizione di `A=` e `=B` accanto a ogni array.
 
-![Array di equazioni in PowerPoint con allineamento Superiore, Centrato e Inferiore e elementi circostanti identici](equation-array-alignment.png)
+![Array di equazioni in PowerPoint con allineamento Top, Center e Bottom e elementi vicini identici](equation-array-alignment.png)
 
 ### **Configura la spaziatura delle righe**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) seleziona la regola di spaziatura per le righe all'interno dell'array. [setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) fornisce un valore numerico per una regola di spaziatura esplicita ed è ignorato dalle regole predefinite.
+[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) seleziona la regola di spaziatura per le righe all'interno dell'array. [setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) fornisce un valore numerico per una regola di spaziatura esplicita e viene ignorato dalle regole predefinite.
 
-Per una spaziatura esatta, il valore è misurato in punti. Per una spaziatura proporzionale, è misurata in mezze linee: il valore `3` nell'esempio specifica 1,5 linee. Imposta entrambe le proprietà quando specifichi un valore esplicito; modificare solo il valore numerico non seleziona una regola di spaziatura.
+Per spaziatura esatta, il valore è misurato in punti. Per spaziatura proporzionale, è misurata in mezze linee: il valore `3` nell'esempio specifica 1,5 linee. Impostare entrambe le proprietà quando si specifica un valore esplicito; modificare solo il valore numerico non seleziona una regola di spaziatura.
 
-L'esempio seguente salva cinque presentazioni con le stesse equazioni, allineamento e impostazioni di carattere. Le prime tre usano le impostazioni predefinite; le ultime due mostrano valori espliciti.
+L'esempio seguente salva cinque presentazioni con le stesse equazioni, allineamento e impostazioni di carattere. Le prime tre usano preset; le ultime due mostrano valori espliciti.
 
 ```java
 import com.aspose.slides.*;
@@ -431,7 +482,7 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-La spaziatura delle righe dell'array è separata dalla spaziatura dei paragrafi. [setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) e [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) aggiungono spazio intorno al paragrafo contenitore, non tra le righe dell'array. Allo stesso modo, [IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) posiziona orizzontalmente l'intero paragrafo matematico; non sostituisce l'impostazione di allineamento verticale dell'array.
+La spaziatura delle righe dell'array è separata dalla spaziatura dei paragrafi. [setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) e [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) aggiungono spazio intorno al paragrafo contenente, non tra le righe dell'array. Allo stesso modo, [IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) posiziona l'intero paragrafo matematico orizzontalmente; non sostituisce l'impostazione di allineamento verticale dell'array.
 
 ## **Aggiungi funzioni trigonometriche**
 
@@ -491,9 +542,9 @@ try {
 
 ## **Aggiungi delimitatori**
 
-Usa [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) per inserire un'espressione tra delimitatori. Puoi anche impostare un carattere separatore per espressioni delimitatrici che contengono più elementi.
+Usa [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) per inserire un'espressione tra delimitatori. Puoi anche impostare un carattere di separazione per le espressioni delimitate che contengono diversi elementi.
 
-![Un'espressione delimitatrice contenente x, y e z separati da barre verticali](powerpoint-math-equations_13.png)
+![Un'espressione delimitata contenente x, y e z separati da barre verticali](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -522,9 +573,9 @@ try {
 
 ### **Dimensiona e allinea i delimitatori**
 
-Passa `true` a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) per consentire alle parentesi di crescere intorno a un operando alto, o `false` per mantenerle alla dimensione normale. Usa [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) con uno dei due valori [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/). `Centered` centra le parentesi sull'asse matematico, che attraversa il centro del segno di uguaglianza. `Match` le allinea al contenuto racchiuso. Entrambe le impostazioni influenzano solo i delimitatori. L'espressione interna rimane invariata.
+Passa `true` a [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) per far crescere le parentesi intorno a un operando alto, o passa `false` per mantenere la dimensione normale. Usa [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) con uno dei due valori di [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/). `Centered` centra le parentesi sull'asse matematico, che attraversa il centro del segno di uguaglianza. `Match` le allinea al contenuto racchiuso. Entrambe le impostazioni influenzano solo i delimitatori. L'espressione interna rimane invariata.
 
-L'esempio inserisce una frazione nell'esponente di `x` affinché l'espressione si estenda più sopra la linea di base che sotto. Tutte e quattro le equazioni usano le stesse parentesi e impostazioni di carattere.
+L'esempio inserisce una frazione nell'esponente di `x` così l'espressione si estende più sopra la linea di base che sotto. Tutte e quattro le equazioni usano le stesse parentesi e impostazioni di carattere.
 
 ```java
 import com.aspose.slides.*;
@@ -553,13 +604,13 @@ try {
 }
 ```
 
-In PowerPoint, confronta le righe per vedere l'effetto della crescita. Nella riga superiore, le parentesi crescono per racchiudere l'esponente e appaiono uguali per entrambe le forme. Nella riga inferiore, la crescita è disattivata. Le parentesi più piccole a sinistra (`Centered`) si allineano al segno di uguaglianza, mentre quelle a destra (`Match`) si posizionano più in alto attorno all'espressione.
+In PowerPoint, confronta le righe per vedere l'effetto della crescita. Nella riga superiore, le parentesi crescono per racchiudere l'esponente e appaiono simili per entrambe le forme. Nella riga inferiore, la crescita è disattivata. Le parentesi più piccole a sinistra (`Centered`) si allineano con il segno di uguale, mentre quelle a destra (`Match`) sono più alte intorno all'espressione.
 
-![Quattro equazioni in PowerPoint con crescita dei delimitatori abilitata in alto e disabilitata in basso, e Centered a sinistra e Match a destra](delimiter-sizing.png)
+![Quattro equazioni in PowerPoint con crescita dei delimitatori attivata sopra e disattivata sotto, e Centered a sinistra e Match a destra](delimiter-sizing.png)
 
-## **Aggiungi una cornice**
+## **Aggiungi una casella di bordo**
 
-Chiama [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) su una frazione per inquadrare l'intera espressione. L'oggetto restituito [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) mostra tutti e quattro i lati per impostazione predefinita. Usa [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-) e [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) per rimuovere singoli lati.
+Chiama [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) su una frazione per incorniciare l'intera espressione. Il [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) restituito mostra tutte e quattro le facce per impostazione predefinita. Usa [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), e [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) per rimuovere i lati individuali.
 
 L'esempio posiziona sei copie della stessa frazione su una diapositiva. Per mostrare la cancellazione, nascondi tutti e quattro i lati e passa `true` a [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) per una diagonale ascendente (↗) o a [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) per una diagonale discendente (↘). Puoi anche usare [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) o [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) con qualsiasi combinazione di lati visibili.
 
@@ -608,22 +659,22 @@ try {
 
 ![Sei frazioni modificabili in PowerPoint. Riga superiore: bordo completo, lati inferiore e sinistro, diagonale ascendente. Riga inferiore: diagonale discendente, barra orizzontale, barra verticale con bordo completo](border-box-fractions.png)
 
-Su questa frazione, la barra orizzontale si sovrappone alla barra della frazione. La barra verticale attraversa sia il numeratore sia il denominatore mentre il bordo circostante rimane visibile. Queste linee decorano l'intera espressione. Il barrato del testo normale si applica ai caratteri di un run di testo. Dopo aver riaperto la presentazione in PowerPoint, è ancora possibile modificare separatamente numeratore e denominatore.
+In questa frazione, la barra orizzontale si sovrappone alla barra della frazione. La barra verticale attraversa sia il numeratore sia il denominatore mentre il bordo circostante rimane visibile. Queste linee decorano l'intera espressione. Il barrato del testo ordinario si applica ai caratteri di un run di testo. Dopo aver riaperto la presentazione in PowerPoint, è ancora possibile modificare separatamente il numeratore e il denominatore.
 
-## **Controlla visibilità e layout con elementi fantasma**
+## **Controlla la visibilità e il layout con elementi Phantom**
 
-Racchiudi un'espressione in [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) per controllare in modo indipendente la sua visibilità e lo spazio che contribuisce a un'equazione. I metodi di [IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) controllano quanto segue:
+Avvolgi un'espressione in [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) per controllare la sua visibilità e lo spazio che contribuisce a un'equazione in modo indipendente. I metodi di [IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) controllano quanto segue:
 
-| Metodo | Effetto |
+| Method | Effect |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | Passa `false` per nascondere l'espressione. Le sue dimensioni contribuiscono ancora al layout a meno che i metodi corrispondenti qui sotto non ricevano `true`. |
+| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | Passa `false` per nascondere l'espressione. Le sue dimensioni continuano a contribuire al layout a meno che i metodi corrispondenti qui sotto non ricevano `true`. |
 | [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | Considera la larghezza orizzontale dell'espressione come zero, consentendo agli elementi vicini di avvicinarsi. |
 | [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | Considera la sua ascensione, l'altezza sopra la linea di base, come zero. Questo può ridurre lo spazio riservato sopra gli elementi vicini. |
-| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | Considera la sua discesa, la profondità sotto la linea di base, come zero. Questo può avvicinare una barra frazionaria o altro contenuto sotto l'espressione ai suoi vicini. |
+| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | Considera la sua discendenza, la profondità sotto la linea di base, come zero. Questo può avvicinare una barra di frazione o altro contenuto sotto l'espressione ai suoi vicini. |
 
-La linea di base è la linea di riferimento su cui si trovano le lettere matematiche ordinarie. Nascondere il contenuto non rimuove le sue dimensioni, e trattare una dimensione come zero non elimina l'espressione. L'espressione sottostante rimane disponibile tramite [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--). Passa `true` a [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) per visualizzarla nuovamente; le impostazioni di dimensione rimangono invariate.
+La linea di base è la linea di riferimento su cui si trovano le lettere matematiche ordinarie. Nascondere il contenuto non rimuove le sue dimensioni, e trattare una dimensione come zero non elimina l'espressione. L'espressione sottostante rimane disponibile attraverso [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--). Passa `true` a [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) per visualizzarla nuovamente; le impostazioni delle dimensioni rimangono invariate.
 
-L'esempio qui sotto crea cinque varianti affiancate: una frazione visibile, una frazione nascosta che riserva spazio e tre frazioni nascoste con una dimensione trattata come zero. Ogni variante usa la stessa espressione circostante e Cambria Math a 24 punti. Tutte le forme di equazione hanno la stessa posizione superiore, segnata dalla guida grigia. Posizionare il phantom nel numeratore di una frazione esterna rende più evidenti i cambiamenti di layout verticale.
+L'esempio seguente crea cinque varianti affiancate: una frazione visibile, una frazione nascosta che riserva spazio e tre frazioni nascoste con una dimensione trattata come zero. Ogni variante utilizza la stessa espressione circostante e Cambria Math a 24 punti. Tutte le forme dell'equazione hanno la stessa posizione superiore, contrassegnata dalla guida grigia. Posizionare il phantom nel numeratore di una frazione esterna rende più facile vedere le modifiche di layout verticale.
 
 ```java
 import com.aspose.slides.*;
@@ -692,13 +743,13 @@ try {
 }
 ```
 
-![Cinque equazioni in PowerPoint che confrontano una frazione visibile, una frazione nascosta che riserva spazio e frazioni nascoste con ZeroWidth, ZeroAsc o ZeroDesc abilitati](math-phantom.png)
+![Cinque equazioni in PowerPoint che confrontano una frazione visibile, una frazione nascosta che riserva spazio e frazioni nascoste con ZeroWidth, ZeroAsc o ZeroDesc attivati](math-phantom.png)
 
 ## **Raggruppa termini**
 
 Usa [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) per posizionare un carattere di raggruppamento sopra o sotto un'espressione. Aggiungi un limite per etichettare i termini raggruppati.
 
-![L'espressione x più y raggruppata con l'etichetta qualsiasi testo sotto di essa](powerpoint-math-equations_15.png)
+![L'espressione x più y raggruppata con l'etichetta any text sotto di essa](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -723,9 +774,9 @@ try {
 }
 ```
 
-## **Formatta elementi matematici**
+## **Formatta gli elementi matematici**
 
-Usa gli helper di formattazione solo dove chiariscono la formula. Per esempio, [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) posiziona una barra sopra un elemento matematico.
+Usa gli helper di formattazione solo dove chiariscono la formula. Ad esempio, [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) posiziona una barra sopra un elemento matematico.
 
 ![Un'espressione matematica ABC con una barra sopra](powerpoint-math-equations_14.png)
 
@@ -752,9 +803,9 @@ try {
 
 ### **Formatta il testo in un'equazione esistente**
 
-Per formattare il testo in tutta un'equazione esistente, attraversa l'albero degli elementi di ciascun blocco matematico. [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) restituisce solo i figli immediati, quindi chiamalo ricorsivamente per raggiungere il testo all'interno di frazioni, script, radici e altre strutture nidificate. Verifica l'elemento corrente così come i suoi figli per includere l'elemento iniziale quando è [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/).
+Per formattare il testo in un'intera equazione esistente, attraversa l'albero degli elementi di ciascun blocco matematico. [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) restituisce solo i figli immediati, quindi chiamalo ricorsivamente per raggiungere il testo all'interno di frazioni, script, radicali e altre strutture annidate. Controlla l'elemento corrente così come i suoi figli per includere l'elemento di partenza quando è [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/).
 
-Questo esempio presuppone che `input.pptx` contenga un'equazione come `z = xᵢ / ∛y`, con una frazione che contiene un pedice nel numeratore e una radice nel denominatore. Elaborare solo gli elementi di alto livello del blocco mancherebbe il testo all'interno della frazione. L'esempio trova le porzioni matematiche nei riquadri di testo delle diapositive, accede ai loro blocchi tramite [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), e usa [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) per impostare la dimensione del carattere a 28 punti attraverso il metodo [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) di ogni elemento di testo.
+Questo esempio presuppone che `input.pptx` contenga un'equazione come `z = xᵢ / ∛y`, con una frazione che contiene un pedice nel suo numeratore e un radicale nel suo denominatore. Elaborare solo gli elementi di livello superiore del blocco perderebbe il testo all'interno della frazione. L'esempio trova le porzioni matematiche nei frame di testo delle diapositive, accede ai loro blocchi tramite [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), e usa [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) per impostare la dimensione del carattere a 28 punti tramite il metodo [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) di ciascun elemento di testo.
 
 ```java
 import com.aspose.slides.*;
@@ -805,20 +856,20 @@ try {
 }
 ```
 
-La presentazione salvata contiene la formattazione del testo aggiornata a tutti i livelli di ogni equazione elaborata, preservando al contempo il contenuto testuale e la struttura matematica.
+La presentazione salvata contiene la formattazione del testo aggiornata a ogni livello di ciascuna equazione elaborata, preservando il contenuto del testo e la struttura matematica.
 
 ## **Riferimento rapido**
 
-| Attività | API principale |
+| Task | Main API |
 | --- | --- |
 | Crea testo matematico | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
 | Combina elementi | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
 | Crea frazioni | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
 | Aggiungi apice o pedice | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
 | Aggiungi funzioni | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| Aggiungi radici | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| Aggiungi radicali | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
 | Aggiungi limiti | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| Aggiungi script a sinistra | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Aggiungi script sul lato sinistro | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | Aggiungi somme e integrali | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | Aggiungi matrici | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
 | Aggiungi array di equazioni | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
@@ -832,10 +883,10 @@ La presentazione salvata contiene la formattazione del testo aggiornata a tutti 
 
 Sì. Apri la presentazione, individua la forma che contiene un [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/), chiama [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--), e aggiorna i blocchi matematici in quel paragrafo.
 
-**Le equazioni vengono salvate come math modificabile di PowerPoint?**
+**Le equazioni vengono salvate come matematica PowerPoint modificabile?**
 
 Sì. Quando salvi in PPTX, Aspose.Slides scrive l'equazione come contenuto Office math modificabile.
 
 **Posso esportare le equazioni in LaTeX?**
 
-Sì. Ottieni l'[IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) dell'equazione dal suo [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/), e chiama [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) per esportarlo direttamente. Per un esempio completo, vedere [Esporta equazioni matematiche dalle presentazioni in Java](/slides/it/java/exporting-math-equations/#export-math-equations-to-latex).
+Sì. Ottieni il [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) dell'equazione dal suo [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/), e chiama [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) per esportarlo direttamente. Per un esempio completo, vedere [Esporta le equazioni matematiche dalle presentazioni in Java](/slides/it/java/exporting-math-equations/#export-math-equations-to-latex).

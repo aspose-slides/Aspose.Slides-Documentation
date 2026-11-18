@@ -1,5 +1,5 @@
 ---
-title: Thêm Các Phương Trình Toán Học vào Bản Trình Chiếu PowerPoint trong .NET
+title: Thêm Phương Trình Toán Học vào Bản Trình Bày PowerPoint trong .NET
 linktitle: Phương Trình Toán Học PowerPoint
 type: docs
 weight: 80
@@ -14,37 +14,37 @@ keywords:
 - thêm công thức toán học
 - thêm văn bản toán học
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho .NET, hỗ trợ OMML, kiểm soát định dạng, và các mẫu mã C# rõ ràng."
+description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho .NET, hỗ trợ OMML, điều khiển định dạng, và các mẫu mã C# rõ ràng."
 ---
 ## **Tổng quan**
 
-PowerPoint lưu các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho .NET, bạn có thể tạo các nội dung toán học tương tự một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
+PowerPoint lưu trữ các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho .NET, bạn có thể tạo cùng kiểu nội dung toán học một cách lập trình: các phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học đã định dạng.
 
-Trong PowerPoint, người dùng thường thêm phương trình từ **Insert > Equation**:
+Trong PowerPoint, người dùng thường thêm các phương trình từ **Insert > Equation**:
 
-![Tab Chèn của PowerPoint với lệnh Phương trình được chọn](powerpoint-math-equations_1.png)
+![Tab Chèn của PowerPoint với lệnh Phương trình đã được chọn](powerpoint-math-equations_1.png)
 
 Kết quả là văn bản toán học có thể chỉnh sửa trên slide:
 
 ![Một slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
 
-Aspose.Slides xây dựng văn bản toán học này thông qua ba đối tượng chính:
+Aspose.Slides xây dựng văn bản toán học đó thông qua ba đối tượng chính:
 
-- Một hình dạng toán học, được tạo bằng [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), là hình dạng chứa phương trình.
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) lưu trữ nội dung toán học bên trong khung văn bản của hình dạng.
-- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/) .
+- Một hình toán, được tạo bằng [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), là hình chứa phương trình.
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) lưu trữ nội dung toán học bên trong khung văn bản của hình.
+- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/).
 
-Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) và các phương thức fluent từ [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) để giữ mã ngắn gọn và dễ đọc.
+Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) và các phương thức thông suốt từ [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) để giữ mã ngắn gọn và dễ đọc.
 
-Đối với các kịch bản xuất MathML, xem [Xuất các Phương trình Toán học từ Bản trình chiếu trong .NET](/slides/vi/net/exporting-math-equations/).
+Đối với các kịch bản xuất MathML, xem [Export Math Equations from Presentations in .NET](/slides/vi/net/exporting-math-equations/).
 
-## **Tạo một Phương trình**
+## **Tạo phương trình**
 
-Ví dụ này sử dụng [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) để tạo một hình dạng toán học và thêm định lý Pythagoras:
+Ví dụ này sử dụng [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) để tạo một hình toán và thêm định lý Pythagoras:
 
 ![Phương trình c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
 
@@ -72,14 +72,14 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) tạo một hình dạng đã chứa sẵn một đoạn văn toán học. Truy cập [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) đầu tiên, lấy [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) của nó, và thêm các khối hoặc phần tử toán học vào đó.
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) tạo ra một hình đã chứa sẵn một đoạn toán. Truy cập [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) đầu tiên, lấy [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) của nó, và thêm các khối hoặc phần tử toán vào đó.
 {{% /alert %}}
 
-## **Thêm Phân Số**
+## **Thêm phân số**
 
 Sử dụng [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Một phân số nghiêng cho thấy một chia cho x](powerpoint-math-equations_4.png)
+![Một phân số nghiêng hiển thị một chia cho x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -100,7 +100,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-Đối với phân số chồng, sử dụng [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
+Đối với phân số dạng chồng, sử dụng [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -108,11 +108,11 @@ using Aspose.Slides.MathText;
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Thêm Căn Bậc**
+## **Thêm căn bậc**
 
-Sử dụng [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) để tạo căn bậc hai, căn bậc ba hoặc các căn bậc khác. Phần tử hiện tại trở thành cơ số, và đối số trở thành bậc.
+Sử dụng [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) để tạo căn bậc hai, bậc ba hoặc các căn bậc khác. Phần tử hiện tại trở thành cơ số, và đối số trở thành cấp số.
 
-![Biểu thức căn bậc n với x nằm dưới dấu căn](powerpoint-math-equations_5.png)
+![Biểu thức căn bậc n với x ở dưới dấu căn](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -133,11 +133,40 @@ mathParagraph.Add(new MathBlock(radical));
 presentation.Save("radical.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Hàm và Giới Hạn**
+### **Hiển thị hoặc ẩn cấp của căn bậc hai**
 
-Sử dụng [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) hoặc [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) cho các hàm như `sin(x)`, `log(x)` hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) hoặc sử dụng [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+Căn bậc hai có thể hiển thị số 2 rõ ràng hoặc sử dụng ký hiệu truyền thống √x. Thuộc tính [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) của [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) kiểm soát dạng hiển thị. Cả hai dạng đều giữ cấp 2 và căn bậc x trong phương trình có thể chỉnh sửa.
 
-![Giới hạn của x khi x tiến đến vô cùng](powerpoint-math-equations_8.png)
+![Cùng một căn bậc hai với HideDegree = false ở bên trái và true ở bên phải](square-root-degree.png)
+
+Ví dụ lưu cùng một căn bậc hai hai lần. Trong `visible-degree.pptx` số 2 hiển thị. Trong `hidden-degree.pptx` nó bị ẩn.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var radical = new MathematicalText("x").Radical("2");
+
+var shape = slide.Shapes.AddMathShape(20, 20, 200, 100);
+var portion = (IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+portion.MathParagraph.Add(new MathBlock(radical));
+
+radical.HideDegree = false;
+presentation.Save("visible-degree.pptx", SaveFormat.Pptx);
+
+radical.HideDegree = true;
+presentation.Save("hidden-degree.pptx", SaveFormat.Pptx);
+```
+
+## **Thêm hàm và giới hạn**
+
+Sử dụng [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) hoặc [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) cho các hàm như `sin(x)`, `log(x)`, hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) hoặc sử dụng [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
+
+![Giới hạn của x khi x tiến tới vô cùng](powerpoint-math-equations_8.png)
 
 ```csharp
 using Aspose.Slides;
@@ -167,11 +196,11 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Thêm Toán tử N-ary và Tích Phân**
+## **Thêm toán tử N-ary và tích phân**
 
-Sử dụng [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) cho các phép cộng, hợp, giao và các toán tử lớn khác. Sử dụng [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) cho các tích phân. Cả hai phương thức đều cho phép đặt giới hạn dưới và trên.
+Sử dụng [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) cho các phép cộng, hợp, giao và các toán tử lớn khác. Sử dụng [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) cho tích phân. Cả hai phương pháp đều cho phép đặt giới hạn dưới và trên.
 
-![Một tổng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
+![Một phép cộng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
 
 ```csharp
 using Aspose.Slides;
@@ -195,7 +224,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-Toán tử N-ary dùng cho các toán tử lớn có giới hạn tùy chọn. Các toán tử đơn giản như `+`, `-` và `=` thường được thêm dưới dạng [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) và nối vào biểu thức.
+Toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn như `+`, `-`, và `=` thường được thêm bằng [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) và nối vào biểu thức.
 
 Đối với một tích phân, sử dụng [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
@@ -206,11 +235,11 @@ var integralBase = new MathematicalText("x").Join(new MathematicalText("dx").ToB
 var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Thêm Ma Trận**
+## **Thêm ma trận**
 
-Sử dụng [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) cho các hàng và cột. Mặc định ma trận không có dấu ngoặc, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc tròn, góc hoặc ngoặc nhọn.
+Sử dụng [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) cho các hàng và cột. Mặc định ma trận không có dấu ngoặc, vì vậy hãy bao quanh ma trận khi cần dấu ngoặc tròn, vuông hoặc nhọn.
 
-![Một ma trận toán học hai hàng có một ô trống](powerpoint-math-equations_10.png)
+![Một ma trận toán có hai hàng, một ô trống](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -235,11 +264,61 @@ mathParagraph.Add(new MathBlock(matrix));
 presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Mảng Phương Trình**
+### **Chỉnh sửa một ma trận hiện có**
 
-Sử dụng [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) khi bạn cần các phương trình căn chỉnh hoặc một chồng dọc các biểu thức.
+Giả sử một bài học đại số tuyến tính bắt đầu với ma trận hệ số trong `matrix.pptx`, được lưu bởi ví dụ trước. Đối với bài tập tiếp theo, giữ phương trình đầu tiên, thay thế phương trình thứ hai bằng hai phương trình mới, và sửa đổi tập biến. Mở ma trận hiện có qua [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) để giữ lại các hệ số vẫn áp dụng.
 
-![Một mảng toán học dọc với x ở trên y](powerpoint-math-equations_11.png)
+![Ma trận hệ số hai hàng gốc với các mục 1, x và một ô trống ở hàng đầu, và x, 2, y ở hàng thứ hai](matrix-before-edit.png)
+
+Chỉ số hàng và cột bắt đầu từ 0 và tham chiếu tới ma trận tại thời điểm mỗi lần gọi. Chèn một hàng trước chỉ số 1 sẽ đưa hàng thứ hai gốc xuống chỉ số 2. Chèn sau chỉ số 2 sẽ thêm một hàng vào cuối. Xóa hàng 2 sẽ loại bỏ phương trình thứ hai gốc và dời hàng mới lên một vị trí. Các cột di chuyển tương tự.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation("matrix.pptx");
+
+var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+var portion = (IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
+var matrix = (IMathMatrix)portion.MathParagraph[0][0];
+
+matrix.InsertRowBefore(1);
+matrix.InsertRowAfter(2);
+matrix.DeleteRow(2);
+
+matrix.InsertColumnBefore(1);
+matrix.InsertColumnAfter(3);
+matrix.DeleteColumn(3);
+
+// Các ô mới ban đầu là null. Đặt các hệ số khác không trước tiên.
+matrix[1, 0] = new MathematicalText("12");
+matrix[1, 1] = new MathematicalText("1");
+matrix[2, 2] = new MathematicalText("10");
+matrix[2, 3] = new MathematicalText("1");
+for (var row = 0; row < matrix.RowCount; row++)
+{
+    for (var column = 0; column < matrix.ColumnCount; column++)
+    {
+        matrix[row, column] ??= new MathematicalText("0");
+    }
+}
+
+matrix.SetColumnAlignment(0, MathHorizontalAlignment.Left);
+matrix.SetColumnsAlignment(1, 3, MathHorizontalAlignment.Right);
+
+presentation.Save("updated-matrix.pptx", SaveFormat.Pptx);
+```
+
+[SetColumnAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) căn lề trái cho cột đầu tiên. [SetColumnsAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) căn lề phải cho ba cột liên tiếp, bắt đầu từ chỉ số 1. Trong `updated-matrix.pptx`, ma trận có ba phương trình và bốn biến. Các hệ số hàng đầu tiên `1` và `x` giờ xuất hiện ở cột thứ nhất và thứ ba.
+
+![Ma trận ba hàng đã cập nhật, hiển thị các hàng 1,0,x,0; 12,1,0,0; và 0,0,10,1](matrix-after-edit.png)
+
+## **Thêm mảng phương trình**
+
+Sử dụng [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) khi cần các phương trình căn chỉnh hoặc một ngăn xếp dọc các biểu thức.
+
+![Một mảng toán dọc với x ở trên y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -261,11 +340,11 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-### **Căn chỉnh Mảng với Các Phần Tử Xung Quanh**
+### **Căn chỉnh mảng với các phần tử xung quanh**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) kiểm soát căn chỉnh dọc của một mảng so với các phần tử toán học bên cạnh nó. Ví dụ dưới đây so sánh căn chỉnh với hàng đầu, trung tâm mảng và hàng cuối.
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) kiểm soát căn dọc của mảng so với các phần tử toán học bên cạnh. Ví dụ dưới so sánh căn chỉnh với hàng đầu tiên, trung tâm mảng và hàng cuối cùng.
 
-Ví dụ sau tạo ba mảng giống hệt nhau, mỗi mảng có ba hàng và các phần tử lân cận `A=` và `=B`. Toàn bộ văn bản toán học sử dụng Cambria Math kích thước 24 điểm. Chỉ có căn chỉnh mảng thay đổi.
+Ví dụ sau tạo ba mảng giống hệt, mỗi mảng có ba hàng và các phần tử lân cận `A=` và `=B`. Toàn bộ văn bản toán học đều dùng Cambria Math 24pt. Chỉ có căn chỉnh mảng thay đổi.
 
 ```csharp
 using Aspose.Slides;
@@ -312,17 +391,17 @@ MathematicalText CreateText(string value)
 }
 ```
 
-So sánh sau đây hiển thị bản trình chiếu đã lưu trong PowerPoint. Lưu ý vị trí của `A=` và `=B` bên cạnh mỗi mảng.
+So sánh dưới đây cho thấy bản trình chiếu đã lưu trong PowerPoint. Lưu ý vị trí của `A=` và `=B` bên cạnh mỗi mảng.
 
-![Mảng phương trình trong PowerPoint với căn chỉnh Trên, Giữa và Dưới và các phần tử lân cận giống nhau](equation-array-alignment.png)
+![Mảng phương trình trong PowerPoint với căn trên, giữa và dưới cùng các phần tử lân cận giống nhau](equation-array-alignment.png)
 
-### **Cấu hình Khoảng Cách Hàng**
+### **Cấu hình khoảng cách hàng**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) chọn quy tắc khoảng cách cho các hàng trong mảng. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) cung cấp giá trị số cho một quy tắc khoảng cách cụ thể và sẽ bị bỏ qua khi dùng các quy tắc mặc định.
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) chọn quy tắc khoảng cách cho các hàng trong mảng. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) cung cấp giá trị số cho quy tắc cụ thể và bị bỏ qua khi dùng các quy tắc mặc định.
 
-Đối với khoảng cách chính xác, giá trị được đo bằng điểm. Đối với khoảng cách tỷ lệ, nó được đo bằng nửa dòng: giá trị `3` trong ví dụ tương đương 1.5 dòng. Khi chỉ định giá trị cụ thể, hãy đặt cả hai thuộc tính; chỉ thay đổi giá trị số sẽ không chọn quy tắc khoảng cách.
+Đối với khoảng cách chính xác, giá trị đo bằng điểm. Đối với khoảng cách tỷ lệ, đo bằng nửa dòng: giá trị `3` trong ví dụ tương đương 1,5 dòng. Khi chỉ định giá trị cụ thể, hãy đặt cả hai thuộc tính; thay đổi chỉ số mà không thay đổi quy tắc sẽ không có hiệu lực.
 
-Ví dụ dưới đây lưu năm bản trình chiếu với cùng các phương trình, căn chỉnh và cài đặt phông chữ. Ba bản đầu dùng các preset; hai bản cuối hiển thị giá trị cụ thể.
+Ví dụ dưới lưu năm bản trình chiếu với cùng các phương trình, căn chỉnh và cài đặt phông chữ. Ba cái đầu dùng cài đặt mặc định; hai cái cuối dùng giá trị cụ thể.
 
 ```csharp
 using Aspose.Slides;
@@ -372,13 +451,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-Khoảng cách hàng trong mảng riêng biệt với khoảng cách đoạn văn. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) và [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) thêm không gian quanh đoạn văn chứa, không phải giữa các hàng của mảng. Tương tự, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) định vị toàn bộ đoạn văn toán học theo chiều ngang; nó không thay thế cài đặt căn chỉnh dọc của mảng.
+Khoảng cách hàng trong mảng riêng biệt với khoảng cách đoạn. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) và [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) thêm không gian quanh đoạn chứa, không phải giữa các hàng mảng. Tương tự, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) định vị toàn bộ đoạn toán học theo chiều ngang; nó không thay thế cài đặt căn dọc của mảng.
 
-## **Thêm Hàm Lượng Giác**
+## **Thêm hàm lượng giác**
 
 Sử dụng [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) khi đối số là phần tử hiện tại và tên hàm đã biết.
 
-![Hàm lượng giác cos được áp dụng cho 2x](powerpoint-math-equations_6.png)
+![Hàm lượng giác cos áp dụng cho 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using Aspose.Slides;
@@ -399,11 +478,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Chỉ số và Số mũ**
+## **Thêm chỉ số và lũy thừa**
 
-Sử dụng các trợ giúp chỉ số dưới và chỉ số trên cho các chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện ở phía trái của cơ số, sử dụng [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
+Sử dụng các trợ giúp chỉ số và lũy thừa cho các chỉ số và mũ. Khi chỉ số phải xuất hiện ở phía trái của cơ sở, dùng [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![Một chữ Y in hoa với chỉ số dưới bên trái 1 và chỉ số trên n](powerpoint-math-equations_9.png)
+![Chữ Y hoa với chỉ số trái 1 và lũy thừa phải n](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -424,11 +503,11 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Dấu Ngăn**
+## **Thêm dấu ngoặc**
 
-Sử dụng [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) để đặt một biểu thức bên trong dấu ngăn. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu ngăn chứa nhiều phần tử.
+Sử dụng [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) để đặt một biểu thức bên trong dấu ngoặc. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu ngoặc chứa nhiều phần tử.
 
-![Biểu thức dấu ngăn chứa x, y và z được phân tách bằng dấu gạch đứng](powerpoint-math-equations_13.png)
+![Biểu thức dấu ngoặc chứa x, y và z tách nhau bằng các dấu gạch đứng](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -452,11 +531,11 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-### **Kích thước và Căn Dấu Ngăn**
+### **Kích thước và căn chỉnh dấu ngoặc**
 
-Đặt [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) thành `true` để cho dấu ngoặc mở rộng quanh một toán hạng cao, hoặc `false` để giữ nguyên kích thước bình thường. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) nhận một trong hai giá trị [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` đặt dấu ngoặc ở trung tâm trục toán học, trục này chạy qua giữa dấu bằng. `Match` căn chúng với nội dung được bao quanh. Cả hai cài đặt chỉ ảnh hưởng đến dấu ngăn. Biểu thức bên trong vẫn giữ nguyên.
+Đặt [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) thành `true` để cho ngoặc mở rộng quanh toán tử cao, hoặc `false` để giữ kích thước bình thường. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) nhận một trong hai giá trị [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/). `Centered` canh giữa ngoặc trên trục toán học, trục chạy qua trung tâm dấu bằng. `Match` căn theo nội dung bao quanh. Cả hai chỉ ảnh hưởng đến dấu ngoặc; biểu thức bên trong không thay đổi.
 
-Ví dụ đặt một phân số trong số mũ của `x` để biểu thức mở rộng lên trên hơn mức đường cơ sở so với bên dưới. Bốn phương trình đều sử dụng cùng dấu ngoặc và cài đặt phông chữ.
+Ví dụ đặt một phân số ở mũ của `x` để biểu thức mở rộng lên trên đường cơ sở hơn so với phía dưới. Bốn phương trình đều dùng cùng một dấu ngoặc và cài đặt phông chữ.
 
 ```csharp
 using Aspose.Slides;
@@ -489,15 +568,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-Trong PowerPoint, so sánh các hàng để thấy hiệu ứng của việc mở rộng. Ở hàng trên, dấu ngoặc mở rộng để bao quanh số mũ và trông giống nhau cho cả hai dạng. Ở hàng dưới, tính năng mở rộng tắt. Dấu ngoặc nhỏ hơn ở bên trái (`Centered`) căn với dấu bằng, trong khi dấu ngoặc ở bên phải (`Match`) nằm cao hơn quanh biểu thức.
+Trong PowerPoint, so sánh các hàng để thấy hiệu ứng mở rộng. Ở hàng trên, ngoặc mở rộng để bao quanh mũ và trông giống nhau cho cả hai dạng. Ở hàng dưới, tính năng mở rộng tắt. Các ngoặc nhỏ hơn bên trái (`Centered`) căn với dấu bằng, trong khi các ngoặc bên phải (`Match`) ở vị trí cao hơn quanh biểu thức.
 
-![Bốn phương trình trong PowerPoint với dấu ngăn mở rộng bật ở trên và tắt ở dưới, và Centered ở bên trái và Match ở bên phải](delimiter-sizing.png)
+![Bốn phương trình trong PowerPoint với dấu ngoặc mở rộng bật trên và tắt dưới, và `Centered` bên trái, `Match` bên phải](delimiter-sizing.png)
 
-## **Thêm Hộp Viền**
+## **Thêm hộp viền**
 
-Gọi [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) trên một phân số để đóng khung toàn bộ biểu thức. [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) trả về mặc định hiển thị cả bốn phía. Sử dụng [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/) và [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) để loại bỏ các phía riêng lẻ.
+Gọi [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) trên một phân số để đóng khung toàn bộ biểu thức. [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) trả về mặc định hiển thị cả bốn cạnh. Dùng [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), và [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) để loại bỏ các cạnh riêng lẻ.
 
-Ví dụ đặt sáu bản sao của cùng một phân số trên một slide. Để hiển thị dấu gạch, ẩn bốn phía và đặt [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) cho đường chéo lên (↗) hoặc [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) cho đường chéo xuống (↘). Bạn cũng có thể dùng [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) hoặc [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) kết hợp với bất kỳ các phía hiển thị nào.
+Ví dụ đặt sáu bản sao của cùng một phân số trên một slide. Để hiển thị gạch bỏ, ẩn cả bốn cạnh và đặt [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) cho đường chéo lên (`↗`) hoặc [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) cho đường chéo xuống (`↘`). Bạn cũng có thể dùng [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) hoặc [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) kết hợp với bất kỳ các cạnh hiển thị nào.
 
 ```csharp
 using Aspose.Slides;
@@ -535,15 +614,89 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![Sáu phân số có thể chỉnh sửa trong PowerPoint. Hàng trên: viền đầy đủ, phía dưới và trái, đường chéo lên. Hàng dưới: đường chéo xuống, gạch ngang, gạch dọc với viền đầy đủ.](border-box-fractions.png)
+![Sáu phân số có thể chỉnh sửa trong PowerPoint. Dòng trên: viền đầy đủ, các cạnh dưới và trái, đường chéo lên. Dòng dưới: đường chéo xuống, gạch ngang, gạch dọc với viền đầy đủ.](border-box-fractions.png)
 
-Trong phân số này, dấu gạch ngang chồng lên thanh phân số. Dấu gạch dọc cắt cả tử số và mẫu số trong khi viền xung quanh vẫn hiển thị. Những đường này trang trí toàn bộ biểu thức. Gạch ngang thông thường áp dụng cho các ký tự trong một đoạn văn bản. Sau khi mở lại bản trình chiếu trong PowerPoint, bạn vẫn có thể chỉnh sửa tử số và mẫu số một cách độc lập.
+Trên phân số này, gạch ngang chồng lên thanh phân số. Gạch dọc cắt cả tử và mẫu trong khi viền xung quanh vẫn hiển thị. Các đường này trang trí toàn bộ biểu thức. Gạch bỏ thông thường áp dụng cho các ký tự trong một đoạn văn bản. Sau khi mở lại bản trình chiếu trong PowerPoint, bạn vẫn có thể chỉnh sửa tử và mẫu một cách độc lập.
 
-## **Nhóm Các Thuật Ngữ**
+## **Kiểm soát hiển thị và bố cục bằng phần tử ảo**
 
-Sử dụng [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) để đặt một ký tự nhóm phía trên hoặc phía dưới một biểu thức. Thêm giới hạn để ghi nhãn các thuật ngữ đã nhóm.
+Bao bọc một biểu thức trong [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) để kiểm soát khả năng hiển thị và không gian nó chiếm trong một phương trình một cách độc lập. Thuộc tính của [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) điều khiển các yếu tố sau:
 
-![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào bên dưới](powerpoint-math-equations_15.png)
+| Property | Effect |
+| --- | --- |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | Đặt `false` để ẩn biểu thức. Kích thước của nó vẫn đóng góp vào bố cục trừ khi các thuộc tính dưới đây được đặt `true`. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | Xem chiều rộng ngang của biểu thức như bằng 0, cho phép các phần tử lân cận di chuyển gần nhau hơn. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | Xem độ lên (chiều cao phía trên đường cơ sở) như bằng 0. Điều này có thể giảm không gian dành cho phần trên các phần tử lân cận. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | Xem độ xuống (chiều sâu phía dưới đường cơ sở) như bằng 0. Điều này có thể đưa thanh phân số hoặc nội dung khác dưới biểu thức gần hơn đến các phần tử lân cận. |
+
+Đường cơ sở là đường tham chiếu mà các ký tự toán học thường ngồi trên. Ẩn nội dung không loại bỏ kích thước của nó, và xem một kích thước là 0 không xóa biểu thức. Biểu thức gốc vẫn tồn tại thông qua [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). Đặt [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) lại `true` để hiển thị lại; các cài đặt kích thước vẫn giữ nguyên.
+
+Ví dụ dưới tạo năm biến thể đứng cạnh nhau: một phân số hiển thị, một phân số ẩn nhưng giữ không gian, và ba phân số ẩn với một trong các kích thước được xử lý là 0. Mỗi biến thể dùng cùng một biểu thức bao quanh và Cambria Math 24pt. Tất cả các hình phương trình có cùng vị trí trên cùng, được đánh dấu bằng hướng dẫn màu xám. Đặt phantom trong tử của một phân số bên ngoài giúp dễ dàng quan sát thay đổi bố cục dọc.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(1000, 180, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var labels = new[] { "Visible", "Hidden: reserves space", "Hidden: ZeroWidth", "Hidden: ZeroAsc", "Hidden: ZeroDesc" };
+
+var guide = slide.Shapes.AddAutoShape(ShapeType.Line, 10, 60, 980, 0);
+guide.LineFormat.FillFormat.FillType = FillType.Solid;
+guide.LineFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.LightGray;
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var left = 10 + i * 200;
+    
+    var label = slide.Shapes.AddAutoShape(ShapeType.Rectangle, left, 10, 190, 30);
+    label.FillFormat.FillType = FillType.NoFill;
+    label.LineFormat.FillFormat.FillType = FillType.NoFill;
+    label.TextFrame.Text = labels[i];
+
+    var labelFormat = label.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+    labelFormat.FontHeight = 14;
+    labelFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.FillFormat.SolidFillColor.Color = System.Drawing.Color.Black;
+
+    var fraction = new MathFraction(CreateText("a+b"), CreateText("c+d"));
+    var phantom = new MathPhantom(fraction);
+    phantom.Show = i == 0;
+    phantom.ZeroWidth = i == 2;
+    phantom.ZeroAsc = i == 3;
+    phantom.ZeroDesc = i == 4;
+
+    var numerator = new MathBlock(CreateText("x+")).Join(phantom).Join(CreateText("+y"));
+    var equation = new MathFraction(numerator, CreateText("z"));
+
+    var shape = slide.Shapes.AddMathShape(left, 60, 190, 100);
+    shape.TextFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+
+    var mathParagraph = ((IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+    mathParagraph.Add(new MathBlock(equation));
+}
+
+presentation.Save("math-phantom.pptx", SaveFormat.Pptx);
+
+MathematicalText CreateText(string value)
+{
+    var text = new MathematicalText(value);
+    text.Format.FontHeight = 24;
+    text.Format.LatinFont = new FontData("Cambria Math");
+    return text;
+}
+```
+
+![Năm phương trình trong PowerPoint so sánh một phân số hiển thị, một phân số ẩn giữ không gian, và các phân số ẩn với ZeroWidth, ZeroAsc hoặc ZeroDesc bật](math-phantom.png)
+
+## **Nhóm các phần tử**
+
+Sử dụng [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) để đặt một ký tự nhóm phía trên hoặc dưới một biểu thức. Thêm một giới hạn để ghi nhãn các phần tử được nhóm.
+
+![Biểu thức x cộng y được nhóm với nhãn bất kỳ bên dưới](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -565,11 +718,11 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **Định dạng Các Phần Tử Toán học**
+## **Định dạng các phần tử toán học**
 
-Sử dụng các trợ giúp định dạng chỉ khi chúng làm rõ công thức. Ví dụ, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) đặt một thanh trên một phần tử toán học.
+Chỉ sử dụng các trợ giúp định dạng khi chúng làm rõ công thức. Ví dụ, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) đặt một thanh trên một phần tử toán học.
 
-![Biểu thức toán học ABC với một thanh trên](powerpoint-math-equations_14.png)
+![Biểu thức toán học ABC có một thanh trên](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -589,11 +742,11 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-### **Định dạng Văn bản trong Phương trình Hiện có**
+### **Định dạng văn bản trong một phương trình hiện có**
 
-Để định dạng văn bản xuyên suốt một phương trình hiện có, duyệt cây phần tử của mỗi khối toán học. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) chỉ trả về các con trực tiếp, vì vậy hãy gọi đệ quy để tới văn bản bên trong phân số, chỉ số, căn bậc và các cấu trúc lồng nhau khác. Kiểm tra phần tử hiện tại cũng như các con của nó để bao gồm phần tử bắt đầu khi nó là [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+Để định dạng văn bản trong toàn bộ một phương trình hiện có, duyệt cây phần tử của mỗi khối toán. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) chỉ trả về các con trực tiếp, vì vậy hãy gọi đệ quy để tới văn bản trong phân số, chỉ số, căn bậc và các cấu trúc lồng nhau khác. Kiểm tra phần tử hiện tại cũng như các con của nó để bao gồm phần tử bắt đầu khi nó là [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
 
-Ví dụ này giả định bản trình chiếu chứa một phương trình như `z = xᵢ / ∛y`, trong đó một phân số có chỉ số dưới ở tử số và một căn bậc ở mẫu số. Chỉ xử lý các phần tử cấp cao nhất của khối sẽ bỏ qua văn bản bên trong phân số. Ví dụ tìm các phần toán học trong khung văn bản slide, truy cập các khối thông qua [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), và đặt [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) thành 28 điểm qua thuộc tính [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) của mỗi phần tử văn bản.
+Ví dụ này giả định một bản trình chiếu có một phương trình như `z = xᵢ / ∛y`, với một phân số chứa chỉ số trong tử và một căn bậc trong mẫu. Xử lý chỉ các phần tử cấp cao của khối sẽ bỏ sót văn bản trong phân số. Ví dụ tìm các phần toán trong khung văn bản slide, truy cập các khối qua [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), và đặt [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) thành 28pt cho mỗi phần tử văn bản thông qua thuộc tính [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/).
 
 ```csharp
 using Aspose.Slides;
@@ -635,37 +788,37 @@ void FormatMathText(IMathElement element)
 }
 ```
 
-Bản trình chiếu đã lưu chứa định dạng văn bản đã cập nhật ở mọi cấp độ của mỗi phương trình đã xử lý, đồng thời giữ nguyên nội dung văn bản và cấu trúc toán học.
+Bản trình chiếu đã lưu chứa định dạng văn bản được cập nhật ở mọi cấp của mỗi phương trình đã xử lý, đồng thời giữ nguyên nội dung văn bản và cấu trúc toán học.
 
-## **Tham chiếu nhanh**
+## **Tham khảo nhanh**
 
-| Nhiệm vụ | API chính |
+| Task | Main API |
 | --- | --- |
-| Tạo văn bản toán học | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
+| Tạo văn bản toán | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
 | Kết hợp các phần tử | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
 | Tạo phân số | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
-| Thêm chỉ số trên hoặc chỉ số dưới | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Thêm lũy thừa hoặc chỉ số | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
 | Thêm hàm | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | Thêm căn bậc | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
 | Thêm giới hạn | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Thêm script bên trái | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Thêm chỉ số bên trái | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | Thêm tổng và tích phân | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
 | Thêm ma trận | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
 | Thêm mảng phương trình | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Thêm dấu ngăn | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| Thêm dấu ngoặc | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
 | Thêm thanh và viền | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Nhóm các thuật ngữ | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
+| Nhóm các phần tử | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
+**Có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
 
-Có. Mở bản trình chiếu, tìm hình dạng chứa một [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), lấy [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) của nó, và cập nhật các khối toán học trong đoạn văn đó.
+Có. Mở bản trình chiếu, tìm hình chứa một [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), lấy [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) của nó, và cập nhật các khối toán trong đoạn đó.
 
 **Các phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
 
-Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office Math có thể chỉnh sửa.
+Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office math có thể chỉnh sửa.
 
-**Tôi có thể xuất các phương trình sang LaTeX không?**
+**Có thể xuất phương trình sang LaTeX không?**
 
-Có. Lấy [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) của phương trình từ [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), và gọi [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) để xuất trực tiếp. Đối với ví dụ đầy đủ, xem [Xuất các Phương trình Toán học từ Bản trình chiếu trong .NET](/slides/vi/net/exporting-math-equations/#export-math-equations-to-latex).
+Có. Lấy [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) của [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), và gọi [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) để xuất trực tiếp. Đối với ví dụ đầy đủ, xem [Export Math Equations from Presentations in .NET](/slides/vi/net/exporting-math-equations/#export-math-equations-to-latex).
