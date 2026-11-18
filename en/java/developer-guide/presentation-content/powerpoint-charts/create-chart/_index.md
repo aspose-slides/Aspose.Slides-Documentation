@@ -1075,6 +1075,51 @@ The result:
 
 ![The multi category chart](multi_category_chart.png)
 
+#### **Remove a Quarter Label**
+
+Download [quarters.pptx](quarters.pptx) and place it in the working directory. Its chart shows nine months and a single sales series with values from 10 through 18. On the category axis, Q1 spans January through March, Q2 spans April through June, and Q3 spans July through September.
+
+April is the fourth category (index 3) and holds the Q2 label. Use [getGroupingLevels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getGroupingLevels--) to access April's grouping levels, then call [deleteGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) with level 1 to remove its quarter label. Level 0 represents the month itself and cannot be removed with this method.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    StringJoiner months = new StringJoiner(", ");
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    StringJoiner sales = new StringJoiner(", ");
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(months);
+    System.out.println(sales);
+} finally {
+    reopened.dispose();
+}
+```
+
+After reopening the chart, the example prints the original months (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) and sales values (`10, 11, 12, 13, 14, 15, 16, 17, 18`) in the same order. Open `quarters-updated.pptx` in PowerPoint to compare the axis labels. The Q2 label and the group boundary before April disappear, so Q1 spans January through June. Q3 still begins in July.
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
 ### **Create Map Charts**
 
 Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
