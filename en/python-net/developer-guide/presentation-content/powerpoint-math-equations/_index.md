@@ -132,6 +132,34 @@ with slides.Presentation() as presentation:
     presentation.save("radical.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Show or Hide the Degree of a Square Root**
+
+A square root can display an explicit 2 or use the conventional √x notation. The [hide_degree](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathradical/hide_degree/) property of [IMathRadical](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathradical/) controls which form appears. Both forms retain the degree 2 and the radicand x in the editable equation.
+
+![The square root of x with the degree 2 visible on the left and hidden on the right](square-root-degree.png)
+
+The example saves the same square root twice. The 2 is visible in `visible-degree.pptx` and hidden in `hidden-degree.pptx`.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    radical = math.MathematicalText("x").radical("2")
+
+    shape = slide.shapes.add_math_shape(20, 20, 200, 100)
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    portion.math_paragraph.add(math.MathBlock(radical))
+
+    radical.hide_degree = False
+    presentation.save("visible-degree.pptx", slides.export.SaveFormat.PPTX)
+
+    radical.hide_degree = True
+    presentation.save("hidden-degree.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **Add Functions and Limits**
 
 Use [as_argument_of_function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) or [function](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/function/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathlimit/) or use [set_lower_limit](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).

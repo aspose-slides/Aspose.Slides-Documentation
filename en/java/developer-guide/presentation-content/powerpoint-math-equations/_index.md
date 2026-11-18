@@ -144,6 +144,37 @@ try {
 }
 ```
 
+### **Show or Hide the Degree of a Square Root**
+
+A square root can display an explicit 2 or use the conventional √x notation. The [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) method of [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) controls which form appears. Both forms retain the degree 2 and the radicand x in the editable equation.
+
+![The same square root with the degree visible on the left and hidden on the right](square-root-degree.png)
+
+The example saves the same square root twice. In `visible-degree.pptx`, the 2 is visible. In `hidden-degree.pptx`, it is hidden.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    IMathRadical radical = new MathematicalText("x").radical("2");
+
+    IAutoShape shape = slide.getShapes().addMathShape(20, 20, 200, 100);
+    IMathPortion portion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getMathParagraph().add(new MathBlock(radical));
+
+    radical.setHideDegree(false);
+    presentation.save("visible-degree.pptx", SaveFormat.Pptx);
+
+    radical.setHideDegree(true);
+    presentation.save("hidden-degree.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Add Functions and Limits**
 
 Use [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) or [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) or use [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-).

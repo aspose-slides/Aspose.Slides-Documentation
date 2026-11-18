@@ -181,6 +181,52 @@ presentation->Save(u"radical.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+### **Show or Hide the Degree of a Square Root**
+
+A square root can display an explicit 2 or use the conventional √x notation. Use [IMathRadical::set_HideDegree](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathradical/set_hidedegree/) to switch between the two forms. Both retain the degree 2 and the radicand x in the editable equation.
+
+![The same square root with the degree visible on the left and hidden on the right](square-root-degree.png)
+
+The example saves the same square root twice. In `visible-degree.pptx` the 2 is visible. In `hidden-degree.pptx` it is hidden.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathRadical.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto radicand = System::MakeObject<MathematicalText>(u"x");
+auto radical = radicand->Radical(u"2");
+auto block = System::MakeObject<MathBlock>(radical);
+
+auto mathShape = slide->get_Shapes()->AddMathShape(20.0f, 20.0f, 200.0f, 100.0f);
+auto mathPortion = System::ExplicitCast<MathPortion>(mathShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
+mathParagraph->Add(block);
+
+radical->set_HideDegree(false);
+presentation->Save(u"visible-degree.pptx", SaveFormat::Pptx);
+
+radical->set_HideDegree(true);
+presentation->Save(u"hidden-degree.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
 ## **Add Functions and Limits**
 
 Use [AsArgumentOfFunction](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) or [Function](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/function/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathlimit/) or use [SetLowerLimit](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/).
