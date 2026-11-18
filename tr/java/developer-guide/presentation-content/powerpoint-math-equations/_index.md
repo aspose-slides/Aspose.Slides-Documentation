@@ -1,16 +1,16 @@
 ---
-title: Java ile PowerPoint Sunumlarına Matematik Denklemleri Ekle
+title: Java ile PowerPoint Sunumlarına Matematik Denklemleri Ekleme
 linktitle: PowerPoint Matematik Denklemleri
 type: docs
 weight: 80
 url: /tr/java/powerpoint-math-equations/
 keywords:
 - matematik denklemi
-- matematik simgesi
+- matematik sembolü
 - matematik formülü
 - matematik metni
 - matematik denklemi ekle
-- matematik simgesi ekle
+- matematik sembolü ekle
 - matematik formülü ekle
 - matematik metni ekle
 - PowerPoint
@@ -21,29 +21,29 @@ description: "Aspose.Slides for Java ile PowerPoint PPT ve PPTX dosyalarına mat
 ---
 ## **Genel Bakış**
 
-PowerPoint denklemleri Office Math Markup Language (OMML) olarak saklar. Aspose.Slides for Java ile aynı tipte matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
+PowerPoint denklemleri Office Math Markup Language (OMML) olarak saklar. Aspose.Slides for Java ile aynı türde matematik içeriğini programlı olarak oluşturabilirsiniz: kesirler, kökler, fonksiyonlar, limitler, N-ary operatörler, matrisler, diziler ve biçimlendirilmiş matematik blokları.
 
-PowerPoint'te kullanıcılar genellikle **Insert > Equation** üzerinden denklemler ekler:
+PowerPoint'te kullanıcılar genellikle denklemleri **Ekle > Denklem** üzerinden ekler:
 
-![PowerPoint Ekle sekmesinde Denkleme komutu seçili](powerpoint-math-equations_1.png)
+![PowerPoint Ekle sekmesi, Denklem komutu seçili](powerpoint-math-equations_1.png)
 
-Sonuç, slaytta düzenlenebilir matematik metnidir:
+Sonuç, slaytta düzenlenebilir bir matematik metnidir:
 
-![PowerPoint slaytında düzenlenebilir bir matematik denklemi](powerpoint-math-equations_2.png)
+![Düzenlenebilir bir matematik denklemi içeren bir PowerPoint slaydı](powerpoint-math-equations_2.png)
 
 Aspose.Slides bu matematik metnini üç ana nesne aracılığıyla oluşturur:
 
-- Bir matematik şekli, [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) ile oluşturulan, denklemi içeren şekildir.
-- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) şekil metin çerçevesi içinde matematik içeriğini depolar.
+- Bir matematik şekli, [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) ile oluşturulur ve denklemi içerir.
+- [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) şeklin metin çerçevesinde matematik içeriğini saklar.
 - [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) bir veya daha fazla [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/) nesnesi içerir.
 
-Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) üzerindeki akıcı metodları kullanır.
+Aşağıdaki çoğu örnek, kodu kısa ve okunabilir tutmak için [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) ve [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) yardımcı yöntemlerini kullanır.
 
-MathML dışa aktarma senaryoları için, [Sunumlardan Matematik Denklemlerini Java ile Dışa Aktarma](/slides/tr/java/exporting-math-equations/) bölümüne bakın.
+MathML dışa aktarma senaryoları için bakın [Sunumlardan Java'da Matematik Denklemlerini Dışa Aktarma](/slides/tr/java/exporting-math-equations/).
 
-## **Denklem Oluşturma**
+## **Bir Denklem Oluşturma**
 
-Bu örnek, [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) kullanarak bir matematik şekli oluşturur ve Pisagor teoremini ekler:
+Bu örnek, bir matematik şekli oluşturmak için [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) kullanır ve Pisagor teoremini ekler:
 
 ![c² = a² + b² denklemi](powerpoint-math-equations_3.png)
 
@@ -73,15 +73,17 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) erişin, [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) çağırın ve ona matematik blokları veya matematik öğeleri ekleyin.
+{{% alert color="info" title="Not" %}}
+
+[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) zaten bir matematik paragrafı içeren bir şekil oluşturur. İlk [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) alın, [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) metodunu çağırın ve ona matematik blokları veya öğeleri ekleyin.
+
 {{% /alert %}}
 
-## **Kesir Ekle**
+## **Kesirler Ekleme**
 
-[divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) kullanarak bir kesir oluşturun. [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/) ile bir kesir stili seçebilirsiniz.
+Kesir oluşturmak için [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) kullanın. Kesir stilini [MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/) ile seçebilirsiniz.
 
-![Bir kesir: 1/x gösterimi](powerpoint-math-equations_4.png)
+![x'e bölünen bir kesiri gösteren eğik bir matematik kesiri](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -105,7 +107,7 @@ try {
 }
 ```
 
-Üst üste bir kesir için, [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar) kullanın:
+Yığılmış bir kesir için [MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar) kullanın:
 
 ```java
 import com.aspose.slides.*;
@@ -113,11 +115,11 @@ import com.aspose.slides.*;
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Kök Ekle**
+## **Kökler Ekleme**
 
-[radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) kullanarak kare kök, küp kök veya diğer kökleri oluşturun. Mevcut öğe taban olur, argüman ise derece olur.
+Karesel kök, kübik kök veya diğer kökleri oluşturmak için [radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) kullanın. Geçerli öğe taban olur, argüman derece olur.
 
-![Kök işareti altında x olan n. dereceden kök ifadesi](powerpoint-math-equations_5.png)
+![x kök işareti altında bir n'inci kök ifadesi](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -141,13 +143,13 @@ try {
 }
 ```
 
-### **Kare Kökün Derecesini Gösterme veya Gizleme**
+### **Karesel Kökün Derecesini Gösterme veya Gizleme**
 
-Kare kök, açık bir 2 gösterebilir veya geleneksel √x gösterimini kullanabilir. [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) üzerindeki [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) metodu hangi formun görüneceğini kontrol eder. Her iki biçim de düzenlenebilir denklemde derece 2 ve radikand x'i korur.
+Karesel kök açık bir 2 gösterebilir veya geleneksel √x gösterimini kullanabilir. [IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) sınıfının [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) yöntemi hangi biçimin görüneceğini kontrol eder. Her iki biçim de düzenlenebilir denklemde derece 2 ve radikand x'i korur.
 
-![Derecesi solda görünen, sağda gizlenen aynı kare kök](square-root-degree.png)
+![Sol tarafta derece gösterilen, sağ tarafta gizlenmiş aynı karesel kök](square-root-degree.png)
 
-Örnek, aynı kare kökü iki kez kaydeder. `visible-degree.pptx` dosyasında 2 görülür. `hidden-degree.pptx` dosyasında ise gizlidir.
+Örnek aynı karesel kökü iki kez kaydeder. `visible-degree.pptx` içinde 2 görünür. `hidden-degree.pptx` içinde gizlidir.
 
 ```java
 import com.aspose.slides.*;
@@ -172,11 +174,11 @@ try {
 }
 ```
 
-## **Fonksiyonlar ve Limitler Ekle**
+## **Fonksiyonlar ve Limitler Ekleme**
 
-[asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) veya [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) kullanarak `sin(x)`, `log(x)` gibi fonksiyonlar veya özel fonksiyon adları ekleyin. Limitler için `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) kullanın.
+`sin(x)`, `log(x)` gibi fonksiyonlar için [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) veya [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) kullanın. Limitler için `lim` ifadesini bir [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) içine koyun veya [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) kullanın.
 
-![x'in sonsuza yaklaşırken limiti](powerpoint-math-equations_8.png)
+![x → ∞ limit ifadesi](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -201,7 +203,7 @@ try {
 }
 ```
 
-Özel bir fonksiyon adı için, fonksiyon adını mevcut öğe yapın ve [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) metodunu argümanıyla çağırın:
+Özel bir fonksiyon adı için, fonksiyon adını geçerli öğe yapın ve argümanıyla birlikte [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) çağrısını yapın:
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +211,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N-ary Operatörler ve İntegraller Ekle**
+## **N-ary Operatörler ve İntegraller Ekleme**
 
-[nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) toplama, birleşim, kesişim ve diğer büyük operatörler için kullanın. İntegraller için [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın. Her iki metod da alt ve üst limitleri ayarlamanıza izin verir.
+Toplamalar, birleşimler, kesişimler ve diğer büyük operatörler için [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın. İntegraller için [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın. Her iki yöntem de alt ve üst limitleri ayarlamanıza izin verir.
 
-![Alt ve üst limitli bir toplam](powerpoint-math-equations_7.png)
+![Alt ve üst limitli bir toplama örneği](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -240,9 +242,9 @@ try {
 }
 ```
 
-N-ary operatörler, isteğe bağlı limitli büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) şeklinde eklenir ve ifadeye birleştirilir.
+N-ary operatörler isteğe bağlı limitli büyük operatörler içindir. `+`, `-`, `=` gibi basit operatörler genellikle [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) ile eklenir ve ifadeye eklenir.
 
-Bir integral için, [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın:
+İntegral için [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın:
 
 ```java
 import com.aspose.slides.*;
@@ -251,9 +253,9 @@ IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("d
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Matrisler Ekle**
+## **Matrisler Ekleme**
 
-[Sıra ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) kullanın. Matrisler varsayılan olarak köşeli parantez içermez, bu yüzden parantez, köşeli parantez veya süslü parantez gerektiğinde matrisi kapsayın.
+Satır ve sütunlar için [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) kullanın. Matrisler varsayılan olarak parantez içermez; köşeli parantez, süslü parantez gibi ihtiyacınız olduğunda dışına ekleyin.
 
 ![Bir boş hücreli iki satırlı matematik matrisi](powerpoint-math-equations_10.png)
 
@@ -283,11 +285,62 @@ try {
 }
 ```
 
-## **Denklem Dizileri Ekle**
+### **Mevcut Bir Matrisi Düzenleme**
 
-[Hizalanmış denklemler veya dikey bir ifade yığını gerektiğinde [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) kullanın.
+`matrix.pptx` içinde katsayı matrisi bulunan bir lineer cebir dersi olduğunu varsayın. Sonraki egzersiz için ilk denklemi koruyun, ikincisini iki yeni denklemle değiştirin ve değişken setini güncelleyin. Kalan katsayıları tutmak için mevcut matrisi [IMathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/) aracılığıyla açın.
 
-![x'in y'nin üstünde bulunduğu dikey matematik dizisi](powerpoint-math-equations_11.png)
+![Orijinal iki satırlı katsayı matrisi: 1, x, (boş hücre) ve x, 2, y](matrix-before-edit.png)
+
+Satır ve sütun indeksleri sıfırdan başlar ve her çağrıda matrisin o anki durumuna göre referans olur. İndeks 1'den önce bir satır eklemek orijinal ikinci satırı indeks 2'ye taşır. İndeks 2'den sonra eklemek bir satır ekler. Satır 2'yi silmek orijinal ikinci denklemi kaldırır ve eklenen satırı bir konuma yukarı kaydırır. Sütunlar da aynı şekilde kayar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("matrix.pptx");
+try {
+    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IMathPortion portion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IMathMatrix matrix = (IMathMatrix) portion.getMathParagraph().get_Item(0).get_Item(0);
+
+    matrix.insertRowBefore(1);
+    matrix.insertRowAfter(2);
+    matrix.deleteRow(2);
+
+    matrix.insertColumnBefore(1);
+    matrix.insertColumnAfter(3);
+    matrix.deleteColumn(3);
+
+    // Yeni hücreler başlangıçta null'dur. Önce sıfır olmayan katsayıları ayarlayın.
+    matrix.set_Item(1, 0, new MathematicalText("12"));
+    matrix.set_Item(1, 1, new MathematicalText("1"));
+    matrix.set_Item(2, 2, new MathematicalText("10"));
+    matrix.set_Item(2, 3, new MathematicalText("1"));
+    for (int row = 0; row < matrix.getRowCount(); row++) {
+        for (int column = 0; column < matrix.getColumnCount(); column++) {
+            if (matrix.get_Item(row, column) == null) {
+                matrix.set_Item(row, column, new MathematicalText("0"));
+            }
+        }
+    }
+
+    matrix.setColumnAlignment(0, MathHorizontalAlignment.Left);
+    matrix.setColumnsAlignment(1, 3, MathHorizontalAlignment.Right);
+
+    presentation.save("updated-matrix.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[setColumnAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) ilk sütunu sola hizalar. [setColumnsAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) birden fazla sütunu sağa hizalar; burada üç ardışık sütun indeks 1'den başlar. `updated-matrix.pptx` içinde matris üç denklem ve dört değişken içerir. Orijinal ilk satır katsayıları `1` ve `x` şimdi birinci ve üçüncü sütunlarda yer alır.
+
+![Güncellenmiş üç satırlı matris: 1, 0, x, 0; 12, 1, 0, 0; ve 0, 0, 10, 1](matrix-after-edit.png)
+
+## **Denklem Dizileri Ekleme**
+
+Hizalanmış denklemler veya dikey yığılmış ifadeler gerektiğinde [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) kullanın.
+
+![x üstünde y bulunan dikey bir matematik dizisi](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -312,11 +365,11 @@ try {
 }
 ```
 
-### **Bir Diziyi Çevredeki Öğelerle Hizalama**
+### **Diziyi Çevreleyen Öğelerle Hizalama**
 
-[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) dizinin yanındaki matematiksel öğelere göre dikey hizalamasını kontrol eder. Aşağıdaki örnek, ilk satır, dizinin ortası ve son satır hizalamasını karşılaştırır.
+[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) dizinin dikey hizalamasını yanındaki matematik öğelerine göre ayarlar. Aşağıdaki örnek, ilk satır, dizinin ortası ve son satır hizalamasını karşılaştırır.
 
-Aşağıdaki örnek, üç satır ve komşu öğeler `A=` ve `=B` ile üç aynı dizi oluşturur. Tüm matematik metni Cambria Math 24 punto kullanır. Sadece dizi hizalaması değişir.
+Aşağıdaki örnek üç aynı diziyi oluşturur; her biri üç satır ve komşu öğeler `A=` ve `=B` içerir. Tüm matematik metni Cambria Math, 24 punto. Sadece dizi hizalaması değişir.
 
 ```java
 import com.aspose.slides.*;
@@ -372,17 +425,17 @@ try {
 }
 ```
 
-Aşağıdaki karşılaştırma, PowerPoint'te kaydedilmiş sunumu gösterir. `A=` ve `=B` konumuna her dizinin yanında dikkat edin.
+Aşağıdaki karşılaştırma, PowerPoint'te kaydedilen sunumu gösterir. `A=` ve `=B` öğelerinin her dizi yanında konumuna bakın.
 
-![Üst, orta ve alt hizalama ile aynı komşu öğelere sahip PowerPoint denklem dizileri](equation-array-alignment.png)
+![Üst, orta ve alt hizalama gösteren PowerPoint denklem dizileri](equation-array-alignment.png)
 
-### **Satır Aralığını Yapılandır**
+### **Satır Aralığını Yapılandırma**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) dizi içindeki satırların aralık kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) belirli bir aralık kuralı için sayısal değer sağlar ve ön tanımlı kurallar tarafından yok sayılır.
+[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) dizi içindeki satırların aralık kuralını seçer. [setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) açık bir aralık kuralı için sayısal değer sağlar ve ön ayar kuralları tarafından yok sayılır.
 
-Tam aralık için değer puan cinsinden ölçülür. Orantısal aralık için yarım satır cinsinden ölçülür: örnekte `3` değeri 1.5 satır anlamına gelir. Belirli bir değer belirtirken her iki özelliği de ayarlayın; yalnızca sayısal değeri değiştirmek aralık kuralını seçmez.
+Kesin aralık için değer point cinsindendir. Orantısal aralık için değer yarım satırdır: örnekte `3` değeri 1,5 satır demektir. Açık bir değer belirtirken her iki özelliği de ayarlayın; sadece sayısal değeri değiştirmek aralık kuralını seçmez.
 
-Aşağıdaki örnek, aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları kullanır; son ikisi açık değerleri gösterir.
+Aşağıdaki örnek aynı denklemler, hizalama ve yazı tipi ayarlarıyla beş sunum kaydeder. İlk üçü ön ayarları, son ikisi açık değerleri gösterir.
 
 ```java
 import com.aspose.slides.*;
@@ -431,13 +484,13 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-Dizi satır aralığı, paragraf aralığından ayrıdır. [setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) diziyi kapsayan paragrafın etrafına boşluk ekler, dizi satırları arasında değil. Benzer şekilde, [IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) tüm matematik paragrafını yatay olarak konumlandırır; dizi dikey hizalama ayarını değiştirmez.
+Dizi satır aralığı paragraf aralığından ayrıdır. [setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) içeren paragrafın etrafına boşluk ekler, dizi satırları arasına değil. Aynı şekilde, [IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) tüm matematik paragrafını yatay konumlandırır; dizi dikey hizalama ayarını değiştirmez.
 
-## **Trigonometrik Fonksiyonlar Ekle**
+## **Trigonometrik Fonksiyonlar Ekleme**
 
-[argüman mevcut öğe olduğunda ve fonksiyon adı bilindiğinde [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) kullanın.]
+Argüman geçerli öğe ve fonksiyon adı biliniyorsa [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) kullanın.
 
-![cos fonksiyonunun 2x'e uygulanması](powerpoint-math-equations_6.png)
+![cos fonksiyonunun 2x üzerine uygulanması](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -461,11 +514,11 @@ try {
 }
 ```
 
-## **Alt Simge ve Üst Simge Ekle**
+## **Alt ve Üst İndeksler Ekleme**
 
-Alt ve üst simge yardımcılarını indeksler ve üstler için kullanın. İndekslerin tabanın sol tarafında görünmesi gerektiğinde, [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın.
+İndeks ve üst değerler için alt ve üst indeks yardımcılarını kullanın. İndeksler tabanın sol tarafında görünmeliyse [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) kullanın.
 
-![Sol taraflı alt 1 ve üst n ile büyük Y harfi](powerpoint-math-equations_9.png)
+![Sol taraflı alt indeks 1 ve üst indeks n ile büyük Y harfi](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -489,9 +542,9 @@ try {
 }
 ```
 
-## **Sınırlayıcılar Ekle**
+## **Sınırlayıcılar Ekleme**
 
-[enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) kullanarak bir ifadeyi sınırlayıcılar içine koyun. Birden fazla öğe içeren sınırlayıcı ifadeler için ayırıcı karakter de ayarlayabilirsiniz.
+İfadenin etrafına sınırlayıcı koymak için [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) kullanın. Birden fazla öğe içeren sınırlayıcı ifadeler için bir ayırıcı karakter de ayarlayabilirsiniz.
 
 ![x, y ve z'yi dikey çubuklarla ayıran bir sınırlayıcı ifadesi](powerpoint-math-equations_13.png)
 
@@ -520,11 +573,11 @@ try {
 }
 ```
 
-### **Sınırlayıcıların Boyutu ve Hizalaması**
+### **Sınırlayıcıların Boyutu ve Hizalanması**
 
-[setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-)’e `true` göndererek parantezlerin yüksek bir operanda göre büyümesini sağlayın, `false` göndererek normal boyutta kalmasını sağlayın. [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) metodunu iki [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) değerinden biriyle kullanın. `Centered` parantezleri matematik ekseninde, eşit işaretinin ortasından geçecek şekilde ortalar. `Match` ise içeriğe göre hizalar. Her iki ayar da yalnızca sınırlayıcıları etkiler. İçteki ifade aynı kalır.
+Parantezlerin yüksek bir işleç etrafında büyümesini sağlamak için [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) metoduna `true` geçin; normal boyutta kalması için `false` geçin. [setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) ile iki [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) değerinden birini seçin. `Centered` parantezleri matematik ekseninde (eşittir işaretinin ortasından) ortalar. `Match` ise içeriğe göre hizalar. Her iki ayar yalnızca sınırlayıcıları etkiler; iç ifadeyi değiştirmez.
 
-Örnek, `x` üssüne bir kesir koyar, böylece ifade alt çizgiye göre daha fazla yukarı uzanır. Dört denklem de aynı parantez ve yazı tipi ayarlarını kullanır.
+Örnek, bir kesiri `x` üstüne koyar; böylece ifade taban çizgisinin üzerinde daha uzun uzanır. Dört denklem aynı parantez ve yazı tipi ayarlarını kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -553,15 +606,15 @@ try {
 }
 ```
 
-PowerPoint'te, büyüme etkisini görmek için satırları karşılaştırın. Üst satırda, parantezler üssü kapsayacak şekilde büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır. Soldaki daha küçük parantez (`Centered`) eşit işaretiyle hizalanırken, sağdaki (`Match`) ifade etrafında daha yüksek durur.
+PowerPoint'te satırları karşılaştırarak büyüme etkisini görebilirsiniz. Üst satırda parantezler üst ifadeyi kapsayacak şekilde büyür ve iki şekil de benzer görünür. Alt satırda büyüme kapalıdır. Sol taraftaki daha küçük parantez (`Centered`) eşittir işaretiyle hizalanırken, sağdaki (`Match`) ifadeyi daha yüksek tutar.
 
-![Üstte büyüme açık, altta kapalı, solda Centered ve sağda Match olan dört denklem](delimiter-sizing.png)
+![Üstte büyüme açık, altta kapalı, solda Centered, sağda Match olan dört denklem](delimiter-sizing.png)
 
-## **Sınır Kutusu Ekle**
+## **Kenarlıklı Kutular Ekleme**
 
-[toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) bir kesir üzerinde çağırarak tüm ifadeyi çerçevelendirin. Dönen [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) varsayılan olarak dört yanını gösterir. Tek tek yanları kaldırmak için [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), ve [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) kullanın.
+Bir kesirin tüm ifadesini çerçevelemek için [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) çağırın. Döndürülen [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) varsayılan olarak dört kenarı gösterir. Tek tek kenarları kaldırmak için [setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) kullanın.
 
-Örnek, aynı kesirin altı kopyasını bir slayta yerleştirir. İptal etmeyi göstermek için tüm dört yanını gizleyip, artan çapraz (`↗`) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) uygulayın, ya da düşen çapraz (`↘`) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) kullanın. Ayrıca, görünür yanlarla birlikte herhangi bir kombinasyon için [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) veya [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) kullanılabilir.
+Örnek aynı kesirin altı kopyasını bir slayda yerleştirir. İptal göstermek için tüm dört kenarı gizleyip, yükselen diyagonal (↗) için [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-), düşen diyagonal (↘) için [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) metoduna `true` geçin. Ayrıca [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) veya [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) ile herhangi bir kenar birleşimini kullanabilirsiniz.
 
 ```java
 import com.aspose.slides.*;
@@ -606,22 +659,24 @@ try {
 }
 ```
 
-![Tam kenarlık, alt ve sol kenarlar, artan çapraz; alt satırda düşen çapraz, yatay çizgi, tam kenarlıklı dikey çizgi](border-box-fractions.png)
+![Altı düzenlenebilir kesir: üst satır tam kenar, alt ve sol kenar, yükselen diyagonal; alt satır düşen diyagonal, yatay çizgi, dikey çizgi ve tam kenar](border-box-fractions.png)
 
-Bu kesirde, yatay çizgi kesir çubuğu üzerine gelir. Dikey çizgi, hem payı hem de paydayı keserken çevreleyen kenar görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üstü çizgisi, bir metin yürütüsündeki karakterlere uygulanır. Sunumu PowerPoint'te yeniden açtıktan sonra, pay ve payda bağımsız olarak düzenlenebilir.
+Bu kesirde yatay çizgi kesir çubuğunun üstüne gelir. Dikey çizgi hem sayıyı hem de paydayı keserken çevre kenarı görünür kalır. Bu çizgiler tüm ifadeyi süsler. Normal metin üzeri çizgi karakter çalıştırır; sunum PowerPoint'te yeniden açıldığında sayıyı ve paydayı bağımsız olarak düzenleyebilirsiniz.
 
-## **Phantom Öğelerle Görünürlük ve Yerleşimi Kontrol Et**
+## **Hayalet (Phantom) Öğelerle Görünürlük ve Yerleşimi Kontrol Etme**
 
-Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) ile sararak görünürlüğünü ve denkleme katkıda bulunduğu alanı bağımsız olarak kontrol edebilirsiniz. [IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) metodları aşağıdakileri kontrol eder:
+Bir ifadeyi [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) içinde sararak görünürlüğünü ve denklemde kapladığı boşluğu bağımsız olarak kontrol edebilirsiniz. [IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) metodları aşağıdakileri yönetir:
 
-| Metot | Etkisi |
+| Metod | Etki |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | İfade gizlemek için `false` geçirin. İfadenin boyutları, aşağıdaki ilgili metodlar `true` almadıkça yerleşime katkıda bulunur. |
-| [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | İfadenin yatay genişliğini sıfır olarak kabul edin, böylece komşu öğeler daha yakın hareket eder. |
-| [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | Üst sınırını, yani taban çizgisinin üzerindeki yüksekliği, sıfır olarak kabul edin. Bu, komşu öğelerin üzerindeki ayrılan boşluğu azaltabilir. |
-| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | Alt sınırını, yani taban çizgisinin altındaki derinliği, sıfır olarak kabul edin. Bu, ifadeye ait bir kesir çubuğu veya diğer içeriği komşularına daha yakın taşıyabilir. |
+| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | `false` verirseniz ifade gizlenir. Boyutları, altındaki yöntem `true` yapılmadıkça yerleşmeye katkıda kalır. |
+| [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | İfadenin yatay genişliğini sıfır sayar, komşu öğelerin daha yakın gelmesini sağlar. |
+| [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | Üst kısmının (baseline üzerindeki yükseklik) sıfır sayılmasını sağlar. Bu, komşu öğelerin üzerindeki boşluğu azaltabilir. |
+| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | Alt kısmının (baseline altındaki derinlik) sıfır sayılmasını sağlar. Bu, bir kesir çubuğu gibi içeriğin altındaki boşluğu komşulara yaklaştırabilir. |
 
-Taban çizgisi, normal matematiksel harflerin oturduğu referans çizgisidir. İçeriği gizlemek boyutları kaldırmaz, bir boyutu sıfır olarak kabul etmek ifadeyi silmez. Alttaki ifade [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--) aracılığıyla hâlâ erişilebilir. [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-)'ı `true` yaparak tekrar görüntüleyebilirsiniz; boyut ayarları değişmeden kalır.
+Baseline, normal matematik harflerinin oturduğu referans çizgidir. İçeriği gizlemek boyutları silmez; bir boyutu sıfır saymak ifadeyi silmez. Altındaki ifade [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--) ile ulaşılabilir. Tekrar göstermek için [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) metoduna `true` geçin; boyut ayarları değişmeden kalır.
+
+Aşağıdaki örnek beş yan yana varyant oluşturur: görünür bir kesir, alan ayıran gizli bir kesir ve bir boyutu sıfır olan üç gizli kesir. Her varyant aynı çevre ifadesi ve Cambria Math, 24 punto kullanır. Tüm denklem şekilleri aynı üst konuma sahiptir; gri kılavuzla işaretlenmiştir. Hayaleti dış kesirin paydasına koymak, dikey yerleşim değişikliklerini görmeyi kolaylaştırır.
 
 ```java
 import com.aspose.slides.*;
@@ -690,13 +745,13 @@ try {
 }
 ```
 
-![Görünür kesir, alan ayıran gizli kesir ve ZeroWidth, ZeroAsc veya ZeroDesc etkinleştirilmiş gizli kesirlerin karşılaştırması](math-phantom.png)
+![Görünür kesir, alan ayıran gizli kesir ve ZeroWidth, ZeroAsc ya da ZeroDesc etkin olan gizli kesirleri karşılaştıran beş denklem](math-phantom.png)
 
 ## **Terimleri Gruplama**
 
-[group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) kullanarak bir ifade üzerinde ya da altında grup karakteri yerleştirin. Gruplanan terimleri etiketlemek için bir limit ekleyin.
+[group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) kullanarak bir grup karakterini bir ifadenin üzerine veya altına yerleştirin. Grupları etiketlemek için bir limit ekleyin.
 
-![x + y ifadesi, altında “any text” etiketiyle gruplanmış](powerpoint-math-equations_15.png)
+![x + y ifadesi altına “any text” etiketi eklenmiş](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -723,9 +778,9 @@ try {
 
 ## **Matematik Öğelerini Biçimlendirme**
 
-Biçimlendirme yardımcıları yalnızca formülü açıklığa kavuşturduğunda kullanılmalıdır. Örneğin, [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) bir matematik öğesinin üstüne bir çubuk ekler.
+Yalnızca formülü netleştiren yerlerde biçimlendirme yardımcılarını kullanın. Örneğin, [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) bir öğenin üzerine çubuk koyar.
 
-![ABC ifadesi üzerinde bir üst çubuk](powerpoint-math-equations_14.png)
+![Üstünde çubuk bulunan ABC matematik ifadesi](powerpoint-math-equations_14.png)
 
 ```java
 import com.aspose.slides.*;
@@ -748,11 +803,11 @@ try {
 }
 ```
 
-### **Mevcut Bir Denklemde Metni Biçimlendirme**
+### **Mevcut Bir Denklemde Metin Biçimlendirme**
 
-Mevcut bir denklemdeki metni biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) yalnızca doğrudan çocukları döndürür; bu yüzden kesir, üst‑alt simgeler, kökler ve diğer iç içe yapılar içindeki metne ulaşmak için özyinelemeli olarak çağırın. Başlangıç öğesi [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) olduğunda da onu da kontrol edin.
+Mevcut bir denklemi tamamen biçimlendirmek için her matematik bloğunun öğe ağacını dolaşın. [IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) yalnızca doğrudan çocukları döndürür; bu yüzden kesirler, üst/alt indisler, kökler ve diğer iç içe yapılar içinde metne ulaşmak için yinelemeli olarak çağırın. Başlangıç öğesi de [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) olduğunda dahil edilmelidir.
 
-Bu örnek, `input.pptx` dosyasının `z = xᵢ / ∛y` gibi bir denklem içerdiğini varsayar; burada pay kısmında alt simge, payda kısmında kök bulunur. Yalnızca blokların üst düzey öğelerini işlemek kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklarına [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) ile erişir ve [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) kullanarak her metin öğesinin [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) metodu aracılığıyla yazı tipi boyutunu 28 puana ayarlar.
+Bu örnek, `input.pptx` içinde `z = xᵢ / ∛y` gibi bir denklem olduğunu varsayar; kesirde payda içinde bir alt indis, payda içinde bir kök bulunur. Sadece blokların üst düzey öğelerini işlemek, kesir içindeki metni kaçırır. Örnek, slayt metin çerçevelerindeki matematik bölümlerini bulur, bloklara [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) ile erişir ve her metin öğesinin [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) metodunu çağırarak [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) ile yazı boyutunu 28 punto yapar.
 
 ```java
 import com.aspose.slides.*;
@@ -803,37 +858,37 @@ try {
 }
 ```
 
-Kaydedilen sunum, işlenen her denklemin her seviyesinde güncellenmiş metin biçimlendirmesini içerir; metin içeriği ve matematiksel yapı korunur.
+Kaydedilen sunum, işlenen her denklemin her seviyesinde güncellenmiş metin biçimlendirmesini içerir; metin içeriği ve matematik yapısı korunur.
 
 ## **Hızlı Referans**
 
 | Görev | Ana API |
 | --- | --- |
-| Matematik metni oluştur | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
-| Öğeleri birleştir | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
-| Kesirler oluştur | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| Üst simge veya alt simge ekle | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
-| Fonksiyonlar ekle | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| Kökler ekle | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| Limitler ekle | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| Sol taraflı üst/alt simgeler ekle | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| Toplamlar ve integraller ekle | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| Matrisler ekle | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
-| Denklem dizileri ekle | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
-| Sınırlayıcılar ekle | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| Çubuklar ve kenarlıklar ekle | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| Matematik metni oluşturma | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
+| Öğeleri birleştirme | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
+| Kesir oluşturma | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
+| Üst/kAlt indis ekleme | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| Fonksiyon ekleme | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| Kök ekleme | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| Limit ekleme | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| Sol taraflı üst/alt indis ekleme | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Toplamalar ve integraller ekleme | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Matris ekleme | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
+| Denklem dizileri ekleme | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
+| Sınırlayıcı ekleme | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| Çubuk ve kenarlık ekleme | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | Terimleri gruplama | [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
 ## **SSS**
 
-**Mevcut bir PowerPoint denklemini düzenleyebilir miyim?**
+**Mevcut bir PowerPoint denklemine düzenleme yapabilir miyim?**
 
-Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) içeren şekli bulun, [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) çağırın ve o paragraftaki matematik bloklarını güncelleyin.
+Evet. Sunumu açın, bir [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) içeren şekli bulun, [getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) metodunu çağırın ve o paragraftaki matematik bloklarını güncelleyin.
 
-**Denklemler düzenlenebilir PowerPoint math olarak kaydediliyor mu?**
+**Denklikler düzenlenebilir PowerPoint matematiği olarak kaydediliyor mu?**
 
-Evet. PPTX olarak kaydettiğinizde, Aspose.Slides denklemi düzenlenebilir Office math içeriği olarak yazar.
+Evet. PPTX olarak kaydettiğinizde Aspose.Slides denklemi düzenlenebilir Office matematik içeriği olarak yazar.
 
-**Denklemleri LaTeX'e dışa aktarabilir miyim?**
+**Denklikleri LaTeX'e dışa aktarabilir miyim?**
 
-Evet. Denklemin [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) nesnesini [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/) üzerinden alın ve doğrudan dışa aktarmak için [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) metodunu çağırın. Tam bir örnek için, [Sunumlardan Matematik Denklemlerini Java ile Dışa Aktarma](/slides/tr/java/exporting-math-equations/#export-math-equations-to-latex) bölümüne bakın.
+Evet. Denklemin [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) nesnesini, ilgili [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/) aracılığıyla alın ve doğrudan dışa aktarmak için [IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) metodunu çağırın. Tam örnek için bakın [Sunumlardan Java'da Matematik Denklemlerini Dışa Aktarma](/slides/tr/java/exporting-math-equations/#export-math-equations-to-latex).
