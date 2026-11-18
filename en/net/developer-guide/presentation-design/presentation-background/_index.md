@@ -284,3 +284,7 @@ Yes. Remove the slide’s custom fill, and the background will be inherited agai
 ### What happens to the background if I change the presentation’s theme later?
 
 If a slide has its own fill, it will remain unchanged. If the background is inherited from the [layout](/slides/net/slide-layout/)/[master](/slides/net/slide-master/), it will update to match the [new theme](/slides/net/presentation-theme/).
+
+### Can I use HTML color codes or integer RGB values to set dynamic background colors in PowerPoint?
+
+No. Aspose.Slides for .NET does not support setting background colors using HTML color codes (e.g., "#FF0000") or integer RGB values. Background colors must be specified using `System.Drawing.Color` objects.
