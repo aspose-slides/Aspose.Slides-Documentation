@@ -1,6 +1,6 @@
 ---
-title: .NET'te PowerPoint Sunumu Grafiklerini Oluşturma veya Güncelleme
-linktitle: Grafik Oluşturma veya Güncelleme
+title: PowerPoint Sunum Grafiklerini .NET'te Oluşturma veya Güncelleme
+linktitle: Grafikleri Oluşturma veya Güncelleme
 type: docs
 weight: 10
 url: /tr/net/create-chart/
@@ -10,51 +10,51 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılım grafiği
-- pasta grafiği
-- çizgi grafiği
-- ağaç haritası grafiği
-- hisse senedi grafiği
-- kutu ve bıyık grafiği
-- huni grafiği
-- güneş patlaması grafiği
-- histogram grafiği
-- radar grafiği
+- dağılım grafik
+- pasta grafik
+- çizgi grafik
+- ağaç harita grafik
+- hisse senedi grafik
+- kutu ve bıyık grafik
+- huni grafik
+- güneş patlaması grafik
+- histogram grafik
+- radar grafik
 - çok kategorili grafik
 - PowerPoint
 - sunum
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. Grafik ekleyin, biçimlendirin ve C#'ta pratik kod örnekleriyle düzenleyin."
+description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. Grafik ekleyin, biçimlendirin ve C# örnek kodlarıyla düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Slayta programlı olarak bir grafik eklemeyi, verileri doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve lejandları yapılandırmaya kadar her adımı gösteren detaylı kod örnekleri bulunur. Bu rehberi izleyerek, .NET uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides for .NET kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve açıklamaları yapılandırmaya kadar her adımı ayrıntılı kod örnekleriyle gösterir. Bu rehberi izleyerek, .NET uygulamalarınıza dinamik grafik oluşturmayı entegre etmeyi ve veri odaklı sunumlar oluşturma sürecini hızlandırmayı sağlam bir şekilde öğreneceksiniz.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirerek bir tablo ya da çalışma sayfasından hemen anlaşılmayan içgörüleri ortaya çıkarmaya yardımcı olur.
+Grafikler, verileri hızlı bir şekilde görselleştirerek, bir tablo veya elektronik tablodan hemen anlaşılmayabilecek içgörüler elde etmeye yardımcı olur.
 
-**Grafikler Neden Oluşturulmalı?**
+**Grafik Neden Oluşturulmalı?**
 
-Grafikler kullanarak:
+Grafik kullanarak:
 
-* bir sunumdaki tek bir slayta büyük miktarda veriyi toplulaştırabilir, sıkıştırabilir veya özetleyebilirsiniz;
-* verilerdeki kalıpları ve eğilimleri ortaya çıkarabilirsiniz;
-* belirli bir ölçü birimiyle zaman içinde veya karşılaştırmalı olarak verinin yönünü ve ivmesini belirleyebilirsiniz;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit edebilirsiniz;
-* karmaşık verileri iletişim kurmak veya sunmak için kullanabilirsiniz.
+* bir sunumdaki tek bir slaytta büyük miktarda veriyi toplamak, sıkıştırmak veya özetlemek;
+* verideki kalıpları ve eğilimleri ortaya çıkarmak;
+* zaman içinde veya belirli bir ölçü birimiyle ilişkili olarak verinin yönünü ve ivmesini çıkarmak;
+* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
+* karmaşık verileri iletişim kurmak veya sunmak.
 
-PowerPoint'te, birçok grafik türü tasarlamak için şablonlar sunan *Insert* işleviyle grafik oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint'te, *Insert* işlevi aracılığıyla grafikler oluşturabilir ve bu işlev birçok grafik türü tasarlamak için şablonlar sunar. Aspose.Slides kullanarak hem standart grafikler (popüler grafik türlerine dayalı) hem de özel grafikler oluşturabilirsiniz.
 
 {{% alert color="info" title="Note" %}}
-Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+Bu sayfadaki [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) numaralandırmasını, [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) ad alanı altında kullanın. Bu numaralandırmadaki değerler farklı grafik türlerine karşılık gelir.
 {{% /alert %}}
 
-### **Kümelenmiş Sütun Grafikler Oluşturma**
+### **Kümelenmiş Sütun Grafiklerini Oluşturun**
 
-Bu örnek, iki seriyi üç kategori boyunca karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. Seriler kırmızı ve yeşil dolgu renklerine sahiptir ve bireysel etiketler kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfayı ifade eder.
+Bu örnek, iki seriyi üç kategori üzerinden karşılaştıran bir kümelenmiş sütun grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. Seriler kırmızı ve yeşil dolgu renkleriyle, bireysel etiketler ise kategori adlarını, seri adlarını ve değerleri gösterir. Çalışma sayfası indeksi 0, gömülü grafik çalışma kitabındaki ilk sayfaya karşılık gelir.
 
 ```csharp
 using System.Drawing;
@@ -130,20 +130,20 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Kümelenmiş Sütun grafiği](clustered_column_chart.png)
+![Kümelenmiş Sütun Grafiği](clustered_column_chart.png)
 
-### **Dağılım Grafikler Oluşturma**
+### **Dağılım Grafiklerini Oluşturun**
 
-Dağılım grafikler (diğer adıyla scatter plot veya x‑y grafiği), iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için sıkça kullanılır.
+Dağılım grafikleri (dağılım diyagramları veya x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki kalıpları kontrol etmek veya ilişkileri göstermek için kullanılır.
 
-Aşağıdaki durumlarda dağılım grafiği kullanın:
+Dağılım grafiği kullanın:
 
-* Eşleştirilmiş sayısal verileriniz varsa.
-* Birlikte iyi çalışan iki değişkeniniz varsa.
-* İki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız.
-* Bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz varsa.
+* Sayısal eşleştirilmiş verileriniz var.
+* Birlikte iyi eşleşen iki değişkeniniz var.
+* Bu iki değişkenin ilişkili olup olmadığını belirlemek istiyorsunuz.
+* Bağımlı bir değişken için birden çok değere sahip bağımsız bir değişkeniniz var.
 
-Bu örnek iki x‑y değer seti çizer. İlk seri yıldız işaretçili düz çizgiler kullanırken, ikinci seri yuvarlak işaretçili yumuşak çizgiler kullanır; her ikisi de 10 [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) değerine sahiptir. [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) özelliği işaretçi şeklinin kontrolünü sağlar.
+Bu örnek, iki set x‑y değeri çizer. İlk seri, yıldız işaretli düz çizgiler kullanırken, ikinci seri dairesel işaretli yumuşak çizgiler kullanır; her ikisi de [Size](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/size/) değeri 10 alır. [Symbol](https://reference.aspose.com/slides/net/aspose.slides.charts/imarker/symbol/) özelliği işaretçi şeklini kontrol eder.
 
 ```csharp
 using Aspose.Slides;
@@ -206,13 +206,13 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Dağılım grafiği](scatter_chart.png)
+![Dağılım Grafiği](scatter_chart.png)
 
-### **Pasta Grafikler Oluşturma**
+### **Pasta Grafiklerini Oluşturun**
 
-Pasta grafikler, özellikle veri kategorik etiketler ile sayısal değerler içerdiğinde, parça‑bütün ilişkisini göstermek için en uygunudur. Ancak veri çok sayıda parça ya da etiket içeriyorsa, çubuk grafik kullanmayı düşünmelisiniz.
+Pasta grafikleri, özellikle kategorik etiketleri sayısal değerlerle içeren verilerde parçanın bütüne oranını göstermek için en iyi seçenektir. Ancak verinizde çok sayıda parça veya etiket varsa, çubuk grafik kullanmayı düşünebilirsiniz.
 
-Bu örnek, üç çeyrek değeri içeren bir pasta grafiği oluşturur. Her dilim özelleştirilmiş dolgu ve kenarlığa sahiptir; etiketler değer, yüzde ve seri bilgilerini farklı kombinasyonlarda gösterir. [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) özelliği ilk dilimin 180 derece başlamasını sağlar.
+Bu örnek, üç çeyrek değer içeren bir pasta grafik oluşturur. Her dilim özel bir dolgu ve kenarlık alır ve etiketler farklı değer, yüzde ve seri kombinasyonlarını gösterir. [FirstSliceAngle](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/firstsliceangle/) özelliği ilk dilimin 180 derece başlamasını ayarlar.
 
 ```csharp
 using System.Drawing;
@@ -308,15 +308,15 @@ presentation.Save("PieChart.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Pasta grafiği](pie_chart.png)
+![Pasta Grafiği](pie_chart.png)
 
-Etiketlerin dışarıda okunabilirliğini artırmak için, etiketleri konumlandıran ve çizgi renk, genişlik, şeffaflık ve kesikli stilini özelleştiren bir örnek için [Format Leader Lines](/slides/tr/net/chart-data-label/#format-leader-lines) bölümüne bakın.
+Pasta dışındaki etiketlerin okunabilirliğini artırmak için, etiketleri konumlandıran ve çizgilerin renk, genişlik, şeffaflık ve kesikli stilini özelleştiren bir örnek için [Format Leader Lines](/slides/tr/net/chart-data-label/#format-leader-lines) bölümüne bakın.
 
-### **Çizgi Grafikler Oluşturma**
+### **Çizgi Grafiklerini Oluşturun**
 
-Çizgi grafikler (diğer adıyla çizgi grafikleri), değer değişimlerini zaman içinde göstermek istediğiniz durumlarda en uygunudur. Çizgi grafik kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikleri (çizgi diyagramları olarak da bilinir), değerin zaman içinde değişimini göstermek istediğiniz durumlarda en iyi seçenektir. Çizgi grafiği kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içinde değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
 
-Bu örnek, varsayılan seri ve kategorilere sahip bir çizgi grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir çizgi grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır, ardından sunumu PPTX olarak kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -331,7 +331,7 @@ var lineChart = slide.Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 ```
 
-Varsayılan olarak, bir çizgi grafiğindeki noktalar kesintisiz düz çizgilerle bağlanır. Noktaların tireli çizgilerle bağlanmasını isterseniz, [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) özelliğini [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) içindeki bir değere ayarlayın:
+Varsayılan olarak, çizgi grafiğindeki noktalar düz kesintisiz çizgilerle birleştirilir. Noktaların tireli çizgilerle birleştirilmesini istiyorsanız, [DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) özelliğini [LineDashStyle](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) içindeki bir değere ayarlayın:
 
 ```csharp
 using Aspose.Slides;
@@ -350,13 +350,13 @@ foreach (var series in lineChart.ChartData.Series)
 
 Sonuç:
 
-![Çizgi grafiği](line_chart.png)
+![Çizgi Grafiği](line_chart.png)
 
-### **Ağaç Haritası Grafikler Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturun**
 
-Ağaç haritası grafikler, satış verileri gibi kategori boyutlarını göreceli olarak göstermek ve her kategoride büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en uygunudur.
+Ağaç haritası grafikleri, veri kategorilerinin göreli boyutlarını göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek için en iyi seçenektir.
 
-Bu örnek, dört sap ve iki dal içinde gruplanmış sekiz yaprak içeren bir ağaç haritası oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. seviyedeki sapları ve 2. seviyedeki dalları atar. Değerler, göreceli dikdörtgen boyutlarını belirler; kategori etiketleri ve üst etiketler hiyerarşiyi gösterir.
+Bu örnek, dört dal ve iki şubeye gruplanmış sekiz yaprak içeren bir ağaç haritası oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, birinci seviyede dalları ve ikinci seviyede şubeleri atar. Değerler, göreli dikdörtgen boyutlarını belirlerken, kategori etiketleri ve üst üste binen ebeveyn etiketleri hiyerarşiyi gösterir.
 
 ```csharp
 using Aspose.Slides;
@@ -432,26 +432,26 @@ presentation.Save("Treemap.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Ağaç haritası grafiği](treemap_chart.png)
+![Ağaç Haritası Grafiği](treemap_chart.png)
 
-### **Şelale Grafikler Oluşturma**
+### **Şelale Grafiklerini Oluşturun**
 
-Şelale grafik, pozitif ve negatif değişikliklerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kar dağılımı gelirle başlayıp maliyetleri çıkararak ve diğer gelirleri ekleyerek ilerleyebilir. Değişim sütunları önceki ve yeni çalışan değerler arasında süzülürken, toplam sütunlar sıfırdan birikimli değere uzanır.
+Şelale grafiği, pozitif ve negatif değişikliklerin nihai değere nasıl katkıda bulunduğunu gösterir. Örneğin, bir kâr dağılımı gelirle başlayıp maliyetleri çıkarır ve diğer gelirleri ekler. Değişim sütunları önceki ve yeni yürürlükteki değerler arasında süzülürken, toplam sütunlar sıfırdan birikmiş değere kadar uzanır.
 
-Aşağıdaki örnek, bin ABD doları cinsinden tutarları kullanır:
+Aşağıdaki örnek bin dolar cinsinden tutarları kullanır:
 
 | Kategori | Çalışma kitabı değeri | Sütun tipi |
 | --- | ---: | --- |
 | Gelir | 1000 | Artış |
-| Satış maliyeti | -400 | Azalış |
+| Satış Maliyeti | -400 | Azalış |
 | Brüt kar | 600 | Ara toplam |
 | Faaliyet giderleri | -200 | Azalış |
 | Diğer gelir | 50 | Artış |
 | Net kar | 450 | Son toplam |
 
-Bir noktayı ara toplam ya da son toplam olarak işaretlemek için, [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) özelliğini `true` olarak ayarlayın. O noktaya ait çalışma kitabı hücresine gerçek birikimli tutarı girin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Özellik, sütunu toplam olarak işaretler; hücre değerini hesaplamaz ya da doldurmaz. Sıfırı yer tutucu olarak kullanmayın ya da toplam noktasına başka bir değişim eklemeyin. Toplam sütun, birikimli değeri ek bir kez daha eklemeden gösterir.
+Bir noktayı ara toplam veya son toplam olarak işaretlemek için [SetAsTotal](https://reference.aspose.com/slides/net/aspose.slides.charts/chartdatapoint/setastotal/) özelliğini `true` olarak ayarlayın. O noktadaki gerçek birikimli tutarı çalışma kitabı hücresinde belirtin: brüt kar için `600` (`1000 - 400`) ve net kar için `450` (`600 - 200 + 50`). Özellik sütunu toplam olarak işaretler; hücre değerini hesaplamaz veya doldurmaz. Sıfırı yer tutucu olarak kullanmayın veya toplam noktası için başka bir değişim sağlamayın. Toplam sütun birikimli değeri gösterir, ancak değeri tekrar yürürlükteki değere eklemez.
 
-Bu tam C# örneği, [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) üyesi `Waterfall` kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk sayfayı seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) ile eklenir. Sıfır‑tabanlı nokta indeksleri `2` ve `5` ara ve son toplamları tanımlar. [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) etkinleştirildiğinde, tutarlar sütunlarda gösterilir. Giriş sunumu ya da çalışma kitabı gerekmez.
+Bu tam C# örneği, [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) içindeki `Waterfall` üyesini kullanarak bir grafik oluşturur, varsayılan verileri temizler ve gömülü çalışma kitabını doldurur. Çalışma sayfası indeksi `0` ilk çalışma sayfasını seçer; A sütunu kategori adlarını, B sütunu değerleri içerir. Her değer hücresi, [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/) ile eklenir. Sıfır tabanlı nokta indeksleri `2` ve `5` ara ve son toplamları tanımlar. [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) etkinleştirildiğinde tutarlar sütunlarda gösterilir. Giriş sunumu veya çalışma kitabı gerekmez.
 
 ```csharp
 using Aspose.Slides;
@@ -489,7 +489,7 @@ for (var i = 0; i < categories.Length; i++)
     series.DataPoints.AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Üçüncü ve altıncı noktalar toplamları temsil eder, ek değişiklikler değildir.
+// Üçüncü ve altıncı noktalar ek değişiklikler değil, toplamları temsil eder.
 series.DataPoints[2].SetAsTotal = true;
 series.DataPoints[5].SetAsTotal = true;
 series.ShowConnectorLines = true;
@@ -498,19 +498,26 @@ series.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("WaterfallChart.pptx", SaveFormat.Pptx);
 ```
 
-Seri‑seviyesi [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) özelliğini `true` yaparak ardışık sütunları bağlayan çizgileri gösterin ve çalışan değerin takibini kolaylaştırın. Bu çizgileri gizlemek için örnekteki atamayı `series.ShowConnectorLines = false;` olarak değiştirip kaydedin. Bu yalnızca çizgi görünürlüğünü değiştirir, veri ya da toplamları etkilemez.
+Seri düzeyinde [ShowConnectorLines](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/showconnectorlines/) özelliğini `true` yapmak, ardışık sütunları birleştiren çizgileri gösterir ve yürürlükteki değerin izlenmesini kolaylaştırır. Bu çizgileri gizlemek için örnekteki atamayı `series.ShowConnectorLines = false;` ile değiştirin ve kaydedin. Bu yalnızca çizgi görünürlüğünü değiştirir, veri veya toplamları etkilemez.
 
-Kaydedilen sunum, 600 brüt kar ve 450 net karı, her iki toplamın da sıfırdan çizildiğini gösterir:
+Kaydedilmiş sunum, 600 brüt kar ve 450 net karı, her iki toplamı da sıfırdan çizerek gösterir:
 
-![Gelir, maliyetler, 600 brüt kar ve 450 net karı gösteren şelale grafiği, değer etiketleri ve bağlayıcı çizgilerle](waterfall_chart.png)
+![Şelale grafiği, gelir, maliyetler, 600 brüt kar ve 450 net kar, değer etiketleri ve bağlayıcı çizgiler](waterfall_chart.png)
 
-### **Hisse Senedi Grafikler Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturun**
 
-Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa eğilimlerini ve volatiliteyi analiz etmeye yardımcı olur. Bu grafikler, hisse performansı hakkında kritik içgörüler sunarak yatırımcı ve analistlerin bilinçli kararlar almasını sağlar.
+Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa eğilimlerini ve dalgalanmaları analiz etmeye yardımcı olur. Bu grafikler, hisse performansına dair temel içgörüler sunar ve yatırımcılara, analistlere bilinçli kararlar almada destek olur.
 
-Bu örnek, sırasıyla dört seri ve üç kategori içeren bir açık‑yüksek‑düşük‑kapanış (OHLC) grafiği oluşturur. [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) özelliği yukarı/ayrı çubuklarını etkinleştirir, [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) fiyat aralıklarını gösteren yüksek‑düşük çizgileri kontrol eder; bireysel seri çizgileri ve ince yatay ızgara çizgileri gizlenir.
+Bu örnek, dört seriyi bu sırayla ve üç kategori içeren bir açılış-yüksek-düşük-kapanış (OHLC) grafiği oluşturur. [HasUpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/hasupdownbars/) özelliği yukarı/aşağı çubuklarını etkinleştirir ve [HiLowLinesFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hilowlinesformat/) fiyat aralıklarını gösteren yüksek-düşük çizgileri kontrol eder; bireysel seri çizgileri ve ince yatay ızgara çizgileri gizlenir.
+
+[UpDownBars](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/updownbars/) yöneticisi ayrı [UpBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/upbarsformat/) ve [DownBarsFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iupdownbarsmanager/downbarsformat/) nesneleri sunar. Her nesnenin [Fill](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/fill/) ve [Line](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/line/) özelliklerini kullanarak dolgu ve kenarlığı bağımsız olarak ayarlayın. Bu örnek, yükselen dönemler için koyu yeşil kenarlıklı yeşil çubuklar ve düşen dönemler için koyu kırmızı kenarlıklı turuncu‑kırmızı çubuklar kullanır.
+
+Her kategori için dört serinin sayısal değerlerini sağlayın; Yüksek ve Düşük, Açılış ve Kapanışı kapsar. Çubuklar, Kapanışı Açılışla **aynı kategori içinde** karşılaştırır, önceki kategoriyle karşılaştırmaz: A 72’den 25’e düşerken, B 25’ten 38’e, C 38’ten 50’ye yükselir. Açılış ve Kapanış değerleri aynı olduğunda görünür bir dolu aralık oluşmaz. Yukarı/aşağı çubuklar Açılış‑Kapanış’ı, yüksek‑düşük çizgileri Düşük‑Yüksek’i kapsar. Bu çubuklar seri grubuna aittir ve sıradan çubuk‑grafik serileri değildir.
+
+Bu biçimlendirme, aynı grup içinde en az iki seriye ve her kategori için karşılık gelen sayısal değerlere sahip [Line ve LineWithMarkers](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) grafikleri için de çalışır. Bu yığın‑çizgi olmayan grafiklerde, yukarı/aşağı çubuklar ilk ve son serileri karşılaştırır: daha yüksek son değer bir yukarı çubuğa, daha düşük son değer bir aşağı çubuğa yol açar. Serileri tersine çevirmek sınıflandırmayı tersine çevirir. Aşağıdaki örnek [OpenHighLowClose](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) kullanır; diğer hisse, yığın‑çizgi veya 3D varyantların aynı veri düzeni ya da aralık yorumlamasını kullandığını varsaymayın.
 
 ```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
@@ -518,7 +525,7 @@ using Aspose.Slides.Export;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+var chart = slide.Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
 var workbook = chart.ChartData.ChartDataWorkbook;
 
@@ -570,7 +577,21 @@ series.DataPoints.AddDataPointForStockSeries(valueCell);
 valueCell = workbook.GetCell(0, 3, 4, 50);
 series.DataPoints.AddDataPointForStockSeries(valueCell);
 
-chart.ChartData.SeriesGroups[0].UpDownBars.HasUpDownBars = true;
+var upDownBars = chart.ChartData.SeriesGroups[0].UpDownBars;
+upDownBars.HasUpDownBars = true;
+
+upDownBars.UpBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Fill.SolidFillColor.Color = Color.LimeGreen;
+upDownBars.UpBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.UpBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+upDownBars.UpBarsFormat.Line.Width = 2;
+
+upDownBars.DownBarsFormat.Fill.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Fill.SolidFillColor.Color = Color.OrangeRed;
+upDownBars.DownBarsFormat.Line.FillFormat.FillType = FillType.Solid;
+upDownBars.DownBarsFormat.Line.FillFormat.SolidFillColor.Color = Color.DarkRed;
+upDownBars.DownBarsFormat.Line.Width = 2;
+
 chart.ChartData.SeriesGroups[0].HiLowLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 
 foreach (var stockSeries in chart.ChartData.Series)
@@ -583,15 +604,15 @@ chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType
 presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 ```
 
-Sonuç:
+Sonuç, PowerPoint’ten dışa aktarılmış olarak:
 
-![Hisse senedi grafiği](stock_chart.png)
+![A hissesi için turuncu‑kırmızı düşen aralık ve B, C için yeşil yükselen aralıklar içeren hisse senedi grafiği](stock_chart.png)
 
-### **Kutu ve Bıyık Grafikler Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturun**
 
-Kutu ve bıyık grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını göstermeye yarar. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri belirlemek açısından özellikle faydalıdır.
+Kutu ve bıyık grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak açısından özellikle yararlıdır.
 
-Bu örnek, altı değerden oluşan bir kutu ve bıyık grafiği oluşturur. [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) özelliği dışsal çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı değer noktalarını da etkinleştirir.
+Bu örnek, altı değerden bir kutu ve bıyık grafiği oluşturur. [QuartileMethod](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/quartilemethod/) özelliği, ayrı çeyrek hesaplamasını seçer. Örnek ayrıca ortalama çizgileri, ortalama işaretçileri, iç noktalar ve aykırı değer noktalarını etkinleştirir.
 
 ```csharp
 using Aspose.Slides;
@@ -646,11 +667,11 @@ series.DataPoints.AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation.Save("BoxAndWhisker.pptx", SaveFormat.Pptx);
 ```
 
-### **Huni Grafikler Oluşturma**
+### **Huni Grafiklerini Oluşturun**
 
-Huni grafikler, veri hacminin bir adımdan diğerine geçerken azaldığı süreçleri görselleştirmek için kullanılır. Dönüşüm oranlarını analiz etmek, darboğazları belirlemek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle yararlıdır.
+Huni grafikler, bir sürecin ardışık aşamalarını görselleştirirken, veri hacminin bir adımdan diğerine geçerken azalmasını gösterir. Dönüşüm oranlarını analiz etmek, dar boğazları belirlemek ve satış veya pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
 
-Bu örnek, mevcut bir sunumun ilk slaytına bir huni grafik eklemek için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. Varsayılan veriyi altı kategori ve 50‑500 arasında değişen değerlerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
+Bu örnek, mevcut bir sunumun ilk slaydına bir huni grafiği eklemek için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. Varsayılan veriyi altı kategori ve 50’den 500’e kadar değerle değiştirir, ardından güncellenmiş sunumu kaydeder. Giriş sunumu en az bir slayt içermelidir.
 
 ```csharp
 using Aspose.Slides;
@@ -701,13 +722,13 @@ presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Huni grafiği](funnel_chart.png)
+![Huni Grafiği](funnel_chart.png)
 
-### **Güneş Patlaması Grafikler Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturun**
 
-Güneş patlaması grafikler, katmanları dairesel halkalar olarak göstererek hiyerarşik verileri görselleştirir. Parça‑bütün ilişkilerini açıklamaya yardımcı olur ve iç içe geçmiş kategorileri net, kompakt bir formatta temsil etmek için idealdir.
+Güneş patlaması grafikleri, hiyerarşik verileri dairesel halkalar olarak gösterir. Parçadan bütüne ilişkileri görselleştirir ve iç içe geçmiş kategorileri net ve kompakt bir formatta temsil etmek için idealdir.
 
-Bu örnek, sekiz yaprağı dört sap ve iki dal içinde gruplayan bir güneş patlaması grafiği oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, 1. seviyedeki sapları ve 2. seviyedeki dalları atar. Kategori etiketleri segmentleri tanımlar; değerler ise göreceli boyutlarını belirler.
+Bu örnek, dört dal ve iki şube içinde gruplanmış sekiz yaprak içeren bir güneş patlaması grafiği oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, birinci seviyede dalları ve ikinci seviyede şubeleri atar. Kategori etiketleri bölümleri tanımlar, değerler ise göreli boyutları belirler.
 
 ```csharp
 using Aspose.Slides;
@@ -781,17 +802,17 @@ presentation.Save("Sunburst.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Güneş patlaması grafiği](sunburst_chart.png)
+![Güneş Patlaması Grafiği](sunburst_chart.png)
 
-### **Histogram Grafikler Oluşturma**
+### **Histogram Grafiklerini Oluşturun**
 
-Histogram grafikler, sayısal değerlerin aralıklar (bin) içinde nasıl dağıldığını gösterir. Sipariş işleme süreleri gibi aylık raporlar için aynı bin genişliğini ve eşik değerlerini kullanarak aralıkları tutarlı tutabilir ve dağılımları karşılaştırmayı kolaylaştırabilirsiniz.
+Histogram grafikler, sayısal değerlerin aralıklar (bin) içinde nasıl dağıldığını gösterir. Aylık sipariş işleme süreleri raporlarında aynı bin genişliğini ve eşiklerini kullanarak aralıkları tutarlı tutabilir ve dağılımları karşılaştırmayı kolaylaştırabilirsiniz.
 
-Yatay eksenin [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) özelliğini [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) içindeki bir moda ayarlayın. [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) yalnızca `ByBinWidth` için, [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) yalnızca `ByNumberOfBins` için geçerlidir. `Automatic` seçeneği, binlerin otomatik seçilmesini sağlar.
+Yatay eksende [AggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/aggregationtype/) özelliğini [AxisAggregationType](https://reference.aspose.com/slides/net/aspose.slides.charts/axisaggregationtype/) içindeki bir moda ayarlayın. [BinWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/binwidth/) yalnızca `ByBinWidth` için, [NumberOfBins](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/numberofbins/) yalnızca `ByNumberOfBins` için geçerlidir. `Automatic` kullanarak grafiğin binleri seçmesine izin verin.
 
-#### **Sabit Bir Bini Genişliği Kullanma**
+#### **Sabit Bin Genişliği Kullanma**
 
-Bu örnek, işleme zamanlarını 10 dakikalık aralıklara gruplar; 10 dakikadan az veya eşit ve 40 dakikadan fazla zamanlar için ayrı binler oluşturur. Bu binleri [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) ve [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) ile etkinleştirin. Açıkça [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) ve [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) eşiklerini belirlerken, [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) ve [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) özelliklerini `false` yapın.
+Bu örnek, işlem sürelerini 10 dakikalık aralıklara gruplar; 10 dakikaya kadar ve 40 dakikadan üzeri zamanlar için ayrı binler oluşturur. Bu binleri [IsUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isunderflowbin/) ve [IsOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isoverflowbin/) ile etkinleştirin. Açık [UnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/underflowbin/) ve [OverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/overflowbin/) eşiklerini sağlarken, [IsAutomaticUnderflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticunderflowbin/) ve [IsAutomaticOverflowBin](https://reference.aspose.com/slides/net/aspose.slides.charts/axis/isautomaticoverflowbin/) özelliklerini `false` olarak ayarlayın.
 
 ```csharp
 using Aspose.Slides;
@@ -833,13 +854,13 @@ axis.OverflowBin = 40;
 presentation.Save("Histogram-bin-width.pptx", SaveFormat.Pptx);
 ```
 
-PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** bin sayısını gösterir. Alt bin, `5, 10, 10` değerlerini içerdiği için eşik dahil edicidir. Üst bin yalnızca `41, 50` değerlerini içerir; eşik dışlayıcıdır; `40` değerleri önceki aralıkta kalır. İç binler, alt sınırdan büyük ve üst sınırdan küçük ya da eşit değerleri barındırır.
+PowerPoint’te gösterilen sunum, **3, 4, 4, 4 ve 2** sayısında bin içerir. Alt akış bin’i `5, 10, 10` değerlerini kapsar, bu yüzden eşik dâhil edicidir. Üst akış bin’i yalnızca `41, 50` değerlerini kapsar, bu yüzden eşik dışlayıcıdır; `40` değerleri önceki aralıkta kalır. İç binler, alt sınırdan büyük ve üst sınırdan küçük ya da eşit değerlere sahiptir.
 
-![10 dakikalık binler ve açık alt/üst eşik değerleriyle histogram](histogram_bin_width.png)
+![10 dakikalık binler ve açık alt/üst akış eşikleriyle histogram](histogram_bin_width.png)
 
 #### **Bin Sayısını Belirleme**
 
-Sabit aralıklar yerine sabit bir veri ayrıntısı seviyesi isterseniz, aynı veriler için beş bin isteyin. Bu örnek, alt ve üst binleri devre dışı bırakır. Grafik, genişliği veri aralığından belirler, bu yüzden sınırlar raporlar arasında değişebilir.
+Sabit aralıklar yerine sabit ayrıntı seviyesi isteniyorsa, aynı veri için beş bin talep edin. Bu örnek, alt ve üst akış binlerini devre dışı bırakır. Grafik, veri aralığından genişliği belirler, bu yüzden sınırlar raporlar arasında değişebilir.
 
 ```csharp
 using Aspose.Slides;
@@ -875,15 +896,15 @@ axis.NumberOfBins = 5;
 presentation.Save("Histogram-bin-count.pptx", SaveFormat.Pptx);
 ```
 
-Beş binin sayısı **4, 4, 4, 4 ve 1**’dir. Yukarıdaki sabit‑genişlik sonucu ile karşılaştırın: girdi değerleri aynı, ancak sınırlar farklı.
+Beş bin, **4, 4, 4, 4 ve 1** sayısında eleman içerir. Yukarıdaki sabit‑genişlik sonucuyla karşılaştırın: giriş değerleri aynı, sınırlar farklıdır.
 
 ![Aynı veriden hesaplanan beş binli histogram](histogram_bin_count.png)
 
-### **Radar Grafikler Oluşturma**
+### **Radar Grafiklerini Oluşturun**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birkaç değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri veya özellikler gibi birden fazla metriği analiz ederken kalıpları, güçlü ve zayıf yönleri belirlemek için özellikle yararlıdır.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda karşılaştırmayı mümkün kılar. Performans ölçütleri veya özellikler arasında kalıpları, güçlü yönleri ve zayıf yönleri belirlemede özellikle faydalıdır.
 
-Bu örnek, varsayılan seri ve kategorilerle bir radar grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır ve sunumu PPTX olarak kaydeder.
+Bu örnek, varsayılan seriler ve kategorilerle bir radar grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır, ardından sunumu PPTX olarak kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -900,13 +921,13 @@ presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Radar grafiği](radar_chart.png)
+![Radar Grafiği](radar_chart.png)
 
-### **Çok Kategorili Grafikler Oluşturma**
+### **Çok Kategorili Grafikler Oluşturun**
 
-Çok kategorili grafikler, birden fazla kategorik gruplamayı içeren verileri göstermek için kullanılır; böylece birden çok boyutta değerleri aynı anda karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde eğilimleri ve ilişkileri analiz etmek gerektiğinde özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategorik gruplama içeren verileri göstermek ve değerleri aynı anda birden çok boyutta karşılaştırmak için kullanılır. Karmaşık, çok katmanlı veri setlerinde eğilim ve ilişkileri analiz ederken özellikle yardımcıdır.
 
-Bu örnek, dört çift halinde düzenlenmiş sekiz kategoriye sahip bir kümelenmiş sütun grafiği oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, her çifti grup seviyesi 1’de ortak bir etiketle işaretler; böylece hem bireysel hem de grup etiketlerini içeren bir kategori ekseni elde edilir.
+Bu örnek, dört çift halinde düzenlenmiş sekiz kategori ile bir kümelenmiş sütun grafiği oluşturur. [SetGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) yöntemi, her çift için birinci seviyede ortak bir etiket atar ve böylece bireysel ve grup etiketlerini içeren bir kategori ekseni üretir.
 
 ```csharp
 using Aspose.Slides;
@@ -975,13 +996,47 @@ presentation.Save("AsposeChart.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Çok kategorili grafik](multi_category_chart.png)
+![Çok Kategorili Grafik](multi_category_chart.png)
 
-### **Harita Grafikler Oluşturma**
+#### **Bir Çeyrek Etiketini Kaldırma**
 
-Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel açıdan çekici bir şekilde analiz etmek için özellikle uygundur.
+[quarters.pptx](quarters.pptx) dosyasını indirip çalışma dizinine koyun. Grafiği dokuz ay ve 10‑18 değerleri arasında bir satış serisi gösterir. Kategori ekseninde üç çeyrek etiketi vardır: Q1 Ocak‑Mart, Q2 Nisan‑Haziran, Q3 Temmuz‑Eylül.
 
-Bu örnek, varsayılan coğrafi verilerle bir harita grafiği oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır ve PowerPoint’te görüntülenmek üzere kaydeder.
+Nisan, dördüncü kategori ve Q2’nin açıkça ayarlandığı konumdur. Nisan’ın [GroupingLevels](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/groupinglevels/) koleksiyonunda [DeleteGroupingItem](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) çağırın. Seviye, Nisan’a göre görecelidir: seviye 1 çeyreği, seviye 0 ayı gösterir. Yöntem seviye 0’daki yaprak kategoriyi kaldıramaz.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation("quarters.pptx"))
+{
+    var chart = (IChart)presentation.Slides[0].Shapes[0];
+    var april = chart.ChartData.Categories[3];
+    april.GroupingLevels.DeleteGroupingItem(1);
+
+    presentation.Save("quarters-updated.pptx", SaveFormat.Pptx);
+}
+
+using var reopened = new Presentation("quarters-updated.pptx");
+var updatedChart = (IChart)reopened.Slides[0].Shapes[0];
+var data = updatedChart.ChartData;
+
+Console.WriteLine(string.Join(", ", data.Categories.Select(month => month.AsCell.Value)));
+Console.WriteLine(string.Join(", ", data.Series[0].DataPoints.Select(point => point.Value.Data)));
+```
+
+Yeniden açılan grafik, orijinal ayları (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) ve satış değerlerini (`10, 11, 12, 13, 14, 15, 16, 17, 18`) aynı sırada yazdırır. `quarters-updated.pptx` dosyasını PowerPoint’te açarak eksen etiketlerini karşılaştırın. Q2 etiketi ve Nisan öncesindeki grup sınırı kaybolur, böylece Q1 Ocak‑Haziran’ı kapsar. Q3 hâlâ Temmuz’da başlar.
+
+![Kaldırma öncesi ve sonrası çeyrek etiketleri. Solda Q2 Nisan‑Haziran, sağda Q1 Ocak‑Haziran.](quarter-label-comparison.png)
+
+### **Harita Grafiklerini Oluşturun**
+
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgileri eşleyerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekânsal dağılımları net ve görsel olarak çekici bir biçimde analiz etmek için özellikle faydalıdır.
+
+Bu örnek, [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanarak varsayılan coğrafi verilerle bir harita grafiği oluşturur ve PowerPoint’te görüntülenmek üzere kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -998,19 +1053,19 @@ presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 
 Sonuç:
 
-![Harita grafiği](map_chart.png)
+![Harita Grafiği](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Yukarıdaki resim, PowerPoint’te açılmış kaydedilmiş bir sunumu gösterir. Aspose.Slides, harita grafiğini ve verilerini doğru şekilde yazar, ancak harita grafiklerini kendisi çizmez: bir slayt görüntüye dönüştürüldüğünde ya da PDF veya SVG’ye çevrildiğinde grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez.
+Yukarıdaki resim, PowerPoint’te açılmış kaydedilmiş sunumu gösterir. Aspose.Slides harita grafiğini ve verilerini doğru yazar, ancak kendisi harita grafiği çizmez: bir slayt, bir görüntüye render edildiğinde veya PDF/SVG’ye dönüştürüldüğünde grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez.
 {{% /alert %}}
 
-### **Kombinasyon Grafikler Oluşturma**
+### **Kombinasyon Grafiklerini Oluşturun**
 
-Kombinasyon (veya combo) grafiği, tek bir grafikte iki ya da daha fazla grafik türünü birleştirir. Bu grafik, birden çok veri seti arasındaki ilişkileri belirlemenize, karşılaştırmanıza ve farklılıkları incelemenize yardımcı olur.
+Kombinasyon (veya combo) grafiği, tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve ilişkileri tanımlamanıza yardımcı olur.
 
-![Kombinasyon grafiği](combination_chart.png)
+![Kombinasyon Grafiği](combination_chart.png)
 
-Bu örnek, dört kategori üzerinde iki kümelenmiş sütun serisini bir çizgi serisiyle birleştirir. Sütunlar birincil dikey ekseni, [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) ise çizgi serisini sağdaki ikincil dikey eksene yerleştirir. Yardımcı işlevler başlık, lejand, eksen etiketleri ve ızgara çizgilerini yapılandırır.
+Bu örnek, dört kategori boyunca iki kümelenmiş sütun serisini bir çizgi serisiyle birleştirir. Sütunlar birincil dikey ekseni, [PlotOnSecondAxis](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/plotonsecondaxis/) çizgiyi sağdaki ikincil dikey eksende konumlandırır. Yardımcı işlevler başlığı, açıklamayı, eksen etiketlerini ve ızgara çizgilerini yapılandırır.
 
 ```csharp
 using System.Drawing;
@@ -1172,9 +1227,9 @@ static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for .NET, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, sunumları dinamik içerikle güncel tutmayı basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
+Aspose.Slides for .NET, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, dinamik içerikle sunumları güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
 
-Bu örnek, mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiği günceller. Her biri üç veri noktasına sahip iki sütun serisi, A sütununda kategori etiketleri ve ilk çalışma sayfasının ilk satırında seri adları gerektirir. Örnek, [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) ile çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve grafiği [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) aracılığıyla kümelenmiş silindirlere dönüştürür.
+Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiği günceller. Her biri üç veri noktasına sahip iki sütun serisi gerekir; kategori etiketleri A sütununda, seri adları ise ilk çalışma sayfasının ilk satırında bulunur. Örnek, [GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) kullanarak çalışma kitabı hücrelerini değiştirir, seri değerlerini günceller, üçüncü bir seri ekler ve [Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/type/) aracılığıyla grafiği kümelenmiş silindirlere çevirir.
 
 ```csharp
 using Aspose.Slides;
@@ -1228,13 +1283,13 @@ foreach (IShape shape in slide.Shapes)
 presentation.Save("AsposeChartModified.pptx", SaveFormat.Pptx);
 ```
 
-## **Bir Grafik İçin Veri Aralığını Ayarlama**
+## **Bir Grafik İçin Veri Aralığını Belirleme**
 
-Mevcut bir grafik tarafından zaten kullanılan aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/net/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
+Mevcut bir grafik tarafından kullanılan aralığı incelemek için [Retrieve a Chart's Data Range](/slides/tr/net/chart-workbook/#retrieve-a-charts-data-range) bölümüne bakın.
 
-Aspose.Slides for .NET, grafik verilerinizin kaynağı olarak bir çalışma sayfasındaki belirli bir veri aralığını tanımlama esnekliği sağlar. Bu, çalışma sayfanızın yalnızca bir bölümünü grafiğe eşlemenize, seriler ve kategoriler için hangi hücrelerin katkıda bulunduğunu kontrol etmenize olanak tanır. Sonuç olarak, grafiğinizin veri kaynaklarını en güncel çalışma sayfası verileriyle kolayca güncelleyebilir ve senkronize edebilirsiniz.
+Aspose.Slides for .NET, grafik veri kaynaklarınızı bir çalışma sayfasındaki belirli bir veri aralığı olarak tanımlama esnekliği sağlar. Bu, çalışma sayfanızın yalnızca bir kısmını grafikle eşleştirmenize, hangi hücrelerin seri ve kategori oluşturduğunu kontrol etmenize olanak tanır. Sonuç olarak, grafiklerinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyip senkronize edebilir ve PowerPoint sunumlarınızın güncel ve doğru bilgiler yansıtmasını sağlayabilirsiniz.
 
-Bu örnek, [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) kullanarak mevcut bir sunumun ilk slaydındaki "My chart" adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlar. Grafik çalışma kitabının bu çalışma sayfasını ve birinci satırda seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık barındırması gerekir.
+Bu örnek, mevcut bir sunumun ilk slaydındaki “My chart” adlı grafiğin veri kaynağını `Sheet1!A1:B4` olarak ayarlamak için [SetRange](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/setrange/) kullanır. Grafik çalışma kitabı bu çalışma sayfasını ve ilk satırda bir seri başlığı, A sütununda kategori etiketleri ve B sütununda üç değer içeren bir aralık bulunmalıdır.
 
 ```csharp
 using Aspose.Slides;
@@ -1259,9 +1314,9 @@ presentation.Save("SetDataRange.pptx", SaveFormat.Pptx);
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
-Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi simgesi alır.
 
-Bu örnek, iki çizgi serisi ve bir lejand içeren bir grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) ayarları, otomatik atanan işaretçi sembollerini korur. İlk seri negatif bir değer ve eksik bir değer (`null` ile temsil edilir) içerirken, ikinci seri her kategori için bir değer barındırır.
+Bu örnek, iki çizgi serisi ve bir açıklama içeren bir grafik oluşturmak için [AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) kullanır. [Marker](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/marker/) ayarları, otomatik atanmış işaretçi simgelerini korur. İlk seri, `null` ile temsil edilen bir negatif değer ve eksik bir değer içerirken, ikinci seri her kategori için bir değer içerir.
 
 ```csharp
 using Aspose.Slides;
@@ -1323,16 +1378,18 @@ presentation.Save("DefaultMarkersInChart.pptx", SaveFormat.Pptx);
 
 **Aspose.Slides for .NET hangi grafik türlerini destekliyor?**
 
-Aspose.Slides for .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
+Aspose.Slides for .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenizi sağlar.
 
-**Bir slayta yeni bir grafik nasıl eklenir?**
+**Bir slayta nasıl yeni bir grafik ekleyebilirim?**
 
-Yeni bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek bir grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Bir grafikte gösterilen veriler nasıl güncellenir?**
+**Bir grafikte gösterilen verileri nasıl güncelleyebilirim?**
 
-Bir grafiğin verilerini, veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
+Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyebilirsiniz. Böylece grafiği programlı olarak en son verileri yansıtacak şekilde yenileyebilirsiniz.
 
-**Grafiğin görünümü özelleştirilebilir mi?**
+**Grafiğin görünümünü özelleştirmek mümkün mü?**
 
-Evet, Aspose.Slides for .NET kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.
+Evet, Aspose.Slides for .NET kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, açıklamalar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre şekillendirebilirsiniz.
+
+İlgili özellik: [Create editable charts](/slides/tr/features/create-charts/).

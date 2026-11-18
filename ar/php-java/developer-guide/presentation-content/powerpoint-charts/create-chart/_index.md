@@ -1,5 +1,5 @@
 ---
-title: إنشاء أو تحديث مخططات عروض PowerPoint في PHP
+title: إنشاء أو تحديث مخططات عرض PowerPoint في PHP
 linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
@@ -13,45 +13,49 @@ keywords:
 - مخطط مبعثر
 - مخطط دائري
 - مخطط خطي
-- مخطط شجرة
+- مخطط شجري
 - مخطط أسهم
-- مخطط الصندوق والشارب
+- مخطط صندوق وشارب
 - مخطط قمع
-- مخطط شمسية
-- مخطط هيستوجرام
-- مخطط رادار
+- مخطط شمسي
+- مخطط توزيع
+- مخطط راداري
 - مخطط متعدد الفئات
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java. إضافة، تنسيق، وتحرير المخططات مع أمثلة شفرة عملية في PHP."
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides for PHP عبر Java. إضافة وتنسيق وتحرير المخططات مع أمثلة عملية على الأكواد في PHP."
 ---
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides للـ PHP عبر Java. سوف تتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الأكواد التفصيلية كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسائط. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج توليد المخططات الديناميكية في تطبيقات PHP الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
+توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides for PHP via Java. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، ملءه بالبيانات، وتطبيق خيارات تنسيق مختلفة لتلبية متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة التعليمات البرمجية المفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والأساطير. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات PHP الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الناس على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة مباشرةً من جدول أو جدول بيانات.
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
 
 **لماذا إنشاء المخططات؟**
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛  
-* إظهار الأنماط والاتجاهات في البيانات؛  
-* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة لوحدة قياس محددة؛  
-* اكتشاف القيم المتطرفة، والابتعاد، والانحرافات، والأخطاء، والبيانات غير المنطقية؛  
-* التواصل أو عرض البيانات المعقدة.
+باستخدام المخططات، يمكنك:
+
+* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* الكشف عن الأنماط والاتجاهات في البيانات؛
+* استنتاج اتجاه وزخم البيانات بمرور الوقت أو بالنسبة لوحدة قياس محددة؛
+* اكتشاف القيم المتطرفة أو الشذوذ أو الأخطاء أو البيانات غير المنطقية؛
+* نقل أو عرض البيانات المعقدة.
 
 في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert*، التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كل من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
 
 {{% alert color="info" title="Note" %}}
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) في مساحة الأسماء [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/). القيم في هذا التعداد تتطابق مع أنواع مختلفة من المخططات.
+
+Use the [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeration in the [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) namespace. The values in this enumeration correspond to different chart types.
+
 {{% /alert %}}
 
-### **إنشاء مخططات أعمدة مجمعة**
+### **إنشاء مخططات عمود متجمعة**
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط عمودي مجمع يقارن سلسلتين عبر ثلاث فئات. تستخدم السلسلات تعبئة حمراء وخضراء، وتوضح العلامات الفردية أسماء الفئات وأسماء السلاسل والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في دفتر عمل المخطط المضمن.
+This example uses [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
 
 ```php
 use aspose\slides\ChartType;
@@ -135,22 +139,22 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![مخطط العمود المجمع](clustered_column_chart.png)
+![مخطط العمود المتجمع](clustered_column_chart.png)
 
 ### **إنشاء مخططات مبعثرة**
 
-تُستخدم مخططات التبعثر (المعروفة أيضًا بمخططات النقط أو الرسوم البيانية س-ص) عادةً للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
+Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
 
-استخدم مخطط تبعثر عندما:
+Use a scatter chart when:
 
-* لديك بيانات رقمية مقترنة.  
-* لديك متغيران يرتبطان جيدًا معًا.  
-* ترغب في تحديد ما إذا كان المتغيران مرتبطين.  
-* لديك متغير مستقل له عدة قيم للمتغير التابع.
+* You have paired numerical data.
+* You have two variables that pair well together.
+* You want to determine whether the two variables are related.
+* You have an independent variable that has multiple values for a dependent variable.
 
-يرسم هذا المثال مجموعتين من قيم س-ص. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم السلسلة الثانية خطوطًا سلسة مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، تم تكوينه باستخدام [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). تتحكم طريقة [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) في شكل العلامة.
+This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a marker size of 10, configured with [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/). The [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) method controls the marker shape.
 
 ```php
 use aspose\slides\ChartType;
@@ -219,15 +223,15 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![مخطط التبعثر](scatter_chart.png)
+![مخطط مبعثر](scatter_chart.png)
 
 ### **إنشاء مخططات دائرية**
 
-تُستخدم المخططات الدائرية بشكل أفضل لإظهار العلاقة بين الجزء والكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات تصنيفية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد ترغب في التفكير في استخدام مخطط شريطي بدلاً من ذلك.
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
 
-ينشئ هذا المثال مخططًا دائريًا يحتوي على ثلاث قيم ربع سنوية. لكل شريحة تعبئة وحدود مخصصة، وتعرض العلامات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تُحدد طريقة [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) الزاوية الأولية للقطعة لتبدأ عند 180 درجة.
+This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) method sets the first slice to start at 180 degrees.
 
 ```php
 use aspose\slides\ChartType;
@@ -337,17 +341,17 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![المخطط الدائري](pie_chart.png)
+![مخطط دائري](pie_chart.png)
 
-لتحسين قابلية قراءة العلامات خارج الدائرة، راجع [Format Leader Lines](/slides/ar/php-java/chart-data-label/#format-leader-lines) للحصول على مثال يحدد موضع العلامات ويخصص لون الخطوط وعرضها وشفافيتها ونمطها المتقطع.
+To improve the readability of labels outside the pie, see [تنسيق خطوط القائد](/slides/ar/php-java/chart-data-label/#format-leader-lines) for an example that positions labels and customizes the lines' color, width, transparency, and dash style.
 
 ### **إنشاء مخططات خطية**
 
-تُستخدم مخططات الخط (المعروفة أيضًا بالرسوم الخطية) بشكل أفضل في الحالات التي تريد فيها إظهار التغيرات في القيمة بمرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات في آن واحد، تتبع التغييرات والاتجاهات بمرور الوقت، تسليط الضوء على الشذوذ في سلاسل البيانات، والمزيد.
+Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط خطي مع السلسلة والفئات الافتراضية، ثم يحفظ العرض التقديمي كملف PPTX.
+This example uses [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) to create a line chart with the default series and categories, then saves the presentation as PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -369,7 +373,7 @@ finally
 }
 ```
 
-افتراضيًا، يتم ربط نقاط مخطط الخط بخطوط مستقيمة مستمرة. إذا كنت ترغب في ربط النقاط بخطوط متقطعة بدلاً من ذلك، استدعِ [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) بقيمة من [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
+By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, call [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) with a value from [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/):
 
 ```php
 use aspose\slides\ChartType;
@@ -395,15 +399,15 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![المخطط الخطي](line_chart.png)
+![مخطط خطي](line_chart.png)
 
 ### **إنشاء مخططات شجرية**
 
-تُستخدم مخططات الخريطة الشجرية بشكل أفضل لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تسهم بشكل كبير ضمن كل فئة.
+Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
 
-ينشئ هذا المثال خريطة شجرية تحتوي على ثمانية أوراق مُجمَّعة في أربعة سيقان وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) السيقان في المستوى التجميعي 1 والفروع في المستوى 2. تحدد القيم أحجام المستطيلات النسبية، بينما تُعرف تسميات الفئات وتسميات الأبواب المتداخلة بالهرمية.
+This example creates a tree map with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
 
 ```php
 use aspose\slides\ChartType;
@@ -424,7 +428,7 @@ try
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // الفرع 1
+    // فرع 1
     $categoryCell = $workbook->getCell(0, "C1", "Leaf1");
     $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
@@ -440,7 +444,7 @@ try
     $categoryCell = $workbook->getCell(0, "C4", "Leaf4");
     $chart->getChartData()->getCategories()->add($categoryCell);
 
-    // الفرع 2
+    // فرع 2
     $categoryCell = $workbook->getCell(0, "C5", "Leaf5");
     $leaf = $chart->getChartData()->getCategories()->add($categoryCell);
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
@@ -485,26 +489,28 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![مخطط الشجرة](treemap_chart.png)
+![مخطط شجرة](treemap_chart.png)
 
-### **إنشاء مخططات الشلال**
+### **إنشاء مخططات شلالية**
 
-يوضح مخطط الشلال كيف تُسهم التغييرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، ثم يُخصم التكاليف، ويُضاف دخل آخر. تتقاطر أعمدة التغيير بين القيمة السابقة والجديدة، بينما تمتد الأعمدة الكلية من الصفر إلى القيمة المتراكمة.
+A waterfall chart shows how positive and negative changes contribute to a final value. For example, a profit breakdown can start with revenue, subtract costs, and add other income. Change columns float between the previous and new running values, while total columns extend from zero to the accumulated value.
 
-| الفئة | قيمة دفتر العمل | نوع العمود |
+The following example uses amounts in thousands of US dollars:
+
+| الفئة | قيمة المصنف | نوع العمود |
 | --- | ---: | --- |
 | Revenue | 1000 | زيادة |
 | Cost of sales | -400 | نقصان |
-| Gross profit | 600 | مجموع وسيط |
+| Gross profit | 600 | مجموع متوسط |
 | Operating expenses | -200 | نقصان |
 | Other income | 50 | زيادة |
 | Net profit | 450 | المجموع النهائي |
 
-لتمييز نقطة على أنها مجموع وسيط أو نهائي، استدعِ طريقة [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) مع القيمة `true`. قدم المبلغ المتراكم الفعلي في خلية دفتر العمل لتلك النقطة: `600` للربح الإجمالي (`1000 - 400`) و `450` للربح الصافي (`600 - 200 + 50`). تقوم الطريقة بتمييز العمود كإجمالي؛ لا تقوم بحساب أو ملء قيمة الخلية. لا تستخدم الصفر كعنصر نائب أو تقدم تغييرًا آخر لنقطة إجمالية. تعرض العمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة المتغيرة.
+To mark a point as an intermediate or final total, call its [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) method with `true`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The method marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
 
-ينشئ هذا المثال الكامل للـ PHP مخططًا باستخدام العنصر `Waterfall` من تعداد [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)، يُزيل البيانات الافتراضية، ويملأ دفتر العمل المضمن. يختار فهرس ورقة العمل `0` الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B يحتوي على القيم. تُضاف كل خلية قيمة باستخدام [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). تُحدد مؤشرات النقاط الصفرية `2` و`5` المجموعات الوسيطة والنهائية. استدعاء [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) مع `true` يُظهر المبالغ على الأعمدة. لا يتطلب الأمر عرضًا تقديميًا أو دفتر عمل كمدخل.
+This complete PHP example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). The zero-based point indices `2` and `5` identify the intermediate and final totals. Calling [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) with `true` displays the amounts on the columns. No input presentation or workbook is required.
 
 ```php
 use aspose\slides\ChartType;
@@ -558,17 +564,23 @@ finally
 }
 ```
 
-استدعِ طريقة مستوى السلسلة [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) مع `true` لإظهار الخطوط التي تربط الأعمدة المتتالية وتسهيل تتبع القيمة المتغيرة. لإخفاء هذه الخطوط، استبدل استدعاء الطريقة في المثال بـ `$series->setShowConnectorLines(false);` قبل الحفظ. يغيّر هذا فقط رؤية الخط، وليس البيانات أو المجاميع.
+Call the series-level [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) method with `true` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the method call in the example with `$series->setShowConnectorLines(false);` before saving. This changes only the line visibility, not the data or totals.
 
-يعرض العرض التقديمي المحفوظ ربحًا إجماليًا قدره 600 وربحًا صافيًا قدره 450، مع رسم كلا المجموعين من الصفر:
+The saved presentation shows gross profit of 600 and net profit of 450, with both totals drawn from zero:
 
-![مخطط شلال يُظهر الإيرادات، التكاليف، الربح الإجمالي 600، والربح الصافي 450، مع علامات القيم وخطوط الوصل](waterfall_chart.png)
+![مخطط شلالي يوضح الإيرادات، التكاليف، الربح الإجمالي 600، والربح الصافي 450، مع قيم التسميات وخطوط الربط](waterfall_chart.png)
 
 ### **إنشاء مخططات الأسهم**
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح والارتفاع والانخفاض والإغلاق، مما يساعد في تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء الأسهم، مما يساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
+Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
 
-ينشئ هذا المثال مخططًا من نوع فتح-ارتفاع-انخفاض-إغلاق مع أربع سلاسل بالترتيب المذكور وثلاث فئات. تُفعّل طريقة [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) أشرطة الصعود/الهبوط، وتتحكم طريقة [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) في خطوط الارتفاع‑الانخفاض التي تُظهر نطاقات الأسعار، بينما تُخفي خطوط السلاسل الفردية وشبكات الأفقية الصغرى.
+This example creates an open-high-low-close chart with four series in that order and three categories. The [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) method enables up/down bars, and [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
+
+The manager returned by [getUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getupdownbars/) exposes separate formatting objects through [getUpBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getupbarsformat/) and [getDownBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getdownbarsformat/). Use each object's [getFill](https://reference.aspose.com/slides/php-java/aspose.slides/format/getfill/) and [getLine](https://reference.aspose.com/slides/php-java/aspose.slides/format/getline/) methods to set its fill and outline independently. This example uses green bars with dark-green outlines for rising intervals and orange-red bars with dark-red outlines for falling intervals.
+
+Provide numeric values for all four series at each category, with High and Low enclosing Open and Close. The bars compare Close with Open **within the same category**, not with the previous category: A falls from 72 to 25, while B rises from 25 to 38 and C rises from 38 to 50. Equal Open and Close values produce no visible filled interval. Up/down bars span Open–Close; high-low lines span Low–High. These bars belong to the series group and are not ordinary bar-chart series.
+
+This formatting also works with [Line and LineWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) charts containing at least two series in the same group and corresponding numeric values for each category. For these non-stacked line charts, up/down bars compare the first and last series: a higher last value produces an up bar, and a lower last value produces a down bar. Reversing those series reverses the classification. The example below uses [OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/); do not assume that other stock, stacked-line, or 3D variants use the same data arrangement or interval interpretation.
 
 ```php
 use aspose\slides\ChartType;
@@ -581,7 +593,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
@@ -633,7 +645,20 @@ try
     $valueCell = $workbook->getCell(0, 3, 4, 50);
     $series->getDataPoints()->addDataPointForStockSeries($valueCell);
 
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
+    $upDownBars = $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars();
+    $upDownBars->setUpDownBars(true);
+
+    $upDownBars->getUpBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 50, 205, 50));
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 100, 0));
+    $upDownBars->getUpBarsFormat()->getLine()->setWidth(2);
+
+    $upDownBars->getDownBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 69, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->setWidth(2);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
 
     for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
@@ -652,15 +677,15 @@ finally
 }
 ```
 
-النتيجة:
+The result, exported from PowerPoint:
 
-![مخطط الأسهم](stock_chart.png)
+![مخطط أسهم يوضح فترة انخفاض برتقالية-حمراء لـ A وفترات ارتفاع خضراء لـ B و C](stock_chart.png)
 
 ### **إنشاء مخططات الصندوق والشارب**
 
-تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات من خلال تلخيص المقاييس الإحصائية الرئيسية، مثل الوسيط والربعيات والقيم المتطرفة المحتملة. إنها مفيدة بشكل خاص في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم التباين بسرعة وتحديد أي شذوذ.
+Box and whisker charts are used to display the distribution of data by summarizing key statistical measures, such as the median, quartiles, and potential outliers. They are particularly useful in exploratory data analysis and statistical studies to quickly understand data variability and identify any anomalies.
 
-ينشئ هذا المثال مخطط صندوق وشارب من ست قيم. تُحدد طريقة [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) طريقة حساب الربعيات الحصرية. كما يُمكّن المثال خطوط المتوسط، وعلامات المتوسط، والنقاط الداخلية، ونقاط القيم المتطرفة.
+This example creates a box and whisker chart from six values. The [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) method selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
 
 ```php
 use aspose\slides\ChartType;
@@ -725,9 +750,9 @@ finally
 
 ### **إنشاء مخططات القمع**
 
-تُستخدم مخططات القمع لتصور العمليات التي تشمل مراحل متسلسلة، حيث يقل حجم البيانات مع تقدمها من خطوة إلى أخرى. إنها مفيدة بشكل خاص لتحليل معدلات التحويل، وتحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
+Funnel charts are used to visualize processes that involve sequential stages, where the volume of data decreases as it progresses from one step to the next. They are especially helpful for analyzing conversion rates, identifying bottlenecks, and tracking the efficiency of sales or marketing processes.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح بين 50 و500، ثم يحفظ العرض التقديمي المحدث. يجب أن يحتوي العرض التقديمي المدخل على شريحة واحدة على الأقل.
+This example uses [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
 
 ```php
 use aspose\slides\ChartType;
@@ -783,15 +808,15 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![مخطط القمع](funnel_chart.png)
+![مخطط قمع](funnel_chart.png)
 
 ### **إنشاء مخططات شمسية**
 
-تُستخدم مخططات الشمسيّة (Sunburst) لتصور البيانات الهرمية، حيث تُظهر المستويات كحلقات متداخلة. تساعد على توضيح العلاقات بين الجزء والكل وتُعد مثالية لتمثيل الفئات المتداخلة والفرعيات بصيغة واضحة ومضغوطة.
+Sunburst charts are used to visualize hierarchical data, displaying levels as concentric rings. They help illustrate part-to-whole relationships and are ideal for representing nested categories and subcategories in a clear, compact format.
 
-ينشئ هذا المثال مخططًا شمسياً يحتوي على ثمانية أوراق مُجَمَّعة في أربعة سيقان وفرعين. تُعطي طريقة [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) السيقان في المستوى التجميعي 1 والفروع في المستوى 2. تُحدد تسميات الفئات القطاعات، وتحدد القيم أحجامها النسبية.
+This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
 
 ```php
 use aspose\slides\ChartType;
@@ -870,19 +895,19 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![المخطط الشمسي](sunburst_chart.png)
+![مخطط شمسي](sunburst_chart.png)
 
-### **إنشاء مخططات هيستوجرام**
+### **إنشاء مخططات التوزيع**
 
-تُظهر مخططات الهيستوجرام كيفية توزيع القيم الرقمية عبر فترات (bins). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم عرض bin موحد وع thresholds للحفاظ على استمرارية الفواصل وجعل المقارنات أسهل.
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-استدعِ [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) على المحور الأفقي باستخدام وضع من [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). يُطبق [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) فقط عند اختيار `ByBinWidth`؛ ويُطبق [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) فقط عند اختيار `ByNumberOfBins`. استخدم `Automatic` للسماح للمخطط باختيار الفواصل.
+Call [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
 
-#### **استخدام عرض فاصل ثابت**
+#### **استخدام عرض حاوية ثابت**
 
-يُجمع هذا المثال أوقات المعالجة في فواصل زمنية مدتها 10 دقائق، مع فواصل منفصلة للأوقات التي تكون ≤ 10 دقائق وتلك التي > 40 دقيقة. فعل هذه الفواصل باستخدام [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) و[setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). عند توفير حدود صريحة عبر [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) و[setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/)، استدعِ [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) و[setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) بالقيمة `false`.
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) and [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) and [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) with `false`.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -932,13 +957,13 @@ finally
 }
 ```
 
-يعرض العرض التقديمي في PowerPoint عدد الفواصل **3, 4, 4, 4, و 2**. تشمل الفئة السفلية القيم `5, 10, 10`، لذا فإن حدها شامل. تشمل الفئة العلوية فقط القيم `41, 50`، لذا فإن حدها حصري؛ كلا القيمتين المتساويتين لـ `40` يبقيان في الفاصل السابق. تحتوي الفواصل الداخلية على قيم أكبر من حدها الأدنى وأقل من أو تساوي حدها العلوي.
+The presentation displayed in PowerPoint shows bin counts of **3, 4, 4, 4, and 2**. The underflow bin includes `5, 10, 10`, so its threshold is inclusive. The overflow bin includes only `41, 50`, so its threshold is exclusive; both values equal to `40` remain in the preceding interval. The interior bins contain values greater than their lower boundary and less than or equal to their upper boundary.
 
-![هيستوجرام بفواصل 10 دقائق وحدود سفلية وعليا صريحة](histogram_bin_width.png)
+![مخطط توزيع بأقسام زمنية 10 دقائق وحدود تدفق، تدفق عكسي صريحة](histogram_bin_width.png)
 
-#### **تحديد عدد الفواصل**
+#### **تحديد عدد الحاويات**
 
-للحصول على مستوى ثابت من التفاصيل بدلاً من فواصل ثابتة، اطلب خمسة فواصل لنفس البيانات. يترك هذا المثال فواصل السفلية والعلوية معطلة. يحدد المخطط العرض بناءً على نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -982,15 +1007,15 @@ finally
 }
 ```
 
-تحمل الفواصل الخمسة عددًا **4, 4, 4, 4, و 1**. قارن هذا التوزيع مع نتيجة العرض الثابت أعلاه: قيم الإدخال متطابقة، لكن الحدود مختلفة.
+The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution with the fixed-width result above: the input values are identical, but the boundaries differ.
 
-![هيستوجرام بخمسة فواصل محسوبة من نفس البيانات](histogram_bin_count.png)
+![مخطط توزيع بخمس حاويات محسوبة من نفس البيانات](histogram_bin_count.png)
 
-### **إنشاء مخططات رادار**
+### **إنشاء مخططات رادارية**
 
-تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في صيغة ثنائية الأبعاد، مما يتيح مقارنة سهلة لعدة متغيرات في وقت واحد. إنها مفيدة بشكل خاص لتحديد الأنماط، والقوة، والضعف عبر مجموعة متعددة من مؤشرات الأداء أو السمات.
+Radar charts are used to display multivariate data in a two-dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط رادار مع السلسلة والفئات الافتراضية، ثم يحفظ العرض التقديمي كملف PPTX.
+This example uses [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
 
 ```php
 use aspose\slides\ChartType;
@@ -1012,15 +1037,15 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![مخطط الرادار](radar_chart.png)
+![مخطط راداري](radar_chart.png)
 
 ### **إنشاء مخططات متعددة الفئات**
 
-تُستخدم مخططات متعددة الفئات لعرض البيانات التي تنطوي على أكثر من تجميع تصنيفي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في آن واحد. إنها مفيدة بشكل خاص عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
+Multi-category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi-layered datasets.
 
-ينشئ هذا المثال مخطط أعمدة مجمّع يحتوي على ثمان فئات مرتبة في أربعة أزواج. تُعطي طريقة [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) كل زوج تسمية مشتركة في المستوى التجميعي 1، ما ينتج محور فئات يحتوي على تسميات فردية ومجموعة.
+This example creates a clustered column chart with eight categories arranged in four pairs. The [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
 
 ```php
 use aspose\slides\ChartType;
@@ -1094,15 +1119,73 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
 ![مخطط متعدد الفئات](multi_category_chart.png)
 
-### **إنشاء مخططات الخريطة**
+#### **إزالة تسمية ربع السنة**
 
-تُستخدم مخططات الخريطة لتصور البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل الدول أو الولايات أو المدن. إنها مفيدة بشكل خاص لتحليل الاتجاهات الإقليمية، والبيانات الديموغرافية، والتوزيع المكاني بطريقة واضحة وجذابة بصريًا.
+Download [quarters.pptx](quarters.pptx) and place it in the same directory as the PHP script. Its chart shows nine months and a single sales series with values from 10 through 18. On the category axis, Q1 spans January through March, Q2 spans April through June, and Q3 spans July through September.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط خريطة مع البيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
+April is the fourth category (index 3) and holds the Q2 label. Use [getGroupingLevels](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getgroupinglevels/) to access April's grouping levels, then call [deleteGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) with level 1 to remove its quarter label. Level 0 represents the month itself and cannot be removed with this method.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation(__DIR__ . "/quarters.pptx");
+try
+{
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $april = $chart->getChartData()->getCategories()->get_Item(3);
+    $april->getGroupingLevels()->deleteGroupingItem(1);
+
+    $presentation->save(__DIR__ . "/quarters-updated.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+
+$reopened = new Presentation(__DIR__ . "/quarters-updated.pptx");
+try
+{
+    $updatedChart = $reopened->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $updatedChart->getChartData();
+
+    $months = [];
+    $categories = $data->getCategories();
+    
+    for ($i = 0; $i < java_values($categories->size()); $i++)
+    {
+        $months[] = (string)$categories->get_Item($i)->getAsCell()->getValue();
+    }
+
+    $sales = [];
+    $points = $data->getSeries()->get_Item(0)->getDataPoints();
+    for ($i = 0; $i < java_values($points->size()); $i++)
+    {
+        $sales[] = (string)$points->get_Item($i)->getValue()->getData();
+    }
+
+    echo implode(", ", $months), PHP_EOL;
+    echo implode(", ", $sales), PHP_EOL;
+}
+finally
+{
+    $reopened->dispose();
+}
+```
+
+After reopening the chart, the example prints the original months (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) and sales values (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) in the same order. Open `quarters-updated.pptx` in PowerPoint to compare the axis labels. The Q2 label and the group boundary before April disappear, so Q1 spans January through June. Q3 still begins in July.
+
+![تسميات الربع قبل وبعد الإزالة. على اليسار، Q2 يغطى أبريل حتى يونيو. على اليمين، Q1 يغطى يناير حتى يونيو.](quarter-label-comparison.png)
+
+### **إنشاء مخططات خريطة**
+
+Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
+
+This example uses [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
 
 ```php
 use aspose\slides\ChartType;
@@ -1114,7 +1197,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::Map, 20, 20, 500, 300);
+    $chart = $slide->getShapes()->addChart(ChartType::Map, 20, 0, 500, 300);
 
     $presentation->save("mapChart.pptx", SaveFormat::Pptx);
 }
@@ -1124,21 +1207,23 @@ finally
 }
 ```
 
-النتيجة:
+The result:
 
-![مخطط الخريطة](map_chart.png)
+![مخطط خريطة](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-الصورة أعلاه تُظهر العرض التقديمي المحفوظ مفتوحًا في PowerPoint. تقوم Aspose.Slides بكتابة مخطط الخريطة وبياناته بشكل صحيح، لكنها لا ترسم مخططات الخريطة نفسها: عندما يتم تحويل شريحة تحتوي على مخطط إلى صورة أو تحويلها إلى PDF أو SVG، يصبح مساحة المخطط فارغة. الأشكال الأخرى على نفس الشريحة لا تتأثر.
+
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+
 {{% /alert %}}
 
 ### **إنشاء مخططات مركبة**
 
-يُدمج مخطط مركب (أو مخطط كومبو) نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط إبراز، مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعد على تحديد العلاقات بينها.
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![المخطط المركب](combination_chart.png)
+![مخطط مركب](combination_chart.png)
 
-يجمع هذا المثال سلسلتين من الأعمدة المتجمعة مع سلسلة خطية عبر أربع فئات. تستخدم الأعمدة المحور الرأسي الأساسي، بينما تُضع طريقة [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) الخط على محور رأسي ثانوي على اليمين. تقوم الدوال المساعدة بتهيئة العنوان، والوسيلة الإيضاحية، وتسميات المحاور، وخطوط الشبكة.
+This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1312,9 +1397,9 @@ createComboChart();
 
 ## **تحديث المخططات**
 
-تمكّنك Aspose.Slides للـ PHP عبر Java من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، وتنسيقه، وتشكيله. تُبسّط هذه الوظيفة عملية إبقاء العروض التقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس البيانات الحالية والمعايير البصرية بدقة.
+Aspose.Slides for PHP via Java enables you to update PowerPoint charts by modifying chart data, formatting, and styling. This functionality simplifies the process of keeping presentations up-to-date with dynamic content and ensures that charts accurately reflect current data and visual standards.
 
-يقوم هذا المثال بتحديث المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلب سلسلتين من الأعمدة تحتوي كل منهما على ثلاث نقاط بيانات، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من الورقة الأولى. يستخدم المثال [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) لتغيير خلايا دفتر العمل، يحدّث قيم السلسلة، يضيف سلسلة ثالثة، ويغيّر شكل المخطط إلى أسطوانات مجمّعة عبر [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
+This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/).
 
 ```php
 use aspose\slides\ChartType;
@@ -1380,11 +1465,11 @@ finally
 
 ## **تحديد نطاق البيانات لمخطط**
 
-لتفحص النطاق المستخدم بالفعل من قبل مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/php-java/chart-workbook/#retrieve-a-charts-data-range).
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/ar/php-java/chart-workbook/#retrieve-a-charts-data-range).
 
-توفر Aspose.Slides للـ PHP عبر Java المرونة لتعريف نطاق بيانات محدد من ورقة العمل كمصدر لبيانات مخططاتك. يتيح لك ذلك ربط جزء من ورقة العمل بالمخطط مباشرةً، مما يسمح لك بالتحكم في الخلايا التي تساهم في سلاسل المخطط وفئاته. نتيجةً لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث التغييرات في البيانات داخل ورقة العمل، لضمان أن عروض PowerPoint تعكس معلومات حديثة ودقيقة.
+Aspose.Slides for PHP via Java provides the flexibility to define a specific data range from a worksheet as the source for your chart's data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 
-يستخدم هذا المثال [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) لتعيين مصدر البيانات للمخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مملوء يحتوي على عنوان السلسلة في الصف الأول، وتسميات الفئات في العمود A، وثلاث قيم في العمود B.
+This example uses [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
 
 ```php
 use aspose\slides\Presentation;
@@ -1418,9 +1503,9 @@ finally
 
 ## **استخدام العلامات الافتراضية في المخططات**
 
-عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
+When you use default markers in charts, each chart series gets a different default marker symbol automatically.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط يحتوي على سلسلتين خطيتين ووسيلة إيضاح. تُحافظ إعدادات العلامة المستخرجة عبر [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) على رموز العلامات المُعينة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة، تمثلها `null`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
+This example uses [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) to create a chart with two line series and a legend. The marker settings accessed through [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `null`, while the second has a value for every category.
 
 ```php
 use aspose\slides\ChartType;
@@ -1485,20 +1570,20 @@ finally
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما هي أنواع المخططات التي تدعمها Aspose.Slides للـ PHP عبر Java؟**
+**ما هي أنواع المخططات التي تدعمها Aspose.Slides for PHP via Java؟**
 
-تدعم Aspose.Slides للـ PHP عبر Java مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبعثرة، الهيستوجرام، الرادار، وغيرها الكثير. تُتيح لك هذه المرونة اختيار نوع المخطط الأنسب لاحتياجاتك في تصور البيانات.
+Aspose.Slides for PHP via Java supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، تقوم أولاً بإنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)، تستعرِض الشريحة المطلوبة باستخدام فهرسها، ثم تستدعي الطريقة لإضافة مخطط، مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
 
-**كيف يمكنني تحديث البيانات المعروضة في المخطط؟**
+**كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط بالوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط برمجيًا ليعكس أحدث البيانات.
+You can update a chart's data by accessing its data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
 
-**هل يمكن تخصيص مظهر المخطط؟**
+**هل من الممكن تخصيص مظهر المخطط؟**
 
-نعم، توفر Aspose.Slides للـ PHP عبر Java خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، العلامات، الوسائل الإيضاحية، والعناصر التنسيقية الأخرى لتكييف مظهر المخطط وفقًا لمتطلبات التصميم الخاصة بك.
+Yes, Aspose.Slides for PHP via Java provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart's appearance to your specific design requirements.

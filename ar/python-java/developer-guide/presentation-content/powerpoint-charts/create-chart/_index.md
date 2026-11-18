@@ -1,5 +1,5 @@
 ---
-title: إنشاء أو تحديث مخططات عرض PowerPoint في Python
+title: إنشاء أو تحديث مخططات عروض PowerPoint في Python
 linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
@@ -7,18 +7,18 @@ url: /ar/python-java/create-chart/
 keywords:
 - إضافة مخطط
 - إنشاء مخطط
-- تعديل مخطط
+- تحرير مخطط
 - تغيير مخطط
 - تحديث مخطط
 - مخطط مبعثر
-- مخطط دائري
+- مخطط فطيرة
 - مخطط خطي
-- مخطط شجرة
-- مخطط الأسهم
+- مخطط خريطة شجرية
+- مخطط السهم
 - مخطط الصندوق والشارب
-- مخطط قمع
+- مخطط القمع
 - مخطط شمسية
-- مخطط مدرج تكراري
+- مخطط هيستوغرام
 - مخطط رادار
 - مخطط متعدد الفئات
 - PowerPoint
@@ -26,35 +26,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للغة Python عبر Java. إضافة وتنسيق وتعديل المخططات مع أمثلة عملية على الشيفرة بلغة Python."
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للغة Python عبر Java. إضافة وتنسيق وتحرير المخططات مع أمثلة شفرة عملية في Python."
 ---
 ## **نظرة عامة**
 
-هذه المقالة تقدم دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides for Python via Java. ستتعلم كيفية إضافة مخطط إلى شريحة برمجيًا، تعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، تُظهر أمثلة الكود المفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والشرح. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات Python الخاصة بك، مما يُسهل عملية إنشاء عروض تقديمية مدعومة بالبيانات.
+توفر هذه المقالة دليلًا شاملًا حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides للغة Python عبر Java. ستتعلم كيفية إضافة مخطط إلى شريحة برمجيًا، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم المحددة الخاصة بك. على مدار المقالة، توضح أمثلة الشيفرة التفصيلية كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسائط. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات Python الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو ورقة حساب.
+تساعد المخططات الناس على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
 
 **لماذا إنشاء المخططات؟**
 
 باستخدام المخططات، يمكنك:
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في العرض؛
 * كشف الأنماط والاتجاهات في البيانات؛
-* استنتاج اتجاه وزخم البيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة؛
-* اكتشاف القيم المتطرفة أو الشذوذ أو الأخطاء أو البيانات غير المنطقية؛
-* توصيل أو عرض بيانات معقدة.
+* استنتاج الاتجاه والزخم للبيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة؛
+* اكتشاف القيم المتطرفة أو الشذوذ أو الانحرافات أو الأخطاء أو البيانات غير المنطقية؛
+* توصيل أو عرض البيانات المعقدة.
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كلٍ من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
+في PowerPoint، يمكنك إنشاء المخططات من خلال وظيفة *Insert* التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كلٍّ من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
 
 {{% alert color="info" title="Note" %}}
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) في حزمة [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) . القيم في هذا التعداد تتCorrespond إلى أنواع مخططات مختلفة.
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) في حزمة [asposeslides.api](https://reference.aspose.com/slides/python-java/aspose.slides/) . القيم في هذا التعداد تمثل أنواع المخططات المختلفة.
 {{% /alert %}}
 
-### **إنشاء مخططات الأعمدة المتجمعة**
+### **إنشاء مخططات أعمدة متجمعة**
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط عمود متجمع يُقارن سلسلتين عبر ثلاث فئات. تستخدم السلسلة تعبئة باللون الأحمر والأخضر، وتظهر التسميات الفردية أسماء الفئات وأسماء السلاسل والقيم. يشير فهرس ورقة العمل 0 إلى أول ورقة في دفتر عمل المخطط المضمّن.
+هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط عمود متجمع يقارن سلسلتين عبر ثلاث فئات. السلسلتان تستخدمان تعبئة حمراء وخضراء، وتظهر التسميات الفردية أسماء الفئات، أسماء السلاسل، والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في دفتر العمل المضمن للمخطط.
 
 ```python
 import jpype
@@ -139,20 +139,20 @@ finally:
 
 النتيجة:
 
-![مخطط الأعمدة المتجمعة](clustered_column_chart.png)
+![مخطط العمود المتجمع](clustered_column_chart.png)
 
-### **إنشاء مخططات المبعثر (Scatter)**
+### **إنشاء مخططات تب scatter**
 
-تُستخدم مخططات المبعثر (المعروفة أيضًا باسم scatter plots أو x‑y graphs) غالبًا للتحقق من الأنماط أو إظهار الترابط بين متغيرين.
+تُستخدم مخططات scatter (المعروفة أيضًا بمخططات التشتت أو رسوم بيانية x‑y) غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
-استخدم مخططًا مبعثَرًا عندما:
+استخدم مخطط scatter عندما:
 
-* لديك بيانات رقمية زوجية.
-* لديك متغيران يتماشيان معًا.
+* لديك بيانات رقمية مزدوجة.
+* لديك متغيران يتوافقان جيدًا معًا.
 * تريد تحديد ما إذا كان المتغيران مرتبطين.
 * لديك متغير مستقل له قيم متعددة للمتغير التابع.
 
-يُظهر هذا المثال مجموعتين من قيم x‑y. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمية، بينما تستخدم السلسلة الثانية خطوطًا ناعمة مع علامات دائرية؛ كلاهما يستخدم حجم علامة 10، مُكوَّن عبر [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). تتحكم الدالة [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) في شكل العلامة.
+هذا المثال يرسم مجموعتين من قيم x‑y. السلسلة الأولى تستخدم خطوطًا مستقيمة مع علامات نجمة، بينما الثانية تستخدم خطوطًا ناعمة مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، يتم ضبطه عبر [setSize](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSize). تتحكم طريقة [setSymbol](https://reference.aspose.com/slides/python-java/aspose.slides/marker/#setSymbol) في شكل العلامة.
 
 ```python
 import jpype
@@ -222,13 +222,13 @@ finally:
 
 النتيجة:
 
-![مخطط المبعثر](scatter_chart.png)
+![مخطط التشتت](scatter_chart.png)
 
-### **إنشاء مخططات الدائرة (Pie)**
+### **إنشاء مخططات فطيرة**
 
-تُستخدم مخططات الدائرة لعرض العلاقة بين الجزء والكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات تصنيفية مع قيم رقمية. ومع ذلك، إذا احتوت بياناتك على العديد من الأجزاء أو التسميات، قد ترغب في استخدام مخطط شريطي بدلًا من ذلك.
+تُستخدم مخططات الفطيرة لإظهار العلاقة بين الجزء والكامل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد ترغب في التفكير باستخدام مخطط شريطي بدلاً من ذلك.
 
-يُنشئ هذا المثال مخطط دائرة بثلاث قيم ربع سنوية. لكل شريحة تعبئة وحدود مخصصة، وتُظهر التسميات تركيبات مختلفة من القيم والنسب ومعلومات السلسلة. تُحدد الدالة [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) الزاوية الأولى لتبدأ عند 180 درجة.
+هذا المثال ينشئ مخطط فطيرة بثلاث قيم ربع سنوية. كل شريحة لها تعبئة وتحديد مخصص، وتعرض التسميات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تُحدد طريقة [setFirstSliceAngle](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setFirstSliceAngle) الزاوية الأولية للقطعة لتبدأ عند 180 درجة.
 
 ```python
 import jpype
@@ -334,13 +334,15 @@ finally:
 
 النتيجة:
 
-![مخطط الدائرة](pie_chart.png)
+![مخطط الفطيرة](pie_chart.png)
 
-### **إنشاء مخططات الخط (Line)**
+لتحسين قابلية قراءة التسميات خارج الفطيرة، راجع [Format Leader Lines](/slides/ar/python-java/chart-data-label/#format-leader-lines) للحصول على مثال يحدد موقع التسميات ويُخصص لون الخطوط وعرضها وشفافيتها ونمطها المتقطع.
 
-تُستخدم مخططات الخط (المعروفة أيضًا باسم line graphs) عندما تريد إظهار تغير القيم مع مرور الوقت. باستخدام مخطط خط، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغييرات والاتجاهات بمرور الوقت، تسليط الضوء على الشذوذ في سلاسل البيانات، وأكثر من ذلك.
+### **إنشاء مخططات خطية**
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط خط بالسلاسل والفئات الافتراضية، ثم يُحفظ العرض بصيغة PPTX.
+تُستخدم المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) في الحالات التي تريد فيها إظهار تغيّر القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغييرات والاتجاهات بمرور الوقت، تسليط الضوء على الشواذ في سلاسل البيانات، وأكثر من ذلك.
+
+هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط خطي بالسلاسل والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
 
 ```python
 import jpype
@@ -362,7 +364,7 @@ finally:
     presentation.dispose()
 ```
 
-افتراضيًا، تُربط النقاط على مخطط الخط بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، اتصل بـ [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) باستخدام قيمة من [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) :
+افتراضيًا، تُربط نقاط المخطط الخطي بخطوط مستمرة مستقيمة. إذا رغبت في ربط النقاط بخطوط متقطعة، استدعِ [setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) مع قيمة من [LineDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) :
 
 ```python
 import jpype
@@ -387,20 +389,20 @@ finally:
 
 النتيجة:
 
-![مخطط الخط](line_chart.png)
+![المخطط الخطي](line_chart.png)
 
-### **إنشاء مخططات الخريطة الشجرية (Tree Map)**
+### **إنشاء مخططات خريطة شجرية**
 
-تُستخدم مخططات الخريطة الشجرية لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير داخل كل فئة.
+تُستخدم مخططات خريطة شجرية للبيانات المبيعاتية عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير داخل كل فئة.
 
-يُنشئ هذا المثال خريطة شجرية بثمانية أوراق موزعة على أربعة جذوع وفرعين. تُعيّن الدالة [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) الجذوع على المستوى التجميعي 1 والفروع على المستوى 2. تحدد القيم أحجام المستطيلات النسبية، بينما تحدد تسميات الفئات والتسميات المتداخلة للآباء الهرمية.
+هذا المثال ينشئ خريطة شجرية بثمانية أوراق مُجمعة في أربعة سيقان وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) السيقان على مستوى التجميع 1 والفروع على المستوى 2. تُحدد القيم أحجام المستطيلات النسبية، بينما تحدد التسميات الفئوية وتداخل تسميات الوالدين الهيكل الهرمي.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpile.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import ChartType, ParentLabelLayoutType, Presentation, SaveFormat
 
@@ -476,29 +478,29 @@ finally:
 
 النتيجة:
 
-![مخطط الشجرة](treemap_chart.png)
+![المخطط الشجري](treemap_chart.png)
 
-### **إنشاء مخططات الشلال (Waterfall)**
+### **إنشاء مخططات شلال**
 
-يُظهر مخطط الشلال كيف تُساهم التغيرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، يخصم التكاليف، ثم يضيف دخلًا آخر. تتنقل أعمدة التغيير بين القيم السابقة والجديدة، بينما تمتد أعمدة الإجمالي من الصفر إلى القيمة المتراكمة.
+يوضح مخطط الشلال كيف تُساهم التغيّرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، يُخصم التكاليف، ثم يُضاف الدخل الآخر. تعوم أعمدة التغيّر بين القيم السابقة والجديدة، بينما تمتد الأعمدة الكلية من الصفر إلى القيمة المتراكمة.
 
-المثال التالي يستخدم مبالغ بالآلاف من الدولار الأمريكي:
+المثال التالي يستخدم مبالغ بالآلاف من دولارات الولايات المتحدة:
 
-| الفئة | قيمة دفتر العمل | نوع العمود |
+| الفئة | قيمة المصنف | نوع العمود |
 | --- | ---: | --- |
-| الإيراد | 1000 | زيادة |
-| تكلفة المبيعات | -400 | نقصان |
-| الربح الإجمالي | 600 | إجمالي متوسط |
-| المصاريف التشغيلية | -200 | نقصان |
+| الإيرادات | 1000 | زيادة |
+| تكلفة المبيعات | -400 | انخفاض |
+| الربح الإجمالي | 600 | مجموع متوسط |
+| المصاريف التشغيلية | -200 | انخفاض |
 | دخل آخر | 50 | زيادة |
-| صافي الربح | 450 | إجمالي نهائي |
+| صافي الربح | 450 | مجموع نهائي |
 
-لتمييز نقطة كإجمالي متوسط أو نهائي، استدعِ الدالة [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) الخاصة بها مع `True`. زوِّد الخلية المقابلة في دفتر العمل بالمبلغ المتراكم الفعلي: `600` للربح الإجمالي (`1000 - 400`) و`450` للصافي (`600 - 200 + 50`). تُعلم الطريقة العمود كإجمالي؛ لا تحسب أو تعبئ قيمة الخلية. لا تستخدم الصفر كعنصر نائب ولا تزود عمودًا آخر لتغيير نقطة إجمالية. يعرض عمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
+لتمييز نقطة ككامل متوسط أو نهائي، استدعِ طريقة [setSetAsTotal](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setSetAsTotal) الخاصة بها مع `True`. زوِّد الخلية المقابلة في المصنف بالمبلغ المتراكم الفعلي: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلم الطريقة العمود ككامل؛ لا تقوم بحساب أو تعبئة قيمة الخلية. لا تستخدم الصفر كقيمة نائب ولا تزود نقطة أخرى لتغيّر كامل. يعرض عمود الكل القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
 
-هذا المثال الكامل بلغة Python يُنشئ مخططًا باستخدام العنصر `Waterfall` من [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/)، يمسح البيانات الافتراضية، ويملأ دفتر العمل المضمّن. يختار فهرس ورقة العمل `0` الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B يحتوي على القيم. تُضاف كل خلية قيمة عبر [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). تُحدد الفهارس الصفرية للنقطة `2` و`5` الإجماليات المتوسطة والنهائية. استدعاء [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) مع `True` يُظهر المبالغ على الأعمدة. لا يلزم عرض تقديمي أو دفتر عمل كمدخلات.
+هذا المثال الكامل بلغة Python يُنشئ مخططًا باستخدام العضو `Waterfall` من [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/)، يُمسح البيانات الافتراضية، ويملأ دفتر العمل المدمج. يحدد فهرس ورقة العمل `0` الورقة الأولى؛ تحتوي العمود A على أسماء الفئات والعمود B على القيم. تُضاف كل خلية قيمة عبر [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#addDataPointForWaterfallSeries). تُعرّف مؤشرات النقاط الصفرية `2` و`5` المجموعات المتوسطة والنهائية. استدعِ [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) مع `True` لعرض المبالغ على الأعمدة. لا يلزم وجود عرض تقديمي أو دفتر عمل كمدخل.
 
 ```python
-import jpype
+import jpase
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -536,7 +538,7 @@ try:
         value_cell = workbook.getCell(worksheet_index, i + 1, 1, values[i])
         series.getDataPoints().addDataPointForWaterfallSeries(value_cell)
 
-    # النقطة الثالثة والسادسة تمثّلان إجماليات، ليست تغييرات إضافية.
+    # النقطة الثالثة والسادسة تمثل مجموعات، ليست تغييرات إضافية.
     series.getDataPoints().get_Item(2).setSetAsTotal(True)
     series.getDataPoints().get_Item(5).setSetAsTotal(True)
     series.setShowConnectorLines(True)
@@ -547,17 +549,23 @@ finally:
     presentation.dispose()
 ```
 
-استدعِ الدالة [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) على مستوى السلسلة مع `True` لإظهار الخطوط التي تربط الأعمدة المتتالية وتسهيل متابعة القيمة الجارية. لإخفاء هذه الخطوط، استبدل استدعاء الدالة في المثال بـ `series.setShowConnectorLines(False)` قبل الحفظ. هذا يغيّر فقط رؤية الخط، وليس البيانات أو الإجماليات.
+استدعِ طريقة المستوى السلسلي [setShowConnectorLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setShowConnectorLines) مع `True` لإظهار الخطوط التي تربط الأعمدة المتتالية وتسهيل متابعة القيمة الجارية. لإخفاء هذه الخطوط، استبدل الاستدعاء في المثال بـ `series.setShowConnectorLines(False)` قبل الحفظ. هذا يغيّر فقط رؤية الخط، لا البيانات أو المجاميع.
 
-العرض المحفوظ يُظهر الربح الإجمالي 600 والصافي 450، مع رسم كلا الإجماليين من الصفر:
+العرض المحفوظ يُظهر الربح الإجمالي 600 وصافي الربح 450، مع رسم كلا المجاميع من الصفر:
 
-![مخطط الشلال يوضح الإيرادات، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع تسميات القيم وخطوط الوصل](waterfall_chart.png)
+![مخطط شلال يظهر الإيرادات، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع تسميات قيم وخطوط وصل](waterfall_chart.png)
 
-### **إنشاء مخططات الأسهم (Stock)**
+### **إنشاء مخططات أسهم**
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، والارتفاع، والانخفاض، والإغلاق، مما يُسهم في تحليل اتجاهات السوق وتقلباته. تُوفر رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين في اتخاذ قرارات مستنيرة.
+تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، أعلى سعر، أدنى سعر، وسعر الإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين في اتخاذ قرارات مستنيرة.
 
-يُنشئ هذا المثال مخططًا يضم أسعار الفتح‑الارتفاع‑الانخفاض‑الإغلاق بأربع سلاسل بهذا الترتيب وثلاث فئات. تُفعّل الدالة [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) أشرطة الصعود/الهبوط، وتتحكم [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) في خطوط الارتفاع‑الانخفاض التي تُظهر نطاق الأسعار، بينما تُخفى خطوط السلسلة الفردية وخطوط الشبكة الأفقية الصغرى.
+هذا المثال يُنشئ مخطط Open‑High‑Low‑Close بأربع سلاسل بهذا الترتيب وثلاث فئات. تُفعّل طريقة [setUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#setUpDownBars) أشرطة الصعود/الهبوط، وتُتحكم طريقة [getHiLowLinesFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getHiLowLinesFormat) في خطوط الارتفاع‑الانخفاض التي تُظهر نطاقات الأسعار، بينما تُخفى خطوط السلسلة الفردية والخطوط الشبكية الأفقية الصغيرة.
+
+المُدير الذي تُعيده طريقة [getUpDownBars](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#getUpDownBars) يُظهر كائنات تنسيق منفصلة عبر [getUpBarsFormat](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#getUpBarsFormat) و [getDownBarsFormat](https://reference.aspose.com/slides/python-java/aspose.slides/updownbarsmanager/#getDownBarsFormat). استخدم كل من طُرُق [getFill](https://reference.aspose.com/slides/python-java/aspose.slides/format/#getFill) و [getLine](https://reference.aspose.com/slides/python-java/aspose.slides/format/#getLine) لضبط التعبئة والحدود بشكل مستقل. يستخدم هذا المثال أشرطة خضراء بحدود خضراء غامقة للفترات الصاعدة وأشرطة برتقالية‑حمراء بحدود حمراء غامقة للفترات النازلة.
+
+قدِّم قيمًا عددية لجميع السلاسل الأربعة في كل فئة، بحيث يُحيط High و Low بـ Open و Close. تُقارن الأشرطة Close بـ Open **ضمن نفس الفئة**، لا مع الفئة السابقة: يهبط السهم A من 72 إلى 25، بينما يرتفع السهم B من 25 إلى 38 ويصعد السهم C من 38 إلى 50. تُنتج القيم المتساوية للفتح والإغلاق عدم وجود فترة مملوءة مرئية. تمتد أشرطة الصعود/الهبوط من Open إلى Close؛ وتمتد خطوط الارتفاع‑الانخفاض من Low إلى High. هذه الأشرطة تنتمي إلى مجموعة السلسلة وليست سلاسل مخطط شريطي عادية.
+
+يعمل هذا التنسيق أيضًا مع مخططات [Line and LineWithMarkers](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) التي تحتوي على سلسلتين على الأقل في نفس المجموعة وقيم عددية مطابقة لكل فئة. بالنسبة لهذه المخططات الخطية غير المتكدسة، تُقارن أشرطة الصعود/الهبوط السلسلة الأولى بالأخيرة: تُنتج قيمة أخيرة أعلى شريط صعود، وقيمة أخيرة أقل شريط هبوط. عكس تلك السلاسل يُعكس التصنيف. المثال أدناه يستخدم [OpenHighLowClose](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/); لا تفترض أن الأنواع الأخرى من المخططات المالية أو المخططات الخطية المتكدسة أو الثلاثية الأبعاد تستخدم نفس ترتيب البيانات أو تفسير الفترات.
 
 ```python
 import jpype
@@ -568,11 +576,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
 
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, False)
+    chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, False)
 
     workbook = chart.getChartData().getChartDataWorkbook()
 
@@ -624,7 +634,24 @@ try:
     value_cell = workbook.getCell(0, 3, 4, 50)
     series.getDataPoints().addDataPointForStockSeries(value_cell)
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(True)
+    up_down_bars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars()
+    up_down_bars.setUpDownBars(True)
+
+    up_down_bars.getUpBarsFormat().getFill().setFillType(FillType.Solid)
+    up_fill_color = Color(50, 205, 50)
+    up_down_bars.getUpBarsFormat().getFill().getSolidFillColor().setColor(up_fill_color)
+    up_down_bars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    up_line_color = Color(0, 100, 0)
+    up_down_bars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(up_line_color)
+    up_down_bars.getUpBarsFormat().getLine().setWidth(2)
+
+    up_down_bars.getDownBarsFormat().getFill().setFillType(FillType.Solid)
+    down_fill_color = Color(255, 69, 0)
+    up_down_bars.getDownBarsFormat().getFill().getSolidFillColor().setColor(down_fill_color)
+    up_down_bars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid)
+    down_line_color = Color(139, 0, 0)
+    up_down_bars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(down_line_color)
+    up_down_bars.getDownBarsFormat().getLine().setWidth(2)
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
 
     for stock_series in chart.getChartData().getSeries():
@@ -637,15 +664,15 @@ finally:
     presentation.dispose()
 ```
 
-النتيجة:
+النتيجة، مصدَّرة من PowerPoint:
 
-![مخطط السهم](stock_chart.png)
+![مخطط سهم يُظهر فترة هبوط برتقالية‑حمراء للسهم A وفترات صعود خضراء للسهمين B و C](stock_chart.png)
 
-### **إنشاء مخططات الصندوق والشارب (Box and Whisker)**
+### **إنشاء مخططات صندوقية وخطية**
 
-تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات عبر تلخيص مقاييس إحصائية رئيسية، مثل الوسيط والربيعات والقيم المتطرفة المحتملة. تُعدّ مفيدة جدًا في تحليل البيانات الاستكشافية والدراسات الإحصائية لتفهّم تباين البيانات بسرعة وتحديد أي شذوذ.
+تُستخدم المخططات الصندوقية والخطية لعرض توزيع البيانات عبر تلخيص مقاييس إحصائية رئيسية، مثل الوسيط، الربعيات، والنقاط الشاذة المحتملة. إنها مفيدة خاصة في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-يُنشئ هذا المثال مخطط صندوق وشارب من ست قيم. تُحدد الدالة [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) طريقة حساب الربيعات الحصرية. يُمكّن المثال أيضًا خطوط المتوسط، وعلامات المتوسط، والنقاط الداخلية، ونقاط القيم المتطرفة.
+هذا المثال يُنشئ مخططًا صندوقيًا وخطيًا من ست قيم. تُحدِّد طريقة [setQuartileMethod](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setQuartileMethod) طريقة حساب الربعيات الحصرية. يُمكّن المثال أيضًا خطوط المتوسط، علامات المتوسط، النقاط الداخلية، والنقاط الشاذة.
 
 ```python
 import jpype
@@ -707,11 +734,11 @@ finally:
     presentation.dispose()
 ```
 
-### **إنشاء مخططات القمع (Funnel)**
+### **إنشاء مخططات قمع**
 
-تُستخدم مخططات القمع لتصوير العمليات التي تتضمن مراحل متتابعة، حيث يتناقص حجم البيانات كلما تقدمت من خطوة إلى التالية. تُفيد بشكل خاص في تحليل معدلات التحويل، وتحديد عنق الزجاجة، وتتبع كفاءة عمليات البيع أو التسويق.
+تُستخدم مخططات القمع لتصوير العمليات التي تشمل مراحل متسلسلة، حيث يقل حجم البيانات كلما تقدمت العملية من خطوة إلى أخرى. إنها مفيدة خصوصًا لتحليل معدلات التحويل، تحديد عنق الزجاجة، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يُحفظ العرض المحدث. يجب أن يحتوي العرض المدخل على شريحة واحدة على الأقل.
+هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح بين 50 و 500، ثم يحفظ العرض المُحدَّث. يجب أن يحتوي العرض المدخل على شريحة واحدة على الأقل.
 
 ```python
 import jpype
@@ -771,11 +798,11 @@ finally:
 
 ![مخطط القمع](funnel_chart.png)
 
-### **إنشاء مخططات الشمسية (Sunburst)**
+### **إنشاء مخططات شمسية**
 
-تُستخدم مخططات الشمسية لتصوير البيانات الهرمية، حيث تُظهر المستويات كحلقات متراصة. تُساعد في توضيح علاقات الجزء إلى الكل وتُعد مثالية لتمثيل الفئات المتداخلة والفرعية بشكل واضح ومُدمج.
+تُستخدم المخططات الشمسيّة لتصوير البيانات الهرمية، حيث تُعرض المستويات كدوائر متحدة المركز. إنها تساعد على توضيح العلاقات بين الجزء والكامل وتعتبر مثالية لتمثيل الفئات المتداخلة والفرعية بشكل واضح ومُدمج.
 
-يُنشئ هذا المثال مخططًا شمسياً بثمانية أوراق موزعة على أربعة جذوع وفرعين. تُعيّن الدالة [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) الجذوع على المستوى التجميعي 1 والفروع على المستوى 2. تُعرّف تسميات الفئات القطاعات، وتحدّد القيم أحجامها النسبية.
+هذا المثال يُنشئ مخططًا شمسيًا بثمانية أوراق مُجمعة في أربعة سيقان وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) السيقان على مستوى التجميع 1 والفروع على المستوى 2. تُحدِّد التسميات الفئوية القطاعات، وتُحدِّد القيم أحجامها النسبية.
 
 ```python
 import jpype
@@ -856,17 +883,17 @@ finally:
 
 النتيجة:
 
-![مخطط الشمسية](sunburst_chart.png)
+![المخطط الشمسي](sunburst_chart.png)
 
-### **إنشاء مخططات التوزيع (Histogram)**
+### **إنشاء مخططات هيستوغرام**
 
-تُظهر مخططات التوزيع كيف تُوزع القيم الرقمية عبر فواصل (bins). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم نفس عرض الفاصل والحدود للحفاظ على توحيد الفواصل وجعل المقارنات أسهل.
+تُظهر مخططات الهيستوغرام كيف تُوزع القيم العددية عبر الفواصل (الصناديق). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم نفس عرض الصندوق والحدود للحفاظ على الاتساق وتسهيل مقارنة التوزيعات.
 
-استدعِ الدالة [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) على المحور الأفقي مع وضع من [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). تُطبق [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) فقط على `ByBinWidth`؛ وتُطبق [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) فقط على `ByNumberOfBins`. استخدم `Automatic` للسماح للمخطط باختيار الفواصل تلقائيًا.
+استدعِ [setAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAggregationType) على المحور الأفقي مع وضع من [AxisAggregationType](https://reference.aspose.com/slides/python-java/aspose.slides/axisaggregationtype/). تُطبق [setBinWidth](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setBinWidth) فقط على `ByBinWidth`؛ وتُطبق [setNumberOfBins](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberOfBins) فقط على `ByNumberOfBins`. استخدم `Automatic` لترك المخطط يختار الصناديق تلقائيًا.
 
-#### **استخدام عرض فاصل ثابت**
+#### **استخدام عرض صندوق ثابت**
 
-يُقسم هذا المثال أوقات المعالجة إلى فواصل زمنية مدتها 10 دقائق، مع فواصل منفصلة للأوقات التي لا تتجاوز 10 دقائق وتلك التي تتجاوز 40 دقيقة. فعِّل هذه الفواصل عبر [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) و[setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). عند توفير حدود صريحة عبر [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) و[setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin)، استدعي [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) و[setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) مع `False`.
+هذا المثال يجمع أوقات المعالجة في فواصل صينية عشر دقائق، مع صناديق منفصلة للأوقات التي تبلغ 10 دقائق أو أقل وتلك التي تزيد عن 40 دقيقة. فعِّل هذه الصناديق عبر [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) و [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin). عند توفير حدود صريحة عبر [setUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setUnderflowBin) و [setOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setOverflowBin)، استدعِ [setAutomaticUnderflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticUnderflowBin) و [setAutomaticOverflowBin](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticOverflowBin) مع `False`.
 
 ```python
 import jpype
@@ -913,13 +940,13 @@ finally:
     presentation.dispose()
 ```
 
-العرض المعروض في PowerPoint يُظهر عدد الفواصل **3, 4, 4, 4, و2**. تشمل الفاصل السفلي القيم `5, 10, 10`، لذا فإن حدّه شامل. تشمل الفاصل العلوي القيم `41, 50` فقط، لذا فإن حدّه حصري؛ القيم المتساوية مع `40` تبقى في الفاصل السابق. تحتوي الفواصل الداخلية على قيم أكبر من حدها السفلي وأقل من أو تساوي حدها العلوي.
+العرض المعروض في PowerPoint يُظهر عدد الصناديق **3, 4, 4, 4, 2**. الصندوق تحت الحد يحتوي على `5, 10, 10`، لذا فحدوده شاملة. الصندوق فوق الحد يحتوي فقط على `41, 50`، لذا فحدوده حصرية؛ القيم المتساوية مع `40` تبقى في الفاصل السابق. الصناديق الداخلية تحتوي على قيم أكبر من حدها السفلي وأقل من أو يساوي حدها العلوي.
 
-![التوزيع التكراري بفواصل 10 دقائق وحدود صريحة للفواصل السفلي والعلوي](histogram_bin_width.png)
+![الهيستوغرام بأقسام عشر دقائق وحدود صريحة تحت وفوق الحد](histogram_bin_width.png)
 
-#### **تحديد عدد الفواصل**
+#### **تحديد عدد الصناديق**
 
-للحصول على مستوى تفصيل ثابت بدلاً من فواصل ثابتة، اطلب خمس فواصل لنفس البيانات. يُعطل هذا المثال فواصل الفائض والنقص. يحدد المخطط العرض بناءً على نطاق البيانات، لذا يمكن أن تتغير الحدود بين التقارير.
+للحصول على مستوى ثابت من التفاصيل بدلاً من الفواصل الثابتة، اطلب خمس صناديق لنفس البيانات. يترك هذا المثال صناديق تحت وفوق الحد غير مفعَّلة. يحدد المخطط العرض بناءً على نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
 
 ```python
 import jpype
@@ -960,15 +987,15 @@ finally:
     presentation.dispose()
 ```
 
-الفواصل الخمسة لها عدد **4, 4, 4, 4, و1**. قارن هذا التوزيع بنتيجة العرض الثابت أعلاه: القيم المدخلة هي نفسها، لكن الحدود مختلفة.
+الصناديق الخمسة لديها عدد **4, 4, 4, 4, 1**. قارن هذا التوزيع بنتيجة العرض الثابت أعلاه: القيم المدخلة هي نفسها، لكن الحدود تختلف.
 
-![التوزيع التكراري بخمس فواصل محسوبة من نفس البيانات](histogram_bin_count.png)
+![الهيستوغرام بخمس صناديق محسوبة من نفس البيانات](histogram_bin_count.png)
 
-### **إنشاء مخططات الرادار (Radar)**
+### **إنشاء مخططات رادار**
 
-تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في صيغة ثنائية الأبعاد، مما يُسهل مقارنة عدة متغيرات في آنٍ واحد. تُعد مفيدة جدًا لتحديد الأنماط، والنقاط القوية، والضعف عبر مجموعة من مقاييس الأداء أو السمات.
+تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في صيغة ثنائية الأبعاد، مما يسمح بالمقارنة السهلة بين عدة متغيرات في آنٍ واحد. إنها مفيدة خصوصًا لتحديد الأنماط، القواً، والضعف عبر عدة مؤشرات أداء أو سمات.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط رادار بالسلاسل والفئات الافتراضية، ثم يُحفظ العرض بصيغة PPTX.
+هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط رادار بالسلاسل والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
 
 ```python
 import jpype
@@ -994,11 +1021,11 @@ finally:
 
 ![مخطط الرادار](radar_chart.png)
 
-### **إنشاء مخططات متعددة الفئات (Multi-Category)**
+### **إنشاء مخططات متعددة الفئات**
 
-تُستخدم مخططات متعددة الفئات لعرض بيانات تشمل أكثر من تجميع تصنيفي واحد، مما يُتيح مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. تُفيد كثيرًا عند الحاجة لتحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
+تُستخدم المخططات متعددة الفئات لعرض بيانات تشمل أكثر من تجميع فئوي واحد، مما يسمح بمقارنة القيم عبر أبعاد متعددة في آنٍ واحد. إنها مفيدة خاصةً عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
 
-يُنشئ هذا المثال مخطط عمود متجمع بثمانية فئات مرتبة في أربع أزواج. تُعطي الدالة [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) كل زوج تسمية مشتركة على المستوى التجميعي 1، ما يُنتج محور فئات يحمل كلًا من التسميات الفردية والمجموعة.
+هذا المثال ينشئ مخطط عمود متجمع بثمانية فئات مرتبة في أربع أزواج. تُعطي طريقة [setGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#setGroupingItem) كل زوج تسمية مشتركة على مستوى التجميع 1، مما ينتج محور فئات به تسميات فردية ومجموعات.
 
 ```python
 import jpype
@@ -1076,11 +1103,11 @@ finally:
 
 ![مخطط متعدد الفئات](multi_category_chart.png)
 
-### **إنشاء مخططات الخريطة (Map)**
+#### **إزالة تسمية ربع السنة**
 
-تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عبر ربط المعلومات بمواقع محددة مثل الدول أو الولايات أو المدن. تُعد مفيدة في تحليل الاتجاهات الإقليمية، والبيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
+حمِّل [quarters.pptx](quarters.pptx) وضعه في دليل العمل. يُظهر مخططه تسعة أشهر وسلسلة مبيعات واحدة بقيم من 10 إلى 18. على محور الفئات، يمتد Q1 من يناير إلى مارس، وQ2 من أبريل إلى يونيو، وQ3 من يوليو إلى سبتمبر.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويُحفظ للعرض في PowerPoint.
+الأبريل هو الفئة الرابعة (الفهرس 3) ويحمل تسمية Q2. استخدم [getGroupingLevels](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/#getGroupingLevels) للوصول إلى مستويات تجميع أبريل، ثم استدعِ [deleteGroupingItem](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategorylevelsmanager/#deleteGroupingItem) مع المستوى 1 لإزالة تسمية الربع. المستوى 0 يمثل الشهر نفسه ولا يمكن إزالته بهذه الطريقة.
 
 ```python
 import jpype
@@ -1089,34 +1116,65 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, Presentation, SaveFormat
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation()
+presentation = Presentation("quarters.pptx")
 try:
-    slide = presentation.getSlides().get_Item(0)
+    chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    april = chart.getChartData().getCategories().get_Item(3)
+    april.getGroupingLevels().deleteGroupingItem(1)
 
-    chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300)
-
-    presentation.save("mapChart.pptx", SaveFormat.Pptx)
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
+
+reopened = Presentation("quarters-updated.pptx")
+try:
+    chart = reopened.getSlides().get_Item(0).getShapes().get_Item(0)
+    data = chart.getChartData()
+    
+    points = data.getSeries().get_Item(0).getDataPoints()
+    print(", ".join(str(month.getAsCell().getValue()) for month in data.getCategories()))
+    print(", ".join(str(point.getValue().getData()) for point in points))
+finally:
+    reopened.dispose()
 ```
+
+بعد إعادة فتح المخطط، يطبع المثال الأشهر الأصلية (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) وقيم المبيعات (`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`) بنفس الترتيب. افتح `quarters-updated.pptx` في PowerPoint للمقارنة بين تسميات المحور. اختفت تسمية Q2 والحد الفئوي قبل أبريل، لذا يمتد Q1 من يناير إلى يونيو. لا يزال Q3 يبدأ في يوليو.
+
+![تسميات الربع قبل الإزالة وبعدها. على اليسار، Q2 يمتد من أبريل إلى يونيو. على اليمين، Q1 يمتد من يناير إلى يونيو.](quarter-label-comparison.png)
+
+### **إنشاء مخططات خريطة**
+
+تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عبر ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. إنها مفيدة خاصةً لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، وتوزيعات المكان بطريقة واضحة وجذابة بصريًا.
+
+هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVD
+```
+
+
 
 النتيجة:
 
 ![مخطط الخريطة](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. يُكتب Aspose.Slides مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة بنفسه: عند تحويل شريحة تحوي مخطط خريطة إلى صورة أو تحويلها إلى PDF أو SVG، يصبح مساحة المخطط فارغة. لا تُؤثر الأشكال الأخرى على الشريحة نفسها.
+الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. يكتب Aspose.Slides مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة نفسه: عند تحويل شريحة تحتوي على مخطط خريطة إلى صورة أو تحويلها إلى PDF أو SVG، يظهر منطقة المخطط فارغة. الأشكال الأخرى في نفس الشريحة لا تتأثر.
 {{% /alert %}}
 
-### **إنشاء مخططات مركبة (Combination)**
+### **إنشاء مخططات مركبة**
 
-مخطط مركب (أو مخطط مزيج) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز، مقارنة، أو فحص الفروقات بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يُتيح هذا المخطط لك إبراز، مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-![مخطط مركب](combination_chart.png)
+![المخطط المركب](combination_chart.png)
 
-يُدمج هذا المثال سلسلتين من الأعمدة المتجمعة مع سلسلة خط عبر أربع فئات. تُستخدم الأعمدة المحور العمودي الأساسي، بينما تُضع الدالة [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) الخط على محور عمودي ثانوي على اليمين. تُهيّئ الدوال المساعدة العنوان، والشرح، وعناوين المحاور، وخطوط الشبكة.
+هذا المثال يجمع سلسلتين من الأعمدة المتجمعة مع سلسلة خطية عبر أربع فئات. تُستخدم الأعمدة المحور العمودي الأساسي، بينما تُضع طريقة [setPlotOnSecondAxis](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setPlotOnSecondAxis) الخط على محور عمودي ثانوي على اليمين. تُكوِّن الدوال المساعدة العنوان، الأسطورة، تسميات المحاور، وخطوط الشبكة.
 
 ```python
 import jpype
@@ -1148,7 +1206,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
 
-    # اضبط عنوان المخطط.
+    # تعيين عنوان المخطط.
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("Chart Title")
     chart.getChartTitle().setOverlay(False)
@@ -1157,18 +1215,18 @@ def create_chart_with_first_series(slide):
     title_format.setFontBold(NullableBool.False_)
     title_format.setFontHeight(18.0)
 
-    # اضبط مفتاح المخطط.
+    # تعيين وسيلة إيضاح المخطط.
     chart.getLegend().setPosition(LegendPositionType.Bottom)
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12.0)
 
-    # احذف السلاسل والفئات التي تم إنشاؤها افتراضيًا.
+    # حذف السلاسل والفئات الافتراضية التي تم إنشاؤها.
     chart.getChartData().getSeries().clear()
     chart.getChartData().getCategories().clear()
 
     worksheet_index = 0
     workbook = chart.getChartData().getChartDataWorkbook()
 
-    # أضف فئات جديدة.
+    # إضافة فئات جديدة.
     cell = workbook.getCell(worksheet_index, 1, 0, "Category 1")
     chart.getChartData().getCategories().add(cell)
     cell = workbook.getCell(worksheet_index, 2, 0, "Category 2")
@@ -1178,7 +1236,7 @@ def create_chart_with_first_series(slide):
     cell = workbook.getCell(worksheet_index, 4, 0, "Category 4")
     chart.getChartData().getCategories().add(cell)
 
-    # أضف السلسلة الأولى.
+    # إضافة السلسلة الأولى.
     series_name_cell = workbook.getCell(worksheet_index, 0, 1, "Series 1")
     series = chart.getChartData().getSeries().add(series_name_cell, chart.getType())
 
@@ -1234,28 +1292,28 @@ def add_third_series_to_chart(chart):
     series.setPlotOnSecondAxis(True)
 
 def set_primary_axes_format(chart):
-    # اضبط المحور الأفقي.
+    # تعيين المحور الأفقي.
     horizontal_axis = chart.getAxes().getHorizontalAxis()
     horizontal_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     horizontal_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # اضبط المحور العمودي.
+    # تعيين المحور العمودي.
     vertical_axis = chart.getAxes().getVerticalAxis()
     vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
     vertical_axis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # اضبط لون خطوط الشبكة العمودية الرئيسية.
+    # تعيين لون خطوط الشبكة العمودية الرئيسية.
     major_grid_lines_format = vertical_axis.getMajorGridLinesFormat().getLine().getFillFormat()
     major_grid_lines_format.setFillType(FillType.Solid)
     color = Color(217, 217, 217)
     major_grid_lines_format.getSolidFillColor().setColor(color)
 
 def set_secondary_axes_format(chart):
-    # اضبط المحور الأفقي الثانوي.
+    # تعيين المحور الأفقي الثانوي.
     secondary_horizontal_axis = chart.getAxes().getSecondaryHorizontalAxis()
     secondary_horizontal_axis.setPosition(AxisPositionType.Bottom)
     secondary_horizontal_axis.setCrossType(CrossesType.Maximum)
@@ -1263,7 +1321,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
     secondary_horizontal_axis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill)
 
-    # اضبط المحور العمودي الثانوي.
+    # تعيين المحور العمودي الثانوي.
     secondary_vertical_axis = chart.getAxes().getSecondaryVerticalAxis()
     secondary_vertical_axis.setPosition(AxisPositionType.Right)
     secondary_vertical_axis.getTextFormat().getPortionFormat().setFontHeight(12.0)
@@ -1286,9 +1344,9 @@ create_combo_chart()
 
 ## **تحديث المخططات**
 
-تمكّن Aspose.Slides for Python via Java من تحديث مخططات PowerPoint عبر تعديل بيانات المخطط، وتنسيقه، وتشكيله. تُبسّط هذه الوظيفة عملية إبقاء العروض التقديمية محدثة بالمحتوى الديناميكي وتضمن أن المخططات تعكس البيانات الحالية والمعايير البصرية بدقة.
+يُمكّن Aspose.Slides للغة Python عبر Java من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، تنسيقه، وتنسيقه البصري. تُبسّط هذه الميزة عملية الحفاظ على تحديث العروض التقديمية بالمحتوى الديناميكي وتضمن أن المخططات تعكس البيانات الحالية والمعايير البصرية بدقة.
 
-يُحدّث هذا المثال المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلّب سلسلتين عموديتين بثلاث نقاط بيانات لكلٍ منها، مع تسميات فئات في العمود A وأسماء سلاسل في الصف الأول من أول ورقة عمل. يستخدم المثال الدالة [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) لتغيير خلايا دفتر العمل، يُحدّث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانات متجمعة عبر [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
+هذا المثال يُحدّث المخطط المسمّى "My chart" في الشريحة الأولى من عرض تقديمي موجود. يتطلّب سلسلتين عموديتين بثلاث نقاط بيانات لكلٍ منها، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من الورقة الأولى. يستخدم المثال [getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) لتغيير خلايا دفتر العمل، يُحدّث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانات متجمعة عبر [setType](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setType).
 
 ```python
 import jpype
@@ -1348,11 +1406,11 @@ finally:
 
 ## **تحديد نطاق البيانات لمخطط**
 
-لمعاينة النطاق المُستخدم حاليًا بواسطة مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/python-java/chart-workbook/#retrieve-a-charts-data-range).
+للتفحص عن النطاق الذي يستخدمه مخطط موجود بالفعل، راجع [Retrieve a Chart's Data Range](/slides/ar/python-java/chart-workbook/#retrieve-a-charts-data-range).
 
-توفر Aspose.Slides for Python via Java المرونة لتحديد نطاق بيانات محدد من ورقة عمل كمصدر لبيانات مخططك. يُتيح لك ذلك ربط جزء مباشرةً من ورقة العمل بالمخطط، ما يسمح لك بالتحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاته. ونتيجة لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، مما يضمن أن عروض PowerPoint تعكس معلومات دقيقة ومُحدَّثة.
+يُوفر Aspose.Slides للغة Python عبر Java المرونة لتحديد نطاق بيانات محدد من ورقة عمل كمصدر لبيانات مخططك. يعني هذا أنك يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يسمح لك بالتحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاته. وبالتالي، يمكنك تحديث ومزامنة مخططاتك بسهولة مع أحدث تغييرات البيانات في ورقة العمل، لضمان أن عروض PowerPoint تعكس معلومات حالية ودقيقة.
 
-يستخدم هذا المثال الدالة [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لتعيين مصدر بيانات المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُعبَّأ مع عنوان سلسلة في الصف الأول، وتسميات فئات في العمود A، وثلاث قيم في العمود B.
+هذا المثال يستخدم [setRange](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#setRange) لتعيين مصدر البيانات للمخطط المسمّى "My chart" في الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُملأ مع عنوان سلسلة في الصف الأول، تسميات فئات في العمود A، وثلاث قيم في العمود B.
 
 ```python
 import jpype
@@ -1381,9 +1439,9 @@ finally:
 
 ## **استخدام العلامات الافتراضية في المخططات**
 
-عند استعمال العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
+عند استخدام العلامات الافتراضية في المخططات، تحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط بسلسلتين خطيتين وشرح. تُبقي إعدادات العلامة التي تُستدعى عبر [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) رموز العلامات المُعطاة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة تم تمثيلها بـ `None`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
+هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) لإنشاء مخطط بسلسلتين خطيتين وأسطر. تحافظ إعدادات العلامة التي تُستخرج عبر [getMarker](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getMarker) على رموز العلامات المُعيّنة تلقائيًا. تتضمن السلسلة الأولى قيمة سالبة وقيمة مفقودة، تُمثَّل بـ `None`، بينما الثانية تحتوي على قيمة لكل فئة.
 
 ```python
 import jpype
@@ -1450,18 +1508,18 @@ finally:
 
 ## **الأسئلة الشائعة**
 
-**ما هي أنواع المخططات التي تدعمها Aspose.Slides for Python via Java؟**
+**ما هي أنواع المخططات التي يدعمها Aspose.Slides للغة Python عبر Java؟**
 
-تدعم Aspose.Slides for Python via Java مجموعة واسعة من أنواع المخططات، بما في ذلك الأعمدة، الخطوط، الدوائر، المناطق، المبعثر، التوزيع، الرادار، والعديد غيرها. تُتيح هذه المرونة لك اختيار النوع الأنسب لاحتياجاتك في تصور البيانات.
+يدعم Aspose.Slides للغة Python عبر Java مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الفطيرة، المساحية، scatter، الهيستوغرام، الرادار، والعديد غيرها. تُتيح لك هذه المرونة اختيار النوع الأنسب لتصوير بياناتك.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، عليك أولاً إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)، استدعاء الشريحة المطلوبة باستخدام فهرستها، ثم استدعاء الطريقة لإضافة مخطط، مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
+لإضافة مخطط، أنشئ أولاً مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/)، استخرج الشريحة المطلوبة باستخدام فهرسها، ثم استدعِ الطريقة لإضافة مخطط، مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك.
 
 **كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
 يمكنك تحديث بيانات المخطط عبر الوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط برمجيًا ليعكس أحدث البيانات.
 
-**هل يمكن تخصيص مظهر المخطط؟**
+**هل من الممكن تخصيص مظهر المخطط؟**
 
-نعم، توفر Aspose.Slides for Python via Java خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الشروح، وعناصر التنسيق الأخرى لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.
+نعم، يُوفر Aspose.Slides للغة Python عبر Java خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الأساطير، وغيرها من عناصر التنسيق لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.

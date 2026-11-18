@@ -1,5 +1,5 @@
 ---
-title: Vytvořit nebo aktualizovat grafy PowerPoint prezentací v JavaScriptu
+title: Vytvořit nebo aktualizovat grafy v PowerPoint prezentaci v JavaScriptu
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -15,10 +15,10 @@ keywords:
 - čárový graf
 - graf stromové mapy
 - akciový graf
-- graf krabice a vousů
-- trychleový graf
-- sluneční výsečový graf
-- histogram
+- krabicový a fousový graf
+- trychlový graf
+- slunečnicový graf
+- histogramový graf
 - radarový graf
 - vícekategoriální graf
 - PowerPoint
@@ -26,35 +26,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Node.js přes Java. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v JavaScriptu."
+description: "Vytvořte a přizpůsobte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Node.js via Java. Přidejte, formátujte a upravujte grafy s praktickými ukázkami kódu v JavaScriptu."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak pomocí Aspose.Slides pro Node.js přes Java vytvářet a přizpůsobovat grafy. Naučíte se programově přidat graf na snímek, naplnit jej daty a použít různá formátovací nastavení tak, aby odpovídala vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Po projití tohoto průvodce budete mít solidní pochopení, jak integrovat dynamické generování grafů do svých aplikací Node.js a zefektivnit proces vytváření prezentací na základě dat.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides pro Node.js via Java. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování, aby odpovídal vašim specifickým požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte pevné porozumění tomu, jak integrovat dynamické generování grafů do vašich aplikací Node.js a zjednodušit tvorbu prezentací založených na datech.
 
-## **Vytvoření grafu**
+## **Vytvořit graf**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě patrné z tabulky nebo tabulkového procesoru.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo kalkulační tabulky.
 
 **Proč vytvářet grafy?**
 
 Pomocí grafů můžete:
 
-* agregovat, zhušťovat nebo sumarizovat velké množství dat na jediném snímku prezentace;
-* odhalit vzory a trendy v datech;
-* odvodit směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření;
-* identifikovat odlehlé hodnoty, aberrace, odchylky, chyby a nesmyslná data;
+* agregovat, zhušťovat nebo shrnovat velké množství dat na jednom snímku v prezentaci;
+* odhalovat vzory a trendy v datech;
+* odhadnout směr a dynamiku dat v čase nebo vzhledem k určité měrné jednotce;
+* zaznamenat odlehlé hodnoty, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
-V PowerPointu můžete grafy vytvářet pomocí funkce *Insert*, která nabízí šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak i vlastní grafy.
+V PowerPointu můžete grafy vytvářet pomocí funkce *Vložit*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak vlastní grafy.
 
-{{% alert color="info" title="Note" %}}
-Použijte výčet [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) v modulu [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
+{{% alert color="info" title="Poznámka" %}}
+Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) v modulu [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). Hodnoty v tomto výčtovém typu odpovídají různým typům grafů.
 {{% /alert %}}
 
-### **Vytvoření seskupených sloupcových grafů**
+### **Vytvořit seskupené sloupcové grafy**
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série ve třech kategoriích. Série používají červené a zelené výplně a individuální popisky ukazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v připojeném sešitu grafu.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série ve třech kategoriích. Série používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v vloženém sešitu grafu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -135,20 +135,20 @@ finally
 
 Výsledek:
 
-![Seskupený sloupcový graf](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Vytvoření rozptýlených grafů**
+### **Vytvořit bodové grafy**
 
-Rozptýlené grafy (známé také jako scatter ploty nebo x‑y grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+Bodové grafy (také známé jako rozptylové grafy nebo grafy x‑y) se často používají k hledání vzorů nebo ukázání korelací mezi dvěma proměnnými.
 
-Použijte rozptýlený graf, když:
+Použijte bodový graf, když:
 
 * máte spárovaná číselná data;
-* máte dvě proměnné, které dobře spolu souvisejí;
-* chcete zjistit, zda jsou dvě proměnné příbuzné;
-* máte nezávislou proměnnou s více hodnotami pro závislou proměnnou.
+* máte dvě proměnné, které spolu dobře souvisejí;
+* chcete zjistit, zda jsou dvě proměnné navzájem spojeny;
+* máte nezávislou proměnnou, která má pro závislou proměnnou několik hodnot.
 
-Tento příklad vykresluje dvě sady x‑y hodnot. První série používá přímé čáry s hvězdicovými značkami, druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) řídí tvar značky.
+Tento příklad vykresluje dvě sady hodnot x‑y. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). Metoda [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) řídí tvar značky.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,13 +216,13 @@ finally
 
 Výsledek:
 
-![Rozptýlený graf](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Vytvoření koláčových grafů**
+### **Vytvořit koláčové grafy**
 
-Koláčové grafy jsou nejvhodnější pro zobrazení poměru část‑k‑celku v datech, zejména když data obsahují kategoriální popisky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo popisků, zvažte místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit použití sloupcového grafu.
 
-Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) nastavuje první výsek tak, aby začínal při 180 stupních.
+Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a ohraničení a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) nastavuje první výsek tak, aby začínal při 180 stupních.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -323,15 +323,15 @@ finally
 
 Výsledek:
 
-![Koláčový graf](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-Pro zlepšení čitelnosti popisků mimo koláč viz [Format Leader Lines](/slides/cs/nodejs-java/chart-data-label/#format-leader-lines) pro příklad, který umisťuje popisky a upravuje barvu, šířku, průhlednost a styl čáry vodících čar.
+Pro zlepšení čitelnosti popisků mimo koláč se podívejte na [Format Leader Lines](/slides/cs/nodejs-java/chart-data-label/#format-leader-lines), kde je ukázáno, jak umístit popisky a přizpůsobit barvu, šířku, průhlednost a styl čáry.
 
-### **Vytvoření čárových grafů**
+### **Vytvořit čárové grafy**
 
-Čárové grafy (známé také jako line grafy) jsou nejlepší pro situace, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v datových sériích a další.
+Čárové grafy (také známé jako čárové diagramy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v sériích dat a další.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření čárového grafu s výchozími sériemi a kategoriemi a poté uloží prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření čárového grafu s výchozími sériemi a kategoriemi, poté uloží prezentaci jako PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -351,7 +351,7 @@ finally
 }
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny pomlčkami, zavolejte [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny čárkami, zavolejte [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -378,13 +378,13 @@ finally
 
 Výsledek:
 
-![Čárový graf](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Vytvoření grafů typu stromová mapa**
+### **Vytvořit grafy stromové mapy**
 
-Grafy typu stromová mapa jsou nejvhodnější pro prodejní data, když chcete ukázat relativní velikost kategorií a rychle upozornit na položky, které představují velké příspěvky v rámci každé kategorie.
+Grafy stromové mapy jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost kategorií a rychle upozornit na položky, které jsou v rámci každé kategorie velkými přispěvateli.
 
-Tento příklad vytváří stromovou mapu se osmi listy seskupenými do čtyř svislých větví a dvou podvětví. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje svislé větve na úroveň seskupení 1 a podvětve na úroveň 2. Hodnoty určují relativní velikosti obdélníků, zatímco popisky kategorií a překrývající se nadřazené popisky identifikují hierarchii.
+Tento příklad vytváří stromovou mapu s osmi listy seskupenými do čtyř kořenů a dvou podvětví. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje kořeny na úrovni seskupení 1 a podvětve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -465,26 +465,26 @@ finally
 
 Výsledek:
 
-![Graf stromové mapy](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Vytvoření vodopádových grafů**
+### **Vytvořit vodopádové grafy**
 
-Vodopádový graf ukazuje, jak kladné a záporné změny přispívají k finální hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přičíst ostatní příjmy. Sloupce změn „plavou“ mezi předchozí a novou kumulativní hodnotou, zatímco celkové sloupce sahají od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k výsledné hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přidat ostatní příjmy. Sloupce změn „plavou“ mezi předchozí a novou běžící hodnotou, zatímco celkové sloupce sahají od nuly po akumulovanou hodnotu.
 
 Následující příklad používá částky v tisících amerických dolarů:
 
-| Kategorie | Hodnota v sešitu | Typ sloupce |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Tržby | 1000 | Nárůst |
-| Náklady na prodej | -400 | Pokles |
-| Hrubý zisk | 600 | Mezikuscel |
-| Provozní náklady | -200 | Pokles |
-| Ostatní příjmy | 50 | Nárůst |
-| Čistý zisk | 450 | Finální součet |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Pro označení bodu jako mezisoučtu nebo finálního součtu zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) s hodnotou `true`. Do buňky sešitu tohoto bodu zadejte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; nepočítá ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný znak ani nespecifikujte jinou změnu pro bod součtu. Sloupec součtu zobrazuje akumulovanou hodnotu bez opětovného přičítání k běžné hodnotě.
+Chcete‑li označit bod jako mezisoučet nebo konečný součet, zavolejte jeho metodu [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) s hodnotou `true`. Do buňky pracovního sešitu příslušného bodu vložte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; neprovádí výpočet ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný symbol ani neuvádějte jinou změnu pro součtový bod. Součtový sloupec zobrazuje akumulovanou hodnotu bez jejího opětovného přičtení k běžící hodnotě.
 
-Tento kompletní JavaScriptový příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka hodnoty je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů s nulovým základem `2` a `5` označují mezisoučty a finální součet. Volání [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) s `true` zobrazí částky na sloupcích. Žádná vstupní prezentace ani sešit nejsou vyžadovány.
+Tento kompletní JavaScriptový příklad vytváří graf pomocí členu `Waterfall` typu [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), vymaže výchozí data a naplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka s hodnotou je přidána pomocí [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů založené na nule `2` a `5` identifikují mezisoučty a konečný součet. Zavolání [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) s `true` zobrazí částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -536,17 +536,23 @@ finally
 }
 ```
 
-Zavolejte na úrovni řady metodu [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) s `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžné hodnoty. Pro skrytí těchto čar nahraďte volání metody v příkladu `series.setShowConnectorLines(false);` před uložením. Tím změníte pouze viditelnost čar, nikoli data nebo součty.
+Zavolejte na úrovni sérií metodu [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) s hodnotou `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžící hodnoty. Chcete‑li tyto čáry skrýt, nahraďte volání metody v příkladu řádkem `series.setShowConnectorLines(false);` před uložením. Tím se změní pouze viditelnost čáry, nikoli data nebo součty.
 
 Uložená prezentace zobrazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou vykresleny od nuly:
 
-![Vodopádový graf zobrazující tržby, náklady, hrubý zisk 600 a čistý zisk 450, s popisky hodnot a spojovacími čarami](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **Vytvoření akciových grafů**
+### **Vytvořit akciové grafy**
 
-Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a uzavírací ceny, a pomáhají analyzovat tržní trendy a volatilitu. Poskytují zásadní vhled do výkonnosti akcií, což napomáhá investorům a analytikům činit informovaná rozhodnutí.
+Akciové grafy slouží k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a závěrečné ceny, pomáhají analyzovat tržní trendy a volatilitu. Poskytují klíčové poznatky o výkonnosti akcií, což investorům a analytikům usnadňuje činit informovaná rozhodnutí.
 
-Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) povoluje up/down pruhy a [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) řídí high‑low čáry, které ukazují cenové rozpětí, zatímco jednotlivé řádky sérií a menší vodorovné mřížky jsou skryté.
+Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) povoluje up/down pruhy a [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) řídí čáry high‑low zobrazující cenové rozpětí, zatímco jednotlivé čáry sérií a menší vodorovné mřížky jsou skryté.
+
+Manažer vrácený metodou [getUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/getupdownbars/) nabízí samostatné objekty formátování prostřednictvím [getUpBarsFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/getupbarsformat/) a [getDownBarsFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/getdownbarsformat/). Použijte metody [getFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/format/getfill/) a [getLine](https://reference.aspose.com/slides/nodejs-java/aspose.slides/format/getline/) každého objektu k nastavení výplně a obrysu nezávisle. Tento příklad používá zelené pruhy s tmavě zelenými obrysy pro rostoucí intervaly a oranžovo‑červené pruhy s tmavě červenými obrysy pro klesající intervaly.
+
+Poskytněte číselné hodnoty pro všechny čtyři série v každé kategorii, přičemž High a Low obklopují Open a Close. Pruhy porovnávají Close s Open **v rámci stejné kategorie**, ne s předchozí kategorií: A klesá z 72 na 25, zatímco B roste z 25 na 38 a C roste z 38 na 50. Stejné hodnoty Open a Close nevytvářejí viditelný vyplněný interval. Up/down pruhy zahrnují oblast Open‑Close; high‑low čáry zahrnují oblast Low‑High. Tyto pruhy patří do skupiny sérií a nejsou běžnými sloupcovými sériemi.
+
+Toto formátování funguje i s grafy [Line and LineWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), které obsahují alespoň dvě série ve stejné skupině a odpovídající číselné hodnoty pro každou kategorii. U těchto nestohovaných čárových grafů up/down pruhy porovnávají první a poslední sérii: vyšší poslední hodnota vytváří up‑pruh, nižší poslední hodnota down‑pruh. Obrácení těchto sérií obrátí klasifikaci. Níže uvedený příklad používá [OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/); nepředpokládejte, že ostatní akciové, stohované‑čárové nebo 3D varianty používají stejnou strukturu dat či interpretaci intervalu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -557,7 +563,7 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     let workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -609,7 +615,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    let upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
     for (let i = 0; i < chart.getChartData().getSeries().size(); i++)
@@ -628,15 +647,15 @@ finally
 }
 ```
 
-Výsledek:
+Výsledek, exportovaný z PowerPointu:
 
-![Akciový graf](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **Vytvoření grafů krabic a vousů**
+### **Vytvořit krabicové a fousové grafy**
 
-Grafy krabic a vousů slouží k zobrazení rozdělení dat shrnutím klíčových statistických měřítek, jako je medián, kvartily a potenciální odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci anomálií.
+Krabicové a fousové grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako jsou medián, kvartily a možná odlehlá data. Jsou obzvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variabilnosti a identifikaci anomálií.
 
-Tento příklad vytváří krabicový a vousový graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) vybírá výpočet exkluzivních kvartilů. Příklad také povoluje střední čáry, značky střední hodnoty, vnitřní body a odlehlé body.
+Tento příklad vytváří krabicový a fousový graf ze šesti hodnot. Metoda [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) vybírá exkluzivní výpočet kvartilu. Příklad také povoluje čáry průměru, značky průměru, vnitřní body a odlehlé body.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -696,11 +715,11 @@ finally
 }
 ```
 
-### **Vytvoření trychleových grafů**
+### **Vytvořit trychlové grafy**
 
-Trychleové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem z kroku na krok. Pomáhají zejména při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
+Trychlové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem od jednoho kroku k dalšímu. Jsou zvláště užitečné při analýze míry konverze, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k přidání trychleového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí 50 až 500 a poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k přidání trychlového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami od 50 do 500 a poté uloží aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -756,13 +775,13 @@ finally
 
 Výsledek:
 
-![Trychleový graf](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Vytvoření slunečních výsečových grafů**
+### **Vytvořit slunečnicové grafy**
 
-Sluneční výsečové grafy slouží k vizualizaci hierarchických dat, zobrazují úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑k‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
+Slunečnicové grafy slouží k vizualizaci hierarchických dat, zobrazují úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
 
-Tento příklad vytváří sluneční výsečový graf se osmi listy seskupenými do čtyř svislých větví a dvou podvětví. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje svislé větve na úroveň seskupení 1 a podvětve na úroveň 2. Popisky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Tento příklad vytváří slunečnicový graf se osmi listy seskupenými do čtyř kořenů a dvou podvětví. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) přiřazuje kořeny na úrovni 1 a podvětve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -841,17 +860,17 @@ finally
 
 Výsledek:
 
-![Sluneční výsečový graf](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Vytvoření histogramů**
+### **Vytvořit histogramové grafy**
 
-Histogramy ukazují, jak jsou číselné hodnoty rozloženy do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek používejte stejnou šířku binu a prahy, aby intervaly zůstaly konzistentní a usnadnily srovnání rozdělení.
+Histogramové grafy ukazují, jak jsou číselné hodnoty rozloženy do intervalů (košů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku koše a prahy, aby byly intervaly konzistentní a usnadnily porovnání rozdělení.
 
-Zavolejte [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) na horizontální ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) platí jen pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) jen pro `ByNumberOfBins`. Použijte `Automatic`, aby si graf sám zvolil biny.
+Zavolejte [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) na vodorovné ose s režimem z [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) se používá pouze pro `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) pouze pro `ByNumberOfBins`. Použijte `Automatic`, aby graf sám zvolil koše.
 
-#### **Použít pevnou šířku binu**
+#### **Použít pevnou šířku koše**
 
-Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 minut a > 40 minut. Povolit tyto biny pomocí [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). Při zadávání explicitních prahů pomocí [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/) zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) s hodnotou `false`.
+Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými koši pro časy ≤ 10 min a > 40 min. Povolit tyto koše můžete pomocí [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). Při zadávání explicitních prahů přes [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) a [setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/) zavolejte [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) a [setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) s hodnotou `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -898,13 +917,13 @@ finally
 }
 ```
 
-Prezentace zobrazovaná v PowerPointu ukazuje počty binů **3, 4, 4, 4 a 2**. Bin podprůtku zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení zahrnuje pouze `41, 50`, takže jeho práh je exkluzivní; hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich spodní hranice a menší nebo rovné horní hranici.
+Prezentace zobrazená v PowerPointu ukazuje počty košů **3, 4, 4, 4 a 2**. Koš podprůměru zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Koš přeplnění zahrnuje pouze `41, 50`, takže jeho práh je exkluzivní; oba hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní koše obsahují hodnoty větší než jejich spodní hranice a menší nebo rovné jejich horní hranici.
 
-![Histogram s 10‑minutovými biny a explicitními prahy pod‑ a přetečení](histogram_bin_width.png)
+![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **Zadat počet binů**
+#### **Zadat počet košů**
 
-Pro pevnou úroveň detailu místo pevných intervalů požadujte pět binů pro stejná data. Tento příklad ponechává biny pod‑ a přetečení vypnuté. Graf určuje šířku z datového rozsahu, takže hranice se mohou mezi zprávami měnit.
+Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět košů pro stejná data. Tento příklad ponechává koše podprůměru a přeplnění vypnuté. Graf určuje šířku z datového rozsahu, takže hranice se mohou mezi zprávami měnit.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -945,15 +964,15 @@ finally
 }
 ```
 
-Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
+Pět košů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
 
-![Histogram s pěti biny vypočtenými ze stejných dat](histogram_bin_count.png)
+![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Vytvoření radarových grafů**
+### **Vytvořit radové grafy**
 
-Radarové grafy slouží k zobrazení multivariátních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných současně. Jsou obzvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč různými výkonnostními metrikami nebo atributy.
+Radové grafy slouží k zobrazení multivariátních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných najednou. Jsou obzvláště užitečné pro identifikaci vzorů, silných a slabých stran napříč více výkonnostními metrikami nebo atributy.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření radarového grafu s výchozími sériemi a kategoriemi a poté uloží prezentaci jako PPTX.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření radového grafu s výchozími sériemi a kategoriemi, poté uloží prezentaci jako PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -975,13 +994,13 @@ finally
 
 Výsledek:
 
-![Radarový graf](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Vytvoření vícekategoriálních grafů**
+### **Vytvořit vícekategoriální grafy**
 
-Vícekategoriální grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožní porovnat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícevrstvých datových souborech.
+Vícekategoriální grafy slouží k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožní porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, vícevrstvých datových souborech.
 
-Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) dává každé dvojici sdílený popisek na úrovni seskupení 1, čímž vzniká osová kategorie s individuálními i skupinovými popisky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech dvojicích. Metoda [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) dává každé dvojici sdílený štítek na úrovni seskupení 1, čímž vytváří osu kategorií s jak individuálními, tak skupinovými štítky.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1055,13 +1074,60 @@ finally
 
 Výsledek:
 
-![Vícekategoriální graf](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Vytvoření mapových grafů**
+#### **Odebrat štítek kvartálu**
 
-Mapové grafy slouží k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné pro analýzu regionálních trendů, demografických údajů a prostorových rozdělení přehledně a vizuálně atraktivně.
+Stáhněte [quarters.pptx](quarters.pptx) a umístěte jej do pracovního adresáře. Jeho graf ukazuje devět měsíců a jedinou prodejní sérii s hodnotami od 10 do 18. Na ose kategorií Q1 zahrnuje leden až březen, Q2 duben až červen a Q3 červenec až září.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a uloží jej k prohlédnutí v PowerPointu.
+Duben je čtvrtou kategorií (index 3) a nese štítek Q2. Použijte [getGroupingLevels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getgroupinglevels/) pro přístup k úrovním seskupení dubna, poté zavolejte [deleteGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) s úrovní 1, abyste odstranili jeho štítek kvartálu. Úroveň 0 představuje samotný měsíc a nelze ji tímto způsobem odebrat.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("quarters.pptx");
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopened = new aspose.slides.Presentation("quarters-updated.pptx");
+try {
+    const chart = reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    const data = chart.getChartData();
+
+    const categories = data.getCategories();
+    const months = [];
+    
+    for (let i = 0; i < categories.size(); i++) {
+        months.push(categories.get_Item(i).getAsCell().getValue());
+    }
+    const points = data.getSeries().get_Item(0).getDataPoints();
+    const sales = [];
+    for (let i = 0; i < points.size(); i++) {
+        sales.push(points.get_Item(i).getValue().getData());
+    }
+    console.log(months.join(", "));
+    console.log(sales.join(", "));
+} finally {
+    reopened.dispose();
+}
+```
+
+Po znovuotevření grafu příklad vypíše původní měsíce (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) a prodejní hodnoty (`10, 11, 12, 13, 14, 15, 16, 17, 18`) ve stejném pořadí. Otevřete `quarters-updated.pptx` v PowerPointu a porovnejte štítky osy. Štítek Q2 i hranice skupiny před dubnem zmizí, takže Q1 zahrnuje leden až červen. Q3 stále začíná v červenci.
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
+### **Vytvořit mapové grafy**
+
+Mapové grafy slouží k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou obzvláště užitečné pro analýzu regionálních trendů, demografických údajů a prostorových rozložení jasným, vizuálně přitažlivým způsobem.
+
+Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a uloží jej pro zobrazení v PowerPointu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1083,19 +1149,19 @@ finally
 
 Výsledek:
 
-![Mapový graf](map_chart.png)
+![The Map chart](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-Obrázek výše zobrazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když je snímek s takovým grafem renderován do obrázku nebo konvertován do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
+{{% alert color="info" title="Poznámka" %}}
+Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samotný mapový graf nevykresluje: když je snímek s ním renderován do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
 {{% /alert %}}
 
-### **Vytvoření kombinovaných grafů**
+### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma či více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jediném diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
 
-![Kombinovaný graf](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Tento příklad kombinuje dvě seskupené sloupcové série s čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární vertikální osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) umisťuje čáru na sekundární vertikální osu vpravo. Pomocné funkce konfigrují název, legendu, popisky os a mřížky.
+Tento příklad kombinuje dva seskupené sloupcové série s čárovou sérií ve čtyřech kategoriích. Sloupce používají primární svislou osu, zatímco [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce nastavují název, legendu, popisky os a mřížky.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1260,11 +1326,11 @@ function setAxisTitle(axis, axisTitle)
 createComboChart();
 ```
 
-## **Aktualizace grafů**
+## **Aktualizovat grafy**
 
-Aspose.Slides pro Node.js přes Java vám umožňuje aktualizovat grafy v PowerPointu úpravou dat grafu, formátování a stylu. Tato funkčnost zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
+Aspose.Slides pro Node.js via Java vám umožňuje aktualizovat grafy PowerPointu úpravou dat grafu, formátování a stylu. Tato funkčnost zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
 
-Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série se třemi datovými body každá, s popisky kategorií ve sloupci A a názvy sérií v prvním řádku prvního listu. Příklad používá [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) k změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní graf na seskupené válečkové pomocí [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
+Tento příklad aktualizuje graf s názvem „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série s třemi datovými body v každé, přičemž štítky kategorií jsou ve sloupci A a názvy sérií v první řádce prvního listu. Příklad používá [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) ke změně buněk pracovního sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a změní typ grafu na seskupené válce pomocí [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1326,13 +1392,13 @@ finally
 }
 ```
 
-## **Nastavení datového rozsahu pro graf**
+## **Nastavit rozsah dat pro graf**
 
-Pro zobrazení rozsahu již použitého existujícím grafem viz [Retrieve a Chart's Data Range](/slides/cs/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+Chcete‑li zobrazit rozsah již použité existujícím grafem, podívejte se na [Retrieve a Chart's Data Range](/slides/cs/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides pro Node.js přes Java poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, čímž řídíte, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami dat v listu, což zajišťuje, že vaše PowerPoint prezentace odrážejí aktuální a přesné informace.
+Aspose.Slides pro Node.js via Java poskytuje flexibilitu definovat konkrétní rozsah dat z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, čímž řídíte, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami dat v listu, což zajišťuje, že prezentace PowerPoint odráží aktuální a přesné informace.
 
-Tento příklad používá [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) k nastavení datového zdroje grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a naplněný rozsah s názvem série v prvním řádku, popisky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) k nastavení datového zdroje grafu s názvem „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a vyplněný rozsah s nadpisem série v první řádce, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1363,11 +1429,11 @@ finally
 }
 ```
 
-## **Použít výchozí značky v grafech**
+## **Používat výchozí značky v grafech**
 
-Když používáte výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
+Když použijete výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
 
-Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení značky získané přes [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) zachovává automaticky přiřazené symboly značek. První série obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení značek získané přes [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) zachovává automaticky přiřazené symboly značek. První série zahrnuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `null`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1430,20 +1496,20 @@ finally
 }
 ```
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Jaké typy grafů jsou podporovány Aspose.Slides pro Node.js přes Java?**
+**Jaké typy grafů jsou podporovány Aspose.Slides pro Node.js via Java?**
 
-Aspose.Slides pro Node.js přes Java podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, rozptýlených, histogramů, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides pro Node.js via Java podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, bodových, histogramových, radových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
 **Jak přidám nový graf na snímek?**
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), získáte požadovaný snímek pomocí jeho indexu a pak zavoláte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Chcete‑li přidat graf, nejprve vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/), načtěte požadovaný snímek pomocí jeho indexu a poté zavolejte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
 **Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích sérií a kategorií a poté přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides pro Node.js přes Java poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides pro Node.js via Java poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky tak, aby graf odpovídal vašim konkrétním požadavkům na design.

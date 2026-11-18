@@ -1,6 +1,6 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ Bản trình bày PowerPoint trong Java
-linktitle: Tạo hoặc Cập nhật Biểu đồ
+title: Tạo hoặc Cập nhật biểu đồ PowerPoint trong Java
+linktitle: Tạo hoặc Cập nhật biểu đồ
 type: docs
 weight: 10
 url: /vi/java/create-chart/
@@ -14,7 +14,7 @@ keywords:
 - biểu đồ tròn
 - biểu đồ đường
 - biểu đồ cây
-- biểu đồ cổ phiếu
+- biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
 - biểu đồ mặt trời
@@ -22,38 +22,40 @@ keywords:
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
-- bản trình bày
+- bản thuyết trình
 - Java
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong các bài thuyết trình PowerPoint bằng Aspose.Slides cho Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tiễn trong Java."
+description: "Tạo và tùy chỉnh biểu đồ trong bản thuyết trình PowerPoint bằng Aspose.Slides cho Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong Java."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides for Java. Bạn sẽ học cách lập trình thêm biểu đồ vào một slide, điền dữ liệu vào biểu đồ và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của mình. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo bản trình bày và đối tượng biểu đồ tới cấu hình chuỗi, trục và chú giải. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng Java, giúp đơn giản hoá quá trình tạo các bài thuyết trình dựa trên dữ liệu.
+Bài viết này cung cấp một hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides for Java. Bạn sẽ học cách chương trình thêm một biểu đồ vào slide, điền dữ liệu vào và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Toàn bộ bài viết, các ví dụ mã chi tiết minh họa mỗi bước, từ khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và legend. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào các ứng dụng Java, giúp đơn giản hoá quá trình tạo các bản thuyết trình dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những hiểu biết có thể không ngay lập tức từ một bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những hiểu biết có thể không ngay lập tức rõ ràng từ bảng hoặc bảng tính.
 
 **Tại sao nên tạo biểu đồ?**
 
 Sử dụng biểu đồ, bạn có thể:
 
-* tổng hợp, cô đọng hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất;
-* phát hiện các mẫu và xu hướng trong dữ liệu;
-* suy ra hướng và động lượng của dữ liệu theo thời gian hoặc theo một đơn vị đo lường cụ thể;
-* nhận diện các ngoại lệ, sai lệch, lỗi và dữ liệu không hợp lý;
+* tổng hợp, cô đọng hoặc tóm tắt một lượng lớn dữ liệu trên một slide trong bản thuyết trình;
+* phát hiện các mô hình và xu hướng trong dữ liệu;
+* suy ra hướng và động lực của dữ liệu theo thời gian hoặc dựa trên một đơn vị đo lường cụ thể;
+* nhận diện các giá trị ngoại lệ, sai lệch, lỗi và dữ liệu không hợp lý;
 * truyền đạt hoặc trình bày dữ liệu phức tạp.
 
-Trong PowerPoint, bạn có thể tạo biểu đồ qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Khi dùng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
 {{% alert color="info" title="Note" %}}
-Sử dụng enumeration [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) trong gói [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/). Các giá trị trong enumeration này tương ứng với các loại biểu đồ khác nhau.
+
+Use the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
+
 {{% /alert %}}
 
-### **Tạo biểu đồ Cột Nhóm**
+### **Tạo biểu đồ cột nhóm**
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ cột nhóm so sánh hai chuỗi qua ba danh mục. Hai chuỗi sử dụng màu nền đỏ và xanh lá, và các nhãn riêng lẻ hiển thị tên danh mục, tên chuỗi và giá trị. Chỉ mục worksheet 0 chỉ tới trang tính đầu tiên trong workbook biểu đồ nhúng.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ cột nhóm so sánh hai series qua ba danh mục. Hai series sử dụng màu nền đỏ và xanh lá, và các nhãn riêng biệt hiển thị tên danh mục, tên series và giá trị. Chỉ mục worksheet 0 đề cập đến sheet đầu tiên trong workbook biểu đồ được nhúng.
 
 ```java
 import com.aspose.slides.*;
@@ -134,20 +136,20 @@ finally
 
 Kết quả:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Biểu đồ cột nhóm](clustered_column_chart.png)
 
-### **Tạo biểu đồ Phân tán**
+### **Tạo biểu đồ phân tán**
 
-Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc thể hiện mối quan hệ giữa hai biến.
 
 Sử dụng biểu đồ phân tán khi:
 
 * Bạn có dữ liệu số cặp đôi.
-* Hai biến có xu hướng liên quan chặt chẽ.
+* Bạn có hai biến có liên quan chặt chẽ với nhau.
 * Bạn muốn xác định liệu hai biến có liên quan hay không.
 * Bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc.
 
-Ví dụ này vẽ hai bộ giá trị x‑y. Chuỗi đầu tiên dùng đường thẳng với dấu sao, chuỗi thứ hai dùng đường mượt với dấu vòng tròn; cả hai đều có kích thước dấu 10, được cấu hình bằng [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). Phương thức [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) kiểm soát hình dạng dấu.
+Ví dụ này vẽ hai tập hợp giá trị x‑y. Series đầu tiên dùng đường thẳng với dấu sao, trong khi series thứ hai dùng đường mượt với dấu tròn; cả hai đều có kích thước dấu hiệu 10, được cấu hình bằng [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). Phương thức [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) điều khiển hình dạng dấu hiệu.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +217,13 @@ finally
 
 Kết quả:
 
-![The Scatter chart](scatter_chart.png)
+![Biểu đồ phân tán](scatter_chart.png)
 
-### **Tạo biểu đồ Tròn**
+### **Tạo biểu đồ tròn**
 
-Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc dùng biểu đồ cột thay thế.
+Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc dùng biểu đồ cột thay thế.
 
-Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi lát cắt có màu nền và viền tùy chỉnh, và các nhãn hiển thị các tổ hợp khác nhau của giá trị, phần trăm và thông tin chuỗi. Phương thức [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) đặt lát cắt đầu tiên bắt đầu tại 180 độ.
+Ví dụ này tạo một biểu đồ tròn với ba giá trị quý. Mỗi lát bánh có màu nền và viền tùy chỉnh, và các nhãn hiển thị các kết hợp khác nhau của giá trị, phần trăm và thông tin series. Phương thức [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) đặt góc bắt đầu của lát bánh đầu tiên ở 180 độ.
 
 ```java
 import com.aspose.slides.*;
@@ -322,15 +324,15 @@ finally
 
 Kết quả:
 
-![The Pie chart](pie_chart.png)
+![Biểu đồ tròn](pie_chart.png)
 
-Để cải thiện khả năng đọc các nhãn bên ngoài biểu đồ tròn, xem ví dụ [Format Leader Lines](/slides/vi/java/chart-data-label/#format-leader-lines) để thiết lập vị trí nhãn và tùy chỉnh màu, độ rộng, độ trong suốt và kiểu gạch của các đường dẫn.
+Để cải thiện khả năng đọc các nhãn ở ngoài bánh tròn, hãy xem [Format Leader Lines](/slides/vi/java/chart-data-label/#format-leader-lines) để biết ví dụ về cách định vị nhãn và tùy chỉnh màu, độ rộng, độ trong suốt và kiểu gạch của các đường dẫn.
 
-### **Tạo biểu đồ Đường**
+### **Tạo biểu đồ đường**
 
-Biểu đồ đường (còn gọi là line graph) thích hợp khi bạn muốn minh họa sự thay đổi giá trị theo thời gian. Với biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi biến đổi và xu hướng, làm nổi bật các bất thường trong chuỗi dữ liệu, và hơn thế nữa.
+Biểu đồ đường (còn gọi là line graph) thích hợp khi bạn muốn thể hiện thay đổi giá trị theo thời gian. Bằng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi thay đổi và xu hướng theo thời gian, làm nổi bật các dị thường trong series dữ liệu, và hơn thế nữa.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ đường với chuỗi và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ đường với series và danh mục mặc định, sau đó lưu bản thuyết trình dưới dạng PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -350,7 +352,7 @@ finally
 }
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đoạn thẳng liên tục. Nếu muốn các điểm được nối bằng nét gạch ngang, hãy gọi [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) với một giá trị từ [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch ngang, hãy gọi [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) với giá trị từ [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -375,13 +377,13 @@ finally
 
 Kết quả:
 
-![The Line chart](line_chart.png)
+![Biểu đồ đường](line_chart.png)
 
-### **Tạo biểu đồ Cây**
+### **Tạo biểu đồ cây (Tree Map)**
 
-Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục và nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn trong mỗi danh mục.
+Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn trong mỗi danh mục.
 
-Ví dụ này tạo một biểu đồ cây với tám lá được nhóm thành bốn nhánh và hai cành. Phương thức [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gán các nhánh ở mức nhóm 1 và các cành ở mức 2. Giá trị quyết định kích thước hình chữ nhật tương đối, trong khi các nhãn danh mục và nhãn cha chồng lên nhau xác định cấu trúc phân cấp.
+Ví dụ này tạo một biểu đồ cây với tám lá được nhóm thành bốn nhánh và hai cấp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gán các nhánh ở cấp nhóm 1 và các nhánh con ở cấp 2. Giá trị xác định kích thước hình chữ nhật tương đối, trong khi nhãn danh mục và nhãn cha chồng lấp xác định thứ bậc.
 
 ```java
 import com.aspose.slides.*;
@@ -462,15 +464,15 @@ finally
 
 Kết quả:
 
-![The Treemap chart](treemap_chart.png)
+![Biểu đồ cây](treemap_chart.png)
 
-### **Tạo biểu đồ Thác nước**
+### **Tạo biểu đồ thác (Waterfall)**
 
-Biểu đồ thác nước cho thấy cách các biến động dương và âm đóng góp vào một giá trị cuối cùng. Ví dụ, một bảng phân tích lợi nhuận có thể bắt đầu từ doanh thu, trừ chi phí, và cộng các khoản thu nhập khác. Các cột biến động nổi giữa giá trị chạy trước và giá trị chạy mới, trong khi các cột tổng mở rộng từ 0 tới giá trị tích lũy.
+Biểu đồ thác cho thấy cách các thay đổi dương và âm đóng góp vào giá trị cuối cùng. Ví dụ, một phân tích lợi nhuận có thể bắt đầu với doanh thu, trừ chi phí, và cộng thêm các thu nhập khác. Các cột thay đổi nổi lên giữa giá trị chạy trước và mới, trong khi các cột tổng kéo dài từ 0 đến giá trị tích lũy.
 
-Ví dụ dưới đây sử dụng các số tiền tính bằng nghìn đô la Mỹ:
+Ví dụ sau sử dụng các số tiền tính bằng nghìn USD:
 
-| Danh mục | Giá trị workbook | Loại cột |
+| Danh mục | Giá trị trong workbook | Loại cột |
 | --- | ---: | --- |
 | Doanh thu | 1000 | Tăng |
 | Giá vốn bán hàng | -400 | Giảm |
@@ -479,9 +481,9 @@ Ví dụ dưới đây sử dụng các số tiền tính bằng nghìn đô la 
 | Thu nhập khác | 50 | Tăng |
 | Lợi nhuận ròng | 450 | Tổng cuối |
 
-Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối, gọi phương thức [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) với `true`. Cung cấp số lượng tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức này chỉ đánh dấu cột là tổng; nó không tính toán hay điền giá trị ô. Không sử dụng 0 làm chỗ giữ chỗ hay cung cấp một biến đổi khác cho điểm tổng. Cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
+Để đánh dấu một điểm là tổng trung gian hoặc tổng cuối, gọi phương thức [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) của nó với `true`. Cung cấp số tiền tích lũy thực tế trong ô workbook của điểm đó: `600` cho lợi nhuận gộp (`1000 - 400`) và `450` cho lợi nhuận ròng (`600 - 200 + 50`). Phương thức đánh dấu cột là tổng; nó không tự động tính toán hoặc điền giá trị ô. Không sử dụng 0 làm chỗ trống hoặc cung cấp thay đổi khác cho điểm tổng. Cột tổng hiển thị giá trị tích lũy mà không cộng lại vào giá trị chạy.
 
-Ví dụ Java đầy đủ này tạo một biểu đồ bằng thành phần `Waterfall` của [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), xóa dữ liệu mặc định và điền workbook nhúng. Chỉ mục worksheet `0` chọn trang tính đầu tiên; cột A chứa tên danh mục và cột B chứa giá trị. Mỗi ô giá trị được thêm bằng [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Các chỉ số điểm không‑đánh‑số `2` và `5` xác định các tổng trung gian và tổng cuối. Gọi [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) với `true` để hiển thị số tiền trên các cột. Không cần bản trình bày hoặc workbook đầu vào.
+Ví dụ Java hoàn chỉnh này tạo biểu đồ sử dụng thành viên `Waterfall` của [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), xóa dữ liệu mặc định và điền workbook được nhúng. Chỉ mục worksheet `0` chọn worksheet đầu tiên; cột A chứa tên danh mục và cột B chứa các giá trị. Mỗi ô giá trị được thêm bằng [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Các chỉ mục điểm không dựa trên zero `2` và `5` xác định các tổng trung gian và cuối. Gọi [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) với `true` để hiển thị số tiền trên các cột. Không cần bản thuyết trình hoặc workbook nhập.
 
 ```java
 import com.aspose.slides.*;
@@ -519,7 +521,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
+    // Các điểm thứ ba và thứ sáu đại diện cho tổng, không phải các thay đổi bổ sung.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -533,27 +535,34 @@ finally
 }
 ```
 
-Gọi phương thức cấp chuỗi [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) với `true` để hiển thị các đường nối các cột liên tiếp và giúp dễ theo dõi giá trị chạy. Để ẩn các đường này, thay thế lời gọi trong ví dụ bằng `series.setShowConnectorLines(false);` trước khi lưu. Thay đổi này chỉ ảnh hưởng tới hiển thị đường, không thay đổi dữ liệu hay tổng.
+Gọi phương thức cấp series [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) với `true` để hiển thị các đường nối các cột liên tiếp và giúp dễ theo dõi giá trị chạy. Để ẩn các đường này, thay thế lời gọi phương thức trong ví dụ bằng `series.setShowConnectorLines(false);` trước khi lưu. Thay đổi này chỉ ảnh hưởng đến khả năng hiển thị đường, không thay đổi dữ liệu hay tổng.
 
-Bản trình bày đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, cả hai tổng được vẽ từ 0:
+Bản thuyết trình đã lưu hiển thị lợi nhuận gộp 600 và lợi nhuận ròng 450, với cả hai tổng đều bắt đầu từ 0:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Biểu đồ thác hiển thị doanh thu, chi phí, lợi nhuận gộp 600 và lợi nhuận ròng 450, kèm nhãn giá trị và đường nối](waterfall_chart.png)
 
-### **Tạo biểu đồ Cổ phiếu**
+### **Tạo biểu đồ chứng khoán (Stock)**
 
-Biểu đồ cổ phiếu dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, hỗ trợ phân tích xu hướng thị trường và độ biến động. Chúng cung cấp những hiểu biết quan trọng về hiệu suất cổ phiếu, giúp nhà đầu tư và nhà phân tích đưa ra quyết định sáng suốt.
+Biểu đồ chứng khoán dùng để hiển thị dữ liệu tài chính như giá mở cửa, cao nhất, thấp nhất và đóng cửa, giúp phân tích xu hướng thị trường và độ biến động. Chúng cung cấp các hiểu biết quan trọng về hiệu suất cổ phiếu, hỗ trợ nhà đầu tư và nhà phân tích đưa ra quyết định thông minh.
 
-Ví dụ này tạo một biểu đồ OHLC với bốn chuỗi theo thứ tự và ba danh mục. Phương thức [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) bật các thanh lên/xuống, và [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) kiểm soát các đường cao‑thấp hiển thị dải giá, trong khi các đường chuỗi riêng lẻ và các đường lưới ngang phụ bị ẩn.
+Ví dụ này tạo một biểu đồ open‑high‑low‑close với bốn series theo thứ tự và ba danh mục. Phương thức [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) bật thanh lên/xuống, và [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) điều khiển các đường high‑low hiển thị khoảng giá, trong khi các đường series riêng và lưới ngang phụ nhỏ được ẩn.
+
+Trình quản lý trả về bởi [getUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) cung cấp các đối tượng định dạng riêng qua [getUpBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) và [getDownBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--). Sử dụng các phương thức [getFill](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getFill--) và [getLine](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getLine--) của từng đối tượng để đặt màu nền và viền một cách độc lập. Ví dụ này dùng thanh màu xanh lá cây với viền xanh đậm cho các khoảng tăng và thanh màu cam‑đỏ với viền đỏ đậm cho các khoảng giảm.
+
+Cung cấp giá trị số cho cả bốn series ở mỗi danh mục, trong đó High và Low bao quanh Open và Close. Các thanh so sánh Close với Open **trong cùng một danh mục**, không phải với danh mục trước: A giảm từ 72 xuống 25, trong khi B tăng từ 25 lên 38 và C tăng từ 38 lên 50. Khi Open và Close bằng nhau, không có khoảng màu nền hiển thị. Thanh lên/xuống phủ Open‑Close; đường high‑low phủ Low‑High. Các thanh này thuộc nhóm series và không phải là series bình thường của biểu đồ cột.
+
+Định dạng này cũng hoạt động với các biểu đồ [Line and LineWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) chứa ít nhất hai series trong cùng một nhóm và các giá trị số tương ứng cho mỗi danh mục. Đối với các biểu đồ line không xếp chồng này, thanh lên/xuống so sánh series đầu và cuối: giá trị cuối cao hơn tạo thanh lên, giá trị cuối thấp hơn tạo thanh xuống. Đảo ngược các series sẽ đảo ngược phân loại. Ví dụ dưới đây sử dụng [OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/); không giả định các biến thể chứng khoán, line‑stacked hoặc 3D khác sử dụng cùng cách sắp xếp dữ liệu hoặc cách giải thích khoảng.
 
 ```java
 import com.aspose.slides.*;
+import java.awt.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -605,7 +614,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(new Color(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(new Color(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -623,15 +645,15 @@ finally
 }
 ```
 
-Kết quả:
+Kết quả, xuất từ PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Biểu đồ chứng khoán với khoảng giảm màu cam‑đỏ cho A và khoảng tăng màu xanh lá cho B và C](stock_chart.png)
 
-### **Tạo biểu đồ Hộp và Râu**
+### **Tạo biểu đồ hộp và râu (Box and Whisker)**
 
-Biểu đồ hộp và râu dùng để hiển thị phân bố dữ liệu bằng cách tóm tắt các chỉ số thống kê chính như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng rất hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu biến động dữ liệu và xác định bất thường.
+Biểu đồ hộp và râu được dùng để hiển thị phân bố dữ liệu bằng cách tóm tắt các đo lường thống kê chính, như trung vị, các phần tư và các ngoại lệ tiềm năng. Chúng đặc biệt hữu ích trong phân tích dữ liệu khám phá và các nghiên cứu thống kê để nhanh chóng hiểu biến động dữ liệu và xác định bất thường.
 
-Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Phương thức [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) chọn phương pháp tính phần tư riêng. Ví dụ cũng bật các đường trung bình, dấu trung bình, các điểm nội bộ và các điểm ngoại lệ.
+Ví dụ này tạo một biểu đồ hộp và râu từ sáu giá trị. Phương thức [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) chọn cách tính phần tư loại trừ. Ví dụ cũng bật các đường trung bình, dấu hiệu trung bình, điểm nội và điểm ngoại lệ.
 
 ```java
 import com.aspose.slides.*;
@@ -691,11 +713,11 @@ finally
 }
 ```
 
-### **Tạo biểu đồ Phễu**
+### **Tạo biểu đồ phễu (Funnel)**
 
-Biểu đồ phễu dùng để hình dung các quy trình có các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến lên từng bước. Chúng hữu ích để phân tích tỷ lệ chuyển đổi, xác định các nút thắt cổ chai và theo dõi hiệu quả của các quy trình bán hàng hoặc tiếp thị.
+Biểu đồ phễu dùng để trực quan hoá các quy trình gồm các giai đoạn tuần tự, trong đó khối lượng dữ liệu giảm dần khi tiến từ bước này sang bước tiếp theo. Chúng đặc biệt hữu ích để phân tích tỷ lệ chuyển đổi, xác định điểm tắc nghẽn và theo dõi hiệu quả của quy trình bán hàng hoặc marketing.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để thêm một biểu đồ phễu vào slide đầu tiên của một bản trình bày hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 tới 500, sau đó lưu bản trình bày đã cập nhật. Bản trình bày đầu vào phải có ít nhất một slide.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để thêm một biểu đồ phễu vào slide đầu tiên của một bản thuyết trình hiện có. Nó thay thế dữ liệu mặc định bằng sáu danh mục và các giá trị từ 50 đến 500, sau đó lưu bản thuyết trình đã cập nhật. Bản thuyết trình nhập vào phải có ít nhất một slide.
 
 ```java
 import com.aspose.slides.*;
@@ -751,13 +773,13 @@ finally
 
 Kết quả:
 
-![The Funnel chart](funnel_chart.png)
+![Biểu đồ phễu](funnel_chart.png)
 
-### **Tạo biểu đồ Mặt trời**
+### **Tạo biểu đồ mặt trời (Sunburst)**
 
-Biểu đồ mặt trời dùng để hình dung dữ liệu phân cấp, hiển thị các mức độ dưới dạng các vòng đồng tâm. Chúng giúp minh họa mối quan hệ phần‑với‑toàn và lý tưởng cho việc đại diện các danh mục và tiểu danh mục lồng nhau trong một định dạng rõ ràng, gọn gàng.
+Biểu đồ mặt trời dùng để trực quan hoá dữ liệu phân cấp, hiển thị các mức dưới dạng các vòng đồng tâm. Chúng giúp minh hoạ các mối quan hệ phần‑to‑toàn và rất phù hợp để đại diện các danh mục và danh mục con lồng nhau một cách rõ ràng, gọn gàng.
 
-Ví dụ này tạo một biểu đồ mặt trời với tám lá được nhóm thành bốn nhánh và hai cành. Phương thức [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gán các nhánh ở mức nhóm 1 và các cành ở mức 2. Các nhãn danh mục xác định các đoạn, và các giá trị quyết định kích thước tương đối của chúng.
+Ví dụ này tạo một biểu đồ mặt trời với tám lá được nhóm thành bốn nhánh và hai cấp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gán các nhánh ở cấp nhóm 1 và các nhánh con ở cấp 2. Các nhãn danh mục xác định các đoạn, và các giá trị quyết định kích thước tương đối của chúng.
 
 ```java
 import com.aspose.slides.*;
@@ -836,17 +858,17 @@ finally
 
 Kết quả:
 
-![The Sunburst chart](sunburst_chart.png)
+![Biểu đồ mặt trời](sunburst_chart.png)
 
-### **Tạo biểu đồ Histogram**
+### **Tạo biểu đồ histogram**
 
-Biểu đồ histogram cho thấy cách các giá trị số được phân bố qua các khoảng (bins). Đối với báo cáo hàng tháng về thời gian xử lý đơn hàng, hãy sử dụng cùng độ rộng bin và cùng ngưỡng để giữ các khoảng nhất quán và dễ so sánh các phân bố.
+Biểu đồ histogram cho thấy cách các giá trị số được phân bố qua các khoảng (bins). Đối với báo cáo hàng tháng về thời gian xử lý đơn hàng, hãy sử dụng cùng một độ rộng bin và các ngưỡng để giữ các khoảng nhất quán và dễ so sánh phân phối.
 
-Gọi [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) trên trục ngang với một chế độ từ [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) chỉ áp dụng cho `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) chỉ áp dụng cho `ByNumberOfBins`. Sử dụng `Automatic` để để biểu đồ tự chọn các bin.
+Gọi [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) trên trục ngang với một chế độ từ [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) chỉ áp dụng cho `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) chỉ áp dụng cho `ByNumberOfBins`. Sử dụng `Automatic` để cho phép biểu đồ tự chọn các bin.
 
 #### **Sử dụng độ rộng bin cố định**
 
-Ví dụ này nhóm thời gian xử lý thành các khoảng 10 phút, với các bin riêng cho thời gian ≤ 10 phút và > 40 phút. Kích hoạt các bin này bằng [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) và [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Khi cung cấp ngưỡng cụ thể qua [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) và [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-), gọi [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) và [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) với `false`.
+Ví dụ này nhóm thời gian xử lý thành các khoảng 10 phút, với các bin riêng cho thời gian ≤10 phút và >40 phút. Kích hoạt các bin này bằng [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) và [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Khi cung cấp ngưỡng cụ thể qua [setUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setUnderflowBin-double-) và [setOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setOverflowBin-double-), gọi [setAutomaticUnderflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) và [setAutomaticOverflowBin](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) với `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -893,13 +915,13 @@ finally
 }
 ```
 
-Bản trình bày hiển thị trong PowerPoint cho thấy số lượng bin là **3, 4, 4, 4 và 2**. Bin dưới (underflow) bao gồm `5, 10, 10`, vì vậy ngưỡng của nó là bao gồm. Bin trên (overflow) chỉ bao gồm `41, 50`, vì vậy ngưỡng của nó là không bao gồm; các giá trị bằng `40` vẫn nằm trong khoảng phía trước. Các bin trung gian chứa các giá trị lớn hơn ranh giới dưới và ≤ ranh giới trên.
+Bản thuyết trình hiển thị trong PowerPoint cho thấy số lượng bin là **3, 4, 4, 4, và 2**. Bin dưới bao gồm `5, 10, 10`, vì vậy ngưỡng của nó là bao gồm. Bin trên chỉ bao gồm `41, 50`, vì vậy ngưỡng của nó là loại trừ; cả hai giá trị bằng `40` vẫn nằm trong khoảng trước. Các bin trung gian chứa các giá trị lớn hơn giới hạn dưới và nhỏ hơn hoặc bằng giới hạn trên.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram với các bin 10 phút và ngưỡng underflow và overflow cụ thể](histogram_bin_width.png)
 
-#### **Chỉ định số lượng bin**
+#### **Chỉ định số bin**
 
-Đối với mức chi tiết cố định thay vì các khoảng cố định, yêu cầu năm bin cho cùng bộ dữ liệu. Ví dụ này tắt bin dưới và bin trên. Biểu đồ tự tính độ rộng dựa trên phạm vi dữ liệu, vì vậy các ranh giới có thể thay đổi giữa các báo cáo.
+Đối với mức chi tiết cố định thay vì các khoảng cố định, yêu cầu năm bin cho cùng bộ dữ liệu. Ví dụ này để tắt bin underflow và overflow. Biểu đồ xác định độ rộng dựa trên phạm vi dữ liệu, vì vậy các ranh giới có thể thay đổi giữa các báo cáo.
 
 ```java
 import com.aspose.slides.*;
@@ -940,15 +962,15 @@ finally
 }
 ```
 
-Năm bin có số lượng **4, 4, 4, 4 và 1**. So sánh phân bố này với kết quả độ rộng cố định ở trên: các giá trị đầu vào giống nhau, nhưng các ranh giới khác nhau.
+Năm bin có số lượng là **4, 4, 4, 4, và 1**. So sánh phân phối này với kết quả độ rộng cố định ở trên: các giá trị đầu vào giống nhau, nhưng các ranh giới khác nhau.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histogram với năm bin được tính từ cùng dữ liệu](histogram_bin_count.png)
 
-### **Tạo biểu đồ Radar**
+### **Tạo biểu đồ radar**
 
-Biểu đồ radar dùng để hiển thị dữ liệu đa biến trong một định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để nhận dạng các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ số hiệu suất hoặc thuộc tính.
+Biểu đồ radar dùng để hiển thị dữ liệu đa biến trong định dạng hai chiều, cho phép so sánh dễ dàng nhiều biến cùng lúc. Chúng đặc biệt hữu ích để nhận diện các mẫu, điểm mạnh và điểm yếu trên nhiều chỉ tiêu hoặc thuộc tính hiệu suất.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ radar với chuỗi và danh mục mặc định, sau đó lưu bản trình bày dưới dạng PPTX.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ radar với series và danh mục mặc định, sau đó lưu bản thuyết trình dưới dạng PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -970,13 +992,13 @@ finally
 
 Kết quả:
 
-![The Radar chart](radar_chart.png)
+![Biểu đồ radar](radar_chart.png)
 
-### **Tạo biểu đồ Đa‑danh mục**
+### **Tạo biểu đồ đa danh mục (Multi-Category)**
 
-Biểu đồ đa‑danh mục dùng để hiển thị dữ liệu có hơn một nhóm phân loại, cho phép bạn so sánh giá trị qua nhiều chiều cùng lúc. Chúng đặc biệt hữu ích khi cần phân tích xu hướng và mối quan hệ trong các bộ dữ liệu phức tạp, nhiều lớp.
+Biểu đồ đa danh mục dùng để hiển thị dữ liệu có hơn một nhóm danh mục, cho phép bạn so sánh giá trị qua nhiều chiều đồng thời. Chúng đặc biệt hữu ích khi bạn cần phân tích xu hướng và mối quan hệ trong các tập dữ liệu phức tạp, nhiều lớp.
 
-Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp thành bốn cặp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gán mỗi cặp một nhãn chung ở mức nhóm 1, tạo ra trục danh mục có cả nhãn riêng lẻ và nhãn nhóm.
+Ví dụ này tạo một biểu đồ cột nhóm với tám danh mục được sắp xếp thành bốn cặp. Phương thức [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) gán mỗi cặp một nhãn chung ở cấp nhóm 1, tạo trục danh mục có cả nhãn riêng và nhãn nhóm.
 
 ```java
 import com.aspose.slides.*;
@@ -1050,13 +1072,58 @@ finally
 
 Kết quả:
 
-![The multi category chart](multi_category_chart.png)
+![Biểu đồ đa danh mục](multi_category_chart.png)
 
-### **Tạo biểu đồ Bản đồ**
+#### **Xóa nhãn quý**
 
-Biểu đồ bản đồ dùng để hình dung dữ liệu địa lý bằng cách gán thông tin tới các vị trí cụ thể như quốc gia, bang hoặc thành phố. Chúng rất hữu ích để phân tích xu hướng khu vực, dữ liệu dân số và phân bố không gian một cách rõ ràng, hấp dẫn.
+Tải xuống [quarters.pptx](quarters.pptx) và đặt nó trong thư mục làm việc. Biểu đồ trong file này hiển thị chín tháng và một series bán hàng với giá trị từ 10 đến 18. Trên trục danh mục, Q1 bao phủ tháng 1‑3, Q2 tháng 4‑6, Q3 tháng 7‑9.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu để xem trong PowerPoint.
+Tháng 4 là danh mục thứ tư (chỉ mục 3) và chứa nhãn Q2. Sử dụng [getGroupingLevels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getGroupingLevels--) để truy cập các cấp nhóm của tháng 4, sau đó gọi [deleteGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) với cấp 1 để xóa nhãn quý. Cấp 0 đại diện cho tháng và không thể xóa bằng phương thức này.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    StringJoiner months = new StringJoiner(", ");
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    StringJoiner sales = new StringJoiner(", ");
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(months);
+    System.out.println(sales);
+} finally {
+    reopened.dispose();
+}
+```
+
+Sau khi mở lại biểu đồ, ví dụ in ra các tháng gốc (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) và các giá trị bán hàng (`10, 11, 12, 13, 14, 15, 16, 17, 18`) theo cùng thứ tự. Mở `quarters-updated.pptx` trong PowerPoint để so sánh các nhãn trục. Nhãn Q2 và ranh giới nhóm trước tháng 4 biến mất, vì vậy Q1 bao phủ tháng 1‑6. Q3 vẫn bắt đầu từ tháng 7.
+
+![Nhãn quý trước và sau khi xóa. Bên trái, Q2 bao phủ tháng 4‑6. Bên phải, Q1 bao phủ tháng 1‑6.](quarter-label-comparison.png)
+
+### **Tạo biểu đồ bản đồ (Map)**
+
+Biểu đồ bản đồ dùng để trực quan hoá dữ liệu địa lý bằng cách ánh xạ thông tin tới các vị trí cụ thể như quốc gia, tiểu bang hoặc thành phố. Chúng đặc biệt hữu ích để phân tích xu hướng khu vực, dữ liệu dân số và phân bố không gian một cách rõ ràng, hấp dẫn.
+
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ bản đồ với dữ liệu địa lý mặc định và lưu lại để xem trong PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1064,9 +1131,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try
 {
-    ISlide
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm biểu đồ bản đồ vào slide
     IChart chart = slide.getShapes().addChart(ChartType.Map, 20, 20, 500, 300);
 
     presentation.save("mapChart.pptx", SaveFormat.Pptx);
@@ -1079,19 +1145,21 @@ finally
 
 Kết quả:
 
-![The Map chart](map_chart.png)
+![Biểu đồ bản đồ](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Hình trên hiển thị bản trình bày đã lưu mở trong PowerPoint. Aspose.Slides ghi đúng biểu đồ bản đồ và dữ liệu của nó, nhưng không tự vẽ biểu đồ bản đồ: khi một slide chứa biểu đồ này được render thành ảnh hoặc chuyển đổi sang PDF hoặc SVG, vùng biểu đồ sẽ để trống. Các hình dạng khác trên cùng slide không bị ảnh hưởng.
+
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
+
 {{% /alert %}}
 
-### **Tạo biểu đồ Kết hợp**
+### **Tạo biểu đồ kết hợp (Combination)**
 
-Một biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp nhận diện mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc khám phá sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp nhận diện mối quan hệ giữa chúng.
 
-![The combination chart](combination_chart.png)
+![Biểu đồ kết hợp](combination_chart.png)
 
-Ví dụ này kết hợp hai chuỗi cột nhóm với một chuỗi đường qua bốn danh mục. Các cột dùng trục dọc chính, trong khi [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) đặt đường trên trục dọc phụ ở bên phải. Các hàm trợ giúp cấu hình tiêu đề, chú giải, nhãn trục và các đường lưới.
+Ví dụ này kết hợp hai series cột nhóm với một series đường qua bốn danh mục. Các cột dùng trục dọc chính, trong khi [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) đặt đường trên trục dọc phụ ở bên phải. Các hàm trợ giúp cấu hình tiêu đề, legend, nhãn trục và lưới.
 
 ```java
 import com.aspose.slides.*;
@@ -1218,7 +1286,7 @@ class ComboChartExample
 
         IAxis verticalAxis = chart.getAxes().getVerticalAxis();
         verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-        verticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
+        verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
         setAxisTitle(verticalAxis, "Y Axis 1");
 
@@ -1262,9 +1330,9 @@ example.createComboChart();
 
 ## **Cập nhật biểu đồ**
 
-Aspose.Slides for Java cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu biểu đồ, định dạng và kiểu dáng. Tính năng này đơn giản hoá quá trình duy trì bản trình bày luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu hiện tại và tiêu chuẩn thiết kế.
+Aspose.Slides for Java cho phép bạn cập nhật các biểu đồ PowerPoint bằng cách sửa đổi dữ liệu, định dạng và kiểu dáng. Tính năng này đơn giản hoá quá trình giữ cho bản thuyết trình luôn cập nhật với nội dung động và đảm bảo biểu đồ phản ánh chính xác dữ liệu và tiêu chuẩn hình ảnh hiện tại.
 
-Ví dụ này cập nhật biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có. Nó yêu cầu hai chuỗi cột, mỗi chuỗi có ba điểm dữ liệu, với nhãn danh mục ở cột A và tên chuỗi ở hàng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) để thay đổi các ô workbook, cập nhật giá trị chuỗi, thêm một chuỗi thứ ba và thay đổi loại biểu đồ thành cột trụ nhóm qua [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
+Ví dụ này cập nhật biểu đồ có tên “My chart” trên slide đầu tiên của một bản thuyết trình hiện có. Nó yêu cầu hai series cột, mỗi series có ba điểm dữ liệu, với nhãn danh mục trong cột A và tên series trong hàng đầu tiên của worksheet đầu tiên. Ví dụ sử dụng [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) để thay đổi các ô workbook, cập nhật giá trị series, thêm một series thứ ba, và thay đổi loại biểu đồ thành cylinder nhóm qua [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1324,13 +1392,13 @@ finally
 }
 ```
 
-## **Định nghĩa phạm vi dữ liệu cho biểu đồ**
+## **Đặt phạm vi dữ liệu cho biểu đồ**
 
 Để kiểm tra phạm vi đã được biểu đồ hiện có sử dụng, xem [Retrieve a Chart's Data Range](/slides/vi/java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Java cung cấp khả năng định nghĩa một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu biểu đồ. Điều này cho phép bạn ánh xạ trực tiếp một phần của worksheet vào biểu đồ, kiểm soát các ô nào đóng góp vào chuỗi và danh mục của biểu đồ. Kết quả, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản trình bày PowerPoint phản ánh thông tin hiện tại và chính xác.
+Aspose.Slides for Java cung cấp khả năng linh hoạt để xác định một phạm vi dữ liệu cụ thể từ worksheet làm nguồn cho dữ liệu của biểu đồ. Điều này có nghĩa là bạn có thể trực tiếp ánh xạ một phần worksheet tới biểu đồ, cho phép kiểm soát các ô nào đóng góp vào series và danh mục của biểu đồ. Kết quả, bạn có thể dễ dàng cập nhật và đồng bộ biểu đồ với các thay đổi dữ liệu mới nhất trong worksheet, đảm bảo các bản thuyết trình PowerPoint của bạn phản ánh thông tin hiện tại và chính xác.
 
-Ví dụ này sử dụng [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) để đặt nguồn dữ liệu của biểu đồ có tên "My chart" trên slide đầu tiên của một bản trình bày hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề chuỗi ở hàng đầu, nhãn danh mục ở cột A và ba giá trị ở cột B.
+Ví dụ này sử dụng [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) để đặt nguồn dữ liệu của biểu đồ có tên “My chart” trên slide đầu tiên của một bản thuyết trình hiện có thành `Sheet1!A1:B4`. Workbook của biểu đồ phải chứa worksheet đó và một phạm vi đã được điền với tiêu đề series ở hàng đầu, nhãn danh mục ở cột A, và ba giá trị ở cột B.
 
 ```java
 import com.aspose.slides.*;
@@ -1359,11 +1427,11 @@ finally
 }
 ```
 
-## **Sử dụng dấu mặc định trong biểu đồ**
+## **Sử dụng dấu hiệu mặc định trong biểu đồ**
 
-Khi bạn sử dụng dấu mặc định trong biểu đồ, mỗi chuỗi sẽ tự động nhận một ký hiệu dấu khác nhau.
+Khi sử dụng dấu hiệu mặc định trong biểu đồ, mỗi series biểu đồ sẽ tự động nhận một biểu tượng dấu hiệu mặc định khác nhau.
 
-Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ với hai chuỗi đường và một chú giải. Cài đặt dấu truy cập qua [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) giữ lại các ký hiệu dấu được gán tự động. Chuỗi đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu thị bằng `null`, trong khi chuỗi thứ hai có giá trị cho mọi danh mục.
+Ví dụ này sử dụng [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) để tạo một biểu đồ với hai series đường và một legend. Cài đặt dấu hiệu truy cập qua [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) giữ lại các biểu tượng dấu hiệu được gán tự động. Series đầu tiên bao gồm một giá trị âm và một giá trị thiếu, được biểu thị bằng `null`, trong khi series thứ hai có giá trị cho mọi danh mục.
 
 ```java
 import com.aspose.slides.*;
@@ -1430,16 +1498,18 @@ finally
 
 **Các loại biểu đồ nào được Aspose.Slides for Java hỗ trợ?**
 
-Aspose.Slides for Java hỗ trợ nhiều loại biểu đồ, bao gồm cột, đường, tròn, khu vực, phân tán, histogram, radar và nhiều hơn nữa. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu.
+Aspose.Slides for Java hỗ trợ nhiều loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều hơn nữa. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
-**Làm sao để thêm một biểu đồ mới vào slide?**
+**Làm thế nào để thêm một biểu đồ mới vào slide?**
 
-Để thêm biểu đồ, trước tiên tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), lấy slide cần thiết bằng chỉ mục của nó, rồi gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
+Để thêm một biểu đồ, bạn đầu tiên tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này tích hợp biểu đồ trực tiếp vào bản thuyết trình của bạn.
 
 **Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), xóa các chuỗi và danh mục mặc định, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn lập trình làm mới biểu đồ để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, rồi thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
 
-**Có thể tùy chỉnh giao diện của biểu đồ không?**
+**Có thể tùy chỉnh ngoại hình của biểu đồ không?**
 
-Có, Aspose.Slides for Java cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, chú giải và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ theo yêu cầu thiết kế cụ thể của mình.
+Có, Aspose.Slides for Java cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể sửa đổi màu sắc, phông chữ, nhãn, legend và các yếu tố định dạng khác để điều chỉnh ngoại hình biểu đồ theo yêu cầu thiết kế cụ thể của mình.
+
+Related feature: [Create editable charts](/slides/vi/features/create-charts/).

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w Pythonie
-linktitle: Tworzenie lub aktualizacja wykresów
+title: Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w Pythonie
+linktitle: Utwórz lub zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/python-net/create-chart/
@@ -10,28 +10,28 @@ keywords:
 - edytuj wykres
 - zmień wykres
 - zaktualizuj wykres
-- wykres punktowy
+- wykres rozproszony
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowy
+- wykres pudełkowo‑wąsowy
 - wykres lejkowy
 - wykres promieniowy
 - wykres histogramu
 - wykres radarowy
-- wykres wielokategorii
+- wykres wielokategorialny
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Pythona w .NET. Dodawaj, formatuj i edytuj wykresy dzięki praktycznym przykładom kodu w Pythonie."
+description: "Utwórz i dostosuj wykresy w prezentacjach PowerPoint za pomocą Aspose.Slides dla Pythona poprzez .NET. Dodawaj, formatuj i edytuj wykresy z praktycznymi przykładami kodu w języku Python."
 ---
 ## **Przegląd**
 
-Ten artykuł zapewnia kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla Pythona w .NET. Nauczysz się programowo dodawać wykres do slajdu, wypełniać go danymi oraz stosować różne opcje formatowania, aby spełnić konkretne wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Korzystając z tego przewodnika, zdobędziesz solidną wiedzę, jak integrować dynamiczne generowanie wykresów w aplikacjach Pythona, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides dla Pythona poprzez .NET. Nauczysz się, jak programowo dodać wykres do slajdu, wypełnić go danymi i zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integracji dynamicznego generowania wykresów w aplikacjach Pythona, upraszczając proces tworzenia prezentacji opartych na danych.
 
-## **Utworzenie wykresu**
+## **Utwórz wykres**
 
 Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są od razu oczywiste w tabeli lub arkuszu kalkulacyjnym.
 
@@ -39,21 +39,23 @@ Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które nie są o
 
 Korzystając z wykresów, możesz:
 
-* agregować, kompresować lub podsumowywać duże ilości danych na jednym slajdzie prezentacji;
-* ujawniać wzorce i trendy w danych;
-* określać kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać odstające, anomalne, błędne lub nielogiczne dane;
-* przekazywać lub prezentować złożone dane.
+* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie prezentacji;
+* ujawnić wzorce i trendy w danych;
+* wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary;
+* wykrywać odstające wartości, aberracje, odchylenia, błędy i nieprawidłowe dane;
+* komunikować lub prezentować złożone dane.
 
-W programie PowerPoint wykresy tworzy się za pomocą funkcji *Insert*, która oferuje szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach) oraz wykresy niestandardowe.
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno zwykłe wykresy (oparte na popularnych typach wykresów), jak i wykresy niestandardowe.
 
-{{% alert color="info" title="Uwaga" %}}
+{{% alert color="info" title="Note" %}}
+
 Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) w module [aspose.slides.charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
+
 {{% /alert %}}
 
-### **Utworzenie wykresów kolumnowych grupowanych**
+### **Utwórz wykresy słupkowe grupowane**
 
-Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu kolumnowego grupowanego, porównującego dwie serie w trzech kategoriach. Serie mają wypełnienia na czerwono i zielono, a etykiety pokazują nazwy kategorii, nazwy serii oraz wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do utworzenia wykresu słupkowego grupowanego, który porównuje dwie serie w trzech kategoriach. Serie używają czerwonych i zielonych wypełnień, a poszczególne etykiety pokazują nazwy kategorii, nazwy serii i wartości. Indeks arkusza 0 odnosi się do pierwszego arkusza w osadzonym skoroszycie wykresu.
 
 ```python
 import aspose.pydrawing as draw
@@ -128,20 +130,20 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wykres kolumnowy grupowany](clustered_column_chart.png)
+![Wykres słupkowy grupowany](clustered_column_chart.png)
 
-### **Utworzenie wykresów punktowych**
+### **Utwórz wykresy rozproszenia**
 
-Wykresy punktowe (znane także jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji pomiędzy dwoma zmiennymi.
+Wykresy rozproszenia (znane także jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
 
-Użyj wykresu punktowego, gdy:
+Używaj wykresu rozproszenia, gdy:
 
-* masz sparowane dane liczbowe;
-* dwie zmienne dobrze ze sobą współgrają;
-* chcesz określić, czy zmienne są ze sobą powiązane;
-* istnieje zmienna niezależna, która ma wiele wartości dla zmiennej zależnej.
+* Masz sparowane dane liczbowe.
+* Masz dwie zmienne, które dobrze ze sobą współgrają.
+* Chcesz określić, czy dwie zmienne są ze sobą powiązane.
+* Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
 
-Ten przykład przedstawia dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii ze znacznikiem‑gwiazdką, druga – gładkich linii ze znacznikiem‑koło; obie mają [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) równy 10. Właściwość [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) kontroluje kształt znacznika.
+Ten przykład rysuje dwa zestawy wartości x‑y. Pierwsza seria używa prostych linii ze znacznikami‑gwiazdkami, natomiast druga używa wygładzonych linii ze znacznikami‑kółkami; obie używają [size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/size/) równego 10. Właściwość [symbol](https://reference.aspose.com/slides/python-net/aspose.slides.charts/marker/symbol/) kontroluje kształt znacznika.
 
 ```python
 import aspose.slides as slides
@@ -203,13 +205,13 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wykres punktowy](scatter_chart.png)
+![Wykres rozproszenia](scatter_chart.png)
 
-### **Utworzenie wykresów kołowych**
+### **Utwórz wykresy kołowe**
 
-Wykresy kołowe są najlepsze do przedstawiania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane mają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe są najlepsze do pokazania relacji części do całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednak jeśli Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
-Ten przykład tworzy wykres kołowy z trzema wartościami kwartalnymi. Każdy kawałek ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Właściwość [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) ustawia pierwszy kawałek na 180 stopni.
+Ten przykład tworzy wykres kołowy z trzema kwartalnymi wartościami. Każdy fragment ma niestandardowe wypełnienie i obramowanie, a etykiety wyświetlają różne kombinacje wartości, procentów i informacji o serii. Właściwość [first_slice_angle](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/first_slice_angle/) ustawia pierwszy fragment, aby zaczynał się pod kątem 180 stopni.
 
 ```python
 import aspose.pydrawing as draw
@@ -306,13 +308,13 @@ Wynik:
 
 ![Wykres kołowy](pie_chart.png)
 
-Aby poprawić czytelność etykiet poza wykresem kołowym, zobacz [Format Leader Lines](/slides/pl/python-net/chart-data-label/#format-leader-lines) – przykład, w którym pozycjonuje się etykiety i dostosowuje kolor, szerokość, przezroczystość oraz styl przerywania linii.
+Aby poprawić czytelność etykiet poza kołem, zobacz [Format Leader Lines](/slides/pl/python-net/chart-data-label/#format-leader-lines) po przykład, w którym pozycjonuje się etykiety i dostosowuje kolor, szerokość, przezroczystość oraz styl kreski linii.
 
-### **Utworzenie wykresów liniowych**
+### **Utwórz wykresy liniowe**
 
-Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy, podkreślać anomalie w seriach danych i wiele więcej.
+Wykresy liniowe (znane także jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Używając wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i wiele więcej.
 
-Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu liniowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację jako PPTX.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do utworzenia wykresu liniowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```python
 import aspose.slides as slides
@@ -326,7 +328,7 @@ with slides.Presentation() as presentation:
     presentation.save("lineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Domyślnie punkty na wykresie liniowym są połączone prostymi, ciągłymi liniami. Jeśli chcesz, aby punkty były połączone kreskami, ustaw [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) na jedną z wartości z [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
+Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były połączone kreskami, ustaw [dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) na wartość z [LineDashStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/):
 
 ```python
 import aspose.slides as slides
@@ -345,11 +347,11 @@ Wynik:
 
 ![Wykres liniowy](line_chart.png)
 
-### **Utworzenie wykresów mapy drzewa**
+### **Utwórz wykresy mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii i szybko zwrócić uwagę na elementy będące dużymi udziałowcami w każdej kategorii.
+Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi wkładami w każdej kategorii.
 
-Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii oraz nakładające się etykiety rodziców identyfikują hierarchię.
+Ten przykład tworzy mapę drzewa z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Wartości określają względne rozmiary prostokątów, a etykiety kategorii i nakładające się etykiety nadrzędne identyfikują hierarchię.
 
 ```python
 import aspose.slides as slides
@@ -426,24 +428,24 @@ Wynik:
 
 ![Wykres mapy drzewa](treemap_chart.png)
 
-### **Utworzenie wykresów wodospadowych**
+### **Utwórz wykresy wodospadowe**
 
-Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do wartości końcowej. Przykładowo, rozbicie zysku może zaczynać się od przychodu, odejmować koszty i dodawać inne przychody. Kolumny zmian "pływają" pomiędzy poprzednią a nową wartością bieżącą, zaś kolumny sumy rozciągają się od zera do wartości skumulowanej.
+Wykres wodospadowy pokazuje, jak dodatnie i ujemne zmiany przyczyniają się do ostatecznej wartości. Na przykład podział zysku może zaczynać się od przychodów, odejmować koszty i dodawać inne przychody. Kolumny zmian „pływają” pomiędzy poprzednią a nową wartością bieżącą, podczas gdy kolumny sumy rozciągają się od zera do skumulowanej wartości.
 
 Poniższy przykład używa kwot w tysiącach dolarów amerykańskich:
 
-| Kategoria | Wartość w skoroszycie | Typ kolumny |
+| Kategoria | Wartość skoroszytu | Typ kolumny |
 | --- | ---: | --- |
-| Przychód | 1000 | Wzrost |
+| Przychody | 1000 | Wzrost |
 | Koszt sprzedaży | -400 | Spadek |
 | Zysk brutto | 600 | Suma pośrednia |
 | Koszty operacyjne | -200 | Spadek |
 | Inne przychody | 50 | Wzrost |
 | Zysk netto | 450 | Suma końcowa |
 
-Aby oznaczyć punkt jako sumę pośrednią lub końcową, ustaw jego właściwość [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) na `True`. W komórce skoroszytu podaj rzeczywistą skumulowaną kwotę: `600` dla zysku brutto (`1000 - 400`) oraz `450` dla zysku netto (`600 - 200 + 50`). Właściwość oznacza kolumnę jako sumę; nie oblicza ani nie uzupełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla wartość skumulowaną bez ponownego dodawania jej do wartości bieżącej.
+Aby oznaczyć punkt jako sumę pośrednią lub końcową, ustaw jego właściwość [set_as_total](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/set_as_total/) na `True`. Podaj rzeczywistą skumulowaną kwotę w komórce skoroszytu tego punktu: `600` dla zysku brutto (`1000 - 400`) i `450` dla zysku netto (`600 - 200 + 50`). Właściwość oznacza kolumnę jako sumę; nie oblicza ani nie wypełnia wartości komórki. Nie używaj zera jako symbolu zastępczego ani nie podawaj innej zmiany dla punktu sumy. Kolumna sumy wyświetla skumulowaną wartość bez ponownego dodawania jej do wartości bieżącej.
 
-Ten kompletny przykład w C# tworzy wykres przy użyciu członu `Waterfall` z [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana metodą [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Indeksy punktów bazujących na zerze `2` i `5` identyfikują sumy pośrednie i końcowe. Włączenie [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) wyświetla kwoty na kolumnach. Nie jest wymagane żadne wejściowe źródło prezentacji ani skoroszyt.
+Ten kompletny przykład w C# tworzy wykres przy użyciu członu `Waterfall` z [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), czyści domyślne dane i wypełnia osadzony skoroszyt. Indeks arkusza `0` wybiera pierwszy arkusz; kolumna A zawiera nazwy kategorii, a kolumna B – wartości. Każda komórka wartości jest dodawana metodą [add_data_point_for_waterfall_series](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/add_data_point_for_waterfall_series/). Indeksy punktów zerowych `2` i `5` identyfikują sumy pośrednie i końcowe. Włączenie [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/) wyświetla kwoty na kolumnach. Nie jest wymagana żadna wejściowa prezentacja ani skoroszyt.
 
 ```python
 import aspose.slides as slides
@@ -487,26 +489,33 @@ with slides.Presentation() as presentation:
     presentation.save("WaterfallChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ustaw właściwość [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) na poziomie serii na `True`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby je ukryć, zamień przypisanie w przykładzie na `series.show_connector_lines = False` przed zapisem. Zmienia to jedynie widoczność linii, nie dane ani sumy.
+Ustaw właściwość [show_connector_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/show_connector_lines/) na poziomie serii na `True`, aby pokazać linie łączące kolejne kolumny i ułatwić śledzenie wartości bieżącej. Aby ukryć te linie, zamień przypisanie w przykładzie na `series.show_connector_lines = False` przed zapisem. Zmienia to tylko widoczność linii, nie dane ani sumy.
 
-Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy zaczynają się od zera:
+Zapisana prezentacja pokazuje zysk brutto 600 i zysk netto 450, przy czym obie sumy są rysowane od zera:
 
-![Wykres wodospadowy przedstawiający przychód, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
+![Wykres wodospadowy pokazujący przychody, koszty, zysk brutto 600 i zysk netto 450, z etykietami wartości i liniami łączącymi](waterfall_chart.png)
 
-### **Utworzenie wykresów giełdowych**
+### **Utwórz wykresy giełdowe**
 
-Wykresy giełdowe służą do prezentacji danych finansowych, takich jak otwarcie, maksimum, minimum i zamknięcie ceny, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają kluczowych informacji o wydajności akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
-Ten przykład tworzy wykres typu open‑high‑low‑close z czterema seriami w tej kolejności oraz trzema kategoriami. Właściwość [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) włącza słupki wzrostu/spadku, a [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) kontroluje linie wysokiego‑niskiego, które pokazują zakres cen; linie poszczególnych serii i drobne linie siatki poziome są ukryte.
+Ten przykład tworzy wykres otwarcie‑wysoko‑nisko‑zamknięcie z czterema seriami w tej kolejności i trzema kategoriami. Właściwość [has_up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/has_up_down_bars/) włącza słupki góra/dół, a [hi_low_lines_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/hi_low_lines_format/) kontroluje linie wysokich‑niskich, które pokazują zakresy cen, podczas gdy indywidualne linie serii i drobne linie siatki poziome są ukryte.
+
+Menedżer [up_down_bars](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/up_down_bars/) udostępnia osobne obiekty [up_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/up_bars_format/) i [down_bars_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/updownbarsmanager/down_bars_format/). Użyj właściwości [fill](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/fill/) i [line](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/line/) każdego obiektu, aby niezależnie ustawić wypełnienie i obrys. Ten przykład używa zielonych słupków z ciemno‑zielonym obrysem dla rosnących interwałów oraz pomarańczowo‑czerwonych słupków z ciemnoczerwonym obrysem dla spadających interwałów.
+
+Podaj wartości liczbowe dla wszystkich czterech serii w każdej kategorii, przy czym High i Low otaczają Open i Close. Słupki porównują Close z Open **w ramach tej samej kategorii**, a nie z poprzednią kategorią: A spada z 72 do 25, podczas gdy B rośnie z 25 do 38, a C rośnie z 38 do 50. Równe wartości Open i Close nie generują widocznego wypełnionego interwału. Słupki góra/dół obejmują Open‑Close; linie wysokich‑niskich obejmują Low‑High. Te słupki należą do grupy serii i nie są zwykłymi seriami wykresu słupkowego.
+
+To formatowanie działa także z wykresami [LINE and LINE_WITH_MARKERS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/), które zawierają co najmniej dwie serie w tej samej grupie i odpowiadające wartości liczbowe dla każdej kategorii. Dla tych niewykresów liniowych nie‑skumulowanych słupki góra/dół porównują pierwszą i ostatnią serię: wyższa ostatnia wartość powoduje słupek w górę, a niższa – słupek w dół. Odwrócenie tych serii odwraca klasyfikację. Poniższy przykład używa [OPEN_HIGH_LOW_CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/); nie zakładaj, że inne warianty giełdowe, skumulowanych linii lub 3D używają tej samej struktury danych lub interpretacji interwału.
 
 ```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 300, False)
+    chart = slide.shapes.add_chart(charts.ChartType.OPEN_HIGH_LOW_CLOSE, 20, 20, 500, 150, False)
 
     workbook = chart.chart_data.chart_data_workbook
 
@@ -558,7 +567,20 @@ with slides.Presentation() as presentation:
     value_cell = workbook.get_cell(0, 3, 4, 50)
     series.data_points.add_data_point_for_stock_series(value_cell)
 
-    chart.chart_data.series_groups[0].up_down_bars.has_up_down_bars = True
+    up_down_bars = chart.chart_data.series_groups[0].up_down_bars
+    up_down_bars.has_up_down_bars = True
+
+    up_down_bars.up_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.fill.solid_fill_color.color = draw.Color.lime_green
+    up_down_bars.up_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.up_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_green
+    up_down_bars.up_bars_format.line.width = 2
+
+    up_down_bars.down_bars_format.fill.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.fill.solid_fill_color.color = draw.Color.orange_red
+    up_down_bars.down_bars_format.line.fill_format.fill_type = slides.FillType.SOLID
+    up_down_bars.down_bars_format.line.fill_format.solid_fill_color.color = draw.Color.dark_red
+    up_down_bars.down_bars_format.line.width = 2
     chart.chart_data.series_groups[0].hi_low_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
 
     for stock_series in chart.chart_data.series:
@@ -569,15 +591,15 @@ with slides.Presentation() as presentation:
     presentation.save("Stock-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wynik:
+Wynik, wyeksportowany z PowerPoint:
 
-![Wykres giełdowy](stock_chart.png)
+![Wykres giełdowy z pomarańczowo‑czerwonym spadającym interwałem dla A i zielonymi rosnącymi interwałami dla B i C](stock_chart.png)
 
-### **Utworzenie wykresów pudełkowych (box‑and‑whisker)**
+### **Utwórz wykresy pudełkowo‑wąsowe**
 
-Wykresy pudełkowe służą do prezentacji rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne odchylenia. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować anomalie.
+Wykresy pudełkowo‑wąsowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w analizie eksploracyjnej i badaniach statystycznych, umożliwiając szybkie zrozumienie zmienności danych i identyfikację anomalii.
 
-Ten przykład tworzy wykres pudełkowy z sześcioma wartościami. Właściwość [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) wybiera wyłączną metodę obliczania kwartylów. Przykład także włącza linie średniej, znaczniki średniej, wewnętrzne punkty oraz punkty odchyleń.
+Ten przykład tworzy wykres pudełkowo‑wąsowy z sześciu wartości. Właściwość [quartile_method](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/quartile_method/) wybiera wyłączne obliczanie kwartylu. Przykład dodatkowo włącza linie średniej, znaczniki średniej, wewnętrzne punkty i punkty odstające.
 
 ```python
 import aspose.slides as slides
@@ -631,11 +653,11 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhisker.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Utworzenie wykresów lejkowych**
+### **Utwórz wykresy lejkowe**
 
-Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, gdzie wolumen danych maleje wraz z postępem od jednego kroku do kolejnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów, które obejmują kolejne etapy, przy czym wolumen danych maleje wraz z postępem od jednego kroku do następnego. Są szczególnie przydatne do analizy wskaźników konwersji, identyfikacji wąskich gardeł i śledzenia efektywności procesów sprzedaży lub marketingu.
 
-Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do dodania wykresu lejka do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, po czym zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać co najmniej jeden slajd.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do dodania wykresu lejkowego do pierwszego slajdu istniejącej prezentacji. Zastępuje domyślne dane sześcioma kategoriami i wartościami od 50 do 500, po czym zapisuje zaktualizowaną prezentację. Wejściowa prezentacja musi zawierać przynajmniej jeden slajd.
 
 ```python
 import aspose.slides as slides
@@ -687,11 +709,11 @@ Wynik:
 
 ![Wykres lejkowy](funnel_chart.png)
 
-### **Utworzenie wykresów promieniowych (sunburst)**
+### **Utwórz wykresy promieniowe**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑całość i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, zwarty sposób.
+Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają zilustrować relacje część‑do‑całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzysty, zwarty sposób.
 
-Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Etykiety kategorii określają segmenty, a wartości decydują o ich względnych rozmiarach.
+Ten przykład tworzy wykres promieniowy z ośmioma liśćmi pogrupowanymi w cztery pędy i dwie gałęzie. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) przypisuje pędy na poziomie grupowania 1 i gałęzie na poziomie 2. Etykiety kategorii identyfikują segmenty, a wartości określają ich względne rozmiary.
 
 ```python
 import aspose.slides as slides
@@ -766,15 +788,15 @@ Wynik:
 
 ![Wykres promieniowy](sunburst_chart.png)
 
-### **Utworzenie wykresów histogramu**
+### **Utwórz wykresy histogramu**
 
-Histogramy pokazują, jak wartości liczbowe rozkładają się w przedziałach (koszykach). Dla comiesięcznych raportów czasu przetwarzania zamówień używaj tej samej szerokości koszyka i progów, aby utrzymać spójność przedziałów i ułatwić porównywanie rozkładów.
+Wykresy histogramu pokazują, jak wartości liczbowe są rozłożone w przedziałach (koszach). Dla comiesięcznych raportów czasu przetwarzania zamówień używaj tej samej szerokości kosza i progów, aby utrzymać spójność przedziałów i ułatwić porównywanie rozkładów.
 
-Ustaw poziom poziomej osi [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) na jedną z wartości z [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) ma zastosowanie tylko przy `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) tylko przy `BY_NUMBER_OF_BINS`. Użyj `AUTOMATIC`, aby wykres sam dobrał koszyki.
+Ustaw [aggregation_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/aggregation_type/) osi poziomej na tryb z [AxisAggregationType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axisaggregationtype/). [bin_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/bin_width/) ma zastosowanie tylko przy `BY_BIN_WIDTH`; [number_of_bins](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_of_bins/) działa tylko przy `BY_NUMBER_OF_BINS`. Użyj `AUTOMATIC`, aby pozwolić wykresowi wybrać kosze.
 
-#### **Użycie stałej szerokości koszyka**
+#### **Użyj stałej szerokości kosza**
 
-Ten przykład grupuje czasy przetwarzania w przedziały 10‑minutowe, z osobnym koszykiem dla czasów ≤ 10 min i > 40 min. Włącz te koszyki za pomocą [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) i [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Podając jawne progi [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) i [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/), ustaw [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) oraz [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) na `False`.
+Ten przykład grupuje czasy przetwarzania w odstępach 10‑minutowych, z osobnymi koszami dla czasów ≤ 10 min i > 40 min. Włącz te kosze metodami [is_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_underflow_bin/) i [is_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_overflow_bin/). Podając jawne progi [underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/underflow_bin/) i [overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/overflow_bin/), ustaw [is_automatic_underflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_underflow_bin/) i [is_automatic_overflow_bin](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_overflow_bin/) na `False`.
 
 ```python
 import aspose.slides as slides
@@ -813,13 +835,13 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-width.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w koszykach **3, 4, 4, 4 i 2**. Koszyk podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Koszyk przepływu zawiera tylko `41, 50`, więc jego próg jest ekskluzywny; wartości równe `40` pozostają w poprzednim przedziale. Koszyki wewnętrzne zawierają wartości większe od dolnej granicy i mniejsze lub równe górnej granicy.
+Prezentacja wyświetlana w PowerPoint pokazuje liczbę elementów w koszach **3, 4, 4, 4 i 2**. Kosz podprzepływu zawiera `5, 10, 10`, więc jego próg jest inkluzywny. Kosz przepełnienia obejmuje tylko `41, 50`, więc jego próg jest ekskluzywny; obie wartości równe `40` pozostają w poprzednim przedziale. Kosze wewnętrzne zawierają wartości większe niż ich dolna granica i mniejsze lub równe górnej granicy.
 
-![Histogram z koszykami 10‑minutowymi i wyraźnie określonymi progami podprzepływu i przepływu](histogram_bin_width.png)
+![Histogram z koszami 10‑minutowymi i wyraźnie określonymi progami podprzepływu i przepełnienia](histogram_bin_width.png)
 
-#### **Określenie liczby koszyków**
+#### **Określ liczbę koszy**
 
-Aby uzyskać stały poziom szczegółowości zamiast stałych przedziałów, poproś o pięć koszyków dla tych samych danych. Ten przykład wyłącza koszyki podprzepływu i przepływu. Wykres określa szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
+Dla stałego poziomu szczegółowości zamiast stałych przedziałów, zażądaj pięć koszy dla tych samych danych. Ten przykład pozostawia wyłączone kosze podprzepływu i przepełnienia. Wykres wyznacza szerokość na podstawie zakresu danych, więc granice mogą się zmieniać między raportami.
 
 ```python
 import aspose.slides as slides
@@ -852,15 +874,15 @@ with slides.Presentation() as presentation:
     presentation.save("Histogram-bin-count.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pięć koszyków ma liczby **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem uzyskanym przy stałej szerokości: wartości wejściowe są identyczne, ale granice się różnią.
+Pięć koszy ma liczbę elementów **4, 4, 4, 4 i 1**. Porównaj ten rozkład z wynikiem przy stałej szerokości powyżej: wartości wejściowe są identyczne, ale granice się różnią.
 
-![Histogram z pięcioma koszykami wyliczonymi na podstawie tych samych danych](histogram_bin_count.png)
+![Histogram z pięcioma koszami obliczonymi na podstawie tych samych danych](histogram_bin_count.png)
 
-### **Utworzenie wykresów radarowych**
+### **Utwórz wykresy radarowe**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu metrykach wydajności lub atrybutach.
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu miarach wydajności lub atrybutach.
 
-Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu radarowego z domyślnymi seriami i kategoriami, po czym zapisuje prezentację jako PPTX.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do utworzenia wykresu radarowego z domyślnymi seriami i kategoriami, a następnie zapisuje prezentację jako PPTX.
 
 ```python
 import aspose.slides as slides
@@ -878,11 +900,11 @@ Wynik:
 
 ![Wykres radarowy](radar_chart.png)
 
-### **Utworzenie wykresów wielokategorii**
+### **Utwórz wykresy wielokategorialne**
 
-Wykresy wielokategorii służą do prezentacji danych, które obejmują więcej niż jedną grupę kategoryczną, umożliwiając jednoczesne porównywanie wartości w wielu wymiarach. Są szczególnie pomocne przy analizie trendów i zależności w złożonych, wielowarstwowych zestawach danych.
+Wykresy wielokategorialne służą do wyświetlania danych, które obejmują więcej niż jedną grupę kategoryczną, umożliwiając porównywanie wartości w wielu wymiarach jednocześnie. Są szczególnie przydatne, gdy trzeba analizować trendy i powiązania w złożonych, wielowarstwowych zestawach danych.
 
-Ten przykład tworzy wykres kolumnowy grupowany z ośmioma kategoriami rozmieszczonymi w czterech parach. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś kategorii z etykietami indywidualnymi i grupowymi.
+Ten przykład tworzy wykres słupkowy grupowany z ośmioma kategoriami ułożonymi w cztery pary. Metoda [set_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/set_grouping_item/) nadaje każdej parze wspólną etykietę na poziomie grupowania 1, tworząc oś katagorii z zarówno indywidualnymi, jak i grupowymi etykietami.
 
 ```python
 import aspose.slides as slides
@@ -950,13 +972,39 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wykres wielokategorii](multi_category_chart.png)
+![Wykres wielokategorialny](multi_category_chart.png)
 
-### **Utworzenie wykresów mapowych**
+#### **Usuń etykietę kwartału**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne przy analizie trendów regionalnych, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, wizualnie atrakcyjny sposób.
+Pobierz [quarters.pptx](quarters.pptx) i umieść go w katalogu roboczym. Jego wykres pokazuje dziewięć miesięcy i jedną serię sprzedaży z wartościami od 10 do 18. Oś kategorii ma trzy etykiety kwartalne: Q1 obejmuje styczeń‑marzec, Q2 – kwiecień‑czerwiec i Q3 – lipiec‑wrzesień.
 
-Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do podglądu w PowerPoint.
+Kwiecień jest czwartą kategorią i tą, dla której Q2 został wyraźnie ustawiony. Wywołaj [delete_grouping_item](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/delete_grouping_item/) na kolekcji [grouping_levels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/grouping_levels/) kwietnia. Poziom jest względny do kwietnia: poziom 1 to jego kwartał, a poziom 0 to sam miesiąc. Metoda nie może usunąć kategorii liścia na poziomie 0.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("quarters.pptx") as presentation:
+    chart = presentation.slides[0].shapes[0]
+    april = chart.chart_data.categories[3]
+    april.grouping_levels.delete_grouping_item(1)
+    
+    presentation.save("quarters-updated.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("quarters-updated.pptx") as reopened:
+    data = reopened.slides[0].shapes[0].chart_data
+    print(", ".join(str(month.as_cell.value) for month in data.categories))
+    print(", ".join(str(point.value.data) for point in data.series[0].data_points))
+```
+
+Ponownie otwarty wykres drukuje pierwotne miesiące (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) i wartości sprzedaży (`10, 11, 12, 13, 14, 15, 16, 17, 18`) w tej samej kolejności. Otwórz `quarters-updated.pptx` w PowerPoint, aby porównać etykiety osi. Etykieta Q2 oraz granica grupy przed kwietniem znikają, więc Q1 obejmuje styczeń‑czerwiec. Q3 nadal zaczyna się w lipcu.
+
+![Etykiety kwartałów przed i po usunięciu. Po lewej Q2 obejmuje kwiecień‑czerwiec. Po prawej Q1 obejmuje styczeń‑czerwiec.](quarter-label-comparison.png)
+
+### **Utwórz wykresy mapowe**
+
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne miejsca, takie jak kraje, stany lub miasta. Są szczególnie przydatne do analizy regionalnych trendów, danych demograficznych i rozmieszczenia przestrzennego w przejrzysty, wizualnie atrakcyjny sposób.
+
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do utworzenia wykresu mapowego z domyślnymi danymi geograficznymi i zapisuje go do wyświetlenia w PowerPoint.
 
 ```python
 import aspose.slides as slides
@@ -974,17 +1022,19 @@ Wynik:
 
 ![Wykres mapowy](map_chart.png)
 
-{{% alert color="info" title="Uwaga" %}}
-Powyższy obraz przedstawia zapisany plik prezentacji otwarty w PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane prawidłowo, ale sam nie rysuje wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany do obrazu lub konwertowany na PDF lub SVG, obszar wykresu pozostaje pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+{{% alert color="info" title="Note" %}}
+
+Powyższy obrazek pokazuje zapisany prezentację otwartą w PowerPoint. Aspose.Slides zapisuje wykres mapowy i jego dane poprawnie, ale sam nie rysuje wykresów mapowych: gdy slajd zawierający taki wykres jest renderowany na obraz lub konwertowany do PDF lub SVG, obszar wykresu jest pusty. Inne kształty na tym samym slajdzie nie są dotknięte.
+
 {{% /alert %}}
 
-### **Utworzenie wykresów kombinowanych**
+### **Utwórz wykresy kombinowane**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym wykresie. Pozwala podkreślić, porównać lub zbadać różnice między dwoma lub większą liczbą zestawów danych, pomagając zidentyfikować ich wzajemne zależności.
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednej grafice. Ten wykres pozwala podświetlić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
 ![Wykres kombinowany](combination_chart.png)
 
-Ten przykład łączy dwa wykresy kolumnowe grupowane z wykresem liniowym w czterech kategoriach. Kolumny używają pierwszej (głównej) osi pionowej, natomiast [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) umieszcza linię na drugiej (prawej) osi pionowej. Funkcje pomocnicze konfigurowane są w celu ustawienia tytułu, legendy, etykiet osi i linii siatki.
+Ten przykład łączy dwa serie słupków grupowanych z serią liniową w czterech kategoriach. Słupki używają głównej pionowej osi, podczas gdy [plot_on_second_axis](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/plot_on_second_axis/) umieszcza linię na drugorzędnej pionowej osi po prawej. Funkcje pomocnicze konfigurują tytuł, legendę, etykiety osi i linie siatki.
 
 ```python
 import aspose.pydrawing as draw
@@ -1130,11 +1180,11 @@ def set_axis_title(axis, axis_title):
 create_combo_chart()
 ```
 
-## **Aktualizacja wykresów**
+## **Aktualizuj wykresy**
 
-Aspose.Slides dla Pythona w .NET umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Funkcjonalność ta upraszcza proces utrzymania prezentacji w aktualnym stanie przy dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane i standardy wizualne.
+Aspose.Slides dla Pythona poprzez .NET umożliwia aktualizowanie wykresów PowerPoint przez modyfikację danych wykresu, formatowania i stylizacji. Ta funkcjonalność upraszcza proces utrzymywania prezentacji w aktualności przy dynamicznej treści i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane i standardy wizualne.
 
-Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, przy czym etykiety kategorii znajdują się w kolumnie A, a nazwy serii w pierwszym wierszu pierwszego arkusza. Przykład używa [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię oraz zmienia wykres na kolumny cylindryczne grupowane poprzez [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
+Ten przykład aktualizuje wykres o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji. Wymaga dwóch serii kolumnowych po trzy punkty danych każda, z etykietami kategorii w kolumnie A i nazwami serii w pierwszym wierszu pierwszego arkusza. Przykład używa [get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) do zmiany komórek skoroszytu, aktualizuje wartości serii, dodaje trzecią serię i zmienia wykres na skupione cylindry poprzez [type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/type/).
 
 ```python
 import aspose.slides as slides
@@ -1188,9 +1238,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 Aby sprawdzić zakres już używany przez istniejący wykres, zobacz [Retrieve a Chart's Data Range](/slides/pl/python-net/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides dla Pythona w .NET zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment swojego arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. Dzięki temu łatwo zaktualizujesz i zsynchronizujesz wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides dla Pythona poprzez .NET zapewnia elastyczność definiowania określonego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować fragment swojego arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W efekcie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że Twoje prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
 
-Ten przykład używa [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz oraz wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A i trzema wartościami w kolumnie B.
+Ten przykład używa [set_range](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/set_range/) do ustawienia źródła danych wykresu o nazwie "My chart" na pierwszym slajdzie istniejącej prezentacji na `Sheet1!A1:B4`. Skoroszyt wykresu musi zawierać ten arkusz i wypełniony zakres z nagłówkiem serii w pierwszym wierszu, etykietami kategorii w kolumnie A oraz trzema wartościami w kolumnie B.
 
 ```python
 import aspose.slides as slides
@@ -1211,9 +1261,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Używaj domyślnych znaczników w wykresach**
 
-Kiedy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
 
-Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do stworzenia wykresu z dwoma seriami liniowymi i legendą. Ustawienia [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) zachowują automatycznie przypisane symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `None`, podczas gdy druga ma wartość dla każdej kategorii.
+Ten przykład używa [add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) do utworzenia wykresu z dwoma seriami liniowymi i legendą. Ustawienia [marker](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/marker/) zachowują automatycznie przydzielone symbole znaczników. Pierwsza seria zawiera wartość ujemną i brakującą wartość, reprezentowaną przez `None`, natomiast druga ma wartość dla każdej kategorii.
 
 ```python
 import aspose.slides as slides
@@ -1272,18 +1322,20 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Jakie typy wykresów są obsługiwane przez Aspose.Slides dla Pythona w .NET?**
+**Jakie typy wykresów są obsługiwane przez Aspose.Slides dla Pythona poprzez .NET?**
 
-Aspose.Slides dla Pythona w .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, punktowe, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides dla Pythona poprzez .NET obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, rozproszenia, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), pobierasz żądany slajd według indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w Twojej prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), pobierasz żądany slajd za pomocą jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Ten proces integruje wykres bezpośrednio w Twojej prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane w wykresie?**
+**Jak mogę zaktualizować dane wyświetlane na wykresie?**
 
 Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze dane.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides dla Pythona w .NET oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides dla Pythona poprzez .NET oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+
+Powiązana funkcja: [Create editable charts](/slides/pl/features/create-charts/).

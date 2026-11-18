@@ -11,50 +11,50 @@ keywords:
 - cambiar gráfico
 - actualizar gráfico
 - gráfico de dispersión
-- gráfico circular
+- gráfico de sectores
 - gráfico de líneas
 - gráfico de mapa de árbol
 - gráfico de acciones
 - gráfico de caja y bigotes
 - gráfico de embudo
 - gráfico de explosión
-- gráfico de histograma
+- histograma
 - gráfico de radar
-- gráfico de múltiples categorías
+- gráfico multicategoría
 - PowerPoint
 - presentación
 - Android
 - Java
 - Aspose.Slides
-description: "Crear y personalizar gráficos en presentaciones PowerPoint usando Aspose.Slides for Android via Java. Añadir, dar formato y editar gráficos con ejemplos de código prácticos en Java."
+description: "Crear y personalizar gráficos en presentaciones PowerPoint utilizando Aspose.Slides para Android a través de Java. Añadir, formatear y editar gráficos con ejemplos de código prácticos en Java."
 ---
-## **Visión general**
+## **Descripción general**
 
-Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos usando Aspose.Slides for Android via Java. Aprenderá a añadir programáticamente un gráfico a una diapositiva, rellenarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, los ejemplos de código detallados ilustran cada paso, desde la inicialización de la presentación y el objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Android, simplificando el proceso de creación de presentaciones basadas en datos.
+Este artículo ofrece una guía completa sobre cómo crear y personalizar gráficos con Aspose.Slides para Android a través de Java. Aprenderá a añadir programáticamente un gráfico a una diapositiva, poblarlo con datos y aplicar diversas opciones de formato para adaptarlo a sus requisitos de diseño específicos. A lo largo del artículo, se incluyen ejemplos de código detallados que ilustran cada paso, desde la inicialización de la presentación y el objeto gráfico hasta la configuración de series, ejes y leyendas. Siguiendo esta guía, obtendrá una comprensión sólida de cómo integrar la generación dinámica de gráficos en sus aplicaciones Android, simplificando el proceso de creación de presentaciones basadas en datos.
 
 ## **Crear un gráfico**
 
-Los gráficos ayudan a las personas a visualizar rápidamente los datos y obtener ideas que pueden no ser evidentes a simple vista en una tabla o hoja de cálculo.
+Los gráficos ayudan a las personas a visualizar datos rápidamente y a obtener ideas que pueden no ser evidentes a simple vista en una tabla o hoja de cálculo.
 
 **¿Por qué crear gráficos?**
 
 Con los gráficos, puede:
 
 * agregar, condensar o resumir grandes cantidades de datos en una sola diapositiva de una presentación;
-* revelar patrones y tendencias en los datos;
-* deducir la dirección y el impulso de los datos a lo largo del tiempo o respecto a una unidad de medida específica;
+* exponer patrones y tendencias en los datos;
+* deducir la dirección y el impulso de los datos a lo largo del tiempo o con respecto a una unidad de medida específica;
 * detectar valores atípicos, aberraciones, desviaciones, errores y datos sin sentido;
 * comunicar o presentar datos complejos.
 
-En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos tradicionales (basados en tipos de gráficos populares) como gráficos personalizados.
+En PowerPoint, puede crear gráficos mediante la función *Insertar*, que ofrece plantillas para diseñar muchos tipos de gráficos. Con Aspose.Slides, puede crear tanto gráficos estándar (basados en tipos de gráficos populares) como gráficos personalizados.
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Nota" %}}
 Utilice la enumeración [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) del paquete [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Los valores de esta enumeración corresponden a diferentes tipos de gráficos.
 {{% /alert %}}
 
 ### **Crear gráficos de columnas agrupadas**
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series utilizan rellenos rojo y verde, y las etiquetas individuales muestran nombres de categoría, nombres de serie y valores. El índice de la hoja de cálculo 0 hace referencia a la primera hoja del libro incrustado del gráfico.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de columnas agrupadas que compara dos series en tres categorías. Las series usan rellenos rojo y verde, y las etiquetas individuales muestran los nombres de categoría, los nombres de serie y los valores. El índice de hoja de cálculo 0 se refiere a la primera hoja del libro de trabajo incrustado del gráfico.
 
 ```java
 import com.aspose.slides.*;
@@ -143,12 +143,12 @@ Los gráficos de dispersión (también conocidos como diagramas de dispersión o
 
 Use un gráfico de dispersión cuando:
 
-* Posea datos numéricos emparejados.
-* Tenga dos variables que se relacionen bien entre sí.
-* Desee determinar si las dos variables están relacionadas.
-* Posea una variable independiente que tenga múltiples valores para una variable dependiente.
+* disponga de datos numéricos emparejados;
+* tenga dos variables que se relacionen bien entre sí;
+* desee determinar si las dos variables están relacionadas;
+* cuente con una variable independiente que tenga múltiples valores para una variable dependiente.
 
-Este ejemplo traza dos conjuntos de valores x‑y. La primera serie usa líneas rectas con marcadores de estrella, mientras que la segunda usa líneas suaves con marcadores de círculo; ambas usan un tamaño de marcador de 10, configurado con [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). El método [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) controla la forma del marcador.
+Este ejemplo traza dos conjuntos de valores x‑y. La primera serie usa líneas rectas con marcadores de estrella, mientras que la segunda usa líneas suaves con marcadores circulares; ambas utilizan un tamaño de marcador de 10, configurado con [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). El método [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) controla la forma del marcador.
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ El resultado:
 
 ![El gráfico de dispersión](scatter_chart.png)
 
-### **Crear gráficos circulares**
+### **Crear gráficos de sectores**
 
-Los gráficos circulares se utilizan mejor para mostrar la relación parte‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, quizá quiera considerar usar un gráfico de barras en su lugar.
+Los gráficos de sectores son los más adecuados para mostrar la relación parte‑a‑todo en los datos, especialmente cuando los datos contienen etiquetas categóricas con valores numéricos. Sin embargo, si sus datos contienen muchas partes o etiquetas, podría considerar usar un gráfico de barras en su lugar.
 
-Este ejemplo crea un gráfico circular con tres valores trimestrales. Cada porción tiene un relleno y un borde personalizados, y las etiquetas muestran combinaciones diferentes de valores, porcentajes e información de serie. El método [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) establece que la primera porción comience en 180 grados.
+Este ejemplo crea un gráfico de sectores con tres valores trimestrales. Cada porción tiene un relleno y un borde personalizados, y las etiquetas muestran combinaciones distintas de valores, porcentajes e información de serie. El método [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) establece que la primera porción comience en 180 grados.
 
 ```java
 import com.aspose.slides.*;
@@ -323,15 +323,15 @@ finally
 
 El resultado:
 
-![El gráfico circular](pie_chart.png)
+![El gráfico de sectores](pie_chart.png)
 
-Para mejorar la legibilidad de las etiquetas fuera del círculo, consulte [Format Leader Lines](/slides/es/androidjava/chart-data-label/#format-leader-lines) para un ejemplo que posiciona las etiquetas y personaliza el color, ancho, transparencia y estilo de guión de las líneas.
+Para mejorar la legibilidad de las etiquetas fuera del sector, consulte [Format Leader Lines](/slides/es/androidjava/chart-data-label/#format-leader-lines) para un ejemplo que posiciona las etiquetas y personaliza el color, ancho, transparencia y estilo de guión de las líneas.
 
 ### **Crear gráficos de líneas**
 
-Los gráficos de líneas (también conocidos como diagramas de líneas) se utilizan mejor en situaciones donde se desea demostrar cambios de valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias a lo largo del tiempo, resaltar anomalías en series de datos y mucho más.
+Los gráficos de líneas (también conocidos como diagramas de líneas) son los más adecuados cuando desea demostrar variaciones de valor a lo largo del tiempo. Con un gráfico de líneas, puede comparar una gran cantidad de datos a la vez, seguir cambios y tendencias en el tiempo, resaltar anomalías en series de datos y más.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de líneas con las series y categorías predeterminadas, y luego guarda la presentación como PPTX.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de líneas con series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -351,7 +351,7 @@ finally
 }
 ```
 
-Por defecto, los puntos de un gráfico de líneas se unen mediante líneas rectas continuas. Si desea que los puntos se unan mediante guiones, llame a [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) con un valor de [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+Por defecto, los puntos de un gráfico de líneas se unen mediante líneas rectas continuas. Si desea que los puntos se unan con guiones, llame a [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) con un valor de [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -380,9 +380,9 @@ El resultado:
 
 ### **Crear gráficos de mapa de árbol**
 
-Los gráficos de mapa de árbol se utilizan mejor para datos de ventas cuando se desea mostrar el tamaño relativo de las categorías de datos y atraer rápidamente la atención a los ítems que son grandes contribuyentes dentro de cada categoría.
+Los gráficos de mapa de árbol son los más adecuados para datos de ventas cuando desea mostrar el tamaño relativo de las categorías de datos y llamar rápidamente la atención sobre los elementos que son grandes contribuyentes dentro de cada categoría.
 
-Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) asigna los tallos al nivel de agrupación 1 y las ramas al nivel 2. Los valores determinan los tamaños relativos de los rectángulos, mientras que las etiquetas de categoría y las etiquetas de padres superpuestas identifican la jerarquía.
+Este ejemplo crea un mapa de árbol con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) asigna los tallos al nivel de agrupación 1 y las ramas al nivel 2. Los valores determinan los tamaños relativos de los rectángulos, mientras que las etiquetas de categoría y las etiquetas padre superpuestas identifican la jerarquía.
 
 ```java
 import com.aspose.slides.*;
@@ -467,22 +467,22 @@ El resultado:
 
 ### **Crear gráficos de cascada**
 
-Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de beneficios puede comenzar con los ingresos, restar costos y añadir otros ingresos. Las columnas de cambio flotan entre los valores acumulados anteriores y nuevos, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
+Un gráfico de cascada muestra cómo los cambios positivos y negativos contribuyen a un valor final. Por ejemplo, un desglose de beneficios puede comenzar con los ingresos, restar costos y añadir otros ingresos. Las columnas de cambio flotan entre los valores acumulados anteriores y los nuevos, mientras que las columnas totales se extienden desde cero hasta el valor acumulado.
 
 El siguiente ejemplo usa cantidades en miles de dólares estadounidenses:
 
 | Categoría | Valor del libro de trabajo | Tipo de columna |
 | --- | ---: | --- |
 | Ingresos | 1000 | Incremento |
-| Costo de ventas | -400 | Decremento |
+| Coste de ventas | -400 | Disminución |
 | Beneficio bruto | 600 | Total intermedio |
-| Gastos operativos | -200 | Decremento |
+| Gastos operativos | -200 | Disminución |
 | Otros ingresos | 50 | Incremento |
 | Beneficio neto | 450 | Total final |
 
-Para marcar un punto como total intermedio o final, llame a su método [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) con `true`. Proporcione la cantidad acumulada real en la celda del libro de trabajo de ese punto: `600` para el beneficio bruto (`1000 - 400`) y `450` para el beneficio neto (`600 - 200 + 50`). El método marca la columna como total; no calcula ni rellena el valor de la celda. No use cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin añadirlo de nuevo al valor en curso.
+Para marcar un punto como total intermedio o final, llame a su método [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) con `true`. Proporcione la cantidad acumulada real en la celda del libro de trabajo de ese punto: `600` para el beneficio bruto (`1000 - 400`) y `450` para el beneficio neto (`600 - 200 + 50`). El método marca la columna como total; no calcula ni rellena el valor de la celda. No use cero como marcador de posición ni proporcione otro cambio para un punto total. Una columna total muestra el valor acumulado sin añadirlo nuevamente al valor corriente.
 
-Este ejemplo Java completo crea un gráfico usando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), borra los datos predeterminados y rellena el libro incrustado. El índice de hoja `0` selecciona la primera hoja; la columna A contiene los nombres de las categorías y la columna B contiene los valores. Cada celda de valor se añade con [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Los índices de punto basados en cero `2` y `5` identifican los totales intermedios y finales. Llamar a [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) con `true` muestra las cantidades en las columnas. No se requiere una presentación o libro de trabajo de entrada.
+Este ejemplo completo en Java crea un gráfico usando el miembro `Waterfall` de [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), borra los datos predeterminados y rellena el libro de trabajo incrustado. El índice de hoja de cálculo `0` selecciona la primera hoja; la columna A contiene los nombres de categoría y la columna B contiene los valores. Cada celda de valor se añade con [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Los índices de punto basados en cero `2` y `5` identifican los totales intermedio y final. Llamar a [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) con `true` muestra las cantidades en las columnas. No se requiere ninguna presentación o libro de trabajo de entrada.
 
 ```java
 import com.aspose.slides.*;
@@ -520,7 +520,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // Los puntos tercero y sexto representan totales, no cambios adicionales.
+    // El tercer y el sexto punto representan totales, no cambios adicionales.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -534,27 +534,34 @@ finally
 }
 ```
 
-Llame al método a nivel de serie [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) con `true` para mostrar líneas que unen columnas consecutivas y facilitar el seguimiento del valor en curso. Para ocultar estas líneas, reemplace la llamada al método en el ejemplo por `series.setShowConnectorLines(false);` antes de guardar. Esto solo cambia la visibilidad de la línea, no los datos ni los totales.
+Llame al método a nivel de serie [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) con `true` para mostrar líneas que enlazan columnas consecutivas y facilitar la lectura del valor acumulado. Para ocultar estas líneas, reemplace la llamada al método en el ejemplo por `series.setShowConnectorLines(false);` antes de guardar. Esto solo cambia la visibilidad de la línea, no los datos ni los totales.
 
-La presentación guardada muestra un beneficio bruto de 600 y un beneficio neto de 450, con ambos totales partiendo de cero:
+La presentación guardada muestra un beneficio bruto de 600 y un beneficio neto de 450, con ambos totales dibujados desde cero:
 
-![Gráfico de cascada que muestra ingresos, costos, beneficio bruto de 600 y beneficio neto de 450, con etiquetas de valor y líneas de conexión](waterfall_chart.png)
+![Gráfico de cascada que muestra ingresos, costes, beneficio bruto de 600 y beneficio neto de 450, con etiquetas de valor y líneas de conexión](waterfall_chart.png)
 
 ### **Crear gráficos de acciones**
 
-Los gráficos de acciones se utilizan para mostrar datos financieros como precios de apertura, máximo, mínimo y cierre, ayudando a analizar tendencias del mercado y volatilidad. Ofrecen información esencial sobre el rendimiento de las acciones, asistiendo a inversores y analistas a tomar decisiones informadas.
+Los gráficos de acciones se utilizan para mostrar datos financieros como precios de apertura, máximo, mínimo y cierre, ayudando a analizar tendencias del mercado y volatilidad. Ofrecen información esencial sobre el rendimiento de las acciones, ayudando a inversores y analistas a tomar decisiones informadas.
 
-Este ejemplo crea un gráfico de apertura‑máximo‑mínimo‑cierre con cuatro series en ese orden y tres categorías. El método [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) habilita las barras de subida/bajada, y [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las rejillas horizontales menores están ocultas.
+Este ejemplo crea un gráfico abierto‑alto‑bajo‑cierre con cuatro series en ese orden y tres categorías. El método [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) habilita las barras de subida/bajada, y [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) controla las líneas alto‑bajo que muestran los rangos de precios, mientras que las líneas de serie individuales y las líneas de cuadrícula horizontales menores están ocultas.
+
+El gestor devuelto por [getUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) expone objetos de formato separados a través de [getUpBarsFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) y [getDownBarsFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--). Use los métodos [getFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformat/#getFill--) y [getLine](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformat/#getLine--) de cada objeto para establecer su relleno y contorno de forma independiente. Este ejemplo usa barras verdes con contornos verde oscuro para intervalos alcistas y barras naranja‑rojas con contornos rojo oscuro para intervalos bajistas.
+
+Proporcione valores numéricos para las cuatro series en cada categoría, con Máximo y Mínimo que encierran Apertura y Cierre. Las barras comparan Cierre con Apertura **dentro de la misma categoría**, no con la categoría anterior: A baja de 72 a 25, mientras que B sube de 25 a 38 y C sube de 38 a 50. Valores de Apertura y Cierre iguales no producen un intervalo visible rellenado. Las barras de subida/bajada abarcan Apertura‑Cierre; las líneas alto‑bajo abarcan Mínimo‑Máximo. Estas barras pertenecen al grupo de series y no son series ordinarias de gráfico de barras.
+
+Este formato también funciona con gráficos [Line and LineWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) que contengan al menos dos series en el mismo grupo y valores numéricos correspondientes para cada categoría. Para estos gráficos de línea no apilados, las barras de subida/bajada comparan la primera y la última serie: un último valor más alto produce una barra de subida, y un último valor más bajo produce una barra de bajada. Invertir esas series invierte la clasificación. El ejemplo siguiente usa [OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/); no asuma que otras variantes de acciones, línea apilada o 3D usan la misma disposición de datos o interpretación de intervalos.
 
 ```java
 import com.aspose.slides.*;
+import android.graphics.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -606,7 +613,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(Color.rgb(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -624,15 +644,15 @@ finally
 }
 ```
 
-El resultado:
+El resultado, exportado desde PowerPoint:
 
-![El gráfico de acciones](stock_chart.png)
+![Gráfico de acciones con un intervalo bajista naranja‑rojo para A y intervalos alcistas verdes para B y C](stock_chart.png)
 
 ### **Crear gráficos de caja y bigotes**
 
-Los gráficos de caja y bigotes se utilizan para mostrar la distribución de los datos mediante la síntesis de medidas estadísticas clave, como la mediana, cuartiles y posibles valores atípicos. Son particularmente útiles en análisis exploratorios y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
+Los gráficos de caja y bigotes se utilizan para mostrar la distribución de los datos mediante la síntesis de medidas estadísticas clave, como la mediana, los cuartiles y los posibles valores atípicos. Son particularmente útiles en análisis exploratorios de datos y estudios estadísticos para comprender rápidamente la variabilidad de los datos e identificar anomalías.
 
-Este ejemplo crea un gráfico de caja y bigotes a partir de seis valores. El método [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) selecciona el cálculo de cuartiles excluyente. El ejemplo también habilita líneas de media, marcadores de media, puntos internos y puntos atípicos.
+Este ejemplo crea un gráfico de caja y bigotes a partir de seis valores. El método [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) selecciona el cálculo de cuartiles exclusivo. El ejemplo también habilita líneas de media, marcadores de media, puntos internos y puntos atípicos.
 
 ```java
 import com.aspose.slides.*;
@@ -694,7 +714,7 @@ finally
 
 ### **Crear gráficos de embudo**
 
-Los gráficos de embudo se utilizan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de procesos de venta o marketing.
+Los gráficos de embudo se utilizan para visualizar procesos que implican etapas secuenciales, donde el volumen de datos disminuye a medida que avanza de un paso al siguiente. Son especialmente útiles para analizar tasas de conversión, identificar cuellos de botella y seguir la eficiencia de procesos de ventas o marketing.
 
 Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para añadir un gráfico de embudo a la primera diapositiva de una presentación existente. Reemplaza los datos predeterminados con seis categorías y valores que van de 50 a 500, y luego guarda la presentación actualizada. La presentación de entrada debe contener al menos una diapositiva.
 
@@ -756,7 +776,7 @@ El resultado:
 
 ### **Crear gráficos de explosión**
 
-Los gráficos de explosión se utilizan para visualizar datos jerárquicos, mostrando los niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑todo y son ideales para representar categorías y subcategorías anidadas de forma clara y compacta.
+Los gráficos de explosión se utilizan para visualizar datos jerárquicos, mostrando los niveles como anillos concéntricos. Ayudan a ilustrar relaciones parte‑a‑todo y son ideales para representar categorías y subcategorías anidadas de forma clara y compacta.
 
 Este ejemplo crea un gráfico de explosión con ocho hojas agrupadas en cuatro tallos y dos ramas. El método [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) asigna los tallos al nivel de agrupación 1 y las ramas al nivel 2. Las etiquetas de categoría identifican los segmentos, y los valores determinan sus tamaños relativos.
 
@@ -839,15 +859,15 @@ El resultado:
 
 ![El gráfico de explosión](sunburst_chart.png)
 
-### **Crear gráficos de histograma**
+### **Crear histogramas**
 
-Los gráficos de histograma muestran cómo se distribuyen los valores numéricos a lo largo de intervalos (bins). Para informes mensuales sobre tiempos de procesamiento de pedidos, utilice el mismo ancho de bin y los mismos umbrales para mantener los intervalos consistentes y facilitar la comparación de distribuciones.
+Los histogramas muestran cómo se distribuyen los valores numéricos en intervalos (cajas). Para informes mensuales sobre tiempos de procesamiento de pedidos, use la misma anchura de intervalo y los mismos umbrales para mantener los intervalos consistentes y facilitar la comparación de distribuciones.
 
-Llame a [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) en el eje horizontal con un modo de [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) solo se aplica a `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) solo se aplica a `ByNumberOfBins`. Use `Automatic` para que el gráfico elija los bins.
+Llame a [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) en el eje horizontal con un modo de [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) se aplica solo a `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) se aplica solo a `ByNumberOfBins`. Use `Automatic` para que el gráfico elija los intervalos.
 
-#### **Usar un ancho de bin fijo**
+#### **Usar una anchura de intervalo fija**
 
-Este ejemplo agrupa los tiempos de procesamiento en intervalos de 10 minutos, con bins separados para tiempos de 10 minutos o menos y para tiempos superiores a 40 minutos. Habilite estos bins con [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) y [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Al proporcionar umbrales explícitos mediante [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) y [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), llame a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) y [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) con `false`.
+Este ejemplo agrupa los tiempos de procesamiento en intervalos de 10 minutos, con cajas separadas para los tiempos de 10 minutos o menos y los superiores a 40 minutos. Active estas cajas con [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) y [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Al proporcionar umbrales explícitos mediante [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) y [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), llame a [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) y [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) con `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -894,13 +914,13 @@ finally
 }
 ```
 
-La presentación mostrada en PowerPoint indica recuentos de bins **3, 4, 4, 4 y 2**. El bin de subflujo incluye `5, 10, 10`, por lo que su umbral es inclusivo. El bin de desbordamiento incluye solo `41, 50`, por lo que su umbral es excluyente; ambos valores iguales a `40` permanecen en el intervalo anterior. Los bins interiores contienen valores mayores que su límite inferior y menores o iguales que su límite superior.
+La presentación mostrada en PowerPoint indica recuentos de cajas de **3, 4, 4, 4 y 2**. La caja de subdesbordamiento incluye `5, 10, 10`, por lo que su umbral es inclusivo. La caja de sobredesbordamiento incluye solo `41, 50`, por lo que su umbral es exclusivo; ambos valores iguales a `40` permanecen en el intervalo anterior. Las cajas intermedias contienen valores mayores que su límite inferior y menores o iguales que su límite superior.
 
-![Histograma con bins de 10 minutos y umbrales de subflujo y desbordamiento explícitos](histogram_bin_width.png)
+![Histograma con intervalos de 10 minutos y umbrales explícitos de subdesbordamiento y sobredesbordamiento](histogram_bin_width.png)
 
-#### **Especificar el número de bins**
+#### **Especificar el número de intervalos**
 
-Para un nivel de detalle fijo en lugar de intervalos fijos, solicite cinco bins para los mismos datos. Este ejemplo deja desactivados los bins de subflujo y desbordamiento. El gráfico determina el ancho a partir del rango de datos, por lo que los límites pueden cambiar entre informes.
+Para un nivel de detalle fijo en lugar de intervalos fijos, solicite cinco intervalos para los mismos datos. Este ejemplo deja desactivadas las cajas de subdesbordamiento y sobredesbordamiento. El gráfico determina la anchura a partir del rango de datos, por lo que los límites pueden cambiar entre informes.
 
 ```java
 import com.aspose.slides.*;
@@ -941,13 +961,13 @@ finally
 }
 ```
 
-Los cinco bins tienen recuentos de **4, 4, 4, 4 y 1**. Compare esta distribución con el resultado de ancho fijo anterior: los valores de entrada son idénticos, pero los límites difieren.
+Los cinco intervalos tienen recuentos de **4, 4, 4, 4 y 1**. Compare esta distribución con el resultado de anchura fija anterior: los valores de entrada son idénticos, pero los límites difieren.
 
-![Histograma con cinco bins calculados a partir de los mismos datos](histogram_bin_count.png)
+![Histograma con cinco intervalos calculados a partir de los mismos datos](histogram_bin_count.png)
 
 ### **Crear gráficos de radar**
 
-Los gráficos de radar se utilizan para mostrar datos multivariantes en un formato bidimensional, lo que permite comparar fácilmente varias variables simultáneamente. Son particularmente útiles para identificar patrones, fortalezas y debilidades en varios métricos de rendimiento o atributos.
+Los gráficos de radar se utilizan para mostrar datos multivariantes en un formato bidimensional, lo que permite comparar fácilmente varias variables simultáneamente. Son particularmente útiles para identificar patrones, fortalezas y debilidades en múltiples métricas o atributos de rendimiento.
 
 Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de radar con series y categorías predeterminadas, y luego guarda la presentación como PPTX.
 
@@ -973,11 +993,11 @@ El resultado:
 
 ![El gráfico de radar](radar_chart.png)
 
-### **Crear gráficos de múltiples categorías**
+### **Crear gráficos multi‑categoría**
 
-Los gráficos de múltiples categorías se utilizan para mostrar datos que involucran más de un agrupamiento categórico, permitiendo comparar valores a través de múltiples dimensiones simultáneamente. Son especialmente útiles cuando necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y multilaterales.
+Los gráficos multi‑categoría se utilizan para mostrar datos que implican más de una agrupación categórica, lo que permite comparar valores a través de múltiples dimensiones simultáneamente. Son particularmente útiles cuando necesita analizar tendencias y relaciones dentro de conjuntos de datos complejos y multicapa.
 
-Este ejemplo crea un gráfico de columnas agrupadas con ocho categorías organizadas en cuatro pares. El método [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) otorga a cada par una etiqueta compartida en el nivel de agrupación 1, produciendo un eje de categorías con etiquetas individuales y de grupo.
+Este ejemplo crea un gráfico de columnas agrupadas con ocho categorías dispuestas en cuatro pares. El método [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) asigna a cada par una etiqueta compartida en el nivel de agrupación 1, produciendo un eje de categorías con etiquetas tanto individuales como grupales.
 
 ```java
 import com.aspose.slides.*;
@@ -1051,13 +1071,60 @@ finally
 
 El resultado:
 
-![El gráfico de múltiples categorías](multi_category_chart.png)
+![El gráfico multi‑categoría](multi_category_chart.png)
+
+#### **Eliminar una etiqueta de trimestre**
+
+Descargue [quarters.pptx](quarters.pptx) y colóquelo en el directorio de trabajo. Su gráfico muestra nueve meses y una única serie de ventas con valores de 10 a 18. En el eje de categorías, el Q1 abarca de enero a marzo, el Q2 de abril a junio y el Q3 de julio a septiembre.
+
+Abril es la cuarta categoría (índice 3) y contiene la etiqueta Q2. Use [getGroupingLevels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getGroupingLevels--) para acceder a los niveles de agrupación de abril, y luego llame a [deleteGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) con el nivel 1 para eliminar su etiqueta de trimestre. El nivel 0 representa el propio mes y no puede eliminarse con este método.
+
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+import android.text.TextUtils;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    List<String> months = new ArrayList<>();
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    List<String> sales = new ArrayList<>();
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(TextUtils.join(", ", months));
+    System.out.println(TextUtils.join(", ", sales));
+} finally {
+    reopened.dispose();
+}
+```
+
+Después de volver a abrir el gráfico, el ejemplo imprime los meses originales (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) y los valores de ventas (`10, 11, 12, 13, 14, 15, 16, 17, 18`) en el mismo orden. Abra `quarters-updated.pptx` en PowerPoint para comparar las etiquetas del eje. La etiqueta Q2 y el límite de grupo antes de abril desaparecen, de modo que el Q1 abarca de enero a junio. El Q3 sigue comenzando en julio.
+
+![Etiquetas de trimestre antes y después de la eliminación. A la izquierda, Q2 abarca de abril a junio. A la derecha, Q1 abarca de enero a junio.](quarter-label-comparison.png)
 
 ### **Crear gráficos de mapa**
 
-Los gráficos de mapa se utilizan para visualizar datos geográficos asignando información a ubicaciones específicas como países, estados o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de forma clara y visualmente atractiva.
+Los gráficos de mapa se utilizan para visualizar datos geográficos asignando información a ubicaciones específicas como países, provincias o ciudades. Son particularmente útiles para analizar tendencias regionales, datos demográficos y distribuciones espaciales de forma clara y visualmente atractiva.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de mapa con los datos geográficos predeterminados y lo guarda para su visualización en PowerPoint.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico de mapa con datos geográficos predeterminados y lo guarda para su visualización en PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1081,7 +1148,7 @@ El resultado:
 
 ![El gráfico de mapa](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Nota" %}}
 La imagen anterior muestra la presentación guardada abierta en PowerPoint. Aspose.Slides escribe el gráfico de mapa y sus datos correctamente, pero no dibuja los gráficos de mapa por sí mismo: cuando una diapositiva que contiene uno se renderiza a una imagen o se convierte a PDF o SVG, el área del gráfico queda en blanco. Otras formas en la misma diapositiva no se ven afectadas.
 {{% /alert %}}
 
@@ -1091,7 +1158,7 @@ Un gráfico combinado (o gráfico combo) combina dos o más tipos de gráficos e
 
 ![El gráfico combinado](combination_chart.png)
 
-Este ejemplo combina dos series de columnas agrupadas con una serie de línea a través de cuatro categorías. Las columnas usan el eje vertical primario, mientras que [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de eje y las líneas de cuadrícula.
+Este ejemplo combina dos series de columnas agrupadas con una serie de líneas en cuatro categorías. Las columnas usan el eje vertical primario, mientras que [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) coloca la línea en un eje vertical secundario a la derecha. Las funciones auxiliares configuran el título, la leyenda, las etiquetas de los ejes y las líneas de cuadrícula.
 
 ```java
 import com.aspose.slides.*;
@@ -1262,9 +1329,9 @@ example.createComboChart();
 
 ## **Actualizar gráficos**
 
-Aspose.Slides for Android via Java le permite actualizar gráficos de PowerPoint modificando datos, formato y estilo del gráfico. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y garantiza que los gráficos reflejen con precisión los datos y estándares visuales actuales.
+Aspose.Slides for Android via Java permite actualizar los gráficos de PowerPoint modificando los datos del gráfico, el formato y el estilo. Esta funcionalidad simplifica el proceso de mantener las presentaciones actualizadas con contenido dinámico y garantiza que los gráficos reflejen con precisión los datos actuales y los estándares visuales.
 
-Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columna con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de serie en la primera fila de la primera hoja de cálculo. El ejemplo usa [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) para cambiar celdas del libro, actualiza los valores de las series, añade una tercera serie y cambia el gráfico a cilindros agrupados mediante [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+Este ejemplo actualiza el gráfico llamado "My chart" en la primera diapositiva de una presentación existente. Requiere dos series de columnas con tres puntos de datos cada una, con etiquetas de categoría en la columna A y nombres de serie en la primera fila de la primera hoja de cálculo. El ejemplo usa [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) para cambiar celdas del libro de trabajo, actualiza los valores de las series, añade una tercera serie y cambia el gráfico a cilindros agrupados mediante [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1324,13 +1391,13 @@ finally
 }
 ```
 
-## **Establecer rango de datos para un gráfico**
+## **Definir rango de datos para un gráfico**
 
-Para inspeccionar el rango ya usado por un gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/es/androidjava/chart-workbook/#retrieve-a-charts-data-range).
+Para inspeccionar el rango ya utilizado por un gráfico existente, consulte [Retrieve a Chart's Data Range](/slides/es/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Android via Java proporciona la flexibilidad para definir un rango de datos específico de una hoja de cálculo como fuente para los datos de su gráfico. Esto significa que puede mapear directamente una parte de su hoja a el gráfico, permitiéndole controlar qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar sus gráficos fácilmente con los últimos cambios de datos en su hoja, asegurando que sus presentaciones de PowerPoint reflejen información actual y precisa.
+Aspose.Slides for Android via Java ofrece la flexibilidad de definir un rango de datos específico de una hoja de cálculo como origen para los datos de su gráfico. Esto significa que puede mapear directamente una parte de su hoja de cálculo al gráfico, lo que le permite controlar qué celdas contribuyen a las series y categorías del gráfico. Como resultado, puede actualizar y sincronizar sus gráficos fácilmente con los últimos cambios de datos en su hoja, asegurando que sus presentaciones de PowerPoint reflejen información actual y precisa.
 
-Este ejemplo usa [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de datos del gráfico debe contener esa hoja y un rango poblado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
+Este ejemplo usa [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) para establecer la fuente de datos del gráfico llamado "My chart" en la primera diapositiva de una presentación existente a `Sheet1!A1:B4`. El libro de trabajo del gráfico debe contener esa hoja y un rango poblado con un encabezado de serie en la primera fila, etiquetas de categoría en la columna A y tres valores en la columna B.
 
 ```java
 import com.aspose.slides.*;
@@ -1361,9 +1428,9 @@ finally
 
 ## **Usar marcadores predeterminados en gráficos**
 
-Cuando usa marcadores predeterminados en los gráficos, cada serie de gráfico obtiene automáticamente un símbolo de marcador predeterminado diferente.
+Cuando usa marcadores predeterminados en gráficos, cada serie de gráfico obtiene automáticamente un símbolo de marcador predeterminado diferente.
 
-Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico con dos series de línea y una leyenda. La configuración de marcadores a la que se accede mediante [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) conserva los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor ausente, representado por `null`, mientras que la segunda tiene un valor para cada categoría.
+Este ejemplo usa [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) para crear un gráfico con dos series de líneas y una leyenda. La configuración de marcadores accesible a través de [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) mantiene los símbolos de marcador asignados automáticamente. La primera serie incluye un valor negativo y un valor ausente, representado por `null`, mientras que la segunda tiene un valor para cada categoría.
 
 ```java
 import com.aspose.slides.*;
@@ -1428,9 +1495,9 @@ finally
 
 ## **Preguntas frecuentes**
 
-**¿Qué tipos de gráficos son compatibles con Aspose.Slides for Android via Java?**
+**¿Qué tipos de gráficos admite Aspose.Slides for Android via Java?**
 
-Aspose.Slides for Android via Java es compatible con una amplia gama de tipos de gráficos, incluidos barra, línea, circular, área, dispersión, histograma, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más adecuado para sus necesidades de visualización de datos.
+Aspose.Slides for Android via Java admite una amplia variedad de tipos de gráficos, incluidos bar, line, pie, area, scatter, histogram, radar y muchos más. Esta flexibilidad le permite elegir el tipo de gráfico más apropiado para sus necesidades de visualización de datos.
 
 **¿Cómo añado un nuevo gráfico a una diapositiva?**
 
@@ -1438,7 +1505,7 @@ Para añadir un gráfico, primero crea una instancia de la clase [Presentation](
 
 **¿Cómo puedo actualizar los datos mostrados en un gráfico?**
 
-Puede actualizar los datos de un gráfico accediendo a su libro de datos ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), borrando cualquier serie y categoría predeterminadas, y luego agregando sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
+Puede actualizar los datos de un gráfico accediendo a su libro de datos ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), borrando cualquier serie y categoría predeterminada, y luego añadiendo sus datos personalizados. Esto le permite refrescar programáticamente el gráfico para reflejar los datos más recientes.
 
 **¿Es posible personalizar la apariencia del gráfico?**
 

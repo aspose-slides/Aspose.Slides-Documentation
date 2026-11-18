@@ -1,13 +1,13 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint di Android
-linktitle: Buat atau Perbarui Diagram
+title: Membuat atau Memperbarui Diagram Presentasi PowerPoint di Android
+linktitle: Membuat atau Memperbarui Diagram
 type: docs
 weight: 10
 url: /id/androidjava/create-chart/
 keywords:
 - menambahkan diagram
 - membuat diagram
-- menyunting diagram
+- mengedit diagram
 - mengubah diagram
 - memperbarui diagram
 - diagram sebar
@@ -15,7 +15,7 @@ keywords:
 - diagram garis
 - diagram peta pohon
 - diagram saham
-- diagram box‑and‑whisker
+- diagram kotak dan whisker
 - diagram corong
 - diagram sunburst
 - diagram histogram
@@ -28,33 +28,33 @@ keywords:
 - Aspose.Slides
 description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Android via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam Java."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk Android via Java. Anda akan belajar cara menambahkan diagram secara programatik ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi persyaratan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Android Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk Android via Java. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Android Anda, menyederhanakan proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Membuat Diagram**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
 Dengan diagram, Anda dapat:
 
-* mengagregasi, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam presentasi;
+* menggabungkan, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam sebuah presentasi;
 * menampilkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data dari waktu ke waktu atau terhadap satuan pengukuran tertentu;
-* mengidentifikasi outlier, penyimpangan, kesalahan, dan data yang tidak masuk akal;
+* menilai arah dan momentum data dari waktu ke waktu atau terhadap satuan pengukuran tertentu;
+* menemukan outlier, penyimpangan, kesalahan, dan data yang tidak masuk akal;
 * menyampaikan atau mempresentasikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) dan diagram khusus.
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) serta diagram kustom.
 
 {{% alert color="info" title="Note" %}}
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) dalam paket [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Nilai dalam enumerasi ini sesuai dengan berbagai tipe diagram.
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) dalam paket [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai tipe diagram.
 {{% /alert %}}
 
-### **Buat Diagram Kolom Berkumpulan**
+### **Membuat Diagram Kolom Berkekelompok**
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram kolom berkumpulan yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, dan label individual menunjukkan nama kategori, nama seri, dan nilai. Indeks lembar kerja 0 merujuk ke lembar pertama dalam buku kerja diagram yang disematkan.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram kolom berkekelompok yang membandingkan dua seri pada tiga kategori. Seri menggunakan isian merah dan hijau, dan label individual menunjukkan nama kategori, nama seri, serta nilai. Indeks worksheet 0 mengacu pada lembar pertama dalam workbook diagram yang tersemat.
 
 ```java
 import com.aspose.slides.*;
@@ -135,20 +135,20 @@ finally
 
 Hasilnya:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Diagram Kolom Berkekelompok](clustered_column_chart.png)
 
-### **Buat Diagram Sebar**
+### **Membuat Diagram Sebar**
 
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
 Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang saling berhubungan.
-* Anda ingin menentukan apakah dua variabel tersebut terkait.
+* Anda memiliki dua variabel yang cocok bersama.
+* Anda ingin menentukan apakah dua variabel tersebut berhubungan.
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
 
-Contoh ini memplot dua set nilai x‑y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan ukuran penanda 10, dikonfigurasi dengan [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Metode [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) mengontrol bentuk penanda.
+Contoh ini memplot dua set nilai x-y. Seri pertama menggunakan garis lurus dengan penanda bintang, sementara seri kedua menggunakan garis halus dengan penanda lingkaran; keduanya menggunakan ukuran penanda 10, yang dikonfigurasi dengan [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). Metode [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) mengontrol bentuk penanda.
 
 ```java
 import com.aspose.slides.*;
@@ -216,13 +216,13 @@ finally
 
 Hasilnya:
 
-![The Scatter chart](scatter_chart.png)
+![Diagram Sebar](scatter_chart.png)
 
-### **Buat Diagram Lingkaran**
+### **Membuat Diagram Lingkaran**
 
-Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan untuk menggunakan diagram batang sebagai gantinya.
+Diagram lingkaran paling tepat digunakan untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, bila data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
 
-Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas khusus, dan label menampilkan kombinasi nilai, persentase, dan informasi seri yang berbeda. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) menetapkan irisan pertama dimulai pada 180 derajat.
+Contoh ini membuat diagram lingkaran dengan tiga nilai kuartalan. Setiap irisan memiliki isian dan batas kustom, dan label menampilkan kombinasi nilai, persentase, serta informasi seri. Metode [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) mengatur irisan pertama mulai dari 180 derajat.
 
 ```java
 import com.aspose.slides.*;
@@ -323,13 +323,13 @@ finally
 
 Hasilnya:
 
-![The Pie chart](pie_chart.png)
+![Diagram Lingkaran](pie_chart.png)
 
-Untuk meningkatkan keterbacaan label di luar lingkaran, lihat [Format Leader Lines](/slides/id/androidjava/chart-data-label/#format-leader-lines) untuk contoh yang menempatkan label dan menyesuaikan warna, lebar, transparansi, serta gaya garis pemimpin.
+Untuk meningkatkan keterbacaan label di luar lingkaran, lihat [Format Leader Lines](/slides/id/androidjava/chart-data-label/#format-leader-lines) untuk contoh yang memposisikan label dan menyesuaikan warna, lebar, transparansi, serta gaya garis.
 
-### **Buat Diagram Garis**
+### **Membuat Diagram Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai dari waktu ke waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dan lain‑lain.
+Diagram garis (juga dikenal sebagai grafik garis) paling tepat digunakan ketika Anda ingin menunjukkan perubahan nilai dari waktu ke waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan sebagainya.
 
 Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram garis dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
@@ -351,7 +351,7 @@ finally
 }
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan dengan garis putus‑putus, panggil [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+Secara default, titik pada diagram garis dihubungkan oleh garis lurus berkelanjutan. Jika Anda ingin titik-titik tersebut dihubungkan oleh garis putus‑putus, panggil [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) dengan nilai dari [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -376,13 +376,13 @@ finally
 
 Hasilnya:
 
-![The Line chart](line_chart.png)
+![Diagram Garis](line_chart.png)
 
-### **Buat Diagram Peta Pohon**
+### **Membuat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian pada item yang menjadi kontributor besar dalam setiap kategori.
+Diagram peta pohon paling tepat digunakan untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam tiap kategori.
 
-Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Nilai menentukan ukuran relatif persegi panjang, sedangkan label kategori dan label induk yang tumpang tindih mengidentifikasi hierarki.
+Contoh ini membuat peta pohon dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Nilai menentukan ukuran relatif persegi panjang, sementara label kategori dan label orangtua yang tumpang tindih mengidentifikasi hierarki.
 
 ```java
 import com.aspose.slides.*;
@@ -463,15 +463,15 @@ finally
 
 Hasilnya:
 
-![The Treemap chart](treemap_chart.png)
+![Diagram Peta Pohon](treemap_chart.png)
 
-### **Buat Diagram Air Terjun**
+### **Membuat Diagram Air Terjun**
 
-Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian profit dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan mengambang antara nilai berjalan sebelumnya dan baru, sementara kolom total memperluas dari nol ke nilai terakumulasi.
+Diagram air terjun menunjukkan bagaimana perubahan positif dan negatif berkontribusi pada nilai akhir. Misalnya, rincian profit dapat dimulai dengan pendapatan, mengurangi biaya, dan menambahkan pendapatan lain. Kolom perubahan melayang antara nilai berjalan sebelumnya dan baru, sementara kolom total memperluas dari nol hingga nilai terakumulasi.
 
 Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
 
-| Kategori | Nilai buku kerja | Tipe kolom |
+| Kategori | Nilai workbook | Tipe kolom |
 | --- | ---: | --- |
 | Pendapatan | 1000 | Peningkatan |
 | Biaya penjualan | -400 | Penurunan |
@@ -480,9 +480,9 @@ Contoh berikut menggunakan jumlah dalam ribuan dolar AS:
 | Pendapatan lain | 50 | Peningkatan |
 | Laba bersih | 450 | Total akhir |
 
-Untuk menandai titik sebagai total menengah atau total akhir, panggil metodennya [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) dengan `true`. Isi sel buku kerja pada titik tersebut dengan nilai terakumulasi yang sebenarnya: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode tersebut menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memasukkan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
+Untuk menandai sebuah titik sebagai total menengah atau akhir, panggil metode [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) pada titik tersebut dengan `true`. Berikan jumlah terakumulasi yang sebenarnya di sel workbook titik itu: `600` untuk laba kotor (`1000 - 400`) dan `450` untuk laba bersih (`600 - 200 + 50`). Metode ini menandai kolom sebagai total; ia tidak menghitung atau mengisi nilai sel. Jangan gunakan nol sebagai placeholder atau memberikan perubahan lain untuk titik total. Kolom total menampilkan nilai terakumulasi tanpa menambahkannya lagi ke nilai berjalan.
 
-Contoh Java lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), menghapus data default, dan mengisi buku kerja yang disematkan. Indeks lembar kerja `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan total akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) dengan `true` menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau buku kerja input.
+Contoh Java lengkap ini membuat diagram menggunakan anggota `Waterfall` dari [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), membersihkan data default, dan mengisi workbook yang tersemat. Indeks worksheet `0` memilih lembar pertama; kolom A berisi nama kategori dan kolom B berisi nilai. Setiap sel nilai ditambahkan dengan [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). Indeks titik berbasis nol `2` dan `5` mengidentifikasi total menengah dan akhir. Memanggil [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) dengan `true` menampilkan jumlah pada kolom. Tidak diperlukan presentasi atau workbook input.
 
 ```java
 import com.aspose.slides.*;
@@ -534,27 +534,34 @@ finally
 }
 ```
 
-Panggil metode tingkat seri [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) dengan `true` untuk menampilkan garis penghubung antar kolom berurutan dan memudahkan pelacakan nilai berjalan. Untuk menyembunyikan garis tersebut, ganti pemanggilan metode dalam contoh dengan `series.setShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
+Panggil metode tingkat seri [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) dengan `true` untuk menampilkan garis yang menghubungkan kolom berurutan dan mempermudah pelacakan nilai berjalan. Untuk menyembunyikan garis ini, ganti pemanggilan metode dalam contoh dengan `series.setShowConnectorLines(false);` sebelum menyimpan. Ini hanya mengubah visibilitas garis, bukan data atau total.
 
-Presentasi yang disimpan menampilkan laba kotor 600 dan laba bersih 450, dengan kedua total dihitung dari nol:
+Presentasi yang disimpan menampilkan laba kotor sebesar 600 dan laba bersih sebesar 450, dengan kedua total dihitung dari nol:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![Diagram Air Terjun yang menunjukkan pendapatan, biaya, laba kotor 600, dan laba bersih 450, dengan label nilai dan garis penghubung](waterfall_chart.png)
 
-### **Buat Diagram Saham**
+### **Membuat Diagram Saham**
 
-Diagram saham digunakan untuk menampilkan data keuangan seperti harga buka, tinggi, rendah, dan tutup, membantu menganalisis tren pasar dan volatilitas. Mereka memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Diagram saham digunakan untuk menampilkan data keuangan seperti harga buka, tinggi, rendah, dan tutup, membantu menganalisis tren pasar dan volatilitas. Diagram ini menawarkan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
-Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) mengontrol garis tinggi‑rendah yang memperlihatkan rentang harga, sementara garis seri individual dan gridline horizontal minor disembunyikan.
+Contoh ini membuat diagram open‑high‑low‑close dengan empat seri dalam urutan tersebut dan tiga kategori. Metode [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) mengaktifkan batang naik/turun, dan [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) mengontrol garis tinggi‑rendah yang menampilkan rentang harga, sementara garis seri individu dan garis grid horizontal minor disembunyikan.
+
+Manajer yang dikembalikan oleh [getUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) mengekspos objek pemformatan terpisah melalui [getUpBarsFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) dan [getDownBarsFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--). Gunakan metode [getFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformat/#getFill--) dan [getLine](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformat/#getLine--) pada masing‑masing objek untuk mengatur isian dan kontur secara independen. Contoh ini menggunakan batang hijau dengan kontur hijau tua untuk interval naik dan batang oranye‑merah dengan kontur merah tua untuk interval turun.
+
+Berikan nilai numerik untuk keempat seri pada setiap kategori, dengan High dan Low melingkupi Open dan Close. Batang membandingkan Close dengan Open **dalam kategori yang sama**, bukan dengan kategori sebelumnya: A turun dari 72 ke 25, sementara B naik dari 25 ke 38 dan C naik dari 38 ke 50. Nilai Open dan Close yang sama tidak menghasilkan interval terisi yang terlihat. Batang naik/turun membentang Open‑Close; garis tinggi‑rendah membentang Low‑High. Batang ini termasuk dalam grup seri, bukan seri diagram batang biasa.
+
+Pemformatan ini juga berlaku untuk diagram [Line dan LineWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) yang berisi setidaknya dua seri dalam grup yang sama dan nilai numerik yang sesuai untuk tiap kategori. Untuk diagram garis non‑stacked ini, batang naik/turun membandingkan seri pertama dan terakhir: nilai terakhir yang lebih tinggi menghasilkan batang naik, dan nilai terakhir yang lebih rendah menghasilkan batang turun. Membalik urutan seri akan membalik klasifikasi. Contoh di bawah menggunakan [OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/); jangan mengasumsikan bahwa varian saham, stacked‑line, atau 3D lainnya menggunakan susunan data atau interpretasi interval yang sama.
 
 ```java
 import com.aspose.slides.*;
+import android.graphics.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -606,7 +613,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(Color.rgb(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -624,15 +644,15 @@ finally
 }
 ```
 
-Hasilnya:
+Hasil, diekspor dari PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![Diagram Saham dengan interval turun oranye‑merah untuk A dan interval naik hijau untuk B dan C](stock_chart.png)
 
-### **Buat Diagram Box‑and‑Whisker**
+### **Membuat Diagram Kotak‑dan‑Whisker**
 
-Diagram box‑and‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan outlier potensial. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk dengan cepat memahami variabilitas data dan mengidentifikasi anomali.
+Diagram kotak‑dan‑whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan outlier potensial. Diagram ini sangat berguna dalam analisis data eksploratori dan studi statistik untuk cepat memahami variabilitas data dan mengidentifikasi anomali.
 
-Contoh ini membuat diagram box‑and‑whisker dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) memilih perhitungan kuartil eksklusif. Contoh juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik dalam, dan titik outlier.
+Contoh ini membuat diagram kotak‑dan‑whisker dari enam nilai. Metode [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) memilih perhitungan kuartil eksklusif. Contoh ini juga mengaktifkan garis rata‑rata, penanda rata‑rata, titik dalam, dan titik outlier.
 
 ```java
 import com.aspose.slides.*;
@@ -692,11 +712,11 @@ finally
 }
 ```
 
-### **Buat Diagram Corong**
+### **Membuat Diagram Corong**
 
-Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data menurun seiring berjalannya langkah demi langkah. Mereka sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
+Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, dimana volume data menurun seiring bergeraknya dari satu langkah ke langkah berikutnya. Diagram ini sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk menambahkan diagram corong ke slide pertama dari presentasi yang ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, lalu menyimpan presentasi yang diperbarui. Presentasi input harus memiliki setidaknya satu slide.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk menambahkan diagram corong ke slide pertama dari presentasi yang sudah ada. Ia menggantikan data default dengan enam kategori dan nilai mulai dari 50 hingga 500, kemudian menyimpan presentasi yang diperbarui. Presentasi input harus memiliki setidaknya satu slide.
 
 ```java
 import com.aspose.slides.*;
@@ -752,11 +772,11 @@ finally
 
 Hasilnya:
 
-![The Funnel chart](funnel_chart.png)
+![Diagram Corong](funnel_chart.png)
 
-### **Buat Diagram Sunburst**
+### **Membuat Diagram Sunburst**
 
-Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian‑ke‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang serta subkategori dalam format yang jelas dan kompak.
+Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentris. Diagram ini membantu menggambarkan hubungan bagian‑ke‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang serta subkategori dalam format yang jelas dan ringkas.
 
 Contoh ini membuat diagram sunburst dengan delapan daun yang dikelompokkan menjadi empat batang dan dua cabang. Metode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) menetapkan batang pada level pengelompokan 1 dan cabang pada level 2. Label kategori mengidentifikasi segmen, dan nilai menentukan ukuran relatifnya.
 
@@ -837,17 +857,17 @@ finally
 
 Hasilnya:
 
-![The Sunburst chart](sunburst_chart.png)
+![Diagram Sunburst](sunburst_chart.png)
 
-### **Buat Diagram Histogram**
+### **Membuat Diagram Histogram**
 
-Diagram histogram menunjukkan bagaimana nilai numerik terdistribusi di interval (bin). Untuk laporan bulanan tentang waktu pemrosesan pesanan, gunakan lebar bin dan ambang batas yang sama untuk menjaga konsistensi interval dan memudahkan perbandingan distribusi.
+Diagram histogram menunjukkan bagaimana nilai numerik didistribusikan di seluruh interval (bin). Untuk laporan bulanan tentang waktu pemrosesan pesanan, gunakan lebar bin dan ambang yang sama untuk menjaga konsistensi interval dan mempermudah perbandingan distribusi.
 
-Panggil [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) pada sumbu horizontal dengan mode dari [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) hanya berlaku untuk `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) hanya berlaku untuk `ByNumberOfBins`. Gunakan `Automatic` agar diagram memilih bin secara otomatis.
+Panggil [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) pada sumbu horizontal dengan mode dari [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) hanya berlaku untuk `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) hanya untuk `ByNumberOfBins`. Gunakan `Automatic` agar diagram menentukan bin secara otomatis.
 
 #### **Gunakan Lebar Bin Tetap**
 
-Contoh ini mengelompokkan waktu pemrosesan ke dalam interval 10 menit, dengan bin terpisah untuk waktu ≤ 10 menit dan > 40 menit. Aktifkan bin ini dengan [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) dan [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Saat menyediakan ambang batas eksplisit melalui [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) dan [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), panggil [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) dan [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) dengan `false`.
+Contoh ini mengelompokkan waktu pemrosesan ke dalam interval 10 menit, dengan bin terpisah untuk waktu ≤ 10 menit dan > 40 menit. Aktifkan bin ini dengan [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) dan [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). Saat memberikan ambang eksplisit melalui [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) dan [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), panggil [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) dan [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) dengan `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -894,13 +914,13 @@ finally
 }
 ```
 
-Presentasi yang ditampilkan di PowerPoint memperlihatkan jumlah bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambang batasnya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambang batasnya eksklusif; kedua nilai `40` tetap berada di interval sebelumnya. Bin interior berisi nilai yang lebih besar dari batas bawah dan kurang dari atau sama dengan batas atasnya.
+Presentasi yang ditampilkan di PowerPoint memperlihatkan hitungan bin **3, 4, 4, 4, dan 2**. Bin underflow mencakup `5, 10, 10`, sehingga ambangnya inklusif. Bin overflow hanya mencakup `41, 50`, sehingga ambangnya eksklusif; kedua nilai `40` tetap berada di interval sebelumnya. Bin interior berisi nilai lebih besar dari batas bawah dan kurang dari atau sama dengan batas atas.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![Histogram dengan bin 10‑menit dan ambang underflow serta overflow eksplisit](histogram_bin_width.png)
 
 #### **Tentukan Jumlah Bin**
 
-Untuk tingkat detail tetap alih‑alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Diagram menentukan lebar dari rentang data, sehingga batas dapat berubah antara laporan.
+Untuk tingkat detail tetap alih‑alih interval tetap, minta lima bin untuk data yang sama. Contoh ini menonaktifkan bin underflow dan overflow. Diagram menentukan lebar dari rentang data, sehingga batas dapat berubah antar laporan.
 
 ```java
 import com.aspose.slides.*;
@@ -941,43 +961,43 @@ finally
 }
 ```
 
-Lima bin memiliki jumlah **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai input identik, tetapi batasnya berbeda.
+Lima bin memiliki hitungan **4, 4, 4, 4, dan 1**. Bandingkan distribusi ini dengan hasil lebar‑bin tetap di atas: nilai input identik, tetapi batasnya berbeda.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![Histogram dengan lima bin yang dihitung dari data yang sama](histogram_bin_count.png)
 
-### **Buat Diagram Radar**
+### **Membuat Diagram Radar**
 
-Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara beberapa metrik atau atribut kinerja.
+Diagram radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara bersamaan. Diagram ini sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara berbagai metrik atau atribut kinerja.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram radar dengan seri dan kategori default, lalu menyimpan presentasi sebagai PPTX.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram radar dengan seri dan kategori default, kemudian menyimpan presentasi sebagai PPTX.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
+Presentation  presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    slide.getShapes().addChart(ChartType.Radar, 20, 20, 500, 300);
+    slide.getShapes().addChart(ChartType.Radar , 20, 20, 500, 300);
 
-    presentation.save("Radar-chart.pptx", SaveFormat.Pptx);
+    presentation.save("Radar‑  chart .ppt  x ", Save Format  .Pptx);
 }
 finally
 {
-    presentation.dispose();
+    presentation  dispose     [  ?   ];
 }
 ```
 
 Hasilnya:
 
-![The Radar chart](radar_chart.png)
+![Diagram Radar](radar_chart.png)
 
-### **Buat Diagram Multi‑Kategori**
+### **Membuat Diagram Multi‑Kategori**
 
-Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di berbagai dimensi secara bersamaan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam dataset yang kompleks dan berlapis.
+Diagram multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di beberapa dimensi secara bersamaan. Diagram ini sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data berlapis kompleks.
 
-Contoh ini membuat diagram kolom berkumpulan dengan delapan kategori yang disusun dalam empat pasangan. Metode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) memberikan setiap pasangan label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individu dan grup.
+Contoh ini membuat diagram kolom berkekelompok dengan delapan kategori yang disusun dalam empat pasang. Metode [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) memberikan tiap pasang label bersama pada level pengelompokan 1, menghasilkan sumbu kategori dengan label individual serta grup.
 
 ```java
 import com.aspose.slides.*;
@@ -1051,11 +1071,58 @@ finally
 
 Hasilnya:
 
-![The multi category chart](multi_category_chart.png)
+![Diagram Multi‑Kategori](multi_category_chart.png)
 
-### **Buat Diagram Peta**
+#### **Hapus Label Kuartal**
 
-Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
+Unduh [quarters.pptx](quarters.pptx) dan letakkan di direktori kerja. Diagramnya menampilkan sembilan bulan dan satu seri penjualan dengan nilai 10‑18. Pada sumbu kategori, Q1 mencakup Januari‑Maret, Q2 April‑Juni, dan Q3 Juli‑September.
+
+April adalah kategori keempat (indeks 3) dan memegang label Q2. Gunakan [getGroupingLevels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getGroupingLevels--) untuk mengakses level pengelompokan April, lalu panggil [deleteGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) dengan level 1 untuk menghapus label kuartalnya. Level 0 mewakili bulan itu sendiri dan tidak dapat dihapus dengan metode ini.
+
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+import android.text.TextUtils;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    List<String> months = new ArrayList<>();
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    List<String> sales = new ArrayList<>();
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(TextUtils.join(", ", months));
+    System.out.println(TextUtils.join(", ", sales));
+} finally {
+    reopened.dispose();
+}
+```
+
+Setelah membuka kembali diagram, contoh mencetak bulan asli (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) dan nilai penjualan (`10, 11, 12, 13, 14, 15, 16, 17, 18`) dalam urutan yang sama. Buka `quarters-updated.pptx` di PowerPoint untuk membandingkan label sumbu. Label Q2 dan batas grup sebelum April menghilang, sehingga Q1 mencakup Januari‑Juni. Q3 tetap dimulai pada Juli.
+
+![Label kuartal sebelum dan sesudah penghapusan. Di kiri, Q2 mencakup April‑Juni. Di kanan, Q1 mencakup Januari‑Juni.](quarter-label-comparison.png)
+
+### **Membuat Diagram Peta**
+
+Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Diagram ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik.
 
 Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram peta dengan data geografis default dan menyimpannya untuk dilihat di PowerPoint.
 
@@ -1079,19 +1146,19 @@ finally
 
 Hasilnya:
 
-![The Map chart](map_chart.png)
+![Diagram Peta](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara langsung: ketika slide yang memuatnya dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram muncul kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+Gambar di atas menunjukkan presentasi yang disimpan dan dibuka di PowerPoint. Aspose.Slides menulis diagram peta dan datanya dengan benar, tetapi tidak menggambar diagram peta secara sendiri: ketika sebuah slide yang berisi diagram peta dirender menjadi gambar atau dikonversi ke PDF atau SVG, area diagram muncul kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
 {{% /alert %}}
 
-### **Buat Diagram Kombinasi**
+### **Membuat Diagram Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih kumpulan data, membantu mengidentifikasi hubungan di antaranya.
 
-![The combination chart](combination_chart.png)
+![Diagram Kombinasi](combination_chart.png)
 
-Contoh ini menggabungkan dua seri kolom berkumpulan dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) menempatkan garis pada sumbu vertikal sekunder di sebelah kanan. Fungsi pembantu mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
+Contoh ini menggabungkan dua seri kolom berkekelompok dengan satu seri garis pada empat kategori. Kolom menggunakan sumbu vertikal utama, sementara [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) menempatkan garis pada sumbu vertikal sekunder di sebelah kanan. Fungsi pembantu mengonfigurasi judul, legenda, label sumbu, dan garis kisi.
 
 ```java
 import com.aspose.slides.*;
@@ -1260,11 +1327,11 @@ ComboChartExample example = new ComboChartExample();
 example.createComboChart();
 ```
 
-## **Perbarui Diagram**
+## **Memperbarui Diagram**
 
-Aspose.Slides untuk Android via Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan diagram secara akurat mencerminkan data serta standar visual terkini.
+Aspose.Slides untuk Android via Java memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data, format, dan gaya diagram. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap terbaru dengan konten dinamis dan memastikan diagram mencerminkan data serta standar visual terkini.
 
-Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh menggunakan [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) untuk mengubah sel buku kerja, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah diagram menjadi silinder berkumpulan melalui [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
+Contoh ini memperbarui diagram bernama "My chart" pada slide pertama dari presentasi yang sudah ada. Ia memerlukan dua seri kolom dengan tiga titik data masing‑masing, dengan label kategori di kolom A dan nama seri di baris pertama lembar kerja pertama. Contoh ini menggunakan [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) untuk mengubah sel workbook, memperbarui nilai seri, menambahkan seri ketiga, dan mengubah tipe diagram menjadi silinder berkekelompok melalui [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1324,13 +1391,13 @@ finally
 }
 ```
 
-## **Tetapkan Rentang Data untuk Diagram**
+## **Menetapkan Rentang Data untuk Diagram**
 
 Untuk memeriksa rentang yang sudah digunakan oleh diagram yang ada, lihat [Retrieve a Chart's Data Range](/slides/id/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides untuk Android via Java memberikan fleksibilitas untuk menentukan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja langsung ke diagram, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori diagram. Sebagai hasilnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
+Aspose.Slides untuk Android via Java menyediakan fleksibilitas untuk menentukan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan langsung sebagian lembar kerja ke diagram, memungkinkan kontrol atas sel mana yang berkontribusi pada seri dan kategori diagram. Akibatnya, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint mencerminkan informasi yang akurat dan terkini.
 
-Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang ada ke `Sheet1!A1:B4`. Buku kerja diagram harus berisi lembar tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
+Contoh ini menggunakan [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) untuk menetapkan sumber data diagram bernama "My chart" pada slide pertama dari presentasi yang sudah ada ke `Sheet1!A1:B4`. Workbook diagram harus berisi lembar kerja tersebut dan rentang terisi dengan judul seri di baris pertama, label kategori di kolom A, dan tiga nilai di kolom B.
 
 ```java
 import com.aspose.slides.*;
@@ -1359,11 +1426,11 @@ finally
 }
 ```
 
-## **Gunakan Penanda Default pada Diagram**
+## **Menggunakan Penanda Default dalam Diagram**
 
-Ketika Anda menggunakan penanda default pada diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
 
-Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram dengan dua seri garis dan sebuah legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `null`, sementara seri kedua memiliki nilai untuk setiap kategori.
+Contoh ini menggunakan [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) untuk membuat diagram dengan dua seri garis dan legenda. Pengaturan penanda yang diakses melalui [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) mempertahankan simbol penanda yang ditetapkan secara otomatis. Seri pertama mencakup nilai negatif dan nilai yang hilang, yang direpresentasikan oleh `null`, sementara seri kedua memiliki nilai untuk setiap kategori.
 
 ```java
 import com.aspose.slides.*;
@@ -1430,7 +1497,7 @@ finally
 
 **Jenis diagram apa yang didukung oleh Aspose.Slides untuk Android via Java?**
 
-Aspose.Slides untuk Android via Java mendukung berbagai jenis diagram, termasuk diagram batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk Android via Java mendukung berbagai jenis diagram, termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
@@ -1438,8 +1505,8 @@ Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://re
 
 **Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses buku kerja datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), menghapus seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan diagram secara programatik agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), menghapus seri dan kategori default, lalu menambahkan data kustom Anda. Ini memungkinkan Anda menyegarkan diagram secara programatis agar mencerminkan data terbaru.
 
 **Apakah mungkin menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides untuk Android via Java menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram dengan persyaratan desain spesifik Anda.
+Ya, Aspose.Slides untuk Android via Java menyediakan opsi penyesuaian yang luas. Anda dapat memodifikasi warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram dengan kebutuhan desain spesifik Anda.

@@ -1,5 +1,5 @@
 ---
-title: إنشاء أو تحديث مخططات عرض PowerPoint في JavaScript
+title: إنشاء أو تحديث مخططات عرض تقديمي PowerPoint في JavaScript
 linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
@@ -13,48 +13,48 @@ keywords:
 - مخطط مبعثر
 - مخطط دائري
 - مخطط خطي
-- مخطط خريطة شجرية
+- مخطط شجرة خريطة
 - مخطط أسهم
-- مخطط صندوق وشرطة
-- مخطط قمعي
+- مخطط الصندوق والشارب
+- مخطط قمع
 - مخطط شمسي
-- مخطط تكراري
-- مخطط راداري
+- مخطط هستوغرام
+- مخطط رادار
 - مخطط متعدد الفئات
 - PowerPoint
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides for Node.js via Java. إضافة وتنسيق وتحرير المخططات مع أمثلة عملية للكود في JavaScript.
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides لـ Node.js عبر Java. إضافة، تنسيق، وتحرير المخططات مع أمثلة شفرة عملية في JavaScript."
 ---
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides for Node.js via Java. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، تعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. توضح أمثلة الكود المفصلة كل خطوة، من تهيئة العرض ومؤشر المخطط إلى تكوين السلاسل والمحاور والوسائل الإيضاحية. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكي في تطبيقات Node.js الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
+توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides لـ Node.js عبر Java. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، تعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، تُظهر أمثلة الشيفرة المفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والأساطير. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات Node.js الخاصة بك، مما يسهل عملية إنشاء عروض تقديمية تعتمد على البيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتشاف رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة من جدول أو ورقة عمل.
 
-**لماذا ننشئ مخططات؟**
+**لماذا إنشاء المخططات؟**
 
-باستخدام المخططات يمكنك:
+باستخدام المخططات، يمكنك:
 
-* تجميع أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* تجميع أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في العرض؛
 * إظهار الأنماط والاتجاهات في البيانات؛
-* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة لوحدة قياس معينة؛
-* اكتشاف القيم الشاذة أو الأخطاء أو البيانات غير المنطقية؛
-* التواصل أو عرض بيانات معقدة.
+* استنتاج الاتجاه والزخم للبيانات مع مرور الوقت أو بالنسبة لوحدة قياس معينة؛
+* اكتشاف القيم المتطرفة أو الأخطاء أو البيانات غير المنطقية؛
+* توصيل أو عرض البيانات المعقدة.
 
-في PowerPoint يمكنك إنشاء مخططات من خلال وظيفة *Insert* التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides يمكنك إنشاء مخططات عادية (بناءً على أنواع المخططات الشائعة) ومخططات مخصصة.
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *إدراج* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كلًا من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
 
 {{% alert color="info" title="Note" %}}
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) في وحدة [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). القيم في هذا التعداد تمثل أنواع المخططات المختلفة.
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) في وحدة [aspose.slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/). القيم في هذا التعداد تت对应 لأنواع المخططات المختلفة.
 {{% /alert %}}
 
-### **إنشاء مخططات عمودية متجمعة**
+### **إنشاء مخططات عمود مجمّعة**
 
-هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط عمودي متجمع يقارن سلسلتين عبر ثلاث فئات. تُستخدم تعبئة حمراء وخضراء للسلسلتين، وتظهر التسميات الفردية أسماء الفئات وأسماء السلاسل والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في دفتر العمل المدمج للمخطط.
+يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط عمود مجمّع يقارن بين سلسلتين عبر ثلاث فئات. تستخدم السلسلتان ملءً أحمر وأخضر، وتظهر الملصقات الفردية أسماء الفئات وأسماء السلاسل والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في دفتر عمل المخطط المدمج.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -133,22 +133,22 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
-![مخطط العمود المتجمع](clustered_column_chart.png)
+![مخطط العمود المجمع](clustered_column_chart.png)
 
 ### **إنشاء مخططات مبعثرة**
 
-المخططات المبعثرة (المعروفة أيضًا باسم scatter plots أو x‑y graphs) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الترابط بين متغيرين.
+المخططات المبعثرّة (المعروفة أيضًا باسم مخططات التبعثر أو مخططات س-ص) تُستَخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
-استخدام مخطط مبعثر عندما:
+استخدم مخططًا مبعثرًا عندما:
 
-* لديك بيانات رقمية مزدوجة.
-* لديك متغيران يرتبطان جيدًا معًا.
+* لديك بيانات رقمية مُقَطَّعة.
+* لديك متغيران يتماشيان معًا بشكل جيد.
 * تريد تحديد ما إذا كان المتغيران مرتبطين.
 * لديك متغير مستقل له قيم متعددة للمتغير التابع.
 
-هذا المثال يرسم مجموعتين من قيم x‑y. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم الثانية خطوطًا ناعمة مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، تم ضبطه باستخدام [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). تتحكم طريقة [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) في شكل العلامة.
+يعرض هذا المثال مجموعتين من قيم س-ص. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم الثانية خطوطًا ملساء مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، مُعَدّ عبر [setSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsize/). تتحكم طريقة [setSymbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/marker/setsymbol/) في شكل العلامة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -214,15 +214,15 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
 ![مخطط مبعثر](scatter_chart.png)
 
-### **إنشاء مخططات دائريّة**
+### **إنشاء مخططات دائرية**
 
-المخططات الدائرية تُظهر أفضل علاقة الجزء إلى الكل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. إذا احتوت بياناتك على أجزاء أو تسميات كثيرة، قد ترغب في التفكير باستخدام مخطط شريطي بدلاً من ذلك.
+تُستخدم المخططات الدائرية لإظهار العلاقة بين الجزء والكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. ومع ذلك، إذا كانت بياناتك تحتوي على أجزاء أو تسميات كثيرة، قد تفضّل استخدام مخطط شريطي بدلاً من ذلك.
 
-هذا المثال ينشئ مخططًا دائريًا بثلاث قيم ربع سنوية. كل شريحة لها تعبئة وإطار مخصص، وتعرض التسميات تركيبات مختلفة من القيم والنسب ومعلومات السلسلة. تحدد طريقة [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) الزاوية الأولية للشريحة لتبدأ عند 180 درجة.
+ينشئ هذا المثال مخططًا دائريًا بثلاث قيم ربع سنوية. لكل شريحة ملءً وإطارًا مخصصًا، وتعرض الملصقات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تُحدِّد الطريقة [setFirstSliceAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) الزاوية الأولى لتبدأ عند 180 درجة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -321,17 +321,17 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
 ![مخطط دائري](pie_chart.png)
 
-لتحسين قابلية قراءة التسميات خارج الدائرة، راجع [Format Leader Lines](/slides/ar/nodejs-java/chart-data-label/#format-leader-lines) للحصول على مثال يحدد موقع التسميات ويخصص لون الخط وعرضه وشفافيته ونمطه المتقطع.
+لتحسين قابلية قراءة الملصقات خارج الدائرة، راجع [Format Leader Lines](/slides/ar/nodejs-java/chart-data-label/#format-leader-lines) للحصول على مثال يُظهر موضع الملصقات وتخصيص لون الخطوط وعرضها وشفافيتها ونمط الشرط.
 
 ### **إنشاء مخططات خطية**
 
-المخططات الخطية (المعروفة أيضًا باسم line graphs) تُستخدم عندما تريد إظهار تغيّر القيم عبر الزمن. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات دفعة واحدة، تتبع التغيّرات والاتجاهات مع مرور الوقت، إبراز الشذوذ في السلاسل، وأكثر.
+تُستخدم المخططات الخطية (المعروفة أيضًا باسم مخططات الخط) عندما تريد إظهار التغيّر في القيمة مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات دفعة واحدة، تتبع التغيّرات والاتجاهات عبر الزمن، إبراز الشذوذ في سلاسل البيانات، والمزيد.
 
-هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط خطي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط خطي بالسلاسل والفئات الافتراضية، ثم يحفظ العرض بصيغة PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -351,7 +351,7 @@ finally
 }
 ```
 
-افتراضيًا، تُربط نقاط المخطط الخطي بخطوط مستقيمة متصلة. إذا أردت ربط النقاط بخطوط متقطعة، استدعِ [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) مع قيمة من [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
+بشكل افتراضي، تُربط نقاط المخطط الخطي بخطوط مستقيمة مستمرة. إذا أردت ربط النقاط بشرط تَخطُّط، استدعِ [setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/setdashstyle/) بقيمة من [LineDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -376,15 +376,15 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
 ![مخطط خطي](line_chart.png)
 
-### **إنشاء مخططات خريطة شجرية**
+### **إنشاء مخططات شجرة خريطة**
 
-تُستخدم مخططات الخريطة الشجرية لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تشكل مساهمات كبيرة داخل كل فئة.
+تُستخدم مخططات الشجرة الخريطة لعرض بيانات المبيعات عندما ترغب في إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تمثل مساهمات كبيرة داخل كل فئة.
 
-هذا المثال ينشئ خريطة شجرية بثمانية أوراق مُجمعة في أربعة جذوع وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) الجذوع على مستوى التجميع 1 والفروع على المستوى 2. تُحدد القيم أحجام المستطيلات النسبية، بينما تُعرّف تسميات الفئات والتسميات المتداخلة للآباء الهيكلية.
+ينشئ هذا المثال شجرة خريطة بثمانية أوراق موزعة على أربعة جذوع وفرعين. تُعيّن الطريقة [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) الجذوع على مستوى التجميع 1 والفروع على المستوى 2. تُحدِّد القيم أحجام المستطيلات النسبية، بينما تُعرّف تسميات الفئات والتسميات المتداخلة للآباء الهرمية.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -402,7 +402,7 @@ try
     let workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // الفرع 1
+    // فرع 1
     let categoryCell = workbook.getCell(0, "C1", "Leaf1");
     let leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
@@ -418,7 +418,7 @@ try
     categoryCell = workbook.getCell(0, "C4", "Leaf4");
     chart.getChartData().getCategories().add(categoryCell);
 
-    // الفرع 2
+    // فرع 2
     categoryCell = workbook.getCell(0, "C5", "Leaf5");
     leaf = chart.getChartData().getCategories().add(categoryCell);
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
@@ -463,28 +463,28 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
-![مخطط خريطة شجرية](treemap_chart.png)
+![مخطط شجرة خريطة](treemap_chart.png)
 
-### **إنشاء مخططات شلالية**
+### **إنشاء مخططات شلال**
 
-المخطط الشلالي يُظهر كيف تُساهم التغييرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، يُطرح منه التكاليف، ثم يُضاف دخل آخر. تُظهر أعمدة التغيير الفاصل بين القيم المتراكمة السابقة والجديدة، بينما تمتد الأعمدة الكُلية من الصفر إلى القيمة المتراكمة.
+يُظهر مخطط الشلال كيف تُسهم التغيّرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الأرباح بالإيرادات، يطرح التكاليف، ثم يضيف إيرادات أخرى. تتراوح أعمدة التغيّر بين القيم السابقة والجديدة، بينما تمتد الأعمدة الإجمالية من الصفر إلى القيمة المتراكمة.
 
-الجدول التالي يستخدم مبالغ بالآلاف من الدولار الأمريكي:
+الجدول التالي يستخدم مبالغ بآلاف الدولارات الأمريكية:
 
-| الفئة | قيمة المصنف | نوع العمود |
+| الفئة | قيمة دفتر العمل | نوع العمود |
 | --- | ---: | --- |
 | الإيرادات | 1000 | زيادة |
-| تكلفة المبيعات | -400 | نقصان |
+| تكلفة المبيعات | -400 | انخفاض |
 | الربح الإجمالي | 600 | إجمالي وسيط |
-| المصاريف التشغيلية | -200 | نقصان |
-| دخل آخر | 50 | زيادة |
+| المصاريف التشغيلية | -200 | انخفاض |
+| إيرادات أخرى | 50 | زيادة |
 | صافي الربح | 450 | إجمالي نهائي |
 
-لتمييز نقطة كإجمالي وسيط أو نهائي، استدعِ طريقة [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) الخاصة بها مع `true`. قدِّم المبلغ المتراكم الفعلي في خلية دفتر العمل الخاصة بهذه النقطة: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلم الطريقة العمود بأنه إجمالي؛ لا تقوم بحساب أو تعبئة قيمة الخلية. لا تستخدم الصفر كقيمة بديلة ولا تُضيف تغييرًا آخر لنقطة إجمالي. يُظهر العمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
+لتمييز نقطة كإجمالي وسيط أو نهائي، استدعِ طريقتها [setSetAsTotal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setsetastotal/) مع `true`. قدم المبلغ المتراكم الفعلي في خلية دفتر العمل الخاصة بتلك النقطة: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلم الطريقة العمود كإجمالي؛ لا تحسب أو تعبئ قيمة الخلية. لا تُستخدم الصفر كعنصر نائب ولا تُعطِ تغيّرًا آخر لنقطة إجمالية. يُظهر العمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة الجارية.
 
-هذا المثال الكامل في جافا سكريبت ينشئ مخططًا باستخدام العنصر `Waterfall` من تعداد [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)، يمسح البيانات الافتراضية، ويملأ دفتر العمل المدمج. يختار فهرس ورقة العمل `0` الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B على القيم. تُضاف كل خلية قيمة باستخدام [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). تُحدِّد مؤشرات النقاط ذات القاعدة الصفرية `2` و`5` الإجماليات الوسيطة والنهائية. استدعاء [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) مع `true` يعرض المبالغ على الأعمدة. لا يلزم أي عرض تقديمي أو دفتر عمل كمدخل.
+هذا المثال الكامل بجافا سكريبت ينشئ مخططًا باستخدام العنصر `Waterfall` من تعداد [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)، يمسح البيانات الافتراضية، ويملأ دفتر العمل المدمج. يحدد فهرس ورقة العمل `0` الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B على القيم. تُضاف كل خلية قيمة عبر [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/). تُحدِّد المؤشرات الصفرية للنقاط `2` و`5` الإجماليات الوسيطة والنهائية. استدعاء [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/setshowvalue/) مع `true` يعرض المبالغ على الأعمدة. لا يلزم تقديم عرض تقديمي أو دفتر عمل مسبقًا.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -522,7 +522,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // النقطة الثالثة والسادسة تمثل إجماليات، ليست تغييرات إضافية.
+    // النقطة الثالثة والسادسة تمثل إجماليات، وليس تغييرات إضافية.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -536,17 +536,23 @@ finally
 }
 ```
 
-استدعِ طريقة المستوى السلسلة [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) مع `true` لإظهار الخطوط التي تربط الأعمدة المتتالية وجعل القيمة الجارية أسهل للمتابعة. لإخفاء هذه الخطوط، استبدل استدعاء الطريقة في المثال بـ `series.setShowConnectorLines(false);` قبل الحفظ. يُغيّر هذا فقط ظهور الخط، دون تعديل البيانات أو الإجماليات.
+استدعِ طريقة المستوى السلسلي [setShowConnectorLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setshowconnectorlines/) مع `true` لإظهار خطوط ربط الأعمدة المتتالية وجعل القيمة الجارية أسهل للمتابعة. لإخفاء هذه الخطوط، استبدل استدعاء الطريقة في المثال بـ `series.setShowConnectorLines(false);` قبل الحفظ. يغيّر هذا فقط رؤية الخط، وليس البيانات أو الإجماليات.
 
-العرض المحفوظ يظهر الربح الإجمالي 600 وصافي الربح 450، مع رسم كل إجمالي من الصفر:
+العرض المحفوظ يُظهر الربح الإجمالي 600 وصافي الربح 450، مع رسم كلا الإجمالين من الصفر:
 
-![مخطط شلالي يُظهر الإيرادات، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع تسميات القيم وخطوط الربط](waterfall_chart.png)
+![مخطط شلال يُظهر الإيرادات، التكاليف، الربح الإجمالي 600، وصافي الربح 450، مع ملصقات القيم وخطوط الربط](waterfall_chart.png)
 
 ### **إنشاء مخططات أسهم**
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، أعلى سعر، أدنى سعر، وسعر الإغلاق، ما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء السهم، مما يساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
+تُستَخدم مخططات الأسهم لعرض بيانات مالية مثل أسعار الفتح، الأعلى، الأدنى، والإغلاق، مما يساعد في تحليل اتجاهات السوق وتقلباته. تُقدِّم هذه المخططات رؤى أساسية حول أداء السهم، وتُساعد المستثمرين والمحللين في اتخاذ قرارات مستنيرة.
 
-هذا المثال ينشئ مخططًا من نوع open‑high‑low‑close بأربع سلاسل بهذا الترتيب وثلاث فئات. تُفعِّل طريقة [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) أشرطة الصعود/الهبوط، وتتحكم طريقة [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) في خطوط أعلى‑أدنى التي تُظهر نطاق الأسعار، بينما تُخفى خطوط السلاسل الفردية والشبكة الأفقية الصغيرة.
+ينشئ هذا المثال مخططًا للفتح‑الأعلى‑الأدنى‑الإغلاق مع أربع سلاسل بهذا الترتيب وثلاث فئات. تُفعِّل الطريقة [setUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/setupdownbars/) أشرطة الصعود/الهبوط، وتتحكم [getHiLowLinesFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) في خطوط العلو‑الداون التي تُظهر نطاقات الأسعار، بينما تُخفى خطوط السلاسل الفردية والشبكات الأفقية الثانوية.
+
+المدير العائد من [getUpDownBars](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/getupdownbars/) يُظهر كائنات تنسيق منفصلة عبر [getUpBarsFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/getupbarsformat/) و[getDownBarsFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/updownbarsmanager/getdownbarsformat/). استخدم كل كائن طريقتي [getFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/format/getfill/) و[getLine](https://reference.aspose.com/slides/nodejs-java/aspose.slides/format/getline/) لتحديد ملء وحدود كلٍ على حدة. يستخدم هذا المثال أشرطة خضراء بحدود خضراء داكنة لفترات الصعود وأشرطة برتقالية‑حمراء بحدود حمراء داكنة لفترات الهبوط.
+
+زود القيم الرقمية لجميع السلاسل الأربع في كل فئة، بحيث يحيط الـ High والـ Low بالـ Open والـ Close. تُقارن الأشرطة الإغلاق بالفتح **داخل نفس الفئة**، وليس بالفئة السابقة: ينخفض A من 72 إلى 25، بينما يرتفع B من 25 إلى 38 وC من 38 إلى 50. لا تظهر أشرطة عندما تكون قيم الفتح والإغلاق متساوية. تمتد أشرطة الصعود/الهبوط بين الفتح‑الإغلاق؛ وتمتد خطوط العلو‑الداون بين الأدنى‑الأعلى. تنتمي هذه الأشرطة إلى مجموعة السلسلة ولا تُعد سلاسل مخطط شريطي عادية.
+
+يعمل هذا التنسيق أيضًا مع مخططات [Line and LineWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) التي تحتوي على سلسلتين على الأقل في نفس المجموعة وقيم رقمية مطابقة لكل فئة. بالنسبة لهذه المخططات الخطية غير المكدسة، تُقارن أشرطة الصعود/الهبوط السلسلة الأولى بالأخيرة: قيمة نهائية أعلى تُنتج شريط صعود، وقيمة نهائية أقل تُنتج شريط هبوط. عكس تلك السلسلتين يعكس التصنيف. يستخدم المثال أدناه [OpenHighLowClose](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)، ولا تفترض أن الأنواع الأخرى من الأسهم أو المخططات الخطية المكدسة أو ثلاثية الأبعاد تستخدم نفس ترتيب البيانات أو تفسير الفاصل الزمني.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -557,7 +563,7 @@ try
 {
     let slide = presentation.getSlides().get_Item(0);
 
-    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     let workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -609,7 +615,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    let upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 
     for (let i = 0; i < chart.getChartData().getSeries().size(); i++)
@@ -628,15 +647,15 @@ finally
 }
 ```
 
-الناتج:
+النتيجة، مُصدرة من PowerPoint:
 
-![مخطط أسهم](stock_chart.png)
+![مخطط أسهم يُظهر فترات هبوط برتقالية‑حمراء لـ A وفترات صعود خضراء لـ B وC](stock_chart.png)
 
-### **إنشاء مخططات صندوق وشرطة**
+### **إنشاء مخططات الصندوق والوشاح**
 
-تُظهر مخططات الصندوق والشرطة توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط والرباعيات والقيم الشاذة المحتملة. إنها مفيدة بشكل خاص في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
+تُستخدم مخططات الصندوق والوشاح لعرض توزيع البيانات عبر تلخيص مقاييس إحصائية رئيسية مثل الوسيط، الربعيات، والقيم المتطرفة المحتملة. إنها مفيدة جدًا في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-هذا المثال ينشئ مخطط صندوق وشرطة من ست قيم. تُحدِّد طريقة [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) طريقة حساب الرباعيات الحصرية. يُفعَّل المثال أيضًا خطوط المتوسط، علامات المتوسط، النقاط الداخلية، ونقاط القيم الشاذة.
+ينشئ هذا المثال مخططًا للصندوق والوشاح من ست قيم. تُحدِّد الطريقة [setQuartileMethod](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setquartilemethod/) حساب الربعيات الحصرية. يُمكّن المثال أيضًا خطوط المتوسط، علامات المتوسط، النقاط الداخلية، والنقاط المتطرفة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -696,11 +715,11 @@ finally
 }
 ```
 
-### **إنشاء مخططات قمعية**
+### **إنشاء مخططات قمع**
 
-تُستخدم المخططات القمعية لتصوير العمليات التي تتضمن مراحل متتابعة، حيث يقل حجم البيانات كلما تقدمت من خطوة إلى أخرى. إنها مفيدة بشكل خاص لتحليل معدلات التحويل، تحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
+تُستخدم مخططات القمع لتصوير عمليات تتضمن مراحل متسلسلة، حيث يقل حجم البيانات كلما تقدمت العملية من خطوة إلى أخرى. إنها مفيدة جدًا لتحليل معدلات التحويل، تحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإضافة مخطط قمعي إلى الشريحة الأولى من عرض تقديمي موجود. يُستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يُحفظ العرض المحدث. يجب أن يحتوي العرض المدخل على شريحة واحدة على الأقل.
+يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يحفظ العرض المحدث. يجب أن يحتوي العرض المدخل على شريحة واحدة على الأقل.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -754,15 +773,15 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
-![مخطط قمعي](funnel_chart.png)
+![مخطط قمع](funnel_chart.png)
 
 ### **إنشاء مخططات شمسية**
 
-تُستخدم المخططات الشمسية لتصوير البيانات الهرمية، حيث تُعرض المستويات كحلقات متحدة المركز. تساعد في توضيح علاقات الجزء إلى الكل وتُعد مثالية لتمثيل الفئات المتداخلة والفرعية بطريقة واضحة ومكثفة.
+تُستخدم المخططات الشمسية لتصوير البيانات الهرمية، حيث تُظهر المستويات كحلقات متحدة المركز. تساعد على توضيح علاقات الجزء إلى الكل وهي مثالية لتمثيل الفئات المتداخلة والفرعية بشكل واضح ومُدمج.
 
-هذا المثال ينشئ مخططًا شمسيًا بثمانية أوراق تُجمَع في أربعة جذوع وفرعين. تُعيّن طريقة [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) الجذوع على مستوى التجميع 1 والفروع على المستوى 2. تُحدِّد تسميات الفئات القطاعات، وتُحدد القيم أحجامها النسبية.
+ينشئ هذا المثال مخططًا شمسيًا بثمانية أوراق موزعة على أربعة جذوع وفرعين. تُعيّن الطريقة [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) الجذوع على مستوى التجميع 1 والفروع على المستوى 2. تُعرِّف تسميات الفئات القطاعات، وتحدد القيم أحجامها النسبية.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -839,19 +858,19 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
 ![مخطط شمسي](sunburst_chart.png)
 
-### **إنشاء مخططات تكرارية**
+### **إنشاء مخططات هيستوجرام**
 
-تُظهر مخططات التكرار كيفية توزيع القيم الرقمية عبر فواصل (صناديق). لتقارير شهرية حول أوقات معالجة الطلبات، استخدم عرض صندوقٍ ثابت وعناصر عتبة ثابتة للحفاظ على تناسق الفواصل وجعل المقارنات أسهل.
+تُظهر مخططات الهيستوجرام كيفية توزيع القيم العددية عبر الفواصل (الصناديق). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم عرض صندوق ثابت وعَتَابِر ثابتة للحفاظ على اتساق الفواصل وتسهيل المقارنة بين التوزيعات.
 
-استدعِ [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) على المحور الأفقي مع وضع من [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). تُطبق [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) فقط على `ByBinWidth`؛ وتُطبق [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) فقط على `ByNumberOfBins`. استخدم `Automatic` للسماح للمخطط باختيار الصناديق تلقائيًا.
+استدعِ [setAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setaggregationtype/) على المحور الأفقي باستخدام وضع من [AxisAggregationType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axisaggregationtype/). تُطبّق [setBinWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setbinwidth/) فقط على `ByBinWidth`؛ وتُطبّق [setNumberOfBins](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setnumberofbins/) فقط على `ByNumberOfBins`. استخدم `Automatic` للسماح للمخطط باختيار الصناديق تلقائيًا.
 
 #### **استخدام عرض صندوق ثابت**
 
-هذا المثال يُجَمِّع أوقات المعالجة إلى فواصل 10 دقائق، مع صناديق منفصلة للأوقات ≤ 10 دقائق وللأوقات > 40 دقيقة. فعِّل هذه الصناديق باستخدام [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) و[setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). عند تزويد عتبات صريحة عبر [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) و[setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/)، استدعِ [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) و[setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) مع `false`.
+يُقسم هذا المثال أوقات المعالجة إلى فواصل مدتها 10 دقائق، مع صناديق منفصلة للوقت الذي يساوي أو يقل عن 10 دقائق والوقت الذي يزيد عن 40 دقيقة. فعِّل هذه الصناديق عبر [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) و[setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/). عند توفير عُتَب صريحة عبر [setUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setunderflowbin/) و[setOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setoverflowbin/)، استدعِ [setAutomaticUnderflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticunderflowbin/) و[setAutomaticOverflowBin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticoverflowbin/) مع `false`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -898,13 +917,13 @@ finally
 }
 ```
 
-العرض المعروض في PowerPoint يُظهر عدد الصناديق **3, 4, 4, 4, و2**. الصندوق السفلي يحتوي على `5, 10, 10`، لذا عتّابه شامل. الصندوق العُلوي يحتوي فقط على `41, 50`، لذا عتّابه حصري؛ القيم المتساوية `40` تبقى في الفاصل السابق. الصناديق الداخلية تحتوي على قيم أكبر من حدها السفلي وأصغر أو مساوية لحدها العلوي.
+العرض المعروض في PowerPoint يُظهر عدد الصناديق **3، 4، 4، 4، و2**. الصندوق التحتاني يحتوي على `5، 10، 10`، لذا عتّابه شامل. الصندوق الفائض يحتوي فقط على `41، 50`، لذا عتّابه حصري؛ القيم المتساوية `40` تبقى في الفاصل السابق. الصناديق الداخلية تشمل القيم الأكبر من حدها الأدنى وأقل أو مساوية لحدها الأعلى.
 
-![مخطط تكراري بصناديق 10 دقائق وعتبات صريحة للـ underflow والـ overflow](histogram_bin_width.png)
+![هيستوجرام بفواصل 10 دقائق وعتَب تحتاني وفائض صريحة](histogram_bin_width.png)
 
 #### **تحديد عدد الصناديق**
 
-للحصول على مستوى تفصيل ثابت بدلاً من فواصل ثابتة، اطلب خمس صناديق لنفس البيانات. يترك هذا المثال صناديق underflow وoverflow غير مفعَّلة. يحدد المخطط العرض بناءً على نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
+للحصول على مستوى تفصيل ثابت بدلاً من فواصل ثابتة، اطلب خمسة صناديق لنفس البيانات. يترك هذا المثال صناديق التحتاني والفائض معطلة. يحدد المخطط العرض بناءً على نطاق البيانات، لذا قد تتغيّر الحدود بين التقارير.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -945,15 +964,15 @@ finally
 }
 ```
 
-الصناديق الخمسة لديها أعداد **4, 4, 4, 4, و1**. قارن هذا التوزيع بنتيجة العرض الثابت أعلاه: القيم المدخلة هي نفسها، لكن الحدود تختلف.
+الأصناديق الخمسة تحتوي على عدد **4، 4، 4، 4، و1**. قارن هذا التوزيع مع نتيجة العرض الثابت أعلاه: القيم المدخلة متطابقة، لكن الحدود تختلف.
 
-![مخطط تكراري بخمس صناديق محسوبة من نفس البيانات](histogram_bin_count.png)
+![هيستوجرام بخمسة صناديق محسوبة من نفس البيانات](histogram_bin_count.png)
 
-### **إنشاء مخططات رادارية**
+### **إنشاء مخططات رادار**
 
-تُستخدم المخططات الرادارية لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، ما يسمح بالمقارنة السهلة لعدة متغيرات في وقت واحد. إنها مفيدة لتحديد الأنماط، النقاط القوية، والضعف عبر عدة مقاييس أداء أو صفات.
+تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يُسهِّل مقارنة عدة متغيرات في آنٍ واحد. إنها مفيدة جدًا لتحديد الأنماط والنقاط القوية والضعيفة عبر مجموعة من مؤشرات الأداء أو الخصائص.
 
-هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط راداري بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط رادار بالسلاسل والفئات الافتراضية، ثم يحفظ العرض بصيغة PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -973,15 +992,15 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
-![مخطط راداري](radar_chart.png)
+![مخطط رادار](radar_chart.png)
 
 ### **إنشاء مخططات متعددة الفئات**
 
-تُستخدم المخططات متعددة الفئات لعرض بيانات تتضمن أكثر من تجميع فئوي واحد، مما يسمح لك بمقارنة القيم عبر أبعاد متعددة في آنٍ واحد. إنها مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات مركبة متعددة الطبقات.
+تُستخدم المخططات متعددة الفئات لعرض بيانات تتضمن أكثر من مجموعة فئوية واحدة، مما يُتيح لك مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. إنها مفيدة جدًا عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة متعددة الطبقات.
 
-هذا المثال ينشئ مخططًا عموديًا متجمعًا بثمانية فئات مُرتَّبة في أربعة أزواج. تُعطي طريقة [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) لكل زوج تسمية مشتركة على مستوى التجميع 1، مما ينتج محور فئات يحتوي على تسميات فردية ومجموعات معًا.
+ينشئ هذا المثال مخطط عمود مجمّع بثمانية فئات مرتبة في أربع أزواج. تُعطي الطريقة [setGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) لكل زوج تسمية مشتركة على مستوى التجميع 1، مُنتِجةً محور فئات يحتوي على تسميات فردية وجماعية.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1053,15 +1072,62 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
 ![مخطط متعدد الفئات](multi_category_chart.png)
 
+#### **إزالة تسمية ربع السنة**
+
+قم بتحميل [quarters.pptx](quarters.pptx) وضعه في دليل العمل. يُظهر المخطط فيه تسعة أشهر وسلسلة مبيعات واحدة بقيم من 10 إلى 18. على محور الفئات، يغطي Q1 شهر يناير إلى مارس، Q2 أبريل إلى يونيو، وQ3 يوليو إلى سبتمبر.
+
+الأبريل هو الفئة الرابعة (الفهرس 3) ويحمل تسمية Q2. استخدم [getGroupingLevels](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/getgroupinglevels/) للوصول إلى مستويات التجميع للأبريل، ثم استدعِ [deleteGroupingItem](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) بالمستوى 1 لإزالة تسمية الربع. المستوى 0 يمثل الشهر نفسه ولا يمكن إزالته بهذه الطريقة.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("quarters.pptx");
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopened = new aspose.slides.Presentation("quarters-updated.pptx");
+try {
+    const chart = reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    const data = chart.getChartData();
+
+    const categories = data.getCategories();
+    const months = [];
+    
+    for (let i = 0; i < categories.size(); i++) {
+        months.push(categories.get_Item(i).getAsCell().getValue());
+    }
+    const points = data.getSeries().get_Item(0).getDataPoints();
+    const sales = [];
+    for (let i = 0; i < points.size(); i++) {
+        sales.push(points.get_Item(i).getValue().getData());
+    }
+    console.log(months.join(", "));
+    console.log(sales.join(", "));
+} finally {
+    reopened.dispose();
+}
+```
+
+بعد إعادة فتح المخطط، يطبع المثال الأشهر الأصلية (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) وقيم المبيعات (`10, 11, 12, 13, 14, 15, 16, 17, 18`) بنفس الترتيب. افتح `quarters-updated.pptx` في PowerPoint للمقارنة بين تسميات المحور. تختفي تسمية Q2 والحد الفئوي قبل أبريل، لذا يمتد Q1 من يناير إلى يونيو. لا يزال Q3 يبدأ في يوليو.
+
+![تسميات الربع قبل وبعد الإزالة. على اليسار، Q2 يغطي أبريل إلى يونيو. على اليمين، Q1 يغطي يناير إلى يونيو.](quarter-label-comparison.png)
+
 ### **إنشاء مخططات خريطة**
 
-تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. إنها مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
+تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عبر ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. إنها مفيدة جدًا لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصريًا.
 
-هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
+يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط خريطة ببيانات جغرافية افتراضية ويحفظه للعرض في PowerPoint.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1081,21 +1147,21 @@ finally
 }
 ```
 
-الناتج:
+النتيجة:
 
 ![مخطط خريطة](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-الصورة أعلاه تُظهر العرض المحفوظ مفتوحًا في PowerPoint. تقوم Aspose.Slides بكتابة مخطط الخريطة وبياناته بشكل صحيح، لكنها لا ترسم مخططات الخريطة نفسها: عندما يُتمثَّل شريحة تحتوي واحدة إلى صورة أو يُحوَّل إلى PDF أو SVG، يصبح مجال المخطط فارغًا. الأشكال الأخرى على الشريحة نفسها لا تتأثر.
+الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. تُكتب مخططات الخريطة وبياناتها بشكل صحيح بواسطة Aspose.Slides، لكنها لا تُرسم نفسها؛ عندما يُُترجم شريحة تحتوي على مخطط خريطة إلى صورة أو يُحوَّل إلى PDF أو SVG، يصبح مساحة المخطط فارغة. لا تتأثر الأشكال الأخرى على نفس الشريحة.
 {{% /alert %}}
 
 ### **إنشاء مخططات مركبة**
 
-المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعات بيانات متعددة، مما يساعدك على تحديد العلاقات بينها.
+المخطط المركب (أو مخطط المجموعة) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-![مخطط مركب](combination_chart.png)
+![المخطط المركب](combination_chart.png)
 
-هذا المثال يجمع سلسلتين عموديتين متجمعتين مع سلسلة خطية عبر أربع فئات. تُستخدم الأعمدة المحور الرأسي الأساسي، بينما تضع طريقة [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) الخط على محور رأسي ثانوي على اليمين. تُكوِّن الدوال المساعدة العنوان، الوسيلة الإيضاحية، تسميات المحاور، وخطوط الشبكة.
+يُجمع هذا المثال سلسلتين من الأعمدة المجمّعة مع سلسلة خطية عبر أربع فئات. تُستخدم الأعمدة المحور العمودي الأساسي، بينما تُضع الطريقة [setPlotOnSecondAxis](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setplotonsecondaxis/) الخط على محور عمودي ثانوي على اليمين. تُكوّن الدوال المساعدة العنوان، الأسطورة، تسميات المحاور، وخطوط الشبكة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1262,9 +1328,9 @@ createComboChart();
 
 ## **تحديث المخططات**
 
-يوفر Aspose.Slides for Node.js via Java إمكانية تحديث مخططات PowerPoint من خلال تعديل بيانات المخطط، التنسيق، والأسلوب. تبسط هذه الوظيفة عملية إبقاء العروض التقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات والمعايير البصرية الحالية.
+تمكِّنك Aspose.Slides لـ Node.js عبر Java من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، تنسيقه، وتنسيقه البصري. تُبسّط هذه الخاصية عملية الحفاظ على تحديث العروض التقديمية بالمحتوى الديناميكي وتضمن أن المخططات تعكس البيانات الحالية والمعايير البصرية بدقة.
 
-هذا المثال يحدّث المخطط المسمى "My chart" في الشريحة الأولى من عرض تقديمي موجود. يتطلب سلسلتين عموديتين بثلاث نقاط بيانات لكل منهما، مع تسميات الفئات في العمود A وأسماء السلاسل في الصف الأول من ورقة العمل الأولى. يستخدم المثال [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) لتغيير خلايا دفتر العمل، يُحدّث قيم السلسلة، يضيف سلسلة ثالثة، ويغيّر نوع المخطط إلى أسطوانات متجمعة عبر [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
+يُحدِّث هذا المثال المخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلب وجود سلسلتي عمود بثلاث نقاط بيانات لكل منهما، مع تسميات فئات في العمود A وأسماء سلاسل في الصف الأول من أول ورقة عمل. يستخدم المثال [getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) لتغيير خلايا دفتر العمل، يحدِّث قيم السلسلة، يُضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانة مجمّعة عبر [setType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/settype/).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1326,13 +1392,13 @@ finally
 }
 ```
 
-## **تحديد نطاق البيانات لمخطط**
+## **تعيين نطاق البيانات لمخطط**
 
-للتفحص النطاق المستعمل بالفعل من قبل مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
+لتفحص النطاق المستخدم بالفعل من قبل مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/nodejs-java/chart-workbook/#retrieve-a-charts-data-range).
 
-يوفر Aspose.Slides for Node.js via Java المرونة لتعريف نطاق بيانات محدد من ورقة عمل كمصدر لبيانات المخطط الخاص بك. يعني هذا أنه يمكنك ربط جزء من ورقة العمل مباشرة بالمخطط، مما يتيح لك التحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاتها. نتيجة لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، مع ضمان أن عروض PowerPoint الخاصة بك تعكس معلومات حديثة ودقيقة.
+توفر Aspose.Slides لـ Node.js عبر Java المرونة لتعريف نطاق بيانات محدد من ورقة عمل كمصدر لبيانات مخططك. يعني هذا أنك يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يتيح لك التحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاته. وبالتالي، يمكنك تحديث ومزامنة مخططاتك بسهولة مع أحدث تغيّر في بيانات ورقة العمل، لضمان أن عروض PowerPoint تعكس معلومات دقيقة ومُحدَّثة.
 
-هذا المثال يستخدم [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) لتعيين مصدر البيانات للمخطط المسمى "My chart" في الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاقً مُملأً برأس سلسلة في الصف الأول، وتسميات فئات في العمود A، وثلاث قيم في العمود B.
+يستخدم هذا المثال الطريقة [setRange](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/setrange/) لتعيين مصدر البيانات للمخطط المسمى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُعبأ مع عنوان سلسلة في الصف الأول، تسميات فئات في العمود A، وثلاث قيم في العمود B.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1367,7 +1433,7 @@ finally
 
 عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-هذا المثال يستخدم [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط بسلسلتين خطيتين ووسيلة إيضاح. تُحافظ إعدادات العلامة التي تُستخرج عبر [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) على رموز العلامات المعينة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة ممثلة بـ `null`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
+يستخدم هذا المثال الدالة [addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) لإنشاء مخطط بسلسلتين خطيتين وأساطير. تُعيد إعدادات العلامة التي يتم الوصول إليها عبر [getMarker](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getmarker/) الرموز المُعيَّنة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة تم تمثيلها بـ `null`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -1430,20 +1496,20 @@ finally
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**ما أنواع المخططات التي يدعمها Aspose.Slides for Node.js via Java؟**
+**ما هي أنواع المخططات التي تدعمها Aspose.Slides لـ Node.js عبر Java؟**
 
-يدعم Aspose.Slides for Node.js via Java مجموعة واسعة من أنواع المخططات، بما في ذلك العمودية، الخطية، الدائرية، المساحية، المبعثرة، التكرارية، الرادارية، والعديد غيرها. تُتيح لك هذه المرونة اختيار النوع الأنسب لاحتياجاتك في تصور البيانات.
+تدعم Aspose.Slides لـ Node.js عبر Java مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبعثرة، الهيستوجرام، الرادار، والعديد غيرها. تُتيح لك هذه المرونة اختيار النوع الأنسب لتصوير بياناتك.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، تقوم أولاً بإنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)، تستعيد الشريحة المطلوبة باستخدام فهرسها، ثم تستدعي الطريقة لإضافة مخطط، محددًا نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك التقديمي.
+لإضافة مخطط، أولاً أنشئ مثالًا من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)، استرجع الشريحة المطلوبة باستخدام الفهرس، ثم استدعِ الطريقة لإضافة مخطط، محددًا نوع المخطط والبيانات الأولية. يدمج هذا الإجراء المخطط مباشرةً في عرضك.
 
 **كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط بالوصول إلى دفتر عمل البيانات الخاص به ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط برمجيًا لتعكس أحدث البيانات.
+يمكنك تحديث بيانات المخطط عبر الوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط برمجيًا لعكس أحدث البيانات.
 
-**هل يمكن تخصيص مظهر المخطط؟**
+**هل من الممكن تخصيص مظهر المخطط؟**
 
-نعم، يوفر Aspose.Slides for Node.js via Java خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل الإيضاحية، وعناصر التنسيق الأخرى لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.
+نعم، تقدم Aspose.Slides لـ Node.js عبر Java خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، الملصقات، الأساطير، وعناصر التنسيق الأخرى لتكييف مظهر المخطط وفقًا لمتطلبات التصميم الخاصة بك.

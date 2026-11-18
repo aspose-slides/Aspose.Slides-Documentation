@@ -1,5 +1,5 @@
 ---
-title: สร้างหรืออัปเดตแผนภูมิการนำเสนอ PowerPoint บน Android
+title: สร้างหรืออัปเดตแผนภูมิในงานนำเสนอ PowerPoint บน Android
 linktitle: สร้างหรืออัปเดตแผนภูมิ
 type: docs
 weight: 10
@@ -8,55 +8,53 @@ keywords:
 - เพิ่มแผนภูมิ
 - สร้างแผนภูมิ
 - แก้ไขแผนภูมิ
-- เปลี่ยนแผนภูมิ
+- เปลี่ยนแปลงแผนภูมิ
 - อัปเดตแผนภูมิ
 - แผนภูมิกระจาย
 - แผนภูมิวงกลม
 - แผนภูมิเส้น
-- แผนภูมิต้นไม้
-- แผนภูมิสต็อก
+- แผนภูมิมาเปริด
+- แผนภูมิหุ้น
 - แผนภูมิกล่องและวิสกอร์
 - แผนภูมิกรวย
 - แผนภูมิดวงอาทิตย์
-- แผนภูมิโฮสโตแกรม
-- แผนภูมิเ�รดาร์
-- แผนภูมิหลายประเภท
+- แผนภูมิเฮิสโตแกรม
+- แผนภูมิเสา
+- แผนภูมิหลายหมวดหมู่
 - PowerPoint
 - การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิพร้อมตัวอย่างโค้ดที่ใช้งานได้จริงใน Java."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดเชิงปฏิบัติใน Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้ให้คำแนะนำแบบครบวงจรเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides for Android via Java คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิไปยังสไลด์ด้วยโค้ด, เติมข้อมูลให้แผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ รายละเอียดโค้ดตัวอย่างในบทความจะแสดงขั้นตอนแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจกต์แผนภูมิ ไปจนถึงการกำหนดซีรีส์, แกน, และเลเจนด์ ด้วยการทำตามคำแนะนำนี้ คุณจะเข้าใจวิธีผสานการสร้างแผนภูมิกระ动态เข้าสู่แอปพลิเคชัน Android ของคุณได้อย่างราบรื่น
+บทความนี้ให้คำแนะนำโดยละเอียดเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides สำหรับ Android ผ่าน Java คุณจะได้เรียนรู้วิธีการเพิ่มแผนภูมิลงในสไลด์โดยโปรแกรม การใส่ข้อมูลลงในแผนภูมิ และการใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตลอดบทความ มีตัวอย่างโค้ดที่ละเอียดแสดงแต่ละขั้นตอน ตั้งแต่การเริ่มต้น Presentation และอ็อบเจ็กต์แผนภูมิ ไปจนถึงการกำหนด Series, แกน, และ Legend การทำตามคำแนะนำนี้จะช่วยให้คุณเข้าใจการรวมการสร้างแผนภูมิแบบไดนามิกเข้าสู่แอปพลิเคชัน Android ของคุณได้อย่างมั่นคงและทำให้กระบวนการสร้างงานนำเสนอที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลอย่างรวดเร็วและค้นพบข้อสังเกตที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิกระตุ้นให้ผู้คนมองเห็นข้อมูลได้อย่างรวดเร็วและสกัดพบข้อสรุปที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-การใช้แผนภูมิ คุณสามารถ:
+โดยใช้แผนภูมิคุณสามารถ:
 
-* รวบรวม, ย่อ, หรือสรุปข้อมูลจำนวนมากในสไลด์เดียวของงานนำเสนอ;
-* เปิดเผยรูปแบบและแนวโน้มของข้อมูล;
-* สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเปรียบเทียบกับหน่วยวัดที่กำหนด;
-* พบค่าผิดปกติ, ความเบี่ยงเบน, ข้อผิดพลาด, และข้อมูลที่ไม่มีเหตุผล;
+* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากลงในสไลด์เดียวในงานนำเสนอ;
+* เปิดเผยรูปแบบและแนวโน้มในข้อมูล;
+* สรุปทิศทางและโมเมนตัมของข้อมูลตามช่วงเวลา หรือเมื่อตามหน่วยวัดเฉพาะ;
+* ระบุค่าผิดปกติ, ความเบี่ยงเบน, ข้อมูลที่ผิดพลาด, หรือข้อมูลที่ไม่มีความหมาย;
 * สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *แทรก* ซึ่งมีเทมเพลตสำหรับออกแบบแผนภูมิต่าง ๆ  ด้วย Aspose.Slides คุณสามารถสร้างทั้งแผนภูมิปกติ (ตามประเภทแผนภูมิที่นิยม) และแผนภูมิแบบกำหนดเอง
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งให้เทมเพลตสำหรับออกแบบหลายประเภทของแผนภูมิ ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิยอดนิยม) และแผนภูมิที่กำหนดเองได้
 
 {{% alert color="info" title="Note" %}}
-
-ใช้การ​enumer​ation [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ในแพคเกจ [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) ค่าต่าง ๆ ใน enumeration นี้สอดคล้องกับประเภทแผนภูมิที่แตกต่างกัน
-
+Use the [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeration in the [com.aspose.slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/) package. The values in this enumeration correspond to different chart types.
 {{% /alert %}}
 
 ### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิคอลัมน์แบบกลุ่มที่เปรียบเทียบสองซีรีส์ในสามหมวดหมู่ ซีรีส์ใช้สีเติมแดงและเขียว และป้ายชื่อแสดงชื่อหมวด, ชื่อซีรีส์, และค่า ดัชนีแผ่นงาน 0 หมายถึงแผ่นแรกในเวิร์กบุ๊กแผนภูมิที่ฝังมา
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a clustered column chart that compares two series across three categories. The series use red and green fills, and individual labels demonstrate category names, series names, and values. Worksheet index 0 refers to the first sheet in the embedded chart workbook.
 
 ```java
 import com.aspose.slides.*;
@@ -135,22 +133,22 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![แผนภูมิคอลัมน์แบบกลุ่ม](clustered_column_chart.png)
 
 ### **สร้างแผนภูมิกระจาย**
 
-แผนภูมิกระจาย (หรือ scatter plot, กราฟ x‑y) มักใช้เพื่อตรวจสอบรูปแบบหรือแสดงความสัมพันธ์ระหว่างสองตัวแปร
+Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
 
-ใช้แผนภูมิกระจายเมื่อ:
+Use a scatter chart when:
 
-* คุณมีข้อมูลตัวเลขคู่
-* คุณมีสองตัวแปรที่จับคู่กันได้ดี
-* คุณต้องการตรวจสอบว่าตัวแปรสองตัวนี้เกี่ยวข้องกันหรือไม่
-* คุณมีตัวแปรอิสระที่มีหลายค่าเชื่อมกับตัวแปรตาม
+* You have paired numerical data.
+* You have two variables that pair well together.
+* You want to determine whether the two variables are related.
+* You have an independent variable that has multiple values for a dependent variable.
 
-ตัวอย่างนี้วางค่าที่เป็นคู่ของ x‑y สองชุด ชุดแรกใช้เส้นตรงกับสัญลักษณ์ดาว, ชุดที่สองใช้เส้นโค้งกับสัญลักษณ์วงกลม; ทั้งสองใช้ขนาดสัญลักษณ์ 10 โดยกำหนดด้วย [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). วิธี [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) ควบคุมรูปร่างของสัญลักษณ์
+This example plots two sets of x-y values. The first series uses straight lines with star markers, while the second uses smooth lines with circle markers; both use a marker size of 10, configured with [setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSize-int-). The [setSymbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imarker/#setSymbol-int-) method controls the marker shape.
 
 ```java
 import com.aspose.slides.*;
@@ -216,15 +214,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Scatter chart](scatter_chart.png)
+![แผนภูมิกระจาย](scatter_chart.png)
 
 ### **สร้างแผนภูมิวงกลม**
 
-แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วน‑ต่อ‑ทั้งหมดของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือป้ายจำนวนมาก คุณอาจต้องพิจารณาใช้แผนภูมิบาร์แทน
+Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
 
-ตัวอย่างนี้สร้างแผนภูมิวงกลมที่มีค่าตามไตรมาสสามค่า แต่ละส่วนมีการเติมสีและขอบที่กำหนดเอง และป้ายชื่อแสดงการผสมผสานของค่า, เปอร์เซ็นต์, และข้อมูลซีรีส์ วิธี [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) กำหนดให้ส่วนแรกเริ่มที่ 180 องศา
+This example creates a pie chart with three quarterly values. Each slice has a custom fill and border, and the labels display different combinations of values, percentages, and series information. The [setFirstSliceAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) method sets the first slice to start at 180 degrees.
 
 ```java
 import com.aspose.slides.*;
@@ -323,17 +321,17 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Pie chart](pie_chart.png)
+![แผนภูมิวงกลม](pie_chart.png)
 
-เพื่อปรับปรุงการอ่านป้ายชื่อที่อยู่นอกวงกลม ให้ดูตัวอย่าง [Format Leader Lines](/slides/th/androidjava/chart-data-label/#format-leader-lines) ซึ่งอธิบายการจัดตำแหน่งป้ายชื่อและการปรับสี, ความกว้าง, ความโปร่งใส, และรูปแบบเส้นของลิงก์
+To improve the readability of labels outside the pie, see [Format Leader Lines](/slides/th/androidjava/chart-data-label/#format-leader-lines) for an example that positions labels and customizes the lines' color, width, transparency, and dash style.
 
 ### **สร้างแผนภูมิเส้น**
 
-แผนภูมิเส้น (หรือ line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ด้วยแผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติในซีรีส์ข้อมูล, และอื่น ๆ
+Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิเส้นที่มีซีรีส์และหมวดหมู่เริ่มต้น, แล้วบันทึกเป็นไฟล์ PPTX
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a line chart with the default series and categories, then saves the presentation as PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -353,7 +351,7 @@ finally
 }
 ```
 
-โดยปกติ จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ ให้เรียก [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) พร้อมค่าจาก [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
+By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, call [setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) with a value from [LineDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -376,15 +374,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Line chart](line_chart.png)
+![แผนภูมิเส้น](line_chart.png)
 
-### **สร้างแผนภูมิต้นไม้ (Tree Map)**
+### **สร้างแผนภูมิมาตรฐานต้นไม้ (Tree Map)**
 
-แผนภูมิต้นไม้เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของประเภทข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้สนับสนุนหลักในแต่ละประเภทอย่างรวดเร็ว
+Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
 
-ตัวอย่างนี้สร้างแผนภูมิต้นไม้ที่มีใบแปดใบ แบ่งเป็นสเตม์สี่สเตม์และสาขาสองสาขา วิธี [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) กำหนดสเตม์ที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ค่าใช้ในการกำหนดขนาดสี่เหลี่ยมสัมพัทธ์, ป้ายชื่อประเภทและป้ายชื่อพาเรนท์ที่ซ้อนทับระบุลำดับชั้น
+This example creates a tree map with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) method assigns stems at grouping level 1 and branches at level 2. Values determine the relative rectangle sizes, while category labels and overlapping parent labels identify the hierarchy.
 
 ```java
 import com.aspose.slides.*;
@@ -463,28 +461,28 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Treemap chart](treemap_chart.png)
+![แผนภูมิมาตรฐานต้นไม้](treemap_chart.png)
 
-### **สร้างแผนภูมือน้ำตก (Waterfall)**
+### **สร้างแผนภูมิแบบน้ำพุ (Waterfall)**
 
-แผนภูมือน้ำตกแสดงว่าการเปลี่ยนแปลงบวกและลบมีส่วนทำให้ค่าสุดท้ายเป็นเท่าไร ตัวอย่างเช่น การแบ่งกำไรอาจเริ่มจากรายได้, หักต้นทุน, แล้วบวกรายได้อื่น ๆ คอลัมน์การเปลี่ยนแปลงลอยระหว่างค่าที่ทำงานก่อนหน้าและค่าที่ใหม่, ส่วนคอลัมน์รวมจะเริ่มจากศูนย์จนถึงค่าที่สะสม
+A waterfall chart shows how positive and negative changes contribute to a final value. For example, a profit breakdown can start with revenue, subtract costs, and add other income. Change columns float between the previous and new running values, while total columns extend from zero to the accumulated value.
 
-ตัวอย่างต่อไปใช้จำนวนเป็นหน่วยพันดอลลาร์สหรัฐ:
+The following example uses amounts in thousands of US dollars:
 
-| Category | Workbook value | Column type |
+| หมวดหมู่ | ค่า Workbook | ประเภทคอลัมน์ |
 | --- | ---: | --- |
-| Revenue | 1000 | Increase |
-| Cost of sales | -400 | Decrease |
-| Gross profit | 600 | Intermediate total |
-| Operating expenses | -200 | Decrease |
-| Other income | 50 | Increase |
-| Net profit | 450 | Final total |
+| รายได้ | 1000 | เพิ่ม |
+| ต้นทุนการขาย | -400 | ลด |
+| กำไรขั้นต้น | 600 | รวมระหว่าง |
+| ค่าใช้จ่ายดำเนินงาน | -200 | ลด |
+| รายได้อื่น | 50 | เพิ่ม |
+| กำไรสุทธิ | 450 | รวมสุดท้าย |
 
-เพื่อกำหนดจุดให้เป็นผลรวมระดับกลางหรือระดับสุดท้าย ให้เรียกเมธอด [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) ของจุดนั้นด้วยค่า `true` แล้วใส่จำนวนที่สะสมจริงในเซลล์เวิร์กบุ๊กของจุดนั้น: `600` สำหรับกำไรขั้นต้น (`1000 - 400`) และ `450` สำหรับกำไรสุทธิ (`600 - 200 + 50`) เมธอดนี้ทำเครื่องหมายคอลัมน์ว่าเป็นผลรวม; มันไม่ได้คำนวณหรือเติมค่าในเซลล์ อย่าใช้ศูนย์เป็นตัวแทนหรือใส่การเปลี่ยนแปลงอื่นสำหรับจุดผลรวม คอลัมน์ผลรวมจะแสดงค่าที่สะสมโดยไม่บวกค่าอีกครั้งเข้ากับค่าที่ทำงาน
+To mark a point as an intermediate or final total, call its [setSetAsTotal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) method with `true`. Supply the actual accumulated amount in that point's workbook cell: `600` for gross profit (`1000 - 400`) and `450` for net profit (`600 - 200 + 50`). The method marks the column as a total; it does not calculate or populate the cell value. Do not use zero as a placeholder or supply another change for a total point. A total column displays the accumulated value without adding it again to the running value.
 
-ตัวอย่าง Java ครบชุดนี้สร้างแผนภูมิโดยใช้สมาชิก `Waterfall` ของ [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), ล้างข้อมูลเริ่มต้น, แล้วเติมเวิร์กบุ๊กฝังอยู่ ดัชนีแผ่นงาน `0` เลือกแผ่นแรก; คอลัมน์ A มีชื่อหมวด, คอลัมน์ B มีค่า แต่ละเซลค่าจะถูกเพิ่มด้วย [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). ดัชนีจุดเริ่มจากศูนย์ `2` และ `5` ระบุผลรวมระดับกลางและสุดท้าย การเรียก [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) ด้วย `true` จะทำให้แสดงจำนวนบนคอลัมน์ ไม่ต้องมีการนำเสนอหรือเวิร์กบุ๊กเข้า
+This complete Java example creates a chart using the `Waterfall` member of [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/), clears the default data, and fills the embedded workbook. Worksheet index `0` selects the first worksheet; column A contains category names and column B contains values. Each value cell is added with [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). The zero-based point indices `2` and `5` identify the intermediate and final totals. Calling [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) with `true` displays the amounts on the columns. No input presentation or workbook is required.
 
 ```java
 import com.aspose.slides.*;
@@ -522,7 +520,7 @@ try
         series.getDataPoints().addDataPointForWaterfallSeries(valueCell);
     }
 
-    // จุดที่สามและจุดที่หกเป็นผลรวม, ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
+    // จุดที่สามและหกเป็นผลรวม ไม่ใช่การเปลี่ยนแปลงเพิ่มเติม.
     series.getDataPoints().get_Item(2).setSetAsTotal(true);
     series.getDataPoints().get_Item(5).setSetAsTotal(true);
     series.setShowConnectorLines(true);
@@ -536,27 +534,34 @@ finally
 }
 ```
 
-เรียกเมธอดระดับซีรีส์ [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) ด้วย `true` เพื่อแสดงเส้นเชื่อมคอลัมน์ต่อเนื่องและทำให้ค่าที่ทำงานตามลำดับง่ายต่อการติดตาม หากต้องการซ่อนเส้นเหล่านี้ ให้แทนที่การเรียกเมธอดในตัวอย่างด้วย `series.setShowConnectorLines(false);` ก่อนบันทึก การเปลี่ยนแปลงนี้มีผลต่อการมองเห็นเส้นเท่านั้น ไม่กระทบข้อมูลหรือผลรวม
+Call the series-level [setShowConnectorLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) method with `true` to show lines linking consecutive columns and make the running value easier to follow. To hide these lines, replace the method call in the example with `series.setShowConnectorLines(false);` before saving. This changes only the line visibility, not the data or totals.
 
-การบันทึกงานนำเสนอแสดงกำไรขั้นต้น 600 และกำไรสุทธิ 450, โดยผลรวมทั้งสองถูกคำนวณจากศูนย์:
+The saved presentation shows gross profit of 600 and net profit of 450, with both totals drawn from zero:
 
-![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
+![แผนภูมิน้ำพุแสดงรายได้, ต้นทุน, กำไรขั้นต้น 600, และกำไรสุทธิ 450, พร้อมป้ายค่าและเส้นเชื่อมต่อ](waterfall_chart.png)
 
 ### **สร้างแผนภูมิหุ้น (Stock)**
 
-แผนภูมิหุ้นใช้แสดงข้อมูลการเงินเช่น ราคาเปิด, สูง, ต่ำ, และปิด, ช่วยวิเคราะห์แนวโน้มและความผันผวนของตลาด มันให้ข้อมูลสำคัญเกี่ยวกับประสิทธิภาพของหุ้น เพื่อสนับสนุนการตัดสินใจของนักลงทุนและนักวิเคราะห์
+Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
 
-ตัวอย่างนี้สร้างแผนภูมิประเภท open‑high‑low‑close ที่มีซีรีส์สี่ชุดตามลำดับและหมวดหมู่สามชุด เมธอด [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) เปิดใช้งานบาร์ขึ้น/ลง, และ [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) ควบคุมเส้น high‑low ที่แสดงช่วงราคา, ส่วนเส้นของซีรีส์แยกและเส้นกริดย่อยระดับแนวนอนจะถูกซ่อน
+This example creates an open-high-low-close chart with four series in that order and three categories. The [setUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) method enables up/down bars, and [getHiLowLinesFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) controls the high-low lines that show the price ranges, while the individual series lines and minor horizontal gridlines are hidden.
+
+The manager returned by [getUpDownBars](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) exposes separate formatting objects through [getUpBarsFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) and [getDownBarsFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--). Use each object's [getFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformat/#getFill--) and [getLine](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iformat/#getLine--) methods to set its fill and outline independently. This example uses green bars with dark-green outlines for rising intervals and orange-red bars with dark-red outlines for falling intervals.
+
+Provide numeric values for all four series at each category, with High and Low enclosing Open and Close. The bars compare Close with Open **within the same category**, not with the previous category: A falls from 72 to 25, while B rises from 25 to 38 and C rises from 38 to 50. Equal Open and Close values produce no visible filled interval. Up/down bars span Open–Close; high-low lines span Low–High. These bars belong to the series group and are not ordinary bar-chart series.
+
+This formatting also works with [Line and LineWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) charts containing at least two series in the same group and corresponding numeric values for each category. For these non-stacked line charts, up/down bars compare the first and last series: a higher last value produces an up bar, and a lower last value produces a down bar. Reversing those series reverses the classification. The example below uses [OpenHighLowClose](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/); do not assume that other stock, stacked-line, or 3D variants use the same data arrangement or interval interpretation.
 
 ```java
 import com.aspose.slides.*;
+import android.graphics.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -608,7 +613,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(Color.rgb(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -626,15 +644,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result, exported from PowerPoint:
 
-![The Stock chart](stock_chart.png)
+![แผนภูมิหุ้นที่แสดงช่วงที่ลดลงสีส้ม‑แดงสำหรับ A และช่วงที่เพิ่มสีเขียวสำหรับ B และ C](stock_chart.png)
 
 ### **สร้างแผนภูมิกล่องและวิสกอร์ (Box and Whisker)**
 
-แผนภูมิกล่องและวิสกอร์ใช้แสดงการกระจายของข้อมูลโดยสรุปมาตรการสถิติสำคัญ เช่น มัธยฐาน, ควอไทล์, และค่าผิดปกติ มันมีประโยชน์อย่างยิ่งในงานวิเคราะห์ข้อมูลสำรวจและการศึกษาเชิงสถิติ เพื่อให้เข้าใจความแปรปรวนของข้อมูลและระบุความผิดปกติได้อย่างรวดเร็ว
+Box and whisker charts are used to display the distribution of data by summarizing key statistical measures, such as the median, quartiles, and potential outliers. They are particularly useful in exploratory data analysis and statistical studies to quickly understand data variability and identify any anomalies.
 
-ตัวอย่างนี้สร้างแผนภูมิกล่องและวิสกอร์จากห้าค่า เมธอด [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) เลือกการคำนวณควอไทล์แบบ exclusive ตัวอย่างยังเปิดใช้งานเส้นค่าเฉลี่ย, สัญลักษณ์ค่าเฉลี่ย, จุดภายใน, และจุดค่าผิดปกติ
+This example creates a box and whisker chart from six values. The [setQuartileMethod](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setQuartileMethod-int-) method selects the exclusive quartile calculation. The example also enables mean lines, mean markers, inner points, and outlier points.
 
 ```java
 import com.aspose.slides.*;
@@ -696,9 +714,9 @@ finally
 
 ### **สร้างแผนภูมิกรวย (Funnel)**
 
-แผนภูมิกรวยใช้สำหรับแสดงกระบวนการที่มีขั้นตอนต่อเนื่องโดยปริมาณข้อมูลจะลดลงเมื่อดำเนินการจากขั้นตอนหนึ่งไปยังขั้นตอนถัดไป มันช่วยวิเคราะห์อัตราการแปลง, ระบุคอขวด, และติดตามประสิทธิภาพของกระบวนการขายหรือการตลาด
+Funnel charts are used to visualize processes that involve sequential stages, where the volume of data decreases as it progresses from one step to the next. They are especially helpful for analyzing conversion rates, identifying bottlenecks, and tracking the efficiency of sales or marketing processes.
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อเพิ่มแผนภูมิกรวยไปยังสไลด์แรกของงานนำเสนอที่มีอยู่ แทนที่ข้อมูลเริ่มต้นด้วยหกหมวดและค่าที่อยู่ในช่วง 50‑500 แล้วบันทึกงานนำเสนอที่อัปเดต งานนำเสนออินพุทต้องมีสไลด์อย่างน้อยหนึ่งสไลด์
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to add a funnel chart to the first slide of an existing presentation. It replaces the default data with six categories and values ranging from 50 to 500, then saves the updated presentation. The input presentation must contain at least one slide.
 
 ```java
 import com.aspose.slides.*;
@@ -752,15 +770,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Funnel chart](funnel_chart.png)
+![แผนภูมิกรวย](funnel_chart.png)
 
 ### **สร้างแผนภูมิดวงอาทิตย์ (Sunburst)**
 
-แผนภูมิดวงอาทิตย์ใช้แสดงข้อมูลเชิงลำดับขั้น, โดยระดับต่าง ๆ แสดงเป็นวงกบศูนย์กลาง มันช่วยอธิบายความสัมพันธ์ส่วน‑ต่อ‑ทั้งหมดและเหมาะสำหรับแสดงหมวดหมู่ย่อยและหมวดหมู่ย่อยที่ซ้อนกันในรูปแบบที่กระชับและชัดเจน
+Sunburst charts are used to visualize hierarchical data, displaying levels as concentric rings. They help illustrate part-to-whole relationships and are ideal for representing nested categories and subcategories in a clear, compact format.
 
-ตัวอย่างนี้สร้างแผนภูมิดวงอาทิตย์ที่มีใบแปดใบ แบ่งเป็นสเตม์สี่สเตม์และสาขาสองสาขา เมธอด [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) กำหนดสเตม์ที่ระดับการจัดกลุ่ม 1 และสาขาที่ระดับ 2 ป้ายชื่อประเภทระบุส่วนต่าง ๆ, ค่ากำหนดขนาดสัมพัทธ์ของแต่ละส่วน
+This example creates a sunburst chart with eight leaves grouped into four stems and two branches. The [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) method assigns stems at grouping level 1 and branches at level 2. Category labels identify the segments, and the values determine their relative sizes.
 
 ```java
 import com.aspose.slides.*;
@@ -837,19 +855,19 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Sunburst chart](sunburst_chart.png)
+![แผนภูมิดวงอาทิตย์](sunburst_chart.png)
 
-### **สร้างแผนภูมิฮิสโตแกรม (Histogram)**
+### **สร้างแผนภูมิเฮิสโตแกรม (Histogram)**
 
-แผนภูมิฮิสโตแกรมแสดงการกระจายของค่าตัวเลขผ่านช่วง (bins) สำหรับรายงานประจำเดือนเกี่ยวกับเวลาการประมวลผลคำสั่งซื้อ ให้ใช้ความกว้างของ bin และเกณฑ์เดียวกันเพื่อให้ช่วงสอดคล้องและทำให้การเปรียบเทียบการกระจายง่ายขึ้น
+Histogram charts show how numerical values are distributed across intervals (bins). For monthly reports on order processing times, use the same bin width and thresholds to keep intervals consistent and make distributions easier to compare.
 
-เรียก [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) บนแกนแนวนอนด้วยโหมดจาก [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) ใช้กับ `ByBinWidth` เท่านั้น; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) ใช้กับ `ByNumberOfBins` เท่านั้น ใช้ `Automatic` เพื่อให้แผนภูมิกำหนด bin โดยอัตโนมัติ
+Call [setAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAggregationType-int-) on the horizontal axis with a mode from [AxisAggregationType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setBinWidth-double-) applies only to `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberOfBins-long-) applies only to `ByNumberOfBins`. Use `Automatic` to let the chart choose the bins.
 
 #### **ใช้ความกว้างของ Bin คงที่**
 
-ตัวอย่างนี้จัดกลุ่มเวลาประมวลผลเป็นช่วง 10 นาที, โดยมี bin พิเศษสำหรับเวลาที่ ≤ 10 นาทีและ > 40 นาที เปิดใช้งาน bin เหล่านี้ด้วย [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) และ [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). เมื่อกำหนดเกณฑ์อย่างชัดเจนผ่าน [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) และ [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), เรียก [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) และ [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) ด้วยค่า `false`
+This example groups processing times into 10-minute intervals, with separate bins for times at or below 10 minutes and above 40 minutes. Enable these bins with [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-boolean-) and [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-boolean-). When supplying explicit thresholds through [setUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setUnderflowBin-double-) and [setOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setOverflowBin-double-), call [setAutomaticUnderflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticUnderflowBin-boolean-) and [setAutomaticOverflowBin](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setAutomaticOverflowBin-boolean-) with `false`.
 
 ```java
 import com.aspose.slides.*;
@@ -896,13 +914,13 @@ finally
 }
 ```
 
-การนำเสนอที่แสดงใน PowerPoint มีจำนวนในแต่ละ bin **3, 4, 4, 4, และ 2**. bin underflow ประกอบด้วย `5, 10, 10` ดังนั้นเกณฑ์เป็นแบบรวม. bin overflow มีเพียง `41, 50` ดังนั้นเกณฑ์เป็นแบบไม่รวม; ค่าที่เท่ากับ `40` จะอยู่ในช่วงก่อนหน้า. bin ภายในมีค่า > ขอบล่างและ ≤ ขอบบน
+The presentation displayed in PowerPoint shows bin counts of **3, 4, 4, 4, and 2**. The underflow bin includes `5, 10, 10`, so its threshold is inclusive. The overflow bin includes only `41, 50`, so its threshold is exclusive; both values equal to `40` remain in the preceding interval. The interior bins contain values greater than their lower boundary and less than or equal to their upper boundary.
 
-![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
+![ฮิสโตแกรมด้วย Bin 10 นาทีและเกณฑ์ underflow/overflow ที่ระบุอย่างชัดเจน](histogram_bin_width.png)
 
-#### **ระบุจำนวน Bin**
+#### **ระบุจำนวนของ Bin**
 
-สำหรับระดับรายละเอียดคงที่แทนช่วงคงที่ ให้ขอ five bins สำหรับข้อมูลเดียวกัน ตัวอย่างนี้ปิด bin underflow และ overflow ไว้ ผลลัพธ์แผนภูมิจะกำหนดความกว้างจากช่วงข้อมูล, ดังนั้นขอบเขตอาจเปลี่ยนระหว่างรายงาน
+For a fixed level of detail instead of fixed intervals, request five bins for the same data. This example leaves underflow and overflow bins disabled. The chart determines the width from the data range, so boundaries can change between reports.
 
 ```java
 import com.aspose.slides.*;
@@ -943,15 +961,15 @@ finally
 }
 ```
 
-ห้าบินมีจำนวน **4, 4, 4, 4, และ 1**. เปรียบเทียบการกระจายนี้กับผลลัพธ์ความกว้างคงที่ด้านบน: ค่าข้อมูลเหมือนกัน, แต่ขอบเขตต่างกัน
+The five bins have counts of **4, 4, 4, 4, and 1**. Compare this distribution with the fixed-width result above: the input values are identical, but the boundaries differ.
 
-![Histogram with five bins calculated from the same data](histogram_bin_count.png)
+![ฮิสโตแกรมด้วยห้าช่องที่คำนวนจากข้อมูลเดียวกัน](histogram_bin_count.png)
 
-### **สร้างแผนภูมิโรตี (Radar)**
+### **สร้างแผนภูมิเสา (Radar)**
 
-แผนภูมิโรตีใช้แสดงข้อมูลหลายมิติในรูปแบบสองมิติ, ทำให้เปรียบเทียบหลายตัวแปรพร้อมกันได้ง่าย มันเป็นประโยชน์สำหรับการระบุรูปแบบ, จุดแข็ง, และจุดอ่อนในเมตริกหรือคุณลักษณะการทำงานหลายรายการ
+Radar charts are used to display multivariate data in a two-dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิโรตีที่มีซีรีส์และหมวดหมู่เริ่มต้น, แล้วบันทึกเป็นไฟล์ PPTX
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a radar chart with the default series and categories, then saves the presentation as PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -971,15 +989,15 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Radar chart](radar_chart.png)
+![แผนภูมิเสา](radar_chart.png)
 
-### **สร้างแผนภูมิมหาประเภทหลาย (Multi-Category)**
+### **สร้างแผนภูมิมีหลายหมวดหมู่ (Multi-Category)**
 
-แผนภูมิมหาประเภทหลายใช้แสดงข้อมูลที่มีการจัดกลุ่มประเภทหลายระดับ, ให้คุณเปรียบเทียบค่าในหลายมิติพร้อมกัน มันช่วยเมื่อคุณต้องวิเคราะห์แนวโน้มและความสัมพันธ์ในชุดข้อมูลที่ซับซ้อนและหลายชั้น
+Multi-category charts are used to display data that involves more than one categorical grouping, allowing you to compare values across multiple dimensions simultaneously. They are particularly helpful when you need to analyze trends and relationships within complex, multi-layered datasets.
 
-ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีห้าหมวดจัดเป็นสี่คู่ เมธอด [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ให้แต่ละคู่มีป้ายร่วมที่ระดับการจัดกลุ่ม 1, ทำให้แกนประเภทมีทั้งป้ายย่อยและป้ายกลุ่ม
+This example creates a clustered column chart with eight categories arranged in four pairs. The [setGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) method gives each pair a shared label at grouping level 1, producing a category axis with both individual and group labels.
 
 ```java
 import com.aspose.slides.*;
@@ -1051,15 +1069,62 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The multi category chart](multi_category_chart.png)
+![แผนภูมิหลายหมวดหมู่](multi_category_chart.png)
 
-### **สร้างแผนภูมิเสียงแผนที่ (Map)**
+#### **ลบป้ายไตรมาส**
 
-แผนภูมิเสียงแผนที่ใช้เพื่อแสดงข้อมูลเชิงภูมิศาสตร์โดยแมปข้อมูลไปยังตำแหน่งเฉพาะ เช่น ประเทศ, รัฐ, หรือเมือง มันมีประโยชน์สำหรับวิเคราะห์แนวโน้มระดับภูมิภาค, ข้อมูลประชากร, และการกระจายเชิงพื้นที่ในรูปแบบที่ชัดเจนและดึงดูดสายตา
+Download [quarters.pptx](quarters.pptx) and place it in the working directory. Its chart shows nine months and a single sales series with values from 10 through 18. On the category axis, Q1 spans January through March, Q2 spans April through June, and Q3 spans July through September.
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิเสียงแผนที่ที่มีข้อมูลภูมิศาสตร์เริ่มต้นและบันทึกเพื่อดูใน PowerPoint
+April is the fourth category (index 3) and holds the Q2 label. Use [getGroupingLevels](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/#getGroupingLevels--) to access April's grouping levels, then call [deleteGroupingItem](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) with level 1 to remove its quarter label. Level 0 represents the month itself and cannot be removed with this method.
+
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+import android.text.TextUtils;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    List<String> months = new ArrayList<>();
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    List<String> sales = new ArrayList<>();
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(TextUtils.join(", ", months));
+    System.out.println(TextUtils.join(", ", sales));
+} finally {
+    reopened.dispose();
+}
+```
+
+After reopening the chart, the example prints the original months (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) and sales values (`10, 11, 12, 13, 14, 15, 16, 17, 18`) in the same order. Open `quarters-updated.pptx` in PowerPoint to compare the axis labels. The Q2 label and the group boundary before April disappear, so Q1 spans January through June. Q3 still begins in July.
+
+![เปรียบเทียบป้ายไตรมาสก่อนและหลังการลบ ด้านซ้าย Q2 ครอบคลุมเมษายน‑มิถุนายน ด้านขวา Q1 ครอบคลุมมกราคม‑มิถุนายน](quarter-label-comparison.png)
+
+### **สร้างแผนภูมิเพื่อแสดงแผนที่ (Map)**
+
+Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
+
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a map chart with the default geographical data and saves it for viewing in PowerPoint.
 
 ```java
 import com.aspose.slides.*;
@@ -1079,23 +1144,21 @@ finally
 }
 ```
 
-ผลลัพธ์:
+The result:
 
-![The Map chart](map_chart.png)
+![แผนภูมิแผนที่](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-
-ภาพด้านบนแสดงงานนำเสนอที่บันทึกแล้วเปิดใน PowerPoint. Aspose.Slides เขียนแผนภูมิเสียงแผนที่และข้อมูลได้อย่างถูกต้อง, แต่ไม่วาดแผนภูมิเสียงแผนที่เอง: เมื่อสไลด์ที่มีแผนภูมิเสียงแผนที่ถูกแปลงเป็นภาพหรือแปลงเป็น PDF หรือ SVG, พื้นที่แผนภูมิจะว่างเปล่า. รูปร่างอื่นบนสไลด์เดียวกันไม่ได้รับผลกระทบ
-
+The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
 {{% /alert %}}
 
-### **สร้างแผนภูมิผสม (Combination)**
+### **สร้างแผนภูมิกลุมน้ำผสม (Combination)**
 
-แผนภูมิผสม (หรือ combo chart) รวมสองประเภทแผนภูมหรือมากกว่าลงในกราฟเดียว แผนภูมินี้ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลสองชุดหรือมากกว่า, ช่วยระบุความสัมพันธ์ระหว่างกัน
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
-![The combination chart](combination_chart.png)
+![แผนภูมิกลุมน้ำผสม](combination_chart.png)
 
-ตัวอย่างนี้รวมสองซีรีส์คอลัมน์แบบกลุ่มกับซีรีส์เส้นหนึ่งชุดในสี่หมวด คอลัมน์ใช้แกนตั้งแนวตั้งหลัก, ขณะที่ [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) วางเส้นบนแกนตั้งแนวตั้งรองทางขวา ฟังก์ชันช่วยกำหนดหัวเรื่อง, เลเจนด์, ป้ายแกน, และเส้นกริด
+This example combines two clustered column series with a line series across four categories. The columns use the primary vertical axis, while [setPlotOnSecondAxis](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) places the line on a secondary vertical axis on the right. The helper functions configure the title, legend, axis labels, and gridlines.
 
 ```java
 import com.aspose.slides.*;
@@ -1266,9 +1329,9 @@ example.createComboChart();
 
 ## **อัปเดตแผนภูมิ**
 
-Aspose.Slides for Android via Java ให้คุณอัปเดตแผนภูมิ PowerPoint โดยแก้ไขข้อมูล, การจัดรูปแบบ, และสไตล์ ความสามารถนี้ทำให้การรักษาให้งานนำเสนอเป็นปัจจุบันด้วยเนื้อหาแบบไดนามิกง่ายขึ้น และทำให้แผนภูมิสอดคล้องกับข้อมูลและมาตรฐานภาพล่าสุด
+Aspose.Slides for Android via Java enables you to update PowerPoint charts by modifying chart data, formatting, and styling. This functionality simplifies the process of keeping presentations up-to-date with dynamic content and ensures that charts accurately reflect current data and visual standards.
 
-ตัวอย่างนี้อัปเดตแผนภูมิชื่อ “My chart” บนสไลด์แรกของงานนำเสนอที่มีอยู่ ต้องมีสองซีรีส์คอลัมน์ที่มีจุดข้อมูลสามจุดeach, ป้ายหมวดอยู่ในคอลัมน์ A และชื่อซีรีส์อยู่ในแถวแรกของแผ่นงานแรก ตัวอย่างใช้ [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) เพื่อเปลี่ยนเซลล์เวิร์กบุ๊ก, อัปเดตค่าซีรีส์, เพิ่มซีรีส์ที่สาม, และเปลี่ยนประเภทแผนภูมิเป็น cylinder กลุ่มโดยใช้ [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-)
+This example updates the chart named "My chart" on the first slide of an existing presentation. It requires two column series with three data points each, with category labels in column A and series names in the first row of the first worksheet. The example uses [getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) to change workbook cells, updates series values, adds a third series, and changes the chart to clustered cylinders through [setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1330,11 +1393,11 @@ finally
 
 ## **กำหนดช่วงข้อมูลสำหรับแผนภูมิ**
 
-เพื่อดูช่วงที่แผนภูมิใช้แล้ว, ดูที่ [Retrieve a Chart's Data Range](/slides/th/androidjava/chart-workbook/#retrieve-a-charts-data-range)
+To inspect the range already used by an existing chart, see [Retrieve a Chart's Data Range](/slides/th/androidjava/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for Android via Java ให้ความยืดหยุ่นในการกำหนดช่วงข้อมูลเฉพาะจากแผ่นงานเป็นแหล่งข้อมูลสำหรับแผนภูมิของคุณ ซึ่งหมายความว่าคุณสามารถแมปส่วนของแผ่นงานโดยตรงไปยังแผนภูมิ, ควบคุมว่าเซลล์ใดบ้างที่มีส่วนร่วมในซีรีส์และหมวดหมู่ของแผนภูมิ ผลลัพธ์คือคุณสามารถอัปเดตและซิงค์แผนภูมิของคุณกับข้อมูลล่าสุดในแผ่นงานได้ง่าย, ทำให้การนำเสนอ PowerPoint ของคุณสะท้อนข้อมูลที่ถูกต้องและทันสมัย
+Aspose.Slides for Android via Java provides the flexibility to define a specific data range from a worksheet as the source for your chart's data. This means you can directly map a portion of your worksheet to the chart, allowing you to control which cells contribute to the chart's series and categories. As a result, you can easily update and synchronize your charts with the latest data changes in your worksheet, ensuring that your PowerPoint presentations reflect current and accurate information.
 
-ตัวอย่างนี้ใช้ [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) เพื่อกำหนดแหล่งข้อมูลของแผนภูมิชื่อ “My chart” บนสไลด์แรกของงานนำเสนอที่มีอยู่เป็น `Sheet1!A1:B4`. แผ่นงานเวิร์กบุ๊กต้องมีแผ่นนั้นและช่วงที่เติมข้อมูลครบถ้วนโดยมีหัวซีรีส์ในแถวแรก, ป้ายหมวดในคอลัมน์ A, และค่าสามค่าในคอลัมน์ B
+This example uses [setRange](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#setRange-java.lang.String-) to set the data source of the chart named "My chart" on the first slide of an existing presentation to `Sheet1!A1:B4`. The chart workbook must contain that worksheet and a populated range with a series heading in the first row, category labels in column A, and three values in column B.
 
 ```java
 import com.aspose.slides.*;
@@ -1363,11 +1426,11 @@ finally
 }
 ```
 
-## **ใช้สัญลักษณ์เริ่มต้นในแผนภูมิ**
+## **ใช้ตัวทำเครื่องหมายเริ่มต้นในแผนภูมิ**
 
-เมื่อคุณใช้สัญลักษณ์เริ่มต้นในแผนภูมิ, แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์เริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+When you use default markers in charts, each chart series gets a different default marker symbol automatically.
 
-ตัวอย่างนี้ใช้ [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) เพื่อสร้างแผนภูมิที่มีสองซีรีส์เส้นและเลเจนด์ การตั้งค่าสัญลักษณ์ที่เข้าถึงผ่าน [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) รักษาสัญลักษณ์ที่กำหนดโดยอัตโนมัติ ซีรีส์แรกมีค่าลบและค่าที่หายไป (null), ส่วนซีรีส์ที่สองมีค่าทั้งหมดในแต่ละหมวด
+This example uses [addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) to create a chart with two line series and a legend. The marker settings accessed through [getMarker](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getMarker--) retain the automatically assigned marker symbols. The first series includes a negative value and a missing value, represented by `null`, while the second has a value for every category.
 
 ```java
 import com.aspose.slides.*;
@@ -1432,18 +1495,18 @@ finally
 
 ## **คำถามที่พบบ่อย**
 
-**ประเภทแผนภูมิที่ Aspose.Slides for Android via Java รองรับมีอะไรบ้าง?**
+**ประเภทแผนภูมิใดบ้างที่รองรับโดย Aspose.Slides สำหรับ Android ผ่าน Java?**
 
-Aspose.Slides for Android via Java รองรับแผนภูมิจำนวนมาก รวมถึงแผนภูมิแท่ง, เส้น, วงกลม, พื้นที่, กระจาย, ฮิสโตแกรม, โรตี, และอื่น ๆ อีกหลายประเภท ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้
+Aspose.Slides for Android via Java supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
 
 **ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/), ดึงสไลด์ตามดัชนีที่ต้องการ, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ พร้อมระบุประเภทแผนภูมิและข้อมูลเริ่มต้น กระบวนการนี้ผสานแผนภูมิเข้าไปในงานนำเสนอของคุณโดยตรง
+To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
 
 **ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กบุ๊กข้อมูลของมัน ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), ลบซีรีส์และหมวดหมู่เริ่มต้นออก, แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ วิธีนี้ช่วยให้คุณรีเฟรชแผนภูมิโดยโปรแกรมเพื่อให้แสดงข้อมูลล่าสุด
+You can update a chart's data by accessing its data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
 
 **สามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
 
-ได้, Aspose.Slides for Android via Java มีตัวเลือกการปรับแต่งอย่างครอบคลุม คุณสามารถแก้ไขสี, ฟอนท์, ป้ายชื่อ, เลเจนด์, และองค์ประกอบการจัดรูปแบบอื่น ๆ เพื่อให้แผนภูมิตรงตามความต้องการออกแบบของคุณ
+Yes, Aspose.Slides for Android via Java provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart's appearance to your specific design requirements.

@@ -9,51 +9,55 @@ aliases:
 keywords:
 - إضافة مخطط
 - إنشاء مخطط
-- تعديل مخطط
+- تحرير مخطط
 - تغيير مخطط
 - تحديث مخطط
 - مخطط مبعثر
 - مخطط دائري
 - مخطط خطي
-- مخطط شجري
+- مخطط شجرة
 - مخطط أسهم
-- مخطط صندوق وشوكة
-- مخطط قمعي
+- مخطط صندوق وحشيشة
+- مخطط قمع
 - مخطط شمسي
-- مخطط توزيعي
-- مخطط راداري
+- مخطط تكراري
+- مخطط رادار
 - مخطط متعدد الفئات
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للغة C++. إضافة، تنسيق، وتعديل المخططات مع أمثلة عملية بالكود في C++."
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides للغة C++. إضافة، تنسيق، وتحرير المخططات مع أمثلة شفرة عملية بلغة C++."
 ---
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملًا حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides للغة C++. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، وتعبئته بالبيانات، وتطبيق خيارات تنسيق متعددة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الكود المفصلة كل خطوة، بدءًا من تهيئة العرض (Presentation) وكائن المخطط إلى تكوين السلاسل والمحاور والوسائل الإيضاحية. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات C++ الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
+توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides for C++. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتلائم متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الشيفرة المفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسائل الإيضاحية. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقات C++ الخاصة بك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو جدول بيانات.
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتشاف رؤى قد لا تكون واضحة مباشرةً من جدول أو ورقة عمل.
 
-**لماذا إنشاء المخططات؟**
+**لماذا نُنشئ مخططات؟**
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛  
-* كشف الأنماط والاتجاهات في البيانات؛  
-* استنتاج اتجاه وزخم البيانات على مر الوقت أو بالنسبة لوحدة قياس معينة؛  
-* اكتشاف القيم الشاذة، والانحرافات، والأخطاء، والبيانات غير المنطقية؛  
-* نقل أو تقديم بيانات معقدة.
+باستخدام المخططات، يمكنك:
 
-في PowerPoint، يمكنك إنشاء مخططات عبر وظيفة *Insert*، التي توفر قوالب لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كل من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
+* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
+* إظهار الأنماط والاتجاهات في البيانات؛
+* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة لوحدة قياس معينة؛
+* اكتشاف القيم المتطرفة أو الشذوذ أو الأخطاء أو البيانات غير المنطقية؛
+* توصيل أو عرض بيانات معقدة.
+
+في PowerPoint، يمكنك إنشاء مخططات عبر وظيفة *إدراج* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كل من المخططات العادية (المعتمدة على أنواع المخططات الشائعة) والمخططات المخصصة.
 
 {{% alert color="info" title="Note" %}}
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ضمن مساحة الاسم [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). القيم في هذا التعداد تتطابق مع أنواع المخططات المختلفة.
+
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ضمن مساحة الاسم [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). القيم في هذا التعداد تمثل أنواع مخططات مختلفة.
+
 {{% /alert %}}
 
-### **إنشاء مخططات عمودية مجمعة**
+### **إنشاء مخططات عمودية متكتلة**
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط عمودي مجمع يقوم بمقارنة سلسلتين عبر ثلاث فئات. تستخدم السلاسل ملءً باللون الأحمر والأخضر، وتُظهر التسميات الفردية أسماء الفئات وأسماء السلاسل والقيم. يشير فهرس ورقة العمل 0 إلى الورقة الأولى في دفتر عمل المخطط المضمن.
+يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط عمودي متكتل يقارن بين سلسلتين عبر ثلاث فئات. تستخدم السلسلتان تعبئة حمراء وخضراء، وتظهر التسميات الفردية أسماء الفئات وأسماء السلسلة والقيم. يُشير فهرس ورقة العمل 0 إلى الورقة الأولى في دفتر عمل المخطط المضمّن.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -163,20 +167,20 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط العمودي المجمع](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **إنشاء مخططات مبعثرة**
 
-تُستخدم المخططات المبعثرة (المعروفة أيضًا بمخططات التبعثر أو الرسوم البيانية X‑Y) غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
+المخططات المبعثرة (المعروفة أيضًا باسم مخططات تشتت أو مخططات س-ص) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
-استخدم مخططًا مبثرًا عندما:
+استخدم مخططًا مبعثرًا عندما:
 
-* لديك بيانات عددية مزدوجة.  
-* لديك متغيران يرتبطان بشكل جيد معًا.  
-* تريد تحديد ما إذا كان المتغيران مرتبطين.  
+* لديك بيانات رقمية مُزوجة؛
+* لديك متغيران يتكاملان معًا؛
+* تريد تحديد ما إذا كان المتغيران مرتبطين؛
 * لديك متغير مستقل له قيم متعددة للمتغير التابع.
 
-يُظهر هذا المثال مجموعتين من قيم X‑Y. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم السلسلة الثانية خطوطًا سلسة مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، يتم تعيينه عبر [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). تتحكم طريقة [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) في شكل العلامة.
+هذا المثال يرسم مجموعتين من قيم س-ص. تستخدم السلسلة الأولى خطوطًا مستقيمة مع علامات نجمة، بينما تستخدم السلسلة الثانية خطوطًا سلسة مع علامات دائرة؛ كلاهما يستخدم حجم علامة 10، يتم تعيينه عبر [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). تتحكم طريقة [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) في شكل العلامة.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -266,13 +270,13 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![مخطط مبعثرة](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **إنشاء مخططات دائرية**
 
-تُستخدم المخططات الدائرية لإظهار علاقة الجزء بالكل في البيانات، خصوصًا عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد تفضل استخدام مخطط شريطي بدلاً منها.
+تُستخدم المخططات الدائرية لعرض علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد ترغب في النظر في استخدام مخطط شريطي بدلاً من ذلك.
 
-يُنشئ هذا المثال مخططًا دائريًا بثلاث قيم ربع سنوية. لكل شريحة ملء مخصص وحدود، وتعرض التسميات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تحدد طريقة [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) بدء الشريحة الأولى عند 180 درجة.
+هذا المثال ينشئ مخططًا دائريًا بثلاث قيم ربع سنوية. كل شريحة لها تعبئة وحدود مخصصة، وتعرض التسميات تركيبات مختلفة من القيم والنسب المئوية ومعلومات السلسلة. تُحدد طريقة [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) الشريحة الأولى لتبدأ عند 180 درجة.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -409,15 +413,15 @@ presentation->Save(u"PieChart.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط الدائري](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-لتحسين قابلية قراءة التسميات خارج الدائرة، راجع [Format Leader Lines](/slides/ar/cpp/chart-data-label/#format-leader-lines) للحصول على مثال يحدد موضع التسميات ويخصص لون الخطوط وعرضها وشفافيتها ونمطها المتقطع.
+لتحسين قابلية قراءة التسميات خارج الدائرة، راجع [Format Leader Lines](/slides/ar/cpp/chart-data-label/#format-leader-lines) للحصول على مثال يحدد موضع التسميات ويُخصص لون الخطوط وعرضها وشفافيتها ونمطها المتقطع.
 
 ### **إنشاء مخططات خطية**
 
-تُستخدم المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) عندما ترغب في إظهار تغير القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغييرات والاتجاهات بمرور الوقت، إبراز الشذوذ في سلاسل البيانات، وأكثر.
+تُستخدم المخططات الخطية (المعروفة أيضًا باسم مخططات الخط) في الحالات التي تريد فيها إظهار التغيّر في القيمة مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغيّرات والاتجاهات مع الزمن، إبراز الشذوذ في سلاسل البيانات، وأكثر.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خطي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خطي بالسلسلة والفئات الافتراضية، ثم يحفظ العرض التقديمي كـ PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -449,7 +453,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-بشكل افتراضي، تُربط النقاط في المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، استدعِ [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) مع قيمة من [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+بشكل افتراضي، تُربط نقاط المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت أن تُربط النقاط بخطوط متقطعة بدلًا من ذلك، استدعِ [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) بقيمة من [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -486,13 +490,13 @@ for (auto series : lineChart->get_ChartData()->get_Series())
 
 النتيجة:
 
-![المخطط الخطي](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **إنشاء مخططات شجرية (Tree Map)**
+### **إنشاء مخططات شجرة**
 
-تُستخدم المخططات الشجرية لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُشكل مساهمات كبيرة ضمن كل فئة.
+تُستخدم مخططات شجرة لعرض بيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تشكل مساهمات كبيرة داخل كل فئة.
 
-ينشئ هذا المثال مخططًا شجريًا ثماني الأوراق مقسّمة إلى أربعة جذوع وفرعين. تُعيّن طريقة [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) الجذوع على المستوى 1 والفروع على المستوى 2. تحدد القيم أحجام المستطيلات النسبية، بينما تُعرّف تسميات الفئات والتسميات المتداخلة الهرمية.
+هذا المثال ينشئ شجرة بثمانية أوراق مُجمعة في أربعة جذوع وفرعين. تُعيّن طريقة [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) الجذوع على مستوى التجميع 1 والفروع على المستوى 2. تُحدد القيم أحجام المستطيلات النسبية، بينما تُعرّف تسميات الفئات والتسميات المتداخلة للأبوة الهيكلية.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -598,26 +602,26 @@ presentation->Save(u"Treemap.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط الشجري](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **إنشاء مخططات شلالية (Waterfall)**
+### **إنشاء مخططات شلال**
 
-يُظهر المخطط الشلالي كيف تُساهم التغييرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، ثم يُطرح التكلفة، ثم يُضاف دخل آخر. تعوم أعمدة التغيير بين القيم المتراكمة السابقة والجديدة، بينما تمتد الأعمدة الكلية من الصفر إلى القيمة المتراكمة.
+يُظهر مخطط الشلال كيف تُسهم التغييرات الإيجابية والسلبية في القيمة النهائية. على سبيل المثال، يمكن أن يبدأ تحليل الربح بالإيرادات، يُطرح التكاليف، ثم يُضاف الدخل الآخر. تُطفو أعمدة التغيير بين القيم السابقة والجديدة، بينما تمتد الأعمدة الكلية من الصفر إلى القيمة المتراكمة.
 
-الجدول التالي يستخدم مبالغ بالآلاف من الدولار الأمريكي:
+المثال التالي يستخدم مبالغ بالآلاف من الدولار الأمريكي:
 
 | الفئة | قيمة دفتر العمل | نوع العمود |
 | --- | ---: | --- |
-| الإيراد | 1000 | زيادة |
-| تكلفة المبيعات | -400 | انخفاض |
-| الربح الإجمالي | 600 | إجمالي متوسط |
-| المصاريف التشغيلية | -200 | انخفاض |
+| الإيرادات | 1000 | زيادة |
+| تكلفة المبيعات | -400 | نقصان |
+| الربح الإجمالي | 600 | مجموع وسيط |
+| المصاريف التشغيلية | -200 | نقصان |
 | دخل آخر | 50 | زيادة |
-| صافي الربح | 450 | إجمالي نهائي |
+| صافي الربح | 450 | مجموع نهائي |
 
-لتمييز نقطة كإجمالي متوسط أو نهائي، استدعِ طريقة [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) الخاصة بها مع `true`. قدِّم المبلغ المتراكم الفعلي في خلية دفتر العمل لتلك النقطة: `600` للربح الإجمالي (`1000 - 400`) و`450` لصافي الربح (`600 - 200 + 50`). تُعلِّم الطريقة العمود كإجمالي؛ لا تقوم بحساب أو تعبئة قيمة الخلية. لا تستخدم الصفر كعنصر نائب ولا تُضيف تغييرًا آخر لنقطة إجمالي. تُظهر العمود الإجمالي القيمة المتراكمة دون إضافتها مرة أخرى إلى القيمة المتصلة.
+لتحديد نقطة كإجمالي وسيط أو نهائي، استدعِ طريقة [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) الخاصة بها مع `true`. ספק את הסכום המצטבר בפועל בתא חוברת העבודה של אותה נקודה: `600` עבור רווח גולמי (`1000 - 400`) ו-`450` עבור רווח נטו (`600 - 200 + 50`). השיטה מסמנת את העמודה כמجموع; היא אינה מחשבת או ממלאת את ערך התא. אל תשתמש באפס כממלא מקום או תספק שינוי נוסף לנקודת סך. עמודת סך מציגה את הערך המצטבר ללא הוספה מחודשת לערך הרץ.
 
-هذا المثال الكامل بلغة C++ يُنشئ مخططًا باستخدام العنصر `Waterfall` من [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/)، يمسح البيانات الافتراضية، ويملأ دفتر العمل المضمن. يحدد فهرس ورقة العمل `0` الورقة الأولى؛ العمود A يحتوي على أسماء الفئات والعمود B يحتوي على القيم. تُضاف كل خلية قيمة عبر [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). تُحدد الفهارس (صفرية الأساس) `2` و`5` الإجماليات المتوسطة والنهائية. تمرير `true` إلى [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) يعرض المبالغ على الأعمدة. لا يلزم وجود عرض تقديمي أو دفتر عمل إدخالي.
+דוגמת C++ מלאה זו יוצרת תרשים באמצעות החלק `Waterfall` של [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), מוחקת את הנתונים המוגדרים מראש, וממלאת את חוברת העבודה המוטמעת. אינדקס גיליון העבודה `0` בוחר את הגיליון הראשון; עמודה A מכילה שמות קטגוריות ועמודה B מכילה ערכים. כל תא ערך מתווסף באמצעות [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). אינדקסי הנקודות מבוססי‑אפס `2` ו‑`5` מזהים את הסכומים הביניים והסכום הסופי. העברת `true` ל‑[set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) מציגה את הסכומים על העמודות. אין צורך במצגת קלט או חוברת עבודה.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -691,7 +695,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// النقاط الثالثة والسادسة تمثل إجماليات، وليست تغييرات إضافية.
+// تمثل النقطة الثالثة والسادسة إجماليات، ليست تغييرات إضافية.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -700,21 +704,28 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-استدعِ طريقة المستوى السلسلي [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) مع `true` لإظهار الخطوط التي تربط الأعمدة المتتالية وتسهيل متابعة القيمة المتراكمة. لإخفاء هذه الخطوط، استبدل التعيين في المثال بـ `series->set_ShowConnectorLines(false);` قبل الحفظ. يغيّر هذا فقط رؤية الخط، ولا يغيّر البيانات أو الإجماليات.
+קרא למתודה ברמת הסדרה [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) עם `true` כדי להציג קווים המקשרים בין עמודות עוקבות ולהקל על מעקב אחרי ערך הריצה. כדי להסתיר קווים אלה, החלף את ההקצאה בדוגמה ב‑`series->set_ShowConnectorLines(false);` לפני השמירה. שינוי זה משפיע רק על הצגת הקו, לא על הנתונים או הסיכומים.
 
-العرض المحفوظ يظهر الربح الإجمالي 600 وصافي الربح 450، مع رسم كل إجمالي من الصفر:
+המצגת השמורה מציגה רווח גולמי של 600 ורווח נטו של 450, כאשר שני הסיכומים מצוירים מה‑0:
 
-![المخطط الشلالي يُظهر الإيراد، التكلفة، الربح الإجمالي 600، وصافي الربح 450، مع تسميات القيم وخطوط الربط](waterfall_chart.png)
+![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
-### **إنشاء مخططات أسهم (Stock)**
+### **إنشاء مخططات أسهم**
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، والارتفاع، والانخفاض، والإغلاق، مما يساعد في تحليل اتجاهات السوق وتقلباته. تُوفر رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
+تُستخدم مخططات الأسهم لعرض بيانات مالية مثل أسعار الفتح، والارتفاع، والانخفاض، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء السهم، وتساعد المستثمرين والمحللين في اتخاذ قرارات مستنيرة.
 
-يُنشئ هذا المثال مخططًا من نوع فتح‑ارتفاع‑انخفاض‑إغلاق مع أربع سلاسل بهذا الترتيب وثلاث فئات. تُفَعِّل طريقة [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) أشرطة الصعود/الهبوط، وتتحكم طريقة [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) في خطوط الارتفاع‑الانخفاض التي تُظهر نطاقات الأسعار، بينما تُخفى خطوط السلاسل الفردية وخطوط الشبكة الأفقية الصغرى.
+هذا المثال ينشئ مخططًا من نوع فتح‑ارتفاع‑انخفاض‑إغلاق بأربع سلاسل بهذا الترتيب وثلاث فئات. تُفعّل طريقة [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) أشرطة الصعود/الهبوط، وتتحكم طريقة [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) في خطوط الارتفاع-الانخفاض التي تُظهر نطاق الأسعار، بينما تُخفى خطوط السلاسل الفردية وخطوط الشبكة الأفقية الصغرى.
+
+המנהל המוחזר על‑ידי [get_UpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_updownbars/) חושף אובייקטים נפרדים לעיצוב דרך [get_UpBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_upbarsformat/) ו‑[get_DownBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_downbarsformat/). השתמש בכל אחת מהשיטות [get_Fill](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_fill/) ו‑[get_Line](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_line/) כדי לגשת ולהגדיר את המילוי והקצה של כל אובייקט בנפרד. דוגמה זו משתמשת בארבעה ברים ירוקים עם קצוות ירוקים כהים עבור מצבים עולה ו‑ברים כתום‑אדומים עם קצוות אדומים כהים עבור מצבים יורד.
+
+ספק ערכים מספריים לכל ארבעת הסדרות בכל קטגוריה, כאשר גבוה ונמוך כוללים פתיחה וסגירה. הברים משווים סגירה לפתיחה **בתוך אותה קטגוריה**, ולא עם הקטגוריה הקודמת: A יורד מ‑72 ל‑25, בעוד B עולה מ‑25 ל‑38 ו‑C עולה מ‑38 ל‑50. ערכי פתיחה וסגירה שווים אינם יוצרים אינטרוול ממולא נראה. ברי העלייה/הירידה משתרעים מ‑פתיחה‑לסגירה; קווי הגבוה‑הנמוך משתרעים מנמוך‑לגבוה. ברים אלה שייכים לקבוצת הסדרה ואינם סדרות גרף עמודות רגילות.
+
+העיצוב הזה פועל גם עם גרפים מסוג [Line and LineWithMarkers](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) המכילים לפחות שתי סדרות בקבוצה אחת וערכים מספריים תואמים לכל קטגוריה. עבור גרפים קויים לא מצורפים, ברי העלייה/הירידה משווים בין הסדרה הראשונה לאחרונה: ערך אחרון גבוה יותר יוצר בר עלייה, וערך אחרון נמוך יותר יוצר בר ירידה. שינוי סדרות הפוך ישנה את הסיווג. הדוגמה למטה משתמשת ב‑[OpenHighLowClose](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/); אל תניח שמגוון מניות, קו‑מצורף, או גרפים תלת‑ממדיים אחרים משתמשים באותו סידור נתונים או פירוש אינטרוול.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
 #include <system/shared_ptr.h>
+#include <drawing/color.h>
 #include <system/object_ext.h>
 #include <system/string.h>
 #include <DOM/Chart/ChartType.h>
@@ -744,6 +755,7 @@ presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 #include <Export/SaveFormat.h>
 
 using namespace System;
+using namespace System::Drawing;
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
@@ -751,7 +763,7 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
@@ -803,7 +815,21 @@ series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 valueCell = workbook->GetCell(0, 3, 4, ObjectExt::Box(50));
 series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 
-chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars(true);
+auto upDownBars = chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars();
+upDownBars->set_HasUpDownBars(true);
+
+upDownBars->get_UpBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_LimeGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->set_Width(2);
+
+upDownBars->get_DownBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_OrangeRed());
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkRed());
+upDownBars->get_DownBarsFormat()->get_Line()->set_Width(2);
+
 chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
 for (auto stockSeries : chart->get_ChartData()->get_Series())
@@ -816,15 +842,15 @@ chart->get_Axes()->get_VerticalAxis()->get_MinorGridLinesFormat()->get_Line()->g
 presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 ```
 
-النتيجة:
+התוצאה, מיוצאת מ‑PowerPoint:
 
-![المخطط السهمي](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **إنشاء مخططات صندوقية وشوكة (Box and Whisker)**
+### **إنشاء مخططات صندوق وحشيشة**
 
-تُستخدم المخططات الصندوقية والشوكة لعرض توزيع البيانات عبر تلخيص مقاييس إحصائية رئيسية مثل الوسيط والرباعيات والقيم الشاذة المحتملة. تُعد مفيدة في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
+تُستخدم مخططات الصندوق والحشيشة لعرض توزيع البيانات عن طريق تلخيص مقاييس إحصائية رئيسية، مثل الوسيط والرباعيات والقيم المتطرفة المحتملة. هي مفيدة خاصةً في تحليل البيانات الاستكشافية والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-ينشئ هذا المثال مخططًا صندوقيًا وشوكيًا من ست قيم. تحدد طريقة [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) حساب الرباعيات الحصرية. يُفعِّل المثال أيضًا خطوط المتوسط، وعلامات المتوسط، والنقاط الداخلية، والنقاط الشاذة.
+هذا المثال ينشئ مخطط صندوق وحشيشة من ست قيم. تُحدد طريقة [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) حساب الرباعيات الحصرية. كما تمكّن المثال خطوط المتوسط، علامات المتوسط، النقاط الداخلية، ونقاط القيم المتطرفة.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -905,11 +931,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **إنشاء مخططات قمعية (Funnel)**
+### **إنشاء مخططات قمع**
 
-تُستخدم المخططات القمعية لتصوير عمليات تشمل مراحل متتابعة، حيث ينخفض حجم البيانات مع التقدم من خطوة إلى أخرى. تُعد مفيدة لتحليل معدلات التحويل، وتحديد الاختناقات، ومتابعة كفاءة عمليات المبيعات أو التسويق.
+تُستخدم مخططات القمع لتصوير العمليات التي تتضمن مراحل متسلسلة، حيث يقل حجم البيانات كلما تقدم العملية من خطوة إلى التالية. هي مفيدة بشكل خاص لتحليل معدلات التحويل، وتحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح من 50 إلى 500، ثم يحفظ العرض المحدث. يجب أن يحتوي العرض الإدخالي على شريحة واحدة على الأقل.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإضافة مخطط قمع إلى الشريحة الأولى من عرض تقديمي موجود. يستبدل البيانات الافتراضية بست فئات وقيم تتراوح بين 50 إلى 500، ثم يحفظ العرض المحدث. يجب أن يحتوي العرض الإدخالي على شريحة واحدة على الأقل.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -984,13 +1010,13 @@ presentation->Save(u"Funnel.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط القمعي](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **إنشاء مخططات شمسية (Sunburst)**
+### **إنشاء مخططات شمسية**
 
-تُستخدم المخططات الشمسية لتصوير البيانات الهرمية، حيث تُعرض المستويات كحلقات متقاربة. تساعد على توضيح علاقات الجزء بالكل وتُعد مثالية لتمثيل الفئات المتداخلة والفرعية بصيغة واضحة ومضغوطة.
+تُستخدم المخططات الشمسية لتصوير البيانات الهرمية، حيث تُظهر المستويات كحوامل متحدة المركز. تساعد على توضيح علاقات الجزء إلى الكل وتعتبر مثالية لتمثيل الفئات المتداخلة والفرعية بصيغة واضحة ومُدمجة.
 
-ينشئ هذا المثال مخططًا شمسيًا بثمانية أوراق مقسمة إلى أربعة جذوع وفرعين. تُعيّن طريقة [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) الجذوع على المستوى 1 والفروع على المستوى 2. تُحدد تسميات الفئات القطاعات، وتُحدد القيم أحجامها النسبية.
+هذا المثال ينشئ مخططًا شمسيًا بثمانية أوراق مُجمعة في أربعة جذوع وفرعين. تُعيّن طريقة [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) الجذوع على مستوى التجميع 1 والفروع على المستوى 2. تُحدد تسميات الفئات الأجزاء، وتحدد القيم أحجامها النسبية.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1093,17 +1119,17 @@ presentation->Save(u"Sunburst.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط الشمسي](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **إنشاء مخططات توزيعية (Histogram)**
+### **إنشاء مخططات تكرارية**
 
-تُظهر المخططات التوزيعية كيف تتوزع القيم العددية عبر فواصل (bins). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم عرض bin ثابت وعتبات متسقة للحفاظ على اتساق الفواصل وتسهيل مقارنة التوزيعات.
+تُظهر مخططات التكرار كيفية توزيع القيم العددية عبر فواصل (صناديق). لتقارير شهرية عن أوقات معالجة الطلبات، استخدم عرض صندوق ثابت وعينات عتبة موحدة للحفاظ على تناسق الفواصل وتسهيل مقارنة التوزيعات.
 
-استدعِ طريقة المحور الأفقي [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) مع وضع من [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). تُطبّق الطريقة [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) فقط على الوضع `ByBinWidth`؛ وتُطبّق الطريقة [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) فقط على الوضع `ByNumberOfBins`. استخدم `Automatic` للسماح للمخطط باختيار الفواصل تلقائيًا.
+استدعِ طريقة محور الأفقي [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) مع وضع من [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). تُطبق [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) فقط على `ByBinWidth`؛ وتُطبق [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) فقط على `ByNumberOfBins`. استخدم `Automatic` للسماح للمخطط باختيار الصناديق.
 
-#### **استخدام عرض bin ثابت**
+#### **استخدام عرض صندوق ثابت**
 
-يُقسم هذا المثال أوقات المعالجة إلى فواصل عشر دقائق، مع فواصل منفصلة للوقت ≤ 10 دقائق والوقت > 40 دقيقة. فعّل هذه الفواصل عبر [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) و[set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). عند توفير عتبات صريحة عبر [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) و[set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/)، استدعِ [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) و[set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) مع `false`.
+يُقسم هذا المثال أوقات المعالجة إلى فواصل زمنية مدتها 10 دقائق، مع صناديق منفصلة للأوقات ≤ 10 دقائق وللأوقات > 40 دقيقة. فعل هذه الصناديق عبر [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) و [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). عند توفير عتبات صريحة عبر [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) و [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/)، استدعِ [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) و [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) مع `false`.
 
 ```cpp
 #include <system/array.h>
@@ -1173,13 +1199,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-العرض في PowerPoint يُظهر عدد الفواصل **3، 4، 4، 4، و2**. تُضمّن الفجوة السفلية القيم `5، 10، 10`، لذا عتبتها شاملة. تُضمّن الفجوة العلوية القيم `41، 50` فقط، لذا عتبتها حصرية؛ تظل القيم المتساوية لـ `40` في الفاصل السابق. تحتوي الفواصل الداخلية على قيم أكبر من الحد الأدنى وأقل من أو مساوية للحد الأعلى.
+العرض في PowerPoint يُظهر عدد الصناديق **3, 4, 4, 4, 2**. الصندوق تحت التدفق يتضمن `5, 10, 10`، لذا عتّباره شامل. الصندوق فوق التدفق يتضمن فقط `41, 50`، لذا عتّاره استثنائي؛ القيم المتساوية مع `40` تُبقى في الفاصل السابق. الصناديق الداخلية تحتوي قيمًا أكبر من حدها الأدنى وأقل من أو مساوية لحدها الأعلى.
 
 ![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
-#### **تحديد عدد الفواصل**
+#### **تحديد عدد الصناديق**
 
-بدلاً من فواصل ثابتة، يمكنك طلب خمس فواصل لنفس البيانات للحصول على مستوى تفصيل ثابت. يترك هذا المثال الفواصل السفلية والعلوية معطلة. يحدد المخطط العرض استنادًا إلى نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
+للحصول على مستوى تفصيل ثابت بدلاً من فواصل ثابتة، اطلب خمس صناديق لنفس البيانات. يترك هذا المثال صناديق التدفق الفوقي وتحت التدفق معطلة. يحدد المخطط العرض استنادًا إلى نطاق البيانات، لذا قد تتغير الحدود بين التقارير.
 
 ```cpp
 #include <system/array.h>
@@ -1243,15 +1269,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-تحتوي الفواصل الخمسة على عدد **4، 4، 4، 4، و1**. قارن هذا التوزيع بالنتيجة ذات العرض الثابت أعلاه: القيم المدخلة مطابقة، لكن الحدود مختلفة.
+الصناديق الخمس لها عدد **4, 4, 4, 4, 1**. قارن هذا التوزيع مع نتيجة العرض الثابت أعلاه: القيم المدخلة هي نفسها، لكن الحدود تختلف.
 
 ![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **إنشاء مخططات رادارية (Radar)**
+### **إنشاء مخططات رادار**
 
-تُستخدم المخططات الرادارية لإظهار البيانات المتعددة المتغيرات في صيغة ثنائية الأبعاد، مما يتيح مقارنة عدة متغيرات في وقت واحد بسهولة. تُعد مفيدة لتحديد الأنماط، والقوة، والضعف عبر مقاييس أداء أو سمات متعددة.
+تُستخدم مخططات الرادار لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يتيح مقارنة عدة متغيّرات في وقت واحد بسهولة. هي مفيدة خاصةً لتحديد الأنماط والقوة والضعف عبر عدة مؤشرات أداء أو خصائص.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط راداري بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كملف PPTX.
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط رادار بالسلسلة والفئات الافتراضية، ثم يحفظ العرض كـ PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1285,13 +1311,13 @@ presentation->Save(u"Radar-chart.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط الراداري](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **إنشاء مخططات متعددة الفئات (Multi-Category)**
+### **إنشاء مخططات متعددة الفئات**
 
-تُستخدم المخططات متعددة الفئات لعرض بيانات تشمل أكثر من تجميع فئوي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. تُعد مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات مركبة متعددة الطبقات.
+تُستخدم المخططات متعددة الفئات لعرض بيانات تشمل أكثر من تجميع فئوي واحد، مما يتيح مقارنة القيم عبر أبعاد متعددة في وقت واحد. هي مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات ضمن مجموعات بيانات معقدة متعددة الطبقات.
 
-ينشئ هذا المثال مخططًا عموديًا مجمعًا بثمانية فئات مرتبة في أربع أزواج. تُعطي طريقة [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) لكل زوج تسمية مشتركة على المستوى 1، مما ينتج محور فئات يحتوي على تسميات فردية ومجموعة على حدٍ سواء.
+هذا المثال ينشئ مخطط عمودي متكتل بثمانية فئات مرتبة في أربع أزواج. تُعطي طريقة [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) كل زوج تسمية مشتركة على مستوى التجميع 1، مما ينتج محور فئة يحتوي على تسميات فردية وجماعية.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1386,17 +1412,78 @@ presentation->Save(u"AsposeChart.pptx", SaveFormat::Pptx);
 
 النتيجة:
 
-![المخطط متعدد الفئات](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **إنشاء مخططات خرائط (Map)**
+#### **إزالة تسمية ربع**
 
-تُستخدم مخططات الخرائط لتصوير البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. تُعد مفيدة لتحليل الاتجاهات الإقليمية، والبيانات السكانية، وتوزيع الفضاء بطريقة واضحة وجذابة بصريًا.
+قم بتنزيل [quarters.pptx](quarters.pptx) وضعه في دليل العمل. يُظهر مخططه تسعة أشهر وسلسلة مبيعات واحدة بقيم من 10 إلى 18. يحتوي محور الفئات على ثلاث تسميات ربع: Q1 يغطي يناير‑مارس، Q2 يغطي أبريل‑يونيو، وQ3 يغطي يوليو‑سبتمبر.
 
-يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
+أبريل هو الفئة الرابعة والتي تم فيها تعيين Q2 صراحةً. استدعِ [DeleteGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) على مجموعة [get_GroupingLevels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_groupinglevels/) الخاصة بأبريل. المستوى نسبي لأبريل: المستوى 1 هو ربعها، والمستوى 0 هو الشهر نفسه. لا يمكن للطريقة إزالة فئة الورقة المستوى 0.
+
+```cpp
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace System;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = MakeObject<Presentation>(u"quarters.pptx");
+
+auto chart = ExplicitCast<IChart>(presentation->get_Slide(0)->get_Shape(0));
+auto april = chart->get_ChartData()->get_Categories()->idx_get(3);
+april->get_GroupingLevels()->DeleteGroupingItem(1);
+
+presentation->Save(u"quarters-updated.pptx", SaveFormat::Pptx);
+
+auto reopened = MakeObject<Presentation>(u"quarters-updated.pptx");
+auto updatedChart = ExplicitCast<IChart>(reopened->get_Slide(0)->get_Shape(0));
+auto data = updatedChart->get_ChartData();
+
+auto categories = data->get_Categories();
+for (auto i = 0; i < categories->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(categories->idx_get(i)->get_AsCell()->get_Value()->ToString());
+}
+Console::WriteLine();
+
+auto points = data->get_Series()->idx_get(0)->get_DataPoints();
+for (auto i = 0; i < points->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(points->idx_get(i)->get_Value()->get_Data()->ToString());
+}
+Console::WriteLine();
+```
+
+يعرض المخطط المعاد فتحه الأشهر الأصلية (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) وقيم المبيعات (`10, 11, 12, 13, 14, 15, 16, 17, 18`) بنفس الترتيب. افتح `quarters-updated.pptx` في PowerPoint لمقارنة تسميات المحور. اختفت تسمية Q2 والحدود قبل أبريل، لذا يصبح Q1 يغطي يناير‑يونيو. لا يزال Q3 يبدأ في يوليو.
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
+### **إنشاء مخططات خريطة**
+
+تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عبر ربط المعلومات بمواقع معينة مثل دول أو ولايات أو مدن. هي مفيدة خاصةً لتحليل الاتجاهات الإقليمية، والبيانات الديموغرافية، وتوزيعات الفضاء بطريقة واضحة وجذابة بصريًا.
+
+هذا المثال يستخدم [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط خريطة بالبيانات الجغرافية الافتراضية ويحفظه للعرض في PowerPoint.
 
 ```cpp
 #include <system/shared_ptr.h>
-#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/ChartType> // استيراد نوع المخطط
 #include <DOM/Chart/IChartCategoryCollection.h>
 #include <DOM/Chart/IChartData.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
@@ -1416,29 +1503,31 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto presentation = MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
+auto  presentation = MakeObject<Presentation>();
+auto  slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 20, 20, 500, 300);
+auto  chart = slide->get_Shapes()->AddChart(ChartType::  Map  ,  20,  20,  500,  300);
 
-presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
+      presentation = Save  ?  u  "  "  ?  "P  ";
 ```
 
 النتيجة:
 
-![المخطط الخريطي](map_chart.png)
+![The Map chart](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. يكتب Aspose.Slides مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة نفسه: عندما يتم تحويل شريحة تحتوي على مخطط إلى صورة أو إلى PDF أو SVG، يظهر منطقة المخطط فارغة. الأشكال الأخرى على نفس الشريحة لا تتأثر.
+
+الصورة أعلاه تُظهر العرض المحفوظ المفتوح في PowerPoint. يكتب Aspose.Slides مخطط الخريطة وبياناته بشكل صحيح، لكنه لا يرسم مخططات الخريطة نفسه: عند تحويل شريحة تحمل واحدة إلى صورة أو إلى PDF أو SVG، يصبح مجال المخطط فارغًا. الأشكال الأخرى على نفس الشريحة لا تتأثر.
+
 {{% /alert %}}
 
-### **إنشاء مخططات مركبة (Combination)**
+### **إنشاء مخططات مركبة**
 
-المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعتين أو أكثر من البيانات، مما يساعد على تحديد العلاقات بينها.
+مخطط مركب (أو مخطط مجموعة) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الفروق بين مجموعتين أو أكثر من مجموعات البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-![المخطط المركب](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-يُدمج هذا المثال سلسلتين عموديتين مجمعتين مع سلسلة خطية عبر أربع فئات. تستخدم الأعمدة المحور الرأسي الأساسي، بينما يضع [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) الخط على محور رأسي ثانوي على اليمين. تُكوِّن الدوال المساعدة العنوان، والوسيلة الإيضاحية، وتسميات المحاور، وخطوط الشبكة.
+هذا المثال يجمع سلسلتين عموديتين متكتلتين مع سلسلة خطية عبر أربع فئات. تستخدم الأعمدة المحور الرأسي الأساسي، بينما تُضع [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) الخط على محور رأسي ثانوي على اليمين. تُ configure الدوال المساعدة العنوان والوسيلة الإيضاحية وتسميات المحاور وخطوط الشبكة.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1649,9 +1738,9 @@ ComboChartExample::CreateComboChart();
 
 ## **تحديث المخططات**
 
-يُمكّن Aspose.Slides للغة C++ من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط، وتنسيقه، وتشكيله. تُبسّط هذه الوظيفة عملية إبقاء العروض محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
+تمكنك Aspose.Slides for C++ من تحديث مخططات PowerPoint عن طريق تعديل بيانات المخطط وتنسيقه وتنسيقه. تُبسّط هذه الوظيفة عملية الحفاظ على العروض التقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
 
-يُحدّث هذا المثال المخطط المسمّى "My chart" على الشريحة الأولى من عرض تقديمي موجود. يتطلب وجود سلسلتين عموديتين بثلاث نقاط بيانات لكلٍ منهما، مع تسميات فئات في العمود A وأسماء سلاسل في الصف الأول من الورقة الأولى. يستخدم المثال [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) لتغيير خلايا دفتر العمل، يُحدث قيم السلاسل، يضيف سلسلة ثالثة، ويغيّر المخطط إلى أسطوانات مجمّعة عبر [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+يُحدّث هذا المثال المخطط المسمى "My chart" في الشريحة الأولى من عرض تقديمي موجود. يتطلب وجود سلسلتين عموديتين بثلاث نقاط بيانات لكل منهما، مع تسميات فئات في العمود A وأسماء سلاسل في الصف الأول من ورقة العمل الأولى. يستخدم المثال [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) لتغيير خلايا دفتر العمل، يُحدّث قيم السلاسل، يُضيف سلسلة ثالثة، ويُغيّر المخطط إلى أسطوانات متكتلة عبر [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1734,11 +1823,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **تحديد نطاق البيانات لمخطط**
 
-للتفحص النطاق المستخدم بالفعل من قبل مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/cpp/chart-workbook/#retrieve-a-charts-data-range).
+للتفحص النطاق المُستخدم بالفعل بواسطة مخطط موجود، راجع [Retrieve a Chart's Data Range](/slides/ar/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-يوفر Aspose.Slides للغة C++ مرونة لتحديد نطاق بيانات معين من ورقة عمل كمصدر لبيانات المخطط. يعني ذلك أنك يمكنك ربط جزء من ورقة العمل مباشرة بالمخطط، ما يسمح لك بالتحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاته. نتيجةً لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، وضمان أن عروض PowerPoint تعكس معلومات دقيقة ومحدثة.
+توفر Aspose.Slides for C++ المرونة لتحديد نطاق بيانات محدد من ورقة عمل كمصدر لبيانات مخطّطك. يعني ذلك أنه يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يتيح لك التحكم في الخلايا التي تُساهم في سلاسل المخطط وفئاته. نتيجًة لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث التغييرات في ورقة العمل، مما يضمن أن عروض PowerPoint تعكس معلومات دقيقة ومُحدّثة.
 
-يستخدم هذا المثال [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) لتعيين مصدر البيانات للمخطط المسمّى "My chart" على الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُعبّأ مع عنوان السلسلة في الصف الأول، تسميات الفئات في العمود A، وثلاث قيم في العمود B.
+يستخدم هذا المثال [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) لتعيين مصدر بيانات المخطط المسمى "My chart" في الشريحة الأولى من عرض تقديمي موجود إلى `Sheet1!A1:B4`. يجب أن يحتوي دفتر عمل المخطط على تلك الورقة ونطاق مُعبّأ مع عنوان سلسلة في الصف الأول، وتسميات فئات في العمود A، وثلاث قيم في العمود B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1782,9 +1871,9 @@ presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 
 ## **استخدام العلامات الافتراضية في المخططات**
 
-عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
+عند استخدام العلامات الافتراضية في المخططات، تحصل كل سلسلة على رمز علامة افتراضي مختلف تلقائيًا.
 
-يُنشئ هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) مخططًا بسلسلتي خط ووسيلة إيضاحية. تُحافظ إعدادات [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) على رموز العلامات المُعيَّنة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة ممثلة بـ `nullptr`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
+يستخدم هذا المثال [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) لإنشاء مخطط بسلسلتين خطيتين ووسيلة إيضاحية. تحتفظ إعدادات [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) بالرموز المعينة تلقائيًا. تتضمن السلسلة الأولى قيمة سلبية وقيمة مفقودة، ممثلة بـ `nullptr`، بينما تحتوي السلسلة الثانية على قيمة لكل فئة.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1870,20 +1959,22 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**ما أنواع المخططات التي تدعمها Aspose.Slides للغة C++؟**
+**ما هي أنواع المخططات التي تدعمها Aspose.Slides for C++؟**
 
-تدعم Aspose.Slides للغة C++ مجموعة واسعة من أنواع المخططات، بما في ذلك الشريطي، الخطي، الدائري، المساحي، المبعثر، التوزيعي، الراداري، والعديد غيرها. تُتيح لك هذه المرونة اختيار النوع الأنسب لتصوير بياناتك.
+تدعم Aspose.Slides for C++ مجموعة واسعة من أنواع المخططات، بما في ذلك العمودية، الخطية، الدائرية، المساحية، المبعثرة، التكرارية، الرادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصوير بياناتك.
 
 **كيف أضيف مخططًا جديدًا إلى شريحة؟**
 
-لإضافة مخطط، أنشئ أولاً كائنًا من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation)، احصل على الشريحة المطلوبة باستخدام فهرسها، ثم استدعِ الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض.
+لإضافة مخطط، أنشئ أولًا نسخة من فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation)، احصل على الشريحة المطلوبة باستخدام فهرستها، ثم استدعِ الطريقة لإضافة مخطط، محددًا نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك التقديمي.
 
 **كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط بالوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط برمجيًا لعكس أحدث البيانات.
+يمكنك تحديث بيانات المخطط بالوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. تسمح لك هذه العملية بإنعاش المخطط برمجيًا لتعكس أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، توفر Aspose.Slides للغة C++ خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل الإيضاحية، وعناصر التنسيق الأخرى لتتناسب مع متطلبات التصميم الخاصة بك.
+نعم، توفر Aspose.Slides for C++ خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل الإيضاحية، والعناصر التنسيقية الأخرى لتتناسب مع متطلبات التصميم الخاصة بك.
+
+الميزة ذات الصلة: [Create editable charts](/slides/ar/features/create-charts/).

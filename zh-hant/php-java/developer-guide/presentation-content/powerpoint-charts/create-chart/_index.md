@@ -15,9 +15,9 @@ keywords:
 - 折線圖
 - 樹狀圖
 - 股票圖表
-- 箱形圖與鬍鬚圖
+- 盒鬚圖
 - 漏斗圖
-- 日輻射圖
+- 日曆圖
 - 直方圖
 - 雷達圖
 - 多類別圖表
@@ -25,37 +25,35 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 簡報中建立與自訂圖表。透過實用的 PHP 程式碼範例，新增、格式化與編輯圖表。"
+description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 簡報中建立並自訂圖表。透過實用的 PHP 程式碼範例新增、格式化與編輯圖表。"
 ---
-## **概述**
+## **概觀**
 
-本文提供了如何使用 Aspose.Slides for PHP via Java 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表新增至投影片、填入資料，並套用各種格式設定，以符合特定設計需求。全文以詳細的程式碼範例說明每個步驟，從初始化簡報與圖表物件，到設定系列、座標軸與圖例。遵循本指南，即可深入了解如何在 PHP 應用程式中整合動態圖表產生，簡化建立資料驅動簡報的流程。
+本文提供了使用 Aspose.Slides for PHP via Java 建立和自訂圖表的完整指南。您將學習如何以程式方式將圖表新增至投影片、填入資料，並套用各種格式設定以符合特定設計需求。文章中提供了詳細的程式碼範例，說明從初始化簡報與圖表物件，到設定資料系列、座標軸與圖例的每一步。遵循本指南後，您將能將動態圖表產生整合至 PHP 應用程式中，簡化製作資料驅動簡報的流程。
 
 ## **建立圖表**
 
-圖表可協助使用者快速視覺化資料，並獲得從表格或試算表中不易立即看出的見解。
+圖表可協助使用者快速視覺化資料，並從中獲得在表格或試算表中不易立即看出的洞見。
 
-**為什麼要建立圖表？**
+**為何要建立圖表？**
 
 使用圖表，您可以：
 
-* 在單一投影片上彙總、濃縮或摘要大量資料；
-* 曝露資料中的模式與趨勢；
-* 推斷資料隨時間或特定衡量單位的方向與動能；
-* 發現異常值、偏差、錯誤與不合理資料；
+* 在單一投影片上彙總、濃縮或概括大量資料；
+* 顯示資料中的模式與趨勢；
+* 推斷資料隨時間或特定度量單位的方向與動能；
+* 發現異常值、偏差、錯誤或不合理的資料；
 * 傳達或呈現複雜資料。
 
-在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供多種圖表樣板。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）以及自訂圖表。
+在 PowerPoint 中，您可以透過 *插入* 功能建立圖表，該功能提供了多種圖表範本。使用 Aspose.Slides，您既可以建立一般圖表（基於常見圖表類型），也可以建立自訂圖表。
 
-{{% alert color="info" title="Note" %}}
-
-Use the [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeration in the [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) namespace. The values in this enumeration correspond to different chart types.
-
+{{% alert color="info" title="注意" %}}
+使用 [圖表類型](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) 列舉於 [aspose\slides](https://reference.aspose.com/slides/php-java/aspose.slides/) 命名空間。此列舉中的值對應不同的圖表類型。
 {{% /alert %}}
 
-### **建立群組柱狀圖**
+### **建立叢集直條圖**
 
-此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個群組柱狀圖，以比較三個類別中的兩個系列。兩個系列分別使用紅色與綠色填色，個別標籤顯示類別名稱、系列名稱與數值。工作表索引 0 代表內嵌圖表活頁簿的第一張工作表。
+此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個叢集直條圖，以比較兩個系列在三個類別上的數值。系列使用紅色與綠色填色，且個別標籤顯示類別名稱、系列名稱與數值。工作表索引 0 代表嵌入圖表活頁簿中的第一張工作表。
 
 ```php
 use aspose\slides\ChartType;
@@ -141,20 +139,20 @@ finally
 
 結果：
 
-![群組柱狀圖](clustered_column_chart.png)
+![叢集直條圖](clustered_column_chart.png)
 
 ### **建立散佈圖**
 
 散佈圖（亦稱散點圖或 x‑y 圖）常用於檢查兩個變數之間的模式或相關性。
 
-使用散佈圖的情況：
+在以下情況使用散佈圖：
 
-* 您有成對的數值資料；
-* 兩個變數彼此密切相關；
-* 您想判斷兩個變數是否相關；
-* 您有獨立變數，其對依賴變數有多個值。
+* 您擁有成對的數值資料。
+* 兩個變數彼此關聯良好。
+* 您想判斷兩個變數是否相關。
+* 您有一個獨立變數，其對應多個相依變數的值。
 
-此範例繪製兩組 x‑y 值。第一個系列使用直線與星形標記，第二個系列使用平滑線與圓形標記；兩者皆使用 [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) 設定標記大小為 10，並以 [setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) 控制標記形狀。
+此範例繪製兩組 x‑y 值。第一個系列使用帶星號標記的直線，第二個系列使用帶圓形標記的平滑線；兩者皆以 10 的標記大小設定，透過 [setSize](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsize/) 調整。[setSymbol](https://reference.aspose.com/slides/php-java/aspose.slides/marker/setsymbol/) 方法控制標記形狀。
 
 ```php
 use aspose\slides\ChartType;
@@ -229,9 +227,9 @@ finally
 
 ### **建立圓餅圖**
 
-圓餅圖最適合顯示資料的部分與整體關係，尤其是資料包含分類標籤與數值時。然而，若資料包含太多部份或標籤，建議改用長條圖。
+圓餅圖最適合用來顯示資料中部分與整體的關係，特別是資料包含分類標籤與數值時。然而，若資料含有過多部分或標籤，建議改用長條圖。
 
-此範例建立一個包含三個季節值的圓餅圖。每個切片都有自訂填色與邊框，標籤顯示值、百分比與系列資訊的不同組合。使用 [setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) 方法將第一切片起始角度設定為 180 度。
+此範例建立一個包含三個季節值的圓餅圖。每個切片都有自訂填色與邊框，標籤則以不同組合顯示數值、百分比與系列資訊。[setFirstSliceAngle](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setfirstsliceangle/) 方法將第一切片的起始角度設為 180 度。
 
 ```php
 use aspose\slides\ChartType;
@@ -345,11 +343,13 @@ finally
 
 ![圓餅圖](pie_chart.png)
 
+若要改善圓餅圖外部標籤的可讀性，請參考 [格式領導線](/slides/zh-hant/php-java/chart-data-label/#format-leader-lines) 取得設定標籤位置及自訂線條顏色、寬度、透明度與虛線樣式的範例。
+
 ### **建立折線圖**
 
-折線圖（亦稱線圖）最適合用於說明數值隨時間的變化。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、強調資料系列中的異常等。
+折線圖（亦稱折線圖）最適合用於展示數值隨時間的變化。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料系列的異常等。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個預設系列與類別的折線圖，然後將簡報另存為 PPTX。
+此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個使用預設系列與類別的折線圖，然後將簡報另存為 PPTX。
 
 ```php
 use aspose\slides\ChartType;
@@ -371,7 +371,7 @@ finally
 }
 ```
 
-預設情況下，折線圖的資料點以直線相連。若想改為虛線相連，請呼叫 [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/) 並使用 [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) 中的任意值：
+預設情況下，折線圖的點會以直線連接。若想改為虛線，請使用來自 [LineDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) 的值呼叫 [setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/setdashstyle/)：
 
 ```php
 use aspose\slides\ChartType;
@@ -401,11 +401,11 @@ finally
 
 ![折線圖](line_chart.png)
 
-### **建立樹狀圖（Tree Map）**
+### **建立樹狀圖**
 
-樹狀圖最適合用於銷售資料，讓您顯示資料類別的相對大小，並快速突顯各類別中貢獻較大的項目。
+樹狀圖最適合用於銷售資料，當您想顯示資料類別的相對大小，並快速注意到每個類別中的大貢獻項目時。
 
-此範例建立一個含八個葉節點、分為四個主幹與兩個分支的樹狀圖。使用 [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 方法於分組層級 1 設定主幹，於層級 2 設定分支。值決定矩形的相對大小，類別標籤與重疊的父標籤則說明階層結構。
+此範例建立一個包含八個葉節點、四個主幹與兩個分支的樹狀圖。[setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 方法在分組層級 1 指定主幹，在層級 2 指定分支。值決定相對矩形大小，類別標籤與重疊的父標籤則說明階層關係。
 
 ```php
 use aspose\slides\ChartType;
@@ -493,22 +493,22 @@ finally
 
 ### **建立瀑布圖**
 
-瀑布圖顯示正負變化如何共同構成最終值。例如，利潤拆解可從營收開始，減去成本，再加上其他收入。變動欄位在前一值與新累計值之間浮動，而總計欄位則從零延伸至累計值。
+瀑布圖展示正向與負向變化如何累加至最終值。例如，利潤分解可從營收開始，扣除成本，再加上其他收入。變動欄位在先前與新累計值之間浮動，而總計欄位則從零延伸至累計值。
 
-以下範例使用千美元金額：
+以下範例以千美元為單位：
 
 | 類別 | 活頁簿值 | 欄位類型 |
 | --- | ---: | --- |
 | 營收 | 1000 | 增加 |
 | 銷售成本 | -400 | 減少 |
 | 毛利 | 600 | 中間總計 |
-| 營運費用 | -200 | 減少 |
+| 營業費用 | -200 | 減少 |
 | 其他收入 | 50 | 增加 |
 | 淨利 | 450 | 最終總計 |
 
-若要將點標記為中間或最終總計，請呼叫其 [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) 方法並傳入 `true`。在該點的工作表儲存格中提供實際累計金額：毛利為 `600`（`1000 - 400`），淨利為 `450`（`600 - 200 + 50`）。此方法僅將欄位標記為總計，並不會計算或填入儲存格值。請勿使用零作為佔位符，也不要在總計點再提供其他變動。總計欄位僅顯示累計值，不會再將其加回跑道值。
+若要將某點標記為中間或最終總計，請以 `true` 呼叫其 [setSetAsTotal](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setsetastotal/) 方法。並在該點的活頁簿儲存格中提供實際累計金額：毛利為 `600`（`1000 - 400`），淨利為 `450`（`600 - 200 + 50`）。此方法僅將欄位標記為總計，並不會自行計算或填入儲存格值。請勿使用零作為佔位符，或為總計點提供其他變動值。總計欄位會顯示累計值，但不會再將其加回執行值。
 
-此完整的 PHP 範例使用 `Waterfall` 成員的 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) 建立圖表，清除預設資料，並填入內嵌活頁簿。工作表索引 `0` 代表第一張工作表；A 欄放置類別名稱，B 欄放置數值。每個數值儲存格皆透過 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) 加入。零基點索引 `2` 與 `5` 分別表示中間與最終總計。呼叫 [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) 並傳入 `true` 可在欄位上顯示金額。此範例不需要輸入簡報或活頁簿。
+此完整的 PHP 範例使用 [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) 中的 `Waterfall` 成員建立圖表，清除預設資料，並填入嵌入式活頁簿。工作表索引 `0` 代表第一張工作表；欄 A 包含類別名稱，欄 B 包含數值。每個數值儲存格皆透過 [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/adddatapointforwaterfallseries/) 新增。零基點索引 `2` 與 `5` 分別指向中間與最終總計。呼叫 [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) 並傳入 `true`，即可在欄位上顯示金額。此範例不需要輸入簡報或活頁簿。
 
 ```php
 use aspose\slides\ChartType;
@@ -548,7 +548,7 @@ try
         $series->getDataPoints()->addDataPointForWaterfallSeries($valueCell);
     }
 
-    // 第3和第6個點代表總計，而非額外變化。
+    // 第三和第六個點代表總計，而非額外變動。
     $series->getDataPoints()->get_Item(2)->setSetAsTotal(true);
     $series->getDataPoints()->get_Item(5)->setSetAsTotal(true);
     $series->setShowConnectorLines(true);
@@ -562,17 +562,23 @@ finally
 }
 ```
 
-在系列層級呼叫 [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) 並傳入 `true`，即可顯示連接連續欄位的線條，使跑道值更易追蹤。若要隱藏這些線條，請在範例中將呼叫改為 `$series->setShowConnectorLines(false);` 後再存檔。此變更僅影響線條可見性，不會改變資料或總計。
+在系列層級呼叫 [setShowConnectorLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setshowconnectorlines/) 並傳入 `true`，即可顯示連接相鄰欄位的線條，讓累計值更易追蹤。若要隱藏這些線條，請將範例中的方法呼叫替換為 `$series->setShowConnectorLines(false);` 後再儲存。此變更僅影響線條可見度，不會更動資料或總計。
 
-儲存的簡報顯示毛利 600 與淨利 450，兩個總計皆從零開始：
+儲存後的簡報顯示毛利 600 與淨利 450，兩個總計皆從零開始：
 
-![顯示營收、成本、毛利 600 與淨利 450，含數值標籤與連接線的瀑布圖](waterfall_chart.png)
+![顯示營收、成本、毛利 600 與淨利 450，帶有數值標籤與連接線的瀑布圖](waterfall_chart.png)
 
 ### **建立股票圖表**
 
-股票圖表用於顯示開盤價、最高價、最低價與收盤價等財務資料，協助分析市場趨勢與波動性，為投資者與分析師提供關鍵洞見。
+股票圖表用於顯示開盤價、最高價、最低價與收盤價等金融資料，協助分析市場趨勢與波動。它們提供關鍵的股票表現見解，幫助投資人與分析師作出明智決策。
 
-此範例建立一個依序為開、高、低、收的 OHLC 圖表，包含四個系列與三個類別。使用 [setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) 方法啟用上/下棒，並以 [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) 控制顯示價格區間的高低線；個別系列線條與次要水平格線則隱藏。
+此範例建立一個按順序包含四個系列、三個類別的開盤-最高-最低-收盤圖表。[setUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/setupdownbars/) 方法開啟升降棒，且 [getHiLowLinesFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/gethilowlinesformat/) 控制顯示價格區間的高低線；個別系列線條與次要水平格線則隱藏。
+
+[ getUpDownBars](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getupdownbars/) 回傳的管理器允許透過 [getUpBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getupbarsformat/) 與 [getDownBarsFormat](https://reference.aspose.com/slides/php-java/aspose.slides/updownbarsmanager/getdownbarsformat/) 取得分別的格式物件。使用每個物件的 [getFill](https://reference.aspose.com/slides/php-java/aspose.slides/format/getfill/) 與 [getLine](https://reference.aspose.com/slides/php-java/aspose.slides/format/getline/) 方法，獨立設定填色與輪廓。本範例將上升區間設為綠色棒配深綠輪廓，下降區間則為橙紅色棒配深紅輪廓。
+
+為每個類別的四個系列提供數值，且最高與最低值包覆開盤與收盤。棒狀圖比較的是同一類別內的收盤與開盤，而非與前一類別比較：A 從 72 下降至 25，B 從 25 上升至 38，C 從 38 上升至 50。開盤與收盤相同則不會顯示實心區間。升降棒跨越開盤‑收盤；高低線跨越最低‑最高。這些棒屬於系列群組，並非普通的長條圖系列。
+
+此格式同樣適用於包含至少兩個系列且每個類別皆有相應數值的 [Line 與 LineWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) 圖表。對於這些非堆疊折線圖，升降棒比較的是第一與最後一個系列：較高的最後值產生上升棒，較低的最後值產生下降棒。若交換系列順序，分類也會相應反轉。以下範例使用 [OpenHighLowClose](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)，請勿假設其他股票、堆疊折線或 3D 變體會使用相同的資料排列或間隔詮釋。
 
 ```php
 use aspose\slides\ChartType;
@@ -585,7 +591,7 @@ try
 {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+    $chart = $slide->getShapes()->addChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
@@ -637,7 +643,20 @@ try
     $valueCell = $workbook->getCell(0, 3, 4, 50);
     $series->getDataPoints()->addDataPointForStockSeries($valueCell);
 
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
+    $upDownBars = $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars();
+    $upDownBars->setUpDownBars(true);
+
+    $upDownBars->getUpBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 50, 205, 50));
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getUpBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 100, 0));
+    $upDownBars->getUpBarsFormat()->getLine()->setWidth(2);
+
+    $upDownBars->getDownBarsFormat()->getFill()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 69, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $upDownBars->getDownBarsFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 139, 0, 0));
+    $upDownBars->getDownBarsFormat()->getLine()->setWidth(2);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
 
     for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++)
@@ -656,15 +675,15 @@ finally
 }
 ```
 
-結果：
+結果（從 PowerPoint 匯出）：
 
-![股票圖表](stock_chart.png)
+![股票圖表，A 為橙紅色下降區間，B 與 C 為綠色上升區間](stock_chart.png)
 
-### **建立箱形圖與鬍鬚圖**
+### **建立盒鬚圖**
 
-箱形圖與鬍鬚圖用於以統計方式顯示資料分布，摘要包括中位數、四分位數與可能的異常值。它們在探索性資料分析與統計研究中特別有用，可快速了解資料變異性並辨識異常。
+盒鬚圖用於透過統計量（如中位數、四分位數與可能的異常值）顯示資料分佈。它們在探索性資料分析與統計研究中特別有用，可快速了解資料變異性並識別異常。
 
-此範例以六個數值建立箱形圖與鬍鬚圖。使用 [setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) 方法選擇「排除法」四分位計算。範例亦啟用平均線、平均標記、內部點與異常點。
+此範例從六個數值建立盒鬚圖。[setQuartileMethod](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setquartilemethod/) 方法選取排除法四分位計算。範例同時啟用平均線、平均標記、內部點與異常值點。
 
 ```php
 use aspose\slides\ChartType;
@@ -729,9 +748,9 @@ finally
 
 ### **建立漏斗圖**
 
-漏斗圖用於視覺化具有連續階段的流程，資料量會隨步驟遞減。它特別適合分析轉換率、辨識瓶頸，以及追蹤銷售或行銷流程的效率。
+漏斗圖用於視覺化包含序列階段的流程，資料量隨每一步遞減。它們特別適合分析轉換率、找出瓶頸以及追蹤銷售或行銷流程的效率。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 在現有簡報的第一張投影片加入漏斗圖。預設資料會被六個類別與 50 至 500 的數值取代，然後儲存更新後的簡報。輸入簡報必須至少包含一張投影片。
+此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 在現有簡報的第一張投影片新增漏斗圖。它將預設資料取代為六個類別，值範圍從 50 到 500，然後儲存更新後的簡報。輸入簡報必須至少包含一張投影片。
 
 ```php
 use aspose\slides\ChartType;
@@ -791,11 +810,11 @@ finally
 
 ![漏斗圖](funnel_chart.png)
 
-### **建立日輻射圖（Sunburst）**
+### **建立日曆圖**
 
-日輻射圖用於視覺化階層資料，以同心環方式顯示層級。它有助於說明部分與整體關係，且非常適合以緊湊的格式呈現巢狀類別與子類別。
+日曆圖用於視覺化階層資料，將層級顯示為同心環。它們有助於說明部分對整體的關係，且非常適合以緊湊且清晰的方式呈現巢狀類別與子類別。
 
-此範例建立一個含八個葉節點、分為四個主幹與兩個分支的日輻射圖。使用 [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 方法於分組層級 1 設定主幹，於層級 2 設定分支。類別標籤說明每個區段，值則決定其相對大小。
+此範例建立一個包含八個葉節點、四個主幹與兩個分支的日曆圖。[setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 方法在分組層級 1 指定主幹，在層級 2 指定分支。類別標籤說明各區段，而數值決定相對大小。
 
 ```php
 use aspose\slides\ChartType;
@@ -876,17 +895,17 @@ finally
 
 結果：
 
-![日輻射圖](sunburst_chart.png)
+![日曆圖](sunburst_chart.png)
 
 ### **建立直方圖**
 
-直方圖顯示數值在不同區間（箱）中的分布情況。對於每月的訂單處理時間報告，使用相同的箱寬與閾值可保持區間一致，讓分布比較更直觀。
+直方圖顯示數值在區間（箱）中的分佈情形。對於每月訂單處理時間的報表，使用相同的箱寬與門檻可保持區間一致，讓分佈更易比較。
 
-在水平座標軸上呼叫 [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) 並指定來自 [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) 的模式。[setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) 只適用於 `ByBinWidth`；[setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) 只適用於 `ByNumberOfBins`。使用 `Automatic` 讓圖表自行決定箱子。
+在水平座標軸上呼叫 [setAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setaggregationtype/) 並傳入來自 [AxisAggregationType](https://reference.aspose.com/slides/php-java/aspose.slides/axisaggregationtype/) 的模式。[setBinWidth](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setbinwidth/) 僅適用於 `ByBinWidth`；[setNumberOfBins](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberofbins/) 僅適用於 `ByNumberOfBins`。使用 `Automatic` 可讓圖表自行決定箱子。
 
 #### **使用固定箱寬**
 
-此範例將處理時間分成 10 分鐘的區間，並為 ≤10 分鐘與 >40 分鐘各設定一個箱。使用 [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) 與 [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) 啟用這兩個箱。當以 [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) 與 [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) 明確提供閾值時，請以 `false` 呼叫 [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) 與 [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/)。
+此範例將處理時間分為 10 分鐘的區間，並為「≤10 分鐘」與「>40 分鐘」各設置單獨的箱子。透過 [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) 與 [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/) 啟用這兩個箱子。若以顯式門檻設定 [setUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setunderflowbin/) 與 [setOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setoverflowbin/)，請同時將 [setAutomaticUnderflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticunderflowbin/) 與 [setAutomaticOverflowBin](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticoverflowbin/) 設為 `false`。
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -936,13 +955,13 @@ finally
 }
 ```
 
-PowerPoint 中的簡報顯示箱子計數為 **3、4、4、4、2**。低箱包含 `5、10、10`，因此閾值為「包含」；高箱僅包含 `41、50`，因此閾值為「不包含」；等於 `40` 的值仍屬於前一區間。內部箱子則為「大於下界且小於等於上界」。
+在 PowerPoint 中顯示的簡報其箱子計數分別為 **3、4、4、4、2**。underflow 箱包含 `5、10、10`（門檻為含），overflow 箱僅包含 `41、50`（門檻為不含），因此值等於 `40` 仍屬於前一區間。內部箱子包含大於下界且小於等於上界的值。
 
-![使用 10 分鐘箱寬與明確的低箱與高箱閾值的直方圖](histogram_bin_width.png)
+![使用 10 分鐘箱寬且具顯式 underflow 與 overflow 門檻的直方圖](histogram_bin_width.png)
 
 #### **指定箱子數量**
 
-若希望以固定的細節層級而非固定區間，可為相同資料請求五個箱。此範例不啟用低箱與高箱。圖表會根據資料範圍自行計算箱寬，因而在不同報表間的邊界可能會改變。
+若希望以固定的細節層級而非固定區間，可要求將相同資料分為五個箱子。此範例未啟用 underflow 與 overflow 箱。圖表會根據資料範圍自行決定箱寬，因而在不同報表間邊界可能會變動。
 
 ```php
 use aspose\slides\AxisAggregationType;
@@ -986,13 +1005,13 @@ finally
 }
 ```
 
-五個箱的計數分別為 **4、4、4、4、1**。將此分布與上方固定寬度的結果比較：輸入值相同，但邊界不同。
+五個箱子的計數為 **4、4、4、4、1**。將此分佈與上方固定箱寬結果比較：輸入值相同，但邊界不同。
 
-![使用相同資料計算出的五個箱的直方圖](histogram_bin_count.png)
+![使用相同資料計算得到的五個箱子直方圖](histogram_bin_count.png)
 
 ### **建立雷達圖**
 
-雷達圖用於在二維平面上呈現多變量資料，讓多個變數 simultaneou​sly 進行比較。它特別適合辨識多個績效指標或屬性間的模式、優勢與弱點。
+雷達圖用於以二維方式顯示多變量資料，讓多個變數可同時比較。它們特別適合辨識多項績效指標或屬性之間的模式、優勢與弱點。
 
 此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個預設系列與類別的雷達圖，然後將簡報另存為 PPTX。
 
@@ -1022,9 +1041,9 @@ finally
 
 ### **建立多類別圖表**
 
-多類別圖表用於呈現涉及多個類別分組的資料，讓您可同時在多個維度上比較數值。當需要分析複雜、多層次資料集的趨勢與關係時，此類圖表特別有用。
+多類別圖表用於呈現涉及多個類別分組的資料，讓您能同時在多個維度上比較數值。它們在分析複雜、多層次資料集的趨勢與關係時非常有用。
 
-此範例建立一個包含八個類別、排列為四對的群組柱狀圖。使用 [setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 方法於分組層級 1 為每對設定共同標籤，形成同時具備個別與群組標籤的類別軸。
+此範例建立一個叢集直條圖，包含八個類別，分為四組配對。[setGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/setgroupingitem/) 方法在分組層級 1 為每組設定共享標籤，產生同時具備個別與群組標籤的類別軸。
 
 ```php
 use aspose\slides\ChartType;
@@ -1102,11 +1121,69 @@ finally
 
 ![多類別圖表](multi_category_chart.png)
 
+#### **移除季節標籤**
+
+下載 [quarters.pptx](quarters.pptx) 並放置於與 PHP 程式相同目錄。其圖表顯示九個月與單一銷售系列，值介於 10 至 18。類別軸上，Q1 覆蓋 1 月至 3 月，Q2 覆蓋 4 月至 6 月，Q3 覆蓋 7 月至 9 月。
+
+4 月是第四個類別（索引 3），其標籤為 Q2。使用 [getGroupingLevels](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/getgroupinglevels/) 取得 4 月的分組層級，然後以層級 1 呼叫 [deleteGroupingItem](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/deletegroupingitem/) 移除其季節標籤。層級 0 代表月份本身，無法以此方法移除。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation(__DIR__ . "/quarters.pptx");
+try
+{
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $april = $chart->getChartData()->getCategories()->get_Item(3);
+    $april->getGroupingLevels()->deleteGroupingItem(1);
+
+    $presentation->save(__DIR__ . "/quarters-updated.pptx", SaveFormat::Pptx);
+}
+finally
+{
+    $presentation->dispose();
+}
+
+$reopened = new Presentation(__DIR__ . "/quarters-updated.pptx");
+try
+{
+    $updatedChart = $reopened->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $data = $updatedChart->getChartData();
+
+    $months = [];
+    $categories = $data->getCategories();
+    
+    for ($i = 0; $i < java_values($categories->size()); $i++)
+    {
+        $months[] = (string)$categories->get_Item($i)->getAsCell()->getValue();
+    }
+
+    $sales = [];
+    $points = $data->getSeries()->get_Item(0)->getDataPoints();
+    for ($i = 0; $i < java_values($points->size()); $i++)
+    {
+        $sales[] = (string)$points->get_Item($i)->getValue()->getData();
+    }
+
+    echo implode(", ", $months), PHP_EOL;
+    echo implode(", ", $sales), PHP_EOL;
+}
+finally
+{
+    $reopened->dispose();
+}
+```
+
+重新開啟圖表後，範例會以相同順序印出原始月份（`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`）與銷售值（`10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0`）。在 PowerPoint 中開啟 `quarters-updated.pptx` 以比對軸標籤。Q2 標籤與 4 月前的群組邊界消失，故 Q1 伸展至 1 月至 6 月。Q3 仍從 7 月開始。
+
+![移除前後的季節標籤比較。左側 Q2 蓋住 4 月至 6 月；右側 Q1 蓋住 1 月至 6 月。](quarter-label-comparison.png)
+
 ### **建立地圖圖表**
 
-地圖圖表用於以圖形方式呈現地理資料，將資訊映射至國家、州或城市等特定位置。它們在分析區域趨勢、人口統計資料與空間分布時特別有價值，且能以清晰且具視覺吸引力的方式呈現。
+地圖圖表用於以國家、州或城市等特定位置呈現地理資料。它們特別適合分析區域趨勢、人口統計資料與空間分佈，且視覺上引人入勝。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個預設地理資料的地圖圖表，並儲存以供 PowerPoint 檢視。
+此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個使用預設地理資料的地圖圖表，並將其儲存以供在 PowerPoint 中檢視。
 
 ```php
 use aspose\slides\ChartType;
@@ -1132,19 +1209,17 @@ finally
 
 ![地圖圖表](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-
-上圖顯示在 PowerPoint 中開啟的已儲存簡報。Aspose.Slides 正確寫入地圖圖表及其資料，但本身不會繪製地圖圖表：當包含地圖圖表的投影片轉為影像或匯出為 PDF、SVG 時，圖表區域會是空白。其他圖形保持不受影響。
-
+{{% alert color="info" title="注意" %}}
+上圖顯示已在 PowerPoint 中開啟的儲存簡報。Aspose.Slides 能正確寫入地圖圖表與其資料，但不會自行繪製地圖圖表：當投影片被渲染為圖像或轉換為 PDF、SVG 時，圖表區域會呈現空白。同一投影片上的其他形狀不受影響。
 {{% /alert %}}
 
 ### **建立組合圖表**
 
-組合圖表（或稱 combo 圖表）在同一圖形中結合兩種或以上的圖表類型。此圖表讓您能突顯、比較或檢視多個資料集之間的差異，協助辨識它們之間的關係。
+組合圖（或稱 combo 圖）在單一圖形中結合兩種或以上的圖表類型。此圖表讓您能突顯、比較或檢視兩個以上資料集之間的差異，協助辨識它們之間的關聯。
 
 ![組合圖表](combination_chart.png)
 
-此範例將兩個群組柱狀系列與一個折線系列結合在四個類別上。柱狀使用主垂直軸，而 [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) 將折線放置於右側的次要垂直軸。輔助函式負責設定標題、圖例、座標軸標籤與格線。
+此範例將兩個叢集直條系列與一條折線系列結合於四個類別。直條使用主垂直軸，而透過 [setPlotOnSecondAxis](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setplotonsecondaxis/) 將折線放在右側的次要垂直軸。輔助函式負責設定標題、圖例、軸標籤與格線。
 
 ```php
 use aspose\slides\AxisPositionType;
@@ -1318,9 +1393,9 @@ createComboChart();
 
 ## **更新圖表**
 
-Aspose.Slides for PHP via Java 允許您透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了讓簡報即時反映動態內容的程序，並確保圖表正確呈現最新資料與視覺標準。
+Aspose.Slides for PHP via Java 讓您可以透過修改圖表資料、格式與樣式來更新 PowerPoint 圖表。此功能簡化了使簡報與動態內容保持同步的程序，確保圖表準確反映當前資料與視覺標準。
 
-此範例更新既有簡報第一張投影片中名為 "My chart" 的圖表。它需要兩個系列、每個系列三個資料點，類別標籤放在 A 欄，系列名稱放在第一張工作表的第一列。範例使用 [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) 變更活頁簿儲存格，更新系列值，新增第三個系列，並透過 [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) 將圖表改為群組圓柱體。
+此範例更新現有簡報第一張投影片中名為「My chart」的圖表。它需要兩個欄系列，每個系列包含三個資料點，類別標籤位於欄 A，系列名稱位於第一張工作表的第一列。範例使用 [getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) 變更活頁簿儲存格，更新系列值，新增第三個系列，並透過 [setType](https://reference.aspose.com/slides/php-java/aspose.slides/chart/settype/) 將圖表改為叢集圓柱體。
 
 ```php
 use aspose\slides\ChartType;
@@ -1384,13 +1459,13 @@ finally
 }
 ```
 
-## **設定圖表的資料範圍**
+## **為圖表設定資料範圍**
 
-若要檢視現有圖表已使用的範圍，請參閱 [Retrieve a Chart's Data Range](/slides/zh-hant/php-java/chart-workbook/#retrieve-a-charts-data-range)。
+若要檢視已存在圖表使用的範圍，請參考 [Retrieve a Chart's Data Range](/slides/zh-hant/php-java/chart-workbook/#retrieve-a-charts-data-range)。
 
-Aspose.Slides for PHP via Java 提供彈性，讓您可將工作表中的特定資料範圍指定為圖表資料來源。這意味著您可直接對工作表的某一區段與圖表對應，控制哪些儲存格貢獻給圖表的系列與類別。因此，您可以輕鬆更新與同步圖表，確保簡報反映工作表中的最新且正確的資訊。
+Aspose.Slides for PHP via Java 提供彈性，可將工作表中的特定資料範圍指定為圖表資料來源。這意味著您可以直接將工作表的某一部份對應至圖表，控制哪些儲存格貢獻於圖表的系列與類別。如此一來，您即可輕鬆更新並同步圖表與工作表的最新資料，確保 PowerPoint 簡報呈現正確且即時的資訊。
 
-此範例使用 [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/) 將既有簡報第一張投影片中名為 "My chart" 的圖表資料來源設定為 `Sheet1!A1:B4`。圖表活頁簿必須包含該工作表，且範圍內需有第一列的系列標題、A 欄的類別標籤，以及 B 欄的三個數值。
+此範例使用 [setRange](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/setrange/)，將現有簡報第一張投影片中名為「My chart」的圖表資料來源設定為 `Sheet1!A1:B4`。圖表活頁簿必須包含該工作表，且範圍內需有第一列的系列標題、欄 A 的類別標籤，以及欄 B 的三個數值。
 
 ```php
 use aspose\slides\Presentation;
@@ -1424,9 +1499,9 @@ finally
 
 ## **在圖表中使用預設標記**
 
-使用預設標記時，系統會自動為每個圖表系列指派不同的預設標記符號。
+使用預設標記時，每個圖表系列會自動取得不同的預設標記符號。
 
-此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個包含兩條折線系列與圖例的圖表。透過 [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) 取得的標記設定，保留了自動指派的標記符號。第一個系列包含負值與缺失值（以 `null` 表示），第二個系列則為每個類別都有值。
+此範例使用 [addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) 建立一個包含兩條折線系列與圖例的圖表。透過 [getMarker](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getmarker/) 取得的標記設定保留了系統自動指派的標記符號。第一個系列包含負值與缺少值（以 `null` 表示），第二個系列則在每個類別都有值。
 
 ```php
 use aspose\slides\ChartType;
@@ -1491,20 +1566,20 @@ finally
 }
 ```
 
-## **常見問題集**
+## **常見問題**
 
 **Aspose.Slides for PHP via Java 支援哪些圖表類型？**
 
-Aspose.Slides for PHP via Java 支援廣泛的圖表類型，包括長條圖、折線圖、圓餅圖、面積圖、散佈圖、直方圖、雷達圖等多種形式。此彈性讓您能選擇最適合資料視覺化需求的圖表類型。
+Aspose.Slides for PHP via Java 支援廣泛的圖表類型，包括長條圖、折線圖、圓餅圖、面積圖、散佈圖、直方圖、雷達圖以及更多。此彈性讓您能依資料視覺化需求選擇最合適的圖表類型。
 
 **如何在投影片中新增圖表？**
 
-新增圖表時，首先建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例，依索引取得目標投影片，然後呼叫加入圖表的方法，指定圖表類型與初始資料。此流程可直接將圖表整合至簡報中。
+要新增圖表，首先建立 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 類別的實例，依索引取得目標投影片，然後呼叫新增圖表的方法，指定圖表類型與初始資料。此流程會直接將圖表整合至您的簡報中。
 
 **如何更新圖表中顯示的資料？**
 
-您可以透過存取圖表的資料活頁簿（[ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)），清除預設的系列與類別，然後加入自訂資料，以程式方式刷新圖表，呈現最新資料。
+您可以透過存取圖表的資料活頁簿（[ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)），清除預設的系列與類別，接著加入自訂資料，從而以程式方式更新圖表以反映最新資料。
 
 **是否可以自訂圖表的外觀？**
 
-可以，Aspose.Slides for PHP via Java 提供廣泛的自訂選項。您可以修改顏色、字型、標籤、圖例與其他格式元素，以符合特定的設計需求。
+可以，Aspose.Slides for PHP via Java 提供廣泛的自訂選項。您可修改顏色、字型、標籤、圖例以及其他格式元素，以符合特定的設計需求。

@@ -1,11 +1,11 @@
 ---
-title: "Skapa eller uppdatera PowerPoint-presentationdiagram i Java"
-linktitle: "Skapa eller uppdatera diagram"
+title: Skapa eller Uppdatera PowerPoint-presentationdiagram i Java
+linktitle: Skapa eller Uppdatera Diagram
 type: docs
 weight: 10
 url: /sv/java/create-chart/
 keywords:
-- lägga till diagram
+- lägg till diagram
 - skapa diagram
 - redigera diagram
 - ändra diagram
@@ -15,9 +15,9 @@ keywords:
 - linjediagram
 - trädkartsdiagram
 - aktiediagram
-- box-och-whisker-diagram
+- box och whisker diagram
 - trattdiagram
-- sunburst-diagram
+- solurdiagram
 - histogramdiagram
 - radardiagram
 - flerkategoridiagram
@@ -29,29 +29,29 @@ description: "Skapa och anpassa diagram i PowerPoint-presentationer med Aspose.S
 ---
 ## **Översikt**
 
-Denna artikel ger en omfattande guide om hur man skapar och anpassar diagram med Aspose.Slides för Java. Du kommer att lära dig hur man programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustreras varje steg med detaljerade kodexempel, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa denna guide får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina Java‑applikationer och förenklar processen att skapa datadrivna presentationer.
+Den här artikeln ger en omfattande guide för hur man skapar och anpassar diagram med Aspose.Slides för Java. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa den här guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina Java‑applikationer, vilket effektiviserar processen att skapa datadrivna presentationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller ett kalkylblad.
+Diagram hjälper människor snabbt att visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
-* sammanfatta, kondensera eller summera stora mängder data på en enda bild i en presentation;
+* sammanfatta, komprimera eller summera stora mängder data på en enda bild i en presentation;
 * avslöja mönster och trender i data;
-* avleda riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
-* identifiera avvikare, avvikelser, fel och nonsensisk data;
+* sluta sig till riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
+* upptäcka avvikelser, avvikande värden, fel och meningslösa data;
 * kommunicera eller presentera komplex data.
 
-I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som erbjuder mallar för att designa många diagramtyper. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
 {{% alert color="info" title="Note" %}}
-Använd [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑uppräkningen i paketet [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/). Värdena i denna uppräkning motsvarar olika diagramtyper.
+Använd [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) uppräkningen i paketet [com.aspose.slides](https://reference.aspose.com/slides/java/com.aspose.slides/). Värdena i denna uppräkning motsvarar olika diagramtyper.
 {{% /alert %}}
 
-### **Skapa grupperade stapeldiagram**
+### **Skapa grupperade kolumndiagram**
 
-Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att skapa ett grupperat stapeldiagram som jämför två serier över tre kategorier. Serierna använder röd och grön fyllning, och individuella etiketter visar kategorinamnen, serienamnen och värdena. Arbetsboksindex 0 refererar till det första bladet i den inbäddade diagramarboken.
+Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att skapa ett grupperat kolumndiagram som jämför två serier över tre kategorier. Serierna använder röd och grön fyllning, och enskilda etiketter visar kategorinamnen, serienamnen och värdena. Kalkylbladsindex 0 refererar till det första bladet i den inbäddade diagramarboken.
 
 ```java
 import com.aspose.slides.*;
@@ -132,20 +132,20 @@ finally
 
 Resultatet:
 
-![Det grupperade stapeldiagrammet](clustered_column_chart.png)
+![Det grupperade kolumndiagrammet](clustered_column_chart.png)
 
 ### **Skapa spridningsdiagram**
 
-Spridningsdiagram (även kallade spridningsplottar eller x‑y‑diagram) används ofta för att söka efter mönster eller visa korrelationer mellan två variabler.
+Spridningsdiagram (även kända som spridningsdiagram eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
 
 Använd ett spridningsdiagram när:
 
-* Du har parvis numerisk data.
+* Du har parade numeriska data.
 * Du har två variabler som passar bra ihop.
 * Du vill avgöra om de två variablerna är relaterade.
 * Du har en oberoende variabel som har flera värden för en beroende variabel.
 
-Detta exempel plottar två uppsättningar av x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder mjuka linjer med cirkelmarkörer; båda använder en markörstorlek på 10, konfigurerad med [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). Metoden [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) styr markörens form.
+Detta exempel ritar två uppsättningar x‑y‑värden. Den första serien använder raka linjer med stjärnmarkörer, medan den andra använder jämna linjer med cirkelmarkörer; båda använder en markörstorlek på 10, konfigurerad med [setSize](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSize-int-). Metoden [setSymbol](https://reference.aspose.com/slides/java/com.aspose.slides/imarker/#setSymbol-int-) styr markörens form.
 
 ```java
 import com.aspose.slides.*;
@@ -217,9 +217,9 @@ Resultatet:
 
 ### **Skapa cirkeldiagram**
 
-Cirkeldiagram är bäst att använda för att visa del‑till‑hel‑förhållandet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Men om din data innehåller många delar eller etiketter kan det vara bättre att använda ett stapeldiagram.
+Cirkeldiagram används bäst för att visa del‑till‑helhet‑förhållandet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Men om dina data innehåller många delar eller etiketter kan du överväga att använda ett stapeldiagram istället.
 
-Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje segment har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procent och serieinformation. Metoden [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) ställer in att den första sektorn startar vid 180 grader.
+Detta exempel skapar ett cirkeldiagram med tre kvartalsvärden. Varje segment har en anpassad fyllning och kant, och etiketterna visar olika kombinationer av värden, procentandelar och serieinformation. Metoden [setFirstSliceAngle](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setFirstSliceAngle-int-) sätter den första delen att börja vid 180 grader.
 
 ```java
 import com.aspose.slides.*;
@@ -285,7 +285,7 @@ try
     secondSlice.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDot);
 
     IChartDataPoint thirdSlice = series.getDataPoints().get_Item(2);
-    thirdSlice.getFormat().getFill().setFillType(FillType.Solid);
+    thirdSlice.getFormat().setFill().setFillType(FillType.Solid);
     thirdSlice.getFormat().getFill().getSolidFillColor().setColor(new Color(255, 127, 80));
 
     thirdSlice.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
@@ -322,11 +322,11 @@ Resultatet:
 
 ![Cirkeldiagrammet](pie_chart.png)
 
-För att förbättra läsbarheten för etiketter utanför cirkeln, se [Format Leader Lines](/slides/sv/java/chart-data-label/#format-leader-lines) för ett exempel som placerar etiketter och anpassar linjernas färg, bredd, transparens och streckstil.
+För att förbättra läsbarheten av etiketter utanför cirkeln, se [Formatera ledarlinjer](/slides/sv/java/chart-data-label/#format-leader-lines) för ett exempel som positionerar etiketter och anpassar linjernas färg, bredd, transparens och streckstil.
 
 ### **Skapa linjediagram**
 
-Linjediagram (även kallade linjegrafer) är bäst att använda i situationer där du vill visa förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data på en gång, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
+Linjediagram (även kända som linjediagram) används bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data på en gång, spåra förändringar och trender över tid, framhäva avvikelser i dataserier, och mer.
 
 Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att skapa ett linjediagram med standardserier och -kategorier, och sparar sedan presentationen som PPTX.
 
@@ -348,7 +348,7 @@ finally
 }
 ```
 
-Som standard är punkter i ett linjediagram förenade med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck istället, anropa [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) med ett värde från [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
+Som standard är punkterna på ett linjediagram förenade med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck istället, anropa [setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) med ett värde från [LineDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/):
 
 ```java
 import com.aspose.slides.*;
@@ -377,9 +377,9 @@ Resultatet:
 
 ### **Skapa trädkartsdiagram**
 
-Trädkartsdiagram är bäst att använda för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamhet mot de objekt som är stora bidragsgivare inom varje kategori.
+Trädkartsdiagram används bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt dra uppmärksamhet till objekt som är stora bidragsgivare inom varje kategori.
 
-Detta exempel skapar ett trädkartsdiagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Värdena bestämmer de relativa rektangelstorlekarna, medan kategorietiketter och överlappande föräldratiketter identifierar hierarkin.
+Detta exempel skapar en trädkarta med åtta blad grupperade i fyra stjälkar och två grenar. Metoden [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) tilldelar stjälkar på grupperingsnivå 1 och grenar på nivå 2. Värdena avgör de relativa rektangelstorlekarna, medan kategorietiketter och överlappande föräldratiketter identifierar hierarkin.
 
 ```java
 import com.aspose.slides.*;
@@ -460,24 +460,24 @@ finally
 
 Resultatet:
 
-![Trädkartsdiagrammet](treemap_chart.png)
+![Trädkartdiagrammet](treemap_chart.png)
 
-### **Skapa waterfall‑diagram**
+### **Skapa vattenfallsdiagram**
 
-Ett waterfall‑diagram visar hur positiva och negativa förändringar bidrar till ett slutvärde. Till exempel kan en vinstuppdelning börja med intäkter, subtrahera kostnader och lägga till annan inkomst. Ändringskolumner svävar mellan föregående och nytt löpande värde, medan totalkolumner sträcker sig från noll till det ackumulerade värdet.
+Ett vattenfallsdiagram visar hur positiva och negativa förändringar bidrar till ett slutligt värde. Till exempel kan en resultatuppdelning börja med intäkter, subtrahera kostnader och lägga till annan inkomst. Ändringskolumner svävar mellan föregående och nya löpande värden, medan totalkolumner sträcker sig från noll till det ackumulerade värdet.
 
 | Kategori | Arbetsboksvärde | Kolumntyp |
 | --- | ---: | --- |
-| Intäkt | 1000 | Ökning |
-| Försäljningskostnad | -400 | Minskning |
-| Bruttoresultat | 600 | Mellanliggande total |
+| Intäkter | 1000 | Ökning |
+| Kostnad för försäljning | -400 | Minskning |
+| Bruttoresultat | 600 | Intermediär total |
 | Driftskostnader | -200 | Minskning |
-| Övriga intäkter | 50 | Ökning |
+| Övrig inkomst | 50 | Ökning |
 | Nettoresultat | 450 | Slutlig total |
 
-För att markera en punkt som en mellanliggande eller slutlig total, anropa dess [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-)‑metod med `true`. Ange det faktiska ackumulerade beloppet i den punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettoresultat (`600 - 200 + 50`). Metoden markerar kolumnen som en total; den beräknar eller fyller inte i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En totalkolumn visar det ackumulerade värdet utan att lägga till det igen i det löpande värdet.
+För att markera en punkt som en intermediär eller slutlig total, anropa dess [setSetAsTotal](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatapoint/#setSetAsTotal-boolean-) med `true`. Ange det faktiska ackumulerade beloppet i den punktens arbetsbokscell: `600` för bruttoresultat (`1000 - 400`) och `450` för nettoresultat (`600 - 200 + 50`). Metoden markerar kolumnen som en total; den beräknar eller fyller inte i cellvärdet. Använd inte noll som platshållare eller ange en annan förändring för en totalpunkt. En totalkolumn visar det ackumulerade värdet utan att lägga till det igen till det löpande värdet.
 
-Detta kompletta Java‑exempel skapar ett diagram med `Waterfall`‑medlemmen av [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Arbetsboksindex `0` väljer det första kalkylbladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecell läggs till med [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). De nollbaserade punktindexen `2` och `5` identifierar de mellanliggande och slutliga totalerna. Att anropa [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) med `true` visar beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
+Detta kompletta Java‑exempel skapar ett diagram med `Waterfall`‑medlemmen i [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), rensar standarddata och fyller den inbäddade arbetsboken. Kalkylbladsindex `0` väljer det första kalkylbladet; kolumn A innehåller kategorinamnen och kolumn B innehåller värdena. Varje värdecells läggs till med [addDataPointForWaterfallSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#addDataPointForWaterfallSeries-com.aspose.slides.IChartDataCell-). De nollbaserade punktindexen `2` och `5` identifierar de intermediära respektive slutliga totalerna. Anrop av [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-) med `true` visar beloppen på kolumnerna. Ingen inmatningspresentation eller arbetsbok krävs.
 
 ```java
 import com.aspose.slides.*;
@@ -529,25 +529,34 @@ finally
 }
 ```
 
-Anropa serie‑nivåns [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-)‑metod med `true` för att visa linjer som länkar ihop på varandra följande kolumner och göra det löpande värdet lättare att följa. För att dölja dessa linjer, ersätt metodanropet i exemplet med `series.setShowConnectorLines(false);` före sparning. Detta ändrar endast linjens synlighet, inte data eller totaler.
+Anropa series‑nivåmetoden [setShowConnectorLines](https://reference.aspose.com/slides/java/com.aspose.slides/chartseries/#setShowConnectorLines-boolean-) med `true` för att visa linjer som kopplar sammanhängande kolumner och göra det löpande värdet lättare att följa. För att dölja dessa linjer, ersätt metodanropet i exemplet med `series.setShowConnectorLines(false);` innan sparning. Detta ändrar bara linjens synlighet, inte data eller totaler.
 
-![Waterfall‑diagram som visar intäkter, kostnader, bruttoresultat på 600 och nettoresultat på 450, med värdeetiketter och kopplingslinjer](waterfall_chart.png)
+Resultatet:
+
+![Vattenfallsdiagram som visar intäkter, kostnader, bruttoresultat på 600 och nettoresultat på 450, med värdeetiketter och anslutningslinjer](waterfall_chart.png)
 
 ### **Skapa aktiediagram**
 
-Aktiediagram används för att visa finansiell data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktiga insikter i aktiens prestation, vilket hjälper investerare och analytiker att fatta informerade beslut.
+Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De erbjuder viktiga insikter i aktieprestanda, vilket hjälper investerare och analytiker att fatta informerade beslut.
 
-Detta exempel skapar ett öppning‑högt‑låg‑stängningsdiagram med fyra serier i den ordningen och tre kategorier. Metoden [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) aktiverar upp/ner‑staplar, och [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) styr hög‑läg‑linjerna som visar prisintervallen, medan de enskilda serielinjerna och mindre horisontella rutnätslinjer är dolda.
+Detta exempel skapar ett öppnings‑höga‑låga‑stängnings‑diagram med fyra serier i den ordningen och tre kategorier. Metoden [setUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#setUpDownBars-boolean-) aktiverar upp/ner‑staplar, och [getHiLowLinesFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getHiLowLinesFormat--) styr hög‑lägsta linjer som visar prisintervallen, medan de individuella serielinjerna och mindre horisontella rutnätslinjer är dolda.
+
+Hanterna som returneras av [getUpDownBars](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#getUpDownBars--) exponerar separata formateringsobjekt via [getUpBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getUpBarsFormat--) och [getDownBarsFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iupdownbarsmanager/#getDownBarsFormat--). Använd varje objekts [getFill](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getFill--) och [getLine](https://reference.aspose.com/slides/java/com.aspose.slides/iformat/#getLine--) för att ställa in fyllning och kontur oberoende. Detta exempel använder gröna staplar med mörkgröna konturer för stigande intervall och orange‑röda staplar med mörkröda konturer för fallande intervall.
+
+Ange numeriska värden för alla fyra serier i varje kategori, med Hög och Låg som omsluter Öppning och Stängning. Staplarna jämför Stängning med Öppning **inom samma kategori**, inte med föregående kategori: A faller från 72 till 25, medan B stiger från 25 till 38 och C stiger från 38 till 50. Identiska Öppnings‑ och Stängningsvärden ger ingen synlig fylld intervall. Upp/ner‑staplar sträcker sig över Öppning–Stängning; hög‑lägsta linjer sträcker sig över Läg‑Hög. Dessa staplar tillhör seriesgruppen och är inte vanliga stapeldiagramserier.
+
+Denna formatering fungerar även med [Line and LineWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) diagram som innehåller minst två serier i samma grupp och motsvarande numeriska värden för varje kategori. För dessa icke‑staplade linjediagram jämför upp/ner‑staplar den första och sista serien: ett högre sista värde ger en upp‑stapel, och ett lägre sista värde ger en ner‑stapel. Att vända dessa serier vänder klassificeringen. Exemplet nedan använder [OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/); anta inte att andra aktie‑, staplade‑linje‑ eller 3D‑varianter använder samma dataarrangemang eller intervalltolkning.
 
 ```java
 import com.aspose.slides.*;
+import java.awt.Color;
 
 Presentation presentation = new Presentation();
 try
 {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
+    IChart chart = slide.getShapes().addChart(ChartType.OpenHighLowClose, 20, 20, 500, 150, false);
 
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
@@ -599,7 +608,20 @@ try
     valueCell = workbook.getCell(0, 3, 4, 50);
     series.getDataPoints().addDataPointForStockSeries(valueCell);
 
-    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    IUpDownBarsManager upDownBars = chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars();
+    upDownBars.setUpDownBars(true);
+
+    upDownBars.getUpBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getFill().getSolidFillColor().setColor(new Color(50, 205, 50));
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getUpBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(0, 100, 0));
+    upDownBars.getUpBarsFormat().getLine().setWidth(2);
+
+    upDownBars.getDownBarsFormat().getFill().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getFill().getSolidFillColor().setColor(new Color(255, 69, 0));
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().setFillType(FillType.Solid);
+    upDownBars.getDownBarsFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(139, 0, 0));
+    upDownBars.getDownBarsFormat().getLine().setWidth(2);
     chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
 
     for (IChartSeries stockSeries : chart.getChartData().getSeries())
@@ -619,13 +641,13 @@ finally
 
 Resultatet:
 
-![Aktiediagrammet](stock_chart.png)
+![Aktiediagram med ett orange‑rödt fallande intervall för A och gröna stigande intervall för B och C](stock_chart.png)
 
-### **Skapa box‑ och whisker‑diagram**
+### **Skapa box‑och‑whisker‑diagram**
 
-Box‑ och whisker‑diagram används för att visa fördelningen av data genom att sammanfatta centrala statistiska mått, såsom median, kvartiler och potentiella avvikare. De är särskilt användbara i utforskande dataanalys och statistiska studier för att snabbt förstå datavariabilitet och identifiera avvikelser.
+Box‑och‑whisker‑diagram används för att visa fördelningen av data genom att sammanfatta nyckelstatistiska mått, såsom median, kvartiler och potentiella avvikare. De är särskilt användbara i utforskande dataanalys och statistiska studier för att snabbt förstå datavariabilitet och identifiera avvikelser.
 
-Detta exempel skapar ett box‑ och whisker‑diagram från sex värden. Metoden [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) väljer den exklusiva kvartilsberäkningen. Exemplet aktiverar också medellinjer, medelmarkörer, inre punkter och avvikarpunkter.
+Detta exempel skapar ett box‑och‑whisker‑diagram från sex värden. Metoden [setQuartileMethod](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setQuartileMethod-int-) väljer den exkluderande kvartilsberäkningen. Exemplet aktiverar också medellinjer, medelmarkörer, inre punkter och avvikelser.
 
 ```java
 import com.aspose.slides.*;
@@ -687,9 +709,9 @@ finally
 
 ### **Skapa trattdiagram**
 
-Trattdiagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den fortskrider från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings- eller marknadsföringsprocesser.
+Trattdiagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
 
-Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att lägga till ett trattdiagram på den första bilden i en befintlig presentation. Det ersätter standarddata med sex kategorier och värden som sträcker sig från 50 till 500, och sparar sedan den uppdaterade presentationen. Inmatningspresentationen måste innehålla minst en bild.
+Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att lägga till ett trattdiagram på den första bilden i en befintlig presentation. Det ersätter standarddatan med sex kategorier och värden från 50 till 500, och sparar sedan den uppdaterade presentationen. Indatapresentationen måste innehålla minst en bild.
 
 ```java
 import com.aspose.slides.*;
@@ -747,11 +769,11 @@ Resultatet:
 
 ![Trattdiagrammet](funnel_chart.png)
 
-### **Skapa sunburst‑diagram**
+### **Skapa solur‑diagram**
 
-Sunburst‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑hel‑förhållanden och är idealiska för att representera nästlade kategorier och underkategorier i ett tydligt, kompakt format.
+Solur‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhet‑förhållanden och är idealiska för att representera nästlade kategorier och underkategorier i ett tydligt, kompakt format.
 
-Detta exempel skapar ett sunburst‑diagram med åtta löv grupperade i fyra stammar och två grenar. Metoden [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) tilldelar stammar på grupperingnivå 1 och grenar på nivå 2. Kategorietiketter identifierar segmenten, och värdena bestämmer deras relativa storlekar.
+Detta exempel skapar ett solur‑diagram med åtta blad grupperade i fyra stjälkar och två grenar. Metoden [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) tilldelar stjälkar på grupperingsnivå 1 och grenar på nivå 2. Kategorietiketter identifierar segmenten, och värdena bestämmer deras relativa storlekar.
 
 ```java
 import com.aspose.slides.*;
@@ -830,13 +852,13 @@ finally
 
 Resultatet:
 
-![Sunburst‑diagrammet](sunburst_chart.png)
+![Solur‑diagrammet](sunburst_chart.png)
 
 ### **Skapa histogramdiagram**
 
-Histogram‑diagram visar hur numeriska värden fördelas över intervall (bin). För månatliga rapporter om orderbehandlingstider, använd samma binbredd och tröskelvärden för att hålla intervallen konsekventa och göra fördelningarna enklare att jämföra.
+Histogramdiagram visar hur numeriska värden fördelas över intervall (bin). För månadsrapporter om orderbehandlingstider, använd samma binbredd och tröskelvärden för att hålla intervallen konsekventa och göra fördelningarna lättare att jämföra.
 
-Anropa [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) på den horisontella axeln med ett läge från [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) gäller endast för `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) gäller endast för `ByNumberOfBins`. Använd `Automatic` för att låta diagrammet välja binarna.
+Kalla [setAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAggregationType-int-) på den horisontella axeln med ett läge från [AxisAggregationType](https://reference.aspose.com/slides/java/com.aspose.slides/axisaggregationtype/). [setBinWidth](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setBinWidth-double-) gäller endast för `ByBinWidth`; [setNumberOfBins](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberOfBins-long-) gäller endast för `ByNumberOfBins`. Använd `Automatic` för att låta diagrammet välja binarna.
 
 #### **Använd en fast binbredd**
 
@@ -887,13 +909,13 @@ finally
 }
 ```
 
-Presentationen som visas i PowerPoint visar binräkningar på **3, 4, 4, 4 och 2**. Underflödesbinen inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Överflödesbinen inkluderar endast `41, 50`, så dess tröskel är exkluderande; båda värdena lika med `40` förblir i föregående intervall. De inre binarna innehåller värden som är större än deras nedre gräns och mindre än eller lika med deras övre gräns.
+Presentation som visas i PowerPoint visar binräkningar **3, 4, 4, 4 och 2**. Underflödes‑bin inkluderar `5, 10, 10`, så dess tröskel är inklusiv. Överflödes‑bin inkluderar endast `41, 50`, så dess tröskel är exklusiv; båda värdena lika med `40` förblir i föregående intervall. De inre binarna innehåller värden större än deras nedre gräns och mindre än eller lika med deras övre gräns.
 
-![Histogram med 10‑minutersbin och explicita under‑ och överflödeströsklar](histogram_bin_width.png)
+![Histogram med 10‑minutersbin och explicita under‑ och överflödes‑tröskelvärden](histogram_bin_width.png)
 
 #### **Ange antalet bin**
 
-För en fast detaljnivå istället för fasta intervall, begär fem bin för samma data. Detta exempel har under‑ och överflödesbin inaktiverade. Diagrammet bestämmer bredden utifrån dataspridningen, så gränserna kan förändras mellan rapporter.
+För en fast detaljnivå istället för fasta intervall, begär fem bin för samma data. Detta exempel har under‑ och överflödes‑bin inaktiverade. Diagrammet bestämmer bredden från dataområdet, så gränser kan ändras mellan rapporter.
 
 ```java
 import com.aspose.slides.*;
@@ -934,7 +956,7 @@ finally
 }
 ```
 
-De fem binarna har räkningar på **4, 4, 4, 4 och 1**. Jämför denna fördelning med resultatet med fast bredd ovan: indata är identiska, men gränserna skiljer sig.
+De fem bin har räknare **4, 4, 4, 4 och 1**. Jämför denna fördelning med resultatet från fast bredd ovan: inmatningsvärdena är identiska, men gränserna skiljer sig.
 
 ![Histogram med fem bin beräknade från samma data](histogram_bin_count.png)
 
@@ -968,9 +990,9 @@ Resultatet:
 
 ### **Skapa flerkategoridiagram**
 
-Flerkategoridiagram används för att visa data som involverar mer än en kategorisk gruppering, vilket låter dig jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och samband i komplexa, flerskiktsdatamängder.
+Flerkategoridiagram används för att visa data som involverar mer än en kategorisk gruppering, vilket låter dig jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och relationer inom komplexa, flerskiktsdatamängder.
 
-Detta exempel skapar ett grupperat stapeldiagram med åtta kategorier arrangerade i fyra par. Metoden [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ger varje par en gemensam etikett på grupperingnivå 1, vilket ger en kategori‑axel med både individuella och gruppetiketter.
+Detta exempel skapar ett grupperat kolumndiagram med åtta kategorier arrangerade i fyra par. Metoden [setGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#setGroupingItem-int-java.lang.Object-) ger varje par en gemensam etikett på grupperingsnivå 1, vilket ger en kategoriaxel med både individuella och gruppetiketter.
 
 ```java
 import com.aspose.slides.*;
@@ -1046,9 +1068,54 @@ Resultatet:
 
 ![Flerkategoridiagrammet](multi_category_chart.png)
 
+#### **Ta bort en kvartalsetikett**
+
+Ladda ner [quarters.pptx](quarters.pptx) och placera den i arbetskatalogen. Dess diagram visar nio månader och en enda försäljningsserie med värden från 10 till 18. På kategoriaxeln sträcker Q1 sig över januari till mars, Q2 över april till juni, och Q3 över juli till september.
+
+April är den fjärde kategorin (index 3) och har Q2‑etiketten. Använd [getGroupingLevels](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/#getGroupingLevels--) för att få åtkomst till Aprils grupperingsnivåer, och anropa sedan [deleteGroupingItem](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategorylevelsmanager/#deleteGroupingItem-int-) med nivå 1 för att ta bort dess kvartalsetikett. Nivå 0 representerar själva månaden och kan inte tas bort med denna metod.
+
+```java
+import com.aspose.slides.*;
+import java.util.StringJoiner;
+
+Presentation presentation = new Presentation("quarters.pptx");
+try {
+    IChart chart = (IChart) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartCategory april = chart.getChartData().getCategories().get_Item(3);
+    april.getGroupingLevels().deleteGroupingItem(1);
+
+    presentation.save("quarters-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopened = new Presentation("quarters-updated.pptx");
+try {
+    IChart updatedChart = (IChart) reopened.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartData data = updatedChart.getChartData();
+    
+    StringJoiner months = new StringJoiner(", ");
+    for (IChartCategory month : data.getCategories()) {
+        months.add(String.valueOf(month.getAsCell().getValue()));
+    }
+    StringJoiner sales = new StringJoiner(", ");
+    for (IChartDataPoint point : data.getSeries().get_Item(0).getDataPoints()) {
+        sales.add(String.valueOf(point.getValue().getData()));
+    }
+    System.out.println(months);
+    System.out.println(sales);
+} finally {
+    reopened.dispose();
+}
+```
+
+Efter att diagrammet har öppnats igen skriver exemplet ut de ursprungliga månaderna (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) och försäljningsvärdena (`10, 11, 12, 13, 14, 15, 16, 17, 18`) i samma ordning. Öppna `quarters-updated.pptx` i PowerPoint för att jämföra axel­etiketterna. Q2‑etiketten och gruppgränsen före april försvinner, så Q1 sträcker sig över januari till juni. Q3 börjar fortfarande i juli.
+
+![Kvartalsetiketter före och efter borttagning. Till vänster sträcker Q2 sig över april till juni. Till höger sträcker Q1 sig över januari till juni.](quarter-label-comparison.png)
+
 ### **Skapa kartdiagram**
 
-Kartdiagram används för att visualisera geografisk data genom att kartlägga information till specifika platser som länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumsliga fördelningar på ett tydligt, visuellt engagerande sätt.
+Kartdiagram används för att visualisera geografisk data genom att mappa information till specifika platser som länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografiska data och rumsliga fördelningar på ett tydligt, visuellt engagerande sätt.
 
 Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att skapa ett kartdiagram med standardgeografisk data och sparar det för visning i PowerPoint.
 
@@ -1075,16 +1142,16 @@ Resultatet:
 ![Kartdiagrammet](map_chart.png)
 
 {{% alert color="info" title="Note" %}}
-Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
+Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men den ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
 {{% /alert %}}
 
 ### **Skapa kombinationsdiagram**
 
-Ett kombinationsdiagram (eller combo‑diagram) kombinerar två eller flera diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
+Ett kombinationsdiagram (eller combo‑diagram) kombinerar två eller fler diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
 
 ![Kombinationsdiagrammet](combination_chart.png)
 
-Detta exempel kombinerar två grupperade stapelserier med en linjeserie över fyra kategorier. Staplarna använder den primära vertikala axeln, medan [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar titeln, förklaringen, axeletiketterna och rutnätslinjerna.
+Detta exempel kombinerar två grupperade kolumnserier med en linjeserie över fyra kategorier. Kolumnerna använder den primära vertikala axeln, medan [setPlotOnSecondAxis](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setPlotOnSecondAxis-boolean-) placerar linjen på en sekundär vertikal axel till höger. Hjälpfunktionerna konfigurerar titel, legend, axelrubriker och rutnätslinjer.
 
 ```java
 import com.aspose.slides.*;
@@ -1255,9 +1322,9 @@ example.createComboChart();
 
 ## **Uppdatera diagram**
 
-Aspose.Slides för Java möjliggör att du uppdaterar PowerPoint‑diagram genom att ändra diagramdata, formatering och stil. Denna funktion förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagramen exakt återspeglar aktuell data och visuella standarder.
+Aspose.Slides för Java möjliggör att du uppdaterar PowerPoint‑diagram genom att modifiera diagramdata, formatering och stil. Denna funktionalitet förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagram korrekt återspeglar aktuella data och visuella standarder.
 
-Detta exempel uppdaterar diagrammet med namnet "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapunkter vardera, med kategorietiketter i kolumn A och serienamn i den första raden i det första arbetsbladet. Exemplet använder [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) för att ändra arbetsboks-celler, uppdaterar serievärden, lägger till en tredje serie och ändrar diagrammet till grupperade cylindrar via [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
+Detta exempel uppdaterar diagrammet med namn "My chart" på den första bilden i en befintlig presentation. Det kräver två kolumnserier med tre datapoäng vardera, med kategorietiketter i kolumn A och serienamn i den första raden i det första kalkylbladet. Exemplet använder [getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-java.lang.Object-) för att ändra arbetsboksceller, uppdaterar serievärden, lägger till en tredje serie och ändrar diagrammet till grupperade cylinderar via [setType](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setType-int-).
 
 ```java
 import com.aspose.slides.*;
@@ -1317,13 +1384,13 @@ finally
 }
 ```
 
-## **Ange dataintervall för ett diagram**
+## **Ange dataområde för ett diagram**
 
-För att inspektera intervallet som redan används av ett befintligt diagram, se [Retrieve a Chart's Data Range](/slides/sv/java/chart-workbook/#retrieve-a-charts-data-range).
+För att inspektera det område som redan används av ett befintligt diagram, se [Hämta ett diagramdataområde](/slides/sv/java/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides för Java ger flexibilitet att definiera ett specifikt dataintervall från ett arbetsblad som källa för diagrammets data. Detta innebär att du kan direkt kartlägga en del av ditt arbetsblad till diagrammet, vilket ger dig kontroll över vilka celler som bidrar till diagrammets serier och kategorier. Som ett resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, så att dina PowerPoint‑presentationer återspeglar aktuell och korrekt information.
+Aspose.Slides för Java ger flexibiliteten att definiera ett specifikt dataområde från ett kalkylblad som källa för ditt diagramdata. Detta innebär att du direkt kan mappa en del av ditt kalkylblad till diagrammet, vilket gör att du kan kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som ett resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataskifterna i ditt kalkylblad, vilket säkerställer att dina PowerPoint‑presentationer speglar aktuell och korrekt information.
 
-Detta exempel använder [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) för att sätta datakällan för diagrammet med namn "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarboken måste innehålla det arbetsbladet och ett befolkat intervall med en serierubrik i den första raden, kategorietiketter i kolumn A och tre värden i kolumn B.
+Detta exempel använder [setRange](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#setRange-java.lang.String-) för att sätta datakällan för diagrammet med namn "My chart" på den första bilden i en befintlig presentation till `Sheet1!A1:B4`. Diagramarboken måste innehålla det kalkylbladet och ett ifyllt område med en serierubrik i den första raden, kategorietiketter i kolumn A och tre värden i kolumn B.
 
 ```java
 import com.aspose.slides.*;
@@ -1354,9 +1421,9 @@ finally
 
 ## **Använd standardmarkörer i diagram**
 
-När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan standardmarkörsymbol.
+När du använder standardmarkörer i diagram får varje diagramserie automatiskt en olika standardmarkörsymbol.
 
-Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att skapa ett diagram med två linjeserier och en förklaring. Markeringsinställningarna som nås via [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) behåller de automatiskt tilldelade markörsymbolerna. Den första serien innehåller ett negativt värde och ett saknat värde, representerat av `null`, medan den andra har ett värde för varje kategori.
+Detta exempel använder [addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) för att skapa ett diagram med två linjeserier och en legend. Markeringsinställningarna som nås via [getMarker](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getMarker--) behåller de automatiskt tilldelade markörsymbolerna. Den första serien inkluderar ett negativt värde och ett saknat värde, representerat av `null`, medan den andra har ett värde för varje kategori.
 
 ```java
 import com.aspose.slides.*;
@@ -1419,7 +1486,7 @@ finally
 }
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Vilka diagramtyper stöds av Aspose.Slides för Java?**
 
@@ -1427,12 +1494,14 @@ Aspose.Slides för Java stöder ett brett utbud av diagramtyper, inklusive stape
 
 **Hur lägger jag till ett nytt diagram på en bild?**
 
-För att lägga till ett diagram, skapar du först en instans av [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)‑klassen, hämtar den önskade bilden via dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Denna process integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/), hämtar önskad bild via dess index, och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Denna process integrerar diagrammet direkt i din presentation.
 
 **Hur kan jag uppdatera data som visas i ett diagram?**
 
-Du kan uppdatera ett diagrams data genom att komma åt dess dataarbok ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier, och sedan lägga till dina egna data. Detta låter dig programatiskt uppdatera diagrammet så att det reflekterar den senaste datan.
+Du kan uppdatera ett diagramdata genom att komma åt dess dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier, och sedan lägga till dina egna data. Detta möjliggör att programatiskt uppdatera diagrammet så att det reflekterar de senaste data.
 
 **Är det möjligt att anpassa diagrammets utseende?**
 
-Ja, Aspose.Slides för Java erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.
+Ja, Aspose.Slides för Java erbjuder omfattande anpassningsalternativ. Du kan ändra färger, teckensnitt, etiketter, legender och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.
+
+Relaterad funktion: [Skapa redigerbara diagram](/slides/sv/features/create-charts/).

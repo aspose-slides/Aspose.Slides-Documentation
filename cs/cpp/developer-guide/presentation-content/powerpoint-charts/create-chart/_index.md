@@ -1,5 +1,5 @@
 ---
-title: Vytvořit nebo aktualizovat grafy v PowerPoint prezentaci v C++
+title: Vytvořit nebo aktualizovat grafy PowerPoint prezentací v C++
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -7,55 +7,57 @@ url: /cs/cpp/create-chart/
 aliases:
   - /cpp/update-chart/
 keywords:
-- přidat graf
-- vytvořit graf
-- upravit graf
-- změnit graf
-- aktualizovat graf
-- bodový graf
-- koláčový graf
-- čárový graf
-- graf stromové mapy
-- akciový graf
-- krabicový a úsečkový graf
-- trychtýřový graf
-- graf slunečních paprsků
-- histogramový graf
-- radarový graf
-- vícekategoriový graf
-- PowerPoint
-- prezentace
-- C++
-- Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v prezentacích PowerPoint pomocí Aspose.Slides for C++. Přidávejte, formátujte a upravujte grafy s praktickými příklady kódu v C++."
+  - přidat graf
+  - vytvořit graf
+  - upravit graf
+  - změnit graf
+  - aktualizovat graf
+  - bodový graf
+  - výsečový graf
+  - čárový graf
+  - stromová mapa
+  - akciový graf
+  - krabicový a fousový graf
+  - trychový graf
+  - sluneční větrný graf
+  - histogram
+  - radiální graf
+  - více‑kategorický graf
+  - PowerPoint
+  - prezentace
+  - C++
+  - Aspose.Slides
+description: "Vytvořte a přizpůsobte grafy v PowerPoint prezentacích pomocí Aspose.Slides for C++. Přidejte, formátujte a upravujte grafy s praktickými ukázkami kódu v C++."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides for C++. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby odpovídaly vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci řad, os a legend. Dodržením tohoto průvodce získáte pevné pochopení toho, jak integrovat dynamické generování grafů do vašich C++ aplikací a zjednodušit vytváření datově podmíněných prezentací.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a upravovat grafy pomocí Aspose.Slides for C++. Naučíte se, jak programově přidat graf na snímek, naplnit jej daty a použít různé možnosti formátování tak, aby odpovídal vašim konkrétním designovým požadavkům. V průběhu článku podrobné ukázky kódu ilustrují každý krok – od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte solidní pochopení toho, jak integrovat dynamické generování grafů do vašich C++ aplikací, čímž zefektivníte tvorbu datově orientovaných prezentací.
 
 ## **Vytvořit graf**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového procesoru.
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě zřejmé z tabulky nebo sešitu.
 
 **Proč vytvářet grafy?**
 
 Pomocí grafů můžete:
 
-* agregovat, zhušťovat nebo shrnout velké množství dat na jediném snímku v prezentaci;
-* odhalit vzory a trendy v datech;
-* určit směr a dynamiku dat v čase nebo s ohledem na konkrétní jednotku měření;
-* odhalit odlehlé hodnoty, odchylky, chyby a nesmyslná data;
+* agregovat, zhušťovat nebo shrnovat velké množství dat na jediném snímku v prezentaci;
+* odhalovat vzory a trendy v datech;
+* odhadovat směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření;
+* identifikovat odlehlé hodnoty, odchylky, chyby a nesmyslná data;
 * komunikovat nebo prezentovat složitá data.
 
 V PowerPointu můžete vytvářet grafy pomocí funkce *Insert*, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech), tak vlastní grafy.
 
-{{% alert color="info" title="Note" %}}
-Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) v prostoru názvů [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
+{{% alert color="info" title="Poznámka" %}}
+
+Použijte výčtový typ [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) v rámci jmenného prostoru [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/). Hodnoty v tomto výčtu odpovídají různým typům grafů.
+
 {{% /alert %}}
 
 ### **Vytvořit seskupené sloupcové grafy**
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě řady napříč třemi kategoriemi. Řady používají červené a zelené výplně a jednotlivé štítky ukazují názvy kategorií, názvy řad a hodnoty. Index listu 0 odkazuje na první list v vložené sešitu grafu.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření seskupeného sloupcového grafu, který porovnává dvě série ve třech kategoriích. Série používají červené a zelené výplně a jednotlivé popisky ukazují názvy kategorií, názvy sérií a hodnoty. Index listu 0 odkazuje na první list v vloženém sešitu grafu.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -169,16 +171,16 @@ Výsledek:
 
 ### **Vytvořit bodové grafy**
 
-Bodové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají ke kontrole vzorů nebo k demonstraci korelací mezi dvěma proměnnými.
+Bodové grafy (známé také jako scatter ploty nebo xy grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
 
 Použijte bodový graf, když:
 
-* máte spárovaná číselná data;
-* máte dvě proměnné, které spolu dobře souvisejí;
-* chcete zjistit, zda jsou dvě proměnné navzájem příbuzné;
-* máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot.
+* máte párovaná numerická data;
+* máte dvě proměnné, které spolu dobře korespondují;
+* chcete zjistit, zda jsou dvě proměnné navzájem související;
+* máte nezávislou proměnnou, která má více hodnot pro závislou proměnnou.
 
-Tento příklad vykresluje dvě sady x‑y hodnot. První řada používá rovné čáry s hvězdicovými značkami, zatímco druhá používá plynulé čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metoda [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) řídí tvar značky.
+Tento příklad vykresluje dvě sady xy hodnot. První série používá přímé čáry s hvězdicovými značkami, zatímco druhá používá hladké čáry s kruhovými značkami; obě používají velikost značky 10, nastavenou pomocí [set_Size](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_size/). Metoda [set_Symbol](https://reference.aspose.com/slides/cpp/aspose.slides.charts/imarker/set_symbol/) řídí tvar značky.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -270,11 +272,11 @@ Výsledek:
 
 ![The Scatter chart](scatter_chart.png)
 
-### **Vytvořit koláčové grafy**
+### **Vytvořit výsečové grafy**
 
-Koláčové grafy se nejlépe používají k zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo nich sloupcový graf.
+Výsečové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo nich sloupcový graf.
 
-Tento příklad vytváří koláčový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a ohraničení a štítky zobrazují různé kombinace hodnot, procent a informací o řadě. Metoda [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) nastavuje první výsek tak, aby začínal při 180 stupních.
+Tento příklad vytváří výsečový graf se třemi čtvrtletními hodnotami. Každý výsek má vlastní výplň a okraj a popisky zobrazují různé kombinace hodnot, procent a informací o sérii. Metoda [set_FirstSliceAngle](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_firstsliceangle/) nastavuje první výsek na úhel 180 stupňů.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -413,13 +415,13 @@ Výsledek:
 
 ![The Pie chart](pie_chart.png)
 
-Pro zlepšení čitelnosti štítků mimo koláč viz [Format Leader Lines](/slides/cs/cpp/chart-data-label/#format-leader-lines) pro příklad, který umisťuje štítky a přizpůsobuje barvu, šířku, průhlednost a styl čáry spojnice.
+Pro zlepšení čitelnosti popisků mimo výseč viz [Format Leader Lines](/slides/cs/cpp/chart-data-label/#format-leader-lines) pro ukázku, jak umístit popisky a přizpůsobit barvu, šířku, průhlednost a styl čárky vodících čar.
 
 ### **Vytvořit čárové grafy**
 
-Čárové grafy (také známé jako čárové diagramy) se nejlépe používají v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v datových řadách a další.
+Čárové grafy (známé také jako linkové grafy) jsou nejvhodnější v situacích, kdy chcete demonstrovat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v průběhu času, zvýraznit anomálie v sériích a další.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření čárového grafu s výchozími řadami a kategoriemi a poté ukládá prezentaci jako PPTX.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření čárového grafu s výchozími sériemi a kategoriemi a poté ukládá prezentaci jako PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -451,7 +453,7 @@ auto lineChart = slide->get_Shapes()->AddChart(ChartType::Line, 20, 20, 500, 300
 presentation->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny rovnými souvislými čarami. Pokud chcete, aby byly body spojeny pomlčkami, zavolejte [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čárami. Pokud chcete, aby body byly spojeny čárkovanými čárami, zavolejte [set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) s hodnotou z [LineDashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/):
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -490,9 +492,9 @@ Výsledek:
 
 ![The Line chart](line_chart.png)
 
-### **Vytvořit stromové mapy**
+### **Vytvořit stromové mapové grafy**
 
-Stromové mapy jsou nejvhodnější pro prodejní data, když chcete ukázat relativní velikost datových kategorií a rychle upoutat pozornost na položky, které jsou velkými přispěvateli v rámci každé kategorie.
+Stromové mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií a rychle upoutat pozornost na položky, které jsou v rámci každé kategorie velkými přispěvateli.
 
 Tento příklad vytváří stromovou mapu s osmi listy seskupenými do čtyř stop a dvou větví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úrovni seskupení 1 a větve na úrovni 2. Hodnoty určují relativní velikosti obdélníků, zatímco štítky kategorií a překrývající se nadřazené štítky identifikují hierarchii.
 
@@ -604,22 +606,22 @@ Výsledek:
 
 ### **Vytvořit vodopádové grafy**
 
-Vodopádový graf ukazuje, jak pozitivní a negativní změny přispívají k finální hodnotě. Například rozpis zisku může začínat tržbami, odečíst náklady a přidat další příjmy. Sloupce změn plavou mezi předchozí a novou běžící hodnotou, zatímco celkové sloupce sahají od nuly k akumulované hodnotě.
+Vodopádový graf ukazuje, jak kladné a záporné změny přispívají k výsledné hodnotě. Například rozpis zisku může začínat tržbami, odečítat náklady a přičítat další příjmy. Sloupce změn „plavou“ mezi předchozí a novou akumulovanou hodnotou, zatímco celkové sloupce sahají od nuly po nasčítanou hodnotu.
 
 Následující příklad používá částky v tisících amerických dolarů:
 
-| Kategorie | Hodnota sešitu | Typ sloupce |
+| Category | Workbook value | Column type |
 | --- | ---: | --- |
-| Tržby | 1000 | Increase |
-| Náklady na prodej | -400 | Decrease |
-| Hrubý zisk | 600 | Intermediate total |
-| Provozní náklady | -200 | Decrease |
-| Ostatní příjmy | 50 | Increase |
-| Čistý zisk | 450 | Final total |
+| Revenue | 1000 | Increase |
+| Cost of sales | -400 | Decrease |
+| Gross profit | 600 | Intermediate total |
+| Operating expenses | -200 | Decrease |
+| Other income | 50 | Increase |
+| Net profit | 450 | Final total |
 
-Pro označení bodu jako mezilehlého nebo finálního součtu zavolejte jeho metodu [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) s hodnotou `true`. Do buňky sešitu tohoto bodu vložte skutečnou akumulovanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; nepočítá ani nevyplňuje hodnotu buňky. Nepoužívejte nulu jako zástupný symbol ani nedávejte jinou změnu pro součtový bod. Součtový sloupec zobrazuje akumulovanou hodnotu, aniž by ji znovu přičetl k běžné hodnotě.
+Pro označení bodu jako mezisoučtu nebo konečného součtu zavolejte jeho metodu [set_SetAsTotal](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatapoint/set_setastotal/) s hodnotou `true`. Do buňky sešitu v tomto bodě vložte skutečnou nasčítanou částku: `600` pro hrubý zisk (`1000 - 400`) a `450` pro čistý zisk (`600 - 200 + 50`). Metoda označí sloupec jako součet; neprovádí výpočet ani nevyplňuje hodnotu buňky. Nevyužívejte nulu jako zástupnou hodnotu ani nepřidávejte další změnu pro součtový bod. Součtový sloupec zobrazuje nasčítanou hodnotu, aniž by ji znovu přičítal k běžné hodnotě.
 
-Tento kompletní C++ příklad vytváří graf pomocí členu `Waterfall` výčtu [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), vymaže výchozí data a vyplní vložený sešit. Index listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B obsahuje hodnoty. Každá buňka s hodnotou je přidána pomocí [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Indexy bodů od nuly `2` a `5` označují mezilehlé a finální součty. Předáním `true` metodě [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) zobrazíte částky na sloupcích. Vstupní prezentace ani sešit nejsou vyžadovány.
+Tento kompletní C++ příklad vytváří graf pomocí členu `Waterfall` typu [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), maže výchozí data a naplňuje vložený sešit. Index pracovního listu `0` vybírá první list; sloupec A obsahuje názvy kategorií a sloupec B hodnoty. Každá buňka s hodnotou je přidána pomocí [AddDataPointForWaterfallSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/adddatapointforwaterfallseries/). Nuly‑založené indexy bodů `2` a `5` identifikují mezisoučet a konečný součet. Předáním `true` metodě [set_ShowValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idatalabelformat/set_showvalue/) zobrazíte částky na sloupcích. Žádná vstupní prezentace ani sešit nejsou vyžadovány.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -693,7 +695,7 @@ for (auto i = 0; i < categories->get_Length(); i++)
     series->get_DataPoints()->AddDataPointForWaterfallSeries(valueCell);
 }
 
-// Třetí a šestý bod představují součty, nikoli další změny.
+// Třetí a šestý body představují součty, ne další změny.
 series->get_DataPoints()->idx_get(2)->set_SetAsTotal(true);
 series->get_DataPoints()->idx_get(5)->set_SetAsTotal(true);
 series->set_ShowConnectorLines(true);
@@ -702,21 +704,28 @@ series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"WaterfallChart.pptx", SaveFormat::Pptx);
 ```
 
-Zavolejte na úrovni řady metodu [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) s hodnotou `true`, aby se zobrazily čáry spojující po sobě jdoucí sloupce a usnadnily sledování běžné hodnoty. Chcete‑li tyto čáry skrýt, nahraďte přiřazení v příkladu řádkem `series->set_ShowConnectorLines(false);` před uložením. Tím se změní pouze viditelnost čáry, ne data ani součty.
+Zavolejte na úrovni série metodu [set_ShowConnectorLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartseries/set_showconnectorlines/) s hodnotou `true` pro zobrazení čar spojujících po sobě jdoucí sloupce a usnadnění sledování běžné hodnoty. Chcete‑li tyto čáry skrýt, nahraďte přiřazení v příkladu řádkem `series->set_ShowConnectorLines(false);` před uložením. Tím změníte jen viditelnost čar, ne data ani součty.
 
-Uložená prezentace ukazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou počítány od nuly:
+Uložená prezentace zobrazuje hrubý zisk 600 a čistý zisk 450, přičemž oba součty jsou vykresleny od nuly:
 
 ![Waterfall chart showing revenue, costs, gross profit of 600, and net profit of 450, with value labels and connector lines](waterfall_chart.png)
 
 ### **Vytvořit akciové grafy**
 
-Akciové grafy se používají k zobrazení finančních dat, jako jsou otevírací, nejvyšší, nejnižší a závěrečné ceny, a pomáhají analyzovat tržní trendy a volatilitu. Poskytují důležité poznatky o výkonnosti akcií, což usnadňuje investorům a analytikům činit informovaná rozhodnutí.
+Akciové grafy slouží k zobrazení finančních údajů, jako jsou otevírací, nejvyšší, nejnižší a závěrečné ceny, a pomáhají analyzovat tržní trendy a volatilitu. Poskytují zásadní pohled na výkonnost akcií, což podporuje investory a analytiky při rozhodování.
 
-Tento příklad vytváří graf O‑H‑L‑C (open‑high‑low‑close) se čtyřmi řadami v tomto pořadí a třemi kategoriemi. Metoda [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) zapíná svislé pruhy nahoru/dolů a [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) řídí čáry high‑low, které ukazují cenové rozpětí, zatímco jednotlivé řadové čáry a menší vodorovné mřížkové čáry jsou skryté.
+Tento příklad vytváří graf typu open‑high‑low‑close se čtyřmi sériemi v tomto pořadí a třemi kategoriemi. Metoda [set_HasUpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/set_hasupdownbars/) zapíná sloupce nahoru/dolu a [get_HiLowLinesFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_hilowlinesformat/) řídí vysoké či nízké čáry zobrazující cenové rozpětí, zatímco jednotlivé řádky sérií a menší vodorovné mřížkové čáry jsou skryté.
+
+Správce vrácený metodou [get_UpDownBars](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/get_updownbars/) poskytuje samostatné objekty formátování přes [get_UpBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_upbarsformat/) a [get_DownBarsFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iupdownbarsmanager/get_downbarsformat/). Použijte jejich metody [get_Fill](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_fill/) a [get_Line](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iformat/get_line/) k nezávislému nastavení výplně a obrysu. Tento příklad používá zelené sloupce s tmavozelenými orámováními pro rostoucí intervaly a oranžovo‑červené sloupce s tmavočervenými orámováními pro klesající intervaly.
+
+Poskytněte číselné hodnoty pro všechny čtyři série v každé kategorii, přičemž High a Low zahrnují Open i Close. Sloupce porovnávají Close s Open **v rámci stejné kategorie**, nikoli s předchozí kategorií: A klesá z 72 na 25, zatímco B roste z 25 na 38 a C roste z 38 na 50. Stejné hodnoty Open a Close nevytvářejí viditelný vyplněný interval. Sloupce nahoru/dolu zahrnují Open‑Close; čáry high‑low zahrnují Low‑High. Tyto sloupce patří do skupiny sérií a nejsou obyčejnými sloupcovými sériemi.
+
+Toto formátování funguje také u grafů [Line and LineWithMarkers](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/), které obsahují alespoň dvě série ve stejné skupině a odpovídající číselné hodnoty pro každou kategorii. U těchto neskládaných čárových grafů porovnávají sloupce nahoru/dolu první a poslední sérii: vyšší poslední hodnota vytváří sloupec nahoru, nižší poslední hodnota sloupec dolů. Obrácení sérií obrátí klasifikaci. Níže uvedený příklad používá [OpenHighLowClose](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/); nepředpokládejte, že jiné akciové, skládací‑čárové nebo 3D varianty používají stejné uspořádání dat či interpretaci intervalů.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
 #include <system/shared_ptr.h>
+#include <drawing/color.h>
 #include <system/object_ext.h>
 #include <system/string.h>
 #include <DOM/Chart/ChartType.h>
@@ -746,6 +755,7 @@ Tento příklad vytváří graf O‑H‑L‑C (open‑high‑low‑close) se čt
 #include <Export/SaveFormat.h>
 
 using namespace System;
+using namespace System::Drawing;
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
@@ -753,7 +763,7 @@ using namespace Aspose::Slides::Export;
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 300, false);
+auto chart = slide->get_Shapes()->AddChart(ChartType::OpenHighLowClose, 20, 20, 500, 150, false);
 
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
@@ -805,7 +815,21 @@ series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 valueCell = workbook->GetCell(0, 3, 4, ObjectExt::Box(50));
 series->get_DataPoints()->AddDataPointForStockSeries(valueCell);
 
-chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars(true);
+auto upDownBars = chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars();
+upDownBars->set_HasUpDownBars(true);
+
+upDownBars->get_UpBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_LimeGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_UpBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkGreen());
+upDownBars->get_UpBarsFormat()->get_Line()->set_Width(2);
+
+upDownBars->get_DownBarsFormat()->get_Fill()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_OrangeRed());
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
+upDownBars->get_DownBarsFormat()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkRed());
+upDownBars->get_DownBarsFormat()->get_Line()->set_Width(2);
+
 chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
 for (auto stockSeries : chart->get_ChartData()->get_Series())
@@ -818,15 +842,15 @@ chart->get_Axes()->get_VerticalAxis()->get_MinorGridLinesFormat()->get_Line()->g
 presentation->Save(u"Stock-chart.pptx", SaveFormat::Pptx);
 ```
 
-Výsledek:
+Výsledek, exportovaný z PowerPointu:
 
-![The Stock chart](stock_chart.png)
+![Stock chart with an orange-red falling interval for A and green rising intervals for B and C](stock_chart.png)
 
-### **Vytvořit krabicové (box‑and‑whisker) grafy**
+### **Vytvořit krabicové a fousové grafy**
 
-Krabicové grafy (box‑and‑whisker) se používají k zobrazení rozdělení dat souhrnným vyjádřením klíčových statistických měr, jako jsou medián, kvartily a možné odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích k rychlému pochopení variability dat a identifikaci anomálií.
+Krabicové a fousové grafy slouží k zobrazení rozdělení dat shrnutím klíčových statistických měr, jako je medián, kvartily a potenciální odlehlé hodnoty. Jsou zvláště užitečné při průzkumné analýze dat a statistických studiích pro rychlé pochopení variability dat a identifikaci případných anomálií.
 
-Tento příklad vytváří krabicový graf ze šesti hodnot. Metoda [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) vybere exkluzivní výpočet kvartilů. Příklad také zapíná čáry průměru, značky průměru, vnitřní body a odlehlé body.
+Tento příklad vytváří krabicový a fousový graf ze šesti hodnot. Metoda [set_QuartileMethod](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_quartilemethod/) vybírá exkluzivní výpočet kvartilů. Příklad také zapíná střední čáry, střední značky, vnitřní body i odlehlé body.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -907,11 +931,11 @@ series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(valueCell);
 presentation->Save(u"BoxAndWhisker.pptx", SaveFormat::Pptx);
 ```
 
-### **Vytvořit trychtýřové grafy**
+### **Vytvořit trychové grafy**
 
-Trychtýřové grafy se používají k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem od jednoho kroku k dalšímu. Jsou zvláště užitečné při analýze konverzních poměrů, identifikaci úzkých míst a sledování efektivity prodejních nebo marketingových procesů.
+Trychové grafy slouží k vizualizaci procesů, které zahrnují sekvenční fáze, kde objem dat klesá s postupem od jednoho kroku k dalšímu. Pomáhají zejména při analýze míry konverze, identifikaci úzkých míst a sledování efektivity prodejních či marketingových procesů.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k přidání trychtýřového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami od 50 do 500 a poté ukládá upravenou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k přidání trychového grafu na první snímek existující prezentace. Nahrazuje výchozí data šesti kategoriemi a hodnotami v rozmezí 50 až 500 a poté ukládá aktualizovanou prezentaci. Vstupní prezentace musí obsahovat alespoň jeden snímek.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -988,11 +1012,11 @@ Výsledek:
 
 ![The Funnel chart](funnel_chart.png)
 
-### **Vytvořit sluneční paprsky (sunburst) grafy**
+### **Vytvořit sluneční větrné grafy**
 
-Sunburst grafy se používají k vizualizaci hierarchických dat, přičemž úrovně jsou zobrazeny jako soustředné kruhové prstence. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro představování vnořených kategorií a podkategorií v přehledném a kompaktním formátu.
+Sluneční větrné grafy slouží k vizualizaci hierarchických dat, zobrazujících úrovně jako soustředné kruhy. Pomáhají ilustrovat vztahy část‑celku a jsou ideální pro reprezentaci vnořených kategorií a podkategorií v přehledném, kompaktním formátu.
 
-Tento příklad vytváří sunburst graf s osmi listy seskupenými do čtyř stop a dvou větví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úrovni seskupení 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
+Tento příklad vytváří sluneční větrný graf s osmi listy seskupenými do čtyř stop a dvou větví. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) přiřazuje stonky na úrovni 1 a větve na úrovni 2. Štítky kategorií identifikují segmenty a hodnoty určují jejich relativní velikosti.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1097,15 +1121,15 @@ Výsledek:
 
 ![The Sunburst chart](sunburst_chart.png)
 
-### **Vytvořit histogramy**
+### **Vytvořit histogramové grafy**
 
-Histogramy zobrazují, jak jsou číselné hodnoty rozloženy do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku binu a prahové hodnoty, aby intervaly zůstaly konzistentní a usnadnily srovnání rozdělení.
+Histogramové grafy ukazují, jak jsou číselné hodnoty rozděleny do intervalů (binů). Pro měsíční zprávy o časech zpracování objednávek použijte stejnou šířku binu a prahy, aby byly intervaly konzistentní a usnadnily srovnání rozdělení.
 
-Zavolejte pro vodorovnou osu metodu [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) s režimem z [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) se používá jen pro `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) se používá jen pro `ByNumberOfBins`. Použijte `Automatic`, aby si graf sám vybral biny.
+Zavolejte metodě horizontální osy [set_AggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_aggregationtype/) režim z [AxisAggregationType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/axisaggregationtype/). [set_BinWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_binwidth/) platí jen pro `ByBinWidth`; [set_NumberOfBins](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_numberofbins/) jen pro `ByNumberOfBins`. Použijte `Automatic`, aby graf sám určil biny.
 
 #### **Použít pevnou šířku binu**
 
-Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Tyto biny povolíte pomocí [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) a [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Při zadávání explicitních prahů pomocí [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) a [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) zavolejte [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) a [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) s hodnotou `false`.
+Tento příklad seskupuje časy zpracování do 10‑minutových intervalů, s oddělenými biny pro časy ≤ 10 min a > 40 min. Aktivujte tyto biny pomocí [set_IsUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isunderflowbin/) a [set_IsOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isoverflowbin/). Při zadání explicitních prahů pomocí [set_UnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_underflowbin/) a [set_OverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_overflowbin/) zavolejte [set_IsAutomaticUnderflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticunderflowbin/) a [set_IsAutomaticOverflowBin](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticoverflowbin/) s `false`.
 
 ```cpp
 #include <system/array.h>
@@ -1175,13 +1199,13 @@ axis->set_OverflowBin(40);
 presentation->Save(u"Histogram-bin-width.pptx", SaveFormat::Pptx);
 ```
 
-Prezentace zobrazovaná v PowerPointu ukazuje počty v jednotlivých biních **3, 4, 4, 4 a 2**. Bin podprůtok zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetékání zahrnuje pouze `41, 50`, takže jeho práh je exkluzivní; hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich spodní hranice a menší nebo rovné jejich horní hranici.
+Prezentace v PowerPointu ukazuje počty binů **3, 4, 4, 4 a 2**. Bin podprůtok zahrnuje `5, 10, 10`, takže jeho práh je inkluzivní. Bin přetečení zahrnuje jen `41, 50`, takže jeho práh je exkluzivní; hodnoty rovné `40` zůstávají v předchozím intervalu. Vnitřní biny obsahují hodnoty větší než jejich dolní hranice a menší nebo rovné jejich horní hranici.
 
 ![Histogram with 10-minute bins and explicit underflow and overflow thresholds](histogram_bin_width.png)
 
 #### **Zadat počet binů**
 
-Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad nechává biny podprůtoku a přetečení zakázané. Graf určuje šířku podle datového rozsahu, takže hranice se mohou mezi zprávami měnit.
+Pro pevnou úroveň detailu místo pevných intervalů požádejte o pět binů pro stejná data. Tento příklad ponechává biny podprůtoku a přetečení vypnuté. Graf určuje šířku z datového rozsahu, takže hranice se mohou mezi zprávami měnit.
 
 ```cpp
 #include <system/array.h>
@@ -1245,15 +1269,15 @@ axis->set_NumberOfBins(5);
 presentation->Save(u"Histogram-bin-count.pptx", SaveFormat::Pptx);
 ```
 
-Pět binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
+Pěti binů má počty **4, 4, 4, 4 a 1**. Porovnejte toto rozdělení s výsledkem pevné šířky výše: vstupní hodnoty jsou identické, ale hranice se liší.
 
 ![Histogram with five bins calculated from the same data](histogram_bin_count.png)
 
-### **Vytvořit radarové grafy**
+### **Vytvořit radiální grafy**
 
-Radarové grafy se používají k zobrazení vícerozměrných dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných najednou. Jsou zvláště užitečné při identifikaci vzorů, silných i slabých stránek napříč mnoha metrikami výkonu nebo atributy.
+Radiální grafy slouží k zobrazení multivariátních dat ve dvourozměrném formátu, což umožňuje snadné porovnání několika proměnných najednou. Jsou obzvláště užitečné pro identifikaci vzorů, silných a slabých stránek napříč více výkonnostními metrikami nebo atributy.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření radarového grafu s výchozími řadami a kategoriemi a poté ukládá prezentaci jako PPTX.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření radiálního grafu s výchozími sériemi a kategoriemi a poté ukládá prezentaci jako PPTX.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1289,11 +1313,11 @@ Výsledek:
 
 ![The Radar chart](radar_chart.png)
 
-### **Vytvořit vícekategoriové grafy**
+### **Vytvořit více‑kategorické grafy**
 
-Vícekategoriové grafy se používají k zobrazení dat, která zahrnují více než jedno kategoriální seskupení, což vám umožní porovnat hodnoty napříč více rozměry najednou. Jsou obzvláště užitečné při analýze trendů a vztahů v komplexních, víceúrovňových datových sadách.
+Více‑kategorické grafy slouží k zobrazení dat, která zahrnují více než jedno kategorizované seskupení, což vám umožňuje porovnávat hodnoty napříč více dimenzemi současně. Jsou zvláště užitečné, když potřebujete analyzovat trendy a vztahy v komplexních, víceúrovňových datových sadách.
 
-Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými do čtyř dvojic. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) dává každé dvojici sdílený štítek na úrovni seskupení 1, čímž vzniká osa kategorií s jednotlivými i skupinovými štítky.
+Tento příklad vytváří seskupený sloupcový graf s osmi kategoriemi uspořádanými ve čtyřech párech. Metoda [SetGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/setgroupingitem/) dává každému páru sdílený štítek na úrovni 1, čímž vznikne osa kategorií s individuálními i skupinovými štítky.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1390,57 +1414,107 @@ Výsledek:
 
 ![The multi category chart](multi_category_chart.png)
 
-### **Vytvořit mapové grafy**
+#### **Odstranit štítek čtvrtletí**
 
-Mapové grafy se používají k vizualizaci geografických dat přiřazením informací k konkrétním místům, jako jsou země, státy či města. Jsou zvláště užitečné při analýze regionálních trendů, demografických dat a prostorových rozdělení jasným a vizuálně atraktivním způsobem.
+Stáhněte si [quarters.pptx](quarters.pptx) a umístěte jej do pracovního adresáře. Jeho graf zobrazuje devět měsíců a jedinou prodejní sérii s hodnotami od 10 do 18. Osa kategorií má tři štítky čtvrtletí: Q1 zahrnuje Jan‑Mar, Q2 zahrnuje Apr‑Jun a Q3 zahrnuje Jul‑Sep.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a ukládá jej pro zobrazení v PowerPointu.
+Duben je čtvrtou kategorií a tou, pro kterou byl explicitně nastaven Q2. Zavolejte [DeleteGroupingItem](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategorylevelsmanager/deletegroupingitem/) na kolekci [get_GroupingLevels](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/get_groupinglevels/) pro duben. Úroveň je vzhledem k dubnu: úroveň 1 je její čtvrtletí, úroveň 0 je samotný měsíc. Metoda nemůže odstranit listovou kategorii na úrovni 0.
 
 ```cpp
-#include <system/shared_ptr.h>
-#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
 #include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
 #include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDoubleChartValue.h>
 #include <DOM/IChart.h>
-#include <DOM/IColorFormat.h>
-#include <DOM/IFillFormat.h>
-#include <DOM/ILineFillFormat.h>
-#include <DOM/ILineFormat.h>
-#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+#include <system/console.h>
 
 using namespace System;
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Charts;
 using namespace Aspose::Slides::Export;
 
-auto presentation = MakeObject<Presentation>();
-auto slide = presentation->get_Slide(0);
+auto presentation = MakeObject<Presentation>(u"quarters.pptx");
 
-auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 20, 20, 500, 300);
+auto chart = ExplicitCast<IChart>(presentation->get_Slide(0)->get_Shape(0));
+auto april = chart->get_ChartData()->get_Categories()->idx_get(3);
+april->get_GroupingLevels()->DeleteGroupingItem(1);
 
-presentation->Save(u"mapChart.pptx", SaveFormat::Pptx);
+presentation->Save(u"quarters-updated.pptx", SaveFormat::Pptx);
+
+auto reopened = MakeObject<Presentation>(u"quarters-updated.pptx");
+auto updatedChart = ExplicitCast<IChart>(reopened->get_Slide(0)->get_Shape(0));
+auto data = updatedChart->get_ChartData();
+
+auto categories = data->get_Categories();
+for (auto i = 0; i < categories->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(categories->idx_get(i)->get_AsCell()->get_Value()->ToString());
+}
+Console::WriteLine();
+
+auto points = data->get_Series()->idx_get(0)->get_DataPoints();
+for (auto i = 0; i < points->get_Count(); ++i)
+{
+    if (i > 0) Console::Write(u", ");
+    Console::Write(points->idx_get(i)->get_Value()->get_Data()->ToString());
+}
+Console::WriteLine();
+```
+
+Znovu otevřený graf vypisuje původní měsíce (`Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep`) a prodejní hodnoty (`10, 11, 12, 13, 14, 15, 16, 17, 18`) ve stejném pořadí. Otevřete `quarters-updated.pptx` v PowerPointu a porovnejte štítky osy. Štítek Q2 i hranice skupiny před dubnem zmizí, takže Q1 zahrnuje leden až červen. Q3 stále začíná v červenci.
+
+![Quarter labels before and after removal. On the left, Q2 spans April through June. On the right, Q1 spans January through June.](quarter-label-comparison.png)
+
+### **Vytvořit mapové grafy**
+
+Mapové grafy slouží k vizualizaci geografických dat mapováním informací na konkrétní místa, jako jsou země, státy nebo města. Jsou zvláště užitečné při analýze regionálních trendů, demografických údajů a prostorových rozdělení jasným a vizuálně atraktivním způsobem.
+
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření mapového grafu s výchozími geografickými daty a ukládá jej pro prohlížení v PowerPointu.
+
+```cpp
+#include <system/shared_ptr.h>
+#include <DOM/Chart/ChartType>  
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IColor</simple>  
+#include <DOM/IFill<​>  
+#include <DOM/ILine</simple>  
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide>  
+We  ?  etc…  
 ```
 
 Výsledek:
 
 ![The Map chart](map_chart.png)
 
-{{% alert color="info" title="Note" %}}
-Obrázek výše ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale sám mapové grafy nevykresluje: když je snímek s takovým grafem renderován do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku zůstávají nedotčeny.
+{{% alert color="info" title="Poznámka" %}}
+
+Výše uvedený obrázek ukazuje uloženou prezentaci otevřenou v PowerPointu. Aspose.Slides zapisuje mapový graf a jeho data správně, ale samostatně mapové grafy nevykresluje: když je snímek s takovým grafem vykreslen do obrázku nebo převeden do PDF či SVG, oblast grafu zůstane prázdná. Ostatní tvary na stejném snímku nejsou ovlivněny.
+
 {{% /alert %}}
 
 ### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožňuje zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prozkoumat rozdíly mezi dvěma nebo více datovými sadami, čímž pomáhá identifikovat vztahy mezi nimi.
 
 ![The combination chart](combination_chart.png)
 
-Tento příklad kombinuje dvě seskupené sloupcové řady s čárovou řadou napříč čtyřmi kategoriemi. Sloupce používají primární vertikální osu, zatímco [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) umisťuje čáru na sekundární vertikální osu vpravo. Pomocné funkce konfigurovat titul, legendu, popisky os a mřížkové čáry.
+Tento příklad kombinuje dva seskupené sloupcové série s čárovou sérií napříč čtyřmi kategoriemi. Sloupce používají primární svislou osu, zatímco [set_PlotOnSecondAxis](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_plotonsecondaxis/) umisťuje čáru na sekundární svislou osu vpravo. Pomocné funkce nastavují název, legendu, popisky os a mřížkové čáry.
 
 ```cpp
 #include <DOM/Chart/IChartLinesFormat.h>
@@ -1651,9 +1725,9 @@ ComboChartExample::CreateComboChart();
 
 ## **Aktualizovat grafy**
 
-Aspose.Slides for C++ vám umožňuje aktualizovat grafy PowerPointu úpravou dat grafu, formátování a stylování. Tato funkce zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí aktuální data a vizuální standardy.
+Aspose.Slides for C++ vám umožňuje aktualizovat grafy PowerPointu úpravou dat grafu, formátování a stylů. Tato funkčnost zjednodušuje proces udržování prezentací aktuálními s dynamickým obsahem a zajišťuje, že grafy přesně odrážejí současná data a vizuální standardy.
 
-Tento příklad aktualizuje graf pojmenovaný „My chart“ na prvním snímku existující prezentace. Vyžaduje dvě sloupcové řady s třemi datovými body každá, s názvy kategorií ve sloupci A a názvy řad v první řádce prvního listu. Příklad používá [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) k změně buněk sešitu, aktualizuje hodnoty řad, přidá třetí řadu a změní typ grafu na seskupené válce pomocí [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
+Tento příklad aktualizuje graf pojmenovaný "My chart" na prvním snímku existující prezentace. Vyžaduje dvě sloupcové série po třech hodnotách, přičemž popisky kategorií jsou ve sloupci A a názvy sérií v první řádce prvního pracovního listu. Příklad používá [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) ke změně buněk sešitu, aktualizuje hodnoty sérií, přidá třetí sérii a mění graf na seskupené válečky pomocí [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_type/).
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1736,11 +1810,11 @@ presentation->Save(u"AsposeChartModified.pptx", SaveFormat::Pptx);
 
 ## **Nastavit datový rozsah pro graf**
 
-Chcete‑li zjistit rozsah již použitého existujícím grafem, podívejte se na [Retrieve a Chart's Data Range](/slides/cs/cpp/chart-workbook/#retrieve-a-charts-data-range).
+Pro kontrolu rozsahu již použitého existujícím grafem viz [Retrieve a Chart's Data Range](/slides/cs/cpp/chart-workbook/#retrieve-a-charts-data-range).
 
-Aspose.Slides for C++ poskytuje flexibilitu definovat konkrétní datový rozsah z listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část listu na graf, což vám umožní řídit, které buňky přispívají k řadám a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace grafů s nejnovějšími změnami v listu, aby vaše PowerPoint prezentace odrážely aktuální a přesné informace.
+Aspose.Slides for C++ poskytuje flexibilitu definovat konkrétní datový rozsah z pracovního listu jako zdroj pro data vašeho grafu. To znamená, že můžete přímo mapovat část vašeho listu do grafu, což vám umožní řídit, které buňky přispívají k sériím a kategoriím grafu. Výsledkem je snadná aktualizace a synchronizace vašich grafů s nejnovějšími změnami v listu, aby vaše PowerPoint prezentace odrážely aktuální a přesné informace.
 
-Tento příklad používá [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) k nastavení datového zdroje grafu pojmenovaného „My chart“ na prvním snímku existující prezentace na `Sheet1!A1:B4`. Sešit grafu musí obsahovat tento list a vyplněný rozsah s nadpisem řady v první řádce, štítky kategorií ve sloupci A a třemi hodnotami ve sloupci B.
+Tento příklad používá [SetRange](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/setrange/) k nastavení datového zdroje grafu pojmenovaného "My chart" na prvním snímku existující prezentace na `Sheet1!A1:B4`. Grafický sešit musí obsahovat tento list a vyplněný rozsah s názvem série v první řádce, popisky kategorií ve sloupci A a tři hodnoty ve sloupci B.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1782,11 +1856,11 @@ for (auto shape : slide->get_Shapes())
 presentation->Save(u"SetDataRange.pptx", SaveFormat::Pptx);
 ```
 
-## **Používat výchozí značky v grafech**
+## **Použít výchozí značky v grafech**
 
-Když používáte výchozí značky v grafech, každá řada grafu automaticky získá jiný výchozí symbol značky.
+Když používáte výchozí značky v grafech, každá série grafu automaticky získá jiný výchozí symbol značky.
 
-Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření grafu se dvěma čárovými řadami a legendou. Nastavení [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) si ponechává automaticky přiřazené symboly značek. První řada obsahuje zápornou hodnotu a chybějící hodnotu reprezentovanou `nullptr`, zatímco druhá má hodnotu pro každou kategorii.
+Tento příklad používá [AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) k vytvoření grafu se dvěma čárovými sériemi a legendou. Nastavení [get_Marker](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_marker/) zachovává automaticky přiřazené symboly značek. První série obsahuje zápornou hodnotu a chybějící hodnotu, reprezentovanou `nullptr`, zatímco druhá má hodnotu pro každou kategorii.
 
 ```cpp
 #include <system/shared_ptr.h>
@@ -1872,20 +1946,22 @@ chart->get_Legend()->set_Overlay(false);
 presentation->Save(u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
 **Jaké typy grafů podporuje Aspose.Slides for C++?**
 
-Aspose.Slides for C++ podporuje širokou škálu typů grafů, včetně sloupcových, čárových, koláčových, oblastních, bodových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides for C++ podporuje širokou škálu typů grafů, včetně sloupcových, čárových, výsečových, plošných, bodových, histogramových, radiálních a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
-**Jak přidám nový graf do snímku?**
+**Jak přidám nový graf na snímek?**
 
-Chcete‑li přidat graf, nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), získáte požadovaný snímek pomocí jeho indexu a potom zavoláte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation), načtete požadovaný snímek podle jeho indexu a poté zavoláte metodu pro přidání grafu, specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
-**Jak mohu aktualizovat data zobrazená v grafu?**
+**Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní programově obnovit graf tak, aby odrážel nejnovější data.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides for C++ poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, štítky, legendy a další formátovací prvky tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides for C++ poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další formátovací prvky, abyste graf přizpůsobili svým konkrétním designovým požadavkům.
+
+Související funkce: [Create editable charts](/slides/cs/features/create-charts/).
