@@ -1,5 +1,5 @@
 ---
-title: Java で PowerPoint プレゼンテーションに数式を追加
+title: Java で PowerPoint プレゼンテーションに数式を追加する
 linktitle: PowerPoint 数式
 type: docs
 weight: 80
@@ -8,44 +8,44 @@ keywords:
 - 数式
 - 数学記号
 - 数式
-- 数学テキスト
-- 数式の追加
-- 記号の追加
-- 式の追加
-- テキストの追加
+- 数式テキスト
+- 数式を追加
+- 数学記号を追加
+- 数式を追加
+- 数式テキストを追加
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して PowerPoint PPT および PPTX に数式を挿入および編集でき、OMML のサポート、書式設定コントロール、明確な Java コードサンプルが提供されます。"
+description: "Aspose.Slides for Java を使用して、PowerPoint の PPT および PPTX に数式を挿入および編集できます。OMML のサポート、書式設定制御、分かりやすい Java コードサンプルを提供します。"
 ---
 ## **概要**
 
-PowerPoint は方程式を Office Math Markup Language (OMML) として保存します。Aspose.Slides for Java を使用すると、同様の数学コンテンツ（分数、根号、関数、極限、N 項演算子、行列、配列、フォーマット済み数学ブロック）をプログラムで作成できます。
+PowerPoint は方程式を Office Math Markup Language (OMML) として保存します。Aspose.Slides for Java を使用すると、同様の数式コンテンツをプログラムで作成できます：分数、根号、関数、極限、N 進演算子、行列、配列、そして書式設定された数式ブロック。
 
-PowerPoint では、ユーザーは通常 **挿入 > 数式** から方程式を追加します：
+PowerPoint では、ユーザーは通常 **Insert > Equation** から方程式を追加します:
 
-![PowerPoint の Insert タブで Equation コマンドが選択された状態](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-結果はスライド上の編集可能な数式テキストです：
+結果はスライド上の編集可能な数式テキストになります:
 
-![編集可能な数式が含まれる PowerPoint スライド](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-Aspose.Slides は、次の 3 つの主要オブジェクトを使用して数式テキストを構築します：
+Aspose.Slides は次の 3 つの主要オブジェクトを通じてその数式テキストを構築します:
 
-- 数式形状は、[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) で作成され、方程式を含むシェイプです。
+- 数式シェイプは、[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) で作成され、方程式を含むシェイプです。
 - [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) はシェイプのテキストフレーム内に数式コンテンツを格納します。
-- [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) は 1 つまたは複数の [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/) オブジェクトを含みます。
+- [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) は 1 つ以上の [MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/) オブジェクトを含みます。
 
-以下のほとんどの例では、コードを短く読みやすくするために [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) と [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) のフルエントメソッドを使用しています。
+以下のほとんどの例は、コードを簡潔で読みやすく保つために [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) と [IMathElement](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/) のフルエントメソッドを使用しています。
 
-MathML エクスポートのシナリオについては、[Export Math Equations from Presentations in Java](/slides/ja/java/exporting-math-equations/) を参照してください。
+MathML エクスポートシナリオについては、[Java でのプレゼンテーションからの数式エクスポート](/slides/ja/java/exporting-math-equations/) を参照してください。
 
-## **数式の作成**
+## **方程式の作成**
 
-この例では、[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) を使用して数式シェイプを作成し、ピタゴラスの定理を追加します：
+この例では、[addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) を使用して数式シェイプを作成し、ピタゴラスの定理を追加します:
 
-![c² = a² + b² の式](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```java
 import com.aspose.slides.*;
@@ -77,11 +77,48 @@ try {
 [addMathShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) は、すでに数式段落を含むシェイプを作成します。最初の [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) にアクセスし、[getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出して、数式ブロックまたは数式要素を追加します。
 {{% /alert %}}
 
+### **数式ブロックの結合**
+
+方程式の一部が [IMathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/) オブジェクトとして独立して構築されている場合、[joinBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) を使用して結合します。この例では、左ブロックに `c² =`、右ブロックに `a² + b²` を構築します。[setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-java.lang.String-) は、3 つすべての指数に対して編集可能な数学上標を作成します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addMathShape(20, 20, 600, 100);
+    IMathPortion mathPortion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+
+    MathBlock leftBlock = new MathBlock();
+    leftBlock.add(new MathematicalText("c").setSuperscript("2"));
+    leftBlock.add(new MathematicalText("="));
+
+    MathBlock rightBlock = new MathBlock();
+    rightBlock.add(new MathematicalText("a").setSuperscript("2"));
+    rightBlock.add(new MathematicalText("+"));
+    rightBlock.add(new MathematicalText("b").setSuperscript("2"));
+
+    IMathBlock combinedBlock = leftBlock.joinBlock(rightBlock);
+    mathParagraph.add(combinedBlock);
+
+    presentation.save("equation.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[joinBlock](https://reference.aspose.com/slides/java/com.aspose.slides/imathblock/#joinBlock-com.aspose.slides.IMathBlock-) は `leftBlock` 自身を返し、両方の部分が順番に含まれ、`rightBlock` は空になります。結合したブロックは [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) に一度だけ追加します。`equation.pptx` を再度開くと、段落には `c² = a² + b²` を表す 1 つのブロックが含まれ、3 つの指数はすべて数学上標として保持されます。
+
+[add](https://reference.aspose.com/slides/java/com.aspose.slides/imathelementcollection/#add-com.aspose.slides.IMathElement-) を `leftBlock.add(rightBlock)` と呼び出すと、ブロックを直接別のブロックに入れ子にしようとし、`InvalidOperationException` がスローされます。
+
 ## **分数の追加**
 
-分数を作成するには [divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) を使用します。[MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/) を使用して分数のスタイルを選択できます。
+[divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) を使用して分数を作成します。[MathFractionTypes](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/)で分数スタイルを選択できます。
 
-![1 を x で割った斜めの分数](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```java
 import com.aspose.slides.*;
@@ -105,7 +142,7 @@ try {
 }
 ```
 
-積み重ね型分数には、[MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar) を使用します：
+スタック式分数の場合は、[MathFractionTypes.Bar](https://reference.aspose.com/slides/java/com.aspose.slides/mathfractiontypes/#Bar) を使用します:
 
 ```java
 import com.aspose.slides.*;
@@ -115,9 +152,9 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **根号の追加**
 
-[radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) を使用して平方根、立方根、またはその他の根号を作成します。現在の要素が底部となり、引数が次数になります。
+[radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) を使用して平方根、立方根、またはその他の根号を作成します。現在の要素が基底となり、引数が次数になります。
 
-![根号記号の下に x がある n 次根の式](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```java
 import com.aspose.slides.*;
@@ -141,13 +178,13 @@ try {
 }
 ```
 
-### **平方根の次数の表示または非表示**
+### **平方根の次数の表示/非表示**
 
-平方根は、明示的に 2 を表示するか、従来の √x 表記を使用できます。[IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) の [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) メソッドでどちらの形式を表示するかを制御します。どちらの形式でも、編集可能な数式内に次数 2 と被根 x が保持されます。
+平方根は明示的な 2 を表示するか、従来の √x 記法を使用できます。[IMathRadical](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/) の [setHideDegree](https://reference.aspose.com/slides/java/com.aspose.slides/imathradical/#setHideDegree-boolean-) メソッドで表示形式を制御します。どちらの形式も、編集可能な方程式内で次数 2 と根号内部の x を保持します。
 
-![左側で次数が表示され、右側で非表示の同じ平方根](square-root-degree.png)
+![The same square root with the degree visible on the left and hidden on the right](square-root-degree.png)
 
-この例では、同じ平方根を 2 回保存します。`visible-degree.pptx` では 2 が表示され、`hidden-degree.pptx` では非表示になります。
+この例では同じ平方根を 2 回保存します。`visible-degree.pptx` では 2 が表示され、`hidden-degree.pptx` では非表示になります。
 
 ```java
 import com.aspose.slides.*;
@@ -174,9 +211,9 @@ try {
 
 ## **関数と極限の追加**
 
-`sin(x)`、`log(x)` などの関数やカスタム関数名には [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) または [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) を使用します。極限の場合は、`lim` を [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) に入れるか、[setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) を使用します。
+[asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) または [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) を使用して `sin(x)`, `log(x)` などの関数やカスタム関数名を作成します。極限の場合は、`lim` を [MathLimit](https://reference.aspose.com/slides/java/com.aspose.slides/mathlimit/) に入れるか、[setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-) を使用します。
 
-![x が無限大に近づくときの極限](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```java
 import com.aspose.slides.*;
@@ -201,7 +238,7 @@ try {
 }
 ```
 
-カスタム関数名の場合、関数名を現在の要素にし、引数とともに [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) を呼び出します：
+カスタム関数名の場合、関数名を現在の要素にし、引数として [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-) を呼び出します:
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +246,11 @@ import com.aspose.slides.*;
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N 変数演算子と積分の追加**
+## **N 進演算子と積分の追加**
 
-総和、和集合、積集合、その他の大きな演算子には [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。積分には [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。両方のメソッドで下限と上限を設定できます。
+[nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用して総和、和集合、交差、その他の大きな演算子を作成します。[integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用して積分を作成します。両方のメソッドで下限と上限を設定できます。
 
-![下限と上限付きの総和](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```java
 import com.aspose.slides.*;
@@ -240,9 +277,9 @@ try {
 }
 ```
 
-N 変数演算子は、オプションの上下限を持つ大型演算子向けです。`+`, `-`, `=` などの単純な演算子は通常 [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) を使用して式に結合されます。
+N-進演算子はオプションの限界を持つ大きな演算子用です。`+`, `-`, `=` などの単純な演算子は通常 [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) で追加され、式に結合されます。
 
-積分には、[integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します：
+積分の場合は、[integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します:
 
 ```java
 import com.aspose.slides.*;
@@ -253,9 +290,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **行列の追加**
 
-行と列には [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) を使用します。行列はデフォルトで括弧を含まないため、丸括弧、角括弧、波括弧が必要な場合は行列を囲んでください。
+[MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) を使用して行と列を作成します。行列はデフォルトで括弧を含まないため、丸括弧、角括弧、波括弧が必要な場合は行列を囲んでください。
 
-![空白セルが 1 つある 2 行の数式行列](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```java
 import com.aspose.slides.*;
@@ -283,11 +320,62 @@ try {
 }
 ```
 
-## **数式配列の追加**
+### **既存の行列の編集**
 
-式を整列させる必要がある場合や縦方向に積み重ねた式が必要な場合は、[toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) を使用します。
+線形代数のレッスンが、前の例で保存された `matrix.pptx` の係数行列から始まるとします。次の演習では、最初の方程式を保持し、2 番目を 2 つの新しい方程式に置き換え、変数のセットを修正します。既存の行列を [IMathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/) で開くことで、まだ有効な係数を保持できます。
 
-![x が y の上にある縦方向の数式配列](powerpoint-math-equations_11.png)
+![Original two-row coefficient matrix with entries 1, x, and an empty cell in the first row and x, 2, and y in the second](matrix-before-edit.png)
+
+行と列のインデックスは 0 から始まり、各呼び出し時点の行列を指します。インデックス 1 の前に行を挿入すると元の 2 行目がインデックス 2 に移動します。インデックス 2 の後に挿入すると行が追加されます。インデックス 2 の行を削除すると元の 2 行目が削除され、追加された行が 1 つ上に移動します。列も同様にシフトします。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("matrix.pptx");
+try {
+    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IMathPortion portion = (IMathPortion) shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    IMathMatrix matrix = (IMathMatrix) portion.getMathParagraph().get_Item(0).get_Item(0);
+
+    matrix.insertRowBefore(1);
+    matrix.insertRowAfter(2);
+    matrix.deleteRow(2);
+
+    matrix.insertColumnBefore(1);
+    matrix.insertColumnAfter(3);
+    matrix.deleteColumn(3);
+
+    // 新しいセルは最初は null です。非ゼロの係数を先に設定してください。
+    matrix.set_Item(1, 0, new MathematicalText("12"));
+    matrix.set_Item(1, 1, new MathematicalText("1"));
+    matrix.set_Item(2, 2, new MathematicalText("10"));
+    matrix.set_Item(2, 3, new MathematicalText("1"));
+    for (int row = 0; row < matrix.getRowCount(); row++) {
+        for (int column = 0; column < matrix.getColumnCount(); column++) {
+            if (matrix.get_Item(row, column) == null) {
+                matrix.set_Item(row, column, new MathematicalText("0"));
+            }
+        }
+    }
+
+    matrix.setColumnAlignment(0, MathHorizontalAlignment.Left);
+    matrix.setColumnsAlignment(1, 3, MathHorizontalAlignment.Right);
+
+    presentation.save("updated-matrix.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[setColumnAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnAlignment-int-int-) は最初の列を左揃えにします。[setColumnsAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/imathmatrix/#setColumnsAlignment-int-long-int-) はインデックス 1 から開始して 3 つの連続列を右揃えにします。`updated-matrix.pptx` では、行列に 3 つの方程式と 4 つの変数があります。元の 1 行目の係数 `1` と `x` は現在、1 列目と 3 列目に表示されます。
+
+![Updated three-row matrix showing the rows 1, 0, x, 0; 12, 1, 0, 0; and 0, 0, 10, 1](matrix-after-edit.png)
+
+## **方程式配列の追加**
+
+整列した方程式や縦に積み重ねた式が必要な場合は、[toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) を使用します。
+
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +402,9 @@ try {
 
 ### **配列を周囲の要素と整列させる**
 
-[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) は、配列の垂直方向の位置を隣接する数学要素に対して制御します。以下の例では、最初の行、配列の中央、最後の行での整列を比較しています。
+[setBaseJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setBaseJustification-int-) は、配列の垂直整列を隣接する数式要素に対して制御します。以下の例は、最上行、配列の中央、最下行での整列を比較しています。
 
-次の例では、3 行からなる同一の配列を 3 つ作成し、隣接要素として `A=` と `=B` を配置します。すべての数式テキストは 24 ポイントの Cambria Math を使用し、配列の整列だけが異なります。
+以下の例は、3 行で隣接要素 `A=` と `=B` を持つ 3 つの同一配列を作成します。すべての数式テキストは 24 ポイントの Cambria Math を使用しています。配列の整列のみが変更されています。
 
 ```java
 import com.aspose.slides.*;
@@ -372,17 +460,17 @@ try {
 }
 ```
 
-以下の比較では、PowerPoint で保存されたプレゼンテーションを示します。各配列の横にある `A=` と `=B` の位置に注目してください。
+以下の比較は PowerPoint で保存されたプレゼンテーションを示しています。各配列の横にある `A=` と `=B` の位置に注目してください。
 
-![PowerPoint で上・中央・下揃えの数式配列と同一の隣接要素](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
 ### **行間隔の設定**
 
-[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) は、配列内の行に適用する間隔ルールを選択します。[setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) は、明示的な間隔ルール用に数値を提供し、プリセットルールでは無視されます。
+[setRowSpacingRule](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacingRule-int-) は配列内の行の間隔ルールを選択します。[setRowSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/imatharray/#setRowSpacing-long-) は明示的な間隔ルールの数値を提供し、プリセットルールでは無視されます。
 
-正確な間隔では、値はポイントで測定されます。比例間隔の場合は半行単位で測定され、例の値 `3` は 1.5 行に相当します。明示的な値を指定する場合は両方のプロパティを設定してください。数値だけを変更しても間隔ルールは選択されません。
+正確な間隔の場合、値はポイントで測定されます。比例間隔の場合、値は半行で測定されます：例の `3` は 1.5 行に相当します。明示的な値を指定する場合は、両方のプロパティを設定してください。数値だけを変更しても間隔ルールは選択されません。
 
-以下の例では、同じ数式、整列、フォント設定で 5 つのプレゼンテーションを保存します。最初の 3 つはプリセットを使用し、最後の 2 つは明示的な値を示します。
+以下の例は、同じ方程式、整列、フォント設定で 5 つのプレゼンテーションを保存します。最初の 3 つはプリセットを使用し、最後の 2 つは明示的な値を示します。
 
 ```java
 import com.aspose.slides.*;
@@ -431,13 +519,13 @@ for (int i = 0; i < rules.length; i++) {
 }
 ```
 
-配列の行間隔は段落間隔とは別です。[setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) と [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) は、配列行間ではなく、包含する段落の前後にスペースを追加します。同様に、[IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) は数式段落全体を水平に配置し、配列の垂直整列設定を置き換えるものではありません。
+配列の行間隔は段落間隔とは別です。[setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) と [setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-) は配列行間の間ではなく、包含する段落の前後にスペースを追加します。同様に、[IMathParagraph.setJustification](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#setJustification-int-) は数式段落全体の水平位置を設定し、配列の垂直整列設定を置き換えるものではありません。
 
 ## **三角関数の追加**
 
-引数が現在の要素で関数名が既知の場合は、[asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) を使用します。
+[asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) を使用すると、引数が現在の要素で関数名が既知の場合に利用できます。
 
-![2x に適用された三角関数 cos](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```java
 import com.aspose.slides.*;
@@ -463,9 +551,9 @@ try {
 
 ## **下付き文字と上付き文字の追加**
 
-添字や指数には下付き・上付きヘルパーを使用します。添字を基底の左側に表示する必要がある場合は、[setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。
+インデックスや指数には下付き文字・上付き文字ヘルパーを使用します。インデックスを基底の左側に表示する必要がある場合は、[setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) を使用します。
 
-![左側に下付き 1、上付き n が付いた大文字 Y](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```java
 import com.aspose.slides.*;
@@ -491,9 +579,9 @@ try {
 
 ## **区切り記号の追加**
 
-式を区切り記号で囲むには [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) を使用します。複数要素を含む区切り式には、区切り文字を設定することもできます。
+[enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) を使用して式を区切り記号で囲みます。複数要素を含む区切り式では、区切り文字を設定することもできます。
 
-![x、y、z を縦棒で区切った区切り式](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```java
 import com.aspose.slides.*;
@@ -520,11 +608,11 @@ try {
 }
 ```
 
-### **区切り記号のサイズと位置合わせ**
+### **区切り記号のサイズと配置**
 
-`true` を [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) に渡すと、縦長の被演算子に合わせて括弧が拡大します。`false` を渡すと通常サイズのままです。[setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) には 2 つの [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) のいずれかの値を使用します。`Centered` は等号の中央を通る数学軸上で括弧を中心揃えにし、`Match` は囲まれた内容に合わせて整列させます。これらの設定は区切り記号のみが対象で、内部の式は変わりません。
+`true` を [setGrowToMatchOperandHeight](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setGrowToMatchOperandHeight-boolean-) に渡すと、オペランドが高い場合に括弧が伸長します。`false` を渡すと通常サイズのままです。[setDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/imathdelimiter/#setDelimiterShape-int-) と 2 つの [MathDelimiterShape](https://reference.aspose.com/slides/java/com.aspose.slides/mathdelimitershape/) のいずれかを使用します。`Centered` は等号の真ん中を通る数式軸上で括弧を中央に配置し、`Match` は囲まれた内容に合わせて整列させます。これらの設定は区切り記号だけに影響し、内部の式は変わりません。
 
-例では、`x` の指数に分数を配置し、式がベースライン上部により伸びるようにしています。4 つの式すべてが同じ括弧とフォント設定を使用します。
+例では、分数を `x` の指数に配置し、式が基線上部に広がります。4 つの方程式は同じ括弧とフォント設定を使用しています。
 
 ```java
 import com.aspose.slides.*;
@@ -553,15 +641,15 @@ try {
 }
 ```
 
-PowerPoint で行を比較すると、拡大の効果が確認できます。上段では、括弧が指数を囲むように拡大し、両形状で同じように見えます。下段では拡大が無効です。左側の小さな括弧（`Centered`）は等号に合わせて整列し、右側の括弧（`Match`）は式の上部に高く配置されます。
+PowerPoint で行を比較して伸長の効果を確認してください。上段では、括弧が指数を囲むように伸長し、両形状で同様に見えます。下段では伸長がオフです。左側の小さな括弧（`Centered`）は等号に合わせ、右側（`Match`）は式の上に高く配置されています。
 
-![PowerPoint の 4 つの式。上段は区切り記号が拡大、下段は拡大なし。左は Centered、右は Match](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **枠線ボックスの追加**
+## **枠付きボックスの追加**
 
-分数に対して [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) を呼び出すと、式全体を枠で囲みます。返される [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) はデフォルトで 4 辺すべてを表示します。個別の辺を非表示にするには、[setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-)、[setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-)、[setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-)、[setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) を使用します。
+分数に対して [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) を呼び出すと、式全体を枠で囲みます。返される [IMathBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/) はデフォルトで 4 側すべてを表示します。[setHideTop](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideTop-boolean-), [setHideBottom](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideBottom-boolean-), [setHideLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideLeft-boolean-), そして [setHideRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setHideRight-boolean-) を使用して個別の側を非表示にできます。
 
-例では、同じ分数を 1 スライドに 6 つ配置します。キャンセルを示すために、4 辺すべてを非表示にし、右上がりの対角線 (↗) には [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) に `true` を、左下がりの対角線 (↘) には [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) に `true` を渡します。また、[setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) や [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) を使用して、表示する辺の組み合わせを自由に指定できます。
+例では、同じ分数のコピーをスライドに 6 つ配置します。取り消し線を示すために、4 つの側すべてを非表示にし、上昇対角線（↗）の場合は [setStrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughBottomLeftToTopRight-boolean-) に `true` を、下降対角線（↘）の場合は [setStrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughTopLeftToBottomRight-boolean-) に `true` を渡します。また、任意の組み合わせで [setStrikethroughHorizontal](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughHorizontal-boolean-) や [setStrikethroughVertical](https://reference.aspose.com/slides/java/com.aspose.slides/imathborderbox/#setStrikethroughVertical-boolean-) を使用できます。
 
 ```java
 import com.aspose.slides.*;
@@ -606,24 +694,24 @@ try {
 }
 ```
 
-![PowerPoint の 6 つの編集可能な分数。上段: 完全な枠、下側と左側、右上がりの対角線。下段: 左下がりの対角線、横線、縦線と完全な枠](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-この分数では、横の打ち消し線が分数線と重なります。縦の打ち消し線は分子と分母の両方を横切り、周囲の枠は表示されたままです。これらの線は式全体を装飾します。通常のテキストの打ち消し線はテキストランの文字に適用されます。PowerPoint でプレゼンテーションを再度開いても、分子と分母は個別に編集できます。
+この分数では、水平線が分数バーと重なります。垂直線は分子と分母の両方を横切り、周囲の枠は表示されたままです。これらの線は式全体を装飾します。通常のテキストの取り消し線は文字ランに適用されます。PowerPoint でプレゼンテーションを再度開くと、分子と分母は個別に編集できます。
 
 ## **Phantom 要素で可視性とレイアウトを制御**
 
-式を [MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) でラップすると、その可視性と方程式への寄与スペースを個別に制御できます。[IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) のメソッドで以下を制御します：
+[MathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/mathphantom/) で式をラップすると、可視性と式へのスペース貢献を個別に制御できます。[IMathPhantom](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/) のメソッドは以下を制御します:
 
-| Method | Effect |
+| メソッド | 効果 |
 | --- | --- |
-| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | `false` を渡すと式が非表示になります。下記の対応するメソッドが `true` を受け取らない限り、サイズはレイアウトに影響し続けます。 |
-| [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | 式の横幅を 0 とみなすことで、隣接要素がより近づくようにします。 |
-| [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | ベースライン上部の高さ（アセント）を 0 とみなします。これにより、隣接要素の上側に確保されるスペースが減ります。 |
-| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | ベースライン下部の深さ（ディセント）を 0 とみなします。これにより、式の下にある分数線や他のコンテンツが隣接要素に近づきます。 |
+| [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) | `false` を渡すと式を非表示にします。以下の対応するメソッドが `true` を受け取らない限り、寸法はレイアウトに寄与し続けます。 |
+| [setZeroWidth](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroWidth-boolean-) | 式の横幅を 0 とみなし、隣接要素がより近づくようにします。 |
+| [setZeroAsc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroAsc-boolean-) | ベースライン上の高さ（上昇部）を 0 とみなし、隣接要素上部の確保スペースを減らします。 |
+| [setZeroDesc](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setZeroDesc-boolean-) | ベースライン下の深さ（下降部）を 0 とみなし、式下の分数バーや他のコンテンツを隣接要素に近づけます。 |
 
-ベースラインは、通常の数学記号が配置される基準線です。コンテンツを非表示にしてもそのサイズは残り、次元を 0 と扱っても式は削除されません。基になる式は [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--) で取得できます。`true` を [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) に渡すと再び表示されますが、次元設定はそのままです。
+ベースラインは通常の数学文字が配置される基準線です。コンテンツを非表示にしても寸法は残り、寸法を 0 にしても式自体は削除されません。基になる式は [getBase](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#getBase--) で取得可能です。`true` を [setShow](https://reference.aspose.com/slides/java/com.aspose.slides/imathphantom/#setShow-boolean-) に渡すと再表示され、寸法設定は保持されたままです。
 
-以下の例では、5つの横並びバリエーションを作成します。表示分数、スペース確保の非表示分数、そして 1 つの次元だけを 0 とした 3 種類の非表示分数です。各バリエーションは同じ周囲式と 24 ポイントの Cambria Math を使用します。すべての数式シェイプは同じ上位置（灰色ガイドでマーキング）です。外側の分数の分子に phantom を配置すると、垂直レイアウトの変化が分かりやすくなります。
+以下の例は、横に並んだ 5 つのバリアントを作成します：表示された分数、スペースを確保したまま非表示の分数、そして 3 つの次元を 0 にした非表示分数です。各バリアントは同じ周囲式と 24 ポイントの Cambria Math を使用しています。すべての方程式シェイプは同じ上位置にあり、グレーガイドで示されています。外側の分数の分子に Phantom を配置すると、縦のレイアウト変化が見やすくなります。
 
 ```java
 import com.aspose.slides.*;
@@ -692,13 +780,13 @@ try {
 }
 ```
 
-![PowerPoint の 5 つの式：表示分数、スペース確保の非表示分数、ZeroWidth、ZeroAsc、ZeroDesc が有効な非表示分数の比較](math-phantom.png)
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
 
 ## **項のグループ化**
 
-[group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) を使用して、式の上または下にグループ化文字を配置します。グループ化した項にラベルを付けるには、リミットを追加します。
+[group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) を使用して、式の上または下にグループ文字を配置します。限界を追加してグループ化された項にラベルを付けます。
 
-![式 x + y が下にラベル any text を付けてグループ化された例](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```java
 import com.aspose.slides.*;
@@ -725,9 +813,9 @@ try {
 
 ## **数式要素の書式設定**
 
-書式設定ヘルパーは、式を明確にする必要がある箇所でのみ使用します。例として、[overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) は数式要素の上にバーを付けます。
+書式設定ヘルパーは式を明確にする場合にのみ使用してください。例として、[overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--) は数式要素の上にバーを配置します。
 
-![ABC の上にバーが付いた数式](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```java
 import com.aspose.slides.*;
@@ -750,11 +838,11 @@ try {
 }
 ```
 
-### **既存の数式内のテキスト書式設定**
+### **既存の方程式内のテキスト書式設定**
 
-既存の数式全体のテキスト書式を変更するには、各 MathBlock の要素ツリーを走査します。[IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) は直接の子要素のみを返すため、分数、添字・上付き、根号、その他の入れ子構造内のテキストに到達するには再帰的に呼び出します。開始要素が [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) の場合も、現在の要素とその子要素を確認してください。
+既存の方程式全体のテキスト書式を設定するには、各数式ブロックの要素ツリーを走査します。[IMathElement.getChildren](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#getChildren--) は直下の子要素のみを返すため、再帰的に呼び出して分数、添え字、根号、その他の入れ子構造内のテキストに到達します。開始要素が [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) の場合も、現在の要素と子要素の両方をチェックしてください。
 
-この例では、`input.pptx` に `z = xᵢ / ∛y` のような数式が含まれていると想定します。この数式は、分子に下付き、分母に根号を持つ分数です。ブロックのトップレベル要素だけを処理すると、分数内部のテキストが見逃されます。例では、スライドのテキストフレーム内の数式部分を検索し、[IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) でブロックにアクセスし、各テキスト要素の [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) メソッドを通じて [setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) によりフォントサイズを 28pt に設定します。
+この例は、`input.pptx` に `z = xᵢ / ∛y` のような方程式が含まれていると想定しています。この方程式は、分子に下付き文字、分母に根号を含む分数です。ブロックのトップレベル要素だけを処理すると、分数内部のテキストが見逃されます。例では、スライドのテキストフレーム内の数式部分を検索し、[IMathPortion.getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) でブロックにアクセスし、[setFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) を使用して各テキスト要素の [getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/#getFormat--) メソッドでフォントサイズを 28 ポイントに設定します。
 
 ```java
 import com.aspose.slides.*;
@@ -805,37 +893,37 @@ try {
 }
 ```
 
-保存されたプレゼンテーションは、処理された各数式のすべてのレベルで更新されたテキスト書式を保持し、テキスト内容と数式構造はそのままです。
+保存されたプレゼンテーションは、各処理された方程式のすべてのレベルで更新されたテキスト書式を保持し、テキストコンテンツと数式構造はそのままです。
 
 ## **クイックリファレンス**
 
-| Task | Main API |
+| タスク | メイン API |
 | --- | --- |
 | 数式テキストの作成 | [MathematicalText](https://reference.aspose.com/slides/java/com.aspose.slides/mathematicaltext/) |
 | 要素の結合 | [IMathElement.join](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
 | 分数の作成 | [IMathElement.divide](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| 上付きまたは下付きの追加 | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| 上付き文字または下付き文字の追加 | [setSuperscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
 | 関数の追加 | [function](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
 | 根号の追加 | [IMathElement.radical](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
 | 極限の追加 | [setLowerLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| 左側スクリプトの追加 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| 左側添え字の追加 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | 総和と積分の追加 | [nary](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | 行列の追加 | [MathMatrix](https://reference.aspose.com/slides/java/com.aspose.slides/mathmatrix/) |
-| 数式配列の追加 | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
+| 方程式配列の追加 | [toMathArray](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toMathArray--) |
 | 区切り記号の追加 | [enclose](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| バーと枠線の追加 | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| バーと枠の追加 | [overbar](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | 項のグループ化 | [group](https://reference.aspose.com/slides/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
-## **FAQ**
+## **よくある質問**
 
-**既存の PowerPoint の数式を編集できますか？**
+**既存の PowerPoint の方程式を編集できますか？**
 
-はい。プレゼンテーションを開き、[MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) を含むシェイプを見つけ、[getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出して、その段落内の数式ブロックを更新します。
+はい。プレゼンテーションを開き、[MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) を含むシェイプを見つけ、[getMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/#getMathParagraph--) を呼び出し、その段落内の数式ブロックを更新します。
 
-**数式は編集可能な PowerPoint の数式として保存されますか？**
+**方程式は編集可能な PowerPoint の数式として保存されますか？**
 
-はい。PPTX として保存すると、Aspose.Slides は数式を編集可能な Office 数式コンテンツとして書き込みます。
+はい。PPTX に保存すると、Aspose.Slides は方程式を編集可能な Office 数式コンテンツとして書き込みます。
 
-**数式を LaTeX にエクスポートできますか？**
+**方程式を LaTeX にエクスポートできますか？**
 
-はい。式の [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) をその [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/) から取得し、[IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) を呼び出して直接エクスポートします。完全な例については、[Export Math Equations from Presentations in Java](/slides/ja/java/exporting-math-equations/#export-math-equations-to-latex) を参照してください。
+はい。方程式の [IMathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/) をその [IMathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/imathportion/) から取得し、[IMathParagraph.toLatex](https://reference.aspose.com/slides/java/com.aspose.slides/imathparagraph/#toLatex--) を呼び出すと直接エクスポートできます。完全な例については、[Java でのプレゼンテーションからの数式エクスポート（LaTeX へ）](/slides/ja/java/exporting-math-equations/#export-math-equations-to-latex) を参照してください。

@@ -1,5 +1,5 @@
 ---
-title: เพิ่มสมการคณิตศาสตร์ไปยังการนำเสนอ PowerPoint ใน .NET
+title: เพิ่มสมการคณิตศาสตร์ในงานนำเสนอ PowerPoint ด้วย .NET
 linktitle: สมการคณิตศาสตร์ PowerPoint
 type: docs
 weight: 80
@@ -18,33 +18,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ .NET รองรับ OMML, การควบคุมรูปแบบ, และตัวอย่างโค้ด C# ที่ชัดเจน."
+description: "แทรกและแก้ไขสมการคณิตศาสตร์ใน PowerPoint PPT และ PPTX ด้วย Aspose.Slides สำหรับ .NET รองรับ OMML การควบคุมการจัดรูปแบบ และตัวอย่างโค้ด C# ที่ชัดเจน."
 ---
 ## **ภาพรวม**
 
-PowerPoint เก็บสมการเป็น Office Math Markup Language (OMML). ด้วย Aspose.Slides สำหรับ .NET คุณสามารถสร้างเนื้อหาคณิตศาสตร์ประเภทเดียวกันโดยเขียนโปรแกรม: เศษส่วน, ราดิกัล, ฟังก์ชัน, ขีดจำกัด, ตัวดำเนินการ N-ary, เมทริกซ์, อาร์เรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
+PowerPoint จัดเก็บสมการเป็น Office Math Markup Language (OMML). ด้วย Aspose.Slides for .NET คุณสามารถสร้างเนื้อหาคณิตศาสตร์ชนิดเดียวกันโดยเขียนโปรแกรม: เศษส่วน, ราก, ฟังก์ชัน, ขอบเขต, ตัวดำเนินการ N-ary, เมทริกซ์, อาเรย์, และบล็อกคณิตศาสตร์ที่จัดรูปแบบ
 
-ใน PowerPoint ผู้ใช้ทั่วไปเพิ่มสมการจาก **Insert > Equation**:
+ใน PowerPoint ผู้ใช้โดยทั่วไปเพิ่มสมการจาก **Insert > Equation**:
 
-![แท็บ Insert ของ PowerPoint ที่เลือกคำสั่ง Equation](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
 ผลลัพธ์คือข้อความคณิตศาสตร์ที่แก้ไขได้บนสไลด์:
 
-![สไลด์ PowerPoint ที่มีสมการคณิตศาสตร์ที่แก้ไขได้](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
-- รูปร่างคณิตศาสตร์ที่สร้างด้วย [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), คือรูปร่างที่บรรจุสมการ
-- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) เก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง
-- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) มีหนึ่งหรือหลายวัตถุ [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/)
+- รูปคณิตศาสตร์, สร้างด้วย [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/), คือรูปร่างที่บรรจุสมการ
+- [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) จัดเก็บเนื้อหาคณิตศาสตร์ภายในกรอบข้อความของรูปร่าง
+- [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathparagraph/) มีหนึ่งหรือหลายอ็อบเจกต์ [MathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathblock/)
 
-ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) และเมธอดเชิงไหลจาก [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) เพื่อให้โค้ดสั้นและอ่านง่าย
+ตัวอย่างส่วนใหญ่ด้านล่างใช้ [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) และเมธอดแบบ fluent จาก [IMathElement](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/) เพื่อทำให้โค้ดสั้นและอ่านง่าย
 
-สำหรับสถานการณ์การส่งออก MathML ดูที่ [Export Math Equations from Presentations in .NET](/slides/th/net/exporting-math-equations/)
+สำหรับการส่งออก MathML โปรดดู [Export Math Equations from Presentations in .NET](/slides/th/net/exporting-math-equations/).
 
 ## **สร้างสมการ**
 
-ตัวอย่างนี้ใช้ [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มสูตรพีธากอรัส:
+ตัวอย่างนี้ใช้ [AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) เพื่อสร้างรูปร่างคณิตศาสตร์และเพิ่มทฤษฎีบทพีทากอรัส:
 
-![สมการ c กำลังสองเท่ากับ a กำลังสองบวก b กำลังสอง](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```csharp
 using Aspose.Slides;
@@ -70,14 +70,48 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) สร้างรูปร่างที่มี MathParagraph อยู่แล้ว เข้าถึง [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) ตัวแรก, ดึง [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) ของมัน, แล้วเพิ่ม MathBlock หรือ MathElement เข้าไป
+[AddMathShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addmathshape/) สร้างรูปร่างที่มี MathParagraph อยู่แล้ว. เข้าถึง [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/) แรก, รับ [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), แล้วเพิ่ม MathBlock หรือ MathElement ไปยังมัน.
 {{% /alert %}}
+
+### **รวมบล็อกคณิตศาสตร์**
+
+เมื่อส่วนของสมการถูกสร้างแยกกันเป็นอ็อบเจกต์ [IMathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/) ให้ใช้ [JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) เพื่อรวมเข้ากัน ตัวอย่างสร้าง `c² =` ในบล็อกซ้ายและ `a² + b²` ในบล็อกขวา. [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/) สร้างซูพสคริปต์คณิตศาสตร์ที่แก้ไขได้สำหรับกำลังทั้งสาม
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddMathShape(20, 20, 600, 100);
+var mathParagraph = ((IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var leftBlock = new MathBlock();
+leftBlock.Add(new MathematicalText("c").SetSuperscript("2"));
+leftBlock.Add(new MathematicalText("="));
+
+var rightBlock = new MathBlock();
+rightBlock.Add(new MathematicalText("a").SetSuperscript("2"));
+rightBlock.Add(new MathematicalText("+"));
+rightBlock.Add(new MathematicalText("b").SetSuperscript("2"));
+
+var combinedBlock = leftBlock.JoinBlock(rightBlock);
+mathParagraph.Add(combinedBlock);
+
+presentation.Save("equation.pptx", SaveFormat.Pptx);
+```
+
+[JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) คืนค่า `leftBlock` เอง, ตอนนี้บรรจุส่วนทั้งสองเป็นลำดับและทำให้ `rightBlock` ว่าง. เพิ่มบล็อกที่รวมแล้วไปยัง [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) เพียงครั้งเดียว. หลังจากเปิด `equation.pptx` อีกครั้ง, ย่อหน้ามีบล็อกเดียวที่แสดง `c² = a² + b²`, โดยกำลังทั้งสามยังคงเป็นซูพสคริปต์
+
+การเรียก [Add](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelementcollection/add/) เป็น `leftBlock.Add(rightBlock)` แทนจะพยายามฝังบล็อกจากกันโดยตรงและทำให้เกิด `InvalidOperationException`.
 
 ## **เพิ่มเศษส่วน**
 
-ใช้ [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) เพื่อสร้างเศษส่วน คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/)
+Use [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) เพื่อสร้างเศษส่วน. คุณสามารถเลือกสไตล์ของเศษส่วนด้วย [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![เศษส่วนคณิตศาสตร์เอียงที่แสดงหนึ่งหารด้วย x](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```csharp
 using Aspose.Slides;
@@ -98,7 +132,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-สำหรับเศษส่วนซ้อนกัน ให้ใช้ [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
+สำหรับเศษส่วนแบบซ้อน, ใช้ [MathFractionTypes.Bar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/):
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -106,11 +140,11 @@ using Aspose.Slides.MathText;
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **เพิ่มราดิกัล**
+## **เพิ่มรากคณิตศาสตร์**
 
-ใช้ [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) เพื่อสร้างรากกำลังสอง, รากกำลังสาม หรือรากอื่น ๆ อิลิเมนต์ปัจจุบันจะกลายเป็นฐาน และอาร์กิวเมนต์จะเป็นดีกรี
+Use [Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) เพื่อสร้างรากกำลังสอง, รากกำลังสาม, หรือรากอื่น ๆ. อิลีเมนต์ปัจจุบันจะเป็นฐาน, และอาร์กิวเมนต์จะเป็นดีกรี.
 
-![นิพจน์ราดิกัลรากที่ n โดยมี x อยู่ใต้สัญลักษณ์ราก](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```csharp
 using Aspose.Slides;
@@ -133,11 +167,11 @@ presentation.Save("radical.pptx", SaveFormat.Pptx);
 
 ### **แสดงหรือซ่อนดีกรีของรากกำลังสอง**
 
-รากกำลังสองสามารถแสดงเลข 2 อย่างชัดเจนหรือใช้สัญลักษณ์ √x ตามปกติ คุณสมบัติ [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) ของ [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) ควบคุมรูปแบบที่แสดง ทั้งสองรูปแบบยังคงมีดีกรี 2 และราดิกันต์ x อยู่ในสมการที่แก้ไขได้
+รากกำลังสองสามารถแสดงเลข 2 ชัดเจนหรือใช้สัญลักษณ์ √x ตามปกติ. คุณสมบัติ [HideDegree](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/hidedegree/) ของ [IMathRadical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathradical/) ควบคุมรูปแบบที่แสดง. ทั้งสองรูปแบบยังคงเก็บดีกรี 2 และ radicand x ในสมการที่แก้ไขได้.
 
-![รากกำลังสองเดียวกันที่ตั้งค่า HideDegree เป็น false ด้านซ้ายและ true ด้านขวา](square-root-degree.png)
+![The same square root with HideDegree set to false on the left and true on the right](square-root-degree.png)
 
-ตัวอย่างบันทึกรากกำลังสองเดียวกันสองครั้ง ใน `visible-degree.pptx` ตัวเลข 2 ปรากฏอยู่ ใน `hidden-degree.pptx` ตัวเลข 2 ถูกซ่อน
+ตัวอย่างบันทึกรากกำลังสองเดียวกันสองครั้ง. ใน `visible-degree.pptx` เลข 2 ปรากฏ. ใน `hidden-degree.pptx` เลข 2 ถูกซ่อน.
 
 ```csharp
 using Aspose.Slides;
@@ -160,11 +194,11 @@ radical.HideDegree = true;
 presentation.Save("hidden-degree.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มฟังก์ชันและขีดจำกัด**
+## **เพิ่มฟังก์ชันและขอบเขต**
 
-ใช้ [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) หรือ [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)`, หรือชื่อฟังก์ชันกำหนดเอง สำหรับขีดจำกัด ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) หรือใช้ [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/)
+Use [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) หรือ [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) สำหรับฟังก์ชันเช่น `sin(x)`, `log(x)`, หรือชื่อฟังก์ชันกำหนดเอง. สำหรับขอบเขต, ใส่ `lim` ใน [MathLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathlimit/) หรือใช้ [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/).
 
-![ขีดจำกัดของ x เมื่อ x ใกล้เข้าอนันต์](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```csharp
 using Aspose.Slides;
@@ -186,7 +220,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-สำหรับชื่อฟังก์ชันกำหนดเอง ทำให้ชื่อฟังก์ชันเป็นอิลิเมนต์ปัจจุบันและเรียก [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) พร้อมอาร์กิวเมนต์:
+สำหรับชื่อฟังก์ชันกำหนดเอง, ทำให้ชื่อฟังก์ชันเป็นอิลีเมนต์ปัจจุบันและเรียก [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/) พร้อมอาร์กิวเมนต์ของมัน:
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -194,11 +228,11 @@ using Aspose.Slides.MathText;
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **เพิ่มตัวดำเนินการ N-ary และอินเทกรัล**
+## **เพิ่มตัวดำเนินการ N-ary และอินทิกรัล**
 
-ใช้ [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) สำหรับผลรวม, ยูเนียน, อินเตอร์เซกชัน และตัวดำเนินการใหญ่ ๆ อื่น ๆ ใช้ [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) สำหรับอินเทกรัล ทั้งสองเมธอดให้คุณตั้งค่าขีดจำกัดล่างและบน
+Use [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/) สำหรับผลรวม, ยูเนี่ยน, อินเตอร์เซกชัน, และตัวดำเนินการใหญ่อื่น ๆ. Use [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) สำหรับอินทิกรัล. ทั้งสองวิธีให้คุณตั้งค่าขอบล่างและขอบบนได้.
 
-![ผลรวมที่มีขีดจำกัดล่างและบน](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```csharp
 using Aspose.Slides;
@@ -222,9 +256,9 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการขนาดใหญ่พร้อมขีดจำกัดเลือกได้ ตัวดำเนินการแบบง่ายเช่น `+`, `-`, และ `=` ปกติจะเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) และรวมเข้ากับนิพจน์
+ตัวดำเนินการ N-ary ใช้สำหรับตัวดำเนินการใหญ่ที่มีขอบเลือกได้. ตัวดำเนินการง่ายเช่น `+`, `-`, และ `=` มักเพิ่มเป็น [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) แล้วรวมเข้ากับนิพจน์
 
-สำหรับอินเทกรัล ให้ใช้ [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
+สำหรับอินทิกรัล, ใช้ [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/):
 
 ```csharp
 using Aspose.Slides.MathText;
@@ -235,9 +269,9 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **เพิ่มเมทริกซ์**
 
-ใช้ [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) สำหรับแถวและคอลัมน์ เมทริกซ์โดยปกติไม่รวมวงเล็บ ดังนั้นให้ใส่วงเล็บหรือวงเหลี่ยมเมื่อต้องการ
+Use [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) สำหรับแถวและคอลัมน์. เมทริกซ์โดยปกติจะไม่มีวงเล็บ, ดังนั้นให้ใส่วงเล็บ, วงสี่เหลี่ยม, หรือเครื่องหมายปีกกาเมื่อจำเป็น.
 
-![เมทริกซ์คณิตศาสตร์สองแถวที่มีช่องว่างหนึ่งช่อง](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```csharp
 using Aspose.Slides;
@@ -262,13 +296,13 @@ mathParagraph.Add(new MathBlock(matrix));
 presentation.Save("matrix.pptx", SaveFormat.Pptx);
 ```
 
-### **แก้ไขเมทริกซ์ที่มีอยู่**
+### **แก้ไขเมทริกซ์ที่มีอยู่แล้ว**
 
-สมมติว่าบทเรียนพีชคณิตเชิงเส้นเริ่มด้วยเมทริกซ์สัมประสิทธิ์ใน `matrix.pptx` ที่บันทึกโดยตัวอย่างก่อนหน้า สำหรับแบบฝึกหัดต่อไป ให้คงสมการแรกไว้, แทนที่สมการที่สองด้วยสองสมการใหม่, และปรับชุดตัวแปร เปิดเมทริกซ์ที่มีอยู่ผ่าน [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) เพื่อคงสัมประสิทธิ์ที่ยังใช้ได้
+Suppose a linear algebra lesson starts with the coefficient matrix in `matrix.pptx`, saved by the preceding example. For the next exercise, keep the first equation, replace the second with two new equations, and revise the set of variables. Open the existing matrix through [IMathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/) to keep the coefficients that still apply.
 
-![เมทริกซ์สัมประสิทธิ์สองแถวต้นฉบับที่มีรายการ 1, x, และช่องว่างในแถวแรก; x, 2, และ y ในแถวสอง](matrix-before-edit.png)
+![Original two-row coefficient matrix with entries 1, x, and an empty cell in the first row and x, 2, and y in the second](matrix-before-edit.png)
 
-ดัชนีแถวและคอลัมน์เริ่มนับจากศูนย์และอ้างอิงเมทริกซ์ตามสถานะ ณ ตอนที่เรียก การแทรกแถวก่อนดัชนี 1 จะเลื่อนแถวที่สองเดิมไปที่ดัชนี 2 การแทรกหลังดัชนี 2 จะเพิ่มแถวใหม่ การลบแถว 2 จะเอาสมการที่สองเดิมออกและเลื่อนแถวที่เพิ่มขึ้นขึ้นหนึ่งตำแหน่ง คอลัมน์ก็ย้ายเช่นกัน
+Row and column indices start at zero and refer to the matrix as it stands at each call. Inserting a row before index 1 moves the original second row to index 2. Inserting after index 2 then appends a row. Deleting row 2 removes the original second equation and moves the appended row up one position. Columns shift in the same way.
 
 ```csharp
 using Aspose.Slides;
@@ -289,7 +323,7 @@ matrix.InsertColumnBefore(1);
 matrix.InsertColumnAfter(3);
 matrix.DeleteColumn(3);
 
-// เซลล์ใหม่เริ่มต้นเป็น null. ตั้งค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน.
+// เซลล์ใหม่เริ่มต้นเป็น null. ตั้งค่าค่าสัมประสิทธิ์ที่ไม่เป็นศูนย์ก่อน.
 matrix[1, 0] = new MathematicalText("12");
 matrix[1, 1] = new MathematicalText("1");
 matrix[2, 2] = new MathematicalText("10");
@@ -308,15 +342,15 @@ matrix.SetColumnsAlignment(1, 3, MathHorizontalAlignment.Right);
 presentation.Save("updated-matrix.pptx", SaveFormat.Pptx);
 ```
 
-[SetColumnAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) จัดแนวคอลัมน์แรกซ้าย [SetColumnsAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) จัดแนวสามคอลัมน์ต่อเนื่องขวา ตั้งแต่ดัชนี 1 ใน `updated-matrix.pptx` เมทริกซ์มีสามสมการและสี่ตัวแปร สัมประสิทธิ์แถวแรกต้นฉบับ `1` และ `x` ปรากฏในคอลัมน์แรกและคอลัมน์ที่สาม
+[SetColumnAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnalignment/) aligns the first column to the left. [SetColumnsAlignment](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathmatrix/setcolumnsalignment/) aligns three consecutive columns to the right, starting at index 1. In `updated-matrix.pptx`, the matrix has three equations and four variables. The original first-row coefficients `1` and `x` now appear in the first and third columns.
 
-![เมทริกซ์สามแถวที่อัปเดตแสดงแถว 1, 0, x, 0; 12, 1, 0, 0; และ 0, 0, 10, 1](matrix-after-edit.png)
+![Updated three-row matrix showing the rows 1, 0, x, 0; 12, 1, 0, 0; and 0, 0, 10, 1](matrix-after-edit.png)
 
 ## **เพิ่มอาเรย์สมการ**
 
-เมื่อคุณต้องการสมการจัดแนวหรือสแต็คแนวตั้งของนิพจน์ ให้ใช้ [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/)
+Use [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) when you need aligned equations or a vertical stack of expressions.
 
-![อาเรย์คณิตศาสตร์แนวตั้งที่มี x อยู่เหนือ y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```csharp
 using Aspose.Slides;
@@ -338,11 +372,11 @@ mathParagraph.Add(new MathBlock(equationArray));
 presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 ```
 
-### **จัดแนวอาเรย์กับอิลิเมนต์โดยรอบ**
+### **จัดแนวอาเรย์กับองค์ประกอบโดยรอบ**
 
-[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) ควบคุมการจัดแนวแนวตั้งของอาเรย์เทียบกับอิลิเมนต์คณิตศาสตร์ข้างเคียง ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวด้วยแถวแรก, ศูนย์กลางอาเรย์, และแถวสุดท้าย
+[IMathArray.BaseJustification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/basejustification/) ควบคุมการจัดแนวแนวตั้งของอาเรย์สัมพันธ์กับองค์ประกอบคณิตศาสตร์ที่อยู่ข้างๆ. ตัวอย่างด้านล่างเปรียบเทียบการจัดแนวกับแถวแรก, ศูนย์ของอาเรย์, และแถวสุดท้าย.
 
-ตัวอย่างต่อไปสร้างอาเรย์สามอันที่เหมือนกัน ทั้งแต่ละอาเรย์มีสามแถวและอิลิเมนต์เพื่อนบ้าน `A=` และ `=B` ข้อความคณิตศาสตร์ทั้งหมดใช้ Cambria Math ขนาด 24 จุด มีเพียงการจัดแนวอาเรย์ที่เปลี่ยน
+ตัวอย่างต่อไปสร้างอาเรย์เดียวกันสามแบบ, แต่ละอาเรย์มีสามแถวและองค์ประกอบใกล้เคียง `A=` และ `=B`. ข้อความคณิตศาสตร์ทั้งหมดใช้ฟอนต์ Cambria Math ขนาด 24 จุด. มีเพียงการจัดแนวอาเรย์ที่เปลี่ยน.
 
 ```csharp
 using Aspose.Slides;
@@ -389,17 +423,17 @@ MathematicalText CreateText(string value)
 }
 ```
 
-การเปรียบเทียบต่อไปแสดงงานนำเสนอที่บันทึกใน PowerPoint สังเกตตำแหน่งของ `A=` และ `=B` อยู่ข้างแต่ละอาเรย์
+การเปรียบเทียบต่อไปแสดงงานนำเสนอที่บันทึกใน PowerPoint. สังเกตตำแหน่งของ `A=` และ `=B` ข้างอาเรย์แต่ละอาเรย์.
 
-![อาเรย์สมการใน PowerPoint พร้อมการจัดแนวบน, ศูนย์, และล่าง พร้อมอิลิเมนต์เพื่อนบ้านเดียวกัน](equation-array-alignment.png)
+![Equation arrays in PowerPoint with Top, Center, and Bottom alignment and identical neighboring elements](equation-array-alignment.png)
 
-### **กำหนดระยะแถว**
+### **กำหนดการเว้นบรรทัดของแถว**
 
-[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) เลือกกฎการเว้นระยะสำหรับแถวภายในอาเรย์ [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) ให้ค่าตัวเลขสำหรับกฎเว้นระยะแบบระบุและจะถูกละเลยเมื่อใช้กฎตั้งต้น
+[RowSpacingRule](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacingrule/) เลือกกฎการเว้นบรรทัดสำหรับแถวภายในอาเรย์. [RowSpacing](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imatharray/rowspacing/) ให้ค่าตัวเลขสำหรับกฎการเว้นบรรทัดที่ระบุและจะถูกละเลยโดยกฎตั้งต้น.
 
-สำหรับการเว้นระยะที่แน่นอน ค่าจะวัดเป็นจุด สำหรับการเว้นระยะแบบสัดส่วน ค่าจะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด ตั้งค่าทั้งสองคุณสมบัติโดยพร้อมกันเมื่อกำหนดค่าตัวเลขแบบชัดเจน; การเปลี่ยนค่าเชิงตัวเลขอย่างเดียวจะไม่เลือกกฎเว้นระยะ
+สำหรับการเว้นบรรทัดที่แม่นยำ, ค่าจะวัดเป็นจุด. สำหรับการเว้นบรรทัดแบบสัดส่วน, จะวัดเป็นครึ่งบรรทัด: ค่า `3` ในตัวอย่างหมายถึง 1.5 บรรทัด. ตั้งค่าทั้งสองคุณสมบัติเพื่อระบุค่าที่ชัดเจน; การเปลี่ยนค่าเชิงตัวเลขอย่างเดียวจะไม่เลือกกฎการเว้นบรรทัด.
 
-ตัวอย่างต่อไปบันทึกงานนำเสนอห้าชุดที่มีสมการ, การจัดแนว, และการตั้งค่าฟอนต์เดียวกัน ชุดแรกสามชุดใช้กฎตั้งต้น; สองชุดสุดท้ายแสดงค่าที่ระบุโดยตรง
+ตัวอย่างด้านล่างบันทึกงานนำเสนอห้าชุดที่มีสมการ, การจัดแนว, และการตั้งค่าฟอนต์เดียวกัน. สามชุดแรกใช้ค่าตั้งต้น; สองชุดสุดท้ายแสดงค่าที่ระบุอย่างชัดเจน.
 
 ```csharp
 using Aspose.Slides;
@@ -449,13 +483,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-ระยะแถวของอาเรย์แตกต่างจากระยะของย่อหน้า [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) และ [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) จะเพิ่มพื้นที่รอบย่อหน้าที่บรรจุอาเรย์ ไม่ได้เพิ่มระยะระหว่างแถวของอาเรย์ เช่นกัน [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) กำหนดตำแหน่งแนวนอนของ MathParagraph ทั้งหมด; ไม่ได้แทนที่การตั้งค่าการจัดแนวแนวตั้งของอาเรย์
+การเว้นบรรทัดของแถวในอาเรย์แยกจากการเว้นบรรทัดของย่อหน้า. [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacebefore/) และ [SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spaceafter/) เพิ่มช่องว่างรอบย่อหน้าที่บรรจุ, ไม่ใช่ระหว่างแถวของอาเรย์. เช่นเดียวกับนั้น, [IMathParagraph.Justification](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/justification/) จัดตำแหน่งทั้งย่อหน้าคณิตศาสตร์ในแนวนอน; ไม่ได้แทนที่การตั้งค่าแนวตั้งของอาเรย์.
 
 ## **เพิ่มฟังก์ชันตรีโกณมิติ**
 
-เมื่ออาร์กิวเมนต์เป็นอิลิเมนต์ปัจจุบันและชื่อฟังก์ชันทราบ ให้ใช้ [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/)
+Use [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) when the argument is the current element and the function name is known.
 
-![ฟังก์ชันตรีโกณมิติ cos ที่นำมาประยุกต์กับ 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using Aspose.Slides;
@@ -476,11 +510,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มซับสคริปต์และซูเปอร์สคริปต์**
+## **เพิ่มดัชนีและส่วนสูง**
 
-ใช้ตัวช่วยสำหรับซับสคริปต์และซูเปอร์สคริปต์สำหรับดัชนีและกำลัง เมื่อดัชนีต้องอยู่ด้านซ้ายของฐาน ให้ใช้ [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/)
+Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/).
 
-![ตัวอักษร Y ตัวพิมพ์ใหญ่ที่มีซับสคริปต์ด้านซ้าย 1 และซูเปอร์สคริปต์ n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```csharp
 using Aspose.Slides;
@@ -501,11 +535,11 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มตัวคั่น**
+## **เพิ่มเครื่องหมายคั่น**
 
-ใช้ [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) เพื่อใส่นิพจน์ไว้ในตัวคั่น คุณยังสามารถกำหนดอักขระคั่นสำหรับนิพจน์ที่มีหลายอิลิเมนต์
+Use [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
 
-![นิพจน์ตัวคั่นที่มี x, y, และ z คั่นด้วยแนวตั้งบาร์](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```csharp
 using Aspose.Slides;
@@ -529,11 +563,11 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-### **ขนาดและการจัดแนวตัวคั่น**
+### **ขนาดและการจัดแนวเครื่องหมายคั่น**
 
-ตั้งค่า [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) เป็น `true` เพื่อให้วงเล็บขยายตามออปเปอแรนด์ที่สูง, หรือเป็น `false` เพื่อคงขนาดปกติ [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) รับค่าอย่างใดอย่างหนึ่งจาก [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/) `Centered` จะจัดศูนย์วงเล็บบนแกนคณิตศาสตร์ `Match` จะจัดให้ตรงกับเนื้อหาที่ล้อมรอบ ทั้งสองการตั้งค่าใช้กับตัวคั่นเท่านั้น เนื้อหาภายในคงเดิม
+Set [GrowToMatchOperandHeight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/growtomatchoperandheight/) to `true` to let the parentheses grow around a tall operand, or to `false` to keep them at their normal size. [DelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathdelimiter/delimitershape/) takes one of two [MathDelimiterShape](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathdelimitershape/) values. `Centered` centers the parentheses on the math axis, which runs through the middle of the equals sign. `Match` aligns them with the enclosed content. Both settings affect only the delimiters. The expression inside stays the same.
 
-ตัวอย่างใส่เศษส่วนเป็นกำลังของ `x` ทำให้นิพจน์ยืดสูงกว่าค่า baseline ทั้งสี่สมาการใช้วงเล็บและการตั้งค่าแบบอักษรเดียวกัน
+The example places a fraction in the exponent of `x` so the expression extends farther above the baseline than below it. All four equations use the same parentheses and font settings.
 
 ```csharp
 using Aspose.Slides;
@@ -566,15 +600,15 @@ AddExpression(350, 140, false, MathDelimiterShape.Match);
 presentation.Save("delimiter-sizing.pptx", SaveFormat.Pptx);
 ```
 
-ใน PowerPoint เปรียบเทียบแถวเพื่อดูผลของการขยาย แถวบนวงเล็บขยายเพื่อครอบกำลังและดูเหมือนกันทั้งสองรูปแบบ แถวล่างการขยายปิด วงเล็บเล็กซ้าย (`Centered`) จัดกับสัญลักษณ์เท่ากับ, ส่วนขวา (`Match`) อยู่สูงกว่าตามนิพจน์
+In PowerPoint, compare the rows to see the effect of growth. In the top row, the parentheses grow to enclose the exponent and look alike for both shapes. In the bottom row, growth is off. The smaller parentheses on the left (`Centered`) align with the equals sign, while those on the right (`Match`) sit higher around the expression.
 
-![สี่สมการใน PowerPoint พร้อมการขยายตัวคั่นที่เปิดด้านบนและปิดด้านล่าง, และ Centered ด้านซ้าย, Match ด้านขวา](delimiter-sizing.png)
+![Four equations in PowerPoint with delimiter growth enabled above and disabled below, and Centered on the left and Match on the right](delimiter-sizing.png)
 
-## **เพิ่มกรอบขอบ**
+## **เพิ่มกล่องขอบ**
 
-เรียก [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) บนเศษส่วนเพื่อกรอบนิพจน์ทั้งหมด ผลลัพธ์ [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) แสดงสี่ด้านโดยปริยาย ใช้ [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), และ [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) เพื่อลบด้านแต่ละด้าน
+Call [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) on a fraction to frame the entire expression. The returned [IMathBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/) shows all four sides by default. Use [HideTop](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidetop/), [HideBottom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hidebottom/), [HideLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideleft/), and [HideRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/hideright/) to remove individual sides.
 
-ตัวอย่างวางสำเนาเศษส่วนเดียวกันหกครั้งบนสไลด์ เพื่อแสดงการยกเว้น ให้ซ่อนสี่ด้านและตั้งค่า [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) เพื่อเส้นทแยงมาขึ้น (↗) หรือ [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) เพื่อเส้นทแยงมาลง (↘) คุณยังสามารถใช้ [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) หรือ [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) ร่วมกับการตั้งค่าด้านที่มองเห็นได้ตามต้องการ
+The example places six copies of the same fraction on one slide. To show cancellation, hide all four sides and set [StrikethroughBottomLeftToTopRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughbottomlefttotopright/) for a rising diagonal (↗) or [StrikethroughTopLeftToBottomRight](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughtoplefttobottomright/) for a falling diagonal (↘). You can also use [StrikethroughHorizontal](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughhorizontal/) or [StrikethroughVertical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathborderbox/strikethroughvertical/) with any combination of visible sides.
 
 ```csharp
 using Aspose.Slides;
@@ -612,24 +646,24 @@ AddFraction(370, 120).StrikethroughVertical = true;
 presentation.Save("border-box.pptx", SaveFormat.Pptx);
 ```
 
-![หกเศษส่วนที่แก้ไขได้ใน PowerPoint. แถวบน: กรอบเต็ม, ด้านล่างและซ้าย, เส้นทแยงขึ้น. แถวล่าง: เส้นทแยงลง, เส้นตัดแนวนอน, เส้นตัดแนวตั้งพร้อมกรอบเต็ม](border-box-fractions.png)
+![Six editable fractions in PowerPoint. Top row: full border, bottom and left sides, rising diagonal. Bottom row: falling diagonal, horizontal strike, vertical strike with a full border.](border-box-fractions.png)
 
-บนเศษส่วนนี้ เส้นตัดแนวนอนทับบาร์ของเศษส่วน เส้นตัดแนวตั้งผ่านเศษส่วนและส่วนล่างในขณะที่กรอบรอบๆ ยังมองเห็นได้ เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด ตัวอย่างการขีดเส้นปกติจะทำกับอักขระในไลบรารีข้อความ หลังเปิดงานนำเสนอใหม่ใน PowerPoint คุณยังคงแก้ไขเศษส่วนและส่วนล่างแยกกันได้
+บนเศษส่วนนี้, เส้นขีดแนวนอนครอบแถบเศษส่วน. เส้นขีดแนวตั้งข้ามตัวเศษและส่วนล่างพร้อมขอบรอบที่ยังคงมองเห็น. เส้นเหล่านี้ตกแต่งนิพจน์ทั้งหมด. การขีดฆ่าข้อความปกติใช้กับอักขระในรันข้อความ. หลังจากเปิดงานนำเสนอใน PowerPoint อีกครั้ง, คุณยังคงแก้ไขตัวเศษและส่วนล่างได้อย่างอิสระ.
 
 ## **ควบคุมการมองเห็นและการจัดวางด้วย Phantom Elements**
 
-ห่อหุ้มนิพจน์ด้วย [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) เพื่อควบคุมการมองเห็นและพื้นที่ที่มันทำให้กับสมการโดยอิสระ คุณสมบัติของ [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) ควบคุมดังต่อไปนี้:
+Wrap an expression in [MathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathphantom/) to control its visibility and the space it contributes to an equation independently. The [IMathPhantom](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/) properties control the following:
 
-| คุณสมบัติ | ผล |
+| Property | Effect |
 | --- | --- |
-| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | ตั้งค่าเป็น `false` เพื่อซ่อนนิพจน์ มิติต่าง ๆ ยังมีผลต่อการจัดวางจนกว่าจะตั้งค่าคุณสมบัติด้านล่างเป็น `true` |
-| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | ถือความกว้างแนวนอนของนิพจน์เป็นศูนย์ ทำให้อิลิเมนต์ข้างเคียงเข้ามาใกล้กัน |
-| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | ถือความสูงส่วนที่ยกขึ้นเหนือ baseline เป็นศูนย์ ลดพื้นที่ที่สงวนไว้ด้านบนของอิลิเมนต์ข้างเคียง |
-| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | ถือความลึกส่วนที่อยู่ต่ำกว่า baseline เป็นศูนย์ ทำให้บาร์ของเศษส่วนหรือเนื้อหาอื่น ๆ ใต้นิพจน์เข้าใกล้เพื่อนบ้านขึ้น |
+| [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) | ตั้งค่าเป็น `false` เพื่อซ่อนนิพจน์. ขนาดของมันยังคงมีผลต่อการจัดวางเว้นแต่คุณสมบัติต่อไปเป็น `true`. |
+| [ZeroWidth](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerowidth/) | ถือความกว้างแนวนอนของนิพจน์เป็นศูนย์, ทำให้องค์ประกอบโดยรอบเคลื่อนเข้ามาใกล้กัน. |
+| [ZeroAsc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zeroasc/) | ถือค่า ascent (ความสูงเหนือ baseline) ของมันเป็นศูนย์, ซึ่งสามารถลดช่องว่างเหนือองค์ประกอบโดยรอบ. |
+| [ZeroDesc](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/zerodesc/) | ถือค่า descent (ความลึกต่ำกว่า baseline) ของมันเป็นศูนย์, ซึ่งสามารถทำให้แถบเศษส่วนหรือเนื้อหาอื่น ๆ ใต้นิพจน์ใกล้กับเพื่อนบ้าน. |
 
-Baseline คือเส้นอ้างอิงที่อักษรคณิตศาสตร์ตามปกติอยู่ การซ่อนเนื้อหาไม่ได้ลบมิติของมันออก และการถือมิติเป็นศูนย์ไม่ได้ลบนิพจน์ออก นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/) ตั้งค่า [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) กลับเป็น `true` เพื่อแสดงอีกครั้ง มิติก็ยังคงตามเดิม
+Baseline คือเส้นอ้างอิงที่ตัวอักษรคณิตศาสตร์ปกติวางอยู่. การซ่อนเนื้อหาไม่ได้ลบขนาดของมัน, และการถือขนาดเป็นศูนย์ไม่ได้ลบนิพจน์. นิพจน์พื้นฐานยังคงเข้าถึงได้ผ่าน [Base](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/base/). ตั้งค่า [Show](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathphantom/show/) กลับเป็น `true` เพื่อแสดงอีกครั้ง; การตั้งค่าขนาดจะคงเดิม.
 
-ตัวอย่างต่อไปสร้างห้าตัวแปรแบบข้างเคียง: เศษส่วนที่มองเห็นได้, เศษส่วนที่ซ่อนแต่ยังสงวนพื้นที่, และสามเศษส่วนที่ซ่อนพร้อมหนึ่งมิติจัดเป็นศูนย์ แต่ละแบบใช้ นิพจน์รอบข้างเดียวกันและ Cambria Math ขนาด 24 จุด ทุกรูปร่างสมการมีตำแหน่งบนเดียวกันที่แสดงด้วยไกด์สีเทา การใส่ Phantom ในส่วนบนของเศษส่วนภายนอกทำให้การเปลี่ยนแปลงการจัดวางแนวตั้งเห็นได้ง่ายขึ้น
+The example below creates five side-by-side variants: a visible fraction, a hidden fraction that reserves space, and three hidden fractions with one dimension treated as zero. Each variant uses the same surrounding expression and Cambria Math at 24 points. All equation shapes have the same top position, marked by the gray guide. Placing the phantom in the numerator of an outer fraction makes the vertical layout changes easier to see.
 
 ```csharp
 using Aspose.Slides;
@@ -688,13 +722,13 @@ MathematicalText CreateText(string value)
 }
 ```
 
-![ห้าสมการใน PowerPoint เปรียบเทียบเศษส่วนที่มองเห็น, เศษส่วนที่ซ่อนแต่สงวนพื้นที่, และเศษส่วนที่ซ่อนพร้อม ZeroWidth, ZeroAsc, หรือ ZeroDesc เปิดใช้งาน](math-phantom.png)
+![Five equations in PowerPoint comparing a visible fraction, a hidden fraction that reserves space, and hidden fractions with ZeroWidth, ZeroAsc, or ZeroDesc enabled](math-phantom.png)
 
 ## **จัดกลุ่มเทอม**
 
-ใช้ [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) เพื่อวางอักขระจัดกลุ่มเหนือหรือใต้นิพจน์ เพิ่มขีดจำกัดเพื่อทำป้ายกำกับให้กับเทอมที่จัดกลุ่ม
+Use [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
 
-![นิพจน์ x บวก y ที่จัดกลุ่มพร้อมป้ายกำกับข้อความใด ๆ ด้านล่าง](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```csharp
 using Aspose.Slides;
@@ -716,11 +750,11 @@ mathParagraph.Add(new MathBlock(grouped));
 presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 ```
 
-## **จัดรูปแบบ Math Elements**
+## **จัดรูปแบบองค์ประกอบคณิตศาสตร์**
 
-ใช้ตัวช่วยจัดรูปแบบเฉพาะที่ช่วยให้สูตรชัดเจน เช่น [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) วางบาร์เหนืออิลิเมนต์คณิตศาสตร์
+Use formatting helpers only where they clarify the formula. For example, [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/) places a bar above a math element.
 
-![นิพจน์คณิตศาสตร์ ABC ที่มีเส้นบาร์เหนือข้อความ](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```csharp
 using Aspose.Slides;
@@ -742,9 +776,9 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 
 ### **จัดรูปแบบข้อความในสมการที่มีอยู่**
 
-เพื่อจัดรูปแบบข้อความทั่วทั้งสมการที่มีอยู่ ให้วนรอบต้นไม้อิลิเมนต์ของแต่ละ MathBlock [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) จะคืนเฉพาะลูกตรง ดังนั้นเรียกแบบรีเคอร์ซีฟเพื่อเข้าถึงข้อความภายในเศษส่วน, สคริปต์, ราดิกัล, และโครงสร้างซ้อนอื่น ๆ ตรวจสอบอิลิเมนต์ปัจจุบันรวมถึงลูกเพื่อให้รวมอิลิเมนต์เริ่มต้นเมื่อเป็น [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/)
+To format text throughout an existing equation, traverse each math block's element tree. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) returns only the immediate children, so call it recursively to reach text inside fractions, scripts, radicals, and other nested structures. Check the current element as well as its children to include the starting element when it is [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
 
-ตัวอย่างนี้สมมติว่ามีการนำเสนอที่มีสมการเช่น `z = xᵢ / ∛y` ที่มีเศษส่วนที่มีซับสคริปต์ในตัวเศษและราดิกัลในตัวส่วน การประมวลผลเฉพาะอิลิเมนต์ระดับบนของบล็อกจะพลาดข้อความภายในเศษส่วน ตัวอย่างค้นหา MathPortion ในกรอบข้อความสไลด์, เข้าถึงบล็อกผ่าน [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), แล้วตั้งค่า [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) เป็น 28 จุดผ่านคุณสมบัติ [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) ของแต่ละอิลิเมนต์ข้อความ
+This example assumes that a presentation contains an equation such as `z = xᵢ / ∛y`, with a fraction containing a subscript in its numerator and a radical in its denominator. Processing only the block's top-level elements would miss the text inside the fraction. The example finds mathematical portions in slide text frames, accesses their blocks through [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), and sets [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) to 28 points through each text element's [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) property.
 
 ```csharp
 using Aspose.Slides;
@@ -786,37 +820,37 @@ void FormatMathText(IMathElement element)
 }
 ```
 
-งานนำเสนอที่บันทึกมีการอัปเดตการจัดรูปแบบข้อความในทุกระดับของสมการที่ประมวลผล, พร้อมคงเนื้อหาและโครงสร้างคณิตศาสตร์เดิม
+The saved presentation contains the updated text formatting at every level of each processed equation, while preserving its text content and mathematical structure.
 
 ## **อ้างอิงอย่างรวดเร็ว**
 
 | งาน | API หลัก |
 | --- | --- |
 | สร้างข้อความคณิตศาสตร์ | [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/) |
-| รวมอิลิเมนต์ | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
+| รวมองค์ประกอบ | [IMathElement.Join](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/join/) |
 | สร้างเศษส่วน | [IMathElement.Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) |
-| เพิ่มซูเปอร์สคริปต์หรือซับสคริปต์ | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| เพิ่มซูพสคริปต์หรือซับสคริปต์ | [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubscript/) |
 | เพิ่มฟังก์ชัน | [Function](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| เพิ่มราดิกัล | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
-| เพิ่มขีดจำกัด | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| เพิ่มรากคณิตศาสตร์ | [IMathElement.Radical](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/radical/) |
+| เพิ่มขอบเขต | [SetLowerLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
 | เพิ่มสคริปต์ด้านซ้าย | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| เพิ่มผลรวมและอินเทกรัล | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
+| เพิ่มผลรวมและอินทิกรัล | [Nary](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/integral/) |
 | เพิ่มเมทริกซ์ | [MathMatrix](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathmatrix/) |
 | เพิ่มอาเรย์สมการ | [ToMathArray](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| เพิ่มตัวคั่น | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
-| เพิ่มบาร์และกรอบ | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| เพิ่มเครื่องหมายคั่น | [Enclose](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/enclose/) |
+| เพิ่มแถบและขอบ | [Overbar](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/toborderbox/) |
 | จัดกลุ่มเทอม | [Group](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **คำถามที่พบบ่อย**
 
 **ฉันสามารถแก้ไขสมการ PowerPoint ที่มีอยู่ได้หรือไม่?**
 
-ได้ เปิดงานนำเสนอ, ค้นหารูปร่างที่มี [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), ดึง [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/) ของมัน, แล้วอัปเดต MathBlock ในย่อหนนนั้น
+Yes. Open the presentation, find the shape that contains a [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), get its [MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/mathparagraph/), and update the math blocks in that paragraph.
 
-**สมการถูกบันทึกเป็น Math ของ PowerPoint ที่แก้ไขได้หรือไม่?**
+**สมการถูกบันทึกเป็นคณิตศาสตร์ PowerPoint ที่แก้ไขได้หรือไม่?**
 
-ได้ เมื่อบันทึกเป็น PPTX, Aspose.Slides จะเขียนสมการเป็นเนื้อหา Office Math ที่แก้ไขได้
+Yes. When you save to PPTX, Aspose.Slides writes the equation as editable Office math content.
 
 **ฉันสามารถส่งออกสมการเป็น LaTeX ได้หรือไม่?**
 
-ได้ ดึง [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) ของสมการจาก [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), แล้วเรียก [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) เพื่อส่งออกโดยตรง สำหรับตัวอย่างเต็ม ดูที่ [Export Math Equations from Presentations in .NET](/slides/th/net/exporting-math-equations/#export-math-equations-to-latex)
+Yes. Get the equation's [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) from its [MathPortion](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathportion/), and call [IMathParagraph.ToLatex](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/tolatex/) to export it directly. For a complete example, see [Export Math Equations from Presentations in .NET](/slides/th/net/exporting-math-equations/#export-math-equations-to-latex).
