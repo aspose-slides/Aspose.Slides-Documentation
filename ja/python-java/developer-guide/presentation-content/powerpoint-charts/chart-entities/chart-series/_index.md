@@ -1,47 +1,49 @@
 ---
-title: Python でのプレゼンテーションにおけるチャート データ シリーズの管理
-linktitle: データ シリーズ
+title: Pythonでプレゼンテーションのチャート データ系列を管理
+linktitle: データ系列
 type: docs
 url: /ja/python-java/chart-series/
 keywords:
-- チャート シリーズ
-- シリーズ オーバーラップ
-- シリーズ 色
-- シリーズ 名
-- データ ポイント
-- ワークブック セル
-- シリーズ ギャップ
+- チャート系列
+- 系列オーバーラップ
+- 系列色
+- 系列名
+- データポイント
+- ワークブックセル
+- 系列ギャップ
 - 負の値
 - PowerPoint
 - プレゼンテーション
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、プレゼンテーションにおけるチャート シリーズ、データ ポイント、ワークブック セル、書式設定、オーバーラップ、ギャップ幅、負の値の管理方法を学びます。"
+description: "Aspose.Slides for Python via Java を使用して、プレゼンテーションでチャート系列、データポイント、ワークブックセル、書式設定、オーバーラップ、ギャップ幅、および負の値を管理する方法を学びます。"
 ---
 ## **概要**
 
-チャートは描画された値をワークブックのセルに保存することも、数値リテラルとして直接保存することもできます。![ChartSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/) は関連する値のセットを表し、![ChartDataPoint](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/) はそのシリーズ内の点を表します。![ChartCategory](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/) オブジェクトはシリーズ間で共有されるラベルまたはグループ化値を提供します。デフォルトデータで作成されたチャートでは、シリーズ名、カテゴリ、および点の値はチャート ワークブックの ![ChartDataCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/) オブジェクトから取得されます。
+チャートは、プロットされた値をワークブックのセルに保存するか、数値リテラルとして直接保存できます。[ChartSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/) は関連する値のセットを表し、各[ChartDataPoint](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/) はそのシリーズ内のポイントを表します。[ChartCategory](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/) オブジェクトは、シリーズが共有するラベルやグループ化値を提供します。デフォルトデータで作成されたチャートでは、シリーズ名、カテゴリ、ポイント値はチャートワークブックの[ChartDataCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/) オブジェクトを使用します。
 
-典型的なカテゴリ チャートでは、デフォルト ワークブックは行 0 をシリーズ名に、列 0 をカテゴリ名に、残りのセルをシリーズ値に使用します。![ChartDataWorkbook.getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) に渡すワークシート、行、列のインデックスは 0 ベースです。このレイアウトはデフォルト データでチャートを作成する際に便利ですが、すべての既存チャートがこのレイアウトを使用しているとは限りません。ロードしたプレゼンテーションでは、ワークブックの値を変更する前に、シリーズ、カテゴリ、データ ポイントが参照しているセルを確認してください。
+典型的なカテゴリチャートの場合、デフォルトのワークブックは行 0 をシリーズ名に、列 0 をカテゴリ名に、残りのセルをシリーズの値に使用します。[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell) に渡すワークシート、行、列のインデックスは 0 ベースです。このレイアウトはデフォルトデータでチャートを作成する際に便利ですが、すべての既存チャートが同じ構造を使用しているとは限りません。ロードされたプレゼンテーションの場合、ワークブックの値を変更する前に、シリーズ、カテゴリ、データポイントが参照しているセルを確認してください。
 
-チャート設定には 3 つのスコープがあります。
+Chart 設定には以下の 3 つのスコープがあります：
 
-- シリーズ レベルの設定は、![ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat) のように、1 つのシリーズ内のすべての点に対するデフォルトの外観を提供します。
-- データ ポイント設定は、![ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) のように、特定の点に対してシリーズの外観を上書きします。
-- グループ設定は、同じ ![ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) に属する互換シリーズに適用されます。オーバーラップやギャップ幅などのオプションを設定する必要がある場合は、![ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) を介してグループにアクセスします。
+- 系列レベルの設定（例: [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat)）は、1 つの系列内のすべてのポイントのデフォルト外観を提供します。
+- データポイントの設定（例: [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat)）は、特定のポイントに対して系列の外観を上書きします。
+- グループ設定は、同じ [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) に属する互換系列全体に適用されます。オーバーラップやギャップ幅などのオプションを設定する必要がある場合は、[ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) を介してグループにアクセスしてください。
 
-明示的な点またはシリーズの塗りつぶしが設定されていない場合、チャートのスタイルとテーマが自動的な外観を決定します。シリーズと点の書式設定が両方存在する場合、点の書式設定がその点に対して優先されます。
+明示的にポイントまたは系列の塗りつぶしが設定されていない場合、チャートスタイルとテーマが自動的な外観を決定します。系列とポイントの両方に書式設定が存在する場合、ポイントの書式設定がそのポイントに対して優先されます。
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![チャートシリーズ PowerPoint](chart-series-powerpoint.png)
 
-## **数値リテラルを使用してシリーズ値を設定する**
+クラスタ化シリンダー チャートの場合、[3D 系列タイプまたはバー形状の変更](/slides/ja/python-java/3d-chart/#change-the-3d-series-type-and-bar-shape) が最初の系列に与える影響を確認してください。
 
-シリーズの値がアプリケーション データや計算結果から取得され、ワークシートのセル参照が不要な場合は、数値リテラルを使用します。各点の ![getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) 結果を ![setAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#setAsLiteralDouble) で割り当てる前に、![setDataSourceTypeForValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForValues) に ![DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/#DoubleLiterals) を指定します。
+## **数値リテラルを使用したシリーズ値の設定**
 
-コレクション設定は、そのシリーズ内のすべての点値のソース タイプを制御します。各点値の ![getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/basechartvalue/#getDataSourceType) メソッドは選択されたタイプを報告します。コレクション設定を変更してタイプを変更してください。`Worksheet` の場合は ![getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsCell) で参照セルにアクセスします。`DoubleLiterals` の場合は ![getAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsLiteralDouble) または `setAsLiteralDouble` を使用して数値を直接読み書きします。
+シリーズの値がアプリケーション データや計算結果から来ており、ワークシートセル参照が不要な場合は、数値リテラルを使用します。各ポイントの [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) 結果を [setAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#setAsLiteralDouble) で設定する前に、[setDataSourceTypeForValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForValues) に [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/#DoubleLiterals) を渡してください。
 
-以下の例は、デフォルトのシリーズとカテゴリを持つ縦棒グラフを作成し、最初のシリーズの既存点に 10、20、… と計算された値を割り当てます。プレゼンテーションを保存し、再度開いて格納された値を出力します。
+コレクション設定はその系列内のすべてのポイント値のソース タイプを制御します。各ポイント値の [getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/basechartvalue/#getDataSourceType) メソッドは選択されたタイプを返します。コレクション設定を変更してタイプを切り替えてください。`Worksheet` の場合は [getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsCell) で参照セルにアクセスします。`DoubleLiterals` の場合は [getAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsLiteralDouble) または `setAsLiteralDouble` を使用して数値を直接読み書きします。
+
+次の例は、デフォルトの系列とカテゴリを持つ縦棒グラフを作成し、最初の系列の既存ポイントに 10、20… と計算された値を割り当てます。プレゼンテーションを保存し、再度開いて格納された値を出力します。
 
 ```python
 import jpype
@@ -78,15 +80,15 @@ finally:
     reopened_presentation.dispose()
 ```
 
-点の値ソース タイプは、![ChartData.getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) とは別物で、チャートの内部または外部ワークブック構成を識別します。数値リテラルを使用しても、埋め込みワークブック自体は削除されません。この例では、カテゴリ ラベル、シリーズ名、および他のシリーズのためにワークブックは引き続き利用可能です。ワークブックの管理については、[Chart Workbook](/slides/ja/python-java/chart-workbook/) を参照してください。
+ポイント値のソース タイプは、チャートの内部または外部ワークブック構成を示す [ChartData.getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType) とは別です。数値リテラルを使用しても、埋め込みワークブック自体は削除されません。この例では、カテゴリ ラベル、系列名、他の系列のためにワークブックは引き続き利用可能です。ワークブック管理の詳細は [Chart Workbook](/slides/ja/python-java/chart-workbook/) を参照してください。
 
-散布図やバブル チャートでは、![setDataSourceTypeForXValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForXValues) と ![setDataSourceTypeForYValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForYValues) を使用して、![getXValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getXValue) と ![getYValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getYValue) のソースを選択します。バブル チャートでは、![setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForBubbleSizes) も使用して、![getBubbleSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getBubbleSize) のソースを設定します。各対象ソースを `DoubleLiterals` に設定し、`setAsLiteralDouble` メソッドで数値を割り当ててください。
+散布図やバブル グラフの場合、[setDataSourceTypeForXValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForXValues) と [setDataSourceTypeForYValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForYValues) を使用して [getXValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getXValue) および [getYValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getYValue) のソースを選択します。バブル グラフはさらに [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForBubbleSizes) を使用して [getBubbleSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getBubbleSize) のソースを設定します。対象となる各ソースを `DoubleLiterals` に設定し、その値の `setAsLiteralDouble` メソッドで数値を割り当ててください。
 
-## **チャートシリーズのオーバーラップを設定する**
+## **チャート系列のオーバーラップの設定**
 
-![ChartSeries.getOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getOverlap) は、2D チャートにおける棒または列のオーバーラップ率を -100 から 100 パーセントで返します。これは親シリーズ グループの設定の読み取り専用投影です。![ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) を使用して、そのグループ内のすべての互換シリーズのオーバーラップを更新します。このオプションは、グループ化された棒や列を表示するチャート タイプに適用され、組み合わせチャートで無関係なシリーズ グループには影響しません。
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getOverlap) は、2D チャートにおける棒や縦棒のオーバーラップ率（-100〜100％）を返します。これは親系列グループの設定の読み取り専用投影です。系列グループ全体のオーバーラップを更新するには、[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) を使用してください。このオプションは、グループ化された棒や縦棒を表示するチャートタイプに適用され、コンビネーション チャートの無関係な系列グループには影響しません。
 
-以下の例は、最初のシリーズを含むグループのオーバーラップを設定します。
+次の例は、最初の系列を含むグループのオーバーラップを設定します。
 
 ```python
 import jpype
@@ -105,7 +107,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(first_slide_index)
 
-    # 新しいチャートにはサンプルシリーズ、カテゴリ、および値が含まれています。
+    # 新しいチャートにはサンプル系列、カテゴリ、値が含まれています。
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200)
 
     series = chart.getChartData().getSeries().get_Item(first_series_index)
@@ -118,13 +120,13 @@ finally:
 
 結果:
 
-![The series overlap](series_overlap.png)
+![系列のオーバーラップ](series_overlap.png)
 
-## **シリーズの塗りつぶし色を変更する**
+## **系列の塗りつぶし色の変更**
 
-![ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat) を使用して、シリーズ全体のデフォルト塗りつぶしを設定します。点に明示的な塗りつぶしが既に設定されている場合は、![ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) の設定がその点のシリーズ塗りつぶしを上書きします。
+[ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat) を使用して、系列全体のデフォルト塗りつぶしを設定します。ポイントに明示的な塗りつぶしが設定されている場合、その [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) が系列の塗りつぶしを上書きします。
 
-以下の例は、最初のシリーズに単色の青塗りつぶしを適用します。
+次の例は、最初の系列に単色の青色塗りつぶしを適用します。
 
 ```python
 import jpype
@@ -157,11 +159,11 @@ finally:
 
 結果:
 
-![The color of the series](series_color.png)
+![系列の色](series_color.png)
 
-## **シリーズ名を変更する**
+## **系列名の変更**
 
-シリーズ名はチャート データ ワークブックに格納され、通常は凡例に表示されます。クラスタ化縦棒チャート用にデフォルトで作成されたワークブックでは、セル B1 が行 0、列 1 にあり、最初のシリーズ名が格納されています。次の例の変数はその構造を明示的に示しています。
+系列名はチャート データ ワークブックに保存され、通常は凡例に表示されます。クラスタ化縦棒チャート用に作成されたデフォルト ワークブックでは、セル B1（行 0、列 1）が最初の系列の名前を保持しています。以下の例では、その構造を明示する変数名が使用されています。
 
 ```python
 import jpype
@@ -192,7 +194,7 @@ finally:
     presentation.dispose()
 ```
 
-また、![ChartSeries.getName](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getName) が参照しているセルを直接更新することもできます。このアプローチは、既存チャートで特定の行や列を前提としないため安全です。
+また、[ChartSeries.getName](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getName) が参照しているセルを直接更新することもできます。この方法は、既存チャートの特定の行・列を前提としないため安全です。
 
 ```python
 import jpype
@@ -224,15 +226,15 @@ finally:
 
 結果:
 
-![The series name](series_name.png)
+![系列名](series_name.png)
 
-### **複数セルから名前を作成するシリーズ**
+### **複数セルから構成された名称の系列を作成する**
 
-製品名と報告期間が別々のワークブック セルに格納されている場合、複合シリーズ名が役立ちます。例えば、B1 の `Product A` と C1 の `2026` を組み合わせて、両方のソース セルにリンクされた単一のシリーズ名にできます。
+製品名と報告期間が別々のワークブックセルに格納されている場合、合成系列名が便利です。例えば、B1 の `Product A` と C1 の `2026` を結合して、両方のセルがソースにリンクしたまま単一の系列名にできます。
 
-![ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCellCollection) を使用して名前範囲を取得し、そのコレクションを ![ChartSeriesCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriescollection/#add) に渡します。`skipHiddenCells` 引数は非表示セルを除外するかどうかを制御します: `True` は除外し、`False` は含めます。この例では `False` を使用して名前範囲のすべてのセルを含めています。
+[ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCellCollection) で名前範囲を取得し、そのコレクションを [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriescollection/#add) に渡します。`skipHiddenCells` 引数で非表示セルを除外するかどうかを指定できます：`True` は除外、`False` は含めます。この例では `False` を使用して名前範囲のすべてのセルを含めています。
 
-次の例は、1 つのシリーズと 2 つのデータ ポイントを持つプレゼンテーションを作成します。セル B1:C1 がシリーズ名のみを提供し、A2:A3 がカテゴリ ラベル、B2:B3 が数値を提供します。
+次の例は、1 系列と 2 データポイントを持つプレゼンテーションを作成します。セル B1:C1 が系列名、A2:A3 がカテゴリ ラベル、B2:B3 が数値です。
 
 ```python
 import jpype
@@ -256,13 +258,13 @@ try:
     workbook = chart.getChartData().getChartDataWorkbook()
     workbook.clear(0)
 
-    # これら2つのセルがシリーズ名を提供します。
+    # これら 2 つのセルが系列名を供給します。
     workbook.getCell(0, 0, 1, "Product A")
     workbook.getCell(0, 0, 2, "2026")
     name_cells = workbook.getCellCollection("Sheet1!$B$1:$C$1", False)
     series = chart.getChartData().getSeries().add(name_cells, ChartType.ClusteredColumn)
 
-    # 個別のセルがカテゴリと数値データポイントを提供します。
+    # 別個のセルがカテゴリと数値データポイントを供給します。
     north_category = workbook.getCell(0, 1, 0, "North")
     south_category = workbook.getCell(0, 2, 0, "South")
     chart.getChartData().getCategories().add(north_category)
@@ -277,15 +279,15 @@ finally:
     presentation.dispose()
 ```
 
-結果のシリーズ名は `Product A 2026` で、2 つのセル値の間にスペースが入ります。凡例は両方の列に対して 1 つのエントリとして表示されます。下の画像が結果を示しています。
+結果として得られる系列名は `Product A 2026`（2 つのセル値の間にスペースが入ります）。凡例ではこの 1 つのエントリとして表示されます。以下の画像が結果を示しています。
 
-![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+![列グラフ（北と南の値）と合成系列名 Product A 2026 が凡例に表示されたもの](composite_series_name.png)
 
-## **自動シリーズ塗りつぶし色を取得する**
+## **自動系列塗りつぶし色の取得**
 
-![ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) は、シリーズインデックスとチャート スタイルから計算された色を返します。これは、シリーズ塗りつぶしが明示的に定義されていない場合に使用される色です。メソッドを呼び出すだけで計算された色を取得し、新しい塗りつぶしは割り当てられません。
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) は、系列インデックスとチャートスタイルから計算された色を返します。これは、系列の塗りつぶしが明示的に定義されていない場合に使用される色です。メソッドを呼び出すだけで色を取得でき、塗りつぶしは設定されません。
 
-以下の例は、各デフォルトシリーズの自動色を出力します。
+次の例は、デフォルト系列ごとの自動色を出力します。
 
 ```python
 import jpype
@@ -313,7 +315,7 @@ finally:
     presentation.dispose()
 ```
 
-デフォルトのチャート スタイルに対するサンプル出力:
+デフォルトのチャートスタイルの場合のサンプル出力:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -321,13 +323,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-正確な色はチャート スタイルとテーマに依存します。
+正確な色はチャートスタイルとテーマに依存します。
 
-## **シリーズの負の塗りつぶし色を反転させる**
+## **系列の負の値に対する塗りつぶしの反転設定**
 
-棒、縦棒、バブル シリーズでは、![ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) を使用して負の値を別の塗りつぶしで表示できます。通常のシリーズ塗りつぶしを単色に設定し、反転を有効にし、負の値の色を ![ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) で指定します。ワークブック内の負の数値は変更されず、表示色だけが変わります。
+棒、縦棒、バブル 系列では、[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) を使用して負の値を別の塗りつぶしで表示できます。通常の系列塗りつぶしを単色に設定し、反転を有効にし、負の値の色を [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) で指定します。負の数値自体はワークブック内で変更されず、表示色だけが変わります。
 
-次の例は、デフォルトのチャート データを 1 つのシリーズに置き換えます。ワークシートの行 0 がシリーズ名、列 0 がカテゴリ名、列 1 が値を保持します。
+次の例は、デフォルトのチャート データを 1 系列に置き換えます。ワークシートの行 0 に系列名、列 0 にカテゴリ名、列 1 に値が入ります。
 
 ```python
 import jpype
@@ -389,9 +391,9 @@ finally:
 
 結果:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![反転した単色塗りつぶしの色](inverted_solid_fill_color.png)
 
-ポイント単位で反転を有効にするには、![ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) を使用します。以下の例では、シリーズ全体の反転は無効にし、選択したポイントのみ反転を有効にしています。そのポイントには負の値も割り当てられ、効果が確認できます。
+1 ポイントだけに反転を適用するには、[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) を使用します。以下の例では、系列全体の反転は無効にし、選択したポイントだけに有効にしています。そのポイントには負の値も割り当てて効果を確認します。
 
 ```python
 import jpype
@@ -431,11 +433,11 @@ finally:
     presentation.dispose()
 ```
 
-## **特定のデータ ポイントの値をクリアする**
+## **特定のデータポイントの値をクリアする**
 
-他のポイントを削除せずに 1 点だけ空にしたい場合は、対応するワークブック セルを `None` に設定します。縦棒チャートでは、プロットされた値は ![ChartDataPoint.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) を通じて取得できます。データ ポイントは同じカテゴリ位置に残りますが、チャートはブランク値設定に従ってその値を空白として扱います。
+ポイントだけを空にし、他のポイントを残すには、バックアップ用ワークブックセルを `None` に設定します。縦棒チャートの場合、プロットされた値は [ChartDataPoint.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) で取得できます。データポイントは同じカテゴリ位置に残りますが、チャートはブランク値設定に従ってその値を空として扱います。
 
-次の例は、最初のシリーズの 2 番目のポイントだけをクリアします。
+次の例は、最初の系列の 2 番目のポイントだけをクリアします。
 
 ```python
 import jpype
@@ -465,17 +467,17 @@ finally:
     presentation.dispose()
 ```
 
-散布図は X と Y のセルが別々で、バブルチャートはサイズセルも使用します。削除したい値に対応するセルだけをクリアしてください。コレクション全体を削除したいとき以外は、![ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) を呼び出さないでください。
+散布図は X と Y のセルが別々にあり、バブル チャートはサイズセルも使用します。削除したい値に対応するセルだけをクリアしてください。系列全体のポイントを削除したい場合以外は [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) を呼び出さないでください。このメソッドはコレクション内のすべてのデータポイントを削除します。
 
-## **空セルの表示を制御する**
+## **空セルの表示制御**
 
-値が入っている非表示セルは、空セルとは別の扱いです。非表示の行や列のデータを含めるか除外するには、[Include Data from Hidden Rows and Columns](/slides/ja/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns) を参照してください。
+値を含む非表示セルは、空セルとは別のケースです。非表示の行や列からデータを含めるか除外する方法については、[Include Data from Hidden Rows and Columns](/slides/ja/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns) を参照してください。
 
-空のワークブック セルはデータが欠落していることを表し、`0` が入っているセルは既知の数値を表します。![ChartDataCell.setValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setValue) に `None` を渡すとセルを空にできます。数値のゼロはブランク設定に関係なくゼロのままです。
+空のワークブックセルはデータ欠損を表し、`0` を含むセルは既知の数値を表します。`None` を渡して [ChartDataCell.setValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setValue) を呼び出すとセルが空になります。数値のゼロはブランク設定に関係なくゼロのままです。
 
-![Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) を使用して、チャートが空セルをどのように表示するかを選択します。この設定はチャート全体に適用され、空白のプロット方法を変更しますが、ワークブック セル自体にゼロや補間値を入れることはありません。
+[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) を使用して、チャートが空セルをどのように表示するかを選択します。この設定はチャート全体に適用され、空白をプロットする方法を変えますが、ワークブックセル自体にゼロや補間値を埋め込むことはありません。
 
-次の自己完結型例は、1 系列の折れ線グラフを作成し、Day 3 の値をクリアし、各モードで同じチャートを保存します。入力ファイルは不要です。![ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) はワークシート 0、列 0 をカテゴリ ラベル、列 1 を値に使用し、行 0 にシリーズ名を保持します。最終データは `10, 20, empty, 30, 40` です。
+次の自己完結型例は、1 系列の折れ線グラフを作成し、Day 3 の値をクリアした上で、各モードで同じチャートを保存します。入力ファイルは不要です。[ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) はワークシート 0、列 0 をカテゴリ ラベル、列 1 を値に使用し、行 0 に系列名を保持します。最終データは `10, 20, empty, 30, 40` です。
 
 ```python
 import jpype
@@ -507,7 +509,7 @@ try:
         value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Day 3 を本当に空にし、カテゴリとデータポイントは保持します。
+    # Day 3 を実際に空のままにし、カテゴリとデータポイントは保持します。
     workbook.getCell(0, 3, 1).setValue(None)
 
     modes = [DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span]
@@ -519,17 +521,17 @@ finally:
     presentation.dispose()
 ```
 
-各出力ファイルは保存前に設定したモードを保持します: `empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。1 つのバージョンだけを保存したい場合は、目的のモードを割り当ててプレゼンテーションを 1 回だけ保存してください。
+各出力ファイルは保存前に設定したモードを保持します：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。1 つだけ保存したい場合は、目的のモードを設定してプレゼンテーションを一度だけ保存してください。
 
-以下の比較は 3 つのファイルで同じデータがどのように表示されるかを示しています。すべてのケースで Day 3 はワークブックで空です。
+以下の比較は 3 つのファイルすべてで同じデータを示しています。Day 3 のセルはすべて空です。
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![折れ線グラフ（同一データ）: Gap は Day 3 でラインを切断、Zero はラインをゼロにし、Span は Day 2 から Day 4 を接続](display_blanks_as.png)
 
-見た目の効果はチャート タイプに依存します。折れ線グラフは 3 つのモードを比較しやすいですが、棒や縦棒グラフは欠損カテゴリの間に線がないため、`Span` は接続セグメントを生成できません。欠損列とゼロ高さの列は見た目が似ることがあります。同様に、マーカーのみの散布図も接続線がありません。すべてのチャート タイプで 3 つの明確な結果が得られるとは限りませんので、使用するタイプで出力を確認してください。
+可視効果はチャート タイプに依存します。折れ線グラフは 3 つのモードを簡単に比較できますが、棒や縦棒グラフは欠損したカテゴリを接続するラインがないため、`Span` は上図のような接続部分を生成できません。欠損した列とゼロ高さの列は見た目が似ることがあります。マーカーのみの散布図もラインがないため同様です。すべてのチャート タイプで 3 つの明確な結果が得られるとは限らないので、使用するタイプで出力を確認してください。
 
-## **シリーズのギャップ幅を設定する**
+## **系列ギャップ幅の設定**
 
-ギャップ幅は隣接する棒または列クラスタ間のスペースで、棒や列の幅に対するパーセンテージで表されます。オーバーラップと同様に、これは個々のシリーズではなく親シリーズ グループに属します。グループ全体に対して一度だけ ![ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出してください。値を大きくするとクラスタ間のスペースが広がり、値を小さくすると密集します。
+ギャップ幅は隣接する棒または縦棒クラスタ間のスペースで、棒または縦棒幅のパーセンテージで表されます。オーバーラップと同様に、これは系列ではなく親系列グループに属します。グループ全体に対して一度だけ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出してください。値を大きくするとクラスタ間の間隔が広がり、値を小さくすると密集します。
 
 次の例はギャップ幅を変更し、最終プレゼンテーションだけを保存します。
 
@@ -562,46 +564,87 @@ finally:
 
 結果:
 
-![The gap width](gap_width.png)
+![ギャップ幅](gap_width.png)
+
+## **系列線の表示／非表示**
+
+系列線はチャートの関連部分を視覚的に接続します。サポートされているスタック棒および OfPie チャートで、[ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSeriesLines) を使用して表示または非表示にできます。2 次元スタック棒および縦棒チャートでは、カテゴリ間のスタック境界を接続します。Pie of Pie と Bar of Pie では、メイン プロットとサブ プロットを接続します。この設定は他のチャート タイプの一般的なコネクタではありません。
+
+グループは [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup) を介して取得します。この設定はグループ内のすべての系列に適用されます。[ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#hasSeriesLines) は読み取り専用で、親グループの設定を反映します。設定を変更するにはグループのセッターを呼び出してください。
+
+次の例は、デフォルト データを持つ [PieOfPie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#PieOfPie) チャートを作成し、系列線を有効にしたバージョンと無効にしたバージョンの 2 つのプレゼンテーションを保存して比較します。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400)
+    series = chart.getChartData().getSeries().get_Item(0)
+    series_group = series.getParentSeriesGroup()
+
+    series_group.setSeriesLines(True)
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx)
+
+    series_group.setSeriesLines(False)
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| 系列線 有効 | 系列線 無効 |
+| --- | --- |
+| ![系列線が有効な Pie of Pie チャート](series_lines_enabled.png) | ![系列線が無効な Pie of Pie チャート](series_lines_disabled.png) |
+| 2 本の線がメイン パイをサブ パイに接続します。 | 2 本のパイは表示されたままですが、接続線は非表示になります。 |
+
+系列線は、データ ラベルのリーダー線（ラベルをデータポイントに接続）、グリッド線（軸上の間隔を示す）、および折れ線グラフのデータ値を表す線とは異なります。この設定はそれらの要素を制御しません。
 
 ## **FAQ**
 
-**どのチャート タイプがデータ シリーズをサポートしていますか？**
+**どのチャート タイプがデータ系列をサポートしていますか？**
 
-![ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) 列挙で表されるすべてのチャート タイプはチャート データを使用しますが、シリーズごとの値構造や設定は同じではありません。たとえば、カテゴリ チャートはカテゴリと値を使用し、散布図は X と Y の値を使用し、バブル チャートはバブルサイズを追加します。シリーズ タイプに合ったデータ ポイント作成メソッドを使用してください。オーバーラップやギャップ幅などのオプションは、互換性のある棒または列グループにのみ適用されます。
+[ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/) 列挙体で表されるすべてのチャート タイプはデータを使用しますが、系列ごとに値の構造や設定が異なります。たとえば、カテゴリ チャートはカテゴリと値を使用し、散布図は X と Y の値を使用し、バブル チャートはバブル サイズを追加します。系列タイプに合ったデータポイント作成メソッドを使用してください。オーバーラップやギャップ幅などのオプションは、互換性のある棒または縦棒グループにのみ適用されます。
 
-**チャート シリーズ グループとは何ですか？**
+**チャート系列グループとは何ですか？**
 
-![ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) は、グループ レベルのプロット設定を共有する互換シリーズを含みます。組み合わせチャートでは複数のグループを持つことができるため、あるシリーズを通じて取得したグループ設定が必ずしもチャート内のすべてのシリーズに影響するわけではありません。
+[ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) は、グループレベルのプロット設定を共有する互換系列を含みます。コンビネーション チャートは複数のグループを保持できるため、ある系列を介して取得したグループを変更しても、チャート内のすべての系列が必ずしも変わるわけではありません。
 
-**新しく作成したチャートにはデフォルト データが含まれますか？**
+**新しく作成したチャートはデフォルト データを含んでいますか？**
 
-はい。デフォルトでは、![ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) はサンプルのシリーズ、カテゴリ、値を作成します。これらのセルを編集するか、完全にカスタム データ セットを追加する前にシリーズとカテゴリのコレクションをクリアできます。オーバーロードを使用してデフォルト データなしでチャートを作成することも可能です。
+はい。デフォルトでは、[ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) がサンプル系列、カテゴリ、値を作成します。これらのセルを編集したり、完全にカスタム データ セットを追加する前に系列とカテゴリのコレクションをクリアしたりできます。オーバーロードを使用すれば、デフォルト データなしでチャートを作成することも可能です。
 
 **チャート オブジェクトはワークブック セルとどのように接続されていますか？**
 
-シリーズ名、カテゴリ ラベル、データ ポイントの値はすべて ![ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) のセルを参照します。参照セルを変更すると、対応するチャート要素が更新されます。カスタム データを構築する際は、カテゴリ行とシリーズ値行が整合するようにし、各ポイントが意図したカテゴリの下にプロットされるようにしてください。
+系列名、カテゴリ ラベル、データポイントの値はすべて [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) のセルを参照しています。参照セルを変更すると、対応するチャート要素が更新されます。カスタム データを作成する場合は、各ポイントが意図したカテゴリの下にプロットされるように、カテゴリ 行と系列値 行を揃えて配置してください。
 
-**シリーズ全体ではなく 1 点だけをクリアするにはどうすればよいですか？**
+**系列全体ではなく 1 ポイントだけをクリアするには？**
 
-該当する値セルを `None` に設定して、ポイントのカテゴリ位置は保持したまま空点として残します。ポイント全体を削除したいときは、![ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) を使用してください。カテゴリも削除する場合は、すべてのシリーズの値がカテゴリ コレクションと整合するように更新してください。
+対象の値セルを `None` に設定して、ポイントのカテゴリ位置は保持したまま空のポイントにします。系列全体のポイントを削除したいときは [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) を使用してください。このメソッドはその系列のすべてのデータポイントを削除します。
 
-**空点はどのように表示されますか？**
+**空のポイントはどのように表示されますか？**
 
-表示結果はチャート タイプと ![Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) で設定された値に依存します。サポートされているチャートは、空白をギャップ、ゼロ値、または隣接ポイントの接続として表示できます。プレゼンテーションに合わせて適切な設定を選択してください。完全な例とビジュアル比較については、[Control the Display of Empty Cells](#control-the-display-of-empty-cells) を参照してください。
+表示はチャート タイプと [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) で設定された値に依存します。サポートされているチャートは、空白をギャップ、ゼロ値、または隣接ポイントの接続として表示できます。プレゼンテーションの欠損データの意味に合う設定を選択してください。完全な例とビジュアル比較は [空セルの表示制御](#control-the-display-of-empty-cells) を参照してください。
 
 **負の値はどのように書式設定されますか？**
 
-サポートされている棒、縦棒、バブル シリーズでは、![ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) を呼び出し、![ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) が返す色を設定します。個々のポイントについては、![ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) で動作を上書きできます。これらのメソッドは書式設定に影響し、保存されている数値自体は変更しません。
+サポートされている棒、縦棒、バブル 系列では、[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) を呼び出し、[ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor) が返す色を設定します。個別のポイントに対しては [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative) で動作を上書きできます。これらのメソッドは書式設定に影響し、数値自体は変更しません。
 
-**シリーズとポイントの両方が書式設定されている場合、どちらが優先されますか？**
+**系列とポイントの両方が書式設定されている場合、どちらが優先されますか？**
 
-明示的なデータ ポイントの書式設定がそのポイントに対して優先されます。他のポイントは、明示的なシリーズ書式設定がある場合はそれを使用し、シリーズ書式設定が未定義の場合は自動的なチャート スタイルとテーマが適用されます。オーバーラップやギャップ幅などのグループ設定はレイアウトに影響し、ポイント レベルの書式設定の上書きとはなりません。
+明示的なデータポイントの書式設定がそのポイントに対して優先されます。他のポイントは明示的な系列書式設定、または系列書式が未定義の場合は自動的なチャートスタイルとテーマが適用されます。オーバーラップやギャップ幅などのグループ設定はレイアウトに影響し、ポイントレベルの書式設定を上書きしません。
 
-**チャートに含められるシリーズの数に上限はありますか？**
+**チャートに含められる系列の数に上限はありますか？**
 
-Aspose.Slides には固定されたシリーズ数上限はありません。実際には、プレゼンテーション ファイルの制約、利用可能なメモリ、描画時間、チャートの可読性が実用的な上限を決定します。
+Aspose.Slides には固定された系列数の上限はありません。実際には、プレゼンテーション ファイルの制約、利用可能なメモリ、レンダリング時間、チャートの可読性が実用的な上限を決定します。
 
-**列が互いに近すぎる、または離れすぎる場合はどうすべきですか？**
+**列が互いに近すぎる、または遠すぎる場合はどうすればよいですか？**
 
-適切な親シリーズ グループに対して ![ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出してください。値を大きくするとクラスタ間のスペースが広がり、小さくするとクラスタがより近くなります。
+適切な親系列グループに対して [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) を呼び出してください。値を大きくするとクラスタ間のスペースが広がり、値を小さくするとクラスタが近くなります。

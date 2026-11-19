@@ -6,7 +6,7 @@ url: /cs/php-java/chart-series/
 keywords:
 - série grafu
 - překrytí sérií
-- barva série
+- barva sérií
 - název série
 - datový bod
 - buňka sešitu
@@ -16,31 +16,33 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se, jak spravovat série grafu, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích pomocí PHP."
+description: "Naučte se, jak spravovat série grafů, datové body, buňky sešitu, formátování, překrytí, šířku mezery a záporné hodnoty v prezentacích s PHP."
 ---
 ## **Přehled**
 
-Graf může ukládat své vykreslené hodnoty buď v buňkách sešitu, nebo přímo jako číselné literály. [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) představuje jednu sadu souvisejících hodnot a každý [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) představuje bod v této sérii. Objekt [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) poskytuje popisky nebo hodnoty seskupení sdílené sériemi. V grafech vytvořených s výchozími daty se názvy sérií, kategorie a hodnoty bodů používají z objektů [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) v sešitu grafu.
+Graf může ukládat své vykreslené hodnoty do buněk sešitu nebo přímo jako číselné literály. [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) představuje jeden soubor souvisejících hodnot a každý [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) představuje bod v této sérii. Objekt [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) poskytuje popisky nebo seskupovací hodnoty sdílené sériemi. V grafech vytvořených s výchozími daty se názvy sérií, kategorie a hodnoty bodů používají objekty [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) ze sešitu grafu.
 
-Pro typický sloupcový graf výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbylé buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) jsou nulové‑základní. Toto rozvržení je užitečné, když vytváříte graf s výchozími daty, ale nepředpokládejte, že každému existujícímu grafu odpovídá. Pro načtenou prezentaci zkontrolujte buňky odkazované sériemi, kategoriemi a datovými body před změnou hodnot v sešitu.
+Pro typický sloupcový graf výchozí sešit používá řádek 0 pro názvy sérií, sloupec 0 pro názvy kategorií a zbývající buňky pro hodnoty sérií. Indexy listu, řádku a sloupce předávané metodě [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) jsou nulové. Toto rozvržení je užitečné při vytváření grafu s výchozími daty, ale nepředpokládejte, že každý existující graf jej používá. Pro načtenou prezentaci si před změnou hodnot sešitu prohlédněte buňky odkazované sériemi, kategoriemi a datovými body.
 
 Nastavení grafu mají tři různé úrovně:
 
-- Nastavení na úrovni série, například [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), poskytují výchozí vzhled pro všechny body v jedné sérii.
-- Nastavení datových bodů, například [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), přepisují vzhled série pro jeden bod.
+- Nastavení na úrovni série, například [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), poskytuje výchozí vzhled pro všechny body v jedné sérii.
+- Nastavení datových bodů, například [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), přepíše vzhled série pro konkrétní bod.
 - Skupinová nastavení se vztahují na kompatibilní série, které patří do stejné [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/). Přístup ke skupině získáte pomocí [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/), když potřebujete nastavit možnosti jako překrytí nebo šířka mezery.
 
-Když není nastaven žádný explicitní výplňový styl pro bod nebo sérii, určuje automatický vzhled styl a motiv grafu. Když jsou k dispozici jak formátování série, tak bodu, má přednost formátování bodu.
+Když není explicitně nastaveno vyplnění bodu nebo série, určuje automatický vzhled styl grafu a motiv. Když jsou přítomna jak nastavení série, tak bodu, má přednost formátování bodu.
 
-![graf-serie-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Nastavení hodnot série pomocí číselných literálů**
+Pro sloupcový válecový graf viz jak [changing the 3D series type or bar shape](/slides/cs/php-java/3d-chart/#change-the-3d-series-type-and-bar-shape) ovlivňuje první sérii.
 
-Používejte číselné literály, pokud hodnoty sérií pocházejí z aplikace nebo výpočtů a nevyžadují odkazy na buňky listu. Zavolejte [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) s [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) před přiřazením výsledku [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) každého bodu pomocí [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+## **Nastavit hodnoty série pomocí číselných literálů**
 
-Nastavení kolekce řídí typ zdroje všech hodnot bodů v dané sérii. Metoda [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) každého bodu vrací vybraný typ; změňte jej prostřednictvím nastavení kolekce. S `Worksheet` použijte [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) pro přístup k odkazované buňce. S `DoubleLiterals` použijte [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) nebo `setAsLiteralDouble` pro přímé čtení či zápis čísla.
+Používejte číselné literály, když hodnoty série pocházejí z aplikačních dat nebo výpočtů a nepotřebují odkazy na buňky listu. Zavolejte [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) s [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) před přiřazením výsledku každého bodu pomocí [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) a [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
 
-Následující příklad vytvoří sloupcový graf s výchozími sériemi a kategoriemi a poté přiřadí vypočtené hodnoty 10, 20 atd. k existujícím bodům první série. Uloží prezentaci, otevře ji znovu a vypíše uložené hodnoty.
+Nastavení kolekce řídí typ zdroje všech hodnot bodů v dané sérii. Metoda [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) pro každou hodnotu bodu uvádí vybraný typ; změňte jej prostřednictvím nastavení kolekce. S `Worksheet` použijte [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) pro přístup k odkazované buňce. S `DoubleLiterals` použijte [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) nebo `setAsLiteralDouble` pro čtení nebo zápis čísla přímo.
+
+Následující příklad vytváří sloupcový graf s výchozími sériemi a kategoriemi, pak přiřazuje vypočtené hodnoty 10, 20, … k existujícím bodům první série. Uloží prezentaci, znovu ji otevře a vytiskne uložené hodnoty.
 
 ```php
 use aspose\slides\ChartType;
@@ -81,15 +83,15 @@ try {
 }
 ```
 
-Typ zdroje hodnoty bodu je oddělen od [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/), který identifikuje vnitřní nebo externí konfiguraci sešitu grafu. Použití číselných literálů samo o sobě neodstraňuje vložený sešit. V tomto příkladu sešit zůstává dostupný pro popisky kategorií, názvy sérií a další série. Viz [Chart Workbook](/slides/cs/php-java/chart-workbook/) pro správu sešitu.
+Typ zdroje hodnot bodu je oddělený od [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/), který identifikuje interní nebo externí konfiguraci sešitu grafu. Použití číselných literálů samo o sobě neodstraňuje vložený sešit. V tomto příkladu sešit zůstává k dispozici pro popisky kategorií, názvy sérií a další série. Viz [Chart Workbook](/slides/cs/php-java/chart-workbook/) pro správu sešitu.
 
-Pro rozptylové a bublinové grafy použijte [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) k výběru zdrojů pro [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) a [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). Bublinové grafy také používají [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) pro [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). Nastavte každý relevantní zdroj na `DoubleLiterals` před přiřazením čísel prostřednictvím metody `setAsLiteralDouble`.
+Pro rozptylové a bublinové grafy použijte [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) k výběru zdrojů pro [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) a [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). Bublinové grafy také používají [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) pro [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). Nastavte každý použitý zdroj na `DoubleLiterals` před přiřazením čísel pomocí metody `setAsLiteralDouble` pro danou hodnotu.
 
-## **Nastavení překrytí sérií grafu**
+## **Nastavit překrytí serií grafu**
 
-[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) udává, jak moc se překrývají pruhy nebo sloupce ve 2D grafu, v rozmezí od -100 do 100 procent. Jedná se o pouze‑čtení projekci nastavení na nadřazenou skupinu sérií. Pro aktualizaci všech kompatibilních sérií ve skupině použijte [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/). Tato možnost platí pro typy grafů zobrazující seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném grafu.
+[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) udává, jak moc se překrývají pruhy nebo sloupce v 2D grafu, v rozmezí -100 až 100 procent. Jedná se o jen‑čtení projekci nastavení na nadřazenou skupinu sérií. Použijte [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) k aktualizaci všech kompatibilních sérií v dané skupině. Tato možnost se vztahuje na typy grafů, které zobrazují seskupené pruhy nebo sloupce; neovlivňuje nesouvisející skupiny sérií v kombinovaném grafu.
 
-Následující příklad nastaví překrytí pro skupinu, která obsahuje první sérii:
+Následující příklad nastavuje překrytí pro skupinu, která obsahuje první sérii:
 
 ```php
 $firstSlideIndex = 0;
@@ -116,13 +118,13 @@ try {
 
 Výsledek:
 
-![Překrytí sérií](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Změna barvy výplně série**
+## **Změnit barvu výplně série**
 
-Použijte [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) k nastavení výchozí výplně celé série. Pokud má bod explicitně nastavenou výplň, jeho nastavení [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) přepíše výplň série pro tento bod.
+Použijte [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) k nastavení výchozí výplně celé série. Pokud má bod již explicitní výplň, jeho nastavení [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) přepíše výplň série pro tento bod.
 
-Následující příklad použije pevnou modrou výplň pro první sérii:
+Následující příklad použije plnou modrou výplň pro první sérii:
 
 ```php
 $firstSlideIndex = 0;
@@ -149,11 +151,11 @@ try {
 
 Výsledek:
 
-![Barva série](series_color.png)
+![The color of the series](series_color.png)
 
-## **Změna názvu série**
+## **Změnit název série**
 
-Název série je uložen v sešitu dat grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro seskupený sloupcový graf je buňka B1 v řádku 0, sloupci 1 a obsahuje název první série. Názvy proměnných v následujícím příkladu tuto strukturu explicitně ukazují:
+Název série je uložen v sešitu grafu a obvykle se zobrazuje v legendě. Ve výchozím sešitu vytvořeném pro sloupcový seskupený graf je buňka B1 na řádku 0, sloupci 1 a obsahuje název první série. Následující příklad pojmenovaných proměnných tuto strukturu explicitně ukazuje:
 
 ```php
 $firstSlideIndex = 0;
@@ -206,15 +208,15 @@ try {
 
 Výsledek:
 
-![Název série](series_name.png)
+![The series name](series_name.png)
 
-### **Vytvoření série s názvem z více buněk**
+### **Vytvořit sérii s názvem z více buněk**
 
-Složený název série je užitečný, když je název produktu a období reportování uloženy v samostatných buňkách sešitu. Například můžete zkombinovat `Product A` v B1 a `2026` v C1 do jediného názvu série a přitom udržet oba části propojené se svými zdrojovými buňkami.
+Složený název série je užitečný, když je název produktu a období zprávy uloženy v oddělených buňkách sešitu. Například můžete zkombinovat `Product A` v B1 a `2026` v C1 do jednoho názvu série, přičemž oba části zůstávají propojené se svými zdrojovými buňkami.
 
-Použijte [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) k získání rozsahu názvu a poté předávejte tuto kolekci metodě [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/). Argument `skipHiddenCells` určuje, zda se zahrnou skryté buňky: `true` je vyloučí, `false` zahrne. Tento příklad používá `false` k zahrnutí všech buněk v rozsahu názvu.
+Použijte [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) k načtení rozsahu názvů a poté předávejte tuto kolekci metodě [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/). Argument `skipHiddenCells` určuje, zda jsou zahrnuty skryté buňky: `true` je vyloučí, `false` zahrne. Tento příklad používá `false` k zahrnutí všech buněk v rozsahu názvu.
 
-Následující příklad vytvoří prezentaci s jednou sérií a dvěma datovými body. Buňky B1:C1 obsahují pouze název série; A2:A3 poskytují popisky kategorií a B2:B3 číselné hodnoty.
+Následující příklad vytváří prezentaci s jednou sérií a dvěma datovými body. Buňky B1:C1 poskytují pouze název série; A2:A3 poskytují popisky kategorií a B2:B3 číselné hodnoty.
 
 ```php
 use aspose\slides\ChartType;
@@ -234,13 +236,13 @@ try {
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // Tyto dvě buňky poskytují název série.
+    // Tyto dvě buňky dodávají název série.
     $workbook->getCell(0, 0, 1, "Product A");
     $workbook->getCell(0, 0, 2, "2026");
     $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
     $series = $chart->getChartData()->getSeries()->add($nameCells, ChartType::ClusteredColumn);
 
-    // Samostatné buňky poskytují kategorie a číselné datové body.
+    // Samostatné buňky dodávají kategorie a číselné datové body.
     $northCategory = $workbook->getCell(0, 1, 0, "North");
     $southCategory = $workbook->getCell(0, 2, 0, "South");
     $chart->getChartData()->getCategories()->add($northCategory);
@@ -256,15 +258,15 @@ try {
 }
 ```
 
-Výsledný název série je `Product A 2026` s mezerou mezi dvěma hodnotami buněk. Legenda zobrazuje tuto kombinaci jako jeden záznam pro oba sloupce. Obrázek níže ukazuje výsledek:
+Výsledný název série je `Product A 2026` s mezerou mezi dvěma hodnotami buněk. Legenda jej zobrazuje jako jednu položku pro oba sloupce. Obrázek níže ilustruje výsledek:
 
-![Sloupcový graf s hodnotami North a South a složeným názvem série Product A 2026 v legendě](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Získání automatické barvy výplně série**
+## **Získat automatickou barvu výplně série**
 
-[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) vrací barvu vypočtenou z indexu série a stylu grafu. To je barva použitá, když výplň série není explicitně definována. Volání metody pouze načte vypočtenou barvu; neprovádí žádnou novou výplň.
+[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) vrací barvu vypočtenou z indexu série a stylu grafu. Jedná se o barvu použité, když výplň série není explicitně definována. Volání metody jen čte vypočtenou barvu; nenastavuje novou výplň.
 
-Následující příklad vytiskne automatickou barvu každé výchozí série:
+Následující příklad vypíše automatickou barvu každé výchozí série:
 
 ```php
 $firstSlideIndex = 0;
@@ -291,7 +293,7 @@ try {
 }
 ```
 
-Výstup příkladu pro výchozí styl grafu:
+Ukázkový výstup pro výchozí styl grafu:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -299,13 +301,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Exact colors depend on the chart style and theme.
+Přesné barvy závisí na stylu a motivu grafu.
 
-## **Nastavení invertované barvy výplně pro sérii grafu**
+## **Nastavit invertovanou barvu výplně pro sérii grafu**
 
-Pro barové, sloupcové a bublinové série může [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na pevnou, povolte inverzi a přiřaďte barvu záporných hodnot pomocí [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Záporná čísla v sešitu zůstávají beze změny; mění se jen jejich zobrazovaná barva.
+U pruhových, sloupcových a bublinových sérií může [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) zobrazit záporné hodnoty jinou výplní. Nastavte běžnou výplň série na plnou, povolte inverzi a přiřaďte barvu záporné hodnoty pomocí [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Záporná čísla zůstávají v sešitu nezměněna; mění se pouze jejich barva zobrazení.
 
-Následující příklad nahradí výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 popisky kategorií a sloupec 1 hodnoty:
+Následující příklad nahrazuje výchozí data grafu jednou sérií. Řádek 0 listu obsahuje název série, sloupec 0 obsahuje názvy kategorií a sloupec 1 hodnoty:
 
 ```php
 $firstSlideIndex = 0;
@@ -363,9 +365,9 @@ try {
 
 Výsledek:
 
-![Invertovaná pevná výplň](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Inverzi můžete povolit jen pro jeden bod pomocí [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). V následujícím příkladu je inverze zakázána pro sérii a povolena jen pro vybraný bod. Bod také získá zápornou hodnotu, aby byl efekt viditelný:
+Můžete povolit inverzi pro jeden bod pomocí [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). V následujícím příkladu je inverze vypnuta pro sérii a zapnuta jen pro vybraný bod. Bod je také přiřazen zápornou hodnotou, aby byl efekt viditelný:
 
 ```php
 $firstSlideIndex = 0;
@@ -399,11 +401,11 @@ try {
 }
 ```
 
-## **Vymazání konkrétní hodnoty datového bodu**
+## **Vymazat konkrétní hodnotu datového bodu**
 
-Chcete‑li prázdný bod, aniž byste odstraňovali ostatní body, nastavte jeho buňku v sešitu na `null`. U sloupcového grafu je vykreslená hodnota dostupná přes [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). Datový bod zůstane na stejné pozici kategorie, ale graf bude jeho hodnotu považovat za prázdnou podle nastavení zobrazení prázdných hodnot.
+Chcete‑li učinit jeden bod prázdným bez odstranění ostatních bodů, nastavte jeho odkazovanou buňku sešitu na `null`. U sloupcového grafu je vykreslená hodnota dostupná přes [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). Datový bod zůstává na stejném místě kategorie, ale graf jej podle nastavení prázdných hodnot považuje za prázdný.
 
-Následující příklad vymaže pouze druhý bod první série:
+Následující příklad vymaže pouze druhý bod v první sérii:
 
 ```php
 $firstSlideIndex = 0;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-Rozptylové grafy používají samostatné buňky X a Y a bublinové grafy ještě buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nevolajte [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) když chcete zachovat ostatní body, protože tato metoda odstraní všechny body ze sbírky.
+Rozptylové grafy používají samostatné buňky X a Y, bublinové grafy také buňku velikosti. Vymažte jen buňku, která představuje hodnotu, kterou chcete odstranit. Nepoužívejte [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) pokud chcete zachovat ostatní body, protože tato metoda odstraní všechny datové body ze série.
 
-## **Řízení zobrazování prázdných buněk**
+## **Ovládání zobrazení prázdných buněk**
 
 Skryté buňky obsahující hodnoty jsou odlišné od prázdných buněk. Pro zahrnutí nebo vyloučení dat ze skrytých řádků a sloupců listu viz [Include Data from Hidden Rows and Columns](/slides/cs/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Prázdná buňka sešitu představuje chybějící data; buňka s `0` představuje známou číselnou hodnotu. Zavolejte [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) s `null`, aby buňka byla prázdná. Číselná nula zůstane nulou bez ohledu na nastavení prázdné buňky.
+Prázdná buňka sešitu představuje chybějící data; buňka obsahující `0` představuje známou číselnou hodnotu. Zavolejte [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) s `null`, aby buňka byla prázdná. Číselná nula zůstává nulou bez ohledu na nastavení prázdných buněk.
 
-Použijte [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) k volbě, jak má graf zobrazovat prázdné buňky. Toto nastavení platí pro celý graf. Mění způsob, jakým jsou mezery vykreslovány, aniž by prázdná buňka byla vyplněna nulou nebo interpolovanou hodnotou.
+Použijte [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) k výběru, jak graf zobrazuje prázdné buňky. Toto nastavení se vztahuje na celý graf. Mění způsob vykreslení mezer, aniž by prázdná buňka byla vyplněna nulou nebo interpolovanou hodnotou.
 
-Následující samostatný příklad vytvoří čárový graf s jednou sérií, vymaže hodnotu pro den 3 a uloží stejný graf ve všech režimech. Nepotřebuje vstupní soubor. [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
+Následující samostatný příklad vytváří čárový graf s jednou sérií, vymaže hodnotu pro den 3 a uloží graf ve všech třech režimech. Vstupní soubor není potřeba. [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) používá list 0, sloupec 0 pro popisky kategorií a sloupec 1 pro hodnoty; řádek 0 obsahuje název série. Konečná data jsou `10, 20, empty, 30, 40`.
 
 ```php
 use aspose\slides\ChartType;
@@ -468,7 +470,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Nechte den 3. den skutečně prázdný, přičemž zachováte jeho kategorii a datový bod.
+    // Nechte den 3 skutečně prázdný, přičemž zachováte jeho kategorii a datový bod.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -482,17 +484,17 @@ try {
 }
 ```
 
-Každý výstupní soubor ukládá režim nastavený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pokud chcete uložit jen jeden soubor, nastavte požadovaný režim a prezentaci uložte jednou místo iterování přes režimy.
+Každý výstupní soubor ukládá režim nastavený před uložením: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` a `empty_cells_Span.pptx`. Pokud chcete uložit jen jednu verzi, nastavte požadovaný režim a prezentaci uložte jednou místo iterace přes režimy.
 
 Porovnání níže ukazuje stejná data ve všech třech souborech. Den 3 je v sešitu v každém případě prázdný:
 
-![Čárové grafy se stejnými daty: Gap přeruší čáru v den 3, Zero spustí čáru na nulu a Span spojí den 2 s dnem 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Viditelný efekt závisí na typu grafu. Čárový graf umožňuje snadno porovnat všechny tři režimy. Pruhové a sloupcové grafy nemají čáru, která by spojovala chybějící kategorii, takže `Span` nemůže vytvořit spojovací úsek, jak je znázorněno výše; chybějící sloupec a sloupec s nulovou výškou mohou vypadat podobně. Podobně u rozptylového grafu jen s značkami není žádná spojovací čára. Neočekávejte tři odlišné výsledky u každého typu grafu; zkontrolujte výstup pro typ, který používáte.
+Viditelný efekt závisí na typu grafu. Čárový graf usnadňuje porovnání všech tří režimů. Pruhové a sloupcové grafy nemají čáru, která by spojovala chybějící kategorii, takže `Span` nemůže vytvořit spojovací segment zobrazený výše; chybějící sloupec a sloupec nulové výšky mohou také vypadat podobně. Podobně rozptylový graf pouze s markery nemá spojovací čáru. Neočekávejte tři odlišné výsledky u každého typu grafu; zkontrolujte výstup pro typ, který používáte.
 
-## **Nastavení šířky mezery mezi sériemi**
+## **Nastavit šířku mezery mezi sériemi**
 
-Šířka mezery je prostor mezi sousedními shluky pruhů nebo sloupců, vyjádřený v procentech šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli k jedné sérii. Zavolejte [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) jednou pro skupinu. Větší hodnota vytvoří více prostoru mezi shluky; menší hodnota je učiní hustšími.
+Šířka mezery je prostor mezi sousedními shluky pruhů nebo sloupců, vyjádřený v procentech šířky pruhu nebo sloupce. Stejně jako překrytí patří k nadřazené skupině sérií, nikoli ke konkrétní sérii. Zavolejte [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) jednou pro skupinu. Větší hodnota vytvoří více prostoru mezi shluky; menší hodnota je učiní hustšími.
 
 Následující příklad změní šířku mezery a uloží pouze finální prezentaci:
 
@@ -520,46 +522,84 @@ try {
 
 Výsledek:
 
-![Šířka mezery](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Zobrazit nebo skrýt čáry sérií**
+
+Čáry sérií vizuálně spojují související části grafu. Použijte [ChartSeriesGroup::setSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setserieslines/) k jejich zobrazení nebo skrytí v podporovaných vrstvených pruhových a OfPie grafech. Ve dvourozměrných vrstvených pruhových a sloupcových grafech spojují odpovídající hranice vrstev napříč kategoriemi. V grafech Pie of Pie a Bar of Pie spojují hlavní výkres se sekundárním výkresem. Toto nastavení není obecný konektor pro jiné typy grafů.
+
+Přístup ke skupině získáte přes [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/). Nastavení se vztahuje na všechny série v této skupině. [ChartSeries::hasSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/hasserieslines/) je jen‑čtení a odráží nastavení nadřazené skupiny; pro aktualizaci použijte nastavení skupiny.
+
+Následující příklad vytváří jeden graf [ChartType::PieOfPie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) s výchozími daty. Uloží stejný graf se zapnutými čárami sérií a poté se zakázanými čárami, čímž vytvoří dvě prezentace pro porovnání.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $seriesGroup = $series->getParentSeriesGroup();
+
+    $seriesGroup->setSeriesLines(true);
+    $presentation->save("series_lines_enabled.pptx", SaveFormat::Pptx);
+
+    $seriesGroup->setSeriesLines(false);
+    $presentation->save("series_lines_disabled.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Čáry sérií zapnuté | Čáry sérií vypnuté |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| Dvě čáry spojují hlavní koláč s podřízeným koláčem. | Oba koláče zůstávají viditelné, ale spojovací čáry jsou skryté. |
+
+Čáry sérií se liší od čar vodítek popisků dat, které spojují popisky s jejich datovými body; od čar mřížky, které označují intervaly podél os grafu; a od čar v čárovém grafu, které představují datové hodnoty. Toto nastavení neovlivňuje tyto prvky.
 
 ## **Často kladené otázky**
 
 **Které typy grafů podporují datové série?**
 
-Všechny typy grafů zastoupené výčtem [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) používají data grafu, ale jejich série nemají stejnou strukturu hodnot ani nastavení. Například kategoriové grafy používají kategorie a hodnoty, rozptylové grafy X a Y hodnoty a bublinové grafy přidávají velikosti bublin. Použijte metodu tvorby datových bodů, která odpovídá typu série. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhů nebo sloupců.
+Všechny typy grafů reprezentované výčtem [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) používají data grafu, ale jejich série nemají vždy stejnou strukturu hodnot nebo nastavení. Například sloupcové grafy používají kategorie a hodnoty, rozptylové grafy X a Y hodnoty a bublinové grafy přidávají velikosti bublin. Použijte metodu pro vytvoření datových bodů, která odpovídá typu série. Možnosti jako překrytí a šířka mezery platí jen pro kompatibilní skupiny pruhů nebo sloupců.
 
 **Co je skupina sérií grafu?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení úrovně skupiny. Kombinovaný graf může mít více než jednu skupinu, takže změna skupiny dosažená přes jednu sérii nemusí nutně změnit všechny série v grafu.
+[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) obsahuje kompatibilní série, které sdílejí nastavení na úrovni skupiny. Kombinovaný graf může obsahovat více skupin, takže změna skupiny dosažená přes jednu sérii nemusí nutně změnit všechny série v grafu.
 
 **Obsahuje nově vytvořený graf výchozí data?**
 
-Ano. Ve výchozím nastavení metoda [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) vytvoří ukázkové série, kategorie a hodnoty. Tyto buňky můžete upravit nebo před přidáním úplně vlastního datového souboru vymazat jak kolekce sérií, tak kolekce kategorií. Přetížení může také vytvořit graf bez výchozích dat.
+Ano. Ve výchozím nastavení metoda [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) vytváří ukázkové série, kategorie a hodnoty. Tyto buňky můžete upravit nebo před přidáním zcela vlastního datového souboru vymazat kolekce sérií i kategorií. Přetížená metoda může také vytvořit graf bez výchozích dat.
 
 **Jak jsou objekty grafu propojeny s buňkami sešitu?**
 
-Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Při vytváření vlastních dat udržujte řádky kategorií a řádky hodnot sérií zarovnané tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
+Názvy sérií, popisky kategorií a hodnoty datových bodů odkazují na buňky v [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Změna odkazované buňky aktualizuje odpovídající prvek grafu. Když vytváříte vlastní data, udržujte řádky kategorií a řádky hodnot sérií zarovnané tak, aby každý bod byl vykreslen pod zamýšlenou kategorií.
 
 **Jak vymazat jeden bod místo celé série?**
 
-Nastavte příslušnou buňku hodnoty na `null`, aby bod zachoval svou pozici v kategorii jako prázdný. Používejte [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) jen v případě, že chcete odstranit všechny body z dané série. Pokud odstraňujete také kategorie, aktualizujte všechny série, aby jejich hodnoty zůstaly zarovnané ke kolekci kategorií.
+Nastavte příslušnou buňku hodnoty na `null`, aby bod zachoval svou pozici v kategorii jako prázdný bod. Používejte [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) pouze když chcete odstranit všechny body ze série, protože tato metoda odstraní každý datový bod ze sbírky.
 
-**Jak jsou prázdné body zobrazovány?**
+**Jak jsou zobrazovány prázdné body?**
 
-Výsledek závisí na typu grafu a hodnotě nastavené pomocí [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Podporované grafy mohou zobrazovat prázdné buňky jako mezery, nuly nebo spojením sousedních bodů. Zvolte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz [Řízení zobrazování prázdných buněk](#control-the-display-of-empty-cells) pro kompletní příklad a vizuální srovnání.
+Výsledek závisí na typu grafu a nastavení konfigurovaném metodou [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Podporované grafy mohou zobrazovat prázdná místa jako mezery, nulové hodnoty nebo propojením sousedních bodů. Zvolte nastavení, které odpovídá významu chybějících dat ve vaší prezentaci. Viz kapitola [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pro kompletní příklad a vizuální srovnání.
 
 **Jak jsou formátovány záporné hodnoty?**
 
-U podporovaných pruhových, sloupcových a bublinových sérií zavolejte [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) a nastavte barvu získanou z [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Chování můžete přepsat pro jednotlivý bod pomocí [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Tyto metody ovlivňují formátování, ne uložené číselné hodnoty.
+U podporovaných pruhových, sloupcových a bublinových sérií zavolejte [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) a nastavte barvu vrácenou metodou [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Chování můžete přepsat pro jednotlivý bod pomocí [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Tyto metody ovlivňují formátování, ne uložené číselné hodnoty.
 
 **Které formátování má přednost, když jsou formátovány jak série, tak bod?**
 
-Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body nadále používají explicitní formát série nebo, pokud formát série není definován, automatický styl a motiv grafu. Skupinová nastavení jako překrytí a šířka mezery řídí rozložení a nejsou přepisovány na úrovni bodu.
+Explicitní formátování datového bodu má přednost pro tento bod. Ostatní body pokračují v používání explicitního formátu série nebo, pokud není definován, automatického stylu a motivu grafu. Skupinová nastavení jako překrytí a šířka mezery řídí rozvržení a nejsou přepisována na úrovni bodu.
 
 **Existuje limit počtu sérií, které může graf obsahovat?**
 
-Aspose.Slides neukládá samostatný pevný limit počtu sérií. V praxi omezují souborové limity prezentace, dostupná paměť, doba vykreslování a čitelnost grafu.
+Aspose.Slides nevybírá samostatný pevný limit počtu sérií. V praxi omezují souborová omezení prezentace, dostupná paměť, čas renderování a čitelnost grafu.
 
-**Co změnit, když jsou sloupce příliš blízko nebo příliš daleko od sebe?**
+**Co změnit, když jsou sloupce příliš blízko u sebe nebo příliš daleko?**
 
-Zavolejte [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) na příslušné nadřazené skupině sérií. Zvýšte hodnotu pro rozšíření prostoru mezi shluky nebo ji snižte pro jejich přiblížení.
+Zavolejte [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) na příslušné nadřazené skupině sérií. Zvýšením hodnoty rozšíříte prostor mezi shluky, snížením jej přiblížíte.

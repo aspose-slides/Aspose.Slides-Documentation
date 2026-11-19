@@ -1,5 +1,5 @@
 ---
-title: Personalizza i grafici 3D nelle presentazioni usando Java
+title: Personalizza i grafici 3D nelle presentazioni con Java
 linktitle: Grafico 3D
 type: docs
 url: /it/java/3d-chart/
@@ -11,83 +11,207 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri come creare e personalizzare grafici 3-D in Aspose.Slides per Java, con supporto per file PPT e PPTX—potenzia le tue presentazioni oggi."
+description: "Crea grafici 3D nelle presentazioni PowerPoint con Aspose.Slides per Java. Regola rotazione, proporzioni dell'altezza, profondità del grafico e spaziatura tra le serie con esempi Java."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come personalizzare un grafico 3D in Aspose.Slides configurando le impostazioni `Rotation3D` come `RotationX`, `RotationY`, `DepthPercents` e `RightAngleAxes`. Guidiamo attraverso la creazione di una presentazione, l'aggiunta di un grafico 3D con dati predefiniti, l'applicazione delle impostazioni di visualizzazione 3D richieste e il salvataggio della presentazione modificata come file PPTX.
+Aspose.Slides for Java consente di personalizzare la visualizzazione di un grafico 3D tramite il metodo [IChart.getRotation3D](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getRotation3D--) . Questo articolo dimostra come regolare rotazione, proporzioni dell'altezza, profondità, assi a angolo retto e spaziatura tra le serie, quindi salvare la presentazione in formato PPTX.
 
-## **Imposta RotationX, RotationY e DepthPercents Properties of a 3D Chart**
+## **Imposta la rotazione e la profondità di un grafico 3D**
 
-Aspose.Slides per Java fornisce un'API semplice per impostare queste proprietà. L'articolo seguente ti aiuterà a impostare diverse proprietà come **X,Y Rotation, DepthPercents** ecc. Il codice di esempio applica le impostazioni delle proprietà sopra citate.
+L'esempio seguente crea una [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) e utilizza [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) per aggiungere un grafico a colonne 3D impilato alla sua prima diapositiva. Sostituisce le serie e le categorie predefinite con due serie contenenti tre valori ciascuna. L'indice del foglio di lavoro `0` identifica il primo foglio di dati del grafico; la riga `0` contiene i nomi delle serie e la colonna `0` contiene le etichette delle categorie.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).
-1. Accedi alla prima diapositiva.
-1. Aggiungi un grafico con dati predefiniti.
-1. Imposta le proprietà Rotation3D.
-1. Scrivi la presentazione modificata in un file PPTX.
+I metodi [setRotationX](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRotationX-byte-) e [setRotationY](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRotationY-int-) impostano la rotazione del grafico a 40 e 270 gradi, rispettivamente. [setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) imposta la sua profondità al 150% della larghezza, mentre [setRightAngleAxes](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setRightAngleAxes-boolean-) abilita assi a angolo retto invece della prospettiva. La presentazione risultante contiene il grafico popolato con queste impostazioni di visualizzazione 3D.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Accedi alla prima diapositiva
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Aggiungi un grafico con dati predefiniti
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
-    
-    // Impostazione dell'indice del foglio dati del grafico
-    int defaultWorksheetIndex = 0;
-    
-    // Recupero del foglio di lavoro dei dati del grafico
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Aggiungi serie
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Aggiungi categorie
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Imposta le proprietà Rotation3D
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
+
+    double[][] values = { { 20, 50, 30 }, { 30, 10, 60 } };
+
+    for (int categoryIndex = 0; categoryIndex < 3; categoryIndex++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, categoryIndex + 1, 0, "Category " + (categoryIndex + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (int seriesIndex = 0; seriesIndex < 2; seriesIndex++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, seriesIndex + 1, "Series " + (seriesIndex + 1));
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+        for (int categoryIndex = 0; categoryIndex < 3; categoryIndex++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, categoryIndex + 1, seriesIndex + 1, values[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+    }
+
     chart.getRotation3D().setRightAngleAxes(true);
-    chart.getRotation3D().setRotationX((byte)40);
+    chart.getRotation3D().setRotationX((byte) 40);
     chart.getRotation3D().setRotationY(270);
     chart.getRotation3D().setDepthPercents(150);
-    
-    // Prendi la seconda serie del grafico
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Ora popolamento dei dati della serie
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Imposta valore OverLap
-    series.getParentSeriesGroup().setOverlap((byte)100);
-    
-    // Scrivi la presentazione su disco
-    pres.save("Rotation3D_out.pptx", SaveFormat.Pptx);
+
+    presentation.save("Rotation3D_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Regola le proporzioni dell'altezza di un grafico 3D**
+
+Utilizza [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) per impostare l'altezza di un grafico 3D come percentuale della sua larghezza. Ciò modifica le proporzioni della scena 3D senza ridimensionare l'oggetto del grafico sulla diapositiva.
+
+L'esempio seguente crea un grafico [Column3D](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) con i dati predefiniti: tre serie e quattro categorie. Salva tre presentazioni con proporzioni di altezza del 50%, 100% e 200%. La posizione, larghezza e altezza del grafico rimangono fisse. I dati, la rotazione, la profondità, la spaziatura delle serie e la formattazione sono identici in tutti e tre i file; solo la percentuale di altezza varia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 40, 30, 620, 460);
+    chart.getRotation3D().setRotationX((byte) 20);
+    chart.getRotation3D().setRotationY(30);
+    chart.getRotation3D().setRightAngleAxes(true);
+    chart.getRotation3D().setDepthPercents(100);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setGapDepth(150);
+
+    for (int heightPercent : new int[] { 50, 100, 200 }) {
+        chart.getRotation3D().setHeightPercents(heightPercent);
+        presentation.save("chart_height_" + heightPercent + ".pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Le immagini seguenti illustrano le stesse impostazioni di altezza nell'esempio .NET equivalente e sono state esportate con Microsoft PowerPoint. Una percentuale più piccola produce una scena più piatta, mentre una percentuale più grande produce una scena più alta all'interno dello stesso oggetto grafico. PowerPoint può anche regolare gli intervalli dei segni degli assi e la posizione delle etichette per adattarsi alla scena.
+
+| Altezza: 50% | Altezza: 100% | Altezza: 200% |
+| --- | --- | --- |
+| ![grafico a colonne 3D con altezza impostata al 50 percento della sua larghezza](height_percent_50.png) | ![grafico a colonne 3D con altezza impostata al 100 percento della sua larghezza](height_percent_100.png) | ![grafico a colonne 3D con altezza impostata al 200 percento della sua larghezza](height_percent_200.png) |
+
+Questi metodi controllano diversi aspetti del grafico:
+
+| Metodo | Effetto |
+| --- | --- |
+| [IRotation3D.setHeightPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setHeightPercents-int-) | Altezza della scena 3D come percentuale della sua larghezza. |
+| [IChart.setHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setHeight-float-) | Altezza dell'oggetto grafico sulla diapositiva, in punti. |
+| [IRotation3D.setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) | Profondità della scena 3D come percentuale della sua larghezza. |
+| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | Spaziatura tra le serie lungo l'asse di profondità, come percentuale della larghezza del marcatore. |
+
+L'impostazione dell'altezza influisce sui grafici a colonne e barre 3D, incluse le varianti cilindro, cono e piramide, così come sui grafici 3D a linee, aree, torta e superficie. Il confronto sopra utilizza il tipo verificato `Column3D`. L'impostazione non modifica l'aspetto di un grafico 2D `ClusteredColumn` o di un grafico `BubbleWith3D`; questi nomi fanno parte della classe [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/). Per altre impostazioni di aspetto dei grafici, vedere [Chart Formatting](/slides/it/java/chart-formatting/).
+
+## **Regola lo spazio tra le serie**
+
+Utilizza [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) per controllare la distanza tra le serie di dati lungo l'asse di profondità di un grafico 3D, espressa come percentuale della larghezza del marcatore. Usa valori da **0 to 500**, inclusi: `0` rimuove lo spazio, mentre valori più alti aumentano la spaziatura. Con una profondità del grafico fissa, aumentare lo spazio rende i marcatori più sottili lungo l'asse di profondità.
+
+Accedi al gruppo tramite [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--). L'impostazione si applica a ogni serie in quel gruppo, non solo alla serie usata per accedervi. [IChartSeries.getGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getGapDepth--) restituisce lo spazio di profondità e riflette l'impostazione del gruppo genitore.
+
+Questa impostazione influisce sui grafici a colonne e barre 3D, incluse le loro varianti cilindro, cono e piramide, così come sui grafici 3D a linee e aree. L'aspetto dipende dal fatto che le serie siano disposte in profondità, raggruppate o impilate. Per un confronto chiaro degli spazi tra serie separate, usa `ChartType.Column3D` dalla classe [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/).
+
+Questi metodi controllano diversi aspetti del grafico:
+
+| Metodo | Effetto |
+| --- | --- |
+| [IChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapDepth-int-) | Spaziatura tra le serie lungo l'asse di profondità, come percentuale della larghezza del marcatore. |
+| [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) | Spaziatura tra gruppi di barre o colonne adiacenti, come percentuale della larghezza della barra o colonna. |
+| [setDepthPercents](https://reference.aspose.com/slides/java/com.aspose.slides/irotation3d/#setDepthPercents-int-) | Profondità complessiva del grafico, come percentuale della larghezza del grafico. |
+
+L'esempio autoconclusivo seguente utilizza i dati predefiniti del grafico, che contengono tre serie e quattro categorie. Salva due presentazioni con dati, rotazione, larghezza dello spazio e profondità del grafico identici; solo la profondità dello spazio varia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    IChart chart = slide.getShapes().addChart(ChartType.Column3D, 40, 30, 620, 230);
+
+    chart.getRotation3D().setRotationX((byte) 20);
+    chart.getRotation3D().setRotationY(30);
+    chart.getRotation3D().setDepthPercents(100);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup group = series.getParentSeriesGroup();
+    group.setGapWidth(150);
+
+    for (int gapDepth : new int[] { 0, 500 }) {
+        group.setGapDepth(gapDepth);
+
+        String fileName = "series_gap_depth_" + gapDepth + ".pptx";
+        presentation.save(fileName, SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Le immagini seguenti illustrano le stesse impostazioni di profondità dello spazio nell'esempio .NET equivalente e sono state esportate con Microsoft PowerPoint.
+
+| Profondità spazio: 0% | Profondità spazio: 500% |
+| --- | --- |
+| ![grafico a colonne 3D senza spazio tra le serie lungo l'asse di profondità](gap_depth_0.png) | ![grafico a colonne 3D con uno spazio del 500 percento tra le serie lungo l'asse di profondità](gap_depth_500.png) |
+
+## **Modifica il tipo di serie 3D e la forma della barra**
+
+In un grafico cilindro raggruppato, la prima serie inizia con una forma di barra cilindrica. L'esempio stampa i valori interi restituiti da [IChartSeries.getType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getType--) e [IChartSeries.getBar3DShape](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getBar3DShape--) prima e dopo ogni modifica. La tabella fornisce i nomi costanti corrispondenti.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredCylinder, 20, 20, 500, 300);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+
+    System.out.println(series.getType() + " | " + series.getBar3DShape());
+
+    series.setType(ChartType.ClusteredCone);
+    System.out.println(series.getType() + " | " + series.getBar3DShape());
+
+    series.setBar3DShape(ChartShapeType.Box);
+    System.out.println(series.getType() + " | " + series.getBar3DShape());
+
+    presentation.save("series_shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Modifica della prima serie | Tipo di serie | Forma della barra |
+| --- | --- | --- |
+| Crea il grafico | `ClusteredCylinder` | `Cylinder` |
+| Imposta il tipo di serie a `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Imposta la forma della barra a `Box` | `ClusteredColumn3D` | `Box` |
+
+Impostare la forma su `Box` cambia anche il tipo di serie in `ClusteredColumn3D`. Se il tuo codice effettua branch basati sul tipo di serie, chiama `series.getType()` dopo aver cambiato la forma. Un valore memorizzato prima dell'assegnazione selezionerebbe ancora il branch `ClusteredCone`.
+
+![Confronto PowerPoint che mostra la prima serie come cilindri, coni e colonne rettangolari da sinistra a destra](series-shapes.png)
 
 ## **FAQ**
 
 **Quali tipi di grafico supportano la modalità 3D in Aspose.Slides?**
 
-Aspose.Slides supporta varianti 3D dei grafici a colonne, inclusi Column 3D, Clustered Column 3D, Stacked Column 3D e 100% Stacked Column 3D, insieme ai tipi 3D correlati esposti tramite la classe [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/). Per un elenco preciso e aggiornato, controlla i membri di [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/) nella documentazione API della versione installata.
+Aspose.Slides supporta varianti 3D dei grafici a colonne, incluse Column 3D, Clustered Column 3D, Stacked Column 3D e 100% Stacked Column 3D, insieme ai tipi 3D correlati esposti tramite la classe [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/). Per un elenco esatto e aggiornato, controlla i membri di [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) nella documentazione API della versione installata.
 
 **Posso ottenere un'immagine raster di un grafico 3D per un report o il web?**
 
-Sì. Puoi esportare un grafico in un'immagine tramite l'[chart API](https://reference.aspose.com/slides/it/java/com.aspose.slides/shape/#getImage-int-float-float-) o [render the entire slide](/slides/it/java/convert-powerpoint-to-png/) in formati come PNG o JPEG. È utile quando è necessario un'anteprima pixel-perfetta o vuoi incorporare il grafico in documenti, dashboard o pagine web senza richiedere PowerPoint.
+Sì. Puoi esportare un grafico in un'immagine con [Shape.getImage](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage--) o [renderizzare l'intera diapositiva](/slides/it/java/convert-powerpoint-to-png/) in formati come PNG o JPEG. Questo è utile quando hai bisogno di un'anteprima raster o vuoi incorporare il grafico in documenti, dashboard o pagine web senza richiedere PowerPoint.
 
-**Qual è la performance nella costruzione e nel rendering di grandi grafici 3D?**
+**Quanto è efficiente la creazione e il rendering di grandi grafici 3D?**
 
-Le prestazioni dipendono dal volume dei dati e dalla complessità visiva. Per ottenere i migliori risultati, mantieni gli effetti 3D al minimo, evita texture pesanti su pareti e aree del grafico, limita il numero di punti dati per serie quando possibile e renderizza in un output di dimensioni adeguate (risoluzione e dimensioni) per corrispondere al display o alle esigenze di stampa target.
+Le prestazioni dipendono dal volume dei dati e dalla complessità visiva. Per ottenere i migliori risultati, mantieni gli effetti 3D al minimo, evita texture pesanti su pareti e aree di tracciamento, limita il numero di punti dati per serie quando possibile e renderizza a una risoluzione e dimensione adeguate al display o alla stampa di destinazione.

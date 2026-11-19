@@ -1,47 +1,49 @@
 ---
-title: Diagram adatsorok kezelése prezentációkban JavaScript használatával
-linktitle: Adatsorok
+title: Diagram adat sorozatok kezelése prezentációkban JavaScript segítségével
+linktitle: Adatsorozat
 type: docs
 url: /hu/nodejs-java/chart-series/
 keywords:
-- diagram sorok
-- sor átfedés
-- sor szín
-- sor név
+- diagram sorozat
+- sorozat átfedés
+- sorozat szín
+- sorozat név
 - adatpont
 - munkafüzet cella
-- sor hézag
+- sorozat hézag
 - negatív érték
 - PowerPoint
 - prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelheti a diagram sorokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket a prezentációkban JavaScript segítségével."
+description: "Ismerje meg, hogyan kezelhet diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket a prezentációkban JavaScript segítségével."
 ---
 ## **Áttekintés**
 
-Egy diagram tárolhatja a megjelenített értékeit munkafüzetcellákban vagy közvetlenül számliterálokként. A [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) egy kapcsolódó értékekből álló halmazt képvisel, és minden [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) a sor egy pontját jelenti. A [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) objektumok biztosítják a címkéket vagy a sorok által megosztott csoportosítási értékeket. Az alapértelmezett adatokkal létrehozott diagramokban a sornevek, kategóriák és pontértékek a diagram munkafüzetének [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) objektumaiból származnak.
+A diagram tárolhatja a megjelenített értékeket munkafüzet cellákban vagy közvetlenül numerikus literálokként. A [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) egy kapcsolódó értékhalmazt képvisel, és minden [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) egy pontot a sorozatban. A [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) objektumok a sorozatok által közös címkéket vagy csoportosítási értékeket biztosítják. Az alapértelmezett adatokkal létrehozott diagramokban a sorozatnevek, kategóriák és pontértékek a diagram munkafüzetéből származó [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) objektumokat használják.
 
-Egy tipikus kategória diagram alapértelmezett munkafüzetében a 0. sor a sorneveket, a 0. oszlop a kategória neveket, a maradék cellák pedig a sor értékeit tartalmazzák. A [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) számára megadott munkalap-, sor- és oszlopszámok nulla‑alapúak. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit módosítaná.
+Tipikus kategória diagram esetén az alapértelmezett munkafüzet az 0. sort a sorozatnevekhez, az 0. oszlopot a kategória nevekhez, a maradék cellákat pedig a sorozat értékekhez használja. A [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/)‑nek átadott munkalap-, sor‑ és oszlop‑indexek nulláról indulnak. Ez a felépítés hasznos, ha egy diagramot alapértelmezett adatokkal hoz létre, de nem szabad azt feltételezni, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit módosítaná.
 
-A diagram beállítások három különböző hatókörrel rendelkeznek:
+A diagrambeállítások három különböző hatókörrel rendelkeznek:
 
-- Sor‑szintű beállítások, például a [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) alapértelmezett megjelenést ad minden pontnak egy sorban.
-- Adatpont‑szintű beállítások, például a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) felülbírálják a sor megjelenését egy adott pontnál.
-- Csoport beállítások alkalmazhatók kompatibilis sorokra, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) tartoznak. A csoportot a [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) segítségével érheti el, ha például átfedés vagy hézag szélesség beállítására van szüksége.
+- Sorozatszintű beállítások, mint a [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), amely egy sorozat összes pontjának alapértelmezett megjelenését adja meg.
+- Adatpont‑szintű beállítások, mint a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), amelyek egy pont esetén felülírják a sorozat megjelenését.
+- Csoportbeállítások, amelyek kompatibilis sorozatokra vonatkoznak, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) tartoznak. A csoporthoz a [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/)‑on keresztül férhet hozzá, ha például átfedés vagy hézag szélesség beállítására van szükség.
 
-Ha nincs explicit pont‑ vagy sor‑kitöltés megadva, a diagram stílusa és témája határozza meg az automatikus megjelenést. Amikor mind sor, mind pont formázás jelen van, a pont formázása felülírja a sorét az adott pontnál.
+Ha nincs kifejezett pont‑ vagy sorozat‑kitöltés megadva, a diagram stílusa és témája határozza meg a automatikus megjelenést. Ha mind a sorozat, mind a pont formázása jelen van, a pont formázása felülírja a sorozat beállításait az adott pont esetén.
 
-![diagram-sorok-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Sorértékek beállítása számliterálokkal**
+Csoportos henger diagram esetén lásd, hogy a [changing the 3D series type or bar shape](/slides/hu/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) hogyan befolyásolja az első sorozatot.
 
-Használjon számliterálokat, ha a sorértékek az alkalmazás adataiból vagy számításaiból származnak, és nincs szükség munkalap‑cellahivatkozásokra. Hívja a [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) metódust a [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) értékkel, mielőtt minden pont [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) eredményét a [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/) metódussal állítaná be.
+## **Sorozatértékek beállítása numerikus literálokkal**
 
-A gyűjtemény‑beállítás szabályozza az összes pont értékének forrástípusát az adott sorban. Minden pont [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) metódusa jelzi a kiválasztott típust; változtassa meg a gyűjtemény‑beállítással. `Worksheet` esetén a [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) segítségével érheti el a hivatkozott cellát. `DoubleLiterals` esetén a [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) vagy a `setAsLiteralDouble` metódussal olvashat vagy írhat közvetlenül számot.
+Használjon numerikus literálokat, ha a sorozatértékek alkalmazásadatokból vagy számításokból származnak, és nem szükséges munkalap‑cellahivatkozás. Hívja meg a [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/)‑t a [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/)‑vel, mielőtt minden pont [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) eredményét a [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/)‑vel állítaná be.
 
-Az alábbi példa egy oszlopdiagramot hoz létre alapértelmezett sorokkal és kategóriákkal, majd a meglévő első sor pontjaihoz rendeli a 10, 20 stb. számított értékeket. Ezután menti a prezentációt, újra megnyitja, és kiírja a tárolt értékeket.
+A gyűjtemény beállítása szabályozza az adott sorozat összes pontértékének forrástípusa. Minden pontérték [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) metódusa jelzi a kiválasztott típust; ezt a gyűjtemény beállításával módosíthatja. `Worksheet` esetén a [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/)‑t használva érheti el a hivatkozott cellát. `DoubleLiterals` esetén a [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) vagy a `setAsLiteralDouble` segítségével olvashat vagy írhat közvetlenül számot.
+
+Az alábbi példa egy oszlopdiagramot hoz létre alapértelmezett sorozattal és kategóriákkal, majd a meglévő első sorozat pontjainak kiszámított 10, 20 stb. értékeket rendeli hozzá. A prezentációt elmenti, újra megnyitja, és kiírja a tárolt értékeket.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -77,15 +79,15 @@ try {
 }
 ```
 
-A pontérték forrástípusa különbözik a [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) beállítástól, amely a diagram belső vagy külső munkafüzet‑konfigurációját jelzi. A számliterálok használata önmagában nem távolítja el a beágyazott munkafüzetet. Ebben a példában a munkafüzet továbbra is elérhető a kategóriacímkék, sornevek és a többi sor számára. Lásd a [Chart Workbook](/slides/hu/nodejs-java/chart-workbook/) oldalt a munkafüzet‑kezeléshez.
+A pontérték forrástípusa különbözik a [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/)‑tól, amely a diagram belső vagy külső munkafüzet‑konfigurációját azonosítja. A numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet. Ebben a példában a munkafüzet továbbra is elérhető a kategória címkék, sorozatnevek és a többi sorozat számára. A munkafüzet‑kezelésről lásd a [Chart Workbook](/slides/hu/nodejs-java/chart-workbook/) oldalt.
 
-Szórt és buborék diagramok esetén használja a [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) és a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) metódusokat a [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) és a [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/) forrásainak kiválasztásához. A buborék diagramok a [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) metódust is használják a [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/) forrásához. Minden alkalmazandó forrást állítson `DoubleLiterals`‑re, mielőtt a `setAsLiteralDouble` metódussal számokat rendelne a megfelelő értékhez.
+Szórt és buborék diagramok esetén használja a [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) és a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) metódusokat, hogy az [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) és az [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/) forrásait válassza ki. A buborék diagramok továbbá a [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/)‑t használják a [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/) esetén. Minden alkalmazható forrást állítson `DoubleLiterals`‑re, mielőtt a `setAsLiteralDouble` metódussal számot rendelne hozzá.
 
-## **Diagram sor‑átfedés beállítása**
+## **A diagram sorozat‑átfedésének beállítása**
 
-A [ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) jelentése, hogy a 2D diagram oszlopai vagy sávjai milyen mértékben fednek át egymásra, –100‑tól 100‑ig százalékban. Ez egy csak‑olvasásra szánt leképezés a szülő sorcsoport beállításáról. A [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) használatával frissítheti az összes kompatibilis sort a csoportban. Ez a lehetőség olyan diagramtípusokra vonatkozik, amelyek csoportos sávokat vagy oszlopokat jelenítenek meg; kombinált diagramok esetén nem befolyásolja a nem kapcsolódó sorcsoportokat.
+A [ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) jelentése, hogy egy 2D diagram oszlopai vagy sávjai mekkora mértékben fednek át egymást, -100 és 100 százalék között. Ez a beállítás csak a szülő sorozatcsoportot érinti olvasás‑csakként. A [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/)‑al frissítheti a csoport minden kompatibilis sorozatát. Ez a lehetőség azoknál a diagramtípusoknál használható, amelyek csoportos oszlopokat vagy sávokat jelenítenek meg; kombinált diagramokban a nem kapcsolódó sorozatcsoportokra nincs hatással.
 
-Az alábbi példa a első sort tartalmazó csoport átfedését állítja be:
+Az alábbi példa beállítja az átfedést azon csoportnál, amelyik az első sorozatot tartalmazza:
 
 ```javascript
 const aspose = {};
@@ -100,7 +102,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Az új diagram minta sorokat, kategóriákat és értékeket tartalmaz.
+    // Az új diagram mintasorozatokat, kategóriákat és értékeket tartalmaz.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -114,13 +116,13 @@ try {
 
 Az eredmény:
 
-![A sorok átfedése](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Sor kitöltőszínének megváltoztatása**
+## **A sorozat kitöltőszínének módosítása**
 
-Használja a [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) metódust az egész sor alapértelmezett kitöltésének beállításához. Ha egy pont már rendelkezik explicit kitöltéssel, akkor annak a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) beállítása felülbírálja a sor kitöltését az adott pontnál.
+A [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/)‑ot használva állítható be egy teljes sorozat alapértelmezett kitöltése. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) beállítása felülírja a sorozat kitöltését az adott pontnál.
 
-Az alábbi példa egy szilárd kék kitöltést alkalmaz az első sorra:
+Az alábbi példa egy szilárd kék kitöltést alkalmaz az első sorozatra:
 
 ```javascript
 const aspose = {};
@@ -150,11 +152,11 @@ try {
 
 Az eredmény:
 
-![A sor színe](series_color.png)
+![The color of the series](series_color.png)
 
-## **Sor nevének módosítása**
+## **A sorozat nevének módosítása**
 
-A sor neve a diagram adatmunkafüzetben tárolódik, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzetben, amely a klaszteres oszlopdiagramhoz jön létre, a B1 cella (0‑sor, 1‑oszlop) tartalmazza az első sor nevét. Az alábbi példában a névkonstansok explicit módon tükrözik ezt a struktúrát:
+A sorozat neve a diagram adat‑munkafüzetben van tárolva, és általában a jelmagyarázatban jelenik meg. Alapértelmezett munkafüzet egy csoportos oszlopdiagram esetén a B1 cella (0. sor, 1. oszlop) tartalmazza az első sorozat nevét. Az alábbi példában a megnevezett állandók ezt a struktúrát teszik egyértelművé:
 
 ```javascript
 const aspose = {};
@@ -181,7 +183,7 @@ try {
 }
 ```
 
-Frissítheti azt a cellát is, amelyet már a [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/) hivatkozik. Ez a megközelítés elkerüli egy konkrét sor‑ és oszlophivatkozás feltételezését egy létező diagramon:
+Frissítheti azt a cellát is, amelyet a [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/) már hivatkozik. Ez a megközelítés elkerüli egy adott sor és oszlop feltételezését egy meglévő diagramban:
 
 ```javascript
 const aspose = {};
@@ -209,15 +211,15 @@ try {
 
 Az eredmény:
 
-![A sor neve](series_name.png)
+![The series name](series_name.png)
 
-### **Sor létrehozása több cella nevéből**
+### **Sorozat létrehozása több cellából származó névvel**
 
-Összetett sornevet akkor használhat, ha a termék neve és a jelentési időszak külön munkafüzetcellákban tárolódik. Például a `Product A` a B1‑ben és a `2026` a C1‑ben kombinálható egyetlen sornevébe, miközben mindkét rész megmarad a forráscellához kapcsolódva.
+Összetett sorozatnév akkor hasznos, ha a termék neve és a jelentési időszak külön munkafüzet‑cellákban van tárolva. Például a `Product A` B1‑ben és a `2026` C1‑ben egyetlen sorozatnevévé kombinálható, miközben mindkét rész hivatkozott marad a forráscellákra.
 
-Használja a [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) metódust a névtartomány lekéréséhez, majd adja át ezt a gyűjteményt a [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/) metódusnak. A `skipHiddenCells` argumentum határozza meg, hogy a rejtett cellákat is belevegye: `true` kizárja, `false` belefoglalja. Ebben a példában `false` értékkel minden cellát felvesz a névtartományból.
+A [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/)‑t használja a névtartomány lekéréséhez, majd adja át a gyűjteményt a [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/)‑nak. A `skipHiddenCells` argumentum határozza meg, hogy a rejtett cellák szerepeljenek‑e: `true` kizárja őket, míg `false` felveszi. Ez a példa `false`‑t használ, hogy minden cellát belevegye a névtartományba.
 
-Az alábbi példa egy prezentációt hoz létre egy sorral és két adatponttal. A B1:C1 tartomány csak a sor nevét adja, az A2:A3 a kategóriacímkéket, a B2:B3 pedig a numerikus értékeket.
+Az alábbi példa egy prezentációt hoz létre egy sorozattal és két adatponttal. A B1:C1 cellák csak a sorozat nevét adják, az A2:A3 a kategória címkéket, a B2:B3 pedig a numerikus értékeket.
 
 ```javascript
 const aspose = {};
@@ -236,13 +238,13 @@ try {
     const workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Ez a két cella szolgáltatja a sor nevét.
+    // Ez a két cella biztosítja a sorozat nevét.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     const nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     const series = chart.getChartData().getSeries().add(nameCells, aspose.slides.ChartType.ClusteredColumn);
 
-    // Külön cellák szolgáltatják a kategóriákat és a numerikus adatpontokat.
+    // Különálló cellák biztosítják a kategóriákat és a numerikus adatpontokat.
     const northCategory = workbook.getCell(0, 1, 0, "North");
     const southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -258,15 +260,15 @@ try {
 }
 ```
 
-Az eredményül kapott sor neve `Product A 2026`, a két cellaérték között szóközzel. A jelmagyarázat egy bejegyzésként jeleníti meg azt mindkét oszlop esetén. Az alábbi kép szemlélteti az eredményt:
+Az eredményül kapott sorozatnév `Product A 2026`, a két cellaérték között szóközzel. A jelmagyarázat ezt egy bejegyzésként jeleníti meg mindkét oszlophoz. Az alábbi kép szemlélteti az eredményt:
 
-![Oszlopdiagram északi‑déli értékekkel, összetett sorneve `Product A 2026` a jelmagyarázatban](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Automatikus sor kitöltőszín lekérése**
+## **Az automatikus sorozat‑kitöltőszín lekérése**
 
-A [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) visszaadja a sor indexe és a diagram stílusa alapján számított színt. Ez a szín használatos, amikor a sor kitöltése nincs explicit módon definiálva. A metódus csak a számított színt olvassa; nem állít be új kitöltést.
+A [ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) visszaadja a sorozat indexéből és a diagram stílusából kalkulált színt. Ez a szín használatos, ha a sorozat kitöltése nincs kifejezetten meghatározva. A metódus a számított színt olvassa, nem rendel új kitöltést.
 
-Az alábbi példa kiírja minden alapértelmezett sor automatikus színét:
+Az alábbi példa kiírja az egyes alapértelmezett sorozatok automatikus színét:
 
 ```javascript
 const aspose = {};
@@ -292,7 +294,7 @@ try {
 }
 ```
 
-A példakimenet az alapértelmezett diagram stílushoz:
+Példa kimenet az alapértelmezett diagramstílusra:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -300,13 +302,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-A pontos színek a diagram stílusától és témájától függenek.
+A pontos színek a diagramstílustól és témától függenek.
 
-## **Inverz kitöltőszín beállítása diagram sorhoz**
+## **Inverz kitöltőszín beállítása diagram sorozathoz**
 
-Osztott, oszlop és buborék sorok esetén a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) használatával megjeleníthető a negatív érték másik kitöltéssel. Állítsa be a szabályos sor kitöltését szilárdra, engedélyezze az invertálást, és a negatív érték színét a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) adja vissza. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük módosul.
+Oszlop, sáv és buborék sorozatok esetén a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) negatív értékek megjelenítésére használható más színnel. Állítsa be a szabályos sorozatkitöltést szilárdra, engedélyezze a invertálást, és adja meg a negatív érték színét a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/)‑nel. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük változik.
 
-Az alábbi példa az alapértelmezett diagram adatot egyetlen sorra cseréli. A munkalap 0‑sora a sor nevét tartalmazza, az 0‑oszlop a kategória neveket, az 1‑es oszlop pedig az értékeket:
+Az alábbi példa egy sorozattal helyettesíti az alapértelmezett diagram adatot. A munkalap 0‑s sora a sorozatnevet, a 0‑s oszlop a kategória neveket, az 1‑s oszlop pedig az értékeket tartalmazza:
 
 ```javascript
 const aspose = {};
@@ -366,9 +368,9 @@ try {
 
 Az eredmény:
 
-![Az invertált szilárd kitöltőszín](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Egy pont invertálását a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/) segítségével is engedélyezheti. Az alábbi példában a sor invertálása le van tiltva, csak a kiválasztott pontnál van engedélyezve, amelynek negatív értéke is van, hogy a hatás látható legyen:
+Egy pont invertálását a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/)‑val is engedélyezheti. Az alábbi példában a sorozatra le van tiltva az invertálás, csak a kiválasztott pontnál van engedélyezve, amelyhez negatív értéket is rendel, hogy a hatás látható legyen:
 
 ```javascript
 const aspose = {};
@@ -405,11 +407,11 @@ try {
 }
 ```
 
-## **Adott adatpont értékének törlése**
+## **Egy adott adatpont értékének törlése**
 
-Egy pont üresként való beállításához a többi pont eltávolítása nélkül, állítsa a mögöttes munkafüzet‑cellát `null`‑ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) metódussal érhető el. Az adatpont ugyanabban a kategóriapozícióban marad, de a diagram a értékét üresnek tekinti a diagram üres‑érték beállításaitól függően.
+Egy pont üresre állításához anélkül, hogy a többi pontot eltávolítaná, állítsa a háttércellát `null`‑ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/)‑on keresztül érhető el. Az adatpont ugyanazon kategória pozícióban marad, de a diagram a beállításoknak megfelelően üresnek tekinti az értéket.
 
-Az alábbi példa csak a második pontot törli az első sorban:
+Az alábbi példa csak a második pontot törli az első sorozatban:
 
 ```javascript
 const aspose = {};
@@ -435,17 +437,17 @@ try {
 }
 ```
 
-A szórt diagramok külön X és Y cellákat használnak, a buborék diagramok pedig egy méretcellát is. Csak azt a cellát törölje, amelyik az eltávolítandó értéket tartalmazza. Ne hívja a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) metódust, ha a másik pontokat meg akarja tartani, mert ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
+Szórt diagramok X és Y cellákat külön használnak, a buborék diagramok méretcellát is. Csak a törlendő értéket tartalmazó cellát törölje. Ne hívja a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/)‑t, ha a többi pontot megtartani kívánja, mivel ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
 
 ## **Üres cellák megjelenítésének vezérlése**
 
-A rejtett, de értékkel rendelkező cellák esetét különbözőként kell kezelni az üres celláktól. A rejtett munkalap‑sorok és –oszlopok adatait a [Include Data from Hidden Rows and Columns](/slides/hu/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns) szakaszban tekintheti meg.
+A rejtett, értéket tartalmazó cellák külön esetet jelentenek az üres celláktól. A rejtett munkalap‑sorok és -oszlopok adatainak fel‑ vagy le‑vonásához lásd a [Include Data from Hidden Rows and Columns](/slides/hu/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns) oldalt.
 
-Egy üres munkafüzet‑cellát a hiányzó adat jelölésére használunk; a `0` értékű cella egy ismert numerikus értéket jelent. Hívja a [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) metódust `null`‑val, hogy a cellát üresre állítsa. Egy numerikus nulla továbbra is nulla marad, függetlenül az üres‑cellá beállítástól.
+Egy üres munkafüzet‑cellát a [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/)‑val `null`‑ra állítva jelölhetünk üresnek. A numerikus nulla továbbra is nulla marad, függetlenül az üres‑cellá beállítástól.
 
-Használja a [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) metódust, hogy kiválassza, a diagram hogyan jelenítse meg az üres cellákat. Ez a beállítás a teljes diagramra vonatkozik, és módosítja az üres értékek ábrázolását anélkül, hogy a munkafüzet‑cellát nullával vagy interpolált értékkel töltené fel.
+A [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/)‑t használva választhatja ki, hogyan jelenítse meg a diagram az üres cellákat. Ez a beállítás az egész diagramra vonatkozik. Megváltoztatja az üres értékek ábrázolását, anélkül, hogy a munkafüzet‑cellát nullával vagy interpolált értékkel töltené fel.
 
-Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorral, törli a 3. nap értékét, majd minden módot külön fájlba menti. Bemeneti fájlra nincs szükség. A [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) a 0‑sor, 0‑oszlop kategóriacímkéket, 1‑es oszlop értékeket használ; a 0‑sor tartalmazza a sor nevét. A végső adatsor: `10, 20, empty, 30, 40`.
+Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorozattal, törli a 3. nap értékét, és minden mód esetén elmenti ugyanazt a diagramot. Bemeneti fájlra nincs szükség. A [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) a 0‑s munkalapot, 0‑s oszlopot használja a kategória címkékhez, az 1‑s oszlopot az értékekhez; a 0‑s sor a sorozat nevét tartalmazza. A végső adatsor: `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -473,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Hagyja a 3. napot valóban üresen, miközben megtartja a kategóriát és az adatpontot.
+    // A 3. napot valóban üresen hagyja, miközben megtartja a kategóriáját és adatpontját.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -487,19 +489,19 @@ try {
 }
 ```
 
-Minden kimeneti fájl a mentés előtt beállított módot tárolja: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót szeretne menteni, állítsa be a kívánt módot, és mentse el a prezentációt egyszer a módok iterálása helyett.
+Minden kimeneti fájl a mentés előtt beállított módot tárolja: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót szeretne menteni, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok iterálása helyett.
 
-Az alábbi összehasonlítás ugyanazt az adatot mutatja mindhárom fájlban. A 3. nap minden esetben üres a munkafüzetben:
+Az összehasonlítás alább ugyanazt az adatot mutatja mindhárom fájlban. A 3. nap minden esetben üres a munkafüzetben:
 
-![Vonaldiagramok azonos adatokkal: Gap a vonalat szakad a 3. napon, Zero a vonalat nullára húzza, és Span összeköti a 2. és 4. napot.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-A látható hatás a diagram típusától függ. Egy vonaldiagram esetén a három mód könnyen összehasonlítható. Oszlop- és sávdiagramok esetén nincs vonal a hiányzó kategória áthidalásához, így a `Span` nem hoz létre összekötő szegmenst; egy hiányzó oszlop és egy nulla‑magasságú oszlop hasonlóan nézhet ki. Hasonlóképpen a szórt diagram csak jelölőkkel nincs összekötő vonala. Ne várjon három különböző eredményt minden diagramtípusnál; ellenőrizze a kimenetet a használt típushoz.
+A látható hatás a diagram típustól függ. A vonaldiagram minden három módot könnyen összehasonlíthatóvá teszi. Oszlop‑ és sávdiagramoknak nincs vonala, amely összekötné a hiányzó kategóriát, ezért a `Span` nem hozhat létre csatlakozó szegmenst; egy hiányzó oszlop és egy nulla‑magasságú oszlop is hasonlóan nézhet ki. Hasonlóképpen, a csupán jelölőkkel rendelkező szórt diagramnak nincs összekötő vonala. Ne várjon három különböző eredményt minden diagramtípusnál; ellenőrizze a kimenetet a használt típusnál.
 
-## **Sor hézag szélességének beállítása**
+## **A sorozat hézag‑szélességének beállítása**
 
-A hézag szélessége a szomszédos sáv‑ vagy oszlopcsoportok közötti távolság, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez is a szülő sorcsoport szintjén van, nem egyetlen sorban. Hívja egyszer a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) metódust a csoporton. A nagyobb érték nagyobb részt hoz létre a csoportok között; a kisebb érték sűrűbb elrendezést eredményez.
+A hézag‑szélesség a szomszédos oszlop‑ vagy sáv‑klaszterek közti távolság, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Hívja meg egyszer a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/)‑t a csoporton. Egy nagyobb érték több helyet hoz létre a klaszterek között; egy kisebb érték sűrűbbé teszi őket.
 
-Az alábbi példa módosítja a hézag szélességét, és csak a végső prezentációt menti:
+Az alábbi példa módosítja a hézag‑szélességet, és csak a végleges prezentációt menti:
 
 ```javascript
 const aspose = {};
@@ -526,46 +528,82 @@ try {
 
 Az eredmény:
 
-![A hézag szélessége](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Sorozatvonalak megjelenítése vagy elrejtése**
+
+A sorozatvonalak vizuálisan összekötik a diagram kapcsolódó részeit. A [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/)‑t használja a támogatott halmozott sáv‑ és OfPie diagramoknál, hogy megjelenítse vagy elrejtse őket. Két dimenziós halmozott sáv‑ és oszlopdiagramokban a sorozatvonalak a megfelelő réteg‑határokat kötik össze a kategóriák között. Pie of Pie és Bar of Pie diagramok esetén a fő ábrát kötik a másodlagos ábrához. Ez a beállítás nem általános csatlakozó más diagramtípusokhoz.
+
+A csoporthoz a [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/)‑on keresztül férhet hozzá. A beállítás minden sorozatra vonatkozik a csoportban. A [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) csak‑olvasás, és a szülő csoport beállítását tükrözi; a csoport setter‑ével frissítheti.
+
+Az alábbi példa egy [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) diagramot hoz létre alapértelmezett adatokkal. A diagramot egyszer sorozatvonalakkal menti, majd egyszer nélkül, két prezentációt hozva létre összehasonlításra.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Sorozatvonalak engedélyezve | Sorozatvonalak letiltva |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| A két vonal összeköti a fő tortát a másodlagos tortával. | Mindkét torta látható marad, de a kapcsoló vonalak rejtve vannak. |
+
+A sorozatvonalak különböznek az adatcímke‑vezetővonalaktól, amelyek a címkéket a pontokhoz kötik; a demenciatól, amelyek a diagram tengelyeit jelölik; és a vonaldiagram vonalai, amelyek az adatértékeket ábrázolják. Ez a beállítás nem szabályozza ezeket az elemeket.
 
 ## **GYIK**
 
-**Mely diagramtípusok támogatják a sorokat?**
+**Mely diagramtípusok támogatják az adat‑sorozatot?**
 
-Az összes, a [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) felsorolásban szereplő diagramtípus használ diagram adatot, de sorai nem mindegyik esetben rendelkeznek azonos értékszerkezettel vagy beállításokkal. Például a kategóriadiagramok kategóriákat és értékeket, a szórt diagramok X és Y értékeket, a buborék diagramok pedig buborékméreteket használnak. Használja a sor típusának megfelelő adatpont‑létrehozó metódust. Az átfedés és hézag szélesség beállítások csak kompatibilis sáv‑ vagy oszlopsorok esetén alkalmazhatók.
+Az összes, a [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) felsorolásban szereplő diagramtípus használ diagram adatot, de sorozataik nem mindegyikében ugyanaz a érték‑szerkezet vagy beállítások. Például a kategória‑diagramok kategóriákat és értékeket használnak, a szórt diagramok X és Y értékeket, a buborék diagramok pedig buborékméreteket adnak hozzá. Az adott sorozattípusnak megfelelő adat‑pont létrehozó metódust használja. Az olyan beállítások, mint az átfedés és a hézag‑szélesség, csak kompatibilis sáv‑ vagy oszlopcsoportokra vonatkoznak.
 
-**Mi az a diagram sorcsoport?**
+**Mi az a diagram‑sorozat‑csoport?**
 
-A [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) olyan kompatibilis sorokat tartalmaz, amelyek közös csoportszintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több csoportot is tartalmazhat, ezért egy soron keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram minden sorát.
+A [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek csoport‑szintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több csoportot is tartalmazhat, így egy sorozaton keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram minden sorozatát.
 
-**Tartalmaz-e egy újonnan létrehozott diagram alapértelmezett adatot?**
+**Tartalmazza egy újonnan létrehozott diagram az alapértelmezett adatot?**
 
-Igen. Alapértelmezés szerint a [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) mintasorokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy törölheti a sor‑ és kategóriagyűjteményeket, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy overload akár alapértelmezett adat nélkül is létrehozhat diagramot.
+Igen. Alapértelmezés szerint a [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) mintasorozatot, kategóriát és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy a sorozat‑ és kategóriagyűjteményeket kiürítheti, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy túlterhelés segítségével diagramot hozhat létre alapértelmezett adat nélkül is.
 
-**Hogyan kapcsolódnak a diagram objektumok a munkafüzet celláihoz?**
+**Hogyan kapcsolódnak a diagram‑objektumok a munkafüzet‑cellákhoz?**
 
-A sornevek, kategóriacímkék és adatpont‑értékek a [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagram elemet. Egyedi adat felépítésekor tartsa a kategória‑sorokat és a sor‑érték sorokat igazítva, hogy minden pont a megfelelő kategória alá legyen ábrázolva.
+A sorozatnevek, kategóriacímkék és adat‑pont értékek a [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagramelemet. Egyedi adat felépítésekor ügyeljen arra, hogy a kategória‑sorok és a sorozat‑érték‑sorok össze legyenek hangolva, így minden pont a megfelelő kategóriához kerül.
 
-**Hogyan töröljek egy pontot a teljes sor helyett?**
+**Hogyan tudok egy pontot törölni a teljes sorozat helyett?**
 
-Állítsa az érintett értékcellát `null`‑ra, hogy a pont kategóriahelyzetét üres pontként megtartsa. A [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/)‑t csak akkor használja, ha minden pontot el akar távolítani az adott sorból. Ha a kategóriákat is eltávolítja, frissítse minden sort, hogy az értékek továbbra is a kategóriagyűjteménnyel igazodjanak.
+Állítsa a vonatkozó értékcellát `null`‑ra, hogy a pont kategória‑pozíciója üres pontként maradjon. A [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/)‑t csak akkor használja, ha minden pontot el kíván távolítani a sorozatból, mert ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
 
 **Hogyan jelennek meg az üres pontok?**
 
-Az eredmény a diagram típusától és a [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) beállítástól függ. A támogatott diagramok megjeleníthetik az üreseként maradt részleteket hézagként, nullaként, vagy a szomszédos pontok összekötésével. Válassza azt a beállítást, amely a hiányzó adatok jelentésének leginkább megfelel a prezentációjában. Tekintse meg a [Control the Display of Empty Cells](#control-the-display-of-empty-cells) szakaszt a teljes példáért és a vizuális összehasonlításért.
+Az eredmény a diagramtípustól és a [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/)‑nál beállított értéktől függ. A támogatott diagramok megjeleníthetik az üresek közti hézagot, nulla értékeket vagy a szomszédos pontok összekapcsolását. Válassza ki a hiányzó adatok jelentésének megfelelő beállítást a prezentációban. A teljes példa és vizuális összehasonlítás a [Control the Display of Empty Cells](#control-the-display-of-empty-cells) részben található.
 
-**Hogyan formázott a negatív érték?**
+**Hogyan formázzák a negatív értékeket?**
 
-A támogatott sáv‑, oszlop‑ és buborék sorok esetén hívja a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) metódust, és állítsa be a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) által visszaadott színt. Egy egyedi pont viselkedését a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/) metódussal írhatja felül. Ezek a módszerek a formázást érintik, nem a tárolt numerikus értékeket.
+A támogatott sáv‑, oszlop‑ és buborék‑sorozatok esetén hívja a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/)‑t, és állítsa be a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) által visszaadott színt. Egy egyedi pont esetén a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/)‑val felülbírálhatja a viselkedést. Ezek a metódusok a formázást, nem a tárolt numerikus értékeket érintik.
 
-**Melyik formázás nyer, ha egy sor és egy pont is formázva van?**
+**Melyik formázás nyer, ha egy sorozat és egy pont is formázva van?**
 
-Az explicit adatpont‑formázás felülbírálja a sor formázását az adott pontnál. A többi pont továbbra is a sor explicit formázását vagy, ha az nincs definiálva, az automatikus diagram stílust és témát használja. A csoportszintű beállítások, mint az átfedés és hézag szélesség, a elrendezést szabályozzák, és nem pontszintű formázási felülírások.
+A kifejezett adat‑pont formázás felülírja a sorozat formázását az adott pontnál. A többi pont továbbra is a sorozat explicite definiált formázását vagy, ha az nincs definiálva, a automatikus diagram‑stílust és témát használja. A csoport‑beállítások, mint az átfedés és a hézag‑szélesség, a layout‑ot szabályozzák, és nem pont‑szintű formázás felülírásai.
 
-**Van korlátozás a diagramon szereplő sorok számában?**
+**Van korlátozás a diagramban lévő sorozatok számára?**
 
-Az Aspose.Slides nem határoz meg külön fix sor‑számkorlátot. Gyakorlatban a prezentáció fájlmérete, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos felső határt.
+Az Aspose.Slides nem határoz meg különálló, fix sorozatszám‑korlátot. Gyakorlatban a prezentációfájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos határt.
 
-**Mit kell módosítani, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
+**Mit kell változtatni, ha az oszlopok túl közel vagy túl messze vannak egymástól?**
 
-Hívja a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) metódust a megfelelő szülő sorcsoporton. Növelje az értéket a klaszterek közti távolság növeléséhez, vagy csökkentse a csoportok közelebb hozatalához.
+Hívja meg a [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/)‑t a megfelelő szülő sorozatcsoporton. Növelje az értéket a klaszterek közti távolság szélesítéséhez, vagy csökkentse, hogy a klaszterek közelebb kerüljenek egymáshoz.

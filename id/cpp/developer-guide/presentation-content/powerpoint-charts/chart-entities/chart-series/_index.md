@@ -1,10 +1,10 @@
 ---
-title: Kelola Seri Data Diagram dalam Presentasi dengan C++
+title: Mengelola Seri Data Chart dalam Presentasi dengan C++
 linktitle: Seri Data
 type: docs
 url: /id/cpp/chart-series/
 keywords:
-- seri diagram
+- seri chart
 - tumpang tindih seri
 - warna seri
 - warna kategori
@@ -15,31 +15,33 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara mengelola seri diagram, titik data, sel workbook, pemformatan, tumpang tindih, lebar celah, dan nilai negatif dalam presentasi dengan C++."
+description: "Pelajari cara mengelola seri chart, titik data, sel workbook, pemformatan, tumpang tindih, lebar celah, dan nilai negatif dalam presentasi dengan C++."
 ---
 ## **Gambaran Umum**
 
-Sebuah diagram dapat menyimpan nilai yang dipetakan di sel workbook atau langsung sebagai literal numerik. Sebuah [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) mewakili satu set nilai yang terkait, dan setiap [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) mewakili sebuah titik dalam seri tersebut. [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) menyediakan label atau nilai pengelompokan yang dibagikan oleh seri. Pada diagram yang dibuat dengan data default, nama seri, kategori, dan nilai titik menggunakan objek [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) dari workbook diagram.
+Sebuah chart dapat menyimpan nilai yang dipetakan di sel workbook atau langsung sebagai literal numerik. Sebuah [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) mewakili satu set nilai terkait, dan setiap [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) mewakili sebuah titik dalam seri tersebut. Objek [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) menyediakan label atau nilai pengelompokan yang dibagikan oleh seri. Pada chart yang dibuat dengan data default, nama seri, kategori, dan nilai titik menggunakan objek [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) dari workbook chart.
 
-Untuk diagram kategori tipikal, workbook default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel-sel sisanya untuk nilai seri. Indeks worksheet, baris, dan kolom yang diteruskan ke [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) bersifat berbasis nol. Tata letak ini berguna ketika Anda membuat diagram dengan data default, tetapi jangan berasumsi bahwa setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel-sel yang direferensikan oleh seri, kategori, dan titik data sebelum mengubah nilai workbook.
+Untuk chart kategori tipikal, workbook default memakai baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel‑sel sisanya untuk nilai seri. Indeks worksheet, baris, dan kolom yang diteruskan ke [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) bersifat berbasis nol. Tata letak ini berguna saat Anda membuat chart dengan data default, tetapi jangan mengasumsikan bahwa setiap chart yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel‑sel yang direferensikan oleh seri, kategori, dan data point sebelum mengubah nilai workbook.
 
-Pengaturan diagram memiliki tiga ruang lingkup yang berbeda:
+Pengaturan chart memiliki tiga lingkup berbeda:
 
-- Pengaturan tingkat seri, seperti [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), menyediakan tampilan default untuk semua titik dalam satu seri.
-- Pengaturan titik data, seperti [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), menggantikan tampilan seri untuk satu titik.
-- Pengaturan grup berlaku untuk seri yang kompatibel yang termasuk dalam [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Akses grup melalui [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) ketika Anda perlu mengatur opsi seperti overlap atau lebar celah.
+- Pengaturan pada tingkat seri, seperti [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), menyediakan tampilan default untuk semua titik dalam satu seri.
+- Pengaturan pada tingkat data‑point, seperti [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), menimpa tampilan seri untuk satu titik.
+- Pengaturan grup berlaku untuk seri‑seri yang kompatibel yang berada dalam satu [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Akses grup melalui [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) ketika Anda perlu mengatur opsi seperti overlap atau lebar celah.
 
-Ketika tidak ada isian titik atau seri yang eksplisit, gaya diagram dan tema menentukan tampilan otomatis. Ketika format seri dan titik keduanya ada, format titik memiliki prioritas untuk titik tersebut.
+Ketika tidak ada pengisian (fill) point atau seri yang eksplisit, style dan tema chart menentukan tampilan otomatis. Ketika ada format seri dan point, format point memiliki prioritas untuk point tersebut.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Atur Nilai Seri Menggunakan Literal Numerik**
+Untuk chart silinder berkelompok, lihat bagaimana [changing the 3D series type or bar shape](/slides/id/cpp/3d-chart/#change-the-3d-series-type-and-bar-shape) memengaruhi seri pertama.
 
-Gunakan literal numerik ketika nilai seri berasal dari data aplikasi atau perhitungan dan tidak memerlukan referensi sel worksheet. Panggil [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) dengan [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) sebelum menetapkan nilai yang dikembalikan oleh [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) tiap titik melalui [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/).
+## **Menetapkan Nilai Seri Menggunakan Literal Numerik**
 
-Pengaturan koleksi mengontrol tipe sumber semua nilai titik dalam seri tersebut. Setiap titik [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) melaporkan tipe yang dipilih; ubah melalui pengaturan koleksi. Dengan `Worksheet`, gunakan [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) untuk mengakses sel yang direferensikan. Dengan `DoubleLiterals`, gunakan [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) atau `set_AsLiteralDouble` untuk membaca atau menulis angka secara langsung.
+Gunakan literal numerik ketika nilai seri berasal dari data atau perhitungan aplikasi dan tidak memerlukan referensi sel worksheet. Panggil [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) dengan [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) sebelum menetapkan nilai yang dikembalikan oleh setiap [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) titik melalui [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/).
 
-Contoh berikut membuat diagram kolom dengan seri dan kategori default, kemudian menetapkan nilai yang dihitung 10, 20, dan seterusnya ke titik yang ada pada seri pertamanya. Ia menyimpan presentasi, membukanya kembali, dan mencetak nilai yang disimpan.
+Pengaturan koleksi mengontrol tipe sumber semua nilai point dalam seri tersebut. [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) pada setiap point melaporkan tipe yang dipilih; ubah melalui pengaturan koleksi. Dengan `Worksheet`, gunakan [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) untuk mengakses sel yang direferensikan. Dengan `DoubleLiterals`, gunakan [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) atau `set_AsLiteralDouble` untuk membaca atau menulis angka secara langsung.
+
+Contoh berikut membuat chart kolom dengan seri dan kategori default, lalu menetapkan nilai yang dihitung 10, 20, dan seterusnya ke titik‑titik yang ada pada seri pertama. Ia menyimpan presentasi, membuka kembali, dan mencetak nilai yang disimpan.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -91,15 +93,15 @@ for (auto i = 0; i < reopenedSeries->get_DataPoints()->get_Count(); i++)
 reopenedPresentation->Dispose();
 ```
 
-Tipe sumber nilai titik terpisah dari [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/), yang mengidentifikasi konfigurasi workbook internal atau eksternal diagram. Menggunakan literal numerik tidak, dengan sendirinya, menghapus workbook yang disematkan. Dalam contoh ini, workbook tetap tersedia untuk label kategori, nama seri, dan seri lainnya. Lihat [Chart Workbook](/slides/id/cpp/chart-workbook/) untuk manajemen workbook.
+Tipe sumber nilai point terpisah dari [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/), yang mengidentifikasi konfigurasi workbook internal atau eksternal chart. Menggunakan literal numerik tidak secara otomatis menghapus workbook yang tertanam. Pada contoh ini, workbook tetap tersedia untuk label kategori, nama seri, dan seri‑seri lainnya. Lihat [Chart Workbook](/slides/id/cpp/chart-workbook/) untuk manajemen workbook.
 
-Untuk diagram scatter dan bubble, panggil [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) dan [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) untuk memilih sumber bagi [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) dan [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Diagram bubble juga menggunakan [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) untuk [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). Tetapkan setiap sumber yang relevan ke `DoubleLiterals` sebelum menetapkan angka melalui metode `set_AsLiteralDouble` nilai tersebut.
+Untuk chart scatter dan bubble, panggil [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) dan [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) untuk memilih sumber bagi [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) dan [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Chart bubble juga menggunakan [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) untuk [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). Tetapkan setiap sumber yang berlaku ke `DoubleLiterals` sebelum menetapkan angka melalui metode `set_AsLiteralDouble` nilai tersebut.
 
-## **Atur Overlap Seri Diagram**
+## **Menetapkan Overlap Seri Chart**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) melaporkan seberapa banyak batang atau kolom tumpang tindih dalam diagram 2D, dari -100 hingga 100 persen. Ini adalah proyeksi baca-saja dari pengaturan pada grup seri induk. Panggil [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom berkelompok; tidak memengaruhi grup seri yang tidak terkait dalam diagram kombinasi.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) melaporkan berapa persen bar atau kolom tumpang tindih pada chart 2D, dari -100 hingga 100 persen. Ini merupakan proyeksi baca‑saja dari pengaturan pada grup seri induk. Panggil [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe chart yang menampilkan bar atau kolom berkelompok; tidak memengaruhi grup seri yang tidak terkait dalam chart kombinasi.
 
-Contoh berikut mengatur overlap untuk grup yang berisi seri pertama:
+Contoh berikut menetapkan overlap untuk grup yang berisi seri pertama:
 
 ```cpp
 #include <cstdint>
@@ -126,7 +128,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Diagram baru berisi contoh seri, kategori, dan nilai.
+// Grafik baru berisi contoh seri, kategori, dan nilai.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -137,15 +139,15 @@ presentation->Save(u"series_overlap.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Hasil:
+Hasilnya:
 
 ![The series overlap](series_overlap.png)
 
-## **Ubah Warna Isian Seri**
+## **Mengubah Warna Isi Seri**
 
-Gunakan [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) untuk mengatur isian default untuk seluruh seri. Jika sebuah titik sudah memiliki isian eksplisit, pengaturan [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) akan menggantikan isian seri untuk titik tersebut.
+Gunakan [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) untuk menetapkan isi default bagi seluruh seri. Jika sebuah point sudah memiliki isi eksplisit, pengaturan [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) akan menimpa isi seri untuk point tersebut.
 
-Contoh berikut menerapkan isian biru padat pada seri pertama:
+Contoh berikut menerapkan isi biru padat pada seri pertama:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -188,13 +190,13 @@ presentation->Save(u"series_color.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Hasil:
+Hasilnya:
 
 ![The color of the series](series_color.png)
 
-## **Ubah Nama Seri**
+## **Mengubah Nama Seri**
 
-Nama seri disimpan di workbook data diagram dan biasanya ditampilkan di legenda. Di workbook default yang dibuat untuk diagram kolom terkelompok, sel B1 berada pada baris 0, kolom 1 dan berisi nama seri pertama. Konstanta bernama dalam contoh berikut membuat struktur tersebut eksplisit:
+Nama seri disimpan di workbook data chart dan biasanya ditampilkan di legend. Pada workbook default yang dibuat untuk chart kolom berkelompok, sel B1 berada pada baris 0, kolom 1 dan berisi nama seri pertama. Konstanta bernama dalam contoh berikut membuat struktur itu eksplisit:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -235,7 +237,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Anda juga dapat memperbarui sel yang sudah direferensikan oleh [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang ada:
+Anda juga dapat memperbarui sel yang sudah direferensikan oleh [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Pendekatan ini menghindari asumsi baris dan kolom tertentu pada chart yang ada:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -280,15 +282,17 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Hasil:
+Hasilnya:
 
 ![The series name](series_name.png)
 
-### **Buat Seri dengan Nama dari Beberapa Sel**
+### **Membuat Seri dengan Nama dari Beberapa Sel**
 
-Nama seri komposit berguna ketika nama produk dan periode pelaporan disimpan di sel workbook yang terpisah. Sebagai contoh, Anda dapat menggabungkan `Product A` di B1 dan `2026` di C1 menjadi satu nama seri sambil menjaga kedua bagian tetap terhubung ke sel sumbernya. Gunakan [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) untuk mengambil rentang nama, kemudian berikan koleksi tersebut ke [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Argumen `skipHiddenCells` mengontrol apakah sel tersembunyi disertakan: `true` mengecualikannya, sementara `false` menyertakannya. Contoh ini menggunakan `false` untuk menyertakan setiap sel dalam rentang nama.
+Nama seri komposit berguna ketika nama produk dan periode pelaporan disimpan di sel workbook terpisah. Misalnya, Anda dapat menggabungkan `Product A` di B1 dan `2026` di C1 menjadi satu nama seri sambil tetap mempertahankan kedua bagian terhubung ke sel sumbernya.
 
-Contoh berikut membuat presentasi dengan satu seri dan dua titik data. Sel B1:C1 hanya menyediakan nama seri; A2:A3 menyediakan label kategori, dan B2:B3 menyediakan nilai numerik.
+Gunakan [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) untuk mengambil rentang nama, lalu berikan koleksi tersebut ke [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Argumen `skipHiddenCells` mengendalikan apakah sel tersembunyi disertakan: `true` mengecualikannya, sementara `false` menyertakannya. Contoh ini menggunakan `false` untuk menyertakan setiap sel dalam rentang nama.
+
+Contoh berikut membuat presentasi dengan satu seri dan dua data‑point. Sel B1:C1 hanya menyediakan nama seri; A2:A3 menyediakan label kategori, dan B2:B3 menyediakan nilai numerik.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -328,7 +332,7 @@ chart->set_HasLegend(true);
 auto workbook = chartData->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// Dua sel ini menyediakan nama seri.
+// Kedua sel ini menyediakan nama seri.
 auto productName = ObjectExt::Box<String>(u"Product A");
 auto reportingPeriod = ObjectExt::Box<String>(u"2026");
 workbook->GetCell(0, 0, 1, productName);
@@ -354,15 +358,15 @@ presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nama seri yang dihasilkan adalah `Product A 2026`, dengan spasi antara dua nilai sel. Legenda menampilkan ini sebagai satu entri untuk kedua kolom. Gambar di bawah mengilustrasikan hasilnya:
+Nama seri yang dihasilkan adalah `Product A 2026`, dengan spasi di antara dua nilai sel. Legend menampilkan ini sebagai satu entri untuk kedua kolom. Gambar di bawah mengilustrasikan hasilnya:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Dapatkan Warna Isian Seri Otomatis**
+## **Mendapatkan Warna Isi Seri Otomatis**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isian seri tidak didefinisikan secara eksplisit. Memanggil metode ini membaca warna yang dihitung; tidak menetapkan isian baru.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) mengembalikan warna yang dihitung dari indeks seri dan style chart. Ini adalah warna yang digunakan ketika isi seri tidak didefinisikan secara eksplisit. Memanggil metode ini hanya membaca warna yang dihitung; tidak menetapkan isi baru.
 
-Contoh berikut mencetak warna otomatis masing-masing seri default:
+Contoh berikut mencetak warna otomatis setiap seri default:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -404,7 +408,7 @@ for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 presentation->Dispose();
 ```
 
-Contoh output untuk gaya diagram default:
+Output contoh untuk style chart default:
 
 ```text
 Series 0: ff4f81bd
@@ -412,13 +416,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Warna sebenarnya tergantung pada gaya diagram dan tema.
+Warna tepatnya bergantung pada style dan tema chart.
 
-## **Atur Warna Isian Terbalik untuk Seri Diagram**
+## **Menetapkan Warna Isi Terbalik untuk Seri Chart**
 
-Untuk seri bar, kolom, dan bubble, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) dapat menampilkan nilai negatif dengan isian yang berbeda. Atur isian seri reguler menjadi padat, aktifkan inversi, dan tetapkan warna nilai negatif melalui [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Angka negatif tetap tidak berubah di workbook; hanya warna tampilannya yang berubah.
+Untuk seri bar, kolom, dan bubble, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) dapat menampilkan nilai negatif dengan isi yang berbeda. Tetapkan isi seri reguler ke padat, aktifkan inversi, dan tetapkan warna nilai negatif melalui [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Angka negatif tetap tidak berubah di workbook; hanya warna tampilan yang berubah.
 
-Contoh berikut menggantikan data diagram default dengan satu seri. Baris worksheet 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
+Contoh berikut mengganti data chart default dengan satu seri. Baris worksheet 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -504,11 +508,11 @@ presentation->Save(u"inverted_solid_fill_color.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Hasil:
+Hasilnya:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Anda dapat mengaktifkan inversi untuk satu titik melalui [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Dalam contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk titik yang dipilih. Titik tersebut juga diberikan nilai negatif agar efeknya terlihat:
+Anda dapat mengaktifkan inversi untuk satu point melalui [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Pada contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk point yang dipilih. Point juga diberi nilai negatif sehingga efeknya terlihat:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -566,11 +570,11 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **Hapus Nilai Titik Data Tertentu**
+## **Menghapus Nilai Data Point Tertentu**
 
-Untuk membuat satu titik kosong tanpa menghapus titik lainnya, setel sel workbook yang menjadi dasarnya ke `nullptr`. Untuk diagram kolom, nilai yang dipetakan tersedia melalui [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Titik data tetap pada posisi kategori yang sama, tetapi diagram memperlakukan nilainya sebagai kosong sesuai pengaturan nilai kosong diagram.
+Untuk membuat satu point kosong tanpa menghapus point lain, setel sel workbook yang mendasarinya ke `nullptr`. Untuk chart kolom, nilai yang dipetakan tersedia melalui [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Data point tetap berada pada posisi kategori yang sama, tetapi chart memperlakukan nilainya sebagai kosong sesuai pengaturan chart untuk nilai kosong.
 
-Contoh berikut menghapus hanya titik kedua dalam seri pertama:
+Contoh berikut menghapus hanya point kedua pada seri pertama:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -609,13 +613,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Diagram scatter menggunakan sel X dan Y terpisah, dan diagram bubble juga menggunakan sel ukuran. Hapus hanya sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lainnya, karena metode itu menghapus semua titik data dari koleksi.
+Chart scatter menggunakan sel X dan Y terpisah, dan chart bubble juga menggunakan sel ukuran. Hapus hanya sel yang mewakili nilai yang ingin Anda hilangkan. Jangan panggil [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) ketika Anda ingin mempertahankan point lain, karena metode ini menghapus semua data point dari koleksi.
 
-## **Kendalikan Tampilan Sel Kosong**
+## **Mengontrol Tampilan Sel Kosong**
 
-Sel tersembunyi yang berisi nilai merupakan kasus terpisah dari sel kosong. Untuk menyertakan atau mengecualikan data dari baris dan kolom worksheet tersembunyi, lihat [Include Data from Hidden Rows and Columns](/slides/id/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns). Sel workbook kosong mewakili data yang hilang; sel yang berisi `0` mewakili nilai numerik yang diketahui. Panggil [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) dengan `nullptr` untuk membuat sel kosong. Angka nol tetap nol terlepas dari pengaturan sel kosong. Gunakan [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) untuk memilih bagaimana diagram menampilkan sel kosong. Pengaturan ini berlaku untuk seluruh diagram. Ini mengubah cara kosong dipetakan, tanpa mengisi sel workbook kosong dengan nol atau nilai interpolasi.
+Sel tersembunyi yang berisi nilai merupakan kasus terpisah dari sel kosong. Untuk menyertakan atau mengecualikan data dari baris dan kolom worksheet yang tersembunyi, lihat [Include Data from Hidden Rows and Columns](/slides/id/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Contoh mandiri berikut membuat diagram garis dengan satu seri, menghapus nilai untuk Hari 3, dan menyimpan diagram yang sama dengan setiap mode. Tidak diperlukan file masukan. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) menggunakan worksheet 0, kolom 0 untuk label kategori, dan kolom 1 untuk nilai; baris 0 menyimpan nama seri. Data akhir adalah `10, 20, empty, 30, 40`.
+Sel workbook kosong mewakili data yang hilang; sel yang berisi `0` mewakili nilai numerik yang diketahui. Panggil [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) dengan `nullptr` untuk membuat sel kosong. Angka nol tetap nol terlepas dari pengaturan sel kosong.
+
+Gunakan [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) untuk memilih bagaimana chart menampilkan sel kosong. Pengaturan ini berlaku untuk seluruh chart. Ia mengubah cara kekosongan dipetakan, tanpa mengisi sel workbook kosong dengan nol atau nilai interpolasi.
+
+Contoh mandiri berikut membuat chart garis dengan satu seri, mengosongkan nilai untuk Hari 3, dan menyimpan chart yang sama dengan setiap mode. Tidak diperlukan file input. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) menggunakan worksheet 0, kolom 0 untuk label kategori, dan kolom 1 untuk nilai; baris 0 memuat nama seri. Data akhir adalah `10, 20, empty, 30, 40`.
 
 ```cpp
 #include <array>
@@ -683,17 +691,17 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Setiap file output menyimpan mode yang ditetapkan sebelum menyimpan: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, dan `empty_cells_Span.pptx`. Untuk menyimpan hanya satu versi, tetapkan mode yang diinginkan dan simpan presentasi sekali saja alih-alih berulang pada setiap mode.
+Setiap file output menyimpan mode yang ditetapkan sebelum disimpan: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, dan `empty_cells_Span.pptx`. Untuk menyimpan hanya satu versi, tetapkan mode yang diinginkan dan simpan presentasi sekali saja, bukan mengulang‑ulang mode.
 
-Perbandingan di bawah menunjukkan data yang sama dalam tiga file. Hari 3 kosong di workbook dalam setiap kasus:
+Perbandingan di bawah menunjukkan data yang sama di ketiga file. Hari 3 kosong di workbook pada setiap kasus:
 
-![Diagram garis dengan data identik: Gap memutuskan garis pada Hari 3, Zero menurunkan garis ke nol, dan Span menghubungkan Hari 2 ke Hari 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Efek yang terlihat tergantung pada tipe diagram. Diagram garis memudahkan perbandingan ketiga mode. Diagram batang dan kolom tidak memiliki garis untuk menghubungkan kategori yang hilang, sehingga `Span` tidak dapat menghasilkan segmen penghubung yang ditunjukkan di atas; kolom yang hilang dan kolom dengan tinggi nol juga dapat tampak serupa. Demikian pula, diagram scatter dengan hanya penanda tidak memiliki garis penghubung. Jangan mengharapkan tiga hasil yang berbeda untuk setiap tipe diagram; periksa output untuk tipe yang Anda gunakan.
+Efek visual tergantung pada tipe chart. Chart garis memudahkan perbandingan ketiga mode. Chart bar dan kolom tidak memiliki garis untuk menghubungkan antar kategori yang hilang, sehingga `Span` tidak dapat menghasilkan segmen penghubung seperti di atas; kolom yang hilang dan kolom dengan tinggi nol juga dapat tampak serupa. Begitu pula chart scatter dengan hanya penanda tidak memiliki garis penghubung. Jangan mengharapkan tiga hasil berbeda untuk setiap tipe chart; periksa output untuk tipe yang Anda gunakan.
 
-## **Atur Lebar Celah Seri**
+## **Menetapkan Lebar Celah Seri**
 
-Lebar celah adalah ruang antara klaster batang atau kolom yang bersebelahan, dinyatakan sebagai persentase lebar batang atau kolom. Seperti overlap, ini milik grup seri induk bukan satu seri. Panggil [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) sekali untuk grup. Nilai yang lebih besar menciptakan lebih banyak ruang antar klaster; nilai yang lebih kecil membuatnya lebih padat.
+Lebar celah adalah ruang antara cluster bar atau kolom yang berdekatan, dinyatakan sebagai persentase lebar bar atau kolom. Seperti overlap, lebar ini milik grup seri induk, bukan satu seri. Panggil [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) sekali untuk grup. Nilai yang lebih besar menghasilkan lebih banyak ruang antara cluster; nilai yang lebih kecil membuatnya lebih padat.
 
 Contoh berikut mengubah lebar celah dan menyimpan hanya presentasi akhir:
 
@@ -732,38 +740,95 @@ presentation->Save(u"gap_width_30.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Hasil:
+Hasilnya:
 
 ![The gap width](gap_width.png)
 
+## **Menampilkan atau Menyembunyikan Garis Seri**
+
+Garis seri secara visual menghubungkan bagian‑bagian terkait pada chart. Gunakan [IChartSeriesGroup::set_HasSeriesLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_hasserieslines/) untuk menampilkan atau menyembunyikannya pada chart bar bertumpuk dan Pie of Pie yang didukung. Pada chart bar dan kolom bertumpuk dua dimensi, garis menghubungkan batas tumpukan yang bersesuaian antar kategori. Pada chart Pie of Pie dan Bar of Pie, garis menghubungkan plot utama dengan plot sekunder. Pengaturan ini bukan penghubung serbaguna untuk tipe chart lain.
+
+Akses grup melalui [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Pengaturan berlaku untuk setiap seri dalam grup tersebut. [IChartSeries::get_HasSeriesLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_hasserieslines/) hanya membaca nilai dan mencerminkan pengaturan grup induk; panggil setter grup untuk memperbaruinya.
+
+Contoh berikut membuat satu chart [ChartType::PieOfPie](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) dengan data default. Ia menyimpan chart yang sama dengan garis seri diaktifkan dan kemudian dinonaktifkan, menghasilkan dua presentasi untuk perbandingan.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::PieOfPie, 50, 50, 600, 400);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto seriesGroup = series->get_ParentSeriesGroup();
+
+seriesGroup->set_HasSeriesLines(true);
+presentation->Save(u"series_lines_enabled.pptx", SaveFormat::Pptx);
+
+seriesGroup->set_HasSeriesLines(false);
+presentation->Save(u"series_lines_disabled.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+| Garis seri diaktifkan | Garis seri dinonaktifkan |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| Kedua garis menghubungkan pai utama ke pai sekunder. | Kedua pai tetap terlihat, tetapi garis penghubung disembunyikan. |
+
+Garis seri berbeda dari leader line label data, yang menghubungkan label ke data‑point; gridline, yang menandai interval sepanjang sumbu chart; dan garis pada chart garis, yang merepresentasikan nilai data. Pengaturan ini tidak mengontrol elemen‑elemen tersebut.
+
 ## **FAQ**
 
-**Jenis diagram apa yang mendukung seri data?**  
-Semua tipe diagram yang direpresentasikan oleh enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) menggunakan data diagram, tetapi seri‑serinya tidak semuanya memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram scatter menggunakan nilai X dan Y, dan diagram bubble menambahkan ukuran gelembung. Gunakan metode pembuatan titik data yang sesuai dengan tipe seri. Opsi seperti overlap dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
+**Tipe chart apa yang mendukung data series?**
 
-**Apa itu grup seri diagram?**  
-Sebuah [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) berisi seri yang kompatibel yang berbagi pengaturan plot tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup yang diakses melalui satu seri tidak selalu mengubah setiap seri dalam diagram.
+Semua tipe chart yang direpresentasikan oleh enumerasi [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) menggunakan data chart, namun series‑nya tidak semua memiliki struktur nilai atau pengaturan yang sama. Misalnya, chart kategori menggunakan kategori dan nilai, chart scatter menggunakan nilai X dan Y, dan chart bubble menambahkan ukuran bubble. Gunakan metode pembuatan data‑point yang cocok dengan tipe series. Opsi seperti overlap dan lebar celah hanya berlaku untuk grup bar atau kolom yang kompatibel.
 
-**Apakah diagram yang baru dibuat berisi data default?**  
-Ya. Secara default, [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) membuat seri, kategori, dan nilai contoh. Anda dapat menyunting sel‑sel tersebut atau mengosongkan koleksi seri dan kategori sebelum menambahkan sekumpulan data yang sepenuhnya kustom. Overload juga dapat membuat diagram tanpa data default.
+**Apa itu grup series chart?**
 
-**Bagaimana objek diagram terhubung ke sel workbook?**  
-Nama seri, label kategori, dan nilai titik data merujuk ke sel dalam sebuah [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Mengubah sel yang direferensikan memperbarui elemen diagram yang bersangkutan. Saat membangun data kustom, pertahankan baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
+Sebuah [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) berisi series yang kompatibel dan berbagi pengaturan plotting pada tingkat grup. Sebuah chart kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup melalui satu series tidak selalu mengubah semua series dalam chart.
 
-**Bagaimana cara menghapus satu titik alih-alih seluruh seri?**  
-Setel sel nilai yang relevan ke `nullptr` untuk mempertahankan posisi kategori titik sebagai titik kosong. Jangan panggil [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lainnya, karena metode itu menghapus semua titik data dari koleksi. Jika Anda juga menghapus kategori, perbarui setiap seri sehingga nilai‑nya tetap selaras dengan koleksi kategori.
+**Apakah chart yang baru dibuat berisi data default?**
 
-**Bagaimana titik kosong ditampilkan?**  
-Hasilnya tergantung pada tipe diagram dan [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Diagram yang didukung dapat menampilkan kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik‑titik tetangga. Pilih pengaturan yang sesuai dengan arti data yang hilang dalam presentasi Anda. Lihat [Kendalikan Tampilan Sel Kosong](#control-the-display-of-empty-cells) untuk contoh lengkap dan perbandingan visual.
+Ya. Secara default, [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) membuat series, kategori, dan nilai contoh. Anda dapat mengedit sel‑sel tersebut atau mengosongkan koleksi series dan kategori sebelum menambahkan kumpulan data yang sepenuhnya khusus. Sebuah overload juga dapat membuat chart tanpa data default.
 
-**Bagaimana nilai negatif diformat?**  
-Untuk seri batang, kolom, dan bubble yang didukung, panggil [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) dan tetapkan warna melalui [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Anda dapat menimpa perilaku untuk titik individu dengan [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Metode‑metode ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
+**Bagaimana objek chart terhubung ke sel workbook?**
 
-**Format mana yang menang ketika seri dan titik keduanya diformat?**  
-Pemformatan titik data yang eksplisit memiliki prioritas untuk titik tersebut. Titik lain tetap menggunakan format seri yang eksplisit atau, bila format seri tidak didefinisikan, gaya dan tema diagram otomatis. Pengaturan grup seperti overlap dan lebar celah mengontrol tata letak dan bukan penimpaan pemformatan tingkat titik.
+Nama series, label kategori, dan nilai data‑point merujuk ke sel dalam sebuah [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Mengubah sel yang direferensikan memperbarui elemen chart yang bersesuaian. Saat Anda membangun data khusus, pertahankan baris kategori dan baris nilai series selaras sehingga setiap point dipetakan di bawah kategori yang dimaksud.
 
-**Apakah ada batas berapa banyak seri yang dapat dimuat diagram?**  
-Aspose.Slides tidak memberlakukan batas tetap terpisah untuk jumlah seri. Dalam praktiknya, batasan file presentasi, memori yang tersedia, waktu rendering, dan keterbacaan diagram menentukan batas yang berguna.
+**Bagaimana cara mengosongkan satu point alih‑alih seluruh series?**
 
-**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu jauh?**  
-Panggil [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) pada grup seri induk yang sesuai. Tingkatkan nilai untuk memperlebar ruang antar klaster, atau turunkan nilai untuk mendekatkan klaster.
+Setel sel nilai yang relevan ke `nullptr` untuk mempertahankan posisi kategori point sebagai point kosong. Panggil [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) hanya ketika Anda berniat menghapus semua point dari series tersebut. Jika Anda juga menghapus kategori, perbarui setiap series agar nilainya tetap selaras dengan koleksi kategori.
+
+**Bagaimana point kosong ditampilkan?**
+
+Hasilnya tergantung pada tipe chart dan [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Chart yang didukung dapat menampilkan kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan point tetangga. Pilih pengaturan yang sesuai dengan makna data yang hilang dalam presentasi Anda. Lihat [Control the Display of Empty Cells](#control-the-display-of-empty-cells) untuk contoh lengkap dan perbandingan visual.
+
+**Bagaimana nilai negatif diformat?**
+
+Untuk series bar, kolom, dan bubble yang didukung, panggil [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) dan tetapkan warna melalui [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Anda dapat menimpa perilaku untuk point individu dengan [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Metode‑metode ini memengaruhi format, bukan nilai numerik yang disimpan.
+
+**Format mana yang menang ketika series dan point keduanya diformat?**
+
+Format point eksplisit memiliki prioritas untuk point tersebut. Point lain terus menggunakan format series yang eksplisit atau, bila format series tidak didefinisikan, style dan tema chart otomatis. Pengaturan grup seperti overlap dan lebar celah mengendalikan tata letak dan bukanlah penimpaan format pada tingkat point.
+
+**Apakah ada batas berapa banyak series yang dapat dimiliki chart?**
+
+Aspose.Slides tidak memberlakukan batas tetap terpisah untuk jumlah series. Dalam praktiknya, batas dipengaruhi oleh batasan file presentasi, memori yang tersedia, waktu rendering, dan keterbacaan chart.
+
+**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu berjauhan?**
+
+Panggil [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) pada grup series induk yang sesuai. Tingkatkan nilai untuk memperlebar ruang antar cluster, atau turunkan nilai untuk mendekatkan cluster.

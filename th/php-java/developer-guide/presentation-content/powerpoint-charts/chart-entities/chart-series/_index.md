@@ -1,46 +1,48 @@
 ---
-title: จัดการ Series ข้อมูลแผนภูมิในงานนำเสนอด้วย PHP
-linktitle: Series ข้อมูล
+title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอด้วย PHP
+linktitle: ชุดข้อมูล
 type: docs
 url: /th/php-java/chart-series/
 keywords:
-- ซีรีส์แผนภูมิ
-- การทับซ้อนของซีรีส์
-- สีของซีรีส์
-- ชื่อซีรีส์
+- ชุดข้อมูลแผนภูมิ
+- การทับซ้อนของชุด
+- สีของชุด
+- ชื่อชุด
 - จุดข้อมูล
-- เซลล์เวิร์กบุ๊ค
-- ช่องว่างของซีรีส์
-- ค่าลบ
+- เซลล์เวิร์กบุ๊ก
+- ช่องว่างของชุด
+- ค่าติดลบ
 - PowerPoint
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการ series แผนภูมิ, จุดข้อมูล, เซลล์เวิร์กบุ๊ค, การจัดรูปแบบ, การทับซ้อน, ความกว้างของช่องว่าง, และค่าลบในงานนำเสนอด้วย PHP."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์เวิร์กบุ๊ก, การจัดรูปแบบ, การทับซ้อน, ความกว้างช่องว่าง, และค่าติดลบในงานนำเสนอด้วย PHP."
 ---
 ## **ภาพรวม**
 
-แผนภูมิสามารถเก็บค่าที่แสดงผลไว้ในเซลล์ของ workbook หรือโดยตรงเป็นค่าตัวเลขลิเตอร์ได้ อ็อบเจกต์ [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) แสดงถึงชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) แสดงถึงจุดหนึ่งในชุดนั้น อ็อบเจกต์ [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) ให้ป้ายกำกับหรือค่าการจัดกลุ่มที่ใช้ร่วมกันโดยชุดข้อมูล ในแผนภูมิที่สร้างด้วยข้อมูลเริ่มต้น ชื่อชุดข้อมูล, ประเภท, และค่าจุดจะใช้วัตถุ [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) จาก workbook ของแผนภูมิ
+แผนภูมิสามารถเก็บค่าที่พล็อตไว้ได้ในเซลล์ของเวิร์กบุ๊กหรือโดยตรงเป็นค่าลิเทรัลเชิงตัวเลข  [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) แทนชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) แทนจุดหนึ่งในชุดนั้น  [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) ให้ป้ายกำกับหรือค่ากลุ่มที่ใช้ร่วมกันโดยชุดข้อมูล ในแผนภูมิที่สร้างด้วยข้อมูลค่าเริ่มต้น ชื่อชุด, หมวดหมู่, และค่าจุดใช้วัตถุ [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) จากเวิร์กบุ๊กของแผนภูมิ
 
-สำหรับแผนภูมิประเภทหมวดทั่วไป workbook เริ่มต้นใช้แถว 0 สำหรับชื่อชุดข้อมูล, คอลัมน์ 0 สำหรับชื่อหมวด, และเซลล์ที่เหลือสำหรับค่าชุดข้อมูล ดัชนี worksheet, แถว, และคอลัมน์ที่ส่งให้ [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) เป็นดัชนีเริ่มจากศูนย์ การจัดวางนี้มีประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสันนิษฐานว่าแผนภูมิที่มีอยู่ทั้งหมดใช้วิธีนี้ สำหรับงานนำเสนอที่โหลดมาแล้ว ให้ตรวจสอบเซลล์ที่อ้างอิงโดยชุดข้อมูล, หมวด, และจุดข้อมูลก่อนที่จะเปลี่ยนค่าใน workbook
+สำหรับแผนภูมิประเภทหมวดหมู่ทั่วไป เวิร์กบุ๊กค่าเริ่มต้นใช้แถว 0 สำหรับชื่อชุด, คอลลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด  ดัชนีแผ่นงาน, แถว, และคอลลัมน์ที่ส่งให้ [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) มีค่าเริ่มต้นจากศูนย์ การจัดวางนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลค่าเริ่มต้น แต่ไม่ควรสันนิษฐานว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้ สำหรับงานนำเสนอที่โหลดแล้ว ให้ตรวจสอบเซลล์ที่อ้างอิงโดยชุด, หมวดหมู่, และจุดข้อมูลก่อนที่จะเปลี่ยนค่าในเวิร์กบุ๊ก
 
-การตั้งค่าแผนภูมิมีสามระดับที่ต่างกัน:
+การตั้งค่าแผนภูมิมีขอบเขตสามแบบ:
 
-- การตั้งค่าระดับชุดข้อมูล เช่น [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) ให้ลักษณะการแสดงผลเริ่มต้นสำหรับทุกจุดในชุดเดียว
-- การตั้งค่าระดับจุดข้อมูล เช่น [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) จะเขียนทับลักษณะของชุดสำหรับจุดเดียว
-- การตั้งค่ากลุ่มจะใช้กับชุดข้อมูลที่เข้ากันได้ซึ่งอยู่ใน [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) เดียวกัน เข้าถึงกลุ่มผ่าน [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) เมื่อคุณต้องการตั้งค่าเช่นการทับซ้อนหรือความกว้างของช่องว่าง
+- การตั้งค่าระดับชุด เช่น [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) ให้ลักษณะการแสดงผลเริ่มต้นสำหรับจุดทั้งหมดในชุดเดียว
+- การตั้งค่าระดับจุด เช่น [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) ครอบคลุมลักษณะของชุดสำหรับจุดเดียว
+- การตั้งค่ากลุ่มนำไปใช้กับชุดที่เข้ากันได้ซึ่งอยู่ใน [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) เดียวกัน เข้าไปที่กลุ่มผ่าน [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) เมื่อคุณต้องการกำหนดตัวเลือกเช่น การทับซ้อนหรือความกว้างของช่องว่าง
 
-เมื่อไม่มีการกำหนดการเติมสีจุดหรือชุดข้อมูลอย่างชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ เมื่อมีการกำหนดทั้งลักษณะของชุดและจุด การกำหนดลักษณะของจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
+เมื่อไม่มีการกำหนดการเติมจุดหรือชุดอย่างชัดเจน สไตล์และธีมของแผนภูมิกำหนดลักษณะอัตโนมัติ  หากมีการฟอร์แมตทั้งชุดและจุดอยู่พร้อมกัน การฟอร์แมตของจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **กำหนดค่า Series ด้วยค่าตัวเลขลิเตอร์**
+สำหรับแผนภูมิทรงกระบอกแบบจัดกลุ่ม ดูว่า [changing the 3D series type or bar shape](/slides/th/php-java/3d-chart/#change-the-3d-series-type-and-bar-shape) มีผลต่อชุดแรกอย่างไร
 
-ใช้ค่าตัวเลขลิเตอร์เมื่อค่าชุดข้อมูลมาจากข้อมูลหรือการคำนวณของแอปพลิเคชันและไม่ต้องการอ้างอิงเซลล์ worksheet เรียก [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) ด้วย [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) ก่อนกำหนดผลลัพธ์ของแต่ละจุดด้วย [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) ผ่าน [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/)
+## **กำหนดค่าชุดโดยใช้ค่าลิเทรัลเชิงตัวเลข**
 
-การตั้งค่าคอลเลกชันควบคุมชนิดของแหล่งค่าของทุกจุดในชุดนั้น วิธี [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) ของแต่ละจุดจะรายงานชนิดที่เลือก; เปลี่ยนได้ผ่านการตั้งค่าคอลเลกชัน ในกรณี `Worksheet` ใช้ [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) เพื่อเข้าถึงเซลล์ที่อ้างอิง ในกรณี `DoubleLiterals` ใช้ [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) หรือ `setAsLiteralDouble` เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+ใช้ค่าลิเทรัลเชิงตัวเลขเมื่อค่าชุดมาจากข้อมูลหรือการคำนวนของแอปพลิเคชันและไม่ต้องการอ้างอิงเซลล์ในแผ่นงาน เรียก [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) ด้วย [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) ก่อนกำหนดผลลัพธ์ของ [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) ของแต่ละจุดผ่าน [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/)
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์ด้วยชุดและหมวดเริ่มต้น แล้วกำหนดค่าที่คำนวณได้ 10, 20, ฯลฯ ให้กับจุดที่มีอยู่ของชุดแรก มันทำการบันทึกรายการงาน, เปิดใหม่อีกครั้ง, และพิมพ์ค่าที่เก็บไว้
+การตั้งค่าระดับคอลเลกชันควบคุมประเภทแหล่งที่มาของค่าจุดทั้งหมดในชุดนั้น แต่ละค่าจุดจะรายงานประเภทที่เลือกผ่านเมธอด [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) ; เปลี่ยนได้โดยการตั้งค่าที่คอลเลกชัน  หากใช้ `Worksheet` ให้ใช้ [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) เพื่อเข้าถึงเซลล์ที่อ้างอิง  หากใช้ `DoubleLiterals` ให้ใช้ [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) หรือ `setAsLiteralDouble` เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์ด้วยชุดและหมวดหมู่ค่าเริ่มต้น แล้วกำหนดค่าที่คำนวณได้ 10, 20, … ให้กับจุดที่มีอยู่ของชุดแรก  บันทึกงานนำเสนอ เปิดใหม่อีกครั้ง และพิมพ์ค่าที่จัดเก็บ
 
 ```php
 use aspose\slides\ChartType;
@@ -81,15 +83,15 @@ try {
 }
 ```
 
-ชนิดแหล่งค่าของจุดแยกจาก [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) ซึ่งบ่งบอกการกำหนดค่า workbook ภายในหรือภายนอกของแผนภูมิ การใช้ค่าตัวเลขลิเตอร์ไม่ทำให้ workbook ที่ฝังอยู่หายไป ในตัวอย่างนี้ workbook ยังคงใช้ได้สำหรับป้ายกำกับหมวด, ชื่อชุดข้อมูล, และชุดอื่น ๆ ดูที่ [Workbook ของแผนภูมิ](/slides/th/php-java/chart-workbook/) เพื่อการจัดการ workbook
+ประเภทแหล่งที่มาของค่าจุดแยกจาก [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/) ซึ่งบ่งบอกการกำหนดค่าเวิร์กบุ๊กภายในหรือภายนอกของแผนภูมิ  การใช้ค่าลิเทรัลเชิงตัวเลขไม่ทำให้เวิร์กบุ๊กฝังอยู่หายไป ในตัวอย่างนี้ เวิร์กบุ๊กยังคงใช้สำหรับป้ายกำกับหมวดหมู่, ชื่อชุด, และชุดอื่น ๆ  ดู [Chart Workbook](/slides/th/php-java/chart-workbook/) สำหรับการจัดการเวิร์กบุ๊ก
 
-สำหรับแผนภูมิกระจายและฟองอากาศ ให้ใช้ [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) และ [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) เพื่อเลือกแหล่งสำหรับ [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) และ [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/) แผนภูมิฟองอากาศยังใช้ [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) สำหรับ [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/) ตั้งค่าแหล่งที่ใช้เป็น `DoubleLiterals` ก่อนกำหนดตัวเลขผ่านเมธอด `setAsLiteralDouble` ของค่านั้น
+สำหรับแผนภูมิแบบกระจายและฟอง ใช้ [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) และ [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) เพื่อเลือกแหล่งที่มาสำหรับ [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) และ [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/)  แผนภูมิฟองยังใช้ [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) สำหรับ [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/)  ตั้งค่าแหล่งที่มาที่เกี่ยวข้องเป็น `DoubleLiterals` ก่อนกำหนดตัวเลขผ่านเมธอด `setAsLiteralDouble` ของค่ากล่านั้น
 
-## **กำหนดการทับซ้อนของ Series**
+## **กำหนดค่าการทับซ้อนของชุดแผนภูมิ**
 
-[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) รายงานว่าคอลัมน์หรือแท่งบาร์ทับซ้อนกันเท่าใดในแผนภูมิ 2 มิติ จาก -100 ถึง 100 เปอร์เซ็นต์ เป็นการฉายภาพแบบอ่านอย่างเดียวของการตั้งค่าบนกลุ่มชุดแม่ ใช้ [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงคอลัมน์หรือแท่งเป็นกลุ่ม; ไม่กระทบต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิกล่องรวม
+[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) รายงานว่าบาร์หรือคอลัมน์ทับซ้อนกันเท่าใดในแผนภูมิ 2D ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์  เป็นการฉายอย่างอ่านอย่างเดียวของการตั้งค่าในกลุ่มชุดแม่  ใช้ [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น  ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; ไม่กระทบต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
 
-ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่มีชุดแรกอยู่
+ตัวอย่างต่อไปนี้กำหนดค่าการทับซ้อนให้กับกลุ่มที่มีชุดแรกอยู่
 
 ```php
 $firstSlideIndex = 0;
@@ -100,7 +102,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // แผนภูมิใหม่มีชุดตัวอย่าง, หมวดหมู่, และค่า.
+    // แผนภูมิใหม่ประกอบด้วยชุดตัวอย่าง, หมวดหมู่, และค่า.
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -118,11 +120,11 @@ try {
 
 ![The series overlap](series_overlap.png)
 
-## **เปลี่ยนสีเติมของ Series**
+## **เปลี่ยนสีเติมของชุด**
 
-ใช้ [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) เพื่อกำหนดการเติมสีเริ่มต้นสำหรับทั้งชุด หากจุดมีการเติมสีเฉพาะแล้ว การตั้งค่า [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) จะเขียนทับการเติมสีของชุดสำหรับจุดนั้น
+ใช้ [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) เพื่อกำหนดการเติมเริ่มต้นสำหรับชุดทั้งหมด  หากจุดมีการกำหนดการเติมอย่างชัดเจนแล้ว การตั้งค่า [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) จะครอบคลุมการเติมของชุดสำหรับจุดนั้น
 
-ตัวอย่างต่อไปนี้ใช้สีฟ้าโซลิดเติมให้กับชุดแรก
+ตัวอย่างต่อไปนี้ใช้การเติมสีน้ำเงินทึบให้กับชุดแรก
 
 ```php
 $firstSlideIndex = 0;
@@ -151,9 +153,9 @@ try {
 
 ![The color of the series](series_color.png)
 
-## **เปลี่ยนชื่อ Series**
+## **เปลี่ยนชื่อชุด**
 
-ชื่อชุดถูกเก็บใน workbook ของแผนภูมิและโดยปกติจะแสดงใน legend ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบกลุ่ม เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และมีชื่อของชุดแรก ตัวแปรที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนั้นชัดเจน
+ชื่อชุดถูกจัดเก็บในเวิร์กบุ๊กของแผนภูมิและมักจะแสดงในคำอธิบาย  ในเวิร์กบุ๊กค่าเริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบจัดกลุ่ม เซลล์ B1 (แถว 0, คอลลัมน์ 1) จะมีชื่อของชุดแรก  ตัวแปรที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้ชัดเจน
 
 ```php
 $firstSlideIndex = 0;
@@ -179,7 +181,7 @@ try {
 }
 ```
 
-คุณยังสามารถอัปเดตเซลล์ที่อ้างอิงโดย [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/) วิธีนี้หลีกเลี่ยงการสันนิษฐานแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่
+คุณยังสามารถอัปเดตเซลล์ที่อ้างอิงโดย [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/) ได้ วิธีนี้ช่วยหลีกเลี่ยงการสันนิษฐานแถวและคอลลัมน์เฉพาะในแผนภูมิที่มีอยู่
 
 ```php
 $firstSlideIndex = 0;
@@ -208,13 +210,13 @@ try {
 
 ![The series name](series_name.png)
 
-### **สร้าง Series ด้วยชื่อจากหลายเซลล์**
+### **สร้างชุดที่ชื่อมาจากหลายเซลล์**
 
-ชื่อชุดแบบผสมเป็นประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลารายงานเก็บในเซลล์ workbook แยกกัน ตัวอย่างเช่น คุณสามารถรวม `Product A` ใน B1 และ `2026` ใน C1 ให้เป็นชื่อชุดเดียวขณะยังคงเชื่อมโยงทั้งสองส่วนกับเซลล์ต้นทาง
+ชื่อชุดรวมเป็นประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลารายงานถูกจัดเก็บในเซลล์เวิร์กบุ๊กแยกกัน  ตัวอย่างเช่น คุณสามารถรวม `Product A` ใน B1 และ `2026` ใน C1 ให้เป็นชื่อชุดเดียวโดยยังคงเชื่อมโยงทั้งสองส่วนกับเซลล์ต้นฉบับ
 
-ใช้ [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) เพื่อดึงช่วงชื่อ แล้วส่งคอลเลกชันนั้นให้กับ [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/) พารามิเตอร์ `skipHiddenCells` ควบคุมว่าจะรวมเซลล์ซ่อนหรือไม่: `true` ไม่รวม, `false` รวม ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
+ใช้ [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) เพื่อดึงช่วงชื่อ แล้วส่งคอลเลกชันนั้นให้กับ [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/)  พารามิเตอร์ `skipHiddenCells` ควบคุมว่าความลับของเซลล์ที่ซ่อนไว้จะถูกนับรวมหรือไม่: `true` จะละเว้น, `false` จะรวม  ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
 
-ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่มีชุดหนึ่งและจุดข้อมูลสองจุด เซลล์ B1:C1 มีเพียงชื่อชุด; A2:A3 มีป้ายหมวด, B2:B3 มีค่าตัวเลข
+ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่มีชุดเดียวและจุดข้อมูลสองจุด  เซลล์ B1:C1 ให้เฉพาะชื่อชุด; A2:A3 ให้ป้ายกำกับหมวดหมู่; B2:B3 ให้ค่าตัวเลข
 
 ```php
 use aspose\slides\ChartType;
@@ -234,13 +236,13 @@ try {
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // เซลล์สองนี้ให้ชื่อซีรีส์.
+    // เซลล์สองเซลล์นี้จัดหาชื่อชุด.
     $workbook->getCell(0, 0, 1, "Product A");
     $workbook->getCell(0, 0, 2, "2026");
     $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
     $series = $chart->getChartData()->getSeries()->add($nameCells, ChartType::ClusteredColumn);
 
-    // เซลล์แยกต่างหากให้หมวดและจุดข้อมูลเชิงตัวเลข.
+    // เซลล์แยกต่างหากจัดหาหมวดหมู่และจุดข้อมูลเชิงตัวเลข.
     $northCategory = $workbook->getCell(0, 1, 0, "North");
     $southCategory = $workbook->getCell(0, 2, 0, "South");
     $chart->getChartData()->getCategories()->add($northCategory);
@@ -256,15 +258,15 @@ try {
 }
 ```
 
-ชื่อชุดที่ได้คือ `Product A 2026` โดยมีช่องว่างระหว่างค่าจากสองเซลล์ legend แสดงเป็นรายการเดียวสำหรับคอลัมน์ทั้งสอง รูปด้านล่างแสดงผลลัพธ์
+ผลลัพธ์ชื่อชุดคือ `Product A 2026` โดยมีช่องว่างระหว่างค่าจากสองเซลล์  คำอธิบายจะแสดงเป็นรายการเดียวสำหรับสองคอลลัมน์  ภาพด้านล่างแสดงผลลัพธ์
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **รับสีเติมอัตโนมัติของ Series**
+## **รับสีเติมอัตโนมัติของชุด**
 
-[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์ของแผนภูมิ นี่คือสีที่ใช้เมื่อการเติมสีของชุดไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดจะอ่านสีที่คำนวณ ไม่ได้กำหนดการเติมสีใหม่
+[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์ของแผนภูมิ  นี่คือสีที่ใช้เมื่อการเติมของชุดไม่ได้กำหนดอย่างชัดเจน  การเรียกเมธอดนี้เพียงอ่านสีที่คำนวณ ไม่ได้กำหนดการเติมใหม่
 
-ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดค่าเริ่มต้น
 
 ```php
 $firstSlideIndex = 0;
@@ -291,7 +293,7 @@ try {
 }
 ```
 
-ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเริ่มต้น
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิค่าเริ่มต้น
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -299,13 +301,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-สีที่ได้อาจแตกต่างกันตามสไตล์และธีมของแผนภูมิ
+สีที่ได้อาจแตกต่างตามสไตล์และธีมของแผนภูมิ
 
-## **กำหนดสีเติมกลับสำหรับ Series**
+## **ตั้งค่าสีเติมกลับทิศสำหรับชุดแผนภูมิ**
 
-สำหรับชุดแบบแท่ง, คอลัมน์, และฟองอากาศ, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) สามารถแสดงค่าลบด้วยสีเติมที่แตกต่าง ตั้งการเติมสีปกติเป็นโซลิด, เปิดการกลับสี, และกำหนดสีค่าลบผ่าน [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) ตัวเลขลบจะคงอยู่ใน workbook; เพียงสีแสดงผลที่เปลี่ยน
+สำหรับชุดบาร์, คอลัมน์, และฟอง  [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) สามารถแสดงค่าติดลบด้วยสีเติมที่แตกต่างกัน  ตั้งค่าการเติมของชุดเป็นแบบทึบ, เปิดใช้งานการกลับทิศ, แล้วกำหนดสีค่าติดลบผ่าน [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/)  ตัวเลขติดลบยังคงอยู่ในเวิร์กบุ๊ก; มีเพียงสีที่แสดงเปลี่ยนไป
 
-ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิกับชุดเดียว Worksheet แถว 0 มีชื่อชุด, คอลัมน์ 0 มีชื่อหมวด, คอลัมน์ 1 มีค่า
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิค่าเริ่มต้นด้วยชุดเดียว  แถว 0 ของแผ่นงานมีชื่อชุด, คอลลัมน์ 0 มีชื่อหมวดหมู่, คอลลัมน์ 1 มีค่า
 
 ```php
 $firstSlideIndex = 0;
@@ -365,7 +367,7 @@ try {
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-คุณสามารถเปิดการกลับสีสำหรับจุดเดียวผ่าน [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/) ตัวอย่างต่อไปนี้ปิดการกลับสีสำหรับชุดและเปิดเฉพาะจุดที่เลือก จุดนั้นยังได้รับค่าลบเพื่อให้เห็นผล
+คุณสามารถเปิดใช้งานการกลับทิศสำหรับจุดเดียวผ่าน [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/)  ในตัวอย่างต่อไปนี้ การกลับทิศถูกปิดสำหรับชุดและเปิดเฉพาะจุดที่เลือก  จุดนั้นยังถูกกำหนดค่าติดลบเพื่อให้เห็นผล
 
 ```php
 $firstSlideIndex = 0;
@@ -399,11 +401,11 @@ try {
 }
 ```
 
-## **ลบค่า Data Point เฉพาะ**
+## **ลบค่าจุดข้อมูลเฉพาะ**
 
-เพื่อให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ๆ ให้ตั้งค่าเซลล์ workbook ที่อยู่หลังจุดนั้นเป็น `null` สำหรับแผนภูมิคอลัมน์ ค่าที่ถูกพล็อตได้จาก [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) จุดข้อมูลจะคงตำแหน่งหมวดเดิม แต่แผนภูมิจะแบ่งค่าเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
+เพื่อทำให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ให้กำหนดค่าเซลล์เวิร์กบุ๊กของจุดนั้นเป็น `null`  สำหรับแผนภูมิคอลัมน์ ค่าที่พล็อตได้สามารถเข้าถึงได้ผ่าน [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/)  จุดข้อมูลยังคงอยู่ที่ตำแหน่งหมวดหมู่เดิม แต่แผนภูมิจะถือว่าค่าของมันเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
 
-ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองของชุดแรก
+ตัวอย่างต่อไปนี้ลบค่าเฉพาะจุดที่สองของชุดแรก
 
 ```php
 $firstSlideIndex = 0;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน, แผนภูมิฟองอากาศยังใช้เซลล์ขนาดด้วย ให้ลบเฉพาะเซลล์ที่เป็นค่าที่คุณต้องการลบ อย่าเรียก [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) เมื่อคุณต้องการคงจุดอื่นไว้ เพราะเมธอดนั้นจะลบทุกจุดในคอลเลกชัน
+แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน, แผนภูมิบับก็ใช้เซลล์ขนาดเพิ่มเติม  ลบเฉพาะเซลล์ที่เป็นค่าที่คุณต้องการลบ อย่าเรียก [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) เมื่อคุณต้องการเก็บจุดอื่นไว้ เพราะเมธอดนั้นจะลบจุดทั้งหมดจากคอลเลกชัน
 
 ## **ควบคุมการแสดงผลของเซลล์ว่าง**
 
-เซลล์ที่ซ่อนแต่มีค่าเป็นกรณีแยกจากเซลล์ว่าง เพื่อรวมหรือไม่รวมข้อมูลจากแถวและคอลัมน์ที่ซ่อน ให้ดูที่ [Include Data from Hidden Rows and Columns](/slides/th/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns)
+เซลล์ที่ซ่อนอยู่แต่มีค่าเป็นกรณีที่แยกจากเซลล์ว่าง  เพื่อรวมหรือแยกข้อมูลจากแถวและคอลลัมน์ที่ซ่อนอยู่ ดู [Include Data from Hidden Rows and Columns](/slides/th/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns)
 
-เซลล์ workbook ว่างแสดงว่าข้อมูลหายไป; เซลล์ที่มีค่า `0` แสดงว่ามีค่าตัวเลขที่รู้จัก เรียก [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) ด้วย `null` เพื่อทำให้เซลล์เป็นค่าว่าง ศูนย์ตัวเลขยังคงเป็นศูนย์ไม่ว่าการตั้งค่าความว่างของเซลล์จะเป็นอย่างไร
+เซลล์เวิร์กบุ๊กที่ว่างเปล่าหมายถึงข้อมูลที่หายไป; เซลล์ที่มีค่า `0` หมายถึงค่าตัวเลขที่เป็นที่รู้จัก  เรียก [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) ด้วย `null` เพื่อทำให้เซลล์ว่าง  ศูนย์เชิงตัวเลขยังคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างจะเป็นอย่างไร
 
-ใช้ [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) เพื่อเลือกวิธีที่แผนภูมิแสดงเซลล์ว่าง การตั้งค่านี้ใช้กับแผนภูมิทั้งหมด จะเปลี่ยนวิธีการพล็อตค่าว่างโดยไม่เติมค่าใน workbook ด้วยศูนย์หรือค่าที่ประมาณ
+ใช้ [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) เพื่อเลือกวิธีที่แผนภูมิแสดงเซลล์ว่าง  การตั้งค่านี้ใช้กับแผนภูมิเพื่อรวมถึงทั้งหมด  มันเปลี่ยนวิธีที่ช่องว่างถูกพล็อตโดยไม่ต้องเติมเซลล์เวิร์กบุ๊กที่ว่างด้วยศูนย์หรือค่าประมาณ
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดหนึ่ง, ลบค่าของ Day 3, แล้วบันทึกแผนภูมิเดียวกันด้วยแต่ละโหมด ไม่ต้องใช้ไฟล์อินพุต [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับป้ายหมวด, คอลัมน์ 1 สำหรับค่า; แถว 0 มีชื่อชุด ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
+ตัวอย่างอิสระต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดเดียว, ลบค่าของวัน 3, และบันทึกแผนภูมิเดียวกันโดยแต่ละโหมด  ไม่ต้องใช้ไฟล์อินพุต  [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) ใช้แผ่นงาน 0, คอลลัมน์ 0 สำหรับป้ายหมวดหมู่, คอลลัมน์ 1 สำหรับค่า; แถว 0 มีชื่อชุด  ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
 
 ```php
 use aspose\slides\ChartType;
@@ -468,7 +470,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // ปล่อยให้วัน 3 เป็นค่าว่างจริง ๆ แต่ยังคงหมวดและจุดข้อมูลไว้
+    // ทำให้วัน 3 ว่างจริง ๆ ขณะคงหมวดหมู่และจุดข้อมูลไว้.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -482,17 +484,17 @@ try {
 }
 ```
 
-ไฟล์ผลลัพธ์แต่ละไฟล์จะเก็บโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx` หากต้องการบันทึกเพียงเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการและบันทึกงานนำเสนอครั้งเดียวแทนการวนลูปหลายโหมด
+แต่ละไฟล์ผลลัพธ์บันทึกโหมดที่ตั้งค่าก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx`  หากต้องการบันทึกเพียงเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการและบันทึกงานนำเสนอครั้งเดียวแทนการวนลูปตามโหมด
 
-การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในทั้งสามไฟล์ Day 3 เป็นค่าว่างใน workbook ในทุกกรณี:
+การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม  วัน 3 จะเป็นค่าว่างในเวิร์กบุ๊กทุกกรณี
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทของแผนภูมิ แผนภูมิเส้นทำให้สามโหมดง่ายต่อการเปรียบเทียบ แผนภูมิแท่งและคอลัมน์ไม่มีเส้นเชื่อมต่อผ่านหมวดที่หายไป จึงทำให้ `Span` ไม่สามารถสร้างส่วนเชื่อมต่อได้; คอลัมน์ที่หายไปและคอลัมน์ศูนย์อาจดูคล้ายกันเช่นกัน เช่นเดียวกับแผนภูมิกระจายที่มีเพียงมาร์คเกอร์ไม่มีเส้นเชื่อม อย่าคาดหวังผลลัพธ์ที่แตกต่างกันสามแบบสำหรับทุกประเภทแผนภูมิ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ  แผนภูมิเส้นทำให้เปรียบเทียบสามโหมดได้ง่าย  แผนภูมิแท่งและคอลัมน์ไม่มีเส้นเชื่อมต่อผ่านหมวดหมู่ที่หายไป จึง `Span` ไม่สามารถสร้างส่วนเชื่อมได้; คอลัมน์ที่หายไปและคอลัมน์ศูนย์อาจดูคล้ายกัน  เช่นเดียวกัน แผนภูมิกระจายที่มีเพียงตัวชี้ตำแหน่งก็ไม่มีเส้นเชื่อมต่อ  อย่าคาดหวังผลลัพธ์ที่แตกต่างกันสามแบบสำหรับทุกประเภทแผนภูมิ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้
 
-## **กำหนดความกว้างของช่องว่างระหว่าง Series**
+## **กำหนดค่าความกว้างของช่องว่างระหว่างชุด**
 
-ความกว้างของช่องว่างคือระยะห่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างแท่งหรือคอลัมน์ เช่นเดียวกับการทับซ้อน มันเป็นของกลุ่มชุดแม่ไม่ใช่ของชุดเดี่ยว เรียก [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) หนึ่งครั้งสำหรับกลุ่ม ค่าเพิ่มจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น; ค่าเล็กจะทำให้กลุ่มหนาแน่นขึ้น
+ความกว้างของช่องว่างคือระยะห่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างแท่งหรือคอลัมน์  เช่นเดียวกับการทับซ้อน มันเป็นของกลุ่มชุดแม่ ไม่ได้เป็นของชุดเดียว  เรียก [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) ครั้งเดียวสำหรับกลุ่ม  ค่าใหญ่จะสร้างช่องว่างระหว่างกลุ่มมากขึ้น, ค่าเล็กจะทำให้กลุ่มแน่นขึ้น
 
 ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกงานนำเสนอสุดท้ายเท่านั้น
 
@@ -522,44 +524,82 @@ try {
 
 ![The gap width](gap_width.png)
 
+## **แสดงหรือซ่อนเส้นเชื่อมชุด**
+
+เส้นเชื่อมชุดเชื่อมส่วนที่เกี่ยวข้องของแผนภูมิด้วยกัน  ใช้ [ChartSeriesGroup::setSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setserieslines/) เพื่อแสดงหรือซ่อนเส้นเหล่านี้ในแผนภูมิแท่งซ้อนและ OfPie ที่รองรับ  ในแผนภูมิเส้นแท่งและคอลัมน์ซ้อนสองมิติ เส้นเชื่อมจะต่อขอบสแตกที่สอดคล้องกันข้ามหมวดหมู่  ในแผนภูมิ Pie of Pie และ Bar of Pie เส้นเชื่อมจะต่อพล็อตหลักกับพล็อตรอง  การตั้งค่านี้ไม่ได้เป็นตัวเชื่อมทั่วไปสำหรับประเภทแผนภูมิอื่น
+
+เข้าถึงกลุ่มผ่าน [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/)  การตั้งค่านี้ใช้กับทุกชุดในกลุ่มนั้น  [ChartSeries::hasSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/hasserieslines/) เป็นการอ่านอย่างเดียวและสะท้อนการตั้งค่าของกลุ่มแม่; เรียก setter ของกลุ่มเพื่ออัปเดต
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ [ChartType::PieOfPie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) หนึ่งอันด้วยข้อมูลค่าเริ่มต้น  บันทึกแผนภูมิเดียวกันโดยเปิดและปิดเส้นเชื่อมชุด เพื่อเปรียบเทียบสองงานนำเสนอ
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $seriesGroup = $series->getParentSeriesGroup();
+
+    $seriesGroup->setSeriesLines(true);
+    $presentation->save("series_lines_enabled.pptx", SaveFormat::Pptx);
+
+    $seriesGroup->setSeriesLines(false);
+    $presentation->save("series_lines_disabled.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| เส้นเชื่อมเปิด | เส้นเชื่อมปิด |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| เส้นสองเส้นเชื่อมพายหลักกับพายรอง | พายทั้งสองยังคงมองเห็นได้ แต่เส้นเชื่อมถูกซ่อน |
+
+เส้นเชื่อมชุดแตกต่างจากเส้นนำของป้ายข้อมูลที่เชื่อมป้ายกับจุดข้อมูล; เส้นกริดที่ทำเครื่องหมายช่วงบนแกนแผนภูมิ; และเส้นในแผนภูมิเส้นที่แสดงค่าข้อมูล การตั้งค่านี้ไม่ได้ควบคุมองค์ประกอบเหล่านั้น
+
 ## **คำถามที่พบบ่อย**
 
-**แผนภูมิประเภทใดสนับสนุน Series?**
+**แผนภูมิประเภทใดสนับสนุนชุดข้อมูล?**
 
-ทุกประเภทแผนภูมิที่แสดงโดย enumeration [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) ใช้ข้อมูลแผนภูมิ แต่ Series ของพวกมันไม่ทั้งหมดมีโครงสร้างค่าหรือการตั้งค่าเดียวกัน ตัวอย่างเช่น แผนภูมิหมวดใช้หมวดและค่า, แผนภูมิกระจายใช้ค่า X และ Y, แผนภูมิฟองอากาศเพิ่มขนาดฟอง ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทของ Series ตัวเลือกเช่นการทับซ้อนและความกว้างของช่องว่างใช้ได้เฉพาะกับกลุ่มแท่งหรือคอลัมน์ที่เข้ากันได้
+ทุกประเภทแผนภูมิที่ระบุโดย enumeration [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) ใช้ข้อมูลแผนภูมิ แต่ชุดของแต่ละประเภทไม่ได้มีโครงสร้างหรือการตั้งค่าเดียวกัน  ตัวอย่างเช่น แผนภูมิมากประเภทใช้หมวดหมู่และค่า, แผนภูมิกระจายใช้ค่า X และ Y, แผนภูมิบับเพิ่มขนาดฟอง  ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทชุด  ตัวเลือกเช่น การทับซ้อนและความกว้างของช่องว่างใช้ได้เฉพาะกับกลุ่มแท่งหรือคอลัมน์ที่เข้ากัน
 
-**Series Group คืออะไร?**
+**กลุ่มชุดแผนภูมิคืออะไร?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) ประกอบด้วย Series ที่เข้ากันได้และแชร์การตั้งค่าการพล็อตระดับกลุ่ม แผนภูมิกล่องรวมสามารถมีหลายกลุ่มได้ ดังนั้นการเปลี่ยนแปลงกลุ่มผ่านหนึ่ง Series ไม่ได้จำเป็นต้องเปลี่ยนทุก Series ในแผนภูมิ
+[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) ประกอบด้วยชุดที่เข้ากันได้ซึ่งแชร์การตั้งค่าการพล็อตระดับกลุ่ม  แผนภูมิกลุ่มสามารถมีหลายกลุ่มได้ ดังนั้นการเปลี่ยนแปลงกลุ่มผ่านชุดหนึ่งจึงไม่จำเป็นต้องเปลี่ยนแปลงทุกชุดในแผนภูมิ
 
-**แผนภูมิใหม่ที่สร้างขึ้นมีข้อมูลเริ่มต้นหรือไม่?**
+**แผนภูมิที่สร้างใหม่มีข้อมูลค่าเริ่มต้นหรือไม่?**
 
-ใช่ โดยปกติ [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) จะสร้าง Series, Category, และค่าอย่างตัวอย่าง คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งคอลเลกชัน Series และ Category ก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างเต็มที่ overload บางตัวยังสามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้นได้
+มี  โดยค่าเริ่มต้น [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) จะสร้างชุดตัวอย่าง, หมวดหมู่, และค่า คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งชุดและคอลเลกชันหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างเต็มที่  อีกหนึ่ง overload สามารถสร้างแผนภูมิโดยไม่มีข้อมูลค่าเริ่มต้นได้
 
-**แผนภูมิเชื่อมต่อกับเซลล์ workbook อย่างไร?**
+**วัตถุแผนภูมิเชื่อมต่อกับเซลล์เวิร์กบุ๊กอย่างไร?**
 
-ชื่อ Series, ป้ายหมวด, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิที่สอดคล้องกัน เมื่อคุณสร้างข้อมูลกำหนดเอง ให้รักษาแถวหมวดและแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดพล็อตภายใต้หมวดที่ต้องการ
+ชื่อชุด, ป้ายกำกับหมวดหมู่, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/)  การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมที่สอดคล้องกัน  เมื่อคุณสร้างข้อมูลแบบกำหนดเอง ให้จัดแถวหมวดหมู่และแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดพล็อตอยู่ใต้หมวดหมู่ที่ต้องการ
 
-**จะลบจุดเดียวแทนการลบทั้ง Series อย่างไร?**
+**ฉันจะลบจุดเดียวแทนการลบชุดทั้งหมดได้อย่างไร?**
 
-ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อรักษาตำแหน่งหมวดของจุดให้อยู่เป็นจุดว่าง ใช้ [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) เฉพาะเมื่อคุณต้องการลบทุกจุดจาก Series นั้น หากคุณลบหมวดด้วย ควรอัปเดตทุก Series เพื่อให้ค่าของพวกมันยังคงสอดคล้องกับคอลเลกชันหมวด
+กำหนดค่าเซลล์ที่เกี่ยวข้องเป็น `null` เพื่อรักษาตำแหน่งหมวดหมู่ของจุดนั้นเป็นจุดว่าง  ใช้ [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) เฉพาะเมื่อคุณต้องการลบจุดทั้งหมดจากชุดนั้น หากคุณลบหมวดหมู่ด้วย ให้ปรับทุกชุดเพื่อให้ค่าของพวกเขายังสอดคล้องกับคอลเลกชันหมวดหมู่
 
-**จุดว่างจะแสดงอย่างไร?**
+**จุดว่างแสดงผลอย่างไร?**
 
-ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและค่าที่กำหนดผ่าน [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) แผนภูมิที่รองรับสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่าศูนย์, หรือโดยการเชื่อมจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ ดูที่ [ควบคุมการแสดงผลของเซลล์ว่าง](#control-the-display-of-empty-cells) สำหรับตัวอย่างเต็มรูปแบบและการเปรียบเทียบภาพ
+ผลลัพธ์ขึ้นกับประเภทแผนภูมิและค่าที่กำหนดผ่าน [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/)  แผนภูมิที่รองรับสามารถแสดงช่องว่างเป็นช่องว่าง, เป็นค่าศูนย์, หรือโดยการเชื่อมจุดใกล้เคียง  เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ  ดู [Control the Display of Empty Cells](#control-the-display-of-empty-cells) สำหรับตัวอย่างและเปรียบเทียบภาพเต็มรูป
 
-**ค่าลบถูกจัดรูปแบบอย่างไร?**
+**ค่าติดลบถูกฟอร์แมตอย่างไร?**
 
-สำหรับ Series แบบแท่ง, คอลัมน์, และฟองอากาศ ให้เรียก [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) แล้วตั้งค่าสีที่ได้จาก [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/) คุณสามารถเขียนทับพฤติกรรมสำหรับจุดเดี่ยวด้วย [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/) วิธีเหล่านี้มีผลต่อการจัดรูปแบบ ไม่ได้เปลี่ยนค่าตัวเลขที่เก็บไว้
+สำหรับชุดแท่ง, คอลัมน์, และฟองที่รองรับ ให้เรียก [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) และกำหนดสีที่ได้จาก [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/)  คุณสามารถครอบคลุมพฤติกรรมสำหรับจุดเดี่ยวด้วย [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/)  วิธีเหล่านี้มีผลต่อการฟอร์แมต ไม่ใช่ค่าตัวเลขที่จัดเก็บ
 
-**เมื่อทั้ง Series และ Point มีการจัดรูปแบบ ใครชนะ?**
+**การฟอร์แมตใดชนะเมื่อทั้งชุดและจุดได้รับการฟอร์แมต?**
 
-การจัดรูปแบบจุดข้อมูลโดยเฉพาะจะมีลำดับความสำคัญสำหรับจุดนั้น จุดอื่น ๆ จะใช้การจัดรูปแบบของ Series หากกำหนดไว้, หรือหากไม่ได้กำหนดจะใช้สไตล์และธีมของแผนภูมิโดยอัตโนมัติ การตั้งค่ากลุ่มเช่นการทับซ้อนและความกว้างของช่องว่างควบคุมการจัดวางและไม่ใช่การเขียนทับระดับจุด
+การฟอร์แมตจุดโดยชัดเจนมีลำดับความสำคัญสำหรับจุดนั้น  จุดอื่น ๆ จะใช้ฟอร์แมตชุดที่กำหนดหรือถ้าชุดไม่มีการฟอร์แมต ระบบจะใช้สไตล์และธีมของแผนภูมิโดยอัตโนมัติ  การตั้งค่ากลุ่มเช่น การทับซ้อนและความกว้างของช่องว่างควบคุมการจัดวางและไม่ใช่การฟอร์แมตระดับจุด
 
-**มีขีดจำกัดจำนวน Series ที่แผนภูมิสามารถมีได้หรือไม่?**
+**มีขีดจำกัดจำนวนชุดที่แผนภูมิสามารถมีได้หรือไม่?**
 
-Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวน Series แบบแยก อย่างไรก็ตามขีดจำกัดจริงจะขึ้นกับข้อจำกัดของไฟล์นำเสนอ, หน่วยความจำที่มี, เวลาเรนเดอร์, และความอ่านง่ายของแผนภูมิ
+Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดอย่างแยกจากกัน  อย่างไรก็ตาม ข้อจำกัดของไฟล์นำเสนอ, หน่วยความจำที่ใช้ได้, เวลาเรนเดอร์, และความอ่านง่ายของแผนภูมิจะกำหนดขีดจำกัดที่เป็นประโยชน์ในทางปฏิบัติ
 
-**ควรทำอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
+**ฉันควรเปลี่ยนอะไรเมื่อคอลลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
 
-เรียก [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) บนกลุ่ม Series แม่ที่เหมาะสม เพิ่มค่าจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น หรือ ลดค่าจะทำให้กลุ่มใกล้กันมากขึ้น
+เรียก [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) บนกลุ่มชุดแม่ที่เหมาะสม  เพิ่มค่าจะเพิ่มช่องว่างระหว่างกลุ่ม, ลดค่าจะทำให้กลุ่มอยู่ใกล้กันมากขึ้น

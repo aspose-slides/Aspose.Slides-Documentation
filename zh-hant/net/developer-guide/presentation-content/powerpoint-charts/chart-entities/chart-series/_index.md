@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中管理簡報的圖表資料系列
+title: 在 .NET 簡報中管理圖表資料系列
 linktitle: 資料系列
 type: docs
 url: /zh-hant/net/chart-series/
@@ -10,37 +10,39 @@ keywords:
 - 類別顏色
 - 系列名稱
 - 資料點
-- 系列間隙
+- 系列間距
 - PowerPoint
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 C# 在簡報中管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間隙寬度與負值。"
+description: "了解如何在簡報中使用 C# 管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間距寬度與負值。"
 ---
-## **概觀**
+## **概述**
 
-圖表可以將繪製的數值儲存在工作簿儲存格中，或直接作為數值文字常數。**[IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/)** 代表一組相關的數值，而每個 **[IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/)** 代表該系列中的一個點。**[IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/)** 物件提供系列共用的標籤或分組值。 在使用預設資料建立的圖表中，系列名稱、類別和點的數值皆使用來自圖表工作簿的 **[IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/)** 物件。
+A chart can store its plotted values in workbook cells or directly as numeric literals. An [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) represents a point in that series. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) objects from the chart workbook.
 
-對於一般的類別圖表，預設工作簿使用第 0 列作為系列名稱，第 0 欄作為類別名稱，剩餘儲存格則存放系列值。傳遞給 **[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/)** 的工作表、列和欄索引均為零基礎。此配置在建立使用預設資料的圖表時很有用，但不要假設每個現有圖表都使用此布局。對於已載入的簡報，請在變更工作簿值之前，先檢查系列、類別和資料點所參照的儲存格。
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
-圖表設定有三種不同的範圍：
+Chart settings have three different scopes:
 
-- 系列層級設定，例如 **[IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/)**，為整個系列的所有點提供預設外觀。
-- 資料點層級設定，例如 **[IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/)**，會覆寫該點的系列外觀。
-- 群組設定套用於屬於同一 **[IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/)** 的相容系列。需要設定重疊或間隙寬度等選項時，請透過 **[IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/)** 取得群組。
+- Series-level settings, such as [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), provide the default appearance for all points in one series.
+- Data-point settings, such as [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/). Access the group through [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) when you need to set options such as overlap or gap width.
 
-當未明確設定點或系列的填色時，圖表樣式與主題會決定自動外觀。當同時存在系列與點的格式設定時，點的格式設定優先。
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![圖表系列 PowerPoint](chart-series-powerpoint.png)
 
-## **使用數值文字常數設定系列值**
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/zh-hant/net/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
 
-當系列值來自應用程式資料或計算且不需要工作表儲存格參照時，使用數值文字常數。將 **[DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/)** 設為 **[DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/)**，再透過 **[AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/)** 為每個點的 **[Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/)** 指定值。
+## **使用數值文字設定系列值**
 
-集合設定控制該系列所有點值的來源類型。每個點的 **[Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/)** 會回報所選類型；請透過集合設定變更它。使用 `Worksheet` 時，使用 **[AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/)** 取得參照的儲存格。使用 `DoubleLiterals` 時，使用 `AsLiteralDouble` 直接讀寫數字。
+Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Set [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) to [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) before assigning each point's [Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) through [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/).
 
-以下範例建立一個具有預設系列與類別的柱狀圖，然後為其第一個系列的現有點指派計算得到的 10、20 等值。接著儲存簡報、重新開啟，並列印儲存的值。
+The collection setting controls the source type of all point values in that series. Each point's [Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) reports the selected type; change it through the collection setting. With `Worksheet`, use [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) to access the referenced cell. With `DoubleLiterals`, use `AsLiteralDouble` to read or write the number directly.
+
+The following example creates a column chart with default series and categories, then assigns calculated values of 10, 20, and so on to the existing points of its first series. It saves the presentation, reopens it, and prints the stored values.
 
 ```cs
 using System;
@@ -72,15 +74,15 @@ foreach (var point in reopenedSeries.DataPoints)
 }
 ```
 
-點值的來源類型與 **[IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/)** 不同，後者用於識別圖表的內部或外部工作簿配置。使用數值文字常數本身不會移除嵌入的工作簿。在此範例中，工作簿仍保留供類別標籤、系列名稱以及其他系列使用。請參閱 [圖表工作簿](/slides/zh-hant/net/chart-workbook/) 了解工作簿管理。
+The point value source type is separate from [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/), which identifies the chart's internal or external workbook configuration. Using numeric literals does not, by itself, remove the embedded workbook. In this example, the workbook remains available for category labels, series names, and the other series. See [Chart Workbook](/slides/zh-hant/net/chart-workbook/) for workbook management.
 
-對於散佈圖與氣泡圖，設定 **[DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/)** 與 **[DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/)** 以選擇 **[XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/)** 與 **[YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/)** 的來源。氣泡圖亦使用 **[DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/)** 來設定 **[BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/)**。在透過相應值的 `AsLiteralDouble` 指定數字之前，將每個適用的來源設為 `DoubleLiterals`。
+For scatter and bubble charts, set [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) and [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) to choose the sources for [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) and [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). Bubble charts also use [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) for [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/). Set each applicable source to `DoubleLiterals` before assigning numbers through that value's `AsLiteralDouble` property.
 
-## **設定圖表系列的重疊比例**
+## **設定圖表系列的重疊程度**
 
-**[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/)** 回報 2D 圖表中長條或柱形的重疊程度，範圍為 -100 至 100 百分比。它是父系列群組設定的唯讀投射。將 **[IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)** 設為新值，即可更新該群組中所有相容系列。此選項僅適用於顯示分組長條或柱形的圖表類型；對組合圖中不相關的系列群組不產生影響。
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Set [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
 
-以下範例設定包含第一個系列的群組的重疊比例：
+The following example sets the overlap for the group that contains the first series:
 
 ```cs
 using Aspose.Slides;
@@ -94,7 +96,7 @@ const sbyte overlapPercent = 30;
 using var presentation = new Presentation();
 var slide = presentation.Slides[firstSlideIndex];
 
-// 新圖表包含範例系列、類別和數值。
+// 新的圖表包含範例系列、類別和數值。
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
 var series = chart.ChartData.Series[firstSeriesIndex];
@@ -103,15 +105,15 @@ series.ParentSeriesGroup.Overlap = overlapPercent;
 presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
-結果：
+The result:
 
 ![The series overlap](series_overlap.png)
 
 ## **變更系列填色**
 
-使用 **[IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/)** 為整個系列設定預設填色。若某個點已設定明確的填色，則其 **[IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/)** 會覆寫系列的填色。
+Use [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) to set the default fill for an entire series. If a point already has an explicit fill, its [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) setting overrides the series fill for that point.
 
-以下範例為第一個系列套用實心藍色填色：
+The following example applies a solid blue fill to the first series:
 
 ```cs
 using System.Drawing;
@@ -134,13 +136,13 @@ series.Format.Fill.SolidFillColor.Color = Color.Blue;
 presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
-結果：
+The result:
 
 ![The color of the series](series_color.png)
 
 ## **變更系列名稱**
 
-系列名稱儲存在圖表資料工作簿中，通常會顯示於圖例。對於預設建立的聚集柱狀圖，儲存格 B1 位於第 0 列第 1 欄，存放第一個系列的名稱。以下範例中的命名常數將此結構明確化：
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named constants in the following example make that structure explicit:
 
 ```cs
 using Aspose.Slides;
@@ -164,7 +166,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-您也可以直接更新 **[IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/)** 已參照的儲存格。此方式避免假設既有圖表中使用特定的列與欄：
+You can also update the cell already referenced by [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/). This approach avoids assuming a particular row and column in an existing chart:
 
 ```cs
 using Aspose.Slides;
@@ -187,17 +189,17 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-結果：
+The result:
 
 ![The series name](series_name.png)
 
-### **建立由多個儲存格組成的系列名稱**
+### **從多個儲存格建立具名稱的系列**
 
-當產品名稱與報告期間分別儲存在不同工作簿儲存格時，複合系列名稱非常有用。例如，您可以將 B1 中的 `Product A` 與 C1 中的 `2026` 結合為單一系列名稱，同時保留兩個部分與來源儲存格的連結。
+A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
 
-使用 **[IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/)** 取得名稱範圍，然後將該集合傳遞給 **[IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/)**。`skipHiddenCells` 參數控制是否包含隱藏儲存格：`true` 會排除，`false` 會包含。本範例使用 `false` 以包含名稱範圍內的所有儲存格。
+Use [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) to retrieve the name range, then pass that collection to [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
 
-以下範例建立一個包含一個系列與兩個資料點的簡報。儲存格 B1:C1 只供應系列名稱；A2:A3 提供類別標籤；B2:B3 提供數值。
+The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
 
 ```cs
 using Aspose.Slides;
@@ -235,15 +237,15 @@ series.DataPoints.AddDataPointForBarSeries(southValue);
 presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
 ```
 
-產生的系列名稱為 `Product A 2026`，兩個儲存格值之間有空格。圖例會將其顯示為單一條目。下圖為從已儲存的簡報渲染的圖表：
+The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below was rendered from the saved presentation:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **取得自動系列填色**
 
-**[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/)** 會回傳依系列索引與圖表樣式計算出的顏色。此顏色在系列填色未明確定義時使用。呼叫此方法僅會讀取計算出的顏色，不會新增填色。
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
 
-以下範例列印每個預設系列的自動顏色：
+The following example prints the automatic color of each default series:
 
 ```cs
 using System;
@@ -266,7 +268,7 @@ for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 }
 ```
 
-預設圖表樣式的輸出範例：
+Example output for the default chart style:
 
 ```text
 Series 0: ff4f81bd
@@ -274,13 +276,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-實際顏色會因圖表樣式與主題而異。
+The exact colors depend on the chart style and theme.
 
-## **為圖表系列設定負值倒轉填色**
+## **設定系列的負向填色**
 
-對於長條、柱形與氣泡系列，**[IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/)** 可在負值時顯示不同的填色。先將系列的常規填色設為實心，啟用倒轉，然後透過 **[IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)** 指定負值的顏色。負數在工作簿中保持不變，僅改變其顯示顏色。
+For bar, column, and bubble series, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Negative numbers remain unchanged in the workbook; only their display color changes.
 
-以下範例以一個系列取代預設圖表資料。工作表第 0 列放置系列名稱，第 0 欄放置類別名稱，第 1 欄放置數值：
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```cs
 using System.Drawing;
@@ -333,11 +335,11 @@ series.InvertedSolidFillColor.Color = Color.Red;
 presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
-結果：
+The result:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-您也可以透過 **[IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)** 為單一點啟用倒轉。以下範例在系列層面停用倒轉，僅為選取的點啟用，同時為該點指派負值以顯示效果：
+You can enable inversion for one point through [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```cs
 using System.Drawing;
@@ -371,9 +373,9 @@ presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 
 ## **清除特定資料點的值**
 
-若要使某一點為空而不移除其他點，請將其對應的工作簿儲存格設為 `null`。對於柱狀圖，繪製的數值可透過 **[IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/)** 取得。資料點仍保留在相同類別位置，但圖表會根據其空白值設定將該值視為空白。
+To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-以下範例僅清除第一個系列的第二個點：
+The following example clears only the second point in the first series:
 
 ```cs
 using Aspose.Slides;
@@ -396,17 +398,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-散佈圖使用獨立的 X 與 Y 儲存格，氣泡圖亦使用大小儲存格。僅清除您欲移除的值所對應的儲存格。若只想保留其他點，請勿呼叫 **[IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/)**，因為該方法會移除該系列的全部資料點。
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) when you want to keep the other points, because that method removes every data point from the collection.
 
-## **控制空儲存格的顯示方式**
+## **控制空白儲存格的顯示方式**
 
-隱藏的儲存格即使包含值，也屬於與空儲存格不同的情況。若要包含或排除隱藏工作表列與欄的資料，請參閱 [Include Data from Hidden Rows and Columns](/slides/zh-hant/net/chart-workbook/#include-data-from-hidden-rows-and-columns)。
+Hidden cells that contain values are a separate case from empty cells. To include or exclude data from hidden worksheet rows and columns, see [Include Data from Hidden Rows and Columns](/slides/zh-hant/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-空的工作簿儲存格表示缺失資料；儲存格內含 `0` 表示已知的數值。將 **[IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/)** 設為 `null` 即可使儲存格為空。數值零不會受到空儲存格設定的影響，仍然是零。
+An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Set [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) to `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
 
-使用 **[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/)** 來選擇圖表如何顯示空儲存格。此設定套用於整個圖表，會改變空白的繪製方式，而不會把空儲存格以零或插補值填入。
+Use [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
 
-以下自足範例建立一個具有單一系列的折線圖，清除第 3 天的值，並以每種模式分別儲存同一圖表。此範例不需要輸入檔案。**[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)** 使用工作表 0，欄 0 為類別標籤，欄 1 為數值；列 0 保存系列名稱。最終資料為 `10, 20, empty, 30, 40`。
+The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -446,19 +448,19 @@ foreach (var mode in modes)
 }
 ```
 
-每個輸出檔案在儲存前皆已設定對應模式：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。若只需一個版本，請先指定所需模式，然後只儲存一次簡報，而非對所有模式迭代。
+Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
 
-下表比較三個檔案的相同資料。第 3 天在所有工作簿中皆為空：
+The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-可見效果取決於圖表類型。折線圖可清楚比較三種模式。長條與柱形圖因缺少連接線，`Span` 無法產生上圖所示的連接段落；缺失的柱形與零高度的柱形也可能看起來相似。類似地，僅顯示標記的散佈圖也沒有連接線。不要期望每種圖表類型皆有三種明顯結果；請依實際使用的圖表類型檢視輸出。
+The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `Span` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
 
-## **設定系列間隙寬度**
+## **設定系列間距寬度**
 
-間隙寬度是相鄰長條或柱形叢集之間的空間，表示為長條或柱形寬度的百分比。與重疊比例類似，它屬於父系列群組而非單一系列。對群組一次設定 **[IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)** 即可。較大的數值會在叢集之間產生更大的空間，較小的數值則使叢集更為緊密。
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Set [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
 
-以下範例變更間隙寬度，並僅儲存最終的簡報：
+The following example changes the gap width and saves only the final presentation:
 
 ```cs
 using Aspose.Slides;
@@ -480,48 +482,82 @@ series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
-結果：
+The result:
 
 ![The gap width](gap_width.png)
 
-## **常見問題集**
+## **顯示或隱藏系列線條**
 
-**哪些圖表類型支援資料系列？**
+Series lines visually connect related parts of a chart. Use [IChartSeriesGroup.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hasserieslines/) to show or hide them in supported stacked bar and OfPie charts. In two-dimensional stacked bar and column charts, they connect corresponding stack boundaries across categories. In Pie of Pie and Bar of Pie charts, they connect the main plot to the secondary plot. This setting is not a general-purpose connector for other chart types.
 
-所有由 **[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)** 列舉的圖表類型都使用圖表資料，但其系列的值結構與設定並不完全相同。例如，類別圖使用類別與值，散佈圖使用 X 與 Y 值，氣泡圖則額外加入氣泡大小。請使用與系列類型相符的資料點建立方法。重疊與間隙寬度等選項僅適用於相容的長條或柱形群組。
+Access the group through [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/). The setting applies to every series in that group. [IChartSeries.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/hasserieslines/) is read-only and reflects the parent group's setting; change the group property to update it.
 
-**什麼是圖表系列群組？**
+The following example creates one [PieOfPie](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
 
-**[IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/)** 包含共享群組層級繪製設定的相容系列。組合圖可能包含多個群組，因此透過單一系列取得的群組設定不一定會影響圖表中的所有系列。
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-**新建立的圖表是否包含預設資料？**
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-是的。預設情況下，**[IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/)** 會建立範例系列、類別與值。您可以編輯這些儲存格，或在加入完全自訂的資料集前先清除系列與類別集合。亦可使用不含預設資料的重載。
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 400);
+var series = chart.ChartData.Series[0];
+var seriesGroup = series.ParentSeriesGroup;
 
-**圖表物件如何與工作簿儲存格連結？**
+seriesGroup.HasSeriesLines = true;
+presentation.Save("series_lines_enabled.pptx", SaveFormat.Pptx);
 
-系列名稱、類別標籤與資料點值皆參照 **[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)** 中的儲存格。變更參照的儲存格會更新對應的圖表元素。建立自訂資料時，請保持類別列與系列值列對齊，以確保每個點繪製於正確的類別之下。
+seriesGroup.HasSeriesLines = false;
+presentation.Save("series_lines_disabled.pptx", SaveFormat.Pptx);
+```
 
-**如何只清除單一點而不是整個系列？**
+| Series lines enabled | Series lines disabled |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| The two lines connect the main pie to the secondary pie. | Both pies remain visible, but the connecting lines are hidden. |
 
-將相關的值儲存格設為 `null`，即可保留該點的類別位置作為空白點。只有在您確實想移除該系列所有點時，才使用 **[IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/)**。如果同時移除類別，請確保所有系列的值仍與類別集合保持對齊。
+Series lines differ from data label leader lines, which connect labels to their data points; gridlines, which mark intervals along chart axes; and the lines in a line chart, which represent data values. This setting does not control those elements.
 
-**空白點會如何顯示？**
+## **常見問題**
 
-結果取決於圖表類型與 **[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/)** 的設定。支援的圖表可將空白顯示為間隙、零值或連接相鄰點。請選擇與簡報中缺失資料意義相符的設定。完整範例與視覺比較請參閱 [控制空儲存格的顯示方式](#control-the-display-of-empty-cells)。
+**Which chart types support data series?**
 
-**負值的格式如何設定？**
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
-對於支援的長條、柱形與氣泡系列，啟用 **[IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/)** 並設定 **[IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)**。您也可以使用 **[IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)** 為單一點覆寫此行為。這些屬性影響格式，而不會改變儲存的數值。
+**What is a chart series group?**
 
-**當系列與點同時設定格式時，哪一個會生效？**
+An [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
 
-明確的資料點格式會優先於系列格式，僅對該點生效。其他點仍使用明確的系列格式，或在未定義系列格式時使用自動圖表樣式與主題。群組屬性如重疊與間隙寬度屬於版面配置，並非點層級的格式覆寫。
+**Does a newly created chart contain default data?**
 
-**圖表可包含多少系列有上限嗎？**
+Yes. By default, [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
-Aspose.Slides 本身沒有固定的系列數上限。實務上，簡報檔案限制、可用記憶體、渲染時間以及圖表可讀性會決定實際可用的上限。
+**How are chart objects connected to workbook cells?**
 
-**當柱形或長條過於靠近或過於分散時該如何調整？**
+Series names, category labels, and data-point values reference cells in an [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
 
-在相應的父系列群組上設定 **[IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)**。將數值增大會擴大叢集之間的間距，減小則使叢集更為緊密。
+**How do I clear one point instead of the whole series?**
+
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
+
+**How are empty points displayed?**
+
+The result depends on the chart type and [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
+
+**How are negative values formatted?**
+
+For supported bar, column, and bubble series, enable [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) and set [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). You can override the behavior for an individual point with [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). These properties affect formatting, not the stored numeric values.
+
+**Which formatting wins when both a series and a point are formatted?**
+
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group properties such as overlap and gap width control layout and are not point-level formatting overrides.
+
+**Is there a limit to how many series a chart can contain?**
+
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
+
+**What should I change when columns are too close together or too far apart?**
+
+Set [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

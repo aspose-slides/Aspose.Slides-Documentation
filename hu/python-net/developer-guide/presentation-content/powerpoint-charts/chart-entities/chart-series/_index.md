@@ -1,6 +1,6 @@
 ---
-title: Diagram adat sorozatok kezelése prezentációkban Pythonban
-linktitle: Adatsorozat
+title: Diagram sorozatok kezelése prezentációkban Pythonban
+linktitle: Adatsorozatok
 type: docs
 url: /hu/python-net/chart-series/
 keywords:
@@ -8,38 +8,40 @@ keywords:
 - sorozat átfedés
 - sorozat szín
 - kategória szín
-- sorozat név
+- sorozat neve
 - adatpont
 - sorozat hézag
 - PowerPoint
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelhet diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket prezentációkban Python segítségével."
+description: "Ismerje meg, hogyan kezelheti a diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket a prezentációkban Python segítségével."
 ---
 ## **Áttekintés**
 
-A diagram tárolhatja a megjelenített értékeket a munkafüzet celláiban vagy közvetlenül numerikus literálokként. A [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) egy kapcsolódó értékcsoportot képvisel, és minden [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) egy pontot jelent ebben a sorozatban. A [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. Az alapértelmezett adatokkal létrehozott diagramok esetén a sorozatnevek, kategóriák és pontértékek a diagram munkafüzetéből származó [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/) objektumokat használják.
+Egy diagram tárolhatja a megjelenített értékeket a munkafüzet celláiban vagy közvetlenül numerikus literálokként. A [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) egy kapcsolódó értékkészletet képvisel, és minden [ChartDataPoint](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/) egy pontot jelent ebben a sorozatban. A [ChartCategory](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategory/) objektumok biztosítják a címkéket vagy a sorozatok által megosztott csoportosítási értékeket. Az alapértelmezett adatokkal létrehozott diagramokban a sorozatnevek, kategóriák és pontértékek a diagram munkafüzetéből származó [ChartDataCell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/) objektumokat használják.
 
-Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0. sort a sorozatneveknek, a 0. oszlopot a kategórianéveknek, a maradék cellákat pedig a sorozatértékeknek használja. A [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) metódusnak átadott munkalap‑, sor‑ és oszlopindexek nullára indulnak. Ez a felépítés hasznos, ha alapértelmezett adattal hoz létre diagramot, de ne vegye alapul, hogy minden meglévő diagram ezt a felépítést használja. Betöltött prezentáció esetén ellenőrizze a sorozat, kategória és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit megváltoztatná.
+Egy tipikus kategóriadiagram esetén az alapértelmezett munkafüzet a 0. sort használja a sorozatneveknek, a 0. oszlopot a kategórianévnek, a maradék cellákat pedig a sorozatértékeknek. A [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) számára átadott munkalap‑, sor‑ és oszlopt indexek nulla‑alapúak. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre egy diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit megváltoztatná.
 
-A diagrambeállítások három különböző hatókörrel rendelkeznek:
+A diagram beállításai három különböző hatókörben érvényesülnek:
 
-- Az egy sorozatra vonatkozó beállítások, például a [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), egy sorozat összes pontjának alapértelmezett megjelenését adják.
-- Az adatpont beállítások, például a [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), felülírják a sorozat megjelenését egy adott pontnál.
-- A csoportbeállítások a kompatibilis sorozatokra vonatkoznak, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) tartoznak. A csoporthoz a [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) használatával férhet hozzá, ha olyan opciókat kell beállítania, mint az átfedés vagy a hézag szélessége.
+- Sorozat‑szintű beállítások, például a [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/), az alapértelmezett megjelenést biztosítják az összes pont számára egy sorozatban.
+- Adatpont‑szintű beállítások, például a [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/), felülírják a sorozat megjelenését egy adott pontnál.
+- Csoportbeállítások a kompatibilis sorozatokra vonatkoznak, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) tartoznak. A csoportot a [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) segítségével érheti el, ha például átfedés vagy hézag szélesség beállítására van szükség.
 
-Ha nincs kifejezetten megadva pont‑ vagy sorozat‑kitöltés, a diagram stílusa és témája határozza meg a automatikus megjelenítést. Ha mind a sorozat, mind a pont formázása jelen van, a pont formázása él az adott pontnál.
+Ha nincs kifejezetten beállítva pont‑ vagy sorozat‑kitöltés, a diagramstílus és a téma határozza meg az automatikus megjelenést. Ha mind a sorozat, mind a pont formázása meg van adva, a pont formázása elsőbbséget élvez az adott pontnál.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![diagram-sorozat-powerpoint](chart-series-powerpoint.png)
 
-## **A sorozat értékek beállítása numerikus literálokkal**
+Csoportos hengerdiagram esetén tekintse meg, hogy a [changing the 3D series type or bar shape](/slides/hu/python-net/3d-chart/#change-the-3d-series-type-and-bar-shape) hogyan befolyásolja az első sorozatot.
 
-Használjon numerikus literálokat, ha a sorozatértékek alkalmazás‑adatokból vagy számításokból származnak, és nincs szükség munkalap‑cellahivatkozásokra. Állítsa a [data_source_type_for_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_values/) értékét [DataSourceType.DOUBLE_LITERALS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/)‑re, mielőtt minden pont [value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) tulajdonságát a [as_literal_double](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_literal_double/) segítségével állítaná be.
+## **Sorozatértékek beállítása numerikus literálokkal**
 
-A gyűjtemény‑beállítás irányítja az adott sorozat összes pontértékének forrástípusa. Minden egyes pont [value.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/basechartvalue/data_source_type/) a kiválasztott típust jelzi; ezt a gyűjtemény‑beállítással módosíthatja. `WORKSHEET` esetén a [as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_cell/) használatával érheti el a hivatkozott cellát. `DOUBLE_LITERALS` esetén az `as_literal_double` segítségével olvashat vagy írhat számot közvetlenül.
+Használjon numerikus literálokat, ha a sorozatértékek az alkalmazás adataiból vagy számításaiból származnak, és nincs szükség munkalap‑cellahivatkozásra. Állítsa a [data_source_type_for_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_values/) értékét [DataSourceType.DOUBLE_LITERALS](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datasourcetype/)‑re, mielőtt minden pont [value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/) tulajdonságát a [as_literal_double](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_literal_double/) segítségével rendeli hozzá.
 
-Az alábbi példa egy oszlopdiagramot hoz létre alapértelmezett sorozatokkal és kategóriákkal, majd a meglévő első sorozat pontjaira 10, 20 stb. számított értékeket rendeli hozzá. Elmenti a prezentációt, újra megnyitja, és kiírja a tárolt értékeket.
+A gyűjteménybeállítás vezérli az összes pont értékének forrástípusát az adott sorozatban. Minden pont [value.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/basechartvalue/data_source_type/) a kiválasztott típust jelzi; a gyűjteménybeállítással módosítható. `WORKSHEET` esetén a [as_cell](https://reference.aspose.com/slides/python-net/aspose.slides.charts/doublechartvalue/as_cell/) segítségével érheti el a hivatkozott cellát. `DOUBLE_LITERALS` esetén az `as_literal_double` használatával olvashatja vagy írhatja a számot közvetlenül.
+
+Az alábbi példa egy oszlopdiagramot hoz létre alapértelmezett sorozatokkal és kategóriákkal, majd a számított 10, 20 stb. értékeket rendeli az első sorozat meglévő pontjaihoz. Elmenti a prezentációt, újra megnyitja, és kiírja a tárolt értékeket.
 
 ```py
 import aspose.slides as slides
@@ -65,15 +67,15 @@ with slides.Presentation("numeric_literals.pptx") as reopened_presentation:
         print(point.value.as_literal_double)
 ```
 
-A pontérték forrástípusa elkülönül a [ChartData.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/)‑től, amely a diagram belső vagy külső munkafüzet‑konfigurációját azonosítja. Numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet. Ebben a példában a munkafüzet továbbra is elérhető a kategória címkék, a sorozatnevek és a többi sorozat számára. Lásd a [Chart Workbook](/slides/hu/python-net/chart-workbook/) oldalt a munkafüzet‑kezeléshez.
+A pontérték forrástípus különálló a [ChartData.data_source_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdata/data_source_type/)-tól, amely a diagram belső vagy külső munkafüzet‑konfigurációját azonosítja. A numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet. Ebben a példában a munkafüzet továbbra is elérhető a kategóriacímkék, sorozatnevek és a többi sorozat számára. Lásd a [Chart Workbook](/slides/hu/python-net/chart-workbook/)‑t a munkafüzet‑kezeléshez.
 
-Szórt és buborék diagramok esetén állítsa be a [data_source_type_for_x_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_x_values/) és a [data_source_type_for_y_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_y_values/) értékét, hogy kiválassza az [x_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/x_value/) és [y_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/y_value/) forrását. A buborék diagramok továbbá a [data_source_type_for_bubble_sizes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_bubble_sizes/)‑t használják a [bubble_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/bubble_size/) meghatározásához. Minden alkalmazandó forrást állítson `DOUBLE_LITERALS`‑re, mielőtt a számot a `as_literal_double` tulajdonságán keresztül rendeli hozzá.
+Szórt és buborékdiagramok esetén állítsa a [data_source_type_for_x_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_x_values/) és a [data_source_type_for_y_values](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_y_values/) értékét a [x_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/x_value/) és [y_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/y_value/) forrásainak kiválasztásához. A buborékdiagramok a [data_source_type_for_bubble_sizes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/data_source_type_for_bubble_sizes/) segítségével határozzák meg a [bubble_size](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/bubble_size/) forrását. Minden alkalmazandó forrást állítson `DOUBLE_LITERALS`‑re, mielőtt a számokat a `as_literal_double` tulajdonsággal rendeli hozzá.
 
 ## **A diagram sorozat átfedésének beállítása**
 
-A [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) megadja, hogy a 2D diagramokban a sávok vagy oszlopok milyen mértékben fednek át egymás felett, –100‑tól 100‑ig százalékban. Ez egy csak‑olvasható leképezése a szülő sorozatcsoport beállításának. Állítsa be a [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/)‑t, hogy minden kompatibilis sorozatot frissítsen az adott csoportban. Ez a lehetőség a csoportos sáv‑ vagy oszlop‑típusú diagramokra vonatkozik; a kombinált diagramok nem‑kapcsolódó sorozatcsoportjait nem befolyásolja.
+A [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) azt jelzi, hogy a sávok vagy oszlopok mennyire fedik át egymást egy 2D diagramon, -100 és 100 százalék között. Ez a beállítás csak olvasható, és a szülő sorozatcsoport beállításának kivetítése. A [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/overlap/) módosításával frissítheti az összes kompatibilis sorozatot az adott csoportban. Ez a lehetőség azokra a diagramtípusokra vonatkozik, amelyek csoportos sávokat vagy oszlopokat jelenítenek meg; nem érinti a kombinációs diagramok nem kapcsolódó sorozatcsoportjait.
 
-Az alábbi példa beállítja az átfedést a első sorozatot tartalmazó csoportra:
+Az alábbi példa beállítja az átfedést az első sorozatot tartalmazó csoportra:
 
 ```py
 import aspose.slides as slides
@@ -86,7 +88,7 @@ overlap_percent = 30
 with slides.Presentation() as presentation:
     slide = presentation.slides[first_slide_index]
 
-    # Az új diagram minta sorozatokat, kategóriákat és értékeket tartalmaz.
+    # Az új diagram mintasorozatokat, kategóriákat és értékeket tartalmaz.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
     series = chart.chart_data.series[first_series_index]
@@ -97,13 +99,13 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![Az sorozat átfedése](series_overlap.png)
+![A sorozat átfedése](series_overlap.png)
 
-## **A sorozat kitöltőszín megváltoztatása**
+## **A sorozat kitöltőszínének módosítása**
 
-Használja a [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/)‑t, hogy az egész sorozathoz alapértelmezett kitöltést állítson be. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/) beállítása felülírja a sorozat kitöltését az adott pontnál.
+Használja a [ChartSeries.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/format/)‑t az egész sorozat alapértelmezett kitöltésének beállításához. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [ChartDataPoint.format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/format/) beállítása felülírja a sorozat kitöltését az adott pontnál.
 
-Az alábbi példa egy szilárd kék kitöltést alkalmaz az első sorozatra:
+Az alábbi példa egy egységes kék kitöltést alkalmaz az első sorozatra:
 
 ```py
 import aspose.pydrawing as drawing
@@ -129,9 +131,9 @@ Az eredmény:
 
 ![A sorozat színe](series_color.png)
 
-## **A sorozat nevének megváltoztatása**
+## **A sorozat nevének módosítása**
 
-A sorozat neve a diagram adat‑munkafüzetben tárolódik, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett, csoportosított oszlopdiagramhoz létrehozott munkafüzetben a B1 cella (0. sor, 1. oszlop) tartalmazza az első sorozat nevét. Az alábbi példában a névkonstansok ezt a struktúrát teszik egyértelművé:
+A sorozat neve a diagram adat‑munkafüzetben van tárolva, és általában a jelmagyarázatban jelenik meg. Egy csoportosított oszlopdiagram alapértelmezett munkafüzetében a B1 cella (0‑sor, 1‑oszlop) tartalmazza az első sorozat nevét. Az alábbi példában a névkonstansok egyértelművé teszik ezt a struktúrát:
 
 ```py
 import aspose.slides as slides
@@ -154,7 +156,7 @@ with slides.Presentation() as presentation:
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A cellát közvetlenül is frissítheti a [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/) által már hivatkozott helyen. Ez a megközelítés elkerüli a meglévő diagram sor‑ és oszlop‑indexek feltételezését:
+A [ChartSeries.name](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/name/) által már hivatkozott cellát is frissítheti. Ez a megközelítés elkerüli, hogy egy adott sorra és oszlopra feltételezést tegyen egy már létező diagram esetén:
 
 ```py
 import aspose.slides as slides
@@ -180,13 +182,13 @@ Az eredmény:
 
 ![A sorozat neve](series_name.png)
 
-### **Sorozat létrehozása több cella nevéből**
+### **Sorozat létrehozása több cellából származó névvel**
 
-Összetett sorozatnév hasznos, ha a termék neve és a jelentési időszak külön munkafüzet‑cellákban van tárolva. Például a `Product A` (B1) és a `2026` (C1) értékeket egyetlen sorozatnévbe fűzheti, miközben mindkét rész továbbra is forrás‑cella‑hivatkozással rendelkezik.
+Összetett sorozatnév hasznos, ha a termék neve és a jelentési időszak külön cellákban van tárolva. Például a `Product A` értéket a B1‑ben és a `2026` értéket a C1‑ben egyetlen sorozatnévvé egyesítheti, miközben mindkét rész továbbra is a forráscellához kapcsolódik.
 
-Használja a [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/)‑t a névtartomány lekéréséhez, majd ezt a gyűjteményt adja át a [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/)‑nak. A `skip_hidden_cells` argumentum szabályozza, hogy a rejtett cellák bekerüljenek-e: `True` kizárja őket, `False` pedig beleveszi. Ebben a példában `False`‑t használunk, hogy a névtartomány minden cellája szerepeljen.
+Használja a [ChartDataWorkbook.get_cell_collection](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/get_cell_collection/)‑t a névtartomány lekéréséhez, majd adja át ezt a gyűjteményt a [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriescollection/add/)‑nak. A `skip_hidden_cells` argumentum szabályozza, hogy a rejtett cellák bele legyenek-e foglalva: `True` kizárja őket, míg `False` belefoglalja. Ez a példa `False`‑t használ, hogy minden cellát belevegyen a névtartományba.
 
-Az alábbi példa egy prezentációt hoz létre egy sorozattal és két adatponttal. A B1:C1 cellák csak a sorozatnevet szolgálják; az A2:A3 a kategória címkéket, a B2:B3 pedig a numerikus értékeket adja.
+Az alábbi példa egy prezentációt hoz létre egy sorozattal és két adatponttal. A B1:C1 cellák csak a sorozatnevét szolgáltatják; az A2:A3 a kategóriacímkéket, a B2:B3 a numerikus értékeket adja.
 
 ```py
 import aspose.slides as slides
@@ -204,13 +206,13 @@ with slides.Presentation() as presentation:
     workbook = chart.chart_data.chart_data_workbook
     workbook.clear(0)
 
-    # Ezek a két cella szolgáltatja a sorozat nevét.
+    # Ez a két cella adja meg a sorozat nevét.
     workbook.get_cell(0, 0, 1, "Product A")
     workbook.get_cell(0, 0, 2, "2026")
     name_cells = workbook.get_cell_collection("Sheet1!$B$1:$C$1", False)
     series = chart.chart_data.series.add(name_cells, charts.ChartType.CLUSTERED_COLUMN)
 
-    # Különálló cellák biztosítják a kategóriákat és a numerikus adatpontokat.
+    # Külön cellák adják meg a kategóriákat és a numerikus adatpontokat.
     north_category = workbook.get_cell(0, 1, 0, "North")
     south_category = workbook.get_cell(0, 2, 0, "South")
     chart.chart_data.categories.add(north_category)
@@ -223,13 +225,13 @@ with slides.Presentation() as presentation:
     presentation.save("composite_series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az eredményül kapott sorozatnév `Product A 2026`, a két cellaérték között szóközzel. A jelmagyarázat egy bejegyzésként jeleníti meg mindkét oszlopot. Az alábbi kép a mentett prezentációból származik:
+Az eredményül kapott sorozatnév `Product A 2026`, egy szóközzel a két cellaérték között. A jelmagyarázat egy bejegyzésként jeleníti meg mindkét oszlopot. Az alábbi kép a mentett prezentációból lett renderelve:
 
-![Oszlopdiagram északi és déli értékekkel, valamint a Product A 2026 összetett sorozatnévvel a jelmagyarázatban](composite_series_name.png)
+![Oszlopdiagram északi és déli értékekkel, valamint a `Product A 2026` összetett sorozatnévvel a jelmagyarázatban](composite_series_name.png)
 
-## **Az automatikus sorozat kitöltőszín lekérése**
+## **Az automatikus sorozat‑kitöltőszín lekérdezése**
 
-A [ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) visszaadja a sorozat indexéből és a diagram stílusából számított színt. Ez a szín akkor kerül felhasználásra, amikor a sorozat kitöltése nincs kifejezetten meghatározva. A metódus meghívása az automatikusan kiszámított színt olvassa, nem állít be új kitöltést.
+A [ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) visszaadja a sorozat indexéből és a diagramstílusból számított színt. Ez a szín akkor használatos, ha a sorozat kitöltése nem lett kifejezetten definiálva. A metódus hívása csak a számított színt olvassa; nem állít be új kitöltést.
 
 Az alábbi példa kiírja minden alapértelmezett sorozat automatikus színét:
 
@@ -251,7 +253,7 @@ with slides.Presentation() as presentation:
         print(f"Series {series_index}: {automatic_color.name}")
 ```
 
-Példa kimenet az alapértelmezett diagramstílushoz:
+Példa kimenet az alapértelmezett diagramstílusra:
 
 ```text
 Series 0: ff4f81bd
@@ -259,13 +261,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-A pontos színek a diagram stílusától és témájától függenek.
+A pontos színek a diagramstílustól és a témától függenek.
 
-## **Negatív értékek kitöltőszínének invertálása egy diagram sorozatban**
+## **Invertált kitöltőszín beállítása egy diagram sorozathoz**
 
-Sáv‑, oszlop‑ és buborék sorozatok esetén a [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) megjelenítheti a negatív értékeket egy eltérő kitöltéssel. Állítsa be a szabályos sorozatkitöltést szilárd színűre, engedélyezze az invertálást, és adja meg a negatív érték színét a [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/)‑vel. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük változik.
+Sáv-, oszlop- és buborék‑sorozatok esetén a [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) negatív értékeket másik kitöltéssel jeleníthet meg. Állítsa be a szabályos sorozatkitöltést szilárdra, engedélyezze az invertálást, és adja meg a negatív érték színét a [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük változik.
 
-Az alábbi példa az alapértelmezett diagramadatot egy sorozattal helyettesíti. A 0‑s sor a sorozatnevet, a 0‑s oszlop a kategórianeveket, az 1‑es oszlop pedig az értékeket tartalmazza:
+Az alábbi példa egy sorozattal helyettesíti az alapértelmezett diagramadatokat. Az 0. munkalap sorában a sorozat neve, az 0. oszlopban a kategórianevek, az 1. oszlopban pedig az értékek találhatók:
 
 ```py
 import aspose.pydrawing as drawing
@@ -320,7 +322,7 @@ Az eredmény:
 
 ![Az invertált szilárd kitöltőszín](inverted_solid_fill_color.png)
 
-Az invertálást egy pontnál is engedélyezheti a [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/)‑vel. Az alábbi példában a sorozat szintjén letiltottuk az invertálást, és csak a kiválasztott pontnál kapcsoltuk be. A pontnak negatív értéket is adtunk, hogy a hatás látható legyen:
+Inverziót egy pontnál a [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) segítségével is aktiválhatja. Az alábbi példában az inverzió a sorozatnál le van tiltva, csak a kiválasztott pontnál van engedélyezve. A pontnak negatív értéket is adunk, hogy a hatás látható legyen:
 
 ```py
 import aspose.pydrawing as drawing
@@ -353,7 +355,7 @@ with slides.Presentation() as presentation:
 
 ## **Egy adott adatpont értékének törlése**
 
-Egy pont üresre állításához anélkül, hogy a többi pontot eltávolítaná, állítsa a mögöttes munkafüzet‑celláját `None`‑ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/)‑n keresztül érhető el. Az adatpont a kategória pozíciójában marad, de a diagram a értékét üresnek tekinti a diagram üres‑érték beállításai szerint.
+Egy pont üresen hagyásához anélkül, hogy a többi pontot eltávolítaná, állítsa a háttér‑munkafüzet‑cellát `None`‑ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/value/)‑n keresztül érhető el. Az adatpont a ugyanazon kategóriapozícióban marad, de a diagram a beállított üres‑érték szabályok szerint üresként kezeli.
 
 Az alábbi példa csak a második pontot törli az első sorozatban:
 
@@ -377,17 +379,17 @@ with slides.Presentation() as presentation:
     presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A szórt diagramok külön X‑ és Y‑cellákat használnak, a buborék diagramok pedig egy méret‑cellát is. Csak azt a cellát törölje, amely a törlendő értéket tartalmazza. Ne hívja meg a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/)‑t, ha a többi pontot megtartani szeretné, mivel ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
+A szórt diagramok X és Y cellákat, a buborékdiagramok pedig egy méretcellát használnak. Csak azt a cellát törölje, amely az eltávolítandó értéket tartalmazza. Ne hívja a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/)‑t, ha a többi pontot meg szeretné tartani, mivel ez a metódus minden adatpontot eltávolít a gyűjteményből.
 
-## **Az üres cellák megjelenítésének szabályozása**
+## **Üres cellák megjelenésének szabályozása**
 
-A rejtett cellák, amelyek értéket tartalmaznak, különböznek az üres celláktól. A rejtett munkalap‑sorok és -oszlopok adatait be vagy ki kell venni, lásd a [Include Data from Hidden Rows and Columns](/slides/hu/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns) szekciót.
+A rejtett, értéket tartalmazó cellák külön esetet képeznek az üres celláktól. A rejtett munkalapsorok és -oszlopok adatainak fel‑ vagy kizárásához tekintse meg a [Include Data from Hidden Rows and Columns](/slides/hu/python-net/chart-workbook/#include-data-from-hidden-rows-and-columns) oldalt.
 
-Az üres munkafüzet‑cellát hiányzó adatként kell kezelni; a `0`‑t tartalmazó cella ismert numerikus értéket jelent. Állítsa a [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/)‑t `None`‑ra, hogy a cella üres legyen. Egy numerikus nulla továbbra is nulla marad, függetlenül az üres‑cellás beállítástól.
+Egy üres munkafüzet‑cellát hiányzó adatnak tekintünk; a `0` értéket tartalmazó cella ismert numerikus értéket jelent. A [ChartDataCell.value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/value/)‑t `None`‑ra állítva üressé teheti a cellát. A numerikus nulla minden esetben megmarad, függetlenül az üres‑cellás beállítástól.
 
-Használja a [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/)‑t, hogy kiválassza, a diagram hogyan jelenítse meg az üres cellákat. Ez a beállítás az egész diagramra vonatkozik. Megváltoztatja, hogyan ábrázolják a hiányzó értékeket, anélkül hogy az üres munkafüzet‑cellát nullával vagy interpolált értékkel töltené fel.
+Használja a [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/)‑t, hogy kiválassza, a diagram hogyan jeleníti meg az üres cellákat. Ez a beállítás az egész diagramra vonatkozik. Megváltoztatja, hogyan kerülnek a hiányzó helyek ábrázolásra, anélkül, hogy az üres munkafüzet‑cellát nullával vagy interpolált értékkel töltené fel.
 
-Az alábbi önálló példa egy sorozatos vonaldiagramot hoz létre, törli a 3. nap értékét, és a három mód mindegyikével elmenti a diagramot. Nem szükséges bemeneti fájl. A [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) a 0‑s munkalapot, a 0‑s oszlopot a kategóriacímkéknek, az 1‑es oszlopot az értékeknek használja; a 0‑s sor a sorozat nevét tartalmazza. A végső adatsor: `10, 20, üres, 30, 40`.
+Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorozattal, a 3. nap értékét törli, és minden mód esetén elmenti ugyanazt a diagramot. Nem szükséges bemeneti fájl. A [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) a 0‑as munkalapon, 0‑as oszlopban a kategóriacímkéket, 1‑es oszlopban az értékeket használja; a 0‑as sor a sorozat nevét tartalmazza. A végső adatok: `10, 20, empty, 30, 40`.
 
 ```py
 import aspose.slides as slides
@@ -413,7 +415,7 @@ with slides.Presentation() as presentation:
         value_cell = workbook.get_cell(0, i + 1, 1, value)
         series.data_points.add_data_point_for_line_series(value_cell)
 
-    # Hagyja a 3. napot valóban üresen, miközben megtartja annak kategóriáját és adatpontját.
+    # Hagyd a 3. napot valódi üresen, miközben megtartod a kategóriáját és adatpontját.
     workbook.get_cell(0, 3, 1).value = None
 
     modes = [("Gap", charts.DisplayBlanksAsType.GAP), ("Zero", charts.DisplayBlanksAsType.ZERO), ("Span", charts.DisplayBlanksAsType.SPAN)]
@@ -422,19 +424,19 @@ with slides.Presentation() as presentation:
         presentation.save(f"empty_cells_{mode_name}.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Minden kimeneti fájl a mentés előtt beállított módot tárolja: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót akar menteni, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok ciklikus végrehajtása helyett.
+Minden kimeneti fájl a mentés előtt beállított módot tárolja: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót szeretne menteni, állítsa be a kívánt módot, és egyszer mentse el a prezentációt a módok iterálása helyett.
 
-Az alábbi összehasonlítás ugyanazt a adatot mutatja mindhárom fájlban. A 3. nap minden esetben üres a munkafüzetben:
+Az alábbi összehasonlítás ugyanazt az adatot mutatja mindhárom fájlban. A 3. nap minden esetben üres a munkafüzetben:
 
-![Vonaldiagramok azonos adatokkal: a Gap megszakítja a vonalat a 3. napon, a Zero a vonalat nullához viszi, a Span összeköti a 2. napot a 4‑gyel.](display_blanks_as.png)
+![Vonaldiagramok azonos adatokkal: Gap szünetet okoz a vonalon a 3. napnál, Zero a vonalat nullára viszi, a Span összeköti a 2. és 4. napot.](display_blanks_as.png)
 
-A látható hatás a diagram típusa szerint változik. Egy vonaldiagram esetén mindhárom mód könnyen összehasonlítható. Oszlop‑ és sávdiagramok esetén nincs vonal, amely áthidalná a hiányzó kategóriát, így a `SPAN` nem hozhat létre egy felsőbb szegmenst; egy hiányzó oszlop és egy nulla‑magasságú oszlop is hasonlóan nézhet ki. Hasonlóképpen egy csupán jelölőkkel rendelkező szórt diagramnak nincs összekötő vonala. Ne számítson három különböző eredményre minden diagramtípusnál; ellenőrizze a kimenetet a saját típusához.
+A látható hatás a diagramtípustól függ. A vonaldiagram három módot könnyen összehasonlíthatóvá tesz. Oszlop- és sávdiagramok esetén nincs vonal a hiányzó kategória áthidalásához, így a `SPAN` nem tudja előállítani a fenti összekötő szegmenst; egy hiányzó oszlop és egy nulla‑magasságú oszlop is hasonlónak tűnhet. Hasonlóképp, egy csak jelölőkkel rendelkező szórt diagramnak nincs összekötő vonala. Ne várjon három különálló eredményt minden diagramtípusnál; ellenőrizze a kimenetet az adott típusnál.
 
-## **A sorozat hézag‑szélességének beállítása**
+## **A sorozat hézag szélességének beállítása**
 
-A hézag‑szélesség a szomszédos sáv‑ vagy oszlopcsoportok között lévő távolság, a sáv‑ vagy oszlop‑szélesség százalékában kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. A [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) egyszeri beállítása a csoportra elegendő. Nagyobb érték nagyobb távolságot hoz létre a csoportok között; kisebb érték sűrűbb elrendezést eredményez.
+A hézag szélesség a szomszédos sáv‑ vagy oszlopklaszterek közötti térköz, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Állítsa be egyszer a [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/)‑t a csoportra. A nagyobb érték nagyobb térközt hoz létre a klaszterek között; a kisebb érték sűrűbbé teszi azokat.
 
-Az alábbi példa megváltoztatja a hézag‑szélességet, és csak a végleges prezentációt menti el:
+Az alábbi példa módosítja a hézag szélességét, és csak a végső prezentációt menti el:
 
 ```py
 import aspose.slides as slides
@@ -457,46 +459,79 @@ with slides.Presentation() as presentation:
 
 Az eredmény:
 
-![A hézag‑szélesség](gap_width.png)
+![A hézag szélessége](gap_width.png)
+
+## **Sorozatvonalak megjelenítése vagy elrejtése**
+
+A sorozatvonalak vizuálisan összekötik a diagram kapcsolódó részeit. Használja a [ChartSeriesGroup.has_series_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/has_series_lines/)‑t a támogatott halmozott sáv‑ és OfPie diagramokon való megjelenítésük vagy elrejtésük érdekében. Két dimenziós halmozott sáv‑ és oszlopdiagramokban a sorozatvonalak a megfelelő halmozási határokat kötik össze a kategóriák között. Pie of Pie és Bar of Pie diagramokban a fő ábrát kötik össze a másodlagos ábrával. Ez a beállítás nem általános összekötő más diagramtípusokhoz.
+
+A csoportot a [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) segítségével érheti el. A beállítás minden sorozatra vonatkozik ebben a csoportban. A [ChartSeries.has_series_lines](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/has_series_lines/) csak olvasható, és a szülőcsoport beállítását tükrözi; a csoport tulajdonságának módosításával frissíthető.
+
+Az alábbi példa egy [ChartType.PIE_OF_PIE](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) diagramot hoz létre alapértelmezett adatokkal. Elmenti ugyanazt a diagramot sorozatvonalakkal engedélyezve, majd letiltva, így két prezentációt kap összehasonlításra.
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.PIE_OF_PIE, 50, 50, 600, 400)
+    series = chart.chart_data.series[0]
+    series_group = series.parent_series_group
+
+    series_group.has_series_lines = True
+    presentation.save("series_lines_enabled.pptx", slides.export.SaveFormat.PPTX)
+
+    series_group.has_series_lines = False
+    presentation.save("series_lines_disabled.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Sorozatvonalak engedélyezve | Sorozatvonalak letiltva |
+| --- | --- |
+| ![Pie of Pie diagram sorozatvonalakkal](series_lines_enabled.png) | ![Pie of Pie diagram sorozatvonalak nélkül](series_lines_disabled.png) |
+| A két vonal a fő kördiagramot köti össze a másodlagos kördiagrammal. | Mindkét kördiagram látható, de a csatlakozó vonalak rejtve vannak. |
+
+A sorozatvonalak különböznek az adatcímke vezetővonalaitól, amely címkéket köt a data pontjaikhoz; a rácsvonalaktól, amelyek a diagram tengelye mentén jelölik az intervallumokat; valamint a vonaldiagram vonalaitól, amelyek az adatértékeket reprezentálják. Ez a beállítás nem szabályozza ezeket az elemeket.
 
 ## **GYIK**
 
-**Mely diagramtípusok támogatják az adat‑sorozatokat?**
+**Mely diagramtípusok támogatják az adat sorozatokat?**
 
-Az összes [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) felsorolásban szereplő diagramtípus használ diagramadatokat, de a sorozataik nem mindegyiknek ugyanaz a értékszerkezete vagy beállítása. Például a kategória diagramok kategóriákat és értékeket használnak, a szórt diagramok X‑ és Y‑értékeket, a buborék diagramok pedig buborék‑méreteket is. Használja a sorozattípusnak megfelelő adat‑pont létrehozási metódust. Az olyan opciók, mint az átfedés és a hézag‑szélesség, csak kompatibilis sáv‑ vagy oszlopcsoportokra vonatkoznak.
+Az összes diagramtípus, amelyet a [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) felsorolja, használ diagramadatokat, de sorozataik nem mindegyiküknek ugyanaz a értékszerkezete vagy beállításai. Például a kategóriadiagramok kategóriákat és értékeket használnak, a szórt diagramok X és Y értékeket, a buborékdiagramok pedig buborékméreteket. Használja a sorozattípusnak megfelelő adat‑pont létrehozási módszert. Az olyan opciók, mint az átfedés és a hézag szélesség, csak a kompatibilis sáv‑ vagy oszlopsorozatokra vonatkoznak.
 
 **Mi az a diagram sorozatcsoport?**
 
-A [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoport‑szintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több mint egy csoportot is tartalmazhat, így egy sorozaton keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram összes sorozatát.
+A [ChartSeriesGroup](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoport‑szintű ábrázolási beállításokat osztanak meg. Egy kombinációs diagram több mint egy csoportot is tartalmazhat, így egy sorozaton keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram minden sorozatát.
 
-**Egy újonnan létrehozott diagram tartalmaz-e alapértelmezett adatot?**
+**Tartalmaz egy újonnan létrehozott diagram alapértelmezett adatokat?**
 
-Igen. Alapértelmezés szerint a [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) mintasorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy a sorozat‑ és kategória‑gyűjteményeket törölheti egy teljesen egyedi adatkészlet hozzáadása előtt. Egy overload segítségével diagramot is létrehozhat alapértelmezett adatok nélkül.
+Igen. Alapértelmezés szerint a [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) mintasorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy a sorozat‑ és kategóriagyűjteményeket is kiürítheti egy teljesen egyedi adatkészlet hozzáadása előtt. Egy overload segítségével létrehozható diagram alapértelmezett adatok nélkül is.
 
-**Hogyan kapcsolódnak a diagramobjektumok a munkafüzet‑cellákhoz?**
+**Hogyan kapcsolódnak a diagram objektumok a munkafüzet‑cellákhoz?**
 
-A sorozatnevek, kategória‑címkék és adat‑pont‑értékek a [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) celláira hivatkoznak. A hivatkozott cella módosítása frissíti a megfelelő diagramelemet. Egyedi adatépítéskor tartsa összehangoltan a kategória‑sorokat és a sorozat‑érték‑sorokat, hogy minden pont a kívánt kategória alatt jelenjen meg.
+A sorozatnevek, kategóriacímkék és adat‑pont‑értékek a [ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagram elemet. Egyedi adat létrehozásakor tartsa összehangoltan a kategória‑sorokat és a sorozat‑érték‑sorokat, hogy minden pont a megfelelő kategória alatt jelenjen meg.
 
-**Hogyan töröljek egy pontot a teljes sorozat helyett?**
+**Hogyan törölhetek egy pontot a teljes sorozat helyett?**
 
-Állítsa a megfelelő értékcellát `None`‑ra, hogy a pont kategória‑pozíciója üres pontként maradjon. A [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/)‑t csak akkor használja, ha az összes pontot el szeretné távolítani az adott sorozatból. Ha a kategóriákat is eltávolítja, frissítse minden sorozatot, hogy az értékeik továbbra is a kategória‑gyűjteménnyel legyenek összehangolva.
+Állítsa a megfelelő értékcellát `None`‑ra, hogy a pont kategóriapozíciója üres pontként maradjon. A [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointcollection/clear/) csak akkor használatos, ha az összes pontot el kívánja távolítani az adott sorozatból, mivel ez a metódus minden adatpontot eltávolít a gyűjteményből.
 
 **Hogyan jelennek meg az üres pontok?**
 
-Az eredmény a diagram típusa és a [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/) beállítástól függ. A támogatott diagramok megjeleníthetik az üreseknek megfelelően a hézagot, a nullákat, vagy a szomszédos pontok összekapcsolását. Válassza ki a hiányzó adatok jelentésének megfelelő beállítást a prezentációban. Tekintse meg a [Control the Display of Empty Cells](#control-the-display-of-empty-cells) szekciót a teljes példáért és vizuális összehasonlításért.
+Az eredmény a diagramtípustól és a [Chart.display_blanks_as](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/display_blanks_as/)-tól függ. A támogatott diagramok üres értékeket jeleníthetnek meg hézagokként, nullákként vagy a szomszédos pontok összekapcsolásával. Válassza ki a saját prezentációja adatcéljának megfelelő beállítást. Tekintse meg a [Control the Display of Empty Cells](#control-the-display-of-empty-cells) részt a teljes példáért és vizuális összehasonlításért.
 
-**Hogyan formázzák a negatív értékeket?**
+**Hogyan formázódnak a negatív értékek?**
 
-A támogatott sáv‑, oszlop‑ és buborék sorozatok esetén engedélyezze a [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/)‑t, és állítsa be a [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/)‑t. Egy egyéni pont viselkedését a [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/)‑vel felülbírálhatja. Ezek a tulajdonságok a formázást érintik, nem a tárolt numerikus értékeket.
+A támogatott sáv‑, oszlop‑ és buborék‑sorozatok esetén engedélyezze a [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/invert_if_negative/) beállítást, és adja meg a [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/) színét. Egyetlen pontnál a [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/) felülbírálhatja a viselkedést. Ezek a tulajdonságok a formázást érintik, nem a tárolt numerikus értékeket.
 
 **Melyik formázás nyer, ha a sorozat és a pont is formázva van?**
 
-Az explicit adat‑pont formázás elsőbbséget élvez az adott pontnál. A többi pont továbbra is az explicit sorozat‑formátumot használja, vagy ha a sorozat‑formátum nincs definiálva, az automatikus diagram‑stílus és téma szerint. A csoport‑tulajdonságok, mint az átfedés és a hézag‑szélesség, elrendezést szabályoznak, nem pedig pont‑szintű formázási felülírások.
+A kifejezett adat‑pont formázás előnyben részesül az adott pontnál. A többi pont továbbra is az explicit sorozat‑formázást vagy, ha az nincs definiálva, az automatikus diagramstílust és témát használja. A csoport‑tulajdonságok, mint az átfedés és a hézag szélesség, az elrendezést szabályozzák, és nem pont‑szintű formázási felülírások.
 
 **Van korlátozás arra, hogy hány sorozatot tartalmazhat egy diagram?**
 
-Az Aspose.Slides nem alkalmaz különálló rögzített sorozatszám‑korlátot. Gyakorlatban a prezentációfájl‑korlátozások, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos határt.
+Az Aspose.Slides nem határoz meg külön álló fix sorozatszám‑korlátot. Gyakorlatban a prezentáció‑fájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos felső határt.
 
-**Mit kell módosítanom, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
+**Mit kell módosítanom, ha az oszlopok túl közel vagy túl messze vannak egymástól?**
 
-Állítsa be a [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/)‑t a megfelelő szülő sorozatcsoporton. Növelje az értéket a csoportok közti távolság szélesítéséhez, vagy csökkentse, hogy a csoportok közelebb kerüljenek egymáshoz.
+Állítsa be a megfelelő szülő sorozatcsoporton a [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/)‑t. Növelje az értéket a klaszterek közötti térköz növeléséhez, vagy csökkentse, ha a klasztereket közelebb szeretné hozni.

@@ -1,6 +1,6 @@
 ---
-title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام PHP
-linktitle: سلسلة البيانات
+title: إدارة بيانات سلاسل المخططات في العروض التقديمية باستخدام PHP
+linktitle: سلاسل البيانات
 type: docs
 url: /ar/php-java/chart-series/
 keywords:
@@ -8,7 +8,7 @@ keywords:
 - تداخل السلسلة
 - لون السلسلة
 - اسم السلسلة
-- نقطة بيانات
+- نقطة البيانات
 - خلية دفتر العمل
 - فجوة السلسلة
 - قيمة سلبية
@@ -16,27 +16,79 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل المخطط، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية باستخدام PHP."
+description: "تعلم كيفية إدارة سلاسل المخططات، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السلبية في العروض التقديمية باستخدام PHP."
 ---
 ## **نظرة عامة**
 
-يخزن المخطط بياناته المرسومة في دفتر بيانات المخطط. تمثل [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) مجموعة واحدة من القيم المرتبطة، وكل [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. وبالتالي يتم ربط اسم السلسلة والفئات وقيم النقاط بـ [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
+يمكن للمخطط تخزين القيم المرسومة إما في خلايا دفتر العمل أو مباشرة كقواعد رقمية. تمثل [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) مجموعة واحدة من القيم المرتبطة، وكل [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) يمثل نقطة في تلك السلسلة. توفر كائنات [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. في المخططات التي تم إنشاؤها بالبيانات الافتراضية، تستخدم أسماء السلاسل والفئات وقيم النقاط كائنات [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) من دفتر عمل المخطط.
 
-بالنسبة إلى مخطط الفئة النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وتُملأ الخلايا المتبقية بقيم السلاسل. فهارس ورقة العمل والصف والعمود التي يتم تمريرها إلى [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCell) تبدأ من الصفر. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة إلى عرض تقديمي تم تحميله، تحقق من الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
+في مخطط الفئة النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وبقية الخلايا لقيم السلسلة. مؤشرات الورقة، الصف، والعمود التي تُمرّر إلى [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) تبدأ من الصفر. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، ولكن لا تفترض أن كل مخطط موجود يستخدمه. في عرض تم تحميله، افحص الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
 
 إعدادات المخطط لها ثلاث نطاقات مختلفة:
+- إعدادات مستوى السلسلة، مثل [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/)، توفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات نقطة البيانات، مثل [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/). احصل على المجموعة عبر [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) عندما تحتاج إلى ضبط خيارات مثل التداخل أو عرض الفجوة.
 
-- إعدادات على مستوى السلسلة، مثل [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat)، توفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
-- إعدادات نقطة البيانات، مثل [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat)، تتجاوز مظهر السلسلة لنقطة واحدة.
-- إعدادات المجموعة تُطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/). ادخل إلى المجموعة عبر [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getParentSeriesGroup) عندما تحتاج إلى تعيين خيارات مثل التداخل أو عرض الفجوة.
+عندما لا يتم تحديد تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تُعطى تنسيق النقطة الأولوية لتلك النقطة.
 
-عند عدم تحديد تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما تكون كل من تنسيقات السلسلة والنقطة موجودة، تأخذ تنسيق النقطة الأولوية لتلك النقطة.
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-![سلسلة المخطط PowerPoint](chart-series-powerpoint.png)
+للمخطط الأسطواني المتجمع، انظر كيف [تغيير نوع السلسلة ثلاثية الأبعاد أو شكل الشريط](/slides/ar/php-java/3d-chart/#change-the-3d-series-type-and-bar-shape) يؤثر على السلسلة الأولى.
 
-## **ضبط تداخل سلسلة المخطط**
+## **تحديد قيم السلسلة باستخدام القواعد الرقمية**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getOverlap) يحدد مقدار تداخل الأعمدة أو الأشرطة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمئة. إنها إسقاط للقراءة فقط لإعداد المجموعة الأصلية. استخدم [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setOverlap) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أشرطة أو أعمدة مجمعة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط تجميعي.
+استخدم القواعد الرقمية عندما تأتي قيم السلسلة من بيانات التطبيق أو العمليات الحسابية ولا تحتاج إلى مراجع خلايا الورقة. استدعِ [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) مع [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) قبل تعيين نتيجة [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) لكل نقطة عبر [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+
+تحكم إعدادات المجموعة في نوع المصدر لجميع قيم النقاط في تلك السلسلة. طريقة [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) لكل قيمة نقطة تُظهر النوع المحدد؛ غيّره عبر إعدادات المجموعة. مع `Worksheet`، استخدم [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) للوصول إلى الخلية المشار إليها. مع `DoubleLiterals`، استخدم [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) أو `setAsLiteralDouble` لقراءة أو كتابة الرقم مباشرة.
+
+المثال التالي ينشئ مخططًا عموديًا بسلاسل وفئات افتراضية، ثم يعيّن القيم المحسوبة 10، 20، وهكذا للنقاط الموجودة في السلسلة الأولى. يحفظ العرض التقديمي، يعيده الفتح، ويطبع القيم المخزنة.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\DataSourceType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+
+    $series->getDataPoints()->setDataSourceTypeForValues(DataSourceType::DoubleLiterals);
+    $pointCount = java_values($series->getDataPoints()->size());
+    for ($i = 0; $i < $pointCount; $i++) {
+        $series->getDataPoints()->get_Item($i)->getValue()->setAsLiteralDouble(($i + 1) * 10);
+    }
+
+    $presentation->save("numeric_literals.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$reopenedPresentation = new Presentation("numeric_literals.pptx");
+try {
+    $reopenedSlide = $reopenedPresentation->getSlides()->get_Item(0);
+    $reopenedChart = $reopenedSlide->getShapes()->get_Item(0);
+    $reopenedSeries = $reopenedChart->getChartData()->getSeries()->get_Item(0);
+    $pointCount = java_values($reopenedSeries->getDataPoints()->size());
+    for ($i = 0; $i < $pointCount; $i++) {
+        $point = $reopenedSeries->getDataPoints()->get_Item($i);
+        echo java_values($point->getValue()->getAsLiteralDouble()), PHP_EOL;
+    }
+} finally {
+    $reopenedPresentation->dispose();
+}
+```
+
+نوع مصدر قيمة النقطة منفصل عن [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/)، الذي يحدد تكوين دفتر العمل الداخلي أو الخارجي للمخطط. استخدام القواعد الرقمية لا يزيل، بحد ذاته، دفتر العمل المضمن. في هذا المثال، يظل دفتر العمل متاحًا لتسميات الفئات، أسماء السلاسل، والسلاسل الأخرى. راجع [دفتر عمل المخطط](/slides/ar/php-java/chart-workbook/) لإدارة دفتر العمل.
+
+بالنسبة لمخططات التشتت والفقاعات، استخدم [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) و[setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) لاختيار المصادر لـ[getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) و[getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). تستخدم مخططات الفقاعات أيضًا [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) لـ[getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). اضبط كل مصدر مناسب إلى `DoubleLiterals` قبل تعيين الأرقام عبر طريقة `setAsLiteralDouble` لتلك القيمة.
+
+## **تعيين تداخل سلسلة المخطط**
+
+[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) يُبلغ عن مقدار تداخل الأعمدة أو الأشرطة في مخطط ثنائي الأبعاد، من -100 إلى 100 في المئة. إنه عرض للقراءة فقط للإعداد على مجموعة السلسلة الأصلية. استخدم [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) لتحديث كل سلسلة متوافقة في تلك المجموعة. هذا الخيار ينطبق على أنواع المخططات التي تعرض أشرطة أو أعمدة مجمعة؛ ولا يؤثر على مجموعات السلاسل غير المرتبطة في مخطط مركب.
 
 المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
 
@@ -49,7 +101,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // المخطط الجديد يحتوي على سلاسل نموذجية، فئات، وقيم.
+    // المخطط الجديد يحتوي على سلاسل وعناصر فئة وقيم تجريبية.
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -63,15 +115,13 @@ try {
 }
 ```
 
-النتيجة:
-
 ![تداخل السلسلة](series_overlap.png)
 
 ## **تغيير لون تعبئة السلسلة**
 
-استخدم [ChartSeries.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getFormat) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة مسبقًا، فإن إعداد [ChartDataPoint.getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getFormat) يتجاوز تعبئة السلسلة لتلك النقطة.
+استخدم [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كان للنقطة تعبئة صريحة بالفعل، فإن إعداد [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) يتجاوز تعبئة السلسلة لتلك النقطة.
 
-المثال التالي يطبق تعبئة صلبة زرقاء على السلسلة الأولى:
+المثال التالي يطبق تعبئة صلبة باللون الأزرق على السلسلة الأولى:
 
 ```php
 $firstSlideIndex = 0;
@@ -96,13 +146,11 @@ try {
 }
 ```
 
-النتيجة:
-
 ![لون السلسلة](series_color.png)
 
 ## **تغيير اسم السلسلة**
 
-يُخزن اسم السلسلة في دفتر بيانات المخطط ويظهر عادةً في المفتاح. في دفتر العمل الافتراضي المُنشأ لمخطط عمودي مجمع، الخلية B1 هي الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. المتغيرات المسماة في المثال التالي تجعل هذه البنية واضحة:
+يُخزن اسم السلسلة في دفتر عمل بيانات المخطط وعادةً ما يُظهر في وسيلة الإيضاح. في دفتر العمل الافتراضي الذي يُنشأ لمخطط عمودي مجمع، الخلية B1 تقع في الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. المتغيّرات المسماة في المثال التالي تجعل هذا الهيكل واضحًا:
 
 ```php
 $firstSlideIndex = 0;
@@ -128,7 +176,7 @@ try {
 }
 ```
 
-يمكنك أيضًا تحديث الخلية التي يشير إليها [ChartSeries.getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getName). يتيح هذا النهج تجنب الافتراض بوجود صف أو عمود معين في مخطط موجود:
+يمكنك أيضًا تحديث الخلية المشار إليها بالفعل بواسطة [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/). هذه الطريقة تتجنب الافتراض بوجود صف وعمود معينين في مخطط موجود:
 
 ```php
 $firstSlideIndex = 0;
@@ -153,17 +201,15 @@ try {
 }
 ```
 
-النتيجة:
-
 ![اسم السلسلة](series_name.png)
 
-### **إنشاء سلسلة باسم مأخوذ من خلايا متعددة**
+### **إنشاء سلسلة باسم من خلايا متعددة**
 
-يكون اسم السلسلة المركب مفيدًا عندما يُخزن اسم المنتج وفترة التقرير في خلايا دفتر عمل منفصلة. على سبيل المثال، يمكنك دمج `Product A` في B1 و `2026` في C1 في اسم سلسلة واحد مع الحفاظ على ربط كل جزء بالخلايا المصدر.
+اسم سلسلة مركب مفيد عندما يتم تخزين اسم المنتج وفترة التقرير في خلايا دفتر عمل منفصلة. على سبيل المثال، يمكنك دمج `Product A` في B1 و`2026` في C1 في اسم سلسلة واحد مع الحفاظ على ارتباط كل جزء بخلية المصدر الخاصة به.
 
-استخدم [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/#getCellCollection) لاسترجاع نطاق الاسم، ثم مرر ذلك التجميع إلى [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/#add). يتحكم معامل `skipHiddenCells` فيما إذا كانت الخلايا المخفية تُضمّن: `true` تستثنيها، بينما `false` تضمّنها. يستخدم هذا المثال `false` لتضمين كل الخلايا في نطاق الاسم.
+استخدم [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) لاسترجاع نطاق الاسم، ثم مرّر ذلك التجميع إلى [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/). يتحكم معامل `skipHiddenCells` فيما إذا كانت الخلايا المخفية تُضمّن: `true` تستبعدها، و`false` تُضمّنها. هذا المثال يستخدم `false` لتضمين كل خلية في نطاق الاسم.
 
-المثال التالي ينشئ عرض تقديمي بسلسلة واحدة ونقطتي بيانات. تُزود الخلايا B1:C1 باسم السلسلة فقط؛ وتُزود A2:A3 تسميات الفئات، وتُزود B2:B3 القيم الرقمية.
+المثال التالي ينشئ عرضًا تقديميًا بسلسلة واحدة ونقطتي بيانات. الخلايا B1:C1 توفر فقط اسم السلسلة؛ A2:A3 توفر تسميات الفئات، وB2:B3 توفر القيم الرقمية.
 
 ```php
 use aspose\slides\ChartType;
@@ -183,13 +229,13 @@ try {
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // هذان الخليتان تزودان اسم السلسلة.
+    // هاتان الخليتان توفران اسم السلسلة.
     $workbook->getCell(0, 0, 1, "Product A");
     $workbook->getCell(0, 0, 2, "2026");
     $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
     $series = $chart->getChartData()->getSeries()->add($nameCells, ChartType::ClusteredColumn);
 
-    // خلايا منفصلة تزود الفئات ونقاط البيانات الرقمية.
+    // خلايا منفصلة توفر الفئات ونقاط البيانات الرقمية.
     $northCategory = $workbook->getCell(0, 1, 0, "North");
     $southCategory = $workbook->getCell(0, 2, 0, "South");
     $chart->getChartData()->getCategories()->add($northCategory);
@@ -205,13 +251,13 @@ try {
 }
 ```
 
-اسم السلسلة الناتج هو `Product A 2026`، مع مسافة بين القيمتين من الخليتين. يعرض المفتاح ذلك كقيمة واحدة لكل العمودين. الصورة أدناه توضح النتيجة:
+الاسم الناتج للسلسلة هو `Product A 2026`، مع مساحة بين القيمتين من الخليتين. تُظهر وسيلة الإيضاح ذلك كقيد واحد لكلا العمودين. الصورة أدناه توضح النتيجة:
 
-![مخطط عمودي بقيم الشمال والجنوب واسم السلسلة المركب Product A 2026 في المفتاح](composite_series_name.png)
+![مخطط عمودي بقيم الشمال والجنوب واسم السلسلة المركبة Product A 2026 في وسيلة الإيضاح](composite_series_name.png)
 
 ## **الحصول على لون تعبئة السلسلة التلقائي**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) يُعيد اللون المُحسب بناءً على فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا تُحدد تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المُحسب؛ لا يُعيّن تعبئة جديدة.
+[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) تُعيد اللون المحسوب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا يتم تعريف تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المحسوب؛ لا يُعيّن تعبئة جديدة.
 
 المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
 
@@ -240,8 +286,6 @@ try {
 }
 ```
 
-مخرجات المثال للنمط الافتراضي للمخطط:
-
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
 Series 1: java.awt.Color[r=192,g=80,b=77]
@@ -250,11 +294,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 الألوان الدقيقة تعتمد على نمط المخطط والموضوع.
 
-## **ضبط لون تعبئة عكسي لسلسلة المخطط**
+## **تعيين لون تعبئة عكسي لسلسلة المخطط**
 
-بالنسبة لسلاسل الأشرطة والعمود والفقاعات، يمكن لـ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) عرض القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية إلى صلبة، فعّل الانعكاس، وعين لون القيمة السالبة عبر [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). تظل الأرقام السالبة دون تغيير في دفتر العمل؛ يتغير لون عرضها فقط.
+للسلاسل من نوع الشريط أو العمود أو الفقاعات، يمكن لـ[ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) عرض القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية إلى صلبة، فعّل العكس، وعيّن لون القيمة السالبة عبر [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). تبقى الأعداد السالبة دون تغيير في دفتر العمل؛ فقط يتغير لون عرضها.
 
-المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. يحتوي الصف 0 من ورقة العمل على اسم السلسلة، والعمود 0 على أسماء الفئات، والعمود 1 على القيم:
+المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 في الورقة يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
 
 ```php
 $firstSlideIndex = 0;
@@ -310,11 +354,9 @@ try {
 }
 ```
 
-النتيجة:
+![لون التعبئة الصلبة المعكوس](inverted_solid_fill_color.png)
 
-![لون تعبئة صلب معكوس](inverted_solid_fill_color.png)
-
-يمكنك تمكين الانعكاس لنقطة واحدة عبر [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). في المثال التالي، يُعطل الانحراف للسلسلة ويُفعّله فقط للنقطة المحددة. تُعطى النقطة أيضًا قيمة سالبة لتظهر التأثير:
+يمكنك تفعيل العكس لنقطة واحدة عبر [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). في المثال التالي، تم تعطيل العكس للسلسلة وتفعيله فقط للنقطة المحددة. تم أيضًا تعيين قيمة سالبة للنقطة لتكون النتيجة مرئية:
 
 ```php
 $firstSlideIndex = 0;
@@ -350,7 +392,7 @@ try {
 
 ## **مسح قيمة نقطة بيانات محددة**
 
-لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، اضبط خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة إلى مخطط عمودي، تكون القيمة المرسومة متاحة عبر [ChartDataPoint.getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getValue). تبقى نقطة البيانات في نفس موضع الفئة، لكن المخطط يتعامل مع قيمتها كخالية وفق إعدادات القيم الفارغة للمخطط.
+لجعل نقطة واحدة فارغة دون إزالة باقي النقاط، اضبط خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة لمخطط عمودي، القيمة المرسومة متاحة عبر [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). تظل نقطة البيانات في نفس موقع الفئة، لكن المخطط يعامل قيمتها كفارغة وفقًا لإعدادات القيم الفارغة في المخطط.
 
 المثال التالي يمسح فقط النقطة الثانية في السلسلة الأولى:
 
@@ -377,17 +419,17 @@ try {
 }
 ```
 
-تستخدم مخططات التبعثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية حجم. امسح فقط الخلية التي تمثل القيمة التي ترغب في إزالتها. لا تستدعِ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) عندما تريد الحفاظ على باقي النقاط، لأن هذه الطريقة تُزيل كل نقاط البيانات من المجموعة.
+تستخدم مخططات التشتت خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية حجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) عندما تريد الحفاظ على النقاط الأخرى، لأن تلك الطريقة تزيل كل نقطة بيانات من التجميع.
 
 ## **التحكم في عرض الخلايا الفارغة**
 
-الخلايا المخفية التي تحتوي على قيم هي حالة منفصلة عن الخلايا الفارغة. لتضمين أو استبعاد البيانات من الصفوف والأعمدة المخفية في ورقة العمل، راجع [Include Data from Hidden Rows and Columns](/slides/ar/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+الخلايا المخفية التي تحتوي على قيم هي حالة منفصلة عن الخلايا الفارغة. لإدراج البيانات من الصفوف والأعمدة المخفية، انظر إلى [إدراج البيانات من الصفوف والأعمدة المخفية](/slides/ar/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-الخلية الفارغة في دفتر العمل تمثل بيانات مفقودة؛ والخلية التي تحتوي على `0` تمثل قيمة رقمية معروفة. استدعِ [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/#setValue) مع `null` لجعل الخلية فارغة. الصفر الرقمي يظل صفرًا بغض النظر عن إعداد الخلايا الفارغة.
+خلية دفتر عمل فارغة تمثل بيانات مفقودة؛ الخلية التي تحتوي على `0` تمثل قيمة رقمية معروفة. استدعِ [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) مع `null` لجعل الخلية فارغة. الصفر الرقمي يظل صفرًا بغض النظر عن إعداد الخلية الفارغة.
 
-استخدم [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs) لاختيار طريقة عرض المخطط للخلايا الفارغة. ينطبق هذا الإعداد على المخطط بالكامل. يغيّر طريقة رسم الفجوات دون ملء الخلية الفارغة بالصفر أو قيمة مق interpolation.
+استخدم [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) لاختيار طريقة عرض الخلايا الفارغة في المخطط. هذا الإعداد يُطبق على المخطط بأكمله. يغيّر طريقة رسم الفراغات، دون ملء خلية دفتر العمل الفارغة بالصفر أو قيمة محسوبة.
 
-المثال المستقل التالي ينشئ مخطط خطي بسلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط بنفسه بكل وضع. لا تحتاج إلى ملف إدخال. يستخدم [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) ورقة العمل 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
+المثال المستقل التالي ينشئ مخططًا خطيًا بسلسلة واحدة، يمسح القيمة لليوم 3، ويحفظ المخطط نفسه بكل وضع. لا يلزم ملف إدخال. يستخدم [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) الورقة 0، العمود 0 لتسميات الفئات، والعمود 1 للقيم؛ الصف 0 يحمل اسم السلسلة. البيانات النهائية هي `10, 20, empty, 30, 40`.
 
 ```php
 use aspose\slides\ChartType;
@@ -417,7 +459,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // اترك اليوم الثالث فارغًا فعلًا مع الاحتفاظ بفئته ونقطة بياناته.
+    // اجعل اليوم 3 فارغًا فعلاً، مع الحفاظ على فئته ونقطة البيانات الخاصة به.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -431,17 +473,17 @@ try {
 }
 ```
 
-كل ملف ناتج يُخزّن الوضع المحدد قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و`empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، حدد الوضع المطلوب واحفظ العرض التقديمي مرة واحدة بدلاً من التكرار على الأوضاع.
+كل ملف إخراج يخزن الوضع المحدد قبل الحفظ: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx`، و`empty_cells_Span.pptx`. لحفظ نسخة واحدة فقط، عيّن الوضع المطلوب واحفظ العرض التقديمي مرة واحدة بدلًا من التكرار على الوضعيات.
 
-المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم 3 فارغ في دفتر العمل في كل الحالات:
+المقارنة أدناه تُظهر نفس البيانات في جميع الملفات الثلاثة. اليوم 3 فارغ في دفتر العمل في كل حالة:
 
-![مخططات الخط مع بيانات متطابقة: الفجوة تقطع الخط في اليوم 3، والصفر يُسقط الخط إلى الصفر، والامتداد يربط اليوم 2 باليوم 4.](display_blanks_as.png)
+![مخططات خطية ببيانات متطابقة: Gap يقطع الخط عند اليوم 3، Zero يخفض الخط إلى الصفر، وSpan يربط اليوم 2 باليوم 4.](display_blanks_as.png)
 
-التأثير المرئي يعتمد على نوع المخطط. يُسهّل مخطط الخط مقارنة جميع الأوضاع الثلاثة. لا تحتوي المخططات الشريطية والعمودية على خط لتوصيل الفجوة بين الفئات المفقودة، لذا لا يمكن لـ `Span` إنتاج الجزء المتصل الموضح أعلاه؛ ويمكن أن يبدو العمود المفقود والعمود صفر الارتفاع متشابهين. بالمثل، لا يحتوي مخطط التبعثر بالعلامات فقط على خط توصيل. لا تتوقع ثلاث نتائج مميزة لكل نوع مخطط؛ تحقق من النتيجة للنوع الذي تستخدمه.
+التأثير المرئي يعتمد على نوع المخطط. يجعل المخطط الخطي جميع الوضعيات الثلاثة سهلة المقارنة. المخططات الشريطية والعمودية لا تحتوي على خط للربط عبر فئة مفقودة، لذا لا يمكن لـ`Span` إنشاء الجزء المتصل المعروض أعلاه؛ قد يبدو العمود المفقود والعمود صفر الارتفاع متشابهين. بالمثل، مخطط التشتت مع العلامات فقط لا يحتوي على خط ربط. لا تتوقع ثلاث نتائج مميزة لكل نوع مخطط؛ تحقق من النتيجة للنوع الذي تستخدمه.
 
-## **ضبط عرض الفجوة بين السلاسل**
+## **تحديد عرض الفجوة بين السلاسل**
 
-عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتقاربة، معبرًا عنها كنسبة مئوية من عرض الشريط أو العمود. مثل التداخل، هو خاص بالمجموعة الأصلية للسلسلة وليس بسلسلة واحدة. استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ والقيمة الأصغر تجعلها أكثر تكتًّا.
+عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتجاورة، يُعبّر عنه كنسبة مئوية من عرض الشريط أو العمود. مثل التداخل، ينتمي إلى مجموعة السلسلة الأصلية وليس إلى سلسلة واحدة. استدعِ [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ القيمة الأصغر تجعلها أكثر كثافة.
 
 المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
 
@@ -467,48 +509,84 @@ try {
 }
 ```
 
-النتيجة:
-
 ![عرض الفجوة](gap_width.png)
+
+## **إظهار أو إخفاء خطوط السلسلة**
+
+خطوط السلسلة تُربط بصريًا أجزاء المخطط ذات الصلة. استخدم [ChartSeriesGroup::setSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setserieslines/) لإظهارها أو إخفائها في المخططات الشريطية المتراكبة المدعومة وOfPie. في المخططات الشريطية والعمودية المتراكبة ذات البعدين، تربط حدود المكدس المقابلة عبر الفئات. في مخططات Pie of Pie وBar of Pie، تربط الرسم الأساسي بالرسم الثانوي. هذا الإعداد ليس موصلاً عامًا للأنواع الأخرى من المخططات.
+
+احصل على المجموعة عبر [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/). يطبق الإعداد على كل سلسلة في تلك المجموعة. [ChartSeries::hasSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/hasserieslines/) للقراءة فقط ويعكس إعداد مجموعة الأصل؛ استدعِ مُعدِّل المجموعة لتحديثه.
+
+المثال التالي يُنشئ مخططًا واحدًا من نوع [ChartType::PieOfPie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) ببيانات افتراضية. يحفظ المخطط نفسه مع تمكين خطوط السلسلة ثم تعطيلها، منتجًا عرضين تقديميين للمقارنة.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $seriesGroup = $series->getParentSeriesGroup();
+
+    $seriesGroup->setSeriesLines(true);
+    $presentation->save("series_lines_enabled.pptx", SaveFormat::Pptx);
+
+    $seriesGroup->setSeriesLines(false);
+    $presentation->save("series_lines_disabled.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| خطوط السلسلة مفعلة | خطوط السلسلة مُعطلة |
+| --- | --- |
+| ![مخطط Pie of Pie مع تمكين خطوط السلسلة](series_lines_enabled.png) | ![مخطط Pie of Pie مع تعطيل خطوط السلسلة](series_lines_disabled.png) |
+| الخطان يربطان الفطيرة الرئيسية بالفطيرة الثانوية. | تظل الفطيرتان مرئيتين، لكن خطوط الاتصال مخفية. |
+
+خطوط السلسلة تختلف عن خطوط القائد لتسميات البيانات التي تربط التسميات بنقاط البيانات؛ خطوط الشبكة التي تُظهر فواصل على محاور المخطط؛ وخطوط المخطط الخطي التي تمثل قيم البيانات. هذا الإعداد لا يتحكم في تلك العناصر.
 
 ## **الأسئلة المتكررة**
 
-**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
+**ما هي أنواع المخططات التي تدعم السلاسل البيانية؟**
 
-جميع أنواع المخططات الممثلة في تعداد [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تشترك جميعًا في نفس بنية القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئة الفئات والقيم، وتستخدم مخططات التبعثر قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
+جميع أنواع المخططات الممثلة في تعداد [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تشترك جميعًا في نفس بنية القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئة الفئات والقيم، وتستخدم مخططات التشتت القيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. خيارات مثل التداخل وعرض الفجوة تنطبق فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
 
 **ما هي مجموعة سلاسل المخطط؟**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) يحتوي على سلاسل متوافقة تشترك في إعدادات التخطيط على مستوى المجموعة. يمكن لمخطط تجميعي أن يحتوي على أكثر من مجموعة، لذا قد لا يغيّر تعديل المجموعة التي تُوصل من خلال سلسلة واحدة جميع السلاسل في المخطط.
+تحتوي [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) على سلاسل متوافقة تشترك في إعدادات الرسم على مستوى المجموعة. يمكن أن يحتوي مخطط مركب على أكثر من مجموعة، لذا تغيير المجموعة التي تُوصل من خلال سلسلة لا يعني بالضرورة تغيير كل السلاسل في المخطط.
 
-**هل يحتوي المخطط الذي تم إنشاؤه حديثًا على بيانات افتراضية؟**
+**هل يحتوي المخطط المُنشأ حديثًا على بيانات افتراضية؟**
 
-نعم. بشكل افتراضي، تُنشئ [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#addChart) سلاسل، وفئات، وقيم تجريبية. يمكنك تعديل تلك الخلايا أو مسح مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن أيضًا أن يُنشئ تحميل زائد مخططًا بدون بيانات افتراضية.
+نعم. بشكل افتراضي، [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) يُنشئ سلاسل وعينات فئات وقيم. يمكنك تعديل تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن أيضًا للتحميل الزائد إنشاء مخطط بدون بيانات افتراضية.
 
-**كيف يتم ربط كائنات المخطط بخلايا دفتر العمل؟**
+**كيف ترتبط كائنات المخطط بخلايا دفتر العمل؟**
 
-تشير أسماء السلاسل، وتسميات الفئات، وقيم نقاط البيانات إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). تعديل خلية مشار إليها يحدث تحديثًا للعنصر المقابل في المخطط. عند بناء بيانات مخصصة، حافظ على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات تشير إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). تغيير خلية مُشار إليها يحدث تحديث للعنصر المقابل في المخطط. عندما تبني بيانات مخصصة، حافظ على تواؤم صفوف الفئات وصفوف قيم السلسلة حتى تُرسم كل نقطة تحت الفئة المقصودة.
 
-**كيف أمسح نقطة واحدة بدلًا من سلة كاملة؟**
+**كيف أمسح نقطة واحدة بدلاً من السلسلة بأكملها؟**
 
-اضبط خلية القيمة ذات الصلة إلى `null` لتبقى نقطة البيانات في موضع الفئة كنقطة فارغة. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/#clear) فقط عندما تريد حذف كل النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تبقى قيمها محاذية مع مجموعة الفئات.
+اضبط خلية القيمة المعنية إلى `null` للاحتفاظ بموقع الفئة للنقطة كنقطة فارغة. استخدم [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) فقط عندما تريد إزالة كل النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، فحدّث كل سلسلة بحيث تبقى قيمها متوافقة مع مجموعة الفئات.
 
-**كيف تُعرض النقاط الفارغة؟**
+**كيف يتم عرض النقاط الفارغة؟**
 
-النتيجة تعتمد على نوع المخطط والقيمة المُكوَّنة عبر [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/#setDisplayBlanksAs). يمكن للمخططات المدعومة عرض الفجوات كفجوات، أو كقيم صفرية، أو بربط النقاط المتجاورة. اختر الإعداد الذي يتوافق مع معنى البيانات المفقودة في عرضك. راجع [Control the Display of Empty Cells](#control-the-display-of-empty-cells) لمثال كامل ومقارنة بصريّة.
+النتيجة تعتمد على نوع المخطط والقيمة المكوّنة عبر [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). يمكن للمخططات المدعومة عرض الفراغات كفجوات، كقِيَم صفرية، أو بربط النقاط المتجاورة. اختر الإعداد الذي يتطابق مع معنى البيانات المفقودة في عرضك التقديمي. انظر إلى [التحكم في عرض الخلايا الفارغة](#control-the-display-of-empty-cells) للحصول على مثال كامل ومقارنة بصرية.
 
 **كيف يتم تنسيق القيم السالبة؟**
 
-بالنسبة للسلاسل الشريطية والعمودية والفقاعية المدعومة، استدعِ [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#setInvertIfNegative) واضبط اللون العائد من [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). يمكنك تجاوز السلوك لنقطة فردية عبر [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). هذه الطرق تؤثر على التنسيق فقط، وليس على القيم الرقمية المخزنة.
+للسلاسل الشريطية والعمودية والفقاعية المدعومة، استدعِ [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) واضبط اللون الذي تُرجعه [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). يمكنك تجاوز السلوك لنقطة معينة عبر [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). هذه الطرق تؤثر على التنسيق، وليس على القيم الرقمية المخزنة.
 
-**أي تنسيق ينتصر عندما يتم تنسيق كل من السلسلة والنقطة؟**
+**أي تنسيق ينتصر عندما تكون كل من السلسلة والنقطة مُنسقان؟**
 
-يتفوق تنسيق نقطة البيانات الصريح لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، عندما لا يُعرف تنسيق السلسلة، النمط والموضوع التلقائي للمخطط. تتحكم إعدادات المجموعة مثل التداخل وعرض الفجوة في التخطيط ولا تُعدّ تجاوزات تنسيق على مستوى النقطة.
+تنسيق نقطة البيانات الصريح يتفوق لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدد تنسيق السلسلة، نمط المخطط والموضوع التلقائي. إعدادات المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط ولا تُعدّ تجاوزات لتنسيق المستوى النقطة.
 
-**هل هناك حد لعدد السلاسل التي يمكن للمخطط احتواؤها؟**
+**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها المخطط؟**
 
-Aspose.Slides لا يفرض حدًا ثابتًا منفصلًا لعدد السلاسل. عمليًا، تحدد قيود ملف العرض التقديمي، والذاكرة المتاحة، ووقت التقديم، وقابلية قراءة المخطط حدًا عمليًا.
+لا يفرض Aspose.Slides حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، قيود ملف العرض التقديمي، الذاكرة المتاحة، زمن العرض، وقابلية قراءة المخطط تحدد حدًا عمليًا.
 
-**ماذا ينبغي تعديل عندما تكون الأعمدة قريبة جدًا أو متباعدة جدًا؟**
+**ماذا يجب تغييره عندما تكون الأعمدة قريبة جدًا من بعضها أو متباعدة جدًا؟**
 
-استدعِ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setGapWidth) على مجموعة السلاسل الأصلية المناسبة. زد القيمة لتوسيع الفجوة بين المجموعات، أو قللها لتقريبها.
+استدعِ [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) على مجموعة السلسلة الأصلية المناسبة. زد القيمة لتوسيع المسافة بين المجموعات، أو قللها لجعل المجموعات أقرب إلى بعضها.

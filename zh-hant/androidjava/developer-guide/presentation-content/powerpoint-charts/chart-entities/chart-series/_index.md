@@ -10,38 +10,40 @@ keywords:
 - 系列名稱
 - 資料點
 - 工作簿儲存格
-- 系列間隙
+- 系列間距
 - 負值
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Android 上的簡報中管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間隙寬度和負值。"
+description: "了解如何在 Android 簡報中管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間距寬度和負值。"
 ---
-## **概觀**
+## **概覽**
 
-圖表可以將其繪製的值儲存在工作簿儲存格中，或直接作為數值常數。 [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) 代表一組相關的值，每個 [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) 代表該系列中的一個點。 [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) 物件提供系列共用的標籤或分組值。在使用預設資料建立的圖表中，系列名稱、類別和點值使用來自圖表工作簿的 [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) 物件。
+A chart can store its plotted values in workbook cells or directly as numeric literals. An [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) represents a point in that series. [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) objects from the chart workbook.
 
-對於一般的類別圖表，預設工作簿使用第 0 列儲存系列名稱，第 0 欄儲存類別名稱，其餘儲存格則存放系列值。傳遞給 [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) 的工作表、列與欄索引皆為零基礎。此佈局在您建立具有預設資料的圖表時相當有用，但請勿假設所有現有圖表皆採用此方式。對於已載入的簡報，請在變更工作簿值之前，先檢查系列、類別與資料點所參照的儲存格。
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
-圖表設定有三種不同的範圍：
+Chart settings have three different scopes：
 
-- 系列層級設定，例如 [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--)，提供單一系列中所有點的預設外觀。
-- 資料點層級設定，例如 [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)，會覆蓋該點的系列外觀。
-- 群組設定套用於屬於相同 [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) 的相容系列。當需要設定重疊或間隙寬度等選項時，可透過 [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) 取得群組。
+- Series-level settings, such as [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), provide the default appearance for all points in one series.
+- Data-point settings, such as [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/). Access the group through [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) when you need to set options such as overlap or gap width.
 
-當未設定明確的點或系列填充時，圖表樣式與佈景主題會決定自動外觀。當同時存在系列與點的格式設定時，點的格式設定會在該點上優先。
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **使用數值常數設定系列值**
+For a clustered cylinder chart, see how [變更 3D 系列類型或長條形狀](/slides/zh-hant/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
 
-當系列值來自應用程式資料或計算且不需要工作表儲存格參照時，請使用數值常數。於指派每個點的 [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) 結果之前，先以 [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) 並傳入 [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) 設定類型，然後使用 [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-) 指派數值。
+## **使用數值文字設定系列值**
 
-此集合設定會控制該系列中所有點值的來源類型。每個點值的 [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) 方法會回報所選類型；可透過集合設定變更。若使用 `Worksheet`，請以 [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) 取得參照的儲存格。若使用 `DoubleLiterals`，則以 [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) 或 `setAsLiteralDouble` 直接讀寫數字。
+Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) with [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) before assigning each point's [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) result through [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
 
-以下範例建立一個預設系列與類別的柱狀圖，然後將計算得到的 10、20 等值指派給其第一系列的現有點。範例會儲存簡報、重新開啟，並列印儲存的值。
+The collection setting controls the source type of all point values in that series. Each point value's [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) method reports the selected type; change it through the collection setting. With `Worksheet`, use [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) to access the referenced cell. With `DoubleLiterals`, use [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) or `setAsLiteralDouble` to read or write the number directly.
+
+The following example creates a column chart with default series and categories, then assigns calculated values of 10, 20, and so on to the existing points of its first series. It saves the presentation, reopens it, and prints the stored values.
 
 ```java
 import com.aspose.slides.*;
@@ -76,15 +78,15 @@ try {
 }
 ```
 
-點值來源類型與 [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) 是分開的，後者識別圖表的內部或外部工作簿配置。使用數值常數本身不會移除嵌入式工作簿。在此範例中，工作簿仍然保留供類別標籤、系列名稱以及其他系列使用。請參閱 [Chart Workbook](/slides/zh-hant/androidjava/chart-workbook/) 瞭解工作簿管理。
+The point value source type is separate from [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--), which identifies the chart's internal or external workbook configuration. Using numeric literals does not, by itself, remove the embedded workbook. In this example, the workbook remains available for category labels, series names, and the other series. See [Chart Workbook](/slides/zh-hant/androidjava/chart-workbook/) for workbook management.
 
-對於散佈圖與氣泡圖，請使用 [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) 與 [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) 分別選擇 [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) 與 [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--) 的來源。氣泡圖亦使用 [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) 取得 [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--) 的來源。於指派數字前，先將每個相關來源設定為 `DoubleLiterals`，再透過該值的 `setAsLiteralDouble` 方法指派。
+For scatter and bubble charts, use [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) and [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) to choose the sources for [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) and [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--). Bubble charts also use [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) for [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Set each applicable source to `DoubleLiterals` before assigning numbers through that value's `setAsLiteralDouble` method.
 
-## **設定圖表系列的重疊度**
+## **設定圖表系列重疊**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 會回報 2D 圖表中長條或柱狀的重疊程度，範圍為 -100 至 100 百分比。它是父系列群組設定的唯讀投影。請使用 [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) 來更新該群組中所有相容的系列。此選項適用於顯示群組長條或柱狀的圖表類型；對組合圖中不相關的系列群組不會產生影響。
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Use [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
 
-以下範例將第一系列所在群組的重疊度設為指定值：
+The following example sets the overlap for the group that contains the first series:
 
 ```java
 import com.aspose.slides.*;
@@ -97,7 +99,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // 新的圖表包含範例系列、類別和數值。
+    // 新圖表包含範例系列、類別和數值。
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -111,13 +113,13 @@ try {
 
 結果：
 
-![The series overlap](series_overlap.png)
+![系列重疊](series_overlap.png)
 
-## **變更系列填充顏色**
+## **變更系列填充色彩**
 
-使用 [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) 可為整個系列設定預設填充。如果某個點已明確設定填充，則其 [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) 會覆蓋該系列的填充。
+Use [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) to set the default fill for an entire series. If a point already has an explicit fill, its [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) setting overrides the series fill for that point.
 
-以下範例為第一系列套用實心藍色填充：
+The following example applies a solid blue fill to the first series:
 
 ```java
 import com.aspose.slides.*;
@@ -144,11 +146,11 @@ try {
 
 結果：
 
-![The color of the series](series_color.png)
+![系列的顏色](series_color.png)
 
 ## **變更系列名稱**
 
-系列名稱儲存在圖表資料工作簿中，通常會顯示於圖例。對於預設建立的群組柱狀圖，儲存格 B1（第 0 列第 1 欄）即是第一系列的名稱。以下範例使用具名常數明確說明此結構：
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named constants in the following example make that structure explicit:
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +176,7 @@ try {
 }
 ```
 
-您也可以直接更新由 [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) 參照的儲存格。此做法避免對現有圖表假設特定的列與欄：
+You can also update the cell already referenced by [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). This approach avoids assuming a particular row and column in an existing chart:
 
 ```java
 import com.aspose.slides.*;
@@ -201,15 +203,15 @@ try {
 
 結果：
 
-![The series name](series_name.png)
+![系列名稱](series_name.png)
 
-### **從多個儲存格建立具名稱的系列**
+### **使用多個儲存格建立系列名稱**
 
-當產品名稱與報告期間分別存放於不同工作簿儲存格時，合成的系列名稱相當實用。例如，您可以將 B1 的 `Product A` 與 C1 的 `2026` 合併為單一系列名稱，同時保留兩個部分與來源儲存格的連結。
+A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
 
-使用 [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) 取得名稱範圍，然後將該集合傳遞給 [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-)。`skipHiddenCells` 參數決定是否排除隱藏儲存格：`true` 為排除，`false` 為包含。此範例使用 `false` 以包含名稱範圍內的每個儲存格。
+Use [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) to retrieve the name range, then pass that collection to [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
 
-以下範例建立一個包含一個系列與兩個資料點的簡報。儲存格 B1:C1 只提供系列名稱；A2:A3 提供類別標籤；B2:B3 提供數值。
+The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
 
 ```java
 import com.aspose.slides.*;
@@ -233,7 +235,7 @@ try {
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
 
-    // 分別的儲存格提供類別和數值資料點。
+    // 分開的儲存格提供類別和數值資料點。
     IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
     IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -249,15 +251,15 @@ try {
 }
 ```
 
-最終的系列名稱為 `Product A 2026`（兩個儲存格值之間有空格）。圖例會將其視為單一條目。下圖示範結果：
+The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below illustrates the result:
 
-![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+![含北向與南向值的直條圖，圖例中顯示組合系列名稱 Product A 2026](composite_series_name.png)
 
-## **取得自動系列填充顏色**
+## **取得自動系列填充色彩**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) 會回傳以 Android ARGB 整數表示，根據系列索引與圖表樣式計算出的顏色。這是系列填充未明確定義時所使用的顏色。呼叫此方法僅會讀取計算出的顏色，並不會指派新的填充。
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) returns the color calculated from the series index and the chart style as an Android ARGB color integer. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
 
-以下範例列印每個預設系列的自動顏色整數：
+The following example prints the automatic color integer of each default series:
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +283,11 @@ try {
 }
 ```
 
-具體的整數值會依圖表樣式與佈景主題而異。
+## **為圖表系列設定負值反轉填充色彩**
 
-## **為圖表系列設定反轉填充顏色**
+For bar, column, and bubble series, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negative numbers remain unchanged in the workbook; only their display color changes.
 
-對於長條、柱狀與氣泡系列，[IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) 可以在負值時以不同的填充顯示。請先將常規系列填充設為實心，啟用反轉，並透過 [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) 取得負值顏色。負數在工作簿中仍保持不變，僅改變顯示顏色。
-
-以下範例以一個系列取代預設圖表資料。工作表第 0 列儲存系列名稱，第 0 欄儲存類別名稱，第 1 欄儲存數值：
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```java
 import com.aspose.slides.*;
@@ -344,9 +344,9 @@ try {
 
 結果：
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![反轉的實心填充顏色](inverted_solid_fill_color.png)
 
-您也可以針對單一點啟用反轉，方式是呼叫 [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-)。以下範例在系列上停用反轉，僅為選取的點啟用，同時將該點指派為負值以便觀察效果：
+You can enable inversion for one point through [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```java
 import com.aspose.slides.*;
@@ -382,9 +382,9 @@ try {
 
 ## **清除特定資料點的值**
 
-若要讓單一點變為空白而不移除其他點，請將其對應的工作簿儲存格設為 `null`。對於柱狀圖，可透過 [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) 取得繪製值。資料點仍保留在相同的類別位置，但圖表會依照空白值設定將其視為空白。
+To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-以下範例僅清除第一系列的第二個點：
+The following example clears only the second point in the first series:
 
 ```java
 import com.aspose.slides.*;
@@ -409,17 +409,17 @@ try {
 }
 ```
 
-散佈圖使用分別的 X 與 Y 儲存格，氣泡圖亦使用大小儲存格。僅清除代表欲移除值的儲存格。若想保留其他點，請勿呼叫 [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)，因為該方法會移除集合中的所有資料點。
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) when you want to keep the other points, because that method removes every data point from the collection.
 
-## **控制空白儲存格的顯示方式**
+## **控制空儲存格的顯示**
 
-隱藏且包含值的儲存格與空白儲存格是不同的情況。若要包含或排除隱藏工作表列與欄的資料，請參閱 [Include Data from Hidden Rows and Columns](/slides/zh-hant/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns)。
+Hidden cells that contain values are a separate case from empty cells. To include or exclude data from hidden worksheet rows and columns, see [Include Data from Hidden Rows and Columns](/slides/zh-hant/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-空白工作簿儲存格代表缺失資料；儲存格內含 `0` 則代表已知的數值。使用 [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) 並傳入 `null` 即可將儲存格設為空白。數值零不會受到空白儲存格設定的影響。
+An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Call [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) with `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
 
-使用 [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) 可選擇圖表如何顯示空白儲存格，該設定套用於整個圖表。它會改變空白的繪製方式，而不會將空白工作簿儲存格填入零或插值。
+Use [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
 
-以下自包含範例建立一個含單一系列的折線圖，清除第 3 天的值，並以每種模式分別儲存相同圖表。無需輸入檔案。[IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) 使用工作表 0，第 0 欄作為類別標籤，第 1 欄作為數值；第 0 列為系列名稱。最終資料為 `10, 20, empty, 30, 40`。
+The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -460,19 +460,19 @@ try {
 }
 ```
 
-每個輸出檔案會儲存於儲存前指定的模式：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx` 與 `empty_cells_Span.pptx`。若只想產生單一版本，可在儲存簡報前指定所需模式，然後只執行一次儲存。
+Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
 
-以下比較圖示了三個檔案中的相同資料。第 3 天在所有工作簿中皆為空白：
+The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![線圖資料相同：Gap 在第 3 天斷開線條，Zero 將線下降至零，Span 則將第 2 天與第 4 天連接。](display_blanks_as.png)
 
-可見效果取決於圖表類型。折線圖於三種模式皆易於比較。長條與柱狀圖因缺少可跨過缺失類別的線條，`Span` 無法產生上述連接段落；缺失的柱與零高的柱看起來也相似。類似地，僅有標記的散佈圖亦無連接線。請勿期望每種圖表類型都會出現三種截然不同的結果；請自行檢查使用的圖表類型之輸出。
+The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `Span` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
 
-## **設定系列間隙寬度**
+## **設定系列間距寬度**
 
-間隙寬度是相鄰長條或柱狀叢集之間的空間，以長條或柱狀寬度的百分比表示。與重疊度相同，間隙寬度屬於父系列群組，而非單一系列。請對群組呼叫一次 [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-)。較大的數值會在叢集間產生更多空間，較小的數值則使其更緊密。
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
 
-以下範例變更間隙寬度，僅儲存最終的簡報：
+The following example changes the gap width and saves only the final presentation:
 
 ```java
 import com.aspose.slides.*;
@@ -498,46 +498,82 @@ try {
 
 結果：
 
-![The gap width](gap_width.png)
+![間距寬度](gap_width.png)
 
-## **常見問題集**
+## **顯示或隱藏系列線條**
+
+Series lines visually connect related parts of a chart. Use [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) to show or hide them in supported stacked bar and OfPie charts. In two-dimensional stacked bar and column charts, they connect corresponding stack boundaries across categories. In Pie of Pie and Bar of Pie charts, they connect the main plot to the secondary plot. This setting is not a general-purpose connector for other chart types.
+
+Access the group through [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--). The setting applies to every series in that group. [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#hasSeriesLines--) is read-only and reflects the parent group's setting; call the group's setter to update it.
+
+The following example creates one [PieOfPie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#PieOfPie) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| 啟用系列線條 | 停用系列線條 |
+| --- | --- |
+| ![啟用系列線條的 Pie of Pie 圖表](series_lines_enabled.png) | ![停用系列線條的 Pie of Pie 圖表](series_lines_disabled.png) |
+| 這兩條線將主圓餅圖連接至次要圓餅圖。 | 兩個圓餅圖仍然可見，但連接線已隱藏。 |
+
+Series lines differ from data label leader lines, which connect labels to their data points; gridlines, which mark intervals along chart axes; and the lines in a line chart, which represent data values. This setting does not control those elements.
+
+## **常見問題**
 
 **哪些圖表類型支援資料系列？**
 
-所有由 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) 列舉表示的圖表類型皆使用圖表資料，但其系列並非皆擁有相同的值結構或設定。例如，類別圖使用類別與值，散佈圖使用 X 與 Y 值，氣泡圖則額外加入氣泡大小。請使用與系列類型相符的資料點建立方法。重疊與間隙寬度等選項僅適用於相容的長條或柱狀群組。
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
 **什麼是圖表系列群組？**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) 包含共享群組層級繪圖設定的相容系列。組合圖可能包含多個群組，因此透過單一系列取得的群組設定不一定會影響圖表中所有系列。
+An [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
 
-**新建立的圖表是否包含預設資料？**
+**新建立的圖表會包含預設資料嗎？**
 
-是。預設情況下，[IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) 會建立示範系列、類別與值。您可以編輯這些儲存格，或在加入完全自訂的資料集之前先清除系列與類別集合。也提供不含預設資料的重載方法。
+Yes. By default, [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
 **圖表物件如何與工作簿儲存格連結？**
 
-系列名稱、類別標籤與資料點值皆參照 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) 中的儲存格。變更參照的儲存格會即時更新相應的圖表元素。建立自訂資料時，請確保類別列與系列值列保持對齊，使每個點皆在預期的類別下繪製。
+Series names, category labels, and data-point values reference cells in an [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
 
-**要如何只清除單一點而不是整個系列？**
+**如何只清除單一點而非整個系列？**
 
-將相關的值儲存格設為 `null`，即可保留點的類別位置作為空白點。僅在想移除該系列所有點時，才使用 [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--)，因為它會移除該系列的全部資料點。若同時移除類別，請同步更新所有系列，使其值仍與類別集合保持對齊。
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
 
-**空白點會如何顯示？**
+**空點如何顯示？**
 
-顯示結果取決於圖表類型以及透過 [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) 設定的值。支援的圖表可以將空白顯示為間隙、零值，或連接相鄰點。請選擇符合簡報中遺失資料意義的設定。完整範例與視覺比較請參閱 [Control the Display of Empty Cells](#control-the-display-of-empty-cells)。
+The result depends on the chart type and the value configured through [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [控制空儲存格的顯示](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
-**負值的格式如何設定？**
+**負值如何格式化？**
 
-對於受支援的長條、柱狀與氣泡系列，請呼叫 [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-)，並設定 [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) 回傳的顏色。您亦可透過 [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) 為個別點覆寫此行為。這些方法影響的是格式，而非儲存的數值。
+For supported bar, column, and bubble series, call [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) and set the color returned by [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). You can override the behavior for an individual point with [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). These methods affect formatting, not the stored numeric values.
 
-**當系列與點同時設定格式時，哪個會優先？**
+**當系列與點同時設定格式時，哪一個會優先？**
 
-明確的資料點格式會在該點上優先。其他點則繼續使用明確的系列格式，或在系列格式未定義時使用自動的圖表樣式與佈景主題。群組設定（如重疊與間隙寬度）屬於版面配置，並非點層級的格式覆寫。
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
 
-**圖表的系列數量有上限嗎？**
+**圖表可包含的系列數量有上限嗎？**
 
-Aspose.Slides 本身未設置固定的系列數量上限。實務上，簡報檔案的限制、可用記憶體、渲染時間以及圖表可讀性會決定實際可使用的上限。
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
 
-**當欄位過於接近或相隔過遠時，應如何調整？**
+**當柱狀圖的欄太靠近或太分散時，我應該修改什麼？**
 
-請對適當的父系列群組呼叫 [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-)。增大數值可擴大叢集間的間距，減小數值則使叢集更緊密。
+Call [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

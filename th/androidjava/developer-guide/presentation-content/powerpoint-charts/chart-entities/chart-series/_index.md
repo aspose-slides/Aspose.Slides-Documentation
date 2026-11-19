@@ -1,47 +1,49 @@
 ---
-title: จัดการชุดข้อมูลกราฟในงานนำเสนอบน Android
+title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอบน Android
 linktitle: ชุดข้อมูล
 type: docs
 url: /th/androidjava/chart-series/
 keywords:
-- ชุดข้อมูลกราฟ
-- การทับซ้อนของชุดข้อมูล
-- สีของชุดข้อมูล
-- ชื่อชุดข้อมูล
+- ชุดข้อมูลแผนภูมิ
+- การทับซ้อนของชุด
+- สีของชุด
+- ชื่อชุด
 - จุดข้อมูล
-- เซลล์เวิร์กบุ๊ก
-- ช่องว่างของชุดข้อมูล
+- เซลล์ workbook
+- ช่องว่างของชุด
 - ค่าติดลบ
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการชุดข้อมูลกราฟ, จุดข้อมูล, เซลล์เวิร์กบุ๊ก, การจัดรูปแบบ, การทับซ้อน, ความกว้างของช่องว่าง, และค่าติดลบในงานนำเสนอบน Android."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์ workbook, การจัดรูปแบบ, การทับซ้อน, ความกว้างของช่องว่าง, และค่าติดลบในงานนำเสนอบน Android."
 ---
 ## **ภาพรวม**
 
-กราฟสามารถบันทึกค่าที่พลอตลงในเซลล์ของ workbook หรือเป็นค่าตัวเลขโดยตรงได้  [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) แสดงชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) แสดงจุดหนึ่งในชุดนั้น  [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) ให้ฉลากหรือค่ากลุ่มที่ใช้ร่วมกันระหว่างซีรีส์  ในกราฟที่สร้างด้วยข้อมูลเริ่มต้น ชื่อซีรีส์, หมวดหมู่ และค่าจุดข้อมูลจะใช้วัตถุ [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) จากแผ่นงานกราฟ
+แผนภูมิสามารถจัดเก็บค่าที่พล็อตไว้ในเซลล์ของ workbook หรือโดยตรงเป็นค่าตัวเลขลิเทรัลได้ [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) แสดงชุดค่าที่สัมพันธ์กันหนึ่งชุด และแต่ละ [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) แสดงจุดข้อมูลในชุดนั้น [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) ให้ป้ายชื่อหรือค่ากลุ่มที่ใช้ร่วมกันระหว่างชุดข้อมูล ในแผนภูมิที่สร้างด้วยข้อมูลเริ่มต้น ชื่อชุดข้อมูล ประเภท และค่าจุดข้อมูลจะใช้วัตถุ [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) จาก workbook ของแผนภูมิ
 
-สำหรับกราฟประเภทหมวดหมู่ทั่วไป workbook เริ่มต้นจะใช้แถว 0 สำหรับชื่อซีรีส์, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าซีรีส์  ดัชนี worksheet, แถว และคอลัมน์ที่ส่งไปยัง [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) มีค่าเริ่มต้นจากศูนย์  โครงสร้างนี้มีประโยชน์เมื่อคุณสร้างกราฟด้วยข้อมูลเริ่มต้น แต่ไม่ควรสันนิษฐานว่าทุกกราฟที่มีอยู่ใช้โครงสร้างนี้  สำหรับงานนำเสนอที่โหลดแล้วให้ตรวจสอบเซลล์ที่ซีรีส์, หมวดหมู่, และจุดข้อมูลอ้างอิง ก่อนทำการเปลี่ยนค่าใน workbook
+สำหรับแผนภูมิประเภทหมวดหมู่ทั่วไป workbook เริ่มต้นจะใช้แถว 0 สำหรับชื่อชุดข้อมูล คอลัมน์ 0 สำหรับชื่อประเภท และเซลล์ที่เหลือสำหรับค่าชุดข้อมูล ดัชนีของ worksheet, แถวและคอลัมน์ที่ส่งให้ [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) จะเป็นแบบนับตั้งแต่ศูนย์ การจัดวางนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสมมติว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้ สำหรับการนำเสนอที่โหลดแล้ว ให้ตรวจสอบเซลล์ที่อ้างอิงโดยชุดข้อมูล ประเภท และจุดข้อมูล ก่อนที่จะเปลี่ยนค่าใน workbook
 
-การตั้งค่ากราฟมีสามระดับต่างกัน:
+การตั้งค่าแผนภูมิมีสามระดับขอบเขตที่แตกต่างกัน:
 
-- การตั้งค่าระดับซีรีส์ เช่น [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) ให้ลักษณะการแสดงผลเริ่มต้นสำหรับทุกจุดในซีรีส์หนึ่ง
-- การตั้งค่าจุดข้อมูล เช่น [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) จะทับลักษณะของซีรีส์สำหรับจุดเดียว
-- การตั้งค่ากลุ่มใช้กับซีรีส์ที่เข้ากันได้และอยู่ใน [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) เดียวกัน  เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) เมื่อคุณต้องการตั้งค่าตัวเลือกเช่น การทับซ้อนหรือความกว้างของช่องว่าง
+- การตั้งค่าระดับชุดข้อมูล เช่น [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) ให้ลักษณะการแสดงผลเริ่มต้นสำหรับทุกจุดในชุดข้อมูลหนึ่ง
+- การตั้งค่าระดับจุดข้อมูล เช่น [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) จะเขียนทับลักษณะของชุดข้อมูลสำหรับจุดนั้นหนึ่งจุด
+- การตั้งค่ากลุ่มใช้กับชุดข้อมูลที่เข้ากันได้ซึ่งอยู่ใน [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) เมื่อคุณต้องการกำหนดตัวเลือกเช่นการทับซ้อนหรือความกว้างของช่องว่าง
 
-เมื่อไม่มีการกำหนดการเติมสีจุดหรือซีรีส์โดยชัดเจน สไตล์และธีมของกราฟจะกำหนดลักษณะอัตโนมัติ  หากมีการฟอร์แมตทั้งซีรีส์และจุดพร้อมกัน การฟอร์แมตจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
+เมื่อไม่มีการกำหนดการเติมสีจุดหรือชุดข้อมูลโดยชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ เมื่อมีการกำหนดรูปแบบทั้งชุดและจุด การกำหนดรูปแบบจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **ตั้งค่าค่าซีรีส์โดยใช้ตัวเลขลิเทอรัล**
+สำหรับแผนภูมิทรงกระบอกแบบรวมกลุ่ม ให้ดูว่า [changing the 3D series type or bar shape](/slides/th/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) มีผลต่อชุดแรกอย่างไร
 
-ใช้ตัวเลขลิเทอรัลเมื่อค่าซีรีส์มาจากข้อมูลหรือการคำนวณของแอปพลิเคชันและไม่จำเป็นต้องอ้างอิงเซลล์ใน worksheet เรียก [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) ด้วย [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) ก่อนกำหนดผลลัพธ์ของแต่ละจุดด้วย [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) ผ่าน [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-)
+## **ตั้งค่าค่าชุดข้อมูลโดยใช้ตัวเลขลิเทรัล**
 
-การตั้งค่าคอลเลกชันจะควบคุมประเภทแหล่งข้อมูลของค่าจุดทั้งหมดในซีรีส์นั้น  วิธีการ [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) ของแต่ละจุดจะแจ้งประเภทที่เลือกไว้; เปลี่ยนได้ผ่านการตั้งค่าคอลเลกชัน  หากใช้ `Worksheet` ให้ใช้ [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) เพื่อเข้าถึงเซลล์ที่อ้างอิง  หากใช้ `DoubleLiterals` ให้ใช้ [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) หรือ `setAsLiteralDouble` เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+ใช้ค่าตัวเลขลิเทรัลเมื่อค่าชุดข้อมูลมาจากข้อมูลหรือการคำนวณของแอปพลิเคชันและไม่ต้องการอ้างอิงเซลล์ของ worksheet เรียก [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) พร้อมกับ [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) ก่อนกำหนดผลลัพธ์ของแต่ละจุดผ่าน [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) ด้วย [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-)
 
-ตัวอย่างต่อไปนี้สร้างกราฟคอลัมน์ด้วยซีรีส์และหมวดหมู่เริ่มต้น แล้วกำหนดค่าที่คำนวณได้ 10, 20 ฯลฯ ให้กับจุดที่มีอยู่ของซีรีส์แรก  จากนั้นบันทึกงานนำเสนอ, เปิดใหม่อีกครั้ง, และพิมพ์ค่าที่บันทึกไว้
+การตั้งค่าคอลเลกชันควบคุมประเภทแหล่งข้อมูลของค่าทุกจุดในชุดนั้น เมธอด [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) ของค่าจุดแต่ละจุดจะรายงานประเภทที่เลือก; เปลี่ยนได้ผ่านการตั้งค่าคอลเลกชัน ด้วย `Worksheet` ใช้ [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) เพื่อเข้าถึงเซลล์ที่อ้างอิง ด้วย `DoubleLiterals` ใช้ [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) หรือ `setAsLiteralDouble` เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์ด้วยชุดและประเภทเริ่มต้น แล้วกำหนดค่าที่คำนวณได้ 10, 20 ฯลฯ ให้กับจุดที่มีอยู่ของชุดแรก สุดท้ายบันทึกการนำเสนอแล้วเปิดใหม่และพิมพ์ค่าที่จัดเก็บไว้
 
 ```java
 import com.aspose.slides.*;
@@ -76,15 +78,15 @@ try {
 }
 ```
 
-ประเภทแหล่งข้อมูลของค่าจุดจะแยกจาก [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) ซึ่งบ่งบอกการกำหนดค่า workbook ภายในหรือภายนอกของกราฟ  การใช้ตัวเลขลิเทอรัลเองไม่ทำให้ workbook ที่ฝังอยู่ถูกลบออก  ในตัวอย่างนี้ workbook ยังคงใช้ได้สำหรับฉลากหมวดหมู่, ชื่อซีรีส์, และซีรีส์อื่น ๆ  ดู [Chart Workbook](/slides/th/androidjava/chart-workbook/) เพื่อเรียนรู้การจัดการ workbook
+ประเภทแหล่งข้อมูลของค่าจุดแยกจาก [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) ซึ่งบ่งชี้การกำหนดค่า workbook ภายในหรือภายนอกของแผนภูมิ การใช้ค่าตัวเลขลิเทรัลไม่ได้โดยอัตโนมัติเอา workbook ที่ฝังอยู่ออก ในตัวอย่างนี้ workbook ยังใช้งานได้สำหรับป้ายชื่อประเภท, ชื่อชุดข้อมูลและชุดอื่น ๆ ดู [Chart Workbook](/slides/th/androidjava/chart-workbook/) เพื่อเรียนรู้การจัดการ workbook
 
-สำหรับกราฟกระจายและฟองอากาศ ให้ใช้ [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) และ [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) เพื่อเลือกแหล่งข้อมูลสำหรับ [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) และ [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--)  กราฟฟองอากาศยังใช้ [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) สำหรับ [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--)  ตั้งค่าแต่ละแหล่งที่เกี่ยวข้องเป็น `DoubleLiterals` ก่อนกำหนดตัวเลขผ่านเมธอด `setAsLiteralDouble` ของค่าดังกล่าว
+สำหรับแผนภูมิกระจายและฟองอากาศ ใช้ [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) และ [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) เพื่อเลือกแหล่งสำหรับ [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) และ [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--) แผนภูมิบับอากาศยังใช้ [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) สำหรับ [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--) ตั้งค่าแหล่งที่ใช้แต่ละอย่างเป็น `DoubleLiterals` ก่อนกำหนดตัวเลขผ่านเมธอด `setAsLiteralDouble` ของค่าที่เกี่ยวข้อง
 
-## **ตั้งค่าการทับซ้อนของซีรีส์กราฟ**
+## **ตั้งค่าการทับซ้อนของชุดข้อมูลแผนภูมิ**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) รายงานเปอร์เซ็นต์การทับซ้อนของแถบหรือคอลัมน์ในกราฟ 2 มิติ ตั้งแต่ -100 ถึง 100  เป็นการฉายภาพแบบอ่านอย่างเดียวของการตั้งค่าในกลุ่มซีรีส์แม่  ใช้ [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) เพื่ออัปเดตทุกซีรีส์ที่เข้ากันได้ในกลุ่มนั้น  ตัวเลือกนี้ใช้กับประเภทกราฟที่แสดงแถบหรือคอลัมน์เป็นกลุ่ม; ไม่ส่งผลต่อกลุ่มซีรีส์ที่ไม่เกี่ยวข้องในกราฟแบบรวม
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) รายงานว่าบาร์หรือคอลัมน์ทับซ้อนกันเท่าใดในแผนภูมิ 2 มิติ ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการฉายภาพแบบอ่านอย่างเดียวของการตั้งค่าในกลุ่มชุดแม่ ใช้ [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; จะไม่ส่งผลต่อชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
 
-ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่ประกอบด้วยซีรีส์แรก:
+ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่ประกอบด้วยชุดแรก
 
 ```java
 import com.aspose.slides.*;
@@ -97,7 +99,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // กราฟใหม่มีซีรีส์ตัวอย่าง, หมวดหมู่, และค่า.
+    // แผนภูมิใหม่มีชุดตัวอย่าง, หมวดหมู่, และค่า.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -113,11 +115,11 @@ try {
 
 ![The series overlap](series_overlap.png)
 
-## **เปลี่ยนสีการเติมของซีรีส์**
+## **เปลี่ยนสีเติมของชุดข้อมูล**
 
-ใช้ [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) เพื่อกำหนดการเติมสีเริ่มต้นสำหรับซีรีส์ทั้งหมด  หากจุดมีการเติมสีโดยชัดเจนแล้ว การตั้งค่า [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) จะทับการเติมสีของซีรีส์สำหรับจุดนั้น
+ใช้ [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) เพื่อกำหนดสีเติมเริ่มต้นสำหรับชุดทั้งหมด หากจุดหนึ่งมีการกำหนดสีเติมอย่างชัดเจน การตั้งค่า [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) จะเขียนทับสีเติมของชุดสำหรับจุดนั้น
 
-ตัวอย่างต่อไปนี้ใช้การเติมสีฟอร์มแบบทึบสีฟ้าแก่ซีรีส์แรก:
+ตัวอย่างต่อไปนี้ใช้สีเติมแบบทึบสีฟ้าให้กับชุดแรก
 
 ```java
 import com.aspose.slides.*;
@@ -146,9 +148,9 @@ try {
 
 ![The color of the series](series_color.png)
 
-## **เปลี่ยนชื่อซีรีส์**
+## **เปลี่ยนชื่อชุดข้อมูล**
 
-ชื่อซีรีส์ถูกจัดเก็บในแผ่นงานข้อมูลของกราฟและโดยปกติจะแสดงในคำอธิบายตาราง  ใน workbook เริ่มต้นที่สร้างสำหรับกราฟคอลัมน์แบบกลุ่ม เซลล์ B1 มีตำแหน่งแถว 0 คอลัมน์ 1 และบรรจุชื่อของซีรีส์แรก  ค่าคงที่ที่ตั้งชื่อไว้ในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้ชัดเจน:
+ชื่อชุดข้อมูลถูกจัดเก็บใน workbook ของแผนภูมิและปกติจะแสดงในคำอธิบาย ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบจัดกลุ่ม เซลล์ B1 อยู่ที่แถว 0 คอลัมน์ 1 และบรรจุชื่อของชุดแรก ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้เป็นที่ชัดเจน
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +176,7 @@ try {
 }
 ```
 
-คุณยังสามารถอัปเดตเซลล์ที่อ้างอิงโดย [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) ได้เช่นกัน  วิธีนี้หลีกเลี่ยงการสมมติว่ามีแถวหรือคอลัมน์ที่เจาะจงในกราฟที่มีอยู่:
+คุณสามารถอัปเดตเซลล์ที่อ้างอิงโดย [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) ได้เช่นกัน วิธีนี้หลีกเลี่ยงการสมมติแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่
 
 ```java
 import com.aspose.slides.*;
@@ -203,13 +205,13 @@ try {
 
 ![The series name](series_name.png)
 
-### **สร้างซีรีส์ที่มีชื่อจากหลายเซลล์**
+### **สร้างชุดข้อมูลด้วยชื่อจากหลายเซลล์**
 
-ชื่อซีรีส์แบบประกอบมีประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลารายงานถูกเก็บในเซลล์ workbook แยกกัน  ตัวอย่างเช่น สามารถรวม `Product A` ใน B1 และ `2026` ใน C1 ให้เป็นชื่อซีรีส์เดียวโดยยังคงเชื่อมโยงทั้งสองส่วนกับเซลล์ต้นทาง
+ชื่อชุดข้อมูลเชิงประกอบมีประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลารายงานถูกเก็บในเซลล์ workbook แยกกัน ตัวอย่างเช่น คุณสามารถรวม `Product A` ใน B1 และ `2026` ใน C1 ให้เป็นชื่อชุดเดียวขณะยังคงเชื่อมโยงส่วนทั้งสองกับเซลล์ต้นทาง
 
-ใช้ [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) เพื่อดึงช่วงชื่อ แล้วส่งคอลเลกชันนั้นไปยัง [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-)  พารามิเตอร์ `skipHiddenCells` ควบคุมว่าจะรวมเซลล์ที่ซ่อนหรือไม่: `true` จะละเว้น, `false` จะรวม  ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
+ใช้ [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) เพื่อดึงช่วงชื่อ แล้วส่งคอลเลกชันนั้นให้กับ [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) พารามิเตอร์ `skipHiddenCells` ควบคุมว่าจะรวมเซลล์ที่ซ่อนอยู่หรือไม่: `true` จะไม่รวม, `false` จะรวม ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
 
-ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่มีซีรีส์หนึ่งและจุดข้อมูลสองจุด  เซลล์ B1:C1 มีเพียงชื่อซีรีส์; A2:A3 มีฉลากหมวดหมู่, และ B2:B3 มีค่าตัวเลข
+ตัวอย่างต่อไปนี้สร้างการนำเสนอที่มีชุดเดียวและจุดข้อมูลสองจุด เซลล์ B1:C1 มีเพียงชื่อชุด; A2:A3 มีป้ายชื่อประเภท; B2:B3 มีค่าตัวเลข
 
 ```java
 import com.aspose.slides.*;
@@ -227,13 +229,13 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // เซลล์สองเซลล์นี้เป็นแหล่งชื่อซีรีส์.
+    // เซลล์สองเซลล์นี้ให้ชื่อชุดข้อมูล.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
 
-    // เซลล์แยกต่างหากให้ข้อมูลหมวดหมู่และจุดข้อมูลเชิงตัวเลข.
+    // เซลล์แยกกันใช้เป็นประเภทและจุดข้อมูลเชิงตัวเลข.
     IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
     IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -249,15 +251,15 @@ try {
 }
 ```
 
-ชื่อซีรีส์ที่ได้คือ `Product A 2026` โดยมีช่องว่างคั่นระหว่างค่าจากสองเซลล์  คำอธิบายจะแสดงเป็นรายการเดียวสำหรับทั้งสองคอลัมน์  ภาพด้านล่างแสดงผลลัพธ์:
+ชื่อชุดที่ได้คือ `Product A 2026` โดยมีช่องว่างระหว่างค่าจากสองเซลล์ คำอธิบายจะแสดงเป็นรายการเดียวสำหรับคอลัมน์ทั้งสอง ภาพด้านล่างแสดงผลลัพธ์:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **รับสีการเติมซีรีส์อัตโนมัติ**
+## **รับสีเติมอัตโนมัติของชุดข้อมูล**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) คืนค่าสีที่คำนวณจากดัชนีซีรีส์และสไตล์กราฟในรูปแบบจำนวนเต็ม Android ARGB  นี่คือสีที่ใช้เมื่อการเติมสีของซีรีส์ไม่ได้กำหนดอย่างชัดเจน  การเรียกเมธอดนี้อ่านสีที่คำนวณแล้ว; ไม่ได้กำหนดการเติมสีใหม่
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์แผนภูมิเป็นค่าเต็มแบบ Android ARGB นี่คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดจะอ่านค่าสีที่คำนวณได้; ไม่ได้กำหนดสีเติมใหม่
 
-ตัวอย่างต่อไปนี้พิมพ์จำนวนเต็มสีอัตโนมัติของแต่ละซีรีส์เริ่มต้น:
+ตัวอย่างต่อไปนี้พิมพ์ค่าจำนวนเต็มของสีอัตโนมัติสำหรับแต่ละชุดเริ่มต้น
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +283,13 @@ try {
 }
 ```
 
-ค่าจำนวนเต็มที่ได้จะแตกต่างตามสไตล์และธีมของกราฟ
+ค่าจำนวนเต็มที่แน่นอนขึ้นอยู่กับสไตล์และธีมของแผนภูมิ
 
-## **ตั้งค่าสีการเติมแบบกลับหัวสำหรับซีรีส์กราฟ**
+## **ตั้งค่าสีเติมกลับด้านสำหรับชุดข้อมูลแผนภูมิ**
 
-สำหรับซีรีส์ประเภทแถบ, คอลัมน์, และฟองอากาศ, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) สามารถแสดงค่าติดลบด้วยสีเติมที่ต่างออกไป  ตั้งค่าการเติมสีของซีรีส์เป็นสีทึบ, เปิดใช้งานการกลับหัว, และกำหนดสีค่าติดลบผ่าน [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--)  ค่าติดลบจะยังคงอยู่ใน workbook; เพียงสีการแสดงผลที่เปลี่ยน
+สำหรับชุดข้อมูลบาร์, คอลัมน์ และบับเบิล สามารถใช้ [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) เพื่อแสดงค่าติดลบด้วยสีเติมที่ต่างออกไป ตั้งค่าสีเติมปกติเป็นแบบทึบ เปิดใช้งานการกลับด้าน และกำหนดสีค่าติดลบผ่าน [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) ตัวเลขติดลบจะยังคงอยู่ใน workbook; เพียงสีการแสดงผลที่เปลี่ยน
 
-ตัวอย่างต่อไปนี้แทนที่ข้อมูลกราฟเริ่มต้นด้วยซีรีส์หนึ่ง  แถว worksheet 0 มีชื่อซีรีส์, คอลัมน์ 0 มีชื่อหมวดหมู่, และคอลัมน์ 1 มีค่า:
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิดั้งเดิมด้วยชุดข้อมูลหนึ่ง Worksheet แถว 0 มีชื่อชุด, คอลัมน์ 0 มีชื่อประเภท, คอลัมน์ 1 มีค่า
 
 ```java
 import com.aspose.slides.*;
@@ -346,7 +348,7 @@ try {
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-คุณสามารถเปิดใช้งานการกลับหัวสำหรับจุดเดียวผ่าน [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-)  ในตัวอย่างต่อไปนี้ การกลับหัวถูกปิดสำหรับซีรีส์และเปิดเฉพาะจุดที่เลือก  จุดนั้นยังถูกกำหนดค่าเป็นค่าติดลบเพื่อให้เห็นผล:
+คุณสามารถเปิดใช้งานการกลับด้านสำหรับจุดเดียวผ่าน [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ในตัวอย่างต่อไปนี้ การกลับด้านถูกปิดสำหรับชุดและเปิดเฉพาะจุดที่เลือก จุดนั้นยังได้รับการกำหนดค่าติดลบเพื่อให้เห็นผล
 
 ```java
 import com.aspose.slides.*;
@@ -380,11 +382,11 @@ try {
 }
 ```
 
-## **ลบค่าจุดข้อมูลเฉพาะ**
+## **ล้างค่าจุดข้อมูลเฉพาะ**
 
-เพื่อทำให้จุดหนึ่งเป็นค่าว่างโดยไม่ลบจุดอื่น ๆ ให้กำหนดค่าเซลล์ workbook ที่สนับสนุนเป็น `null`  สำหรับกราฟคอลัมน์ ค่าที่พลอตได้สามารถเข้าถึงได้ผ่าน [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--)  จุดข้อมูลจะคงอยู่ที่ตำแหน่งหมวดหมู่เดียวกัน แต่กราฟจะถือว่าค่าของมันเป็นค่าว่างตามการตั้งค่าค่าว่างของกราฟ
+เพื่อทำให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ให้กำหนดค่าเซลล์ workbook ของจุดนั้นเป็น `null` สำหรับแผนภูมิคอลัมน์ ค่าที่พล็อตได้สามารถเข้าถึงได้ผ่าน [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) จุดข้อมูลจะคงตำแหน่งประเภทเดิม แต่แผนภูมิจะถือค่าของมันว่าเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
 
-ตัวอย่างต่อไปนี้ลบค่าเฉพาะจุดที่สองของซีรีส์แรก:
+ตัวอย่างต่อไปนี้ล้างเฉพาะจุดที่สองในชุดแรก
 
 ```java
 import com.aspose.slides.*;
@@ -409,17 +411,17 @@ try {
 }
 ```
 
-กราฟกระจายใช้เซลล์ X และ Y แยกกัน, กราฟฟองอากาศยังใช้เซลล์ขนาดด้วย  ให้ลบเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ  อย่าเรียก [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) หากต้องการคงจุดอื่นไว้ เพราะเมธอดนี้จะลบทุกจุดจากคอลเลกชัน
+แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน, แผนภูมิบับอากาศยังใช้เซลล์ขนาดด้วย ลบเฉพาะเซลล์ที่เป็นค่าที่ต้องการลบ อย่าเรียก [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) เมื่อต้องการคงจุดอื่นไว้ เนื่องจากเมธอดนั้นจะลบจุดข้อมูลทั้งหมดจากคอลเลกชัน
 
 ## **ควบคุมการแสดงผลของเซลล์ว่าง**
 
-เซลล์ที่ซ่อนซึ่งมีค่าเป็นกรณีแยกจากเซลล์ว่าง  หากต้องการรวมหรือแยกข้อมูลจากแถวและคอลัมน์ worksheet ที่ซ่อน ให้ดูที่ [Include Data from Hidden Rows and Columns](/slides/th/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns)
+เซลล์ที่ซ่อนอยู่ซึ่งมีค่าเป็นกรณีแยกต่างหากจากเซลล์ว่าง เพื่อรวมหรือแยกข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่ ดู [Include Data from Hidden Rows and Columns](/slides/th/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns)
 
-เซลล์ workbook ที่ว่างแสดงถึงข้อมูลที่หายไป; เซลล์ที่มีค่า `0` แสดงถึงค่าตัวเลขที่รู้จัก  เรียก [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) ด้วย `null` เพื่อทำให้เซลล์เป็นค่าว่าง  ตัวเลขศูนย์จะคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างจะเป็นอย่างไร
+เซลล์ workbook ที่ว่างเปล่าแสดงถึงข้อมูลที่ขาดหาย; เซลล์ที่มีค่า `0` แสดงถึงค่าตัวเลขที่รู้จัก เรียก [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) ด้วย `null` เพื่อทำให้เซลล์ว่าง ศูนย์ตัวเลขยังคงเป็นศูนย์ไม่ว่า setting ของเซลล์ว่างจะเป็นอย่างไร
 
-ใช้ [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) เพื่อเลือกวิธีที่กราฟแสดงเซลล์ว่าง  การตั้งค่านี้ใช้กับกราฟทั้งหมด  จะเปลี่ยนวิธีที่ค่าว่างถูกพลอตโดยไม่ต้องเติมค่า 0 หรือค่าประมาณลงในเซลล์ workbook ที่ว่าง
+ใช้ [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) เพื่อเลือกว่ามีการแสดงเซลล์ว่างอย่างไร การตั้งค่านี้ใช้กับแผนภูมิตทั้งหมดยังเปลี่ยนวิธีที่ช่องว่างถูกพล็อตโดยไม่ต้องเติมค่า 0 หรือค่าประมาณลงในเซลล์ workbook ที่ว่าง
 
-ตัวอย่างต่อไปนี้เป็นตัวอย่างที่สมบูรณ์ สร้างกราฟเส้นที่มีซีรีส์หนึ่ง, ลบค่าของ Day 3, และบันทึกกราฟเดียวกันในแต่ละโหมด  ไม่จำเป็นต้องมีไฟล์อินพุต  [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับฉลากหมวดหมู่, และคอลัมน์ 1 สำหรับค่า; แถว 0 เก็บชื่อซีรีส์  ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
+ตัวอย่างต่อไปนี้เป็นตัวอย่างอิสระที่สร้างแผนภูมิเส้นหนึ่งชุด, ลบค่าในวันที่ 3, แล้วบันทึกแผนภูมิเดียวกันด้วยแต่ละโหมด ไม่ต้องใช้ไฟล์อินพุต [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับป้ายชื่อประเภท, คอลัมน์ 1 สำหรับค่า; แถว 0 มีชื่อชุด ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
 
 ```java
 import com.aspose.slides.*;
@@ -446,7 +448,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // ปล่อยให้วัน 3 ว่างจริง ๆ แต่ยังคงหมวดหมู่และจุดข้อมูลไว้
+    // ทำให้วัน 3 ว่างเปล่าอย่างแท้จริง ในขณะที่ยังคงรักษาประเภทและจุดข้อมูลของมันไว้.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -460,19 +462,19 @@ try {
 }
 ```
 
-แต่ละไฟล์ผลลัพธ์จะบันทึกโหมดที่กำหนดไว้ก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx`  หากต้องการบันทึกเพียงเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการและบันทึกงานนำเสนอครั้งเดียวแทนการวนลูปตามโหมด
+แต่ละไฟล์เอาต์พุตจะบันทึกโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` และ `empty_cells_Span.pptx` เพื่อบันทึกเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการแล้วบันทึกการนำเสนอเพียงครั้งเดียวแทนการวนลูปผ่านโหมดต่าง ๆ
 
-การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในสามไฟล์  Day 3 จะเป็นค่าว่างใน workbook ทุกกรณี:
+การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม วันที่ 3 จะว่างเปล่าใน workbook ทุกกรณี:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทกราฟ  กราฟเส้นทำให้สามโหมดนี้ง่ายต่อการเปรียบเทียบ  กราฟแถบและคอลัมน์ไม่มีเส้นเชื่อมต่อผ่านหมวดหมู่ที่หายไป ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมต่อที่แสดงข้างต้น; คอลัมน์ที่หายไปและคอลัมน์ความสูงศูนย์อาจดูคล้ายกันเช่นกัน  เช่นเดียวกับกราฟกระจายที่มีเฉพาะเครื่องหมายก็ไม่มีเส้นเชื่อมต่อ  อย่าคาดหวังผลลัพธ์ที่แตกต่างสามแบบสำหรับทุกประเภทกราฟ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้
+ผลลัพธ์ที่มองเห็นได้ขึ้นอยู่กับประเภทแผนภูมิ แผนภูมิเส้นทำให้เปรียบเทียบทั้งสามโหมดได้ง่าย แผนภูมิบาร์และคอลัมน์ไม่มีเส้นเชื่อมต่อข้ามประเภทที่หายไป จึงทำให้ `Span` ไม่สามารถสร้างส่วนเชื่อมต่อที่แสดงในภาพได้; คอลัมน์ที่หายไปและคอลัมน์ที่สูงศูนย์อาจดูคล้ายกันเช่นกัน เช่นเดียวกับแผนภูมิกระจายที่มีแต่เครื่องหมายก็ไม่มีเส้นเชื่อมต่อ อย่าคาดหวังผลลัพธ์สามแบบแยกกันสำหรับทุกประเภทแผนภูมิ; ควรตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้
 
-## **ตั้งค่าความกว้างช่องว่างของซีรีส์**
+## **ตั้งค่าความกว้างของช่องว่างระหว่างชุด**
 
-ความกว้างช่องว่างคือระยะห่างระหว่างกลุ่มแถบหรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างแถบหรือคอลัมน์  เช่นเดียวกับการทับซ้อน มันเป็นของกลุ่มซีรีส์พาเรนต์ ไม่ได้เป็นของแต่ละซีรีส์  เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) ครั้งเดียวสำหรับกลุ่ม  ค่าที่มากขึ้นจะสร้างช่องว่างมากขึ้นระหว่างกลุ่ม; ค่าที่น้อยลงจะทำให้กลุ่มชิดกันมากขึ้น
+ความกว้างของช่องว่างคือพื้นที่ระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์ เช่นเดียวกับการทับซ้อน มันเป็นของกลุ่มชุดแม่ ไม่ใช่ของชุดเดียว เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) หนึ่งครั้งสำหรับกลุ่ม ค่าเพิ่มจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น ค่าเล็กลงจะทำให้กลุ่มกระชับขึ้น
 
-ตัวอย่างต่อไปนี้เปลี่ยนค่าความกว้างช่องว่างและบันทึกงานนำเสนอครั้งสุดท้ายเท่านั้น:
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกการนำเสนอที่ได้สุดท้ายเท่านั้น
 
 ```java
 import com.aspose.slides.*;
@@ -500,44 +502,80 @@ try {
 
 ![The gap width](gap_width.png)
 
-## **คำถามที่พบบ่อย**
+## **แสดงหรือซ่อนเส้นเชื่อมชุดข้อมูล**
 
-**กราฟประเภทใดสนับสนุนข้อมูลซีรีส์?**
+เส้นเชื่อมชุดข้อมูลเชื่อมต่อส่วนที่เกี่ยวข้องของแผนภูมิ ใช้ [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) เพื่อแสดงหรือซ่อนเส้นเหล่านี้ในแผนภูมิบาร์และ OfPie ที่รองรับ ในแผนภูมิบาร์และคอลัมน์แบบซ้อนสองมิติ เส้นเหล่านี้เชื่อมขอบสแตกที่สอดคล้องกันข้ามประเภท ในแผนภูมิ Pie of Pie และ Bar of Pie เส้นเชื่อมส่วนหลักกับส่วนรอง การตั้งค่านี้ไม่ใช้เป็นตัวเชื่อมทั่วไปสำหรับประเภทแผนภูมิอื่น
 
-ทุกประเภทกราฟที่แสดงโดย enumeration [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ใช้ข้อมูลกราฟ, แต่ซีรีส์ของแต่ละประเภทอาจมีโครงสร้างค่าและการตั้งค่าที่แตกต่างกัน  ตัวอย่างเช่น กราฟประเภทหมวดหมู่ใช้หมวดหมู่และค่า, กราฟกระจายใช้ค่า X และ Y, และกราฟฟองอากาศเพิ่มขนาดฟอง  ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทซีรีส์  ตัวเลือกเช่นการทับซ้อนและความกว้างช่องว่างใช้ได้กับกลุ่มแถบหรือคอลัมน์ที่เข้ากันได้เท่านั้น
+เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) การตั้งค่านี้ใช้กับทุกชุดในกลุ่มนั้น [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#hasSeriesLines--) เป็นแบบอ่านอย่างเดียวและสะท้อนการตั้งค่าของกลุ่มแม่; เรียกตัวตั้งค่าของกลุ่มเพื่ออัปเดต
 
-**กลุ่มซีรีส์กราฟคืออะไร?**
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ [PieOfPie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#PieOfPie) หนึ่งรายการด้วยข้อมูลเริ่มต้น บันทึกแผนภูมิเดียวกันโดยเปิดใช้งานเส้นเชื่อมชุดและปิดใช้งานสองครั้ง เพื่อเปรียบเทียบ
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) มีซีรีส์ที่เข้ากันได้ซึ่งใช้การตั้งค่าการพลอตระดับกลุ่ม  กราฟแบบผสมอาจมีหลายกลุ่ม, ดังนั้นการเปลี่ยนแปลงกลุ่มผ่านซีรีส์หนึ่งอาจไม่ส่งผลต่อทุกซีรีส์ในกราฟ
+```java
+import com.aspose.slides.*;
 
-**กราฟที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-ใช่  โดยค่าเริ่มต้น [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) จะสร้างซีรีส์, หมวดหมู่, และค่าตัวอย่าง  คุณสามารถแก้ไขเซลล์เหล่านั้นหรือทำความสะอาดคอลเลกชันซีรีส์และหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองโดยสมบูรณ์  มี overload ที่สามารถสร้างกราฟโดยไม่มีข้อมูลเริ่มต้นได้ด้วย
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
 
-**กราฟอธิบายความสัมพันธ์กับเซลล์ workbook อย่างไร?**
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
 
-ชื่อซีรีส์, ฉลากหมวดหมู่, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)  การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบกราฟที่สอดคล้องกัน  เมื่อคุณสร้างข้อมูลแบบกำหนดเอง ให้รักษาแถวหมวดหมู่และแถวค่าซีรีส์ให้สอดคล้องกันเพื่อให้แต่ละจุดถูกพลอตภายใต้หมวดหมู่ที่ตั้งใจไว้
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**จะลบจุดเดียวโดยไม่ลบซีรีส์ทั้งหมดได้อย่างไร?**
+| เส้นเชื่อมชุดเปิด | เส้นเชื่อมชุดปิด |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| สองเส้นเชื่อมพายหลักกับพายรอง | พายทั้งสองยังคงมองเห็นได้ แต่เส้นเชื่อมถูกซ่อน |
 
-ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อรักษาตำแหน่งหมวดหมู่ของจุดนั้นเป็นจุดว่าง  ใช้ [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) เฉพาะเมื่อคุณต้องการลบทุกจุดจากซีรีส์นั้น  หากคุณลบหมวดหมู่ด้วย, ให้ปรับซีรีส์ทุกตัวให้ค่าของพวกเขายังคงสอดคล้องกับคอลเลกชันหมวดหมู่
+เส้นเชื่อมชุดต่างจากเส้นนำทางของป้ายข้อมูลซึ่งเชื่อมป้ายกับจุดข้อมูล; เส้นกริดที่ทำเครื่องหมายช่วงตามแกน; และเส้นในแผนภูมิเส้นซึ่งแสดงค่าข้อมูล การตั้งค่านี้ไม่ได้ควบคุมองค์ประกอบเหล่านั้น
+
+## **ข้อถามที่พบบ่อย**
+
+**แผนภูมิประเภทใดสนับสนุนชุดข้อมูล?**
+
+ทุกประเภทแผนภูมิที่แสดงโดย enumeration [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) ใช้ข้อมูลแผนภูมิ แต่ชุดข้อมูลของแต่ละประเภทอาจมีโครงสร้างค่าและการตั้งค่าที่แตกต่างกัน ตัวอย่างเช่น แผนภูมิประเภทหมวดหมู่ใช้ประเภทและค่า, แผนภูมิกระจายใช้ค่า X และ Y, แผนภูมิบับอากาศเพิ่มขนาดบับเบิล ใช้วิธีสร้างจุดข้อมูลที่ตรงกับประเภทชุดข้อมูล การตั้งค่าเช่นการทับซ้อนและความกว้างของช่องว่างใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากัน
+
+**กลุ่มชุดข้อมูลแผนภูมิคืออะไร?**
+
+[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) ประกอบด้วยชุดข้อมูลที่เข้ากันได้ซึ่งแชร์การตั้งค่าการวาดระดับกลุ่ม แผนภูมิผสมสามารถมีหลายกลุ่มได้ ดังนั้นการเปลี่ยนกลุ่มผ่านชุดข้อมูลหนึ่งไม่จำเป็นต้องเปลี่ยนทุกชุดในแผนภูมิ
+
+**แผนภูมิที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
+
+ใช่ โดยค่าเริ่มต้น [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) จะสร้างชุดข้อมูล ตัวประเภท และค่า ตัวอย่าง คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งชุดและประเภทก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างเต็มที่ การโอเวอร์โหลดบางอย่างยังสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้น
+
+**วัตถุแผนภูมิเชื่อมต่อกับเซลล์ workbook อย่างไร?**
+
+ชื่อชุดข้อมูล, ป้ายชื่อประเภท, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิที่สอดคล้องกัน เมื่อคุณสร้างข้อมูลกำหนดเอง ให้จัดแถวประเภทและแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดถูกพล็อตภายใต้ประเภทที่ตั้งใจ
+
+**จะลบจุดเดียวแทนที่จะลบชุดทั้งหมดอย่างไร?**
+
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อคงตำแหน่งประเภทของจุดเป็นจุดว่าง ใช้ [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) เฉพาะเมื่อต้องการลบจุดทั้งหมดจากชุดนั้น หากคุณลบประเภทด้วย ต้องอัปเดตทุกชุดเพื่อให้ค่าคงสอดคล้องกับคอลเลกชันประเภท
 
 **จุดว่างแสดงผลอย่างไร?**
 
-ผลลัพธ์ขึ้นกับประเภทกราฟและค่าที่กำหนดผ่าน [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-)  กราฟที่สนับสนุนสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่าศูนย์, หรือโดยการเชื่อมต่อจุดข้างเคียง  เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ  ดูที่ [Control the Display of Empty Cells](#control-the-display-of-empty-cells) เพื่อดูตัวอย่างเต็มและเปรียบเทียบภาพ
+ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและค่าที่กำหนดผ่าน [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) แผนภูมิที่รองรับสามารถแสดงช่องว่างเป็นช่องว่าง, เป็นค่า 0, หรือเชื่อมต่อจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ ดู [ควบคุมการแสดงผลของเซลล์ว่าง](#control-the-display-of-empty-cells) เพื่อดูตัวอย่างเต็มรูปแบบและเปรียบเทียบภาพ
 
-**ค่าติดลบถูกฟอร์แมตอย่างไร?**
+**ค่าติดลบถูกจัดรูปแบบอย่างไร?**
 
-สำหรับซีรีส์แถบ, คอลัมน์, และฟองอากาศที่สนับสนุน, ให้เรียก [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) แล้วตั้งค่าสีที่ได้จาก [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--)  คุณสามารถทับการทำงานสำหรับจุดเดียวด้วย [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-)  วิธีเหล่านี้ส่งผลต่อการฟอร์แมต, ไม่ได้เปลี่ยนค่าตัวเลขที่จัดเก็บ
+สำหรับชุดบาร์, คอลัมน์, และบับเบิลที่รองรับ ให้เรียก [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) แล้วตั้งค่าสีที่คืนจาก [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) คุณสามารถเขียนทับพฤติกรรมสำหรับจุดเดี่ยวด้วย [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) วิธีเหล่านี้ส่งผลต่อการจัดรูปแบบ ไม่ใช่ค่าตัวเลขที่จัดเก็บ
 
-**เมื่อตั้งค่าทั้งซีรีส์และจุดพร้อมกัน ตัวฟอร์แมตใดชนะ?**
+**การจัดรูปแบบไหนชนะเมื่อทั้งชุดและจุดถูกจัดรูปแบบ?**
 
-การฟอร์แมตจุดข้อมูลโดยชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น  จุดอื่น ๆ จะใช้ฟอร์แมตซีรีส์ที่กำหนดไว้หรือหากไม่ได้กำหนดจะใช้สไตล์และธีมของกราฟโดยอัตโนมัติ  การตั้งค่ากลุ่มเช่นการทับซ้อนและความกว้างช่องว่างควบคุมการจัดวางและไม่ใช่การฟอร์แมตระดับจุด
+การจัดรูปแบบจุดข้อมูลโดยชัดเจนมีลำดับความสำคัญสำหรับจุดนั้น จุดอื่น ๆ ยังคงใช้การจัดรูปแบบชุดที่ชัดเจน หรือเมื่อชุดไม่มีการกำหนดรูปแบบ จะใช้สไตล์และธีมของแผนภูมิโดยอัตโนมัติ การตั้งค่ากลุ่มเช่นการทับซ้อนและความกว้างของช่องว่างควบคุมการวางรูปแบบและไม่ใช่การเขียนทับระดับจุด
 
-**กราฟสามารถมีซีรีส์ได้มากแค่ไหน?**
+**มีขีดจำกัดจำนวนชุดข้อมูลที่แผนภูมิสามารถมีได้หรือไม่?**
 
-Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนซีรีส์อย่างแยกจากกัน  อย่างไรก็ตาม ขนาดไฟล์งานนำเสนอ, หน่วยความจำที่มี, เวลาเรนเดอร์, และความอ่านง่ายของกราฟเป็นปัจจัยที่กำหนดขีดจำกัดที่ใช้ได้จริง
+Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดข้อมูลแยกออกมา ในทางปฏิบัติ ขนาดไฟล์การนำเสนอ, หน่วยความจำที่ใช้ได้, เวลาเรนเดอร์, และความสามารถในการอ่านของแผนภูมิเป็นปัจจัยที่กำหนดขีดจำกัดที่มีประโยชน์
 
-**ควรทำอย่างไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
+**ควรเปลี่ยนอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างเกินไป?**
 
-เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) บนกลุ่มซีรีส์แม่ที่เหมาะสม  เพิ่มค่าเพื่อเพิ่มช่องว่างระหว่างกลุ่ม, หรือ ลดค่าเพื่อทำให้กลุ่มเข้าหากันมากขึ้น.
+เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) บนกลุ่มชุดแม่ที่เหมาะสม ค่าเพิ่มจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น หรือค่าเล็กลงจะทำให้กลุ่มเข้าใกล้กันมากขึ้น

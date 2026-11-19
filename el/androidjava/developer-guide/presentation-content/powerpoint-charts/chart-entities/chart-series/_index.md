@@ -1,47 +1,49 @@
 ---
-title: Διαχείριση Σειρών Δεδομένων Διαγραμμάτων σε Παρουσιάσεις σε Android
+title: Διαχείριση σειρών δεδομένων γραφήματος σε παρουσιάσεις στο Android
 linktitle: Σειρές Δεδομένων
 type: docs
 url: /el/androidjava/chart-series/
 keywords:
-- σειρές διαγράμματος
+- σειρά γραφήματος
 - επικάλυψη σειρών
 - χρώμα σειράς
 - όνομα σειράς
 - σημείο δεδομένων
 - κελί βιβλίου εργασίας
-- διάστημα σειράς
+- κενό σειράς
 - αρνητική τιμή
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε σειρές διαγράμματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος διαστήματος και αρνητικές τιμές σε παρουσιάσεις σε Android."
+description: "Μάθετε πώς να διαχειρίζεστε σειρές γραφήματος, σημεία δεδομένων, κελιά βιβλίου εργασίας, μορφοποίηση, επικάλυψη, πλάτος κενών και αρνητικές τιμές σε παρουσιάσεις στο Android."
 ---
 ## **Επισκόπηση**
 
-Ένα διάγραμμα μπορεί να αποθηκεύει τις τιμές που σχεδιάζει σε κελιά του βιβλίου εργασίας ή απευθείας ως αριθμητικά κυριολεκτικά. Ένα [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών και κάθε [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) αντιπροσωπεύει ένα σημείο σε αυτή τη σειρά. Τα αντικείμενα [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Σε διαγράμματα που δημιουργούνται με προεπιλεγμένα δεδομένα, τα ονόματα σειρών, οι κατηγορίες και οι τιμές σημείων χρησιμοποιούν αντικείμενα [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) από το βιβλίο εργασίας του διαγράμματος.
+Ένα γράφημα μπορεί να αποθηκεύει τις σχεδιασμένες του τιμές σε κελιά βιβλίου εργασίας ή απευθείας ως αριθμητικούς λεκτικούς. Ένα [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) αντιπροσωπεύει ένα σημείο σε αυτή τη σειρά. Τα αντικείμενα [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Στα γραφήματα που δημιουργούνται με προεπιλεγμένα δεδομένα, τα ονόματα σειρών, οι κατηγορίες και οι τιμές σημείων χρησιμοποιούν αντικείμενα [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) από το βιβλίο εργασίας του γραφήματος.
 
-Για ένα τυπικό διάγραμμα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη σειρά 0 για τα ονόματα των σειρών, τη στήλη 0 για τα ονόματα των κατηγοριών και τα υπόλοιπα κελιά για τις τιμές των σειρών. Οι δείκτες φύλλου εργασίας, σειράς και στήλης που περνούν στο [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) είναι μηδενική βάση. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα διάγραμμα με προεπιλεγμένα δεδομένα, αλλά μη υποθέτετε ότι κάθε υπάρχον διάγραμμα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, εξετάστε τα κελιά στα οποία αναφέρονται οι σειρές, οι κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
+Για ένα τυπικό γράφημα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη σειρά 0 για τα ονόματα σειρών, τη στήλη 0 για τα ονόματα κατηγοριών και τα υπόλοιπα κελιά για τις τιμές σειρών. Οι δείκτες φύλλου εργασίας, σειράς και στήλης που περνούν στο [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα γράφημα με προεπιλεγμένα δεδομένα, αλλά μην υποθέτετε ότι κάθε υπάρχον γράφημα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, ελέγξτε τα κελιά που αναφέρονται από τις σειρές, τις κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
 
-Οι ρυθμίσεις του διαγράμματος έχουν τρεις διαφορετικές εμβέλειες:
+Οι ρυθμίσεις του γραφήματος έχουν τρία διαφορετικά επίπεδα:
 
-- Ρυθμίσεις επιπέδου σειράς, όπως το [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία μιας σειράς.
-- Ρυθμίσεις σημείου δεδομένων, όπως το [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
-- Ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στο ίδιο [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/). Πρόσβαση στην ομάδα μέσω του [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
+- Ρυθμίσεις σε επίπεδο σειράς, όπως το [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μια σειρά.
+- Ρυθμίσεις σημείου δεδομένου, όπως το [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), παρακάμπτουν την εμφάνιση της σειράς για ένα σημείο.
+- Ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στο ίδιο [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/). Προσπελάστε την ομάδα μέσω του [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
 
-Όταν δεν έχει οριστεί ρητή γεμίσματος σημείου ή σειράς, το στυλ και το θέμα του διαγράμματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν και μορφοποίηση σειράς και σημείου, η μορφοποίηση σημείου έχει προτεραιότητα για εκείνο το σημείο.
+Όταν δεν έχει οριστεί ρητό γέμισμα σημείου ή σειράς, το στυλ και το θέμα του γραφήματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν τόσο μορφοποίηση σειράς όσο και σημείου, η μορφοποίηση του σημείου λαμβάνει προτεραιότητα για εκείνο το σημείο.
 
-![Σειρές διαγράμματος PowerPoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ορισμός Τιμών Σειράς Χρησιμοποιώντας Αριθμητικά Κυριολεκτικά**
+Για ένα συγκεντρωμένο κυλινδρικό γράφημα, δείτε πώς η [αλλαγή του 3Δ τύπου σειράς ή του σχήματος ράβδου](/slides/el/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) επηρεάζει την πρώτη σειρά.
 
-Χρησιμοποιήστε αριθμητικά κυριολεκτικά όταν οι τιμές της σειράς προέρχονται από δεδομένα ή υπολογισμούς της εφαρμογής και δεν απαιτούν αναφορές σε κελιά του φύλλου. Καλέστε το [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) με το [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) πριν αναθέσετε σε κάθε σημείο το αποτέλεσμα του [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) μέσω του [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
+## **Ορισμός Τιμών Σειρών Χρησιμοποιώντας Αριθμητικούς Λεκτικούς**
 
-Η ρύθμιση της συλλογής ελέγχει τον τύπο πηγής όλων των τιμών σημείων σε αυτή τη σειρά. Η μέθοδος [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) του κάθε σημείου αναφέρει τον επιλεγμένο τύπο· αλλάξτε το μέσω της ρύθμισης της συλλογής. Με το `Worksheet`, χρησιμοποιήστε το [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) για πρόσβαση στο κελί αναφοράς. Με το `DoubleLiterals`, χρησιμοποιήστε το [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) ή το `setAsLiteralDouble` για ανάγνωση ή εγγραφή του αριθμού άμεσα.
+Χρησιμοποιήστε αριθμητικούς λεκτικούς όταν οι τιμές των σειρών προέρχονται από δεδομένα ή υπολογισμούς της εφαρμογής και δεν απαιτούν παραπομπές σε κελιά φύλλου εργασίας. Καλέστε το [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) με το [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) πριν εκχωρήσετε το αποτέλεσμα του [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) κάθε σημείου μέσω του [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
 
-Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα στήλης με προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια αναθέτει τις υπολογισμένες τιμές 10, 20 κ.ο.κ. στα υπάρχοντα σημεία της πρώτης σειράς. Αποθηκεύει την παρουσίαση, την ανοίγει ξανά και εκτυπώνει τις αποθηκευμένες τιμές.
+Η ρύθμιση συλλογής ελέγχει τον τύπο πηγής όλων των τιμών σημείων σε αυτή τη σειρά. Η μέθοδος [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) κάθε τιμής σημείου αναφέρει τον επιλεγμένο τύπο· αλλάξτε τον μέσω της ρύθμισης συλλογής. Με το `Worksheet`, χρησιμοποιήστε το [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) για να προσπελάσετε το αναφερόμενο κελί. Με το `DoubleLiterals`, χρησιμοποιήστε το [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) ή το `setAsLiteralDouble` για να διαβάσετε ή να γράψετε τον αριθμό απευθείας.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα γράφημα στήλης με προεπιλεγμένες σειρές και κατηγορίες, στη συνέχεια εκχωρεί υπολογισμένες τιμές 10, 20 κ.λπ. στα υπάρχοντα σημεία της πρώτης σειράς. Αποθηκεύει την παρουσίαση, την ανοίγει ξανά και εκτυπώνει τις αποθηκευμένες τιμές.
 
 ```java
 import com.aspose.slides.*;
@@ -76,13 +78,13 @@ try {
 }
 ```
 
-Ο τύπος πηγής τιμής σημείου είναι ξεχωριστός από το [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--), το οποίο προσδιορίζει τη διαμόρφωση εσωτερικού ή εξωτερικού βιβλίου εργασίας του διαγράμματος. Η χρήση αριθμητικών κυριολεκτικών δεν αφαιρεί, από μόνη της, το ενσωματωμένο βιβλίο εργασίας. Σε αυτό το παράδειγμα, το βιβλίο εργασίας παραμένει διαθέσιμο για ετικέτες κατηγοριών, ονόματα σειρών και τις άλλες σειρές. Δείτε το [Chart Workbook](/slides/el/androidjava/chart-workbook/) για διαχείριση βιβλίου εργασίας.
+Ο τύπος πηγής της τιμής σημείου είναι ξεχωριστός από το [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--), το οποίο προσδιορίζει τη διαμόρφωση εσωτερικού ή εξωτερικού βιβλίου εργασίας του γραφήματος. Η χρήση αριθμητικών λεκτικών δεν καταργεί αυτόματα το ενσωματωμένο βιβλίο εργασίας. Σε αυτό το παράδειγμα, το βιβλίο εργασίας παραμένει διαθέσιμο για τις ετικέτες κατηγοριών, τα ονόματα σειρών και τις άλλες σειρές. Δείτε το [Chart Workbook](/slides/el/androidjava/chart-workbook/) για διαχείριση βιβλίου εργασίας.
 
-Για διαγράμματα διασποράς και φυσαλίδων, χρησιμοποιήστε το [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) και το [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) για να επιλέξετε τις πηγές των [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) και [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--). Τα διαγράμματα φυσαλίδων χρησιμοποιούν επίσης το [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) για το [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Ορίστε κάθε εφαρμόσιμοπροέξοδο σε `DoubleLiterals` πριν αναθέσετε αριθμούς μέσω της μεθόδου `setAsLiteralDouble` του αντίστοιχου τιμής.
+Για γραφήματα διασποράς και φυσαλίδων, χρησιμοποιήστε το [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) και το [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) για να επιλέξετε τις πηγές των [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) και [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--). Τα γραφήματα φυσαλίδων χρησιμοποιούν επίσης το [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) για το [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Ορίστε κάθε εφαρμόσιμη πηγή σε `DoubleLiterals` πριν εκχωρήσετε αριθμούς μέσω της μεθόδου `setAsLiteralDouble` της αντίστοιχης τιμής.
 
-## **Ορισμός Επικάλυψης Σειρών Διαγράμματος**
+## **Ορισμός Επικάλυψης Σειρών Γραφήματος**
 
-Το [IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) αναφέρει πόσο οι μπάρες ή στήλες επικαλύπτονται σε 2D διάγραμμα, από -100 έως 100 τοις εκατό. Είναι μια ανάγνωση μόνο προβολής της ρύθμισης στην γονική ομάδα σειρών. Χρησιμοποιήστε το [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) για να ενημερώσετε κάθε συμβατή σειρά σε αυτή την ομάδα. Η επιλογή αυτή εφαρμόζεται σε τύπους διαγραμμάτων που εμφανίζουν ομαδοποιημένες μπάρες ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε συνδυαστικό διάγραμμα.
+Το [IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) αναφέρει το πόσο τα ραβδιά ή οι στήλες επικαλύπτονται σε ένα 2Δ γράφημα, από -100 μέχρι 100 τοις εκατό. Είναι μια ανάγνωση μόνο προβολή της ρύθμισης στην γονική ομάδα σειρών. Χρησιμοποιήστε το [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) για να ενημερώσετε κάθε συμβατή σειρά σε αυτήν την ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους γραφήματος που εμφανίζουν ομαδοποιημένα ραβδιά ή στήλες· δεν επηρεάζει ανεξάρτητες ομάδες σειρών σε συνδυαστικό γράφημα.
 
 Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
@@ -97,7 +99,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Το νέο διάγραμμα περιέχει παράδειγμα σειρών, κατηγοριών και τιμών.
+    // Το νέο γράφημα περιέχει δείγμα σειρών, κατηγοριών και τιμών.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -111,13 +113,13 @@ try {
 
 Το αποτέλεσμα:
 
-![Η επικάλυψη των σειρών](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Αλλαγή Χρώματος Γέμισης Σειράς**
 
-Χρησιμοποιήστε το [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) για να ορίσετε τη προεπιλεγμένη γέμιση ολόκληρης μιας σειράς. Εάν ένα σημείο έχει ήδη ρητή γέμιση, η ρύθμιση του [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) παρακάμπτει τη γέμιση της σειράς για εκείνο το σημείο.
+Χρησιμοποιήστε το [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) για να ορίσετε τη προεπιλεγμένη γέμιση ολόκληρης μιας σειράς. Αν ένα σημείο έχει ήδη ρητή γέμιση, η ρύθμιση του [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) παρακάμπτει τη γέμιση της σειράς για εκείνο το σημείο.
 
-Το παρακάτω παράδειγμα εφαρμόζει μια συμπαγή μπλε γέμιση στην πρώτη σειρά:
+Το παρακάτω παράδειγμα εφαρμόζει γεμάτο μπλε χρώμα στη πρώτη σειρά:
 
 ```java
 import com.aspose.slides.*;
@@ -144,11 +146,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Το χρώμα της σειράς](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Αλλαγή Ονόματος Σειράς**
 
-Ένα όνομα σειράς αποθηκεύεται στο βιβλίο δεδομένων του διαγράμματος και εμφανίζεται συνήθως στην υπόμνηση. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα ομαδοποιημένο διάγραμμα στήλης, το κελί B1 βρίσκεται στη σειρά 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι ονομαστικές σταθερές στο παρακάτω παράδειγμα κάνουν αυτή τη δομή ρητή:
+Ένα όνομα σειράς αποθηκεύεται στο βιβλίο δεδομένων του γραφήματος και συνήθως εμφανίζεται στο υπόμνημα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα συγκεντρωτικό γράφημα στήλης, το κελί B1 βρίσκεται στη σειρά 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι σταθερές ονομασίες στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφή:
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +176,7 @@ try {
 }
 ```
 
-Μπορείτε επίσης να ενημερώσετε το κελί στο οποίο ήδη αναφέρεται το [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης σειράς και στήλης σε υπάρχον διάγραμμα:
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη παραπέμπεται από το [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης σειράς και στήλης σε υπάρχον γράφημα:
 
 ```java
 import com.aspose.slides.*;
@@ -201,15 +203,15 @@ try {
 
 Το αποτέλεσμα:
 
-![Το όνομα της σειράς](series_name.png)
+![The series name](series_name.png)
 
 ### **Δημιουργία Σειράς με Όνομα από Πολλαπλά Κελιά**
 
-Ένα σύνθετο όνομα σειράς είναι χρήσιμο όταν το όνομα προϊόντος και η περίοδος αναφοράς αποθηκεύονται σε διαφορετικά κελιά του βιβλίου εργασίας. Για παράδειγμα, μπορείτε να συνδυάσετε το `Product A` στο B1 και το `2026` στο C1 σε ένα όνομα σειράς, διατηρώντας και τα δύο τμήματα συνδεδεμένα με τα κελιά προέλευσης.
+Ένα σύνθετο όνομα σειράς είναι χρήσιμο όταν το όνομα προϊόντος και η περίοδος αναφοράς αποθηκεύονται σε διαφορετικά κελιά του βιβλίου εργασίας. Για παράδειγμα, μπορείτε να συνδυάσετε το `Product A` στο B1 και το `2026` στο C1 σε ένα ενιαίο όνομα σειράς διατηρώντας και τα δύο μέρη συνδεδεμένα με τα πηγαία κελιά τους.
 
-Χρησιμοποιήστε το [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) για να ανακτήσετε την περιοχή ονομάτων, στη συνέχεια περάστε αυτή τη συλλογή στο [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Το όρισμα `skipHiddenCells` ελέγχει εάν τα κρυμμένα κελιά θα συμπεριληφθούν: `true` τα εξαιρεί, ενώ `false` τα περιλαμβάνει. Αυτό το παράδειγμα χρησιμοποιεί `false` για να συμπεριλάβει κάθε κελί στην περιοχή ονομάτων.
+Χρησιμοποιήστε το [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) για να ανακτήσετε την περιοχή ονομάτων, στη συνέχεια περάστε αυτή τη συλλογή στο [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Το όρισμα `skipHiddenCells` ελέγχει αν τα κρυφά κελιά περιλαμβάνονται: `true` τα εξαιρεί, ενώ `false` τα περιλαμβάνει. Αυτό το παράδειγμα χρησιμοποιεί `false` για να συμπεριλάβει κάθε κελί στην περιοχή ονομάτων.
 
-Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με μία σειρά και δύο σημεία δεδομένων. Τα κελιά B1:C1 παρέχουν μόνο το όνομα της σειράς· τα A2:A3 παρέχουν τις ετικέτες κατηγοριών, και τα B2:B3 τις αριθμητικές τιμές.
+Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με μία σειρά και δύο σημεία δεδομένων. Τα κελιά B1:C1 παρέχουν μόνο το όνομα σειράς· τα A2:A3 παρέχουν τις ετικέτες κατηγοριών, και τα B2:B3 παρέχουν τις αριθμητικές τιμές.
 
 ```java
 import com.aspose.slides.*;
@@ -249,15 +251,15 @@ try {
 }
 ```
 
-Το παραγόμενο όνομα σειράς είναι `Product A 2026`, με ένα κενό μεταξύ των δύο τιμών κελιών. Η υπόμνηση το εμφανίζει ως μία καταχώρηση για και τις δύο στήλες. Η εικόνα παρακάτω δείχνει το αποτέλεσμα:
+Το παραγόμενο όνομα σειράς είναι `Product A 2026`, με κενό μεταξύ των δύο τιμών κελιών. Το υπόμνημα το εμφανίζει ως μία καταχώριση για και τις δύο στήλες. Η εικόνα παρακάτω απεικονίζει το αποτέλεσμα:
 
-![Διάγραμμα στήλης με τιμές Βορρά και Νότου και το σύνθετο όνομα σειράς Product A 2026 στην υπόμνηση](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Λήψη Αυτόματου Χρώματος Γέμισης Σειράς**
 
-Το [IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) επιστρέφει το χρώμα που υπολογίζεται από το δείκτη σειράς και το στυλ διαγράμματος ως ακέραιο χρώμα Android ARGB. Αυτό είναι το χρώμα που χρησιμοποιείται όταν η γέμιση της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέα γέμιση.
+Το [IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) επιστρέφει το χρώμα που υπολογίζεται από τον δείκτη σειράς και το στυλ του γραφήματος ως ακέραιο χρώματος Android ARGB. Αυτό είναι το χρώμα που χρησιμοποιείται όταν η γέμιση της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέα γέμιση.
 
-Το παρακάτω παράδειγμα εκτυπώνει τον αυτόματο ακέραιο χρώματος για κάθε προεπιλεγμένη σειρά:
+Το παρακάτω παράδειγμα εκτυπώνει το ακέραιο χρώματος αυτόματης σειράς για κάθε προεπιλεγμένη σειρά:
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +283,13 @@ try {
 }
 ```
 
-Οι ακριβείς ακέραιες τιμές εξαρτώνται από το στυλ και το θέμα του διαγράμματος.
+Οι ακριβείς ακέραιες τιμές εξαρτώνται από το στυλ και το θέμα του γραφήματος.
 
-## **Ορισμός Αντιστροφής Χρώματος Γέμισης για Σειρά Διαγράμματος**
+## **Ορισμός Αναστροφής Χρώματος Γέμισης για Σειρά Γραφήματος**
 
-Για σειρές μπάρες, στήλες και φυσαλίδες, το [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε τη συνηθισμένη γέμιση της σειράς σε συμπαγή, ενεργοποιήστε την αντιστροφή και αναθέστε το χρώμα αρνητικής τιμής μέσω του [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· αλλάζει μόνο το χρώμα εμφάνισής τους.
+Για σειρές ραβδιών, στηλών και φυσαλίδων, το [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) μπορεί να εμφανίζει αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα σειράς σε συμπαγές, ενεργοποιήστε την αντιστροφή και εκχωρήστε το χρώμα αρνητικής τιμής μέσω του [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· μόνο το χρώμα εμφάνισης αλλάζει.
 
-Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα διαγράμματος με μία σειρά. Η σειρά 0 του φύλλου περιέχει το όνομα της σειράς, η στήλη 0 τις ετικέτες κατηγοριών και η στήλη 1 τις τιμές:
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με μία σειρά. Η σειρά 0 του φύλλου εργασίας περιέχει το όνομα σειράς, η στήλη 0 περιέχει τα ονόματα κατηγοριών και η στήλη 1 τις τιμές:
 
 ```java
 import com.aspose.slides.*;
@@ -344,9 +346,9 @@ try {
 
 Το αποτέλεσμα:
 
-![Το αντιστροφή συμπαγούς χρώματος γέμισης](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Στο παρακάτω παράδειγμα η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Στο σημείο έχει επίσης ανατεθεί αρνητική τιμή ώστε το αποτέλεσμα να φαίνεται:
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Στο παρακάτω παράδειγμα, η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Το σημείο εκχωρείται επίσης μια αρνητική τιμή ώστε το εφέ να είναι ορατό:
 
 ```java
 import com.aspose.slides.*;
@@ -382,9 +384,9 @@ try {
 
 ## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
 
-Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα υπόλοιπα, ορίστε το κελί του βιβλίου εργασίας σε `null`. Σε διάγραμμα στήλης, η σχεδιασμένη τιμή είναι προσβάσιμη μέσω του [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το διάγραμμα το αντιμετωπίζει ως κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του διαγράμματος.
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα υπόλοιπα σημεία, ορίστε το αντίστοιχο κελί του βιβλίου εργασίας σε `null`. Σε ένα γράφημα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το γράφημα το αντιμετωπίζει ως κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του γραφήματος.
 
-Το παρακάτω παράδειγμα διαγράφει μόνο το δεύτερο σημείο στη πρώτη σειρά:
+Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
 
 ```java
 import com.aspose.slides.*;
@@ -409,17 +411,17 @@ try {
 }
 ```
 
-Τα διαγράμματα διασποράς χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα διαγράμματα φυσαλίδων επίσης ένα κελί μεγέθους. Διαγράψτε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλείτε το [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
+Τα γραφήματα διασποράς χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα γραφήματα φυσαλίδων χρησιμοποιούν επίσης κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) όταν θέλετε να διατηρήσετε τα άλλα σημεία, διότι αυτή η μέθοδος αφαιρεί όλα τα σημεία δεδομένων από τη συλλογή.
 
-## **Διαχείριση Προβολής Κελιών Κενών**
+## **Έλεγχος Εμφάνισης Κελιών Χωρίς Δεδομένα**
 
-Τα κρυμμένα κελιά που περιέχουν τιμές αποτελούν ξεχωριστή περίπτωση από τα κενά κελιά. Για να συμπεριλάβετε ή να εξαιρέσετε δεδομένα από κρυμμένες γραμμές και στήλες του φύλλου εργασίας, δείτε την ενότητα [Include Data from Hidden Rows and Columns](/slides/el/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Τα κρυφά κελιά που περιέχουν τιμές είναι μια διαφορετική περίπτωση από τα κενά κελιά. Για να συμπεριλάβετε ή να εξαιρέσετε δεδομένα από κρυφές σειρές και στήλες φύλλου εργασίας, δείτε το [Include Data from Hidden Rows and Columns](/slides/el/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Ένα κενό κελί βιβλίου εργασίας αντιπροσωπεύει ελλιπή δεδομένα· ένα κελί που περιέχει `0` αντιπροσωπεύει γνωστή αριθμητική τιμή. Καλέστε το [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) με `null` για να κάνετε το κελί κενό. Ένας αριθμητικός μηδέν παραμένει μηδέν ανεξαρτήτως της ρύθμισης κενών κελιών.
+Ένα κενό κελί εργασίας αντιπροσωπεύει ελλιπή δεδομένα· ένα κελί που περιέχει `0` αντιπροσωπεύει γνωστή αριθμητική τιμή. Καλέστε το [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) με `null` για να κάνετε το κελί κενό. Ένας αριθμητικός μηδέν παραμένει μηδέν ανεξαρτήτως της ρύθμισης κενών κελιών.
 
-Χρησιμοποιήστε το [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) για να επιλέξετε πώς το διάγραμμα εμφανίζει κενά κελιά. Αυτή η ρύθμιση ισχύει σε ολόκληρο το διάγραμμα. Αλλάζει τον τρόπο που τα κενά σχεδιάζονται, χωρίς να γεμίζει το κενό κελί του βιβλίου εργασίας με μηδέν ή με παρεμβαλλόμενη τιμή.
+Χρησιμοποιήστε το [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) για να επιλέξετε πώς το γράφημα θα εμφανίζει τα κενά κελιά. Η ρύθμιση αυτή ισχύει για ολόκληρο το γράφημα. Αλλάζει τον τρόπο που σχεδιάζονται τα κενά, χωρίς να γεμίζει το κενό κελί με μηδέν ή με παρεμφερή τιμή.
 
-Το παρακάτω αυτοσχέδιο παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με μία σειρά, διαγράφει την τιμή για την Ημέρα 3 και αποθηκεύει το ίδιο διάγραμμα με κάθε λειτουργία. Δεν απαιτείται αρχείο εισόδου. Το [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) χρησιμοποιεί το φύλλο 0, στήλη 0 για ετικέτες κατηγοριών και στήλη 1 για τιμές· η σειρά 0 περιέχει το όνομα της σειράς. Τα τελικά δεδομένα είναι `10, 20, empty, 30, 40`.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα γράφημα γραμμής με μία σειρά, αφαιρεί την τιμή για την Ημέρα 3 και αποθηκεύει το ίδιο γράφημα με κάθε τρόπο. Δεν απαιτείται αρχείο εισόδου. Το [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) χρησιμοποιεί το φύλλο 0, στήλη 0 για ετικέτες κατηγοριών και στήλη 1 για τιμές· η σειρά 0 κρατά το όνομα της σειράς. Τα τελικά δεδομένα είναι `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -446,7 +448,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Αφήστε την Ημέρα 3 πραγματικά κενή, διατηρώντας την κατηγορία και το σημείο δεδομένων της.
+    // Αφήστε την Ημέρα 3 πραγματικά κενή, διατηρώντας την κατηγορία και το σημείο δεδομένων.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -460,19 +462,19 @@ try {
 }
 ```
 
-Κάθε αρχείο εξόδου αποθηκεύει τη λειτουργία που είχε οριστεί πριν από την αποθήκευση: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` και `empty_cells_Span.pptx`. Για να αποθηκεύσετε μόνο μία έκδοση, ορίστε την επιθυμητή λειτουργία και αποθηκεύστε την παρουσίαση μία φορά αντί για επανάληψη των λειτουργιών.
+Κάθε αρχείο εξόδου αποθηκεύει τον τρόπο που είχε οριστεί πριν από την αποθήκευση: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` και `empty_cells_Span.pptx`. Για να αποθηκεύσετε μόνο μια εκδοχή, ορίστε τον επιθυμητό τρόπο και αποθηκεύστε την παρουσίαση μία φορά αντί για επανάληψη των τρόπων.
 
-Η σύγκριση παρακάτω δείχνει τα ίδια δεδομένα και στα τρία αρχεία. Η Ημέρα 3 είναι κενή στο βιβλίο εργασίας σε κάθε περίπτωση:
+Η παρακάτω σύγκριση δείχνει τα ίδια δεδομένα σε όλα τα τρία αρχεία. Η Ημέρα 3 είναι κενή στο βιβλίο εργασίας σε κάθε περίπτωση:
 
-![Διαγράμματα γραμμής με πανομοιόμορφα δεδομένα: Gap διακόπτει τη γραμμή στην Ημέρα 3, Zero κατεβάζει τη γραμμή στο μηδέν, και Span συνδέει τη Ημέρα 2 με τη 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Το οπτικό αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος. Ένα διάγραμμα γραμμής κάνει τις τρεις λειτουργίες εύκολα συγκρίσιμες. Τα διαγράμματα μπάρες και στήλες δεν έχουν γραμμή για σύνδεση μεταξύ μιας ελλιπούς κατηγορίας, οπότε το `Span` δεν μπορεί να δημιουργήσει το συνδετικό τμήμα που φαίνεται παραπάνω· μια κενή στήλη και μια στήλη μηδενικού ύψους μπορεί επίσης να φαίνονται ομοίως. Ομοίως, ένα διάγραμμα διασποράς μόνο με δείκτες δεν έχει γραμμή σύνδεσης. Μην περιμένετε τρία διακριτά αποτελέσματα για κάθε τύπο διαγράμματος· ελέγξτε την έξοδο για τον τύπο που χρησιμοποιείτε.
+Το οπτικό αποτέλεσμα εξαρτάται από τον τύπο γραφήματος. Ένα γράφημα γραμμής κάνει όλους τους τρεις τρόπους εύκολο να συγκριθούν. Τα γραφήματα ραβδιών και στηλών δεν έχουν γραμμή σύνδεσης μεταξύ κενών κατηγοριών, έτσι το `Span` δεν μπορεί να παραγάγει το τμήμα σύνδεσης που φαίνεται παραπάνω· μια έλλειψη στήλης και μια στήλη μηδενικού ύψους μπορεί επίσης να μοιάζουν. Ομοίως, σε ένα γράφημα διασποράς μόνο με σημεία δεν υπάρχει γραμμή σύνδεσης. Μην περιμένετε τρία διαφορετικά αποτελέσματα για κάθε τύπο γραφήματος· ελέγξτε την έξοδο για τον τύπο που χρησιμοποιείτε.
 
-## **Ορισμός Πλάτους Κενών Μεταξύ Σειρών**
+## **Ορισμός Πλάτους Κενού Σειράς**
 
-Το πλάτος κενών είναι το διάστημα μεταξύ διαδοχικών ομάδων μπαρ ή στηλών, εκφρασμένο ως ποσοστό του πλάτους της μπαρ ή στήλης. Όπως η επικάλυψη, ανήκει στην γονική ομάδα σειρών και όχι σε μία σειρά. Καλέστε το [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) μία φορά για την ομάδα. Μεγαλύτερη τιμή δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μικρότερη τιμή τις κάνει πιο πυκνές.
+Το πλάτος κενού είναι το διάστημα μεταξύ γειτονικών ομάδων ραβδιών ή στηλών, εκφρασμένο ως ποσοστό του πλάτους του ραβδιού ή της στήλης. Όπως η επικάλυψη, ανήκει στη γονική ομάδα σειρών και όχι σε μια μόνο σειρά. Καλέστε το [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) μία φορά για την ομάδα. Μια μεγαλύτερη τιμή δημιουργεί περισσότερο διάστημα μεταξύ των ομάδων· μια μικρότερη τιμή τις κάνει πιο πυκνές.
 
-Το παρακάτω παράδειγμα αλλάζει το πλάτος κενών και αποθηκεύει μόνο την τελική παρουσίαση:
+Το παρακάτω παράδειγμα αλλάζει το πλάτος κενού και αποθηκεύει μόνο την τελική παρουσίαση:
 
 ```java
 import com.aspose.slides.*;
@@ -498,46 +500,83 @@ try {
 
 Το αποτέλεσμα:
 
-![Το πλάτος κενών](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Εμφάνιση ή Απόκρυψη Γραμμών Σειράς**
+
+Οι γραμμές σειρών συνδέουν οπτικά σχετιζόμενα μέρη ενός γραφήματος. Χρησιμοποιήστε το [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) για να τις εμφανίσετε ή να τις αποκρύψετε σε υποστηριζόμενα συνδυασμένα ραβδιά και γραφήματα OfPie. Σε δισδιάστατα συνδυασμένα ραβδιά και στήλες, συνδέουν τα αντίστοιχα όρια στοίβας μεταξύ των κατηγοριών. Σε γράφημα Pie of Pie και Bar of Pie, συνδέουν το κύριο τμήμα με το δευτερεύον τμήμα. Αυτή η ρύθμιση δεν είναι γενικός συνδετικός σύνδεσμος για άλλους τύπους γραφήματος.
+
+Προσπελάστε την ομάδα μέσω του [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--). Η ρύθμιση εφαρμόζεται σε κάθε σειρά της ομάδας. Το [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#hasSeriesLines--) είναι ανάγνωση μόνο και αντικατοπτρίζει τη ρύθμιση της γονικής ομάδας· καλέστε τον setter της ομάδας για να το ενημερώσετε.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα γράφημα [PieOfPie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#PieOfPie) με προεπιλεγμένα δεδομένα. Αποθηκεύει το ίδιο γράφημα με τις γραμμές σειράς ενεργοποιημένες και, στη συνέχεια, απενεργοποιημένες, παράγοντας δύο παρουσιάσεις για σύγκριση.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Ενεργές γραμμές σειράς | Απενεργοποιημένες γραμμές σειράς |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| Οι δύο γραμμές συνδέουν την κύρια πίτα με τη δευτερεύουσα πίτα. | Οι δύο πίτες παραμένουν ορατές, αλλά οι συνδετικές γραμμές είναι κρυμμένες. |
+
+Οι γραμμές σειράς διαφέρουν από τις γραμμές οδηγούς ετικετών δεδομένων, που συνδέουν ετικέτες με τα σημεία τους· από τις γραμμές πλέγματος, που σημειώνουν τα διαστήματα κατά μήκος των αξόνων· και από τις γραμμές σε ένα γράφημα γραμμής, που αντιπροσωπεύουν τιμές δεδομένων. Αυτή η ρύθμιση δεν ελέγχει αυτά τα στοιχεία.
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιους τύπους διαγραμμάτων υποστηρίζουν σειρές δεδομένων;**
+**Ποιοι τύποι γραφήματος υποστηρίζουν σειρές δεδομένων;**
 
-Όλοι οι τύποι διαγραμμάτων που αντιπροσωπεύονται από τον παρονομαστή [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) χρησιμοποιούν δεδομένα διαγράμματος, αλλά οι σειρές τους δεν έχουν όλα την ίδια δομή ή ρυθμίσεις τιμών. Για παράδειγμα, τα διαγράμματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διαγράμματα διασποράς χρησιμοποιούν τιμές X και Y, και τα διαγράμματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδας. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει με τον τύπο σειράς. Οι επιλογές όπως η επικάλυψη και το πλάτος κενών εφαρμόζονται μόνο σε συμβατές ομάδες μπαρ ή στηλών.
+Όλοι οι τύποι γραφήματος που αντιπροσωπεύονται από την αριθμομηχανή [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) χρησιμοποιούν δεδομένα γραφήματος, αλλά οι σειρές τους δεν έχουν όλους την ίδια δομή τιμών ή τις ίδιες ρυθμίσεις. Για παράδειγμα, τα διαγράμματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα διαγράμματα διασποράς χρησιμοποιούν τιμές X και Y, και τα διαγράμματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει με τον τύπο σειράς. Επιλογές όπως η επικάλυψη και το πλάτος κενού ισχύουν μόνο σε συμβατές ομάδες ραβδιών ή στηλών.
 
-**Τι είναι μια ομάδα σειρών διαγράμματος;**
+**Τι είναι μια ομάδα σειρών γραφήματος;**
 
-Ένα [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης σε επίπεδο ομάδας. Ένα συνδυαστικό διάγραμμα μπορεί να περιέχει περισσότερες από μία ομάδες, οπότε η αλλαγή της ομάδας που προέρχεται από μια σειρά δεν αλλάζει υποχρεωτικά όλες τις σειρές στο διάγραμμα.
+Μια [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις σχεδίασης επιπέδου ομάδας. Ένα συνδυαστικό γράφημα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας μέσω μιας σειράς δεν αλλάζει αναγκαστικά όλες τις σειρές στο γράφημα.
 
-**Ένα νεοδημιουργημένο διάγραμμα περιέχει προεπιλεγμένα δεδομένα;**
+**Μήπως ένα νεοδημιουργηθέν γράφημα περιέχει προεπιλεγμένα δεδομένα;**
 
-Ναι. Από προεπιλογή, η μέθοδος [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να διαγράψετε τόσο τις σειρές όσο και τις συλλογές κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Ένα υπερφόρτωμα μπορεί επίσης να δημιουργήσει ένα διάγραμμα χωρίς προεπιλεγμένα δεδομένα.
+Ναι. Από προεπιλογή, το [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) δημιουργεί δείγμα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να διαγράψετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Υπάρχει επίσης υπερφόρτωση που μπορεί να δημιουργήσει γράφημα χωρίς προεπιλεγμένα δεδομένα.
 
-**Πώς συνδέονται τα αντικείμενα διαγράμματος με κελιά του βιβλίου εργασίας;**
+**Πώς συνδέονται τα αντικείμενα γραφήματος με κελιά βιβλίου εργασίας;**
 
-Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Η αλλαγή ενός κελιού-αναφοράς ενημερώνει το αντίστοιχο στοιχείο του διαγράμματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, κρατήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από τη σωστή κατηγορία.
+Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων παραπέμπουν σε κελιά ενός [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Η αλλαγή ενός παραπομπόμενου κελιού ενημερώνει το αντίστοιχο στοιχείο του γραφήματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις σειρές κατηγοριών και τις σειρές τιμών ευθυγραμμισμένες έτσι ώστε κάθε σημείο να σχεδιάζεται κάτω από την προβλεπόμενη κατηγορία.
 
-**Πώς μπορώ να διαγράψω μόνο ένα σημείο αντί ολόκληρης σειράς;**
+**Πώς καθαρίζω ένα σημείο αντί όλης της σειράς;**
 
-Ορίστε το αντίστοιχο κελί τιμής σε `null` για να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό. Χρησιμοποιήστε το [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από εκείνη τη σειρά. Εάν αφαιρείτε επίσης τις κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+Ορίστε το σχετικό κελί τιμής σε `null` για να διατηρήσετε τη θέση κατηγορίας του σημείου ως κενό σημείο. Χρησιμοποιήστε το [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από αυτή τη σειρά. Εάν αφαιρείτε και κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν συντονισμένες με τη συλλογή κατηγοριών.
 
 **Πώς εμφανίζονται τα κενά σημεία;**
 
-Το αποτέλεσμα εξαρτάται από τον τύπο διαγράμματος και την τιμή που έχει οριστεί μέσω του [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Τα υποστηριζόμενα διαγράμματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει με το νόημα των ελλιπών δεδομένων στην παρουσίασή σας. Δείτε την ενότητα [Control the Display of Empty Cells](#control-the-display-of-empty-cells) για ένα πλήρες παράδειγμα και οπτική σύγκριση.
+Το αποτέλεσμα εξαρτάται από τον τύπο του γραφήματος και την τιμή που έχει οριστεί μέσω του [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Τα υποστηριζόμενα γραφήματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει με το νόημα των ελλιπών δεδομένων στην παρουσίασή σας. Δείτε την ενότητα [Control the Display of Empty Cells](#control-the-display-of-empty-cells) για ολοκληρωμένο παράδειγμα και οπτική σύγκριση.
 
 **Πώς μορφοποιούνται οι αρνητικές τιμές;**
 
-Για υποστηριζόμενες σειρές μπαρ, στήλες και φυσαλίδες, καλέστε το [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) και ορίστε το χρώμα που επιστρέφει το [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+Για υποστηριζόμενες σειρές ραβδιών, στηλών και φυσαλίδων, καλέστε το [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) και ορίστε το χρώμα που επιστρέφει το [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο με το [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
 
-**Ποια μορφοποίηση κυριαρχεί όταν τόσο η σειρά όσο και το σημείο μορφοποιούνται;**
+**Ποια μορφοποίηση «νικά» όταν τόσο η σειρά όσο και το σημείο είναι μορφοποιημένα;**
 
-Η ρητή μορφοποίηση σημείου δεδομένων έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν είναι ορισμένη, το αυτόματο στυλ και θέμα του διαγράμματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενών ελέγχουν τη διάταξη και δεν υπερισχύουν της μορφοποίησης σε επίπεδο σημείου.
+Η ρητή μορφοποίηση σημείου δεδομένου έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν ορίζεται, το αυτόματο στυλ και θέμα γραφήματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενού ελέγχουν τη διάταξη και δεν αποτελούν παρακάμψεις μορφοποίησης επιπέδου σημείου.
 
-**Υπάρχει περιορισμός στον αριθμό σειρών που μπορεί να περιέχει ένα διάγραμμα;**
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα γράφημα;**
 
-Το Aspose.Slides δεν επιβάλλει συγκεκριμένο περιορισμό στον αριθμό σειρών. Στην πράξη, περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η αναγνωσιμότητα του διαγράμματος καθορίζουν ένα πρακτικό όριο.
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, οι περιορισμοί αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η ευκρίνεια του γραφήματος καθορίζουν ένα πρακτικό όριο.
 
-**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ απομακρυσμένες;**
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά;**
 
-Καλέστε το [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) στη σχετική γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το κενό μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.
+Καλέστε το [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να ευρύνουν τα κενά μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.
+

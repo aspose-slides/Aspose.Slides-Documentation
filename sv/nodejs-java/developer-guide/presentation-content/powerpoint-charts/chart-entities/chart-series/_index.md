@@ -10,38 +10,40 @@ keywords:
 - serienamn
 - datapunkt
 - arbetsbokscell
-- seriegap
+- serieavstånd
 - negativt värde
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboksceller, formatering, överlappning, gapbredd och negativa värden i presentationer med JavaScript."
+description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboksceller, formatering, överlappning, mellanrum och negativa värden i presentationer med JavaScript."
 ---
 ## **Översikt**
 
-Ett diagram kan lagra sina plottade värden i arbetsboks-celler eller direkt som numeriska litteraler. En [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) representerar en uppsättning relaterade värden, och varje [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) representerar en punkt i den serien. [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/)‑objekt tillhandahåller etiketterna eller grupperingsvärdena som delas av serierna. I diagram som skapats med standarddata används serienamn, kategorier och punktvärden via [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/)-objekt från diagrammets arbetsbok.
+Ett diagram kan lagra sina plottade värden i arbetsboksceller eller direkt som numeriska litteraler. En [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) representerar en uppsättning relaterade värden, och varje [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) representerar en punkt i den serien. [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/)‑objekt tillhandahåller etiketter eller grupperingvärden som delas av serierna. I diagram som skapats med standarddata använder serienamnen, kategorierna och punktvärdena [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/)-objekt från diagrammets arbetsbok.
 
-För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblad, rad‑ och kolumnindex som skickas till [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera de celler som refereras av serierna, kategorierna och datapunkterna innan du ändrar arbetsboksvärden.
+För ett typiskt kategoridiagram använder standardarbetsboken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblad‑, rad‑ och kolumnindex som skickas till [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men anta inte att varje befintligt diagram använder den. För en inläst presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar arbetsboksvärden.
 
-Chart settings have three different scopes:
+Diagraminställningar har tre olika omfattningar:
 
-- Series-level settings, such as [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), provide the default appearance for all points in one series.
-- Data-point settings, such as [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), override the series appearance for one point.
-- Group settings apply to compatible series that belong to the same [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) when you need to set options such as overlap or gap width.
+- Inställningar på serienivå, såsom [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), tillhandahåller standardutseendet för alla punkter i en serie.
+- Inställningar på datapunktnivå, såsom [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), åsidosätter serieutseendet för en punkt.
+- Gruppinställningar gäller kompatibla serier som tillhör samma [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Kom åt gruppen via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) när du behöver ange alternativ som överlappning eller mellanrum.
 
-När ingen explicit fyllning för punkt eller serie har angetts bestämmer diagramstilen och temat det automatiska utseendet. När både serie‑ och punktformatering finns, har punktformateringen företräde för den punkten.
+När ingen explicit fyllning för punkt eller serie är angiven bestämmer diagramstil och tema det automatiska utseendet. När både serie‑ och punktformatering finns, har punktformateringen företräde för den punkten.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ange serievärden med numeriska litteraler**
+För ett staplat cylindrisk diagram, se hur [changing the 3D series type or bar shape](/slides/sv/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) påverkar den första serien.
 
-Använd numeriska litteraler när serievärden härrör från applikationsdata eller beräkningar och inte kräver referenser till arbetsblads‑celler. Anropa [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) med [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) innan du tilldelar varje punkts [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/)‑resultat via [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+## **Ange Serienvärden med Numeriska Litteraler**
 
-Kollektionsinställningen styr källtypen för alla punktvärden i den serien. Varje punktvärdes [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/)‑metod rapporterar den valda typen; ändra den via kollektionsinställningen. Med `Worksheet` använder du [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) för att komma åt den refererade cellen. Med `DoubleLiterals` använder du [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) eller `setAsLiteralDouble` för att läsa eller skriva talet direkt.
+Använd numeriska litteraler när serievärden kommer från programdata eller beräkningar och inte behöver referenser till arbetsblads­celler. Anropa [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) med [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) innan du tilldelar varje punkts [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/)‑resultat via [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
 
-Följande exempel skapar ett stapeldiagram med standardserier och -kategorier, och tilldelar sedan beräknade värden 10, 20 osv till befintliga punkter i dess första serie. Det sparar presentationen, öppnar den igen och skriver ut de lagrade värdena.
+Samlingsinställningen styr källtypen för alla punktvärden i den serien. Varje punktvärdes [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/)‑metod rapporterar den valda typen; ändra den via samlingsinställningen. Med `Worksheet` använder du [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) för att komma åt den refererade cellen. Med `DoubleLiterals` använder du [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) eller `setAsLiteralDouble` för att läsa eller skriva talet direkt.
+
+Följande exempel skapar ett stapeldiagram med standardserier och -kategorier, och tilldelar sedan beräknade värden 10, 20 osv. till de befintliga punkterna i dess första serie. Det sparar presentationen, öppnar den igen och skriver ut de lagrade värdena.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -77,15 +79,15 @@ try {
 }
 ```
 
-Punktvärdens källtyp är separat från [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), som identifierar diagrammets interna eller externa arbetsbokskonfiguration. Att använda numeriska litteraler tar inte bort den inbäddade arbetsboken i sig. I detta exempel förblir arbetsboken tillgänglig för kategorietiketter, serienamn och de andra serierna. Se [Chart Workbook](/slides/sv/nodejs-java/chart-workbook/) för hantering av arbetsböcker.
+Punktvärdeskälltypen är separat från [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), som identifierar diagrammets interna eller externa arbetsbokskonfiguration. Att använda numeriska litteraler tar inte automatiskt bort den inbäddade arbetsboken. I detta exempel förblir arbetsboken tillgänglig för kategorietiketter, serienamn och de andra serierna. Se [Chart Workbook](/slides/sv/nodejs-java/chart-workbook/) för hantering av arbetsböcker.
 
-För spridnings‑ och bubbeldiagram använder du [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) och [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) för att välja källorna till [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) och [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Bubbeldiagram använder dessutom [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) för [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Ställ in varje tillämplig källa till `DoubleLiterals` innan du tilldelar tal via dess `setAsLiteralDouble`‑metod.
+För spridnings‑ och bubbeldiagram, använd [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) och [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) för att välja källorna för [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) och [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Bubbeldiagram använder också [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) för [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Ställ in varje tillämplig källa till `DoubleLiterals` innan du tilldelar siffror via den värdets `setAsLiteralDouble`‑metod.
 
-## **Ställ in överlappning för diagramserien**
+## **Ställ In Diagramseriens Överlappning**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D-diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade seriegruppen. Använd [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) för att uppdatera alla kompatibla serier i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriegupper i ett kombinationsdiagram.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade serieggruppen. Använd [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) för att uppdatera varje kompatibel serie i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade serieggrupper i ett kombinationsdiagram.
 
-Följande exempel ställer in överlappning för gruppen som innehåller den första serien:
+Följande exempel sätter överlappning för den grupp som innehåller den första serien:
 
 ```javascript
 const aspose = {};
@@ -114,13 +116,13 @@ try {
 
 Resultatet:
 
-![The series overlap](series_overlap.png)
+![Series overlap](series_overlap.png)
 
-## **Ändra fyllningsfärg för serien**
+## **Ändra Seriens Fyllningsfärg**
 
-Använd [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning, åsidosätter dess [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/)‑inställning serie‑fyllningen för den punkten.
+Använd [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning åsidosätter dess [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) serie­fyllningen för den punkten.
 
-Följande exempel tillämpar en solid blå fyllning på den första serien:
+Följande exempel applicerar en solid blå fyllning på den första serien:
 
 ```javascript
 const aspose = {};
@@ -150,11 +152,11 @@ try {
 
 Resultatet:
 
-![The color of the series](series_color.png)
+![Series color](series_color.png)
 
-## **Ändra seriens namn**
+## **Ändra Seriens Namn**
 
-Ett seriens namn lagras i diagrammets dataarbetsbok och visas normalt i legend. I standardarbetsboken som skapas för ett grupperat stapeldiagram ligger cell B1 på rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen explicit:
+Ett serienamn lagras i diagrammets dataarbetsbok och visas normalt i förklaringen. I standardarbetsboken som skapas för ett staplat stapeldiagram är cell B1 på rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen explicit:
 
 ```javascript
 const aspose = {};
@@ -181,7 +183,7 @@ try {
 }
 ```
 
-Du kan också uppdatera den cell som redan refereras av [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Detta tillvägagångssätt undviker antaganden om en särskild rad och kolumn i ett befintligt diagram:
+Du kan också uppdatera cellen som redan refereras av [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Detta tillvägagångssätt undviker att anta en viss rad och kolumn i ett befintligt diagram:
 
 ```javascript
 const aspose = {};
@@ -209,13 +211,13 @@ try {
 
 Resultatet:
 
-![The series name](series_name.png)
+![Series name](series_name.png)
 
-### **Skapa en serie med namn från flera celler**
+### **Skapa en Serie med Namn från Flera Celler**
 
-Ett sammansatt serienamn är användbart när ett produktnamn och en rapportperiod lagras i separata arbetsboks‑celler. Till exempel kan du kombinera `Product A` i B1 och `2026` i C1 till ett enda serienamn samtidigt som båda delarna hålls länkade till sina källceller.
+Ett sammansatt serienamn är användbart när ett produktnamn och en rapportperiod lagras i separata arbetsboksceller. Till exempel kan du kombinera `Product A` i B1 och `2026` i C1 till ett enda serienamn samtidigt som båda delarna förblir länkade till sina källceller.
 
-Använd [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) för att hämta namnområdet, och skicka sedan den samlingen till [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Argumentet `skipHiddenCells` styr om dolda celler inkluderas: `true` utesluter dem, medan `false` inkluderar dem. Detta exempel använder `false` för att inkludera varje cell i namnområdet.
+Använd [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) för att hämta namnintervallet och skicka sedan den samlingen till [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Argumentet `skipHiddenCells` styr om dolda celler inkluderas: `true` exkluderar dem, `false` inkluderar dem. Detta exempel använder `false` för att inkludera varje cell i namnintervallet.
 
 Följande exempel skapar en presentation med en serie och två datapunkter. Cellerna B1:C1 levererar endast serienamnet; A2:A3 levererar kategorietiketter, och B2:B3 levererar de numeriska värdena.
 
@@ -258,13 +260,13 @@ try {
 }
 ```
 
-Det resulterande serienamnet blir `Product A 2026`, med ett mellanslag mellan de två cellvärdena. Legend visar detta som ett enda inlägg för båda kolumnerna. Bilden nedan illustrerar resultatet:
+Det resulterande serienamnet blir `Product A 2026`, med ett mellanslag mellan de två cellvärdena. Förklaringen visar detta som ett enda element för båda kolumnerna. Bilden nedan illustrerar resultatet:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Hämta automatisk fyllningsfärg för serien**
+## **Hämta Automatisk Fyllningsfärg för Serie**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) returnerar färgen som beräknas utifrån serie-index och diagramstil. Detta är färgen som används när serie-fyllningen inte har definierats explicit. Att anropa metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) returnerar färgen som beräknas utifrån serie‑index och diagramstil. Detta är färgen som används när serie­fyllning inte har definierats explicit. Att anropa metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
 
 Följande exempel skriver ut den automatiska färgen för varje standardserie:
 
@@ -292,7 +294,7 @@ try {
 }
 ```
 
-Exempelutdata för standarddiagramstil:
+Exempelutdata för standarddiagramstilen:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -300,11 +302,11 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-De exakta färgerna beror på diagramstilen och temat.
+De exakt färgerna beror på diagramstil och tema.
 
-## **Ställ in inverterad fyllningsfärg för en diagramserie**
+## **Ställ In Inverterad Fyllningsfärg för en Diagramserie**
 
-För stapel-, kolumn- och bubbelseerier kan [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) visa negativa värden med en annan fyllning. Ställ in den vanliga serie-fyllningen till solid, aktivera inversion och ange den negativa färgen via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Negativa tal förblir oförändrade i arbetsboken; endast deras displayfärg ändras.
+För stapel‑, kolumn‑ och bubbelse-serier kan [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) visa negativa värden med en annan fyllning. Ställ in den vanliga serie­fyllningen till solid, aktivera inversion och ange färgen för negativa värden via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Negativa tal förblir oförändrade i arbetsboken; bara deras displayfärg ändras.
 
 Följande exempel ersätter standarddiagramdata med en serie. Arbetsbladsrad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamnen och kolumn 1 innehåller värdena:
 
@@ -366,9 +368,9 @@ try {
 
 Resultatet:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Inverted solid fill color](inverted_solid_fill_color.png)
 
-Du kan aktivera inversion för en enskild punkt via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). I följande exempel är inversion inaktiverad för serien och endast aktiverad för den valda punkten. Punkten tilldelas också ett negativt värde så att effekten blir synlig:
+Du kan aktivera inversion för en enda punkt via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). I följande exempel är inversion inaktiverad för serien och endast aktiverad för den valda punkten. Punkten får också ett negativt värde så att effekten blir synlig:
 
 ```javascript
 const aspose = {};
@@ -405,9 +407,9 @@ try {
 }
 ```
 
-## **Rensa ett specifikt datapunktvärde**
+## **Rensa ett Specifikt Datapunktvärde**
 
-För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsbokscell till `null`. För ett stapeldiagram är det plottade värdet tillgängligt via [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Datapunkten behåller samma kategoriposition, men diagrammet behandlar dess värde som tomt enligt diagrammets inställningar för tomma värden.
+För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande arbetsbokscell till `null`. För ett stapeldiagram är det plottade värdet tillgängligt via [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Datapunkten förblir på samma kategoriposition, men diagrammet behandlar dess värde som tomt enligt diagrammets inställningar för tomma värden.
 
 Följande exempel rensar endast den andra punkten i den första serien:
 
@@ -435,17 +437,17 @@ try {
 }
 ```
 
-Spridningsdiagram använder separata X- och Y-celler, och bubbeldiagram använder dessutom en storlekscell. Rensa endast den cell som representerar det värde du vill ta bort. Anropa inte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) när du vill behålla de andra punkterna, eftersom metoden tar bort alla datapunkter från samlingen.
+Spridningsdiagram använder separata X‑ och Y‑celler, och bubbeldiagram använder även en storlekscell. Rensa endast den cell som representerar värdet du vill ta bort. Anropa inte [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) när du vill behålla de andra punkterna, eftersom den metoden tar bort varje datapunkt i samlingen.
 
-## **Styr hur tomma celler visas**
+## **Styr Visning av Tomma Celler**
 
-Dolda celler som innehåller värden är ett separat fall från tomma celler. För att inkludera eller exkludera data från dolda arbetsbladsrader och -kolumner, se [Include Data from Hidden Rows and Columns](/slides/sv/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Dolda celler som innehåller värden är ett separat fall från tomma celler. För att inkludera eller exkludera data från dolda rader och kolumner i arbetsbladet, se [Include Data from Hidden Rows and Columns](/slides/sv/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-En tom arbetsbokscell representerar saknad data; en cell som innehåller `0` representerar ett känt numeriskt värde. Anropa [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) med `null` för att göra en cell tom. Ett numeriskt nolltal förblir noll oavsett inställning för tomma celler.
+En tom arbetsbokscell representerar saknad data; en cell som innehåller `0` representerar ett känt numeriskt värde. Anropa [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) med `null` för att göra en cell tom. En numerisk nolla förblir en nolla oavsett inställningen för tomma celler.
 
 Använd [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) för att välja hur diagrammet visar tomma celler. Denna inställning gäller för hela diagrammet. Den ändrar hur tomma värden plottas, utan att fylla den tomma arbetsbokscellen med noll eller ett interpolerat värde.
 
-Följande fristående exempel skapar ett linjediagram med en serie, rensar värdet för Dag 3 och sparar samma diagram med varje läge. Ingen indatafil krävs. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) använder arbetsblad 0, kolumn 0 för kategorietiketter och kolumn 1 för värden; rad 0 innehåller serienamnet. Den slutliga datan är `10, 20, empty, 30, 40`.
+Följande fristående exempel skapar ett linjediagram med en serie, rensar värdet för Dag 3 och sparar diagrammet i varje läge. Ingen indatafil krävs. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) använder arbetsblad 0, kolumn 0 för kategorietiketter och kolumn 1 för värden; rad 0 innehåller serienamnet. De slutgiltiga värdena är `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -473,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Lämna Dag 3 faktiskt tom, men behåll dess kategori och datapunkt.
+    // Lämna dag 3 verkligen tom, samtidigt som du behåller dess kategori och datapunkt.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -487,19 +489,19 @@ try {
 }
 ```
 
-Varje utdatafil sparar det läge som tilldelats före sparning: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` och `empty_cells_Span.pptx`. För att spara endast en version, ange önskat läge och spara presentationen en gång istället för att iterera över lägena.
+Varje utskriftsfil lagrar det läge som tilldelats innan sparning: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` och `empty_cells_Span.pptx`. För att spara bara en version, tilldela önskat läge och spara presentationen en gång istället för att iterera över lägena.
 
-Jämförelsen nedan visar samma data i alla tre filerna. Dag 3 är tom i arbetsboken i varje fall:
+Jämförelsen nedan visar samma data i alla tre filer. Dag 3 är tom i arbetsboken i samtliga fall:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Den synliga effekten beror på diagramtypen. Ett linjediagram gör alla tre lägen lätta att jämföra. Stapel- och kolumndiagram har ingen linje att koppla över en saknad kategori, så `Span` kan inte producera den anslutna segmentet som visas ovan; en saknad kolumn och en kolumn med nollhöjd kan också se likadana ut. På samma sätt har ett spridningsdiagram med endast markörer ingen anslutande linje. Förvänta dig inte tre distinkta resultat för varje diagramtyp; kontrollera utdata för den typ du använder.
+Den synliga effekten beror på diagramtypen. Ett linjediagram gör det enkelt att jämföra alla tre lägen. Stapel‑ och kolumndiagram har ingen linje att ansluta över en saknad kategori, så `Span` kan inte skapa den anslutande sektionen som visas ovan; en saknad kolumn och en kolumn med nollhöjd kan också se lika ut. På liknande sätt har ett spridningsdiagram med enbart markörer ingen anslutande linje. Förvänta dig inte tre tydliga resultat för varje diagramtyp; kontrollera resultatet för den typ du använder.
 
-## **Ställ in avståndet mellan serier**
+## **Ställ In Serie‑Mellanrum (Gap Width)**
 
-Gap width är avståndet mellan intilliggande stapel- eller kolumnkluster, uttryckt i procent av stapel- eller kolumnbredden. Liksom överlappning tillhör den den överordnade seriegruppen snarare än en enskild serie. Anropa [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) en gång för gruppen. Ett större värde skapar mer utrymme mellan kluster; ett mindre värde gör dem tätare.
+Mellanrum är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt som procent av stapel‑ eller kolumnbredden. Liksom överlappning tillhör det den överordnade serieggruppen snarare än en enskild serie. Anropa [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) en gång för gruppen. Ett större värde skapar mer utrymme mellan klustren; ett mindre värde gör dem tätare.
 
-Följande exempel ändrar gap width och sparar endast den slutliga presentationen:
+Följande exempel ändrar mellanrummet och sparar bara den slutliga presentationen:
 
 ```javascript
 const aspose = {};
@@ -526,46 +528,82 @@ try {
 
 Resultatet:
 
-![The gap width](gap_width.png)
+![Gap width](gap_width.png)
 
-## **Vanliga frågor**
+## **Visa eller Dölja Serielinjer**
 
-**Vilka diagramtyper stödjer dataserier?**
+Serielinjer kopplar visuellt ihop relaterade delar av ett diagram. Använd [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/) för att visa eller dölja dem i stödjade staplade stapeldiagram och OfPie‑diagram. I tvådimensionella staplade stapel‑ och kolumndiagram ansluter de motsvarande stapelgränser över kategorier. I Pie of Pie‑ och Bar of Pie‑diagram ansluter de huvudplotten till den sekundära plotten. Denna inställning är inte en generell koppling för andra diagramtyper.
 
-Alla diagramtyper som representeras av uppräkningen [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram använder X- och Y-värden, och bubbeldiagram lägger till bubbelstorlekar. Använd den datapunkt-skapandemetod som matchar serietypen. Inställningar såsom överlappning och gap width gäller endast kompatibla stapel- eller kolumngrupper.
+Kom åt gruppen via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). Inställningen gäller alla serier i den gruppen. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) är skrivskyddad och speglar gruppens inställning; anropa gruppens setter för att uppdatera den.
 
-**Vad är en diagramserieguppe?**
+Följande exempel skapar ett [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‑diagram med standarddata. Det sparar samma diagram med serielinjer aktiverade och sedan inaktiverade, vilket ger två presentationer för jämförelse.
 
-Ett [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) innehåller kompatibla serier som delar gruppnivåinställningar för plotning. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändra gruppen som nås via en serie inte nödvändigtvis ändrar alla serier i diagrammet.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-**Innehåller ett nyskapat diagram standarddata?**
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-Ja. Som standard skapar [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) exempelserier, -kategorier och -värden. Du kan redigera dessa celler eller rensa både serie- och kategorisamlingarna innan du lägger till en helt egen datauppsättning. En overload kan även skapa ett diagram utan standarddata.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Serielinjer aktiverade | Serielinjer inaktiverade |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| De två linjerna ansluter huvudcirkeln till den sekundära cirkeln. | Båda cirklarna är synliga, men anslutningslinjerna är dolda. |
+
+Serielinjer skiljer sig från datataggarnas ledarlinjer, som ansluter etiketter till deras datapunkter; rutnätslinjer, som markerar intervaller längs diagramaxlar; och linjer i ett linjediagram, som representerar datavärden. Denna inställning styr inte dessa element.
+
+## **FAQ**
+
+**Vilka diagramtyper stöder dataserier?**
+
+Alla diagramtyper som representeras av [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)-enumerationen använder diagramdata, men deras serier har inte alla samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, spridningsdiagram X‑ och Y‑värden, och bubbeldiagram lägger till bubbelsstorlekar. Använd den datapunkt‑skapande metod som matchar serietypen. Alternativ som överlappning och mellanrum gäller endast kompatibla stapel‑ eller kolumngrupper.
+
+**Vad är en diagramserieg grupp?**
+
+En [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) innehåller kompatibla serier som delar gruppnivåinställningar för plottning. Ett kombinationsdiagram kan innehålla mer än en grupp, så en ändring av gruppen som nås via en serie förändrar inte nödvändigtvis alla serier i diagrammet.
+
+**Skapar ett nysskapat diagram standarddata?**
+
+Ja. Som standard skapar [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) exempelserier, -kategorier och -värden. Du kan redigera dessa celler eller rensa både serie‑ och kategorisamlingarna innan du lägger till en helt egen datasats. En överlagring kan också skapa ett diagram utan standarddata.
 
 **Hur är diagramobjekt kopplade till arbetsboksceller?**
 
-Serienamn, kategorietiketter och datapunktvärden refererar till celler i en [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). När en refererad cell ändras uppdateras motsvarande diagramelement. När du bygger egen data, håll kategori-rader och serie-värderader i linje så att varje punkt plottas under avsedd kategori.
+Serienamn, kategorietiketter och datapunktvärden refererar till celler i en [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdel. När du bygger egen data, håll kategorirader och serievärderader i linje så att varje punkt plottas under rätt kategori.
 
-**Hur rensar jag en punkt istället för hela serien?**
+**Hur rensar jag en enda punkt istället för hela serien?**
 
-Sätt den relevanta värdecellen till `null` för att behålla punktens kategoriposition som en tom punkt. Använd [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) endast när du avser att ta bort alla punkter från den serien. Om du också tar bort kategorier, uppdatera varje serie så att deras värden förblir alignerade med kategori-samlingen.
+Sätt den relevanta värdecellen till `null` för att behålla punktens kategori­position som en tom punkt. Använd [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) endast när du avser att ta bort alla punkter i den serien. Om du också tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategorisamlingen.
 
 **Hur visas tomma punkter?**
 
-Resultatet beror på diagramtypen och värdet som konfigurerats via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Stödda diagram kan visa tomma värden som luckor, som nollvärden eller genom att ansluta grannpunkter. Välj den inställning som matchar betydelsen av saknad data i din presentation. Se [Control the Display of Empty Cells](#control-the-display-of-empty-cells) för ett komplett exempel och visuell jämförelse.
+Resultatet beror på diagramtyp och värdet som konfigurerats via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Stödda diagram kan visa tomma värden som luckor, som nollvärden eller genom att ansluta grannpunkter. Välj den inställning som matchar innebörden av saknad data i din presentation. Se [Control the Display of Empty Cells](#control-the-display-of-empty-cells) för ett komplett exempel och visuell jämförelse.
 
 **Hur formateras negativa värden?**
 
-För stödjade stapel-, kolumn- och bubbelseerier, anropa [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) och ställ in färgen som returneras av [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Du kan åsidosätta beteendet för en enskild punkt med [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
+För stödjade stapel‑, kolumn‑ och bubbelse‑serier, anropa [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) och ange färgen som returneras av [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Du kan åsidosätta beteendet för en enskild punkt med [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
 
-**Vilken formatering har företräde när både en serie och en punkt är formaterade?**
+**Vilken formatering vinner när både en serie och en punkt är formaterade?**
 
-Explicit datapunktformatering har företräde för den punkten. Övriga punkter fortsätter att använda den explicita serieformaten eller, när serieformatet inte är definierat, diagramstilens och temats automatiska formatering. Gruppinställningar såsom överlappning och gap width styr layout och är inte punkt-nivå formateringsåsidosättningar.
+Explicit datapunktformatering har företräde för den punkten. Övriga punkter fortsätter att använda den explicita serie‑formatet eller, när serieformatet inte är definierat, diagramstilens och temats automatiska format. Gruppinställningar såsom överlappning och mellanrum styr layout och är inte formateringsåsidosättningar på punkt‑nivå.
 
-**Finns det en begränsning för hur många serier ett diagram kan innehålla?**
+**Finns det någon gräns för hur många serier ett diagram kan innehålla?**
 
-Aspose.Slides har ingen separat fast gräns för antalet serier. I praktiken bestäms en användbar gräns av presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagramläsbarhet.
+Aspose.Slides inför ingen separat fast gräns för antal serier. I praktiken bestäms en användbar gräns av presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagrammets läsbarhet.
 
-**Vad bör jag förändra när kolumner är för nära varandra eller för långt ifrån?**
+**Vad bör jag ändra när kolumner är för nära eller för långt ifrån varandra?**
 
-Anropa [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) på rätt föräldrasegrupp. Öka värdet för att bredda avståndet mellan kluster, eller minska det för att föra klustren närmare varandra.
+Anropa [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) på den aktuella föräldragruppen. Öka värdet för att bredda avståndet mellan kluster, eller minska det för att föra klustren närmare varandra.

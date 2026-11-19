@@ -1,45 +1,47 @@
 ---
-title: Zarządzanie seriami danych wykresu w prezentacjach w C++
+title: Zarządzanie seriami danych wykresów w prezentacjach w C++
 linktitle: Serie danych
 type: docs
 url: /pl/cpp/chart-series/
 keywords:
-- serie wykresu
-- nakładanie się serii
+- seria wykresu
+- nakładanie serii
 - kolor serii
 - kolor kategorii
 - nazwa serii
 - punkt danych
-- przerwa między seriami
+- przerwa serii
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać seriami wykresu, punktami danych, komórkami skoroszytu, formatowaniem, nakładaniem się, szerokością przerwy i wartościami ujemnymi w prezentacjach przy użyciu C++."
+description: "Dowiedz się, jak zarządzać seriami wykresów, punktami danych, komórkami zeszytu, formatowaniem, nakładaniem, szerokością przerwy i wartościami ujemnymi w prezentacjach przy użyciu C++."
 ---
 ## **Przegląd**
 
-Wykres może przechowywać swoje wartości danych w komórkach skoroszytu lub bezpośrednio jako literały liczbowe. Obiekt [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) reprezentuje punkt w tej serii. Obiekty [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) zapewniają etykiety lub wartości grupujące współdzielone przez serie. W wykresach tworzonych z domyślnymi danymi, nazwy serii, kategorie i wartości punktów używają obiektów [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) z skoroszytu wykresu.
+Wykres może przechowywać swoje wartości wykreślone w komórkach arkusza roboczego lub bezpośrednio jako literały liczbowe. [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) reprezentuje jeden zestaw powiązanych wartości, a każdy [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) reprezentuje punkt w tej serii. Obiekty [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) dostarczają etykiet lub wartości grupujących współdzielonych przez serie. W wykresach tworzonych z danymi domyślnymi nazwy serii, kategorie i wartości punktów używają obiektów [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) z zeszytu wykresu.
 
-Dla typowego wykresu kategorii, domyślny skoroszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) są zerowe. Ten układ jest przydatny, gdy tworzysz wykres z domyślnymi danymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla załadowanej prezentacji, sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w skoroszycie.
+W typowym wykresie kategorii domyślny zeszyt używa wiersza 0 dla nazw serii, kolumny 0 dla nazw kategorii oraz pozostałych komórek dla wartości serii. Indeksy arkusza, wiersza i kolumny przekazywane do [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) są zerowane. Ten układ jest przydatny, gdy tworzysz wykres z danymi domyślnymi, ale nie zakładaj, że każdy istniejący wykres go używa. Dla wczytanego pliku prezentacji sprawdź komórki odwoływane przez serie, kategorie i punkty danych przed zmianą wartości w zeszycie.
 
 Ustawienia wykresu mają trzy różne zakresy:
 
-- Ustawienia na poziomie serii, takie jak [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), zapewniają domyślny wygląd dla wszystkich punktów w jednej serii.
+- Ustawienia na poziomie serii, takie jak [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), zapewniają domyślny wygląd wszystkich punktów w jednej serii.
 - Ustawienia punktu danych, takie jak [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/), nadpisują wygląd serii dla jednego punktu.
-- Ustawienia grupowe dotyczą kompatybilnych serii, które należą do tej samej [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Uzyskaj dostęp do grupy za pomocą [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) , gdy potrzebujesz ustawić opcje takie jak nakładanie się lub szerokość przerwy.
+- Ustawienia grupy stosowane są do kompatybilnych serii, które należą do tego samego [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/). Uzyskaj dostęp do grupy przez [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/), gdy musisz ustawić opcje takie jak overlap lub szerokość przerwy.
 
-Gdy nie ustawiono wyraźnego wypełnienia punktu lub serii, styl wykresu i temat określają automatyczny wygląd. Gdy zarówno formatowanie serii, jak i punktu jest obecne, formatowanie punktu ma pierwszeństwo dla tego punktu.
+Gdy nie jest ustawione wyraźne wypełnienie punktu lub serii, styl wykresu i motyw określają automatyczny wygląd. Gdy istnieje zarówno formatowanie serii, jak i punktu, formatowanie punktu ma pierwszeństwo dla tego punktu.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
+
+W wykresie walcowym grupowanym zobacz, jak [changing the 3D series type or bar shape](/slides/pl/cpp/3d-chart/#change-the-3d-series-type-and-bar-shape) wpływa na pierwszą serię.
 
 ## **Ustaw wartości serii przy użyciu literałów liczbowych**
 
 Używaj literałów liczbowych, gdy wartości serii pochodzą z danych aplikacji lub obliczeń i nie wymagają odwołań do komórek arkusza. Wywołaj [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) z [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) przed przypisaniem wartości zwróconej przez [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) każdego punktu za pomocą [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/).
 
-Ustawienie kolekcji kontroluje typ źródła wszystkich wartości punktów w tej serii. Metoda [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) każdego punktu zgłasza wybrany typ; zmień go za pomocą ustawienia kolekcji. Przy `Worksheet` użyj [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) , aby uzyskać dostęp do odwoływanej komórki. Przy `DoubleLiterals` użyj [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) lub `set_AsLiteralDouble`, aby bezpośrednio odczytać lub zapisać liczbę.
+Ustawienie kolekcji kontroluje typ źródła wszystkich wartości punktów w tej serii. [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) każdego punktu zgłasza wybrany typ; zmień go poprzez ustawienie kolekcji. Z `Worksheet` użyj [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) aby uzyskać dostęp do odwoływanej komórki. Z `DoubleLiterals` użyj [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) lub `set_AsLiteralDouble`, aby odczytać lub zapisać liczbę bezpośrednio.
 
-Poniższy przykład tworzy wykres kolumnowy z domyślnymi seriami i kategoriami, a następnie przypisuje obliczone wartości 10, 20 itd. istniejącym punktom pierwszej serii. Zapisuje prezentację, otwiera ją ponownie i wypisuje zapisane wartości.
+Poniższy przykład tworzy wykres słupkowy z domyślnymi seriami i kategoriami, a następnie przypisuje obliczone wartości 10, 20 i tak dalej do istniejących punktów pierwszej serii. Zapisuje prezentację, otwiera ją ponownie i wypisuje zapisane wartości.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -91,15 +93,15 @@ for (auto i = 0; i < reopenedSeries->get_DataPoints()->get_Count(); i++)
 reopenedPresentation->Dispose();
 ```
 
-Typ źródła wartości punktu jest oddzielny od [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/), który identyfikuje wewnętrzną lub zewnętrzną konfigurację skoroszytu wykresu. Użycie literałów liczbowych nie usuwa samo w sobie osadzonego skoroszytu. W tym przykładzie skoroszyt pozostaje dostępny dla etykiet kategorii, nazw serii i pozostałych serii. Zobacz [Skoroszyt wykresu](/slides/pl/cpp/chart-workbook/) w celu zarządzania skoroszytem.
+Typ źródła wartości punktu jest oddzielny od [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/), który określa wewnętrzną lub zewnętrzną konfigurację zeszytu wykresu. Używanie literałów liczbowych nie usuwa wbudowanego zeszytu. W tym przykładzie zeszyt pozostaje dostępny dla etykiet kategorii, nazw serii i pozostałych serii. Zobacz [Chart Workbook](/slides/pl/cpp/chart-workbook/) po zarządzanie zeszytem.
 
-Dla wykresów punktowych i bąbelkowych, wywołaj [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) i [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) , aby wybrać źródła dla [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) i [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Wykresy bąbelkowe dodatkowo używają [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) dla [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). Ustaw każdy odpowiedni źródłowy typ na `DoubleLiterals` przed przypisaniem liczb przez metodę `set_AsLiteralDouble` danego wartości.
+Dla wykresów punktowych i bąbelkowych wywołaj [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) oraz [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/), aby wybrać źródła dla [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) i [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Wykresy bąbelkowe używają także [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) dla [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). Ustaw każdy odpowiedni źródło na `DoubleLiterals` przed przypisaniem liczb poprzez metodę `set_AsLiteralDouble` tego źródła.
 
-## **Ustaw nakładanie się serii wykresu**
+## **Ustaw overlap serii wykresu**
 
-Metoda [IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) podaje, jak bardzo słupki lub kolumny nakładają się w wykresie 2D, w zakresie od -100 do 100 procent. Jest to projekcja ustawienia grupy serii nadrzędnej, dostępna tylko do odczytu. Wywołaj [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) , aby zaktualizować wszystkie kompatybilne serie w tej grupie. Opcja ta dotyczy typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie kombinowanym.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) podaje, o ile słupki lub kolumny nakładają się w wykresie 2‑D, od ‑100 do 100 procent. Jest to tylko odczytowa projekcja ustawienia grupy serii nadrzędnej. Wywołaj [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/), aby zaktualizować wszystkie kompatybilne serie w tej grupie. Opcja ta dotyczy typów wykresów wyświetlających grupowane słupki lub kolumny; nie wpływa na niepowiązane grupy serii w wykresie mieszanym.
 
-Poniższy przykład ustawia nakładanie się dla grupy zawierającej pierwszą serię:
+Poniższy przykład ustawia overlap dla grupy zawierającej pierwszą serię:
 
 ```cpp
 #include <cstdint>
@@ -139,13 +141,13 @@ presentation->Dispose();
 
 Wynik:
 
-![Nakładanie się serii](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Zmień kolor wypełnienia serii**
 
-Użyj [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) , aby ustawić domyślne wypełnienie dla całej serii. Jeśli punkt już ma wyraźne wypełnienie, jego ustawienie [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) nadpisuje wypełnienie serii dla tego punktu.
+Użyj [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/), aby ustawić domyślne wypełnienie dla całej serii. Jeśli punkt już ma wyraźne wypełnienie, jego ustawienie [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) nadpisuje wypełnienie serii dla tego punktu.
 
-Poniższy przykład zastosowuje jednolite niebieskie wypełnienie do pierwszej serii:
+Poniższy przykład aplikuje jednolite niebieskie wypełnienie do pierwszej serii:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -190,11 +192,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Kolor serii](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Zmień nazwę serii**
 
-Nazwa serii jest przechowywana w skoroszycie danych wykresu i zazwyczaj wyświetlana jest w legendzie. W domyślnym skoroszycie tworzonym dla wykresu słupkowego grupowanego, komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Nazwane stałe w poniższym przykładzie wyraźnie określają tę strukturę:
+Nazwa serii jest przechowywana w zeszycie danych wykresu i zazwyczaj wyświetlana w legendzie. W domyślnym zeszycie utworzonym dla wykresu kolumnowego grupowanego komórka B1 znajduje się w wierszu 0, kolumnie 1 i zawiera nazwę pierwszej serii. Stałe nazwane w poniższym przykładzie wyraźnie opisują tę strukturę:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -235,7 +237,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Możesz także zaktualizować komórkę odwoływaną przez [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). To podejście unika zakładania konkretnego wiersza i kolumny w istniejącym wykresie:
+Możesz także zaktualizować komórkę już odwoływaną przez [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/). Takie podejście unika założenia konkretnego wiersza i kolumny w istniejącym wykresie:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -282,15 +284,15 @@ presentation->Dispose();
 
 Wynik:
 
-![Nazwa serii](series_name.png)
+![The series name](series_name.png)
 
-### **Utwórz serię z nazwą z wielu komórek**
+### **Utwórz serię z nazwą pochodzącą z wielu komórek**
 
-Złożona nazwa serii jest przydatna, gdy nazwa produktu i okres sprawozdawczy są przechowywane w oddzielnych komórkach skoroszytu. Na przykład możesz połączyć `Product A` w B1 i `2026` w C1 w jedną nazwę serii, zachowując jednocześnie połączenie obu części z ich komórkami źródłowymi.
+Złożona nazwa serii jest przydatna, gdy nazwa produktu i okres raportowania są przechowywane w oddzielnych komórkach zeszytu. Na przykład możesz połączyć `Product A` w B1 i `2026` w C1 w jedną nazwę serii, zachowując oba elementy powiązane z ich komórkami źródłowymi.
 
-Użyj [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) , aby pobrać zakres nazw, a następnie przekaż tę kolekcję do [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Argument `skipHiddenCells` kontroluje, czy ukryte komórki są uwzględniane: `true` je wyklucza, `false` – uwzględnia. Ten przykład używa `false`, aby uwzględnić każdą komórkę w zakresie nazw.
+Użyj [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/), aby pobrać zakres nazw, a następnie przekaż tę kolekcję do [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). Argument `skipHiddenCells` steruje, czy ukryte komórki są uwzględniane: `true` je pomija, `false` uwzględnia. Ten przykład używa `false`, aby włączyć każdą komórkę w zakresie nazw.
 
-Poniższy przykład tworzy prezentację z jedną serią i dwoma punktami danych. Komórki B1:C1 dostarczają wyłącznie nazwę serii; A2:A3 dostarczają etykiety kategorii, a B2:B3 – wartości liczbowe.
+Poniższy przykład tworzy prezentację z jedną serią i dwoma punktami danych. Komórki B1:C1 dostarczają jedynie nazwę serii; A2:A3 dostarczają etykiety kategorii, a B2:B3 liczby.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -356,13 +358,13 @@ presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Wynikowa nazwa serii to `Product A 2026`, z odstępem między dwoma wartościami komórek. Legenda wyświetla to jako jedną pozycję dla obu kolumn. Poniższy obraz ilustruje wynik:
+Wynikowa nazwa serii to `Product A 2026`, ze spacją pomiędzy dwoma wartościami komórek. Legenda wyświetla to jako jedną pozycję dla obu kolumn. Poniższy obraz ilustruje rezultat:
 
-![Wykres kolumnowy z wartościami Północ i Południe oraz złożoną nazwą serii Product A 2026 w legendzie](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Pobierz automatyczny kolor wypełnienia serii**
+## **Uzyskaj automatyczny kolor wypełnienia serii**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) zwraca kolor obliczony na podstawie indeksu serii i stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało wyraźnie określone. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) zwraca kolor obliczony na podstawie indeksu serii oraz stylu wykresu. Jest to kolor używany, gdy wypełnienie serii nie zostało wyraźnie określone. Wywołanie metody odczytuje obliczony kolor; nie przypisuje nowego wypełnienia.
 
 Poniższy przykład wypisuje automatyczny kolor każdej domyślnej serii:
 
@@ -414,13 +416,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-Dokładne kolory zależą od stylu wykresu i tematu.
+Dokładne kolory zależą od stylu i motywu wykresu.
 
-## **Ustaw odwrócony kolor wypełnienia dla serii wykresu**
+## **Ustaw odwrócone wypełnienie koloru dla serii wykresu**
 
-Dla serii słupkowych, kolumnowych i bąbelkowych, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw zwykłe wypełnienie serii na jednolite, włącz odwracanie i przypisz kolor wartości ujemnej za pomocą [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Ujemne liczby pozostają niezmienione w skoroszycie; zmienia się tylko ich kolor wyświetlania.
+Dla serii słupkowych, kolumnowych i bąbelkowych [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) może wyświetlać wartości ujemne innym wypełnieniem. Ustaw zwykłe wypełnienie serii na jednolite, włącz odwrócenie i przypisz kolor wartości ujemnej przez [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Liczby ujemne pozostają niezmienione w zeszycie; zmienia się jedynie ich kolor wyświetlania.
 
-Poniższy przykład zamienia domyślne dane wykresu na jedną serię. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 – nazwy kategorii, a kolumna 1 – wartości:
+Poniższy przykład zastępuje domyślne dane wykresu jedną serią. Wiersz 0 arkusza zawiera nazwę serii, kolumna 0 – nazwy kategorii, a kolumna 1 – wartości:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -508,9 +510,9 @@ presentation->Dispose();
 
 Wynik:
 
-![Odwrócony jednolity kolor wypełnienia](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Możesz włączyć odwracanie dla jednego punktu za pomocą [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). W poniższym przykładzie odwracanie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisana jest także wartość ujemna, aby efekt był widoczny:
+Możesz włączyć odwrócenie dla jednego punktu przez [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). W poniższym przykładzie odwrócenie jest wyłączone dla serii i włączone tylko dla wybranego punktu. Punktowi przypisano także wartość ujemną, aby efekt był widoczny:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -568,9 +570,9 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **Wyczyść określoną wartość punktu danych**
+## **Wyczyść wartość konkretnego punktu danych**
 
-Aby zrobić jeden punkt pustym bez usuwania pozostałych punktów, ustaw jego komórkę w skoroszycie na `nullptr`. Dla wykresu kolumnowego, wykreślana wartość jest dostępna przez [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Punkt pozostaje na tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami pustych wartości wykresu.
+Aby uczynić jeden punkt pustym bez usuwania pozostałych, ustaw jego powiązaną komórkę w zeszycie na `nullptr`. Dla wykresu kolumnowego wartość wykreślona jest dostępna przez [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Punkt danych pozostaje w tej samej pozycji kategorii, ale wykres traktuje jego wartość jako pustą zgodnie z ustawieniami wykresu dla pustych wartości.
 
 Poniższy przykład czyści tylko drugi punkt w pierwszej serii:
 
@@ -611,17 +613,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Wykresy punktowe używają oddzielnych komórek X i Y, a wykresy bąbelkowe także używają komórki rozmiaru. Czyść tylko komórkę reprezentującą wartość, którą chcesz usunąć. Nie wywołuj [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) gdy chcesz zachować pozostałe punkty, ponieważ ta metoda usuwa każdy punkt danych z kolekcji.
+Wykresy punktowe używają osobnych komórek X i Y, a wykresy bąbelkowe także komórki rozmiaru. Czyść tylko tę komórkę, która reprezentuje wartość, którą chcesz usunąć. Nie wywołuj [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/), gdy chcesz zachować inne punkty, ponieważ ta metoda usuwa wszystkie punkty danych z kolekcji.
 
 ## **Kontroluj wyświetlanie pustych komórek**
 
-Ukryte komórki zawierające wartości to odrębny przypadek od pustych komórek. Aby włączyć lub wykluczyć dane z ukrytych wierszy i kolumn arkusza, zobacz [Dołącz dane z ukrytych wierszy i kolumn](/slides/pl/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Ukryte komórki zawierające wartości to osobny przypadek od pustych komórek. Aby włączać lub wyłączać dane z ukrytych wierszy i kolumn arkusza, zobacz [Include Data from Hidden Rows and Columns](/slides/pl/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Pusta komórka skoroszytu reprezentuje brakujące dane; komórka zawierająca `0` reprezentuje znaną wartość liczbową. Wywołaj [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) z `nullptr`, aby uczynić komórkę pustą. Liczbowy zero pozostaje zerem niezależnie od ustawienia pustej komórki.
+Pusta komórka w zeszycie reprezentuje brakujące dane; komórka zawierająca `0` reprezentuje znaną wartość liczbową. Wywołaj [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) z `nullptr`, aby uczynić komórkę pustą. Liczbowy zero pozostaje zerem niezależnie od ustawienia pustej komórki.
 
-Użyj [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) , aby wybrać, jak wykres wyświetla puste komórki. To ustawienie dotyczy całego wykresu. Zmienia sposób rysowania pustych miejsc, nie wypełniając pustej komórki w skoroszycie zerem ani wartością interpolowaną.
+Użyj [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/), aby wybrać, jak wykres wyświetla puste komórki. To ustawienie dotyczy całego wykresu. Zmienia sposób wykreślania pustek, nie wypełniając pustej komórki zerem ani wartością interpolowaną.
 
-Poniższy samodzielny przykład tworzy wykres liniowy z jedną serią, usuwa wartość dla Dnia 3 i zapisuje ten sam wykres w każdym trybie. Nie jest wymagany plik wejściowy. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) używa arkusza 0, kolumny 0 dla etykiet kategorii i kolumny 1 dla wartości; wiersz 0 zawiera nazwę serii. Ostateczne dane to `10, 20, empty, 30, 40`.
+Poniższy, autonomiczny przykład tworzy wykres liniowy z jedną serią, czyści wartość dla Dnia 3 i zapisuje ten sam wykres w każdym trybie. Nie wymaga pliku wejściowego. [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) używa arkusza 0, kolumny 0 dla etykiet kategorii i kolumny 1 dla wartości; wiersz 0 zawiera nazwę serii. Końcowe dane to `10, 20, empty, 30, 40`.
 
 ```cpp
 #include <array>
@@ -675,7 +677,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// Leave Day 3 genuinely empty, while retaining its category and data point.
+// Pozostaw Dzień 3 naprawdę pusty, zachowując jego kategorię i punkt danych.
 workbook->GetCell(0, 3, 1)->set_Value(nullptr);
 
 auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
@@ -689,19 +691,19 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-Każdy plik wyjściowy zapisuje tryb przydzielony przed zapisem: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` i `empty_cells_Span.pptx`. Aby zapisać tylko jedną wersję, ustaw żądany tryb i zapisz prezentację raz, zamiast iterować po trybach.
+Każdy plik wyjściowy przechowuje tryb przypisany przed zapisem: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` i `empty_cells_Span.pptx`. Aby zapisać tylko jedną wersję, ustaw żądany tryb i zapisz prezentację jednorazowo zamiast iterować po trybach.
 
-Porównanie poniżej pokazuje te same dane we wszystkich trzech plikach. Dzień 3 jest pusty w skoroszycie w każdym wypadku:
+Poniższe porównanie pokazuje te same dane we wszystkich trzech plikach. Dzień 3 jest pusty w zeszycie we wszystkich przypadkach:
 
-![Wykresy liniowe z identycznymi danymi: Gap przerywa linię w Dniu 3, Zero opuszcza linię do zera, a Span łączy Dzień 2 z Dniem 4](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Widoczny efekt zależy od typu wykresu. Wykres liniowy ułatwia porównanie wszystkich trzech trybów. Wykresy słupkowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc `Span` nie może utworzyć pokazanego powyżej odcinka; brakująca kolumna i kolumna o zerowej wysokości mogą wyglądać podobnie. Analogicznie, wykres punktowy z samymi markerami nie ma linii łączącej. Nie spodziewaj się trzech odrębnych rezultatów dla każdego typu wykresu; sprawdź wynik dla używanego typu.
+Widoczny efekt zależy od typu wykresu. Wykres liniowy umożliwia łatwe porównanie wszystkich trzech trybów. Wykresy słupkowe i kolumnowe nie mają linii łączącej brakującą kategorię, więc `Span` nie może utworzyć segmentu łączenia pokazanego powyżej; brakująca kolumna i kolumna o zerowej wysokości mogą wyglądać podobnie. Podobnie wykres punktowy z samymi znacznikami nie ma linii łączącej. Nie oczekuj trzech odrębnych wyników dla każdego typu wykresu; sprawdź wynik dla używanego typu.
 
 ## **Ustaw szerokość przerwy serii**
 
-Szerokość przerwy to odstęp między sąsiadującymi grupami słupków lub kolumn, wyrażony procentowo względem szerokości słupka lub kolumny. Podobnie jak nakładanie się, należy ona do grupy serii nadrzędnej, a nie jednej serii. Wywołaj [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) raz dla grupy. Większa wartość tworzy większy odstęp między grupami; mniejsza wartość sprawia, że są gęstsze.
+Szerokość przerwy to odstęp między sąsiadującymi grupami słupków lub kolumn, wyrażony jako procent szerokości słupka lub kolumny. Podobnie jak overlap, należy do grupy serii nadrzędnej, a nie do jednej serii. Wywołaj [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) raz dla grupy. Większa wartość tworzy więcej przestrzeni między grupami; mniejsza wartość powoduje, że są one bardziej zwarte.
 
-Poniższy przykład zmienia szerokość przerwy i zapisuje tylko ostateczną prezentację:
+Poniższy przykład zmienia szerokość przerwy i zapisuje jedynie finalną prezentację:
 
 ```cpp
 #include <cstdint>
@@ -711,7 +713,7 @@ Poniższy przykład zmienia szerokość przerwy i zapisuje tylko ostateczną pre
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IChartSeriesGroup.h>
 #include <DOM/IChart.h>
-#include <DOM/IShapeCollection.h>
+#include <DOM/IShapeCollection>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
@@ -740,46 +742,93 @@ presentation->Dispose();
 
 Wynik:
 
-![Szerokość przerwy](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Pokaż lub ukryj linie serii**
+
+Linie serii wizualnie łączą powiązane części wykresu. Użyj [IChartSeriesGroup::set_HasSeriesLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_hasserieslines/), aby je pokazać lub ukryć w obsługiwanych wykresach skumulowanych słupków i wykresach OfPie. W dwuwymiarowych wykresach skumulowanych słupków i kolumn łączą one odpowiadające sobie granice stosów w różnych kategoriach. W wykresach Pie of Pie i Bar of Pie łączą główny wykres z wykresem pomocniczym. To ustawienie nie jest ogólnym łącznikiem dla innych typów wykresów.
+
+Uzyskaj dostęp do grupy przez [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). Ustawienie dotyczy każdej serii w tej grupie. [IChartSeries::get_HasSeriesLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_hasserieslines/) tylko odczytuje wartość i odzwierciedla ustawienie grupy nadrzędnej; wywołaj setter grupy, aby je zaktualizować.
+
+Poniższy przykład tworzy jeden wykres [ChartType::PieOfPie](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) z domyślnymi danymi. Zapisuje ten sam wykres z włączonymi liniami serii, a następnie z wyłączonymi, tworząc dwie prezentacje do porównania.
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::PieOfPie, 50, 50, 600, 400);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto seriesGroup = series->get_ParentSeriesGroup();
+
+seriesGroup->set_HasSeriesLines(true);
+presentation->Save(u"series_lines_enabled.pptx", SaveFormat::Pptx);
+
+seriesGroup->set_HasSeriesLines(false);
+presentation->Save(u"series_lines_disabled.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+| Linia serii włączona | Linia serii wyłączona |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| Dwie linie łączą główną część koła z kołem pomocniczym. | Oba koła pozostają widoczne, ale linie łączące są ukryte. |
+
+Linie serii różnią się od linii prowadzących etykiet danych, które łączą etykiety z ich punktami danych; od linii siatki, które oznaczają przedziały na osiach wykresu; oraz od linii w wykresie liniowym, które reprezentują wartości danych. To ustawienie nie steruje tymi elementami.
 
 ## **FAQ**
 
-**Które typy wykresów obsługują serie danych?**
+**Jakie typy wykresów obsługują serie danych?**
 
-Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) używają danych wykresu, ale ich serie nie mają takiej samej struktury wartości ani tych samych ustawień. Na przykład wykresy kategorii używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodatkowo rozmiarów bąbelków. Użyj metody tworzenia punktu danych odpowiadającej typowi serii. Opcje takie jak nakładanie się i szerokość przerwy mają zastosowanie tylko do kompatybilnych grup słupków lub kolumn.
+Wszystkie typy wykresów reprezentowane przez wyliczenie [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) używają danych wykresu, ale ich serie nie mają identycznej struktury wartości ani ustawień. Na przykład wykresy kategorii używają kategorii i wartości, wykresy punktowe używają wartości X i Y, a wykresy bąbelkowe dodatkowo rozmiarów bąbelków. Używaj metody tworzenia punktu danych pasującej do typu serii. Opcje takie jak overlap i szerokość przerwy mają zastosowanie tylko do kompatybilnych grup słupków lub kolumn.
 
 **Czym jest grupa serii wykresu?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia grupowe wykreślania. Wykres kombinowany może zawierać więcej niż jedną grupę, więc zmiana grupy uzyskanej przez jedną serię niekoniecznie zmieni wszystkie serie w wykresie.
+[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) zawiera kompatybilne serie, które współdzielą ustawienia grupowe wykreślania. Wykres mieszany może zawierać więcej niż jedną grupę, więc zmiana grupy dostępnej przez jedną serię niekoniecznie zmienia wszystkie serie w wykresie.
 
 **Czy nowo utworzony wykres zawiera domyślne dane?**
 
-Tak. Domyślnie [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może także utworzyć wykres bez domyślnych danych.
+Tak. Domyślnie [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) tworzy przykładowe serie, kategorie i wartości. Możesz edytować te komórki lub wyczyścić zarówno kolekcje serii, jak i kategorii przed dodaniem całkowicie własnego zestawu danych. Przeciążenie może także tworzyć wykres bez danych domyślnych.
 
-**Jak obiekty wykresu są połączone z komórkami skoroszytu?**
+**Jak obiekty wykresu są powiązane z komórkami zeszytu?**
 
-Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Zmiana odwołanej komórki aktualizuje odpowiedni element wykresu. Tworząc własne dane, utrzymuj wiersze kategorii i wiersze wartości serii wyrównane, aby każdy punkt był wykreślony pod właściwą kategorią.
+Nazwy serii, etykiety kategorii i wartości punktów danych odwołują się do komórek w [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). Zmiana odwoływanej komórki aktualizuje odpowiadający element wykresu. Tworząc własne dane, utrzymuj wiersze kategorii i wiersze wartości serii wyrównane, aby każdy punkt był wykreślony pod właściwą kategorią.
 
 **Jak wyczyścić jeden punkt zamiast całej serii?**
 
-Ustaw odpowiednią komórkę wartości na `nullptr`, aby zachować pozycję punktu w kategorii jako pusty punkt. Wywołaj [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj wszystkie serie, aby ich wartości pozostawały wyrównane z kolekcją kategorii.
+Ustaw odpowiednią komórkę wartości na `nullptr`, aby zachować pozycję kategorii punktu jako pusty punkt. Wywołuj [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) tylko wtedy, gdy zamierzasz usunąć wszystkie punkty z tej serii. Jeśli usuwasz także kategorie, zaktualizuj każdą serię, aby ich wartości pozostały wyrównane z kolekcją kategorii.
 
 **Jak wyświetlane są puste punkty?**
 
-Wynik zależy od typu wykresu i [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zero lub przez połączenie sąsiednich punktów. Wybierz ustawienie pasujące do znaczenia brakujących danych w prezentacji. Zobacz [Kontroluj wyświetlanie pustych komórek](#control-the-display-of-empty-cells) po pełny przykład i porównanie wizualne.
+Wynik zależy od typu wykresu i [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Obsługiwane wykresy mogą wyświetlać puste miejsca jako przerwy, jako wartości zerowe lub poprzez połączenie sąsiednich punktów. Wybierz ustawienie pasujące do znaczenia brakujących danych w Twojej prezentacji. Zobacz [Control the Display of Empty Cells](#control-the-display-of-empty-cells) po kompletny przykład i porównanie wizualne.
 
 **Jak formatowane są wartości ujemne?**
 
-Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych, wywołaj [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) i ustaw kolor za pomocą [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Możesz nadpisać zachowanie dla pojedynczego punktu za pomocą [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Metody te wpływają na formatowanie, a nie na przechowywane wartości liczbowe.
+Dla obsługiwanych serii słupkowych, kolumnowych i bąbelkowych wywołaj [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) i ustaw kolor przez [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Możesz nadpisać zachowanie dla pojedynczego punktu za pomocą [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Metody te wpływają na formatowanie, a nie na zapisane wartości liczbowe.
 
-**Które formatowanie ma pierwszeństwo, gdy zarówno seria, jak i punkt są sformatowane?**
+**Które formatowanie wygrywa, gdy zarówno seria, jak i punkt są sformatowane?**
 
-Wyraźne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii lub, gdy format serii nie jest określony, automatycznego stylu wykresu i tematu. Ustawienia grupowe, takie jak nakładanie się i szerokość przerwy, kontrolują układ i nie są nadpisywane przez formatowanie punktowe.
+Wyraźne formatowanie punktu danych ma pierwszeństwo dla tego punktu. Inne punkty nadal używają wyraźnego formatu serii lub, gdy format serii nie jest zdefiniowany, automatycznego stylu i motywu wykresu. Ustawienia grupowe, takie jak overlap i szerokość przerwy, sterują układem i nie są nadpisaniami formatowania na poziomie punktu.
 
 **Czy istnieje limit liczby serii, które wykres może zawierać?**
 
-Aspose.Slides nie narzuca osobnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu określają praktyczny limit.
+Aspose.Slides nie narzuca oddzielnego stałego limitu liczby serii. W praktyce ograniczenia pliku prezentacji, dostępna pamięć, czas renderowania i czytelność wykresu określają użyteczny limit.
 
-**Co powinienem zmienić, gdy kolumny są za blisko siebie lub za daleko od siebie?**
+**Co zmienić, gdy kolumny są za blisko siebie lub za daleko od siebie?**
 
-Wywołaj [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstęp między grupami, lub zmniejsz ją, aby przybliżyć grupy.
+Wywołaj [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) na odpowiedniej grupie serii nadrzędnej. Zwiększ wartość, aby poszerzyć odstęp między grupami, lub zmniejsz, aby przybliżyć grupy.

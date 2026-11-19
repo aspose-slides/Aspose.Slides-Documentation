@@ -1,45 +1,47 @@
 ---
-title: Quản lý Dữ liệu Series trong Biểu đồ trong Bản trình chiếu bằng JavaScript
-linktitle: Series Dữ liệu
+title: Quản lý series dữ liệu biểu đồ trong bản trình chiếu bằng JavaScript
+linktitle: Series dữ liệu
 type: docs
 url: /vi/nodejs-java/chart-series/
 keywords:
 - series biểu đồ
-- độ chồng series
+- độ chồng của series
 - màu series
 - tên series
 - điểm dữ liệu
 - ô workbook
-- khoảng cách series
+- khe giữa series
 - giá trị âm
 - PowerPoint
 - bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý series biểu đồ, điểm dữ liệu, ô workbook, định dạng, độ chồng, chiều rộng khoảng cách và giá trị âm trong bản trình chiếu bằng JavaScript."
+description: "Tìm hiểu cách quản lý series biểu đồ, điểm dữ liệu, ô workbook, định dạng, độ chồng, độ rộng khe và giá trị âm trong bản trình chiếu bằng JavaScript."
 ---
-## **Overview**
+## **Tổng quan**
 
-Biểu đồ có thể lưu các giá trị đã vẽ trong các ô của workbook hoặc trực tiếp dưới dạng các literal số. Một [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) đại diện cho một tập hợp các giá trị có liên quan, và mỗi [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) đại diện cho một điểm trong tập hợp đó. Các đối tượng [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) cung cấp các nhãn hoặc giá trị nhóm được các series chia sẻ. Trong các biểu đồ được tạo với dữ liệu mặc định, tên series, danh mục và giá trị điểm sử dụng các đối tượng [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) từ workbook của biểu đồ.
+Một biểu đồ có thể lưu các giá trị đã vẽ trong các ô của workbook hoặc trực tiếp dưới dạng literals số. Một [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) đại diện cho một điểm trong tập đó. Các đối tượng [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) cung cấp nhãn hoặc giá trị nhóm được chia sẻ bởi các series. Trong các biểu đồ được tạo với dữ liệu mặc định, tên series, danh mục và giá trị điểm sử dụng các đối tượng [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) từ workbook của biểu đồ.
 
-Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên series, cột 0 cho tên danh mục và các ô còn lại cho giá trị series. Các chỉ số worksheet, hàng và cột truyền cho [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) là chỉ số bắt đầu từ 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình chiếu đã tải, hãy kiểm tra các ô được series, danh mục và các điểm dữ liệu tham chiếu trước khi thay đổi giá trị workbook.
+Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên series, cột 0 cho tên danh mục và các ô còn lại cho giá trị series. Các chỉ mục worksheet, hàng và cột được truyền vào [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) là số bắt đầu từ 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình chiếu đã tải, hãy kiểm tra các ô mà series, danh mục và các điểm dữ liệu tham chiếu trước khi thay đổi giá trị trong workbook.
 
 Cài đặt biểu đồ có ba phạm vi khác nhau:
 
-- Cài đặt cấp Series, chẳng hạn [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), cung cấp giao diện mặc định cho tất cả các điểm trong một series.
-- Cài đặt cấp Data‑point, chẳng hạn [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), ghi đè giao diện series cho một điểm.
-- Cài đặt nhóm áp dụng cho các series tương thích thuộc cùng một [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Truy cập nhóm qua [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) khi bạn cần thiết lập các tùy chọn như overlap hoặc gap width.
+- Cài đặt mức series, chẳng hạn như [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), cung cấp giao diện mặc định cho tất cả các điểm trong một series.
+- Cài đặt mức điểm dữ liệu, chẳng hạn như [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), ghi đè giao diện series cho một điểm.
+- Cài đặt nhóm áp dụng cho các series tương thích thuộc cùng một [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Truy cập nhóm thông qua [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) khi cần đặt các tùy chọn như độ chồng lên nhau hoặc độ rộng khe.
 
-Khi không có fill cho điểm hoặc series được đặt một cách rõ ràng, phong cách và chủ đề của biểu đồ sẽ quyết định giao diện tự động. Khi cả định dạng series và point đều tồn tại, định dạng point sẽ có ưu tiên đối với điểm đó.
+Khi không có màu nền điểm hoặc series nào được đặt rõ ràng, kiểu biểu đồ và chủ đề sẽ quyết định giao diện tự động. Khi cả định dạng series và điểm đều có, định dạng điểm sẽ được ưu tiên cho điểm đó.
 
-![Biểu đồ series PowerPoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set Series Values Using Numeric Literals**
+Đối với biểu đồ hình trụ nhóm, hãy xem cách việc [changing the 3D series type or bar shape](/slides/vi/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) ảnh hưởng đến series đầu tiên.
 
-Sử dụng các literal số khi giá trị series đến từ dữ liệu hoặc tính toán của ứng dụng và không cần tham chiếu đến ô worksheet. Gọi [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) với [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) trước khi gán kết quả [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) của mỗi điểm thông qua [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+## **Đặt Giá Trị Series Bằng Literals Số**
 
-Cài đặt bộ sưu tập kiểm soát loại nguồn của tất cả các giá trị điểm trong series đó. Phương thức [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) của mỗi giá trị điểm báo cáo loại đã chọn; thay đổi nó thông qua cài đặt bộ sưu tập. Với `Worksheet`, sử dụng [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) để truy cập ô được tham chiếu. Với `DoubleLiterals`, sử dụng [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) hoặc `setAsLiteralDouble` để đọc hoặc ghi số trực tiếp.
+Sử dụng literals số khi giá trị series đến từ dữ liệu hoặc phép tính của ứng dụng và không cần tham chiếu đến ô worksheet. Gọi [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) với [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) trước khi gán kết quả của [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) cho mỗi điểm thông qua [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+
+Cài đặt bộ sưu tập kiểm soát kiểu nguồn của tất cả các giá trị điểm trong series đó. Phương thức [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) của mỗi giá trị điểm báo cáo kiểu đã chọn; thay đổi nó thông qua cài đặt bộ sưu tập. Với `Worksheet`, sử dụng [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) để truy cập ô được tham chiếu. Với `DoubleLiterals`, sử dụng [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) hoặc `setAsLiteralDouble` để đọc hoặc ghi số trực tiếp.
 
 Ví dụ sau tạo một biểu đồ cột với series và danh mục mặc định, sau đó gán các giá trị tính toán 10, 20, … cho các điểm hiện có của series đầu tiên. Nó lưu bản trình chiếu, mở lại và in các giá trị đã lưu.
 
@@ -77,15 +79,15 @@ try {
 }
 ```
 
-Kiểu nguồn giá trị điểm tách riêng khỏi [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), phương thức này xác định cấu hình workbook nội bộ hoặc ngoại vi của biểu đồ. Sử dụng các literal số không tự động loại bỏ workbook nhúng. Trong ví dụ này, workbook vẫn còn sẵn sàng cho nhãn danh mục, tên series và các series khác. Xem [Chart Workbook](/slides/vi/nodejs-java/chart-workbook/) để biết quản lý workbook.
+Kiểu nguồn giá trị điểm tách biệt khỏi [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), kiểu này xác định cấu hình workbook nội bộ hoặc ngoại bộ của biểu đồ. Việc sử dụng literals số không tự động loại bỏ workbook nhúng. Trong ví dụ này, workbook vẫn còn sẵn cho nhãn danh mục, tên series và các series khác. Xem [Chart Workbook](/slides/vi/nodejs-java/chart-workbook/) để quản lý workbook.
 
-Đối với biểu đồ scatter và bubble, sử dụng [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) và [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) để chọn nguồn cho [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) và [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Biểu đồ bubble cũng sử dụng [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) cho [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Đặt mỗi nguồn áp dụng thành `DoubleLiterals` trước khi gán số qua phương thức `setAsLiteralDouble` của giá trị tương ứng.
+Đối với biểu đồ scatter và bubble, sử dụng [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) và [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) để chọn nguồn cho [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) và [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Biểu đồ bubble cũng sử dụng [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) cho [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Đặt mỗi nguồn phù hợp thành `DoubleLiterals` trước khi gán số thông qua phương thức `setAsLiteralDouble` của giá trị đó.
 
-## **Set the Chart Series Overlap**
+## **Đặt Độ Trùng Lặp (Overlap) Của Series**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) báo cáo mức độ chồng lấn của các thanh hoặc cột trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm series cha. Sử dụng [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) để cập nhật mọi series tương thích trong nhóm đó. Tùy chọn này áp dụng cho các kiểu biểu đồ hiển thị các thanh hoặc cột được nhóm lại; nó không ảnh hưởng đến các nhóm series không liên quan trong biểu đồ kết hợp.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) báo cáo mức độ các cột hoặc thanh chồng lên nhau trong biểu đồ 2D, từ -100 tới 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm series cha. Sử dụng [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) để cập nhật mọi series tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột nhóm; nó không ảnh hưởng đến các nhóm series không liên quan trong một biểu đồ kết hợp.
 
-Ví dụ sau đặt overlap cho nhóm chứa series đầu tiên:
+Ví dụ sau đặt độ trùng lặp cho nhóm chứa series đầu tiên:
 
 ```javascript
 const aspose = {};
@@ -114,13 +116,13 @@ try {
 
 Kết quả:
 
-![Overlap của series](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Change the Series Fill Color**
+## **Thay Đổi Màu Nền Series**
 
-Sử dụng [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) để đặt fill mặc định cho toàn bộ một series. Nếu một điểm đã có fill được định nghĩa rõ ràng, cài đặt [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) của nó sẽ ghi đè fill của series cho điểm đó.
+Sử dụng [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) để đặt màu nền mặc định cho toàn bộ series. Nếu một điểm đã có màu nền rõ ràng, cài đặt [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) của nó sẽ ghi đè màu nền series cho điểm đó.
 
-Ví dụ sau áp dụng một fill xanh đậm cho series đầu tiên:
+Ví dụ sau áp dụng màu nền xanh đậm đặc cho series đầu tiên:
 
 ```javascript
 const aspose = {};
@@ -150,11 +152,11 @@ try {
 
 Kết quả:
 
-![Màu của series](series_color.png)
+![The color of the series](series_color.png)
 
-## **Change the Series Name**
+## **Thay Đổi Tên Series**
 
-Tên series được lưu trong workbook dữ liệu biểu đồ và thường hiển thị trong legend. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của series đầu tiên. Các hằng số được đặt tên trong ví dụ sau làm cho cấu trúc này trở nên rõ ràng:
+Tên series được lưu trong workbook dữ liệu biểu đồ và thường hiển thị trong legend. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của series đầu tiên. Các hằng số được đặt tên trong ví dụ sau làm cho cấu trúc này rõ ràng:
 
 ```javascript
 const aspose = {};
@@ -181,7 +183,7 @@ try {
 }
 ```
 
-Bạn cũng có thể cập nhật ô mà [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/) đã tham chiếu. Cách này tránh việc giả định một hàng và cột cố định trong một biểu đồ đã tồn tại:
+Bạn cũng có thể cập nhật ô đã được [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong biểu đồ hiện có:
 
 ```javascript
 const aspose = {};
@@ -209,15 +211,15 @@ try {
 
 Kết quả:
 
-![Tên series](series_name.png)
+![The series name](series_name.png)
 
-### **Create a Series with a Name from Multiple Cells**
+### **Tạo Series Với Tên Từ Nhiều Ô**
 
-Một tên series tổng hợp hữu ích khi tên sản phẩm và kỳ báo cáo được lưu trong các ô workbook riêng biệt. Ví dụ, bạn có thể kết hợp `Product A` trong B1 và `2026` trong C1 thành một tên series duy nhất trong khi vẫn giữ cả hai phần liên kết tới ô nguồn.
+Một tên series tổng hợp hữu ích khi tên sản phẩm và kỳ báo cáo được lưu trong các ô workbook riêng biệt. Ví dụ, bạn có thể kết hợp `Product A` trong B1 và `2026` trong C1 thành một tên series duy nhất đồng thời giữ cả hai phần liên kết tới các ô nguồn của chúng.
 
-Sử dụng [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) để lấy phạm vi tên, sau đó truyền bộ sưu tập đó cho [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Tham số `skipHiddenCells` điều khiển việc bao gồm các ô ẩn: `true` loại trừ chúng, `false` bao gồm chúng. Ví dụ này dùng `false` để bao gồm mọi ô trong phạm vi tên.
+Sử dụng [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) để lấy dải tên, sau đó truyền dải này cho [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Tham số `skipHiddenCells` kiểm soát việc bao gồm các ô ẩn: `true` loại bỏ chúng, `false` giữ lại. Ví dụ này dùng `false` để bao gồm mọi ô trong dải tên.
 
-Ví dụ sau tạo một bản trình chiếu với một series và hai điểm dữ liệu. Các ô B1:C1 chỉ cung cấp tên series; A2:A3 cung cấp nhãn danh mục, và B2:B3 cung cấp các giá trị số.
+Ví dụ sau tạo một bản trình chiếu với một series và hai điểm dữ liệu. Các ô B1:C1 chỉ cung cấp tên series; A2:A3 cung cấp nhãn danh mục, và B2:B3 cung cấp giá trị số.
 
 ```javascript
 const aspose = {};
@@ -258,13 +260,13 @@ try {
 }
 ```
 
-Tên series tạo ra là `Product A 2026`, với một dấu cách giữa hai giá trị ô. Legend hiển thị nó như một mục duy nhất cho cả hai cột. Hình dưới minh họa kết quả:
+Tên series kết quả là `Product A 2026`, có một dấu cách giữa hai giá trị ô. Legend hiển thị nó như một mục cho cả hai cột. Hình ảnh dưới đây minh họa kết quả:
 
-![Biểu đồ cột với giá trị Bắc và Nam và tên series tổng hợp Product A 2026 trong legend](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Get the Automatic Series Fill Color**
+## **Lấy Màu Nền Series Tự Động**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) trả về màu được tính dựa trên chỉ số series và phong cách biểu đồ. Đây là màu được sử dụng khi fill của series không được xác định rõ. Gọi phương thức này chỉ đọc màu đã tính; nó không gán một fill mới.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) trả về màu được tính dựa trên chỉ mục series và kiểu biểu đồ. Đây là màu được sử dụng khi màu nền series chưa được xác định rõ. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu nền mới.
 
 Ví dụ sau in màu tự động của mỗi series mặc định:
 
@@ -292,7 +294,7 @@ try {
 }
 ```
 
-Đầu ra mẫu cho phong cách biểu đồ mặc định:
+Đầu ra mẫu cho kiểu biểu đồ mặc định:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -300,11 +302,11 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Màu chính xác phụ thuộc vào phong cách và chủ đề của biểu đồ.
+Màu sắc cụ thể phụ thuộc vào kiểu biểu đồ và chủ đề.
 
-## **Set Invert Fill Color for a Chart Series**
+## **Đặt Màu Nền Đảo Ngược Cho Series**
 
-Đối với series thanh, cột và bubble, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) có thể hiển thị các giá trị âm với một fill khác. Đặt fill series thông thường thành đặc, bật chế độ đảo ngược, và gán màu âm thông qua [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Các số âm vẫn giữ nguyên trong workbook; chỉ màu hiển thị thay đổi.
+Đối với series thanh, cột và bubble, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) có thể hiển thị các giá trị âm bằng một màu nền khác. Đặt màu nền series thường thành màu đặc, bật tính năng đảo ngược, và gán màu cho giá trị âm qua [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Các số âm giữ nguyên trong workbook; chỉ màu hiển thị thay đổi.
 
 Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một series. Hàng 0 của worksheet chứa tên series, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
 
@@ -366,9 +368,9 @@ try {
 
 Kết quả:
 
-![Màu fill đặc đảo ngược](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Bạn có thể bật đảo ngược cho một điểm thông qua [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Trong ví dụ sau, đảo ngược bị tắt cho series và chỉ bật cho điểm đã chọn. Điểm này cũng được gán giá trị âm để hiệu ứng hiển thị:
+Bạn có thể bật đảo ngược cho một điểm thông qua [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Trong ví dụ sau, đảo ngược được tắt cho series và chỉ bật cho điểm đã chọn. Điểm này cũng được gán một giá trị âm để hiệu ứng hiển thị:
 
 ```javascript
 const aspose = {};
@@ -405,11 +407,11 @@ try {
 }
 ```
 
-## **Clear a Specific Data Point Value**
+## **Xóa Giá Trị Điểm Dữ Liệu Cụ Thể**
 
-Để làm cho một điểm trống mà không xóa các điểm khác, đặt ô workbook hỗ trợ nó thành `null`. Đối với biểu đồ cột, giá trị đã vẽ có thể truy cập qua [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Điểm dữ liệu vẫn ở vị trí danh mục cũ, nhưng biểu đồ sẽ xem giá trị của nó là trống theo cài đặt blank‑value của biểu đồ.
+Để làm cho một điểm trống mà không xóa các điểm khác, đặt ô workbook tương ứng của nó thành `null`. Đối với biểu đồ cột, giá trị đã vẽ có sẵn qua [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Điểm dữ liệu vẫn giữ vị trí danh mục, nhưng biểu đồ sẽ xem giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
 
-Ví dụ sau chỉ xóa điểm thứ hai trong series đầu tiên:
+Ví dụ sau xóa chỉ điểm thứ hai trong series đầu tiên:
 
 ```javascript
 const aspose = {};
@@ -435,17 +437,17 @@ try {
 }
 ```
 
-Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bubble cũng có ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) khi bạn muốn giữ lại các điểm khác, vì phương thức này sẽ xóa mọi điểm dữ liệu trong bộ sưu tập.
+Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bubble cũng dùng ô kích thước. Hãy xóa chỉ ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) khi bạn muốn giữ lại các điểm còn lại, vì phương thức này sẽ xóa mọi điểm dữ liệu trong bộ sưu tập.
 
-## **Control the Display of Empty Cells**
+## **Kiểm Soát Hiển Thị Các Ô Trống**
 
 Các ô ẩn chứa giá trị là một trường hợp riêng so với các ô trống. Để bao gồm hoặc loại bỏ dữ liệu từ các hàng và cột worksheet ẩn, xem [Include Data from Hidden Rows and Columns](/slides/vi/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Một ô workbook trống đại diện cho dữ liệu thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) với `null` để làm ô trống. Số 0 vẫn là 0 bất kể cài đặt ô trống.
+Một ô workbook trống đại diện cho dữ liệu thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) với `null` để làm ô trống. Số không vẫn là số không bất kể cài đặt ô trống.
 
-Sử dụng [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) để chọn cách biểu đồ hiển thị các ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách vẽ các ô trống, mà không điền ô workbook trống bằng 0 hoặc giá trị nội suy.
+Sử dụng [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) để chọn cách biểu đồ hiển thị các ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách các khoảng trống được vẽ, mà không điền ô workbook trống bằng số 0 hoặc giá trị nội suy.
 
-Ví dụ tự chứa dưới đây tạo một biểu đồ đường với một series, xóa giá trị cho Ngày 3, và lưu cùng biểu đồ với mỗi chế độ. Không cần file đầu vào. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) sử dụng worksheet 0, cột 0 cho nhãn danh mục và cột 1 cho các giá trị; hàng 0 chứa tên series. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
+Ví dụ tự chứa dưới đây tạo một biểu đồ đường với một series, xóa giá trị cho Ngày 3, và lưu cùng một biểu đồ với mỗi chế độ. Không cần tệp đầu vào. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) sử dụng worksheet 0, cột 0 cho nhãn danh mục và cột 1 cho giá trị; hàng 0 chứa tên series. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -473,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Để Ngày 3 thực sự trống, đồng thời giữ lại danh mục và điểm dữ liệu của nó.
+    // Để Ngày 3 thực sự trống, trong khi vẫn giữ lại danh mục và điểm dữ liệu của nó.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -487,19 +489,19 @@ try {
 }
 ```
 
-Mỗi file output lưu chế độ được chỉ định trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, đặt chế độ mong muốn và lưu bản trình chiếu một lần thay vì lặp lại các chế độ.
+Mỗi tệp đầu ra lưu chế độ đã gán trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, đặt chế độ mong muốn và lưu bản trình chiếu một lần thay vì lặp qua các chế độ.
 
-Bảng so sánh dưới đây cho thấy cùng một dữ liệu trong cả ba file. Ngày 3 là trống trong workbook trong mọi trường hợp:
+So sánh dưới đây cho thấy cùng một dữ liệu trong ba tệp. Ngày 3 trống trong workbook trong mọi trường hợp:
 
-![Biểu đồ đường với dữ liệu giống nhau: Gap phá vỡ đường tại Ngày 3, Zero hạ đường xuống 0, và Span nối Ngày 2 tới Ngày 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Hiệu ứng nhìn thấy phụ thuộc vào kiểu biểu đồ. Biểu đồ đường giúp so sánh ba chế độ dễ dàng. Biểu đồ thanh và cột không có đường nối qua danh mục thiếu, vì vậy `Span` không thể tạo đoạn nối như trên; một cột thiếu và một cột cao 0 cũng có thể trông giống nhau. Tương tự, biểu đồ scatter chỉ có marker cũng không có đường nối. Không mong đợi ba kết quả riêng biệt cho mọi kiểu biểu đồ; kiểm tra output cho kiểu bạn đang dùng.
+Hiệu ứng hiển thị phụ thuộc vào loại biểu đồ. Biểu đồ đường dễ so sánh ba chế độ. Biểu đồ thanh và cột không có đường nối qua danh mục thiếu, vì vậy `Span` không tạo đoạn nối như trên; một cột mất và một cột chiều cao 0 cũng có thể trông giống nhau. Tương tự, biểu đồ scatter chỉ có các dấu chấm không có đường nối. Đừng mong đợi ba kết quả riêng biệt cho mọi loại biểu đồ; hãy kiểm tra đầu ra cho loại bạn sử dụng.
 
-## **Set the Series Gap Width**
+## **Đặt Độ Rộng Khe Giữa Các Series**
 
-Gap width là khoảng cách giữa các cụm thanh hoặc cột liền kề, tính bằng phần trăm của chiều rộng thanh hoặc cột. Giống như overlap, nó thuộc về nhóm series cha chứ không phải một series đơn lẻ. Gọi [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) một lần cho nhóm. Giá trị lớn tạo khoảng cách rộng hơn giữa các cụm; giá trị nhỏ làm chúng dày đặc hơn.
+Độ rộng khe là khoảng cách giữa các cụm thanh hoặc cột liền kề, biểu thị bằng phần trăm của chiều rộng thanh hoặc cột. Giống như độ trùng lặp, nó thuộc về nhóm series cha chứ không phải một series riêng lẻ. Gọi [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) một lần cho nhóm. Giá trị lớn tạo nhiều không gian hơn giữa các cụm; giá trị nhỏ làm chúng dày đặc hơn.
 
-Ví dụ sau thay đổi gap width và chỉ lưu bản trình chiếu cuối cùng:
+Ví dụ sau thay đổi độ rộng khe và lưu chỉ bản trình chiếu cuối cùng:
 
 ```javascript
 const aspose = {};
@@ -526,46 +528,82 @@ try {
 
 Kết quả:
 
-![Gap width](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Hiển Thị Hoặc Ẩn Đường Nối Series**
+
+Đường nối series liên kết trực quan các phần liên quan của biểu đồ. Sử dụng [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/) để hiển thị hoặc ẩn chúng trong các biểu đồ stacked bar và Pie of Pie được hỗ trợ. Trong các biểu đồ stacked bar và column hai chiều, chúng nối các giới hạn stack tương ứng qua các danh mục. Trong Pie of Pie và Bar of Pie, chúng nối phần vẽ chính với phần vẽ phụ. Cài đặt này không phải là bộ nối chung cho các loại biểu đồ khác.
+
+Truy cập nhóm qua [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). Cài đặt áp dụng cho mọi series trong nhóm đó. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) chỉ đọc và phản ánh cài đặt của nhóm cha; gọi setter của nhóm để cập nhật.
+
+Ví dụ sau tạo một biểu đồ [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) với dữ liệu mặc định. Nó lưu cùng một biểu đồ với đường nối series bật và sau đó tắt, tạo hai bản trình chiếu để so sánh.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Đường nối series bật | Đường nối series tắt |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| Hai đường nối kết phần pie chính với pie phụ. | Cả hai pie vẫn hiển thị, nhưng các đường nối bị ẩn. |
+
+Đường nối series khác với các đường dẫn nhãn dữ liệu (kết nhãn với điểm dữ liệu), các đường lưới (đánh dấu khoảng trên trục), và các đường trong biểu đồ đường (đại diện cho giá trị dữ liệu). Cài đặt này không kiểm soát các yếu tố trên.
 
 ## **FAQ**
 
-**Which chart types support data series?**
+**Các loại biểu đồ nào hỗ trợ series dữ liệu?**
 
-Tất cả các kiểu biểu đồ được biểu thị bởi enumeration [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) sử dụng dữ liệu biểu đồ, nhưng series của chúng không phải lúc nào cũng có cùng cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục dùng danh mục và giá trị, biểu đồ scatter dùng giá trị X và Y, và biểu đồ bubble thêm kích thước bubble. Sử dụng phương pháp tạo data‑point phù hợp với kiểu series. Các tùy chọn như overlap và gap width chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
+Tất cả các loại biểu đồ được liệt kê trong enumeration [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng series của chúng không đồng nhất về cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục dùng danh mục và giá trị, biểu đồ scatter dùng giá trị X và Y, và biểu đồ bubble thêm kích thước bong bóng. Hãy dùng phương pháp tạo điểm dữ liệu phù hợp với loại series. Các tùy chọn như độ trùng lặp và độ rộng khe chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
 
-**What is a chart series group?**
+**Series group là gì?**
 
-Một [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) chứa các series tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa nhiều hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một series không nhất thiết thay đổi mọi series trong biểu đồ.
+[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) chứa các series tương thích chia sẻ cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một series không nhất thiết thay đổi mọi series trong biểu đồ.
 
-**Does a newly created chart contain default data?**
+**Biểu đồ mới tạo có dữ liệu mặc định không?**
 
 Có. Mặc định, [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) tạo các series, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả hai bộ sưu tập series và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ không có dữ liệu mặc định.
 
-**How are chart objects connected to workbook cells?**
+**Các đối tượng biểu đồ được liên kết với các ô workbook như thế nào?**
 
-Tên series, nhãn danh mục và giá trị data‑point tham chiếu đến các ô trong một [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, giữ các hàng danh mục và hàng giá trị series đồng bộ để mỗi điểm được vẽ dưới đúng danh mục.
+Tên series, nhãn danh mục và giá trị điểm dữ liệu tham chiếu đến các ô trong [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi xây dựng dữ liệu tùy chỉnh, hãy giữ cho các hàng danh mục và hàng giá trị series song song để mỗi điểm được vẽ dưới danh mục mong muốn.
 
-**How do I clear one point instead of the whole series?**
+**Làm sao để xóa một điểm mà không xóa toàn bộ series?**
 
-Đặt ô giá trị tương ứng thành `null` để giữ vị trí danh mục của điểm như một điểm trống. Chỉ dùng [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) khi bạn muốn xóa tất cả các điểm trong series đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi series để giá trị của chúng vẫn đồng bộ với bộ danh mục.
+Đặt ô giá trị liên quan thành `null` để giữ vị trí danh mục của điểm đó như một điểm trống. Chỉ sử dụng [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) khi muốn xóa mọi điểm trong series đó, vì phương thức này sẽ xóa toàn bộ điểm dữ liệu.
 
-**How are empty points displayed?**
+**Các điểm trống được hiển thị như thế nào?**
 
-Kết quả phụ thuộc vào kiểu biểu đồ và giá trị được cấu hình qua [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Các biểu đồ được hỗ trợ có thể hiển thị blanks dưới dạng khoảng trống, giá trị zero, hoặc nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình chiếu của bạn. Xem [Control the Display of Empty Cells](#control-the-display-of-empty-cells) để có ví dụ đầy đủ và so sánh trực quan.
+Kết quả phụ thuộc vào loại biểu đồ và giá trị được cấu hình qua [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Các biểu đồ hỗ trợ có thể hiển thị khoảng trống dưới dạng khe, giá trị zero, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình chiếu của bạn. Xem phần [Control the Display of Empty Cells](#control-the-display-of-empty-cells) để có ví dụ đầy đủ và so sánh trực quan.
 
-**How are negative values formatted?**
+**Giá trị âm được định dạng như thế nào?**
 
-Đối với các series thanh, cột và bubble được hỗ trợ, gọi [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) và đặt màu trả về bởi [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Các phương thức này ảnh hưởng đến định dạng, không phải giá trị số được lưu.
+Đối với các series thanh, cột và bubble được hỗ trợ, gọi [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) và đặt màu trả về bởi [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Các phương pháp này ảnh hưởng tới định dạng, không thay đổi giá trị số đã lưu.
 
-**Which formatting wins when both a series and a point are formatted?**
+**Định dạng nào thắng khi cả series và điểm đều được định dạng?**
 
-Định dạng data‑point rõ ràng có ưu tiên đối với điểm đó. Các điểm khác tiếp tục sử dụng định dạng series rõ ràng hoặc, khi series không được định dạng, phong cách và chủ đề biểu đồ tự động. Cài đặt nhóm như overlap và gap width kiểm soát bố cục và không phải là ghi đè định dạng cấp điểm.
+Định dạng điểm dữ liệu rõ ràng sẽ được ưu tiên cho điểm đó. Các điểm khác vẫn sử dụng định dạng series rõ ràng hoặc, khi series không có định dạng, sẽ dùng kiểu và chủ đề biểu đồ tự động. Các cài đặt nhóm như độ trùng lặp và độ rộng khe điều khiển bố cục và không phải là ghi đè định dạng mức điểm.
 
-**Is there a limit to how many series a chart can contain?**
+**Có giới hạn số series mà một biểu đồ có thể chứa không?**
 
-Aspose.Slides không áp đặt một giới hạn cố định cho số series. Trong thực tế, các hạn chế của tệp trình chiếu, bộ nhớ khả dụng, thời gian render và khả năng đọc hiểu của biểu đồ sẽ quyết định giới hạn hữu dụng.
+Aspose.Slides không đặt giới hạn cố định cho số series. Thực tế, các hạn chế của tệp trình chiếu, bộ nhớ khả dụng, thời gian render và khả năng đọc biểu đồ quyết định một mức giới hạn thực tế.
 
-**What should I change when columns are too close together or too far apart?**
+**Nên thay đổi gì khi các cột quá gần nhau hoặc quá xa nhau?**
 
-Gọi [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) trên nhóm series cha thích hợp. Tăng giá trị để làm rộng khoảng cách giữa các cụm, hoặc giảm để các cụm lại gần nhau hơn.
+Gọi [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) trên nhóm series cha phù hợp. Tăng giá trị để mở rộng không gian giữa các cụm, giảm giá trị để các cụm gần nhau hơn.

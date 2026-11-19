@@ -1,46 +1,48 @@
 ---
-title: Gerenciar Séries de Dados de Gráficos em Apresentações em Java
+title: Gerenciar séries de dados de gráficos em apresentações em Java
 linktitle: Séries de Dados
 type: docs
 url: /pt/java/chart-series/
 keywords:
-- série de gráfico
-- sobreposição de série
+- séries de gráfico
+- sobreposição de séries
 - cor da série
 - nome da série
 - ponto de dados
-- célula de pasta de trabalho
-- espaço entre séries
+- célula da pasta de trabalho
+- intervalo da série
 - valor negativo
 - PowerPoint
 - apresentação
 - Java
 - Aspose.Slides
-description: "Aprenda a gerenciar séries de gráficos, pontos de dados, células de pasta de trabalho, formatação, sobreposição, largura do espaço e valores negativos em apresentações com Java."
+description: "Saiba como gerenciar séries de gráficos, pontos de dados, células de pasta de trabalho, formatação, sobreposição, largura do intervalo e valores negativos em apresentações com Java."
 ---
 ## **Visão geral**
 
-Um gráfico pode armazenar seus valores plotados em células da pasta de trabalho ou diretamente como literais numéricos. Um [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) representa um conjunto de valores relacionados, e cada [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) representa um ponto nessa série. Objetos [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) fornecem os rótulos ou valores de agrupamento compartilhados pelas séries. Em gráficos criados com dados padrão, nomes de séries, categorias e valores de pontos usam objetos [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/) da pasta de trabalho do gráfico.
+Um gráfico pode armazenar seus valores plotados em células da pasta de trabalho ou diretamente como literais numéricos. Um [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) representa um conjunto de valores relacionados, e cada [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) representa um ponto nessa série. Os objetos [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/) fornecem os rótulos ou valores de agrupamento compartilhados pelas séries. Nos gráficos criados com dados padrão, nomes de séries, categorias e valores dos pontos utilizam objetos [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/) da pasta de trabalho do gráfico.
 
-Para um gráfico de categoria típico, a pasta de trabalho padrão usa a linha 0 para nomes de séries, a coluna 0 para nomes de categorias e as células restantes para valores das séries. Os índices de planilha, linha e coluna passados para [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) são baseados em zero. Esse layout é útil ao criar um gráfico com dados padrão, mas não presuma que todo gráfico existente o utiliza. Para uma apresentação carregada, examine as células referenciadas pelas séries, categorias e pontos de dados antes de alterar os valores da pasta de trabalho.
+Para um gráfico de categorias típico, a pasta de trabalho padrão usa a linha 0 para nomes de séries, a coluna 0 para nomes de categorias e as células restantes para valores das séries. Os índices de planilha, linha e coluna passados para [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) são baseados em zero. Esse layout é útil quando você cria um gráfico com dados padrão, mas não presuma que todo gráfico existente o utilize. Para uma apresentação carregada, inspeccione as células referenciadas pelas séries, categorias e pontos de dados antes de alterar os valores da pasta de trabalho.
 
-Configurações do gráfico têm três escopos diferentes:
+As configurações de gráfico têm três escopos diferentes:
 
 - Configurações ao nível da série, como [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--), fornecem a aparência padrão para todos os pontos de uma série.
 - Configurações de ponto de dados, como [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--), substituem a aparência da série para um ponto.
-- Configurações de grupo aplicam‑se a séries compatíveis que pertencem ao mesmo [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/). Acesse o grupo através de [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) quando precisar definir opções como sobreposição ou largura do espaço.
+- Configurações de grupo são aplicadas a séries compatíveis que pertencem ao mesmo [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/). Acesse o grupo através de [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) quando precisar definir opções como sobreposição ou largura do intervalo.
 
-Quando não há preenchimento explícito de ponto ou série definido, o estilo e o tema do gráfico determinam a aparência automática. Quando há formatação tanto de série quanto de ponto, a formatação do ponto tem precedência para esse ponto.
+Quando nenhuma preenchimento explícito de ponto ou série é definido, o estilo e o tema do gráfico determinam a aparência automática. Quando há formatação tanto de série quanto de ponto, a formatação do ponto tem precedência para esse ponto.
 
-![serie-grafico-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Definir Valores da Série Usando Literais Numéricos**
+Para um gráfico de cilindro agrupado, veja como [changing the 3D series type or bar shape](/slides/pt/java/3d-chart/#change-the-3d-series-type-and-bar-shape) afeta a primeira série.
 
-Use literais numéricos quando os valores da série provêm de dados ou cálculos da aplicação e não precisam de referências a células da planilha. Chame [setDataSourceTypeForValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) com [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/#DoubleLiterals) antes de atribuir o resultado de [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) de cada ponto por meio de [setAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
+## **Definir valores da série usando literais numéricos**
 
-A configuração da coleção controla o tipo de origem de todos os valores dos pontos nessa série. O método [getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ibasechartvalue/#getDataSourceType--) de cada valor de ponto informa o tipo selecionado; altere‑o através da configuração da coleção. Com `Worksheet`, use [getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/isinglecellchartvalue/#getAsCell--) para acessar a célula referenciada. Com `DoubleLiterals`, use [getAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) ou `setAsLiteralDouble` para ler ou gravar o número diretamente.
+Use literais numéricos quando os valores da série provêm de dados da aplicação ou de cálculos e não precisam de referências a células da planilha. Chame [setDataSourceTypeForValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) com [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/#DoubleLiterals) antes de atribuir o resultado de [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) de cada ponto através de [setAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
 
-O exemplo a seguir cria um gráfico de colunas com séries e categorias padrão, então atribui valores calculados de 10, 20, e assim por diante aos pontos existentes da sua primeira série. Ele salva a apresentação, reabre‑a e imprime os valores armazenados.
+A configuração da coleção controla o tipo de origem de todos os valores dos pontos nessa série. O método [getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ibasechartvalue/#getDataSourceType--) de cada ponto relata o tipo selecionado; altere‑o por meio da configuração da coleção. Com `Worksheet`, use [getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/isinglecellchartvalue/#getAsCell--) para acessar a célula referenciada. Com `DoubleLiterals`, use [getAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) ou `setAsLiteralDouble` para ler ou gravar o número diretamente.
+
+O exemplo a seguir cria um gráfico de colunas com séries e categorias padrão, depois atribui valores calculados de 10, 20, etc. aos pontos existentes da sua primeira série. Ele salva a apresentação, reabre‑a e imprime os valores armazenados.
 
 ```java
 import com.aspose.slides.*;
@@ -75,13 +77,13 @@ try {
 }
 ```
 
-O tipo de origem do valor do ponto é separado de [IChartData.getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getDataSourceType--), que identifica a configuração interna ou externa da pasta de trabalho do gráfico. Usar literais numéricos não remove, por si só, a pasta de trabalho incorporada. Neste exemplo, a pasta de trabalho permanece disponível para rótulos de categorias, nomes de séries e as outras séries. Consulte [Chart Workbook](/slides/pt/java/chart-workbook/) para gerenciamento da pasta de trabalho.
+O tipo de origem do valor do ponto é independente de [IChartData.getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getDataSourceType--), que identifica a configuração interna ou externa da pasta de trabalho do gráfico. Usar literais numéricos não remove, por si só, a pasta de trabalho incorporada. Neste exemplo, a pasta de trabalho permanece disponível para rótulos de categorias, nomes de séries e as outras séries. Consulte [Chart Workbook](/slides/pt/java/chart-workbook/) para gerenciamento de pasta de trabalho.
 
-Para gráficos de dispersão e bolha, use [setDataSourceTypeForXValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) e [setDataSourceTypeForYValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) para escolher as fontes para [getXValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getXValue--) e [getYValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getYValue--). Gráficos de bolha também usam [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) para [getBubbleSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Defina cada fonte aplicável como `DoubleLiterals` antes de atribuir números por meio do método `setAsLiteralDouble` desse valor.
+Para gráficos de dispersão e bolha, use [setDataSourceTypeForXValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) e [setDataSourceTypeForYValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) para escolher as origens de [getXValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getXValue--) e [getYValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getYValue--). Gráficos de bolha também usam [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) para [getBubbleSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Defina cada origem aplicável como `DoubleLiterals` antes de atribuir números por meio do método `setAsLiteralDouble` desse valor.
 
-## **Definir a Sobreposição da Série do Gráfico**
+## **Definir a sobreposição das séries do gráfico**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) informa quanto as barras ou colunas se sobrepõem em um gráfico 2D, de -100 a 100 por cento. É uma projeção somente leitura da configuração no grupo de séries pai. Use [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) para atualizar todas as séries compatíveis nesse grupo. Esta opção se aplica a tipos de gráfico que exibem barras ou colunas agrupadas; não afeta grupos de séries não relacionados em um gráfico combinado.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) informa quanto as barras ou colunas se sobrepõem em um gráfico 2D, de –100 a 100 porcento. É uma projeção somente leitura da configuração no grupo de séries pai. Use [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) para atualizar todas as séries compatíveis nesse grupo. Esta opção se aplica a tipos de gráfico que exibem barras ou colunas agrupadas; não afeta grupos de séries não relacionados em um gráfico combinado.
 
 O exemplo a seguir define a sobreposição para o grupo que contém a primeira série:
 
@@ -108,11 +110,13 @@ try {
 }
 ```
 
-![sobreposição da série](series_overlap.png)
+O resultado:
 
-## **Alterar a Cor de Preenchimento da Série**
+![The series overlap](series_overlap.png)
 
-Use [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) para definir o preenchimento padrão para toda a série. Se um ponto já possuir um preenchimento explícito, sua configuração [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) substitui o preenchimento da série para esse ponto.
+## **Alterar a cor de preenchimento da série**
+
+Use [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) para definir o preenchimento padrão de toda a série. Se um ponto já possui um preenchimento explícito, sua configuração [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--) substitui o preenchimento da série para esse ponto.
 
 O exemplo a seguir aplica um preenchimento sólido azul à primeira série:
 
@@ -139,11 +143,13 @@ try {
 }
 ```
 
-![cor da série](series_color.png)
+O resultado:
 
-## **Alterar o Nome da Série**
+![The color of the series](series_color.png)
 
-Um nome de série é armazenado na pasta de trabalho de dados do gráfico e normalmente exibido na legenda. Na pasta de trabalho padrão criada para um gráfico de colunas agrupadas, a célula B1 está na linha 0, coluna 1 e contém o nome da primeira série. As constantes nomeadas no exemplo a seguir tornam essa estrutura explícita:
+## **Alterar o nome da série**
+
+Um nome de série é armazenado na pasta de trabalho de dados do gráfico e normalmente é exibido na legenda. Na pasta de trabalho padrão criada para um gráfico de colunas agrupadas, a célula B1 está na linha 0, coluna 1 e contém o nome da primeira série. As constantes nomeadas no exemplo a seguir tornam essa estrutura explícita:
 
 ```java
 import com.aspose.slides.*;
@@ -169,7 +175,7 @@ try {
 }
 ```
 
-Você também pode atualizar a célula já referenciada por [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--). Essa abordagem evita assumir uma linha e coluna específicas em um gráfico existente:
+Você também pode atualizar a célula já referenciada por [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--). Essa abordagem evita supor uma linha e coluna específicas em um gráfico existente:
 
 ```java
 import com.aspose.slides.*;
@@ -194,13 +200,15 @@ try {
 }
 ```
 
-![nome da série](series_name.png)
+O resultado:
 
-### **Criar uma Série com um Nome a Partir de Múltiplas Células**
+![The series name](series_name.png)
 
-Um nome de série composto é útil quando o nome de um produto e o período do relatório estão armazenados em células distintas da pasta de trabalho. Por exemplo, você pode combinar `Product A` em B1 e `2026` em C1 em um único nome de série mantendo ambas as partes vinculadas às suas células de origem.
+### **Criar uma série com nome a partir de várias células**
 
-Use [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) para recuperar o intervalo de nomes, então passe essa coleção para [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). O argumento `skipHiddenCells` controla se células ocultas são incluídas: `true` as exclui, `false` as inclui. Este exemplo usa `false` para incluir todas as células no intervalo de nomes.
+Um nome de série composto é útil quando o nome de um produto e o período de relatório são armazenados em células diferentes da pasta de trabalho. Por exemplo, você pode combinar `Product A` em B1 e `2026` em C1 em um único nome de série mantendo ambas as partes vinculadas às suas células de origem.
+
+Use [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) para obter o intervalo de nomes, depois passe essa coleção para [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). O argumento `skipHiddenCells` controla se células ocultas são incluídas: `true` as exclui, `false` as inclui. Este exemplo usa `false` para incluir todas as células no intervalo de nomes.
 
 O exemplo a seguir cria uma apresentação com uma série e dois pontos de dados. As células B1:C1 fornecem apenas o nome da série; A2:A3 fornecem os rótulos de categoria, e B2:B3 fornecem os valores numéricos.
 
@@ -220,7 +228,7 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Estas duas células fornecem o nome da série.
+    // Essas duas células fornecem o nome da série.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
@@ -244,11 +252,11 @@ try {
 
 O nome da série resultante é `Product A 2026`, com um espaço entre os dois valores das células. A legenda exibe isso como uma única entrada para ambas as colunas. A imagem abaixo ilustra o resultado:
 
-![gráfico de colunas com valores Norte e Sul e o nome de série composto Product A 2026 na legenda](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Obter a Cor de Preenchimento Automática da Série**
+## **Obter a cor de preenchimento automática da série**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) devolve a cor calculada a partir do índice da série e do estilo do gráfico. Essa é a cor usada quando o preenchimento da série não foi definido explicitamente. Chamar o método lê a cor calculada; não atribui um novo preenchimento.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) devolve a cor calculada a partir do índice da série e do estilo do gráfico. Essa é a cor usada quando o preenchimento da série não foi definido explicitamente. Chamar o método lê a cor calculada; ele não atribui um novo preenchimento.
 
 O exemplo a seguir imprime a cor automática de cada série padrão:
 
@@ -275,7 +283,7 @@ try {
 }
 ```
 
-Exemplo de saída para o estilo de gráfico padrão:
+Saída de exemplo para o estilo de gráfico padrão:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -285,11 +293,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 As cores exatas dependem do estilo e do tema do gráfico.
 
-## **Definir Cor de Preenchimento Invertida para uma Série de Gráfico**
+## **Definir preenchimento invertido para uma série do gráfico**
 
-Para séries de barra, coluna e bolha, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) pode exibir valores negativos com um preenchimento diferente. Defina o preenchimento regular da série como sólido, habilite a inversão e atribua a cor de valor negativo por meio de [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Números negativos permanecem inalterados na pasta de trabalho; apenas sua cor de exibição muda.
+Para séries de barras, colunas e bolhas, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) pode exibir valores negativos com um preenchimento diferente. Defina o preenchimento regular da série como sólido, habilite a inversão e atribua a cor de valor negativo através de [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Números negativos permanecem inalterados na pasta de trabalho; apenas a cor de exibição muda.
 
-O exemplo a seguir substitui os dados padrão do gráfico por uma série. A linha 0 da planilha contém o nome da série, a coluna 0 contém os nomes das categorias e a coluna 1 contém os valores:
+O exemplo a seguir substitui os dados padrão do gráfico por uma série. A linha 0 da planilha contém o nome da série, a coluna 0 contém nomes de categorias e a coluna 1 contém os valores:
 
 ```java
 import com.aspose.slides.*;
@@ -344,7 +352,9 @@ try {
 }
 ```
 
-![cor de preenchimento sólido invertida](inverted_solid_fill_color.png)
+O resultado:
+
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
 Você pode habilitar a inversão para um ponto através de [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). No exemplo a seguir, a inversão está desabilitada para a série e habilitada apenas para o ponto selecionado. O ponto também recebe um valor negativo para que o efeito seja visível:
 
@@ -380,9 +390,9 @@ try {
 }
 ```
 
-## **Limpar um Valor de Ponto de Dados Específico**
+## **Limpar o valor de um ponto de dados específico**
 
-Para deixar um ponto vazio sem remover os demais, defina sua célula de pasta de trabalho subjacente como `null`. Para um gráfico de colunas, o valor plotado está disponível por meio de [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). O ponto de dados permanece na mesma posição de categoria, mas o gráfico trata seu valor como em branco de acordo com as configurações de valores em branco do gráfico.
+Para deixar um ponto vazio sem remover os demais, defina sua célula de apoio na pasta de trabalho como `null`. Em um gráfico de colunas, o valor plotado está disponível por meio de [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). O ponto de dados permanece na mesma posição de categoria, mas o gráfico trata seu valor como vazio de acordo com as configurações de valores vazios do gráfico.
 
 O exemplo a seguir limpa apenas o segundo ponto da primeira série:
 
@@ -409,17 +419,17 @@ try {
 }
 ```
 
-Gráficos de dispersão usam células X e Y separadas, e gráficos de bolha também usam uma célula de tamanho. Limpe apenas a célula que representa o valor que pretende remover. Não chame [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) quando quiser manter os outros pontos, pois esse método remove todos os pontos de dados da coleção.
+Gráficos de dispersão usam células X e Y separadas, e gráficos de bolha também utilizam uma célula de tamanho. Limpe apenas a célula que representa o valor que pretende remover. Não chame [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) quando quiser manter os demais pontos, pois esse método remove todos os pontos de dados da coleção.
 
-## **Controlar a Exibição de Células Vazias**
+## **Controlar a exibição de células vazias**
 
-Células ocultas que contêm valores são um caso distinto de células vazias. Para incluir ou excluir dados de linhas e colunas ocultas da planilha, veja [Include Data from Hidden Rows and Columns](/slides/pt/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Células ocultas que contêm valores são um caso distinto de células vazias. Para incluir ou excluir dados de linhas e colunas ocultas da planilha, consulte [Include Data from Hidden Rows and Columns](/slides/pt/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Uma célula de pasta de trabalho vazia representa dados ausentes; uma célula contendo `0` representa um valor numérico conhecido. Chame [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) com `null` para tornar uma célula vazia. Um zero numérico permanece zero independentemente da configuração de células vazias.
+Uma célula vazia da pasta de trabalho representa dados ausentes; uma célula contendo `0` representa um valor numérico conhecido. Chame [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) com `null` para tornar a célula vazia. Um zero numérico permanece zero independentemente da configuração de célula vazia.
 
-Use [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) para escolher como o gráfico exibe células vazias. Essa configuração se aplica a todo o gráfico. Ela altera a forma como os vazios são plotados, sem preencher a célula vazia da pasta de trabalho com zero ou um valor interpolado.
+Use [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) para escolher como o gráfico exibe células vazias. Essa configuração é aplicada a todo o gráfico. Ela altera a forma como os vazios são plotados, sem preencher a célula vazia da pasta de trabalho com zero ou um valor interpolado.
 
-O exemplo autônomo a seguir cria um gráfico de linhas com uma série, limpa o valor para o Dia 3 e salva o mesmo gráfico em cada modo. Nenhum arquivo de entrada é necessário. O [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) usa a planilha 0, coluna 0 para rótulos de categoria e coluna 1 para valores; a linha 0 contém o nome da série. Os dados finais são `10, 20, empty, 30, 40`.
+O exemplo autônomo a seguir cria um gráfico de linhas com uma série, limpa o valor do Dia 3 e salva o mesmo gráfico em cada modo. Nenhum arquivo de entrada é necessário. O [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) usa a planilha 0, a coluna 0 para rótulos de categoria e a coluna 1 para valores; a linha 0 contém o nome da série. Os dados finais são `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -460,19 +470,19 @@ try {
 }
 ```
 
-Cada arquivo de saída armazena o modo atribuído antes de salvar: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` e `empty_cells_Span.pptx`. Para salvar apenas uma versão, atribua o modo desejado e salve a apresentação uma única vez ao invés de iterar pelos modos.
+Cada arquivo de saída armazena o modo atribuído antes da gravação: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` e `empty_cells_Span.pptx`. Para salvar apenas uma versão, atribua o modo desejado e salve a apresentação uma única vez em vez de iterar pelos modos.
 
-A comparação abaixo mostra os mesmos dados em todos os três arquivos. O Dia 3 está vazio na pasta de trabalho em todos os casos:
+A comparação abaixo mostra os mesmos dados nos três arquivos. O Dia 3 está vazio na pasta de trabalho em todos os casos:
 
-![gráficos de linhas com dados idênticos: Gap interrompe a linha no Dia 3, Zero reduz a linha a zero, e Span conecta o Dia 2 ao Dia 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-O efeito visível depende do tipo de gráfico. Um gráfico de linhas facilita a comparação dos três modos. Gráficos de barra e coluna não têm linha para conectar uma categoria ausente, portanto `Span` não pode produzir o segmento de conexão mostrado acima; uma coluna ausente e uma coluna de altura zero também podem parecer semelhantes. Da mesma forma, um gráfico de dispersão apenas com marcadores não tem linha de conexão. Não espere três resultados distintos para cada tipo de gráfico; verifique a saída para o tipo que você usa.
+O efeito visível depende do tipo de gráfico. Um gráfico de linhas facilita a comparação dos três modos. Gráficos de barras e colunas não têm linha para conectar across uma categoria ausente, portanto `Span` não pode produzir o segmento de conexão mostrado acima; uma coluna ausente e uma coluna de altura zero podem parecer semelhantes. Da mesma forma, um gráfico de dispersão apenas com marcadores não tem linha conectando. Não espere três resultados distintos para todo tipo de gráfico; verifique a saída para o tipo que você utiliza.
 
-## **Definir a Largura do Espaço Entre Séries**
+## **Definir a largura do intervalo entre séries**
 
-A largura do espaço é a distância entre clusters adjacentes de barras ou colunas, expressa como porcentagem da largura da barra ou coluna. Como a sobreposição, pertence ao grupo de séries pai e não a uma única série. Chame [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) uma vez para o grupo. Um valor maior cria mais espaço entre os clusters; um valor menor os torna mais densos.
+A largura do intervalo é o espaço entre clusters adjacentes de barras ou colunas, expressa como porcentagem da largura da barra ou coluna. Assim como a sobreposição, pertence ao grupo de séries pai e não a uma única série. Chame [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) uma vez para o grupo. Um valor maior cria mais espaço entre os clusters; um valor menor os torna mais densos.
 
-O exemplo a seguir altera a largura do espaço e salva apenas a apresentação final:
+O exemplo a seguir altera a largura do intervalo e salva apenas a apresentação final:
 
 ```java
 import com.aspose.slides.*;
@@ -496,46 +506,84 @@ try {
 }
 ```
 
-![largura do espaço](gap_width.png)
+O resultado:
 
-## **FAQ**
+![The gap width](gap_width.png)
+
+## **Exibir ou ocultar linhas de série**
+
+Linhas de série conectam visualmente partes relacionadas de um gráfico. Use [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) para exibi‑las ou ocultá‑las em gráficos de barras empilhadas e PieOfPie compatíveis. Em gráficos de barra empilhada e coluna empilhada bidimensionais, elas conectam limites de empilhamento correspondentes entre categorias. Em gráficos Pie of Pie e Bar of Pie, conectam o gráfico principal ao secundário. Essa configuração não é um conector de uso geral para outros tipos de gráfico.
+
+Acesse o grupo através de [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--). A configuração se aplica a todas as séries naquele grupo. [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#hasSeriesLines--) é somente leitura e reflete a configuração do grupo pai; chame o setter do grupo para atualizá‑la.
+
+O exemplo a seguir cria um gráfico [PieOfPie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#PieOfPie) com dados padrão. Ele salva o mesmo gráfico com linhas de série habilitadas e, em seguida, desabilitadas, produzindo duas apresentações para comparação.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Linhas de série habilitadas | Linhas de série desabilitadas |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| As duas linhas conectam a torta principal à torta secundária. | Ambas as tortas permanecem visíveis, mas as linhas de conexão são ocultas. |
+
+Linhas de série diferem das linhas de líder de rótulo de dados, que conectam rótulos aos seus pontos de dados; das linhas de grade, que marcam intervalos ao longo dos eixos do gráfico; e das linhas em um gráfico de linhas, que representam valores de dados. Essa configuração não controla esses elementos.
+
+## **Perguntas frequentes**
 
 **Quais tipos de gráfico suportam séries de dados?**
 
-Todos os tipos de gráfico representados pela enumeração [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) utilizam dados de gráfico, mas suas séries não possuem todas a mesma estrutura de valores ou configurações. Por exemplo, gráficos de categoria usam categorias e valores, gráficos de dispersão usam valores X e Y, e gráficos de bolha adicionam tamanhos de bolha. Use o método de criação de ponto de dados que corresponde ao tipo de série. Opções como sobreposição e largura do espaço aplicam‑se apenas a grupos de barra ou coluna compatíveis.
+Todos os tipos de gráfico representados pela enumeração [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) utilizam dados de gráfico, mas suas séries não têm todas a mesma estrutura de valores ou configurações. Por exemplo, gráficos de categoria usam categorias e valores, gráficos de dispersão usam valores X e Y, e gráficos de bolha adicionam tamanhos de bolha. Use o método de criação de ponto de dados que corresponde ao tipo da série. Opções como sobreposição e largura do intervalo aplicam‑se apenas a grupos de barras ou colunas compatíveis.
 
 **O que é um grupo de séries de gráfico?**
 
-Um [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) contém séries compatíveis que compartilham configurações de plotagem ao nível de grupo. Um gráfico combinado pode conter mais de um grupo, portanto mudar o grupo acessado por meio de uma série não altera necessariamente todas as séries no gráfico.
+Um [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) contém séries compatíveis que compartilham configurações de plotagem ao nível do grupo. Um gráfico combinado pode conter mais de um grupo, de modo que mudar o grupo acessado por uma série não altera necessariamente todas as séries do gráfico.
 
 **Um gráfico recém‑criado contém dados padrão?**
 
-Sim. Por padrão, [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) cria séries, categorias e valores de exemplo. Você pode editar essas células ou limpar tanto as coleções de séries quanto de categorias antes de adicionar um conjunto de dados completamente personalizado. Uma sobrecarga também pode criar um gráfico sem dados padrão.
+Sim. Por padrão, [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) cria séries, categorias e valores de exemplo. Você pode editar essas células ou limpar tanto as coleções de séries quanto as de categorias antes de adicionar um conjunto de dados totalmente personalizado. Uma sobrecarga também pode criar um gráfico sem dados padrão.
 
-**Como os objetos de gráfico são conectados às células da pasta de trabalho?**
+**Como os objetos do gráfico estão conectados às células da pasta de trabalho?**
 
-Nomes de séries, rótulos de categoria e valores de ponto de dados referenciam células em um [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Alterar uma célula referenciada atualiza o elemento de gráfico correspondente. Ao construir dados personalizados, mantenha as linhas de categorias e as linhas de valores das séries alinhadas para que cada ponto seja plotado sob a categoria pretendida.
+Nomes de séries, rótulos de categorias e valores de pontos de dados referenciam células em um [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Alterar uma célula referenciada atualiza o elemento correspondente do gráfico. Quando você constrói dados personalizados, mantenha as linhas de categorias e as linhas de valores das séries alinhadas para que cada ponto seja plotado sob a categoria desejada.
 
-**Como limpo um ponto ao invés de toda a série?**
+**Como limpar um ponto em vez de toda a série?**
 
-Defina a célula de valor relevante como `null` para manter a posição de categoria do ponto como um ponto vazio. Use [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) somente quando desejar remover todos os pontos daquela série. Se também remover categorias, atualize cada série para que seus valores permaneçam alinhados com a coleção de categorias.
+Defina a célula de valor relevante como `null` para manter a posição da categoria do ponto como um ponto vazio. Use [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) apenas quando desejar remover todos os pontos daquela série. Se também remover categorias, atualize todas as séries para que seus valores permaneçam alinhados com a coleção de categorias.
 
 **Como os pontos vazios são exibidos?**
 
-O resultado depende do tipo de gráfico e do valor configurado através de [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Os gráficos suportados podem exibir vazios como lacunas, como valores zero ou conectando pontos vizinhos. Escolha a configuração que corresponde ao significado dos dados ausentes em sua apresentação. Consulte [Controlar a Exibição de Células Vazias](#controlar-a-exibição-de-células-vazias) para um exemplo completo e comparação visual.
+O resultado depende do tipo de gráfico e do valor configurado em [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Gráficos suportados podem exibir vazios como lacunas, como valores zero ou conectando pontos vizinhos. Escolha a configuração que corresponde ao significado dos dados ausentes na sua apresentação. Consulte [Control the Display of Empty Cells](#control-the-display-of-empty-cells) para um exemplo completo e comparação visual.
 
 **Como valores negativos são formatados?**
 
 Para séries de barra, coluna e bolha suportadas, chame [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) e defina a cor retornada por [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Você pode sobrescrever o comportamento para um ponto individual com [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Esses métodos afetam a formatação, não os valores numéricos armazenados.
 
-**Qual formatação prevalece quando uma série e um ponto são formatados?**
+**Qual formatação prevalece quando tanto a série quanto o ponto são formatados?**
 
-A formatação explícita de ponto de dados tem precedência para esse ponto. Outros pontos continuam usando a formatação explícita da série ou, quando a formatação da série não está definida, o estilo e tema automáticos do gráfico. Configurações de grupo como sobreposição e largura do espaço controlam o layout e não são sobrescritas por formatação de ponto.
+A formatação explícita de ponto de dados tem precedência para esse ponto. Os demais pontos continuam a usar a formatação explícita da série ou, quando a formatação da série não está definida, o estilo e o tema automáticos do gráfico. Configurações de grupo, como sobreposição e largura do intervalo, controlam o layout e não são sobrescritas por formatação de ponto.
 
-**Existe um limite para quantas séries um gráfico pode conter?**
+**Existe um limite de quantas séries um gráfico pode conter?**
 
-Aspose.Slides não impõe um limite fixo separado para o número de séries. Na prática, restrições do arquivo de apresentação, memória disponível, tempo de renderização e legibilidade do gráfico determinam um limite útil.
+Aspose.Slides não impõe um limite fixo separado para a contagem de séries. Na prática, as restrições do arquivo de apresentação, memória disponível, tempo de renderização e legibilidade do gráfico determinam um limite útil.
 
-**O que devo mudar quando as colunas estão muito próximas ou muito afastadas?**
+**O que devo mudar quando as colunas estão muito próximas ou muito distantes?**
 
-Chame [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) no grupo de séries pai apropriado. Aumente o valor para ampliar o espaço entre os clusters, ou diminua‑o para aproximar os clusters.
+Chame [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) no grupo de séries pai apropriado. Aumente o valor para ampliar o espaço entre os clusters ou diminua‑o para aproximar os clusters.

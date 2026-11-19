@@ -9,38 +9,40 @@ keywords:
 - warna seri
 - nama seri
 - titik data
-- sel buku kerja
+- sel workbook
 - celah seri
 - nilai negatif
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara mengelola seri diagram, titik data, sel buku kerja, pemformatan, tumpang tindih, lebar celah, dan nilai negatif dalam presentasi dengan PHP."
+description: "Pelajari cara mengelola seri diagram, titik data, sel workbook, pemformatan, tumpang tindih, lebar celah, dan nilai negatif dalam presentasi dengan PHP."
 ---
 ## **Gambaran Umum**
 
-Diagram dapat menyimpan nilai yang dipetakan di sel buku kerja atau langsung sebagai literal numerik. Sebuah [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) mewakili satu set nilai terkait, dan setiap [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) mewakili sebuah titik dalam seri tersebut. Objek [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) menyediakan label atau nilai pengelompokan yang dibagi oleh seri. Pada diagram yang dibuat dengan data default, nama seri, kategori, dan nilai titik menggunakan objek [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) dari buku kerja diagram.
+Diagram dapat menyimpan nilai yang dipetakan dalam sel workbook atau langsung sebagai literal numerik. Sebuah [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) mewakili satu set nilai yang terkait, dan setiap [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) mewakili satu titik dalam seri tersebut. Objek [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) menyediakan label atau nilai pengelompokan yang dibagikan oleh seri. Dalam diagram yang dibuat dengan data default, nama seri, kategori, dan nilai titik menggunakan objek [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) dari workbook diagram.
 
-Untuk diagram kategori tipikal, buku kerja default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel‑sel sisanya untuk nilai seri. Indeks worksheet, baris, dan kolom yang diberikan ke [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) bersifat berbasis nol. Tata letak ini berguna saat Anda membuat diagram dengan data default, tetapi jangan berasumsi bahwa setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel‑sel yang dirujuk oleh seri, kategori, dan titik data sebelum mengubah nilai buku kerja.
+Untuk diagram kategori tipe umum, workbook default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel-sel sisanya untuk nilai seri. Indeks worksheet, baris, dan kolom yang diberikan ke [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) bersifat berbasis nol. Tata letak ini berguna saat Anda membuat diagram dengan data default, tetapi jangan berasumsi bahwa setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel-sel yang direferensikan oleh seri, kategori, dan titik data sebelum mengubah nilai workbook.
 
 Pengaturan diagram memiliki tiga lingkup yang berbeda:
 
-- Pengaturan tingkat‑seri, seperti [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), menyediakan tampilan default untuk semua titik dalam satu seri.
-- Pengaturan titik‑data, seperti [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), menimpa tampilan seri untuk satu titik.
-- Pengaturan grup berlaku untuk seri‑seri yang kompatibel yang berada dalam [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) yang sama. Akses grup melalui [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) ketika Anda perlu mengatur opsi seperti overlap atau lebar celah.
+- Pengaturan tingkat seri, seperti [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), menyediakan tampilan default untuk semua titik dalam satu seri.
+- Pengaturan titik data, seperti [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), menggantikan tampilan seri untuk satu titik.
+- Pengaturan grup berlaku untuk seri yang kompatibel yang berada dalam [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) yang sama. Akses grup melalui [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) ketika Anda perlu mengatur opsi seperti overlap atau lebar celah.
 
-Ketika tidak ada isian titik atau seri yang eksplisit, gaya dan tema diagram menentukan tampilan otomatis. Ketika pemformatan seri dan titik keduanya ada, pemformatan titik memiliki prioritas untuk titik tersebut.
+Ketika tidak ada pengisian titik atau seri yang eksplisit diatur, gaya dan tema diagram menentukan tampilan otomatis. Ketika format seri dan titik keduanya ada, format titik memiliki prioritas untuk titik tersebut.
 
-![seri-diagram-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Menetapkan Nilai Seri Menggunakan Literal Numerik**
+Untuk diagram silinder berkelompok, lihat bagaimana [mengubah tipe seri 3D atau bentuk batang](/slides/id/php-java/3d-chart/#change-the-3d-series-type-and-bar-shape) memengaruhi seri pertama.
+
+## **Atur Nilai Seri Menggunakan Literal Numerik**
 
 Gunakan literal numerik ketika nilai seri berasal dari data aplikasi atau perhitungan dan tidak memerlukan referensi sel worksheet. Panggil [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) dengan [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) sebelum menetapkan hasil [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) setiap titik melalui [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
 
-Pengaturan koleksi mengendalikan tipe sumber semua nilai titik dalam seri tersebut. Metode [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) setiap nilai titik melaporkan tipe yang dipilih; ubah melalui pengaturan koleksi. Dengan `Worksheet`, gunakan [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) untuk mengakses sel yang dirujuk. Dengan `DoubleLiterals`, gunakan [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) atau `setAsLiteralDouble` untuk membaca atau menulis angka secara langsung.
+Pengaturan koleksi mengontrol tipe sumber semua nilai titik dalam seri tersebut. Metode [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) setiap nilai titik melaporkan tipe yang dipilih; ubah melalui pengaturan koleksi. Dengan `Worksheet`, gunakan [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) untuk mengakses sel yang direferensikan. Dengan `DoubleLiterals`, gunakan [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) atau `setAsLiteralDouble` untuk membaca atau menulis angka secara langsung.
 
-Contoh berikut membuat diagram kolom dengan seri dan kategori default, lalu menetapkan nilai yang dihitung 10, 20, dan seterusnya ke titik‑titik yang ada pada seri pertama. Diagram disimpan, dibuka kembali, dan nilai yang disimpan dicetak.
+Contoh berikut membuat diagram kolom dengan seri dan kategori default, kemudian menetapkan nilai yang dihitung 10, 20, dan seterusnya ke titik yang ada pada seri pertama. Itu menyimpan presentasi, membukanya kembali, dan mencetak nilai yang disimpan.
 
 ```php
 use aspose\slides\ChartType;
@@ -81,15 +83,15 @@ try {
 }
 ```
 
-Tipe sumber nilai titik terpisah dari [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/), yang mengidentifikasi konfigurasi buku kerja internal atau eksternal diagram. Menggunakan literal numerik tidak secara otomatis menghapus buku kerja yang disematkan. Pada contoh ini, buku kerja tetap tersedia untuk label kategori, nama seri, dan seri lainnya. Lihat [Chart Workbook](/slides/id/php-java/chart-workbook/) untuk manajemen buku kerja.
+Tipe sumber nilai titik terpisah dari [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/), yang mengidentifikasi konfigurasi workbook internal atau eksternal diagram. Menggunakan literal numerik tidak secara otomatis menghapus workbook yang tersemat. Dalam contoh ini, workbook tetap tersedia untuk label kategori, nama seri, dan seri lainnya. Lihat [Chart Workbook](/slides/id/php-java/chart-workbook/) untuk manajemen workbook.
 
-Untuk diagram pencar dan gelembung, gunakan [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) dan [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) untuk memilih sumber bagi [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) dan [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). Diagram gelembung juga menggunakan [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) untuk [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). Tetapkan setiap sumber yang berlaku ke `DoubleLiterals` sebelum menugaskan angka melalui metode `setAsLiteralDouble` nilai tersebut.
+Untuk diagram pencar dan gelembung, gunakan [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) dan [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) untuk memilih sumber bagi [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) dan [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). Diagram gelembung juga menggunakan [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) untuk [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). Atur setiap sumber yang relevan ke `DoubleLiterals` sebelum menetapkan angka melalui metode `setAsLiteralDouble` nilai tersebut.
 
-## **Menetapkan Overlap Seri Diagram**
+## **Atur Overlap Seri Diagram**
 
-[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) melaporkan berapa persen batang atau kolom tumpang tindih dalam diagram 2D, dari -100 hingga 100 persen. Ini merupakan proyeksi baca‑saja dari pengaturan pada grup seri induk. Gunakan [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom yang dikelompokkan; tidak memengaruhi grup seri yang tidak terkait dalam diagram kombinasi.
+[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) melaporkan seberapa banyak batang atau kolom tumpang tindih dalam diagram 2D, dari -100 hingga 100 persen. Itu merupakan proyeksi read-only dari pengaturan pada grup seri induk. Gunakan [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom berkelompok; tidak memengaruhi grup seri yang tidak terkait dalam diagram kombinasi.
 
-Contoh berikut menetapkan overlap untuk grup yang berisi seri pertama:
+Contoh berikut mengatur overlap untuk grup yang berisi seri pertama:
 
 ```php
 $firstSlideIndex = 0;
@@ -100,7 +102,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // Diagram baru berisi seri contoh, kategori, dan nilai.
+    // Diagram baru berisi contoh seri, kategori, dan nilai.
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -116,13 +118,13 @@ try {
 
 Hasilnya:
 
-![Overlap seri](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Mengubah Warna Isian Seri**
+## **Ubah Warna Isi Seri**
 
-Gunakan [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) untuk menetapkan isian default bagi seluruh seri. Jika sebuah titik sudah memiliki isian eksplisit, pengaturan [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) menimpa isian seri untuk titik tersebut.
+Gunakan [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) untuk mengatur isi default untuk seluruh seri. Jika sebuah titik sudah memiliki isi eksplisit, pengaturan [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) akan menggantikan isi seri untuk titik tersebut.
 
-Contoh berikut menerapkan isian biru solid pada seri pertama:
+Contoh berikut menerapkan isi biru solid pada seri pertama:
 
 ```php
 $firstSlideIndex = 0;
@@ -149,11 +151,11 @@ try {
 
 Hasilnya:
 
-![Warna seri](series_color.png)
+![The color of the series](series_color.png)
 
-## **Mengubah Nama Seri**
+## **Ubah Nama Seri**
 
-Nama seri disimpan dalam buku kerja data diagram dan biasanya ditampilkan di legenda. Pada buku kerja default yang dibuat untuk diagram kolom berkelompok, sel B1 berada di baris 0, kolom 1 dan berisi nama seri pertama. Variabel bernama dalam contoh berikut membuat struktur itu eksplisit:
+Nama seri disimpan dalam workbook data diagram dan biasanya ditampilkan dalam legenda. Dalam workbook default yang dibuat untuk diagram kolom berkelompok, sel B1 berada pada baris 0, kolom 1 dan berisi nama seri pertama. Variabel bernama dalam contoh berikut membuat struktur itu eksplisit:
 
 ```php
 $firstSlideIndex = 0;
@@ -179,7 +181,7 @@ try {
 }
 ```
 
-Anda juga dapat memperbarui sel yang sudah dirujuk oleh [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang ada:
+Anda juga dapat memperbarui sel yang sudah direferensikan oleh [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang ada:
 
 ```php
 $firstSlideIndex = 0;
@@ -206,15 +208,15 @@ try {
 
 Hasilnya:
 
-![Nama seri](series_name.png)
+![The series name](series_name.png)
 
-### **Membuat Seri dengan Nama dari Beberapa Sel**
+### **Buat Seri dengan Nama dari Beberapa Sel**
 
-Nama seri komposit berguna ketika nama produk dan periode laporan disimpan di sel buku kerja terpisah. Misalnya, Anda dapat menggabungkan `Product A` di B1 dan `2026` di C1 menjadi satu nama seri sambil menjaga kedua bagian tetap terhubung ke sel sumbernya.
+Nama seri komposit berguna ketika nama produk dan periode pelaporan disimpan dalam sel workbook terpisah. Misalnya, Anda dapat menggabungkan `Product A` di B1 dan `2026` di C1 menjadi satu nama seri sambil menjaga kedua bagian tetap terhubung ke sel sumbernya.
 
 Gunakan [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) untuk mengambil rentang nama, lalu berikan koleksi itu ke [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/). Argumen `skipHiddenCells` mengontrol apakah sel tersembunyi disertakan: `true` mengecualikannya, sementara `false` menyertakannya. Contoh ini menggunakan `false` untuk menyertakan setiap sel dalam rentang nama.
 
-Contoh berikut membuat presentasi dengan satu seri dan dua titik data. Sel B1:C1 hanya menyediakan nama seri; A2:A3 menyediakan label kategori, dan B2:B3 menyediakan nilai numerik.
+Contoh berikut membuat presentasi dengan satu seri dan dua titik data. Sel B1:C1 menyediakan hanya nama seri; A2:A3 menyediakan label kategori, dan B2:B3 menyediakan nilai numerik.
 
 ```php
 use aspose\slides\ChartType;
@@ -234,7 +236,7 @@ try {
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     $workbook->clear(0);
 
-    // Dua sel ini menyediakan nama seri.
+    // Kedua sel ini menyediakan nama seri.
     $workbook->getCell(0, 0, 1, "Product A");
     $workbook->getCell(0, 0, 2, "2026");
     $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
@@ -258,11 +260,11 @@ try {
 
 Nama seri yang dihasilkan adalah `Product A 2026`, dengan spasi di antara dua nilai sel. Legenda menampilkan ini sebagai satu entri untuk kedua kolom. Gambar di bawah mengilustrasikan hasilnya:
 
-![Diagram kolom dengan nilai Utara dan Selatan serta nama seri komposit Product A 2026 di legenda](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Mendapatkan Warna Isian Seri Otomatis**
+## **Dapatkan Warna Isi Seri Otomatis**
 
-[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isian seri tidak didefinisikan secara eksplisit. Memanggil metode ini hanya membaca warna yang dihitung; tidak menetapkan isian baru.
+[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isi seri tidak didefinisikan secara eksplisit. Memanggil metode ini membaca warna yang dihitung; tidak menetapkan isi baru.
 
 Contoh berikut mencetak warna otomatis setiap seri default:
 
@@ -291,7 +293,7 @@ try {
 }
 ```
 
-Contoh output untuk gaya diagram default:
+Output contoh untuk gaya diagram default:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -299,11 +301,11 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Warna tepatnya tergantung pada gaya dan tema diagram.
+Warna tepat tergantung pada gaya dan tema diagram.
 
-## **Menetapkan Warna Isian Terbalik untuk Seri Diagram**
+## **Atur Warna Isi Terbalik untuk Seri Diagram**
 
-Untuk seri batang, kolom, dan gelembung, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) dapat menampilkan nilai negatif dengan isian berbeda. Tetapkan isian seri reguler ke solid, aktifkan inversi, dan tetapkan warna nilai negatif melalui [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Angka negatif tetap tidak berubah di buku kerja; hanya warna tampilannya yang berubah.
+Untuk seri batang, kolom, dan gelembung, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) dapat menampilkan nilai negatif dengan isi yang berbeda. Atur isi seri reguler menjadi solid, aktifkan inversi, dan tetapkan warna nilai negatif melalui [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Angka negatif tetap tidak berubah dalam workbook; hanya warna tampilannya yang berubah.
 
 Contoh berikut menggantikan data diagram default dengan satu seri. Baris worksheet 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
 
@@ -363,9 +365,9 @@ try {
 
 Hasilnya:
 
-![Warna isian solid terbalik](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Anda dapat mengaktifkan inversi untuk satu titik melalui [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Pada contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk titik yang dipilih. Titik tersebut juga diberikan nilai negatif sehingga efeknya terlihat:
+Anda dapat mengaktifkan inversi untuk satu titik melalui [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Dalam contoh berikut, inversi dinonaktifkan untuk seri dan hanya diaktifkan untuk titik yang dipilih. Titik tersebut juga diberikan nilai negatif agar efeknya terlihat:
 
 ```php
 $firstSlideIndex = 0;
@@ -399,11 +401,11 @@ try {
 }
 ```
 
-## **Mengosongkan Nilai Titik Data Tertentu**
+## **Bersihkan Nilai Titik Data Tertentu**
 
-Untuk membuat satu titik kosong tanpa menghapus titik lainnya, setel sel buku kerja yang mendasarinya menjadi `null`. Pada diagram kolom, nilai yang dipetakan tersedia melalui [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). Titik data tetap berada pada posisi kategori yang sama, namun diagram memperlakukan nilainya sebagai kosong sesuai dengan pengaturan nilai kosong diagram.
+Untuk membuat satu titik kosong tanpa menghapus titik lainnya, atur sel workbook yang mendasarinya menjadi `null`. Untuk diagram kolom, nilai yang dipetakan tersedia melalui [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). Titik data tetap pada posisi kategori yang sama, tetapi diagram memperlakukan nilainya sebagai kosong sesuai dengan pengaturan nilai kosong diagram.
 
-Contoh berikut hanya mengosongkan titik kedua dalam seri pertama:
+Contoh berikut hanya membersihkan titik kedua dalam seri pertama:
 
 ```php
 $firstSlideIndex = 0;
@@ -428,17 +430,17 @@ try {
 }
 ```
 
-Diagram pencar menggunakan sel X dan Y terpisah, dan diagram gelembung juga menggunakan sel ukuran. Hanya kosongkan sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lainnya, karena metode tersebut menghapus semua titik data dari koleksi.
+Diagram pencar menggunakan sel X dan Y terpisah, dan diagram gelembung juga menggunakan sel ukuran. Hapus hanya sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) ketika Anda ingin mempertahankan titik lainnya, karena metode tersebut menghapus semua titik data dari koleksi.
 
-## **Mengendalikan Tampilan Sel Kosong**
+## **Kontrol Tampilan Sel Kosong**
 
-Sel tersembunyi yang berisi nilai merupakan kasus terpisah dari sel kosong. Untuk menyertakan atau mengecualikan data dari baris dan kolom worksheet yang tersembunyi, lihat [Include Data from Hidden Rows and Columns](/slides/id/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Sel tersembunyi yang berisi nilai merupakan kasus terpisah dari sel kosong. Untuk menyertakan atau mengecualikan data dari baris dan kolom worksheet tersembunyi, lihat [Include Data from Hidden Rows and Columns](/slides/id/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Sel buku kerja kosong mewakili data yang hilang; sel yang berisi `0` mewakili nilai numerik yang diketahui. Panggil [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) dengan `null` untuk membuat sel kosong. Nol numerik tetap nol terlepas dari pengaturan sel kosong.
+Sel workbook kosong mewakili data yang hilang; sel yang berisi `0` mewakili nilai numerik yang diketahui. Panggil [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) dengan `null` untuk membuat sel kosong. Nol numerik tetap nol terlepas dari pengaturan sel kosong.
 
-Gunakan [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) untuk memilih bagaimana diagram menampilkan sel kosong. Pengaturan ini berlaku untuk seluruh diagram. Ia mengubah cara kosong dipetakan, tanpa mengisi sel buku kerja kosong dengan nol atau nilai interpolasi.
+Gunakan [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) untuk memilih bagaimana diagram menampilkan sel kosong. Pengaturan ini berlaku untuk seluruh diagram. Ia mengubah cara kosong dipetakan, tanpa mengisi sel workbook kosong dengan nol atau nilai interpolasi.
 
-Contoh mandiri berikut membuat diagram garis dengan satu seri, mengosongkan nilai untuk Hari 3, dan menyimpan diagram yang sama dengan setiap mode. Tidak diperlukan berkas input. [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) menggunakan worksheet 0, kolom 0 untuk label kategori, dan kolom 1 untuk nilai; baris 0 memegang nama seri. Data akhir adalah `10, 20, empty, 30, 40`.
+Contoh mandiri berikut membuat diagram garis dengan satu seri, menghapus nilai untuk Hari 3, dan menyimpan diagram yang sama dengan setiap mode. Tidak diperlukan file input. [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) menggunakan worksheet 0, kolom 0 untuk label kategori, dan kolom 1 untuk nilai; baris 0 memuat nama seri. Data akhir adalah `10, 20, empty, 30, 40`.
 
 ```php
 use aspose\slides\ChartType;
@@ -468,7 +470,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Biarkan Hari 3 benar-benar kosong, sambil mempertahankan kategori dan titik datanya.
+    // Biarkan Hari 3 benar-benar kosong, sambil mempertahankan kategorinya dan titik datanya.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -482,19 +484,19 @@ try {
 }
 ```
 
-Setiap berkas output menyimpan mode yang ditetapkan sebelum penyimpanan: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, dan `empty_cells_Span.pptx`. Untuk menyimpan hanya satu versi, tetapkan mode yang diinginkan dan simpan presentasi sekali saja alih‑alih mengulangi semua mode.
+Setiap file output menyimpan mode yang ditetapkan sebelum disimpan: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, dan `empty_cells_Span.pptx`. Untuk menyimpan hanya satu versi, tetapkan mode yang diinginkan dan simpan presentasi sekali saja alih-alih mengulangi melalui semua mode.
 
-Perbandingan di bawah menampilkan data yang sama dalam ketiga berkas. Hari 3 kosong di buku kerja pada setiap kasus:
+Perbandingan di bawah menunjukkan data yang sama di ketiga file. Hari 3 kosong di workbook pada setiap kasus:
 
-![Diagram garis dengan data identik: Gap memutus garis pada Hari 3, Zero menurunkan garis ke nol, dan Span menghubungkan Hari 2 ke Hari 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Efek yang terlihat bergantung pada tipe diagram. Diagram garis memudahkan perbandingan ketiga mode. Diagram batang dan kolom tidak memiliki garis untuk menghubungkan kategori yang hilang, sehingga `Span` tidak dapat menghasilkan segmen penghubung seperti di atas; kolom yang hilang dan kolom nol‑tinggi juga dapat terlihat serupa. Begitu pula diagram pencar dengan hanya penanda tidak memiliki garis penghubung. Jangan mengharapkan tiga hasil berbeda untuk setiap tipe diagram; periksa output untuk tipe yang Anda gunakan.
+Efek visual tergantung pada tipe diagram. Diagram garis memudahkan perbandingan ketiga mode. Diagram batang dan kolom tidak memiliki garis untuk menghubungkan kategori yang hilang, sehingga `Span` tidak dapat menghasilkan segmen penghubung yang ditampilkan di atas; kolom yang hilang dan kolom dengan tinggi nol dapat terlihat serupa. Demikian pula, diagram pencar dengan hanya penanda tidak memiliki garis penghubung. Jangan mengharapkan tiga hasil berbeda untuk setiap tipe diagram; periksa output untuk tipe yang Anda gunakan.
 
-## **Menetapkan Lebar Celah Seri**
+## **Atur Lebar Celah Seri**
 
-Lebar celah adalah ruang antara klaster batang atau kolom yang berdekatan, dinyatakan sebagai persentase lebar batang atau kolom. Seperti overlap, lebar celah dimiliki oleh grup seri induk, bukan oleh satu seri. Panggil [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) sekali untuk grup tersebut. Nilai yang lebih besar menciptakan lebih banyak ruang antar klaster; nilai yang lebih kecil membuatnya lebih rapat.
+Lebar celah adalah ruang antara kelompok batang atau kolom yang berdekatan, dinyatakan sebagai persentase dari lebar batang atau kolom. Seperti overlap, ini milik grup seri induk bukan satu seri. Panggil [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) sekali untuk grup. Nilai yang lebih besar menciptakan lebih banyak ruang antara kelompok; nilai yang lebih kecil membuatnya lebih padat.
 
-Contoh berikut mengubah lebar celah dan menyimpan hanya presentasi akhir:
+Contoh berikut mengubah lebar celah dan hanya menyimpan presentasi akhir:
 
 ```php
 $firstSlideIndex = 0;
@@ -520,46 +522,84 @@ try {
 
 Hasilnya:
 
-![Lebar celah](gap_width.png)
+![The gap width](gap_width.png)
 
-## **Tanya Jawab**
+## **Tampilkan atau Sembunyikan Garis Seri**
 
-**Jenis diagram apa yang mendukung data seri?**
+Garis seri secara visual menghubungkan bagian terkait dari sebuah diagram. Gunakan [ChartSeriesGroup::setSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setserieslines/) untuk menampilkan atau menyembunyikannya pada diagram batang berlapis dan OfPie yang didukung. Pada diagram batang dan kolom berlapis dua dimensi, mereka menghubungkan batas tumpukan yang sesuai di seluruh kategori. Pada diagram Pie of Pie dan Bar of Pie, mereka menghubungkan plot utama ke plot sekunder. Pengaturan ini bukan penghubung tujuan umum untuk tipe diagram lain.
 
-Semua jenis diagram yang diwakili oleh enumerasi [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) menggunakan data diagram, tetapi seri‑serinya tidak semua memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram pencar menggunakan nilai X dan Y, dan diagram gelembung menambahkan ukuran gelembung. Gunakan metode pembuatan titik data yang sesuai dengan tipe seri. Opsi seperti overlap dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
+Akses grup melalui [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/). Pengaturan ini berlaku untuk setiap seri dalam grup tersebut. [ChartSeries::hasSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/hasserieslines/) bersifat read-only dan mencerminkan pengaturan grup induk; panggil setter grup untuk memperbaruinya.
+
+Contoh berikut membuat satu diagram [ChartType::PieOfPie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) dengan data default. Ia menyimpan diagram yang sama dengan garis seri diaktifkan dan kemudian dinonaktifkan, menghasilkan dua presentasi untuk perbandingan.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $seriesGroup = $series->getParentSeriesGroup();
+
+    $seriesGroup->setSeriesLines(true);
+    $presentation->save("series_lines_enabled.pptx", SaveFormat::Pptx);
+
+    $seriesGroup->setSeriesLines(false);
+    $presentation->save("series_lines_disabled.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Garis seri diaktifkan | Garis seri dinonaktifkan |
+| --- | --- |
+| ![Diagram Pie of Pie dengan garis seri diaktifkan](series_lines_enabled.png) | ![Diagram Pie of Pie dengan garis seri dinonaktifkan](series_lines_disabled.png) |
+| Dua garis menghubungkan pai utama ke pai sekunder. | Kedua pai tetap terlihat, tetapi garis penghubung disembunyikan. |
+
+Garis seri berbeda dari garis pemimpin label data, yang menghubungkan label ke titik data mereka; garis kisi, yang menandai interval sepanjang sumbu diagram; dan garis dalam diagram garis, yang mewakili nilai data. Pengaturan ini tidak mengontrol elemen tersebut.
+
+## **FAQ**
+
+**Tipe diagram mana yang mendukung seri data?**
+
+Semua tipe diagram yang diwakili oleh enumerasi [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) menggunakan data diagram, tetapi serinya tidak semuanya memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram pencar menggunakan nilai X dan Y, dan diagram gelembung menambahkan ukuran gelembung. Gunakan metode pembuatan titik data yang sesuai dengan tipe seri. Opsi seperti overlap dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
 
 **Apa itu grup seri diagram?**
 
-Sebuah [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) berisi seri‑seri yang kompatibel yang berbagi pengaturan plotting tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup melalui satu seri tidak serta‑merta mengubah setiap seri dalam diagram.
+[ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) berisi seri yang kompatibel yang berbagi pengaturan plot tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup yang dicapai melalui satu seri tidak serta-merta mengubah setiap seri dalam diagram.
 
 **Apakah diagram yang baru dibuat berisi data default?**
 
-Ya. Secara default, [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) membuat contoh seri, kategori, dan nilai. Anda dapat menyunting sel‑sel itu atau mengosongkan koleksi seri dan kategori sebelum menambahkan set data yang sepenuhnya khusus. Overload juga dapat membuat diagram tanpa data default.
+Ya. Secara default, [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) membuat contoh seri, kategori, dan nilai. Anda dapat mengedit sel-sel tersebut atau mengosongkan koleksi seri dan kategori sebelum menambahkan kumpulan data yang sepenuhnya kustom. Sebuah overload juga dapat membuat diagram tanpa data default.
 
-**Bagaimana objek diagram terhubung ke sel buku kerja?**
+**Bagaimana objek diagram terhubung ke sel workbook?**
 
-Nama seri, label kategori, dan nilai titik data merujuk ke sel dalam sebuah [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Mengubah sel yang dirujuk memperbarui elemen diagram yang bersangkutan. Saat Anda membangun data khusus, jaga agar baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
+Nama seri, label kategori, dan nilai titik data mereferensikan sel dalam sebuah [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Mengubah sel yang direferensikan memperbarui elemen diagram yang bersangkutan. Saat Anda membangun data kustom, jaga agar baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
 
-**Bagaimana cara mengosongkan satu titik tanpa seluruh seri?**
+**Bagaimana cara menghapus satu titik alih-alih seluruh seri?**
 
-Setel sel nilai yang relevan menjadi `null` untuk mempertahankan posisi kategori titik sebagai titik kosong. Gunakan [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) hanya ketika Anda berniat menghapus semua titik dari seri tersebut. Jika Anda juga menghapus kategori, perbarui setiap seri sehingga nilai‑nya tetap selaras dengan koleksi kategori.
+Atur sel nilai yang relevan ke `null` untuk mempertahankan posisi kategori titik sebagai titik kosong. Gunakan [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) hanya ketika Anda bermaksud menghapus semua titik dari seri tersebut. Jika Anda juga menghapus kategori, perbarui setiap seri sehingga nilai mereka tetap selaras dengan koleksi kategori.
 
 **Bagaimana titik kosong ditampilkan?**
 
-Hasilnya tergantung pada tipe diagram dan nilai yang dikonfigurasi melalui [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Diagram yang didukung dapat menampilkan kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik‑titik tetangga. Pilih pengaturan yang sesuai dengan makna data yang hilang dalam presentasi Anda. Lihat [Mengendalikan Tampilan Sel Kosong](#control-the-display-of-empty-cells) untuk contoh lengkap dan perbandingan visual.
+Hasilnya tergantung pada tipe diagram dan nilai yang dikonfigurasi melalui [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Diagram yang didukung dapat menampilkan kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik-titik tetangga. Pilih pengaturan yang sesuai dengan makna data yang hilang dalam presentasi Anda. Lihat [Control the Display of Empty Cells](#control-the-display-of-empty-cells) untuk contoh lengkap dan perbandingan visual.
 
 **Bagaimana nilai negatif diformat?**
 
-Untuk seri batang, kolom, dan gelembung yang didukung, panggil [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) dan tetapkan warna yang dikembalikan oleh [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Anda dapat menimpa perilaku untuk titik individual dengan [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Metode‑metode ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
+Untuk seri batang, kolom, dan gelembung yang didukung, panggil [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) dan tetapkan warna yang dikembalikan oleh [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Anda dapat mengganti perilaku untuk titik individual dengan [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Metode ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
 
-**Pemformatan mana yang menang ketika seri dan titik keduanya diformat?**
+**Format mana yang menang ketika baik seri maupun titik diformat?**
 
-Pemformatan titik data yang eksplisit memiliki prioritas untuk titik tersebut. Titik lainnya tetap menggunakan pemformatan seri eksplisit atau, bila pemformatan seri tidak didefinisikan, gaya dan tema diagram otomatis. Pengaturan grup seperti overlap dan lebar celah mengendalikan tata letak dan bukan penimpaan pemformatan tingkat titik.
+Pemformatan titik data eksplisit memiliki prioritas untuk titik tersebut. Titik lainnya tetap menggunakan format seri eksplisit atau, ketika format seri tidak didefinisikan, gaya dan tema diagram otomatis. Pengaturan grup seperti overlap dan lebar celah mengontrol tata letak dan bukan penimpaan format tingkat titik.
 
-**Apakah ada batas berapa banyak seri yang dapat dimiliki diagram?**
+**Apakah ada batas jumlah seri yang dapat dimiliki diagram?**
 
-Aspose.Slides tidak menetapkan batas tetap terpisah untuk jumlah seri. Dalam praktiknya, batas ditentukan oleh kendala berkas presentasi, memori yang tersedia, waktu rendering, dan keterbacaan diagram.
+Aspose.Slides tidak menetapkan batas tetap terpisah untuk jumlah seri. Pada praktiknya, batas file presentasi, memori yang tersedia, waktu render, dan keterbacaan diagram menentukan batas yang berguna.
 
-**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu terpisah?**
+**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu jauh?**
 
-Panggil [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) pada grup seri induk yang sesuai. Tingkatkan nilai untuk memperlebar ruang antar klaster, atau turunkan nilai untuk mendekatkan klaster.
+Panggil [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) pada grup seri induk yang sesuai. Tingkatkan nilai untuk memperlebar ruang antara kelompok, atau turunkan nilai untuk mendekatkan kelompok.
