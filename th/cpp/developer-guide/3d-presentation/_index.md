@@ -1,5 +1,5 @@
 ---
-title: สร้างเอฟเฟกต์ 3D ในงานนำเสนอด้วย C++
+title: สร้างเอฟเฟ็กต์ 3D ในการนำเสนอด้วย C++
 linktitle: การนำเสนอ 3D
 type: docs
 weight: 232
@@ -9,52 +9,52 @@ keywords:
 - การนำเสนอ 3D
 - การหมุน 3D
 - ความลึก 3D
-- การดัน 3D
+- การดึงออก 3D
 - การไล่สี 3D
 - ข้อความ 3D
 - PowerPoint
-- การนำเสนอ
+- นำเสนอ
 - C++
 - Aspose.Slides
-description: "ใช้และเรนเดอร์เอฟเฟกต์ 3D สำหรับรูปร่างและข้อความของ PowerPoint ใน C++ ด้วย Aspose.Slides กำหนดค่ากล้อง แสง วัสดุ การดัน การเติมและข้อความ 3D"
+description: "ประยุกต์ใช้และเรนเดอร์เอฟเฟ็กต์ 3D สำหรับรูปทรงและข้อความของ PowerPoint ใน C++ ด้วย Aspose.Slides ตั้งค่ากล้อง, การให้แสง, วัสดุ, การดึงออก, การเติม, และข้อความ 3D."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for C++ สามารถสร้าง แก้ไข เก็บรักษา และเรนเดอร์การจัดรูปแบบ 3D แบบ PowerPoint สำหรับรูปร่างและข้อความได้ บทความนี้ครอบคลุมเอฟเฟกต์ 3D เช่น การหมุน การดัน การทำบีเวล การจัดแสง วัสดุ การไล่สีหรือการเติมภาพ และข้อความ 3D
+Aspose.Slides for C++ สามารถสร้าง, แก้ไข, รักษา, และเรนเดอร์รูปแบบ 3D แบบ PowerPoint สำหรับรูปทรงและข้อความได้ บทความนี้ครอบคลุมเอฟเฟ็กต์ 3D เช่น การหมุน, การดึงออก, bevels, การให้แสง, วัสดุ, การไล่ระดับสีหรือการเติมรูปภาพ, และข้อความ 3D
 
 {{% alert color="info" title="Note" %}}
-บทความนี้เกี่ยวกับเอฟเฟกต์การจัดรูปแบบ 3D บนรูปร่างและข้อความของ PowerPoint ไม่ได้เกี่ยวกับการแทรกหรือแก้ไขไฟล์โมเดล 3D แบบอิสระ เมื่อคุณส่งออกสไลด์เป็นรูปภาพ PDF หรือ HTML Aspose.Slides จะเรนเดอร์เอฟเฟกต์ 3D เหล่านั้นลงในผลลัพธ์ 2D ที่ส่งออก
+บทความนี้เกี่ยวกับเอฟเฟ็กต์การจัดรูปแบบ 3D บนรูปทรงและข้อความของ PowerPoint ไม่ได้เกี่ยวกับการแทรกหรือแก้ไขไฟล์โมเดล 3D แบบแยกส่วน เมื่อคุณส่งออกสไลด์เป็นภาพ, PDF, หรือ HTML, Aspose.Slides จะเรนเดอร์เอฟเฟ็กต์ 3D เหล่านั้นลงในผลลัพธ์ 2D ที่ส่งออก
 {{% /alert %}}
 
 ## **แนวคิดการจัดรูปแบบ 3D**
 
-ใช้เมธอด [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/get_threedformat/) เพื่อใช้การจัดรูปแบบ 3D กับรูปร่าง เมธอดจะคืนค่า [IThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/) ซึ่งควบคุมฉาก 3D ของรูปร่างนั้น
+ใช้เมธอด [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) เพื่อใช้การจัดรูปแบบ 3D กับรูปทรง เมธอดนี้จะคืนค่า [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/) ซึ่งควบคุมฉาก 3D สำหรับรูปทรงนั้น
 
-สำหรับข้อความ ให้ใช้เมธอด [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/get_threedformat/) ซึ่งจะนำการจัดรูปแบบ 3D ไปใช้กับเฟรมข้อความแทนส่วนเนื้อหาของรูปร่าง
+สำหรับข้อความ ให้ใช้เมธอด [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) วิธีนี้จะใช้การจัดรูปแบบ 3D กับเฟรมข้อความแทนที่ลำตัวของรูปทรง
 
-เมธอดที่สำคัญที่สุด ได้แก่
+เมธอดที่สำคัญที่สุดคือ:
 
-| Method | ควบคุมอะไร | เมื่อใดใช้ |
+| เมธอด | สิ่งที่ควบคุม | เมื่อใดควรใช้ |
 |---|---|---|
-| [get_Camera](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_camera/) | จุดมอง กล้องสำเร็จรูป การหมุน การขยาย และมุมมอง | หมุนวัตถุในพื้นที่ 3D หรือจับคู่กับพรีเซ็ตการหมุน 3D ของ PowerPoint |
-| [get_LightRig](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_lightrig/) | แสงสำเร็จรูป ทิศทาง และการหมุนแสง | ปรับวิธีที่ไฮไลท์และเงาปรากฏบนพื้นผิว 3D |
-| [set_Material](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_material/) | วัสดุผิว เช่น แบน แมตต์ พลาสติก หรือโลหะ | ทำให้รูปทรงเดียวกันดูแบนกว่า นุ่มกว่า มีความเงาหรือเป็นโลหะ |
-| [set_ExtrusionHeight](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | ระยะที่รูปร่างยืดออกจากหน้ากหน้า | แปลงรูปร่างแบนเป็นวัตถุ 3D ที่มีความหนาเห็นได้ |
-| [get_ExtrusionColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | สีของด้านที่ถูกดันออก | ทำให้ความลึกเห็นได้หรือประสานสีด้านข้างกับการเติมหน้า |
-| [set_Depth](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_depth/) | ความลึก 3D เพิ่มเติมที่ PowerPoint ใช้ | ปรับความลึกละเอียดสำหรับรูปร่างหรือข้อความ โดยเฉพาะเมื่อใช้ร่วมกับบีเวลและวัสดุ |
-| [get_BevelTop](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_beveltop/) and [get_BevelBottom](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | ขอบยกหรือโค้งบนหน้าหน้าและด้านหลัง | เพิ่มขอบที่นุ่มหรือขึ้นรูปแทนหน้าที่แบนและคม |
-| [get_ContourColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_contourcolor/) and [set_ContourWidth](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_contourwidth/) | เส้นขอบรอบวัตถุ 3D | เน้นขอบวัตถุในผลลัพธ์ที่เรนเดอร์ |
+| [get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) | มุมมอง, ประเภทกล้องตั้งต้น, การหมุน, การซูม, และ Perspective | หมุนวัตถุในพื้นที่ 3D หรือจับคู่กับการตั้งค่าการหมุน 3D ของ PowerPoint |
+| [get_LightRig](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_lightrig/) | การตั้งค่าแสงล่วงหน้า, ทิศทาง, และการหมุนของแสง | ปรับการแสดงไฮไลท์และเงาบนพื้นผิว 3D |
+| [set_Material](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_material/) | วัสดุพื้นผิว เช่น แบน, Matt, พลาสติก, หรือเมทัล | ทำให้รูปทรงเดียวกันดูแบนกว่า, นุ่มกว่า, มันวาว หรือมีลักษณะเป็นโลหะ |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | ระยะที่รูปทรงยืดออกไปด้านหลังจากหน้าหน้า | เปลี่ยนรูปทรงแบนให้กลายเป็นวัตถุ 3D ที่มีความหนาเห็นได้ชัด |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | สีของด้านที่ดึงออก | ทำให้ความลึกมองเห็นได้หรือประสานสีด้านกับการเติมหน้าหน้า |
+| [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) | ความลึก 3D เพิ่มเติมที่ PowerPoint ใช้ | ปรับความลึกของรูปทรงหรือข้อความโดยละเอียด โดยเฉพาะเมื่อใช้ร่วมกับ bevel และการตั้งค่าวัสดุ |
+| [get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) and [get_BevelBottom](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | ขอบที่ยกขึ้นหรือมนบนหน้าหน้าและด้านหลัง | เพิ่มขอบที่นุ่มหรือหล่อขึ้นแทนการมีขอบแบนคม |
+| [get_ContourColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_contourcolor/) and [set_ContourWidth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_contourwidth/) | เส้นขอบรอบวัตถุ 3D | เน้นขอบวัตถุในผลลัพธ์ที่เรนเดอร์ |
 
-## **สร้างรูปแบบ 3D**
+## **สร้างรูปทรง 3D**
 
-รูปร่างมักต้องการการตั้งสี่ประเภทก่อนที่จะแสดงเป็น 3D อย่างสมจริง:
+รูปทรงมักต้องการการตั้งค่าสี่ประเภทก่อนที่จะดูเหมือน 3D อย่างเชื่อถือได้:
 
-- การตั้งค่ากล้อง เนื่องจากมุมมองหน้าตามค่าเริ่มต้นอาจซ่อนการดันออก
-- การตั้งค่าแสง เนื่องจากแสงทำให้หน้าและด้านสามารถมองเห็นได้
-- การตั้งค่าวัสดุ เพราะพื้นผิวมีผลต่อการเรนเดอร์แสง
-- การตั้งค่าการดันหรือความลึก เพราะรูปร่างแบนต้องมีความหนา
+- การตั้งค่ากล้อง, เนื่องจากมุมมองหน้าตั้งต้นอาจซ่อนการดึงออก
+- การตั้งค่าแสง, เนื่องจากแสงทำให้พื้นผิวและด้านต่าง ๆ ดูชัดเจน
+- การตั้งค่าวัสดุ, เนื่องจากพื้นผิวมีผลต่อการแสดงแสง
+- การตั้งค่าการดึงออกหรือความลึก, เนื่องจากรูปทรงแบนต้องการความหนา
 
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยม กำหนดข้อความบนหน้าหน้า และนำการจัดรูปแบบ 3D ไปใช้ ค่าการหมุนของกล้องเป็นองศาและความสูงการดันเป็น 100 จุด ตัวอย่างนี้เรนเดอร์สไลด์เป็นภาพ PNG ขนาดสองเท่าของค่าเริ่มต้นและบันทึกงานนำเสนอเป็น PPTX
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยม, เพิ่มข้อความไปยังหน้าหน้า, และใช้การจัดรูปแบบ 3D ค่าองศาการหมุนของกล้องอยู่ในหน่วยองศา และความสูงการดึงออกคือ 100 points ตัวอย่างนี้เรนเดอร์สไลด์เป็นภาพ PNG ขนาดสองเท่าของขนาดเริ่มต้นและบันทึกการนำเสนอเป็น PPTX
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -115,17 +115,17 @@ presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ภาพสไลด์ที่เรนเดอร์แสดงสี่เหลี่ยมเป็นบล็อก 3D หนา:
+ภาพสไลด์ที่เรนเดอร์แสดงสี่เหลี่ยมเป็นบล็อก 3D หนาขึ้น:
 
-![สี่เหลี่ยม 3D สีน้ำเงินที่เรนเดอร์พร้อมข้อความ 3D สีขาวบนหน้าหน้า](img_01_01.png)
+![สไลด์ที่เรนเดอร์สี่เหลี่ยม 3D สีน้ำเงินพร้อมข้อความ 3D สีขาวบนหน้าหน้า](img_01_01.png)
 
 ## **หมุนรูปทรงด้วยกล้อง**
 
-ใน PowerPoint การหมุน 3D ถูกกำหนดจากพาเนล 3‑D Rotation ค่าการหมุน X, Y, Z จะสอดคล้องกับการตั้งค่าที่คุณกำหนดผ่าน API ของกล้อง
+ใน PowerPoint การหมุน 3D กำหนดจากแผง 3‑D Rotation ค่าการหมุน X, Y, และ Z ตรงกับการหมุนที่คุณตั้งค่าผ่าน API ของกล้อง
 
-![พาเนล 3‑D Rotation ของ PowerPoint พร้อมค่าการหมุน X, Y, Z ที่ไฮไลท์](img_02_01.png)
+![แผง PowerPoint 3‑D Rotation พร้อมค่า X, Y, และ Z ที่ไฮไลท์](img_02_01.png)
 
-ใน Aspose.Slides ให้เข้าถึงกล้องผ่าน [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_camera/) ตัวอย่างนี้สร้างสี่เหลี่ยม เลือกมุมมองหน้าคณิตศาสตร์ และตั้งค่าการหมุน X, Y, Z ที่ 20, 30, 40 องศาตามลำดับ โดยกำหนดรูปทรงในหน่วยความจำโดยไม่บันทึกไฟล์:
+ใน Aspose.Slides เข้าถึงกล้องผ่าน [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) ตัวอย่างนี้สร้างสี่เหลี่ยม, เลือกมุมมองหน้ารูปแบบออร์โธกราฟิก, และตั้งค่าการหมุน X, Y, Z เป็น 20, 30, และ 40 องศาตามลำดับ ซึ่งกำหนดรูปทรงในหน่วยความจำโดยไม่บันทึกไฟล์:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -150,15 +150,54 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 presentation->Dispose();
 ```
 
-ใช้กล้องเมื่อคุณต้องการเปลี่ยนวิธีที่ผู้ชมเห็นวัตถุ มันไม่ได้เปลี่ยนรูปทรง 2D บนสไลด์ แต่เปลี่ยนจุดมอง 3D ที่ PowerPoint และ Aspose.Slides ใช้ในการเรนเดอร์
+ใช้กล้องเมื่อคุณต้องการเปลี่ยนวิธีที่ผู้ชมมองวัตถุ ไม่ได้เปลี่ยนรูปทรง 2D บนสไลด์ แต่เปลี่ยนมุมมอง 3D ที่ PowerPoint และ Aspose.Slides ใช้ในการเรนเดอร์
 
-## **เพิ่มการดันและความลึก**
+### **คัดลอกการตั้งค่าแนวกล้องจากรูปเทมเพลต**
 
-การดันทำให้รูปร่างดูหนาโดยขยายออกจากหน้าหน้า ใน PowerPoint การควบคุมความลึกกำหนดความหนาที่มองเห็นได้และการควบคุมสีกำหนดสีของด้านข้าง
+เพื่อให้สอดคล้องกับแนวกล้องของรูปเทมเพลต, อ่านค่าที่ตั้งไว้ด้วย [get_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/get_cameratype/) และนำไปใช้ด้วย [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) ตัวอย่างเปิด `template.pptx` และคัดลอกแนวกล้องจากรูปแรกบนสไลด์แรกไปยังรูปที่สอง รูปทั้งสองมีการตั้งค่าแสง 3D อยู่แล้ว และรูปที่สองไม่มีการหมุนกล้องอย่างชัดเจน
 
-![การควบคุมความลึกของ PowerPoint ที่แมปกับสีการดันและคุณสมบัติความสูงการดัน](img_02_02.png)
+[GetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/getrotation/) คืนค่ามุมเป็นองศา อินเด็กซ์ `0` คือ latitude, อินเด็กซ์ `1` คือ longitude, อินเด็กซ์ `2` คือ revolution ส่งมุมเหล่านั้นไปยัง [SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) ตามลำดับ หากแหล่งไม่มีการหมุนอย่างชัดเจน `GetRotation` คืนค่า null pointer ดังนั้นให้ปล่อยให้มุมของรูปที่สองไม่ตั้ง ค่า rotation ชัดเจนของ `(0, 0, 0)` จะคืนอาเรย์สามศูนย์และควรคัดลอก
 
-ตั้งค่า [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_extrusionheight/) เพื่อกำหนดความหนาและ [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) เพื่อกำหนดสีด้านข้าง ตัวอย่างนี้ทำให้สี่เหลี่ยมมีการดัน 100 จุดพร้อมด้านสีม่วงและหมุนกล้องเพื่อเปิดเผยความหนา มันกำหนดรูปทรงในหน่วยความจำโดยไม่บันทึกไฟล์:
+```cpp
+#include <DOM/ICamera.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto sourceCamera = slide->get_Shape(0)->get_ThreeDFormat()->get_Camera();
+auto destinationCamera = slide->get_Shape(1)->get_ThreeDFormat()->get_Camera();
+
+destinationCamera->set_CameraType(sourceCamera->get_CameraType());
+auto angles = sourceCamera->GetRotation();
+if (angles != nullptr)
+{
+    destinationCamera->SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation->Save(u"camera-copy.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+เมื่อคุณเปิด `camera-copy.pptx` อีกครั้งใน PowerPoint ลูกศรทางขวาจะมีการตั้งค่ากล้องและการหมุนเหมือนสี่เหลี่ยมด้านซ้าย รูปทั้งสองใช้แสงและความลึกการดึงออกเดียวกัน
+
+![สี่เหลี่ยม 3D สีน้ำเงินและลูกศรขวาที่มีแนวกล้องตรงกัน, มองจากด้านบนและด้านขวา](camera-orientation.png)
+
+## **เพิ่มการดึงออกและความลึก**
+
+การดึงออกทำให้รูปทรงดูหนาด้วยการยืดออกไปด้านหลังของหน้าหน้า ใน PowerPoint การควบคุมความลึกกำหนดความหนาที่มองเห็นได้และการควบคุมสีกำหนดสีของด้านข้าง
+
+![การควบคุมความลึกของ PowerPoint ที่แมปกับสีการดึงออกและคุณสมบัติความสูงการดึงออก](img_02_02.png)
+
+ตั้งค่า [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) เพื่อกำหนดความหนาและ [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) เพื่อกำหนดสีด้าน ตัวอย่างนี้ให้สี่เหลี่ยมมีการดึงออก 100 points พร้อมด้านสีม่วงและหมุนกล้องเพื่อแสดงความหนา ตัวอย่างกำหนดรูปทรงในหน่วยความจำโดยไม่บันทึกไฟล์:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -197,13 +236,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-เมธอด [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_depth/) กำหนดความลึกของรูปร่าง 3D เมธอด [set_ExtrusionHeight](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/set_extrusionheight/) ควบคุมความสูงของเอฟเฟกต์การดันตามที่แสดงในตัวอย่างนี้
+เมธอด [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) กำหนดความลึกของรูปทรง 3D เมธอด [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) ควบคุมความสูงของเอฟเฟ็กต์การดึงออกตามที่แสดงในตัวอย่างนี้
 
-## **ใช้การไล่สีหรือการเติมภาพกับเอฟเฟกต์ 3D**
+## **ใช้การไล่สีหรือการเติมรูปภาพกับเอฟเฟ็กต์ 3D**
 
-การจัดรูปแบบ 3D ไม่ขึ้นกับการเติมรูปร่าง คุณสามารถใช้สีทึบ การไล่สี พาเทิร์น หรือการเติมภาพบนหน้าหน้าได้โดยยังคงใช้การตั้งค่ากล้อง แสง วัสดุ และการดันเหมือนเดิม
+การจัดรูปแบบ 3D ทำงานแยกจากการเติมรูปทรง คุณสามารถเติมสีทึบ, การไล่สี, ลวดลาย, หรือรูปภาพไปยังหน้าหน้าและยังคงใช้กล้อง, แสง, วัสดุ, และการดึงออกเดียวกันได้
 
-ตัวอย่างนี้ใช้การไล่สีจากน้ำเงินไปส้มบนหน้าหน้าและสีส้มเข้มสำหรับการดัน 150 จุด การหยุดไล่สีที่ตำแหน่ง 0 และ 100 คือจุดเริ่มและจบของการไล่ สีการหมุนของกล้องเป็นองศา สไลด์จะเรนเดอร์เป็นภาพ PNG ขนาดสองเท่าของค่าเริ่มต้น:
+ตัวอย่างนี้ใช้การไล่สีจากสีน้ำเงินไปสั่งส้มบนหน้าหน้าและสีส้มเข้มบนส่วนการดึงออก 150 points จุดหยุดไล่สีที่ 0 และ 100 กำหนดจุดเริ่มและสิ้นสุดของการไล่สี ค่าองศาการหมุนของกล้องอยู่ในหน่วยองศา สไลด์เรนเดอร์เป็นภาพ PNG ขนาดสองเท่าของขนาดเริ่มต้น:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -264,11 +303,11 @@ thumbnail->Dispose();
 presentation->Dispose();
 ```
 
-ผลลัพธ์ที่เรนเดอร์ยังคงการไล่สีบนหน้าหน้าและเรนเดอร์การดันแยกจากกัน:
+ผลลัพธ์ที่เรนเดอร์ยังคงการไล่สีบนหน้าหน้าและเรนเดอร์การดึงออกแยกต่างหาก:
 
-![สี่เหลี่ยม 3D ที่เรนเดอร์พร้อมการไล่สีจากน้ำเงินไปส้มและการดันสีส้ม](img_02_03.png)
+![สี่เหลี่ยม 3D ที่เรนเดอร์ด้วยการไล่สีจากสีน้ำเงินไปสั่งส้มและการดึงออกสีส้ม](img_02_03.png)
 
-หากต้องการใช้การเติมภาพ ให้เพิ่มภาพเข้าไปในงานนำเสนอและกำหนดเป็นการเติมรูปร่าง ตัวอย่างนี้ต้องมีไฟล์ชื่อ "image.jpg" ในไดเรกทอรีทำงาน มันขยายรูปภาพให้เต็มสี่เหลี่ยม ใส่การดัน 150 จุด และตั้งค่าการหมุนกล้องเป็นองศา มันกำหนดรูปทรงในหน่วยความจำโดยไม่บันทึกหรือเรนเดอร์ไฟล์:
+หากต้องการใช้การเติมรูปภาพแทน, เพิ่มรูปลงในงานนำเสนอและกำหนดให้เป็นการเติมรูปของรูปทรง ตัวอย่างนี้ต้องมีไฟล์ชื่อ "image.jpg" อยู่ในไดเรกทรีทำงาน จะยืดรูปเพื่อเติมสี่เหลี่ยม, ตั้งการดึงออก 150 points, และตั้งค่าการหมุนกล้องเป็นองศา ตัวอย่างกำหนดรูปทรงในหน่วยความจำโดยไม่บันทึกหรือเรนเดอร์ไฟล์:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -321,15 +360,15 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-รูปภาพจะเรนเดอร์บนหน้าหน้า ส่วนการดันจะเรนเดอร์เป็นพื้นผิวด้านข้าง 3D:
+รูปภาพจะถูกเรนเดอร์บนหน้าหน้า ส่วนการดึงออกจะเรนเดอร์เป็นพื้นผิวด้านข้าง 3D:
 
-![สี่เหลี่ยม 3D ที่เรนเดอร์พร้อมการเติมรูปภาพบนหน้าหน้าและการดันสีส้ม](img_02_04.png)
+![สี่เหลี่ยม 3D ที่เรนเดอร์ด้วยการเติมรูปภาพบนหน้าหน้าและการดึงออกสีส้ม](img_02_04.png)
 
 ## **ใช้การจัดรูปแบบ 3D กับข้อความ**
 
-การจัดรูปแบบ 3D ของรูปร่างส่งผลต่อเนื้อหารูปร่าง ส่วนการจัดรูปแบบ 3D ของข้อความส่งผลต่อเฟรมข้อความ ซึ่งมีประโยชน์สำหรับเอฟเฟกต์แบบ WordArt ที่ตัวอักษรต้องการการดัน วัสดุ แสง และการตั้งค่ากล้อง
+การจัดรูปแบบ 3D ของรูปทรงส่งผลต่อลำตัวของรูป ส่วนการจัดรูปแบบ 3D ของข้อความส่งผลต่อเฟรมข้อความ ซึ่งมีประโยชน์สำหรับเอฟเฟ็กต์แบบ WordArt ที่ตัวอักษรต้องการการดึงออก, วัสดุ, แสง, และการตั้งค่ากล้อง
 
-ตัวอย่างต่อไปนี้สร้างข้อความด้วยพาเทิร์นตารางสีส้มและขาว ใช้โค้งขึ้นด้านบน และกำหนดค่า 3D ผ่าน [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/get_threedformat/) ความสูงการดันและความลึกเป็นจุด และการหมุนแสงเป็นองศา การเติมและเส้นขอบของรูปร่างถูกซ่อนเพื่อให้เห็นเฉพาะข้อความ ตัวอย่างเรนเดอร์เป็นภาพ PNG ขนาดสองเท่าของสไลด์เริ่มต้นและบันทึกงานนำเสนอเป็น PPTX:
+ตัวอย่างต่อไปนี้สร้างข้อความด้วยลวดลายกริดสีส้มและสีขาว, ใช้การโค้งขึ้น, และกำหนดค่าการจัดรูปแบบ 3D ผ่าน [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) ความสูงการดึงออกและความลึกเป็น points, การหมุนแสงเป็นองศา การเติมรูปและขอบถูกซ่อนไว้เพื่อให้เห็นเฉพาะข้อความ ตัวอย่างเรนเดอร์ภาพ PNG ขนาดสองเท่าของสไลด์เริ่มต้นและบันทึกการนำเสนอเป็น PPTX:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -406,17 +445,17 @@ presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ข้อความถูกเรนเดอร์เป็นตัวอักษร 3D โค้งที่มีการดันเข้มสีส้ม:
+ข้อความถูกเรนเดอร์เป็นตัวอักษร 3D ที่โค้ง, ดึงออกและมีลวดลาย:
 
-![ข้อความ 3D ที่เรนเดอร์พร้อมการแปลง WordArt โค้ง พาเทิร์นสีส้ม และการดันสีเข้ม](img_02_05.png)
+![ข้อความ 3D ที่เรนเดอร์ด้วยการแปลง WordArt โค้ง, เติมลวดลายส้ม, และการดึงออกสีเข้ม](img_02_05.png)
 
-## **รักษาข้อความให้แบนบนรูปแบบ 3D**
+## **คงข้อความแบนบนรูปทรง 3D**
 
-เพื่อให้ข้อความอ่านง่ายขณะคงรูปร่าง 3D ให้เรียก [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_keeptextflat/) ผ่าน [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframe/get_textframeformat/) เมื่อค่าตรง `true` ข้อความจะอยู่นอกฉาก 3D เมื่อเป็น `false` ข้อความจะเข้าร่วมฉากและตามการจัดแนว 3D
+เพื่อให้ข้อความอ่านง่ายขณะยังคงรูปลักษณ์ 3D ของรูปทรง, เรียก [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_keeptextflat/) ผ่าน [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_textframeformat/) เมื่อค่าตั้งเป็น `true` ข้อความจะอยู่นอกฉาก 3D เมื่อเป็น `false` ข้อความจะเป็นส่วนหนึ่งของฉากและสอดคล้องกับการหมุน 3D
 
-การตั้งค่านี้ไม่ได้ลบการจัดรูปแบบ 3D ของรูปร่าง: กล้อง แสง วัสดุ และการดันยังคงถูกตั้งค่าผ่าน [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/get_threedformat/) นอกจากนี้ยังแตกต่างจากการหมุนปกติ [IShape::set_Rotation](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/set_rotation/) หมุนรูปร่างบนระนาบสไลด์ ในขณะที่ [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/set_rotationangle/) ควบคุมการหมุนกำหนดเองของข้อความภายในกล่องขอบเขต การทำให้ข้อความอยู่นอกฉาก 3D ไม่ได้รีเซ็ตมุมใด ๆ เหล่านั้น
+การตั้งค่านี้ไม่ได้ลบการจัดรูปแบบ 3D ของรูปทรง: กล้อง, แสง, วัสดุ, และการดึงออกยังคงตั้งค่าผ่าน [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) นอกจากนี้ยังแตกต่างจากการหมุนทั่วไป [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) หมุนรูปในระนาบสไลด์ ในขณะที่ [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) ควบคุมการหมุนเฉพาะของข้อความภายในกล่องกรอบ การคงข้อความให้อยู่ไ้นอกฉาก 3D ไม่ได้รีเซ็ตมุมใด ๆ เหล่านั้น
 
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมสีน้ำเงินพร้อมข้อความและทำสำเนาไว้ข้าง ๆ ทั้งสองรูปร่างมีการจัดรูปแบบ 3D เดียวกัน; เพียงการตั้งค่าข้อความต่างกัน: `false` ทางซ้ายและ `true` ทางขวา มุมกล้องเป็นองศาและความสูงการดันเป็น 40 จุด ตัวอย่างบันทึกงานนำเสนอเป็น PPTX และเรนเดอร์สไลด์เปรียบเทียบเป็น PNG ขนาดสองเท่าของค่าเริ่มต้น
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมสีน้ำเงินพร้อมข้อความและคัดลอกไว้ข้างๆ รูปต้นฉบับ ทั้งสองรูปมีการจัดรูปแบบ 3D เดียวกัน; เพียงการตั้งค่าข้อความแตกต่าง: `false` ด้านซ้ายและ `true` ด้านขวา มุมกล้องอยู่ในหน่วยองศา และความสูงการดึงออกคือ 40 points ตัวอย่างบันทึกงานนำเสนอเป็น PPTX และเรนเดอร์สไลด์เปรียบเทียบเป็น PNG ขนาดสองเท่าของขนาดเริ่มต้น
 
 ```cpp
 #include <DOM/ITextFrameFormat.h>
@@ -481,43 +520,43 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-ทางซ้ายข้อความตามแนว 3D ทางขวาข้อความคงแบนและอ่านง่ายขึ้น ทั้งสองสี่เหลี่ยมยังคงการดันและการจัดแนว 3D ที่เห็นได้เหมือนกัน
+ด้านซ้ายข้อความสอดคล้องกับการหมุน 3D ด้านขวาข้อความคงแบนและอ่านง่าย ทั้งสองสี่เหลี่ยมยังคงการดึงออกและแนวกล้อง 3D ที่มองเห็นได้เหมือนกัน
 
-![สี่เหลี่ยม 3D คู่ข้าง: KeepTextFlat เป็น false ทางซ้ายและ true ทางขวา](keep_text_flat.png)
+![สี่เหลี่ยม 3D ข้างกัน: KeepTextFlat เป็น false ด้านซ้ายและ true ด้านขวา](keep_text_flat.png)
 
 ## **พฤติกรรมการส่งออกและการเรนเดอร์**
 
-Aspose.Slides จะคงการจัดรูปแบบ 3D เมื่อตบลงเป็นรูปแบบ PowerPoint เช่น PPTX เมื่อเรนเดอร์หรือส่งออกเป็นรูปแบบแบบคงที่ ฉาก 3D จะถูกเรเดอร์หรือวาดลงในผลลัพธ์เป็นภาพ 2D นี้ใช้เมื่อคุณเรนเดอร์สไลด์เป็น [PNG](/slides/th/cpp/convert-powerpoint-to-png/), ส่งออกเป็น [PDF](/slides/th/cpp/convert-powerpoint-to-pdf/), ส่งออกเป็น [HTML](/slides/th/cpp/convert-powerpoint-to-html/), หรือสร้างเฟรมสำหรับ [การแปลงวิดีโอ](/slides/th/cpp/convert-powerpoint-to-video/)
+Aspose.Slides รักษาการจัดรูปแบบ 3D เมื่อบันทึกเป็นรูปแบบ PowerPoint เช่น PPTX เมื่อเรนเดอร์หรือส่งออกเป็นรูปแบบแบบคงที่ ฉาก 3D จะถูกเรสเตอร์หรือวาดลงในผลลัพธ์เป็น 2D นี่เกิดขึ้นเมื่อคุณเรนเดอร์สไลด์เป็น [PNG](/slides/th/cpp/convert-powerpoint-to-png/), ส่งออกเป็น [PDF](/slides/th/cpp/convert-powerpoint-to-pdf/), ส่งออกเป็น [HTML](/slides/th/cpp/convert-powerpoint-to-html/), หรือสร้างเฟรมสำหรับ [video conversion](/slides/th/cpp/convert-powerpoint-to-video/)
 
-ควรจำข้อเท็จจริงต่อไปนี้:
+ให้ใส่ใจจุดต่อไปนี้:
 
-- ภาพที่ส่งออกและ PDF ไม่ใช่แบบโต้ตอบ ผู้ใช้ไม่สามารถหมุนวัตถุหลังการส่งออกได้
-- รูปลักษณ์สุดท้ายขึ้นกับการรวมกันของกล้อง แสง วัสดุ การดัน การเติม และการสเกลสไลด์
-- หากต้องการตรวจสอบค่าการจัดรูปแบบที่สืบทอดหรือจากธีม ให้อ่าน [คุณสมบัติรูปร่างที่มีผล](/slides/th/cpp/shape-effective-properties/)
-- รูปแบบผลลัพธ์บางรูปแบบไม่สามารถเก็บการจัดรูปแบบ 3D ของ PowerPoint ที่แก้ไขได้ ในรูปแบบเหล่านั้น ผลลัพธ์จะแสดงเป็นภาพเรนเดอร์แทนการเก็บเป็นการตั้งค่า 3D ที่แก้ไขได้
+- ภาพและ PDF ที่ส่งออกไม่เป็นแบบโต้ตอบ วัตถุไม่สามารถหมุนได้โดยผู้ชมหลังการส่งออก
+- รูปลักษณ์สุดท้ายขึ้นกับการผสมผสานของกล้อง, แสง, วัสดุ, การดึงออก, การเติม, และการสเกลสไลด์
+- หากต้องการตรวจสอบค่าการจัดรูปแบบที่สืบทอดหรือจากธีม, อ่าน [effective shape properties](/slides/th/cpp/shape-effective-properties/)
+- บางรูปแบบผลลัพธ์ไม่สามารถเก็บการจัดรูปแบบ 3D ของ PowerPoint ที่แก้ไขได้ ในรูปแบบเหล่านั้นผลลัพธ์จะถูกเรนเดอร์แทนที่จะเก็บเป็นการตั้งค่า 3D ที่แก้ไขได้
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
 **Aspose.Slides สามารถสร้างการนำเสนอ 3D แบบโต้ตอบได้หรือไม่?**
 
-Aspose.Slides จะสร้างและเรนเดอร์เอฟเฟกต์ 3D ของ PowerPoint สำหรับรูปร่างและข้อความ แต่ไม่ได้ทำให้ภาพที่ส่งออก, PDF หรือหน้า HTML เป็นฉาก 3D ที่ผู้ชมสามารถหมุนได้ ในไฟล์ PPTX การจัดรูปแบบ 3D ยังคงแก้ไขได้ใน PowerPoint หากรูปแบบนั้นรองรับ
+Aspose.Slides สร้างและเรนเดอร์เอฟเฟ็กต์ 3D ของ PowerPoint สำหรับรูปทรงและข้อความ ไม่ได้ทำให้ภาพ, PDF, หรือหน้า HTML ที่ส่งออกเป็นฉาก 3D ที่ผู้ชมสามารถหมุนได้ ใน PPTX การจัดรูปแบบ 3D ยังคงแก้ไขได้ใน PowerPoint หากรูปแบบรองรับ
 
-**ความแตกต่างระหว่างโมเดล 3D กับเอฟเฟกต์ 3D คืออะไร?**
+**ความแตกต่างระหว่างโมเดล 3D กับเอฟเฟ็กต์ 3D คืออะไร?**
 
-โมเดล 3D เป็นวัตถุ 3D แยกที่แทรกเข้ามาในงานนำเสนอ ส่วนเอฟเฟกต์ 3D เป็นการจัดรูปแบบที่ใช้กับรูปร่างหรือข้อความธรรมดาของ PowerPoint เช่น การหมุน การดัน บีเวล การจัดแสงและวัสดุ บทความนี้เน้นที่เอฟเฟกต์ 3D
+โมเดล 3D เป็นวัตถุ 3D แยกที่แทรกเข้าไปในงานนำเสนอ ส่วนเอฟเฟ็กต์ 3D เป็นการจัดรูปแบบที่ใช้กับรูปทรงหรือข้อความธรรมดาของ PowerPoint เช่น การหมุน, การดึงออก, bevel, แสง, และวัสดุ บทความนี้ครอบคลุมเอฟเฟ็กต์ 3D เท่านั้น
 
-**ต้องตั้งค่าอะไรบ้างเพื่อให้เห็นรูปร่าง 3D?**
+**ต้องตั้งค่าอะไรบ้างเพื่อให้รูปทรง 3D ปรากฏชัด?**
 
-อย่างน้อยต้องตั้งค่าการหมุนกล้องและการดันหรือความลึก ในทางปฏิบัติ ควรตั้งค่า LightRig และ Material ด้วยเพื่อให้หน้าตาแสงและเงาชัดเจน
+อย่างน้อยต้องตั้งค่าการหมุนกล้องและการดึงออกหรือความลึก ในทางปฏิบัติควรตั้งค่าแสงและวัสดุด้วยเพื่อให้พื้นผิวที่เรนเดอร์มีเงาและไฮไลท์ที่ชัดเจน
 
-**ฉันสามารถใช้เอฟเฟกต์ 3D กับรูปร่างและข้อความได้หรือไม่?**
+**ฉันสามารถใช้เอฟเฟ็กต์ 3D กับทั้งรูปทรงและข้อความได้หรือไม่?**
 
-ได้ ใช้ [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/get_threedformat/) สำหรับส่วนเนื้อหารูปร่างและ [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/get_threedformat/) สำหรับข้อความ
+ได้ ใช้ [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) สำหรับลำตัวของรูปทรงและ [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) สำหรับข้อความ
 
-**เอฟเฟกต์ 3D จะปรากฏเมื่อส่งออกเป็นภาพ, PDF, HTML หรือเฟรมวิดีโอหรือไม่?**
+**เอฟเฟ็กต์ 3D จะปรากฏเมื่อส่งออกเป็นภาพ, PDF, HTML หรือเฟรมวิดีโอหรือไม่?**
 
-จะแน่นอน Aspose.Slides จะเรนเดอร์เอฟเฟกต์ 3D เมื่อสร้างภาพสไลด์, PDF, HTML หรือเฟรมที่ใช้สำหรับการแปลงวิดีโอ ผลลัพธ์ที่ส่งออกจะมีลักษณะที่เรนเดอร์แล้ว ไม่ใช่วัตถุ 3D ที่แก้ไขได้
+จะมีการเรนเดอร์เอฟเฟ็กต์ 3D เมื่อสร้างภาพสไลด์, PDF, HTML, หรือเฟรมสำหรับการแปลงวิดีโอ ผลลัพธ์ที่ส่งออกจะมีลักษณะที่เรนเดอร์แล้ว ไม่ใช่วัตถุ 3D ที่แก้ไขได้
 
-**ฉันสามารถอ่านค่าจุด 3D สุดท้ายหลังจากการสืบทอดและธีมได้หรือไม่?**
+**ฉันสามารถอ่านค่าการจัดรูปแบบ 3D สุดท้ายหลังจากการสืบทอดและการตั้งค่าธีมได้หรือไม่?**
 
-ได้ ใช้ API การจัดรูปแบบที่มีผลที่อธิบายไว้ใน [คุณสมบัติรูปร่างที่มีผล](/slides/th/cpp/shape-effective-properties/) เพื่ออ่านกล้อง, LightRig, Bevel และค่าที่เกี่ยวข้องกับ 3D ที่ได้หลังจากการสืบทอดและธีมปรับใช้แล้ว
+ได้ ใช้ API การจัดรูปแบบที่มีประสิทธิภาพที่อธิบายไว้ใน [Shape Effective Properties](/slides/th/cpp/shape-effective-properties/) เพื่ออ่านค่ากล้อง, แสง, bevel, และค่า 3D ที่เกี่ยวข้องหลังจากการสืบทอดและการตั้งค่าธีมเสร็จสมบูรณ์

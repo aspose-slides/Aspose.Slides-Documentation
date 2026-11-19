@@ -1,5 +1,5 @@
 ---
-title: 3D hatások létrehozása prezentációkban Python használatával
+title: 3D hatások létrehozása prezentációkban Python segítségével
 linktitle: 3D prezentáció
 type: docs
 weight: 232
@@ -9,52 +9,52 @@ keywords:
 - 3D prezentáció
 - 3D forgatás
 - 3D mélység
-- 3D extrudálás
+- 3D extrúzió
 - 3D színátmenet
 - 3D szöveg
 - PowerPoint
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Alkalmazzon és rendereljen 3D hatásokat PowerPoint alakzatokra és szövegre Pythonban az Aspose.Slides segítségével. Állítsa be a kamerát, megvilágítást, anyagot, extrudálást, kitöltéseket és a 3D szöveget."
+description: "Alkalmazzon és rendereljen 3D hatásokat PowerPoint alakzatokhoz és szöveghez Pythonban az Aspose.Slides segítségével. Állítsa be a kamerát, megvilágítást, anyagot, extrúziót, kitöltéseket és a 3D szöveget."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Python via .NET létrehozhat, szerkeszthet, megőrizhet és renderelhet PowerPoint‑szerű 3D formázást alakzatokra és szövegre. Ez a cikk a 3D hatásokat, például forgatást, extrudálást, rézseket, megvilágítást, anyagot, színátmenetes vagy képes kitöltéseket, valamint 3D szöveget tárgyalja.
+Az Aspose.Slides for Python via .NET képes létrehozni, szerkeszteni, megőrizni és megjeleníteni PowerPoint‑stílusú 3D formázást alakzatokhoz és szöveghez. Ez a cikk olyan 3D hatásokat fed le, mint a forgatás, extrúzió, peremek, megvilágítás, anyag, színátmenetes vagy képes kitöltések, valamint a 3D szöveg.
 
-{{% alert color="info" title="Megjegyzés" %}}
-Ez a cikk a PowerPoint alakzatokon és szövegen alkalmazott 3D formázási hatásokról szól. Nem a önálló 3D modellfájlok beillesztéséről vagy szerkesztéséről szól. Amikor egy diát képre, PDF‑re vagy HTML‑re exportálsz, az Aspose.Slides ezeket a 3D hatásokat az exportált 2D kimenetbe rendereli.
+{{% alert color="info" title="Note" %}}
+Ez a cikk a PowerPoint alakzatokon és szövegen alkalmazott 3D formázási hatásokról szól. Nem a különálló 3D modellfájlok beillesztéséről vagy szerkesztéséről van szó. Amikor egy diát képre, PDF‑re vagy HTML‑re exportál, az Aspose.Slides ezeket a 3D hatásokat a kiexportált 2D kimenetbe rendereli.
 {{% /alert %}}
 
 ## **3D formázási koncepciók**
 
-Használd a [Shape.three_d_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/three_d_format/) tulajdonságot a 3D formázás alkalmazásához egy alakzatra. A tulajdonság hozzáférést biztosít a [ThreeDFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/)‑hez, amely az adott alakzat 3D jelenetét vezérli.
+Használja a [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) tulajdonságot a 3D formázás alkalmazásához egy alakzaton. A tulajdonság a [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/)‑t teszi elérhetővé, amely az adott alakzat 3D jelenetét szabályozza.
 
-Szöveghez használd a [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/three_d_format/) tulajdonságot. Ez a 3D formázást a szövegkeretre alkalmazza az alakzat testének helyett.
+Szöveghez használja a [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/three_d_format/) tulajdonságot. Ez a szövegdobozra alkalmaz 3D formázást az alakzat testének helyett.
 
-A legfontosabb tulajdonságok:
+A legfontosabb tulajdonságok vannak:
 
-| Tulajdonság | Mit vezérel | Mikor kell használni |
+| Property | Mit szabályoz | Mikor használjuk |
 |---|---|---|
-| [camera](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/camera/) | Nézőpont, előre beállított kamera típus, forgatás, nagyítás és perspektíva. | Az objektum forgatása 3D térben vagy a PowerPoint 3D forgatás előre beállított értékének egyezése. |
-| [light_rig](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/light_rig/) | Világítás előbeállítás, irány és fény forgatás. | Megváltoztatja, hogy a csillogások és árnyékok hogyan jelennek meg a 3D felületen. |
-| [material](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/material/) | Felületi anyag, például lapos, matt, műanyag vagy fém. | Ugyanazt a geometriát laposabbá, lágyabbá, fényesebbé vagy fémessé teszi. |
-| [extrusion_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/extrusion_height/) | Mennyire nyúlik ki az alakzat hátrafelé az előoldalától. | Lapos alakzatot láthatóan vastag 3D objektummá alakít. |
-| [extrusion_color](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/extrusion_color/) | Az extrudált oldalak színe. | A mélység láthatóvá tétele vagy az oldal színének összehangolása az előoldali kitöltéssel. |
-| [depth](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/depth/) | További 3D mélység, amelyet a PowerPoint 3D formázás használ. | Finomhangolja a mélységet alakzatok vagy szövegek esetén, különösen rézsút és anyag beállításokkal együtt. |
-| [bevel_top](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/bevel_top/) and [bevel_bottom](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/bevel_bottom/) | Felpontozott vagy lekerekített élek az elő- és hátoldalon. | Puhább vagy formázott él hozzáadása egy éles, lapos felület helyett. |
-| [contour_color](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/contour_color/) and [contour_width](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/contour_width/) | Kontúr színe és szélessége a 3D objektum körül. | Kiemeli az objektum határát a renderelt kimenetben. |
+| [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/) | Nézőpont, előre beállított kamera típus, forgatás, zoom és perspektíva. | Az objektum forgatása 3D térben vagy egy PowerPoint 3D forgatási előbeállítás egyezése. |
+| [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/light_rig/) | Fény előbeállítás, irány és fényforgatás. | Megváltoztatja, hogyan jelennek meg a kiemelések és árnyékok a 3D felületen. |
+| [material](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/material/) | Felületi anyag, például sima, matt, műanyag vagy fém. | Ugyanazt a geometriát laposabbá, lágyabbá, fényesebbé vagy fémesebbé teszi. |
+| [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) | Milyen messze nyúlik az alakzat vissza a frontális felületétől. | Egy lapos alakzatot láthatóan vastag 3D objektummá alakít. |
+| [extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/) | Az extrudált oldalak színe. | Láthatóvá teszi a mélységet vagy az oldal színét a frontális kitöltéssel egyezteti. |
+| [depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) | PowerPoint 3D formázás által használt további 3D mélység. | Finomhangolja a mélységet alakzatok vagy szöveg esetén, különösen a perem és anyag beállításokkal együtt. |
+| [bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/) and [bevel_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_bottom/) | Emelt vagy lekerekített szélek az első és hátulsó felületeken. | Lábnyú vagy formázott szél ad egy éles, lapos felület helyett. |
+| [contour_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_color/) and [contour_width](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_width/) | Kontúr színe és szélessége a 3D objektum körül. | Kiemeli az objektum határát a megjelenített kimenetben. |
 
 ## **3D alakzat létrehozása**
 
-Egy alakzathoz általában négyféle beállításra van szükség, mielőtt meggyőzően 3D‑snek tűnik:
+Egy alakzat általában négyféle beállítást igényel, mielőtt meggyőzően 3D‑nek tűnik:
 
-- Kamera beállítások, mivel az alapértelmezett előnézet elrejtheti az extrudálást.
-- Világítás beállítások, mivel a fények teszik olvashatóvá az felületeket és oldalakat.
-- Anyag beállítások, mivel a felület befolyásolja a fény ábrázolását.
-- Extrudálás vagy mélység beállítások, mivel egy lapos alakzatnak vastagságra van szüksége.
+- Kamera beállítások, mert az alapértelmezett frontális nézet elrejtheti az extrudálást.
+- Világítás beállítások, mert a megvilágítás a felületeket és oldalakat olvashatóvá teszi.
+- Anyag beállítások, mert a felület befolyásolja, hogyan jelenik meg a fény.
+- Extrúzió vagy mélység beállítások, mert egy lapos alakzatnak vastagságra van szüksége.
 
-A következő példa egy téglalapot hoz létre, szöveget ad hozzá az előoldalához, és alkalmaz 3D formázást. A kamera forgatási értékek fokban vannak megadva, az extrudálási magasság 100 pont. A példa a diát PNG képre rendereli a kétszeres alapméretben, és a prezentációt PPTX formátumban menti.
+A következő példa egy téglalapot hoz létre, szöveget ad a frontális felületéhez, és alkalmaz 3D formázást. A kamera forgatás értékei fokban vannak megadva, az extrúzió magassága 100 pont. A példa a diát PNG képre rendereli kétszeresére az alapértelmezett méretben, és a prezentációt PPTX‑ként menti.
 
 ```py
 import aspose.pydrawing as drawing
@@ -87,17 +87,17 @@ with slides.Presentation() as presentation:
     presentation.save("shape_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A renderelt diakép a téglalapot vastag 3D blokként mutatja:
+A renderelt dia kép a téglalapot egy vastag 3D blokként mutatja:
 
-![Renderelt kék 3D téglalap fehér 3D szöveggel az előoldalon](img_01_01.png)
+![Renderelt kék 3D téglalap fehér 3D szöveggel a frontális felületen](img_01_01.png)
 
 ## **Alakzat forgatása a kamerával**
 
-PowerPointban a 3D forgatás a 3‑D Forgatás panelen állítható be. Az X, Y és Z forgatási értékek megfelelnek a kamera API‑val beállított forgatásnak.
+PowerPoint‑ban a 3D forgatás a 3‑D forgatás panelen állítható be. Az X, Y és Z forgatási értékek megfelelnek annak a forgatásnak, amelyet a kamera API-n keresztül állít be.
 
-![PowerPoint 3‑D Forgatás panel, X, Y és Z forgatási értékek kiemelve](img_02_01.png)
+![PowerPoint 3‑D forgatás panel X, Y és Z forgatási értékek kiemelve](img_02_01.png)
 
-In Aspose.Slides‑ban a kamerát a [ThreeDFormat.camera](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/camera/) segítségével érheted el. Ez a példa egy téglalapot hoz létre, ortográfiai elölnézetet választ, és az X, Y, Z forgatásait 20, 30 és 40 fokra állítja. A shape-et a memóriában konfigurálja fájl mentése nélkül:
+Az Aspose.Slides‑ban a kamerát a [ThreeDFormat.camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/) révén érheti el. Ez a példa egy téglalapot hoz létre, ortográfiai frontális nézetet választ, és az X, Y, Z forgatásait 20, 30 és 40 fokra állítja. A példában az alakzatot memóriában konfigurálja fájl mentése nélkül:
 
 ```py
 import aspose.slides as slides
@@ -111,15 +111,42 @@ with slides.Presentation() as presentation:
     shape.three_d_format.camera.set_rotation(20, 30, 40)
 ```
 
-Használd a kamerát, amikor meg kell változtatni, hogy a néző hogyan látja az objektumot. Nem változtatja meg a 2D alakzat geometriáját a dián. A PowerPoint és az Aspose.Slides által a renderelés során használt 3D nézőpontot módosítja.
+Használja a kamerát, ha meg kell változtatni, hogyan látja a néző az objektumot. Nem változtatja meg a 2D alakzat geometriáját a dián. A PowerPoint és az Aspose.Slides által a rendereléskor használt 3D nézőpontot módosítja.
 
-## **Extrudálás és mélység hozzáadása**
+### **Kameraorientáció másolása egy sablon alakzatról**
 
-Az extrudálás egy alakzatot vastagabbá tesz, ha kinyújtja azt az előoldal mögé. PowerPointban a mélység vezérlés beállítja ezt a látható vastagságot, a szín vezérlés pedig az oldal felületek színét.
+A sablon alakzat orientációjának egyeztetéséhez másolja a [camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) előbeállítást, és olvassa ki a forgatását a [get_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/get_rotation/)‑val. A példa megnyitja a `template.pptx`‑et, és a első dián az első alakzatból a második alakzatra másolja a kameraorientációt. Mindkét alakzat már rendelkezik 3D világítással, a második alakzatnak pedig nincs kifejezett kamera forgatása.
 
-![PowerPoint mélység beállítások leképezve az extrudálás szín és magasság tulajdonságokra](img_02_02.png)
+A szögek fokban vannak. Az `0`, `1`, `2` indexek a szélességet, hosszúságot és körforgást tárolják, ebben a sorrendben. Adja át őket a [set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/)‑nek ebben a sorrendben. Ha a forrásnak nincs kifejezett forgatása, a `get_rotation` `None`‑t ad vissza, ezért hagyja a cél szögeket beállítatlanul. Ha a forrás kifejezetten mindhárom szöget nullára állítja, másolja ezeket a nullákat.
 
-Állítsd be a [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/extrusion_height/) a vastagsághoz és a [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/extrusion_color/) az oldal színéhez. Ez a példa egy 100 pontos extrudálással és bíbor oldalakkal ellátott téglalapot ad, és a kamerát forgatja, hogy látható legyen a vastagság. A shape-et memóriában konfigurálja fájl mentése nélkül:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    shapes = presentation.slides[0].shapes
+    
+    source_camera = shapes[0].three_d_format.camera
+    destination_camera = shapes[1].three_d_format.camera
+
+    destination_camera.camera_type = source_camera.camera_type
+    angles = source_camera.get_rotation()
+    if angles is not None:
+        destination_camera.set_rotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Amikor újra megnyitja a `camera-copy.pptx`‑et PowerPointban, mindkét alakzat ugyanazzal a kamera előbeállítással és forgatással rendelkezik. A jobb oldali nyíl a bal oldali téglalapból másolt orientációt használja. Mindkét alakzat ugyanazt a világítást és extrúzió mélységet alkalmazza.
+
+![Egy kék 3D téglalap és egy jobbra mutató nyíl, egyező kameraorientációval, felülről és jobbról nézve](camera-orientation.png)
+
+## **Extrúzió és mélység hozzáadása**
+
+Az extrúzió egy alakzatot vastagnak látszik, ha a frontális felület mögé nyújtja. PowerPoint‑ban a mélység szabályzó ezt a látható vastagságot állítja be, a szín szabályzó pedig az oldalfelületek színét határozza meg.
+
+![PowerPoint mélység szabályzók leképezve az extrúzió színére és magasságára vonatkozó tulajdonságokra](img_02_02.png)
+
+Állítsa be a [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/)‑t a vastagságra, és a [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/)‑t az oldalszínre. Ez a példa egy 100 pontos extrúziót ad egy téglalapnak lila oldalakkal, és a kamerát forgatja, hogy látható legyen a vastagsága. A példában az alakzatot memóriában konfigurálja fájl mentése nélkül:
 
 ```py
 import aspose.pydrawing as drawing
@@ -139,13 +166,13 @@ with slides.Presentation() as presentation:
     shape.three_d_format.extrusion_color.color = drawing.Color.purple
 ```
 
-A [ThreeDFormat.depth](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/depth/) tulajdonság állítja be egy 3D alakzat mélységét. Az [extrusion_height](https://reference.aspose.com/slides/hu/python-net/aspose.slides/threedformat/extrusion_height/) tulajdonság szabályozza az extrudálás magasságát, ahogy a példában látható.
+A [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) tulajdonság beállítja egy 3D alakzat mélységét. Az [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) tulajdonság szabályozza az extrúzió hatás magasságát, ahogy ez a példában látható.
 
 ## **Színátmenetes vagy képes kitöltés használata 3D hatásokkal**
 
-A 3D formázás független az alakzat kitöltésétől. Alkalmazhatsz egy egyenletes színt, színátmenetet, mintát vagy képes kitöltést az előoldalon, és ugyanazt a kamera, fény, anyag és extrudálás beállításokat használhatod.
+A 3D formázás független az alakzat kitöltésétől. Alkalmazhat egységes színt, színátmenetet, mintát vagy képes kitöltést a frontális felületre, miközben ugyanazokat a kamera, fény, anyag és extrúzió beállításokat használja.
 
-Ez a példa kék‑narancssárga színátmenetet alkalmaz az előoldalon és sötét narancssárga színt a 150 pontos extrudáláshoz. A színátmenet állomásai 0‑nál és 100‑nál jelölik a kezdetet és a végét. A kamera forgatási értékek fokban vannak. A dia PNG képre renderelődik a kétszeres alapméretben:
+Ez a példa egy kék‑narancssárga színátmenetet alkalmaz a frontális felületre, és egy sötét narancssárga színt a 150 pontos extrúzióra. A színátmenet 0‑nál és 100‑nál áll le, ami a színátmenet kezdete és vége. A kamera forgatás értékei fokban vannak. A dia PNG képre renderelődik kétszeresére az alapértelmezett méretben:
 
 ```py
 import aspose.pydrawing as drawing
@@ -177,9 +204,9 @@ with slides.Presentation() as presentation:
         thumbnail.save("gradient_3d.png")
 ```
 
-![Renderelt 3D téglalap kék‑narancssárga színátmenetes kitöltéssel és narancssárga extrudálással](img_02_03.png)
+![Renderelt 3D téglalap kék‑narancssárga színátmenetes kitöltéssel és narancssárga extrúzióval](img_02_03.png)
 
-A képes kitöltés használatához add hozzá a képet a prezentációhoz, és rendeld hozzá az alakzat kitöltéséhez. Ez a példa feltételezi, hogy a munkakönyvtárban létezik egy „image.jpg” nevű fájl. A képet kinyújtja a téglalap kitöltéséhez, 150 pont extrudálást alkalmaz, és a kamera forgatását fokokban állítja. A shape-et memóriában konfigurálja mentés vagy renderelés nélkül:
+Képes kitöltéshez adja hozzá a képet a prezentációhoz, és rendelje hozzá az alakzat kitöltéséhez. Ez a példa egy meglévő, "image.jpg" nevű fájlt igényel a munkakönyvtárban. A képet nyújtja, hogy kitöltse a téglalapot, 150 pontos extrúziót alkalmaz, és fokban állítja a kamera forgatását. A példában az alakzatot memóriában konfigurálja fájl mentése vagy renderelése nélkül:
 
 ```py
 import aspose.pydrawing as drawing
@@ -208,13 +235,13 @@ with slides.Presentation() as presentation:
     shape.three_d_format.extrusion_color.color = drawing.Color.dark_orange
 ```
 
-![Renderelt 3D téglalap fotó kitöltéssel az előoldalon és narancssárga extrudálással](img_02_04.png)
+![Renderelt 3D téglalap fotó kitöltéssel a frontális felületen és narancssárga extrúzióval](img_02_04.png)
 
 ## **3D formázás alkalmazása szövegre**
 
-Az alakzat 3D formázása az alakzat testét érinti. A szöveg 3D formázása a szövegkeretet. Ez hasznos WordArt‑szerű hatásokhoz, ahol maguk a betűk is extrudálásra, anyagra, megvilágításra és kamera beállításokra van szükségük.
+Az alakzat 3D formázása az alakzat testére hat. A szöveg 3D formázása a szövegdobozra hat. Ez hasznos WordArt‑szerű hatásoknál, amikor a betűknek maguknak kell extrúziót, anyagot, megvilágítást és kamera beállításokat.
 
-A következő példa szöveget hoz létre narancs‑fehér rácsmintával, felfelé ívelt ívet alkalmaz, és 3D beállításokat konfigurál a [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/three_d_format/) segítségével. Az extrudálási magasság és mélység pontban van megadva, a fény forgatás fokban. A shape kitöltése és kontúrja el van rejtve, hogy csak a szöveg látszódjon. A példa egy PNG képet renderel a diák alapméretének kétszeresére, és a prezentációt PPTX formátumban menti:
+A következő példa egy narancssárga‑fehér rácsmintával ellátott szöveget hoz létre, felfelé ívelt ívet alkalmaz, és 3D beállításokat konfigurál a [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/three_d_format/) segítségével. Az extrúzió magassága és mélysége pontban van megadva, a fény forgatása fokban. Az alakzat kitöltés és körvonal rejtve van, hogy csak a szöveg legyen látható. A példa egy PNG képet renderel a diák alapértelmezett méretének kétszeresén, és a prezentációt PPTX‑ként menti:
 
 ```py
 import aspose.pydrawing as drawing
@@ -255,15 +282,15 @@ with slides.Presentation() as presentation:
     presentation.save("text_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Renderelt 3D szöveg ívelt WordArt transzformációval, narancs mintás kitöltéssel és sötét extrudálással](img_02_05.png)
+![Renderelt 3D szöveg ívelt WordArt átalakítással, narancssárga mintás kitöltéssel és sötét extrúzióval](img_02_05.png)
 
-## **Szöveg lapos tartása 3D alakzaton**
+## **Szöveg sík tartása 3D alakzaton**
 
-Ahhoz, hogy a szöveg olvasható maradjon, miközben az alakzat 3D megjelenése megmarad, állítsd be a [TextFrameFormat.keep_text_flat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/keep_text_flat/) a [TextFrame.text_frame_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframe/text_frame_format/) segítségével. Amikor az érték `True`, a szöveg kívül marad a 3D színen. Amikor `False`, a szöveg részt vesz a színen és követi annak 3D orientációját.
+A szöveg olvashatóságának megőrzéséhez a 3D megjelenés megtartása mellett, állítsa be a [TextFrameFormat.keep_text_flat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/keep_text_flat/)‑t a [TextFrame.text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text_frame_format/)‑en keresztül. Ha az érték `True`, a szöveg kívülmarad a 3D jelenetből. Ha `False`, a szöveg részt vesz a jelenetben és követi annak 3D orientációját.
 
-Ez a beállítás nem távolítja el az alakzat 3D formázását: a kamera, megvilágítás, anyag és extrudálás továbbra is a [Shape.three_d_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/three_d_format/) segítségével van beállítva. Emellett különbözik a szokásos forgatástól. A [Shape.rotation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/rotation/) az alakzatot a diasíkban forgatja, míg a [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/rotation_angle/) a szöveg egyéni forgatását vezérli a saját keretében. A szöveg 3D színből való kizárása nem állítja vissza ezen szögek egyikét sem.
+Ez a beállítás nem távolítja el az alakzat 3D formázását: a kamera, megvilágítás, anyag és extrúzió továbbra is a [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) segítségével van beállítva. Emellett különbözik a hagyományos forgatástól. A [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) a alakzatot a dia síkjában forgatja, míg a [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) a szöveg egyedi forgatásának irányát szabályozza a keretén belül. A szöveg 3D jelenetből való kizárása semelyik szöget sem állítja vissza.
 
-A következő önálló példa egy kék téglalapot hoz szöveggel, és klónozza azt az eredeti mellé. Mindkét alakzat ugyanazt a 3D formázást kapja; csak a szöveg beállítása különbözik: `False` balra és `True` jobbra. A kamera szöge fokban, az extrudálási magasság 40 pont. A példa a prezentációt PPTX formátumban menti, és a összehasonlító diát PNG képre rendereli a kétszeres alapméretben.
+A következő önmagában álló példa egy kék téglalapot hoz létre szöveggel, és az eredeti mellett klónozza. Mindkét alakzat ugyanazt a 3D formázást kapja; csak a szöveg beállítása különbözik: `False` a bal oldalon és `True` a jobb oldalon. A kamera szögek fokban vannak, az extrúzió magassága 40 pont. A példa a prezentációt PPTX‑ként menti, és a összehasonlító diát PNG‑re rendereli kétszeres méretben.
 
 ```py
 import aspose.pydrawing as drawing
@@ -298,43 +325,39 @@ with slides.Presentation() as presentation:
         image.save("keep_text_flat.png")
 ```
 
-Bal oldalon a szöveg a 3D orientációt követi. Jobb oldalon lapos marad, így könnyebben olvasható. Mindkét téglalap a ugyanazt az extrudálást és 3D orientációt mutatja.
+![Egymás melletti 3D téglalapok: a keep_text_flat `False` a bal oldalon, `True` a jobb oldalon](keep_text_flat.png)
 
-![Egymás mellé helyezett 3D téglalapok: keep_text_flat hamis bal oldalon és igaz jobb oldalon](keep_text_flat.png)
+## **Exportálási és renderelési viselkedés**
 
-## **Exportálás és renderelési viselkedés**
+Az Aspose.Slides megőrzi a 3D formázást, amikor PowerPoint formátumokba, például PPTX‑be ment. Rendereléskor vagy rögzített elrendezésű formátumokba exportáláskor a 3D jelenet raszterizálódik vagy 2D eredményként kerül a kimenetre. Ez akkor is érvényes, amikor diákat [PNG](/slides/hu/python-net/convert-powerpoint-to-png/)-re renderel, [PDF](/slides/hu/python-net/convert-powerpoint-to-pdf/)-re exportál, [HTML](/slides/hu/python-net/convert-powerpoint-to-html/)-re exportál, vagy [videó konverzió](/slides/hu/python-net/convert-powerpoint-to-video/) kereteket generál.
 
-Az Aspose.Slides megőrzi a 3D formázást, amikor PowerPoint formátumokba, például PPTX‑be ment. Renderelés vagy exportálás rögzített elrendezésű formátumokba esetén a 3D jelenet rasterizálódik vagy a kimenetbe 2D eredményként rajzolódik. Ez akkor is érvényes, ha a diákat a [PNG](/slides/hu/python-net/convert-powerpoint-to-png/), exportálod a [PDF](/slides/hu/python-net/convert-powerpoint-to-pdf/), exportálod a [HTML](/slides/hu/python-net/convert-powerpoint-to-html/), vagy [videó konverzió](/slides/hu/python-net/convert-powerpoint-to-video/) képkockáira konvertálod.
+- Az exportált képek és PDF‑ek nem interaktívak. Az objektumot a néző nem tudja elforgatni az export után.
+- A végső megjelenés a kamera, a fényrig, az anyag, az extrúzió, a kitöltés és a dia méretezés kombinációjától függ.
+- Ha örökölt vagy sablonalapú formázási értékeket kell megvizsgálnia, olvassa el a [effective shape properties](/slides/hu/python-net/shape-effective-properties/).
+- Egyes kimeneti formátumok nem tudják tárolni a szerkeszthető PowerPoint 3D formázást. Ezekben a formátumokban a vizuális eredmény renderelődik, nem marad szerkeszthető 3D beállításként.
 
-Vedd figyelembe a következő pontokat:
+## **FAQ**
 
-- Az exportált képek és PDF‑ek nem interaktívak. Az objektumot a néző nem tudja forgatni az export után.
-- A végső megjelenés a kamera, fényrig, anyag, extrudálás, kitöltés és dia méretezés kombinációjától függ.
-- Ha örökölt vagy témán alapuló formázási értékeket kell ellenőrizned, olvasd el a [hatékony alakzat tulajdonságok](/slides/hu/python-net/shape-effective-properties/).
-- Néhány kimeneti formátum nem képes tárolni a szerkeszthető PowerPoint 3D formázást. Ezekben a formátumokban a vizuális eredmény renderelt, nem szerkeszthető 3D beállításként megőrzött.
+**Készíthet az Aspose.Slides interaktív 3D prezentációkat?**
 
-## **GYIK**
-
-**Készíthet‑e az Aspose.Slides interaktív 3D prezentációkat?**
-
-Az Aspose.Slides létrehozza és rendereli a PowerPoint 3D hatásokat alakzatokra és szövegre. Nem teszi az exportált képeket, PDF‑eket vagy HTML oldalakat interaktív 3D jelenetté, amelyet a néző forgathat. PPTX‑ben a 3D formázás szerkeszthető marad a PowerPointban, ahol a formátum támogatja.
+Az Aspose.Slides létrehozza és rendereli a PowerPoint 3D hatásait alakzatokra és szövegre. Nem készíti el az exportált képeket, PDF‑eket vagy HTML‑oldalakat interaktív 3D jelenetekként, amelyeket a néző forgathat. PPTX‑ben a 3D formázás szerkeszthető marad PowerPointban, ahol a formátum támogatja.
 
 **Mi a különbség egy 3D modell és egy 3D hatás között?**
 
-Egy 3D modell egy különálló 3D objektum, amely a prezentációba van beillesztve. Egy 3D hatás egy normál PowerPoint alakzatra vagy szövegre alkalmazott formázás, mint például forgatás, extrudálás, rézsút, megvilágítás és anyag. Ez a cikk a 3D hatásokat tárgyalja.
+A 3D modell egy különálló, a prezentációba beillesztett 3D objektum. A 3D hatás egy reguláris PowerPoint alakzatra vagy szövegre alkalmazott formázás, például forgatás, extrúzió, perem, megvilágítás és anyag. Ez a cikk a 3D hatásokat tárgyalja.
 
 **Milyen beállítások szükségesek egy látható 3D alakzathoz?**
 
-Minimum egy kamera forgatás és akár extrudálás vagy mélység beállítása. Gyakorlatban egy fényrig és anyag beállítása is ajánlott, hogy a renderelt felületeknek tiszta fény‑ és árnyékhatása legyen.
+Legalább egy kamera forgatást és vagy extrúziót, vagy mélységet kell beállítani. Gyakorlatilag a fényriget és az anyagot is meg kell adni, hogy a renderelt felületeken tiszta kiemelések és árnyékok legyenek.
 
-**Alkalmazhatok‑e 3D hatásokat alakzatokra és szövegre egyaránt?**
+**Alkalmazhatok 3D hatásokat alakzatokra és szövegre egyaránt?**
 
-Igen. Használd a [Shape.three_d_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/three_d_format/) az alakzat testére és a [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/textframeformat/three_d_format/) a szövegre.
+Igen. Használja a [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/)‑t az alakzat testére és a [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/three_d_format/)‑t a szövegre.
 
-**Megjelennek‑e a 3D hatások exportáláskor képekre, PDF‑re, HTML‑re vagy videó képkockákra?**
+**Megjelennek a 3D hatások képekre, PDF‑re, HTML‑re vagy videó keretekre exportáláskor?**
 
-Igen. Az Aspose.Slides rendereli a 3D hatásokat a diaképek, PDF, HTML kimenetek és videó konverzióhoz használt képkockák létrehozásakor. Az exportált kimenet a renderelt megjelenést tartalmazza, nem szerkeszthető 3D objektumot.
+Igen. Az Aspose.Slides a 3D hatásokat rendereli, amikor diákat képpé, PDF‑vé, HTML‑vé alakít, vagy videó konvertáláshoz kereteket generál. Az exportált kimenet a renderelt megjelenést tartalmazza, nem szerkeszthető 3D objektumot.
 
-**Ki tudom olvasni a végső 3D értékeket az öröklődés és a téma beállítások alkalmazása után?**
+**Ki tudom olvasni a végső 3D értékeket öröklődés és sablonbeállítások alkalmazása után?**
 
-Igen. Használd a hatékony formázási API‑kat, amelyeket az [Alakzat hatékony tulajdonságai](/slides/hu/python-net/shape-effective-properties/) leírásában találsz a végleges kamera, fényrig, rézsút és kapcsolódó 3D értékek olvasásához.
+Igen. Használja az effektív formázási API‑kat, amelyeket a [Shape Effective Properties](/slides/hu/python-net/shape-effective-properties/) leír, a végső kamera, fényrig, perem és egyéb 3D értékek olvasásához.

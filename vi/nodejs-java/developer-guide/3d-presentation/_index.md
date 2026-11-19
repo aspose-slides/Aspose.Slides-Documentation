@@ -6,56 +6,56 @@ weight: 232
 url: /vi/nodejs-java/3d-presentation/
 keywords:
 - PowerPoint 3D
-- Bài thuyết trình 3D
-- Quay 3D
-- Độ sâu 3D
-- Đùn 3D
-- Độ chuyển màu 3D
-- Văn bản 3D
+- bài thuyết trình 3D
+- xoay 3D
+- độ sâu 3D
+- nhô ra 3D
+- gradient 3D
+- văn bản 3D
 - PowerPoint
-- Bài thuyết trình
+- bài thuyết trình
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Áp dụng và render hiệu ứng 3D cho các hình dạng và văn bản PowerPoint trong Node.js bằng Aspose.Slides. Cấu hình máy ảnh, ánh sáng, vật liệu, extrusion, màu nền và văn bản 3D."
+description: "Áp dụng và render các hiệu ứng 3D cho các hình dạng và văn bản PowerPoint trong Node.js với Aspose.Slides. Cấu hình máy ảnh, ánh sáng, vật liệu, nhô ra, màu đổ và văn bản 3D."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Node.js via Java có thể tạo, chỉnh sửa, bảo quản và hiển thị định dạng 3D kiểu PowerPoint cho các hình và văn bản. Bài viết này đề cập đến các hiệu ứng 3D như quay, extrusion, bevel, ánh sáng, vật liệu, độ chuyển màu hoặc ảnh nền, và văn bản 3D.
+Aspose.Slides for Node.js via Java có thể tạo, chỉnh sửa, bảo tồn và hiển thị định dạng 3D theo kiểu PowerPoint cho các hình dạng và văn bản. Bài viết này đề cập đến các hiệu ứng 3D như xoay, nhô ra (extrusion), làm viền (bevel), chiếu sáng, vật liệu, các loại tô màu gradient hoặc hình ảnh, và văn bản 3D.
 
 {{% alert color="info" title="Note" %}}
-Bài viết này đề cập đến các hiệu ứng định dạng 3D trên các hình và văn bản của PowerPoint. Nó không liên quan đến việc chèn hoặc chỉnh sửa các tệp mô hình 3D độc lập. Khi bạn xuất một slide ra ảnh, PDF hoặc HTML, Aspose.Slides sẽ render các hiệu ứng 3D đó vào đầu ra 2D được xuất.
+Bài viết này đề cập đến các hiệu ứng định dạng 3D trên hình dạng và văn bản PowerPoint. Nó không liên quan tới việc chèn hoặc chỉnh sửa các tệp mô hình 3D độc lập. Khi bạn xuất một slide ra hình ảnh, PDF hoặc HTML, Aspose.Slides sẽ render các hiệu ứng 3D đó vào đầu ra 2D đã xuất.
 {{% /alert %}}
 
 ## **Khái niệm Định dạng 3D**
 
-Sử dụng phương thức [Shape.getThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getThreeDFormat) để áp dụng định dạng 3D cho một hình. Phương thức này trả về [ThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/), điều khiển cảnh 3D cho hình đó.
+Sử dụng phương thức [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) để áp dụng định dạng 3D cho một hình dạng. Phương thức trả về [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/), bộ điều khiển cảnh 3D cho hình dạng đó.
 
-Đối với văn bản, sử dụng phương thức [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). Phương thức này áp dụng định dạng 3D cho khung văn bản thay vì phần thân hình.
+Đối với văn bản, sử dụng phương thức [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). Phương thức này áp dụng định dạng 3D cho khung văn bản thay vì phần thân hình dạng.
 
 Các thành viên API quan trọng nhất là:
 
-| Thành viên API | Chức năng | Khi nào sử dụng |
+| Thành viên API | Những gì nó kiểm soát | Khi nào nên sử dụng |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getCamera) | Góc nhìn, loại máy ảnh được đặt trước, quay, thu phóng và phối cảnh. | Quay đối tượng trong không gian 3D hoặc khớp với cài đặt quay 3D của PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getLightRig) | Cài đặt ánh sáng, hướng và góc quay ánh sáng. | Thay đổi cách ánh sáng nổi bật và bóng đổ xuất hiện trên bề mặt 3D. |
-| [getMaterial](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getMaterial) và [setMaterial](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setMaterial) | Vật liệu bề mặt, như phẳng, mờ, nhựa hoặc kim loại. | Làm cho hình dạng cùng một cấu trúc trông phẳng hơn, mềm hơn, bóng hơn hoặc kim loại hơn. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) và [setExtrusionHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Khoảng cách mà hình kéo dài ra phía sau mặt trước. | Biến một hình phẳng thành một đối tượng 3D dày rõ ràng. |
-| [getExtrusionColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Màu của các mặt phía bên được kéo ra. | Làm cho độ sâu hiển thị hoặc phối màu mặt bên với màu nền mặt trước. |
-| [getDepth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getDepth) và [setDepth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setDepth) | Độ sâu 3D bổ sung được PowerPoint sử dụng trong định dạng 3D. | Tinh chỉnh độ sâu cho hình hoặc văn bản, đặc biệt khi kết hợp với cài đặt bevel và vật liệu. |
-| [getBevelTop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getBevelTop) và [getBevelBottom](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Các cạnh nhô lên hoặc bo tròn trên mặt trước và mặt sau. | Thêm một cạnh mềm hoặc đúc thay vì mặt phẳng sắc nhọn. |
-| [getContourColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getContourWidth) và [setContourWidth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Đường viền quanh đối tượng 3D. | Nhấn mạnh ranh giới đối tượng trong đầu ra được render. |
+| [getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera) | Điểm nhìn, loại máy ảnh preset, xoay, thu phóng và phối cảnh. | Xoay đối tượng trong không gian 3D hoặc khớp với một preset xoay 3D của PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getLightRig) | Đặt trước ánh sáng, hướng và góc xoay ánh sáng. | Thay đổi cách các điểm nhấn và bóng đổ xuất hiện trên bề mặt 3D. |
+| [getMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getMaterial) và [setMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setMaterial) | Vật liệu bề mặt, chẳng hạn phẳng, mờ, nhựa hoặc kim loại. | Làm cho hình học giống nhau trông phẳng hơn, mềm hơn, bóng hơn hoặc kim loại hơn. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) và [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Khoảng cách mà hình dạng mở rộng ra phía sau mặt trước. | Chuyển một hình dạng phẳng thành một đối tượng 3D dày mắt thấy được. |
+| [getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Màu của các mặt bên được nhô ra. | Làm cho độ sâu hiện ra hoặc phối màu mặt bên với màu tô mặt trước. |
+| [getDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getDepth) và [setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) | Độ sâu 3D bổ sung được PowerPoint sử dụng. | Tinh chỉnh độ sâu cho hình dạng hoặc văn bản, đặc biệt khi kết hợp với bevel và cài đặt vật liệu. |
+| [getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop) và [getBevelBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Các cạnh nâng lên hoặc bo tròn trên mặt trước và mặt sau. | Thêm một cạnh mềm mại hoặc được đúc thay vì mặt phẳng sắc nhọn. |
+| [getContourColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourWidth) và [setContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Đường viền quanh đối tượng 3D. | Nhấn mạnh ranh giới đối tượng trong kết quả render. |
 
-## **Tạo hình 3D**
+## **Tạo một Hình dạng 3D**
 
-Một hình thường cần bốn loại cài đặt trước khi trông thật 3D:
+Một hình dạng thường cần bốn loại cài đặt trước khi trông thật như 3D:
 
-- Cài đặt máy ảnh, vì góc nhìn trước mặc định có thể che mất phần extrude.
-- Cài đặt ánh sáng, vì ánh sáng giúp các mặt và cạnh có thể nhìn thấy.
-- Cài đặt vật liệu, vì bề mặt ảnh hưởng đến cách ánh sáng được render.
-- Cài đặt extrusion hoặc độ sâu, vì một hình phẳng cần độ dày.
+- Cài đặt máy ảnh, vì góc nhìn mặc định có thể ẩn phần nhô ra.
+- Cài đặt ánh sáng, vì ánh sáng giúp các mặt và các cạnh có thể nhận diện được.
+- Cài đặt vật liệu, vì bề mặt ảnh hưởng tới cách ánh sáng được render.
+- Cài đặt nhô ra hoặc độ sâu, vì một hình dạng phẳng cần có độ dày.
 
-Ví dụ sau tạo một hình chữ nhật, thêm văn bản vào mặt trước và áp dụng định dạng 3D. Các giá trị quay máy ảnh tính bằng độ, và chiều cao extrusion là 100 điểm. Ví dụ này render slide thành ảnh PNG với kích thước gấp đôi mặc định và lưu bản trình chiếu dưới dạng PPTX.
+Ví dụ sau tạo một hình chữ nhật, thêm văn bản vào mặt trước và áp dụng định dạng 3D. Các giá trị xoay máy ảnh được tính bằng độ, và chiều cao nhô ra là 100 điểm. Ví dụ này render slide thành ảnh PNG với kích thước gấp đôi mặc định và lưu bản trình chiếu dưới dạng PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -97,17 +97,17 @@ try {
 }
 ```
 
-Ảnh slide được render hiển thị hình chữ nhật dưới dạng khối 3D dày:
+Ảnh slide đã render hiển thị hình chữ nhật như một khối 3D dày:
 
-![Hình chữ nhật 3D màu xanh có văn bản 3D màu trắng trên mặt trước được render](img_01_01.png)
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
-## **Xoay hình bằng máy ảnh**
+## **Xoay một Hình dạng bằng Máy ảnh**
 
-Trong PowerPoint, việc quay 3D được cấu hình từ bảng 3‑D Rotation. Các giá trị quay X, Y và Z tương ứng với góc quay bạn đặt thông qua API máy ảnh.
+Trong PowerPoint, xoay 3D được cấu hình từ bảng 3-D Rotation. Các giá trị xoay X, Y và Z tương ứng với các góc xoay bạn đặt qua API máy ảnh.
 
-![Bảng PowerPoint 3‑D Rotation với các giá trị quay X, Y và Z được tô sáng](img_02_01.png)
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-Trong Aspose.Slides, truy cập máy ảnh qua [ThreeDFormat.getCamera](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getCamera). Ví dụ này tạo một hình chữ nhật, chọn góc nhìn trước trực giao, và đặt các góc quay X, Y, Z lần lượt là 20, 30 và 40 độ. Nó cấu hình hình trong bộ nhớ mà không lưu tệp:
+Trong Aspose.Slides, truy cập máy ảnh qua [ThreeDFormat.getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera). Ví dụ này tạo một hình chữ nhật, chọn góc nhìn mặt trước dạng trực giao, và đặt các góc xoay X, Y, Z thành 20, 30 và 40 độ tương ứng. Nó cấu hình hình dạng trong bộ nhớ mà không lưu tệp:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -125,15 +125,47 @@ try {
 }
 ```
 
-Sử dụng máy ảnh khi bạn cần thay đổi cách người xem nhìn đối tượng. Nó không thay đổi hình dạng 2D trên slide, mà thay đổi góc nhìn 3D mà PowerPoint và Aspose.Slides dùng khi render.
+Sử dụng máy ảnh khi bạn cần thay đổi cách người xem nhìn đối tượng. Nó không thay đổi hình học 2D của hình dạng trên slide. Nó thay đổi góc nhìn 3D được PowerPoint và Aspose.Slides sử dụng khi render.
 
-## **Thêm Extrusion và Độ sâu**
+### **Sao chép Định hướng Máy ảnh từ Hình dạng Mẫu**
 
-Extrusion làm cho một hình trông dày bằng cách kéo nó ra phía sau mặt trước. Trong PowerPoint, điều khiển độ sâu thiết lập độ dày hiển thị này, và điều khiển màu thiết lập màu của các mặt bên.
+Để khớp định hướng của một hình dạng mẫu, đọc preset máy ảnh của nó bằng [getCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getCameraType) và các góc xoay bằng [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getRotation). Ví dụ mở `template.pptx` và sao chép định hướng máy ảnh từ hình dạng đầu tiên trên slide đầu tiên sang hình dạng thứ hai. Cả hai hình dạng đã có ánh sáng 3D, và hình dạng thứ hai không có xoay máy ảnh rõ ràng.
 
-![Các điều khiển độ sâu của PowerPoint được ánh xạ tới thuộc tính màu extrusion và chiều cao extrusion](img_02_02.png)
+Các góc được tính bằng độ. Chỉ số `0` là vĩ độ, `1` là kinh độ, và `2` là vòng quay. Gửi chúng tới [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) theo thứ tự đó. Nếu nguồn trả về `null`, nghĩa là không có xoay rõ ràng, vì vậy hãy để các góc của hình dạng thứ hai không được đặt. Một xoay rõ ràng `(0, 0, 0)` trả về ba số 0 và cần được sao chép.
 
-Sử dụng [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) để đặt độ dày và [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) để lấy màu mặt bên. Ví dụ này cho hình chữ nhật một extrusion 100 điểm với các mặt bên màu tím và quay máy ảnh để lộ độ dày. Nó cấu hình hình trong bộ nhớ mà không lưu tệp:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    const destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    const angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Khi bạn mở lại `camera-copy.pptx` trong PowerPoint, mũi tên bên phải có cùng preset máy ảnh và góc xoay như hình chữ nhật bên trái. Cả hai hình dạng đều sử dụng cùng ánh sáng và độ sâu nhô ra.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
+
+## **Thêm Nhô ra và Độ sâu**
+
+Nhô ra làm cho một hình dạng trông dày bằng cách mở rộng nó ra phía sau mặt trước. Trong PowerPoint, điều khiển độ sâu thiết lập độ dày có thể nhìn thấy này, và điều khiển màu thiết lập màu của các mặt bên.
+
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+
+Sử dụng [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) để đặt độ dày và [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) để truy cập màu mặt bên. Ví dụ này cho một hình chữ nhật nhô ra 100 điểm với các mặt bên màu tím và xoay máy ảnh để lộ độ dày. Nó cấu hình hình dạng trong bộ nhớ mà không lưu tệp:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -159,13 +191,13 @@ try {
 }
 ```
 
-Phương thức [ThreeDFormat.setDepth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setDepth) đặt độ sâu cho một hình 3D. Phương thức [setExtrusionHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) điều khiển chiều cao của hiệu ứng extrusion, như trong ví dụ này.
+Phương thức [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) thiết lập độ sâu cho một hình dạng 3D. Phương thức [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) điều khiển chiều cao của hiệu ứng nhô ra, như trong ví dụ này.
 
-## **Sử dụng Đổ màu Gradient hoặc Hình ảnh với hiệu ứng 3D**
+## **Sử dụng Gradient hoặc Hình ảnh Đổ đầy với Hiệu ứng 3D**
 
-Định dạng 3D độc lập với màu nền của hình. Bạn có thể áp dụng màu rắn, gradient, họa tiết hoặc ảnh nền cho mặt trước và vẫn sử dụng cùng một cài đặt máy ảnh, ánh sáng, vật liệu và extrusion.
+Định dạng 3D độc lập với việc đổ màu hình dạng. Bạn có thể áp dụng màu đặc, gradient, mẫu hoặc hình ảnh lên mặt trước và vẫn sử dụng cùng máy ảnh, ánh sáng, vật liệu và cài đặt nhô ra.
 
-Ví dụ này áp dụng gradient màu xanh‑hồng cho mặt trước và màu cam đậm cho extrusion 150 điểm. Các điểm dừng gradient tại 0 và 100 đánh dấu đầu và cuối gradient. Các giá trị quay máy ảnh tính bằng độ. Slide được render thành ảnh PNG với kích thước gấp đôi mặc định:
+Ví dụ này áp dụng gradient từ xanh dương sang cam lên mặt trước và màu cam đậm cho phần nhô ra 150 điểm. Các điểm dừng gradient tại 0 và 100 đánh dấu bắt đầu và kết thúc gradient. Các giá trị xoay máy ảnh tính bằng độ. Slide được render thành ảnh PNG với kích thước gấp đôi mặc định:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -207,11 +239,11 @@ try {
 }
 ```
 
-Kết quả render giữ gradient trên mặt trước và render extrusion riêng biệt:
+Kết quả render giữ gradient trên mặt trước và render nhô ra riêng biệt:
 
-![Hình chữ nhật 3D với màu nền gradient từ xanh sang cam và extrusion màu cam được render](img_02_03.png)
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-Để sử dụng ảnh nền thay thế, thêm ảnh vào bản trình chiếu và gán cho màu nền của hình. Ví dụ này yêu cầu tệp "image.jpg" có sẵn trong thư mục làm việc. Nó kéo căng ảnh để lấp đầy hình chữ nhật, áp dụng extrusion 150 điểm, và đặt quay máy ảnh tính bằng độ. Nó cấu hình hình trong bộ nhớ mà không lưu hay render tệp:
+Để sử dụng hình ảnh thay vì gradient, thêm ảnh vào bản trình chiếu và gán nó làm màu đổ cho hình dạng. Ví dụ này yêu cầu một tệp hiện có tên "image.jpg" trong thư mục làm việc. Nó kéo dài ảnh để lấp đầy hình chữ nhật, áp dụng nhô ra 150 điểm và đặt xoay máy ảnh tính bằng độ. Nó cấu hình hình dạng trong bộ nhớ mà không lưu hoặc render tệp:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -248,15 +280,15 @@ try {
 }
 ```
 
-Ảnh được render trên mặt trước, trong khi extrusion được render dưới dạng bề mặt 3D bên:
+Hình ảnh được render trên mặt trước, trong khi phần nhô ra được render như bề mặt bên 3D:
 
-![Hình chữ nhật 3D với ảnh nền trên mặt trước và extrusion màu cam được render](img_02_04.png)
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
 ## **Áp dụng Định dạng 3D cho Văn bản**
 
-Định dạng 3D cho hình ảnh ảnh hưởng đến phần thân hình. Định dạng 3D cho văn bản ảnh hưởng đến khung văn bản. Điều này hữu ích cho các hiệu ứng kiểu WordArt khi các ký tự cần extrusion, vật liệu, ánh sáng và cài đặt máy ảnh.
+Định dạng 3D của hình dạng ảnh hưởng đến phần thân hình. Định dạng 3D của văn bản ảnh hưởng đến khung văn bản. Điều này hữu ích cho các hiệu ứng kiểu WordArt, nơi các ký tự cần được nhô ra, có vật liệu, chiếu sáng và cài đặt máy ảnh.
 
-Ví dụ sau tạo văn bản với họa tiết lưới cam‑trắng, áp dụng cung cong lên và cấu hình các cài đặt 3D qua [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). Chiều cao extrusion và độ sâu tính bằng điểm, góc quay ánh sáng tính bằng độ. Màu nền và viền của hình được ẩn để chỉ văn bản hiển thị. Ví dụ này render ảnh PNG với kích thước gấp đôi slide mặc định và lưu bản trình chiếu dưới dạng PPTX:
+Ví dụ sau tạo văn bản với mẫu lưới cam và trắng, áp dụng một cung cong lên trên, và cấu hình các cài đặt 3D qua [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). Chiều cao và độ sâu nhô ra tính bằng điểm, và góc xoay ánh sáng tính bằng độ. Đổ màu và viền của hình dạng được ẩn để chỉ văn bản hiển thị. Ví dụ này render ảnh PNG ở kích thước gấp đôi slide mặc định và lưu bản trình chiếu dưới dạng PPTX:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -306,17 +338,17 @@ try {
 }
 ```
 
-Văn bản được render dưới dạng chữ 3D cong, extrusion màu đậm:
+Văn bản được render dưới dạng chữ 3D cong, nhô ra:
 
-![Văn bản 3D được render với biến đổi WordArt cong, họa tiết màu cam và extrusion tối màu](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
 
-## **Giữ Văn bản Phẳng trên Hình 3D**
+## **Giữ Văn bản Phẳng trên Hình dạng 3D**
 
-Để giữ văn bản có thể đọc được trong khi vẫn duy trì diện mạo 3D của hình, gọi [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) qua [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). Khi giá trị là `true`, văn bản không tham gia vào cảnh 3D. Khi là `false`, văn bản sẽ tham gia vào cảnh và theo hướng 3D của nó.
+Để giữ văn bản dễ đọc đồng thời giữ nguyên diện mạo 3D của hình dạng, gọi [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) thông qua [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). Khi giá trị là `true`, văn bản sẽ không nằm trong cảnh 3D. Khi là `false`, văn bản sẽ tham gia vào cảnh và tuân theo định hướng 3D.
 
-Cài đặt này không xóa định dạng 3D của hình: máy ảnh, ánh sáng, vật liệu và extrusion vẫn được cấu hình qua [Shape.getThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getThreeDFormat). Nó cũng khác với quay thông thường. [Shape.setRotation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#setRotation) quay hình trên mặt phẳng slide, trong khi [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) điều khiển góc quay tùy chỉnh của văn bản trong khung bao. Giữ văn bản ra khỏi cảnh 3D không đặt lại bất kỳ góc nào trong hai trường hợp này.
+Cài đặt này không loại bỏ định dạng 3D của hình dạng: máy ảnh, ánh sáng, vật liệu và nhô ra vẫn được cấu hình qua [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat). Nó cũng khác với việc xoay thông thường. [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) xoay hình dạng trong mặt phẳng slide, trong khi [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) kiểm soát góc xoay tùy chỉnh của văn bản trong khung bao. Giữ văn bản ra khỏi cảnh 3D không đặt lại bất kỳ góc nào trong số đó.
 
-Ví dụ tự chứa sau tạo một hình chữ nhật màu xanh với văn bản và sao chép nó cạnh hình gốc. Cả hai hình đều có cùng định dạng 3D; chỉ cài đặt văn bản khác nhau: `false` ở bên trái và `true` ở bên phải. Các góc máy ảnh tính bằng độ, và chiều cao extrusion là 40 điểm. Ví dụ này lưu bản trình chiếu dưới dạng PPTX và render slide so sánh thành PNG với kích thước gấp đôi mặc định.
+Ví dụ tự chứa sau tạo một hình chữ nhật màu xanh với văn bản và sao chép nó bên cạnh bản gốc. Cả hai hình đều có cùng định dạng 3D; chỉ cài đặt văn bản khác nhau: `false` ở bên trái và `true` ở bên phải. Các góc máy ảnh tính bằng độ, và chiều cao nhô ra là 40 điểm. Ví dụ lưu bản trình chiếu dưới dạng PPTX và render slide so sánh sang PNG với kích thước gấp đôi mặc định.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -361,43 +393,43 @@ try {
 }
 ```
 
-Bên trái, văn bản theo hướng 3D. Bên phải, văn bản giữ phẳng và dễ đọc hơn. Cả hai hình chữ nhật vẫn giữ extrusion và hướng 3D hiển thị giống nhau.
+Ở bên trái, văn bản theo định hướng 3D. Ở bên phải, nó giữ phẳng và dễ đọc hơn. Cả hai hình chữ nhật vẫn giữ cùng độ nhô ra và định hướng 3D có thể nhìn thấy.
 
-![Hai hình chữ nhật 3D cạnh nhau: văn bản theo hướng 3D ở bên trái và giữ phẳng ở bên phải](keep_text_flat.png)
+![Side-by-side 3D rectangles: text follows the 3D orientation on the left and stays flat on the right](keep_text_flat.png)
 
-## **Hành vi Xuất và Render**
+## **Xuất và Hành vi Render**
 
-Aspose.Slides bảo toàn định dạng 3D khi lưu dưới các định dạng PowerPoint như PPTX. Khi render hoặc xuất sang các định dạng bố cục cố định, cảnh 3D được raster hoá hoặc vẽ vào đầu ra dưới dạng kết quả 2D. Điều này áp dụng khi bạn render slide thành [PNG](/slides/vi/nodejs-java/convert-powerpoint-to-png/), xuất thành [PDF](/slides/vi/nodejs-java/convert-powerpoint-to-pdf/), xuất thành [HTML](/slides/vi/nodejs-java/convert-powerpoint-to-html/), hoặc tạo khung cho [chuyển đổi video](/slides/vi/nodejs-java/convert-powerpoint-to-video/).
+Aspose.Slides bảo tồn định dạng 3D khi lưu dưới các định dạng PowerPoint như PPTX. Khi render hoặc xuất ra các định dạng bố cục cố định, cảnh 3D được raster hoá hoặc vẽ vào đầu ra dưới dạng kết quả 2D. Điều này áp dụng khi bạn render slide thành [PNG](/slides/vi/nodejs-java/convert-powerpoint-to-png/), xuất ra [PDF](/slides/vi/nodejs-java/convert-powerpoint-to-pdf/), xuất ra [HTML](/slides/vi/nodejs-java/convert-powerpoint-to-html/), hoặc tạo khung cho [video conversion](/slides/vi/nodejs-java/convert-powerpoint-to-video/).
 
 Lưu ý các điểm sau:
 
-- Ảnh và PDF đã xuất không tương tác. Đối tượng không thể quay lại bởi người xem sau khi xuất.
-- Nhìn cuối cùng phụ thuộc vào sự kết hợp của máy ảnh, bộ ánh sáng, vật liệu, extrusion, màu nền và tỉ lệ slide.
-- Nếu cần kiểm tra các giá trị định dạng kế thừa hoặc dựa trên theme, hãy đọc [thuộc tính hình hiệu quả](/slides/vi/nodejs-java/shape-effective-properties/).
-- Một số định dạng đầu ra không thể lưu định dạng 3D PowerPoint có thể chỉnh sửa. Trong các định dạng đó, kết quả hình ảnh được render thay vì được lưu dưới dạng cài đặt 3D có thể chỉnh sửa.
+- Ảnh và PDF đã xuất không tương tác. Đối tượng không thể bị xoay bởi người xem sau khi xuất.
+- Ngoại hình cuối cùng phụ thuộc vào sự kết hợp của máy ảnh, rig ánh sáng, vật liệu, nhô ra, đổ màu và tỉ lệ slide.
+- Nếu bạn cần kiểm tra các giá trị định dạng được kế thừa hoặc dựa trên chủ đề, hãy đọc [effective shape properties](/slides/vi/nodejs-java/shape-effective-properties/).
+- Một số định dạng đầu ra không thể lưu định dạng 3D PowerPoint có thể chỉnh sửa. Trong những định dạng đó, kết quả trực quan được render thay vì được giữ dưới dạng cài đặt 3D có thể chỉnh sửa.
 
 ## **Câu hỏi thường gặp**
 
 **Aspose.Slides có thể tạo bản trình chiếu 3D tương tác không?**
 
-Aspose.Slides tạo và render các hiệu ứng 3D của PowerPoint cho hình và văn bản. Nó không làm cho ảnh, PDF hoặc trang HTML xuất ra trở thành cảnh 3D tương tác mà người xem có thể quay. Trong PPTX, định dạng 3D vẫn có thể chỉnh sửa trong PowerPoint nếu định dạng hỗ trợ.
+Aspose.Slides tạo và render các hiệu ứng 3D PowerPoint cho hình dạng và văn bản. Nó không làm cho các hình ảnh, PDF hoặc trang HTML xuất ra trở thành các cảnh 3D tương tác mà người xem có thể xoay. Trong PPTX, định dạng 3D vẫn có thể chỉnh sửa trong PowerPoint khi định dạng hỗ trợ.
 
-**Sự khác biệt giữa mô hình 3D và hiệu ứng 3D là gì?**
+**Sự khác nhau giữa mô hình 3D và hiệu ứng 3D là gì?**
 
-Mô hình 3D là một đối tượng 3D riêng biệt được chèn vào bản trình chiếu. Hiệu ứng 3D là định dạng được áp dụng lên một hình PowerPoint thông thường hoặc văn bản, như quay, extrusion, bevel, ánh sáng và vật liệu. Bài viết này chỉ đề cập đến hiệu ứng 3D.
+Mô hình 3D là một đối tượng 3D riêng biệt được chèn vào bản trình chiếu. Hiệu ứng 3D là định dạng được áp dụng lên một hình dạng hoặc văn bản PowerPoint thông thường, chẳng hạn xoay, nhô ra, bevel, chiếu sáng và vật liệu. Bài viết này chỉ đề cập đến các hiệu ứng 3D.
 
-**Cài đặt nào là bắt buộc để có một hình 3D nhìn thấy được?**
+**Cài đặt nào cần thiết để có một hình dạng 3D có thể nhìn thấy?**
 
-Ít nhất, phải đặt một góc quay máy ảnh và hoặc extrusion hoặc độ sâu. Thực tế, cũng nên đặt bộ ánh sáng và vật liệu để các mặt được render có điểm nhấn và bóng đổ rõ ràng.
+Ít nhất, cần đặt góc xoay máy ảnh và một trong hai: nhô ra hoặc độ sâu. Thực tế, cũng nên đặt rig ánh sáng và vật liệu để các mặt được render có điểm nhấn và bóng rõ ràng.
 
-**Tôi có thể áp dụng hiệu ứng 3D cho cả hình và văn bản không?**
+**Tôi có thể áp dụng hiệu ứng 3D cho cả hình dạng và văn bản không?**
 
-Có. Sử dụng [Shape.getThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getThreeDFormat) cho phần thân hình và [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) cho văn bản.
+Có. Sử dụng [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) cho phần thân hình dạng và [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) cho văn bản.
 
-**Hiệu ứng 3D có xuất hiện khi xuất sang ảnh, PDF, HTML hoặc khung video không?**
+**Hiệu ứng 3D có xuất hiện khi xuất ra ảnh, PDF, HTML hoặc khung video không?**
 
-Có. Aspose.Slides render hiệu ứng 3D khi tạo ảnh slide, PDF, HTML và các khung dùng cho chuyển đổi video. Đầu ra đã xuất chứa hình ảnh đã được render, không phải một đối tượng 3D có thể chỉnh sửa.
+Có. Aspose.Slides render các hiệu ứng 3D khi tạo ảnh slide, PDF, HTML và các khung dùng cho chuyển đổi video. Đầu ra đã xuất chứa hình ảnh đã render, không phải một đối tượng 3D có thể chỉnh sửa.
 
-**Tôi có thể đọc giá trị 3D cuối cùng sau khi kế thừa và cài đặt theme được áp dụng không?**
+**Tôi có thể đọc các giá trị 3D cuối cùng sau khi kế thừa và cài đặt chủ đề được áp dụng không?**
 
-Có. Sử dụng API định dạng hiệu quả được mô tả trong [Shape Effective Properties](/slides/vi/nodejs-java/shape-effective-properties/) để đọc các giá trị cuối cùng của máy ảnh, bộ ánh sáng, bevel và các giá trị 3D liên quan.
+Có. Sử dụng các API định dạng hiệu quả được mô tả trong [Shape Effective Properties](/slides/vi/nodejs-java/shape-effective-properties/) để đọc camera cuối cùng, rig ánh sáng, bevel và các giá trị 3D liên quan.

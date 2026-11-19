@@ -9,7 +9,7 @@ keywords:
 - ارائه سه‌بعدی
 - چرخش سه‌بعدی
 - عمق سه‌بعدی
-- برآمدگی سه‌بعدی
+- برجستگی سه‌بعدی
 - گرادیان سه‌بعدی
 - متن سه‌بعدی
 - PowerPoint
@@ -17,45 +17,45 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "با Aspose.Slides در .NET افکت‌های سه‌بعدی را برای اشکال و متن PowerPoint اعمال و رندر کنید. دوربین، نورپردازی، ماده، برآمدگی، پرکردنی‌ها و متن سه‌بعدی را پیکربندی کنید."
+description: "اعمال و رندر افکت‌های سه‌بعدی برای اشکال و متون PowerPoint در .NET با Aspose.Slides. تنظیم دوربین، نورپردازی، ماده، برجستگی، پرکردن‌ها و متن سه‌بعدی."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides برای .NET می‌تواند قالب‌بندی سه‌بعدی شبیه PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به افکت‌های سه‌بعدی مانند چرخش، برآمدگی، برجستگی‌ها، نورپردازی، مواد، پر کردن‌های گرادیانی یا تصویری و متن سه‌بعدی می‌پردازد.
+Aspose.Slides for .NET می‌تواند فرمت‌بندی سه‌بعدی سبک PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به افکت‌های سه‌بعدی مانند چرخش، برجستگی، لبه‌دارها، نورپردازی، مواد، پرکردن‌های گرادیان یا تصویر، و متن سه‌بعدی می‌پردازد.
 
 {{% alert color="info" title="Note" %}}
-این مقاله درباره افکت‌های قالب‌بندی سه‌بعدی روی اشکال و متن PowerPoint است. درباره درج یا ویرایش فایل‌های مدل سه‌بعدی مستقل نیست. هنگامی که یک اسلاید را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides این افکت‌های سه‌بعدی را به خروجی دو‌بعدی رندر می‌کند.
+این مقاله دربارهٔ افکت‌های فرمت‌بندی سه‌بعدی روی اشکال و متن‌های PowerPoint است. این دربارهٔ درج یا ویرایش فایل‌های مدل سه‌بعدی مستقل نیست. هنگامی که یک اسلاید را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides آن افکت‌های سه‌بعدی را به خروجی دو‑بعدی صادرشده رندر می‌کند.
 {{% /alert %}}
 
-## **مفاهیم قالب‌بندی سه‌بعدی**
+## **مفاهیم فرمت‌بندی سه‌بعدی**
 
-برای اعمال قالب‌بندی سه‌بعدی به یک شکل، از ویژگی [IShape.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/properties/threedformat) استفاده کنید. این ویژگی [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat) را در دسترس می‌گذارد که صحنه سه‌بعدی آن شکل را کنترل می‌کند.
+از ویژگی [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) برای اعمال فرمت‌بندی سه‌بعدی بر روی یک شکل استفاده کنید. این ویژگی [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) را باز می‌کند که صحنهٔ سه‌بعدی آن شکل را کنترل می‌کند.
 
-برای متن، از ویژگی [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/properties/threedformat) استفاده کنید. این ویژگی قالب‌بندی سه‌بعدی را به فریم متن اعمال می‌کند، نه به بدنهٔ شکل.
+برای متن، از ویژگی [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) استفاده کنید. این ویژگی فرمت‌بندی سه‌بعدی را به فریم متن اعمال می‌کند نه به بدنهٔ شکل.
 
 مهم‌ترین ویژگی‌ها عبارتند از:
 
 | ویژگی | چه چیزی را کنترل می‌کند | زمان استفاده |
 |---|---|---|
-| [Camera](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/camera) | نقطه دید، نوع دوربین پیش‌تنظیم‌شده، چرخش، زوم و پرسپکتیو. | برای چرخش شیء در فضای سه‌بعدی یا تطبیق با پیش‌تنظیم چرخش سه‌بعدی PowerPoint. |
-| [LightRig](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/lightrig) | پیش‌تنظیم نور، جهت و چرخش نور. | برای تغییر ظاهر برجستگی‌ها و سایه‌ها روی سطح سه‌بعدی. |
-| [Material](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/material) | مادهٔ سطح، مانند صاف، مات، پلاستیک یا فلزی. | برای نمایش هندسه به صورتی صاف‌تر، نرم‌تر، براق یا فلزی. |
-| [ExtrusionHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/extrusionheight) | میزان امتداد شکل به‌عقب از سطح جلو آن. | برای تبدیل یک شکل صاف به یک شیء سه‌بعدی واضحاً ضخیم. |
-| [ExtrusionColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/extrusioncolor) | رنگ جانبی‌های برآمده. | برای نمایش عمق یا هماهنگ‌سازی رنگ جانبی با پر کردن سطح جلو. |
-| [Depth](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/depth) | عمق سه‌بعدی اضافی که توسط قالب‌بندی PowerPoint استفاده می‌شود. | برای تنظیم دقیق عمق اشکال یا متن، به‌ویژه همراه با تنظیمات برجستگی و ماده. |
-| [BevelTop](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/beveltop) و [BevelBottom](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/bevelbottom) | لبه‌های برجسته یا گرد شده روی سطوح جلو و پشت. | برای افزودن لبهٔ نرم یا قالب‌دار به‌جای سطح صاف و تیز. |
-| [ContourColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/contourcolor) و [ContourWidth](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/contourwidth) | خط مرزی اطراف شیء سه‌بعدی. | برای برجسته‌سازی مرز شیء در خروجی رندر شده. |
+| [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) | نقطهٔ دید، نوع دوربین پیش‌تنظیم‌شده، چرخش، زوم و پرسپکتیو. | چرخاندن شیء در فضای سه‌بعدی یا مطابقت با یک پیش‌تنظیم چرخش سه‌بعدی PowerPoint. |
+| [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig) | پیش‌تنظیم نور، جهت و چرخش نور. | تغییر ظاهرهای برجسته و سایه‌ها بر روی سطح سه‌بعدی. |
+| [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material) | جنس سطح، مانند صاف، مات، پلاستیک یا فلز. | یک ژئومتری یکسان را صاف‌تر، نرم‌تر، براق یا فلزی نشان دهد. |
+| [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) | چقدر شکل از سطح جلو به سمت عقب گسترش می‌یابد. | یک شکل صاف را به یک شیء سه‌بعدی واضحاً ضخیم تبدیل کنید. |
+| [ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) | رنگ طرف‌های برجسته‌شده. | عمق را قابل مشاهده کنید یا رنگ طرف‌ها را با پر کردن جلو هماهنگ کنید. |
+| [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) | عمق سه‌بعدی اضافی که توسط فرمت‌بندی سه‌بعدی PowerPoint استفاده می‌شود. | تنظیم دقیق عمق برای اشکال یا متن، به‌ویژه همراه با تنظیمات لبه و ماده. |
+| [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop) و [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) | لبه‌های برجسته یا گرد شده روی سطح‌های جلو و پشت. | یک لبهٔ نرم یا قالب‌دار اضافه کنید به‌جای یک سطح صاف تیز. |
+| [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) و [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth) | خط‌چینی دور شیء سه‌بعدی. | مرز شیء را در خروجی رندر شده برجسته کنید. |
 
 ## **ایجاد یک شکل سه‌بعدی**
 
-یک شکل معمولاً برای ظاهر قانع‌کنندهٔ سه‌بعدی به چهار نوع تنظیم نیاز دارد:
+یک شکل معمولاً قبل از اینکه واقعاً سه‌بعدی به نظر برسد، به چهار نوع تنظیم نیاز دارد:
 
-- تنظیمات دوربین، زیرا نمای پیش‌فرض ممکن است برآمدگی را مخفی کند.
-- تنظیمات نور، زیرا نورپردازی باعث خوانایی سطوح و جانبی‌ها می‌شود.
-- تنظیمات ماده، زیرا سطح تأثیر می‌گذارد که نور چگونه رندر شود.
-- تنظیمات برآمدگی یا عمق، زیرا یک شکل صاف به ضخامت نیاز دارد.
+- تنظیمات دوربین، زیرا نمای پیش‌فرض جلو ممکن است برجستگی را پنهان کند.  
+- تنظیمات نور، زیرا نورپردازی باعث قابل‌خواندن شدن سطح‌ها و کناره‌ها می‌شود.  
+- تنظیمات ماده، زیرا سطح نحوهٔ رندر نور را تحت تاثیر قرار می‌دهد.  
+- تنظیمات برجستگی یا عمق، زیرا یک شکل صاف به ضخامت نیاز دارد.
 
-مثال زیر یک مستطیل ایجاد می‌کند، متن را به سطح جلو اضافه می‌کند و قالب‌بندی سه‌بعدی را اعمال می‌نماید. مقادیر چرخش دوربین بر حسب درجه است و ارتفاع برآمدگی ۱۰۰ پوینت است. مثال اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌نماید.
+مثال زیر یک مستطیل ایجاد می‌کند، متن را به سطح جلو اضافه می‌کند و فرمت‌بندی سه‌بعدی اعمال می‌نماید. مقدارهای چرخش دوربین بر حسب درجه هستند و ارتفاع برجستگی ۱۰۰ پوینت است. مثال اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌نماید.
 
 ```csharp
 using System.Drawing;
@@ -88,17 +88,17 @@ thumbnail.Save("shape_3d.png");
 presentation.Save("shape_3d.pptx", SaveFormat.Pptx);
 ```
 
-تصویر رندر شدهٔ اسلاید، مستطیل را به‌صورت یک بلوک سه‌بعدی ضخیم نشان می‌دهد:
+خروجی رندر شده نشان می‌دهد مستطیل به‌صورت بلوک ضخیم سه‌بعدی نمایش داده می‌شود:
 
-![مستطیل سه‌بعدی آبی رندر شده با متن سه‌بعدی سفید بر روی وجه جلو](img_01_01.png)
+![مستطیل سه‌بعدی آبی رندر شده با متن سه‌بعدی سفید روی سطح جلو](img_01_01.png)
 
 ## **چرخاندن یک شکل با دوربین**
 
-در PowerPoint، چرخش سه‌بعدی از پانل 3‑D Rotation تنظیم می‌شود. مقادیر چرخش X، Y و Z متناظر با چرخشی هستند که از طریق API دوربین تنظیم می‌کنید.
+در PowerPoint، چرخش سه‌بعدی از طریق پنل 3‑D Rotation تنظیم می‌شود. مقادیر چرخش X، Y و Z با چرخشی که از طریق API دوربین تنظیم می‌کنید، مطابقت دارد.
 
-![پانل 3‑D Rotation در PowerPoint با مقادیر X، Y و Z برجسته شده](img_02_01.png)
+![پنل چرخش 3‑D PowerPoint با برجسته‌سازی مقادیر چرخش X، Y و Z](img_02_01.png)
 
-در Aspose.Slides، از طریق [IThreeDFormat.Camera](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/camera) به دوربین دسترسی پیدا کنید. این مثال یک مستطیل ایجاد می‌کند، نمای جلو ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z را به ترتیب 20، 30 و 40 درجه تنظیم می‌نماید. شکل در حافظه پیکربندی می‌شود بدون اینکه فایلی ذخیره شود:
+در Aspose.Slides، دوربین را از طریق [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) دسترسی پیدا می‌کنید. این مثال یک مستطیل می‌سازد، نمای جلوی ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z آن را به ترتیب ۲۰، ۳۰ و ۴۰ درجه تنظیم می‌کند. شکل در حافظه پیکربندی می‌شود بدون اینکه فایلی ذخیره شود:
 
 ```csharp
 using Aspose.Slides;
@@ -112,15 +112,45 @@ shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 ```
 
-از دوربین زمانی استفاده کنید که بخواهید نحوهٔ مشاهدهٔ شیء توسط کاربر را تغییر دهید. این کار هندسهٔ دو‌بعدی شکل روی اسلاید را تغییر نمی‌دهد؛ فقط نقطهٔ دید سه‌بعدی مورد استفاده توسط PowerPoint و Aspose.Slides در زمان رندر را تنظیم می‌کند.
+از دوربین زمانی استفاده کنید که نیاز دارید نحوهٔ دیدن شیء توسط بیننده را تغییر دهید. این کار هندسهٔ ۲بعدی شکل روی اسلاید را عوض نمی‌کند؛ بلکه نقطهٔ دید سه‌بعدی که PowerPoint و Aspose.Slides هنگام رندر استفاده می‌کنند را تغییر می‌دهد.
 
-## **افزودن برآمدگی و عمق**
+### **کپی جهت‌گیری دوربین از یک شکل قالب**
 
-برآمدگی باعث می‌شود یک شکل به‌صورت ضخیم ظاهر شود زیرا از سطح جلو به عقب امتداد می‌یابد. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ، رنگ سطوح کناری را تعیین می‌نماید.
+برای تطبیق یک شکل در قالب، پیش‌تنظیم [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) آن را کپی کنید و زاویه‌های آن را با [GetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/getrotation/) بخوانید. مثال فایل `template.pptx` را باز می‌کند، دوربین اولین شکل در اولین اسلاید را می‌خواند و جهت‌گیری آن را به شکل دوم اعمال می‌کند. هر دو شکل قبلاً نورپردازی سه‌بعدی دارند و شکل دوم چرخش دوربین صریحی ندارند.
 
-![کنترل‌های عمق PowerPoint که به ویژگی‌های رنگ برآمدگی و ارتفاع برآمدگی نگاشت می‌شوند](img_02_02.png)
+زاویه‌ها بر حسب درجه هستند. ایندکس `0` عرض جغرافیایی، ایندکس `1` طول جغرافیایی و ایندکس `2` دوران را نشان می‌دهند. این مقادیر را به ترتیب به [SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) منتقل کنید. اگر منبع `null` برگرداند، چرخش صریحی ندارد، بنابراین زاویه‌های شکل دوم تنظیم نمی‌شوند. چرخش صریح `(0, 0, 0)` سه صفر بازمی‌گرداند و باید کپی شود.
 
-برای تعیین ضخامت از [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/extrusionheight) و برای رنگ جانبی‌ها از [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/extrusioncolor) استفاده کنید. این مثال به مستطیل یک برآمدگی ۱۰۰ پوینتی با لبه‌های بنفش می‌دهد و دوربین را برای نمایش ضخامت می‌چرخاند. شکل در حافظه پیکربندی می‌شود بدون ذخیرهٔ فایل:
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var shapes = presentation.Slides[0].Shapes;
+
+var sourceCamera = shapes[0].ThreeDFormat.Camera;
+var destinationCamera = shapes[1].ThreeDFormat.Camera;
+
+destinationCamera.CameraType = sourceCamera.CameraType;
+var angles = sourceCamera.GetRotation();
+if (angles != null)
+{
+    destinationCamera.SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation.Save("camera-copy.pptx", SaveFormat.Pptx);
+```
+
+زمانی که `camera-copy.pptx` را دوباره باز می‌کنید، دو شکل همان پیش‌تنظیم و چرخش دوربین را دارند. در PowerPoint، پیکان سمت راست از جهت‌گیری دوربین کپی‌شده از مستطیل سمت چپ استفاده می‌کند. هر دو شکل نورپردازی و عمق برجستگی یکسانی دارند.
+
+![مستطیل سه‌بعدی آبی و یک پیکان راست با جهت‌گیری دوربین هم‌خوان، مشاهده‌شده از بالا و سمت راست](camera-orientation.png)
+
+## **افزودن برجستگی و عمق**
+
+برجستگی باعث می‌شود یک شکل ضخیم به نظر برسد با گسترش به پشت سطح جلو. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ رنگ طرف‌های کناری را تعیین می‌کند.
+
+![کنترل‌های عمق PowerPoint که به رنگ برجستگی و ویژگی‌های ارتفاع برجستگی نگاشت شده‌اند](img_02_02.png)
+
+برای ضخامت، [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) را تنظیم کنید و برای رنگ کناره‌ها [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) را تعیین کنید. این مثال به مستطیل برجستگی ۱۰۰ پوینت با طرف‌های بنفش می‌دهد و دوربین را برای نشان دادن ضخامت می‌چرخاند. شکل در حافظه پیکربندی می‌شود بدون ذخیرهٔ فایل:
 
 ```csharp
 using System.Drawing;
@@ -140,13 +170,13 @@ shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
 ```
 
-ویژگی [IThreeDFormat.Depth](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/depth) عمق یک شکل سه‌بعدی را تنظیم می‌کند. ویژگی [ExtrusionHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/properties/extrusionheight) ارتفاع اثر برآمدگی را کنترل می‌کند، همان‌طور که در این مثال نشان داده شده است.
+ویژگی [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) عمق یک شکل سه‌بعدی را تنظیم می‌کند. ویژگی [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) ارتفاع اثر برجستگی را کنترل می‌کند، همان‌طور که در این مثال نشان داده شده است.
 
-## **استفاده از پر کردن‌های گرادیان یا تصویر با افکت‌های سه‌بعدی**
+## **استفاده از پرکردن‌های گرادیان یا تصویر با افکت‌های سه‌بعدی**
 
-قالب‌بندی سه‌بعدی مستقل از پر کردن شکل است. می‌توانید یک رنگ ثابت، گرادیان، الگو یا تصویر را بر روی سطح جلو اعمال کنید و همچنان از همان تنظیمات دوربین، نور، ماده و برآمدگی استفاده نمایید.
+فرمت‌بندی سه‌بعدی مستقل از پرکردن شکل است. می‌توانید یک رنگ ثابت، گرادیان، الگو یا پرکردن تصویری را به سطح جلو اعمال کنید و همچنان از همان دوربین، نور، ماده و تنظیمات برجستگی استفاده کنید.
 
-این مثال یک گرادیان از آبی به نارنجی را بر روی سطح جلو و یک رنگ نارنجی تیره را بر روی برآمدگی ۱۵۰ پوینتی اعمال می‌کند. نقاط توقف گرادیان در 0 و 100 آغاز و پایان گرادیان را نشان می‌دهند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
+این مثال یک گرادیان آبی‑به‑نارنجی را بر روی سطح جلو اعمال می‌کند و رنگ کناره‌های برجستگی ۱۵۰ پوینت را به رنگ نارنجی تیره تنظیم می‌کند. نقاط توقف گرادیان در ۰ و ۱۰۰ شروع و پایان گرادیان را مشخص می‌کنند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
 
 ```csharp
 using System.Drawing;
@@ -177,11 +207,11 @@ using var thumbnail = slide.GetImage(imageScale, imageScale);
 thumbnail.Save("gradient_3d.png");
 ```
 
-خروجی رندر شده، گرادیان را بر روی سطح جلو حفظ می‌کند و برآمدگی را به‌صورت جداگانه رندر می‌کند:
+خروجی رندر شده گرادیان را بر روی سطح جلو حفظ می‌کند و برجستگی را به‌صورت جداگانه رندر می‌نماید:
 
-![مستطیل سه‌بعدی با پر کردن گرادیان آبی‑به‑نارنجی و برآمدگی نارنجی](img_02_03.png)
+![مستطیل سه‌بعدی رندر شده با پرکردن گرادیان آبی‑به‑نارنجی و برجستگی نارنجی](img_02_03.png)
 
-برای استفاده از پر کردن تصویر، تصویر را به ارائه اضافه کنید و آن را به پر کردن شکل اختصاص دهید. این مثال نیاز به فایل موجودی به نام "image.jpg" در پوشهٔ کاری دارد. تصویر را به‌صورت کششی برای پر کردن مستطیل اعمال می‌کند، برآمدگی ۱۵۰ پوینتی را تنظیم می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌نماید. شکل در حافظه پیکربندی می‌شود بدون ذخیره یا رندر فایل:
+برای استفاده از پرکردن تصویری، تصویر را به ارائه اضافه کنید و به پرکردن شکل اختصاص دهید. این مثال به فایلی به نام `image.jpg` در مسیر کاری نیاز دارد. تصویر را برای پر کردن مستطیل کش می‌کند، برجستگی ۱۵۰ پوینت اعمال می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌کند. شکل در حافظه پیکربندی می‌شود بدون ذخیره یا رندر فایل:
 
 ```csharp
 using System.Drawing;
@@ -209,15 +239,13 @@ shape.ThreeDFormat.ExtrusionHeight = 150;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
 ```
 
-تصویر بر روی سطح جلو رندر می‌شود، در حالی که برآمدگی به‌عنوان سطح جانبی سه‌بعدی رندر می‌گردد:
+![مستطیل سه‌بعدی رندر شده با پرکردن عکس بر روی سطح جلو و برجستگی نارنجی](img_02_04.png)
 
-![مستطیل سه‌بعدی با پر کردن تصویر روی سطح جلو و برآمدگی نارنجی](img_02_04.png)
+## **اعمال فرمت‌بندی سه‌بعدی بر روی متن**
 
-## **اعمال قالب‌بندی سه‌بعدی به متن**
+فرمت‌بندی سه‌بعدی شکل بر بدنهٔ شکل اثر می‌گذارد. فرمت‌بندی سه‌بعدی متن بر فریم متن تأثیر می‌کند. این برای افکت‌های مشابه WordArt مفید است که حروف نیاز به برجستگی، ماده، نورپردازی و تنظیمات دوربین دارند.
 
-قالب‌بندی سه‌بعدی شکل به بدنهٔ شکل اثر می‌گذارد. قالب‌بندی سه‌بعدی متن به فریم متن اثر می‌گذارد. این برای افکت‌های شبیه WordArt مفید است که حروف نیاز به برآمدگی، ماده، نورپردازی و تنظیمات دوربین دارند.
-
-مثال زیر متنی با الگوی شبکه‌ای نارنجی‑سفید ایجاد می‌کند، یک قوس وارونی اعمال می‌کند و تنظیمات سه‌بعدی را از طریق [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/properties/threedformat) پیکربندی می‌نماید. ارتفاع برآمدگی و عمق بر حسب پوینت و چرخش نور بر حسب درجه هستند. پر کردن و خط بیرونی شکل مخفی شده‌اند تا فقط متن قابل مشاهده باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌نماید:
+مثال زیر متنی با الگوی مشبک نارنجی‑و‑سفید ایجاد می‌کند، قوس upward اعمال می‌کند و تنظیمات سه‌بعدی را از طریق [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) پیکربندی می‌کند. ارتفاع و عمق برجستگی بر حسب پوینت و چرخش نور بر حسب درجه است. پرکردن و خط‌مرز شکل مخفی هستند تا فقط متن قابل مشاهده باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌کند:
 
 ```csharp
 using System.Drawing;
@@ -258,17 +286,15 @@ thumbnail.Save("text_3d.png");
 presentation.Save("text_3d.pptx", SaveFormat.Pptx);
 ```
 
-متن به‌صورت حروف 3‑بعدی منحنی و برآمده رندر می‌شود:
+![متن سه‌بعدی رندر شده با تبدیل WordArt منحنی، پرکردن الگوی نارنجی و برجستگی تاریک](img_02_05.png)
 
-![متن سه‌بعدی رندر شده با تبدیل انحنا‑یی WordArt، پر کردن الگوی نارنجی و برآمدگی تیره](img_02_05.png)
+## **متن را روی شکل سه‌بعدی صاف نگه‌دارید**
 
-## **حفظ متن صاف بر روی شکل سه‌بعدی**
+برای قابل‌خواندن نگه داشتن متن در حالی که ظاهر سه‌بعدی شکل حفظ می‌شود، [ITextFrameFormat.KeepTextFlat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/keeptextflat/) را از طریق [ITextFrame.TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframe/textframeformat/) تنظیم کنید. وقتی مقدار `true` باشد، متن خارج از صحنهٔ سه‌بعدی می‌ماند. وقتی `false` باشد، متن در صحنه مشارکت می‌کند و جهت‌گیری سه‌بعدی آن را دنبال می‌کند.
 
-برای حفظ خوانایی متن در حالی که ظاهر سه‌بعدی شکل حفظ می‌شود، از [ITextFrameFormat.KeepTextFlat](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/keeptextflat/) از طریق [ITextFrame.TextFrameFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/textframeformat/) استفاده کنید. وقتی مقدار آن `true` باشد، متن خارج از صحنهٔ سه‌بعدی می‌ماند. وقتی `false` باشد، متن در صحنه شرکت کرده و با جهت‌گیری سه‌بعدی همراه می‌شود.
+این تنظیم فرمت‌بندی سه‌بعدی شکل را حذف نمی‌کند: دوربین، نورپردازی، ماده و برجستگی آن همچنان از طریق [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) پیکربندی شده‌اند. همچنین متفاوت از چرخش عادی است. [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) شکل را در صفحهٔ اسلاید می‌چرخاند، در حالی که [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) چرخش سفارشی متن را در داخل جعبه مرزی کنترل می‌کند. نگه‌داشتن متن خارج از صحنهٔ سه‌بعدی هیچ‌یک از این زاویه‌ها را بازنشانی نمی‌کند.
 
-این تنظیم قالب‌بندی سه‌بعدی شکل را حذف نمی‌کند: دوربین، نورپردازی، ماده و برآمدگی آن همچنان از طریق [IShape.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/threedformat/) پیکربندی شده‌اند. همچنین متفاوت از چرخش معمولی است. [IShape.Rotation](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/rotation/) شکل را در صفحه اسلاید می‌چرخاند، در حالی که [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/rotationangle/) چرخش سفارشی متن را داخل جعبهٔ محصورکننده کنترل می‌کند. نگه داشتن متن خارج از صحنهٔ سه‌بعدی هیچ‌یک از این زاویه‌ها را بازنشانی نمی‌کند.
-
-مثال خودکفی زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار اصلی کپی می‌سازد. هر دو شکل یک قالب‌بندی سه‌بعدی یکسان دارند؛ تنها تنظیم متن متفاوت است: `false` در سمت چپ و `true` در سمت راست. زاویه‌های دوربین بر حسب درجه و ارتفاع برآمدگی ۴۰ پوینت است. مثال ارائه را به‌صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
+مثال زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنارهٔ اصل کپی می‌کند. هر دو شکل همان فرمت‌بندی سه‌بعدی را دارند؛ فقط تنظیم متن متفاوت است: `false` در سمت چپ و `true` در سمت راست. زاویه‌های دوربین بر حسب درجه هستند و ارتفاع برجستگی ۴۰ پوینت است. مثال ارائه را به صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند:
 
 ```csharp
 using System.Drawing;
@@ -304,43 +330,39 @@ using var image = slide.GetImage(2, 2);
 image.Save("keep_text_flat.png");
 ```
 
-در سمت چپ، متن جهت‌گیری سه‌بعدی را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواناتر است. هر دو مستطیل همان برآمدگی و جهت‌گیری سه‌بعدی قابل مشاهده را دارند.
-
 ![مستطیل‌های سه‌بعدی کنار هم: KeepTextFlat در سمت چپ false و در سمت راست true](keep_text_flat.png)
 
-## **رفتار صادرات و رندرینگ**
+## **رفتار صادرات و رندر**
 
-Aspose.Slides قالب‌بندی سه‌بعدی را هنگام ذخیره به فرمت‌های PowerPoint مانند PPTX حفظ می‌کند. هنگام رندر یا صادرات به فرمت‌های چیدمان ثابت، صحنهٔ سه‌بعدی به‌صورت نقطه‌نقطه یا به‌صورت تصویری دو‌بعدی در خروجی کشیده می‌شود. این امر هنگام رندر اسلایدها به [PNG](/slides/fa/net/convert-powerpoint-to-png/)، صادرات به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/)، صادرات به [HTML](/slides/fa/net/convert-powerpoint-to-html/)، یا تولید فریم برای [تبدیل ویدیو](/slides/fa/net/convert-powerpoint-to-video/) صدق می‌کند.
+Aspose.Slides فرمت‌بندی سه‌بعدی را هنگام ذخیره به قالب‌های PowerPoint مانند PPTX حفظ می‌کند. هنگام رندر یا صادرات به قالب‌های ثابت‑صفحه، صحنهٔ سه‌بعدی به صورت رستر یا کشیده‌شده به خروجی به عنوان نتیجهٔ دو‑بعدی تبدیل می‌شود. این هنگام رندر اسلایدها به [PNG](/slides/fa/net/convert-powerpoint-to-png/)، صادرات به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/)، صادرات به [HTML](/slides/fa/net/convert-powerpoint-to-html/)، یا تولید فریم برای [video conversion](/slides/fa/net/convert-powerpoint-to-video/) صادق است.
 
-نکات کلیدی:
+- تصاویر و PDFهای صادرشده تعاملی نیستند. پس از صادرات، نمی‌توان شیء را توسط بیننده چرخاند.  
+- ظاهر نهایی به ترکیب دوربین، نورپردازی، ماده، برجستگی، پرکردن و مقیاس اسلاید بستگی دارد.  
+- اگر نیاز به بررسی مقادیر فرمت‌بندی ارث‌بری یا مبتنی بر تم دارید، [ویژگی‌های مؤثر شکل](/slides/fa/net/shape-effective-properties/) را بخوانید.  
+- برخی قالب‌های خروجی نمی‌توانند فرمت‌بندی سه‌بعدی قابل ویرایش PowerPoint را ذخیره کنند. در آن قالب‌ها، نتیجهٔ بصری رندر می‌شود نه اینکه به عنوان تنظیمات سه‌بعدی قابل ویرایش حفظ شود.
 
-- تصاویر و PDFهای صادر شده تعاملی نیستند. پس از صادرات، کاربر نمی‌تواند شیء را بچرخاند.
-- ظاهر نهایی به ترکیب دوربین، نورپردازی، ماده، برآمدگی، پر کردن و مقیاس اسلاید وابسته است.
-- اگر نیاز دارید مقادیر قالب‌بندی به‌دست‌آمده از وراثت یا تم را بررسی کنید، از [ویژگی‌های مؤثر شکل](/slides/fa/net/shape-effective-properties/) استفاده کنید.
-- برخی فرمت‌های خروجی نمی‌توانند قالب‌بندی سه‌بعدی قابل ویرایش PowerPoint را ذخیره کنند. در این فرمت‌ها، نتیجه بصری رندر می‌شود نه اینکه به‌عنوان تنظیمات سه‌بعدی قابل ویرایش حفظ شود.
-
-## **سؤالات متداول**
+## **سوالات متداول**
 
 **آیا Aspose.Slides می‌تواند ارائه‌های سه‌بعدی تعاملی ایجاد کند؟**
 
-Aspose.Slides افکت‌های سه‌بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این کتابخانه تصاویر، PDFها یا صفحات HTML صادر شده را به صحنه‌های سه‌بعدی تعاملی تبدیل نمی‌کند که کاربر بتواند آن‌ها را بچرخاند. در PPTX، قالب‌بندی سه‌بعدی در PowerPoint به‌صورت ویرایش‌پذیر باقی می‌ماند؛ مشروط بر اینکه فرمت آن را پشتیبانی کند.
+Aspose.Slides افکت‌های سه‌بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این ابزار تصاویر، PDFها یا صفحات HTML صادرشده را به صحنه‌های سه‌بعدی تعاملی که بیننده می‌تواند آنها را بچرخاند، تبدیل نمی‌کند. در PPTX، فرمت‌بندی سه‌بعدی در PowerPoint ویرایش‌پذیر می‌ماند هرجا که قالب از آن پشتیبانی کند.
 
 **تفاوت بین مدل سه‌بعدی و افکت سه‌بعدی چیست؟**
 
-یک مدل سه‌بعدی یک شیء سه‌بعدی مستقل است که به ارائه اضافه می‌شود. یک افکت سه‌بعدی قالب‌بندی است که بر روی یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، برآمدگی، برجستگی، نورپردازی و ماده. این مقاله به افکت‌های سه‌بعدی می‌پردازد.
+یک مدل سه‌بعدی یک شیء سه‌بعدی جداگانه است که داخل ارائه وارد می‌شود. یک افکت سه‌بعدی فرمت‌بندی است که بر روی یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، برجستگی، لبه‌دار، نورپردازی و ماده. این مقاله به افکت‌های سه‌بعدی می‌پردازد.
 
-**کدام تنظیمات برای داشتن یک شکل سه‌بعدی قابل مشاهده لازم است؟**
+**کدام تنظیمات برای یک شکل سه‌بعدی قابل مشاهده لازم است؟**
 
-حداقل باید یک چرخش دوربین و یا برآمدگی یا عمق تنظیم کنید. در عمل، تنظیم نورپردازی و ماده نیز توصیه می‌شود تا سطوح رندر شده دارای برجستگی‌ها و سایه‌های واضح باشند.
+حداقل باید چرخش دوربین و یا برجستگی یا عمق را تنظیم کنید. در عمل، همچنین یک نورپردازی و ماده تنظیم می‌شود تا سطح‌های رندر شده روشنایی و سایه‌های واضحی داشته باشند.
 
-**آیا می‌توانم افکت‌های سه‌بعدی را هم به اشکال و هم به متن اعمال کنم؟**
+**آیا می‌توانم افکت‌های سه‌بعدی را هم روی اشکال و هم روی متن اعمال کنم؟**
 
-بله. برای بدنهٔ شکل از [IShape.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/properties/threedformat) و برای متن از [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/properties/threedformat) استفاده کنید.
+بله. برای بدنهٔ شکل از [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) و برای متن از [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) استفاده کنید.
 
 **آیا افکت‌های سه‌بعدی هنگام صادرات به تصاویر، PDF، HTML یا فریم‌های ویدیو ظاهر می‌شوند؟**
 
-بله. Aspose.Slides افکت‌های سه‌بعدی را هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های استفاده‌شده برای تبدیل به ویدیو رندر می‌کند. خروجی صادر شده شامل ظاهر رندر شده است، نه یک شیء سه‌بعدی قابل ویرایش.
+بله. Aspose.Slides افکت‌های سه‌بعدی را هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های مورد استفاده برای تبدیل ویدیو رندر می‌کند. خروجی صادرشده تنها حاوی ظاهر رندر شده است، نه یک شیء سه‌بعدی قابل ویرایش.
 
-**آیا می‌توانم مقادیر نهایی سه‌بعدی را پس از اعمال وراثت و تنظیمات تم بخوانم؟**
+**آیا می‌توانم مقادیر نهایی سه‌بعدی را پس از اعمال ارث‌بری و تنظیمات تم بخوانم؟**
 
-بله. از APIهای قالب‌بندی مؤثر توصیف‌شده در [ویژگی‌های مؤثر شکل](/slides/fa/net/shape-effective-properties/) استفاده کنید تا دوربین، نورپردازی، برجستگی و دیگر مقادیر سه‌بعدی نهایی را بخوانید.
+بله. از APIهای فرمت‌بندی مؤثر توصیف‌شده در [ویژگی‌های مؤثر شکل](/slides/fa/net/shape-effective-properties/) برای خواندن دوربین نهایی، نورپردازی، لبه و مقادیر مرتبط با سه‌بعدی استفاده کنید.

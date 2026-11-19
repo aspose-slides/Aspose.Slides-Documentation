@@ -1,5 +1,5 @@
 ---
-title: Δημιουργία 3D Εφέ σε Παρουσιάσεις με Χρήση Java
+title: Δημιουργία 3D εφέ σε παρουσιάσεις με Java
 linktitle: 3D Παρουσίαση
 type: docs
 weight: 232
@@ -16,45 +16,47 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Εφαρμόστε και αποδώστε 3D εφέ για σχήματα και κείμενο PowerPoint σε Java με το Aspose.Slides. Διαμορφώστε κάμερα, φωτισμό, υλικό, εξώθηση, γεμίσματα και 3D κείμενο."
+description: "Εφαρμόστε και αποδώστε 3D εφέ για σχήματα και κείμενο PowerPoint σε Java με Aspose.Slides. Διαμορφώστε κάμερα, φωτισμό, υλικό, εξώθηση, γεμίσματα και 3D κείμενο."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Java μπορεί να δημιουργεί, να επεξεργάζεται, να διατηρεί και να αποδίδει διαμορφώσεις 3D σε στυλ PowerPoint για σχήματα και κείμενο. Αυτό το άρθρο καλύπτει εφέ 3D όπως περιστροφή, εξώθηση, λοξοτομή, φωτισμό, υλικό, διαβάθμιση ή γεμίσματα εικόνας, και κείμενο 3D.
+Aspose.Slides for Java μπορεί να δημιουργήσει, επεξεργαστεί, διατηρήσει και αποδώσει 3D μορφοποίηση σε σχήματα και κείμενο με στυλ PowerPoint. Αυτό το άρθρο καλύπτει εφέ 3D όπως περιστροφές, εξώθηση, λοξά, φωτισμό, υλικό, διαβαθμίσεις ή γεμίσματα εικόνας, και 3D κείμενο.
 
 {{% alert color="info" title="Note" %}}
-Αυτό το άρθρο αφορά εφέ διαμόρφωσης 3D σε σχήματα και κείμενο του PowerPoint. Δεν αφορά την εισαγωγή ή επεξεργασία ανεξάρτητων αρχείων 3D μοντέλου. Όταν εξάγετε μια διαφάνεια ως εικόνα, PDF ή HTML, το Aspose.Slides αποδίδει αυτά τα εφέ 3D στην εξαγόμενη 2D έξοδο.
+
+Αυτό το άρθρο αφορά τα εφέ μορφοποίησης 3D σε σχήματα και κείμενο του PowerPoint. Δεν αφορά την εισαγωγή ή επεξεργασία ανεξάρτητων αρχείων 3D μοντέλου. Όταν εξάγετε μια διαφάνεια σε εικόνα, PDF ή HTML, το Aspose.Slides αποδίδει αυτά τα εφέ 3D στην εξαγόμενη 2D έξοδο.
+
 {{% /alert %}}
 
-## **Έννοιες Διαμόρφωσης 3D**
+## **Αρχές 3D Μορφοποίησης**
 
-Χρησιμοποιήστε τη μέθοδο [IShape.getThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getThreeDFormat--) για να εφαρμόσετε διαμόρφωση 3D σε ένα σχήμα. Η μέθοδος επιστρέφει το [IThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/), το οποίο ελέγχει τη σκηνή 3D για αυτό το σχήμα.
+Χρησιμοποιήστε τη μέθοδο [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) για να εφαρμόσετε 3D μορφοποίηση σε ένα σχήμα. Η μέθοδος επιστρέφει το [IThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/), το οποίο ελέγχει τη σκηνή 3D για εκείνο το σχήμα.
 
-Για κείμενο, χρησιμοποιήστε τη μέθοδο [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Αυτό εφαρμόζει διαμόρφωση 3D στο πλαίσιο κειμένου αντί στο σώμα του σχήματος.
+Για κείμενο, χρησιμοποιήστε τη μέθοδο [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Αυτό εφαρμόζει 3D μορφοποίηση στο πλαίσιο κειμένου αντί για το σώμα του σχήματος.
 
-Τα πιο σημαντικά μέλη του API είναι:
+Οι πιο σημαντικά μέλη του API είναι:
 
 | Μέλος API | Τι ελέγχει | Πότε να το χρησιμοποιήσετε |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getCamera--) | Προβολή, προεπιλεγμένος τύπος κάμερας, περιστροφή, ζουμ και προοπτική. | Περιστρέψτε το αντικείμενο στο 3D χώρο ή ταιριάξτε μια προεπιλογή περιστροφής 3D του PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getLightRig--) | Προεπιλογή φωτισμού, κατεύθυνση και περιστροφή φωτός. | Αλλάξτε πώς εμφανίζονται οι αντανακλάσεις και οι σκιές στην επιφάνεια 3D. |
-| [getMaterial](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getMaterial--) και [setMaterial](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Υλικό επιφάνειας, όπως επίπεδο, ματ, πλαστικό ή μέταλλο. | Κάντε την ίδια γεωμετρία να φαίνεται πιο επίπεδη, πιο μαλακή, γυαλιστερή ή μεταλλική. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) και [setExtrusionHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Πόσο μακριά εκτείνεται το σχήμα προς τα πίσω από την μπροστινή του πλευρά. | Μετατρέψτε ένα επίπεδο σχήμα σε ένα ορατά παχύ 3D αντικείμενο. |
-| [getExtrusionColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Χρώμα των εξωτερικών πλευρών. | Κάντε το βάθος ορατό ή συντονίστε το χρώμα των πλευρών με το μπροστινό γέμισμα. |
-| [getDepth](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getDepth--) και [setDepth](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Επιπλέον βάθος 3D που χρησιμοποιείται από τη διαμορφωση 3D του PowerPoint. | Ρυθμίστε το βάθος για σχήματα ή κείμενο, ιδίως μαζί με ρυθμίσεις λοξοτομίας και υλικού. |
-| [getBevelTop](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getBevelTop--) και [getBevelBottom](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Ύψωμα ή στρογγυλεμένες άκρες στην μπροστινή και πίσω πλευρά. | Προσθέστε μια μαλακωμένη ή υψωμένη άκρη αντί για μια αιχμηρή επίπεδη πλευρά. |
-| [getContourColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getContourColor--) και [getContourWidth](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getContourWidth--) και [setContourWidth](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Περίγραμμα γύρω από το 3D αντικείμενο. | Τονίστε το όριο του αντικειμένου στην αποδομένη έξοδο. |
+| [getCamera](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getCamera--) | Σημείο θέασης, προεπιλεγμένος τύπος κάμερας, περιστροφή, ζουμ και προοπτική. | Περιστρέψτε το αντικείμενο σε 3D χώρο ή ταιριάξτε μια προεπιλογή περιστροφής 3D του PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getLightRig--) | Προεπιλογή φωτισμού, κατεύθυνση και περιστροφή φωτός. | Αλλάξτε πώς εμφανίζονται οι αποχρώσεις και οι σκιές στην 3D επιφάνεια. |
+| [getMaterial](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getMaterial--) και [setMaterial](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Υλικό επιφάνειας, όπως επίπεδο, ματ, πλαστικό ή μέταλλο. | Κάντε την ίδια γεωμετρία να φαίνεται πιο επίπεδη, μαλακότερη, λαμπερή ή μεταλλική. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) και [setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Πόσο βαθιά το σχήμα εκτείνεται προς τα πίσω από το μπροστινό του πρόσοψη. | Μετατρέψτε ένα επίπεδο σχήμα σε εμφανώς παχύ 3D αντικείμενο. |
+| [getExtrusionColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Χρώμα των εξωθημένων πλευρών. | Κάντε το βάθος ορατό ή συντονίστε το χρώμα των πλευρών με το μπροστινό γέμισμα. |
+| [getDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getDepth--) και [setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Πρόσθετο 3D βάθος που χρησιμοποιείται από τη μορφοποίηση 3D του PowerPoint. | Ρυθμίστε ακριβώς το βάθος για σχήματα ή κείμενο, ιδιαίτερα μαζί με ρυθμίσεις λοξού και υλικού. |
+| [getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--) και [getBevelBottom](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Ανυψωμένες ή στρογγυλεμένες άκρες στις μπροστινές και πίσω όψεις. | Προσθέστε μια μαλακότερη ή μορφοποιημένη άκρη αντί για μια απότομη επίπεδη όψη. |
+| [getContourColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getContourColor--) και [getContourWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getContourWidth--) και [setContourWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Περίγραμμα γύρω από το 3D αντικείμενο. | Τονίστε τα όρια του αντικειμένου στην αποδομένη έξοδο. |
 
-## **Δημιουργία Σχήματος 3D**
+## **Δημιουργία 3D Σχήματος**
 
-Ένα σχήμα συνήθως χρειάζεται τέσσερα είδη ρυθμίσεων πριν φαίνεται πειστικά 3D:
+Ένα σχήμα συνήθως χρειάζεται τέσσερις τύπους ρυθμίσεων πριν φαίνεται πειστικά 3D:
 
-- Ρυθμίσεις κάμερας, επειδή η προεπιλεγμένη προβολή από μπροστά μπορεί να κρύβει την εξώθηση.
-- Ρυθμίσεις φωτισμού, επειδή ο φωτισμός κάνει τις πλευρές και τις όψεις αναγώσιμες.
+- Ρυθμίσεις κάμερας, επειδή η προεπιλεγμένη άποψη εμπρόσθιας όψης μπορεί να κρύβει την εξώθηση.
+- Ρυθμίσεις φωτισμού, επειδή ο φωτισμός κάνει τις όψεις και τις πλευρές ορατές.
 - Ρυθμίσεις υλικού, επειδή η επιφάνεια επηρεάζει πώς αποδίδεται το φως.
 - Ρυθμίσεις εξώθησης ή βάθους, επειδή ένα επίπεδο σχήμα χρειάζεται πάχος.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο, προσθέτει κείμενο στην μπροστινή του πλευρά και εφαρμόζει διαμορφωση 3D. Οι τιμές περιστροφής της κάμερας είναι σε μοίρες, και το ύψος εξώθησης είναι 100 μονάδες. Το παράδειγμα αποδίδει τη διαφάνεια ως εικόνα PNG δύο φορές τις προεπιλεγμένες διαστάσεις της και αποθηκεύει την παρουσίαση ως PPTX.
+Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο, προσθέτει κείμενο στην εμπρός όψη του και εφαρμόζει 3D μορφοποίηση. Οι τιμές περιστροφής της κάμερας δίνονται σε μοίρες και το ύψος εξώθησης είναι 100 μονάδες. Το παράδειγμα αποδίδει τη διαφάνεια σε εικόνα PNG διπλάσιας του προεπιλεγμένου μεγέθους και αποθηκεύει την παρουσίαση ως PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -95,17 +97,17 @@ try {
 }
 ```
 
-Η αποδομένη εικόνα της διαφάνειας δείχνει το ορθογώνιο ως ένα παχύ 3D μπλοκ:
+Η αποδομένη εικόνα της διαφάνειας δείχνει το ορθογώνιο ως παχύ 3D μπλοκ:
 
-![Αποδομένο μπλε 3D ορθογώνιο με λευκό 3D κείμενο στην μπροστινή πλευρά](img_01_01.png)
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
 ## **Περιστροφή Σχήματος με την Κάμερα**
 
-Στο PowerPoint, η περιστροφή 3D ρυθμίζεται από το πλαίσιο 3-D Rotation. Οι τιμές περιστροφής X, Y και Z αντιστοιχούν στις περιστροφές που ορίζετε μέσω του API της κάμερας.
+Στο PowerPoint, η 3D περιστροφή ρυθμίζεται από το πλαίσιο 3‑D Rotation. Οι τιμές περιστροφής X, Y και Z αντιστοιχούν στη περιστροφή που ορίζετε μέσω του API της κάμερας.
 
-![Πλαίσιο 3-D Rotation του PowerPoint με επισημασμένες τιμές περιστροφής X, Y και Z](img_02_01.png)
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-Στο Aspose.Slides, προσπελάστε την κάμερα μέσω του [IThreeDFormat.getCamera](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getCamera--). Αυτό το παράδειγμα δημιουργεί ένα ορθογώνιο, επιλέγει ορθογραφική προοπτική από μπροστά, και θέτει τις περιστροφές X, Y, Z σε 20, 30 και 40 μοίρες, αντίστοιχα. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
+Στο Aspose.Slides, προσπελάστε την κάμερα μέσω του [IThreeDFormat.getCamera](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getCamera--). Αυτό το παράδειγμα δημιουργεί ένα ορθογώνιο, επιλέγει μια ορθογραφική προβολή εμπρός και θέτει τις περιστροφές X, Y, Z σε 20, 30 και 40 μοίρες αντίστοιχα. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
 
 ```java
 import com.aspose.slides.*;
@@ -123,15 +125,47 @@ try {
 }
 ```
 
-Χρησιμοποιήστε την κάμερα όταν χρειάζεται να αλλάξετε τον τρόπο που ο θεατής βλέπει το αντικείμενο. Δεν αλλάζει τη γεωμετρία του 2D σχήματος στη διαφάνεια. Αλλάζει την 3D προοπτική που χρησιμοποιούν το PowerPoint και το Aspose.Slides κατά την απόδοση.
+Χρησιμοποιήστε την κάμερα όταν χρειάζεται να αλλάξετε την προβολή του αντικειμένου από την πλευρά του θεατή. Δεν αλλάζει τη γεωμετρία του 2D σχήματος στη διαφάνεια. Αλλάζει το 3D σημείο θέασης που χρησιμοποιούν το PowerPoint και το Aspose.Slides κατά την απόδοση.
+
+### **Αντιγραφή Προσανατολισμού Κάμερας από Σχήμα Προτύπου**
+
+Για να ταιριάξετε τον προσανατολισμό ενός σχήματος προτύπου, διαβάστε την προεπιλογή κάμερας του μέσω του [getCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#getCameraType--) και τις γωνίες περιστροφής του με το [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#getRotation--). Το παράδειγμα ανοίγει το `template.pptx` και αντιγράφει τον προσανατολισμό της κάμερας από το πρώτο σχήμα της πρώτης διαφάνειας στο δεύτερο σχήμα. Και τα δύο σχήματα έχουν ήδη 3D φωτισμό, ενώ το δεύτερο σχήμα δεν έχει ρητή περιστροφή κάμερας.
+
+Οι γωνίες δίνονται σε μοίρες. Το ευρετήριο `0` είναι γεωγραφικό πλάτος, το `1` είναι γεωγραφικό μήκος και το `2` είναι περιφορά. Περάστε τα στο [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) με αυτή τη σειρά. Αν η πηγή επιστρέφει `null`, δεν υπάρχει ρητή περιστροφή, οπότε αφήστε τις γωνίες του δεύτερου σχήματος ακαθορισμένες. Μια ρητή περιστροφή `(0, 0, 0)` επιστρέφει τρία μηδενικά και πρέπει να αντιγραφεί.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    ICamera sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    ICamera destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    float[] angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Όταν ανοίξετε ξανά το `camera-copy.pptx` στο PowerPoint, το βέλος δεξιά θα έχει την ίδια προεπιλογή κάμερας και περιστροφή με το ορθογώνιο αριστερά. Και τα δύο σχήματα χρησιμοποιούν τον ίδιο φωτισμό και βάθος εξώθησης.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
 
 ## **Προσθήκη Εξώθησης και Βάθους**
 
-Η εξώθηση κάνει ένα σχήμα να φαίνεται παχύ επεκτείνοντάς το πίσω από τη μπροστινή πλευρά. Στο PowerPoint, ο έλεγχος βάθους ορίζει αυτό το ορατό πάχος, και ο έλεγχος χρώματος ορίζει το χρώμα των πλευρικών όψεων.
+Η εξώθηση κάνει ένα σχήμα να φαίνεται παχύ επεκτείνοντάς το πίσω από την εμπρός όψη. Στο PowerPoint, ο έλεγχος βάθους ορίζει αυτό το ορατό πάχος, ενώ ο έλεγχος χρώματος ορίζει το χρώμα των πλευρικών όψεων.
 
-![Έλεγχοι βάθους του PowerPoint συνδεδεμένοι με τις ιδιότητες χρώματος και ύψους εξώθησης](img_02_02.png)
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
 
-Χρησιμοποιήστε το [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) για να ορίσετε το πάχος και το [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) για να έχετε πρόσβαση στο χρώμα των πλευρών. Αυτό το παράδειγμα δίνει στο ορθογώνιο εξώθηση 100 μονάδων με μώβ πλευρές και περιστρέφει την κάμερα για να αποκαλύψει το πάχος του. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
+Χρησιμοποιήστε το [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) για να ορίσετε το πάχος και το [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) για να προσπελάσετε το χρώμα των πλευρών. Το παράδειγμα δίνει σε ένα ορθογώνιο εξώθηση 100 μονάδων με μωβ πλευρές και περιστρέφει την κάμερα για να αποκαλύψει το πάχος. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
 
 ```java
 import com.aspose.slides.*;
@@ -157,13 +191,13 @@ try {
 }
 ```
 
-Η μέθοδος [IThreeDFormat.setDepth](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setDepth-double-) ορίζει το βάθος ενός 3D σχήματος. Η μέθοδος [setExtrusionHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) ελέγχει το ύψος του εφέ εξώθησης, όπως φαίνεται σε αυτό το παράδειγμα.
+Η μέθοδος [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) ορίζει το βάθος ενός 3D σχήματος. Η μέθοδος [setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) ελέγχει το ύψος του εφέ εξώθησης, όπως φαίνεται σε αυτό το παράδειγμα.
 
 ## **Χρήση Διαβαθμίσεων ή Γεμίσματος Εικόνας με Εφέ 3D**
 
-Η διαμόρφωση 3D είναι ανεξάρτητη από το γέμισμα του σχήματος. Μπορείτε να εφαρμόσετε μονόχρωμο γέμισμα, διαβάθμιση, μοτίβο ή γέμισμα εικόνας στην μπροστινή πλευρά και να χρησιμοποιήσετε τις ίδιες ρυθμίσεις κάμερας, φωτισμού, υλικού και εξώθησης.
+Η 3D μορφοποίηση είναι ανεξάρτητη από το γέμισμα του σχήματος. Μπορείτε να εφαρμόσετε ένα συμπαγές χρώμα, διαβάθμιση, μοτίβο ή γέμισμα εικόνας στην εμπρός όψη και να διατηρήσετε τις ίδιες ρυθμίσεις κάμερας, φωτισμού, υλικού και εξώθησης.
 
-Το παράδειγμα αυτό εφαρμόζει μια διαβάθμιση από μπλε σε πορτοκαλί στην μπροστινή πλευρά και ένα σκούρο πορτοκαλί χρώμα στην εξώθηση 150 μονάδων. Οι στάσεις της διαβάθμισης στα 0 και 100 υποδεικνύουν την αρχή και το τέλος της διαβάθμισης. Οι τιμές περιστροφής της κάμερας είναι σε μοίρες. Η διαφάνεια αποδίδεται ως εικόνα PNG δύο φορές τις προεπιλεγμένες διαστάσεις:
+Αυτό το παράδειγμα εφαρμόζει μια διαβάθμιση από μπλε σε πορτοκαλί στην εμπρός όψη και ένα σκούρο πορτοκαλί χρώμα στην εξώθηση 150 μονάδων. Τα σημεία διαβάθμισης στο 0 και 100 σηματοδοτούν την έναρξη και το τέλος της διαβάθμισης. Οι τιμές περιστροφής της κάμερας δίνονται σε μοίρες. Η διαφάνεια αποδίδεται σε εικόνα PNG διπλάσιας του προεπιλεγμένου μεγέθους:
 
 ```java
 import com.aspose.slides.*;
@@ -204,11 +238,11 @@ try {
 }
 ```
 
-Αποδομένο 3D ορθογώνιο με γέμισμα διαβάθμισης από μπλε σε πορτοκαλί και πορτοκαλί εξώθηση:
+Η αποδομένη έξοδος διατηρεί τη διαβάθμιση στην εμπρός όψη και αποδίδει την εξώθηση χωριστά:
 
-![Αποδομένο 3D ορθογώνιο με γέμισμα διαβάθμισης από μπλε σε πορτοκαλί και πορτοκαλί εξώθηση](img_02_03.png)
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-Για να χρησιμοποιήσετε γέμισμα εικόνας, προσθέστε την εικόνα στην παρουσίαση και ορίστε τη ως γέμισμα του σχήματος. Αυτό το παράδειγμα απαιτεί ένα υπάρχον αρχείο με όνομα "image.jpg" στον τρέχοντα φάκελο. Επεκτείνει την εικόνα ώστε να γεμίσει το ορθογώνιο, εφαρμόζει εξώθηση 150 μονάδων, και θέτει την περιστροφή της κάμερας σε μοίρες. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση ή απόδοση αρχείου:
+Για να χρησιμοποιήσετε γέμισμα εικόνας, προσθέστε την εικόνα στην παρουσίαση και αναθέστε την στο γέμισμα του σχήματος. Αυτό το παράδειγμα απαιτεί ένα υπάρχον αρχείο με όνομα "image.jpg" στον τρέχοντα φάκελο. Τεντώνει την εικόνα ώστε να γεμίσει το ορθογώνιο, εφαρμόζει εξώθηση 150 μονάδων και θέτει τη περιστροφή της κάμερας σε μοίρες. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση ή απόδοση αρχείου:
 
 ```java
 import com.aspose.slides.*;
@@ -244,15 +278,15 @@ try {
 }
 ```
 
-Αποδομένο 3D ορθογώνιο με γέμισμα φωτογραφίας στην μπροστινή πλευρά και πορτοκαλί εξώθηση:
+Η εικόνα αποδίδεται στην εμπρός όψη, ενώ η εξώθηση αποδίδεται ως η 3D πλευρική επιφάνεια:
 
-![Αποδομένο 3D ορθογώνιο με γέμισμα φωτογραφίας στην μπροστινή πλευρά και πορτοκαλί εξώθηση](img_02_04.png)
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
-## **Εφαρμογή Διαμόρφωσης 3D σε Κείμενο**
+## **Εφαρμογή 3D Μορφοποίησης σε Κείμενο**
 
-Η διαμόρφωση 3D του σχήματος επηρεάζει το σώμα του σχήματος. Η διαμόρφωση 3D του κειμένου επηρεάζει το πλαίσιο κειμένου. Αυτό είναι χρήσιμο για εφέ παρόμοια με WordArt όπου τα γράμματα απαιτούν εξώθηση, υλικό, φωτισμό και ρυθμίσεις κάμερας.
+Η 3D μορφοποίηση σχήματος επηρεάζει το σώμα του σχήματος. Η 3D μορφοποίηση κειμένου επηρεάζει το πλαίσιο κειμένου. Αυτό είναι χρήσιμο για εφέ τύπου WordArt όπου τα γράμματα χρειάζονται εξώθηση, υλικό, φωτισμό και ρυθμίσεις κάμερας.
 
-Το παρακάτω παράδειγμα δημιουργεί κείμενο με μοτίβο πλέγματος πορτοκαλί-λευκό, εφαρμόζει ένα ανοδικό τόξο, και διαμορφώνει τις ρυθμίσεις 3D μέσω του [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). Το ύψος εξώθησης και το βάθος είναι σε μονάδες, και η περιστροφή φωτός σε μοίρες. Το γέμισμα και το περίγραμμα του σχήματος είναι κρυμμένα ώστε μόνο το κείμενο να είναι ορατό. Το παράδειγμα αποδίδει μια εικόνα PNG δύο φορές τις προεπιλεγμένες διαστάσεις της διαφάνειας και αποθηκεύει την παρουσίαση ως PPTX:
+Το παρακάτω παράδειγμα δημιουργεί κείμενο με μοτίβο πλέγματος πορτοκαλί‑λευκό, εφαρμόζει ένα αψίδα προς τα πάνω και διαμορφώνει ρυθμίσεις 3D μέσω του [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). Το ύψος εξώθησης και το βάθος δίνονται σε μονάδες, και η περιστροφή του φωτός σε μοίρες. Το γέμισμα και το περίγραμμα του σχήματος είναι κρυμμένα ώστε να φαίνεται μόνο το κείμενο. Το παράδειγμα αποδίδει μια εικόνα PNG διπλάσιων διαστάσεων της προεπιλογής και αποθηκεύει την παρουσίαση ως PPTX:
 
 ```java
 import com.aspose.slides.*;
@@ -302,17 +336,17 @@ try {
 }
 ```
 
-Αποδομένο 3D κείμενο με καμπύλο μετασχηματισμό WordArt, γέμισμα μοτίβου πορτοκαλί και σκούρα εξώθηση:
+Το κείμενο αποδίδεται ως καμπυλωτά, εξωθήμενα 3D γράμματα:
 
-![Αποδομένο 3D κείμενο με καμπύλο μετασχηματισμό WordArt, γέμισμα μοτίβου πορτοκαλί και σκούρα εξώθηση](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
 
-## **Διατήρηση Κειμένου Επίπεδου σε Σχήμα 3D**
+## **Διατήρηση του Κειμένου Επίπεδου σε 3D Σχήμα**
 
-Για να διατηρήσετε το κείμενο αναγνώσιμο ενώ διατηρείται η 3D εμφάνιση του σχήματος, καλέστε το [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) μέσω του [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/#getTextFrameFormat--). Όταν η τιμή είναι `true`, το κείμενο παραμένει εκτός της σκηνής 3D. Όταν είναι `false`, το κείμενο συμμετέχει στη σκηνή και ακολουθεί τον 3D προσανατολισμό της.
+Για να διατηρήσετε το κείμενο ευανάγνωστο ενώ διατηρείτε την 3D εμφάνιση του σχήματος, καλέστε το [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) μέσω του [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getTextFrameFormat--). Όταν η τιμή είναι `true`, το κείμενο παραμένει έξω από τη 3D σκηνή. Όταν είναι `false`, το κείμενο συμμετέχει στη σκηνή και ακολουθεί τον 3D προσανατολισμό της.
 
-Αυτή η ρύθμιση δεν αφαιρεί τη διαμόρφωση 3D του σχήματος: την κάμερα, τον φωτισμό, το υλικό και την εξώθηση παραμένουν ρυθμισμένα μέσω του [IShape.getThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getThreeDFormat--). Είναι επίσης διαφορετική από την κανονική περιστροφή. Το [IShape.setRotation](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#setRotation-float-) περιστρέφει το σχήμα στο επίπεδο της διαφάνειας, ενώ το [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) ελέγχει την προσαρμοσμένη περιστροφή του κειμένου μέσα στο πλαίσιο του. Η διατήρηση του κειμένου εκτός της σκηνής 3D δεν επαναφέρει κανένα από αυτά τα άκρα.
+Αυτή η ρύθμιση δεν αφαιρεί τη 3D μορφοποίηση του σχήματος: η κάμερα, ο φωτισμός, το υλικό και η εξώθηση παραμένουν ρυθμισμένα μέσω του [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--). Είναι επίσης διαφορετική από την κοινή περιστροφή. Το [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) περιστρέφει το σχήμα στο επίπεδο της διαφάνειας, ενώ το [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) ελέγχει την προσαρμοσμένη περιστροφή του κειμένου μέσα στο πλαίσιο του. Η διατήρηση του κειμένου εκτός της 3D σκηνής δεν μηδενίζει καμία από τις δύο γωνίες.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα μπλε ορθογώνιο με κείμενο και το κλωνοποιεί δίπλα στο αρχικό. Και τα δύο σχήματα έχουν την ίδια διαμόρφωση 3D· μόνο η ρύθμιση κειμένου διαφέρει: `false` στα αριστερά και `true` στα δεξιά. Οι γωνίες της κάμερας είναι σε μοίρες, και το ύψος εξώθησης είναι 40 μονάδες. Το παράδειγμα αποθηκεύει την παρουσίαση ως PPTX και αποδίδει τη διαφάνεια σύγκρισης ως PNG δύο φορές τις προεπιλεγμένες διαστάσεις.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα μπλε ορθογώνιο με κείμενο και το κλωνοποιεί δίπλα στο αρχικό. Και τα δύο σχήματα έχουν την ίδια 3D μορφοποίηση· μόνο η ρύθμιση κειμένου διαφέρει: `false` στα αριστερά και `true` στα δεξιά. Οι γωνίες κάμερας δίνονται σε μοίρες, και το ύψος εξώθησης είναι 40 μονάδες. Το παράδειγμα αποθηκεύει την παρουσίαση ως PPTX και αποδίδει τη διαφάνεια σύγκρισης σε PNG διπλάσιας του προεπιλεγμένου μεγέθους.
 
 ```java
 import com.aspose.slides.*;
@@ -355,41 +389,43 @@ try {
 }
 ```
 
-Παρτίδες 3D ορθογωνίων: το κείμενο ακολουθεί την 3D προσανατολισμό στα αριστερά και παραμένει επίπεδο στα δεξιά:
+Στα αριστερά, το κείμενο ακολουθεί τον 3D προσανατολισμό. Στα δεξιά, παραμένει επίπεδο και πιο εύκολο στην ανάγνωση. Και τα δύο ορθογώνια διατηρούν την ίδια ορατή εξώθηση και 3D προσανατολισμό.
 
-![Παρτίδες 3D ορθογωνίων: το κείμενο ακολουθεί την 3D προσανατολισμό στα αριστερά και παραμένει επίπεδο στα δεξιά](keep_text_flat.png)
+![Side-by-side 3D rectangles: text follows the 3D orientation on the left and stays flat on the right](keep_text_flat.png)
 
 ## **Συμπεριφορά Εξαγωγής και Απόδοσης**
 
-Το Aspose.Slides διατηρεί τη διαμόρφωση 3D κατά την αποθήκευση σε μορφές PowerPoint όπως PPTX. Κατά την απόδοση ή εξαγωγή σε μορφές σταθερού layout, η σκηνή 3D ραστεροποιείται ή σχεδιάζεται στην έξοδο ως 2D αποτέλεσμα. Αυτό ισχύει όταν αποδίδετε διαφάνειες σε [PNG](/slides/el/java/convert-powerpoint-to-png/), εξάγετε σε [PDF](/slides/el/java/convert-powerpoint-to-pdf/), εξάγετε σε [HTML](/slides/el/java/convert-powerpoint-to-html/), ή δημιουργείτε καρέ για [video conversion](/slides/el/java/convert-powerpoint-to-video/).
+Το Aspose.Slides διατηρεί τη 3D μορφοποίηση κατά την αποθήκευση σε μορφές PowerPoint όπως το PPTX. Κατά την απόδοση ή εξαγωγή σε μορφές στατικού layout, η 3D σκηνή κατευθύνεται ή σχεδιάζεται στην έξοδο ως 2D αποτέλεσμα. Αυτό ισχύει όταν αποδίδετε διαφάνειες σε [PNG](/slides/el/java/convert-powerpoint-to-png/), εξάγετε σε [PDF](/slides/el/java/convert-powerpoint-to-pdf/), εξάγετε σε [HTML](/slides/el/java/convert-powerpoint-to-html/), ή δημιουργείτε καρέ για [μετατροπή σε βίντεο](/slides/el/java/convert-powerpoint-to-video/).
 
-- Οι εξαγόμενες εικόνες και τα PDF δεν είναι διαδραστικά. Το αντικείμενο δεν μπορεί να περιστραφεί από τον θεατή μετά την εξαγωγή.
-- Η τελική εμφάνιση εξαρτάται από το συνδυασμό κάμερας, φωτισμού, υλικού, εξώθησης, γεμίσματος και κλιμάκωσης της διαφάνειας.
-- Αν χρειάζεται να ελέγξετε τις κληρονομημένες ή βασισμένες στο θέμα τιμές διαμόρφωσης, διαβάστε τις [effective shape properties](/slides/el/java/shape-effective-properties/).
-- Ορισμένες μορφές εξόδου δεν μπορούν να αποθηκεύσουν επεξεργάσιμη διαμόρφωση 3D του PowerPoint. Σε αυτές τις μορφές, το οπτικό αποτέλεσμα αποδίδεται αντί να διατηρείται ως επεξεργάσιμες ρυθμίσεις 3D.
+Να θυμάστε τα εξής:
 
-## **FAQ**
+- Οι εξαγόμενες εικόνες και PDF δεν είναι διαδραστικές. Το αντικείμενο δεν μπορεί να περιστραφεί από τον θεατή μετά την εξαγωγή.
+- Η τελική εμφάνιση εξαρτάται από τον συνδυασμό κάμερας, φωτισμού, υλικού, εξώθησης, γεμίσματος και κλιμακώσεων διαφάνειας.
+- Αν χρειάζεστε να εξετάσετε κληρονομημένες ή θεματικές τιμές μορφοποίησης, διαβάστε τις [effective shape properties](/slides/el/java/shape-effective-properties/).
+- Κάποιες μορφές εξόδου δεν μπορούν να αποθηκεύσουν επεξεργάσιμη 3D μορφοποίηση PowerPoint. Σε αυτές τις μορφές, το οπτικό αποτέλεσμα αποδίδεται αντί να διατηρείται ως επεξεργάσιμες ρυθμίσεις 3D.
+
+## **Συχνές Ερωτήσεις**
 
 **Μπορεί το Aspose.Slides να δημιουργήσει διαδραστικές 3D παρουσιάσεις;**
 
-Το Aspose.Slides δημιουργεί και αποδίδει εφέ 3D του PowerPoint για σχήματα και κείμενο. Δεν κάνει τις εξαγόμενες εικόνες, PDF ή HTML σελίδες διαδραστικές 3D σκηνές που ο θεατής να μπορεί να τις περιστρέψει. Στο PPTX, η διαμόρφωση 3D παραμένει επεξεργάσιμη στο PowerPoint όπου η μορφή τη υποστηρίζει.
+Το Aspose.Slides δημιουργεί και αποδίδει τις 3D επιδράσεις PowerPoint για σχήματα και κείμενο. Δεν κάνει τις εξαγόμενες εικόνες, PDF ή HTML σελίδες διαδραστικές 3D σκηνές που ο θεατής μπορεί να περιστρέψει. Σε PPTX, η 3D μορφοποίηση παραμένει επεξεργάσιμη στο PowerPoint όπου η μορφή το υποστηρίζει.
 
-**Ποια είναι η διαφορά μεταξύ ενός 3D μοντέλου και ενός 3D εφέ;**
+**Ποια είναι η διαφορά μεταξύ 3D μοντέλου και 3D εφέ;**
 
-Ένα 3D μοντέλο είναι ένα ξεχωριστό αντικείμενο 3D που εισάγεται στην παρουσίαση. Ένα 3D εφέ είναι διαμορφωση που εφαρμόζεται σε ένα κανονικό σχήμα ή κείμενο του PowerPoint, όπως περιστροφή, εξώθηση, λοξοτομή, φωτισμό και υλικό. Αυτό το άρθρο καλύπτει εφέ 3D.
+Ένα 3D μοντέλο είναι ξεχωριστό 3D αντικείμενο που εισάγεται σε μια παρουσίαση. Ένα 3D εφέ είναι μορφοποίηση που εφαρμόζεται σε ένα κανονικό σχήμα ή κείμενο του PowerPoint, όπως περιστροφή, εξώθηση, λοξό, φωτισμό και υλικό. Αυτό το άρθρο καλύπτει 3D εφέ.
 
-**Ποιες ρυθμίσεις απαιτούνται για ένα ορατό σχήμα 3D;**
+**Ποιες ρυθμίσεις απαιτούνται για ένα ορατό 3D σχήμα;**
 
-Ελάχιστα, ορίστε μια περιστροφή κάμερας και είτε εξώθηση είτε βάθος. Στην πράξη, ορίστε επίσης φωτισμό και υλικό ώστε οι αποδομένες όψεις να έχουν καθαρούς αντανακλάσεις και σκιές.
+Ελάχιστα, ορίστε μια περιστροφή κάμερας και είτε εξώθηση είτε βάθος. Στην πράξη, ορίστε επίσης ένα σύνολο φωτισμού και υλικό ώστε οι αποδιδόμενες όψεις να έχουν καθαρές αναδράσεις και σκιές.
 
-**Μπορώ να εφαρμόσω εφέ 3D τόσο σε σχήματα όσο και σε κείμενο;**
+**Μπορώ να εφαρμόσω 3D εφέ σε σχήματα και κείμενο;**
 
-Ναι. Χρησιμοποιήστε το [IShape.getThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getThreeDFormat--) για το σώμα του σχήματος και το [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) για το κείμενο.
+Ναι. Χρησιμοποιήστε το [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) για το σώμα του σχήματος και το [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) για το κείμενο.
 
-**Θα εμφανιστούν τα εφέ 3D κατά την εξαγωγή σε εικόνες, PDF, HTML ή καρέ βίντεο;**
+**Θα εμφανιστούν τα 3D εφέ όταν εξάγω σε εικόνες, PDF, HTML ή καρέ βίντεο;**
 
-Ναι. Το Aspose.Slides αποδίδει τα εφέ 3D όταν παράγει εικόνες διαφανειών, εξαγόμενο PDF, HTML, και καρέ για μετατροπή βίντεο. Η εξαγόμενη έξοδος περιέχει την αποδομένη εμφάνιση, όχι ένα επεξεργάσιμο αντικείμενο 3D.
+Ναι. Το Aspose.Slides αποδίδει τα 3D εφέ όταν παράγει εικόνες διαφανειών, PDF, HTML και καρέ που χρησιμοποιούνται για μετατροπή σε βίντεο. Η εξαγόμενη έξοδος περιέχει την αποδομένη εμφάνιση, όχι ένα επεξεργάσιμο 3D αντικείμενο.
 
-**Μπορώ να διαβάσω τις τελικές τιμές 3D μετά την κληρονόμηση και τις ρυθμίσεις θέματος;**
+**Μπορώ να διαβάσω τις τελικές 3D τιμές μετά την κληρονομιά και τις ρυθμίσεις θέματος;**
 
-Ναι. Χρησιμοποιήστε τα APIs αποτελεσματικής διαμόρφωσης που περιγράφονται στο [Shape Effective Properties](/slides/el/java/shape-effective-properties/) για να διαβάσετε τις τελικές τιμές κάμερας, φωτισμού, λοξοτομίας και σχετικών 3D τιμών.
+Ναι. Χρησιμοποιήστε τα APIs αποτελεσματικής μορφοποίησης που περιγράφονται στις [Shape Effective Properties](/slides/el/java/shape-effective-properties/) για να διαβάσετε τις τελικές τιμές κάμερας, φωτισμού, λοξών και συναφών 3D τιμών.

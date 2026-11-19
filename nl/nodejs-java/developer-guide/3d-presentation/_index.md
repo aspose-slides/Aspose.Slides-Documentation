@@ -1,59 +1,61 @@
 ---
-title: Creëer 3D‑effecten in presentaties met Node.js
-linktitle: 3D‑presentatie
+title: 3D-effecten maken in presentaties met Node.js
+linktitle: 3D-presentatie
 type: docs
 weight: 232
 url: /nl/nodejs-java/3d-presentation/
 keywords:
 - 3D PowerPoint
-- 3D‑presentatie
-- 3D‑rotatie
-- 3D‑diepte
-- 3D‑extrusie
-- 3D‑verloop
-- 3D‑tekst
+- 3D-presentatie
+- 3D-rotatie
+- 3D-diepte
+- 3D-extrusie
+- 3D-verloop
+- 3D-tekst
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pas 3D‑effecten toe en render ze voor PowerPoint‑vormen en –tekst in Node.js met Aspose.Slides. Configureer camera, verlichting, materiaal, extrusie, vullingen en 3D‑tekst."
+description: "Pas 3D-effecten toe en render ze voor PowerPoint-vormen en -tekst in Node.js met Aspose.Slides. Configureer camera, verlichting, materiaal, extrusie, vullingen en 3D-tekst."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Node.js via Java kan vormen en tekst creëren, bewerken, behouden en weergeven met PowerPoint‑achtige 3D‑opmaak. Dit artikel behandelt 3D‑effecten zoals rotatie, extrusie, afgeschuinde randen, verlichting, materiaal, verloop‑ of afbeeldingvullingen en 3D‑tekst.
+Aspose.Slides for Node.js via Java kan vormen en tekst maken, bewerken, behouden en renderen met 3D‑opmaak in PowerPoint‑stijl. Dit artikel behandelt 3D‑effecten zoals rotatie, extrusie, schuine randen, verlichting, materiaal, verloop‑ of afbeeldingvullingen en 3D‑tekst.
 
 {{% alert color="info" title="Note" %}}
-Dit artikel gaat over 3D‑opmaak‑effecten op PowerPoint‑vormen en -tekst. Het gaat niet over het invoegen of bewerken van zelfstandige 3D‑modelfiles. Wanneer u een dia exporteert naar een afbeelding, PDF of HTML, rendert Aspose.Slides die 3D‑effecten in de geëxporteerde 2D‑output.
+Dit artikel gaat over 3D‑opmaak‑effecten op PowerPoint‑vormen en -tekst. Het gaat niet over het invoegen of bewerken van losse 3D‑modelbestanden. Wanneer je een dia exporteert naar een afbeelding, PDF of HTML, rendert Aspose.Slides die 3D‑effecten in de geëxporteerde 2D‑output.
 {{% /alert %}}
 
-## **Concepten voor 3D‑opmaak**
+## **Concepten van 3D‑opmaak**
 
-Gebruik de [Shape.getThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getThreeDFormat) methode om 3D‑opmaak op een vorm toe te passen. De methode retourneert [ThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/), die de 3D‑scene voor die vorm regelt.
+Gebruik de [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat)‑methode om 3D‑opmaak toe te passen op een vorm. De methode retourneert [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/), die de 3D‑scene voor die vorm beheert.
 
-Voor tekst gebruikt u de [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) methode. Deze past 3D‑opmaak toe op het tekstframe in plaats van op het vormlichaam.
+Voor tekst gebruik je de [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat)‑methode. Hiermee wordt 3D‑opmaak toegepast op het tekstframe in plaats van op het vormlichaam.
+
+De belangrijkste API‑leden zijn:
 
 | API‑lid | Wat het regelt | Wanneer te gebruiken |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getCamera) | Gezichtsstandpunt, vooraf ingestelde cameratype, rotatie, zoom en perspectief. | Draai het object in de 3D‑ruimte of pas een PowerPoint‑rotatie‑preset toe. |
-| [getLightRig](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getLightRig) | Vooraf ingestelde verlichting, richting en lichtrotatie. | Verander hoe highlights en schaduwen verschijnen op het 3D‑oppervlak. |
-| [getMaterial](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getMaterial) en [setMaterial](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setMaterial) | Oppervlaktmateriaal, zoals plat, mat, plastic of metaal. | Laat dezelfde geometrie er platter, zachter, glanzender of metallischer uitzien. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) en [setExtrusionHeight](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Hoe ver de vorm zich naar achteren uitstrekt vanaf de voorzijde. | Verander een vlakke vorm in een duidelijk dik 3D‑object. |
-| [getExtrusionColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Kleur van de uitgeprinte zijkanten. | Maak diepte zichtbaar of stem de zijkleur af op de voorvulling. |
-| [getDepth](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getDepth) en [setDepth](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setDepth) | Extra 3D‑diepte gebruikt door PowerPoint‑3D‑opmaak. | Fijnafstelling van diepte voor vormen of tekst, vooral in combinatie met afgeschuinde randen en materiaalinstellingen. |
-| [getBevelTop](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getBevelTop) en [getBevelBottom](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Verhoogde of afgeronde randen op de voor- en achterkant. | Voeg een verzachte of gevormde rand toe in plaats van een scherpe vlakke rand. |
-| [getContourColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getContourWidth) en [setContourWidth](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Contour rond het 3D‑object. | Benadruk de objectgrens in de gerenderde output. |
+| [getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera) | Zichtpunt, vooraf ingestelde cameratype, rotatie, zoom en perspectief. | Draai het object in 3D‑ruimte of stem een PowerPoint‑3D‑rotatie‑preset af. |
+| [getLightRig](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getLightRig) | Vooraf ingestelde verlichting, richting en rotatie van het licht. | Verander hoe highlights en schaduwen verschijnen op het 3D‑oppervlak. |
+| [getMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getMaterial) en [setMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setMaterial) | Materiaal van het oppervlak, zoals vlak, mat, plastic of metaal. | Laat dezelfde geometrie er platter, zachter, glanzender of metallischer uitzien. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) en [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Hoe ver de vorm naar achteren uitsteekt vanaf de voorzijde. | Transformeer een platte vorm in een duidelijk dik 3D‑object. |
+| [getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Kleur van de uitgeschoven zijden. | Maak diepte zichtbaar of stem de zijkleur af op de voorvulling. |
+| [getDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getDepth) en [setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) | Aanvullende 3D‑diepte gebruikt door PowerPoint‑3D‑opmaak. | Fijn afstemmen van diepte voor vormen of tekst, vooral in combinatie met schuine randen en materiaalinstellingen. |
+| [getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop) en [getBevelBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Verhoogde of afgeronde randen aan de voor- en achterkant. | Voeg een verzachte of gevormde rand toe in plaats van een scherpe platte rand. |
+| [getContourColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourWidth) en [setContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Omtrek rond het 3D‑object. | Benadruk de objectgrens in de gerenderde output. |
 
 ## **Een 3D‑vorm maken**
 
-Een vorm heeft meestal vier soorten instellingen nodig voordat deze overtuigend 3D oogt:
+Een vorm heeft meestal vier soorten instellingen nodig voordat deze overtuigend 3D‑achtig lijkt:
 
 - Camerainstellingen, omdat de standaard vooraanzicht de extrusie kan verbergen.
-- Verlichtingsinstellingen, omdat verlichting de gezichten en zijkanten leesbaar maakt.
-- Materiaalinstellingen, omdat het oppervlak bepaalt hoe het licht wordt weergegeven.
-- Extrusie‑ of diepte‑instellingen, omdat een vlakke vorm dikte nodig heeft.
+- Lichtinstellingen, omdat verlichting de zijden en vlakken leesbaar maakt.
+- Materiaalinstellingen, omdat het oppervlak bepaalt hoe licht wordt weergegeven.
+- Extrusie‑ of diepte‑instellingen, omdat een platte vorm dikte nodig heeft.
 
-Het volgende voorbeeld maakt een rechthoek, voegt tekst toe aan de voorzijde en past 3D‑opmaak toe. De camerarotatiewaarden zijn in graden, en de extrusiehoogte is 100 punten. Het voorbeeld rendert de dia naar een PNG‑afbeelding op tweemaal de standaardafmetingen en slaat de presentatie op als PPTX.
+Het volgende voorbeeld maakt een rechthoek, voegt tekst toe aan de voorzijde en past 3D‑opmaak toe. De camerarotatiewaarden staan in graden en de extrusiehoogte is 100 punten. Het voorbeeld rendert de dia naar een PNG‑afbeelding met het dubbele van de standaardafmetingen en slaat de presentatie op als PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -95,17 +97,17 @@ try {
 }
 ```
 
-De gerenderde dia‑afbeelding toont de rechthoek als een dikke 3D‑blokken:
+De gerenderde dia‑afbeelding toont de rechthoek als een dikke 3D‑blok:
 
-![Gerenderde blauwe 3D-rechthoek met witte 3D-tekst op de voorzijde](img_01_01.png)
+![Gerenderde blauwe 3D‑rechthoek met witte 3D‑tekst op de voorzijde](img_01_01.png)
 
 ## **Een vorm roteren met de camera**
 
-In PowerPoint wordt 3D‑rotatie geconfigureerd via het paneel 3‑D‑rotatie. De X‑, Y‑ en Z‑rotatiewaarden komen overeen met de rotatie die u via de camera‑API instelt.
+In PowerPoint wordt 3D‑rotatie geconfigureerd via het paneel 3‑D‑rotatie. De X‑, Y‑ en Z‑rotatiewaarden komen overeen met de rotatie die je via de camera‑API instelt.
 
 ![PowerPoint‑paneel 3‑D‑rotatie met gemarkeerde X‑, Y‑ en Z‑rotatiewaarden](img_02_01.png)
 
-In Aspose.Slides krijgt u toegang tot de camera via [ThreeDFormat.getCamera](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getCamera). Dit voorbeeld maakt een rechthoek, selecteert een orthografisch vooraanzicht en stelt de X‑, Y‑ en Z‑rotaties in op respectievelijk 20, 30 en 40 graden. Het configureert de vorm in het geheugen zonder een bestand op te slaan:
+In Aspose.Slides krijg je toegang tot de camera via [ThreeDFormat.getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera). Dit voorbeeld maakt een rechthoek, selecteert een orthografisch vooraanzicht en stelt de X‑, Y‑ en Z‑rotaties in op respectievelijk 20, 30 en 40 graden. Het configureert de vorm in het geheugen zonder een bestand op te slaan:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -123,15 +125,47 @@ try {
 }
 ```
 
-Gebruik de camera wanneer u wilt wijzigen hoe de kijker het object ziet. Het verandert niet de 2D‑vormgeometrie op de dia. Het wijzigt het 3D‑zichtpunt dat PowerPoint en Aspose.Slides gebruiken bij het renderen.
+Gebruik de camera wanneer je wilt wijzigen hoe de kijker het object ziet. Het verandert niet de 2D‑vormgeometrie op de dia. Het wijzigt wel het 3D‑zichtpunt dat PowerPoint en Aspose.Slides gebruiken bij het renderen.
+
+### **Camera‑oriëntatie kopiëren van een sjabloonvorm**
+
+Om de oriëntatie van een sjabloonvorm te evenaren, lees je de camerapreset met [getCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getCameraType) en de rotatiehoeken met [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getRotation). Het voorbeeld opent `template.pptx` en kopieert de camera‑oriëntatie van de eerste vorm op de eerste dia naar de tweede vorm. Beide vormen hebben al 3D‑verlichting, en de tweede vorm heeft geen expliciete camerarotatie.
+
+De hoeken staan in graden. Index `0` is latitude, index `1` is longitude, en index `2` is revolution. Geef ze door aan [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) in die volgorde. Als de bron `null` teruggeeft, heeft hij geen expliciete rotatie, dus laat je de hoeken van de tweede vorm ongesteld. Een expliciete rotatie van `(0, 0, 0)` levert drie nullen op en moet worden gekopieerd.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    const destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    const angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wanneer je `camera-copy.pptx` opnieuw opent in PowerPoint, heeft de pijl rechts dezelfde camera‑preset en rotatie als de rechthoek links. Beide vormen gebruiken dezelfde verlichting en extrusiediepte.
+
+![Een blauwe 3D‑rechthoek en een rechterpijl met overeenkomende camera‑oriëntatie, bekeken van boven en rechts](camera-orientation.png)
 
 ## **Extrusie en diepte toevoegen**
 
-Extrusie laat een vorm dikker lijken door deze achter de voorzijde uit te breiden. In PowerPoint bepaalt de diepte‑regelaar deze zichtbare dikte, en de kleur‑regelaar bepaalt de kleur van de zijvlakken.
+Extrusie laat een vorm dikker lijken door deze achter de voorzijde uit te breiden. In PowerPoint stelt de diepte‑regelaar deze zichtbare dikte in, en de kleur‑regelaar bepaalt de kleur van de zijkanten.
 
-![PowerPoint‑diepte‑regelaars gekoppeld aan extrusiekleur‑ en extrusiehoogte‑eigenschappen](img_02_02.png)
+![PowerPoint‑diepte‑besturingen gekoppeld aan extrusiekleur‑ en extrusiehoogte‑eigenschappen](img_02_02.png)
 
-Gebruik [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) om de dikte in te stellen en [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) om de kleur van de zijkanten op te halen. Dit voorbeeld geeft een rechthoek een extrusie van 100 punten met paarse zijkanten en roteert de camera om de dikte te onthullen. Het configureert de vorm in het geheugen zonder een bestand op te slaan:
+Gebruik [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) om de dikte in te stellen en [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) om de zijkleur op te vragen. Dit voorbeeld geeft een rechthoek een extrusie van 100 punten met paarse zijkanten en draait de camera om de dikte zichtbaar te maken. Het configureert de vorm in het geheugen zonder een bestand op te slaan:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -157,13 +191,13 @@ try {
 }
 ```
 
-De methode [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setDepth) stelt de diepte van een 3D‑vorm in. De methode [setExtrusionHeight](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) regelt de hoogte van het extrusie‑effect, zoals getoond in dit voorbeeld.
+De [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth)‑methode stelt de diepte van een 3D‑vorm in. De [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight)‑methode regelt de hoogte van het extrusie‑effect, zoals in dit voorbeeld weergegeven.
 
 ## **Verloop‑ of afbeeldingvullingen gebruiken met 3D‑effecten**
 
-3D‑opmaak staat los van de vormvulling. U kunt een effen kleur, verloop, patroon of afbeeldingvulling op de voorzijde toepassen en toch dezelfde camera-, licht-, materiaal- en extrusie‑instellingen gebruiken.
+3D‑opmaak staat los van de vormvulling. Je kunt een effen kleur, verloop, patroon of afbeeldingvulling op de voorzijde toepassen en toch dezelfde camera-, licht‑, materiaal‑ en extrusie‑instellingen gebruiken.
 
-Dit voorbeeld past een blauw‑naar‑oranje verloop toe op de voorzijde en een donkeroranje kleur op de extrusie van 150 punten. De verloopstops bij 0 en 100 markeren het begin en einde van het verloop. De camerarotatiewaarden zijn in graden. De dia wordt gerenderd naar een PNG‑afbeelding op tweemaal de standaardafmetingen:
+Dit voorbeeld past een blauw‑naar‑oranje verloop toe op de voorzijde en een donkeroranje kleur op de 150‑punten‑extrusie. De verloopstops op 0 en 100 markeren het begin en einde van het verloop. De camerarotatiewaarden staan in graden. De dia wordt gerenderd naar een PNG‑afbeelding met het dubbele van de standaardafmetingen:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -209,7 +243,7 @@ De gerenderde output behoudt het verloop op de voorzijde en rendert de extrusie 
 
 ![Gerenderde 3D‑rechthoek met een blauw‑naar‑oranje verloopvulling en oranje extrusie](img_02_03.png)
 
-Om in plaats daarvan een afbeeldingvulling te gebruiken, voegt u de afbeelding toe aan de presentatie en wijst u deze toe aan de vormvulling. Dit voorbeeld vereist een bestaand bestand met de naam "image.jpg" in de werkmap. Het strekt de afbeelding uit om de rechthoek te vullen, past een extrusie van 150 punten toe, en stelt de camerarotatie in graden in. Het configureert de vorm in het geheugen zonder een bestand op te slaan of te renderen:
+Om in plaats daarvan een afbeeldingvulling te gebruiken, voeg je de afbeelding toe aan de presentatie en ken je deze toe aan de vormvulling. Dit voorbeeld vereist een bestaand bestand met de naam `image.jpg` in de werkmap. Het strekt de foto uit om de rechthoek te vullen, past een extrusie van 150 punten toe, en stelt de camerarotatie in graden in. Het configureert de vorm in het geheugen zonder een bestand op te slaan of te renderen:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -246,13 +280,15 @@ try {
 }
 ```
 
+De foto wordt gerenderd op de voorzijde, terwijl de extrusie wordt weergegeven als het 3D‑zijoppervlak:
+
 ![Gerenderde 3D‑rechthoek met een foto‑vulling op de voorzijde en oranje extrusie](img_02_04.png)
 
 ## **3D‑opmaak toepassen op tekst**
 
-3D‑opmaak van een vorm beïnvloedt het vormlichaam. 3D‑opmaak van tekst beïnvloedt het tekstframe. Dit is handig voor WordArt‑achtige effecten waarbij de letters zelf extrusie, materiaal, verlichting en camera‑instellingen nodig hebben.
+Vorm‑3D‑opmaak beïnvloedt het vormlichaam. Tekst‑3D‑opmaak beïnvloedt het tekstframe. Dit is nuttig voor WordArt‑achtige effecten waarbij de letters zelf extrusie, materiaal, verlichting en camera‑instellingen nodig hebben.
 
-Het volgende voorbeeld maakt tekst met een oranje‑wit rasterpatroon, past een omhoog gerichte boog toe en configureert 3D‑instellingen via [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). De extrusiehoogte en diepte zijn in punten, en de lichtrotatie is in graden. De vormvulling en omtrek zijn verborgen zodat alleen de tekst zichtbaar is. Het voorbeeld rendert een PNG‑afbeelding op tweemaal de standaarddia‑afmetingen en slaat de presentatie op als PPTX:
+Het volgende voorbeeld maakt tekst met een oranje‑en‑witte rasterpatroon, past een opwaartse boog toe en configureert 3D‑instellingen via [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). De extrusiehoogte en diepte staan in punten, en de lichtrotatie in graden. De vormvulling en omtrek worden verborgen zodat alleen de tekst zichtbaar is. Het voorbeeld rendert een PNG‑afbeelding met het dubbele van de standaarddia‑afmetingen en slaat de presentatie op als PPTX:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -302,15 +338,17 @@ try {
 }
 ```
 
-![Gerenderde 3D‑tekst met een gebogen WordArt-transformatie, oranje patroonvulling en donkere extrusie](img_02_05.png)
+De tekst wordt gerenderd als gebogen, geëxtrudeerde 3D‑letters:
+
+![Gerenderde 3D‑tekst met een gebogen WordArt‑transformatie, oranje patroonvulling en donkere extrusie](img_02_05.png)
 
 ## **Tekst plat houden op een 3D‑vorm**
 
-Om tekst leesbaar te houden terwijl de 3D‑vorm behouden blijft, roept u [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) aan via [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). Wanneer de waarde `true` is, blijft de tekst buiten de 3D‑scene. Wanneer de waarde `false` is, neemt de tekst deel aan de scene en volgt deze de 3D‑oriëntatie.
+Om tekst leesbaar te houden terwijl de 3D‑uitstraling van een vorm behouden blijft, roep je [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) aan via [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). Wanneer de waarde `true` is, blijft de tekst buiten de 3D‑scene. Wanneer deze `false` is, neemt de tekst deel aan de scene en volgt hij de 3D‑oriëntatie.
 
-Deze instelling verwijdert de 3D‑opmaak van de vorm niet: de camera, verlichting, materiaal en extrusie blijven geconfigureerd via [Shape.getThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getThreeDFormat). Het is ook anders dan gewone rotatie. [Shape.setRotation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#setRotation) roteert de vorm in het dia‑vlak, terwijl [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) de aangepaste rotatie van de tekst binnen de omhullende regelt. Tekst buiten de 3D‑scene houden, reset geen van deze hoeken.
+Deze instelling verwijdert niet de 3D‑opmaak van de vorm: de camera, verlichting, materiaal en extrusie blijven geconfigureerd via [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat). Het verschilt ook van gewone rotatie. [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) roteert de vorm in het dia‑vlak, terwijl [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) de aangepaste rotatie van de tekst binnen de omhullende bepaalt. Tekst buiten de 3D‑scene houden reset geen van beide hoeken.
 
-Het volgende zelfstandige voorbeeld maakt een blauwe rechthoek met tekst en kloont deze naast het origineel. Beide vormen hebben dezelfde 3D‑opmaak; alleen de tekstopzetting verschilt: `false` links en `true` rechts. De camera‑hoeken zijn in graden, en de extrusiehoogte is 40 punten. Het voorbeeld slaat de presentatie op als PPTX en rendert de vergelijkingsdia naar PNG op tweemaal de standaardafmetingen.
+Het volgende zelf‑containende voorbeeld maakt een blauwe rechthoek met tekst en kloont deze naast het origineel. Beide vormen hebben dezelfde 3D‑opmaak; alleen de tekstage verschilt: `false` links en `true` rechts. De camera‑hoeken staan in graden, en de extrusiehoogte is 40 punten. Het voorbeeld slaat de presentatie op als PPTX en rendert de vergelijkingsdia naar PNG met het dubbele van de standaardafmetingen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -355,41 +393,37 @@ try {
 }
 ```
 
-Aan de linkerkant volgt de tekst de 3D‑oriëntatie. Aan de rechterkant blijft deze plat en makkelijker leesbaar. Beide rechthoeken behouden dezelfde zichtbare extrusie en 3D‑oriëntatie.
+Links volgt de tekst de 3D‑oriëntatie. Rechts blijft hij plat en beter leesbaar. Beide rechthoeken behouden dezelfde zichtbare extrusie en 3D‑oriëntatie.
 
-![Zij‑aan‑zij 3D‑rechthoeken: tekst volgt de 3D‑oriëntatie links en blijft plat rechts](keep_text_flat.png)
+![Twee 3D‑rechthoeken naast elkaar: tekst volgt de 3D‑oriëntatie links en blijft plat rechts](keep_text_flat.png)
 
 ## **Export‑ en rendergedrag**
 
-Aspose.Slides behoudt 3D‑opmaak bij het opslaan naar PowerPoint‑formaten zoals PPTX. Bij het renderen of exporteren naar vaste‑layoutformaten wordt de 3D‑scene gerasterd of in de uitvoer getekend als een 2D‑resultaat. Dit geldt wanneer u dia’s rendert naar [PNG](/slides/nl/nodejs-java/convert-powerpoint-to-png/), exporteert naar [PDF](/slides/nl/nodejs-java/convert-powerpoint-to-pdf/), exporteert naar [HTML](/slides/nl/nodejs-java/convert-powerpoint-to-html/), of frames genereert voor [video conversion](/slides/nl/nodejs-java/convert-powerpoint-to-video/).
+Aspose.Slides behoudt 3D‑opmaak bij het opslaan naar PowerPoint‑formaten zoals PPTX. Bij het renderen of exporteren naar vaste‑layoutformaten wordt de 3D‑scene gerasterd of in de output getekend als een 2D‑resultaat. Dit geldt wanneer je dia’s rendert naar [PNG](/slides/nl/nodejs-java/convert-powerpoint-to-png/), exporteert naar [PDF](/slides/nl/nodejs-java/convert-powerpoint-to-pdf/), exporteert naar [HTML](/slides/nl/nodejs-java/convert-powerpoint-to-html/), of frames genereert voor [video conversion](/slides/nl/nodejs-java/convert-powerpoint-to-video/).
 
-- Geëxporteerde afbeeldingen en PDF’s zijn niet interactief. Het object kan na export niet door de kijker worden geroteerd.
-- Het uiteindelijke uiterlijk hangt af van de combinatie van camera, lichtopstelling, materiaal, extrusie, vulling en dia‑schaling.
-- Als u geërfde of themagebaseerde opmaakwaarden wilt inspecteren, lees dan de [effectieve vorm‑eigenschappen](/slides/nl/nodejs-java/shape-effective-properties/).
+Houd rekening met de volgende punten:
+
+- Geëxporteerde afbeeldingen en PDF’s zijn niet interactief. Het object kan na export niet door de kijker worden gedraaid.
+- Het uiteindelijke uiterlijk hangt af van de combinatie van camera, lichtset, materiaal, extrusie, vulling en schalen van de dia.
+- Als je de geërfde of themagerelateerde opmaakwaarden wilt inspecteren, lees dan de [effectieve vormeigenschappen](/slides/nl/nodejs-java/shape-effective-properties/).
 - Sommige uitvoerformaten kunnen geen bewerkbare PowerPoint‑3D‑opmaak opslaan. In die formaten wordt het visuele resultaat gerenderd in plaats van bewaard als bewerkbare 3D‑instellingen.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan Aspose.Slides interactieve 3D‑presentaties maken?**
+**Kan Aspose.Slides interactieve 3D‑presentaties maken?**  
+Aspose.Slides maakt en rendert PowerPoint‑3D‑effecten voor vormen en tekst. Het maakt geëxporteerde afbeeldingen, PDF’s of HTML‑pagina’s niet tot interactieve 3D‑scènes die een kijker kan draaien. In PPTX blijft de 3D‑opmaak bewerkbaar in PowerPoint wanneer het formaat dat ondersteunt.
 
-Aspose.Slides maakt en renderen PowerPoint‑3D‑effecten voor vormen en tekst. Het maakt geëxporteerde afbeeldingen, PDF’s of HTML‑pagina’s niet tot interactieve 3D‑scènes die een kijker kan roteren. In PPTX blijft de 3D‑opmaak bewerkbaar in PowerPoint wanneer het formaat dit ondersteunt.
+**Wat is het verschil tussen een 3D‑model en een 3D‑effect?**  
+Een 3D‑model is een afzonderlijk 3D‑object dat in een presentatie wordt ingevoegd. Een 3D‑effect is opmaak die op een gewone PowerPoint‑vorm of tekst wordt toegepast, zoals rotatie, extrusie, schuine rand, verlichting en materiaal. Dit artikel behandelt 3D‑effecten.
 
-**Wat is het verschil tussen een 3D‑model en een 3D‑effect?**
+**Welke instellingen zijn vereist voor een zichtbare 3D‑vorm?**  
+Minimaal stel je een camerarotatie en ofwel extrusie of diepte in. In de praktijk stel je ook een lichtset en materiaal in zodat de gerenderde vlakken duidelijke highlights en schaduwen hebben.
 
-Een 3D‑model is een apart 3D‑object dat in een presentatie wordt ingevoegd. Een 3D‑effect is opmaak die wordt toegepast op een gewone PowerPoint‑vorm of tekst, zoals rotatie, extrusie, afgeschuinde randen, verlichting en materiaal. Dit artikel behandelt 3D‑effecten.
+**Kan ik 3D‑effecten toepassen op zowel vormen als tekst?**  
+Ja. Gebruik [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) voor het vormlichaam en [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) voor tekst.
 
-**Welke instellingen zijn vereist voor een zichtbare 3D‑vorm?**
+**Zullen 3D‑effecten verschijnen bij export naar afbeeldingen, PDF, HTML of videoframes?**  
+Ja. Aspose.Slides rendert 3D‑effecten bij het produceren van dia‑afbeeldingen, PDF‑output, HTML‑output en frames die worden gebruikt voor videoconversie. Het geëxporteerde resultaat bevat het gerenderde uiterlijk, niet een bewerkbaar 3D‑object.
 
-Minimaal moet u een camerarotatie instellen en ofwel extrusie of diepte. In de praktijk stelt u ook een lichtopstelling en materiaal in zodat de gerenderde gezichten duidelijke highlights en schaduwen hebben.
-
-**Kan ik 3D‑effecten toepassen op zowel vormen als tekst?**
-
-Ja. Gebruik [Shape.getThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getThreeDFormat) voor het vormlichaam en [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) voor tekst.
-
-**Zien 3D‑effecten er uit bij export naar afbeeldingen, PDF, HTML of video‑frames?**
-
-Ja. Aspose.Slides renderen 3D‑effecten bij het produceren van dia‑afbeeldingen, PDF‑output, HTML‑output en frames die worden gebruikt voor video‑conversie. Het geëxporteerde resultaat bevat het gerenderde uiterlijk, niet een bewerkbaar 3D‑object.
-
-**Kan ik de definitieve 3D‑waarden lezen nadat er erfelijkheid en themainstellingen zijn toegepast?**
-
-Ja. Gebruik de effectieve opmaak‑API’s beschreven in [Shape Effective Properties](/slides/nl/nodejs-java/shape-effective-properties/) om de uiteindelijke camera‑, lichtopstelling‑, afgeschuinde‑rand‑ en gerelateerde 3D‑waarden te lezen.
+**Kan ik de uiteindelijke 3D‑waarden lezen nadat erfelijkheid en themainstellingen zijn toegepast?**  
+Ja. Gebruik de effectieve opmaak‑API’s beschreven in [effectieve vormeigenschappen](/slides/nl/nodejs-java/shape-effective-properties/) om de definitieve camera-, lichtset‑, schuine‑rand‑ en gerelateerde 3D‑waarden te lezen.

@@ -16,45 +16,45 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Použijte a renderujte 3D efekty pro tvary a text v PowerPointu v PHP s knihovnou Aspose.Slides. Nakonfigurujte kameru, osvětlení, materiál, extruzi, výplně a 3D text."
+description: "Použijte a vykreslete 3D efekty pro tvary a text v PowerPointu v PHP pomocí Aspose.Slides. Nakonfigurujte kameru, osvětlení, materiál, extruzi, výplně a 3D text."
 ---
 ## **Přehled**
 
-Aspose.Slides for PHP via Java může vytvářet, editovat, zachovávat a vykreslovat 3D formátování ve stylu PowerPointu pro tvary a text. Tento článek pokrývá 3D efekty jako otočení, extruzi, zkosení, osvětlení, materiál, gradientní nebo obrázkové výplně a 3D text.
+Aspose.Slides for PHP via Java může vytvářet, upravovat, zachovávat a vykreslovat PowerPoint‑style 3D formátování pro tvary a text. Tento článek se věnuje 3D efektům, jako jsou rotace, extruze, zkosení, osvětlení, materiál, gradientní nebo obrázkové výplně a 3D text.
 
-{{% alert color="info" title="Note" %}}
-Tento článek se zabývá efekty 3D formátování na tvary a textu v PowerPointu. Nejedná se o vkládání nebo úpravu samostatných souborů 3D modelů. Při exportu snímku do obrázku, PDF nebo HTML Aspose.Slides vykreslí tyto 3D efekty do exportovaného 2D výstupu.
+{{% alert color="info" title="Poznámka" %}}
+Tento článek se zabývá 3D formátovacími efekty na tvarech a textu v PowerPointu. Nejedná se o vkládání nebo úpravu samostatných 3D modelových souborů. Při exportu snímku do obrazu, PDF nebo HTML Aspose.Slides vykreslí tyto 3D efekty do exportovaného 2D výstupu.
 {{% /alert %}}
 
 ## **Koncepty 3D formátování**
 
-Použijte metodu [Shape::getThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/#getThreeDFormat--) k aplikaci 3D formátování na tvar. Metoda vrací [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/), který řídí 3D scénu pro tento tvar.
+Použijte metodu [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) k aplikaci 3D formátování na tvar. Metoda vrací [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/), který řídí 3D scénu pro daný tvar.
 
-Pro text použijte metodu [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#getThreeDFormat--) . Tím se aplikuje 3D formátování na textový rámeček místo těla tvaru.
+Pro text použijte metodu [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat). Tím se použije 3D formátování na textový rámec místo těla tvaru.
 
 Nejdůležitější členové API jsou:
 
-| Člen API | Co řídí | Kdy jej použít |
+| Člen API | Co řídí | Kdy ho použít |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getCamera--) | Pohled, přednastavený typ kamery, rotace, přiblížení a perspektiva. | Otočte objekt ve 3D prostoru nebo použijte přednastavený 3D otočný úhel PowerPointu. |
-| [getLightRig](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getLightRig--) | Přednastavení světla, směr a rotace světla. | Změňte vzhled zvýraznění a stínů na 3D povrchu. |
-| [getMaterial](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getMaterial--) a [setMaterial](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setMaterial-byte-) | Materiál povrchu, např. plochý, matný, plastový nebo kovový. | Učinte stejnou geometrii plochější, měkčí, lesklou nebo kovovou. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getExtrusionHeight--) a [setExtrusionHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) | Jak daleko tvar vyčnívá dozadu od své přední plochy. | Přeměňte plochý tvar na viditelně silný 3D objekt. |
-| [getExtrusionColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getExtrusionColor--) | Barva extrudovaných stran. | Zviditelněte hloubku nebo sladťte barvu stran s přední výplní. |
-| [getDepth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getDepth--) a [setDepth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setDepth-double-) | Další 3D hloubka používaná formátováním 3D v PowerPointu. | Jemně doladit hloubku pro tvary nebo text, zvláště spolu s nastavením zkosení a materiálu. |
-| [getBevelTop](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getBevelTop--) a [getBevelBottom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getBevelBottom--) | Zvednuté nebo zaoblené hrany na přední a zadní straně. | Přidejte změkčený nebo formovaný okraj místo ostré ploché stěny. |
-| [getContourColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getContourColor--) a [getContourWidth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getContourWidth--) a [setContourWidth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setContourWidth-double-) | Obrys kolem 3D objektu. | Zvýrazněte hranice objektu ve vykresleném výstupu. |
+| [getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera) | Pohled, přednastavený typ kamery, otáčení, zoom a perspektiva. | Otočte objekt ve 3D prostoru nebo odpovídajte přednastavení rotace 3D v PowerPointu. |
+| [getLightRig](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getLightRig) | Přednastavení světla, směr a otáčení světla. | Změňte, jak se na 3D povrchu zobrazují zvýraznění a stíny. |
+| [getMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getMaterial) a [setMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setMaterial) | Materiál povrchu, např. plochý, matný, plastový nebo kovový. | Udělejte, aby stejná geometrie vypadala plochěji, měkčeji, leskleji nebo kovově. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionHeight) a [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) | Jak daleko se tvar rozšiřuje dozadu od své přední plochy. | Proměňte plochý tvar na viditelně tlustý 3D objekt. |
+| [getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor) | Barva extrudovaných stran. | Zobrazte hloubku nebo sjednoťte barvu stran s předním výplní. |
+| [getDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getDepth) a [setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) | Další 3D hloubka používaná v 3D formátování PowerPointu. | Jemně doladíte hloubku tvarů nebo textu, zejména spolu s nastavením sklonu a materiálu. |
+| [getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop) a [getBevelBottom](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelBottom) | Vyzvednuté nebo zaoblené hrany na přední a zadní ploše. | Přidejte změkčený nebo tvarovaný okraj místo ostré ploché strany. |
+| [getContourColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourColor) a [getContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourWidth) a [setContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setContourWidth) | Obrys kolem 3D objektu. | Zvýrazněte hranice objektu ve vykresleném výstupu. |
 
 ## **Vytvoření 3D tvaru**
 
-Tvar obvykle potřebuje čtyři typy nastavení, než vypadá věrohodně 3D:
+Tvar obvykle potřebuje čtyři typy nastavení, aby vypadal přesvědčivě 3D:
 
-- Nastavení kamery, protože výchozí přední pohled může extruzi skrývat.
+- Nastavení kamery, protože výchozí přední pohled může skrýt extruzi.
 - Nastavení světla, protože osvětlení umožňuje čitelnost ploch a stran.
-- Nastavení materiálu, protože povrch ovlivňuje, jak je světlo vykresleno.
+- Nastavení materiálu, protože povrch ovlivňuje, jak je světlo renderováno.
 - Nastavení extruze nebo hloubky, protože plochý tvar potřebuje tloušťku.
 
-Následující příklad vytvoří obdélník, přidá text na jeho přední plochu a aplikuje 3D formátování. Hodnoty rotace kamery jsou ve stupních a výška extruze je 100 bodů. Příklad vykreslí snímek do PNG obrázku při dvojnásobné výchozí velikosti a uloží prezentaci jako PPTX.
+Následující příklad vytvoří obdélník, přidá text na jeho přední plochu a použije 3D formátování. Hodnoty rotace kamery jsou ve stupních a výška extruze je 100 bodů. Příklad vykreslí snímek do PNG obrazu v dvojnásobku výchozích rozměrů a uloží prezentaci jako PPTX.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Vykreslený obrázek snímku ukazuje obdélník jako tlustý 3D blok:
+Vykreslený snímek ukazuje obdélník jako tlustý 3D blok:
 
 ![Vykreslený modrý 3D obdélník s bílým 3D textem na přední ploše](img_01_01.png)
 
 ## **Otočení tvaru pomocí kamery**
 
-V PowerPointu je 3D otočení nastaveno v panelu 3‑D Rotation. Hodnoty rotace X, Y a Z odpovídají rotaci, kterou nastavíte pomocí API kamery.
+V PowerPointu se 3D rotace nastavuje v panelu 3‑D Rotace. Hodnoty rotace X, Y a Z odpovídají rotaci nastavené přes API kamery.
 
-![Panel PowerPointu 3‑D Rotation se zvýrazněnými hodnotami rotace X, Y a Z](img_02_01.png)
+![Panel 3‑D rotace v PowerPointu se zvýrazněnými hodnotami rotace X, Y a Z](img_02_01.png)
 
-V Aspose.Slides získáte kameru přes [ThreeDFormat::getCamera](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getCamera--). Tento příklad vytvoří obdélník, vybere ortografický přední pohled a nastaví jeho rotace X, Y a Z na 20, 30 a 40 stupňů. Konfigurace tvaru probíhá v paměti, bez ukládání souboru:
+V Aspose.Slides přistupujte ke kameře přes [ThreeDFormat::getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera). Tento příklad vytvoří obdélník, vybere ortografický přední pohled a nastaví jeho rotace X, Y a Z na 20, 30 a 40 stupňů. Konfigurace probíhá v paměti bez ukládání souboru:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -132,15 +132,48 @@ try {
 }
 ```
 
-Používejte kameru, když potřebujete změnit, jak divák vidí objekt. Nemění 2D geometrii tvaru na snímku. Mění jen 3D úhel pohledu, který používá PowerPoint a Aspose.Slides při vykreslování.
+Používejte kameru, když potřebujete změnit, jak pozorovatel vidí objekt. Nemění geometrii 2D tvaru na snímku. Mění 3D úhel pohledu, který používá PowerPoint i Aspose.Slides při vykreslování.
+
+### **Zkopírovat orientaci kamery ze šablonového tvaru**
+
+Pro odpovídající orientaci šablonového tvaru přečtěte jeho přednastavení kamery pomocí [Camera::getCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#getCameraType) a úhly rotace pomocí [Camera::getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#getRotation). Příklad otevře `template.pptx` a zkopíruje orientaci kamery z prvního tvaru na první snímku do druhého tvaru. Oba tvary již mají 3D osvětlení a druhý tvar nemá explicitní rotaci kamery.
+
+Úhly jsou ve stupních. Index `0` je zeměpisná šířka, index `1` délka a index `2` revoluce. Předávejte je metodě [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) tímto pořadím. Pokud zdroj vrátí `null`, nemá explicitní rotaci, takže úhly druhého tvaru ponechte nenastavené. Explicitní rotace `(0, 0, 0)` vrací tři nuly a měla by být zkopírována.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    
+    $sourceCamera = $shapes->get_Item(0)->getThreeDFormat()->getCamera();
+    $destinationCamera = $shapes->get_Item(1)->getThreeDFormat()->getCamera();
+
+    $destinationCamera->setCameraType($sourceCamera->getCameraType());
+    $angles = java_values($sourceCamera->getRotation());
+    if ($angles !== null) {
+        $destinationCamera->setRotation($angles[0], $angles[1], $angles[2]);
+    }
+
+    $presentation->save("camera-copy.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Po opětovném otevření `camera-copy.pptx` v PowerPointu má šipka vpravo stejnou přednastavenou kameru a rotaci jako obdélník vlevo. Oba tvary používají stejné osvětlení a hloubku extruze.
+
+![Modrý 3D obdélník a pravá šipka s odpovídající orientací kamery, zobrazena shora a zprava](camera-orientation.png)
 
 ## **Přidání extruze a hloubky**
 
-Extruze způsobí, že tvar vypadá tlustě tím, že se prodlouží za přední plochu. V PowerPointu kontrola hloubky nastavuje tuto viditelnou tloušťku a kontrola barvy nastavuje barvu bočních ploch.
+Extruze způsobí, že se tvar jeví jako tlustý tím, že se rozšiřuje za přední plochu. V PowerPointu kontrola hloubky nastavuje tuto viditelnou tloušťku a řízení barvy nastavuje barvu bočních ploch.
 
-![Ovládací prvky hloubky v PowerPointu mapované na vlastnosti barvy extruze a výšky extruze](img_02_02.png)
+![Ovládání hloubky v PowerPointu přiřazené k vlastnostem barvy a výšky extruze](img_02_02.png)
 
-Pro nastavení tloušťky použijte [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-), a pro přístup k barvě stran [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#getExtrusionColor--). Tento příklad dává obdélníku 100‑bodovou extruzi s fialovými stranami a otáčí kameru, aby odhalila jeho tloušťku. Konfigurace tvaru probíhá v paměti, bez ukládání souboru:
+Použijte [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) k nastavení tloušťky a [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor) k přístupu k barvě bočních stran. Tento příklad dá obdélníku 100‑bodovou extruzi s fialovými stranami a otočí kameru, aby odhalila jeho tloušťku. Konfigurace probíhá v paměti bez ukládání souboru:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -170,13 +203,13 @@ try {
 }
 ```
 
-Metoda [ThreeDFormat::setDepth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setDepth-double-) nastavuje hloubku 3D tvaru. Metoda [setExtrusionHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) řídí výšku efektu extruze, jak je ukázáno v tomto příkladu.
+Metoda [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) nastavuje hloubku 3D tvaru. Metoda [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) řídí výšku extruze, jak ukazuje tento příklad.
 
-## **Použití gradientních nebo obrázkových výplní s 3D efekty**
+## **Použití gradientových nebo obrázkových výplní s 3D efekty**
 
-3D formátování je nezávislé na výplni tvaru. Můžete použít jednolitou barvu, gradient, vzor nebo obrázkovou výplň na přední plochu a stále použít stejnou kameru, osvětlení, materiál a nastavení extruze.
+3D formátování je nezávislé na výplni tvaru. Můžete aplikovat plnou barvu, gradient, vzor nebo obrázkovou výplň na přední plochu a stále používat stejné nastavení kamery, světla, materiálu a extruze.
 
-Tento příklad aplikuje gradient od modré k oranžové na přední plochu a tmavě oranžovou barvu na 150‑bodovou extruzi. Zastavení gradientu na 0 % a 100 % označují začátek a konec gradientu. Hodnoty rotace kamery jsou ve stupních. Snímek je vykreslen do PNG obrázku při dvojnásobné výchozí velikosti:
+Tento příklad aplikuje gradient od modré k oranžové na přední plochu a tmavě oranžovou barvu na 150‑bodovou extruzi. Gradientové zastávky při 0 a 100 označují začátek a konec gradientu. Hodnoty rotace kamery jsou ve stupních. Snímek je vykreslen do PNG obrazu v dvojnásobku výchozích rozměrů:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -223,11 +256,11 @@ try {
 }
 ```
 
-Vykreslený výstup zachovává gradient na přední ploše a extruzi vykresluje odděleně:
+Vykreslený výstup zachovává gradient na přední ploše a extruze je vykreslena odděleně:
 
 ![Vykreslený 3D obdélník s gradientní výplní od modré k oranžové a oranžovou extruzí](img_02_03.png)
 
-Chcete‑li použít místo toho obrázkovou výplň, přidejte obrázek do prezentace a přiřaďte jej výplni tvaru. Tento příklad předpokládá existující soubor s názvem „image.jpg“ v pracovním adresáři. Obrázek roztáhne tak, aby vyplnil obdélník, aplikuje 150‑bodovou extruzi a nastaví rotaci kamery ve stupních. Konfigurace tvaru probíhá v paměti, bez ukládání nebo vykreslování souboru:
+Pro použití obrázkové výplně přidejte obrázek do prezentace a přiřaďte ho výplni tvaru. Tento příklad vyžaduje existující soubor s názvem "image.jpg" v pracovním adresáři. Roztažením obrázku vyplníte obdélník, použije se 150‑bodová extruze a nastaví se rotace kamery ve stupních. Konfigurace probíhá v paměti bez ukládání nebo vykreslování souboru:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -277,9 +310,9 @@ Obrázek je vykreslen na přední ploše, zatímco extruze je vykreslena jako 3D
 
 ## **Aplikace 3D formátování na text**
 
-3D formátování tvaru ovlivňuje tělo tvaru. 3D formátování textu ovlivňuje textový rámeček. To je užitečné pro efekty podobné WordArt, kde samotná písmena potřebují extruzi, materiál, osvětlení a nastavení kamery.
+Formátování 3D tvaru ovlivňuje tělo tvaru. Formátování 3D textu ovlivňuje textový rámec. To je užitečné pro efekty podobné WordArt, kde samotná písmena potřebují extruzi, materiál, osvětlení a nastavení kamery.
 
-Následující příklad vytvoří text s oranžovo‑bílým vzorem mřížky, použije horní oblouk a nastaví 3D parametry přes [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#getThreeDFormat--). Výška extruze a hloubka jsou v bodech, rotace světla ve stupních. Výplň tvaru i obrys jsou skryté, aby byl viditelný jen text. Příklad vykreslí PNG obrázek při dvojnásobné výchozí velikosti snímku a uloží prezentaci jako PPTX:
+Následující příklad vytvoří text s oranžovo‑bílým mřížkovým vzorem, aplikuje obloukový oblouk a nastaví 3D parametry pomocí [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat). Výška extruze a hloubka jsou v bodech, otáčení světla ve stupních. Výplň tvaru a obrys jsou skryté, aby byl viditelný pouze text. Příklad vykreslí PNG obraz v dvojnásobku výchozích rozměrů snímku a uloží prezentaci jako PPTX:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -338,17 +371,17 @@ try {
 }
 ```
 
-Text je vykreslen jako zakřivený, extrudovaný 3D nápis:
+Text je vykreslen jako zakřivené, extrudované 3D písmo:
 
-![Vykreslený 3D text s zakřivenou WordArt transformací, oranžovou výplní vzoru a tmavou extruzí](img_02_05.png)
+![Vykreslený 3D text s obloukovou WordArt transformací, oranžovou vzorovou výplní a tmavou extruzí](img_02_05.png)
 
 ## **Udržet text plochý na 3D tvaru**
 
-Aby byl text čitelný a přitom zachovával 3D vzhled tvaru, zavolejte [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setKeepTextFlat-boolean-) přes [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/#getTextFrameFormat--). Když je hodnota `true`, text zůstane mimo 3D scénu. Když je `false`, text se zapojuje do scény a následuje její 3D orientaci.
+Pro zachování čitelnosti textu při zachování 3D vzhledu tvaru zavolejte [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setKeepTextFlat) přes [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getTextFrameFormat). Když je hodnota `true`, text zůstane mimo 3D scénu. Když je `false`, text se scéně účastní a následuje její 3D orientaci.
 
-Toto nastavení neodstraňuje 3D formátování tvaru: jeho kamera, osvětlení, materiál a extruze zůstávají nastaveny přes [Shape::getThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/#getThreeDFormat--). Je to také odlišné od běžného otáčení. [Shape::setRotation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/#setRotation-float-) otáčí tvar v rovině snímku, zatímco [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setRotationAngle-float-) řídí vlastní rotaci textu v jeho ohraničujícím rámečku. Zachování textu mimo 3D scénu nerestartuje ani jeden z těchto úhlů.
+Toto nastavení neodstraňuje 3D formátování tvaru: kamera, osvětlení, materiál a extruze zůstávají nastaveny přes [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat). Je to také odlišné od běžné rotace. [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) otáčí tvarem v rovině snímku, zatímco [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) řídí vlastní rotaci textu v jeho ohraničujícím rámečku. Uchování textu mimo 3D scénu resetuje žádný z těchto úhlů.
 
-Následující samostatný příklad vytvoří modrý obdélník s textem a zkopíruje jej vedle originálu. Oba tvary mají stejné 3D formátování; liší se jen nastavením textu: `false` vlevo a `true` vpravo. Úhly kamery jsou ve stupních a výška extruze je 40 bodů. Příklad uloží prezentaci jako PPTX a vykreslí srovnávací snímek do PNG při dvojnásobné výchozí velikosti.
+Následující samostatný příklad vytvoří modrý obdélník s textem a zkopíruje jej vedle originálu. Oba tvary mají stejné 3D formátování; liší se pouze nastavením textu: `false` vlevo a `true` vpravo. Úhly kamery jsou ve stupních a výška extruze je 40 bodů. Příklad uloží prezentaci jako PPTX a vykreslí porovnávací snímek do PNG v dvojnásobku výchozích rozměrů.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -400,43 +433,43 @@ try {
 }
 ```
 
-Vlevo text sleduje 3D orientaci. Vpravo zůstává plochý a lépe čitelný. Oba obdélníky zachovávají stejnou viditelnou extruzi a 3D orientaci.
+Vlevo text následuje 3D orientaci. Vpravo zůstává plochý a snadněji čitelný. Oba obdélníky si zachovávají stejnou viditelnou extruzi a 3D orientaci.
 
-![Postranné 3D obdélníky: text sleduje 3D orientaci vlevo a zůstává plochý vpravo](keep_text_flat.png)
+![Postranně zobrazené 3D obdélníky: text následuje 3D orientaci vlevo a zůstává plochý vpravo](keep_text_flat.png)
 
-## **Chování při exportu a vykreslování**
+## **Chování exportu a vykreslování**
 
-Aspose.Slides zachovává 3D formátování při ukládání do formátů PowerPointu, jako je PPTX. Při vykreslování nebo exportu do formátů se pevnou rozlohou je 3D scéna rasterizována nebo nakreslena do výstupu jako 2D výsledek. To platí při vykreslování snímků do [PNG](/slides/cs/php-java/convert-powerpoint-to-png/), exportu do [PDF](/slides/cs/php-java/convert-powerpoint-to-pdf/), exportu do [HTML](/slides/cs/php-java/convert-powerpoint-to-html/) nebo generování snímků pro [konverzi videa](/slides/cs/php-java/convert-powerpoint-to-video/).
+Aspose.Slides zachovává 3D formátování při ukládání do formátů PowerPointu, jako je PPTX. Při vykreslování nebo exportu do formátů s pevnou rozlohou se 3D scéna rasterizuje nebo nakreslí do výstupu jako 2D výsledek. To platí při vykreslování snímků do [PNG](/slides/cs/php-java/convert-powerpoint-to-png/), exportu do [PDF](/slides/cs/php-java/convert-powerpoint-to-pdf/), exportu do [HTML](/slides/cs/php-java/convert-powerpoint-to-html/), nebo generování snímků pro [video conversion](/slides/cs/php-java/convert-powerpoint-to-video/).
 
 Mějte na paměti následující body:
 
-- Exportované obrázky a PDF nejsou interaktivní. Objekt nelze po exportu otáčet.
+- Exportované obrázky a PDF nejsou interaktivní. Objekt není po exportu možné otáčet ve vieweru.
 - Konečný vzhled závisí na kombinaci kamery, osvětlení, materiálu, extruze, výplně a měřítka snímku.
-- Pokud potřebujete zjistit zděděné nebo tématem definované hodnoty formátování, přečtěte [efektivní vlastnosti tvaru](/slides/cs/php-java/shape-effective-properties/).
-- Některé výstupní formáty nemohou uložit editovatelné 3D formátování PowerPointu. V těchto formátech je vizuální výsledek vykreslený místo zachování jako editovatelná 3D nastavení.
+- Pokud potřebujete zkontrolovat zděděné nebo na motivu založené hodnoty formátování, přečtěte [efektivní vlastnosti tvaru](/slides/cs/php-java/shape-effective-properties/).
+- Některé výstupní formáty nemohou uložit editovatelné 3D formátování PowerPointu. V těchto formátech je vizuální výsledek vykreslený místo toho, aby byl uložen jako editovatelné 3D nastavení.
 
 ## **Často kladené otázky**
 
-**Může Aspose.Slides vytvořit interaktivní 3D prezentace?**
+**Může Aspose.Slides vytvářet interaktivní 3D prezentace?**
 
-Aspose.Slides vytváří a vykresluje 3D efekty PowerPointu pro tvary a text. Nevytváří interaktivní 3D scény v exportovaných obrázcích, PDF nebo HTML, které by divák mohl otáčet. V PPTX zůstává 3D formátování editovatelné v PowerPointu, pokud formát podporuje úpravy.
+Aspose.Slides vytváří a vykresluje 3D efekty PowerPointu pro tvary a text. Nevytváří interaktivní 3D scény v exportovaných obrázcích, PDF nebo HTML, které by uživatel mohl otáčet. V PPTX zůstává 3D formátování editovatelné v PowerPointu, pokud formát podporuje tuto funkci.
 
-** Jaký je rozdíl mezi 3D modelem a 3D efektem?**
+**Jaký je rozdíl mezi 3D modelem a 3D efektem?**
 
 3D model je samostatný 3D objekt vložený do prezentace. 3D efekt je formátování aplikované na běžný tvar nebo text v PowerPointu, jako je rotace, extruze, zkosení, osvětlení a materiál. Tento článek se zabývá 3D efekty.
 
-** Jaká nastavení jsou vyžadována pro viditelný 3D tvar?**
+**Jaká nastavení jsou vyžadována pro viditelný 3D tvar?**
 
 Minimálně nastavte rotaci kamery a buď extruzi, nebo hloubku. V praxi také nastavte osvětlení a materiál, aby měly vykreslené plochy jasné zvýraznění a stíny.
 
-** Mohu použít 3D efekty jak na tvary, tak na text?**
+**Mohu aplikovat 3D efekty jak na tvary, tak na text?**
 
-Ano. Použijte [Shape::getThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/#getThreeDFormat--) pro tělo tvaru a [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#getThreeDFormat--) pro text.
+Ano. Použijte [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) pro tělo tvaru a [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat) pro text.
 
-** Zobrazí se 3D efekty při exportu do obrázků, PDF, HTML nebo video snímků?**
+**Ukážou se 3D efekty při exportu do obrázků, PDF, HTML nebo video snímků?**
 
-Ano. Aspose.Slides vykreslí 3D efekty při tvorbě obrázků snímků, PDF, HTML výstupu a snímků používaných pro konverzi videa. Exportovaný výstup obsahuje vykreslený vzhled, ne editovatelný 3D objekt.
+Ano. Aspose.Slides vykresluje 3D efekty při tvorbě obrázků snímků, PDF výstupu, HTML výstupu a snímků používaných pro konverzi videa. Exportovaný výstup obsahuje vykreslený vzhled, nikoli editovatelný 3D objekt.
 
-** Můžu přečíst konečné 3D hodnoty po aplikaci dědičnosti a tématických nastavení?**
+**Mohu po aplikování dědictví a motivů přečíst finální 3D hodnoty?**
 
-Ano. Použijte API efektivního formátování popsané v [Efektivní vlastnosti tvaru](/slides/cs/php-java/shape-effective-properties/), abyste získali konečnou kameru, osvětlení, zkosení a související 3D hodnoty.
+Ano. Použijte API pro efektivní formátování popsané v [efektivní vlastnosti tvaru](/slides/cs/php-java/shape-effective-properties/), abyste získali finální hodnoty kamery, osvětlení, zkosení a souvisejících 3D parametrů.

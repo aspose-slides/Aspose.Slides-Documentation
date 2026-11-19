@@ -6,58 +6,56 @@ weight: 232
 url: /es/nodejs-java/3d-presentation/
 keywords:
 - PowerPoint 3D
-- Presentación 3D
-- Rotación 3D
-- Profundidad 3D
-- Extrusión 3D
-- Degradado 3D
-- Texto 3D
+- presentación 3D
+- rotación 3D
+- profundidad 3D
+- extrusión 3D
+- degradado 3D
+- texto 3D
 - PowerPoint
-- Presentación
+- presentación
 - Node.js
 - JavaScript
 - Aspose.Slides
 description: "Aplicar y renderizar efectos 3D para formas y texto de PowerPoint en Node.js con Aspose.Slides. Configurar cámara, iluminación, material, extrusión, rellenos y texto 3D."
 ---
-## **Descripción general**
+## **Visión general**
 
-Aspose.Slides for Node.js via Java puede crear, editar, preservar y representar el formato 3D estilo PowerPoint para formas y texto. Este artículo cubre efectos 3D como rotación, extrusión, biseles, iluminación, material, rellenos degradados o de imagen, y texto 3D.
+Aspose.Slides para Node.js a través de Java puede crear, editar, conservar y renderizar formato 3D estilo PowerPoint para formas y texto. Este artículo cubre efectos 3D como rotación, extrusión, biseles, iluminación, material, rellenos degradados o de imagen y texto 3D.
 
 {{% alert color="info" title="Note" %}}
-
-Este artículo trata sobre los efectos de formato 3D en formas y texto de PowerPoint. No se trata de insertar o editar archivos de modelo 3D independientes. Cuando exporta una diapositiva a una imagen, PDF o HTML, Aspose.Slides representa esos efectos 3D en la salida 2D exportada.
-
+Este artículo trata sobre los efectos de formato 3D en formas y texto de PowerPoint. No se trata de insertar o editar archivos de modelo 3D independientes. Cuando exportas una diapositiva a una imagen, PDF o HTML, Aspose.Slides renderiza esos efectos 3D en la salida 2D exportada.
 {{% /alert %}}
 
 ## **Conceptos de formato 3D**
 
-Utilice el método [Shape.getThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/#getThreeDFormat) para aplicar formato 3D a una forma. El método devuelve [ThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/), que controla la escena 3D de esa forma.
+Utiliza el método [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) para aplicar formato 3D a una forma. El método devuelve [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/), que controla la escena 3D para esa forma.
 
-Para texto, utilice el método [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). Esto aplica formato 3D al marco de texto en lugar del cuerpo de la forma.
+Para texto, utiliza el método [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). Esto aplica formato 3D al marco de texto en lugar del cuerpo de la forma.
 
 Los miembros de API más importantes son:
 
 | Miembro de API | Qué controla | Cuándo usarlo |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getCamera) | Punto de vista, tipo de cámara preestablecida, rotación, zoom y perspectiva. | Rotar el objeto en el espacio 3D o coincidir con un preajuste de rotación 3D de PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getLightRig) | Luz preestablecida, dirección y rotación de la luz. | Cambiar cómo aparecen los reflejos y sombras en la superficie 3D. |
-| [getMaterial](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getMaterial) y [setMaterial](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setMaterial) | Material de la superficie, como plano, mate, plástico o metal. | Hacer que la misma geometría parezca más plana, suave, brillante o metálica. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) y [setExtrusionHeight](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Cuán lejos se extiende la forma hacia atrás desde su cara frontal. | Convertir una forma plana en un objeto 3D visiblemente grueso. |
-| [getExtrusionColor](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Color de los lados extruidos. | Hacer visible la profundidad o coordinar el color del lado con el relleno frontal. |
-| [getDepth](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getDepth) y [setDepth](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setDepth) | Profundidad 3D adicional utilizada por el formato 3D de PowerPoint. | Ajustar finamente la profundidad de formas o texto, especialmente junto con biseles y material. |
-| [getBevelTop](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getBevelTop) y [getBevelBottom](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Bordes elevados o redondeados en las caras frontal y trasera. | Añadir un borde suavizado o moldeado en lugar de una cara plana y afilada. |
-| [getContourColor](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getContourWidth) y [setContourWidth](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Contorno alrededor del objeto 3D. | Resaltar el borde del objeto en la salida renderizada. |
+| [getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera) | Punto de vista, tipo de cámara predefinida, rotación, zoom y perspectiva. | Rotar el objeto en espacio 3D o coincidir con un preset de rotación 3D de PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getLightRig) | Preset de luz, dirección y rotación de la luz. | Cambiar cómo aparecen los reflejos y las sombras en la superficie 3D. |
+| [getMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setMaterial) | Material de la superficie, como plano, mate, plástico o metal. | Hacer que la misma geometría parezca más plana, más suave, brillante o metálica. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | Cuánto se extiende la forma hacia atrás desde su cara frontal. | Convertir una forma plana en un objeto 3D visiblemente grueso. |
+| [getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | Color de los lados extruidos. | Hacer visible la profundidad o coordinar el color de los lados con el relleno frontal. |
+| [getDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) | Profundidad 3D adicional utilizada por el formato 3D de PowerPoint. | Ajustar finamente la profundidad para formas o texto, especialmente junto con los ajustes de bisel y material. |
+| [getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | Aristas elevadas o redondeadas en las caras frontal y trasera. | Añadir un borde suavizado o moldeado en lugar de una cara plana y afilada. |
+| [getContourColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourWidth), and [setContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setContourWidth) | Contorno alrededor del objeto 3D. | Enfatizar el límite del objeto en la salida renderizada. |
 
 ## **Crear una forma 3D**
 
 Una forma normalmente necesita cuatro tipos de ajustes antes de que parezca convincentemente 3D:
 
-- Ajustes de cámara, porque la vista frontal predeterminada puede ocultar la extrusión.
-- Ajustes de luz, porque la iluminación hace que las caras y los lados sean legibles.
-- Ajustes de material, porque la superficie afecta cómo se renderiza la luz.
+- Configuraciones de cámara, porque la vista frontal predeterminada puede ocultar la extrusión.
+- Configuraciones de luz, porque la iluminación hace que las caras y los lados sean legibles.
+- Configuraciones de material, porque la superficie afecta cómo se renderiza la luz.
 - Ajustes de extrusión o profundidad, porque una forma plana necesita grosor.
 
-El siguiente ejemplo crea un rectángulo, añade texto a su cara frontal y aplica formato 3D. Los valores de rotación de la cámara están en grados y la altura de extrusión es de 100 puntos. El ejemplo representa la diapositiva en una imagen PNG al doble de sus dimensiones predeterminadas y guarda la presentación como PPTX.
+El siguiente ejemplo crea un rectángulo, añade texto a su cara frontal y aplica formato 3D. Los valores de rotación de cámara están en grados, y la altura de extrusión es de 100 puntos. El ejemplo renderiza la diapositiva a una imagen PNG al doble de sus dimensiones predeterminadas y guarda la presentación como PPTX.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,17 +97,17 @@ try {
 }
 ```
 
-La imagen de la diapositiva renderizada muestra el rectángulo como un bloque 3D grueso:
+La imagen renderizada de la diapositiva muestra el rectángulo como un bloque 3D grueso:
 
 ![Rectángulo 3D azul renderizado con texto 3D blanco en la cara frontal](img_01_01.png)
 
 ## **Rotar una forma con la cámara**
 
-En PowerPoint, la rotación 3D se configura desde el panel 3‑D Rotation. Los valores de rotación X, Y y Z corresponden a la rotación que establece a través de la API de cámara.
+En PowerPoint, la rotación 3D se configura desde el panel de Rotación 3-D. Los valores de rotación X, Y y Z corresponden a la rotación que estableces mediante la API de cámara.
 
-![Panel 3‑D Rotation de PowerPoint con valores de rotación X, Y y Z resaltados](img_02_01.png)
+![Panel de Rotación 3-D de PowerPoint con valores de rotación X, Y y Z resaltados](img_02_01.png)
 
-En Aspose.Slides, acceda a la cámara mediante [ThreeDFormat.getCamera](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getCamera). Este ejemplo crea un rectángulo, selecciona una vista frontal ortográfica y establece sus rotaciones X, Y y Z en 20, 30 y 40 grados, respectivamente. Configura la forma en memoria sin guardar un archivo:
+En Aspose.Slides, accede a la cámara mediante [ThreeDFormat.getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera). Este ejemplo crea un rectángulo, selecciona una vista frontal ortográfica y establece sus rotaciones X, Y y Z en 20, 30 y 40 grados, respectivamente. Configura la forma en memoria sin guardar un archivo:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -127,15 +125,47 @@ try {
 }
 ```
 
-Utilice la cámara cuando necesite cambiar cómo el observador ve el objeto. No cambia la geometría 2D de la forma en la diapositiva. Cambia el punto de vista 3D utilizado por PowerPoint y por Aspose.Slides al renderizar.
+Utiliza la cámara cuando necesites cambiar cómo ve el objeto el observador. No modifica la geometría 2D de la forma en la diapositiva. Cambia el punto de vista 3D utilizado por PowerPoint y por Aspose.Slides al renderizar.
 
-## **Añadir extrusión y profundidad**
+### **Copiar la orientación de la cámara desde una forma plantilla**
 
-La extrusión hace que una forma parezca gruesa al extenderla detrás de la cara frontal. En PowerPoint, el control de profundidad define este grosor visible, y el control de color define el color de las caras laterales.
+Para coincidir con la orientación de una forma plantilla, lee su preset de cámara con [getCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getCameraType) y sus ángulos de rotación con [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getRotation). El ejemplo abre `template.pptx` y copia la orientación de la cámara de la primera forma en la primera diapositiva a la segunda forma. Ambas formas ya tienen iluminación 3D, y la segunda forma no tiene una rotación de cámara explícita.
 
-![Controles de profundidad de PowerPoint vinculados a las propiedades de color y altura de extrusión](img_02_02.png)
+Los ángulos están en grados. El índice `0` es latitud, el índice `1` es longitud y el índice `2` es revolución. Pásalos a [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) en ese orden. Si la fuente devuelve `null`, no tiene rotación explícita, así que deja los ángulos de la segunda forma sin establecer. Una rotación explícita de `(0, 0, 0)` devuelve tres ceros y debe copiarse.
 
-Utilice [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) para establecer el grosor y [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) para acceder al color lateral. Este ejemplo da a un rectángulo una extrusión de 100 puntos con lados púrpuras y rota la cámara para revelar su grosor. Configura la forma en memoria sin guardar un archivo:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    const destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    const angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Cuando vuelvas a abrir `camera-copy.pptx` en PowerPoint, la flecha a la derecha tiene el mismo preset de cámara y rotación que el rectángulo a la izquierda. Ambas formas usan la misma iluminación y profundidad de extrusión.
+
+![Un rectángulo 3D azul y una flecha derecha con orientación de cámara coincidente, vista desde arriba y a la derecha](camera-orientation.png)
+
+## **Agregar extrusión y profundidad**
+
+La extrusión hace que una forma parezca gruesa al extenderla detrás de la cara frontal. En PowerPoint, el control de profundidad establece esta grosor visible, y el control de color define el color de las caras laterales.
+
+![Controles de profundidad de PowerPoint asignados a las propiedades de color y altura de extrusión](img_02_02.png)
+
+Utiliza [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) para establecer el grosor y [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) para acceder al color de los lados. Este ejemplo da a un rectángulo una extrusión de 100 puntos con lados púrpuras y rota la cámara para revelar su grosor. Configura la forma en memoria sin guardar un archivo:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -161,13 +191,13 @@ try {
 }
 ```
 
-El método [ThreeDFormat.setDepth](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setDepth) define la profundidad de una forma 3D. El método [setExtrusionHeight](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) controla la altura del efecto de extrusión, como se muestra en este ejemplo.
+El método [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) establece la profundidad de una forma 3D. El método [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) controla la altura del efecto de extrusión, como se muestra en este ejemplo.
 
 ## **Usar rellenos degradados o de imagen con efectos 3D**
 
-El formato 3D es independiente del relleno de la forma. Puede aplicar un color sólido, degradado, patrón o relleno de imagen a la cara frontal y seguir usando la misma cámara, luz, material y ajustes de extrusión.
+El formato 3D es independiente del relleno de la forma. Puedes aplicar un color sólido, degradado, patrón o relleno de imagen a la cara frontal y seguir usando la misma cámara, luz, material y ajustes de extrusión.
 
-Este ejemplo aplica un degradado azul‑a‑naranja a la cara frontal y un color naranja oscuro a la extrusión de 150 puntos. Las paradas del degradado en 0 y 100 marcan el inicio y el final del degradado. Los valores de rotación de la cámara están en grados. La diapositiva se representa en una imagen PNG al doble de sus dimensiones predeterminadas:
+Este ejemplo aplica un degradado de azul a naranja a la cara frontal y un color naranja oscuro a la extrusión de 150 puntos. Las paradas del degradado en 0 y 100 marcan el inicio y el final del degradado. Los valores de rotación de cámara están en grados. La diapositiva se renderiza a una imagen PNG al doble de sus dimensiones predeterminadas:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -209,11 +239,11 @@ try {
 }
 ```
 
-La salida renderizada mantiene el degradado en la cara frontal y representa la extrusión por separado:
+La salida renderizada mantiene el degradado en la cara frontal y renderiza la extrusión por separado:
 
-![Rectángulo 3D renderizado con relleno degradado azul‑a‑naranja y extrusión naranja](img_02_03.png)
+![Rectángulo 3D renderizado con relleno degradado de azul a naranja y extrusión naranja](img_02_03.png)
 
-Para usar un relleno de imagen, añada la imagen a la presentación y asígnela al relleno de la forma. Este ejemplo requiere un archivo existente llamado “image.jpg” en el directorio de trabajo. Estira la imagen para llenar el rectángulo, aplica una extrusión de 150 puntos y establece la rotación de la cámara en grados. Configura la forma en memoria sin guardar ni renderizar un archivo:
+Para usar un relleno de imagen en su lugar, agrega la imagen a la presentación y asígnala al relleno de la forma. Este ejemplo requiere un archivo existente llamado "image.jpg" en el directorio de trabajo. Estira la imagen para llenar el rectángulo, aplica una extrusión de 150 puntos y establece la rotación de la cámara en grados. Configura la forma en memoria sin guardar ni renderizar un archivo:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -250,15 +280,15 @@ try {
 }
 ```
 
-La imagen se representa en la cara frontal, mientras que la extrusión se representa como la superficie lateral 3D:
+La imagen se renderiza en la cara frontal, mientras que la extrusión se muestra como la superficie lateral 3D:
 
 ![Rectángulo 3D renderizado con relleno fotográfico en la cara frontal y extrusión naranja](img_02_04.png)
 
 ## **Aplicar formato 3D al texto**
 
-El formato 3D de la forma afecta al cuerpo de la forma. El formato 3D del texto afecta al marco de texto. Esto es útil para efectos tipo WordArt donde las propias letras necesitan extrusión, material, iluminación y ajustes de cámara.
+El formato 3D de la forma afecta al cuerpo de la forma. El formato 3D del texto afecta al marco de texto. Esto es útil para efectos similares a WordArt donde las propias letras necesitan extrusión, material, iluminación y ajustes de cámara.
 
-El siguiente ejemplo crea texto con un patrón de cuadrícula naranja‑blanco, aplica un arco ascendente y configura ajustes 3D mediante [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). La altura de extrusión y la profundidad están en puntos, y la rotación de la luz está en grados. El relleno y el contorno de la forma están ocultos para que solo sea visible el texto. El ejemplo representa una imagen PNG al doble de las dimensiones predeterminadas de la diapositiva y guarda la presentación como PPTX:
+El siguiente ejemplo crea texto con un patrón de cuadrícula naranja y blanco, aplica un arco ascendente y configura los ajustes 3D mediante [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat). La altura de extrusión y la profundidad están en puntos, y la rotación de la luz está en grados. El relleno y el contorno de la forma están ocultos para que solo sea visible el texto. El ejemplo renderiza una imagen PNG al doble de las dimensiones predeterminadas de la diapositiva y guarda la presentación como PPTX:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -308,17 +338,17 @@ try {
 }
 ```
 
-El texto se representa como letras 3D curvadas y extruidas:
+El texto se renderiza como letras 3D curvadas y extruidas:
 
-![Texto 3D renderizado con transformación de WordArt arqueada, relleno de patrón naranja y extrusión oscura](img_02_05.png)
+![Texto 3D renderizado con una transformación de WordArt arqueada, relleno de patrón naranja y extrusión oscura](img_02_05.png)
 
 ## **Mantener el texto plano en una forma 3D**
 
-Para que el texto siga siendo legible conservando la apariencia 3D de la forma, llame a [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) a través de [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). Cuando el valor es `true`, el texto permanece fuera de la escena 3D. Cuando es `false`, el texto participa en la escena y sigue su orientación 3D.
+Para mantener el texto legible mientras se conserva la apariencia 3D de una forma, llama a [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) mediante [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getTextFrameFormat). Cuando el valor es `true`, el texto permanece fuera de la escena 3D. Cuando es `false`, el texto participa en la escena y sigue su orientación 3D.
 
-Este ajuste no elimina el formato 3D de la forma: su cámara, iluminación, material y extrusión siguen configurados mediante [Shape.getThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/#getThreeDFormat). También difiere de la rotación ordinaria. [Shape.setRotation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/#setRotation) rota la forma en el plano de la diapositiva, mientras que [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) controla la rotación personalizada del texto dentro de su cuadro delimitador. Mantener el texto fuera de la escena 3D no restablece ninguno de esos ángulos.
+Esta configuración no elimina el formato 3D de la forma: su cámara, iluminación, material y extrusión siguen configurados mediante [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat). También difiere de la rotación ordinaria. [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) rota la forma en el plano de la diapositiva, mientras que [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) controla la rotación personalizada del texto dentro de su cuadro delimitador. Mantener el texto fuera de la escena 3D no restablece ninguno de esos ángulos.
 
-El siguiente ejemplo autónomo crea un rectángulo azul con texto y lo clona junto al original. Ambas formas tienen el mismo formato 3D; solo difiere el ajuste de texto: `false` a la izquierda y `true` a la derecha. Los ángulos de cámara están en grados y la altura de extrusión es de 40 puntos. El ejemplo guarda la presentación como PPTX y representa la diapositiva de comparación en PNG al doble de sus dimensiones predeterminadas.
+El siguiente ejemplo independiente crea un rectángulo azul con texto y lo clona al lado del original. Ambas formas tienen el mismo formato 3D; solo difiere la configuración del texto: `false` a la izquierda y `true` a la derecha. Los ángulos de la cámara están en grados y la altura de extrusión es de 40 puntos. El ejemplo guarda la presentación como PPTX y renderiza la diapositiva comparativa a PNG al doble de sus dimensiones predeterminadas.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -369,37 +399,35 @@ A la izquierda, el texto sigue la orientación 3D. A la derecha, permanece plano
 
 ## **Comportamiento de exportación y renderizado**
 
-Aspose.Slides conserva el formato 3D al guardar en formatos de PowerPoint como PPTX. Al renderizar o exportar a formatos de diseño fijo, la escena 3D se rasteriza o dibuja en la salida como un resultado 2D. Esto se aplica cuando renderiza diapositivas a [PNG](/slides/es/nodejs-java/convert-powerpoint-to-png/), exporta a [PDF](/slides/es/nodejs-java/convert-powerpoint-to-pdf/), exporta a [HTML](/slides/es/nodejs-java/convert-powerpoint-to-html/), o genera fotogramas para la [conversión de video](/slides/es/nodejs-java/convert-powerpoint-to-video/).
+Aspose.Slides conserva el formato 3D al guardar en formatos de PowerPoint como PPTX. Al renderizar o exportar a formatos de diseño fijo, la escena 3D se rasteriza o dibuja en la salida como un resultado 2D. Esto se aplica cuando renderizas diapositivas a [PNG](/slides/es/nodejs-java/convert-powerpoint-to-png/), exportas a [PDF](/slides/es/nodejs-java/convert-powerpoint-to-pdf/), exportas a [HTML](/slides/es/nodejs-java/convert-powerpoint-to-html/), o generas fotogramas para [conversión de video](/slides/es/nodejs-java/convert-powerpoint-to-video/).
 
-Tenga en cuenta los siguientes puntos:
-
-- Las imágenes y PDFs exportados no son interactivos. El objeto no puede ser rotado por el espectador después de la exportación.
-- La apariencia final depende de la combinación de cámara, rig de luz, material, extrusión, relleno y escala de la diapositiva.
-- Si necesita inspeccionar valores de formato heredados o basados en temas, lea las [propiedades efectivas de la forma](/slides/es/nodejs-java/shape-effective-properties/).
-- Algunos formatos de salida no pueden almacenar formato 3D editable de PowerPoint. En esos formatos, el resultado visual se renderiza en lugar de preservarse como ajustes 3D editables.
+- Las imágenes y PDFs exportados no son interactivos. El objeto no puede rotarse por el observador después de la exportación.
+- La apariencia final depende de la combinación de cámara, configuración de luz, material, extrusión, relleno y escalado de la diapositiva.
+- Si necesitas inspeccionar valores de formato heredados o basados en el tema, lee las [propiedades efectivas de la forma](/slides/es/nodejs-java/shape-effective-properties/).
+- Algunos formatos de salida no pueden almacenar el formato 3D editable de PowerPoint. En esos formatos, el resultado visual se renderiza en lugar de preservarse como ajustes 3D editables.
 
 ## **Preguntas frecuentes**
 
 **¿Puede Aspose.Slides crear presentaciones 3D interactivas?**
 
-Aspose.Slides crea y representa efectos 3D de PowerPoint para formas y texto. No convierte imágenes, PDFs o páginas HTML exportadas en escenas 3D interactivas que el espectador pueda rotar. En PPTX, el formato 3D permanece editable en PowerPoint donde el formato lo soporta.
+Aspose.Slides crea y renderiza efectos 3D de PowerPoint para formas y texto. No convierte las imágenes, PDFs o páginas HTML exportadas en escenas 3D interactivas que el observador pueda rotar. En PPTX, el formato 3D sigue siendo editable en PowerPoint cuando el formato lo admite.
 
 **¿Cuál es la diferencia entre un modelo 3D y un efecto 3D?**
 
-Un modelo 3D es un objeto 3D independiente insertado en una presentación. Un efecto 3D es formato aplicado a una forma o texto normal de PowerPoint, como rotación, extrusión, bisel, iluminación y material. Este artículo cubre efectos 3D.
+Un modelo 3D es un objeto 3D independiente insertado en una presentación. Un efecto 3D es un formato aplicado a una forma o texto de PowerPoint convencional, como rotación, extrusión, bisel, iluminación y material. Este artículo trata sobre los efectos 3D.
 
 **¿Qué ajustes son necesarios para una forma 3D visible?**
 
-Como mínimo, establezca una rotación de cámara y ya sea extrusión o profundidad. En la práctica, también configure un rig de luz y material para que las caras renderizadas tengan reflejos y sombras claros.
+Como mínimo, establece una rotación de cámara y ya sea extrusión o profundidad. En la práctica, también configura una configuración de luz y material para que las caras renderizadas tengan reflejos y sombras claros.
 
 **¿Puedo aplicar efectos 3D tanto a formas como a texto?**
 
-Sí. Utilice [Shape.getThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/#getThreeDFormat) para el cuerpo de la forma y [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) para el texto.
+Sí. Utiliza [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) para el cuerpo de la forma y [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) para el texto.
 
-**¿Aparecerán los efectos 3D al exportar a imágenes, PDF, HTML o fotogramas de vídeo?**
+**¿Aparecerán los efectos 3D al exportar a imágenes, PDF, HTML o fotogramas de video?**
 
-Sí. Aspose.Slides representa los efectos 3D al producir imágenes de diapositivas, salida PDF, salida HTML y fotogramas usados para la conversión de vídeo. La salida exportada contiene la apariencia renderizada, no un objeto 3D editable.
+Sí. Aspose.Slides renderiza los efectos 3D al generar imágenes de diapositivas, salida PDF, salida HTML y fotogramas utilizados para la conversión de video. La salida exportada contiene la apariencia renderizada, no un objeto 3D editable.
 
-**¿Puedo leer los valores finales 3D después de aplicar herencia y ajustes de tema?**
+**¿Puedo leer los valores 3D finales después de aplicar la herencia y los ajustes del tema?**
 
-Sí. Utilice las API de formato efectivo descritas en [Propiedades efectivas de la forma](/slides/es/nodejs-java/shape-effective-properties/) para leer la cámara final, rig de luz, bisel y valores 3D relacionados.
+Sí. Utiliza las API de formato efectivo descritas en [Propiedades efectivas de la forma](/slides/es/nodejs-java/shape-effective-properties/) para leer la cámara final, la configuración de luz, bisel y valores 3D relacionados.

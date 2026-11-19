@@ -1,59 +1,61 @@
 ---
-title: Erstellen von 3D-Effekten in Präsentationen auf Android
-linktitle: 3D-Präsentation
+title: 3D‑Effekte in Präsentationen auf Android erstellen
+linktitle: 3D‑Präsentation
 type: docs
 weight: 232
 url: /de/androidjava/3d-presentation/
 keywords:
 - 3D PowerPoint
-- 3D-Präsentation
-- 3D-Drehung
-- 3D-Tiefe
-- 3D-Extrusion
-- 3D-Verlauf
-- 3D-Text
+- 3D‑Präsentation
+- 3D‑Drehung
+- 3D‑Tiefe
+- 3D‑Extrusion
+- 3D‑Verlauf
+- 3D‑Text
 - PowerPoint
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Wenden Sie 3D-Effekte für PowerPoint‑Formen und -Text auf Android mit Aspose.Slides an und rendern Sie sie. Konfigurieren Sie Kamera, Beleuchtung, Material, Extrusion, Füllungen und 3D‑Text."
+description: "Wenden Sie 3D‑Effekte für PowerPoint‑Formen und -Text auf Android mit Aspose.Slides an und rendern Sie sie. Konfigurieren Sie Kamera, Beleuchtung, Material, Extrusion, Füllungen und 3D‑Text."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Android über Java kann PowerPoint‑ähnliche 3D‑Formatierungen für Formen und Text erstellen, bearbeiten, beibehalten und rendern. Dieser Artikel behandelt 3D‑Effekte wie Drehung, Extrusion, Abschrägungen, Beleuchtung, Material, Farbverlauf‑ oder Bildfüllungen und 3D‑Text.
+Aspose.Slides für Android via Java kann PowerPoint‑ähnliche 3D‑Formatierung für Formen und Text erstellen, bearbeiten, beibehalten und rendern. Dieser Artikel behandelt 3D‑Effekte wie Drehung, Extrusion, Abschrägungen, Beleuchtung, Material, Farbverläufe oder Bildfüllungen und 3D‑Text.
 
 {{% alert color="info" title="Note" %}}
-Dieser Artikel handelt von 3D‑Formatierungseffekten auf PowerPoint‑Formen und -Text. Es geht nicht um das Einfügen oder Bearbeiten von eigenständigen 3D‑Modelldateien. Wenn Sie eine Folie in ein Bild, PDF oder HTML exportieren, rendert Aspose.Slides diese 3D‑Effekte in das exportierte 2D‑Ergebnis.
+Dieser Artikel behandelt 3D‑Formatierungseffekte für PowerPoint‑Formen und -Text. Er befasst sich nicht mit dem Einfügen oder Bearbeiten von eigenständigen 3D‑Modelldateien. Wenn Sie eine Folie in ein Bild, PDF oder HTML exportieren, rendert Aspose.Slides diese 3D‑Effekte in die exportierte 2D‑Ausgabe.
 {{% /alert %}}
 
-## **3D‑Formatierungskonzepte**
+## **Konzepte der 3D-Formatierung**
 
-Verwenden Sie die Methode [IShape.getThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) , um einer Form 3D‑Formatierung anzuwenden. Die Methode gibt ein [IThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/) zurück, das die 3D‑Szene für diese Form steuert.
+Verwenden Sie die Methode [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) , um einem Objekt 3D‑Formatierung anzuwenden. Die Methode gibt ein [IThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/) zurück, das die 3D‑Szene für dieses Objekt steuert.
 
-Für Text verwenden Sie die Methode [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Diese wendet die 3D‑Formatierung auf den Textrahmen anstelle des Formkörpers an.
+Für Text verwenden Sie die Methode [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--). Dies wendet die 3D‑Formatierung auf den Textrahmen statt auf den Objektkörper an.
 
-Die wichtigsten API‑Mitglieder sind:
+Die wichtigsten API‑Elemente sind:
 
-| API‑Element | Was es steuert | Wann zu verwenden |
+| API‑Element | Was es steuert | Wann es zu verwenden ist |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | Ansichtspunkt, voreingestellter Kameratyp, Drehung, Zoom und Perspektive. | Drehen Sie das Objekt im 3D‑Raum oder passen Sie es an eine voreingestellte PowerPoint‑3D‑Drehung an. |
-| [getLightRig](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | Lichtvoreinstellung, Richtung und Lichtdrehung. | Ändern Sie, wie Hervorhebungen und Schatten auf der 3D‑Oberfläche erscheinen. |
-| [getMaterial](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) und [setMaterial](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | Oberflächenmaterial, z. B. flach, matt, Kunststoff oder Metall. | Lassen Sie dieselbe Geometrie flacher, weicher, glänzender oder metallisch wirken. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) und [setExtrusionHeight](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Wie weit die Form von ihrer Vorderseite nach hinten reicht. | Verwandeln Sie eine flache Form in ein sichtbar dickes 3D‑Objekt. |
-| [getExtrusionColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Farbe der extrudierten Seiten. | Machen Sie die Tiefe sichtbar oder koordinieren Sie die Seitenfarbe mit der Vorderseitenfüllung. |
-| [getDepth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getDepth--) und [setDepth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | Zusätzliche 3D‑Tiefe, die von PowerPoint‑3D‑Formatierung verwendet wird. | Feinabstimmung der Tiefe für Formen oder Text, insbesondere in Kombination mit Abschrägungs‑ und Materialeinstellungen. |
-| [getBevelTop](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) und [getBevelBottom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | Erhöhte oder abgerundete Kanten an Vorder‑ und Rückseite. | Fügen Sie eine abgeflachte oder geformte Kante hinzu, anstatt einer scharfen flachen Fläche. |
-| [getContourColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) und [getContourWidth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) und [setContourWidth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Umriss um das 3D‑Objekt. | Betonen Sie die Objektgrenze in der gerenderten Ausgabe. |
+| [getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | Ansichtspunkt, vordefinierter Kameratyp, Drehung, Zoom und Perspektive. | Drehen Sie das Objekt im 3D‑Raum oder passen Sie ein PowerPoint‑3D‑Drehungsvorgabe an. |
+| [getLightRig](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | Lichtvorgabe, Richtung und Lichtdrehung. | Ändern Sie, wie Lichtreflexe und Schatten auf der 3D‑Oberfläche erscheinen. |
+| [getMaterial](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) und [setMaterial](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | Oberflächenmaterial, z. B. flach, matt, Kunststoff oder Metall. | Lassen Sie dieselbe Geometrie flacher, weicher, glänzender oder metallisch erscheinen. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) und [setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Wie weit die Form von ihrer Vorderfläche nach hinten ausgedehnt wird. | Verwandeln Sie eine flache Form in ein sichtbar dickes 3D‑Objekt. |
+| [getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Farbe der extrudierten Seiten. | Machen Sie die Tiefe sichtbar oder stimmen die Seitenfarbe mit der Vordergrundfüllung ab. |
+| [getDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getDepth--) und [setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | Zusätzliche 3D‑Tiefe, die von PowerPoint‑3D‑Formatierung verwendet wird. | Passen Sie die Tiefe für Formen oder Text genau an, insbesondere in Kombination mit Abschrägungen und Materialeinstellungen. |
+| [getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) und [getBevelBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | Erhobene oder abgerundete Kanten an Vorder- und Rückseite. | Fügen Sie eine abgeflachte oder geformte Kante hinzu anstelle einer scharfen flachen Fläche. |
+| [getContourColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) und [getContourWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) und [setContourWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Umriss um das 3D‑Objekt. | Hervorhebung der Objektgrenze in der gerenderten Ausgabe. |
 
 ## **Eine 3D‑Form erstellen**
 
-- Kameraeinstellungen, da die standardmäßige Vorderansicht die Extrusion verbergen kann.
-- Lichteinstellungen, da Beleuchtung die Flächen und Seiten lesbar macht.
-- Materialeinstellungen, da die Oberfläche beeinflusst, wie das Licht dargestellt wird.
-- Extrusions‑ oder Tiefeneinstellungen, da eine flache Form Dicke benötigt.
+Ein Objekt benötigt in der Regel vier Arten von Einstellungen, bevor es überzeugend 3D wirkt:
 
-Das folgende Beispiel erstellt ein Rechteck, fügt seiner Vorderseite Text hinzu und wendet 3D‑Formatierung an. Die Kameradrehwerte sind in Grad angegeben, und die Extrusionshöhe beträgt 100 Punkte. Das Beispiel rendert die Folie zu einem PNG‑Bild in doppelter Standardgröße und speichert die Präsentation als PPTX.
+- Kameraeinstellungen, weil die Standard‑Frontansicht die Extrusion verbergen kann.
+- Lichteinstellungen, weil Beleuchtung die Flächen und Seiten lesbar macht.
+- Materialeinstellungen, weil die Oberfläche beeinflusst, wie Licht gerendert wird.
+- Extrusions‑ oder Tiefeneinstellungen, weil eine flache Form Dicke benötigt.
+
+Das folgende Beispiel erstellt ein Rechteck, fügt dem Vordergrund Text hinzu und wendet 3D‑Formatierung an. Die Kameradrehwerte sind in Grad angegeben, die Extrusionshöhe beträgt 100 Punkte. Das Beispiel rendert die Folie zu einem PNG‑Bild mit doppelter Standardgröße und speichert die Präsentation als PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -96,15 +98,15 @@ try {
 
 Das gerenderte Folienbild zeigt das Rechteck als dicken 3D‑Block:
 
-![Gerendertes blaues 3D‑Rechteck mit weißem 3D‑Text auf der Vorderseite](img_01_01.png)
+![Gerendertes blaues 3D‑Rechteck mit weißem 3D‑Text auf der Vorderfläche](img_01_01.png)
 
-## **Eine Form mit der Kamera drehen**
+## **Eine Form mit der Kamera rotieren**
 
-In PowerPoint wird die 3D‑Drehung über das Paneel „3‑D‑Drehung“ konfiguriert. Die X‑, Y‑ und Z‑Drehwerte entsprechen der Drehung, die Sie über die Kamera‑API festlegen.
+In PowerPoint wird die 3D‑Drehung über das Feld 3‑D‑Drehung konfiguriert. Die X-, Y- und Z‑Drehwerte entsprechen der Drehung, die Sie über die Kamera‑API festlegen.
 
-![PowerPoint‑Paneel 3‑D‑Drehung mit hervorgehobenen X‑, Y‑ und Z‑Drehwerten](img_02_01.png)
+![PowerPoint‑Feld 3‑D‑Drehung mit hervorgehobenen X‑, Y‑ und Z‑Drehwerten](img_02_01.png)
 
-In Aspose.Slides greifen Sie über [IThreeDFormat.getCamera](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getCamera--) auf die Kamera zu. Dieses Beispiel erstellt ein Rechteck, wählt eine orthografische Frontansicht und setzt seine X‑, Y‑ und Z‑Drehungen auf 20, 30 bzw. 40 Grad. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern:
+Greifen Sie in Aspose.Slides über [IThreeDFormat.getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--) auf die Kamera zu. Dieses Beispiel erstellt ein Rechteck, wählt eine orthografische Frontansicht und setzt die X‑, Y‑ und Z‑Drehungen auf 20, 30 bzw. 40 Grad. Es konfiguriert das Objekt im Speicher, ohne eine Datei zu speichern:
 
 ```java
 import com.aspose.slides.*;
@@ -122,15 +124,47 @@ try {
 }
 ```
 
-Verwenden Sie die Kamera, wenn Sie ändern müssen, wie der Betrachter das Objekt sieht. Sie ändert nicht die 2D‑Geometrie der Form auf der Folie. Sie ändert den 3D‑Blickpunkt, der von PowerPoint und von Aspose.Slides beim Rendern verwendet wird.
+Verwenden Sie die Kamera, wenn Sie ändern müssen, wie der Betrachter das Objekt sieht. Sie ändert nicht die 2D‑Geometrie des Objekts auf der Folie. Sie ändert den 3D‑Blickpunkt, den PowerPoint und Aspose.Slides beim Rendern verwenden.
+
+### **Kameraposition von einer Vorlageform kopieren**
+
+Um die Ausrichtung einer Vorlageform zu übernehmen, lesen Sie deren Kamera‑Vorgabe mit [getCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#getCameraType--) und deren Rotationswinkel mit [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#getRotation--). Das Beispiel öffnet `template.pptx` und kopiert die Kameraposition von der ersten Form auf der ersten Folie zur zweiten Form. Beide Formen haben bereits 3D‑Beleuchtung, und die zweite Form hat keine explizite Kameradrehung.
+
+Die Winkel sind in Grad angegeben. Index `0` ist Breitengrad, Index `1` ist Längengrad und Index `2` ist Drehung. Übergaben Sie sie in dieser Reihenfolge an [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-). Gibt die Quelle `null` zurück, hat sie keine explizite Drehung, sodass die Winkel der zweiten Form unverändert bleiben. Eine explizite Drehung von `(0, 0, 0)` liefert drei Nullen und sollte kopiert werden.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    ICamera sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    ICamera destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    float[] angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wenn Sie `camera-copy.pptx` in PowerPoint erneut öffnen, hat der Pfeil rechts dieselbe Kamera‑Vorgabe und -Drehung wie das Rechteck links. Beide Formen verwenden dieselbe Beleuchtung und Extrusionstiefe.
+
+![Ein blaues 3D‑Rechteck und ein rechter Pfeil mit passender Kameraposition, von oben und rechts betrachtet](camera-orientation.png)
 
 ## **Extrusion und Tiefe hinzufügen**
 
-Extrusion lässt eine Form dicker erscheinen, indem sie hinter die Vorderseite verlängert wird. In PowerPoint legt die Tiefensteuerung diese sichtbare Dicke fest, und die Farbsteuerung bestimmt die Farbe der Seitenflächen.
+Extrusion lässt ein Objekt dick wirken, indem es hinter die Vorderfläche verlängert wird. In PowerPoint legt die Tiefen‑Steuerung diese sichtbare Dicke fest, und die Farb‑Steuerung bestimmt die Farbe der Seitenflächen.
 
-![PowerPoint‑Tiefensteuerelemente, die den Extrusionsfarbe‑ und Extrusionshöhen‑Eigenschaften zugeordnet sind](img_02_02.png)
+![PowerPoint‑Tiefensteuerungen, zugeordnet zu Extrusionsfarbe‑ und Extrusionshöhe‑Eigenschaften](img_02_02.png)
 
-Verwenden Sie [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) , um die Dicke festzulegen, und [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) , um die Seitenfarbe abzurufen. Dieses Beispiel gibt einem Rechteck eine Extrusion von 100 Punkten mit violetten Seiten und dreht die Kamera, um die Dicke sichtbar zu machen. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern:
+Verwenden Sie [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-), um die Dicke festzulegen, und [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) , um die Seitenfarbe abzurufen. Dieses Beispiel gibt einem Rechteck eine 100‑Punkt‑Extrusion mit violetten Seiten und dreht die Kamera, um die Dicke sichtbar zu machen. Es konfiguriert das Objekt im Speicher, ohne eine Datei zu speichern:
 
 ```java
 import com.aspose.slides.*;
@@ -156,13 +190,13 @@ try {
 }
 ```
 
-Die Methode [IThreeDFormat.setDepth](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) legt die Tiefe einer 3D‑Form fest. Die Methode [setExtrusionHeight](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) steuert die Höhe des Extrusionseffekts, wie in diesem Beispiel gezeigt.
+Die Methode [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) legt die Tiefe einer 3D‑Form fest. Die Methode [setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) steuert die Höhe des Extrusionseffekts, wie in diesem Beispiel gezeigt.
 
-## **Verlauf‑ oder Bildfüllungen mit 3D‑Effekten verwenden**
+## **Verlaufs‑ oder Bildfüllungen mit 3D‑Effekten verwenden**
 
-Die 3D‑Formatierung ist unabhängig von der Formfüllung. Sie können der Vorderseite eine Vollfarbe, einen Verlauf, ein Muster oder eine Bildfüllung zuweisen und dennoch dieselben Kamera‑, Licht‑, Material‑ und Extrusionseinstellungen verwenden.
+Die 3D‑Formatierung ist unabhängig von der Formfüllung. Sie können eine Vollfarbe, einen Verlauf, ein Muster oder eine Bildfüllung auf die Vorderfläche anwenden und dennoch dieselben Kamera‑, Licht‑, Material‑ und Extrusions‑Einstellungen verwenden.
 
-Dieses Beispiel wendet einen Blau‑zu‑Orange‑Verlauf auf die Vorderseite und eine dunkelorange Farbe auf die 150‑Punkte‑Extrusion an. Die Verlaufspunkte bei 0 und 100 markieren den Beginn und das Ende des Verlaufs. Die Kameradrehwerte sind in Grad angegeben. Die Folie wird zu einem PNG‑Bild in doppelter Standardgröße gerendert:
+Dieses Beispiel wendet einen Blau‑zu‑Orange‑Verlauf auf die Vorderfläche und eine dunkelorange Farbe auf die 150‑Punkt‑Extrusion an. Die Verlaufspunkte bei 0 und 100 markieren den Beginn und das Ende des Verlaufs. Die Kameradrehwerte sind in Grad angegeben. Die Folie wird zu einem PNG‑Bild mit doppelter Standardgröße gerendert:
 
 ```java
 import com.aspose.slides.*;
@@ -203,9 +237,11 @@ try {
 }
 ```
 
-![Gerendertes 3D‑Rechteck mit einem Blau‑zu‑Orange‑Verlauf und oranger Extrusion](img_02_03.png)
+Die gerenderte Ausgabe behält den Verlauf auf der Vorderfläche bei und rendert die Extrusion separat:
 
-Um stattdessen eine Bildfüllung zu verwenden, fügen Sie dem Dokument das Bild hinzu und weisen es der Formfüllung zu. Dieses Beispiel erfordert eine vorhandene Datei mit dem Namen „image.jpg“ im Arbeitsverzeichnis. Es streckt das Bild, um das Rechteck zu füllen, wendet eine Extrusion von 150 Punkten an und setzt die Kameradrehung in Grad. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern oder zu rendern:
+![Gerendertes 3D‑Rechteck mit einem Blau‑zu‑Orange‑Verlauf und orangefarbener Extrusion](img_02_03.png)
+
+Um stattdessen eine Bildfüllung zu verwenden, fügen Sie das Bild zur Präsentation hinzu und weisen es der Formfüllung zu. Dieses Beispiel setzt eine vorhandene Datei namens "image.jpg" im Arbeitsverzeichnis voraus. Es streckt das Bild, um das Rechteck zu füllen, wendet eine 150‑Punkt‑Extrusion an und legt die Kameradrehung in Grad fest. Es konfiguriert das Objekt im Speicher, ohne eine Datei zu speichern oder zu rendern:
 
 ```java
 import com.aspose.slides.*;
@@ -240,13 +276,13 @@ try {
 }
 ```
 
-![Gerendertes 3D‑Rechteck mit einer Fotofüllung auf der Vorderseite und oranger Extrusion](img_02_04.png)
+![Gerendertes 3D‑Rechteck mit Fotofüllung auf der Vorderfläche und orangefarbener Extrusion](img_02_04.png)
 
 ## **3D‑Formatierung auf Text anwenden**
 
-Die 3D‑Formatierung einer Form wirkt sich auf den Formkörper aus. Die 3D‑Formatierung von Text wirkt sich auf den Textrahmen aus. Dies ist nützlich für WordArt‑ähnliche Effekte, bei denen die Buchstaben selbst Extrusion, Material, Beleuchtung und Kameraparameter benötigen.
+Die 3D‑Formatierung einer Form betrifft den Formkörper. Die 3D‑Formatierung von Text betrifft den Textrahmen. Das ist nützlich für WordArt‑ähnliche Effekte, bei denen die Buchstaben selbst Extrusion, Material, Beleuchtung und Kameraeinstellungen benötigen.
 
-Das folgende Beispiel erstellt Text mit einem orange‑weiß‑gitter‑Muster, wendet einen aufwärts gerichteten Bogen an und konfiguriert 3D‑Einstellungen über [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--). Die Extrusionshöhe und Tiefe werden in Punkten angegeben, und die Lichtdrehung ist in Grad. Die Formfüllung und Kontur werden ausgeblendet, sodass nur der Text sichtbar ist. Das Beispiel rendert ein PNG‑Bild in doppelter Standardgröße der Folie und speichert die Präsentation als PPTX:
+Das folgende Beispiel erstellt Text mit einem orange‑weißen Rastermuster, wendet einen nach oben gerichteten Bogen an und konfiguriert 3D‑Einstellungen über [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--). Die Extrusionshöhe und Tiefe sind in Punkten angegeben, und die Lichtdrehung ist in Grad. Die Formfüllung und Kontur werden ausgeblendet, sodass nur der Text sichtbar ist. Das Beispiel rendert ein PNG‑Bild mit doppelter Standardgröße und speichert die Präsentation als PPTX:
 
 ```java
 import com.aspose.slides.*;
@@ -296,15 +332,15 @@ try {
 }
 ```
 
-![Gerenderter 3D‑Text mit einem gebogenen WordArt‑Transform, orangefarbener Musterausfüllung und dunkler Extrusion](img_02_05.png)
+![Gerenderter 3D‑Text mit einem gebogenen WordArt‑Transform, orangefarbenem Musterausfüllung und dunkler Extrusion](img_02_05.png)
 
 ## **Text auf einer 3D‑Form flach halten**
 
-Um den Text lesbar zu halten und gleichzeitig das 3D‑Aussehen einer Form zu bewahren, rufen Sie [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) über [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--) auf. Wenn der Wert `true` ist, bleibt der Text außerhalb der 3D‑Szene. Wenn er `false` ist, nimmt der Text an der Szene teil und folgt ihrer 3D‑Orientierung.
+Um den Text lesbar zu halten und gleichzeitig das 3D‑Aussehen einer Form zu bewahren, rufen Sie [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) über [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--) auf. Wenn der Wert `true` ist, bleibt der Text außerhalb der 3D‑Szene. Wenn er `false` ist, nimmt der Text an der Szene teil und folgt ihrer 3D‑Ausrichtung.
 
-Diese Einstellung entfernt nicht die 3D‑Formatierung der Form: ihre Kamera, Beleuchtung, Material und Extrusion bleiben über [IShape.getThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) konfiguriert. Sie unterscheidet sich auch von einer normalen Drehung. [IShape.setRotation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/#setRotation-float-) dreht die Form in der Folienebene, während [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) die benutzerdefinierte Drehung des Textes innerhalb seines Begrenzungsrahmens steuert. Das Halten des Textes außerhalb der 3D‑Szene setzt keinen dieser Winkel zurück.
+Diese Einstellung entfernt nicht die 3D‑Formatierung der Form: Kamera, Beleuchtung, Material und Extrusion bleiben über [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) konfiguriert. Sie unterscheidet sich außerdem von herkömmlicher Drehung. [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) dreht die Form in der Folienebene, während [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) die benutzerdefinierte Drehung des Textes innerhalb seines Begrenzungsrahmens steuert. Das Halten des Textes außerhalb der 3D‑Szene setzt keinen dieser Winkel zurück.
 
-Das folgende eigenständige Beispiel erstellt ein blaues Rechteck mit Text und dupliziert es neben dem Original. Beide Formen haben dieselbe 3D‑Formatierung; nur die Texteinstellung unterscheidet sich: `false` links und `true` rechts. Die Kamerawinkel sind in Grad angegeben, und die Extrusionshöhe beträgt 40 Punkte. Das Beispiel speichert die Präsentation als PPTX und rendert die Vergleichsfolie zu einem PNG in doppelter Standardgröße.
+Das folgende eigenständige Beispiel erstellt ein blaues Rechteck mit Text und dupliziert es neben dem Original. Beide Formen haben dieselbe 3D‑Formatierung; nur die Texteinstellung unterscheidet sich: `false` links und `true` rechts. Die Kamerawinkel sind in Grad angegeben, und die Extrusionshöhe beträgt 40 Punkte. Das Beispiel speichert die Präsentation als PPTX und rendert die Vergleichsfolie zu einem PNG mit doppelter Standardgröße.
 
 ```java
 import com.aspose.slides.*;
@@ -347,43 +383,41 @@ try {
 }
 ```
 
-Links folgt der Text der 3D‑Orientierung. Rechts bleibt er flach und leichter lesbar. Beide Rechtecke behalten dieselbe sichtbare Extrusion und 3D‑Orientierung bei.
+Links folgt der Text der 3D‑Ausrichtung. Rechts bleibt er flach und leichter lesbar. Beide Rechtecke behalten dieselbe sichtbare Extrusion und 3D‑Ausrichtung bei.
 
-![Nebeneinander stehende 3D‑Rechtecke: Text folgt links der 3D‑Orientierung und bleibt rechts flach](keep_text_flat.png)
+![Nebeneinander stehende 3D‑Rechtecke: Text folgt links der 3D‑Ausrichtung und bleibt rechts flach](keep_text_flat.png)
 
 ## **Export‑ und Rendering‑Verhalten**
 
-Aspose.Slides bewahrt die 3D‑Formatierung beim Speichern in PowerPoint‑Formate wie PPTX. Beim Rendern oder Exportieren in Festlayout‑Formate wird die 3D‑Szene gerastert bzw. als 2D‑Ergebnis in die Ausgabe gezeichnet. Dies gilt, wenn Sie Folien zu [PNG](/slides/de/androidjava/convert-powerpoint-to-png/), [PDF](/slides/de/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/de/androidjava/convert-powerpoint-to-html/) rendern oder Frames für die [Video‑Konvertierung](/slides/de/androidjava/convert-powerpoint-to-video/) erzeugen.
+Aspose.Slides bewahrt die 3D‑Formatierung beim Speichern in PowerPoint‑Formaten wie PPTX. Beim Rendern oder Exportieren in feste Layout‑Formate wird die 3D‑Szene gerastert oder in die Ausgabe als 2D‑Ergebnis gezeichnet. Dies gilt, wenn Sie Folien zu [PNG](/slides/de/androidjava/convert-powerpoint-to-png/) rendern, zu [PDF](/slides/de/androidjava/convert-powerpoint-to-pdf/) exportieren, zu [HTML](/slides/de/androidjava/convert-powerpoint-to-html/) exportieren oder Frames für [Video-Konvertierung](/slides/de/androidjava/convert-powerpoint-to-video/) erzeugen.
 
-Beachten Sie folgende Punkte:
-
-- Exportierte Bilder und PDFs sind nicht interaktiv. Das Objekt kann nach dem Export nicht vom Betrachter gedreht werden.
-- Das endgültige Aussehen hängt von der Kombination aus Kamera, Light‑Rig, Material, Extrusion, Füllung und Folien­skalierung ab.
-- Wenn Sie ererbte oder themenbasierte Formatierungswerte prüfen müssen, lesen Sie die [effective shape properties](/slides/de/androidjava/shape-effective-properties/).
-- Einige Ausgabeformate können die editierbare PowerPoint‑3D‑Formatierung nicht speichern. In diesen Formaten wird das visuelle Ergebnis gerendert, anstatt als editierbare 3D‑Einstellungen beibehalten.
+- Exportierte Bilder und PDFs sind nicht interaktiv. Das Objekt kann nach dem Export nicht vom Betrachter rotiert werden.
+- Das endgültige Aussehen hängt von der Kombination aus Kamera, Licht‑Rig, Material, Extrusion, Füllung und Folien­skalierung ab.
+- Wenn Sie geerbte oder themenbasierte Formatierungswerte prüfen müssen, lesen Sie die [effektiven Formeigenschaften](/slides/de/androidjava/shape-effective-properties/).
+- Einige Ausgabeformate können die bearbeitbare PowerPoint‑3D‑Formatierung nicht speichern. In diesen Formaten wird das visuelle Ergebnis gerendert, anstatt als bearbeitbare 3D‑Einstellungen erhalten zu bleiben.
 
 ## **FAQ**
 
 **Kann Aspose.Slides interaktive 3D‑Präsentationen erstellen?**
 
-Aspose.Slides erstellt und rendert PowerPoint‑3D‑Effekte für Formen und Text. Es macht exportierte Bilder, PDFs oder HTML‑Seiten nicht zu interaktiven 3D‑Szenen, die ein Betrachter drehen kann. In PPTX bleibt die 3D‑Formatierung in PowerPoint editierbar, sofern das Format dies unterstützt.
+Aspose.Slides erstellt und rendert PowerPoint‑3D‑Effekte für Formen und Text. Es macht exportierte Bilder, PDFs oder HTML‑Seiten nicht zu interaktiven 3D‑Szenen, die ein Betrachter drehen kann. In PPTX bleibt die 3D‑Formatierung in PowerPoint editierbar, sofern das Format sie unterstützt.
 
 **Was ist der Unterschied zwischen einem 3D‑Modell und einem 3D‑Effekt?**
 
-Ein 3D‑Modell ist ein separates 3D‑Objekt, das in eine Präsentation eingefügt wird. Ein 3D‑Effekt ist eine Formatierung, die auf eine reguläre PowerPoint‑Form oder -Text angewendet wird, wie Drehung, Extrusion, Abschrägung, Beleuchtung und Material. Dieser Artikel behandelt 3D‑Effekte.
+Ein 3D‑Modell ist ein separates 3D‑Objekt, das in eine Präsentation eingefügt wird. Ein 3D‑Effekt ist eine Formatierung, die auf eine reguläre PowerPoint‑Form oder -Text angewendet wird, z. B. Drehung, Extrusion, Abschrägung, Beleuchtung und Material. Dieser Artikel behandelt 3D‑Effekte.
 
 **Welche Einstellungen sind für eine sichtbare 3D‑Form erforderlich?**
 
-Mindestens muss eine Kameradrehung und entweder Extrusion oder Tiefe eingestellt werden. In der Praxis sollten zudem ein Light‑Rig und Material gesetzt werden, damit die gerenderten Flächen klare Lichtreflexe und Schatten aufweisen.
+Mindestens muss eine Kameradrehung und entweder Extrusion oder Tiefe gesetzt werden. In der Praxis sollten zudem ein Licht‑Rig und ein Material eingestellt werden, damit die gerenderten Flächen klare Lichtreflexe und Schatten aufweisen.
 
 **Kann ich 3D‑Effekte sowohl auf Formen als auch auf Text anwenden?**
 
-Ja. Verwenden Sie [IShape.getThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) für den Formkörper und [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) für den Text.
+Ja. Verwenden Sie [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) für den Formkörper und [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) für Text.
 
-**Werden 3D‑Effekte beim Export in Bilder, PDF, HTML oder Video‑Frames angezeigt?**
+**Werden 3D‑Effekte beim Export zu Bildern, PDF, HTML oder Video‑Frames sichtbar?**
 
-Ja. Aspose.Slides rendert 3D‑Effekte, wenn Folienbilder, PDF‑Ausgabe, HTML‑Ausgabe und Frames für die Videokonvertierung erzeugt werden. Die exportierte Ausgabe enthält das gerenderte Erscheinungsbild, nicht ein editierbares 3D‑Objekt.
+Ja. Aspose.Slides rendert 3D‑Effekte beim Erzeugen von Folienbildern, PDF‑Ausgabe, HTML‑Ausgabe und Frames, die für die Videokonvertierung verwendet werden. Das exportierte Ergebnis enthält das gerenderte Aussehen, nicht ein editierbares 3D‑Objekt.
 
-**Kann ich die endgültigen 3D‑Werte nach Vererbung und Theme‑Einstellungen auslesen?**
+**Kann ich die endgültigen 3D‑Werte nach Vererbung und Anwendung von Theme‑Einstellungen auslesen?**
 
-Ja. Verwenden Sie die effektiven Formatierungs‑APIs, die in [Shape Effective Properties](/slides/de/androidjava/shape-effective-properties/) beschrieben sind, um die endgültigen Kamera‑, Light‑Rig‑, Abschrägungs‑ und zugehörigen 3D‑Werte auszulesen.
+Ja. Verwenden Sie die effektiven Formatierungs‑APIs, die in [Formeffektive Eigenschaften](/slides/de/androidjava/shape-effective-properties/) beschrieben sind, um die endgültigen Kamera‑, Licht‑Rig‑, Abschrägungs‑ und zugehörigen 3D‑Werte auszulesen.

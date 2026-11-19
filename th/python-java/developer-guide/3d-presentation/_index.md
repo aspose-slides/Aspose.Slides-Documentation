@@ -1,5 +1,5 @@
 ---
-title: สร้างเอฟเฟกต์ 3 มิติในงานนำเสนอด้วย Python
+title: สร้างเอฟเฟ็กต์ 3 มิติในงานนำเสนอโดยใช้ Python
 linktitle: งานนำเสนอ 3 มิติ
 type: docs
 weight: 232
@@ -10,52 +10,50 @@ keywords:
 - การหมุน 3 มิติ
 - ความลึก 3 มิติ
 - การดันออก 3 มิติ
-- ไล่ระดับสี 3 มิติ
+- การไล่สี 3 มิติ
 - ข้อความ 3 มิติ
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "ใช้และเรนเดอร์เอฟเฟกต์ 3 มิติสำหรับรูปร่างและข้อความใน PowerPoint ด้วย Python ผ่าน Java ด้วย Aspose.Slides. ตั้งค่ากล้อง, แสง, วัสดุ, การดันออก, การเติม, และข้อความ 3 มิติ."
+description: "ใช้และเรนเดอร์เอฟเฟ็กต์ 3 มิติสำหรับรูปร่างและข้อความของ PowerPoint ใน Python ผ่าน Java ด้วย Aspose.Slides กำหนดค่ากล้อง แสง วัสดุ การดันออก การเติม และข้อความ 3 มิติ."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Python via Java สามารถสร้าง แก้ไข รักษา และเรนเดอร์การจัดรูปแบบ 3 มิติแบบ PowerPoint สำหรับรูปร่างและข้อความได้ บทความนี้ครอบคลุมเอฟเฟกต์ 3 มิติ เช่น การหมุน การดันออก การทำ bevel การให้แสง วัสดุ การไล่ระดับสีหรือการเติมภาพ และข้อความ 3 มิติ
+Aspose.Slides for Python via Java สามารถสร้าง แก้ไข รักษาและเรนเดอร์รูปแบบ 3 มิติแบบ PowerPoint สำหรับรูปร่างและข้อความได้ บทความนี้ครอบคลุมเอฟเฟ็กต์ 3 มิติ เช่น การหมุน การดันออก (extrusion) การเบเวล (bevels) การให้แสง (lighting) วัสดุ (material) การไล่สีหรือการเติมภาพ และข้อความ 3 มิติ
 
 {{% alert color="info" title="Note" %}}
-บทความนี้เกี่ยวกับเอฟเฟกต์การจัดรูปแบบ 3 มิติบนรูปร่างและข้อความของ PowerPoint ไม่ได้เกี่ยวกับการแทรกหรือแก้ไขไฟล์โมเดล 3 มิติแบบสแตนด์อโลน เมื่อคุณส่งออกสไลด์เป็นภาพ PDF หรือ HTML Aspose.Slides จะเรนเดอร์เอฟเฟกต์ 3 มิติเหล่านั้นลงในผลลัพธ์ 2 มิติที่ส่งออก
+This article is about 3D formatting effects on PowerPoint shapes and text. It is not about inserting or editing standalone 3D model files. When you export a slide to an image, PDF, or HTML, Aspose.Slides renders those 3D effects into the exported 2D output.
 {{% /alert %}}
 
 ## **แนวคิดการจัดรูปแบบ 3 มิติ**
 
-ใช้เมธอด [Shape.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getThreeDFormat) เพื่อใช้การจัดรูปแบบ 3 มิติกับรูปร่าง เมธอดจะคืนค่า [ThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/) ซึ่งควบคุมฉาก 3 มิติสำหรับรูปร่างนั้น
+ใช้เมธอด [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) เพื่อใช้การจัดรูปแบบ 3 มิติให้กับรูปร่าง เมธอดนี้จะคืนค่า [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) ซึ่งควบคุมฉาก 3 มิติสำหรับรูปร่างนั้น
 
-สำหรับข้อความ ใช้เมธอด [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#getThreeDFormat) วิธีนี้จะใช้การจัดรูปแบบ 3 มิติกับเฟรมข้อความแทนร่างกายของรูปร่าง
+สำหรับข้อความ ให้ใช้เมธอด [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) วิธีนี้จะใช้การจัดรูปแบบ 3 มิติให้กับกรอบข้อความแทนส่วนเนื้อหารูปร่าง
 
-สมาชิก API ที่สำคัญที่สุดมีดังนี้:
+สมาชิก API ที่สำคัญที่สุดคือ:
 
-| สมาชิก API | สิ่งที่ควบคุม | เมื่อควรใช้ |
+| สมาชิก API | สิ่งที่ควบคุม | เมื่อใช้งาน |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getCamera) | มุมมอง ประเภทกล้องที่ตั้งไว้ การหมุน การซูม และมุมมองเชิงลึก | หมุนวัตถุในพื้นที่ 3 มิติหรือใช้การตั้งค่าการหมุน 3 มิติของ PowerPoint |
-| [getLightRig](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getLightRig) | การตั้งค่าแสง ทิศทางและการหมุนแสง | เปลี่ยนวิธีการแสดงไฮไลท์และเงาบนพื้นผิว 3 มิติ |
-| [getMaterial](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getMaterial) และ [setMaterial](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setMaterial) | วัสดุผิว เช่น แบน แมตต์ พลาสติก หรือโลหะ | ทำให้รูปร่างเดียวกันดูแบนนุ่ม เงางาม หรือเป็นโลหะ |
-| [getExtrusionHeight](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getExtrusionHeight) และ [setExtrusionHeight](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setExtrusionHeight) | ความลึกที่รูปร่างยื่นออกจากหน้าหน้า | แปลงรูปร่างแบนให้เป็นวัตถุ 3 มิติที่มองเห็นความหนา |
-| [getExtrusionColor](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getExtrusionColor) | สีของด้านที่ยื่นออก | ทำให้ความลึกมองเห็นได้หรือประสานสีด้านกับการเติมหน้าหน้า |
-| [getDepth](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getDepth) และ [setDepth](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setDepth) | ความลึก 3 มิติเพิ่มเติมที่ PowerPoint ใช้ | ปรับความลึกอย่างละเอียดสำหรับรูปร่างหรือข้อความ โดยเฉพาะร่วมกับการตั้งค่า bevel และ material |
-| [getBevelTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getBevelTop) และ [getBevelBottom](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getBevelBottom) | ขอบยกหรือโค้งมนบนด้านหน้าและด้านหลัง | เพิ่มขอบที่อ่อนหรือทำเป็นรูปแบบแทนหน้าที่ยืนตรง |
-| [getContourColor](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getContourColor) และ [getContourWidth](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getContourWidth) และ [setContourWidth](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setContourWidth) | เส้นขอบรอบวัตถุ 3 มิติ | เน้นขอบวัตถุในผลลัพธ์ที่เรนเดอร์ |
+| [getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera) | มุมมอง, ประเภทกล้องตั้งค่า, การหมุน, การซูม และมุมมองเชิงลึก | หมุนวัตถุในพื้นที่ 3 มิติหรือจับคู่กับการตั้งค่าการหมุน 3 มิติของ PowerPoint |
+| [getLightRig](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getLightRig) | การตั้งค่าแสง, ทิศทาง, และการหมุนของแสง | เปลี่ยนวิธีที่ไฮไลท์และเงาปรากฏบนพื้นผิว 3 มิติ |
+| [getMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setMaterial) | วัสดุพื้นผิว เช่น แบน, แมต, พลาสติก หรือโลหะ | ทำให้รูปทรงเดียวกันดูแบนขึ้น, นุ่มขึ้น, เงางาม หรือเป็นโลหะ |
+| [getExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) | ระยะที่รูปร่างยืดออกไปด้านหลังจากหน้าฝั่งหน้า | เปลี่ยนรูปร่างแบนให้เป็นวัตถุ 3 มิติที่มีความหนาเห็นได้ชัด |
+| [getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) | สีของด้านที่ดันออก | ทำให้ความลึกมองเห็นได้หรือปรับสีด้านให้สอดคล้องกับการเติมหน้าฝั่ง |
+| [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) | ความลึก 3 มิติเพิ่มเติมที่ PowerPoint ใช้ในการจัดรูปแบบ | ปรับความลึกสำหรับรูปร่างหรือข้อความ โดยเฉพาะเมื่อใช้ร่วมกับการตั้งค่าเบเวลและวัสดุ |
+| [getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelBottom) | ขอบยกขึ้นหรือโค้งบนหน้าฝั่งหน้าและหลัง | เพิ่มขอบที่นุ่มนวลหรือเป็นรูปแบบแทนที่ขอบแบนและคม |
+| [getContourColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourColor) and [getContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourWidth) and [setContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setContourWidth) | เส้นขอบรอบวัตถุ 3 มิติ | เน้นขอบวัตถุในผลลัพธ์ที่เรนเดอร์ |
 
 ## **สร้างรูปร่าง 3 มิติ**
 
-โดยปกติรูปร่างจะต้องมีการตั้งสี่ประเภทก่อนที่จะดูเหมือน 3 มิติอย่างน่าเชื่อถือ:
+- การตั้งค่ากล้อง เนื่องจากมุมมองหน้าตั้งต้นอาจซ่อนไปการดันออก
+- การตั้งค่าแสง เนื่องจากแสงทำให้หน้าฝั่งและด้านอ่านได้ง่าย
+- การตั้งค่าวัสดุ เนื่องจากพื้นผิวส่งผลต่อการเรนเดอร์แสง
+- การตั้งค่าการดันออกหรือความลึก เนื่องจากรูปร่างแบนต้องการความหนา
 
-- การตั้งค่ากล้อง เพราะมุมมองหน้าตรงค่าเริ่มต้นอาจซ่อนการดันออก
-- การตั้งค่าแสง เพราะแสงทำให้หน้ากับด้านข้างอ่านได้
-- การตั้งค่าเนื้อวัสดุ เพราะพื้นผิวส่งผลต่อการเรนเดอร์แสง
-- การตั้งค่าการดันออกหรือความลึก เพราะรูปร่างแบนต้องการความหนา
-
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยม เพิ่มข้อความบนหน้าหน้า และใช้การจัดรูปแบบ 3 มิติ ค่า rotation ของกล้องเป็นองศาและความสูงการดันออกคือ 100 จุด ตัวอย่างจะเรนเดอร์สไลด์เป็นภาพ PNG ที่สองเท่าของขนาดเริ่มต้นและบันทึกพรีเซนเทชันเป็น PPTX
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมผืนผ้า เพิ่มข้อความลงบนหน้าฝั่งหน้า และใช้การจัดรูปแบบ 3 มิติ ค่าการหมุนของกล้องเป็นองศา และความสูงการดันออกเป็น 100 จุด ตัวอย่างนี้เรนเดอร์สไลด์เป็นภาพ PNG ที่มีขนาดเป็นสองเท่าของขนาดเริ่มต้นและบันทึกการนำเสนอเป็น PPTX
 
 ```python
 import jpype
@@ -99,17 +97,17 @@ finally:
     presentation.dispose()
 ```
 
-ภาพสไลด์ที่เรนเดอร์จะแสดงสี่เหลี่ยมเป็นบล็อก 3 มิติหนา:
+ภาพสไลด์ที่เรนเดอร์แสดงสี่เหลี่ยมเป็นบล็อก 3 มิติที่หนา:
 
-![สี่เหลี่ยม 3 มิติสีฟ้าแบบเรนเดอร์พร้อมข้อความ 3 มิติสีขาวบนหน้าหน้า](img_01_01.png)
+![สี่เหลี่ยม 3 มิติสีน้ำเงินที่เรนเดอร์พร้อมข้อความ 3 มิติสีขาวบนหน้าฝั่งหน้า](img_01_01.png)
 
 ## **หมุนรูปร่างด้วยกล้อง**
 
-ใน PowerPoint การหมุน 3 มิติกำหนดจากแผง 3‑D Rotation ค่าการหมุน X, Y, Z สอดคล้องกับการตั้งค่าที่คุณกำหนดผ่าน API ของกล้อง
+ใน PowerPoint การหมุน 3 มิตถูกกำหนดจากพาเนล 3-D Rotation ค่า X, Y, และ Z ของการหมุนสอดคล้องกับการหมุนที่คุณตั้งค่าผ่าน API ของกล้อง
 
-![แผง 3‑D Rotation ของ PowerPoint ที่ไฮไลท์ค่าการหมุน X, Y, Z](img_02_01.png)
+![พาเนล PowerPoint 3-D Rotation พร้อมค่าการหมุน X, Y, และ Z ที่เน้นให้เห็น](img_02_01.png)
 
-ใน Aspose.Slides ให้เข้าถึงกล้องผ่านเมธอด [ThreeDFormat.getCamera](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getCamera) ตัวอย่างนี้สร้างสี่เหลี่ยม เลือกมุมมองหน้ารูปภาพแบบออร์โธกราฟิก และตั้งค่าการหมุน X, Y, Z ไปที่ 20, 30, 40 องศาตามลำดับ โดยกำหนดรูปร่างในหน่วยความจำโดยไม่บันทึกไฟล์:
+ใน Aspose.Slides ให้เข้าถึงกล้องผ่าน [ThreeDFormat.getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera) ตัวอย่างนี้สร้างสี่เหลี่ยม ผสานมุมมองหน้าแบบออร์โธกราฟิก และตั้งค่าการหมุน X, Y, Z เป็น 20, 30, และ 40 องศาตามลำดับ มันกำหนดค่ารูปร่างในหน่วยความจำโดยไม่บันทึกไฟล์:
 
 ```python
 import jpype
@@ -132,15 +130,51 @@ finally:
     presentation.dispose()
 ```
 
-ใช้กล้องเมื่อคุณต้องการเปลี่ยนวิธีที่ผู้ชมมองวัตถุ ไม่ได้เปลี่ยนรูปเรขาคณิต 2 มิติของรูปร่างบนสไลด์ แต่เปลี่ยนมุมมอง 3 มิติที่ PowerPoint และ Aspose.Slides ใช้เมื่อเรนเดอร์
+ใช้กล้องเมื่อคุณต้องการเปลี่ยนวิธีที่ผู้ชมมองเห็นวัตถุ มันไม่เปลี่ยนรูปทรง 2 มิติของรูปร่างบนสไลด์ แต่เปลี่ยนมุมมอง 3 มิติที่ PowerPoint และ Aspose.Slides ใช้ในการเรนเดอร์
+
+### **คัดลอกการกำหนดทิศทางกล้องจากรูปร่างต้นแบบ**
+
+เพื่อให้ตรงกับการกำหนดทิศทางของรูปร่างต้นแบบ ให้อ่านการตั้งค่ากล้องจาก [Camera.getCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getCameraType) และมุมการหมุนจาก [Camera.getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getRotation) ตัวอย่างนี้เปิด `template.pptx` และคัดลอกการกำหนดทิศทางกล้องจากรูปร่างแรกบนสไลด์แรกไปยังรูปร่างที่สอง ทั้งสองรูปร่างมีแสง 3 มิติแล้ว และรูปร่างที่สองไม่มีการหมุนกล้องอย่างชัดเจน
+
+มุมเป็นองศา Index `0` คือ latitude, index `1` คือ longitude, และ index `2` คือ revolution ส่งค่าเหล่านี้ไปที่ [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) ตามลำดับ หากแหล่งคืนค่า `None` แสดงว่าไม่มีการหมุนชัดเจน ดังนั้นจึงเว้นมุมของรูปร่างที่สองไว้โดยไม่ได้กำหนด การหมุนอย่างชัดเจนของ `(0, 0, 0)` จะคืนค่าเป็นศูนย์สามค่าและควรคัดลอก
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    source_camera = shapes.get_Item(0).getThreeDFormat().getCamera()
+    destination_camera = shapes.get_Item(1).getThreeDFormat().getCamera()
+
+    destination_camera.setCameraType(source_camera.getCameraType())
+    angles = source_camera.getRotation()
+    if angles is not None:
+        destination_camera.setRotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+เมื่อคุณเปิด `camera-copy.pptx` ใน PowerPoint อีกครั้ง ลูกศรด้านขวาจะมีการตั้งค่ากล้องและการหมุนเดียวกับสี่เหลี่ยมด้านซ้าย ทั้งสองรูปร่างใช้แสงและความลึกการดันออกเดียวกัน
+
+![สี่เหลี่ยม 3 มิติสีน้ำเงินและลูกศรขวาที่มีการกำหนดทิศทางกล้องตรงกัน มองจากด้านบนและด้านขวา](camera-orientation.png)
 
 ## **เพิ่มการดันออกและความลึก**
 
-การดันออกทำให้รูปร่างดูหนาด้วยการยืดออกจากหน้าหน้า ใน PowerPoint การควบคุมความลึกตั้งความหนาที่มองเห็นได้และการควบคุมสีตั้งสีของด้านข้าง
+การดันออกทำให้รูปร่างดูหนาโดยการยืดส่วนหลังจากหน้าฝั่งหน้า ใน PowerPoint ควบคุมความลึกจะกำหนดความหนาที่มองเห็นได้และการควบคุมสีจะกำหนดสีของด้านที่ดันออก
 
 ![การควบคุมความลึกของ PowerPoint ที่แมพกับสีการดันออกและคุณสมบัติความสูงการดันออก](img_02_02.png)
 
-ใช้เมธอด [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setExtrusionHeight) เพื่อกำหนดความหนาและ [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#getExtrusionColor) เพื่อเข้าถึงสีด้าน ตัวอย่างนี้ให้สี่เหลี่ยมดันออก 100 จุดด้วยด้านสีม่วงและหมุนกล้องเพื่อเปิดเผยความหนา โดยกำหนดรูปร่างในหน่วยความจำโดยไม่บันทึกไฟล์:
+ใช้ [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) เพื่อกำหนดความหนาและ [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) เพื่อเข้าถึงสีด้าน ตัวอย่างนี้ให้สี่เหลี่ยมดันออก 100 จุดด้วยด้านสีม่วงและหมุนกล้องเพื่อเปิดเผยความหนา มันกำหนดค่ารูปร่างในหน่วยความจำโดยไม่บันทึกไฟล์:
 
 ```python
 import jpype
@@ -171,13 +205,13 @@ finally:
     presentation.dispose()
 ```
 
-เมธอด [ThreeDFormat.setDepth](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setDepth) ตั้งค่าความลึกของรูปร่าง 3 มิติ เมธอด [setExtrusionHeight](https://reference.aspose.com/slides/th/python-java/aspose.slides/threedformat/#setExtrusionHeight) ควบคุมความสูงของเอฟเฟกต์การดันออก ตามที่แสดงในตัวอย่างนี้
+เมธอด [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) ตั้งค่าความลึกของรูปร่าง 3 มิติ เมธอด [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) ควบคุมความสูงของเอฟเฟ็กต์การดันออกตามที่แสดงในตัวอย่างนี้
 
-## **ใช้การไล่ระดับสีหรือการเติมภาพกับเอฟเฟกต์ 3 มิติ**
+## **ใช้การไล่สีหรือการเติมภาพกับเอฟเฟ็กต์ 3 มิติ**
 
-การจัดรูปแบบ 3 มิติทำงานแยกจากการเติมรูปทรง คุณสามารถเติมสีทึบ ไล่ระดับสี แพทเทิร์น หรือภาพบนหน้าหน้าและยังคงใช้การตั้งค่ากล้อง แสง วัสดุ และการดันออกเดียวกันได้
+การจัดรูปแบบ 3 มิติเป็นอิสระจากการเติมของรูปร่าง คุณสามารถใช้สีทึบ, การไล่สี, แพทเทิร์น หรือการเติมภาพบนหน้าฝั่งหน้าและยังคงใช้กล้อง, แสง, วัสดุ, และการตั้งค่าการดันออกเดียวกันได้
 
-ตัวอย่างนี้ใช้ไล่ระดับสีจากสีน้ำเงินไปสียวส้มบนหน้าหน้าและสีส้มเข้มสำหรับการดันออก 150 จุด จุดไล่ระดับสีที่ 0 และ 100 เป็นตำแหน่งเริ่มต้นและสิ้นสุดของไล่ระดับ สีการหมุนของกล้องเป็นองศา สไลด์จะเรนเดอร์เป็นภาพ PNG ที่สองเท่าของขนาดเริ่มต้น:
+ตัวอย่างนี้ใช้การไล่สีจากสีน้ำเงินเป็นสีส้มบนหน้าฝั่งหน้าและสีส้มเข้มบนการดันออก 150 จุด จุดหยุดไล่สีที่ 0 และ 100 เป็นจุดเริ่มและสิ้นสุดของการไล่สี การหมุนของกล้องเป็นองศา สไลด์ถูกเรนเดอร์เป็นภาพ PNG ที่มีขนาดเป็นสองเท่าของขนาดเริ่มต้น:
 
 ```python
 import jpype
@@ -221,11 +255,9 @@ finally:
     presentation.dispose()
 ```
 
-ผลลัพธ์ที่เรนเดอร์ยังคงไล่ระดับสีบนหน้าหน้าและเรนเดอร์การดันออกแยกต่างหาก:
+![สี่เหลี่ยม 3 มิติที่เรนเดอร์พร้อมการไล่สีจากสีน้ำเงินเป็นสีส้มและการดันออกสีส้ม](img_02_03.png)
 
-![สี่เหลี่ยม 3 มิติที่มีการไล่ระดับสีจากสีน้ำเงินไปส้มและการดันออกสีส้ม](img_02_03.png)
-
-หากต้องการใช้การเติมภาพ ให้เพิ่มไฟล์ภาพลงในพรีเซนเทชันและกำหนดเป็นการเติมรูปทรง ตัวอย่างนี้ต้องมีไฟล์ที่ชื่อ “image.jpg” อยู่ในไดเรกทอรีทำงาน มันยืดภาพให้เติมสี่เหลี่ยม ใช้การดันออก 150 จุด และตั้งค่าการหมุนกล้องเป็นองศา โดยกำหนดรูปร่างในหน่วยความจำโดยไม่บันทึกหรือเรนเดอร์ไฟล์:
+หากต้องการใช้การเติมภาพแทน ให้เพิ่มภาพลงในการนำเสนอและกำหนดให้เป็นการเติมของรูปร่าง ตัวอย่างนี้ต้องมีไฟล์ `image.jpg` อยู่ในไดเรกทอรีทำงาน มันขยายภาพเพื่อเติมสี่เหลี่ยม, ดันออก 150 จุด, แล้วตั้งการหมุนของกล้องเป็นองศา มันกำหนดค่ารูปร่างในหน่วยความจำโดยไม่บันทึกหรือเรนเดอร์ไฟล์:
 
 ```python
 import jpype
@@ -264,15 +296,13 @@ finally:
     presentation.dispose()
 ```
 
-ภาพจะเรนเดอร์บนหน้าหน้า ส่วนการดันออกจะเรนเดอร์เป็นพื้นผิวด้านข้าง 3 มิติ:
-
-![สี่เหลี่ยม 3 มิติที่มีการเติมภาพบนหน้าหน้าและการดันออกสีส้ม](img_02_04.png)
+![สี่เหลี่ยม 3 มิติที่เรนเดอร์พร้อมการเติมภาพบนหน้าฝั่งหน้าและการดันออกสีส้ม](img_02_04.png)
 
 ## **ใช้การจัดรูปแบบ 3 มิติกับข้อความ**
 
-การจัดรูปแบบ 3 มิติของรูปร่างมีผลต่อร่างกายของรูปร่าง ส่วนการจัดรูปแบบ 3 มิติของข้อความมีผลต่อเฟรมข้อความ ซึ่งมีประโยชน์สำหรับเอฟเฟกต์คล้าย WordArt ที่ต้องการให้ตัวอักษรเองมีการดันออก, วัสดุ, แสงและการตั้งค่ากล้อง
+การจัดรูปแบบ 3 มิติของรูปร่างมีผลต่อเนื้อหารูปร่าง การจัดรูปแบบ 3 มิติของข้อความมีผลต่อกรอบข้อความ ซึ่งมีประโยชน์สำหรับเอฟเฟ็กต์แบบ WordArt ที่ตัวอักษรต้องการการดันออก, วัสดุ, แสง, และการตั้งค่ากล้อง
 
-ตัวอย่างต่อไปนี้สร้างข้อความที่มีแพทเทิร์นกริดสีส้ม‑ขาว ใช้การโค้งขึ้นในแนวโค้ง และกำหนดค่าการ 3 มิติผ่านเมธอด [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#getThreeDFormat) ความสูงการดันออกและความลึกเป็นจุด และการหมุนแสงเป็นองศา การเติมสีและเส้นขอบของรูปร่างถูกซ่อนไว้เพื่อให้เห็นเฉพาะข้อความ ตัวอย่างเรนเดอร์ภาพ PNG ที่สองเท่าของขนาดสไลด์เริ่มต้นและบันทึกพรีเซนเทชันเป็น PPTX:
+ตัวอย่างต่อไปนี้สร้างข้อความด้วยลายกริดสีส้มและขาว, ใช้การโค้งขึ้น, และกำหนดค่าการตั้งค่า 3 มิติผ่าน [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) ความสูงการดันออกและความลึกเป็นจุด, การหมุนแสงเป็นองศา การเติมและเส้นขอบของรูปร่างถูกซ่อนเพื่อให้เห็นเฉพาะข้อความ ตัวอย่างนี้เรนเดอร์ภาพ PNG ที่มีขนาดเป็นสองเท่าของสไลด์เริ่มต้นและบันทึกการนำเสนอเป็น PPTX:
 
 ```python
 import jpype
@@ -325,17 +355,15 @@ finally:
     presentation.dispose()
 ```
 
-ข้อความถูกเรนเดอร์เป็นตัวอักษร 3 มิติที่โค้งและดันออก:
+![ข้อความ 3 มิติที่เรนเดอร์พร้อมการแปลง WordArt โค้ง, การเติมลายสีส้มและการดันออกสีเข้ม](img_02_05.png)
 
-![ข้อความ 3 มิติที่เรนเดอร์ด้วยการแปลง WordArt โค้ง, การเติมแพทเทิร์นสีส้ม, และการดันออกสีเข้ม](img_02_05.png)
+## **รักษาข้อความแบนบนรูปร่าง 3 มิติ**
 
-## **คงข้อความให้แบนบนรูปร่าง 3 มิติ**
+เพื่อให้ข้อความอ่านง่ายขณะยังคงลักษณะ 3 มิติของรูปร่าง ให้เรียก [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setKeepTextFlat) ผ่าน [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getTextFrameFormat) เมื่อค่าเป็น `True` ข้อความจะอยู่นอกฉาก 3 มิติ เมื่อเป็น `False` ข้อความจะเข้าร่วมในฉากและตามการกำหนดทิศทาง 3 มิติ
 
-เพื่อให้ข้อความอ่านง่ายในขณะที่รักษาลักษณะ 3 มิติของรูปร่าง ให้เรียกเมธอด [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setKeepTextFlat) ผ่าน [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframe/#getTextFrameFormat) เมื่อค่าตั้งเป็น `True` ข้อความจะอยู่ภายนอกฉาก 3 มิติ เมื่อเป็น `False` ข้อความจะเข้าร่วมในฉากและตามแนวทิศ 3 มิติของวัตถุ
+การตั้งค่านี้ไม่ลบการจัดรูปแบบ 3 มิติของรูปร่าง: กล้อง, แสง, วัสดุ, และการดันออกยังคงกำหนดผ่าน [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) นอกจากนี้ยังแตกต่างจากการหมุนทั่วไป [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) จะหมุนรูปร่างในระนาบสไลด์, ส่วน [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) ควบคุมการหมุนแบบกำหนดเองของข้อความภายในกรอบ การคงข้อความให้อยู่นอกฉาก 3 มิติไม่รีเซ็ตมุมใด ๆ
 
-การตั้งค่านี้ไม่ได้ลบการจัดรูปแบบ 3 มิติของรูปร่าง: กล้อง, แสง, วัสดุ, การดันออกยังคงตั้งค่าผ่าน [Shape.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getThreeDFormat) อีกทั้งยังแตกต่างจากการหมุนทั่วไป [Shape.setRotation](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#setRotation) หมุนรูปร่างในระนาบสไลด์ ขณะที่ [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setRotationAngle) ควบคุมการหมุนแบบกำหนดเองของข้อความภายในกรอบ การคงข้อความให้อยู่นอกฉาก 3 มิติไม่ได้รีเซ็ตมุมใดๆ เหล่านี้
-
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมสีน้ำเงินพร้อมข้อความและคัดลอกเป็นอีกอันข้างๆ ทั้งสองรูปร่างมีการจัดรูปแบบ 3 มิติเดียวกัน; เพียงการตั้งค่าข้อความที่ต่างกัน: `False` ด้านซ้ายและ `True` ด้านขวา มุมกล้องเป็นองศาและความสูงการดันออกคือ 40 จุด ตัวอย่างบันทึกพรีเซนเทชันเป็น PPTX และเรนเดอร์สไลด์เปรียบเทียบเป็น PNG ที่สองเท่าของขนาดเริ่มต้น
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมสีน้ำเงินพร้อมข้อความและทำสำเนาไว้ข้างๆ รูปร่างเดิม ทั้งสองรูปร่างมีการจัดรูปแบบ 3 มิติเดียวกัน; เพียงการตั้งค่าข้อความแตกต่างกัน: `False` ทางซ้ายและ `True` ทางขวา มุมกล้องเป็นองศาและความสูงการดันออกเป็น 40 จุด ตัวอย่างบันทึกการนำเสนอเป็น PPTX และเรนเดอร์สไลด์เปรียบเทียบเป็น PNG ที่มีขนาดเป็นสองเท่าของขนาดเริ่มต้น
 
 ```python
 import jpype
@@ -382,43 +410,43 @@ finally:
     presentation.dispose()
 ```
 
-ด้านซ้ายข้อความตามแนวทิศ 3 มิติ ด้านขวาข้อความคงแบนและอ่านง่าย ทั้งสองสี่เหลี่ยมยังคงแสดงการดันออกและแนวทิศ 3 มิติที่เห็นได้เหมือนกัน
+ทางซ้ายข้อความตามการกำหนดทิศทาง 3 มิติ ทางขวาข้อความแบนและอ่านง่ายขึ้น ทั้งสองสี่เหลี่ยมยังคงความหนาการดันออกและการกำหนดทิศทาง 3 มิติที่มองเห็นได้
 
-![สี่เหลี่ยม 3 มิติข้างกัน: ข้อความตามแนวทิศ 3 มิติด้านซ้ายและคงแบนด้านขวา](keep_text_flat.png)
+![สี่เหลี่ยม 3 มิติข้างกัน: ข้อความตามการกำหนดทิศทาง 3 มิติทางซ้ายและแบนบนทางขวา](keep_text_flat.png)
 
-## **พฤติกรรมการส่งออกและการเรนเดอร์**
+## **การส่งออกและพฤติกรรมการเรนเดอร์**
 
-Aspose.Slides รักษาการจัดรูปแบบ 3 มิติเมื่อบันทึกเป็นรูปแบบ PowerPoint เช่น PPTX เมื่อเรนเดอร์หรือส่งออกเป็นรูปแบบ Fixed‑layout ฉาก 3 มิติจะถูกแปลงเป็น raster หรือวาดลงในผลลัพธ์เป็น 2 มิติ นี้ใช้เมื่อคุณเรนเดอร์สไลด์เป็น [PNG](/slides/th/python-java/convert-powerpoint-to-png/), ส่งออกเป็น [PDF](/slides/th/python-java/convert-powerpoint-to-pdf/), ส่งออกเป็น [HTML](/slides/th/python-java/convert-powerpoint-to-html/), หรือสร้างเฟรมสำหรับ [video conversion](/slides/th/python-java/convert-powerpoint-to-video/)
+Aspose.Slides รักษาการจัดรูปแบบ 3 มิติเมื่อบันทึกเป็นรูปแบบ PowerPoint เช่น PPTX เมื่อเรนเดอร์หรือส่งออกเป็นรูปแบบแบบคงที่ ฉาก 3 มิติจะถูกเรสเตอร์หรือวาดลงในผลลัพธ์เป็นภาพ 2 มิติ นี้ใช้เมื่อคุณเรนเดอร์สไลด์เป็น [PNG](/slides/th/python-java/convert-powerpoint-to-png/), ส่งออกเป็น [PDF](/slides/th/python-java/convert-powerpoint-to-pdf/), ส่งออกเป็น [HTML](/slides/th/python-java/convert-powerpoint-to-html/), หรือสร้างเฟรมสำหรับ [video conversion](/slides/th/python-java/convert-powerpoint-to-video/)
 
-ควรจำไว้:
+เก็บประเด็นต่อไปนี้ไว้ในใจ:
 
-- ภาพและ PDF ที่ส่งออกไม่เป็น interactive วัตถุไม่สามารถหมุนโดยผู้ชมหลังการส่งออก
-- ลักษณะสุดท้ายขึ้นอยู่กับการผสมผสานของกล้อง, light rig, material, extrusion, fill, และการสเกลสไลด์
-- หากต้องการตรวจสอบค่าการจัดรูปแบบที่สืบทอดหรือมาจากธีม ให้อ่าน [effective shape properties](/slides/th/python-java/shape-effective-properties/)
-- รูปแบบผลลัพธ์บางอย่างไม่สามารถเก็บการจัดรูปแบบ 3 มิติของ PowerPoint ที่แก้ไขได้ ในรูปแบบเหล่านั้นผลลัพธ์จะถูกเรนเดอร์แทนที่จะเก็บเป็นการตั้งค่า 3 มิติที่แก้ไขได้
+- ภาพและ PDF ที่ส่งออกไม่ใช่แบบโต้ตอบ วัตถุไม่สามารถหมุนโดยผู้ชมหลังการส่งออก
+- ลักษณะสุดท้ายขึ้นอยู่กับการรวมกันของกล่อง, แสง, วัสดุ, การดันออก, การเติม, และการสเกลสไลด์
+- หากต้องการตรวจสอบค่าการจัดรูปแบบที่สืบทอดหรือจากธีม ให้อ่าน [คุณสมบัติโครงสร้างรูปแบบที่มีผล](/slides/th/python-java/shape-effective-properties/)
+- ฟอร์แมตผลลัพธ์บางชนิดไม่สามารถเก็บการจัดรูปแบบ 3 มิติของ PowerPoint ที่แก้ไขได้ ในฟอร์แมตเหล่านั้น ผลลัพธ์ที่เห็นจะถูกเรนเดอร์แทนการเก็บเป็นการตั้งค่า 3 มิติที่แก้ไขได้
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Aspose.Slides สามารถสร้างงานนำเสนอ 3 มิติแบบ interactive ได้หรือไม่?**
+**Aspose.Slides สามารถสร้างการนำเสนอ 3 มิติแบบโต้ตอบได้หรือไม่?**
 
-Aspose.Slides สร้างและเรนเดอร์เอฟเฟ็กต์ 3 มิติของ PowerPoint สำหรับรูปร่างและข้อความ ไม่ทำให้ภาพ, PDF หรือหน้า HTML ที่ส่งออกเป็นฉาก 3 มิติ interactive ที่ผู้ชมสามารถหมุนได้ ใน PPTX การจัดรูปแบบ 3 มิติยังคงแก้ไขได้ใน PowerPoint ที่รองรับฟอร์แมตนั้น
+Aspose.Slides สร้างและเรนเดอร์เอฟเฟ็กต์ 3 มิติของ PowerPoint สำหรับรูปร่างและข้อความ ไม่ทำให้ภาพ, PDF หรือหน้า HTML เป็นฉาก 3 มิติที่ผู้ชมสามารถหมุนได้ ใน PPTX การจัดรูปแบบ 3 มิติยังคงแก้ไขได้ใน PowerPoint หากฟอร์แมตสนับสนุน
 
-**ความแตกต่างระหว่าง 3D model กับ 3D effect คืออะไร?**
+**ความแตกต่างระหว่างโมเดล 3 มิติและเอฟเฟ็กต์ 3 มิติคืออะไร?**
 
-3D model คือวัตถุ 3 มิติแยกที่แทรกเข้าสู่พรีเซนเทชัน ส่วน 3D effect คือการจัดรูปแบบที่ใช้กับรูปร่างหรือข้อความของ PowerPoint ปกติ เช่น การหมุน, การดันออก, bevel, แสง, และวัสดุ บทความนี้ครอบคลุม 3D effect
+โมเดล 3 มิติเป็นวัตถุ 3 มิติแยกที่แทรกลงในงานนำเสนอ ส่วนเอฟเฟ็กต์ 3 มิติเป็นการจัดรูปแบบที่ใช้กับรูปร่างหรือข้อความปกติของ PowerPoint เช่น การหมุน, การดันออก, เบเวล, แสง, และวัสดุ บทความนี้ครอบคลุมเอฟเฟ็กต์ 3 มิติ
 
-**ต้องตั้งค่าอะไรบ้างเพื่อให้รูปร่าง 3 มิติมองเห็นได้?**
+**ต้องตั้งค่าอะไรบ้างเพื่อให้รูปร่าง 3 มิตมองเห็นได้?**
 
-ขั้นต่ำต้องตั้งค่าการหมุนกล้องและอย่างน้อยหนึ่งอย่างระหว่างการดันออกหรือความลึก ในทางปฏิบัติมักตั้งค่า light rig และ material ด้วยเพื่อให้หน้าต่างแสงและเงาชัดเจน
+อย่างน้อยต้องตั้งค่าการหมุนของกล้องและการดันออกหรือความลึก ในการปฏิบัติจริงควรตั้งค่าแสงและวัสดุด้วยเพื่อให้หน้าฝั่งที่เรนเดอร์มีไฮไลท์และเงาชัดเจน
 
-**ฉันสามารถใช้เอฟเฟกต์ 3 มิติได้กับรูปร่างและข้อความหรือไม่?**
+**สามารถใช้เอฟเฟ็กต์ 3 มิติกับรูปร่างและข้อความได้หรือไม่?**
 
-ใช่ ใช้ [Shape.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getThreeDFormat) สำหรับร่างกายของรูปร่างและ [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#getThreeDFormat) สำหรับข้อความ
+ทำได้ ใช้ [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) สำหรับเนื้อหารูปร่างและ [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) สำหรับข้อความ
 
-**เอฟเฟกต์ 3 มิติจะปรากฏเมื่อส่งออกเป็นรูปภาพ, PDF, HTML หรือเฟรมวิดีโอหรือไม่?**
+**เอฟเฟ็กต์ 3 มิติจะปรากฏเมื่อส่งออกเป็นภาพ, PDF, HTML หรือเฟรมวิดีโอหรือไม่?**
 
-ใช่ Aspose.Slides เรนเดอร์เอฟเฟกต์ 3 มิติเมื่อสร้างภาพสไลด์, PDF, HTML หรือเฟรมที่ใช้สำหรับการแปลงวิดีโอ ผลลัพธ์ที่ส่งออกจะมีลักษณะที่เรนเดอร์แล้ว ไม่ใช่วัตถุ 3 มิติที่แก้ไขได้
+ปรากฏ Aspose.Slides เรนเดอร์เอฟเฟ็กต์ 3 มิติเมื่อสร้างภาพสไลด์, ผลลัพธ์ PDF, HTML, และเฟรมที่ใช้สำหรับการแปลงวิดีโอ ผลลัพธ์ที่ส่งออกจะมีลักษณะที่เรนเดอร์ ไม่ใช่วัตถุ 3 มิติที่แก้ไขได้
 
-**ฉันสามารถอ่านค่าการจัดรูปแบบ 3 มิติสุดท้ายหลังจากการสืบทอดและการตั้งค่าธีมได้หรือไม่?**
+**สามารถอ่านค่าการจัดรูปแบบ 3 มิติขั้นสุดท้ายหลังจากการสืบทอดและธีมได้หรือไม่?**
 
-ได้ ใช้ API การจัดรูปแบบที่มีประสิทธิภาพที่อธิบายใน [Shape Effective Properties](/slides/th/python-java/shape-effective-properties/) เพื่ออ่านค่ากล้อง, light rig, bevel, และค่าการจัดรูปแบบ 3 มิติที่เกี่ยวข้องทั้งหมด.
+ได้ ใช้ API การจัดรูปแบบที่มีผลอธิบายใน [คุณสมบัติโครงสร้างรูปแบบที่มีผล](/slides/th/python-java/shape-effective-properties/) เพื่ออ่านค่ากล้อง, แสง, เบเวล, และค่าการจัดรูปแบบ 3 มิติที่เกี่ยวข้องอื่น ๆ.

@@ -9,54 +9,52 @@ keywords:
 - 3D презентация
 - 3D вращение
 - 3D глубина
-- 3D экструзия
+- 3D выдавливание
 - 3D градиент
 - 3D текст
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Применяйте и визуализируйте 3D-эффекты для фигур и текста PowerPoint в Java с помощью Aspose.Slides. Настраивайте камеру, освещение, материал, экструзию, заливки и 3D-текст."
+description: "Применяйте и рендерьте 3D-эффекты для фигур и текста PowerPoint в Java с помощью Aspose.Slides. Настройте камеру, освещение, материал, выдавливание, заливки и 3D-текст."
 ---
 ## **Обзор**
 
-Aspose.Slides for Java может создавать, изменять, сохранять и отрисовывать 3D‑форматирование в стиле PowerPoint для фигур и текста. Эта статья охватывает 3D‑эффекты, такие как вращение, вытягивание, скосы, освещение, материал, градиентные или картинные заливки и 3D‑текст.
+Aspose.Slides for Java может создавать, редактировать, сохранять и отрисовывать 3D‑форматирование в стиле PowerPoint для фигур и текста. В этой статье рассматриваются 3D‑эффекты, такие как вращение, выдавливание, фаски, освещение, материал, градиентные или растровые заливки и 3D‑текст.
 
 {{% alert color="info" title="Note" %}}
-
-Эта статья посвящена 3D‑форматированию фигур и текста в PowerPoint. Она не охватывает вставку или редактирование отдельных файлов 3D‑моделей. При экспорте слайда в изображение, PDF или HTML Aspose.Slides преобразует эти 3D‑эффекты в экспортируемый 2D‑вывод.
-
+Эта статья посвящена 3D‑форматированию фигур и текста в PowerPoint. Она не о вставке или редактировании автономных 3D‑модельных файлов. При экспорте слайда в изображение, PDF или HTML Aspose.Slides преобразует эти 3D‑эффекты в экспортированный 2D‑вывод.
 {{% /alert %}}
 
 ## **Концепции 3D‑форматирования**
 
-Используйте метод [IShape.getThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getThreeDFormat--) для применения 3D‑форматирования к фигуре. Метод возвращает [IThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/), который управляет 3D‑сценой для этой фигуры.
+Используйте метод [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) для применения 3D‑форматирования к фигуре. Метод возвращает объект [IThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/), который управляет 3D‑сценой для этой фигуры.
 
-Для текста используйте метод [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) . Он применяет 3D‑форматирование к текстовому кадру вместо тела фигуры.
+Для текста используйте метод [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). Он применяет 3D‑форматирование к текстовому фрейму вместо тела фигуры.
 
 Самые важные члены API:
 
 | Член API | Что управляет | Когда использовать |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getCamera--) | Точка наблюдения, предустановленный тип камеры, вращение, масштаб и перспектива. | Вращайте объект в 3D‑пространстве или согласуйте его с предустановкой вращения 3D в PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getLightRig--) | Предустановка освещения, направление и вращение света. | Изменяет отображение бликов и теней на 3D‑поверхности. |
-| [getMaterial](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getMaterial--) и [setMaterial](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Материал поверхности, например плоский, матовый, пластик или металл. | Сделать одну и ту же геометрию более плоской, мягкой, блестящей или металлической. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) и [setExtrusionHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Насколько фигура вытягивается назад от её передней грани. | Преобразовать плоскую фигуру в визуально толстый 3D‑объект. |
-| [getExtrusionColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Цвет вытянутых боковых граней. | Сделать глубину видимой или согласовать цвет боковых граней с заполнением передней части. |
-| [getDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getDepth--) и [setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Дополнительная 3D‑глубина, используемая в 3D‑форматировании PowerPoint. | Точно настройте глубину для фигур или текста, особенно в сочетании с параметрами скосов и материала. |
-| [getBevelTop](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getBevelTop--) и [getBevelBottom](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Поднятые или скруглённые кромки на передней и задней гранях. | Добавьте смягчённую или сформованную кромку вместо острой плоской грани. |
-| [getContourColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getContourColor--) и [getContourWidth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getContourWidth--) и [setContourWidth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Контур вокруг 3D‑объекта. | Подчеркнуть границу объекта в отрисованном выводе. |
+| [getCamera](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getCamera--) | Точка обзора, предустановленный тип камеры, вращение, масштаб и перспектива. | Вращение объекта в 3D‑пространстве или совпадение с предустановкой вращения PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getLightRig--) | Предустановка света, направление и вращение света. | Изменить способ отображения бликов и теней на 3D‑поверхности. |
+| [getMaterial](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getMaterial--) и [setMaterial](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Материал поверхности, например плоский, матовый, пластик или металл. | Сделать одну и ту же геометрию более плоской, мягкой, блестящей или металлической. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) и [setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Насколько глубоко фигура вытягивается назад от её передней грани. | Превратить плоскую фигуру в явно толщинный 3D‑объект. |
+| [getExtrusionColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Цвет выдавленных боковых граней. | Сделать глубину видимой или согласовать цвет боков с передней заливкой. |
+| [getDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getDepth--) и [setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Дополнительная 3D‑глубина, используемая в форматировании PowerPoint. | Тонко настроить глубину фигур или текста, особенно совместно с фасками и материалом. |
+| [getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--) и [getBevelBottom](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Выпуклые или скруглённые кромки на передних и задних гранях. | Добавить смягчённую или формованную кромку вместо острой плоской грани. |
+| [getContourColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getContourColor--) и [getContourWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getContourWidth--) и [setContourWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Контур вокруг 3D‑объекта. | Выделить границу объекта в отрисованном выводе. |
 
 ## **Создание 3D‑фигуры**
 
-Фигура обычно требует четыре типа настроек, чтобы выглядеть убедительно 3D:
+Фигура обычно нуждается в четырёх типах настроек, чтобы выглядеть убедительно 3D:
 
-- Настройки камеры, так как обычный вид спереди может скрывать вытягивание.
-- Настройки освещения, поскольку свет делает грани и боковые поверхности различимыми.
-- Настройки материала, так как поверхность влияет на отображение света.
-- Настройки вытягивания или глубины, поскольку плоской фигуре нужна толщина.
+- Настройки камеры, так как вид по умолчанию может скрывать выдавливание.
+- Настройки света, потому что освещение делает грани и боковые стороны различимыми.
+- Настройки материала, поскольку поверхность влияет на то, как свет отображается.
+- Настройки выдавливания или глубины, потому что плоской фигуре требуется толщина.
 
-В следующем примере создаётся прямоугольник, к его передней грани добавляется текст, и применяется 3D‑форматирование. Значения вращения камеры указаны в градусах, высота вытягивания — 100 поинтов. Пример отрисовывает слайд в PNG‑изображение в два раза больше обычных размеров и сохраняет презентацию как PPTX.
+Ниже приведён пример, создающий прямоугольник, добавляющий к его передней грани текст и применяющий 3D‑форматирование. Значения вращения камеры указаны в градусах, высота выдавливания — 100 пунктов. Пример отрисовывает слайд в PNG‑изображение с двойными размерами по сравнению с размерами по умолчанию и сохраняет презентацию как PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -103,11 +101,11 @@ try {
 
 ## **Вращение фигуры с помощью камеры**
 
-В PowerPoint 3D‑вращение настраивается в панели 3‑D Rotation. Значения вращения по X, Y и Z соответствуют вращению, которое задаётся через API камеры.
+В PowerPoint 3D‑вращение настраивается в панели **3‑D Rotation**. Значения вращения по осям X, Y и Z соответствуют тем, которые задаются через API камеры.
 
-![Панель 3‑D вращения PowerPoint с выделенными значениями вращения по X, Y и Z](img_02_01.png)
+![Панель PowerPoint 3‑D Rotation с выделенными значениями вращения по X, Y и Z](img_02_01.png)
 
-В Aspose.Slides доступ к камере осуществляется через [IThreeDFormat.getCamera](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getCamera--). Этот пример создаёт прямоугольник, выбирает ортографический фронтальный вид и задает вращения X, Y и Z — 20, 30 и 40 градусов соответственно. Он настраивает фигуру в памяти без сохранения файла:
+В Aspose.Slides доступ к камере осуществляется через [IThreeDFormat.getCamera](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getCamera--). В этом примере создаётся прямоугольник, выбирается ортографический фронтальный вид и устанавливаются вращения X, Y и Z — соответственно 20, 30 и 40 градусов. Фигура конфигурируется в памяти без сохранения файла:
 
 ```java
 import com.aspose.slides.*;
@@ -125,15 +123,47 @@ try {
 }
 ```
 
-Используйте камеру, когда нужно изменить то, как зритель видит объект. Это не меняет 2D‑геометрию фигуры на слайде. Это меняет 3D‑точку зрения, используемую PowerPoint и Aspose.Slides при отрисовке.
+Используйте камеру, когда нужно изменить угол обзора наблюдателя. Это не меняет 2D‑геометрию фигуры на слайде, а лишь меняет 3D‑точку зрения, используемую PowerPoint и Aspose.Slides при отрисовке.
 
-## **Добавление вытягивания и глубины**
+### **Копирование ориентации камеры из шаблонной фигуры**
 
-Вытягивание делает фигуру толстой, расширяя её за переднюю грань. В PowerPoint элемент управления глубиной задаёт видимую толщину, а элемент управления цветом задаёт цвет боковых граней.
+Чтобы совпасть с ориентацией шаблонной фигуры, прочитайте её предустановку камеры с помощью [getCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#getCameraType--) и её углы вращения с помощью [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#getRotation--). Пример открывает `template.pptx` и копирует ориентацию камеры с первой фигуры первого слайда во вторую фигуру. Обе фигуры уже имеют 3D‑освещение, а у второй фигуры нет явного вращения камеры.
 
-![Элементы управления глубиной в PowerPoint, соответствующие свойствам цвета вытягивания и высоты вытягивания](img_02_02.png)
+Углы указаны в градусах. Индекс `0` — широта, индекс `1` — долгота, индекс `2` — революция. Передайте их в [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) в том порядке. Если источник возвращает `null`, у него нет явного вращения, поэтому оставьте углы второй фигуры неустановленными. Явное вращение `(0, 0, 0)` возвращает три нуля и должно быть скопировано.
 
-Используйте [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) для установки толщины и [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) для доступа к цвету сторон. Этот пример задаёт прямоугольнику вытягивание 100 поинтов с фиолетовыми сторонами и вращает камеру, чтобы продемонстрировать толщину. Он настраивает фигуру в памяти без сохранения файла:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    ICamera sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    ICamera destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    float[] angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+При открытии `camera-copy.pptx` в PowerPoint стрелка справа будет иметь такой же предустановленный тип камеры и вращение, как и прямоугольник слева. Обе фигуры используют одинаковое освещение и глубину выдавливания.
+
+![Синий 3D‑прямоугольник и правая стрелка с совпадающей ориентацией камеры, просмотр сверху и справа](camera-orientation.png)
+
+## **Добавление выдавливания и глубины**
+
+Выдавливание делает фигуру толщиной, вытягивая её за переднюю грань. В PowerPoint контроль глубины задаёт эту видимую толщину, а контроль цвета задаёт цвет боковых граней.
+
+![Элементы управления глубиной PowerPoint, сопоставленные с параметрами цвета выдавливания и высоты выдавливания](img_02_02.png)
+
+Используйте [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) для задания толщины и [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) для доступа к цвету боков. В этом примере прямоугольнику задаётся выдавливание = 100 пунктов с пурпурными боковыми гранями, а камера вращается, чтобы показать толщину. Фигура конфигурируется в памяти без сохранения файла:
 
 ```java
 import com.aspose.slides.*;
@@ -159,13 +189,13 @@ try {
 }
 ```
 
-Метод [IThreeDFormat.setDepth](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setDepth-double-) задаёт глубину 3D‑фигуры. Метод [setExtrusionHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) управляет высотой эффекта вытягивания, как показано в этом примере.
+Метод [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) задаёт глубину 3D‑фигуры. Метод [setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) управляет высотой эффекта выдавливания, как показано в этом примере.
 
-## **Использование градиентных или картинных заливок с 3D‑эффектами**
+## **Использование градиентных или растровых заливок с 3D‑эффектами**
 
-3D‑форматирование независимо от заливки фигуры. Вы можете применить сплошной цвет, градиент, узор или картинную заливку к передней грани и при этом использовать те же настройки камеры, освещения, материала и вытягивания.
+3D‑форматирование независимо от заливки фигуры. Вы можете применить сплошной цвет, градиент, узор или растровую заливку к передней грани и при этом использовать те же настройки камеры, света, материала и выдавливания.
 
-В этом примере к передней грани применяется градиент от синего к оранжевому, а к 150‑поинтовому вытягиванию — тёмно‑оранжевый цвет. Остановки градиента на 0 % и 100 % обозначают начало и конец градиента. Значения вращения камеры указаны в градусах. Слайд отрисовывается в PNG‑изображение в два раза больше обычных размеров:
+Этот пример применяет градиент от синего к оранжевому к передней грани и тёмно‑оранжевый цвет к выдавливанию = 150 пунктов. Позиции градиента 0 и 100 обозначают начало и конец градиента. Значения вращения камеры указаны в градусах. Слайд отрисовывается в PNG‑изображение с двойными размерами по сравнению с размерами по умолчанию:
 
 ```java
 import com.aspose.slides.*;
@@ -206,11 +236,11 @@ try {
 }
 ```
 
-Отрисованный результат сохраняет градиент на передней грани и отрисовывает вытягивание отдельно:
+Отрисованный результат сохраняет градиент на передней грани и отдельно отрисовывает выдавливание:
 
-![Отрисованный 3D‑прямоугольник с синё‑оранжевой градиентной заливкой и оранжевым вытягиванием](img_02_03.png)
+![Отрисованный 3D‑прямоугольник с градиентной заливкой от синего к оранжевому и оранжевым выдавливанием](img_02_03.png)
 
-Чтобы использовать картинную заливку, добавьте изображение в презентацию и назначьте его заливкой фигуры. В примере требуется существующий файл «image.jpg» в рабочем каталоге. Картинка растягивается, заполняя прямоугольник, применяется вытягивание 150 поинтов, и задаётся вращение камеры в градусах. Фигура настраивается в памяти без сохранения или отрисовки файла:
+Чтобы использовать растровую заливку, добавьте изображение в презентацию и назначьте его заливкой фигуры. В этом примере предполагается наличие файла `image.jpg` в рабочем каталоге. Изображение растягивается, чтобы заполнить прямоугольник, задаётся выдавливание = 150 пунктов и вращение камеры в градусах. Фигура конфигурируется в памяти без сохранения или отрисовки файла:
 
 ```java
 import com.aspose.slides.*;
@@ -246,15 +276,15 @@ try {
 }
 ```
 
-Картинка отрисовывается на передней грани, а вытягивание — как 3D‑боковая поверхность:
+Рисунок отрисовывается на передней грани, а выдавливание – как 3D‑поверхность боков:
 
-![Отрисованный 3D‑прямоугольник с фотозаливкой на передней грани и оранжевым вытягиванием](img_02_04.png)
+![Отрисованный 3D‑прямоугольник с фото‑заливкой на передней грани и оранжевым выдавливанием](img_02_04.png)
 
 ## **Применение 3D‑форматирования к тексту**
 
-3D‑форматирование фигуры влияет на её тело. 3D‑форматирование текста влияет на текстовый кадр. Это полезно для эффектов, похожих на WordArt, когда самим буквам требуется вытягивание, материал, освещение и настройки камеры.
+3D‑форматирование фигуры влияет на её тело. 3D‑форматирование текста влияет на текстовый фрейм. Это полезно для эффектов, похожих на WordArt, когда сами буквы требуют выдавливания, материала, освещения и настроек камеры.
 
-В следующем примере создаётся текст с оранжево‑белым узором сетки, применяется арочный изгиб и настраиваются 3D‑параметры через [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). Высота вытягивания и глубина указаны в поинтах, вращение света — в градусах. Заливка и контур фигуры скрыты, чтобы был виден только текст. Пример отрисовывает PNG‑изображение в два раза больше стандартных размеров слайда и сохраняет презентацию как PPTX:
+Следующий пример создаёт текст с оранжево‑белым узором сетки, применяет вытянутый арочный изгиб и настраивает 3D‑параметры через [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--). Высота выдавливания и глубина указаны в пунктах, вращение света – в градусах. Заливка и контур фигуры скрыты, чтобы был виден только текст. Пример отрисовывает PNG‑изображение с двойными размерами слайда и сохраняет презентацию как PPTX:
 
 ```java
 import com.aspose.slides.*;
@@ -304,17 +334,17 @@ try {
 }
 ```
 
-Текст отрисован как изогнутые, вытянутые 3D‑буквы:
+Текст отрисовывается как изогнутый, выдавленный 3D‑шрифт:
 
-![Отрисованный 3D‑текст с арочным преобразованием WordArt, оранжевой паттерн‑заливкой и тёмным вытягиванием](img_02_05.png)
+![Отрисованный 3D‑текст с арочным преобразованием WordArt, оранжевой узорной заливкой и тёмным выдавливанием](img_02_05.png)
 
 ## **Сохранение текста плоским на 3D‑фигуре**
 
-Чтобы текст оставался читаемым, сохраняя 3D‑видимость фигуры, вызовите [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) через [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getTextFrameFormat--). Когда значение `true`, текст остаётся вне 3D‑сцены. Когда `false`, текст участвует в сцене и следует её 3D‑ориентации.
+Чтобы текст оставался читаемым, сохраняя 3D‑вид фигуры, вызовите [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) через [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getTextFrameFormat--). При значении `true` текст не попадает в 3D‑сцену. При значении `false` текст участвует в сцене и следует её 3D‑ориентации.
 
-Эта настройка не удаляет 3D‑форматирование фигуры: её камера, освещение, материал и вытягивание остаются настроенными через [IShape.getThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getThreeDFormat--). Это также отличается от обычного вращения. [IShape.setRotation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#setRotation-float-) вращает фигуру в плоскости слайда, тогда как [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) управляет пользовательским вращением текста внутри его ограничивающего блока. Оставление текста вне 3D‑сцены не сбрасывает ни один из этих углов.
+Эта настройка не удаляет 3D‑форматирование фигуры: её камера, освещение, материал и выдавливание остаются сконфигурированными через [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--). Это также отличается от обычного вращения. [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) вращает фигуру в плоскости слайда, тогда как [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) управляет пользовательским вращением текста внутри его ограничивающего прямоугольника. Оставление текста вне 3D‑сцены не сбрасывает ни один из этих углов.
 
-В следующем автономном примере создаётся синий прямоугольник с текстом и копируется рядом с оригиналом. Обе фигуры имеют одинаковое 3D‑форматирование; различается только настройка текста: `false` слева и `true` справа. Углы камеры указаны в градусах, высота вытягивания — 40 поинтов. Пример сохраняет презентацию как PPTX и отрисовывает сравнительный слайд в PNG в два раза больше стандартных размеров.
+Ниже приводится полностью автономный пример, который создаёт синий прямоугольник с текстом и клонирует его рядом с оригиналом. Обе фигуры имеют одинаковое 3D‑форматирование; отличается только настройка текста: `false` слева и `true` справа. Углы камеры указаны в градусах, высота выдавливания = 40 пунктов. Пример сохраняет презентацию как PPTX и отрисовывает сравнительный слайд в PNG с двойными размерами по сравнению с размерами по умолчанию.
 
 ```java
 import com.aspose.slides.*;
@@ -357,43 +387,43 @@ try {
 }
 ```
 
-Слева текст следует 3D‑ориентации. Справа он остаётся плоским и легче читается. Оба прямоугольника сохраняют одинаковое видимое вытягивание и 3D‑ориентацию.
+Слева текст следует 3D‑ориентации. Справа он остаётся плоским и легче читается. Оба прямоугольника сохраняют одинаковое видимое выдавливание и 3D‑ориентацию.
 
-![Бок о бок 3D‑прямоугольники: текст следует 3D‑ориентации слева и остаётся плоским справа](keep_text_flat.png)
+![Сравнение двух 3D‑прямоугольников: слева текст следует 3D‑ориентации, справа остаётся плоским](keep_text_flat.png)
 
 ## **Экспорт и поведение при отрисовке**
 
-Aspose.Slides сохраняет 3D‑форматирование при сохранении в форматы PowerPoint, такие как PPTX. При отрисовке или экспорте в форматы фиксированного макета 3D‑сцена растеризуется или включается в вывод как 2D‑результат. Это происходит при отрисовке слайдов в [PNG](/slides/ru/java/convert-powerpoint-to-png/), экспорте в [PDF](/slides/ru/java/convert-powerpoint-to-pdf/), экспорте в [HTML](/slides/ru/java/convert-powerpoint-to-html/), или генерации кадров для [видеоконвертации](/slides/ru/java/convert-powerpoint-to-video/).
+Aspose.Slides сохраняет 3D‑форматирование при сохранении в форматы PowerPoint, такие как PPTX. При рендеринге или экспорте в форматы фиксированной разметки 3D‑сцена растеризуется или рисуется в вывод как 2D‑результат. Это происходит, когда вы рендерите слайды в [PNG](/slides/ru/java/convert-powerpoint-to-png/), экспортируете в [PDF](/slides/ru/java/convert-powerpoint-to-pdf/), экспортируете в [HTML](/slides/ru/java/convert-powerpoint-to-html/), или генерируете кадры для [видеоконверсии](/slides/ru/java/convert-powerpoint-to-video/).
 
-Имейте в виду следующие моменты:
+Имейте в виду следующее:
 
-- Экспортированные изображения и PDF не интерактивны. Объект нельзя вращать после экспорта.
-- Окончательный вид зависит от комбинации камеры, освещения, материала, вытягивания, заливки и масштабирования слайда.
-- Если необходимо изучить наследованные или тематические значения форматирования, используйте [effective shape properties](/slides/ru/java/shape-effective-properties/).
-- Некоторые форматы вывода не могут хранить редактируемое 3D‑форматирование PowerPoint. В этих форматах визуальный результат отрисовывается, а не сохраняется как редактируемые 3D‑настройки.
+- Экспортированные изображения и PDF не являются интерактивными. Объект нельзя вращать после экспорта.
+- Финальный вид зависит от комбинации камеры, светового оборудования, материала, выдавливания, заливки и масштабирования слайда.
+- Если необходимо просмотреть унаследованные или основанные на теме значения форматирования, читайте [эффективные свойства фигур](/slides/ru/java/shape-effective-properties/).
+- Некоторые форматы вывода не могут хранить редактируемое 3D‑форматирование PowerPoint. В таких форматах визуальный результат отображается, а не сохраняется как редактируемые 3D‑настройки.
 
 ## **FAQ**
 
 **Может ли Aspose.Slides создавать интерактивные 3D‑презентации?**
 
-Aspose.Slides создает и отрисовывает 3D‑эффекты PowerPoint для фигур и текста. Он не делает экспортированные изображения, PDF или HTML‑страницы интерактивными 3D‑сценами, которые пользователь мог бы вращать. В PPTX 3D‑форматирование остаётся редактируемым в PowerPoint, где формат это поддерживает.
+Aspose.Slides создаёт и рендерит 3D‑эффекты PowerPoint для фигур и текста. Он не делает экспортированные изображения, PDF или HTML‑страницы интерактивными 3D‑сценами, которые пользователь может вращать. В PPTX 3D‑форматирование остаётся редактируемым в PowerPoint, где формат это поддерживает.
 
 **В чём разница между 3D‑моделью и 3D‑эффектом?**
 
-3D‑модель — это отдельный 3D‑объект, вставляемый в презентацию. 3D‑эффект — это форматирование, применяемое к обычной фигуре или тексту PowerPoint, например вращение, вытягивание, скос, освещение и материал. В этой статье рассматриваются 3D‑эффекты.
+3D‑модель — отдельный 3D‑объект, вставляемый в презентацию. 3D‑эффект — форматирование, применяемое к обычной фигуре PowerPoint или к тексту, такое как вращение, выдавливание, фаска, освещение и материал. Эта статья охватывает 3D‑эффекты.
 
 **Какие настройки требуются для видимой 3D‑фигуры?**
 
-Минимум — задать вращение камеры и либо вытягивание, либо глубину. На практике также задают освещение и материал, чтобы отрисованные грани имели чёткие блики и тени.
+Минимум — задать вращение камеры и либо выдавливание, либо глубину. На практике также стоит задать световое оборудование и материал, чтобы отрисованные грани имели чёткие блики и тени.
 
-**Могу ли я применять 3D‑эффекты как к фигурам, так и к тексту?**
+**Можно ли применять 3D‑эффекты и к фигурам, и к тексту?**
 
-Да. Используйте [IShape.getThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getThreeDFormat--) для тела фигуры и [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) для текста.
+Да. Используйте [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) для тела фигуры и [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) для текста.
 
-**Появятся ли 3D‑эффекты при экспорте в изображения, PDF, HTML или кадры видео?**
+**Будут ли 3D‑эффекты видны при экспорте в изображения, PDF, HTML или видеокадры?**
 
-Да. Aspose.Slides отрисовывает 3D‑эффекты при создании изображений слайдов, PDF‑вывода, HTML‑вывода и кадров, используемых для видеоконвертации. Экспортированный результат содержит отрисованное изображение, а не редактируемый 3D‑объект.
+Да. Aspose.Slides рендерит 3D‑эффекты при генерации изображений слайдов, PDF‑вывода, HTML‑вывода и кадров, используемых для видеоконверсии. Экспортированный вывод содержит отрисованный вид, а не редактируемый 3D‑объект.
 
-**Могу ли я прочитать окончательные 3D‑значения после применения наследования и тематических настроек?**
+**Можно ли прочитать окончательные 3D‑значения после применения наследования и тем?**
 
-Да. Используйте API эффективного форматирования, описанное в [Shape Effective Properties](/slides/ru/java/shape-effective-properties/), чтобы получить конечные значения камеры, освещения, скосов и прочих 3D‑параметров.
+Да. Используйте API эффективного форматирования, описанное в [Shape Effective Properties](/slides/ru/java/shape-effective-properties/), чтобы прочитать финальные параметры камеры, светового оборудования, фаски и связанные 3D‑значения.

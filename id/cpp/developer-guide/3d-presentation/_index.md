@@ -16,45 +16,45 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Terapkan dan render efek 3D untuk bentuk dan teks PowerPoint di C++ dengan Aspose.Slides. Konfigurasikan kamera, pencahayaan, material, ekstrusi, isian, dan teks 3D."
+description: "Terapkan dan render efek 3D untuk bentuk dan teks PowerPoint dalam C++ dengan Aspose.Slides. Konfigurasikan kamera, pencahayaan, material, ekstrusi, isian, dan teks 3D."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Aspose.Slides for C++ dapat membuat, mengedit, mempertahankan, dan merender pemformatan 3D gaya PowerPoint untuk bentuk dan teks. Artikel ini mencakup efek 3D seperti rotasi, ekstrusi, bevel, pencahayaan, material, isian gradien atau gambar, dan teks 3D.
+Aspose.Slides untuk C++ dapat membuat, mengedit, mempertahankan, dan merender pemformatan 3D bergaya PowerPoint untuk bentuk dan teks. Artikel ini mencakup efek 3D seperti rotasi, ekstrusi, bevel, pencahayaan, material, isian gradien atau gambar, dan teks 3D.
 
-{{% alert color="info" title="Catatan" %}}
-Artikel ini membahas efek pemformatan 3D pada bentuk dan teks PowerPoint. Artikel ini tidak membahas penyisipan atau pengeditan file model 3D mandiri. Saat Anda mengekspor slide ke gambar, PDF, atau HTML, Aspose.Slides merender efek 3D tersebut ke output 2D yang diekspor.
+{{% alert color="info" title="Note" %}}
+Artikel ini membahas efek pemformatan 3D pada bentuk dan teks PowerPoint. Ini bukan tentang menyisipkan atau mengedit file model 3D terpisah. Saat Anda mengekspor slide ke gambar, PDF, atau HTML, Aspose.Slides merender efek 3D tersebut ke dalam output 2D yang diekspor.
 {{% /alert %}}
 
 ## **Konsep Pemformatan 3D**
 
-Gunakan metode [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_threedformat/) untuk menerapkan pemformatan 3D pada sebuah bentuk. Metode ini mengembalikan [IThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/), yang mengendalikan adegan 3D untuk bentuk tersebut.
+Gunakan metode [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) untuk menerapkan pemformatan 3D pada sebuah bentuk. Metode ini mengembalikan [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/), yang mengontrol adegan 3D untuk bentuk tersebut.
 
-Untuk teks, gunakan metode [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/get_threedformat/). Ini menerapkan pemformatan 3D pada bingkai teks, bukan pada tubuh bentuk.
+Untuk teks, gunakan metode [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/). Ini menerapkan pemformatan 3D pada bingkai teks alih‑alih badan bentuk.
 
 Metode paling penting adalah:
 
-| Metode | Apa yang dikendalikan | Kapan menggunakannya |
+| Metode | Apa yang dikontrol | Kapan menggunakannya |
 |---|---|---|
-| [get_Camera](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_camera/) | Titik pandang, tipe kamera preset, rotasi, zoom, dan perspektif. | Memutar objek dalam ruang 3D atau mencocokkan preset rotasi 3D PowerPoint. |
-| [get_LightRig](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_lightrig/) | Preset cahaya, arah, dan rotasi cahaya. | Mengubah cara sorotan dan bayangan muncul pada permukaan 3D. |
-| [set_Material](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_material/) | Material permukaan, seperti datar, matte, plastik, atau logam. | Membuat geometri yang sama terlihat lebih datar, lebih lembut, mengkilap, atau logam. |
-| [set_ExtrusionHeight](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Seberapa jauh bentuk memperluas ke belakang dari wajah depannya. | Mengubah bentuk datar menjadi objek 3D yang terlihat tebal. |
-| [get_ExtrusionColor](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Warna sisi yang diekstrusi. | Membuat kedalaman terlihat atau menyelaraskan warna sisi dengan isian depan. |
-| [set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_depth/) | Kedalaman 3D tambahan yang digunakan oleh pemformatan 3D PowerPoint. | Menyesuaikan kedalaman untuk bentuk atau teks, terutama bersama pengaturan bevel dan material. |
-| [get_BevelTop](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_beveltop/) dan [get_BevelBottom](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Tepi yang terangkat atau bulat pada wajah depan dan belakang. | Menambahkan tepi yang lembut atau dibentuk alih-alih wajah datar yang tajam. |
-| [get_ContourColor](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_contourcolor/) dan [set_ContourWidth](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Garis luar di sekitar objek 3D. | Menekankan batas objek dalam output yang dirender. |
+| [get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) | Titik pandang, tipe kamera preset, rotasi, zoom, dan perspektif. | Putar objek dalam ruang 3D atau cocokkan dengan preset rotasi 3D PowerPoint. |
+| [get_LightRig](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_lightrig/) | Preset cahaya, arah, dan rotasi cahaya. | Ubah cara sorotan dan bayangan muncul pada permukaan 3D. |
+| [set_Material](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_material/) | Material permukaan, seperti datar, matte, plastik, atau logam. | Membuat geometri yang sama tampak lebih datar, lebih lembut, mengkilap, atau metalik. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Seberapa jauh bentuk menjorok ke belakang dari wajah depannya. | Mengubah bentuk datar menjadi objek 3D yang terlihat tebal. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Warna sisi yang diekstrusi. | Membuat kedalaman terlihat atau mengkoordinasikan warna sisi dengan isian depan. |
+| [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) | Kedalaman 3D tambahan yang digunakan oleh pemformatan 3D PowerPoint. | Menyetel kedalaman secara halus untuk bentuk atau teks, terutama bersama dengan pengaturan bevel dan material. |
+| [get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) dan [get_BevelBottom](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Tepi yang terangkat atau membulat pada wajah depan dan belakang. | Menambahkan tepi yang lembut atau terbentuk alih‑alih wajah datar yang tajam. |
+| [get_ContourColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_contourcolor/) dan [set_ContourWidth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Garis luar di sekitar objek 3D. | Menekankan batas objek dalam output yang dirender. |
 
 ## **Buat Bentuk 3D**
 
-Sebuah bentuk biasanya membutuhkan empat jenis pengaturan sebelum terlihat secara meyakinkan sebagai 3D:
+Sebuah bentuk biasanya memerlukan empat jenis pengaturan sebelum terlihat secara meyakinkan sebagai 3D:
 
 - Pengaturan kamera, karena tampilan depan default dapat menyembunyikan ekstrusi.
 - Pengaturan cahaya, karena pencahayaan membuat wajah dan sisi dapat terlihat.
 - Pengaturan material, karena permukaan memengaruhi cara cahaya dirender.
 - Pengaturan ekstrusi atau kedalaman, karena bentuk datar memerlukan ketebalan.
 
-Contoh berikut membuat sebuah persegi panjang, menambahkan teks ke wajah depannya, dan menerapkan pemformatan 3D. Nilai rotasi kamera dalam derajat, dan tinggi ekstrusi 100 poin. Contoh ini merender slide ke gambar PNG dengan ukuran dua kali dimensi default dan menyimpan presentasi sebagai PPTX.
+Contoh berikut membuat sebuah persegi panjang, menambahkan teks ke wajah depannya, dan menerapkan pemformatan 3D. Nilai rotasi kamera dalam derajat, dan tinggi ekstrusi adalah 100 poin. Contoh ini merender slide menjadi gambar PNG dengan dimensi dua kali ukuran default dan menyimpan presentasi sebagai PPTX.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -115,17 +115,17 @@ presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Gambar slide yang dirender memperlihatkan persegi panjang sebagai balok 3D yang tebal:
+Gambar yang dirender menunjukkan persegi panjang sebagai blok 3D tebal:
 
-![Persegi panjang 3D biru yang dirender dengan teks 3D putih pada wajah depan](img_01_01.png)
+![Persegi panjang 3D biru yang dirender dengan teks 3D putih pada wajah depannya](img_01_01.png)
 
 ## **Putar Bentuk dengan Kamera**
 
-Di PowerPoint, rotasi 3D dikonfigurasi melalui panel Rotasi 3-D. Nilai rotasi X, Y, dan Z sesuai dengan rotasi yang Anda atur melalui API kamera.
+Di PowerPoint, rotasi 3D diatur dari panel Rotasi 3‑D. Nilai rotasi X, Y, dan Z sesuai dengan rotasi yang Anda atur melalui API kamera.
 
-![Panel Rotasi 3-D PowerPoint dengan nilai rotasi X, Y, dan Z disorot](img_02_01.png)
+![Panel Rotasi 3‑D PowerPoint dengan nilai rotasi X, Y, dan Z yang disorot](img_02_01.png)
 
-Di Aspose.Slides, akses kamera melalui [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_camera/). Contoh ini membuat sebuah persegi panjang, memilih tampilan depan ortografik, dan mengatur rotasi X, Y, dan Z menjadi 20, 30, dan 40 derajat masing-masing. Contoh ini mengonfigurasi bentuk di memori tanpa menyimpan file:
+Di Aspose.Slides, akses kamera melalui [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/). Contoh ini membuat sebuah persegi panjang, memilih tampilan depan ortografik, dan mengatur rotasi X, Y, dan Z menjadi 20, 30, dan 40 derajat masing‑masing. Ini mengonfigurasi bentuk di memori tanpa menyimpan file:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -150,15 +150,54 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 presentation->Dispose();
 ```
 
-Gunakan kamera ketika Anda perlu mengubah cara pemirsa melihat objek. Ini tidak mengubah geometri bentuk 2D pada slide. Ini mengubah titik pandang 3D yang digunakan oleh PowerPoint dan oleh Aspose.Slides saat merender.
+Gunakan kamera ketika Anda perlu mengubah cara penonton melihat objek. Ini tidak mengubah geometri bentuk 2D pada slide. Ini mengubah titik pandang 3D yang digunakan oleh PowerPoint dan oleh Aspose.Slides saat merender.
+
+### **Salin Orientasi Kamera dari Bentuk Template**
+
+Untuk mencocokkan orientasi kamera bentuk template, baca presetnya dengan [get_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/get_cameratype/) dan terapkan dengan [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/). Contoh membuka `template.pptx` dan menyalin orientasi kamera dari bentuk pertama pada slide pertama ke bentuk kedua. Kedua bentuk sudah memiliki pencahayaan 3D, dan bentuk kedua tidak memiliki rotasi kamera eksplisit.
+
+[GetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/getrotation/) mengembalikan sudut dalam derajat. Indeks `0` adalah lintang, indeks `1` adalah bujur, dan indeks `2` adalah revolusi. Kirimkan sudut ke [SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) dalam urutan tersebut. Jika sumber tidak memiliki rotasi eksplisit, `GetRotation` mengembalikan pointer null, jadi biarkan sudut bentuk kedua tidak disetel. Rotasi eksplisit `(0, 0, 0)` mengembalikan array tiga nol dan harus disalin.
+
+```cpp
+#include <DOM/ICamera.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto sourceCamera = slide->get_Shape(0)->get_ThreeDFormat()->get_Camera();
+auto destinationCamera = slide->get_Shape(1)->get_ThreeDFormat()->get_Camera();
+
+destinationCamera->set_CameraType(sourceCamera->get_CameraType());
+auto angles = sourceCamera->GetRotation();
+if (angles != nullptr)
+{
+    destinationCamera->SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation->Save(u"camera-copy.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Saat Anda membuka kembali `camera-copy.pptx` di PowerPoint, panah di kanan memiliki preset kamera dan rotasi yang sama dengan persegi panjang di kiri. Kedua bentuk menggunakan pencahayaan dan kedalaman ekstrusi yang sama.
+
+![Sebuah persegi panjang 3D biru dan panah kanan dengan orientasi kamera yang cocok, dilihat dari atas dan kanan](camera-orientation.png)
 
 ## **Tambahkan Ekstrusi dan Kedalaman**
 
-Ekstrusi membuat bentuk tampak tebal dengan memperluasnya di belakang wajah depan. Di PowerPoint, kontrol kedalaman mengatur ketebalan yang terlihat, dan kontrol warna mengatur warna sisi.
+Ekstrusi membuat bentuk tampak tebal dengan memperpanjangnya ke belakang wajah depan. Di PowerPoint, kontrol kedalaman menentukan ketebalan yang terlihat, dan kontrol warna menentukan warna sisi.
 
 ![Kontrol kedalaman PowerPoint dipetakan ke properti warna ekstrusi dan tinggi ekstrusi](img_02_02.png)
 
-Atur [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_extrusionheight/) untuk ketebalan dan [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) untuk warna sisi. Contoh ini memberikan persegi panjang ekstrusi 100 poin dengan sisi ungu dan memutar kamera untuk memperlihatkan ketebalannya. Contoh ini mengonfigurasi bentuk di memori tanpa menyimpan file:
+Atur [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) untuk ketebalan dan [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) untuk warna sisi. Contoh ini memberi persegi panjang ekstrusi 100 poin dengan sisi ungu dan memutar kamera untuk memperlihatkan ketebalannya. Ini mengonfigurasi bentuk di memori tanpa menyimpan file:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -197,13 +236,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-Metode [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_depth/) mengatur kedalaman bentuk 3D. Metode [set_ExtrusionHeight](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/set_extrusionheight/) mengendalikan tinggi efek ekstrusi, seperti yang ditunjukkan dalam contoh ini.
+Metode [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) mengatur kedalaman sebuah bentuk 3D. Metode [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) mengendalikan tinggi efek ekstrusi, seperti yang ditunjukkan pada contoh ini.
 
 ## **Gunakan Isian Gradien atau Gambar dengan Efek 3D**
 
-Pemformatan 3D bersifat independen dari isian bentuk. Anda dapat menerapkan warna solid, gradien, pola, atau isian gambar pada wajah depan dan tetap menggunakan kamera, cahaya, material, serta pengaturan ekstrusi yang sama.
+Pemformatan 3D bersifat independen dari isian bentuk. Anda dapat menerapkan warna padat, gradien, pola, atau isian gambar ke wajah depan dan tetap menggunakan kamera, cahaya, material, serta pengaturan ekstrusi yang sama.
 
-Contoh ini menerapkan gradien biru-ke-oranye pada wajah depan dan warna oranye gelap pada ekstrusi 150 poin. Henti gradien pada 0 dan 100 menandai awal dan akhir gradien. Nilai rotasi kamera dalam derajat. Slide dirender ke gambar PNG dengan ukuran dua kali dimensi default:
+Contoh ini menerapkan gradien biru‑ke‑oranye ke wajah depan dan warna oranye gelap ke ekstrusi 150 poin. Tangkai gradien pada 0 dan 100 menandai awal dan akhir gradien. Nilai rotasi kamera dalam derajat. Slide dirender menjadi gambar PNG dengan dimensi dua kali ukuran default:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -266,9 +305,9 @@ presentation->Dispose();
 
 Output yang dirender mempertahankan gradien pada wajah depan dan merender ekstrusi secara terpisah:
 
-![Persegi panjang 3D yang dirender dengan isian gradien biru-ke-oranye dan ekstrusi oranye](img_02_03.png)
+![Persegi panjang 3D yang dirender dengan isian gradien biru‑ke‑oranye dan ekstrusi oranye](img_02_03.png)
 
-Untuk menggunakan isian gambar, tambahkan gambar ke presentasi dan tetapkan ke isian bentuk. Contoh ini memerlukan file yang sudah ada bernama "image.jpg" di direktori kerja. Gambar tersebut diregangkan untuk mengisi persegi panjang, menerapkan ekstrusi 150 poin, dan mengatur rotasi kamera dalam derajat. Contoh ini mengonfigurasi bentuk di memori tanpa menyimpan atau merender file:
+Untuk menggunakan isian gambar, tambahkan gambar ke presentasi dan tetapkan ke isian bentuk. Contoh ini memerlukan file yang sudah ada bernama "image.jpg" di direktori kerja. Gambar akan diregangkan untuk mengisi persegi panjang, menerapkan ekstrusi 150 poin, dan mengatur rotasi kamera dalam derajat. Ini mengonfigurasi bentuk di memori tanpa menyimpan atau merender file:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -327,9 +366,9 @@ Gambar dirender pada wajah depan, sementara ekstrusi dirender sebagai permukaan 
 
 ## **Terapkan Pemformatan 3D pada Teks**
 
-Pemformatan 3D pada bentuk memengaruhi tubuh bentuk. Pemformatan 3D pada teks memengaruhi bingkai teks. Ini berguna untuk efek mirip WordArt di mana huruf‑hurufnya sendiri memerlukan ekstrusi, material, pencahayaan, dan pengaturan kamera.
+Pemformatan 3D pada bentuk memengaruhi badan bentuk. Pemformatan 3D pada teks memengaruhi bingkai teks. Ini berguna untuk efek mirip WordArt dimana huruf‑huruf sendiri memerlukan ekstrusi, material, pencahayaan, dan pengaturan kamera.
 
-Contoh berikut membuat teks dengan pola kisi oranye‑putih, menerapkan lengkungan ke atas, dan mengonfigurasi pengaturan 3D melalui [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/get_threedformat/). Tinggi ekstrusi dan kedalaman dalam poin, dan rotasi cahaya dalam derajat. Isian bentuk dan garis tepi disembunyikan sehingga hanya teks yang terlihat. Contoh ini merender gambar PNG dengan ukuran dua kali dimensi slide default dan menyimpan presentasi sebagai PPTX:
+Contoh berikut membuat teks dengan pola kisi oranye‑dan‑putih, menerapkan lengkungan ke atas, dan mengonfigurasi pengaturan 3D melalui [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/). Tinggi ekstrusi dan kedalaman dalam poin, dan rotasi cahaya dalam derajat. Isian bentuk dan kontur disembunyikan sehingga hanya teks yang terlihat. Contoh ini merender gambar PNG dengan dimensi dua kali ukuran slide default dan menyimpan presentasi sebagai PPTX:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -410,13 +449,13 @@ Teks dirender sebagai huruf 3D melengkung dan diekstrusi:
 
 ![Teks 3D yang dirender dengan transformasi WordArt melengkung, isian pola oranye, dan ekstrusi gelap](img_02_05.png)
 
-## **Jaga Teks Tetap Datar pada Bentuk 3D**
+## **Pertahankan Teks Datar pada Bentuk 3D**
 
-Untuk menjaga teks tetap dapat dibaca sambil mempertahankan penampilan 3D bentuk, panggil [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_keeptextflat/) melalui [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_textframeformat/). Ketika nilai `true`, teks berada di luar adegan 3D. Ketika `false`, teks berpartisipasi dalam adegan dan mengikuti orientasi 3D.
+Untuk menjaga teks tetap terbaca sambil mempertahankan tampilan 3D bentuk, panggil [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_keeptextflat/) melalui [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_textframeformat/). Ketika nilai `true`, teks tetap berada di luar adegan 3D. Ketika `false`, teks berpartisipasi dalam adegan dan mengikuti orientasi 3D.
 
-Pengaturan ini tidak menghapus pemformatan 3D bentuk: kamera, pencahayaan, material, dan ekstrusi tetap dikonfigurasi melalui [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_threedformat/). Ini juga berbeda dari rotasi biasa. [IShape::set_Rotation](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/set_rotation/) memutar bentuk dalam bidang slide, sementara [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_rotationangle/) mengendalikan rotasi kustom teks dalam kotak pembatasnya. Menjaga teks di luar adegan 3D tidak mereset kedua sudut tersebut.
+Pengaturan ini tidak menghapus pemformatan 3D bentuk: kamera, pencahayaan, material, dan ekstrusinya tetap dikonfigurasi melalui [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/). Ini juga berbeda dari rotasi biasa. [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) memutar bentuk pada bidang slide, sedangkan [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) mengendalikan rotasi khusus teks dalam kotak batasnya. Menjaga teks di luar adegan 3D tidak mereset salah satu sudut tersebut.
 
-Contoh mandiri berikut membuat persegi panjang biru dengan teks dan menggandakannya di samping yang asli. Kedua bentuk memiliki pemformatan 3D yang sama; hanya pengaturan teks yang berbeda: `false` di kiri dan `true` di kanan. Sudut kamera dalam derajat, dan tinggi ekstrusi 40 poin. Contoh ini menyimpan presentasi sebagai PPTX dan merender slide perbandingan ke PNG dengan ukuran dua kali dimensi default.
+Contoh mandiri berikut membuat persegi panjang biru dengan teks dan menggandakannya di samping aslinya. Kedua bentuk memiliki pemformatan 3D yang sama; hanya pengaturan teks yang berbeda: `false` di kiri dan `true` di kanan. Sudut kamera dalam derajat, dan tinggi ekstrusi 40 poin. Contoh menyimpan presentasi sebagai PPTX dan merender slide perbandingan ke PNG dengan dimensi dua kali ukuran default.
 
 ```cpp
 #include <DOM/ITextFrameFormat.h>
@@ -487,31 +526,35 @@ Di kiri, teks mengikuti orientasi 3D. Di kanan, teks tetap datar dan lebih mudah
 
 ## **Perilaku Ekspor dan Rendering**
 
-Aspose.Slides mempertahankan pemformatan 3D saat menyimpan ke format PowerPoint seperti PPTX. Saat merender atau mengekspor ke format tata letak tetap, adegan 3D dirasterisasi atau digambar ke output sebagai hasil 2D. Ini berlaku saat Anda merender slide ke [PNG](/slides/id/cpp/convert-powerpoint-to-png/), mengekspor ke [PDF](/slides/id/cpp/convert-powerpoint-to-pdf/), mengekspor ke [HTML](/slides/id/cpp/convert-powerpoint-to-html/), atau menghasilkan frame untuk [konversi video](/slides/id/cpp/convert-powerpoint-to-video/).
+Aspose.Slides mempertahankan pemformatan 3D saat menyimpan ke format PowerPoint seperti PPTX. Saat merender atau mengekspor ke format tata letak tetap, adegan 3D dirasterisasi atau digambar ke dalam output sebagai hasil 2D. Hal ini berlaku ketika Anda merender slide ke [PNG](/slides/id/cpp/convert-powerpoint-to-png/), mengekspor ke [PDF](/slides/id/cpp/convert-powerpoint-to-pdf/), mengekspor ke [HTML](/slides/id/cpp/convert-powerpoint-to-html/), atau menghasilkan frame untuk [video conversion](/slides/id/cpp/convert-powerpoint-to-video/).
 
-Perhatikan poin-poin berikut:
-
-- Gambar dan PDF yang diekspor tidak interaktif. Objek tidak dapat diputar oleh pemirsa setelah diekspor.
-- Penampilan akhir tergantung pada kombinasi kamera, rig cahaya, material, ekstrusi, isian, dan skala slide.
-- Jika Anda perlu memeriksa nilai pemformatan yang diwariskan atau berbasis tema, baca [properti bentuk efektif](/slides/id/cpp/shape-effective-properties/).
+- Gambar dan PDF yang diekspor tidak interaktif. Objek tidak dapat diputar oleh penonton setelah diekspor.
+- Penampilan akhir bergantung pada kombinasi kamera, rig cahaya, material, ekstrusi, isian, dan skala slide.
+- Jika Anda perlu memeriksa nilai pemformatan yang diwariskan atau berbasis tema, bacalah [effective shape properties](/slides/id/cpp/shape-effective-properties/).
 - Beberapa format output tidak dapat menyimpan pemformatan 3D PowerPoint yang dapat diedit. Pada format tersebut, hasil visual dirender alih‑alih dipertahankan sebagai pengaturan 3D yang dapat diedit.
 
 ## **FAQ**
 
-**Apakah Aspose.Slides dapat membuat presentasi 3D interaktif?**  
-Aspose.Slides membuat dan merender efek 3D PowerPoint untuk bentuk dan teks. Ia tidak membuat gambar, PDF, atau halaman HTML yang interaktif sebagai adegan 3D yang dapat diputar oleh pemirsa. Pada PPTX, pemformatan 3D tetap dapat diedit di PowerPoint bila formatnya mendukungnya.
+**Apakah Aspose.Slides dapat membuat presentasi 3D interaktif?**
 
-**Apa perbedaan antara model 3D dan efek 3D?**  
+Aspose.Slides membuat dan merender efek 3D PowerPoint untuk bentuk dan teks. Ia tidak membuat gambar, PDF, atau halaman HTML yang interaktif sebagai adegan 3D yang dapat diputar penonton. Pada PPTX, pemformatan 3D tetap dapat diedit di PowerPoint bila format mendukungnya.
+
+**Apa perbedaan antara model 3D dan efek 3D?**
+
 Model 3D adalah objek 3D terpisah yang disisipkan ke dalam presentasi. Efek 3D adalah pemformatan yang diterapkan pada bentuk atau teks PowerPoint biasa, seperti rotasi, ekstrusi, bevel, pencahayaan, dan material. Artikel ini membahas efek 3D.
 
-**Pengaturan apa yang diperlukan agar bentuk 3D terlihat?**  
-Setidaknya, atur rotasi kamera dan ekstrusi atau kedalaman. Praktiknya, tambahkan juga rig cahaya dan material agar wajah yang dirender memiliki sorotan dan bayangan yang jelas.
+**Pengaturan apa yang diperlukan untuk bentuk 3D yang terlihat?**
 
-**Apakah saya dapat menerapkan efek 3D pada bentuk dan teks sekaligus?**  
-Ya. Gunakan [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_threedformat/) untuk tubuh bentuk dan [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/get_threedformat/) untuk teks.
+Minimal, atur rotasi kamera dan ekstrusi atau kedalaman. Pada praktiknya, juga atur rig cahaya dan material agar permukaan yang dirender memiliki sorotan dan bayangan yang jelas.
 
-**Apakah efek 3D akan muncul saat mengekspor ke gambar, PDF, HTML, atau frame video?**  
-Ya. Aspose.Slides merender efek 3D saat menghasilkan gambar slide, output PDF, output HTML, dan frame yang digunakan untuk konversi video. Output yang diekspor berisi tampilan yang dirender, bukan objek 3D yang dapat diedit.
+**Apakah saya dapat menerapkan efek 3D pada bentuk dan teks?**
 
-**Bisakah saya membaca nilai 3D akhir setelah pewarisan dan pengaturan tema diterapkan?**  
-Ya. Gunakan API pemformatan efektif yang dijelaskan dalam [Properti Bentuk Efektif](/slides/id/cpp/shape-effective-properties/) untuk membaca kamera, rig cahaya, bevel, dan nilai 3D terkait yang akhir.
+Ya. Gunakan [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) untuk badan bentuk dan [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) untuk teks.
+
+**Apakah efek 3D akan muncul saat mengekspor ke gambar, PDF, HTML, atau frame video?**
+
+Ya. Aspose.Slides merender efek 3D ketika menghasilkan gambar slide, output PDF, output HTML, dan frame yang digunakan untuk konversi video. Output yang diekspor berisi tampilan yang dirender, bukan objek 3D yang dapat diedit.
+
+**Bisakah saya membaca nilai 3D final setelah pewarisan dan pengaturan tema diterapkan?**
+
+Ya. Gunakan API pemformatan efektif yang dijelaskan dalam [Shape Effective Properties](/slides/id/cpp/shape-effective-properties/) untuk membaca kamera, rig cahaya, bevel, dan nilai 3D terkait yang final.

@@ -16,45 +16,47 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides ile Java’da PowerPoint şekilleri ve metinleri için 3D efektler uygulayın ve renderlayın. Kamera, ışıklandırma, malzeme, ekstrüzyon, doldurmalar ve 3D metni yapılandırın."
+description: "Aspose.Slides ile Java'da PowerPoint şekilleri ve metinleri için 3D efektler uygulayın ve renderlayın. Kamera, aydınlatma, malzeme, ekstrüzyon, doldurmalar ve 3D metni yapılandırın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Java, şekil ve metinler için PowerPoint‑stili 3D biçimlendirme oluşturabilir, düzenleyebilir, koruyabilir ve işleyebilir. Bu makale, döndürme, ekstrüzyon, köşe yuvarlama, aydınlatma, malzeme, degrade veya resim dolgu ve 3D metin gibi 3D efektleri kapsar.
+Aspose.Slides for Java, şekiller ve metinler için PowerPoint benzeri 3D formatlamayı oluşturabilir, düzenleyebilir, koruyabilir ve renderlayabilir. Bu makale, döndürme, ekstrüzyon, kiriş, aydınlatma, malzeme, degrade veya resim doldurma ve 3D metin gibi 3D efektleri kapsar.
 
 {{% alert color="info" title="Not" %}}
-Bu makale, PowerPoint şekilleri ve metinleri üzerindeki 3D biçimlendirme efektleri hakkında; bağımsız 3D model dosyalarını ekleme veya düzenleme hakkında değildir. Bir slaytı görüntü, PDF veya HTML olarak dışa aktardığınızda, Aspose.Slides bu 3D efektleri dışa aktarılan 2D çıktıya işler.
+
+Bu makale, PowerPoint şekilleri ve metni üzerindeki 3D formatlama efektleriyle ilgilidir. Ayrı bir 3D model dosyasının eklenmesi veya düzenlenmesiyle ilgili değildir. Bir slaytı resim, PDF veya HTML olarak dışa aktardığınızda, Aspose.Slides bu 3D efektleri dışa aktarılmış 2D çıktıya renderlar.
+
 {{% /alert %}}
 
-## **3D Biçimlendirme Kavramları**
+## **3D Formatlama Kavramları**
 
-Bir şekle 3D biçimlendirme uygulamak için [IShape.getThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getThreeDFormat--) metodunu kullanın. Bu metod, o şekil için 3D sahneyi kontrol eden [IThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/) nesnesini döndürür.
+Bir şekle 3D formatlama uygulamak için [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) yöntemini kullanın. Bu yöntem, o şeklin 3D sahnesini kontrol eden [IThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/) nesnesini döndürür.
 
-Metin için, [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) metodunu kullanın. Bu, şekil gövdesi yerine metin çerçevesine 3D biçimlendirme uygular.
+Metin için, [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) yöntemini kullanın. Bu, şekil gövdesi yerine metin çerçevesine 3D formatlama uygular.
 
 En önemli API üyeleri şunlardır:
 
 | API üyesi | Ne kontrol eder | Ne zaman kullanılır |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getCamera--) | Görüş noktası, önceden tanımlı kamera tipi, döndürme, yakınlaştırma ve perspektif. | Nesneyi 3D uzayda döndürmek veya PowerPoint 3D döndürme ön ayarıyla eşleştirmek. |
-| [getLightRig](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getLightRig--) | Işık ön ayarı, yön ve ışık döndürmesi. | 3D yüzeyde vurguların ve gölgelerin nasıl göründüğünü değiştirmek. |
-| [getMaterial](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getMaterial--) ve [setMaterial](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Düz, mat, plastik veya metal gibi yüzey malzemesi. | Aynı geometriyi daha düz, yumuşak, parlak veya metalik göstermek. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) ve [setExtrusionHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Şeklin ön yüzünden geriye doğru ne kadar uzandığı. | Düz bir şekli görünür kalın bir 3D nesneye dönüştürmek. |
-| [getExtrusionColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Ekstrüde edilen yanların rengi. | Derinliği görünür kılmak veya yan rengi ön dolgu ile uyumlu hale getirmek. |
-| [getDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getDepth--) ve [setDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setDepth-double-) | PowerPoint 3D biçimlendirmesinde kullanılan ek 3D derinlik. | Şekil veya metin için, özellikle köşe yuvarlama ve malzeme ayarlarıyla birlikte, derinliği hassas ayarlamak. |
-| [getBevelTop](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getBevelTop--) ve [getBevelBottom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Ön ve arka yüzlerde yükseltilmiş veya yuvarlatılmış kenarlar. | Keskin düz bir yüzey yerine yumuşatılmış veya kalıplanmış bir kenar eklemek. |
-| [getContourColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getContourColor--) ve [getContourWidth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getContourWidth--) ve [setContourWidth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | 3D nesnenin etrafındaki kontur. | Oluşturulan çıktıda nesne sınırını vurgulamak. |
+| [getCamera](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getCamera--) | Bakış açısı, ön tanımlı kamera türü, döndürme, yakınlaştırma ve perspektif. | Nesneyi 3D uzayda döndürmek veya bir PowerPoint 3D döndürme ön ayarıyla eşleştirmek. |
+| [getLightRig](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getLightRig--) | Işık ön ayarı, yön ve ışık dönüşü. | 3D yüzeyde vurguların ve gölgelerin nasıl göründüğünü değiştirmek. |
+| [getMaterial](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getMaterial--) ve [setMaterial](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Düz, mat, plastik veya metal gibi yüzey malzemesi. | Aynı geometrinin daha düz, yumuşak, parlak veya metalik görünmesini sağlamak. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) ve [setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Şeklin ön yüzünden geriye ne kadar uzandığını. | Düz bir şekli gözle görülür kalın bir 3D nesneye dönüştürmek. |
+| [getExtrusionColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Ekstrüde edilmiş yan yüzlerin rengi. | Derinliği görünür kılmak veya yan renkleri ön doldurmayla eşleştirmek. |
+| [getDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getDepth--) ve [setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) | PowerPoint 3D formatlaması tarafından kullanılan ek 3D derinlik. | Şekiller veya metin için derinliği ince ayarlama, özellikle kiriş ve malzeme ayarlarıyla birlikte. |
+| [getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--) ve [getBevelBottom](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Ön ve arka yüzlerde yükseltilmiş veya yuvarlatılmış kenarlar. | Keskin düz bir yüzey yerine yumuşak veya kalıplanmış bir kenar eklemek. |
+| [getContourColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getContourColor--) ve [getContourWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getContourWidth--) ve [setContourWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | 3D nesnenin etrafındaki kontur. | Renderlanan çıktıda nesne sınırını vurgulamak. |
 
-## **3D Bir Şekil Oluşturma**
+## **3D Şekil Oluşturma**
 
-Bir şeklin inandırıcı bir 3D görünüm elde edebilmesi için genellikle dört tür ayar gereklidir:
+Bir şekil, ikna edici bir şekilde 3D görünmeden önce genellikle dört tür ayara ihtiyaç duyar:
 
 - Kamera ayarları, çünkü varsayılan ön görünüm ekstrüzyonu gizleyebilir.
-- Işık ayarları, çünkü aydınlatma yüzeyleri ve yanları okunabilir kılar.
-- Malzeme ayarları, çünkü yüzey ışığın nasıl işleneceğini etkiler.
+- Işık ayarları, çünkü aydınlatma yüzeyleri ve kenarları okunabilir kılar.
+- Malzeme ayarları, çünkü yüzey ışığın nasıl renderlandığını etkiler.
 - Ekstrüzyon veya derinlik ayarları, çünkü düz bir şeklin kalınlığa ihtiyacı vardır.
 
-Aşağıdaki örnek, bir dikdörtgen oluşturur, ön yüzüne metin ekler ve 3D biçimlendirme uygular. Kamera döndürme değerleri derece cinsindendir, ekstrüzyon yüksekliği 100 puandır. Örnek, slaytı iki katı varsayılan boyutta bir PNG görüntüsüne render eder ve sunumu PPTX olarak kaydeder.
+Aşağıdaki örnek bir dikdörtgen oluşturur, ön yüzüne metin ekler ve 3D formatlama uygular. Kamera döndürme değerleri derecedir ve ekstrüzyon yüksekliği 100 puandır. Örnek, slaytı varsayılan boyutlarının iki katı bir PNG görüntüsüne renderlar ve sunumu PPTX olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -95,17 +97,17 @@ try {
 }
 ```
 
-Render edilmiş slayt görüntüsü, dikdörtgeni kalın bir 3D blok olarak gösterir:
+Renderlanmış slayt görüntüsü, dikdörtgeni kalın bir 3D blok olarak gösterir:
 
-![Ön yüzde beyaz 3D metinle render edilmiş mavi 3D dikdörtgen](img_01_01.png)
+![Ön yüzünde beyaz 3D metin bulunan renderlanmış mavi 3D dikdörtgen](img_01_01.png)
 
 ## **Kamerayla Bir Şekli Döndürme**
 
-PowerPoint’te 3D döndürme, 3‑D Rotation bölmesinden yapılandırılır. X, Y ve Z döndürme değerleri, kamera API’si üzerinden ayarladığınız döndürmeye karşılık gelir.
+PowerPoint'te, 3D döndürme 3-D Döndürme bölmesinden yapılandırılır. X, Y ve Z döndürme değerleri, kamera API'si aracılığıyla ayarladığınız döndürmeye karşılık gelir.
 
-![X, Y ve Z döndürme değerlerinin vurgulandığı PowerPoint 3‑D Rotation bölmesi](img_02_01.png)
+![X, Y ve Z döndürme değerlerinin vurgulandığı PowerPoint 3-D Döndürme bölmesi](img_02_01.png)
 
-Aspose.Slides’te kameraya, [IThreeDFormat.getCamera](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getCamera--) üzerinden erişilir. Bu örnek bir dikdörtgen oluşturur, ortografik bir ön görünüm seçer ve X, Y, Z döndürmelerini sırasıyla 20, 30 ve 40 derece olarak ayarlar. Şekli bir dosyaya kaydetmeden bellekte yapılandırır:
+Aspose.Slides'te, kamera [IThreeDFormat.getCamera](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getCamera--) ile erişilir. Bu örnek bir dikdörtgen oluşturur, ortografik ön görünümü seçer ve X, Y ve Z döndürmelerini sırasıyla 20, 30 ve 40 derece olarak ayarlar. Şekli dosya kaydetmeden bellekte yapılandırır:
 
 ```java
 import com.aspose.slides.*;
@@ -123,15 +125,47 @@ try {
 }
 ```
 
-Kamera, izleyicinin nesneyi nasıl gördüğünü değiştirmek istediğinizde kullanılır. Bu, slayttaki 2D şekil geometrisini değiştirmez; PowerPoint ve Aspose.Slides tarafından render edilirken kullanılan 3D bakış noktasını değiştirir.
+Kamerayı, izleyicinin nesneyi nasıl gördüğünü değiştirmek istediğinizde kullanın. Bu, slayttaki 2D şekil geometrisini değiştirmez. PowerPoint ve Aspose.Slides render ederken kullanılan 3D bakış açısını değiştirir.
+
+### **Şablon Şekilden Kamera Yönelimini Kopyalama**
+
+Şablon şeklin yönelimini eşleştirmek için, [getCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#getCameraType--) ile kamera ön ayarını ve [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#getRotation--) ile döndürme açılarını okuyun. Örnek `template.pptx` dosyasını açar ve ilk slayttaki ilk şeklin kamera yönelimini ikinci şekle kopyalar. Her iki şeklin de zaten 3D aydınlatması vardır; ikinci şeklin açık bir kamera döndürmesi yoktur.
+
+Açıların birimi derecedir. `0` indeksi enlem, `1` indeksi boylam ve `2` indeksi devrimdir. Bu sırayla [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) metoduna geçirin. Kaynak `null` döndürürse, açık bir döndürme yok demektir; bu yüzden ikinci şeklin açılarını boş bırakın. `(0, 0, 0)` gibi açık bir döndürme üç sıfır döndürür ve kopyalanmalıdır.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+    
+    ICamera sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    ICamera destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    float[] angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`camera-copy.pptx` dosyasını PowerPoint'te yeniden açtığınızda, sağdaki ok, soldaki dikdörtgenle aynı kamera ön ayarı ve döndürmeye sahiptir. Her iki şekil de aynı aydınlatma ve ekstrüzyon derinliğini kullanır.
+
+![Üstten ve sağdan bakıldığında eşleşen kamera yönelimine sahip mavi bir 3D dikdörtgen ve sağ ok](camera-orientation.png)
 
 ## **Ekstrüzyon ve Derinlik Ekleme**
 
-Ekstrüzyon, şeklin ön yüzünün arkasına uzatarak kalın görünmesini sağlar. PowerPoint’te derinlik kontrolü bu görünür kalınlığı ayarlar, renk kontrolü ise yan yüzlerin rengini belirler.
+Ekstrüzyon, şekli ön yüzünün arkasına uzatarak kalın görünmesini sağlar. PowerPoint'te, derinlik kontrolü bu görünür kalınlığı ayarlar ve renk kontrolü yan yüzlerin rengini belirler.
 
-![Ekstrüzyon rengi ve ekstrüzyon yüksekliği özelliklerine eşlenmiş PowerPoint derinlik kontrolleri](img_02_02.png)
+![PowerPoint derinlik kontrolleri ekstrüzyon rengi ve ekstrüzyon yüksekliği özelliklerine eşlenmiştir](img_02_02.png)
 
-Kalınlığı ayarlamak için [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) ve yan renk erişimi için [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) kullanılabilir. Bu örnek, dikdörtgene 100 puanlık bir ekstrüzyon, mor yanlar verir ve kalınlığını göstermek için kamerayı döndürür. Şekli bir dosyaya kaydetmeden bellekte yapılandırır:
+Kalınlığı ayarlamak için [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) yöntemini, yan renklere erişmek için ise [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) yöntemini kullanın. Bu örnek, dikdörtgene mor yan yüzlerle 100 puanlık bir ekstrüzyon uygulayıp kamerayı kalınlığını gösterecek şekilde döndürür. Şekli dosya kaydetmeden bellekte yapılandırır:
 
 ```java
 import com.aspose.slides.*;
@@ -157,13 +191,13 @@ try {
 }
 ```
 
-[IThreeDFormat.setDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setDepth-double-) metodu, bir 3D şeklin derinliğini belirler. [setExtrusionHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) metodu ise ekstrüzyon etkisinin yüksekliğini kontrol eder; örnekde gösterildiği gibi.
+[IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) yöntemi bir 3D şeklin derinliğini ayarlar. [setExtrusionHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) yöntemi ise örnekte gösterildiği gibi ekstrüzyon etkisinin yüksekliğini kontrol eder.
 
-## **3D Efektlerle Degrade veya Resim Dolgusu Kullanma**
+## **3D Efektlerle Degrade veya Resim Doldurma Kullanma**
 
-3D biçimlendirme, şekil doldurmasından bağımsızdır. Ön yüzeye katı renk, degrade, desen veya resim dolgu uygulayabilir ve aynı kamera, ışık, malzeme ve ekstrüzyon ayarlarını tutabilirsiniz.
+3D formatlama, şekil doldurmasından bağımsızdır. Ön yüze katı renk, degrade, desen veya resim doldurma uygulayabilir ve aynı kamera, ışık, malzeme ve ekstrüzyon ayarlarını kullanabilirsiniz.
 
-Bu örnek, ön yüzde mavi‑turuncu bir degrade ve 150 puanlık ekstrüzyon için koyu turuncu renk uygular. Degrade durakları 0 ve 100, başlangıç ve bitiş noktalarını işaret eder. Kamera döndürme değerleri derece cinsindendir. Slayt, iki katı varsayılan boyutta bir PNG’ye render edilir:
+Bu örnek, ön yüze mavi‑turuncu bir degrade ve 150 puanlık ekstrüzyon için koyu turuncu renk uygular. Degrade durakları 0 ve 100, degrade başlangıç ve bitişini işaret eder. Kamera döndürme değerleri derecedir. Slayt, varsayılan boyutlarının iki katı bir PNG görüntüsüne renderlanır:
 
 ```java
 import com.aspose.slides.*;
@@ -204,11 +238,11 @@ try {
 }
 ```
 
-Render edilen çıktı, ön yüzdeki degradeyi korur ve ekstrüzyonu ayrı olarak işler:
+Renderlanan çıktı, ön yüze degrade uygulanmış ve ekstrüzyon ayrı olarak renderlanmış bir 3D dikdörtgen gösterir:
 
-![Mavi‑turuncu degrade dolgu ve turuncu ekstrüzyonlu render edilmiş 3D dikdörtgen](img_02_03.png)
+![Mavi- turuncu degrade doldurma ve turuncu ekstrüzyonlu renderlanmış 3D dikdörtgen](img_02_03.png)
 
-Resim dolgu kullanmak için, resmi sunuma ekleyin ve şekil dolgusuna atayın. Bu örnek, çalışma dizininde "image.jpg" adlı bir dosyanın var olduğunu varsayar. Resmi dikdörtgene yayar, 150 puanlık ekstrüzyon uygular ve kamera döndürmesini derece olarak ayarlar. Şekli bir dosya kaydetmeden veya render etmeden bellekte yapılandırır:
+Resim doldurma kullanmak için, resmi sunuma ekleyip şekil doldurmasına atayın. Bu örnek, çalışma dizininde mevcut bir `image.jpg` dosyası gerektirir. Resmi dikdörtgeni dolduracak şekilde yayar, 150 puanlık ekstrüzyon uygular ve kamerayı derecelerde döndürür. Şekli dosya kaydetmeden veya renderlamadan bellek içinde yapılandırır:
 
 ```java
 import com.aspose.slides.*;
@@ -244,15 +278,15 @@ try {
 }
 ```
 
-Resim ön yüzde render edilirken, ekstrüzyon 3D yan yüz olarak işlenir:
+Resim, ön yüze fotoğraf doldurma olarak renderlanırken, ekstrüzyon 3D yan yüz olarak renderlanır:
 
-![Ön yüzde fotoğraf dolgu ve turuncu ekstrüzyonlu render edilmiş 3D dikdörtgen](img_02_04.png)
+![Ön yüzünde fotoğraf doldurma ve turuncu ekstrüzyonlu renderlanmış 3D dikdörtgen](img_02_04.png)
 
-## **Metne 3D Biçimlendirme Uygulama**
+## **Metne 3D Formatlama Uygulama**
 
-Şekil 3D biçimlendirmesi, şekil gövdesini etkiler. Metin 3D biçimlendirmesi, metin çerçevesini etkiler. Bu, harflerin kendisinin ekstrüzyon, malzeme, aydınlatma ve kamera ayarları gerektirdiği WordArt‑benzeri efektler için yararlıdır.
+Şekil 3D formatlaması şekil gövdesini etkiler. Metin 3D formatlaması ise metin çerçevesini etkiler. Bu, harflerin kendisinin ekstrüzyon, malzeme, aydınlatma ve kamera ayarlarına ihtiyaç duyduğu WordArt benzeri efektler için faydalıdır.
 
-Aşağıdaki örnek, turuncu‑beyaz bir ızgara deseniyle metin oluşturur, yukarı doğru bir yay oluşturur ve 3D ayarları [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) üzerinden yapılandırır. Ekstrüzyon yüksekliği ve derinlik puan cinsindendir, ışık döndürmesi derece cinsindendir. Şekil dolgu ve kontur gizlenir, sadece metin görünür. Örnek, iki katı varsayılan slayt boyutunda bir PNG görüntüsü render eder ve sunumu PPTX olarak kaydeder:
+Aşağıdaki örnek, turuncu‑beyaz bir ızgara deseniyle metin oluşturur, yukarıya doğru bir yay eğrisi ekler ve 3D ayarları [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) aracılığıyla yapılandırır. Ekstrüzyon yüksekliği ve derinlik puan cinsindendir, ışık döndürmesi derecedir. Şekil doldurma ve kenarlık gizlenir; sadece metin görünür olur. Örnek, varsayılan slayt boyutlarının iki katı bir PNG görüntüsü renderlar ve sunumu PPTX olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -302,17 +336,17 @@ try {
 }
 ```
 
-Metin, eğimli, ekstrüde edilmiş 3D harfler olarak render edilir:
+Renderlanan 3D metin, yaylı WordArt dönüşümü, turuncu desen doldurma ve koyu ekstrüzyon ile görüntülenir:
 
-![Eğimli WordArt dönüşümü, turuncu desen dolgu ve koyu ekstrüzyonlu render edilmiş 3D metin](img_02_05.png)
+![Yukarı kıvrımlı WordArt dönüşümü, turuncu desen doldurma ve koyu ekstrüzyonlu renderlanmış 3D metin](img_02_05.png)
 
 ## **3D Şekilde Metni Düz Tutma**
 
-Metnin, şeklin 3D görünümünü korurken okunabilir kalmasını sağlamak için, [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getTextFrameFormat--) üzerinden [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) metodunu çağırın. Değer `true` olduğunda, metin 3D sahneden çıkar. Değer `false` olduğunda, metin sahneye katılır ve 3D yönelimini takip eder.
+Şeklin 3D görünümünü korurken metni okunabilir tutmak için, [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getTextFrameFormat--) üzerinden [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) metodunu çağırın. Değer `true` ise metin 3D sahneden dışarıda kalır; `false` ise metin sahneye katılır ve 3D yönelimini takip eder.
 
-Bu ayar, şeklin 3D biçimlendirmesini ([IShape.getThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getThreeDFormat--)) kaldırmaz; kamera, ışık, malzeme ve ekstrüzyon ayarları aynı kalır. Ayrıca sıradan döndürmeden farklıdır. [IShape.setRotation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#setRotation-float-) şekli slayt düzleminde döndürürken, [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) metnin kendi sınırlayıcı kutusu içinde özel döndürmesini kontrol eder. Metni sahneden çıkarmak, bu açıları sıfırlamaz.
+Bu ayar, şeklin kamera, ışık, malzeme ve ekstrüzyon gibi 3D formatlamasını kaldırmaz; bunlar hâlâ [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) üzerinden yapılandırılmıştır. Ayrıca sıradan döndürmeden farklıdır. [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) şekli slayt düzleminde döndürürken, [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) metnin sınırlayıcı kutusundaki özel döndürmeyi kontrol eder. Metni 3D sahneden dışarıda tutmak bu açıları sıfırlamaz.
 
-Aşağıdaki bağımsız örnek, mavi bir dikdörtgen ve metin oluşturur, ardından orijinalin yanına bir kopyasını yerleştirir. Her iki şeklin de aynı 3D biçimlendirmesi vardır; yalnızca metin ayarı farklıdır: solda `false`, sağda `true`. Kamera açıları derece cinsindedir, ekstrüzyon yüksekliği 40 puandır. Örnek sunumu PPTX olarak kaydeder ve karşılaştırma slaytını iki katı varsayılan boyutta PNG’ye render eder.
+Aşağıdaki bağımsız örnek, mavi bir dikdörtgen ve metin oluşturur, orijinali yanına klonlar. Her iki şeklin de aynı 3D formatlaması vardır; sadece metin ayarı farklıdır: solda `false`, sağda `true`. Kamera açıları derecedir, ekstrüzyon yüksekliği 40 puandır. Örnek, sunumu PPTX olarak kaydeder ve karşılaştırma slaytını varsayılan boyutların iki katı bir PNG’ye renderlar:
 
 ```java
 import com.aspose.slides.*;
@@ -355,43 +389,43 @@ try {
 }
 ```
 
-Solda metin 3D yönelime göre hareket eder. Sağda ise düz kalır ve okunması daha kolaydır. Her iki dikdörtgen de aynı görünen ekstrüzyon ve 3D yönelime sahiptir.
+Solda metin 3D yönelimini takip eder. Sağda ise düz kalır ve okunması daha kolaydır. Her iki dikdörtgen de aynı görünür ekstrüzyon ve 3D yönelime sahiptir.
 
-![Yan yana 3D dikdörtgenler: solda metin 3D yönelime göre, sağda düz kalır](keep_text_flat.png)
+![Yan yana 3D dikdörtgenler: metin solda 3D yönelimini takip eder, sağda düz kalır](keep_text_flat.png)
 
 ## **Dışa Aktarma ve Render Davranışı**
 
-Aspose.Slides, PPTX gibi PowerPoint formatlarına kaydederken 3D biçimlendirmeyi korur. Sabit‑sayfa formatlarına render ederken veya dışa aktarırken, 3D sahne rasterleştirilir veya 2D sonuç olarak çıktı içine çizilir. Bu, slaytları [PNG](/slides/tr/java/convert-powerpoint-to-png/), [PDF](/slides/tr/java/convert-powerpoint-to-pdf/), [HTML](/slides/tr/java/convert-powerpoint-to-html/) olarak render ederken veya [video dönüştürme](/slides/tr/java/convert-powerpoint-to-video/) için kareler üretirken geçerlidir.
+Aspose.Slides, PPTX gibi PowerPoint formatlarına kaydederken 3D formatlamayı korur. Sabit‑düzen formatlarına renderlarken veya dışa aktarırken 3D sahne rasterleştirilir veya 2D sonuç olarak çıktıya çizilir. Bu, slaytları [PNG](/slides/tr/java/convert-powerpoint-to-png/), [PDF](/slides/tr/java/convert-powerpoint-to-pdf/), [HTML](/slides/tr/java/convert-powerpoint-to-html/) olarak renderlarken veya [video conversion](/slides/tr/java/convert-powerpoint-to-video/) için kareler üretirken geçerlidir.
 
-Şunları aklınızda bulundurun:
+Bu noktaları aklınızda tutun:
 
-- Dışa aktarılan görüntüler ve PDF’ler etkileşimli değildir. Nesne, dışa aktarımdan sonra izleyici tarafından döndürülemez.
-- Son görünüm, kamera, ışık rig’i, malzeme, ekstrüzyon, dolgu ve slayt ölçeklendirmesinin birleşimine bağlıdır.
-- Kalıtılmış veya tema‑tabanlı biçimlendirme değerlerini incelemeniz gerekiyorsa, [etkili şekil özelliklerini](/slides/tr/java/shape-effective-properties/) okuyun.
-- Bazı çıktı formatları, düzenlenebilir PowerPoint 3D biçimlendirmesini saklayamaz. Bu formatlarda görsel sonuç, düzenlenebilir 3D ayarları yerine render edilmiş olarak sunulur.
+- Dışa aktarılan görseller ve PDF'ler etkileşimli değildir. Nesne, dışa aktarıldıktan sonra izleyici tarafından döndürülemez.
+- Son görünüm, kamera, ışık, malzeme, ekstrüzyon, doldurma ve slayt ölçeklemesinin bir kombinasyonuna bağlıdır.
+- Eğer kalıtılmış veya tema tabanlı format değerlerini incelemeniz gerekiyorsa, [effective shape properties](/slides/tr/java/shape-effective-properties/) sayfasını okuyun.
+- Bazı çıktı formatları düzenlenebilir PowerPoint 3D formatlamasını saklayamaz. Bu formatlarda görsel sonuç, düzenlenebilir 3D ayarları olarak saklanmak yerine renderlanır.
 
 ## **SSS**
 
-**Aspose.Slides interaktif 3D sunumlar oluşturabilir mi?**
+**Aspose.Slides etkileşimli 3D sunumlar oluşturabilir mi?**
 
-Aspose.Slides, şekil ve metinler için PowerPoint 3D efektlerini oluşturur ve render eder. Dışa aktarılan görüntüler, PDF’ler veya HTML sayfaları, izleyicinin döndürebileceği interaktif 3D sahneler haline gelmez. PPTX’te, format destekliyorsa 3D biçimlendirme PowerPoint’te düzenlenebilir kalır.
+Aspose.Slides, şekiller ve metinler için PowerPoint 3D efektlerini oluşturur ve renderlar. Dışa aktarılan görseller, PDF'ler veya HTML sayfaları, izleyicinin döndürebileceği etkileşimli 3D sahneler haline getirmez. PPTX içinde, format destekliyorsa 3D formatlama PowerPoint'te düzenlenebilir kalır.
 
 **3D model ile 3D efekt arasındaki fark nedir?**
 
-3D model, sunuma eklenen ayrı bir 3D nesnedir. 3D efekt, bir PowerPoint şekli veya metnine uygulanan döndürme, ekstrüzyon, köşe yuvarlama, aydınlatma ve malzeme gibi biçimlendirmedir. Bu makale yalnızca 3D etkileri kapsar.
+3D model, sunuma eklenen ayrı bir 3D nesnedir. 3D efekt ise bir PowerPoint şekli veya metnine uygulanan, döndürme, ekstrüzyon, kiriş, aydınlatma ve malzeme gibi formatlamadır. Bu makale 3D efektleri ele alır.
 
-**Görünür bir 3D şekil için hangi ayarlar gereklidir?**
+**Görünür bir 3D şekil için hangi ayarlar gerekir?**
 
-En az bir kamera döndürmesi ve ya ekstrüzyon ya da derinlik ayarı yapılmalıdır. Uygulamada, render edilen yüzlerin net vurgular ve gölgeler alması için bir ışık rig’i ve malzeme de ayarlanır.
+En az bir kamera döndürmesi ve ya ekstrüzyon ya da derinlik ayarı gerekir. Pratikte, renderlanan yüzeylerin belirgin vurgular ve gölgeler alması için bir ışık kiti ve malzeme de ayarlanmalıdır.
 
-**Hem şekillere hem de metne 3D efekt uygulayabilir miyim?**
+**Hem şekillere hem de metne 3D efektler uygulayabilir miyim?**
 
-Evet. Şekil gövdesi için [IShape.getThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#getThreeDFormat--) ve metin için [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) kullanın.
+Evet. Şekil gövdesi için [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) ve metin için [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getThreeDFormat--) kullanın.
 
-**3D efektler, görüntülere, PDF’ye, HTML’ye veya video karelerine dışa aktarıldığında görünür mü?**
+**3D efektler görsellere, PDF'e, HTML'e veya video karelerine dışa aktarırken görünecek mi?**
 
-Evet. Aspose.Slides, slayt görüntüleri, PDF çıktısı, HTML çıktısı ve video dönüşümü için kullanılan kareler üretildiğinde 3D efektleri render eder. Dışa aktarılan çıktı render edilmiş görünümü içerir, düzenlenebilir bir 3D nesne değildir.
+Evet. Aspose.Slides, slayt görselleri, PDF çıktısı, HTML çıktısı ve video dönüşümü için kullanılan kareler üretirken 3D efektleri renderlar. Dışa aktarılan çıktı renderlanmış görünümü içerir, düzenlenebilir bir 3D nesne değildir.
 
-**Kalıtım ve tema ayarları uygulandıktan sonra nihai 3D değerlerini okuyabilir miyim?**
+**Kalıtım ve tema ayarları uygulandıktan sonraki son 3D değerlerini okuyabilir miyim?**
 
-Evet. Nihai kamera, ışık rig’i, köşe yuvarlama ve ilgili 3D değerlerini okumak için [Shape Effective Properties](/slides/tr/java/shape-effective-properties/) bölümünde açıklanan etkili biçimlendirme API’lerini kullanın.
+Evet. Son kamera, ışık kiti, kiriş ve ilgili 3D değerlerini okumak için [Shape Effective Properties](/slides/tr/java/shape-effective-properties/) sayfasında açıklanan etkili formatlama API'lerini kullanın.
