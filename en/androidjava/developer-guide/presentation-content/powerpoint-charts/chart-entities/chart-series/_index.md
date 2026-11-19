@@ -36,6 +36,8 @@ When no explicit point or series fill is set, the chart style and theme determin
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
+
 ## **Set Series Values Using Numeric Literals**
 
 Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) with [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) before assigning each point's [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) result through [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).

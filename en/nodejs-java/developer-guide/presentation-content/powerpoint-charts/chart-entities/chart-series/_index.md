@@ -36,6 +36,8 @@ When no explicit point or series fill is set, the chart style and theme determin
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
+
 ## **Set Series Values Using Numeric Literals**
 
 Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) with [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) before assigning each point's [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) result through [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
@@ -535,7 +537,7 @@ Series lines visually connect related parts of a chart. Use [ChartSeriesGroup.se
 
 Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). The setting applies to every series in that group. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) is read-only and reflects the parent group's setting; call the group's setter to update it.
 
-The following example creates one [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#PieOfPie) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
+The following example creates one [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };

@@ -222,6 +222,65 @@ The following images from the equivalent .NET example were exported using Micros
 | --- | --- |
 | ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
 
+## **Change the 3D Series Type and Bar Shape**
+
+In a clustered cylinder chart, the first series starts with cylindrical bars. The example reads [IChartSeries::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_type/) and [IChartSeries::get_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_bar3dshape/) before and after each change.
+
+```cpp
+#include <DOM/Chart/ChartShapeType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredCylinder, 20, 20, 500, 300);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+
+auto printSeries = [&series]()
+{
+    auto type = Enum<ChartType>::GetName(series->get_Type());
+    auto shape = Enum<ChartShapeType>::GetName(series->get_Bar3DShape());
+    Console::WriteLine(u"{0} | {1}", type, shape);
+};
+
+printSeries();
+
+series->set_Type(ChartType::ClusteredCone);
+printSeries();
+
+series->set_Bar3DShape(ChartShapeType::Box);
+printSeries();
+
+presentation->Save(u"series_shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+| Change to the first series | `get_Type` | `get_Bar3DShape` |
+| --- | --- | --- |
+| Create the chart | `ClusteredCylinder` | `Cylinder` |
+| Call [set_Type](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_type/) with `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Call [set_Bar3DShape](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_bar3dshape/) with `Box` | `ClusteredColumn3D` | `Box` |
+
+Setting the shape to `Box` also changes the series type to `ClusteredColumn3D`. If your code branches on the series type, call `series->get_Type()` after changing the shape. A value cached before the change would still select the `ClusteredCone` branch.
+
+![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+
 ## **FAQ**
 
 **Which chart types support 3D mode in Aspose.Slides?**

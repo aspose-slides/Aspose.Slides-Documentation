@@ -150,6 +150,41 @@ The following images were exported from the generated presentations using Micros
 | --- | --- |
 | ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
 
+## **Change the 3D Series Type and Bar Shape**
+
+In a clustered cylinder chart, the first series starts with cylindrical bars. The example reads [ChartSeries.type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/type/) and [ChartSeries.bar_3d_shape](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/bar_3d_shape/) before and after each change.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_CYLINDER, 20, 20, 500, 300)
+    series = chart.chart_data.series[0]
+    
+    print(f"{series.type.name} | {series.bar_3d_shape.name}")
+
+    series.type = charts.ChartType.CLUSTERED_CONE
+    print(f"{series.type.name} | {series.bar_3d_shape.name}")
+
+    series.bar_3d_shape = charts.ChartShapeType.BOX
+    print(f"{series.type.name} | {series.bar_3d_shape.name}")
+
+    presentation.save("series_shape.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| Change to the first series | `type` | `bar_3d_shape` |
+| --- | --- | --- |
+| Create the chart | `CLUSTERED_CYLINDER` | `CYLINDER` |
+| Set `type` to `CLUSTERED_CONE` | `CLUSTERED_CONE` | `CONE` |
+| Set `bar_3d_shape` to `BOX` | `CLUSTERED_COLUMN_3D` | `BOX` |
+
+Setting the shape to `BOX` also changes the series type to `CLUSTERED_COLUMN_3D`. If your code branches on the series type, read `series.type` after changing the shape. A value cached before the assignment would still select the `CLUSTERED_CONE` branch.
+
+![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+
 ## **FAQ**
 
 **Which chart types support 3D mode in Aspose.Slides?**

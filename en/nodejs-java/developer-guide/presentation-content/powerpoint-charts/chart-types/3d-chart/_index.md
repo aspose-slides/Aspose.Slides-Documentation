@@ -17,13 +17,13 @@ description: "Create 3D charts in PowerPoint presentations with Aspose.Slides fo
 
 ## **Overview**
 
-Aspose.Slides for Node.js via Java lets you customize the view of a 3D chart through the [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getRotation3D) method. This article demonstrates how to adjust rotation, height proportions, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
+Aspose.Slides for Node.js via Java lets you customize the view of a 3D chart through the [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/getrotation3d/) method. This article demonstrates how to adjust rotation, height proportions, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
 
 ## **Set the Rotation and Depth of a 3D Chart**
 
-The example below creates a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and uses [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to add a stacked 3D column chart to its first slide. It replaces the default series and categories with two series containing three values each. Worksheet index `0` identifies the chart's first data worksheet; row `0` holds series names, and column `0` holds category labels.
+The example below creates a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and uses [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) to add a stacked 3D column chart to its first slide. It replaces the default series and categories with two series containing three values each. Worksheet index `0` identifies the chart's first data worksheet; row `0` holds series names, and column `0` holds category labels.
 
-The [setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setRotationX) and [setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setRotationY) methods set the chart's rotation to 40 and 270 degrees, respectively. [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setDepthPercents) sets its depth to 150% of its width, while [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setRightAngleAxes) enables right-angle axes instead of perspective. The resulting presentation contains the populated chart with these 3D view settings.
+The [setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationx/) and [setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrotationy/) methods set the chart's rotation to 40 and 270 degrees, respectively. [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) sets its depth to 150% of its width, while [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setrightangleaxes/) enables right-angle axes instead of perspective. The resulting presentation contains the populated chart with these 3D view settings.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -71,7 +71,7 @@ try {
 
 ## **Adjust the Height Proportions of a 3D Chart**
 
-Use [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setHeightPercents) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
+Use [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) to set the height of a 3D chart as a percentage of its width. This changes the proportions of the 3D scene without resizing the chart object on the slide.
 
 The following example creates a [Column3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) chart with the default data: three series and four categories. It saves three presentations with height proportions of 50%, 100%, and 200%. The chart's position, width, and height remain fixed. The data, rotation, depth, series spacing, and formatting are identical in all three files; only the height percentage changes.
 
@@ -109,18 +109,18 @@ These methods control different aspects of the chart:
 
 | Method | Effect |
 | --- | --- |
-| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setHeightPercents) | Height of the 3D scene as a percentage of its width. |
-| [Chart.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setHeight) | Height of the chart object on the slide, in points. |
-| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setDepthPercents) | Depth of the 3D scene as a percentage of its width. |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapDepth) | Spacing between series along the depth axis, as a percentage of the marker width. |
+| [Rotation3D.setHeightPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setheightpercents/) | Height of the 3D scene as a percentage of its width. |
+| [Chart.setHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setheight/) | Height of the chart object on the slide, in points. |
+| [Rotation3D.setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | Depth of the 3D scene as a percentage of its width. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | Spacing between series along the depth axis, as a percentage of the marker width. |
 
 The height setting affects 3D column and bar charts, including cylinder, cone, and pyramid variants, as well as 3D line, area, pie, and surface charts. The comparison above uses the verified `Column3D` type. The setting does not change the appearance of a 2D `ClusteredColumn` chart or a `BubbleWith3D` chart; these names are members of the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) class. For other chart appearance settings, see [Chart Formatting](/slides/nodejs-java/chart-formatting/).
 
 ## **Adjust the Gap Between Series**
 
-Use [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapDepth) to control the distance between data series along the depth axis of a 3D chart, expressed as a percentage of the marker width. Use values from **0 to 500**, inclusive: `0` removes the gap, while larger values increase the spacing. With a fixed chart depth, increasing the gap makes the markers thinner along the depth axis.
+Use [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) to control the distance between data series along the depth axis of a 3D chart, expressed as a percentage of the marker width. Use values from **0 to 500**, inclusive: `0` removes the gap, while larger values increase the spacing. With a fixed chart depth, increasing the gap makes the markers thinner along the depth axis.
 
-Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup). The setting applies to every series in that group, not just the series used to access it. [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getGapDepth) returns the depth gap and reflects the parent group's setting.
+Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). The setting applies to every series in that group, not just the series used to access it. [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getgapdepth/) returns the depth gap and reflects the parent group's setting.
 
 This setting affects 3D column and bar charts, including their cylinder, cone, and pyramid variants, as well as 3D line and area charts. The appearance depends on whether the series are arranged in depth, clustered, or stacked. For a clear comparison of gaps between separate series, use `ChartType.Column3D` from the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) class.
 
@@ -128,9 +128,9 @@ These methods control different aspects of the chart:
 
 | Method | Effect |
 | --- | --- |
-| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapDepth) | Spacing between series along the depth axis, as a percentage of the marker width. |
-| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) | Spacing between adjacent bar or column clusters, as a percentage of the bar or column width. |
-| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setDepthPercents) | Overall chart depth, as a percentage of the chart width. |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapdepth/) | Spacing between series along the depth axis, as a percentage of the marker width. |
+| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) | Spacing between adjacent bar or column clusters, as a percentage of the bar or column width. |
+| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/setdepthpercents/) | Overall chart depth, as a percentage of the chart width. |
 
 The following self-contained example uses the default chart data, which contains three series and four categories. It saves two presentations with identical data, rotation, gap width, and chart depth; only the gap depth changes.
 
@@ -169,6 +169,44 @@ The following images illustrate the same gap depth settings in the equivalent .N
 | --- | --- |
 | ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
 
+## **Change the 3D Series Type and Bar Shape**
+
+In a clustered cylinder chart, the first series starts with a cylindrical bar shape. The example prints the integer values returned by [ChartSeries.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/gettype/) and [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getbar3dshape/) before and after each change. The table gives the corresponding constant names.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(slides.ChartType.ClusteredCylinder, 20, 20, 500, 300);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    console.log(series.getType() + " | " + series.getBar3DShape());
+
+    series.setType(slides.ChartType.ClusteredCone);
+    console.log(series.getType() + " | " + series.getBar3DShape());
+
+    series.setBar3DShape(slides.ChartShapeType.Box);
+    console.log(series.getType() + " | " + series.getBar3DShape());
+
+    presentation.save("series_shape.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Change to the first series | Series type | Bar shape |
+| --- | --- | --- |
+| Create the chart | `ClusteredCylinder` | `Cylinder` |
+| Set the series type to `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Set the bar shape to `Box` | `ClusteredColumn3D` | `Box` |
+
+Setting the shape to `Box` also changes the series type to `ClusteredColumn3D`. If your code branches on the series type, call `series.getType()` after changing the shape. A value cached before the assignment would still select the `ClusteredCone` branch.
+
+![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+
 ## **FAQ**
 
 **Which chart types support 3D mode in Aspose.Slides?**
@@ -177,7 +215,7 @@ Aspose.Slides supports 3D variants of column charts, including Column 3D, Cluste
 
 **Can I get a raster image of a 3D chart for a report or the web?**
 
-Yes. You can export a chart to an image with [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) or [render the entire slide](/slides/nodejs-java/convert-powerpoint-to-png/) to formats like PNG or JPEG. This is useful when you need a raster preview or want to embed the chart into documents, dashboards, or web pages without requiring PowerPoint.
+Yes. You can export a chart to an image with [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) or [render the entire slide](/slides/nodejs-java/convert-powerpoint-to-png/) to formats like PNG or JPEG. This is useful when you need a raster preview or want to embed the chart into documents, dashboards, or web pages without requiring PowerPoint.
 
 **How performant is building and rendering large 3D charts?**
 
