@@ -166,6 +166,43 @@ The following images were exported from the generated presentations using Micros
 | --- | --- |
 | ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
 
+## **Change the 3D Series Type and Bar Shape**
+
+In a clustered cylinder chart, the first series starts with a cylindrical bar shape. The example reads [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) and [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) before and after each change.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredCylinder, 20, 20, 500, 300);
+var series = chart.ChartData.Series[0];
+
+Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
+
+series.Type = ChartType.ClusteredCone;
+Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
+
+series.Bar3DShape = ChartShapeType.Box;
+Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
+
+presentation.Save("series_shape.pptx", SaveFormat.Pptx);
+```
+
+| Change to the first series | `Type` | `Bar3DShape` |
+| --- | --- | --- |
+| Create the chart | `ClusteredCylinder` | `Cylinder` |
+| Set `Type` to `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Set `Bar3DShape` to `Box` | `ClusteredColumn3D` | `Box` |
+
+Setting the shape to `Box` also changes the series type to `ClusteredColumn3D`. If your code branches on the series type, read `series.Type` after changing the shape. A value cached before the assignment would still select the `ClusteredCone` branch.
+
+![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+
 ## **FAQ**
 
 **Which chart types support 3D mode in Aspose.Slides?**

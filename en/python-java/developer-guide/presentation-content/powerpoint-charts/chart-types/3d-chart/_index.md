@@ -176,6 +176,49 @@ The following images illustrate the same gap depth settings in the equivalent .N
 | --- | --- |
 | ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
 
+## **Change the 3D Series Type and Bar Shape**
+
+In a clustered cylinder chart, the first series starts with a cylindrical bar shape. The example prints the integer values returned by [ChartSeries.getType](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getType) and [ChartSeries.getBar3DShape](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getBar3DShape) before and after each change. The table gives the corresponding constant names.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartShapeType, ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredCylinder, 20, 20, 500, 300)
+    series = chart.getChartData().getSeries().get_Item(0)
+    
+    print(f"{series.getType()} | {series.getBar3DShape()}")
+
+    series.setType(ChartType.ClusteredCone)
+    print(f"{series.getType()} | {series.getBar3DShape()}")
+
+    series.setBar3DShape(ChartShapeType.Box)
+    print(f"{series.getType()} | {series.getBar3DShape()}")
+
+    presentation.save("series_shape.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Change to the first series | Series type | Bar shape |
+| --- | --- | --- |
+| Create the chart | `ClusteredCylinder` | `Cylinder` |
+| Set the series type to `ClusteredCone` | `ClusteredCone` | `Cone` |
+| Set the bar shape to `Box` | `ClusteredColumn3D` | `Box` |
+
+Setting the shape to `Box` also changes the series type to `ClusteredColumn3D`. If your code branches on the series type, call `series.getType()` after changing the shape. A value cached before the assignment would still select the `ClusteredCone` branch.
+
+![PowerPoint comparison showing the first series as cylinders, cones, and rectangular columns from left to right](series-shapes.png)
+
 ## **FAQ**
 
 **Which chart types support 3D mode in Aspose.Slides?**

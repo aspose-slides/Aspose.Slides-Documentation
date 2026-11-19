@@ -36,6 +36,8 @@ When no explicit point or series fill is set, the chart style and theme determin
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/python-java/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
+
 ## **Set Series Values Using Numeric Literals**
 
 Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForValues) with [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/#DoubleLiterals) before assigning each point's [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) result through [setAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#setAsLiteralDouble).

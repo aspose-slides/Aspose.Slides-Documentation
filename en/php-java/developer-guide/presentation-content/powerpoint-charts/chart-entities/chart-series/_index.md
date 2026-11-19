@@ -35,6 +35,8 @@ When no explicit point or series fill is set, the chart style and theme determin
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/php-java/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
+
 ## **Set Series Values Using Numeric Literals**
 
 Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) with [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) before assigning each point's [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) result through [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
