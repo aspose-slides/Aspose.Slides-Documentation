@@ -155,6 +155,45 @@ presentation->Dispose();
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
 
+### **Copy Camera Orientation from a Template Shape**
+
+To match a template shape's camera orientation, read its preset with [get_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/get_cameratype/) and apply it with [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/). The example opens `template.pptx` and copies the camera orientation from the first shape on the first slide to the second shape. Both shapes already have 3D lighting, and the second shape has no explicit camera rotation.
+
+[GetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/getrotation/) returns the angles in degrees. Index `0` is latitude, index `1` is longitude, and index `2` is revolution. Pass the angles to [SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) in that order. If the source has no explicit rotation, `GetRotation` returns a null pointer, so leave the second shape's angles unset. An explicit rotation of `(0, 0, 0)` returns an array of three zeros and should be copied.
+
+```cpp
+#include <DOM/ICamera.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto sourceCamera = slide->get_Shape(0)->get_ThreeDFormat()->get_Camera();
+auto destinationCamera = slide->get_Shape(1)->get_ThreeDFormat()->get_Camera();
+
+destinationCamera->set_CameraType(sourceCamera->get_CameraType());
+auto angles = sourceCamera->GetRotation();
+if (angles != nullptr)
+{
+    destinationCamera->SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation->Save(u"camera-copy.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+When you reopen `camera-copy.pptx` in PowerPoint, the arrow on the right has the same camera preset and rotation as the rectangle on the left. Both shapes use the same lighting and extrusion depth.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
+
 ## **Add Extrusion and Depth**
 
 Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.

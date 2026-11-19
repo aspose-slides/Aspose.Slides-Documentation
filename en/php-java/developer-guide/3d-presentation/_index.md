@@ -31,22 +31,22 @@ This article is about 3D formatting effects on PowerPoint shapes and text. It is
 
 ## **3D Formatting Concepts**
 
-Use the [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat--) method to apply 3D formatting to a shape. The method returns [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/), which controls the 3D scene for that shape.
+Use the [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) method to apply 3D formatting to a shape. The method returns [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/), which controls the 3D scene for that shape.
 
-For text, use the [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat--) method. This applies 3D formatting to the text frame instead of the shape body.
+For text, use the [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat) method. This applies 3D formatting to the text frame instead of the shape body.
 
 The most important API members are:
 
 | API member | What it controls | When to use it |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera--) | Viewpoint, preset camera type, rotation, zoom, and perspective. | Rotate the object in 3D space or match a PowerPoint 3D rotation preset. |
-| [getLightRig](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getLightRig--) | Light preset, direction, and light rotation. | Change how highlights and shadows appear on the 3D surface. |
-| [getMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getMaterial--) and [setMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setMaterial-byte-) | Surface material, such as flat, matte, plastic, or metal. | Make the same geometry look flatter, softer, glossy, or metallic. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionHeight--) and [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) | How far the shape extends backward from its front face. | Turn a flat shape into a visibly thick 3D object. |
-| [getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor--) | Color of the extruded sides. | Make depth visible or coordinate the side color with the front fill. |
-| [getDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getDepth--) and [setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth-double-) | Additional 3D depth used by PowerPoint 3D formatting. | Fine-tune depth for shapes or text, especially together with bevel and material settings. |
-| [getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop--) and [getBevelBottom](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelBottom--) | Raised or rounded edges on the front and back faces. | Add a softened or molded edge instead of a sharp flat face. |
-| [getContourColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourColor--) and [getContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourWidth--) and [setContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setContourWidth-double-) | Outline around the 3D object. | Emphasize the object boundary in rendered output. |
+| [getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera) | Viewpoint, preset camera type, rotation, zoom, and perspective. | Rotate the object in 3D space or match a PowerPoint 3D rotation preset. |
+| [getLightRig](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getLightRig) | Light preset, direction, and light rotation. | Change how highlights and shadows appear on the 3D surface. |
+| [getMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setMaterial) | Surface material, such as flat, matte, plastic, or metal. | Make the same geometry look flatter, softer, glossy, or metallic. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) | How far the shape extends backward from its front face. | Turn a flat shape into a visibly thick 3D object. |
+| [getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor) | Color of the extruded sides. | Make depth visible or coordinate the side color with the front fill. |
+| [getDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) | Additional 3D depth used by PowerPoint 3D formatting. | Fine-tune depth for shapes or text, especially together with bevel and material settings. |
+| [getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelBottom) | Raised or rounded edges on the front and back faces. | Add a softened or molded edge instead of a sharp flat face. |
+| [getContourColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourColor) and [getContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourWidth) and [setContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setContourWidth) | Outline around the 3D object. | Emphasize the object boundary in rendered output. |
 
 ## **Create a 3D Shape**
 
@@ -115,7 +115,7 @@ In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, a
 
 ![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-In Aspose.Slides, access the camera through [ThreeDFormat::getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera--). This example creates a rectangle, selects an orthographic front view, and sets its X, Y, and Z rotations to 20, 30, and 40 degrees, respectively. It configures the shape in memory without saving a file:
+In Aspose.Slides, access the camera through [ThreeDFormat::getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera). This example creates a rectangle, selects an orthographic front view, and sets its X, Y, and Z rotations to 20, 30, and 40 degrees, respectively. It configures the shape in memory without saving a file:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -137,13 +137,46 @@ try {
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
 
+### **Copy Camera Orientation from a Template Shape**
+
+To match the orientation of a template shape, read its camera preset with [Camera::getCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#getCameraType) and its rotation angles with [Camera::getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#getRotation). The example opens `template.pptx` and copies the camera orientation from the first shape on the first slide to the second shape. Both shapes already have 3D lighting, and the second shape has no explicit camera rotation.
+
+The angles are in degrees. Index `0` is latitude, index `1` is longitude, and index `2` is revolution. Pass them to [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) in that order. If the source returns `null`, it has no explicit rotation, so leave the second shape's angles unset. An explicit rotation of `(0, 0, 0)` returns three zeros and should be copied.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    
+    $sourceCamera = $shapes->get_Item(0)->getThreeDFormat()->getCamera();
+    $destinationCamera = $shapes->get_Item(1)->getThreeDFormat()->getCamera();
+
+    $destinationCamera->setCameraType($sourceCamera->getCameraType());
+    $angles = java_values($sourceCamera->getRotation());
+    if ($angles !== null) {
+        $destinationCamera->setRotation($angles[0], $angles[1], $angles[2]);
+    }
+
+    $presentation->save("camera-copy.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+When you reopen `camera-copy.pptx` in PowerPoint, the arrow on the right has the same camera preset and rotation as the rectangle on the left. Both shapes use the same lighting and extrusion depth.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
+
 ## **Add Extrusion and Depth**
 
 Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
 
 ![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
 
-Use [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) to set the thickness and [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor--) to access the side color. This example gives a rectangle a 100-point extrusion with purple sides and rotates the camera to reveal its thickness. It configures the shape in memory without saving a file:
+Use [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) to set the thickness and [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor) to access the side color. This example gives a rectangle a 100-point extrusion with purple sides and rotates the camera to reveal its thickness. It configures the shape in memory without saving a file:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -173,7 +206,7 @@ try {
 }
 ```
 
-The [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth-double-) method sets the depth of a 3D shape. The [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) method controls the height of the extrusion effect, as shown in this example.
+The [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) method sets the depth of a 3D shape. The [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) method controls the height of the extrusion effect, as shown in this example.
 
 ## **Use Gradient or Picture Fills with 3D Effects**
 
@@ -282,7 +315,7 @@ The picture is rendered on the front face, while the extrusion is rendered as th
 
 Shape 3D formatting affects the shape body. Text 3D formatting affects the text frame. This is useful for WordArt-like effects where the letters themselves need extrusion, material, lighting, and camera settings.
 
-The following example creates text with an orange-and-white grid pattern, applies an upward arch, and configures 3D settings through [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat--). The extrusion height and depth are in points, and the light rotation is in degrees. The shape fill and outline are hidden so that only the text is visible. The example renders a PNG image at twice the default slide dimensions and saves the presentation as PPTX:
+The following example creates text with an orange-and-white grid pattern, applies an upward arch, and configures 3D settings through [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat). The extrusion height and depth are in points, and the light rotation is in degrees. The shape fill and outline are hidden so that only the text is visible. The example renders a PNG image at twice the default slide dimensions and saves the presentation as PPTX:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -347,9 +380,9 @@ The text is rendered as curved, extruded 3D lettering:
 
 ## **Keep Text Flat on a 3D Shape**
 
-To keep text readable while preserving a shape's 3D appearance, call [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setKeepTextFlat-boolean-) through [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getTextFrameFormat--). When the value is `true`, the text stays out of the 3D scene. When it is `false`, the text participates in the scene and follows its 3D orientation.
+To keep text readable while preserving a shape's 3D appearance, call [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setKeepTextFlat) through [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getTextFrameFormat). When the value is `true`, the text stays out of the 3D scene. When it is `false`, the text participates in the scene and follows its 3D orientation.
 
-This setting does not remove the shape's 3D formatting: its camera, lighting, material, and extrusion remain configured through [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat--). It is also different from ordinary rotation. [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation-float-) rotates the shape in the slide plane, while [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle-float-) controls the text's custom rotation within its bounding box. Keeping text out of the 3D scene does not reset either of those angles.
+This setting does not remove the shape's 3D formatting: its camera, lighting, material, and extrusion remain configured through [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat). It is also different from ordinary rotation. [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) rotates the shape in the slide plane, while [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) controls the text's custom rotation within its bounding box. Keeping text out of the 3D scene does not reset either of those angles.
 
 The following self-contained example creates a blue rectangle with text and clones it beside the original. Both shapes have the same 3D formatting; only the text setting differs: `false` on the left and `true` on the right. The camera angles are in degrees, and the extrusion height is 40 points. The example saves the presentation as PPTX and renders the comparison slide to PNG at twice its default dimensions.
 
@@ -434,7 +467,7 @@ At minimum, set a camera rotation and either extrusion or depth. In practice, al
 
 **Can I apply 3D effects to both shapes and text?**
 
-Yes. Use [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat--) for the shape body and [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat--) for text.
+Yes. Use [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) for the shape body and [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat) for text.
 
 **Will 3D effects appear when exporting to images, PDF, HTML, or video frames?**
 

@@ -137,6 +137,42 @@ finally:
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
 
+### **Copy Camera Orientation from a Template Shape**
+
+To match the orientation of a template shape, read its camera preset with [Camera.getCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getCameraType) and its rotation angles with [Camera.getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getRotation). The example opens `template.pptx` and copies the camera orientation from the first shape on the first slide to the second shape. Both shapes already have 3D lighting, and the second shape has no explicit camera rotation.
+
+The angles are in degrees. Index `0` is latitude, index `1` is longitude, and index `2` is revolution. Pass them to [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) in that order. If the source returns `None`, it has no explicit rotation, so leave the second shape's angles unset. An explicit rotation of `(0, 0, 0)` returns three zeros and should be copied.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    source_camera = shapes.get_Item(0).getThreeDFormat().getCamera()
+    destination_camera = shapes.get_Item(1).getThreeDFormat().getCamera()
+
+    destination_camera.setCameraType(source_camera.getCameraType())
+    angles = source_camera.getRotation()
+    if angles is not None:
+        destination_camera.setRotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+When you reopen `camera-copy.pptx` in PowerPoint, the arrow on the right has the same camera preset and rotation as the rectangle on the left. Both shapes use the same lighting and extrusion depth.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
+
 ## **Add Extrusion and Depth**
 
 Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
