@@ -38,7 +38,7 @@ Aspose.Slides for C++ lets you add these links, control their appearance and sou
 
 You can also edit presentations with the [free online Aspose PowerPoint editor](https://products.aspose.app/slides/editor).
 
-{{% /alert %}} 
+{{% /alert %}}
 
 ## **Add URL Hyperlinks**
 
@@ -83,11 +83,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ### **Add URL Hyperlinks to Shapes and Media Frames**
 
-To make a shape or frame clickable, use its [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) method. The hyperlink belongs to the object itself rather than to a text portion inside it.
-
-The same approach applies to picture, audio, and video frames: assign the hyperlink to the frame and use [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) to add a hint if needed.
-
-The following example makes a rectangle clickable:
+Call [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) on the rectangle to make its entire area clickable. Use [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) to give readers a hint about the destination when they hover over the rectangle. Both methods also apply to picture, audio, and video frames.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -171,11 +167,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Format Hyperlinks**
 
+You can change the color of linked text, play or stop a sound when a reader activates a link, and set the tooltip that appears on hover.
+
 ### **Color**
 
 The [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) method of [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) determines whether a hyperlink uses the presentation's hyperlink color or the text portion's formatting. To apply a custom text color, select [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) and set the portion's fill color. This feature was introduced in PowerPoint 2019; older versions do not apply this setting.
 
-The following example adds two text hyperlinks to the same slide. The first uses a red text fill, while the second retains the default hyperlink color.
+In this example, the first link uses [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) to display its red text fill. The second link keeps the presentation's hyperlink color.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -217,6 +215,7 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Sound**
 
 A hyperlink can play a sound when activated or stop a sound that is already playing. Use the following methods to configure these behaviors:
@@ -226,7 +225,7 @@ A hyperlink can play a sound when activated or stop a sound that is already play
 
 #### **Add a Hyperlink Sound**
 
-The following example loads `sampleaudio.wav` and associates it with a button on the first slide. Clicking the button plays the sound and navigates to the next slide. A second shape on that slide stops the previous sound when clicked, without performing a navigation action.
+The button on the first slide uses [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) to play audio from `sampleaudio.wav` when the reader clicks to advance. On the second slide, a separate button uses [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) to stop playback and keep the reader on that slide.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -355,6 +354,59 @@ else
 
 For unconditional removal, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) removes both activation types in the selected scope in one call. For selective cleanup and coverage of masters, layouts, and notes, see [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
+### **Clear Hyperlinks Before Replacing SmartArt Text**
+
+When you replace a paragraph in an existing SmartArt node, clearing its text portions can leave an old hyperlink in effect. Retrieve the paragraph through [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Before clearing its portions, call [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) through [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) on the text frame of the node shape that displays the paragraph. This removes every hyperlink in that frame, including links in its other paragraphs.
+
+The example assumes that the third shape on the first slide is a SmartArt graphic. It replaces the first paragraph of the fourth node. In this presentation, the node's first shape displays that paragraph.
+
+After adding both portions, the example reads their effective formatting with [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). The effective [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) method returns the new hyperlink for the first portion and `nullptr` for the second.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
 ## **Build a Complete Hyperlink Inventory**
 
 Before distributing a presentation, inventory its interactive actions as well as its web links. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) returns [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) objects, not a flat list of URL strings. Inspect both [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) and [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) on each container. They are independent: the same container can expose both actions, so a complete report needs up to two rows per container.
@@ -369,7 +421,7 @@ The [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ih
 - [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) returns containers with a mouse-over action.
 - [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) returns containers with either or both actions.
 
-The following example creates `hyperlink-audit-input.pptx` with an external click link, a file mouse-over link, internal slide navigation, a text mouse-over link, and a macro action. It does not execute any of these actions. The same three queries work at every scope; the counts describe containers, not action totals. The text-frame scope excludes the enclosing shape's own links.
+This example assigns click and mouse-over actions to a shape and its text, and a macro action to a separate button. It compares the containers returned by [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) with the counts for each activation type. A text-frame query counts only links in the text. The enclosing shape's own actions appear in the slide and presentation queries.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -446,7 +498,7 @@ Read external destinations from [get_ExternalUrl](https://reference.aspose.com/s
 
 ### **Report, Sanitize, and Verify Hyperlinks**
 
-The following C++ example reads an existing presentation (use the file created above), writes `hyperlink-audit.json`, applies a policy, saves `hyperlink-sanitized.pptx`, and reopens it to check both activation types again. It collects containers before changing them and uses pointer identity to avoid processing the same container twice. Presentation queries cover ordinary slides; for a package-wide inventory, it also explicitly queries masters, layouts, notes, and the notes and handout masters when present.
+This C++ example opens the presentation from the preceding example and writes one JSON record per action. It uses [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) to collect containers on ordinary slides, masters, layouts, and notes, including the notes and handout masters when present. It uses pointer identity to count each container once, applies the policy described below, and reopens the saved presentation to check both click and mouse-over actions.
 
 The report records a one-based slide index and [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) where available. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) supplies the owning slide for supported containers. Masters, layouts, and notes have no ordinary slide index and are identified by their scope. Shape containers and text-portion formatting containers are labeled separately; other container types retain their runtime type name. Each container gets a report-local ID so its two actions can be correlated.
 
