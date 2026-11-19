@@ -5,7 +5,7 @@ type: docs
 weight: 232
 url: /sv/cpp/3d-presentation/
 keywords:
-- 3D-PowerPoint
+- 3D PowerPoint
 - 3D-presentation
 - 3D-rotation
 - 3D-djup
@@ -16,45 +16,45 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Tillämpar och renderar 3D-effekter för PowerPoint-former och text i C++ med Aspose.Slides. Konfigurera kamera, belysning, material, extrusion, fyllningar och 3D-text."
+description: "Applicera och rendera 3D-effekter för PowerPoint-former och text i C++ med Aspose.Slides. Konfigurera kamera, belysning, material, extrusion, fyllningar och 3D-text."
 ---
 ## **Översikt**
 
-Aspose.Slides för C++ kan skapa, redigera, bevara och rendera PowerPoint‑liknande 3D‑formatering för former och text. Den här artikeln täcker 3D‑effekter såsom rotation, extrusion, avfasningar, belysning, material, gradient‑ eller bildfyllningar och 3D‑text.
+Aspose.Slides for C++ kan skapa, redigera, bevara och rendera PowerPoint-liknande 3D-formatering för former och text. Denna artikel behandlar 3D-effekter som rotation, extrusion, avfasningar, belysning, material, gradient- eller bildfyllningar och 3D-text.
 
 {{% alert color="info" title="Note" %}}
-Den här artikeln handlar om 3D‑formateringseffekter på PowerPoint‑former och -text. Den handlar inte om att infoga eller redigera fristående 3D‑modellsfiler. När du exporterar en bild till en bild, PDF eller HTML renderar Aspose.Slides dessa 3D‑effekter i den exporterade 2D‑utdata.
+This article is about 3D formatting effects on PowerPoint shapes and text. It is not about inserting or editing standalone 3D model files. When you export a slide to an image, PDF, or HTML, Aspose.Slides renders those 3D effects into the exported 2D output.
 {{% /alert %}}
 
-## **3D‑formateringskoncept**
+## **3D-formateringskoncept**
 
-Använd metoden [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/get_threedformat/) för att tillämpa 3D‑formatering på en form. Metoden returnerar [IThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/), som styr 3D‑scenen för den formen.
+Använd metoden [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) för att tillämpa 3D‑formatering på en form. Metoden returnerar [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/), som styr 3D‑scenen för den formen.
 
-För text, använd metoden [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/get_threedformat/). Detta tillämpar 3D‑formatering på textrutan istället för formens kropp.
+För text, använd metoden [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/). Detta tillämpar 3D‑formatering på textramen istället för formens kropp.
 
 De viktigaste metoderna är:
 
 | Metod | Vad den styr | När den ska användas |
 |---|---|---|
-| [get_Camera](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_camera/) | Vypunkt, förinställd kameratyp, rotation, zoom och perspektiv. | Rotera objektet i 3D‑rum eller matcha en PowerPoint‑3D‑rotationsförinställning. |
-| [get_LightRig](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_lightrig/) | Ljusförinställning, riktning och ljusrotation. | Ändra hur högdagrar och skuggor visas på 3D‑ytan. |
-| [set_Material](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_material/) | Ytmaterial, t.ex. platt, matt, plast eller metall. | Få samma geometri att se plattare, mjukare, glansigare eller metallisk ut. |
-| [set_ExtrusionHeight](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Hur långt formen sträcker sig bakåt från sin främre yta. | Omvandla en platt form till ett tydligt tjockt 3D‑objekt. |
-| [get_ExtrusionColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Färg på de extruderade sidorna. | Gör djupet synligt eller samordna sidofärgen med frontal fyllning. |
-| [set_Depth](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_depth/) | Ytterligare 3D‑djup som används av PowerPoint‑3D‑formatering. | Finjustera djupet för former eller text, särskilt tillsammans med avfasnings‑ och materialinställningar. |
-| [get_BevelTop](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_beveltop/) och [get_BevelBottom](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Upphöjda eller avrundade kanter på främre och bakre ytor. | Lägg till en mjukad eller formad kant istället för en skarp platt yta. |
-| [get_ContourColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_contourcolor/) och [set_ContourWidth](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Kontur runt 3D‑objektet. | Betona objektets gräns i renderad utdata. |
+| [get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) | Vypunkt, förinställd kameratyp, rotation, zoom och perspektiv. | Rotera objektet i 3D‑rummet eller matcha en PowerPoint‑3D‑rotationsförinställning. |
+| [get_LightRig](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_lightrig/) | Ljusförinställning, riktning och ljusrotation. | Ändra hur högdagrar och skuggor visas på 3D‑ytan. |
+| [set_Material](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_material/) | Ytmaterial, såsom platt, matt, plast eller metall. | Gör samma geometri plattare, mjukare, glansigare eller metallisk. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Hur långt formen sträcker sig bakåt från dess främre yta. | Omvandla en platt form till ett tydligt tjockt 3D‑objekt. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Färg på de extruderade sidorna. | Gör djupet synligt eller samordna sidfärgen med främre fyllning. |
+| [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) | Ytterligare 3D‑djup som används av PowerPoint‑3D‑formatering. | Finjustera djupet för former eller text, särskilt tillsammans med avfasning och materialinställningar. |
+| [get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) och [get_BevelBottom](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Upphöjda eller rundade kanter på främre och bakre ytor. | Lägg till en mjukad eller formad kant istället för en skarp platt yta. |
+| [get_ContourColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_contourcolor/) och [set_ContourWidth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Kontur runt 3D‑objektet. | Betona objektgränsen i den renderade utdata. |
 
-## **Skapa en 3D‑form**
+## **Skapa en 3D-form**
 
-En form behöver vanligtvis fyra typer av inställningar innan den ser övertygande 3D‑ut.
+En form behöver vanligtvis fyra typer av inställningar innan den ser övertygande 3D ut:
 
-- Kamerainställningar, eftersom standardframåtsyta kan dölja extrusionen.
-- Ljusinställningar, eftersom belysning gör ytorna och sidorna läsbara.
+- Kamerainställningar, eftersom standardframsidan kan dölja extrusionen.
+- Ljuseinställningar, eftersom belysning gör ytorna och sidorna läsbara.
 - Materialinställningar, eftersom ytan påverkar hur ljuset renderas.
-- Extrusions‑ eller djupinställningar, eftersom en platt form behöver tjocklek.
+- Extrusions- eller djupinställningar, eftersom en platt form behöver tjocklek.
 
-Följande exempel skapar en rektangel, lägger till text på dess främre yta och tillämpar 3D‑formatering. Kamerarotationsvärdena är i grader, och extrusionshöjden är 100 punkter. Exemplet renderar bilden till en PNG‑fil med dubbla standarddimensioner och sparar presentationen som PPTX.
+Följande exempel skapar en rektangel, lägger till text på dess främre yta och tillämpar 3D‑formatering. Kamerarotationsvärdena är i grader och extrusionshöjden är 100 punkter. Exemplet renderar bilden till en PNG‑fil med dubbla standarddimensioner och sparar presentationen som PPTX.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -116,16 +116,15 @@ presentation->Dispose();
 ```
 
 Den renderade bildsidan visar rektangeln som ett tjockt 3D‑block:
-
-![Renderad blå 3D‑rektangel med vit 3D‑text på främre yta](img_01_01.png)
+![Renderad blå 3D-rektangel med vit 3D-text på den främre ytan](img_01_01.png)
 
 ## **Rotera en form med kameran**
 
-I PowerPoint konfigureras 3D‑rotation via rutan 3‑D‑rotation. X‑, Y‑ och Z‑rotationsvärdena motsvarar rotationen du ställer in via kamera‑API:et.
+I PowerPoint konfigureras 3D‑rotation från rutan 3‑D Rotation. X‑, Y‑ och Z‑rotationsvärdena motsvarar rotationen du anger via kamera‑API:et.
 
-![PowerPoint‑rutan 3‑D‑rotation med X‑, Y‑ och Z‑rotationsvärden markerade](img_02_01.png)
+![PowerPoint‑rutan 3‑D Rotation med X-, Y- och Z‑rotationsvärden markerade](img_02_01.png)
 
-I Aspose.Slides får du åtkomst till kameran via [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_camera/). Detta exempel skapar en rektangel, väljer en ortografisk frontvy och sätter dess X‑, Y‑ och Z‑rotationer till 20, 30 respektive 40 grader. Det konfigurerar formen i minnet utan att spara en fil:
+I Aspose.Slides får du åtkomst till kameran via [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/). Detta exempel skapar en rektangel, väljer en ortografisk frontvy och sätter dess X‑, Y‑ och Z‑rotationer till 20, 30 respektive 40 grader. Det konfigurerar formen i minnet utan att spara en fil:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -150,15 +149,54 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 presentation->Dispose();
 ```
 
-Använd kameran när du behöver ändra hur betraktaren ser objektet. Den ändrar inte 2D‑formgeometrin på bilden. Den ändrar 3D‑vy‑punkten som används av PowerPoint och av Aspose.Slides vid rendering.
+Använd kameran när du behöver ändra hur betraktaren ser objektet. Den ändrar inte den 2D‑formen geometrin på bilden. Den ändrar 3D‑vy‑punkten som används av PowerPoint och av Aspose.Slides vid rendering.
+
+### **Kopiera kamerariktning från en mallform**
+
+För att matcha en mallforms kamerariktning, läs dess förinställning med [get_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/get_cameratype/) och tillämpa den med [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/). Exemplet öppnar `template.pptx` och kopierar kamerariktningen från den första formen på den första bilden till den andra formen. Båda formerna har redan 3D‑belysning, och den andra formen har ingen explicit kamerarotation.
+
+[GetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/getrotation/) returnerar vinklarna i grader. Index `0` är latitud, index `1` är longitud och index `2` är revolution. Skicka vinklarna till [SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) i den ordningen. Om källan saknar explicit rotation returnerar `GetRotation` en null‑pekare, så låt den andra formens vinklar vara odefinierade. En explicit rotation på `(0, 0, 0)` returnerar en array med tre nollor och bör kopieras.
+
+```cpp
+#include <DOM/ICamera.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto sourceCamera = slide->get_Shape(0)->get_ThreeDFormat()->get_Camera();
+auto destinationCamera = slide->get_Shape(1)->get_ThreeDFormat()->get_Camera();
+
+destinationCamera->set_CameraType(sourceCamera->get_CameraType());
+auto angles = sourceCamera->GetRotation();
+if (angles != nullptr)
+{
+    destinationCamera->SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation->Save(u"camera-copy.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+När du öppnar `camera-copy.pptx` igen i PowerPoint har pilen till höger samma kameraförinställning och rotation som rektangeln till vänster. Båda formerna använder samma belysning och extrusionsdjup.
+
+![En blå 3D-rektangel och en högerriktad pil med matchande kamerariktning, sedd från ovan och åt höger](camera-orientation.png)
 
 ## **Lägg till extrusion och djup**
 
-Extrusion får en form att se tjock ut genom att förlänga den bakom den främre ytan. I PowerPoint bestämmer djupkontrollen denna synliga tjocklek, och färgkontrollen sätter färgen på sidoytorna.
+Extrusion får en form att se tjock ut genom att den sträcker sig bakom den främre ytan. I PowerPoint styr djupkontrollen denna synliga tjocklek och färgkontrollen bestämmer färgen på sidoytorna.
 
-![PowerPoint‑djupkontroller kopplade till extrusion‑färg och extrusionshöjd‑egenskaper](img_02_02.png)
+![PowerPoint‑djupkontroller mappade till extrusionsfärg- och extrusionshöjdsegenskaper](img_02_02.png)
 
-Ställ in [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_extrusionheight/) för tjockleken och [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) för sidfärgen. Detta exempel ger en rektangel en 100‑punkts extrusion med lila sidor och roterar kameran för att visa dess tjocklek. Det konfigurerar formen i minnet utan att spara en fil:
+Ställ in [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) för tjockleken och [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) för sidfärgen. Detta exempel ger en rektangel en 100‑punkts extrusion med lila sidor och roterar kameran för att avslöja dess tjocklek. Det konfigurerar formen i minnet utan att spara en fil:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -197,13 +235,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-[IThreeDFormat::set_Depth](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_depth/)‑metoden sätter djupet för en 3D‑form. [set_ExtrusionHeight](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ithreedformat/set_extrusionheight/)‑metoden styr höjden på extrusionseffekten, som visas i detta exempel.
+[IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/)‑metoden anger djupet på en 3D‑form. [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/)‑metoden styr extrusions‑höjden, som visas i detta exempel.
 
 ## **Använd gradient‑ eller bildfyllningar med 3D‑effekter**
 
-3D‑formatering är oberoende av formens fyllning. Du kan tillämpa en solid färg, gradient, mönster eller bildfyllning på den främre ytan och fortfarande använda samma kamera-, ljus-, material- och extrusionsinställningar.
+3D‑formatering är oberoende av formens fyllning. Du kan applicera en solid färg, gradient, mönster eller bildfyllning på den främre ytan och fortfarande använda samma kamera, ljus, material och extrusionsinställningar.
 
-Detta exempel tillämpar en blå‑till‑orange gradient på den främre ytan och en mörkorange färg på 150‑punkts extrusionen. Gradientstopp vid 0 och 100 markerar början och slutet på gradienten. Kamerarotationsvärdena är i grader. Bilden renderas till en PNG‑fil med dubbla standarddimensioner:
+Detta exempel tillämpar en blå‑till‑orange gradient på den främre ytan och en mörkorange färg på 150‑punkts extrusionen. Gradientstoppens 0 och 100 markerar början och slutet på gradienten. Kamerarotationsvärdena är i grader. Bilden renderas till en PNG‑fil med dubbla standarddimensioner:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -264,11 +302,9 @@ thumbnail->Dispose();
 presentation->Dispose();
 ```
 
-Den renderade utdata behåller gradienten på den främre ytan och renderar extrusionen separat:
+![Renderad 3D-rektangel med en blå‑till‑orange gradientfyllning och orange extrusion](img_02_03.png)
 
-![Renderad 3D‑rektangel med blå‑till‑orange gradientfyllning och orange extrusion](img_02_03.png)
-
-För att använda en bildfyllning istället, lägg till bilden i presentationen och tilldela den till formens fyllning. Detta exempel kräver en befintlig fil med namn "image.jpg" i arbetskatalogen. Den sträcker bilden för att fylla rektangeln, tillämpar en 150‑punkts extrusion och sätter kamerarotation i grader. Den konfigurerar formen i minnet utan att spara eller rendera en fil:
+För att använda en bildfyllning istället, lägg till bilden i presentationen och tilldela den till formens fyllning. Detta exempel kräver en befintlig fil med namn "image.jpg" i arbetskatalogen. Det sträcker bilden för att fylla rektangeln, tillämpar en 150‑punkts extrusion och sätter kamerarotation i grader. Det konfigurerar formen i minnet utan att spara eller rendera en fil:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -321,15 +357,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-Bilden renderas på den främre ytan, medan extrusionen renderas som 3D‑sidoytan:
-
-![Renderad 3D‑rektangel med fotofyllning på den främre ytan och orange extrusion](img_02_04.png)
+![Renderad 3D-rektangel med ett foto på den främre ytan och orange extrusion](img_02_04.png)
 
 ## **Tillämpa 3D‑formatering på text**
 
-Formens 3D‑formatering påverkar formkroppen. Textens 3D‑formatering påverkar textrutan. Detta är användbart för WordArt‑liknande effekter där bokstäverna själva behöver extrusion, material, belysning och kamerainställningar.
+3D‑formatering av form påverkar själva formkroppen. 3D‑formatering av text påverkar textramen. Detta är användbart för WordArt‑liknande effekter där bokstäverna själva behöver extrusion, material, belysning och kamerainställningar.
 
-Följande exempel skapar text med ett orange‑och‑vitt rutmönster, tillämpar en uppåtriktad båge och konfigurerar 3D‑inställningarna via [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/get_threedformat/). Extrusionshöjden och djupet är i punkter, och ljusrotationen är i grader. Formens fyllning och kontur är dolda så att endast texten är synlig. Exemplet renderar en PNG‑fil med dubbla standarddimensioner och sparar presentationen som PPTX:
+Följande exempel skapar text med ett orange‑och‑vitt rutnätmönster, tillämpar en uppåtriktad båg och konfigurerar 3D‑inställningar via [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/). Extrusionshöjden och djupet är i punkter och ljusrotationen i grader. Formens fyllning och kontur är dolda så att endast texten syns. Exemplet renderar en PNG‑fil med dubbla standarddimensioner och sparar presentationen som PPTX:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -406,17 +440,15 @@ presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Texten renderas som krökt, extruderad 3D‑bokstavstext:
-
-![Renderad 3D‑text med en bågformad WordArt‑transformering, orange mönsterfyllning och mörk extrusion](img_02_05.png)
+![Renderad 3D‑text med en bågformad WordArt‑transform, orange mönsterfyllning och mörk extrusion](img_02_05.png)
 
 ## **Behåll text platt på en 3D‑form**
 
-För att hålla texten läsbar samtidigt som en forms 3D‑utseende bevaras, anropa [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_keeptextflat/) via [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/get_textframeformat/). När värdet är `true` hålls texten utanför 3D‑scenen. När det är `false` deltar texten i scenen och följer dess 3D‑orientering.
+För att hålla text läsbar samtidigt som en forms 3D‑utseende bevaras, anropa [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_keeptextflat/) via [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_textframeformat/). När värdet är `true` hålls texten utanför 3D‑scenen. När det är `false` deltar texten i scenen och följer dess 3D‑orientering.
 
-Denna inställning tar inte bort formens 3D‑formatering: dess kamera, belysning, material och extrusion förblir konfigurerade via [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/get_threedformat/). Det skiljer sig också från vanlig rotation. [IShape::set_Rotation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/set_rotation/) roterar formen i bildplanet, medan [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/set_rotationangle/) styr textens anpassade rotation inom dess omgivningsruta. Att hålla texten utanför 3D‑scenen återställer inte någon av dessa vinklar.
+Denna inställning tar inte bort formens 3D‑formatering: dess kamera, belysning, material och extrusion förblir konfigurerade via [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/). Den skiljer sig även från vanlig rotation. [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) roterar formen i bildplanen, medan [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) styr textens anpassade rotation inom dess avgränsningsruta. Att hålla texten utanför 3D‑scenen återställer inte någon av dessa vinklar.
 
-Det följande fristående exemplet skapar en blå rektangel med text och klonar den bredvid originalet. Båda formerna har samma 3D‑formatering; endast textinställningen skiljer sig: `false` till vänster och `true` till höger. Kamera‑vinklarna är i grader och extrusionshöjden är 40 punkter. Exemplet sparar presentationen som PPTX och renderar jämförelsesidan till PNG med dubbla standarddimensioner.
+Det följande fristående exemplet skapar en blå rektangel med text och klonar den bredvid originalet. Båda formerna har samma 3D‑formatering; endast textinställningen skiljer sig: `false` till vänster och `true` till höger. Kameravinklarna är i grader och extrusionshöjden är 40 punkter. Exemplet sparar presentationen som PPTX och renderar jämförelsesidan till PNG med dubbla standarddimensioner.
 
 ```cpp
 #include <DOM/ITextFrameFormat.h>
@@ -482,21 +514,18 @@ presentation->Dispose();
 ```
 
 Till vänster följer texten 3D‑orienteringen. Till höger förblir den platt och lättare att läsa. Båda rektanglarna behåller samma synliga extrusion och 3D‑orientering.
-
 ![Sida‑vid‑sida 3D‑rektanglar: KeepTextFlat är false till vänster och true till höger](keep_text_flat.png)
 
 ## **Export‑ och renderingsbeteende**
 
-Aspose.Slides bevarar 3D‑formatering vid sparande till PowerPoint‑format som PPTX. Vid rendering eller export till fasta layout‑format rasteriseras 3D‑scenen eller ritas in i utdata som ett 2D‑resultat. Detta gäller när du renderar bilder till [PNG](/slides/sv/cpp/convert-powerpoint-to-png/), exporterar till [PDF](/slides/sv/cpp/convert-powerpoint-to-pdf/), exporterar till [HTML](/slides/sv/cpp/convert-powerpoint-to-html/), eller genererar ramar för [videokonvertering](/slides/sv/cpp/convert-powerpoint-to-video/).
+Aspose.Slides bevarar 3D‑formatering när du sparar till PowerPoint‑format som PPTX. Vid rendering eller export till fasta layout‑format rasteriseras 3D‑scenen eller ritas in i utdata som ett 2D‑resultat. Detta gäller när du renderar bilder till [PNG](/slides/sv/cpp/convert-powerpoint-to-png/), exporterar till [PDF](/slides/sv/cpp/convert-powerpoint-to-pdf/), exporterar till [HTML](/slides/sv/cpp/convert-powerpoint-to-html/), eller genererar ramar för [videokonvertering](/slides/sv/cpp/convert-powerpoint-to-video/).
 
-Kom ihåg följande punkter:
-
-- Exporterade bilder och PDF‑filer är inte interaktiva. Objektet kan inte roteras av betraktaren efter export.
+- Exporterade bilder och PDF-filer är inte interaktiva. Objektet kan inte roteras av betraktaren efter export.
 - Det slutgiltiga utseendet beror på kombinationen av kamera, ljusrigg, material, extrusion, fyllning och bildskalning.
-- Om du behöver inspektera ärvda eller temabaserade formateringsvärden, läs [effektiva formegenskaper](/slides/sv/cpp/shape-effective-properties/).
-- Vissa utdataformat kan inte lagra redigerbar PowerPoint‑3D‑formatering. I dessa format renderas det visuella resultatet snarare än att bevaras som redigerbara 3D‑inställningar.
+- Om du behöver inspektera ärvda eller temabaserade formateringsvärden, läs de [effektiva formegenskaper](/slides/sv/cpp/shape-effective-properties/).
+- Vissa exportformat kan inte lagra redigerbar PowerPoint‑3D‑formatering. I dessa format renderas det visuella resultatet istället för att bevaras som redigerbara 3D‑inställningar.
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan Aspose.Slides skapa interaktiva 3D‑presentationer?**
 
@@ -504,20 +533,20 @@ Aspose.Slides skapar och renderar PowerPoint‑3D‑effekter för former och tex
 
 **Vad är skillnaden mellan en 3D‑modell och en 3D‑effekt?**
 
-En 3D‑modell är ett separat 3D‑objekt som infogas i en presentation. En 3D‑effekt är formatering som tillämpas på en vanlig PowerPoint‑form eller -text, såsom rotation, extrusion, avfasning, belysning och material. Denna artikel behandlar 3D‑effekter.
+En 3D‑modell är ett separat 3D‑objekt som infogas i en presentation. En 3D‑effekt är formatering som tillämpas på en vanlig PowerPoint‑form eller text, såsom rotation, extrusion, avfasning, belysning och material. Denna artikel behandlar 3D‑effekter.
 
 **Vilka inställningar krävs för en synlig 3D‑form?**
 
-Som minimum måste du sätta en kamerarotation och antingen extrusion eller djup. I praktiken bör du också sätta en ljusrigg och material så att de renderade ytorna får tydliga högdagrar och skuggor.
+Som minimum, ange en kamerarotation och antingen extrusion eller djup. I praktiken bör du också ange en ljusrigg och material så att de renderade ytorna får tydliga högdagrar och skuggor.
 
 **Kan jag tillämpa 3D‑effekter på både former och text?**
 
-Ja. Använd [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/get_threedformat/) för formkroppen och [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframeformat/get_threedformat/) för text.
+Ja. Använd [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) för formens kropp och [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) för text.
 
-**Kommer 3D‑effekter att visas vid export till bilder, PDF, HTML eller videoramar?**
+**Kommer 3D‑effekter att visas vid export till bilder, PDF, HTML eller videoramverk?**
 
-Ja. Aspose.Slides renderar 3D‑effekter när du producerar bildutdata, PDF‑utdata, HTML‑utdata och ramar som används för videokonvertering. Den exporterade utdata innehåller den renderade utseendet, inte ett redigerbart 3D‑objekt.
+Ja. Aspose.Slides renderar 3D‑effekter när bildspel renderas till bildfiler, PDF, HTML och ramar som används för videokonvertering. den exporterade utdata innehåller den renderade utseendet, inte ett redigerbart 3D‑objekt.
 
 **Kan jag läsa de slutgiltiga 3D‑värdena efter arv och temainställningar har tillämpats?**
 
-Ja. Använd de effektiva formaterings‑API:erna som beskrivs i [Shape Effective Properties](/slides/sv/cpp/shape-effective-properties/) för att läsa de slutgiltiga kamer‑, ljusrigg‑, avfasnings‑ och relaterade 3D‑värdena.
+Ja. Använd de effektiva formaterings‑APIerna som beskrivs i [Formens effektiva egenskaper](/slides/sv/cpp/shape-effective-properties/) för att läsa slutgiltiga kamera‑, ljusrigg‑, avfasnings‑ och relaterade 3D‑värden.

@@ -9,52 +9,50 @@ keywords:
 - 3D प्रस्तुति
 - 3D घूर्णन
 - 3D गहराई
-- 3D एक्सट्रूजन
+- 3D एक्सट्रूज़न
 - 3D ग्रेडिएंट
 - 3D टेक्स्ट
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides के साथ C++ में PowerPoint आकार और टेक्स्ट के लिए 3D प्रभाव लागू करें और रेंडर करें। कैमरा, प्रकाश, सामग्री, एक्सट्रूजन, भराव, और 3D टेक्स्ट को कॉन्फ़िगर करें।"
+description: "Aspose.Slides के साथ C++ में PowerPoint आकारों और टेक्स्ट के लिए 3D प्रभाव लागू करें और रेंडर करें। कैमरा, लाइटिंग, सामग्री, एक्सट्रूज़न, भराव, और 3D टेक्स्ट को कॉन्फ़िगर करें।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-Aspose.Slides for C++ आकार और टेक्स्ट के लिए PowerPoint-शैली के 3D फ़ॉर्मेटिंग को बना, संपादित, संरक्षित और रेंडर कर सकता है। यह लेख 3D प्रभावों जैसे घुमाव, एक्सट्रुजन, बिवेल, प्रकाश, सामग्री, ग्रेडिएंट या चित्र भराव, और 3D टेक्स्ट को कवर करता है।
+Aspose.Slides for C++ आकारों और टेक्स्ट के लिए PowerPoint‑शैली के 3D फ़ॉर्मेटिंग को बना, संपादित, संरक्षित और रेंडर कर सकता है। यह लेख घूर्णन, एक्सट्रूज़न, बिवेल, प्रकाश, सामग्री, ग्रेडिएंट या चित्र भराव, और 3D टेक्स्ट जैसे 3D प्रभावों को कवर करता है।
 
-{{% alert color="info" title="Note" %}}
-इस लेख में PowerPoint आकार और टेक्स्ट पर 3D फ़ॉर्मेटिंग प्रभावों के बारे में बताया गया है। यह स्वतंत्र 3D मॉडल फाइलों को सम्मिलित या संपादित करने के बारे में नहीं है। जब आप स्लाइड को इमेज, PDF, या HTML में निर्यात करते हैं, तो Aspose.Slides उन 3D प्रभावों को निर्यात किए गए 2D आउटपुट में रेंडर करता है।
+{{% alert color="info" title="नोट" %}}
+यह लेख PowerPoint आकारों और टेक्स्ट पर 3D फ़ॉर्मेटिंग प्रभावों के बारे में है। यह अलग‑थलग 3D मॉडल फ़ाइलों को सम्मिलित या संपादित करने के बारे में नहीं है। जब आप स्लाइड को छवि, PDF या HTML में निर्यात करते हैं, तो Aspose.Slides उन 3D प्रभावों को निर्यातित 2D आउटपुट में रेंडर करता है।
 {{% /alert %}}
 
 ## **3D फ़ॉर्मेटिंग अवधारणाएँ**
 
-एक आकार पर 3D फ़ॉर्मेटिंग लागू करने के लिए [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/get_threedformat/) मेथड का उपयोग करें। यह मेथड [IThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/) लौटाता है, जो उस आकार के लिए 3D सीन को नियंत्रित करता है।
+एक आकार पर 3D फ़ॉर्मेटिंग लागू करने के लिए [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) मेथड का उपयोग करें। यह मेथड [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/) लौटाता है, जो उस आकार के लिए 3D सीन को नियंत्रित करता है।
 
-टेक्स्ट के लिए, [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/get_threedformat/) मेथड का उपयोग करें। यह आकार के बॉडी की बजाय टेक्स्ट फ्रेम पर 3D फ़ॉर्मेटिंग लागू करता है।
+टेक्स्ट के लिए, [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) मेथड का उपयोग करें। यह आकार बॉडी के बजाय टेक्स्ट फ्रेम पर 3D फ़ॉर्मेटिंग लागू करता है।
 
 सबसे महत्वपूर्ण मेथड्स हैं:
 
-| विधि | यह क्या नियंत्रित करता है | कब उपयोग करें |
+| मेथड | यह क्या नियंत्रित करता है | कब उपयोग करें |
 |---|---|---|
-| [get_Camera](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_camera/) | दृश्य बिंदु, पूर्वनिर्धारित कैमरा प्रकार, घुमाव, ज़ूम, और परिप्रेक्ष्य। | ऑब्जेक्ट को 3D स्थान में घुमाने या PowerPoint 3D घुमाव प्रीसेट से मेल करने के लिए। |
-| [get_LightRig](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_lightrig/) | प्रकाश का प्रीसेट, दिशा, और प्रकाश घुमाव। | 3D सतह पर हाइलाइट और शेडो कैसे दिखते हैं, इसे बदलने के लिए। |
-| [set_Material](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_material/) | सतह सामग्री, जैसे सपाट, मैट, प्लास्टिक, या धातु। | एक ही ज्यामिति को अधिक सपाट, मुलायम, चमकदार या धातु जैसी बनाने के लिए। |
-| [set_ExtrusionHeight](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | आकार अपनी सामने की सतह से पीछे कितनी दूर तक विस्तारित होता है। | सपाट आकार को स्पष्ट रूप से मोटी 3D वस्तु में बदलने के लिए। |
-| [get_ExtrusionColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | अतिरिक्त पक्षों का रंग। | गहराई को दृश्यमान बनाने या साइड रंग को सामने के फिल के साथ तालमेल रखने के लिए। |
-| [set_Depth](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_depth/) | PowerPoint 3D फ़ॉर्मेटिंग द्वारा उपयोग किया गया अतिरिक्त 3D गहराई। | आकार या टेक्स्ट की गहराई को बारीकी से समायोजित करने के लिए, विशेष रूप से बिवेल और सामग्री सेटिंग्स के साथ। |
-| [get_BevelTop](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_beveltop/) और [get_BevelBottom](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | सामने और पीछे की सतहों पर उठे या गोल किनारे। | तीखा सपाट चेहरा की बजाय मुलायम या ढाला हुआ किनारा जोड़ने के लिए। |
-| [get_ContourColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_contourcolor/) और [set_ContourWidth](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_contourwidth/) | 3D वस्तु के चारों ओर रूपरेखा। | रेंडर किए गए आउटपुट में वस्तु की सीमा को उजागर करने के लिए। |
+| [get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) | व्यू पॉइंट, प्रीसेट कैमरा प्रकार, घूर्णन, ज़ूम और परिप्रेक्ष्य। | 3D स्थान में ऑब्जेक्ट को घुमाएँ या PowerPoint 3D घूर्णन प्रीसेट से मेल कराएँ। |
+| [get_LightRig](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_lightrig/) | लाइट प्रीसेट, दिशा और लाइट घूर्णन। | 3D सतह पर हाइलाइट्स और शैडोज़ कैसे दिखाई दें, इसे बदलें। |
+| [set_Material](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_material/) | सतह सामग्री, जैसे फ्लैट, मैट, प्लास्टिक, या धातु। | एक ही ज्योमेट्री को अधिक सपाट, नरम, चमकदार, या धातु जैसा दिखाएँ। |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | आकार की सामने की सतह से पीछे तक कितना विस्तार होता है। | एक फ्लैट आकार को स्पष्ट रूप से मोटी 3D वस्तु में बदलें। |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | एक्सट्रूडेड पक्षों का रंग। | गहराई दिखाने या साइड रंग को सामने के भराव के साथ समन्वयित करने के लिये। |
+| [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) | PowerPoint 3D फ़ॉर्मेटिंग द्वारा उपयोग की जाने वाली अतिरिक्त 3D गहराई। | आकार या टेक्स्ट के लिए गहराई को बिवेल और मैटेरियल सेटिंग्स के साथ सूक्ष्म रूप से समायोजित करें। |
+| [get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) और [get_BevelBottom](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | सामने और पीछे के फेस पर उठे या गोल किनारे। | तीखे फ्लैट फेस के बजाय नरम या ढलाई वाले किनारे जोड़ें। |
+| [get_ContourColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_contourcolor/) और [set_ContourWidth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_contourwidth/) | 3D ऑब्जेक्ट के चारों ओर रूपरेखा। | रेंडर आउटपुट में ऑब्जेक्ट की सीमा को प्रभावी बनाएं। |
 
 ## **3D आकार बनाना**
 
-एक आकार को विश्वसनीय 3D दिखने के लिए आमतौर पर चार प्रकार की सेटिंग्स की आवश्यकता होती है:
+- कैमरा सेटिंग्स, क्योंकि डिफ़ॉल्ट फ्रंट व्यू एक्सट्रूज़न को छिपा सकता है।
+- लाइट सेटिंग्स, क्योंकि प्रकाश सतहों को पढ़ने योग्य बनाता है।
+- मैटेरियल सेटिंग्स, क्योंकि सतह यह निर्धारित करती है कि प्रकाश कैसे रेंडर होता है।
+- एक्सट्रूज़न या गहराई सेटिंग्स, क्योंकि फ्लैट आकार को मोटाई चाहिए।
 
-- कैमरा सेटिंग्स, क्योंकि डिफ़ॉल्ट फ्रंट व्यू एक्सट्रुशन को छुपा सकता है।
-- लाइट सेटिंग्स, क्योंकि प्रकाश चेहरे और किनारों को पढ़ने योग्य बनाता है।
-- मैटेरियल सेटिंग्स, क्योंकि सतह यह प्रभावित करती है कि प्रकाश कैसे रेंडर होता है।
-- एक्सट्रुशन या डेप्थ सेटिंग्स, क्योंकि सपाट आकार को मोटाई चाहिए।
-
-निम्न उदाहरण एक आयत बनाता है, उसकी सामने की सतह पर टेक्स्ट जोड़ता है, और 3D फ़ॉर्मेटिंग लागू करता है। कैमरा घुमाव मान डिग्री में हैं, और एक्सट्रुशन ऊँचाई 100 पॉइंट है। उदाहरण स्लाइड को दो गुना डिफ़ॉल्ट आयामों पर PNG इमेज में रेंडर करता है और प्रस्तुति को PPTX के रूप में सहेजता है।
+निम्न उदाहरण एक आयत बनाता है, उसकी सामने की सतह पर टेक्स्ट जोड़ता है, और 3D फ़ॉर्मेटिंग लागू करता है। कैमरा घूर्णन मान डिग्री में हैं, और एक्सट्रूज़न ऊँचाई 100 पॉइंट है। उदाहरण स्लाइड को PNG छवि में दो गुना डिफ़ॉल्ट आकार में रेंडर करता है और प्रस्तुति को PPTX के रूप में सहेजता है:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -115,17 +113,15 @@ presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-रेंडर किया हुआ स्लाइड इमेज आयत को एक मोटी 3D ब्लॉक के रूप में दिखाता है:
+![सामने की सतह पर सफ़ेद 3D टेक्स्ट के साथ रेंडर किया गया नीला 3D आयत](img_01_01.png)
 
-![रेंडर किया गया नीला 3D आयत, सामने की सतह पर सफ़ेद 3D टेक्स्ट के साथ](img_01_01.png)
+## **कैमरा के साथ आकार घुमाएँ**
 
-## **कैमरा से आकार को घुमाना**
+PowerPoint में, 3D घूर्णन को 3‑D Rotation पैन से कॉन्फ़िगर किया जाता है। X, Y, और Z घूर्णन मान कैमरा API के माध्यम से सेट किए गए घूर्णन के अनुरूप होते हैं।
 
-PowerPoint में, 3D घुमाव को 3-D Rotation पेन से कॉन्फ़िगर किया जाता है। X, Y, और Z घुमाव मान कैमरा API के माध्यम से सेट किए गए घुमाव से मेल खाते हैं।
+![PowerPoint 3‑D घूर्णन पैन जिसमें X, Y, और Z घूर्णन मान हाइलाइट किए गए हैं](img_02_01.png)
 
-![PowerPoint 3-D Rotation पेन जिसमें X, Y, और Z घुमाव मान हाइलाइट किए गए हैं](img_02_01.png)
-
-Aspose.Slides में, कैमरा को [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_camera/) के माध्यम से एक्सेस करें। यह उदाहरण एक आयत बनाता है, एक ऑर्थोग्राफिक फ्रंट व्यू चुनता है, और क्रमशः उसके X, Y, और Z घुमाव को 20, 30, और 40 डिग्री पर सेट करता है। यह आकार को मेमोरी में कॉन्फ़िगर करता है बिना फ़ाइल सहेजे:
+Aspose.Slides में, कैमरा तक पहुँचने के लिए [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) का उपयोग करें। यह उदाहरण एक आयत बनाता है, ऑर्थोग्राफ़िक फ्रंट व्यू चुनता है, और उसके X, Y, और Z घूर्णन को क्रमशः 20, 30, और 40 डिग्री पर सेट करता है। यह आकार को मेमोरी में कॉन्फ़िगर करता है बिना फ़ाइल सहेजे:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -150,15 +146,54 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 presentation->Dispose();
 ```
 
-जब आपको दर्शक की वस्तु के देखने के तरीके को बदलना हो तो कैमरा का उपयोग करें। यह स्लाइड पर 2D आकार ज्यामिति को नहीं बदलता। यह PowerPoint और Aspose.Slides द्वारा रेंडरिंग के समय उपयोग किए जाने वाले 3D दृष्टिकोण को बदलता है।
+जब आपको वरीयता चाहिए कि दर्शक वस्तु को कैसे देखे, तब कैमरा का उपयोग करें। यह स्लाइड पर 2D आकार ज्योमेट्री को नहीं बदलता; यह PowerPoint और Aspose.Slides द्वारा रेंडरिंग के समय उपयोग किए जाने वाले 3D दृश्य बिंदु को बदलता है।
 
-## **एक्सट्रुजन और डेप्थ जोड़ें**
+### **टेम्प्लेट आकार से कैमरा अभिविन्यास कॉपी करें**
 
-एक्सट्रुजन एक आकार को सामने की सतह के पीछे विस्तारित करके उसे मोटा दिखाता है। PowerPoint में, डेप्थ नियंत्रण इस दृश्यमान मोटाई को सेट करता है, और रंग नियंत्रण साइड फेस का रंग निर्धारित करता है।
+टेम्प्लेट आकार की कैमरा अभिविन्यास से मेल पाने के लिये, उसके प्रीसेट को [get_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/get_cameratype/) से पढ़ें और [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) से लागू करें। उदाहरण `template.pptx` खोलता है और पहले स्लाइड के पहले आकार से कैमरा अभिविन्यास को दूसरे आकार में कॉपी करता है। दोनों आकारों में पहले से ही 3D लाइटिंग है, और दूसरे आकार में कोई स्पष्ट कैमरा घूर्णन नहीं है।
 
-![PowerPoint डेप्थ कंट्रोल्स जो एक्सट्रुशन रंग और एक्सट्रुशन ऊँचाई प्रॉपर्टीज़ से जुड़े हैं](img_02_02.png)
+[GetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/getrotation/) कोणों को डिग्री में लौटाता है। इंडेक्स `0` अक्षांश, `1` देशांतर, और `2` फेरेन्ट है। इन क्रम में कोणों को [SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) को पास करें। यदि स्रोत में स्पष्ट घूर्णन नहीं है, तो `GetRotation` null पॉइंटर लौटाता है, इसलिए दूसरे आकार के कोण को अनसेट रखें। `(0, 0, 0)` का स्पष्ट घूर्णन तीन शून्य का एरे लौटाता है और उसे कॉपी किया जाना चाहिए।
 
-मोटाई के लिए [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_extrusionheight/) सेट करें और साइड रंग के लिए [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) उपयोग करें। यह उदाहरण आयत को 100 पॉइंट एक्सट्रुजन के साथ बैंगनी साइड्स देता है और उसकी मोटाई दिखाने के लिए कैमरा को घुमाता है। यह आकार को मेमोरी में कॉन्फ़िगर करता है बिना फ़ाइल सहेजे:
+```cpp
+#include <DOM/ICamera.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto sourceCamera = slide->get_Shape(0)->get_ThreeDFormat()->get_Camera();
+auto destinationCamera = slide->get_Shape(1)->get_ThreeDFormat()->get_Camera();
+
+destinationCamera->set_CameraType(sourceCamera->get_CameraType());
+auto angles = sourceCamera->GetRotation();
+if (angles != nullptr)
+{
+    destinationCamera->SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation->Save(u"camera-copy.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+जब आप `camera-copy.pptx` को PowerPoint में पुनः खोलते हैं, तो दाएँ ओर का तीर बाएँ आयत के समान कैमरा प्रीसेट और घूर्णन रखता है। दोनों आकार समान लाइटिंग और एक्सट्रूज़न गहराई का उपयोग करते हैं।
+
+![एक नीला 3D आयत और मिलते-जुलते कैमरा अभिविन्यास वाले दायें दिशा के तीर, ऊपर और दायें से देखे गए](camera-orientation.png)
+
+## **एक्सट्रूज़न और गहराई जोड़ें**
+
+एक्सट्रूज़न एक आकार को सामने की सतह से पीछे की ओर विस्तारित करके मोटा बनाता है। PowerPoint में, गहराई नियंत्रण इस दृश्य मोटी को निर्धारित करता है, और रंग नियंत्रण साइड फेस के रंग को निर्धारित करता है।
+
+![PowerPoint गहराई नियंत्रण जो एक्सट्रूज़न रंग और एक्सट्रूज़न ऊँचाई गुणों से मैप किए गए हैं](img_02_02.png)
+
+मोटाई के लिए [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) सेट करें और साइड रंग के लिए [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) सेट करें। यह उदाहरण आयत को 100‑पॉइंट एक्सट्रूज़न के साथ बैंगनी साइड्स देता है और कैमरा को घुमाकर उसकी मोटाई दिखाता है। यह आकार को मेमोरी में कॉन्फ़िगर करता है बिना फ़ाइल सहेजे:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -197,13 +232,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-[IThreeDFormat::set_Depth](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_depth/) मेथड 3D आकार की गहराई सेट करता है। [set_ExtrusionHeight](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ithreedformat/set_extrusionheight/) मेथड एक्सट्रुशन प्रभाव की ऊँचाई नियंत्रित करता है, जैसा कि इस उदाहरण में दिखाया गया है।
+[IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) मेथड 3D आकार की गहराई सेट करता है। [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) मेथड एक्सट्रूज़न प्रभाव की ऊँचाई को नियंत्रित करता है, जैसा कि इस उदाहरण में दिखाया गया है।
 
-## **3D प्रभावों के साथ ग्रेडिएंट या चित्र भराव का उपयोग करें**
+## **3D प्रभावों के साथ ग्रेडिएंट या पिक्चर फ़िल्स का उपयोग करें**
 
-3D फ़ॉर्मेटिंग आकार भराव से स्वतंत्र है। आप सामने की सतह पर सॉलिड रंग, ग्रेडिएंट, पैटर्न, या चित्र भराव लागू कर सकते हैं और फिर भी वही कैमरा, लाइट, सामग्री, और एक्सट्रुजन सेटिंग्स उपयोग कर सकते हैं।
+3D फ़ॉर्मेटिंग आकार भराव से स्वतंत्र है। आप सामने की सतह पर ठोस रंग, ग्रेडिएंट, पैटर्न, या चित्र भराव लागू कर सकते हैं और वही कैमरा, लाइट, मैटेरियल, और एक्सट्रूज़न सेटिंग्स रख सकते हैं।
 
-यह उदाहरण सामने की सतह पर नीले से नारंगी ग्रेडिएंट लागू करता है और 150 पॉइंट एक्सट्रुजन पर डार्क ऑरेंज रंग सेट करता है। ग्रेडिएंट को 0 और 100 पर रोक दिया गया है जो क्रमशः ग्रेडिएंट की शुरुआत और अंत को दर्शाते हैं। कैमरा घुमाव मान डिग्री में हैं। स्लाइड को दो गुना डिफ़ॉल्ट आयामों पर PNG इमेज में रेंडर किया गया है:
+यह उदाहरण सामने की सतह पर नीले‑से‑नारंगी ग्रेडिएंट और 150‑पॉइंट एक्सट्रूज़न पर डार्क नारंगी रंग लागू करता है। ग्रेडिएंट स्टॉप 0 और 100 संकेत करता है जहाँ ग्रेडिएंट शुरू और समाप्त होता है। कैमरा घूर्णन मान डिग्री में हैं। स्लाइड को दो गुना डिफ़ॉल्ट आकार में PNG छवि में रेंडर किया गया है:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -264,9 +299,9 @@ thumbnail->Dispose();
 presentation->Dispose();
 ```
 
-![रेंडर किया गया 3D आयत, नीले से नारंगी ग्रेडिएंट भराव और नारंगी एक्सट्रुशन के साथ](img_02_03.png)
+![नीले से नारंगी ग्रेडिएंट फ़िल और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत](img_02_03.png)
 
-चित्र भराव का उपयोग करने के लिए, इमेज को प्रस्तुति में जोड़ें और उसे आकार भराव में असाइन करें। इस उदाहरण को कार्यशील डायरेक्टरी में "image.jpg" नाम की मौजूदा फ़ाइल चाहिए। यह चित्र को आयत भरने के लिए खींचता है, 150 पॉइंट एक्सट्रुशन लागू करता है, और कैमरा घुमाव को डिग्री में सेट करता है। यह आकार को मेमोरी में कॉन्फ़िगर करता है बिना फ़ाइल सहेजे या रेंडर किए:
+चित्र भराव का उपयोग करने के लिए, चित्र को प्रस्तुति में जोड़ें और उसे आकार भराव में असाइन करें। इस उदाहरण में कार्य निर्देशिका में "image.jpg" नाम की फ़ाइल मौजूद होनी चाहिए। चित्र को आयत में भरने के लिये स्ट्रेच किया जाता है, 150‑पॉइंट एक्सट्रूज़न लगाया जाता है, और कैमरा घूर्णन डिग्री में सेट किया जाता है। यह आकार को मेमोरी में कॉन्फ़िगर करता है बिना फ़ाइल सहेजे या रेंडर किए:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -319,13 +354,15 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-![रेंडर किया गया 3D आयत, सामने की सतह पर फोटो भराव और नारंगी एक्सट्रुशन के साथ](img_02_04.png)
+चित्र सामने की सतह पर रेंडर होता है, जबकि एक्सट्रूज़न 3D साइड सतह के रूप में रेंडर होता है:
 
-## **टेक्स्ट पर 3D फ़ॉर्मेटिंग लागू करना**
+![सामने की सतह पर फोटो फ़िल और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत](img_02_04.png)
 
-आकार 3D फ़ॉर्मेटिंग आकार के बॉडी को प्रभावित करती है। टेक्स्ट 3D फ़ॉर्मेटिंग टेक्स्ट फ्रेम को प्रभावित करती है। यह WordArt जैसी प्रभावों के लिए उपयोगी है जहाँ अक्षरों को स्वयं एक्सट्रुजन, सामग्री, प्रकाश और कैमरा सेटिंग्स की आवश्यकता होती है।
+## **टेक्स्ट पर 3D फ़ॉर्मेटिंग लागू करें**
 
-निम्न उदाहरण एक ऑरेंज-और-व्हाइट ग्रिड पैटर्न के साथ टेक्स्ट बनाता है, उपर की ओर एक आर्क लागू करता है, और 3D सेटिंग्स को [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/get_threedformat/) के माध्यम से कॉन्फ़िगर करता है। एक्सट्रुशन ऊँचाई और डेप्थ पॉइंट में हैं, और लाइट घुमाव डिग्री में है। आकार भराव और रूपरेखा छिपी हुई हैं ताकि केवल टेक्स्ट ही दिखे। उदाहरण डिफ़ॉल्ट स्लाइड आयामों के दो गुना पर PNG इमेज रेंडर करता है और प्रस्तुति को PPTX के रूप में सहेजता है:
+आकार की 3D फ़ॉर्मेटिंग आकार बॉडी को प्रभावित करती है। टेक्स्ट की 3D फ़ॉर्मेटिंग टेक्स्ट फ्रेम को प्रभावित करती है। यह WordArt‑समान प्रभावों के लिये उपयोगी है जहाँ अक्षर स्वयं को एक्सट्रूज़न, मैटेरियल, लाइटिंग, और कैमरा सेटिंग्स की आवश्यकता होती है।
+
+निम्न उदाहरण एक ऑरेंज‑और‑व्हाइट ग्रिड पैटर्न के साथ टेक्स्ट बनाता है, ऊपर की ओर आर्च लागू करता है, और [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) के माध्यम से 3D सेटिंग्स कॉन्फ़िगर करता है। एक्सट्रूज़न ऊँचाई और गहराई पॉइंट में तथा लाइट घूर्णन डिग्री में हैं। आकार भराव और रूपरेखा छिपी हुई है ताकि केवल टेक्स्ट दिखे। उदाहरण PNG छवि को दो गुना डिफ़ॉल्ट स्लाइड आकार में रेंडर करता है और प्रस्तुति को PPTX के रूप में सहेजता है:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -402,15 +439,15 @@ presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![रेंडर किया गया 3D टेक्स्ट, आर्ड WordArt ट्रांसफ़ॉर्म, ऑरेंज पैटर्न भराव, और डार्क एक्सट्रुजन के साथ](img_02_05.png)
+![आर्च्ड WordArt ट्रांसफ़ॉर्म, नारंगी पैटर्न फ़िल और डार्क एक्सट्रूज़न के साथ रेंडर किया गया 3D टेक्स्ट](img_02_05.png)
 
-## **3D आकार पर टेक्स्ट को सपाट रखें**
+## **3D आकार पर टेक्स्ट को समतल रखें**
 
-शेप की 3D उपस्थिति को बनाए रखते हुए टेक्स्ट को पढ़ने योग्य रखने के लिए, [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_textframeformat/) के माध्यम से [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_keeptextflat/) को कॉल करें। जब मान `true` हो, तो टेक्स्ट 3D सीन से बाहर रहता है। जब यह `false` हो, तो टेक्स्ट सीन में भाग लेता है और उसकी 3D अभिविन्यास का पालन करता है।
+टेक्स्ट को 3D सीन से बाहर रखने के लिए [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_keeptextflat/) को [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_textframeformat/) के माध्यम से कॉल करें। जब मान `true` हो, तो टेक्स्ट 3D सीन से बाहर रहता है। जब `false` हो, तो टेक्स्ट सीन में भाग लेता है और उसकी 3D अभिविन्यास का अनुसरण करता है।
 
-यह सेटिंग आकार के 3D फ़ॉर्मेटिंग को नहीं हटाती: उसका कैमरा, लाइटिंग, सामग्री और एक्सट्रुजन [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/get_threedformat/) के माध्यम से कॉन्फ़िगर रहता है। यह सामान्य घुमाव से भी अलग है। [IShape::set_Rotation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/set_rotation/) स्लाइड समतल में आकार को घुमाता है, जबकि [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_rotationangle/) टेक्स्ट के बाउंडिंग बॉक्स के भीतर कस्टम घुमाव को नियंत्रित करता है। टेक्स्ट को 3D सीन से बाहर रखने से उन कोणों को रीसेट नहीं किया जाता।
+यह सेटिंग आकार की 3D फ़ॉर्मेटिंग को नहीं हटाती: उसका कैमरा, लाइटिंग, मैटेरियल, और एक्सट्रूज़न अभी भी [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) के द्वारा कॉन्फ़िगर रहता है। यह सामान्य घूर्णन से भी अलग है। [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) स्लाइड प्लेन में आकार को घुमाता है, जबकि [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) टेक्स्ट के बॉक्स के भीतर कस्टम घूर्णन नियंत्रित करता है। टेक्स्ट को 3D सीन से बाहर रखने से उन कोणों में से कोई भी रीसेट नहीं होता।
 
-निम्न स्व-समाहित उदाहरण एक नीला आयत टेक्स्ट के साथ बनाता है और उसे मूल के बगल में क्लोन करता है। दोनों आकारों में समान 3D फ़ॉर्मेटिंग है; केवल टेक्स्ट सेटिंग अलग है: बाएँ पर `false` और दाएँ पर `true`। कैमरा कोण डिग्री में हैं, और एक्सट्रुजन ऊँचाई 40 पॉइंट है। उदाहरण प्रस्तुति को PPTX के रूप में सहेजता है और तुलना स्लाइड को डिफ़ॉल्ट आयामों के दो गुना पर PNG में रेंडर करता है।
+निम्न स्वनिर्भर उदाहरण एक नीले आयत को टेक्स्ट के साथ बनाता है और उसे मूल आकार के बगल में क्लोन करता है। दोनों आकारों में समान 3D फ़ॉर्मेटिंग है; केवल टेक्स्ट सेटिंग अलग है: बाएँ पर `false` और दाएँ पर `true`। कैमरा कोण डिग्री में हैं, और एक्सट्रूज़न ऊँचाई 40 पॉइंट है। उदाहरण प्रस्तुति को PPTX के रूप में सहेजता है और तुलना स्लाइड को PNG में दो गुना डिफ़ॉल्ट आकार में रेंडर करता है।
 
 ```cpp
 #include <DOM/ITextFrameFormat.h>
@@ -475,41 +512,43 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-बाएँ पर, टेक्स्ट 3D अभिविन्यास का अनुसरण करता है। दाएँ पर, यह सपाट रहता है और पढ़ने में आसान होता है। दोनों आयत समान दृश्यमान एक्सट्रुजन और 3D अभिविन्यास को बनाए रखते हैं।
+बाएँ पर टेक्स्ट 3D अभिविन्यास का अनुसरण करता है। दाएँ पर टेक्स्ट समतल रहता है और पढ़ने में आसान है। दोनों आयत समान दृश्यमान एक्सट्रूज़न और 3D अभिविन्यास बनाये रखते हैं।
 
-![साइड-बाय-साइड 3D आयत: बाएँ पर KeepTextFlat false और दाएँ पर true है](keep_text_flat.png)
+![साइड बाय साइड 3D आयत: बाएँ पर KeepTextFlat false और दाएँ पर true](keep_text_flat.png)
 
 ## **निर्यात और रेंडरिंग व्यवहार**
 
-Aspose.Slides PPTX जैसी PowerPoint फॉर्मैट्स में सहेजते समय 3D फ़ॉर्मेटिंग को संरक्षित रखता है। रेंडरिंग या फिक्स्ड-लेआउट फॉर्मैट्स में निर्यात करते समय, 3D सीन को रास्टराइज़ या 2D परिणाम के रूप में आउटपुट में खींचा जाता है। यह तब लागू होता है जब आप स्लाइड्स को [PNG](/slides/hi/cpp/convert-powerpoint-to-png/) में रेंडर करते हैं, [PDF](/slides/hi/cpp/convert-powerpoint-to-pdf/) में निर्यात करते हैं, [HTML](/slides/hi/cpp/convert-powerpoint-to-html/) में निर्यात करते हैं, या [वीडियो रूपांतरण](/slides/hi/cpp/convert-powerpoint-to-video/) के लिए फ्रेम बनाते हैं।
+Aspose.Slides PowerPoint फ़ॉर्मेट जैसे PPTX में सहेजते समय 3D फ़ॉर्मेटिंग को संरक्षित रखता है। जब रेंडरिंग या निर्यात स्थिर‑लेआउट फ़ॉर्मेट्स में किया जाता है, तो 3D सीन को रास्टराइज़ किया जाता है या आउटपुट में 2D परिणाम के रूप में खींचा जाता है। यह तब लागू होता है जब आप स्लाइड को [PNG](/slides/hi/cpp/convert-powerpoint-to-png/), [PDF](/slides/hi/cpp/convert-powerpoint-to-pdf/), [HTML](/slides/hi/cpp/convert-powerpoint-to-html/) में रेंडर करते हैं, या [वीडियो कन्वर्ज़न](/slides/hi/cpp/convert-powerpoint-to-video/) के लिए फ्रेम बनाते हैं।
 
-- निर्यात की गई इमेज और PDF इंटरैक्टिव नहीं होते। निर्यात के बाद दर्शक वस्तु को घुमा नहीं सकता।
-- अंतिम रूप कैमरा, लाइट रिग, सामग्री, एक्सट्रुजन, भराव, और स्लाइड स्केलेशन के संयोजन पर निर्भर करता है।
-- यदि आपको इनहेरिटेड या थीम-आधारित फ़ॉर्मेटिंग मूल्यों को देखना है, तो [effective shape properties](/slides/hi/cpp/shape-effective-properties/) पढ़ें।
-- कुछ आउटपुट फॉर्मैट्स में संपादित करने योग्य PowerPoint 3D फ़ॉर्मेटिंग सहेजा नहीं जा सकता। उन फॉर्मैट्स में, दृश्य परिणाम को रेंडर किया जाता है न कि संपादित करने योग्य 3D सेटिंग्स के रूप में संरक्षित किया जाता।
+इन बिंदुओं को ध्यान में रखें:
 
-## **FAQ**
+- निर्यातित छवियों और PDFs में इंटरैक्टिविटी नहीं होती। ऑब्जेक्ट को निर्यात के बाद दर्शक नहीं घुमा सकता।
+- अंतिम रूप कैमरा, लाइट रिग, मैटेरियल, एक्सट्रूज़न, फ़िल और स्लाइड स्केलिंग के संयोजन पर निर्भर करता है।
+- यदि आपको इनहेरिटेड या थीम‑आधारित फ़ॉर्मेटिंग मानों को देखना है, तो [प्रभावी आकार गुण](/slides/hi/cpp/shape-effective-properties/) पढ़ें।
+- कुछ आउटपुट फ़ॉर्मेट्स संपादन योग्य PowerPoint 3D फ़ॉर्मेटिंग को संग्रहीत नहीं कर सकते। उन फ़ॉर्मेट्स में, दृश्य परिणाम को रेंडर किया जाता है न कि संपादन योग्य 3D सेटिंग्स के रूप में।
 
-**क्या Aspose.Slides इंटरैक्टिव 3D प्रस्तुतियाँ बना सकता है?**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-Aspose.Slides आकार और टेक्स्ट के लिए PowerPoint 3D प्रभाव बनाता और रेंडर करता है। यह निर्यात किए गए इमेज, PDF, या HTML पेजों को इंटरैक्टिव 3D सीन नहीं बनाता जिसे दर्शक घुमा सके। PPTX में, जहां फॉर्मेट समर्थन करता है, 3D फ़ॉर्मेटिंग PowerPoint में संपादित रखने योग्य रहती है।
+**क्या Aspose.Slides इंटरैक्टिव 3D प्रेज़ेंटेशन बना सकता है?**
 
-**एक 3D मॉडल और एक 3D प्रभाव में क्या अंतर है?**
+Aspose.Slides आकारों और टेक्स्ट के लिए PowerPoint 3D प्रभाव बनाता और रेंडर करता है। यह निर्यातित छवियों, PDFs या HTML पृष्ठों को इंटरैक्टिव 3D सीन नहीं बनाता जो दर्शक घुमा सके। PPTX में, जहाँ फ़ॉर्मेट समर्थन करता है, 3D फ़ॉर्मेटिंग PowerPoint में संपादन योग्य रहती है।
 
-3D मॉडल वह अलग 3D ऑब्जेक्ट है जिसे प्रस्तुति में सम्मिलित किया जाता है। 3D प्रभाव सामान्य PowerPoint आकार या टेक्स्ट पर लागू फ़ॉर्मेटिंग है, जैसे घुमाव, एक्सट्रुजन, बिवेल, प्रकाश, और सामग्री। यह लेख 3D प्रभावों को कवर करता है।
+**3D मॉडल और 3D इफ़ेक्ट में क्या अंतर है?**
 
-**एक दृश्यमान 3D आकार के लिए कौनसी सेटिंग्स आवश्यक हैं?**
+3D मॉडल वह अलग‑थलग 3D ऑब्जेक्ट है जिसे प्रस्तुति में सम्मिलित किया जाता है। 3D इफ़ेक्ट वह फ़ॉर्मेटिंग है जो सामान्य PowerPoint आकार या टेक्स्ट पर लागू की जाती है, जैसे घूर्णन, एक्सट्रूज़न, बिवेल, लाइटिंग, और मैटेरियल। यह लेख 3D इफ़ेक्ट्स को कवर करता है।
 
-कम से कम एक कैमरा घुमाव और या तो एक्सट्रुजन या डेप्थ सेट करें। व्यावहारिक रूप से, लाइट रिग और सामग्री भी सेट करें ताकि रेंडर किए गए फेस में स्पष्ट हाईलाइट और शैडो हों।
+**कौन सी सेटिंग्स एक दिखाई देने वाले 3D आकार के लिये आवश्यक हैं?**
 
-**क्या मैं दोनों आकारों और टेक्स्ट पर 3D प्रभाव लागू कर सकता हूँ?**
+कम से कम, कैमरा घूर्णन और एक्सट्रूज़न या गहराई सेट करें। व्यावहारिक रूप से, लाइट रिग और मैटेरियल भी सेट करें ताकि रेंडर किए गए चेहरे में स्पष्ट हाइलाइट्स और शैडोज़ हों।
 
-हां। आकार बॉडी के लिए [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/get_threedformat/) और टेक्स्ट के लिए [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/get_threedformat/) का उपयोग करें।
+**क्या मैं आकारों और टेक्स्ट दोनों पर 3D इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-**क्या 3D प्रभाव इमेज, PDF, HTML, या वीडियो फ्रेम में निर्यात करने पर दिखाई देंगे?**
+हाँ। आकार बॉडी के लिये [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) और टेक्स्ट के लिये [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) का उपयोग करें।
 
-हां। Aspose.Slides स्लाइड इमेज, PDF आउटपुट, HTML आउटपुट, और वीडियो रूपांतरण के लिए फ्रेम बनाते समय 3D प्रभाव रेंडर करता है। निर्यातित आउटपुट में रेंडर किया गया रूप दिखता है, न कि संपादित करने योग्य 3D ऑब्जेक्ट।
+**क्या 3D इफ़ेक्ट्स छवियों, PDF, HTML, या वीडियो फ्रेम में निर्यात करते समय दिखेंगे?**
 
-**क्या मैं इनहेरिटेंस और थीम सेटिंग्स लागू होने के बाद अंतिम 3D मान पढ़ सकता हूँ?**
+हाँ। Aspose.Slides स्लाइड छवियों, PDF आउटपुट, HTML आउटपुट और वीडियो कन्वर्ज़न के लिये उपयोग किए जाने वाले फ्रेम बनाते समय 3D इफ़ेक्ट्स को रेंडर करता है। निर्यातित आउटपुट में रेंडर किया हुआ रूप दर्शाया जाता है, न कि संपादन योग्य 3D ऑब्जेक्ट।
 
-हां। अंतिम कैमरा, लाइट रिग, बिवेल, और संबंधित 3D मान पढ़ने के लिए [Shape Effective Properties](/slides/hi/cpp/shape-effective-properties/) में वर्णित प्रभावी फ़ॉर्मेटिंग APIs का उपयोग करें।
+**क्या मैं इनहेरिटेंस और थीम सेटिंग्स के लागू होने के बाद अंतिम 3D मान पढ़ सकता हूँ?**
+
+हाँ। अंतिम कैमरा, लाइट रिग, बिवेल और संबंधित 3D मान पढ़ने के लिये [प्रभावी आकार गुण](/slides/hi/cpp/shape-effective-properties/) में वर्णित प्रभावी फ़ॉर्मेटिंग API का उपयोग करें।

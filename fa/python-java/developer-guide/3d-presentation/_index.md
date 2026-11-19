@@ -1,15 +1,15 @@
 ---
-title: ایجاد افکت‌های سه‌بعدی در ارائه‌ها با Python
+title: ایجاد اثرات سه‌بعدی در ارائه‌ها با استفاده از پایتون
 linktitle: ارائه سه‌بعدی
 type: docs
 weight: 232
 url: /fa/python-java/3d-presentation/
 keywords:
-- PowerPoint 3بعدی
+- PowerPoint سه‌بعدی
 - ارائه سه‌بعدی
 - چرخش سه‌بعدی
 - عمق سه‌بعدی
-- استخراج سه‌بعدی
+- برآمدگی سه‌بعدی
 - گرادیان سه‌بعدی
 - متن سه‌بعدی
 - PowerPoint
@@ -17,45 +17,45 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "اعمال و رندر افکت‌های سه‌بعدی برای اشکال و متن PowerPoint در Python از طریق Java با Aspose.Slides. تنظیم دوربین، نورپردازی، ماده، استخراج، پرکن‌ها و متن سه‌بعدی."
+description: "اعمال و رندر اثرات سه‌بعدی برای اشکال و متن‌های PowerPoint در پایتون از طریق جاوا با Aspose.Slides. پیکربندی دوربین، نورپردازی، ماده، برآمدگی، پرکننده‌ها و متن سه‌بعدی."
 ---
 ## **نمای کلی**
 
-Aspose.Slides برای Python از طریق Java می‌تواند قالب‌بندی 3بعدی سبک PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به اثرات 3بعدی مانند چرخش، خروجی، برجستگی‌ها، نورپردازی، مواد، پر کردن با گرادیان یا تصویر و متن 3بعدی می‌پردازد.
+Aspose.Slides برای Python از طریق Java می‌تواند قالب‌بندی سه‌بعدی شبیه به PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به اثرات سه‌بعدی مانند چرخش، برآمدگی، لبه‌دار کردن، نورپردازی، مواد، پرکننده‌های گرادیان یا تصویر، و متن سه‌بعدی می‌پردازد.
 
 {{% alert color="info" title="Note" %}}
-این مقاله در مورد اثرات قالب‌بندی 3بعدی روی اشکال و متن PowerPoint است. درباره درج یا ویرایش فایل‌های مدل 3بعدی مستقل نیست. هنگامی که اسلاید را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides این اثرات 3بعدی را در خروجی 2بعدی صادر شده رندر می‌کند.
+این مقاله دربارهٔ اثرات قالب‌بندی سه‌بعدی بر اشکال و متن‌های PowerPoint است. این دربارهٔ وارد کردن یا ویرایش فایل‌های مدل سه‌بعدی مستقل نیست. هنگامی که اسلایدی را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides آن اثرات سه‌بعدی را به خروجی دو‌بعدی صادرشده رندر می‌کند.
 {{% /alert %}}
 
-## **مفاهیم قالب‌بندی 3بعدی**
+## **مفاهیم قالب‌بندی سه‌بعدی**
 
-از متد [Shape.getThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getThreeDFormat) برای اعمال قالب‌بندی 3بعدی به یک شکل استفاده کنید. این متد یک شیء [ThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/) برمی‌گرداند که صحنهٔ 3بعدی آن شکل را کنترل می‌کند.
+از متد [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) برای اعمال قالب‌بندی سه‌بعدی بر یک شکل استفاده کنید. این متد یک [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) برمی‌گرداند که صحنهٔ سه‌بعدی آن شکل را کنترل می‌کند.
 
-برای متن، از متد [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید. این قالب‌بندی 3بعدی را به فریم متن اعمال می‌کند نه به بدنهٔ شکل.
+برای متن، از متد [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید. این قالب‌بندی سه‌بعدی را به قاب متن اعمال می‌کند نه به بدنهٔ شکل.
 
-مهم‌ترین اعضای API عبارتند از:
+**مهم‌ترین اعضای API عبارتند از:**
 
-| عضو API | چه چیزی را کنترل می‌کند | چه زمانی استفاده شود |
+| عضو API | آنچه را کنترل می‌کند | زمان استفاده |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getCamera) | نقطهٔ دید، نوع دوربین پیش‌تنظیم، چرخش، زوم و پرسپکتیو. | برای چرخاندن شیء در فضای 3بعدی یا تطبیق با یک پیش‌تنظیم چرخش 3بعدی PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getLightRig) | تنظیم پیش‌فرض نور، جهت و چرخش نور. | برای تغییر ظاهر هایلایت‌ها و سایه‌ها روی سطح 3بعدی. |
-| [getMaterial](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setMaterial) | مادهٔ سطح، مانند صاف، مات، پلاستیک یا فلز. | برای صاف‌تر، نرم‌تر، براق یا فلزی کردن همان هندسه. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setExtrusionHeight) | میزان پیش رفتن شکل به سمت عقب از سطح جلویی آن. | تبدیل یک شکل صاف به یک شیء 3بعدی واضحاً ضخیم. |
-| [getExtrusionColor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getExtrusionColor) | رنگ طرف‌های خروجی. | برای قابل دید شدن عمق یا هماهنگ کردن رنگ طرف‌ها با پر کردن جلویی. |
-| [getDepth](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setDepth) | عمق 3بعدی اضافی که توسط قالب‌بندی 3بعدی PowerPoint استفاده می‌شود. | برای تنظیم دقیق عمق اشکال یا متن، به‌ویژه همراه با تنظیمات برجستگی و ماده. |
-| [getBevelTop](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getBevelBottom) | لبه‌های برجسته یا گرد شده روی سطوح جلویی و پشتی. | افزودن لبهٔ نرم یا قالب‌دار به‌جای یک سطح صاف تیز. |
-| [getContourColor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getContourColor) and [getContourWidth](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getContourWidth) and [setContourWidth](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setContourWidth) | خطوط مرزی اطراف شیء 3بعدی. | برجسته کردن حاشیهٔ شیء در خروجی رندر شده. |
+| [getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera) | نقطهٔ دید، نوع دوربین پیش‌تنظیم‌شده، چرخش، زوم و پرسپکتیو. | چرخاندن شیء در فضای سه‌بعدی یا مطابقت با یک پیش‌تنظیم چرخش سه‌بعدی PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getLightRig) | پیش‌تنظیم نور، جهت و چرخش نور. | تغییر ظاهر برجسته‌ها و سایه‌ها روی سطح سه‌بعدی. |
+| [getMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getMaterial) و [setMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setMaterial) | مواد سطح، مانند صاف، مات، پلاستیک یا فلز. | صاف‌تر، نرم‌تر، براق یا فلزی کردن یک هندسهٔ مشابه. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionHeight) و [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) | میزان برآمدگی شکل از سطح جلویی به عقب. | تبدیل یک شکل مسطح به یک شیء سه‌بعدی قابل مشاهده. |
+| [getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) | رنگ طرف‌های برآمده. | نمایش عمق یا هماهنگی رنگ طرف با پرکردن جلویی. |
+| [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getDepth) و [setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) | عمق سه‌بعدی اضافی که توسط قالب‌بندی PowerPoint استفاده می‌شود. | تنظیم دقیق عمق برای اشکال یا متن، به‌ویژه همراه با تنظیمات لبه و ماده. |
+| [getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) و [getBevelBottom](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelBottom) | لبه‌های بالا یا پایین گرد یا برجسته بر روی سطوح جلویی و پشتی. | افزودن لبهٔ نرم یا قالب‌دار به جای سطح صاف و تیز. |
+| [getContourColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourColor) و [getContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourWidth) و [setContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setContourWidth) | خطوط دور شیء سه‌بعدی. | برجسته‌سازی مرز شیء در خروجی رندر شده. |
 
-## **ایجاد یک شکل 3بعدی**
+## **ایجاد یک شکل سه‌بعدی**
 
-یک شکل معمولاً قبل از اینکه به‌نظر قانع‌کنندهٔ 3بعدی باشد، به چهار نوع تنظیم نیاز دارد:
+یک شکل معمولاً قبل از اینکه به‌طور قانع‌کننده‌ای سه‌بعدی به‌نظر برسد، به چهار نوع تنظیم نیاز دارد:
 
-- تنظیمات دوربین، زیرا نمای پیش‌فرض جلویی ممکن است خروجی را پنهان کند.
-- تنظیمات نور، زیرا نورپردازی باعث قابل خواندن شدن سطوح و طرف‌ها می‌شود.
-- تنظیمات ماده، زیرا سطح بر نحوه رندر شدن نور تأثیر می‌گذارد.
-- تنظیمات خروجی یا عمق، زیرا یک شکل صاف به ضخامت نیاز دارد.
+- تنظیمات دوربین، زیرا نمای پیش‌فرض جلویی ممکن است برآمدگی را مخفی کند.
+- تنظیمات نور، زیرا نورپردازی باعث می‌شود سطوح و کناره‌ها قابل مشاهده باشند.
+- تنظیمات مواد، زیرا سطح بر نحوه رندر نور تأثیر می‌گذارد.
+- تنظیمات برآمدگی یا عمق، زیرا یک شکل مسطح به ضخامت نیاز دارد.
 
-مثال زیر یک مستطیل ایجاد می‌کند، متن را به سطح جلویی آن اضافه می‌کند و قالب‌بندی 3بعدی را اعمال می‌نماید. مقادیر چرخش دوربین بر حسب درجه است و ارتفاع خروجی 100 پوینت است. مثال اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر کرده و ارائه را به صورت PPTX ذخیره می‌کند.
+مثال زیر یک مستطیل ایجاد می‌کند، متن را به سطح جلویی آن اضافه می‌نماید و قالب‌بندی سه‌بعدی را اعمال می‌کند. مقادیر چرخش دوربین بر حسب درجه هستند و ارتفاع برآمدگی ۱۰۰ پوینт است. مثال اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌نماید.
 
 ```python
 import jpype
@@ -99,17 +99,17 @@ finally:
     presentation.dispose()
 ```
 
-تصویر رندر شدهٔ اسلاید نشان می‌دهد که مستطیل به‌صورت یک بلوک ضخیم 3بعدی است:
+تصویر رندر شدهٔ اسلاید، مستطیل را به‌صورت یک بلوک سه‌بعدی ضخیم نشان می‌دهد:
 
-![مستطیل آبی 3بعدی رندر شده با متن سفیده 3بعدی روی سطح جلویی](img_01_01.png)
+![تصویر رندر شدهٔ مستطیل سه‌بعدی آبی با متن سه‌بعدی سفید بر روی سطح جلویی](img_01_01.png)
 
 ## **چرخاندن یک شکل با دوربین**
 
-در PowerPoint، چرخش 3بعدی از پنل چرخش 3‑بعدی پیکربندی می‌شود. مقادیر چرخش X، Y و Z با چرخشی که از طریق API دوربین تنظیم می‌کنید، مطابقت دارد.
+در PowerPoint، چرخش سه‌بعدی از طریق پنل 3‑D Rotation تنظیم می‌شود. مقادیر چرخش X، Y و Z مطابق با چرخشی است که از طریق API دوربین تنظیم می‌کنید.
 
 ![پنل چرخش 3‑بعدی PowerPoint با مقادیر چرخش X، Y و Z برجسته شده](img_02_01.png)
 
-در Aspose.Slides، دوربین را از طریق [ThreeDFormat.getCamera](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getCamera) دسترسی می‌یابید. این مثال یک مستطیل ایجاد می‌کند، نمای جلوی ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z آن را به ترتیب به 20، 30 و 40 درجه تنظیم می‌نماید. شکل را در حافظه پیکربندی می‌کند بدون اینکه فایلی ذخیره شود:
+در Aspose.Slides، از طریق [ThreeDFormat.getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera) به دوربین دسترسی پیدا کنید. این مثال یک مستطیل ایجاد می‌کند، نمای جلویی ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z آن را به ترتیب ۲۰، ۳۰ و ۴۰ درجه تنظیم می‌نماید. شکل را در حافظه پیکربندی می‌کند بدون اینکه فایلی ذخیره شود:
 
 ```python
 import jpype
@@ -132,15 +132,51 @@ finally:
     presentation.dispose()
 ```
 
-از دوربین زمانی استفاده کنید که بخواهید نحوهٔ دیدن شیء توسط بیننده را تغییر دهید. این تنظیمات هندسهٔ 2بعدی شکل روی اسلاید را تغییر نمی‌دهد؛ بلکه نقطهٔ دید 3بعدی مورد استفاده توسط PowerPoint و Aspose.Slides هنگام رندر را تغییر می‌دهد.
+از دوربین زمانی استفاده کنید که بخواهید نحوهٔ مشاهدهٔ شیء توسط بیننده تغییر کند. این کار هندسهٔ دو‌بعدی شکل را در اسلاید تغییر نمی‌دهد؛ تنها نقطهٔ مشاهدهٔ سه‌بعدی که PowerPoint و Aspose.Slides هنگام رندر استفاده می‌کنند، تغییر می‌کند.
 
-## **اضافه کردن خروجی و عمق**
+### **کپی جهت دوربین از شکل الگو**
 
-خروجی باعث می‌شود شکل به‌صورت ضخیم به‌نظر برسد زیرا آن را به‌عقب از سطح جلویی می‌رساند. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ، رنگ طرف‌های جانبی را تنظیم می‌کند.
+برای مطابقت جهت یک شکل الگو، پیش‌تنظیم دوربین آن را با [Camera.getCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getCameraType) خوانده و زوایای چرخش آن را با [Camera.getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getRotation) به دست آورید. مثال فایل `template.pptx` را باز می‌کند و جهت دوربین اولین شکل در اولین اسلاید را به شکل دوم کپی می‌نماید. هر دو شکل قبلاً نور سه‌بعدی دارند و شکل دوم چرخش دوربین صریحی ندارد.
 
-![کنترل‌های عمق PowerPoint که به ویژگی‌های رنگ خروجی و ارتفاع خروجی نگاشت می‌شوند](img_02_02.png)
+زاویه‌ها بر حسب درجه‌اند. اندیس `0` عرض جغرافیایی، اندیس `1` طول جغرافیایی و اندیس `2` دورانی است. آنها را به ترتیب به [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) پاس می‌دهید. اگر منبع `None` برگرداند، یعنی چرخش صریحی ندارد، بنابراین زاویه‌های شکل دوم تنظیم نمی‌شوند. یک چرخش صریح `(0, 0, 0)` سه صفر بر‌می‌گرداند و باید کپی شود.
 
-از [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setExtrusionHeight) برای تنظیم ضخامت و از [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#getExtrusionColor) برای دسترسی به رنگ جانبی استفاده کنید. این مثال به مستطیل ارتفاع خروجی 100 پوینت با طرف‌های بنفش می‌دهد و دوربین را چرخانده تا ضخامت آن را نشان دهد. شکل را در حافظه پیکربندی می‌کند بدون ذخیرهٔ فایل:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    source_camera = shapes.get_Item(0).getThreeDFormat().getCamera()
+    destination_camera = shapes.get_Item(1).getThreeDFormat().getCamera()
+
+    destination_camera.setCameraType(source_camera.getCameraType())
+    angles = source_camera.getRotation()
+    if angles is not None:
+        destination_camera.setRotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+هنگامی که `camera-copy.pptx` را در PowerPoint باز می‌کنید، پیکان سمت راست همان پیش‌تنظیم و چرخش دوربین را دارد که مستطیل سمت چپ دارد. هر دو شکل از نور و عمق برآمدگی یکسان استفاده می‌کنند.
+
+![یک مستطیل سه‌بعدی آبی و یک پیکان راست با جهت دوربین هماهنگ، نمای بالا و راست](camera-orientation.png)
+
+## **افزودن برآمدگی و عمق**
+
+برآمدگی باعث می‌شود شکل از پشت سطح جلویی ضخیم شود. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ رنگ طرف‌های جانبی را تنظیم می‌کند.
+
+![کنترل‌های عمق PowerPoint به رنگ برآمدگی و ویژگی‌های ارتفاع برآمدگی متناظر شده‌اند](img_02_02.png)
+
+از [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) برای تعیین ضخامت و از [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) برای دسترسی به رنگ طرف‌ها استفاده کنید. این مثال به مستطیل ارتفاع برآمدگی ۱۰۰ پوینت با طرف‌های بنفش می‌دهد و دوربین را برای نمایش ضخامت می‌چرخاند. شکل را در حافظه پیکربندی می‌کند بدون ذخیرهٔ فایل:
 
 ```python
 import jpype
@@ -171,13 +207,13 @@ finally:
     presentation.dispose()
 ```
 
-متد [ThreeDFormat.setDepth](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setDepth) عمق یک شکل 3بعدی را تنظیم می‌کند. متد [setExtrusionHeight](https://reference.aspose.com/slides/fa/python-java/aspose.slides/threedformat/#setExtrusionHeight) ارتفاع اثر خروجی را کنترل می‌کند، همان‌طور که در این مثال نشان داده شده است.
+متد [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) عمق یک شکل سه‌بعدی را تنظیم می‌کند. متد [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) ارتفاع اثر برآمدگی را کنترل می‌کند، همان‌طور که در این مثال نشان داده شده است.
 
-## **استفاده از پر کردن با گرادیان یا تصویر همراه با اثرات 3بعدی**
+## **استفاده از پرکننده‌های گرادیان یا تصویر با اثرات سه‌بعدی**
 
-قالب‌بندی 3بعدی مستقل از پر کردن شکل است. می‌توانید یک رنگ ثابت، گرادیان، الگو یا پر کردن تصویر را به سطح جلویی اعمال کنید و همچنان از همان تنظیمات دوربین، نور، ماده و خروجی استفاده کنید.
+قالب‌بندی سه‌بعدی مستقل از پر کردن شکل است. می‌توانید یک رنگ ثابت، گرادیان، الگو یا پرکننده تصویر را بر سطح جلویی اعمال کنید و همچنان از همان دوربین، نور، ماده و تنظیمات برآمدگی استفاده کنید.
 
-این مثال یک گرادیان از آبی به نارنجی را به سطح جلویی اعمال می‌کند و رنگ نارنجی تیره‌ای به خروجی 150 پوینتی می‌دهد. نقاط توقف گرادیان در 0 و 100 شروع و پایان گرادیان را مشخص می‌کنند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
+این مثال یک گرادیان از آبی به نارنجی را بر سطح جلویی اعمال می‌کند و رنگ نارنجی تیره‌ای به برآمدگی ۱۵۰ پوینت می‌دهد. نقاط توقف گرادیان در ۰ و ۱۰۰ نشان‌دهندهٔ شروع و پایان گرادیان هستند. مقادیر چرخش دوربین بر حسب درجه‌اند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
 
 ```python
 import jpype
@@ -221,11 +257,11 @@ finally:
     presentation.dispose()
 ```
 
-خروجی رندر شده گرادیان را بر سطح جلویی حفظ می‌کند و خروجی را جداگانه رندر می‌کند:
+خروجی رندر شده گرادیان را بر روی سطح جلویی حفظ می‌کند و برآمدگی را به‌ طور جداگانه رندر می‌کند:
 
-![مستطیل 3بعدی رندر شده با پر کردن گرادیان آبی‑به‑نارنجی و خروجی نارنجی](img_02_03.png)
+![مستطیل سه‌بعدی رندر شده با پرکنندهٔ گرادیان آبی‑به‑نارنجی و برآمدگی نارنجی](img_02_03.png)
 
-برای استفاده از پر کردن تصویر، تصویر را به ارائه اضافه کنید و به پر کردن شکل اختصاص دهید. این مثال نیاز به فایلی به نام «image.jpg» در پوشهٔ کاری دارد. تصویر را برای پر کردن مستطیل کشیده، خروجی 150 پوینتی اعمال و چرخش دوربین را بر حسب درجه تنظیم می‌کند. شکل را در حافظه پیکربندی می‌کند بدون ذخیره یا رندر فایل:
+برای استفاده از پرکنندهٔ تصویر، تصویر را به ارائه اضافه کنید و به پر کردن شکل اختصاص دهید. این مثال به فایلی به نام «image.jpg» در پوشهٔ کاری نیاز دارد. تصویر را برای پر کردن مستطیل کش می‌کند، برآمدگی ۱۵۰ پوینت اعمال می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌کند. شکل را در حافظه پیکربندی می‌کند بدون ذخیره یا رندر فایل:
 
 ```python
 import jpype
@@ -264,15 +300,15 @@ finally:
     presentation.dispose()
 ```
 
-تصویر بر روی سطح جلویی رندر می‌شود، در حالی که خروجی به‌عنوان سطح جانبی 3بعدی رندر می‌شود:
+تصویر بر روی سطح جلویی رندر می‌شود، در حالی که برآمدگی به عنوان سطح جانبی سه‌بعدی رندر می‌گردد:
 
-![مستطیل 3بعدی رندر شده با پر کردن تصویر روی سطح جلویی و خروجی نارنجی](img_02_04.png)
+![مستطیل سه‌بعدی رندر شده با پرکنندهٔ عکس بر روی سطح جلویی و برآمدگی نارنجی](img_02_04.png)
 
-## **اعمال قالب‌بندی 3بعدی به متن**
+## **اعمال قالب‌بندی سه‌بعدی بر متن**
 
-قالب‌بندی 3بعدی شکل به بدنهٔ شکل اثر می‌گذارد. قالب‌بندی 3بعدی متن به فریم متن اثر می‌کند. این برای اثرات شبیه WordArt مفید است که حروف نیاز به خروجی، ماده، نورپردازی و تنظیمات دوربین دارند.
+قالب‌بندی سه‌بعدی شکل بر بدنهٔ شکل تأثیر می‌گذارد. قالب‌بندی سه‌بعدی متن بر قاب متن تأثیر می‌گذارد. این برای اثراتی مشابه WordArt مفید است که حروف خود به برآمدگی، ماده، نور و تنظیمات دوربین نیاز دارند.
 
-مثال زیر متنی با الگوی شبکه‌ای نارنجی‑سفید ایجاد می‌کند، یک قوس بالا را اعمال می‌کند و تنظیمات 3بعدی را از طریق [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframeformat/#getThreeDFormat) پیکربندی می‌نماید. ارتفاع خروجی و عمق بر حسب پوینت و چرخش نور بر حسب درجه هستند. پر کردن و خط دور شکل مخفی است تا فقط متن قابل مشاهده باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌کند:
+مثال زیر متنی با الگوی مشبک نارنجی‑سفید ایجاد می‌کند، یک قوس رو به بالا اعمال می‌کند و تنظیمات سه‌بعدی را از طریق [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) پیکربندی می‌کند. ارتفاع برآمدگی و عمق بر حسب پوینت هستند و چرخش نور بر حسب درجه. پر کردن و خط دور شکل مخفی هستند تا تنها متن قابل رؤیت باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌نماید:
 
 ```python
 import jpype
@@ -325,17 +361,17 @@ finally:
     presentation.dispose()
 ```
 
-متن به‌صورت حروف منحنی، خروجی‌دار 3بعدی رندر می‌شود:
+متن به‌صورت حروف منحنی و برآمدهٔ سه‌بعدی رندر می‌شود:
 
-![متن 3بعدی رندر شده با تبدیل کمان‌دار WordArt، پر کردن با الگوی نارنجی و خروجی تاریک](img_02_05.png)
+![متن سه‌بعدی رندر شده با تبدیلی قوسی WordArt، پرکنندهٔ الگوی نارنجی و برآمدگی تیره](img_02_05.png)
 
-## **متن را روی یک شکل 3بعدی صاف نگه دارید**
+## **متن را بر روی شکل سه‌بعدی صاف نگه دارید**
 
-برای نگه داشتن متن قابل خواندن در حالی که ظاهر 3بعدی شکل حفظ می‌شود، از [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframeformat/#setKeepTextFlat) از طریق [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/#getTextFrameFormat) استفاده کنید. وقتی مقدار `True` باشد، متن خارج از صحنهٔ 3بعدی می‌ماند. وقتی `False` باشد، متن در صحنه شرکت می‌کند و جهت‌گیری 3بعدی آن را دنبال می‌کند.
+برای حفظ خوانایی متن در حالی که ظاهر سه‌بعدی شکل حفظ می‌شود، از [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setKeepTextFlat) از طریق [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getTextFrameFormat) فراخوانی کنید. وقتی مقدار `True` باشد، متن از صحنهٔ سه‌بعدی خارج می‌ماند. وقتی `False` باشد، متن در صحنه شرکت می‌کند و جهت سه‌بعدی آن را دنبال می‌کند.
 
-این تنظیم قالب‌بندی 3بعدی شکل را حذف نمی‌کند: دوربین، نورپردازی، ماده و خروجی همچنان از طریق [Shape.getThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getThreeDFormat) تنظیم شده‌اند. همچنین متفاوت از چرخش معمولی است. [Shape.setRotation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#setRotation) شکل را در صفحهٔ اسلاید می‌چرخاند، در حالی که [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframeformat/#setRotationAngle) چرخش سفارشی متن را در داخل جعبهٔ محدودش کنترل می‌کند. نگه داشتن متن خارج از صحنه 3بعدی هیچ‌یک از این زاویه‌ها را بازنمی‌گرداند.
+این تنظیم قالب‌بندی سه‌بعدی شکل را حذف نمی‌کند: دوربین، نورپردازی، ماده و برآمدگی آن همچنان از طریق [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) تنظیم شده‌اند. این متفاوت از چرخش معمولی است. [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) شکل را در صفحهٔ اسلاید می‌چرخاند، در حالی که [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) چرخش سفارشی متن را در داخل جعبه‌محیطی‌اش کنترل می‌کند. نگه داشتن متن خارج از صحنهٔ سه‌بعدی هیچ‌یک از این زوایا را بازنویسی نمی‌کند.
 
-مثال زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار اصلی کپی می‌نماید. هر دو شکل همان قالب‌بندی 3بعدی را دارند؛ فقط تنظیم متن متفاوت است: `False` در سمت چپ و `True` در سمت راست. زاویه‌های دوربین بر حسب درجه و ارتفاع خروجی 40 پوینت است. مثال ارائه را به صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
+مثال زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار نسخهٔ اصلی کپی می‌کند. هر دو شکل همان قالب‌بندی سه‌بعدی را دارند؛ تنها تنظیم متن متفاوت است: `False` در سمت چپ و `True` در سمت راست. زاویه‌های دوربین بر حسب درجه‌اند و ارتفاع برآمدگی ۴۰ پوینت است. مثال ارائه را به صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
 
 ```python
 import jpype
@@ -382,43 +418,43 @@ finally:
     presentation.dispose()
 ```
 
-در سمت چپ، متن جهت‌گیری 3بعدی را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواندن آن آسان‌تر است. هر دو مستطیل همان خروجی قابل مشاهده و جهت‌گیری 3بعدی را حفظ می‌کنند.
+در سمت چپ، متن جهت سه‌بعدی را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواناتر است. هر دو مستطیل همان برآمدگی قابل مشاهده و جهت سه‌بعدی را حفظ کرده‌اند.
 
-![مستطیل‌های 3بعدی به‌صورت کنار هم: متن در سمت چپ با جهت‌گیری 3بعدی و در سمت راست صاف باقی می‌ماند](keep_text_flat.png)
+![مستطیل‌های سه‌بعدی کنار هم: متن در سمت چپ جهت سه‌بعدی را دنبال می‌کند و در سمت راست صاف می‌ماند](keep_text_flat.png)
 
-## **رفتار صادرات و رندرینگ**
+## **رفتار صادرات و رندر**
 
-Aspose.Slides قالب‌بندی 3بعدی را هنگام ذخیره‌سازی به فرمت‌های PowerPoint مانند PPTX حفظ می‌کند. هنگام رندر یا صادرات به فرمت‌های ثابت‑طرح، صحنهٔ 3بعدی به‌صورت raster یا به‌عنوان خروجی 2بعدی رسم می‌شود. این موضوع هنگام رندر اسلایدها به [PNG](/slides/fa/python-java/convert-powerpoint-to-png/)، صادرات به [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/)، صادرات به [HTML](/slides/fa/python-java/convert-powerpoint-to-html/)، یا تولید فریم برای [تبدیل ویدئو](/slides/fa/python-java/convert-powerpoint-to-video/) اعمال می‌شود.
+Aspose.Slides هنگام ذخیره به فرمت‌های PowerPoint مانند PPTX قالب‌بندی سه‌بعدی را حفظ می‌کند. هنگام رندر یا صادرات به فرمت‌های ثابت، صحنهٔ سه‌بعدی به‌صورت دو‌بعدی رستر یا رسم می‌شود. این موضوع هنگام رندر اسلایدها به [PNG](/slides/fa/python-java/convert-powerpoint-to-png/)، صادرات به [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/)، صادرات به [HTML](/slides/fa/python-java/convert-powerpoint-to-html/)، یا تولید فریم برای [تبدیل ویدیو](/slides/fa/python-java/convert-powerpoint-to-video/) صادق است.
 
 نکات مهم:
 
-- تصاویر و PDFهای صادرشده تعاملی نیستند. پس از صادرات، شیء توسط بیننده قابل چرخش نیست.
-- ظاهر نهایی به ترکیب دوربین، نورRig, ماده، خروجی، پر کردن و مقیاس اسلاید وابسته است.
-- اگر نیاز به بررسی مقادیر قالب‌بندی به‌دست‌آمده از ارث‌بری یا تم‌ها دارید، ویژگی‌های موثر شکل را از طریق [effective shape properties](/slides/fa/python-java/shape-effective-properties/) بخوانید.
-- برخی فرمت‌های خروجی نمی‌توانند قالب‌بندی 3بعدی PowerPoint قابل ویرایش را ذخیره کنند. در این فرمت‌ها، نتیجهٔ بصری رندر می‌شود نه این که به‌عنوان تنظیمات 3بعدی قابل ویرایش نگهداری شود.
+- تصاویر و PDF‌های صادرشده تعاملی نیستند. پس از صادرات، کاربر نمی‌تواند شیء را بچرخاند.
+- ظاهر نهایی به ترکیب دوربین، نور، ماده، برآمدگی، پرکننده و مقیاس اسلاید وابسته است.
+- اگر نیاز به بررسی مقادیر قالب‌بندی به ارث‌برده یا مبتنی بر تم دارید، ویژگی‌های مؤثر شکل‌ها را از طریق [effective shape properties](/slides/fa/python-java/shape-effective-properties/) بخوانید.
+- برخی فرمت‌های خروجی نمی‌توانند قالب‌بندی سه‌بعدی PowerPoint را به‌صورت قابل ویرایش ذخیره کنند؛ در آن‌ها نتیجهٔ بصری رندر می‌شود نه به‌عنوان تنظیمات سه‌بعدی قابل ویرایش.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا Aspose.Slides می‌تواند ارائه‌های 3بعدی تعاملی ایجاد کند؟**
+**آیا Aspose.Slides می‌تواند ارائه‌های سه‌بعدی تعاملی ایجاد کند؟**
 
-Aspose.Slides اثرات 3بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این کتابخانه تصاویر، PDFها یا صفحات HTML صادرشده را به صحنه‌های 3بعدی تعاملی تبدیل نمی‌کند که بیننده بتواند آن‌ها را بچرخاند. در PPTX، قالب‌بندی 3بعدی در PowerPoint قابل ویرایش باقی می‌ماند اگر فرمت آن را پشتیبانی کند.
+Aspose.Slides اثرات سه‌بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این کتابخانه تصویری، PDF یا صفحات HTML تعاملی سه‌بعدی تولید نمی‌کند که کاربر بتواند آن را بچرخاند. در PPTX، قالب‌بندی سه‌بعدی در PowerPoint قابل ویرایش باقی می‌ماند، مشروط بر اینکه فرمت از این قابلیت پشتیبانی کند.
 
-**تفاوت بین یک مدل 3بعدی و یک اثر 3بعدی چیست؟**
+**تفاوت بین یک مدل سه‌بعدی و یک اثر سه‌بعدی چیست؟**
 
-یک مدل 3بعدی یک شیء 3بعدی جداگانه است که به ارائه اضافه می‌شود. یک اثر 3بعدی قالب‌بندی است که بر یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، خروجی، برجستگی، نورپردازی و ماده. این مقاله به اثرات 3بعدی می‌پردازد.
+یک مدل سه‌بعدی یک شیء سه‌بعدی جداگانه است که به ارائه افزوده می‌شود. یک اثر سه‌بعدی قالب‌بندی‌ای است که بر یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، برآمدگی، لبه، نورپردازی و ماده. این مقاله به اثرهای سه‌بعدی می‌پردازد.
 
-**کدام تنظیمات برای یک شکل 3بعدی قابل مشاهده ضروری هستند؟**
+**کدام تنظیمات برای یک شکل سه‌بعدی قابل مشاهده ضروری هستند؟**
 
-حداقل باید یک چرخش دوربین و یا خروجی یا عمق تنظیم شود. در عمل، معمولاً یک نورRig و ماده نیز تنظیم می‌شود تا سطوح رندر شده دارای هایلایت‌ها و سایه‌های واضح باشند.
+حداقل باید یک چرخش دوربین و یا برآمدگی/عمق تنظیم شود. در عمل، همچنین تنظیم نور و ماده توصیه می‌شود تا سطوح رندر شده برجستگی‌ها و سایه‌های واضحی داشته باشند.
 
-**آیا می‌توانم اثرات 3بعدی را هم بر روی اشکال و هم بر روی متن اعمال کنم؟**
+**آیا می‌توانم اثرهای سه‌بعدی را هم به اشکال و هم به متن اعمال کنم؟**
 
-بله. برای بدنهٔ شکل از [Shape.getThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getThreeDFormat) و برای متن از [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید.
+بله. برای بدنهٔ شکل از [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) و برای متن از [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید.
 
-**آیا اثرات 3بعدی هنگام صادرات به تصاویر، PDF، HTML یا فریم‌های ویدئویی ظاهر می‌شوند؟**
+**آیا اثرهای سه‌بعدی هنگام صادرات به تصاویر، PDF، HTML یا فریم‌های ویدیو ظاهر می‌شوند؟**
 
-بله. Aspose.Slides اثرات 3بعدی را هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های مورد استفاده برای تبدیل ویدئو رندر می‌کند. خروجی صادرشده شامل ظاهر رندر شده است، نه شیء 3بعدی قابل ویرایش.
+بله. Aspose.Slides هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های استفاده‌شده برای تبدیل به ویدیو، اثرهای سه‌بعدی را رندر می‌کند. خروجی صادرشده شامل ظاهر رندر شده است، نه یک شیء سه‌بعدی قابل ویرایش.
 
-**آیا می‌توانم مقادیر نهایی 3بعدی را پس از اعمال ارث‌بری و تنظیمات تم بخوانم؟**
+**آیا می‌توانم مقادیر نهایی سه‌بعدی را پس از اعمال ارث‌برداری و تنظیمات تم بخوانم؟**
 
-بله. از APIهای قالب‌بندی مؤثر توصیف‌شده در [Shape Effective Properties](/slides/fa/python-java/shape-effective-properties/) برای خواندن دوربین نهایی، نورRig، برجستگی و مقادیر مرتبط 3بعدی استفاده کنید.
+بله. از APIهای قالب‌بندی مؤثر که در [Shape Effective Properties](/slides/fa/python-java/shape-effective-properties/) توضیح داده شده‌اند، برای خواندن دوربین، نور، لبه و سایر مقادیر سه‌بعدی نهایی استفاده کنید.

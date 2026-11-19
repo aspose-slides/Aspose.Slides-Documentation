@@ -1,12 +1,12 @@
 ---
-title: ایجاد اثرهای سه‌بعدی در ارائه‌ها در اندروید
-linktitle: ارائهٔ سه‌بعدی
+title: ایجاد اثرات سه‌بعدی در ارائه‌ها بر روی Android
+linktitle: ارائه سه‌بعدی
 type: docs
 weight: 232
 url: /fa/androidjava/3d-presentation/
 keywords:
-- PowerPoint سه‌بعدی
-- ارائهٔ سه‌بعدی
+- PowerPoint 3D
+- ارائه سه‌بعدی
 - چرخش سه‌بعدی
 - عمق سه‌بعدی
 - استخراج سه‌بعدی
@@ -14,48 +14,50 @@ keywords:
 - متن سه‌بعدی
 - PowerPoint
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "اعمال و رندر اثرهای سه‌بعدی برای اشکال و متن PowerPoint در اندروید با Aspose.Slides. پیکربندی دوربین، نورپردازی، ماده، استخراج، پرکن‌ها، و متن سه‌بعدی."
+description: "اعمال و رندر اثرات سه‌بعدی برای اشکال و متن PowerPoint در Android با Aspose.Slides. دوربین، نورپردازی، ماده، استخراج، پرکنش‌ها و متن سه‌بعدی را پیکربندی کنید."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-Aspose.Slides for Android via Java می‌تواند اشکال و متن را با قالب‌بندی سه‌بعدی شبیه به PowerPoint ایجاد، ویرایش، حفظ و رندر کند. این مقاله به اثرهای سه‌بعدی همچون چرخش، استخراج، لبه‌گیری، نورپردازی، ماده، پرکن‌های گرادیان یا تصویر، و متن سه‌بعدی می‌پردازد.
+Aspose.Slides for Android via Java می‌تواند قالب‌بندی سه‌بعدی سبک PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به اثرات سه‌بعدی مانند چرخش، استخراج (extrusion)، برجسته‌سازی (bevel)، نورپردازی، مواد، پرکنش گرادیان یا تصویر، و متن سه‌بعدی می‌پردازد.
 
-{{% alert color="info" title="توجه" %}}
-این مقاله دربارهٔ اثرهای قالب‌بندی سه‌بعدی روی اشکال و متن PowerPoint است. دربارهٔ وارد کردن یا ویرایش فایل‌های مدل سه‌بعدی مستقل بحث نمی‌کند. هنگامی که یک اسلاید را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides این اثرهای سه‌بعدی را در خروجی دو‑بعدی صادر شده رندر می‌کند.
+{{% alert color="info" title="Note" %}}
+
+این مقاله دربارهٔ اثرات قالب‌بندی سه‌بعدی بر روی اشکال و متن در PowerPoint است. دربارهٔ وارد کردن یا ویرایش فایل‌های مدل سه‌بعدی مستقل نیست. هنگامی که یک اسلاید را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides این اثرات سه‌بعدی را در خروجی دو‑بعدی رندر می‌کند.
+
 {{% /alert %}}
 
 ## **مفاهیم قالب‌بندی سه‌بعدی**
 
-از روش [IShape.getThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) برای اعمال قالب‌بندی سه‌بعدی به یک شکل استفاده کنید. این روش یک شیٔ [IThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/) را برمی‌گرداند که صحنهٔ سه‌بعدی آن شکل را کنترل می‌کند.
+از متد [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) برای اعمال قالب‌بندی سه‌بعدی به یک شکل استفاده کنید. این متد یک شیء [IThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/) را برمی‌گرداند که صحنهٔ سه‌بعدی آن شکل را کنترل می‌کند.
 
-برای متن، از روش [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) استفاده کنید. این روش قالب‌بندی سه‌بعدی را به قاب متن اعمال می‌کند نه به بدنهٔ شکل.
+برای متن، از متد [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) استفاده کنید. این متد قالب‌بندی سه‌بعدی را به فریم متن اعمال می‌کند، نه به بدنهٔ شکل.
 
 مهم‌ترین اعضای API عبارتند از:
 
-| عضو API | چه چیزی را کنترل می‌کند | زمان استفاده |
+| عضو API | آنچه کنترل می‌کند | زمان استفاده |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | نقطهٔ مشاهده، نوع دوربین پیش‌تنظیم‌شده، چرخش، زوم و پرسپکتیو. | چرخاندن شیء در فضای سه‌بعدی یا تطبیق با پیش‌تنظیم چرخش سه‌بعدی PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | پیش‌تنظیم نور، جهت و چرخش نور. | تغییر نحوهٔ نمایش برجستگی‌ها و سایه‌ها روی سطح سه‌بعدی. |
-| [getMaterial](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) و [setMaterial](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | مادهٔ سطح، مانند صاف، مات، پلاستیک یا فلز. | به همان شکل هندسی ظاهر صاف‌تر، نرم‌تر، براق یا فلزی بدهید. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) و [setExtrusionHeight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | میزان پیشروی شکل به سمت عقب از سطح جلویی. | یک شکل صاف را به شیء سه‌بعدی با ضخامت قابل مشاهده تبدیل کنید. |
-| [getExtrusionColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | رنگ جانبی‌های استخراج‌شده. | عمق را قابل رؤیت کنید یا رنگ جانبی را با پرکن جلویی هماهنگ کنید. |
-| [getDepth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getDepth--) و [setDepth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | عمق سه‌بعدی اضافه‌شده که توسط قالب‌بندی سه‌بعدی PowerPoint استفاده می‌شود. | عمق را برای اشکال یا متن دقیقاً تنظیم کنید، به‌ویژه همراه با تنظیمات لبه و ماده. |
-| [getBevelTop](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) و [getBevelBottom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | لبه‌های بالایی یا پایین‌سوار بر سطوح جلویی و پشتی. | لبه‌ای نرم یا قالب‌دار به‌جای یک سطح صاف اضافه کنید. |
-| [getContourColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) و [getContourWidth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) و [setContourWidth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | خط مرزی اطراف شیء سه‌بعدی. | مرزبندی شیء را در خروجی رندر شده برجسته کنید. |
+| [getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | نقطهٔنظر، نوع دوربین پیش‌تنظیم، چرخش، زوم و پرسپکتیو. | چرخاندن شیء در فضا سه‌بعدی یا مطابقت با پیش‌تنظیم چرخش سه‌بعدی PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | پیش‌تنظیم نور، جهت و چرخش نور. | تغییر نحوهٔ نمایش نقاط برجسته و سایه‌ها روی سطح سه‌بعدی. |
+| [getMaterial](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) و [setMaterial](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | مواد سطح، مانند صاف، مات، پلاستیک یا فلز. | ایجاد ظاهر کمتر حجیم، نرم‌تر، براق یا فلزی برای همان هندسه. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) و [setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | فاصلهٔ استخراج شکل از سطح جلویی آن. | تبدیل یک شکل صاف به شیء سه‌بعدی واضحاً ضخیم. |
+| [getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | رنگ سمت‌های استخراج‌شده. | نمایش عمق یا هماهنگ‌سازی رنگ جانبی با پرکنش جلویی. |
+| [getDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getDepth--) و [setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | عمق سه‌بعدی اضافه‌شده توسط قالب‌بندی PowerPoint. | تنظیم دقیق عمق برای اشکال یا متن، به‌ویژه همراه با تنظیمات برجسته و مواد. |
+| [getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) و [getBevelBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | لبه‌های برجسته یا گرد شده روی سطوح جلویی و پشتی. | افزودن لبهٔ نرم یا قالب‌دار به‌جای سطح صاف و تیز. |
+| [getContourColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) و [getContourWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) و [setContourWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | خطوط پیرامون شیء سه‌بعدی. | برجسته‌سازی مرز شیء در خروجی رندر شده. |
 
 ## **ایجاد یک شکل سه‌بعدی**
 
-یک شکل معمولاً قبل از اینکه به‌نظر برسد به‌صورت قانع‌کننده سه‌بعدی باشد، به چهار نوع تنظیم نیاز دارد:
+یک شکل معمولاً قبل از اینکه به‌نظر برسد که واقعاً سه‌بعدی است، به چهار نوع تنظیم نیاز دارد:
 
-- تنظیمات دوربین، زیرا نمای پیش‌فرض ممکن است استخراج را پنهان کند.
-- تنظیمات نور، زیرا نورپردازی باعث خوانایی سطوح و کناره‌ها می‌شود.
-- تنظیمات ماده، زیرا سطح بر نحوهٔ رندر نور تأثیر می‌گذارد.
+- تنظیمات دوربین، زیرا نمای پیش‌فرض ممکن است استخراج را مخفی کند.
+- تنظیمات نور، زیرا نورپردازی سطوح و جانبی را قابل‌مشاهده می‌کند.
+- تنظیمات مواد، زیرا سطح اثر نور را تعیین می‌کند.
 - تنظیمات استخراج یا عمق، زیرا یک شکل صاف به ضخامت نیاز دارد.
 
-کد نمونه زیر یک مستطیل ایجاد می‌کند، متنی به وجه جلویی آن اضافه می‌نماید و قالب‌بندی سه‌بعدی را اعمال می‌کند. مقادیر چرخش دوربین بر حسب درجه هستند و ارتفاع استخراج ۱۰۰ پوینت است. این نمونه اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌نماید.
+مثال زیر یک مستطیل می‌سازد، متنی را به سطح جلویی آن اضافه می‌کند و قالب‌بندی سه‌بعدی را اعمال می‌نماید. مقادیر چرخش دوربین بر حسب درجه است و ارتفاع استخراج ۱۰۰ پوینت است. این مثال اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -96,17 +98,17 @@ try {
 }
 ```
 
-تصویر رندر شده اسلاید، مستطیل را به‌عنوان یک بلوک سه‌بعدی ضخیم نشان می‌دهد:
+تصویر رندر شدهٔ اسلاید، مستطیل را به‌صورت بلوک ضخیم سه‌بعدی نشان می‌دهد:
 
-![مستطیل سه‌بعدی آبی رندر شده با متن سفید سه‌بعدی روی وجه جلویی](img_01_01.png)
+![مستطیل سه‌بعدی آبی با متن سه‌بعدی سفید روی سطح جلویی](img_01_01.png)
 
 ## **چرخش یک شکل با دوربین**
 
-در PowerPoint، چرخش سه‌بعدی از طریق پنل 3‑D Rotation تنظیم می‌شود. مقادیر چرخش X، Y و Z متناظر با چرخشی هستند که از طریق API دوربین تنظیم می‌کنید.
+در PowerPoint، چرخش سه‌بعدی از پنجرهٔ 3‑D Rotation تنظیم می‌شود. مقادیر چرخش X، Y و Z به چرخشی که از طریق API دوربین تنظیم می‌کنید، متناظر است.
 
-![پنل چرخش سه‌بعدی PowerPoint با مقادیر چرخش X, Y و Z مشخص شده](img_02_01.png)
+![پنجره 3‑D Rotation در PowerPoint با مقادیر چرخش X، Y و Z هایلایت‌شده](img_02_01.png)
 
-در Aspose.Slides، از طریق [IThreeDFormat.getCamera](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getCamera--) به دوربین دسترسی پیدا می‌کنید. این مثال یک مستطیل می‌سازد، نمای جلویی ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z آن را به ترتیب ۲۰، ۳۰ و ۴۰ درجه تنظیم می‌کند. شکل در حافظه پیکربندی می‌شود بدون اینکه فایلی ذخیره شود:
+در Aspose.Slides، دوربین را از طریق [IThreeDFormat.getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--) دسترسی می‌یابید. این مثال یک مستطیل می‌سازد، نمای جلویی ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z آن را به ترتیب ۲۰، ۳۰ و ۴۰ درجه تنظیم می‌کند. شکل را در حافظه پیکربندی می‌کند بدون اینکه فایلی ذخیره شود:
 
 ```java
 import com.aspose.slides.*;
@@ -124,15 +126,47 @@ try {
 }
 ```
 
-از دوربین زمانی استفاده کنید که بخواهید نحوهٔ دیدن شیء توسط بیننده را تغییر دهید. این تنظیمات هندسهٔ شکل دو‑بعدی را در اسلاید تغییر نمی‌دهد؛ فقط نقطهٔ مشاهدهٔ سه‌بعدی که PowerPoint و Aspose.Slides هنگام رندر استفاده می‌کنند را تغییر می‌دهد.
+از دوربین زمانی استفاده کنید که نیاز به تغییر نحوهٔ نمایش شیء توسط بیننده دارید. این تنظیمات شکل دو‑بعدی را در اسلاید تغییر نمی‌دهد؛ تنها نقطهٔنظر سه‌بعدی که PowerPoint و Aspose.Slides هنگام رندر استفاده می‌کنند را تغییر می‌دهد.
+
+### **کپی‌کردن جهت دوربین از یک شکل الگو**
+
+برای مطابقت جهت یک شکل الگو، پیش‌تنظیم دوربین آن را با [getCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#getCameraType--) و زاویه‌های چرخش آن را با [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#getRotation--) بخوانید. مثال `template.pptx` را باز می‌کند و جهت دوربین اولین شکل در اسلاید اول را به شکل دوم کپی می‌کند. هر دو شکل دارای نور سه‌بعدی هستند و شکل دوم چرخش دوربین صریحی ندارد.
+
+زاویه‌ها بر حسب درجه هستند. اندیس `0` عرض جغرافیایی، اندیس `1` طول جغرافیایی و اندیس `2` چرخش است. به ترتیب این مقادیر را به [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) پاس می‌دهید. اگر منبع `null` برگرداند، چرخش صریحی ندارد؛ در این صورت زاویه‌های شکل دوم تنظیم نمی‌شوند. چرخش صریح `(0, 0, 0)` سه صفر برمی‌گرداند و باید کپی شود.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    ICamera sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    ICamera destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    float[] angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+هنگامی که `camera-copy.pptx` را در PowerPoint باز می‌کنید، پیکان سمت راست همان پیش‌تنظیم دوربین و چرخش را دارد که مستطیل سمت چپ دارد. هر دو شکل از یک نور و عمق استخراج استفاده می‌کنند.
+
+![مستطیل سه‌بعدی آبی و یک پیکان راست با جهت دوربین مشابه، نمایش از بالا و سمت راست](camera-orientation.png)
 
 ## **افزودن استخراج و عمق**
 
-استخراج باعث می‌شود یک شکل ضخیم به‌نظر برسد چون به سمت پشت وجه جلویی گسترش می‌یابد. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ رنگ جانبی‌های استخراج شده را تعیین می‌نماید.
+استخراج یک شکل را به‌صورت ضخیم می‌کند با اینکه آن را پشت سطح جلویی می‌کشد. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ، رنگ جانبی‌ها را تعیین می‌کند.
 
-![کنترل‌های عمق PowerPoint که به ویژگی‌های رنگ استخراج و ارتفاع استخراج نگاشته شده‌اند](img_02_02.png)
+![کنترل‌های عمق در PowerPoint به ویژگی‌های رنگ استخراج و ارتفاع استخراج نگاشت می‌شوند](img_02_02.png)
 
-از روش [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) برای تنظیم ضخامت و از [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) برای دسترسی به رنگ جانبی‌ها استفاده کنید. این مثال به یک مستطیل استخراج ۱۰۰ پوینت با سمت‌های بنفش می‌دهد و دوربین را چرخانده تا ضخامت آن نمایان شود. شکل در حافظه پیکربندی می‌شود بدون ذخیرهٔ فایل:
+از [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) برای تنظیم ضخامت و از [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) برای دسترسی به رنگ جانبی‌ها استفاده کنید. این مثال به مستطیل ارتفاع استخراج ۱۰۰ پوینت با سمت‌های بنفش می‌دهد و دوربین را می‌چرخاند تا ضخامت آن را نشان دهد. شکل را در حافظه پیکربندی می‌کند بدون ذخیرهٔ فایل:
 
 ```java
 import com.aspose.slides.*;
@@ -158,13 +192,13 @@ try {
 }
 ```
 
-روش [IThreeDFormat.setDepth](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) عمق یک شکل سه‌بعدی را تنظیم می‌کند. روش [setExtrusionHeight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) ارتفاع اثر استخراج را کنترل می‌کند، همان‌طور که در این مثال نشان داده شده است.
+متد [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) عمق یک شکل سه‌بعدی را تنظیم می‌کند. متد [setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) ارتفاع اثر استخراج را کنترل می‌کند، همان‌گونه که در این مثال نشان داده شده است.
 
-## **استفاده از پرکن‌های گرادیان یا تصویر با اثرات سه‌بعدی**
+## **استفاده از پرکنش گرادیان یا تصویر با اثرات سه‌بعدی**
 
-قالب‌بندی سه‌بعدی مستقل از پرکن شکل است. می‌توانید یک رنگ ثابت، گرادیان، الگو یا پرکن تصویر را به وجه جلویی اعمال کنید و همچنان از همان تنظیمات دوربین، نور، ماده و استخراج استفاده کنید.
+قالب‌بندی سه‌بعدی مستقل از پرکنش شکل است. می‌توانید یک رنگ جامد، گرادیان، الگو یا پرکنش تصویر را به سطح جلویی اعمال کنید و همچنان از همان تنظیمات دوربین، نور، ماده و استخراج استفاده کنید.
 
-این مثال گرادیان آبی‑به‑نارنجی را به وجه جلویی اعمال می‌کند و برای استخراج ۱۵۰ پوینت رنگ نارنجی تیره استفاده می‌نماید. نقاط توقف گرادیان در ۰ و ۱۰۰ شروع و پایان گرادیان را نشان می‌دهند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
+این مثال یک گرادیان آبی‑به‑نارنجی را به سطح جلویی اعمال می‌کند و به استخراج ۱۵۰ پوینت رنگ نارنجی تیره می‌دهد. نقاط توقف گرادیان در ۰ و ۱۰۰ شروع و پایان گرادیان را نشان می‌دهند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
 
 ```java
 import com.aspose.slides.*;
@@ -205,11 +239,11 @@ try {
 }
 ```
 
-خروجی رندر شده گرادیان را بر روی وجه جلویی حفظ می‌کند و استخراج را جداگانه رندر می‌نماید:
+خروجی رندر شده گرادیان را روی سطح جلویی حفظ می‌کند و استخراج را به‌صورت جداگانه رندر می‌کند:
 
-![مستطیل سه‌بعدی رندر شده با پرکن گرادیان آبی به نارنجی و استخراج نارنجی](img_02_03.png)
+![مستطیل سه‌بعدی با پرکنش گرادیان آبی‑به‑نارنجی و استخراج نارنجی](img_02_03.png)
 
-برای استفاده از پرکن تصویر، تصویر را به ارائه اضافه کنید و آن را به پرکن شکل اختصاص دهید. این مثال فرض می‌کند فایلی به‌نام "image.jpg" در پوشهٔ کاری موجود باشد. تصویر را به‌صورت کشیده بر روی مستطیل تنظیم می‌کند، استخراج ۱۵۰ پوینت اعمال می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌نماید. شکل در حافظه پیکربندی می‌شود بدون ذخیره یا رندر فایل:
+برای استفاده از پرکنش تصویر، تصویر را به ارائه اضافه کنید و آن را به پرکنش شکل اختصاص دهید. این مثال به فایلی به نام `"image.jpg"` در پوشهٔ کاری نیاز دارد. تصویر را برای پر کردن مستطیل کشیده، استخراج ۱۵۰ پوینت اعمال می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌کند. شکل را در حافظه پیکربندی می‌کند بدون ذخیره یا رندر فایل:
 
 ```java
 import com.aspose.slides.*;
@@ -244,15 +278,15 @@ try {
 }
 ```
 
-تصویر بر روی وجه جلویی رندر می‌شود، در حالی که استخراج به‌عنوان سطح جانبی سه‌بعدی رندر می‌شود:
+تصویر بر سطح جلویی رندر می‌شود، در حالی که استخراج به‌عنوان سطح جانبی سه‌بعدی رندر می‌گردد:
 
-![مستطیل سه‌بعدی رندر شده با پرکن تصویر بر روی وجه جلویی و استخراج نارنجی](img_02_04.png)
+![مستطیل سه‌بعدی با پرکنش عکس بر سطح جلویی و استخراج نارنجی](img_02_04.png)
 
 ## **اعمال قالب‌بندی سه‌بعدی به متن**
 
-قالب‌بندی سه‌بعدی شکل بر بدنهٔ شکل تأثیر می‌گذارد. قالب‌بندی سه‌بعدی متن بر قاب متن تأثیر می‌گذارد. این برای اثرهای شبیه WordArt مفید است که حروف نیاز به استخراج، ماده، نورپردازی و تنظیمات دوربین دارند.
+قالب‌بندی سه‌بعدی شکل بر بدنهٔ شکل تأثیر می‌گذارد. قالب‌بندی سه‌بعدی متن بر فریم متن تأثیر می‌گذارد. این برای اثرات شبیه WordArt مفید است که حروف خود نیاز به استخراج، ماده، نور و تنظیمات دوربین دارند.
 
-مثال زیر متنی با الگوی مشبک نارنجی‑سفید ایجاد می‌کند، یک قوس بالا را اعمال می‌نماید و تنظیمات سه‌بعدی را از طریق [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) پیکربندی می‌کند. ارتفاع استخراج و عمق بر حسب پوینت هستند و چرخش نور بر حسب درجه. پرکن و حاشیهٔ شکل مخفی می‌شوند تا فقط متن قابل رؤیت باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر کرده و ارائه را به‌صورت PPTX ذخیره می‌کند:
+مثال زیر متنی با الگوی شبکهٔ نارنجی‑سفید ایجاد می‌کند، یک قوس بالایی اعمال می‌کند و تنظیمات سه‌بعدی را از طریق [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) پیکربندی می‌کند. ارتفاع استخراج و عمق بر حسب پوینت هستند و چرخش نور بر حسب درجه. پرکنش شکل و خط مرزی مخفی هستند تا فقط متن قابل‌مشاهده باشد. مثال تصویر PNG با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -302,17 +336,17 @@ try {
 }
 ```
 
-متن به‌صورت حروف منحنی و استخراج‌شده‌ی سه‌بعدی رندر می‌شود:
+متن به‌صورت حروف منحنی و استخراج‌شدهٔ سه‌بعدی رندر می‌شود:
 
-![متن سه‌بعدی رندر شده با تغییر شکل کمان‌دار، پرکن الگوی نارنجی و استخراج تاریک](img_02_05.png)
+![متن سه‌بعدی رندر شده با تبدیل قوسی WordArt، پرکنش الگوی نارنجی و استخراج تیره](img_02_05.png)
 
-## **حفظ متن صاف روی یک شکل سه‌بعدی**
+## **حفظ متن صاف بر روی یک شکل سه‌بعدی**
 
-برای نگه داشتن متن قابل خواندن در حالی که ظاهر سه‌بعدی شکل حفظ می‌شود، از [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) از طریق [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--) فراخوانی کنید. زمانی که مقدار `true` باشد، متن از صحنهٔ سه‌بعدی خارج می‌ماند. زمانی که مقدار `false` باشد، متن در صحنه شرکت می‌کند و جهت‌گیری سه‌بعدی آن را دنبال می‌کند.
+برای حفظ قابلیت خواندن متن در حالی که ظاهر سه‌بعدی شکل حفظ می‌شود، از [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) از طریق [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--) استفاده کنید. وقتی مقدار `true` باشد، متن خارج از صحنهٔ سه‌بعدی می‌ماند. وقتی `false` باشد، متن در صحنه شرکت می‌کند و جهت‌گیری سه‌بعدی آن را دنبال می‌کند.
 
-این تنظیم قالب‌بندی سه‌بعدی شکل را حذف نمی‌کند: دوربین، نور، ماده و استخراج آن همچنان از طریق [IShape.getThreeDFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) پیکربندی شده‌اند. همچنین متفاوت از چرخش معمولی است. [IShape.setRotation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setRotation-float-) شکل را در صفحهٔ اسلاید می‌چرخاند، در حالی که [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) چرخش سفارشی متن را داخل جعبهٔ مرزی‌اش کنترل می‌کند. نگه داشتن متن خارج از صحنهٔ سه‌بعدی هیچ‌یک از این زاویه‌ها را بازنشانی نمی‌کند.
+این تنظیم قالب‌بندی سه‌بعدی شکل را حذف نمی‌کند: دوربین، نور، ماده و استخراج آن همچنان از طریق [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) تنظیم شده‌اند. همچنین متفاوت از چرخش معمولی است. [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) شکل را در صفحه اسلاید می‌چرخاند، در حالی که [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) چرخش سفارشی متن را درون جعبه مرزبندی‌اش کنترل می‌کند. نگه داشتن متن خارج از صحنهٔ سه‌بعدی هیچ‌یک از این زاویه‌ها را ریست نمی‌کند.
 
-مثال زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار اصلی کلون می‌نماید. هر دو شکل همان قالب‌بندی سه‌بعدی را دارند؛ فقط تنظیم متن متفاوت است: `false` در سمت چپ و `true` در سمت راست. زاویه‌های دوربین بر حسب درجه هستند و ارتفاع استخراج ۴۰ پوینت است. مثال ارائه را به‌صورت PPTX ذخیره کرده و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
+مثال خودمستقلی زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار اصل کلون می‌گیرد. هر دو شکل همان قالب‌بندی سه‌بعدی را دارند؛ تنها تنظیم متن متفاوت است: `false` در سمت چپ و `true` در سمت راست. زاویه‌های دوربین بر حسب درجه هستند و ارتفاع استخراج ۴۰ پوینت است. مثال ارائه را به‌صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -355,43 +389,43 @@ try {
 }
 ```
 
-در سمت چپ، متن جهت‌گیری سه‌بعدی را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواندن آن آسان‌تر است. هر دو مستطیل همان استخراج قابل مشاهده و جهت‌گیری سه‌بعدی را حفظ می‌کنند.
+در سمت چپ، متن جهت سه‌بعدی را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواناتر است. هر دو مستطیل همان استخراج قابل مشاهده و جهت‌گیری سه‌بعدی را حفظ می‌کنند.
 
-![مستطیل‌های سه‌بعدی کنار هم: متن در سمت چپ با جهت‌گیری سه‌بعدی و در سمت راست صاف و قابل خواندن](keep_text_flat.png)
+![مستطیل‌های سه‌بعدی کنار هم: متن در سمت چپ جهت سه‌بعدی را دنبال می‌کند و در سمت راست صاف می‌ماند](keep_text_flat.png)
 
-## **رفتار خروجی و رندر**
+## **رفتار صادرات و رندرینگ**
 
-Aspose.Slides هنگام ذخیره در فرمت‌های PowerPoint مانند PPTX قالب‌بندی سه‌بعدی را حفظ می‌کند. هنگام رندر یا خروجی به فرمت‌های ثابت‑چیدمان، صحنهٔ سه‌بعدی به‌صورت دو‑بعدی در خروجی رستر یا ترسیم می‌شود. این هنگام رندر اسلایدها به [PNG](/slides/fa/androidjava/convert-powerpoint-to-png/)، خروجی به [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)، خروجی به [HTML](/slides/fa/androidjava/convert-powerpoint-to-html/)، یا تولید فریم‌ها برای [تبدیل ویدئو](/slides/fa/androidjava/convert-powerpoint-to-video/) اعمال می‌شود.
+Aspose.Slides قالب‌بندی سه‌بعدی را هنگام ذخیره به قالب‌های PowerPoint مانند PPTX حفظ می‌کند. هنگام رندر یا صادرات به قالب‌های ثابت، صحنهٔ سه‌بعدی به‌صورت تصویر دو‑بعدی رستر یا رسم می‌شود. این موضوع هنگام رندر اسلایدها به [PNG](/slides/fa/androidjava/convert-powerpoint-to-png/)، صادرات به [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)، صادرات به [HTML](/slides/fa/androidjava/convert-powerpoint-to-html/)، یا تولید فریم برای [تبدیل ویدیو](/slides/fa/androidjava/convert-powerpoint-to-video/) صادق است.
 
-به نکات زیر توجه کنید:
+نکات مهم:
 
-- تصاویر و PDFهای صادرشده تعاملی نیستند. پس از خروجی، کاربر نمی‌تواند شیء را بچرخاند.
-- ظاهر نهایی به ترکیب دوربین، نور، ماده، استخراج، پرکن و مقیاس اسلاید بستگی دارد.
-- اگر نیاز به بررسی مقادیر قالب‌بندی به‌دست‌آمده از ارث‌بری یا تم دارید، APIهای [ویژگی‌های مؤثر شکل](/slides/fa/androidjava/shape-effective-properties/) را بخوانید.
-- برخی فرمت‌های خروجی نمی‌توانند قالب‌بندی سه‌بعدی ویرایش‌پذیر PowerPoint را ذخیره کنند. در این فرمت‌ها، نتیجهٔ بصری به‌جای حفظ تنظیمات سه‌بعدی ویرایش‌پذیر رندر می‌شود.
+- تصاویر و PDF‌های صادرشده تعاملی نیستند. پس از صادرات، کاربر نمی‌تواند شیء را بچرخاند.
+- ظاهر نهایی به ترکیب دوربین، نورپردازی، ماده، استخراج، پرکنش و مقیاس اسلاید وابسته است.
+- اگر نیاز به بررسی مقادیر قالب‌بندی ارث‌بری یا مبتنی بر تم دارید، [ویژگی‌های مؤثر شکل](/slides/fa/androidjava/shape-effective-properties/) را بخوانید.
+- برخی از قالب‌های خروجی قادر به ذخیرهٔ قالب‌بندی سه‌بعدی قابل ویرایش PowerPoint نیستند. در این قالب‌ها، نتیجهٔ بصری رندر می‌شود نه اینکه به‌عنوان تنظیمات سه‌بعدی قابل ویرایش حفظ شود.
 
-## **FAQ**
+## **پرسش‌های متداول**
 
 **آیا Aspose.Slides می‌تواند ارائه‌های سه‌بعدی تعاملی ایجاد کند؟**
 
-Aspose.Slides اثرهای سه‌بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این ابزار تصاویر، PDFها یا صفحات HTML صادرشده را به صحنهٔ سه‌بعدی تعاملی تبدیل نمی‌کند که کاربر بتواند آنها را بچرخاند. در PPTX، قالب‌بندی سه‌بعدی در PowerPoint ویرایش‌پذیر می‌ماند اگر فرمت آن را پشتیبانی کند.
+Aspose.Slides اثرات سه‌بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این ابزار تصویرها، PDFها یا صفحات HTML را به صحنه‌های سه‌بعدی تعاملی تبدیل نمی‌کند که کاربر بتواند آنها را بچرخاند. در PPTX، قالب‌بندی سه‌بعدی در PowerPoint که از این فرمت پشتیبانی می‌کند، قابل ویرایش می‌ماند.
 
 **تفاوت بین مدل سه‌بعدی و اثر سه‌بعدی چیست؟**
 
-یک مدل سه‌بعدی یک شیء سه‌بعدی مستقل است که به ارائه اضافه می‌شود. یک اثر سه‌بعدی قالب‌بندی است که به یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، استخراج، لبه‌گیری، نورپردازی و ماده. این مقاله به اثرهای سه‌بعدی می‌پردازد.
+یک مدل سه‌بعدی یک شیء سه‌بعدی جداگانه است که در ارائه وارد می‌شود. یک اثر سه‌بعدی قالب‌بندی‌ای است که بر روی یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، استخراج، برجسته‌سازی، نورپردازی و ماده. این مقاله به اثرات سه‌بعدی می‌پردازد.
 
-**کدام تنظیمات برای داشتن یک شکل سه‌بعدی قابل مشاهده ضروری هستند؟**
+**کدام تنظیمات برای داشتن یک شکل سه‌بعدی قابل‌مشاهده لازم است؟**
 
-حداقل باید یک چرخش دوربین و یا استخراج یا عمق را تنظیم کنید. در عمل، همچنین باید نور و ماده تنظیم شوند تا سطح رندر شده دارای برجستگی‌ها و سایه‌های واضح باشد.
+حداقل باید چرخش دوربین و یا استخراج/عمق را تنظیم کنید. در عمل، همچنین نورپردازی و ماده را تنظیم کنید تا سطوح رندر شده نکات برجسته و سایه واضحی داشته باشند.
 
-**آیا می‌توانم اثرهای سه‌بعدی را هم بر روی اشکال و هم بر روی متن اعمال کنم؟**
+**آیا می‌توانم اثرات سه‌بعدی را هم به اشکال و هم به متن اعمال کنم؟**
 
-بله. برای بدنهٔ شکل از [IShape.getThreeDFormat] استفاده کنید و برای متن از [ITextFrameFormat.getThreeDFormat] استفاده کنید.
+بله. برای بدنهٔ شکل از [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) و برای متن از [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) استفاده کنید.
 
-**آیا اثرهای سه‌بعدی هنگام خروجی به تصاویر، PDF، HTML یا فریم‌های ویدئو ظاهر می‌شوند؟**
+**آیا اثرات سه‌بعدی هنگام صادرات به تصاویر، PDF، HTML یا فریم‌های ویدیو ظاهر می‌شوند؟**
 
-بله. Aspose.Slides اثرهای سه‌بعدی را هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های مورد استفاده برای تبدیل به ویدئو رندر می‌کند. خروجی صادرشده ظاهر رندر شده را دارد، نه یک شیء سه‌بعدی قابل ویرایش.
+بله. Aspose.Slides هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های مورد استفاده برای تبدیل ویدیو، اثرات سه‌بعدی را رندر می‌کند. خروجی صادرشده شامل ظاهر رندر شده است نه یک شیء سه‌بعدی قابل ویرایش.
 
-**آیا می‌توانم مقادیر نهایی سه‌بعدی را پس از اعمال ارث‌بری و تنظیمات تم بخوانم؟**
+**آیا می‌توانم مقادیر نهایی سه‌بعدی پس از اعمال ارث‌بری و تنظیمات تم را بخوانم؟**
 
-بله. از APIهای قالب‌بندی مؤثر توضیح داده‌شده در [ویژگی‌های مؤثر شکل](/slides/fa/androidjava/shape-effective-properties/) برای خواندن دوربین، نور، لبه و سایر مقادیر سه‌بعدی نهایی استفاده کنید.
+بله. از APIهای قالب‌بندی مؤثر توضیح داده‌شده در [ویژگی‌های مؤثر شکل](/slides/fa/androidjava/shape-effective-properties/) برای خواندن دوربین نهایی، نورپردازی، برجسته‌سازی و مقادیر سه‌بعدی مرتبط استفاده کنید.

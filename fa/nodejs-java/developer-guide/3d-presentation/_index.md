@@ -1,61 +1,61 @@
 ---
-title: ایجاد اثرات سه‌بعدی در ارائه‌ها با استفاده از Node.js
-linktitle: ارائه سه‌بعدی
+title: ایجاد افکت‌های 3D در ارائه‌ها با استفاده از Node.js
+linktitle: ارائه 3D
 type: docs
 weight: 232
 url: /fa/nodejs-java/3d-presentation/
 keywords:
-- پاورپوینت سه‌بعدی
-- ارائه سه‌بعدی
-- چرخش سه‌بعدی
-- عمق سه‌بعدی
-- برجستگی سه‌بعدی
-- گرادینت سه‌بعدی
-- متن سه‌بعدی
+- 3D پاورپوینت
+- ارائه 3D
+- چرخش 3D
+- عمق 3D
+- استخراج 3D
+- گرادیان 3D
+- متن 3D
 - پاورپوینت
 - ارائه
 - Node.js
 - جاوااسکریپت
 - Aspose.Slides
-description: "اعمال و رندر اثرات سه‌بعدی برای اشکال و متن PowerPoint در Node.js با Aspose.Slides. تنظیم دوربین، نورپردازی، ماده، برجستگی، پرکردن‌ها و متن سه‌بعدی."
+description: "اعمال و رندر افکت‌های 3D برای اشکال و متن PowerPoint در Node.js با Aspose.Slides. پیکربندی دوربین، نورپردازی، ماده، استخراج، پرکردن‌ها و متن 3D."
 ---
-## **مروری**
+## **نمای کلی**
 
-Aspose.Slides for Node.js via Java می‌تواند فرمت‌بندی سه‌بعدی شبیه به PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به اثرات سه‌بعدی مانند چرخش، برجستگی، لبه‌گیری، نورپردازی، مواد، پر کردن با گرادینت یا تصویر، و متن سه‌بعدی می‌پردازد.
+Aspose.Slides برای Node.js از طریق Java می‌تواند قالب‌بندی 3D سبک PowerPoint را برای اشکال و متن ایجاد، ویرایش، حفظ و رندر کند. این مقاله به افکت‌های 3D مانند چرخش، استخراج (extrusion)، برش‌های زاویه‌دار (bevels)، نورپردازی، مواد، پرکردن با گرادیان یا تصویر، و متن 3D می‌پردازد.
 
 {{% alert color="info" title="Note" %}}
-این مقاله در مورد اثرات فرمت‌بندی سه‌بعدی بر اشکال و متن PowerPoint است. این مقاله دربارهٔ افزودن یا ویرایش فایل‌های مدل سه‌بعدی مستقل نیست. وقتی یک اسلاید را به تصویر، PDF یا HTML صادر می‌کنید، Aspose.Slides این اثرات سه‌بعدی را به خروجی دو‌بعدی صادر شده رندر می‌کند.
+این مقاله دربارهٔ افکت‌های قالب‌بندی 3D بر روی اشکال و متن PowerPoint است. دربارهٔ درج یا ویرایش فایل‌های مدل 3D مستقل نیست. هنگام خروجی گرفتن یک اسلاید به تصویر، PDF یا HTML، Aspose.Slides آن افکت‌های 3D را به خروجی دو‑بعدی تبدیل می‌کند.
 {{% /alert %}}
 
-## **مفاهیم فرمت‌بندی سه‌بعدی**
+## **مفاهیم قالب‌بندی 3D**
 
-از متد [Shape.getThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#getThreeDFormat) برای اعمال فرمت‌بندی سه‌بعدی روی یک شکل استفاده کنید. این متد یک شیء [ThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/) را برمی‌گرداند که صحنهٔ سه‌بعدی آن شکل را کنترل می‌کند.
+از متد [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) برای اعمال قالب‌بندی 3D به یک شکل استفاده کنید. این متد یک شیء [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) را برمی‌گرداند که صحنهٔ 3D آن شکل را کنترل می‌کند.
 
-برای متن، از متد [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید. این متد فرمت‌بندی سه‌بعدی را به قاب متن اعمال می‌کند نه به بدنهٔ شکل.
+برای متن، از متد [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید. این کار قالب‌بندی 3D را به فریم متن اعمال می‌کند نه به بدنهٔ شکل.
 
 مهم‌ترین اعضای API عبارتند از:
 
-| عضو API | چه چیزی را کنترل می‌کند | چه زمانی استفاده شود |
+| API member | What it controls | When to use it |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getCamera) | نقطه‌ی مشاهده، نوع دوربین پیش‌تنظیم‌شده، چرخش، زوم و پرسپکتیو. | چرخاندن شیء در فضای سه‌بعدی یا مطابقت با پیش‌تنظیم چرخش سه‌بعدی PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getLightRig) | پیش‌تنظیم نور، جهت و چرخش نور. | تغییر نحوهٔ نمایش هایلایت‌ها و سایه‌ها روی سطح سه‌بعدی. |
-| [getMaterial](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setMaterial) | مادهٔ سطح، مانند صاف، مات، پلاستیک یا فلز. | ظاهر هندسهٔ مشابه را صاف‌تر، نرم‌تر، براق‌تر یا فلزی‌تر کنید. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | فاصلهٔ امتداد شکل به سمت پشت از صورت جلو. | یک شکل صاف را به شیء سه‌بعدی قابل مشاهده تبدیل کنید. |
-| [getExtrusionColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | رنگ طرف‌های برجسته‌شده. | عمق را قابل رؤیت کنید یا رنگ طرف‌ها را با پرکردن جلوی هماهنگ کنید. |
-| [getDepth](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setDepth) | عمق سه‌بعدی اضافی استفاده‌شده توسط فرمت‌بندی سه‌بعدی PowerPoint. | عمق را برای اشکال یا متن به‌دقت تنظیم کنید، به‌ویژه همراه با تنظیمات لبه و ماده. |
-| [getBevelTop](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | لبه‌های برجسته یا گرد‌شده روی سطوح جلوی و پشت. | اضافه کردن لبهٔ نرم یا قالب‌گیری‌شده به‌جای سطح صاف و تیز. |
-| [getContourColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getContourWidth), and [setContourWidth](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setContourWidth) | کنتور اطراف شیء سه‌بعدی. | مرز شیء را در خروجی رندر شده برجسته کنید. |
+| [getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera) | نقطهٔ دید، نوع دوربین پیش‌تنظیم، چرخش، زوم و پرسپکتیو. | برای چرخاندن شیء در فضای 3D یا مطابقت با یک پیش‌تنظیم چرخش 3D در PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getLightRig) | پیش‌تنظیم نور، جهت و چرخش نور. | برای تغییر ظاهر هایلایت‌ها و سایه‌ها روی سطح 3D. |
+| [getMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getMaterial) و [setMaterial](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setMaterial) | ماده سطح، مانند صاف، مات، پلاستیک یا فلز. | برای ظاهر دادن به هندسهٔ یکسان به صورت صاف‌تر، نرم‌تر، براق یا فلزی. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionHeight) و [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) | میزان خروجی شکل از سطح جلویی به سمت عقب. | برای تبدیل یک شکل صاف به شیء 3D با ضخامت قابل مشاهده. |
+| [getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) | رنگ سمت‌های استخراج‌شده. | برای نمایش عمق یا هماهنگی رنگ کنار با پرکردن جلویی. |
+| [getDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getDepth) و [setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) | عمق 3D اضافی که توسط قالب‌بندی 3D PowerPoint استفاده می‌شود. | برای تنظیم دقیق عمق اشکال یا متن، به‌ویژه همراه با تنظیمات برش (bevel) و ماده. |
+| [getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop) و [getBevelBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelBottom) | لبه‌های بالا یا پایین گرد یا برجسته بر روی سطوح جلویی و پشتی. | برای افزودن لبه‌ای نرم یا قالب‌دار به‌جای یک سطح صاف و تیز. |
+| [getContourColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getContourWidth) و [setContourWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setContourWidth) | خط مرزی اطراف شیء 3D. | برای برجسته کردن مرز شیء در خروجی رندر شده. |
 
-## **ایجاد یک شکل سه‌بعدی**
+## **ایجاد یک شکل 3D**
 
-یک شکل معمولاً قبل از اینکه به‌طور قانع‌کننده‌ای سه‌بعدی به‌نظر برسد، به چهار نوع تنظیم نیاز دارد:
+یک شکل معمولاً قبل از اینکه به‌صورتی قانع‌کننده 3D به‌نظر برسد، به چهار نوع تنظیم نیاز دارد:
 
-- تنظیمات دوربین، چون نمای پیش‌فرض جلو ممکن است برجستگی را مخفی کند.
-- تنظیمات نور، چون نورپردازی باعث قابل مشاهده شدن سطوح و اضلاع می‌شود.
-- تنظیمات ماده، چون سطح بر نحوهٔ رندر نور تأثیر می‌گذارد.
-- تنظیمات برجستگی یا عمق، چون یک شکل صاف به ضخامت نیاز دارد.
+- تنظیمات دوربین، چون نمای پیش‌فرض ممکن است استخراج را پنهان کند.
+- تنظیمات نور، چون نورپردازی باعث می‌شود سطوح و کناره‌ها قابل تشخیص باشند.
+- تنظیمات ماده، چون سطح روی نحوهٔ رندر نور تأثیر می‌گذارد.
+- تنظیمات استخراج یا عمق، چون یک شکل صاف به ضخامت نیاز دارد.
 
-مثال زیر یک مستطیل ایجاد می‌کند، متنی را به سطح جلو اضافه می‌کند و فرمت‌بندی سه‌بعدی اعمال می‌نماید. مقادیر چرخش دوربین بر حسب درجه هستند و ارتفاع برجستگی ۱۰۰ پوینت است. مثال اسلاید را به تصویر PNG با دو برابر اندازهٔ پیش‌فرض رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌نماید.
+مثال زیر یک مستطیل ایجاد می‌کند، متن را به سطح جلویی آن اضافه می‌نماید و قالب‌بندی 3D را اعمال می‌کند. مقادیر چرخش دوربین بر حسب درجه هستند و ارتفاع استخراج 100 پوینت است. مثال اسلاید را به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌نماید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -97,17 +97,17 @@ try {
 }
 ```
 
-تصویر رندر شدهٔ اسلاید، مستطیل را به‌صورت یک بلوک ضخیم سه‌بعدی نشان می‌دهد:
+تصویر رندر شدهٔ اسلاید نشان می‌دهد که مستطیل به‌عنوان یک بلوک 3D ضخیم نمایش داده می‌شود:
 
-![مستطیل آبی سه‌بعدی رندر شده با متن سفید سه‌بعدی روی سطح جلو](img_01_01.png)
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
-## **چرخاندن شکل با دوربین**
+## **چرخاندن یک شکل با دوربین**
 
-در PowerPoint، چرخش سه‌بعدی از پنل 3‑D Rotation پیکربندی می‌شود. مقادیر چرخش X، Y و Z متناظر با چرخشی هستند که از طریق API دوربین تنظیم می‌کنید.
+در PowerPoint، چرخش 3D از پنل 3‑D Rotation تنظیم می‌شود. مقادیر چرخش X، Y و Z متناظر با چرخشی هستند که از طریق API دوربین تنظیم می‌کنید.
 
-![پنجره چرخش 3‑بعدی PowerPoint با مقادیر چرخش X، Y و Z هایلایت شده](img_02_01.png)
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-در Aspose.Slides، از طریق [ThreeDFormat.getCamera](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getCamera) به دوربین دسترسی پیدا می‌کنید. این مثال یک مستطیل ایجاد می‌کند، نمای جلوی ارتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z آن را به ترتیب ۲۰، ۳۰ و ۴۰ درجه تنظیم می‌نماید. شکل را در حافظه پیکربندی می‌کند بدون اینکه فایلی ذخیره کند:
+در Aspose.Slides، از طریق [ThreeDFormat.getCamera](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getCamera) به دوربین دسترسی پیدا کنید. این مثال یک مستطیل ایجاد می‌کند، نمای جلویی اورتوگرافیک را انتخاب می‌کند و چرخش‌های X، Y و Z را به ترتیب 20، 30 و 40 درجه تنظیم می‌نماید. این تنظیمات را در حافظه اعمال می‌کند بدون اینکه فایلی ذخیره شود:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -125,15 +125,47 @@ try {
 }
 ```
 
-از دوربین زمانی استفاده کنید که بخواهید نحوهٔ دیدن شیء توسط بیننده را تغییر دهید. این تغییر باعث تغییر هندسهٔ دو‌بعدی شکل روی اسلاید نمی‌شود، بلکه نقطه‌نظر سه‌بعدی مورد استفادهٔ PowerPoint و Aspose.Slides هنگام رندر را تغییر می‌دهد.
+از دوربین زمانی استفاده کنید که بخواهید نحوهٔ مشاهدهٔ شیء توسط کاربر را تغییر دهید. این کار هندسهٔ 2D شکل را در اسلاید تغییر نمی‌دهد، بلکه نقطهٔ دید 3D استفاده شده توسط PowerPoint و Aspose.Slides هنگام رندر را تغییر می‌دهد.
 
-## **افزودن برجستگی و عمق**
+### **کپی کردن جهت دوربین از یک شکل قالب**
 
-برجستگی باعث می‌شود یک شکل ضخیم به‌نظر برسد با این که به‌سوی پشت صورت جلو امتداد یابد. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ رنگ طرف‌های جانبی را تنظیم می‌کند.
+برای مطابقت جهت یک شکل قالب، پیش‌تنظیم دوربین آن را با [getCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getCameraType) بخوانید و زاویه‌های چرخش آن را با [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#getRotation) دریافت کنید. مثال فایل `template.pptx` را باز می‌کند و جهت دوربین اولین شکل در اسلاید اول را به شکل دوم کپی می‌کند. هر دو شکل قبلاً نور 3D دارند و شکل دوم چرخش دوربین صریحی ندارد.
 
-![کنترل‌های عمق PowerPoint به‌صورت رنگ برجستگی و خصوصیات ارتفاع برجستگی مطابقت داده شده‌اند](img_02_02.png)
+زاویه‌ها بر حسب درجه هستند. اندیس `0` عرض جغرافیایی، اندیس `1` طول جغرافیایی و اندیس `2` دوران را نشان می‌دهد. آن‌ها را به ترتیب به [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) پاس بدهید. اگر منبع `null` برگرداند، یعنی چرخش صریحی ندارد، بنابراین زاویه‌های شکل دوم تنظیم نمی‌شوند. چرخش صریح `(0, 0, 0)` سه صفر برمی‌گرداند و باید کپی شود.
 
-از [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) برای تنظیم ضخامت و از [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) برای دسترسی به رنگ طرف‌ها استفاده کنید. این مثال به مستطیل برجستگی ۱۰۰ پوینتی با رنگ‌های بنفش برای طرف‌ها می‌دهد و دوربین را می‌چرخاند تا ضخامت آن را نشان دهد. شکل را در حافظه پیکربندی می‌کند بدون اینکه فایلی ذخیره کند:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    const sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    const destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    const angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+زمانی که `camera-copy.pptx` را دوباره در PowerPoint باز می‌کنید، پیکان سمت راست همان پیش‌تنظیم دوربین و چرخش را دارد که مستطیل سمت چپ دارد. هر دو شکل از نور و عمق استخراج یکسان استفاده می‌کنند.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
+
+## **افزودن استخراج (Extrusion) و عمق**
+
+استخراج باعث می‌شود یک شکل ضخیم به نظر برسد زیرا از سطح جلویی به سمت پشت گسترش می‌یابد. در PowerPoint، کنترل عمق این ضخامت قابل مشاهده را تنظیم می‌کند و کنترل رنگ رنگ سمت‌های جانبی را مشخص می‌سازد.
+
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+
+از [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) برای تنظیم ضخامت و از [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getExtrusionColor) برای دسترسی به رنگ جانبی استفاده کنید. این مثال به یک مستطیل ارتفاع استخراج 100 پوینت با کناره‌های بنفش می‌دهد و دوربین را چرخانده تا ضخامت آن نمایان شود. تنظیمات در حافظه انجام می‌شود بدون ذخیره فایل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -159,13 +191,13 @@ try {
 }
 ```
 
-متد [ThreeDFormat.setDepth](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setDepth) عمق یک شکل سه‌بعدی را تنظیم می‌کند. متد [setExtrusionHeight](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) ارتفاع اثر برجستگی را کنترل می‌کند، همان‌گونه که در این مثال نشان داده شده است.
+متد [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) عمق یک شکل 3D را تنظیم می‌کند. متد [setExtrusionHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setExtrusionHeight) ارتفاع اثر استخراج را کنترل می‌کند، همان‌طور که در این مثال نشان داده شده است.
 
-## **استفاده از پرکردن گرادینت یا تصویر با اثرات سه‌بعدی**
+## **استفاده از پرکردن گرادیان یا تصویر همراه با افکت‌های 3D**
 
-فرمت‌بندی سه‌بعدی مستقل از پرکردن شکل است. می‌توانید به سطح جلو یک رنگ ثابت، گرادینت، الگو یا تصویر اعمال کنید و همچنان از همان تنظیمات دوربین، نور، ماده و برجستگی استفاده کنید.
+قالب‌بندی 3D مستقل از پرکردن شکل است. می‌توانید یک رنگ ثابت، گرادیان، الگو یا پرکردن تصویر را بر روی سطح جلویی اعمال کنید و همچنان از همان دوربین، نور، ماده و تنظیمات استخراج استفاده نمایید.
 
-این مثال گرادینت آبی‑به‑نارنجی را روی سطح جلو و رنگ نارنجی تیره را به برجستگی ۱۵۰ پوینتی اعمال می‌کند. توقف‌های گرادینت در علامت‌های ۰ و ۱۰۰ شروع و پایان گرادینت را مشخص می‌کنند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر اندازهٔ پیش‌فرض رندر می‌شود:
+این مثال یک گرادیان آبی‑به‑نارنجی را بر روی سطح جلویی اعمال می‌کند و رنگ نارنجی تیره‌ای به استخراج 150 پوینتی می‌دهد. توقف‌های گرادیان در 0 و 100 شروع و پایان گرادیان را مشخص می‌کنند. مقادیر چرخش دوربین بر حسب درجه هستند. اسلاید به تصویر PNG با دو برابر ابعاد پیش‌فرض رندر می‌شود:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -207,11 +239,11 @@ try {
 }
 ```
 
-خروجی رندر شده گرادینت را روی سطح جلو حفظ می‌کند و برجستگی را به‌طور جداگانه رندر می‌کند:
+خروجی رندر شده گرادیان را بر روی سطح جلویی حفظ می‌کند و استخراج را به‌صورت جداگانه رندر می‌کند:
 
-![مستطیل سه‌بعدی رندر شده با پرکردن گرادینت از آبی به نارنجی و برجستگی نارنجی](img_02_03.png)
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-برای استفاده از پرکردن تصویر، تصویر را به ارائه اضافه کنید و آن را به پرکردن شکل اختصاص دهید. این مثال به فایلی به‌نام «image.jpg» در دایرکتوری کاری نیاز دارد. تصویر را برای پر کردن مستطیل کش می‌دهد، برجستگی ۱۵۰ پوینتی اعمال می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌کند. شکل را در حافظه پیکربندی می‌کند بدون اینکه فایل ذخیره یا رندر کند:
+برای استفاده از پرکردن تصویری، تصویر را به ارائه اضافه کنید و به پرکردن شکل اختصاص دهید. این مثال به فایلی به‌نام «image.jpg» در پوشه کاری نیاز دارد. تصویر را به‌ گونه‌ای کش می‌دهد که مستطیل را پر کند، استخراج 150 پوینت اعمال می‌کند و چرخش دوربین را بر حسب درجه تنظیم می‌کند. تنظیمات در حافظه انجام می‌شود بدون ذخیره یا رندر فایل:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -248,15 +280,15 @@ try {
 }
 ```
 
-تصویر بر روی سطح جلو رندر می‌شود، در حالی که برجستگی به‌صورت سطح جانبی سه‌بعدی رندر می‌شود:
+تصویر بر روی سطح جلویی رندر می‌شود، در حالی که استخراج به‌عنوان سطح جانبی 3D رندر می‌شود:
 
-![مستطیل سه‌بعدی رندر شده با پرکردن تصویر بر روی سطح جلو و برجستگی نارنجی](img_02_04.png)
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
-## **اعمال فرمت‌بندی سه‌بعدی بر متن**
+## **اعمال قالب‌بندی 3D به متن**
 
-فرمت‌بندی سه‌بعدی شکل بر بدنهٔ شکل تأثیر می‌گذارد. فرمت‌بندی سه‌بعدی متن بر قاب متن تأثیر می‌گذارد. این برای اثرات شبیه WordArt مفید است که حروف خود نیاز به برجستگی، ماده، نورپردازی و تنظیمات دوربین دارند.
+قالب‌بندی 3D شکل بر روی بدنهٔ شکل تأثیر می‌گذارد. قالب‌بندی 3D متن بر روی فریم متن تأثیر می‌گذارد. این برای افکت‌های شبیه WordArt مفید است که حروف خود نیاز به استخراج، ماده، نورپردازی و تنظیمات دوربین دارند.
 
-مثال زیر متنی با الگوی شبکه‌ای نارنجی‑و‑سفید ایجاد می‌کند، یک قوس رو به بالا اعمال می‌کند و تنظیمات سه‌بعدی را از طریق [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) پیکربندی می‌کند. ارتفاع برجستگی و عمق بر حسب پوینت هستند و چرخش نور بر حسب درجه. پرکردن شکل و کنتور مخفی هستند تا فقط متن قابل رؤیت باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به‌صورت PPTX ذخیره می‌کند:
+مثال زیر متنی با الگوی شبکه‌ای نارنجی‑و‑سفید ایجاد می‌کند، یک قوس بالا را اعمال می‌نماید و تنظیمات 3D را از طریق [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) پیکربندی می‌کند. ارتفاع استخراج و عمق بر حسب پوینت هستند و چرخش نور بر حسب درجه. پرکردن شکل و خط دور شامل نمی‌شود تا فقط متن قابل مشاهده باشد. مثال تصویر PNG را با دو برابر ابعاد پیش‌فرض اسلاید رندر می‌کند و ارائه را به صورت PPTX ذخیره می‌نماید:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -306,17 +338,17 @@ try {
 }
 ```
 
-متن به‌صورت حروف خمیده و برجستهٔ سه‌بعدی رندر می‌شود:
+متن به‌صورت حروف 3D خمیده، استخراج‌شده رندر می‌شود:
 
-![متن سه‌بعدی رندر شده با تبدیل WordArt قوسی، پرکردن الگوی نارنجی و برجستگی تیره](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
 
-## **متن را روی یک شکل سه‌بعدی صاف نگه دارید**
+## **حفظ متن صاف بر روی یک شکل 3D**
 
-برای اینکه متن خوانا بماند در حالی که ظاهر سه‌بعدی شکل حفظ شود، از [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) از طریق [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getTextFrameFormat) استفاده کنید. وقتی مقدار `true` باشد، متن خارج از صحنهٔ سه‌بعدی می‌ماند. وقتی `false` باشد، متن در صحنه شرکت می‌کند و جهت‌گیری سه‌بعدی آن را دنبال می‌کند.
+برای اینکه متن قابل خواندن بماند در حالی که ظاهر 3D شکل حفظ شود، از [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setKeepTextFlat) از طریق [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/#getTextFrameFormat) فراخوانی کنید. وقتی مقدار `true` باشد، متن از صحنهٔ 3D خارج می‌شود. وقتی `false` باشد، متن در صحنه شرکت می‌کند و جهت 3D آن را دنبال می‌کند.
 
-این تنظیم فرمت‌بندی سه‌بعدی شکل را حذف نمی‌کند: دوربین، نورپردازی، ماده و برجستگی همچنان از طریق [Shape.getThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#getThreeDFormat) پیکربندی شده‌اند. همچنین متفاوت از چرخش معمولی است. [Shape.setRotation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#setRotation) شکل را در صفحهٔ اسلاید می‌چرخاند، در حالی که [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) چرخش سفارشی متن را داخل جعبهٔ مرزبندی آن کنترل می‌کند. نگه داشتن متن خارج از صحنهٔ سه‌بعدی هیچ‌یک از این زاویه‌ها را ریست نمی‌کند.
+این تنظیم، قالب‌بندی 3D شکل را حذف نمی‌کند: دوربین، نور، ماده و استخراج آن همچنان از طریق [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) تنظیم شده‌اند. همچنین با چرخش معمولی متفاوت است. [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) شکل را در صفحه اسلاید می‌چرخاند، در حالی که [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) چرخش سفارشی متن را درون جعبهٔ مرزی‌اش کنترل می‌کند. ثابت نگه داشتن متن خارج از صحنهٔ 3D هیچ‌یک از این زوایا را ریست نمی‌کند.
 
-مثال خودمختار زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار اصلی کپی می‌کند. هر دو شکل همان فرمت‌بندی سه‌بعدی را دارند؛ فقط تنظیم متن متفاوت است: `false` در سمت چپ و `true` در سمت راست. زاویه‌های دوربین بر حسب درجه هستند و ارتفاع برجستگی ۴۰ پوینت است. مثال ارائه را به‌صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
+مثال خود‌مستقلی زیر یک مستطیل آبی با متن ایجاد می‌کند و آن را در کنار اصل کلون می‌نماید. هر دو شکل همان قالب‌بندی 3D را دارند؛ تنها تنظیم متن متفاوت است: `false` در سمت چپ و `true` در سمت راست. زاویه‌های دوربین بر حسب درجه هستند و ارتفاع استخراج 40 پوینت است. مثال ارائه را به‌صورت PPTX ذخیره می‌کند و اسلاید مقایسه‌ای را به PNG با دو برابر ابعاد پیش‌فرض رندر می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -361,43 +393,43 @@ try {
 }
 ```
 
-در سمت چپ، متن جهت‌گیری سه‌بعدی را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواناتر است. هر دو مستطیل همان برجستگی قابل مشاهده و جهت‌گیری سه‌بعدی را حفظ می‌کنند.
+در سمت چپ، متن جهت 3D را دنبال می‌کند. در سمت راست، متن صاف می‌ماند و خواندن آن آسان‌تر است. هر دو مستطیل استخراج و جهت 3D قابل مشاهدهٔ یکسانی دارند.
 
-![مستطیل‌های سه‌بعدی کنار هم: متن در سمت چپ با جهت‌گیری سه‌بعدی دنبال می‌شود و در سمت راست صاف می‌ماند](keep_text_flat.png)
+![Side-by-side 3D rectangles: text follows the 3D orientation on the left and stays flat on the right](keep_text_flat.png)
 
-## **رفتار صادرات و رندرینگ**
+## **رفتار خروجی و رندرینگ**
 
-Aspose.Slides فرمت‌بندی سه‌بعدی را هنگام ذخیره به فرمت‌های PowerPoint مانند PPTX حفظ می‌کند. هنگام رندر یا صادرات به فرمت‌های با چیدمان ثابت، صحنهٔ سه‌بعدی به‌صورت رستر یا به‌عنوان نتیجهٔ ۲D در خروجی رسم می‌شود. این هنگام رندر اسلایدها به [PNG](/slides/fa/nodejs-java/convert-powerpoint-to-png/)، صادرات به [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/)، صادرات به [HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/)، یا تولید فریم‌ها برای [تبدیل به ویدئو](/slides/fa/nodejs-java/convert-powerpoint-to-video/) صادق است.
+Aspose.Slides قالب‌بندی 3D را هنگام ذخیره‌سازی به فرمت‌های PowerPoint مانند PPTX حفظ می‌کند. هنگام رندر یا خروجی به فرمت‌های ثابت‑طرح، صحنهٔ 3D به‌صورت تصویر رستر یا به‌عنوان نتیجهٔ 2D در خروجی رسم می‌شود. این موضوع برای رندر اسلایدها به [PNG](/slides/fa/nodejs-java/convert-powerpoint-to-png/)، خروجی به [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/)، خروجی به [HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/)، یا تولید فریم‌ها برای [تبدیل ویدئو](/slides/fa/nodejs-java/convert-powerpoint-to-video/) صادق است.
 
 نکات مهم:
 
-- تصاویر و PDFهای صادر شده تعاملی نیستند. پس از صادرات شیء توسط بیننده قابل چرخش نیست.
-- ظاهر نهایی به ترکیب دوربین، نورپردازی، ماده، برجستگی، پرکردن و مقیاس اسلاید بستگی دارد.
-- اگر نیاز به بررسی مقادیر فرمت‌بندی به ارث‌برده یا مبتنی بر تم دارید، [ویژگی‌های مؤثر شکل](/slides/fa/nodejs-java/shape-effective-properties/) را بخوانید.
-- برخی فرمت‌های خروجی نمی‌توانند فرمت‌بندی سه‌بعدی قابل ویرایش PowerPoint را ذخیره کنند. در این فرمت‌ها، نتیجهٔ بصری به‌جای حفظ به‌عنوان تنظیمات سه‌بعدی ویرایشی رندر می‌شود.
+- تصاویر و PDFهای خروجی تعاملی نیستند. پس از خروجی، کاربر نمی‌تواند شیء را بچرخاند.
+- ظاهر نهایی بستگی به ترکیب دوربین، نور، ماده، استخراج، پرکردن و مقیاس اسلاید دارد.
+- اگر نیاز به بررسی مقادیر قالب‌بندی به‌دست آمده از ارث‌بری یا تم دارید، ویژگی‌های مؤثر شکل را از طریق [effective shape properties](/slides/fa/nodejs-java/shape-effective-properties/) بخوانید.
+- برخی از فرمت‌های خروجی قادر به ذخیره‌سازی قالب‌بندی‌های قابل ویرایش 3D PowerPoint نیستند. در این فرمت‌ها، نتیجهٔ بصری رندر می‌شود نه به‌عنوان تنظیمات قابل ویرایش 3D.
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**آیا Aspose.Slides می‌تواند ارائه‌های سه‌بعدی تعاملی ایجاد کند؟**
+**آیا Aspose.Slides می‌تواند ارائه‌های 3D تعاملی ایجاد کند؟**
 
-Aspose.Slides اثرات سه‌بعدی PowerPoint را برای اشکال و متن ایجاد و رندر می‌کند. این کتابخانه تصاویر، PDFها یا صفحات HTML صادر شده را به‌صورت صحنه‌های تعاملی سه‌بعدی که کاربر می‌تواند آن‌ها را بچرخاند، تبدیل نمی‌کند. در PPTX، فرمت‌بندی سه‌بعدی در PowerPoint به‌صورت ویرایشی باقی می‌ماند، به شرطی که فرمت آن را پشتیبانی کند.
+Aspose.Slides افکت‌های 3D PowerPoint برای اشکال و متن را ایجاد و رندر می‌کند. این ابزار تصاویر، PDFها یا صفحات HTML خروجی شده را صحنهٔ 3D تعاملی نمی‌سازد که کاربر بتواند آن را بچرخاند. در PPTX، قالب‌بندی 3D در PowerPoint به‌صورت قابل ویرایش باقی می‌ماند هنگامی که فرمت آن را پشتیبانی کند.
 
-**تفاوت بین یک مدل سه‌بعدی و یک اثر سه‌بعدی چیست؟**
+**تفاوت بین یک مدل 3D و یک افکت 3D چیست؟**
 
-یک مدل سه‌بعدی یک شیء سه‌بعدی جداگانه است که به ارائه اضافه می‌شود. یک اثر سه‌بعدی فرمت‌بندی است که بر یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، برجستگی، لبه‌گیری، نورپردازی و ماده. این مقاله به اثرات سه‌بعدی می‌پردازد.
+یک مدل 3D شیء جداگانه‌ای است که به ارائه اضافه می‌شود. یک افکت 3D قالب‌بندی‌ای است که به یک شکل یا متن معمولی PowerPoint اعمال می‌شود، مانند چرخش، استخراج، برش زاویه‌دار، نورپردازی و ماده. این مقاله به افکت‌های 3D می‌پردازد.
 
-**کدام تنظیمات برای دیده‌شدن یک شکل سه‌بعدی ضروری هستند؟**
+**کدام تنظیمات برای یک شکل 3D قابل مشاهده لازم هستند؟**
 
-حداقل باید یک چرخش دوربین و یا برجستگی/عمق تنظیم شود. در عمل، همچنین تنظیم نورپردازی و ماده توصیه می‌شود تا سطوح رندر شده دارای هلیت‌ها و سایه‌های واضح باشند.
+حداقل باید یک چرخش دوربین و یا استخراج یا عمق تنظیم شود. در عمل، تنظیم یک نور و ماده نیز توصیه می‌شود تا سطوح رندر شده روشنایی و سایه‌های واضحی داشته باشند.
 
-**آیا می‌توانم اثرات سه‌بعدی را هم بر اشکال و هم بر متن اعمال کنم؟**
+**آیا می‌توانم افکت‌های 3D را هم بر روی اشکال و هم روی متن اعمال کنم؟**
 
-بله. برای بدنهٔ شکل از [Shape.getThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/#getThreeDFormat) استفاده کنید و برای متن از [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید.
+بله. برای بدنهٔ شکل از [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) و برای متن از [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getThreeDFormat) استفاده کنید.
 
-**آیا اثرات سه‌بعدی هنگام صادرات به تصاویر، PDF، HTML یا فریم‌های ویدئو ظاهر می‌شوند؟**
+**آیا افکت‌های 3D هنگام خروجی به تصاویر، PDF، HTML یا فریم‌های ویدئویی ظاهر می‌شوند؟**
 
-بله. Aspose.Slides اثرات سه‌بعدی را هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های مورد استفاده برای تبدیل به ویدئو رندر می‌کند. خروجی صادر شده شامل ظاهر رندر شده است، نه یک شیء سه‌بعدی قابل ویرایش.
+بله. Aspose.Slides افکت‌های 3D را هنگام تولید تصاویر اسلاید، خروجی PDF، خروجی HTML و فریم‌های مورد استفاده برای تبدیل ویدئو رندر می‌کند. خروجی تولید شده ظاهر رندر شده را دارد، نه یک شیء 3D قابل ویرایش.
 
-**آیا می‌توانم مقادیر نهایی سه‌بعدی را پس از اعمال ارث‌بری و تنظیمات تم بخوانم؟**
+**آیا می‌توانم مقادیر نهایی 3D را پس از اعمال ارث‌بری و تنظیمات تم بخوانم؟**
 
-بله. از APIهای فرمت‌بندی مؤثر توصیف‌شده در [ویژگی‌های مؤثر شکل](/slides/fa/nodejs-java/shape-effective-properties/) برای خواندن دوربین نهایی، نورپردازی، لبه و مقادیر مرتبط با سه‌بعدی استفاده کنید.
+بله. از APIهای قالب‌بندی مؤثر توصیف شده در [Shape Effective Properties](/slides/fa/nodejs-java/shape-effective-properties/) برای خواندن نهایی دوربین، نور، برش و مقادیر 3D دیگر استفاده کنید.

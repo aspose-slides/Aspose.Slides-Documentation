@@ -1,60 +1,60 @@
 ---
-title: PHP Kullanarak Sunumlarda 3B Efektler Oluşturma
-linktitle: 3B Sunum
+title: PHP Kullanarak Sunumlarda 3D Efektler Oluşturma
+linktitle: 3D Sunum
 type: docs
 weight: 232
 url: /tr/php-java/3d-presentation/
 keywords:
-- 3B PowerPoint
-- 3B sunum
-- 3B döndürme
-- 3B derinlik
-- 3B ekstrüzyon
-- 3B degrade
-- 3B metin
+- 3D PowerPoint
+- 3D sunum
+- 3D döndürme
+- 3D derinlik
+- 3D ekstrüzyon
+- 3D degrade
+- 3D metin
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides ile PHP'de PowerPoint şekilleri ve metni için 3B efektleri uygulayın ve renderlayın. Kamera, aydınlatma, malzeme, ekstrüzyon, dolgu ve 3B metni yapılandırın."
+description: "Aspose.Slides ile PHP'de PowerPoint şekilleri ve metin için 3D efektleri uygulayın ve render edin. Kamera, aydınlatma, malzeme, ekstrüzyon, doldurmalar ve 3D metni yapılandırın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for PHP via Java, şekiller ve metin için PowerPoint tarzı 3B biçimlendirmeyi oluşturabilir, düzenleyebilir, koruyabilir ve renderleyebilir. Bu makale döndürme, ekstrüzyon, burçlar, aydınlatma, malzeme, degrade veya resim doldurmaları ve 3B metin gibi 3B efektleri kapsar.
+Aspose.Slides for PHP via Java, şekiller ve metin için PowerPoint tarzı 3D formatlamayı oluşturabilir, düzenleyebilir, koruyabilir ve render edebilir. Bu makale, döndürme, ekstrüzyon, köşe yuvarlamaları, aydınlatma, malzeme, degrade veya resim doldurma ve 3D metin gibi 3D efektleri kapsar.
 
 {{% alert color="info" title="Note" %}}
-Bu makale, PowerPoint şekilleri ve metni üzerindeki 3B biçimlendirme efektleriyle ilgilidir. Bağımsız 3B model dosyalarının eklenmesi veya düzenlenmesiyle ilgili değildir. Bir slaytı resim, PDF veya HTML olarak dışa aktardığınızda, Aspose.Slides bu 3B efektleri dışa aktarılan 2B çıktıya renderlar.
+Bu makale, PowerPoint şekilleri ve metni üzerindeki 3D formatlama efektleriyle ilgilidir. Ayrı 3D model dosyalarının eklenmesi veya düzenlenmesiyle ilgili değildir. Bir slaytı resim, PDF veya HTML olarak dışa aktardığınızda, Aspose.Slides bu 3D efektleri dışa aktarılan 2D çıktıya yansıtır.
 {{% /alert %}}
 
-## **3B Biçimlendirme Kavramları**
+## **3D Formatlama Kavramları**
 
-Bir şekle 3B biçimlendirme uygulamak için [Shape::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getThreeDFormat--) metodunu kullanın. Metot, o şeklin 3B sahnesini kontrol eden [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) nesnesini döndürür.
+Bir şekle 3D formatlama uygulamak için [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) yöntemini kullanın. Bu yöntem, o şeklin 3D sahnesini kontrol eden [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) nesnesini döndürür.
 
-Metin için, [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#getThreeDFormat--) metodunu kullanın. Bu, 3B biçimlendirmeyi şekil gövdesi yerine metin çerçevesine uygular.
+Metin için, [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat) yöntemini kullanın. Bu, şekil gövdesi yerine metin çerçevesine 3D formatlama uygular.
 
 En önemli API üyeleri şunlardır:
 
-| API üyesi | Neyi kontrol eder | Ne zaman kullanılır |
+| API Üyesi | Ne kontrol eder | Ne zaman kullanılmalı |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getCamera--) | Bakış noktası, ön ayarlı kamera türü, döndürme, yakınlaştırma ve perspektif. | Nesneyi 3B uzayda döndürün veya bir PowerPoint 3B döndürme ön ayarıyla eşleştirin. |
-| [getLightRig](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getLightRig--) | Işık ön ayarı, yön ve ışık döndürmesi. | Vurguların ve gölgelerin 3B yüzeyde nasıl göründüğünü değiştirin. |
-| [getMaterial](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getMaterial--) ve [setMaterial](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setMaterial-byte-) | Yüzey malzemesi, düz, mat, plastik veya metal gibi. | Aynı geometrinin daha düz, daha yumuşak, parlak veya metalik görünmesini sağlayın. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getExtrusionHeight--) ve [setExtrusionHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) | Şeklin ön yüzünden geriye ne kadar uzandığını. | Düz bir şekli gözle görülür kalın bir 3B nesneye dönüştürün. |
-| [getExtrusionColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getExtrusionColor--) | Ekstrüde edilen yanların rengi. | Derinliği görünür kılın veya yan rengini ön dolgu ile uyumlu hale getirin. |
-| [getDepth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getDepth--) ve [setDepth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setDepth-double-) | PowerPoint 3B biçimlendirmesinde kullanılan ek 3B derinlik. | Şekiller veya metin için derinliği ince ayarlayın, özellikle burç ve malzeme ayarlarıyla birlikte. |
-| [getBevelTop](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getBevelTop--) ve [getBevelBottom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getBevelBottom--) | Ön ve arka yüzlerde yükseltilmiş veya yuvarlatılmış kenarlar. | Keskin düz bir yüz yerine yumuşak veya kalıplanmış bir kenar ekleyin. |
-| [getContourColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getContourColor--) ve [getContourWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getContourWidth--) ve [setContourWidth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setContourWidth-double-) | 3B nesnenin etrafındaki kontur. | Renderlenen çıktıda nesne sınırını vurgulayın. |
+| [getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera) | Görüş noktası, ön tanımlı kamera tipi, döndürme, yakınlaştırma ve perspektif. | Nesneyi 3D uzayda döndürmek veya bir PowerPoint 3D döndürme ön ayarıyla eşleşmek için. |
+| [getLightRig](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getLightRig) | Işık ön ayarı, yön ve ışık döndürmesi. | 3D yüzeyde parlaklık ve gölgelerin nasıl göründüğünü değiştirmek için. |
+| [getMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getMaterial) ve [setMaterial](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setMaterial) | Düz, mat, plastik veya metal gibi yüzey malzemesi. | Aynı geometriyi daha düz, daha yumuşak, parlak veya metalik göstermek için. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionHeight) ve [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) | Şeklin ön yüzünden geriye doğru ne kadar uzandığı. | Düz bir şekli gözle görülür kalın bir 3D nesneye dönüştürmek için. |
+| [getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor) | Ekstrüde edilen yan yüzlerin rengi. | Derinliği görünür kılmak veya yan rengi ön doldurmayla eşleştirmek için. |
+| [getDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getDepth) ve [setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) | PowerPoint 3D formatlamasında kullanılan ek 3D derinlik. | Şekil veya metin için derinliği ince ayarlamak, özellikle köşe ve malzeme ayarlarıyla birlikte. |
+| [getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop) ve [getBevelBottom](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelBottom) | Ön ve arka yüzlerde yükseltilmiş veya yuvarlatılmış kenarlar. | Keskin düz yüzler yerine yumuşak veya kalıplanmış kenar eklemek için. |
+| [getContourColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourColor) ve [getContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getContourWidth) ve [setContourWidth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setContourWidth) | 3D nesnenin etrafındaki dış hat. | Render edilmiş çıktıda nesne sınırını vurgulamak için. |
 
-## **3B Şekil Oluşturma**
+## **3D Şekil Oluşturma**
 
-Bir şeklin ikna edici bir şekilde 3B görünmesi için genellikle dört tür ayara ihtiyaç duyulur:
+Bir şeklin inandırıcı bir şekilde 3D görünmesi için genellikle dört tür ayar gerekir:
 
-- Kamera ayarları, çünkü varsayılan ön görünüm ekstrüzyonu gizleyebilir.
-- Işık ayarları, çünkü aydınlatma yüzeyleri ve kenarları okunabilir kılar.
-- Malzeme ayarları, çünkü yüzey ışığın renderlanmasını etkiler.
+- Kamera ayarları, çünkü varsayılan ön görüş ekstrüzyonu gizleyebilir.
+- Aydınlatma ayarları, çünkü ışık yüzeylerin ve kenarların okunabilir olmasını sağlar.
+- Malzeme ayarları, çünkü yüzey ışığın nasıl yansıtıldığını etkiler.
 - Ekstrüzyon veya derinlik ayarları, çünkü düz bir şeklin kalınlığa ihtiyacı vardır.
 
-Aşağıdaki örnek bir dikdörtgen oluşturur, ön yüzüne metin ekler ve 3B biçimlendirme uygular. Kamera döndürme değerleri derecedir ve ekstrüzyon yüksekliği 100 puandır. Örnek, slaytı varsayılan boyutlarının iki katı bir PNG görüntüsüne renderlar ve sunumu PPTX olarak kaydeder.
+Aşağıdaki örnek bir dikdörtgen oluşturur, ön yüzüne metin ekler ve 3D formatlamayı uygular. Kamera döndürme değerleri derecedir ve ekstrüzyon yüksekliği 100 puandır. Örnek slaytı iki katı varsayılan boyutta bir PNG görüntüsü olarak render eder ve sunumu PPTX olarak kaydeder.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Renderlenen slayt görüntüsü dikdörtgeni kalın bir 3B blok olarak gösterir:
+Render edilen slayt görüntüsü dikdörtgeni kalın bir 3D blok olarak gösterir:
 
-![Renderlenmiş mavi 3B dikdörtgen, ön yüzünde beyaz 3B metin](img_01_01.png)
+![Render edilmiş mavi 3D dikdörtgen, ön yüzünde beyaz 3D metin](img_01_01.png)
 
-## **Kamerayla Bir Şekli Döndürme**
+## **Kamerayı Kullanarak Şekli Döndürme**
 
-PowerPoint'te, 3B döndürme 3-D Rotation panelinden yapılandırılır. X, Y ve Z döndürme değerleri, kamera API'si üzerinden ayarladığınız döndürmeye karşılık gelir.
+PowerPoint’te 3D döndürme, 3‑D Rotation bölmesinden yapılandırılır. X, Y ve Z döndürme değerleri, kamera API’si üzerinden ayarladığınız döndürmeye karşılık gelir.
 
-![PowerPoint 3-D Rotation paneli, X, Y ve Z döndürme değerleri vurgulanmış](img_02_01.png)
+![PowerPoint 3‑D Rotation bölmesi, X, Y ve Z döndürme değerleri vurgulanmış](img_02_01.png)
 
-Aspose.Slides'ta, kameraya [ThreeDFormat::getCamera](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getCamera--) aracılığıyla erişilir. Bu örnek bir dikdörtgen oluşturur, ortografik ön görünüm seçer ve X, Y ve Z döndürmelerini sırasıyla 20, 30 ve 40 derece olarak ayarlar. Şekli dosya kaydetmeden hafızada yapılandırır:
+Aspose.Slides’te kamera, [ThreeDFormat::getCamera](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getCamera) üzerinden erişilir. Bu örnek bir dikdörtgen oluşturur, ortografik ön görünüm seçer ve X, Y, Z döndürmelerini sırasıyla 20, 30 ve 40 derece olarak ayarlar. Şekil bellekte konfigure edilir, dosya kaydedilmez:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -132,15 +132,48 @@ try {
 }
 ```
 
-Kamerayı, izleyicinin nesneyi nasıl gördüğünü değiştirmek istediğinizde kullanın. Bu, slayttaki 2D şekil geometrisini değiştirmez. PowerPoint ve Aspose.Slides render alırken kullanılan 3B bakış noktasını değiştirir.
+Kamerayı, izleyicinin nesneyi nasıl gördüğünü değiştirmek istediğinizde kullanın. Bu, slayttaki 2D şekil geometrisini değiştirmez; PowerPoint ve Aspose.Slides’in render sırasında kullandığı 3D bakış noktasını değiştirir.
+
+### **Şablon Şekilden Kamera Yönelimini Kopyalama**
+
+Şablon şeklin yönelimini eşleştirmek için [Camera::getCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#getCameraType) ile kamera ön ayarını ve [Camera::getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#getRotation) ile döndürme açılarını okuyun. Örnek `template.pptx` dosyasını açar ve ilk slayttaki ilk şeklin kamera yönelimini ikinci şekle kopyalar. Her iki şeklin de 3D aydınlatması vardır; ikinci şeklin açık bir kamera döndürmesi yoktur.
+
+Açıların birimi derecedir. Dizin `0` enlem, `1` boylam, `2` devrimdir. Bu değerleri aynı sırayla [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) metoduna aktarın. Kaynak `null` döndürürse, açık bir döndürme yoktur; ikinci şeklin açılarını ayarlamadan bırakın. `(0, 0, 0)` gibi açık bir döndürme üç sıfır döndürür ve kopyalanmalıdır.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    
+    $sourceCamera = $shapes->get_Item(0)->getThreeDFormat()->getCamera();
+    $destinationCamera = $shapes->get_Item(1)->getThreeDFormat()->getCamera();
+
+    $destinationCamera->setCameraType($sourceCamera->getCameraType());
+    $angles = java_values($sourceCamera->getRotation());
+    if ($angles !== null) {
+        $destinationCamera->setRotation($angles[0], $angles[1], $angles[2]);
+    }
+
+    $presentation->save("camera-copy.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+`camera-copy.pptx` dosyasını PowerPoint’te yeniden açtığınızda, sağdaki ok, soldaki dikdörtgenle aynı kamera ön ayarı ve döndürmeye sahiptir. Her iki şekil de aynı aydınlatma ve ekstrüzyon derinliğini kullanır.
+
+![Sol tarafta mavi 3D dikdörtgen, sağ tarafta eşleşen kamera yönelimiyle sağ ok; üstten ve sağdan görüntülenmiş](camera-orientation.png)
 
 ## **Ekstrüzyon ve Derinlik Ekleme**
 
-Ekstrüzyon, bir şekli ön yüzünün arkasına uzatarak kalın gösterir. PowerPoint'te, derinlik kontrolü bu görünür kalınlığı ayarlar ve renk kontrolü yan yüzlerin rengini belirler.
+Ekstrüzyon, bir şekli ön yüzünden geriye doğru uzatarak kalın görünmesini sağlar. PowerPoint’te derinlik kontrolü bu görünür kalınlığı ayarlar, renk kontrolü ise yan yüzlerin rengini belirler.
 
-![PowerPoint derinlik kontrolleri ekstrüzyon rengi ve ekstrüzyon yüksekliği özelliklerine eşlenmiş](img_02_02.png)
+![PowerPoint derinlik kontrolleri, ekstrüzyon rengi ve ekstrüzyon yüksekliği özelliklerine eşlenmiş](img_02_02.png)
 
-Kalınlığı ayarlamak için [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) yöntemini, yan rengini elde etmek için [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#getExtrusionColor--) kullanın. Bu örnek, bir dikdörtgene mor yanlarla 100 puanlık ekstrüzyon verir ve kalınlığını göstermek için kamerayı döndürür. Şekli dosya kaydetmeden hafızada yapılandırır:
+Kalınlığı ayarlamak için [ThreeDFormat::setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) yöntemini, yan renk için ise [ThreeDFormat::getExtrusionColor](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getExtrusionColor) yöntemini kullanın. Bu örnek bir dikdörtgene 100 puanlık ekstrüzyon, mor yan yüzler verir ve kalınlığı göstermek için kamerayı döndürür. Şekil bellekte konfigure edilir, dosya kaydedilmez:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -170,13 +203,13 @@ try {
 }
 ```
 
-[ThreeDFormat::setDepth](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setDepth-double-) yöntemi bir 3B şeklin derinliğini ayarlar. [setExtrusionHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/#setExtrusionHeight-double-) yöntemi, bu örnekte gösterildiği gibi, ekstrüzyon etkisinin yüksekliğini kontrol eder.
+[ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) yöntemi, bir 3D şeklin derinliğini ayarlar. [setExtrusionHeight](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setExtrusionHeight) yöntemi ekstrüzyon yüksekliğini kontrol eder; bu örnek bunu gösterir.
 
-## **3B Efektlerle Degrade veya Resim Doldurmaları Kullanma**
+## **3D Efektlerle Degrade veya Resim Doldurma Kullanma**
 
-3B biçimlendirme, şekil doldurmasından bağımsızdır. Ön yüze katı renk, degrade, desen veya resim doldurması uygulayabilir ve aynı kamera, ışık, malzeme ve ekstrüzyon ayarlarını kullanabilirsiniz.
+3D formatlama, şekil doldurmasından bağımsızdır. Ön yüze katı renk, degrade, desen veya resim doldurma uygulayabilir ve aynı kamera, ışık, malzeme ve ekstrüzyon ayarlarını koruyabilirsiniz.
 
-Bu örnek, ön yüze mavi‑turuncu degrade uygular ve 150 puanlık ekstrüzyona koyu turuncu renk verir. Degrade durakları 0 ve 100, degrade başlangıç ve bitişini gösterir. Kamera döndürme değerleri derecedir. Slayt, varsayılan boyutlarının iki katı bir PNG görüntüsüne renderlanır:
+Bu örnek ön yüze mavi‑turuncu bir degrade uygular, ekstrüzyonun yan yüzlerine koyu turuncu renk verir. Degrade durakları 0 ve 100, başlangıç ve bitiş noktalarını işaret eder. Kamera döndürme değerleri derecedir. Slayt iki katı varsayılan boyutta bir PNG görüntüsü olarak render edilir:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -223,9 +256,11 @@ try {
 }
 ```
 
-![Renderlenmiş 3B dikdörtgen, mavi‑turuncu degrade dolgu ve turuncu ekstrüzyon](img_02_03.png)
+Render edilen çıktı, ön yüzdeki degradeyi korur ve ekstrüzyonu ayrı olarak render eder:
 
-Bunun yerine resim doldurması kullanmak için, resmi sunuma ekleyin ve şekil doldurmasına atayın. Bu örnek, çalışma dizininde "image.jpg" adlı bir dosyanın mevcut olmasını gerektirir. Resmi dikdörtgeni dolduracak şekilde uzatır, 150 puanlık ekstrüzyon uygular ve kamera döndürmesini dereceler cinsinden ayarlar. Şekli dosya kaydetmeden veya renderlamadan hafızada yapılandırır:
+![Render edilmiş 3D dikdörtgen, mavi‑turuncu degrade doldurma ve turuncu ekstrüzyon](img_02_03.png)
+
+Resim doldurma kullanmak için, resmi sunuma ekleyin ve şekil doldurmasına atayın. Bu örnek çalışma dizininde “image.jpg” adlı bir dosyanın mevcut olduğunu varsayar. Resmi dikdörtgene yayar, 150 puanlık ekstrüzyon uygular ve kamera döndürmesini derecede ayarlar. Şekil bellekte konfigure edilir, dosya kaydedilmez veya render edilmez:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -269,13 +304,15 @@ try {
 }
 ```
 
-![Renderlenmiş 3B dikdörtgen, ön yüzünde fotoğraf doldurma ve turuncu ekstrüzyon](img_02_04.png)
+Resim ön yüze render edilirken, ekstrüzyon 3D yan yüz olarak render edilir:
 
-## **Metne 3B Biçimlendirme Uygulama**
+![Render edilmiş 3D dikdörtgen, ön yüze fotoğraf doldurma ve turuncu ekstrüzyon](img_02_04.png)
 
-Şekil 3B biçimlendirme şekil gövdesini etkiler. Metin 3B biçimlendirme ise metin çerçevesini etkiler. Bu, harflerin kendisinin ekstrüzyon, malzeme, aydınlatma ve kamera ayarlarına ihtiyaç duyduğu WordArt benzeri efektler için kullanışlıdır.
+## **Metne 3D Formatlama Uygulama**
 
-Aşağıdaki örnek, turuncu‑beyaz bir ızgara deseniyle metin oluşturur, yukarı doğru bir yay uygular ve 3B ayarları [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#getThreeDFormat--) aracılığıyla yapılandırır. Ekstrüzyon yüksekliği ve derinlik puan cinsindedir, ışık döndürmesi derecedir. Şekil dolgu ve kenarlık gizlenir, böylece yalnızca metin görünür. Örnek, varsayılan slayt boyutlarının iki katı bir PNG görüntüsü renderlar ve sunumu PPTX olarak kaydeder:
+Şekil 3D formatlaması şekil gövdesini etkiler. Metin 3D formatlaması metin çerçevesini etkiler. Bu, harflerin kendisinin ekstrüzyon, malzeme, aydınlatma ve kamera ayarlarına ihtiyaç duyduğu WordArt‑benzeri efektler için yararlıdır.
+
+Aşağıdaki örnek, turuncu‑beyaz bir ızgara deseniyle metin oluşturur, bir yay kemeri ekler ve 3D ayarları [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat) üzerinden yapılandırır. Ekstrüzyon yüksekliği ve derinliği puan cinsindendir, ışık döndürmesi derecedir. Şekil doldurma ve dış hat gizlenir, böylece yalnızca metin görünür. Örnek iki katı varsayılan slayt boyutunda bir PNG görüntüsü render eder ve sunumu PPTX olarak kaydeder:
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -334,15 +371,17 @@ try {
 }
 ```
 
-![Renderlenmiş 3B metin, eğimli WordArt dönüşümü, turuncu desen dolgu ve koyu ekstrüzyon](img_02_05.png)
+Metin, eğimli, ekstrüze 3D harfler olarak render edilir:
 
-## **Metni 3B Şekilde Düz Tutma**
+![Render edilmiş 3D metin, bir yay kemeri WordArt dönüşümü, turuncu desen doldurma ve koyu ekstrüzyon](img_02_05.png)
 
-Bir şeklin 3B görünümünü korurken metni okunabilir tutmak için, [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getTextFrameFormat--) üzerinden [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setKeepTextFlat-boolean-) çağırın. Değer `true` olduğunda, metin 3B sahnenin dışında kalır. `false` olduğunda, metin sahneye katılır ve 3B yönelimini takip eder.
+## **3D Şekil Üzerinde Metni Düz Tutma**
 
-Bu ayar, şeklin 3B biçimlendirmesini kaldırmaz: kamera, aydınlatma, malzeme ve ekstrüzyon [Shape::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getThreeDFormat--) aracılığıyla yapılandırılmış olarak kalır. Ayrıca sıradan döndürmeden farklıdır. [Shape::setRotation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#setRotation-float-) slayt düzleminde şekli döndürürken, [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setRotationAngle-float-) metnin sınırlama kutusundaki özel döndürmesini kontrol eder. Metni 3B sahneden dışarı tutmak bu açılardan hiç birini sıfırlamaz.
+Metni 3D sahneden dışarıda tutmak ve şeklin 3D görünümünü korumak için [TextFrame::getTextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getTextFrameFormat) üzerinden [TextFrameFormat::setKeepTextFlat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setKeepTextFlat) metodunu çağırın. Değer `true` ise metin 3D sahneden dışarıda kalır; `false` ise metin sahneye katılır ve 3D yönelimini izler.
 
-Aşağıdaki bağımsız örnek, metinli mavi bir dikdörtgen oluşturur ve orijinalin yanına bir kopyasını ekler. Her iki şekil de aynı 3B biçimlendirmeye sahiptir; sadece metin ayarı farklıdır: solda `false`, sağda `true`. Kamera açıları derecedir ve ekstrüzyon yüksekliği 40 puandır. Örnek, sunumu PPTX olarak kaydeder ve karşılaştırma slaytını varsayılan boyutların iki katı bir PNG olarak renderlar:
+Bu ayar, şeklin 3D formatlamasını kaldırmaz: kamera, aydınlatma, malzeme ve ekstrüzyon hâlâ [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) üzerinden yapılandırılmıştır. Ayrıca normal döndürmeden farklıdır. [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) şekli slayt düzleminde döndürürken, [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) metnin kendi sınırlama kutusundaki özel döndürmesini kontrol eder. Metni sahneden dışarıda tutmak, bu açıları sıfırlamaz.
+
+Aşağıdaki kendi içinde çalışan örnek, bir mavi dikdörtgen oluşturur, üzerine metin ekler ve orijinalin yanında bir kopyasını oluşturur. Her iki şekil de aynı 3D formatlamaya sahiptir; sadece metin ayarı farklıdır: solda `false`, sağda `true`. Kamera açıları derecedir, ekstrüzyon yüksekliği 40 puandır. Örnek sunumu PPTX olarak kaydeder ve karşılaştırma slaytını iki katı varsayılan boyutta PNG’ye render eder.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -394,43 +433,43 @@ try {
 }
 ```
 
-Solda, metin 3B yönelimi izler. Sağda, metin düz kalır ve okunması daha kolaydır. Her iki dikdörtgen de aynı görünür ekstrüzyon ve 3B yönelimini korur.
+Sol tarafta metin 3D yönelimiyle birlikte hareket eder. Sağ tarafta metin düz kalır ve okunması daha kolaydır. Her iki dikdörtgen de aynı görünür ekstrüzyon ve 3D yönelime sahiptir.
 
-![Yan yana 3B dikdörtgenler: sol tarafta metin 3B yönelimi izler, sağ tarafta düz kalır](keep_text_flat.png)
+![Yan yana 3D dikdörtgenler: solda metin 3D yönelimini izler, sağda düz ve daha okunaklı](keep_text_flat.png)
 
 ## **Dışa Aktarma ve Render Davranışı**
 
-Aspose.Slides, PPTX gibi PowerPoint formatlarına kaydederken 3B biçimlendirmeyi korur. Sabit düzen formatlarına renderlarken veya dışa aktarırken, 3B sahne rasterleştirilir veya çıktı içine 2B sonuç olarak çizilir. Bu, slaytları [PNG](/slides/tr/php-java/convert-powerpoint-to-png/), [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/), [HTML](/slides/tr/php-java/convert-powerpoint-to-html/) formatlarına renderladığınızda veya [video dönüştürme](/slides/tr/php-java/convert-powerpoint-to-video/) için çerçeveler oluşturduğunuzda geçerlidir.
+Aspose.Slides, PPTX gibi PowerPoint formatlarına kaydederken 3D formatlamayı korur. Sabit düzenli formatlara render ederken veya dışa aktarırken 3D sahne rasterize edilir veya 2D sonuç olarak çizilir. Bu, slaytları [PNG](/slides/tr/php-java/convert-powerpoint-to-png/), [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/), [HTML](/slides/tr/php-java/convert-powerpoint-to-html/) formatlarına render ederken veya [video conversion](/slides/tr/php-java/convert-powerpoint-to-video/) için kareler üretirken geçerlidir.
 
-Bu noktaları akılda tutun:
+Şunları aklınızda tutun:
 
-- Dışa aktarılan görüntüler ve PDFler etkileşimli değildir. Nesne, dışa aktarmadan sonra izleyici tarafından döndürülemez.
-- Son görünüm, kamera, ışık düzeni, malzeme, ekstrüzyon, dolgu ve slayt ölçeklendirmesinin birleşimine bağlıdır.
-- Kalıtılmış veya tema tabanlı biçimlendirme değerlerini incelemeniz gerekiyorsa, [effective shape properties](/slides/tr/php-java/shape-effective-properties/) sayfasını okuyun.
-- Bazı çıktı formatları, düzenlenebilir PowerPoint 3B biçimlendirmesini depolayamaz. Bu formatlarda, görsel sonuç renderlenir ve düzenlenebilir 3B ayar olarak korunmaz.
+- Dışa aktarılan görüntüler ve PDF’ler etkileşimli değildir. Nesne dışa aktarıldıktan sonra izleyici tarafından döndürülemez.
+- Son görünüm, kamera, ışık cihazı, malzeme, ekstrüzyon, doldurma ve slayt ölçeklendirme kombinasyonuna bağlıdır.
+- Kalıtılmış veya tema‑tabanlı format değerlerini incelemeniz gerekiyorsa, [effective shape properties](/slides/tr/php-java/shape-effective-properties/) API’lerini okuyun.
+- Bazı çıktı formatları, düzenlenebilir PowerPoint 3D formatlamasını saklayamaz. Bu formatlarda görsel sonuç render edilir, düzenlenebilir 3D ayarları korunmaz.
 
-## **FAQ**
+## **SSS**
 
-**Aspose.Slides etkileşimli 3B sunumlar oluşturabilir mi?**
+**Aspose.Slides interaktif 3D sunumlar oluşturabilir mi?**
 
-Aspose.Slides, şekiller ve metin için PowerPoint 3B efektlerini oluşturur ve renderlar. Dışa aktarılan görüntüler, PDFler veya HTML sayfalarını izleyicinin döndürebileceği etkileşimli 3B sahnelere dönüştürmez. PPTX formatında, 3B biçimlendirme, formatın desteklediği durumlarda PowerPoint içinde düzenlenebilir olarak kalır.
+Aspose.Slides, şekil ve metin için PowerPoint 3D efektlerini oluşturur ve render eder. Dışa aktarılan görüntüler, PDF’ler veya HTML sayfaları, izleyicinin döndürebileceği interaktif 3D sahneler haline getirmez. PPTX içinde, format destekliyorsa 3D formatlama PowerPoint’te düzenlenebilir kalır.
 
-**3B model ile 3B efekt arasındaki fark nedir?**
+**3D model ile 3D efekt arasındaki fark nedir?**
 
-3B model, bir sunuma eklenen ayrı bir 3B nesnedir. 3B efekt, döndürme, ekstrüzyon, burç, aydınlatma ve malzeme gibi düzenli bir PowerPoint şekline veya metne uygulanan biçimlendirmedir. Bu makale 3B efektleri kapsar.
+3D model, sunuma eklenen ayrı bir 3D nesnedir. 3D efekt, bir PowerPoint şekline veya metne uygulanan döndürme, ekstrüzyon, köşe yuvarlaması, aydınlatma ve malzeme gibi formatlamadır. Bu makale 3D efektleri ele alır.
 
-**Görünür bir 3B şekil için hangi ayarlar gereklidir?**
+**Görünür bir 3D şekil için hangi ayarlar gerekir?**
 
-En azından bir kamera döndürmesi ve ya ekstrüzyon ya da derinlik ayarlamanız gerekir. Pratikte, renderlanan yüzlerin belirgin vurgular ve gölgeler alması için bir ışık düzeni ve malzeme de ayarlanmalıdır.
+En az bir kamera döndürmesi ve ya ekstrüzyon ya da derinlik ayarı gerekir. Pratikte, render edilen yüzlerin belirgin vurgular ve gölgeler alması için bir ışık cihazı ve malzeme de ayarlanmalıdır.
 
-**3B efektleri hem şekillere hem de metne uygulayabilir miyim?**
+**Hem şekillere hem de metne 3D efekt uygulayabilir miyim?**
 
-Evet. Şekil gövdesi için [Shape::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#getThreeDFormat--) kullanın, metin için ise [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#getThreeDFormat--) kullanın.
+Evet. Şekil gövdesi için [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat), metin için ise [TextFrameFormat::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#getThreeDFormat) kullanın.
 
-**3B efektler görüntülere, PDF, HTML veya video çerçevelerine dışa aktarıldığında görünecek mi?**
+**3D efektler, görüntülere, PDF, HTML veya video karelerine dışa aktarıldığında görünür mü?**
 
-Evet. Aspose.Slides, slayt görüntüleri, PDF çıktısı, HTML çıktısı ve video dönüştürme için kullanılan çerçeveler üretirken 3B efektleri renderlar. Dışa aktarılan çıktı renderlanmış görünümü içerir, düzenlenebilir bir 3B nesne değil.
+Evet. Aspose.Slides, slayt görüntüleri, PDF çıktısı, HTML çıktısı ve video dönüşümü için kullanılan kareler üretildiğinde 3D efektleri render eder. Dışa aktarılan çıktı render edilmiş görünümü içerir, düzenlenebilir bir 3D nesne içermez.
 
-**Kalıtım ve tema ayarları uygulandıktan sonra son 3B değerleri okuyabilir miyim?**
+**Kalıtım ve tema ayarları uygulandıktan sonra son 3D değerlerini okuyabilir miyim?**
 
-Evet. Son kamera, ışık düzeni, burç ve ilgili 3B değerleri okumak için [Shape Effective Properties](/slides/tr/php-java/shape-effective-properties/) sayfasında açıklanan etkili biçimlendirme API'lerini kullanın.
+Evet. Son kamera, ışık cihazı, köşe ve ilgili 3D değerlerini okumak için [Shape Effective Properties](/slides/tr/php-java/shape-effective-properties/) içinde açıklanan etkin formatlama API’lerini kullanın.

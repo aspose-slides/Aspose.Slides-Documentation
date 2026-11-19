@@ -1,61 +1,63 @@
 ---
-title: Android'de Sunumlar İçin 3B Efektler Oluşturma
-linktitle: 3B Sunum
+title: Android'de Sunumlarda 3D Efektler Oluşturma
+linktitle: 3D Sunum
 type: docs
 weight: 232
 url: /tr/androidjava/3d-presentation/
 keywords:
-- 3B PowerPoint
-- 3B sunum
-- 3B döndürme
-- 3B derinlik
-- 3B ekstrüzyon
-- 3B degrade
-- 3B metin
+- 3D PowerPoint
+- 3D sunum
+- 3D döndürme
+- 3D derinlik
+- 3D ekstrüzyon
+- 3D degrade
+- 3D metin
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides ile Android üzerinde PowerPoint şekilleri ve metni için 3B efektleri uygulayın ve renderlayın. Kamera, aydınlatma, malzeme, ekstrüzyon, dolgu ve 3B metni yapılandırın."
+description: "Aspose.Slides ile Android'de PowerPoint şekilleri ve metni için 3D efektleri uygula ve renderla. Kamera, aydınlatma, malzeme, ekstrüzyon, doldurmalar ve 3D metni yapılandır."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Android via Java can create, edit, preserve, and render PowerPoint-style 3D formatting for shapes and text. This article covers 3D effects such as rotation, extrusion, bevels, lighting, material, gradient or picture fills, and 3D text.
+Aspose.Slides for Android via Java, şekiller ve metin için PowerPoint tarzı 3D biçimlendirmeyi oluşturabilir, düzenleyebilir, koruyabilir ve renderleyebilir. Bu makale, döndürme, ekstrüzyon, oluklar, aydınlatma, malzeme, degrade veya resim doldurmalar ve 3D metin gibi 3D efektleri kapsar.
 
 {{% alert color="info" title="Note" %}}
-Bu makale, PowerPoint şekilleri ve metni üzerindeki 3B biçimlendirme efektleriyle ilgilidir. Bağımsız 3B model dosyalarını ekleme veya düzenleme ile ilgili değildir. Bir slaytı görüntü, PDF veya HTML olarak dışa aktardığınızda, Aspose.Slides bu 3B efektleri dışa aktarılmış 2B çıktıya işler.
+
+Bu makale, PowerPoint şekilleri ve metni üzerindeki 3D biçimlendirme efektleriyle ilgilidir. Ayrı bir 3D model dosyası ekleme veya düzenleme ile ilgili değildir. Bir slaytı görüntüye, PDF’ye veya HTML’ye dışa aktardığınızda, Aspose.Slides bu 3D efektlerini dışa aktarılan 2D çıktıya renderlar.
+
 {{% /alert %}}
 
 ## **3D Biçimlendirme Kavramları**
 
-Use the [IShape.getThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) method to apply 3D formatting to a shape. The method returns [IThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/), which controls the 3D scene for that shape.
+Bir şekle 3D biçimlendirme uygulamak için [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) metodunu kullanın. Bu metod, o şeklin 3D sahnesini kontrol eden [IThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/) nesnesini döndürür.
 
-For text, use the [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) method. This applies 3D formatting to the text frame instead of the shape body.
+Metin için, [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) metodunu kullanın. Bu, şekil gövdesi yerine metin çerçevesine 3D biçimlendirme uygular.
 
-The most important API members are:
+En önemli API üyeleri şunlardır:
 
-| API üyesi | Kontrol ettiği şey | Ne zaman kullanılmalı |
+| API üyesi | Ne kontrol eder | Ne zaman kullanılmalı |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | Bakış noktası, ön ayarlı kamera türü, dönüş, yakınlaştırma ve perspektif. | Nesneyi 3B alanda döndürmek veya bir PowerPoint 3B dönüş ön ayarını eşleştirmek. |
-| [getLightRig](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | Işık ön ayarı, yön ve ışık dönüşü. | Vurguların ve gölgelerin 3B yüzeyde nasıl göründüğünü değiştirmek. |
-| [getMaterial](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) and [setMaterial](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | Yüzey malzemesi, düz, mat, plastik veya metal gibi. | Aynı geometrinin daha düz, daha yumuşak, parlak veya metalik görünmesini sağlamak. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) and [setExtrusionHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Şeklin ön yüzünden geriye ne kadar uzandığını. | Düz bir şekli net bir şekilde kalın bir 3B nesne haline getirmek. |
-| [getExtrusionColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Ekstrüde edilen yanların rengi. | Derinliği görünür kılmak veya yan rengini ön dolguyla eşleştirmek. |
-| [getDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getDepth--) and [setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | PowerPoint 3B biçimlendirmesinde kullanılan ek 3B derinlik. | Şekiller veya metinler için, özellikle köşe ve malzeme ayarlarıyla birlikte derinliği ince ayarlamak. |
-| [getBevelTop](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) and [getBevelBottom](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | Ön ve arka yüzlerde yükseltilmiş veya yuvarlatılmış kenarlar. | Keskin düz bir yüz yerine yumuşatılmış veya kalıplanmış bir kenar eklemek. |
-| [getContourColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) and [getContourWidth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) and [setContourWidth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | 3B nesnenin etrafındaki kontur. | Render edilen çıktıda nesne sınırını vurgulamak. |
+| [getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--) | Görünüm noktası, önceden ayarlanmış kamera tipi, döndürme, yakınlaştırma ve perspektif. | Nesneyi 3D uzayda döndürmek veya bir PowerPoint 3D döndürme ön ayarını eşleştirmek. |
+| [getLightRig](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getLightRig--) | Işık ön ayarı, yön ve ışık döndürmesi. | 3D yüzeyde vurguların ve gölgelerin nasıl göründüğünü değiştirmek. |
+| [getMaterial](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getMaterial--) ve [setMaterial](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setMaterial-int-) | Yüzey malzemesi, düz, mat, plastik veya metal gibi. | Aynı geometrinin daha düz, daha yumuşak, parlak veya metalik görünmesini sağlamak. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionHeight--) ve [setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Şeklin ön yüzünden geriye ne kadar uzandığını. | Düz bir şekli gözle görülür kalın bir 3D nesneye dönüştürmek. |
+| [getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Ekstrüde edilen yan yüzlerin rengi. | Derinliği görünür kılar veya yan renkleri ön doldurma ile eşleştirir. |
+| [getDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getDepth--) ve [setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) | PowerPoint 3D biçimlendirmede kullanılan ek 3D derinlik. | Şekiller veya metin için derinliği ince ayar yapar, özellikle oluk ve malzeme ayarlarıyla birlikte. |
+| [getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) ve [getBevelBottom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelBottom--) | Ön ve arka yüzlerde yükseltilmiş veya yuvarlatılmış kenarlar. | Keskin düz bir yüz yerine yumuşak veya kalıplanmış bir kenar ekler. |
+| [getContourColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getContourColor--) ve [getContourWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getContourWidth--) ve [setContourWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setContourWidth-double-) | 3D nesnenin etrafındaki anahat. | Renderlanan çıktıda nesne sınırını vurgular. |
 
-## **3B Şekil Oluşturma**
+## **3D Şekil Oluşturma**
 
-A shape usually needs four kinds of settings before it looks convincingly 3D:
+Bir şeklin ikna edici bir 3D görünüm kazanması için genellikle dört tür ayara ihtiyacı vardır:
 
 - Kamera ayarları, çünkü varsayılan ön görünüm ekstrüzyonu gizleyebilir.
-- Işık ayarları, çünkü aydınlatma yüzeylerin ve yanların görülebilir olmasını sağlar.
-- Malzeme ayarları, çünkü yüzey ışığın nasıl yansıtıldığını etkiler.
+- Işık ayarları, çünkü aydınlatma yüzeylerin ve yanların okunabilir olmasını sağlar.
+- Malzeme ayarları, çünkü yüzey ışığın nasıl renderleneceğini etkiler.
 - Ekstrüzyon veya derinlik ayarları, çünkü düz bir şeklin kalınlığa ihtiyacı vardır.
 
-The following example creates a rectangle, adds text to its front face, and applies 3D formatting. The camera rotation values are in degrees, and the extrusion height is 100 points. The example renders the slide to a PNG image at twice its default dimensions and saves the presentation as PPTX.
+Aşağıdaki örnek bir dikdörtgen oluşturur, ön yüzüne metin ekler ve 3D biçimlendirme uygular. Kamera döndürme değerleri derecedir ve ekstrüzyon yüksekliği 100 puandır. Örnek, slaytı iki kat varsayılan boyutta bir PNG görüntüsü olarak renderlar ve sunumu PPTX olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -96,17 +98,17 @@ try {
 }
 ```
 
-The rendered slide image shows the rectangle as a thick 3D block:
+Renderlanan slayt görüntüsü, dikdörtgene kalın bir 3D blok görünümü verir:
 
-![Ön yüzünde beyaz 3B metinli mavi 3B dikdörtgen render edildi](img_01_01.png)
+![Render edilmiş mavi 3D dikdörtgen, ön yüzünde beyaz 3D metin](img_01_01.png)
 
 ## **Kamera ile Şekli Döndürme**
 
-In PowerPoint, 3D rotation is configured from the 3-D Rotation pane. The X, Y, and Z rotation values correspond to the rotation you set through the camera API.
+PowerPoint’te 3D döndürme, 3‑D Döndürme bölmesinden yapılandırılır. X, Y ve Z döndürme değerleri, kamera API’si üzerinden ayarladığınız döndürmeye karşılık gelir.
 
-![X, Y ve Z dönüş değerlerinin vurgulandığı PowerPoint 3-B Dönüş bölmesi](img_02_01.png)
+![PowerPoint 3-D Döndürme bölmesi, X, Y ve Z döndürme değerleri vurgulanmış](img_02_01.png)
 
-In Aspose.Slides, access the camera through [IThreeDFormat.getCamera](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getCamera--). This example creates a rectangle, selects an orthographic front view, and sets its X, Y, and Z rotations to 20, 30, and 40 degrees, respectively. It configures the shape in memory without saving a file:
+Aspose.Slides’te kameraya, [IThreeDFormat.getCamera](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getCamera--) üzerinden erişilir. Bu örnek bir dikdörtgen oluşturur, ortografik ön görünüm seçer ve X, Y ve Z döndürmelerini sırasıyla 20, 30 ve 40 derece olarak ayarlar. Şekli dosya kaydetmeden bellekte yapılandırır:
 
 ```java
 import com.aspose.slides.*;
@@ -124,15 +126,47 @@ try {
 }
 ```
 
-Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
+Kamerayı, izleyicinin nesneyi nasıl gördüğünü değiştirmek istediğinizde kullanın. Bu, slayttaki 2D şekil geometrisini değiştirmez. PowerPoint ve Aspose.Slides tarafından renderlarken kullanılan 3D bakış noktasını değiştirir.
+
+### **Şablon Şekilden Kamera Yönlendirmesini Kopyalama**
+
+Şablon şeklin yönlendirmesini eşlemek için, [getCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#getCameraType--) ile kamera ön ayarını ve [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#getRotation--) ile döndürme açılarını okuyun. Örnek `template.pptx` dosyasını açar ve ilk slaydın ilk şekilinden kamera yönlendirmesini ikinci şekle kopyalar. Her iki şeklin de 3D aydınlatması vardır ve ikinci şeklin açık bir kamera döndürmesi yoktur.
+
+Açılar derecedir. `0` indeks enlemdir, `1` indeks boylamdır ve `2` indeks devrimdir. Bu sırayla [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) metoduna aktarın. Kaynak `null` döndürürse, açık bir döndürmesi yoktur, bu yüzden ikinci şeklin açılarını ayarlamayın. `(0, 0, 0)` gibi açık bir döndürme üç sıfır döndürür ve kopyalanmalıdır.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    IShapeCollection shapes = presentation.getSlides().get_Item(0).getShapes();
+
+    ICamera sourceCamera = shapes.get_Item(0).getThreeDFormat().getCamera();
+    ICamera destinationCamera = shapes.get_Item(1).getThreeDFormat().getCamera();
+
+    destinationCamera.setCameraType(sourceCamera.getCameraType());
+    float[] angles = sourceCamera.getRotation();
+    if (angles != null) {
+        destinationCamera.setRotation(angles[0], angles[1], angles[2]);
+    }
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`camera-copy.pptx` dosyasını PowerPoint’te yeniden açtığınızda, sağdaki ok, soldaki dikdörtgene aynı kamera ön ayarı ve döndürmesiyle görünür. Her iki şekil de aynı aydınlatma ve ekstrüzyon derinliğini kullanır.
+
+![Sol tarafta dikdörtgen, sağ tarafta aynı kamera yönlendirmesine sahip bir ok; üstten ve sağdan bakılıyor](camera-orientation.png)
 
 ## **Ekstrüzyon ve Derinlik Ekleme**
 
-Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
+Ekstrüzyon, bir şekli ön yüzünden geriye uzatarak kalın gösterir. PowerPoint’te derinlik kontrolü bu görünür kalınlığı ayarlar ve renk kontrolü yan yüzlerin rengini belirler.
 
-![PowerPoint derinlik kontrolleri ekstrüzyon rengi ve ekstrüzyon yüksekliği özelliklerine eşlendi](img_02_02.png)
+![PowerPoint derinlik kontrolleri, ekstrüzyon rengi ve ekstrüzyon yüksekliği özelliklerine eşlenmiş](img_02_02.png)
 
-Use [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) to set the thickness and [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) to access the side color. This example gives a rectangle a 100-point extrusion with purple sides and rotates the camera to reveal its thickness. It configures the shape in memory without saving a file:
+Kalınlığı ayarlamak için [IThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) metodunu ve yan renk için [IThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getExtrusionColor--) metodunu kullanın. Bu örnek, dikdörtgene 100 puanlık bir ekstrüzyon, mor yan yüzler verir ve kalınlığını göstermek için kamerayı döndürür. Şekli dosya kaydetmeden bellekte yapılandırır:
 
 ```java
 import com.aspose.slides.*;
@@ -158,13 +192,13 @@ try {
 }
 ```
 
-The [IThreeDFormat.setDepth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) method sets the depth of a 3D shape. The [setExtrusionHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) method controls the height of the extrusion effect, as shown in this example.
+[IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) metodu, bir 3D şeklin derinliğini ayarlar. [setExtrusionHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) metodu ise ekstrüzyon yüksekliğini kontrol eder; bu örnekte gösterildiği gibi.
 
-## **3B Efektlerle Degrade veya Resim Dolguları Kullanma**
+## **3D Efektlerle Degrade veya Resim Doldurmaları Kullanma**
 
-3D formatting is independent of the shape fill. You can apply a solid color, gradient, pattern, or picture fill to the front face and still use the same camera, light, material, and extrusion settings.
+3D biçimlendirme, şekil doldurmasından bağımsızdır. Ön yüzeye düz renk, degrade, desen veya resim doldurması uygulayabilir ve aynı kamera, ışık, malzeme ve ekstrüzyon ayarlarını kullanabilirsiniz.
 
-This example applies a blue-to-orange gradient to the front face and a dark orange color to the 150-point extrusion. The gradient stops at 0 and 100 mark the start and end of the gradient. The camera rotation values are in degrees. The slide is rendered to a PNG image at twice its default dimensions:
+Bu örnek, ön yüzde mavi‑tan‑turuncu bir degrade ve 150 puanlık ekstrüzyon için koyu turuncu renk uygular. Degrade durakları 0 ve 100, degrade başlangıç ve bitişini işaret eder. Kamera döndürme değerleri derecedir. Slayt iki kat varsayılan boyutta bir PNG’ye renderlanır:
 
 ```java
 import com.aspose.slides.*;
@@ -205,11 +239,11 @@ try {
 }
 ```
 
-The rendered output keeps the gradient on the front face and renders the extrusion separately:
+Renderlanan çıktı, ön yüzdeki degradeyi korur ve ekstrüzyonu ayrı olarak renderlar:
 
-![Mavi- turuncu degrade dolgu ve turuncu ekstrüzyonlu 3B dikdörtgenin renderı](img_02_03.png)
+![Mavi‑tan‑turuncu degrade doldurmalı 3D dikdörtgen ve turuncu ekstrüzyon ile renderlanmış](img_02_03.png)
 
-To use a picture fill instead, add the image to the presentation and assign it to the shape fill. This example requires an existing file named "image.jpg" in the working directory. It stretches the picture to fill the rectangle, applies a 150-point extrusion, and sets the camera rotation in degrees. It configures the shape in memory without saving or rendering a file:
+Resim doldurması kullanmak için, resmi sunuma ekleyin ve şekil doldurmasına atayın. Bu örnek, çalışma dizininde mevcut bir `image.jpg` dosyası gerektirir. Resmi dikdörtgeni dolduracak şekilde gerer, 150 puanlık ekstrüzyon uygular ve kamera döndürmesini derece cinsinden ayarlar. Şekli dosya kaydetmeden veya renderlamadan bellekte yapılandırır:
 
 ```java
 import com.aspose.slides.*;
@@ -244,15 +278,15 @@ try {
 }
 ```
 
-The picture is rendered on the front face, while the extrusion is rendered as the 3D side surface:
+Resim ön yüzde renderlanırken, ekstrüzyon 3D yan yüz olarak renderlanır:
 
-![Ön yüzünde fotoğraf dolgulu ve turuncu ekstrüzyonlu 3B dikdörtgenin renderı](img_02_04.png)
+![Ön yüzde fotoğraf doldurmalı 3D dikdörtgen ve turuncu ekstrüzyon ile renderlanmış](img_02_04.png)
 
-## **Metne 3B Biçimlendirme Uygulama**
+## **Metne 3D Biçimlendirme Uygulama**
 
-Shape 3D formatting affects the shape body. Text 3D formatting affects the text frame. This is useful for WordArt-like effects where the letters themselves need extrusion, material, lighting, and camera settings.
+Şekil 3D biçimlendirmesi şekil gövdesini etkiler. Metin 3D biçimlendirmesi ise metin çerçevesini etkiler. Bu, harflerin de ekstrüzyon, malzeme, aydınlatma ve kamera ayarlarına ihtiyaç duyduğu WordArt benzeri efektler için kullanışlıdır.
 
-The following example creates text with an orange-and-white grid pattern, applies an upward arch, and configures 3D settings through [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--). The extrusion height and depth are in points, and the light rotation is in degrees. The shape fill and outline are hidden so that only the text is visible. The example renders a PNG image at twice the default slide dimensions and saves the presentation as PPTX:
+Aşağıdaki örnek, turuncu‑beyaz bir ızgara deseniyle metin oluşturur, bir yükseltilmiş kemer uygular ve 3D ayarları [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) üzerinden yapılandırır. Ekstrüzyon yüksekliği ve derinlik puan cinsindedir, ışık döndürmesi derecedir. Şekil doldurma ve anahat gizlenir, böylece sadece metin görünür. Örnek, iki kat varsayılan slayt boyutunda bir PNG görüntüsü renderlar ve sunumu PPTX olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -302,17 +336,17 @@ try {
 }
 ```
 
-The text is rendered as curved, extruded 3D lettering:
+Metin, kavisli, ekstrüde edilmiş 3D harfler olarak renderlanır:
 
-![Kemerli WordArt dönüşümü, turuncu desen dolgusu ve koyu ekstrüzyonlu 3B metnin renderı](img_02_05.png)
+![Kemerli WordArt dönüşümü, turuncu desen dolgu ve koyu ekstrüzyon ile renderlanmış 3D metin](img_02_05.png)
 
-## **3B Şekilde Metni Düz Tutma**
+## **3D Şekilde Metni Düz Tutma**
 
-To keep text readable while preserving a shape's 3D appearance, call [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) through [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--). When the value is `true`, the text stays out of the 3D scene. When it is `false`, the text participates in the scene and follows its 3D orientation.
+Metnin okunabilirliğini korurken şeklin 3D görünümünü sürdürmek için, [ITextFrame.getTextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getTextFrameFormat--) üzerinden [ITextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setKeepTextFlat-boolean-) metodunu çağırın. Değer `true` olduğunda, metin 3D sahneden dışarıda kalır. `false` olduğunda, metin sahneye katılır ve 3D yönlendirmeyi izler.
 
-This setting does not remove the shape's 3D formatting: its camera, lighting, material, and extrusion remain configured through [IShape.getThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getThreeDFormat--). It is also different from ordinary rotation. [IShape.setRotation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#setRotation-float-) rotates the shape in the slide plane, while [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) controls the text's custom rotation within its bounding box. Keeping text out of the 3D scene does not reset either of those angles.
+Bu ayar, şeklin 3D biçimlendirmesini kaldırmaz: kamera, aydınlatma, malzeme ve ekstrüzyon, [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) üzerinden yapılandırılmış olarak kalır. Ayrıca sıradan döndürmeden farklıdır. [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) şekli slayt düzleminde döndürürken, [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) metnin kendi sınırlama kutusu içindeki özel döndürmesini kontrol eder. Metni 3D sahneden dışarıda tutmak, bu açılardan hiç birini sıfırlamaz.
 
-The following self-contained example creates a blue rectangle with text and clones it beside the original. Both shapes have the same 3D formatting; only the text setting differs: `false` on the left and `true` on the right. The camera angles are in degrees, and the extrusion height is 40 points. The example saves the presentation as PPTX and renders the comparison slide to PNG at twice its default dimensions.
+Aşağıdaki bağımsız örnek, mavi bir dikdörtgeni metinle oluşturur ve orijinalin yanına kopyalar. Her iki şekil aynı 3D biçimlendirmeye sahiptir; yalnızca metin ayarı farklıdır: solda `false`, sağda `true`. Kamera açıları derecedir ve ekstrüzyon yüksekliği 40 puandır. Örnek, sunumu PPTX olarak kaydeder ve karşılaştırma slaytını iki kat varsayılan boyutta PNG’ye renderlar.
 
 ```java
 import com.aspose.slides.*;
@@ -355,43 +389,43 @@ try {
 }
 ```
 
-On the left, the text follows the 3D orientation. On the right, it stays flat and easier to read. Both rectangles retain the same visible extrusion and 3D orientation.
+Sol tarafta metin 3D yönlendirmeyi izler. Sağ tarafta ise metin düz kalır ve daha kolay okunur. Her iki dikdörtgen de aynı görünen ekstrüzyon ve 3D yönlendirmeyi korur.
 
-![Yan yana 3B dikdörtgenler: solda metin 3B yönelime göre, sağda ise düz kalır](keep_text_flat.png)
+![Yan yana 3D dikdörtgenler: sol tarafta metin 3D yönlendirmeyi izler, sağ tarafta düz kalır](keep_text_flat.png)
 
 ## **Dışa Aktarma ve Render Davranışı**
 
-Aspose.Slides preserves 3D formatting when saving to PowerPoint formats such as PPTX. When rendering or exporting to fixed-layout formats, the 3D scene is rasterized or drawn into the output as a 2D result. This applies when you render slides to [PNG](/slides/tr/androidjava/convert-powerpoint-to-png/), export to [PDF](/slides/tr/androidjava/convert-powerpoint-to-pdf/), export to [HTML](/slides/tr/androidjava/convert-powerpoint-to-html/), or generate frames for [video conversion](/slides/tr/androidjava/convert-powerpoint-to-video/).
+Aspose.Slides, PPTX gibi PowerPoint formatlarına kaydederken 3D biçimlendirmeyi korur. Sabit‑sayfa formatlarına renderlarken veya dışa aktarırken 3D sahne, 2D sonuç olarak rasterleştirilir veya çıkışa çizilir. Bu, slaytları [PNG](/slides/tr/androidjava/convert-powerpoint-to-png/), [PDF](/slides/tr/androidjava/convert-powerpoint-to-pdf/), [HTML](/slides/tr/androidjava/convert-powerpoint-to-html/) formatlarına renderladığınızda veya [video dönüşümü](/slides/tr/androidjava/convert-powerpoint-to-video/) için kareler oluşturduğunuzda geçerlidir.
 
-Keep these points in mind:
+Şunları aklınızda bulundurun:
 
-- Dışa aktarılan görüntüler ve PDF'ler etkileşimli değildir. Nesne, dışa aktarıldıktan sonra izleyici tarafından döndürülemez.
-- Son görünüm, kamera, ışık seti, malzeme, ekstrüzyon, dolgu ve slayt ölçeklemesinin kombinasyonuna bağlıdır.
-- Kalıtılan veya tema tabanlı biçimlendirme değerlerini incelemeniz gerekiyorsa, [etkin şekil özelliklerini](/slides/tr/androidjava/shape-effective-properties/) okuyun.
-- Bazı çıktı biçimleri düzenlenebilir PowerPoint 3B biçimlendirmesini depolayamaz. Bu biçimlerde görsel sonuç, düzenlenebilir 3B ayarlar olarak korunmak yerine render edilir.
+- Dışa aktarılan görüntüler ve PDF’ler etkileşimli değildir. Nesne, dışa aktarıldıktan sonra izleyici tarafından döndürülemez.
+- Son görünüm, kamera, ışık rig’i, malzeme, ekstrüzyon, doldurma ve slayt ölçeklemesinin birleşimine bağlıdır.
+- Kalıtılmış veya tema‑bazlı biçimlendirme değerlerini incelemek istiyorsanız, [effective shape properties](/slides/tr/androidjava/shape-effective-properties/) bölümünü okuyun.
+- Bazı çıktı formatları düzenlenebilir PowerPoint 3D biçimlendirmesini depolayamaz. Bu formatlarda görsel sonuç, düzenlenebilir 3D ayarları yerine renderlanmış olarak saklanır.
 
-## **SSS**
+## **FAQ**
 
-**Aspose.Slides etkileşimli 3B sunumlar oluşturabilir mi?**
+**Aspose.Slides etkileşimli 3D sunumlar oluşturabilir mi?**
 
-Aspose.Slides PowerPoint şekilleri ve metni için 3B efektleri oluşturur ve render eder. Dışa aktarılan görüntüler, PDF'ler veya HTML sayfaları izleyicinin döndürebileceği etkileşimli 3B sahneler haline getirmez. PPTX formatında, 3B biçimlendirme destekleyen PowerPoint uygulamasında düzenlenebilir olarak kalır.
+Aspose.Slides, şekiller ve metin için PowerPoint 3D efektlerini oluşturur ve renderlar. Dışa aktarılan görüntüler, PDF’ler veya HTML sayfalarını, izleyicinin döndürebileceği etkileşimli 3D sahnelere dönüştürmez. PPTX formatında, 3D biçimlendirme, formatın desteklediği PowerPoint’te düzenlenebilir olarak kalır.
 
-**Bir 3B model ile 3B efekt arasındaki fark nedir?**
+**3D model ile 3D efekt arasındaki fark nedir?**
 
-3B model, sunuma eklenen ayrı bir 3B nesnedir. 3B efekt, bir PowerPoint şekli veya metnine uygulanan (dönme, ekstrüzyon, köşe, aydınlatma, malzeme vb.) biçimlendirmedir. Bu makale 3B efektleri kapsar.
+3D model, sunuma eklenen ayrı bir 3D nesnedir. 3D efekt ise normal bir PowerPoint şekline veya metnine uygulanan, döndürme, ekstrüzyon, oluk, aydınlatma ve malzeme gibi biçimlendirmedir. Bu makale, 3D efektleri ele alır.
 
-**Görünür bir 3B şekil için hangi ayarlar gereklidir?**
+**Görünür bir 3D şekil için hangi ayarlar gerekir?**
 
-En az bir kamera dönüşü ve ya ekstrüzyon ya da derinlik ayarlanmalıdır. Pratikte, render edilen yüzeylerin net vurgular ve gölgeler alması için bir ışık seti ve malzeme de eklenir.
+En az bir kamera döndürmesi ve ya ekstrüzyon ya da derinlik ayarı gerekir. Pratikte, renderlanan yüzlerin belirgin vurgular ve gölgeler alması için bir ışık rig’i ve malzeme de ayarlanır.
 
-**Hem şekillere hem de metne 3B efektler uygulayabilir miyim?**
+**Hem şekillere hem de metne 3D efekt uygulayabilir miyim?**
 
-Evet. Şekil gövdesi için [IShape.getThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) ve metin için [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) kullanın.
+Evet. Şekil gövdesi için [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) ve metin için [ITextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getThreeDFormat--) metodlarını kullanın.
 
-**Görüntülere, PDF, HTML veya video karelerine dışa aktarırken 3B efektler görünecek mi?**
+**Görseller, PDF, HTML veya video karelerine dışa aktarırken 3D efektler görünür mü?**
 
-Evet. Aspose.Slides slayt görüntüleri, PDF çıktısı, HTML çıktısı ve video dönüşümü için kullanılan kareler üretilirken 3B efektleri render eder. Dışa aktarılan çıktı render edilmiş görünümü içerir, düzenlenebilir bir 3B nesne değildir.
+Evet. Aspose.Slides, slayt görüntüleri, PDF çıktısı, HTML çıktısı ve video dönüşümü için kullanılan kareler üretirken 3D efektleri renderlar. Dışa aktarılan çıktı, renderlanmış görünümü içerir; düzenlenebilir bir 3D nesne içermez.
 
-**Kalıtım ve tema ayarları uygulandıktan sonra son 3B değerleri okuyabilir miyim?**
+**Kalıtım ve tema ayarları uygulandıktan sonra son 3D değerlerini okuyabilir miyim?**
 
-Evet. Son kamera, ışık seti, köşe ve ilgili 3B değerlerini okumak için [Şekil Etkin Özellikleri](/slides/tr/androidjava/shape-effective-properties/) bölümünde açıklanan etkili biçimlendirme API'lerini kullanın.
+Evet. Son kamera, ışık rig’i, oluk ve ilgili 3D değerlerini okumak için [Shape Effective Properties](/slides/tr/androidjava/shape-effective-properties/) bölümünde açıklanan etkili biçimlendirme API’larını kullanın.

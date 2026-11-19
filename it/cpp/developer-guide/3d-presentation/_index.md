@@ -16,45 +16,45 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Applica e renderizza effetti 3D per forme e testo PowerPoint in C++ con Aspose.Slides. Configura telecamera, illuminazione, materiale, estrusione, riempimenti e testo 3D."
+description: "Applica e renderizza effetti 3D per forme e testo di PowerPoint in C++ con Aspose.Slides. Configura telecamera, illuminazione, materiale, estrusione, riempimenti e testo 3D."
 ---
 ## **Panoramica**
 
-Aspose.Slides for C++ può creare, modificare, preservare e renderizzare la formattazione 3D in stile PowerPoint per forme e testo. Questo articolo copre gli effetti 3D come rotazione, estrusione, smussi, illuminazione, materiale, riempimenti a gradiente o immagine e testo 3D.
+Aspose.Slides per C++ può creare, modificare, conservare e renderizzare la formattazione 3D in stile PowerPoint per forme e testo. Questo articolo tratta gli effetti 3D come rotazione, estrusione, smussature, illuminazione, materiale, riempimenti a gradiente o immagine e testo 3D.
 
 {{% alert color="info" title="Note" %}}
-Questo articolo riguarda gli effetti di formattazione 3D su forme e testo di PowerPoint. Non tratta l'inserimento o la modifica di file modello 3D autonomi. Quando si esporta una diapositiva in immagine, PDF o HTML, Aspose.Slides renderizza quegli effetti 3D nell'output 2D esportato.
+Questo articolo riguarda gli effetti di formattazione 3D su forme e testo di PowerPoint. Non tratta dell'inserimento o della modifica di file modello 3D autonomi. Quando esporti una diapositiva in un'immagine, PDF o HTML, Aspose.Slides rende quegli effetti 3D nell'output 2D esportato.
 {{% /alert %}}
 
 ## **Concetti di Formattazione 3D**
 
-Utilizza il metodo [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_threedformat/) per applicare la formattazione 3D a una forma. Il metodo restituisce [IThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/), che controlla la scena 3D per quella forma.
+Usa il metodo [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) per applicare la formattazione 3D a una forma. Il metodo restituisce [IThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/), che controlla la scena 3D per quella forma.
 
-Per il testo, utilizza il metodo [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframeformat/get_threedformat/). Questo applica la formattazione 3D al riquadro di testo invece che al corpo della forma.
+Per il testo, usa il metodo [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/). Questo applica la formattazione 3D al riquadro di testo invece che al corpo della forma.
 
 I metodi più importanti sono:
 
 | Metodo | Cosa controlla | Quando usarlo |
 |---|---|---|
-| [get_Camera](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_camera/) | Punto di vista, tipo di telecamera predefinita, rotazione, zoom e prospettiva. | Ruota l'oggetto nello spazio 3D o corrisponde a un preset di rotazione 3D di PowerPoint. |
-| [get_LightRig](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_lightrig/) | Preset di luce, direzione e rotazione della luce. | Cambia l'aspetto di luci e ombre sulla superficie 3D. |
-| [set_Material](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_material/) | Materiale della superficie, ad esempio piatto, opaco, plastica o metallo. | Rende la stessa geometria più piatta, più morbida, lucida o metallica. |
-| [set_ExtrusionHeight](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Quanto la forma si estende all'indietro dalla sua faccia anteriore. | Trasforma una forma piatta in un oggetto 3D visibilmente spesso. |
-| [get_ExtrusionColor](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Colore dei lati estrusi. | Rende visibile la profondità o coordina il colore laterale con il riempimento frontale. |
-| [set_Depth](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_depth/) | Profondità 3D aggiuntiva usata dalla formattazione 3D di PowerPoint. | Affina la profondità per forme o testo, specialmente insieme a impostazioni di smusso e materiale. |
-| [get_BevelTop](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_beveltop/) e [get_BevelBottom](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Bordi rialzati o arrotondati sulle facce anteriore e posteriore. | Aggiunge un bordo smussato o modellato invece di una faccia piatta e netta. |
-| [get_ContourColor](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_contourcolor/) e [set_ContourWidth](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Contorno attorno all'oggetto 3D. | Evidenzia il bordo dell'oggetto nel risultato renderizzato. |
+| [get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/) | Punto di vista, tipo di telecamera preimpostata, rotazione, zoom e prospettiva. | Ruota l'oggetto nello spazio 3D o corrispondi a una preimpostazione di rotazione 3D di PowerPoint. |
+| [get_LightRig](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_lightrig/) | Preimpostazione luce, direzione e rotazione della luce. | Modifica il modo in cui i riflessi e le ombre compaiono sulla superficie 3D. |
+| [set_Material](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_material/) | Materiale della superficie, ad esempio piatto, opaco, plastica o metallo. | Rende la stessa geometria più piatta, più morbida, lucida o metallica. |
+| [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) | Quanto la forma si estende all'indietro dalla sua faccia frontale. | Trasforma una forma piatta in un oggetto 3D visibilmente spesso. |
+| [get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) | Colore dei lati estrusi. | Rende la profondità visibile o coordina il colore dei lati con il riempimento frontale. |
+| [set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) | Profondità 3D aggiuntiva usata dalla formattazione 3D di PowerPoint. | Regola finemente la profondità per forme o testo, soprattutto insieme a impostazioni di smussatura e materiale. |
+| [get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) and [get_BevelBottom](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_bevelbottom/) | Bordi rialzati o arrotondati sulle facce frontali e posteriori. | Aggiunge un bordo morbido o modellato invece di una faccia piatta e netta. |
+| [get_ContourColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_contourcolor/) and [set_ContourWidth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_contourwidth/) | Contorno attorno all'oggetto 3D. | Evidenzia il bordo dell'oggetto nell'output renderizzato. |
 
-## **Creare una Forma 3D**
+## **Crea una Forma 3D**
 
-Una forma solitamente richiede quattro tipi di impostazioni prima di apparire convincentemente 3D:
+Una forma solitamente necessita di quattro tipi di impostazioni prima di apparire convincentemente 3D:
 
-- Impostazioni della telecamera, poiché la vista frontale predefinita può nascondere l'estrusione.
-- Impostazioni della luce, poiché l'illuminazione rende le facce e i lati leggibili.
-- Impostazioni del materiale, poiché la superficie influisce su come la luce viene renderizzata.
-- Impostazioni di estrusione o profondità, poiché una forma piatta necessita di spessore.
+- Impostazioni della telecamera, perché la vista frontale predefinita può nascondere l'estrusione.
+- Impostazioni della luce, perché l'illuminazione rende leggibili le facce e i lati.
+- Impostazioni del materiale, perché la superficie influisce su come la luce viene renderizzata.
+- Impostazioni di estrusione o profondità, perché una forma piatta ha bisogno di spessore.
 
-L'esempio seguente crea un rettangolo, aggiunge testo alla sua faccia anteriore e applica la formattazione 3D. I valori di rotazione della telecamera sono in gradi e l'altezza dell'estrusione è 100 punti. L'esempio renderizza la diapositiva in un'immagine PNG a doppia dimensione rispetto ai valori predefiniti e salva la presentazione come PPTX.
+Il seguente esempio crea un rettangolo, aggiunge testo alla sua faccia frontale e applica la formattazione 3D. I valori di rotazione della telecamera sono in gradi e l'altezza dell'estrusione è 100 punti. L'esempio renderizza la diapositiva in un'immagine PNG a dimensioni doppie rispetto a quelle predefinite e salva la presentazione come PPTX.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -115,17 +115,17 @@ presentation->Save(u"shape_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-L'immagine della diapositiva renderizzata mostra il rettangolo come un blocco spesso 3D:
+L'immagine della diapositiva renderizzata mostra il rettangolo come un blocco 3D spesso:
 
-![Rettangolo 3D blu renderizzato con testo 3D bianco sulla faccia anteriore](img_01_01.png)
+![Rettangolo 3D blu renderizzato con testo 3D bianco sulla faccia frontale](img_01_01.png)
 
-## **Ruotare una Forma con la Telecamera**
+## **Ruota una Forma con la Telecamera**
 
-In PowerPoint, la rotazione 3D è configurata dal pannello Rotazione 3-D. I valori di rotazione X, Y e Z corrispondono alla rotazione impostata tramite l'API della telecamera.
+In PowerPoint, la rotazione 3D è configurata dal riquadro Rotazione 3D. I valori di rotazione X, Y e Z corrispondono alla rotazione impostata tramite l'API della telecamera.
 
-![Pannello Rotazione 3-D di PowerPoint con valori di rotazione X, Y e Z evidenziati](img_02_01.png)
+![Riquadro Rotazione 3D di PowerPoint con valori di rotazione X, Y e Z evidenziati](img_02_01.png)
 
-In Aspose.Slides, accedi alla telecamera tramite [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_camera/). Questo esempio crea un rettangolo, seleziona una vista frontale ortografica e imposta le rotazioni X, Y e Z a 20, 30 e 40 gradi rispettivamente. Configura la forma in memoria senza salvare un file:
+In Aspose.Slides, accedi alla telecamera tramite [IThreeDFormat::get_Camera](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_camera/). Questo esempio crea un rettangolo, seleziona una vista frontale ortografica e imposta le rotazioni X, Y e Z a 20, 30 e 40 gradi rispettivamente. Configura la forma in memoria senza salvare un file:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -150,15 +150,54 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
 presentation->Dispose();
 ```
 
-Usa la telecamera quando devi modificare il modo in cui lo spettatore vede l'oggetto. Non modifica la geometria 2D della forma nella diapositiva. Cambia il punto di vista 3D usato da PowerPoint e da Aspose.Slides durante il rendering.
+Usa la telecamera quando hai bisogno di cambiare il modo in cui lo spettatore vede l'oggetto. Non cambia la geometria 2D della forma sulla diapositiva. Cambia il punto di vista 3D usato da PowerPoint e da Aspose.Slides durante il rendering.
 
-## **Aggiungere Estrusione e Profondità**
+### **Copia l'Orientamento della Telecamera da una Forma Modello**
 
-L'estrusione rende una forma spessa estendendola dietro la faccia anteriore. In PowerPoint, il controllo di profondità imposta questo spessore visibile, e il controllo di colore imposta il colore delle facce laterali.
+Per corrispondere all'orientamento della telecamera di una forma modello, leggi la sua preimpostazione con [get_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/get_cameratype/) e applicala con [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/). L'esempio apre `template.pptx` e copia l'orientamento della telecamera dalla prima forma nella prima diapositiva alla seconda forma. Entrambe le forme hanno già l'illuminazione 3D, e la seconda forma non ha una rotazione della telecamera esplicita.
 
-![Controlli di profondità di PowerPoint mappati su colore di estrusione e proprietà di altezza di estrusione](img_02_02.png)
+[GetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/getrotation/) restituisce gli angoli in gradi. L'indice `0` è latitudine, l'indice `1` è longitudine e l'indice `2` è rivoluzione. Passa gli angoli a [SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) in quest'ordine. Se la sorgente non ha una rotazione esplicita, `GetRotation` restituisce un puntatore nullo, quindi lascia gli angoli della seconda forma non impostati. Una rotazione esplicita di `(0, 0, 0)` restituisce un array di tre zeri e dovrebbe essere copiata.
 
-Imposta [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_extrusionheight/) per lo spessore e [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) per il colore laterale. Questo esempio assegna a un rettangolo un'estrusione di 100 punti con lati viola e ruota la telecamera per rivelarne lo spessore. Configura la forma in memoria senza salvare un file:
+```cpp
+#include <DOM/ICamera.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto sourceCamera = slide->get_Shape(0)->get_ThreeDFormat()->get_Camera();
+auto destinationCamera = slide->get_Shape(1)->get_ThreeDFormat()->get_Camera();
+
+destinationCamera->set_CameraType(sourceCamera->get_CameraType());
+auto angles = sourceCamera->GetRotation();
+if (angles != nullptr)
+{
+    destinationCamera->SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation->Save(u"camera-copy.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Quando riapri `camera-copy.pptx` in PowerPoint, la freccia a destra ha la stessa preimpostazione e rotazione della telecamera del rettangolo a sinistra. Entrambe le forme usano la stessa illuminazione e profondità di estrusione.
+
+![Un rettangolo 3D blu e una freccia destra con orientamento della telecamera corrispondente, vista dall'alto e da destra](camera-orientation.png)
+
+## **Aggiungi Estrusione e Profondità**
+
+L'estrusione rende una forma spessa estendendola dietro la faccia frontale. In PowerPoint, il controllo della profondità imposta questa spessore visibile, e il controllo del colore imposta il colore delle facce laterali.
+
+![Controlli di profondità di PowerPoint mappati alle proprietà colore dell'estrusione e altezza dell'estrusione](img_02_02.png)
+
+Imposta [IThreeDFormat::set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) per lo spessore e [IThreeDFormat::get_ExtrusionColor](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_extrusioncolor/) per il colore laterale. Questo esempio assegna al rettangolo un'estrusione di 100 punti con lati viola e ruota la telecamera per rivelarne lo spessore. Configura la forma in memoria senza salvare un file:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -197,13 +236,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-Il metodo [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_depth/) imposta la profondità di una forma 3D. Il metodo [set_ExtrusionHeight](https://reference.aspose.com/slides/it/cpp/aspose.slides/ithreedformat/set_extrusionheight/) controlla l'altezza dell'effetto di estrusione, come mostrato in questo esempio.
+Il metodo [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) imposta la profondità di una forma 3D. Il metodo [set_ExtrusionHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_extrusionheight/) controlla l'altezza dell'effetto di estrusione, come mostrato in questo esempio.
 
-## **Usare Riempimenti a Gradiente o Immagine con Effetti 3D**
+## **Usa Riempimenti a Gradiente o Immagine con Effetti 3D**
 
-La formattazione 3D è indipendente dal riempimento della forma. Puoi applicare un colore solido, un gradiente, un motivo o un riempimento immagine alla faccia anteriore e comunque utilizzare le stesse impostazioni di telecamera, luce, materiale ed estrusione.
+La formattazione 3D è indipendente dal riempimento della forma. Puoi applicare un colore solido, un gradiente, un motivo o un riempimento immagine alla faccia frontale e continuare a usare le stesse impostazioni di telecamera, luce, materiale ed estrusione.
 
-Questo esempio applica un gradiente dal blu all'arancione alla faccia anteriore e un colore arancione scuro all'estrusione di 150 punti. Le fermate del gradiente a 0 e 100 indicano l'inizio e la fine del gradiente. I valori di rotazione della telecamera sono in gradi. La diapositiva è renderizzata in un'immagine PNG a doppia dimensione rispetto ai valori predefiniti:
+Questo esempio applica un gradiente dal blu all'arancione alla faccia frontale e un colore arancione scuro all'estrusione di 150 punti. Le interruzioni del gradiente a 0 e 100 indicano l'inizio e la fine del gradiente. I valori di rotazione della telecamera sono in gradi. La diapositiva è renderizzata in un'immagine PNG a dimensioni doppie rispetto a quelle predefinite:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -264,11 +303,9 @@ thumbnail->Dispose();
 presentation->Dispose();
 ```
 
-L'output renderizzato mantiene il gradiente sulla faccia anteriore e renderizza separatamente l'estrusione:
+![Rettangolo 3D renderizzato con riempimento gradiente blu-arancione ed estrusione arancione](img_02_03.png)
 
-![Rettangolo 3D renderizzato con riempimento a gradiente blu‑arancione ed estrusione arancione](img_02_03.png)
-
-Per usare un riempimento immagine, aggiungi l'immagine alla presentazione e assegnala al riempimento della forma. Questo esempio richiede un file esistente chiamato "image.jpg" nella directory di lavoro. Allunga l'immagine per riempire il rettangolo, applica un'estrusione di 150 punti e imposta la rotazione della telecamera in gradi. Configura la forma in memoria senza salvare o renderizzare un file:
+Per usare invece un riempimento immagine, aggiungi l'immagine alla presentazione e assegnala al riempimento della forma. Questo esempio richiede un file esistente chiamato "image.jpg" nella directory di lavoro. Allunga l'immagine per riempire il rettangolo, applica un'estrusione di 150 punti e imposta la rotazione della telecamera in gradi. Configura la forma in memoria senza salvare o renderizzare un file:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -321,15 +358,13 @@ shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(extrusionColor);
 presentation->Dispose();
 ```
 
-L'immagine è renderizzata sulla faccia anteriore, mentre l'estrusione è renderizzata come superficie laterale 3D:
+![Rettangolo 3D renderizzato con riempimento fotografico sulla faccia frontale ed estrusione arancione](img_02_04.png)
 
-![Rettangolo 3D renderizzato con riempimento foto sulla faccia anteriore ed estrusione arancione](img_02_04.png)
+## **Applica Formattazione 3D al Testo**
 
-## **Applicare la Formattazione 3D al Testo**
+La formattazione 3D della forma influisce sul corpo della forma. La formattazione 3D del testo influisce sul riquadro di testo. È utile per effetti simili a WordArt dove le lettere stesse hanno bisogno di estrusione, materiale, illuminazione e impostazioni della telecamera.
 
-La formattazione 3D della forma influisce sul corpo della forma. La formattazione 3D del testo influisce sul riquadro di testo. Questo è utile per effetti simili a WordArt dove le lettere stesse necessitano di estrusione, materiale, illuminazione e impostazioni della telecamera.
-
-L'esempio seguente crea testo con un motivo a griglia arancione‑bianco, applica un arco verso l'alto e configura le impostazioni 3D tramite [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframeformat/get_threedformat/). L'altezza dell'estrusione e la profondità sono in punti, e la rotazione della luce è in gradi. Il riempimento e il contorno della forma sono nascosti così da rendere visibile solo il testo. L'esempio renderizza un'immagine PNG a doppia dimensione rispetto alla diapositiva predefinita e salva la presentazione come PPTX:
+Il seguente esempio crea testo con un motivo a griglia arancione e bianco, applica un arco verso l'alto e configura le impostazioni 3D tramite [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/). L'altezza e la profondità dell'estrusione sono in punti, e la rotazione della luce è in gradi. Il riempimento e il contorno della forma sono nascosti così che sia visibile solo il testo. L'esempio renderizza un'immagine PNG a dimensioni doppie rispetto a quelle predefinite della diapositiva e salva la presentazione come PPTX:
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -406,17 +441,15 @@ presentation->Save(u"text_3d.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Il testo è renderizzato come lettere curve e estruse in 3D:
-
 ![Testo 3D renderizzato con trasformazione WordArt ad arco, riempimento a motivo arancione e estrusione scura](img_02_05.png)
 
-## **Mantenere il Testo Piatti su una Forma 3D**
+## **Mantieni il Testo Piatto su una Forma 3D**
 
-Per mantenere il testo leggibile preservando l'aspetto 3D della forma, chiama [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframeformat/set_keeptextflat/) tramite [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframe/get_textframeformat/). Quando il valore è `true`, il testo rimane fuori dalla scena 3D. Quando è `false`, il testo partecipa alla scena e segue l'orientamento 3D.
+Per mantenere il testo leggibile preservando l'aspetto 3D di una forma, chiama [ITextFrameFormat::set_KeepTextFlat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_keeptextflat/) tramite [ITextFrame::get_TextFrameFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_textframeformat/). Quando il valore è `true`, il testo rimane fuori dalla scena 3D. Quando è `false`, il testo partecipa alla scena e segue la sua orientazione 3D.
 
-Questa impostazione non rimuove la formattazione 3D della forma: la sua telecamera, illuminazione, materiale ed estrusione restano configurati tramite [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_threedformat/). È anche diversa dalla rotazione ordinaria. [IShape::set_Rotation](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/set_rotation/) ruota la forma nel piano della diapositiva, mentre [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframeformat/set_rotationangle/) controlla la rotazione personalizzata del testo all'interno del suo riquadro. Mantenere il testo fuori dalla scena 3D non resetta nessuno di questi angoli.
+Questa impostazione non rimuove la formattazione 3D della forma: la sua telecamera, illuminazione, materiale ed estrusione rimangono configurati tramite [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/). È anche diversa dalla rotazione ordinaria. [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) ruota la forma nel piano della diapositiva, mentre [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) controlla la rotazione personalizzata del testo all'interno della sua area di delimitazione. Tenere il testo fuori dalla scena 3D non reimposta nessuno di questi angoli.
 
-L'esempio autonomo seguente crea un rettangolo blu con testo e lo clona accanto all'originale. Entrambe le forme hanno la stessa formattazione 3D; solo l'impostazione del testo differisce: `false` a sinistra e `true` a destra. Gli angoli della telecamera sono in gradi e l'altezza dell'estrusione è 40 punti. L'esempio salva la presentazione come PPTX e renderizza la diapositiva di confronto in PNG a doppia dimensione rispetto al valore predefinito.
+Il seguente esempio autonomo crea un rettangolo blu con testo e lo clona accanto all'originale. Entrambe le forme hanno la stessa formattazione 3D; solo l'impostazione del testo differisce: `false` a sinistra e `true` a destra. Gli angoli della telecamera sono in gradi e l'altezza dell'estrusione è 40 punti. L'esempio salva la presentazione come PPTX e renderizza la diapositiva di confronto in PNG a dimensioni doppie rispetto a quelle predefinite.
 
 ```cpp
 #include <DOM/ITextFrameFormat.h>
@@ -481,43 +514,39 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-A sinistra, il testo segue l'orientamento 3D. A destra, rimane piatto e più facile da leggere. Entrambi i rettangoli conservano la stessa estrusione visibile e orientamento 3D.
-
 ![Rettangoli 3D affiancati: KeepTextFlat è false a sinistra e true a destra](keep_text_flat.png)
 
 ## **Comportamento di Esportazione e Rendering**
 
-Aspose.Slides preserva la formattazione 3D quando si salva nei formati PowerPoint come PPTX. Quando si renderizza o si esporta in formati a layout fisso, la scena 3D è rasterizzata o disegnata nell'output come risultato 2D. Ciò avviene quando renderizzi le diapositive in [PNG](/slides/it/cpp/convert-powerpoint-to-png/), esporti in [PDF](/slides/it/cpp/convert-powerpoint-to-pdf/), esporti in [HTML](/slides/it/cpp/convert-powerpoint-to-html/), o generi fotogrammi per la [conversione video](/slides/it/cpp/convert-powerpoint-to-video/).
-
-Tieniti presente questi punti:
+Aspose.Slides conserva la formattazione 3D quando salva nei formati PowerPoint come PPTX. Quando si renderizza o si esporta in formati a layout fisso, la scena 3D viene rasterizzata o disegnata nell'output come risultato 2D. Ciò vale quando si renderizzano le diapositive in [PNG](/slides/it/cpp/convert-powerpoint-to-png/), si esporta in [PDF](/slides/it/cpp/convert-powerpoint-to-pdf/), si esporta in [HTML](/slides/it/cpp/convert-powerpoint-to-html/), o si generano fotogrammi per la [conversione video](/slides/it/cpp/convert-powerpoint-to-video/).
 
 - Le immagini e i PDF esportati non sono interattivi. L'oggetto non può essere ruotato dallo spettatore dopo l'esportazione.
 - L'aspetto finale dipende dalla combinazione di telecamera, rig di luce, materiale, estrusione, riempimento e scala della diapositiva.
-- Se devi ispezionare i valori di formattazione ereditati o basati sul tema, leggi le [proprietà efficaci della forma](/slides/it/cpp/shape-effective-properties/).
-- Alcuni formati di output non possono memorizzare la formattazione 3D editabile di PowerPoint. In quei formati, il risultato visivo è renderizzato anziché preservato come impostazioni 3D editabili.
+- Se hai bisogno di ispezionare i valori di formattazione ereditati o basati sul tema, leggi le [proprietà effective della forma](/slides/it/cpp/shape-effective-properties/).
+- Alcuni formati di output non possono memorizzare la formattazione 3D modificabile di PowerPoint. In tali formati, il risultato visivo è renderizzato anziché conservato come impostazioni 3D modificabili.
 
 ## **FAQ**
 
 **Aspose.Slides può creare presentazioni 3D interattive?**
 
-Aspose.Slides crea e renderizza gli effetti 3D di PowerPoint per forme e testo. Non rende le immagini, i PDF o le pagine HTML esportate in scene 3D interattive che lo spettatore può ruotare. Nei file PPTX, la formattazione 3D rimane editabile in PowerPoint dove il formato lo supporta.
+Aspose.Slides crea e rende gli effetti 3D di PowerPoint per forme e testo. Non rende le immagini, i PDF o le pagine HTML esportati scene 3D interattive che lo spettatore possa ruotare. In PPTX, la formattazione 3D rimane modificabile in PowerPoint dove il formato la supporta.
 
 **Qual è la differenza tra un modello 3D e un effetto 3D?**
 
-Un modello 3D è un oggetto 3D separato inserito in una presentazione. Un effetto 3D è una formattazione applicata a una forma o a un testo PowerPoint normale, come rotazione, estrusione, smusso, illuminazione e materiale. Questo articolo tratta gli effetti 3D.
+Un modello 3D è un oggetto 3D separato inserito in una presentazione. Un effetto 3D è una formattazione applicata a una normale forma o testo di PowerPoint, come rotazione, estrusione, smussatura, illuminazione e materiale. Questo articolo tratta gli effetti 3D.
 
 **Quali impostazioni sono necessarie per una forma 3D visibile?**
 
-Al minimo, imposta una rotazione della telecamera e either estrusione o profondità. In pratica, imposta anche un rig di luce e un materiale affinché le facce renderizzate abbiano luci e ombre ben definite.
+Come minimo, imposta una rotazione della telecamera e o l'estrusione o la profondità. In pratica, imposta anche un rig di luce e materiale affinché le facce renderizzate abbiano evidenti riflessi e ombre.
 
 **Posso applicare effetti 3D sia a forme che a testo?**
 
-Sì. Usa [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_threedformat/) per il corpo della forma e [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/it/cpp/aspose.slides/itextframeformat/get_threedformat/) per il testo.
+Sì. Usa [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) per il corpo della forma e [ITextFrameFormat::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/get_threedformat/) per il testo.
 
-**Gli effetti 3D compariranno quando si esporta in immagini, PDF, HTML o fotogrammi video?**
+**Gli effetti 3D appariranno quando si esporta in immagini, PDF, HTML o fotogrammi video?**
 
-Sì. Aspose.Slides renderizza gli effetti 3D quando produce immagini delle diapositive, output PDF, output HTML e fotogrammi usati per la conversione video. L'output esportato contiene l'aspetto renderizzato, non un oggetto 3D editabile.
+Sì. Aspose.Slides renderizza gli effetti 3D durante la generazione di immagini delle diapositive, output PDF, output HTML e fotogrammi per la conversione video. L'output esportato contiene l'aspetto renderizzato, non un oggetto 3D modificabile.
 
-**Posso leggere i valori finali 3D dopo l'applicazione di ereditarietà e impostazioni del tema?**
+**Posso leggere i valori 3D finali dopo l'applicazione di ereditarietà e impostazioni del tema?**
 
-Sì. Usa le API di formattazione efficace descritte in [Proprietà Efficaci della Forma](/slides/it/cpp/shape-effective-properties/) per leggere la telecamera finale, il rig di luce, lo smusso e i relativi valori 3D.
+Sì. Usa le API di formattazione effective descritte in [Proprietà Effective della Forma](/slides/it/cpp/shape-effective-properties/) per leggere i valori finali di telecamera, rig di luce, smussatura e relativi valori 3D.

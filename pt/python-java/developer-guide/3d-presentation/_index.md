@@ -1,5 +1,5 @@
 ---
-title: Criar Efeitos 3D em Apresentações Usando Python
+title: Criar efeitos 3D em apresentações usando Python
 linktitle: Apresentação 3D
 type: docs
 weight: 232
@@ -21,41 +21,41 @@ description: "Aplicar e renderizar efeitos 3D para formas e texto do PowerPoint 
 ---
 ## **Visão geral**
 
-Aspose.Slides for Python via Java pode criar, editar, preservar e renderizar formatação 3D no estilo PowerPoint para formas e texto. Este artigo aborda efeitos 3D como rotação, extrusão, chanfrados, iluminação, material, preenchimentos em degradê ou imagem e texto 3D.
+O Aspose.Slides for Python via Java pode criar, editar, preservar e renderizar formatação 3D no estilo PowerPoint para formas e texto. Este artigo aborda efeitos 3D como rotação, extrusão, chanfrados, iluminação, material, preenchimentos de gradiente ou imagem e texto 3D.
 
 {{% alert color="info" title="Note" %}}
-Este artigo trata de efeitos de formatação 3D em formas e texto do PowerPoint. Não se trata de inserir ou editar arquivos de modelo 3D independentes. Ao exportar um slide para uma imagem, PDF ou HTML, o Aspose.Slides renderiza esses efeitos 3D na saída 2D exportada.
+Este artigo trata de efeitos de formatação 3D em formas e texto do PowerPoint. Não se trata de inserção ou edição de arquivos de modelo 3D autônomos. Quando você exporta um slide para uma imagem, PDF ou HTML, o Aspose.Slides renderiza esses efeitos 3D na saída 2D exportada.
 {{% /alert %}}
 
 ## **Conceitos de Formatação 3D**
 
-Use o método [Shape.getThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shape/#getThreeDFormat) para aplicar formatação 3D a uma forma. O método retorna [ThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/), que controla a cena 3D para essa forma.
+Use o método [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) para aplicar formatação 3D a uma forma. O método retorna [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/), que controla a cena 3D para essa forma.
 
-Para texto, use o método [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#getThreeDFormat). Isso aplica formatação 3D ao quadro de texto em vez do corpo da forma.
+Para texto, use o método [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat). Isso aplica formatação 3D ao quadro de texto em vez do corpo da forma.
 
-Os membros da API mais importantes são:
+Os membros de API mais importantes são:
 
 | Membro da API | O que controla | Quando usar |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getCamera) | Ponto de vista, tipo de câmera predefinida, rotação, zoom e perspectiva. | Rotacione o objeto no espaço 3D ou combine com um preset de rotação 3D do PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getLightRig) | Preset de luz, direção e rotação da luz. | Altere como os realces e sombras aparecem na superfície 3D. |
-| [getMaterial](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setMaterial) | Material da superfície, como plano, fosco, plástico ou metal. | Faça a mesma geometria parecer mais plana, macia, brilhante ou metálica. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setExtrusionHeight) | Quão longe a forma se estende para trás a partir de sua face frontal. | Transforme uma forma plana em um objeto 3D visivelmente espesso. |
-| [getExtrusionColor](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getExtrusionColor) | Cor dos lados extrudidos. | Torne a profundidade visível ou coordene a cor dos lados com o preenchimento frontal. |
-| [getDepth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setDepth) | Profundidade 3D adicional usada pela formatação 3D do PowerPoint. | Ajuste fino da profundidade para formas ou texto, especialmente em conjunto com configurações de chanfrado e material. |
-| [getBevelTop](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getBevelBottom) | Bordas elevadas ou arredondadas nas faces frontal e traseira. | Adicione uma borda suavizada ou moldada em vez de uma face plana e afiada. |
-| [getContourColor](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getContourColor) and [getContourWidth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getContourWidth) and [setContourWidth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setContourWidth) | Contorno ao redor do objeto 3D. | Enfatize o limite do objeto na saída renderizada. |
+| [getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera) | Ponto de vista, tipo de câmera predefinido, rotação, zoom e perspectiva. | Gire o objeto no espaço 3D ou combine com um preset de rotação 3D do PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getLightRig) | Predefinição de luz, direção e rotação da luz. | Altere como os realces e sombras aparecem na superfície 3D. |
+| [getMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getMaterial) e [setMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setMaterial) | Material da superfície, como liso, fosco, plástico ou metal. | Faça a mesma geometria parecer mais plana, macia, brilhante ou metálica. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionHeight) e [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) | Quão longe a forma se estende para trás a partir de sua face frontal. | Transforme uma forma plana em um objeto 3D visivelmente espesso. |
+| [getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) | Cor dos lados extrudidos. | Torne a profundidade visível ou coordene a cor dos lados com o preenchimento frontal. |
+| [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getDepth) e [setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) | Profundidade 3D adicional usada pela formatação 3D do PowerPoint. | Ajuste fino da profundidade para formas ou texto, especialmente combinado com configurações de chanfrado e material. |
+| [getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) e [getBevelBottom](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelBottom) | Bordas levantadas ou arredondadas nas faces frontal e traseira. | Adicione uma borda suavizada ou moldada em vez de uma face plana e afiada. |
+| [getContourColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourColor) e [getContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourWidth) e [setContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setContourWidth) | Contorno ao redor do objeto 3D. | Enfatize o contorno do objeto na saída renderizada. |
 
 ## **Criar uma Forma 3D**
 
-Uma forma geralmente precisa de quatro tipos de configurações antes de parecer convincentemente 3D:
+Uma forma normalmente precisa de quatro tipos de configurações antes de parecer convincentemente 3D:
 
-- Configurações de câmera, porque a vista frontal padrão pode ocultar a extrusão.
-- Configurações de iluminação, porque a luz torna as faces e lados legíveis.
+- Configurações de câmera, porque a visualização frontal padrão pode ocultar a extrusão.
+- Configurações de iluminação, porque a iluminação torna as faces e lados legíveis.
 - Configurações de material, porque a superfície afeta como a luz é renderizada.
-- Configurações de extrusão ou profundidade, porque uma forma plana precisa de espessura.
+- Configurações de extrusão ou profundidade, porque uma forma plana necessita de espessura.
 
-O exemplo a seguir cria um retângulo, adiciona texto à sua face frontal e aplica formatação 3D. Os valores de rotação da câmera estão em graus, e a altura da extrusão é 100 pontos. O exemplo renderiza o slide para uma imagem PNG em duas vezes suas dimensões padrão e salva a apresentação como PPTX.
+O exemplo a seguir cria um retângulo, adiciona texto à sua face frontal e aplica formatação 3D. Os valores de rotação da câmera estão em graus, e a altura da extrusão é de 100 pontos. O exemplo renderiza o slide em uma imagem PNG com o dobro das dimensões padrão e salva a apresentação como PPTX.
 
 ```python
 import jpype
@@ -103,13 +103,13 @@ A imagem do slide renderizado mostra o retângulo como um bloco 3D espesso:
 
 ![Retângulo 3D azul renderizado com texto 3D branco na face frontal](img_01_01.png)
 
-## **Rotacionar uma Forma com a Câmera**
+## **Girar uma Forma com a Câmera**
 
-No PowerPoint, a rotação 3D é configurada no painel Rotação 3-D. Os valores de rotação X, Y e Z correspondem à rotação definida através da API da câmera.
+No PowerPoint, a rotação 3D é configurada a partir do painel Rotação 3-D. Os valores de rotação X, Y e Z correspondem à rotação que você define por meio da API da câmera.
 
-![Painel de Rotação 3-D do PowerPoint com valores de rotação X, Y e Z destacados](img_02_01.png)
+![Painel Rotação 3-D do PowerPoint com valores de rotação X, Y e Z destacados](img_02_01.png)
 
-No Aspose.Slides, acesse a câmera através de [ThreeDFormat.getCamera](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getCamera). Este exemplo cria um retângulo, seleciona uma vista frontal ortográfica e define suas rotações X, Y e Z para 20, 30 e 40 graus, respectivamente. Ele configura a forma na memória sem salvar um arquivo:
+No Aspose.Slides, acesse a câmera através de [ThreeDFormat.getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera). Este exemplo cria um retângulo, seleciona uma visualização frontal ortográfica e define suas rotações X, Y e Z para 20, 30 e 40 graus, respectivamente. Ele configura a forma na memória sem salvar um arquivo:
 
 ```python
 import jpype
@@ -132,15 +132,51 @@ finally:
     presentation.dispose()
 ```
 
-Use a câmera quando precisar alterar como o visualizador vê o objeto. Ela não altera a geometria 2D da forma no slide. Ela altera o ponto de vista 3D usado pelo PowerPoint e pelo Aspose.Slides ao renderizar.
+Use a câmera quando precisar mudar como o visualizador vê o objeto. Ela não altera a geometria da forma 2D no slide. Ela altera o ponto de vista 3D usado pelo PowerPoint e pelo Aspose.Slides ao renderizar.
+
+### **Copiar Orientação da Câmera de uma Forma Modelo**
+
+Para combinar a orientação de uma forma modelo, leia seu preset de câmera com [Camera.getCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getCameraType) e seus ângulos de rotação com [Camera.getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getRotation). O exemplo abre `template.pptx` e copia a orientação da câmera da primeira forma no primeiro slide para a segunda forma. Ambas as formas já possuem iluminação 3D, e a segunda forma não tem rotação de câmera explícita.
+
+Os ângulos estão em graus. O índice `0` é latitude, o índice `1` é longitude e o índice `2` é revolução. Passe-os para [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) nessa ordem. Se a origem devolver `None`, não há rotação explícita, portanto deixe os ângulos da segunda forma sem definição. Uma rotação explícita de `(0, 0, 0)` devolve três zeros e deve ser copiada.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    source_camera = shapes.get_Item(0).getThreeDFormat().getCamera()
+    destination_camera = shapes.get_Item(1).getThreeDFormat().getCamera()
+
+    destination_camera.setCameraType(source_camera.getCameraType())
+    angles = source_camera.getRotation()
+    if angles is not None:
+        destination_camera.setRotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Ao reabrir `camera-copy.pptx` no PowerPoint, a seta à direita tem o mesmo preset de câmera e rotação que o retângulo à esquerda. Ambas as formas usam a mesma iluminação e profundidade de extrusão.
+
+![Um retângulo 3D azul e uma seta para a direita com orientação de câmera correspondente, vista de cima e à direita](camera-orientation.png)
 
 ## **Adicionar Extrusão e Profundidade**
 
-A extrusão faz uma forma parecer espessa ao estendê-la por trás da face frontal. No PowerPoint, o controle de profundidade define essa espessura visível, e o controle de cor define a cor das faces laterais.
+A extrusão faz uma forma parecer espessa ao estendê‑la atrás da face frontal. No PowerPoint, o controle de profundidade define essa espessura visível, e o controle de cor define a cor das faces laterais.
 
 ![Controles de profundidade do PowerPoint mapeados para as propriedades cor da extrusão e altura da extrusão](img_02_02.png)
 
-Use [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setExtrusionHeight) para definir a espessura e [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#getExtrusionColor) para acessar a cor lateral. Este exemplo aplica ao retângulo uma extrusão de 100 pontos com lados roxos e rotaciona a câmera para revelar sua espessura. Ele configura a forma na memória sem salvar um arquivo:
+Use [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) para definir a espessura e [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) para acessar a cor dos lados. Este exemplo dá ao retângulo uma extrusão de 100 pontos com lados roxos e gira a câmera para revelar sua espessura. Ele configura a forma na memória sem salvar um arquivo:
 
 ```python
 import jpype
@@ -171,13 +207,13 @@ finally:
     presentation.dispose()
 ```
 
-O método [ThreeDFormat.setDepth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setDepth) define a profundidade de uma forma 3D. O método [setExtrusionHeight](https://reference.aspose.com/slides/pt/python-java/aspose.slides/threedformat/#setExtrusionHeight) controla a altura do efeito de extrusão, como mostrado neste exemplo.
+O método [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) define a profundidade de uma forma 3D. O método [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) controla a altura do efeito de extrusão, como mostrado neste exemplo.
 
-## **Usar Preenchimentos em Degradê ou Imagem com Efeitos 3D**
+## **Usar Preenchimentos de Gradiente ou Imagem com Efeitos 3D**
 
-A formatação 3D é independente do preenchimento da forma. Você pode aplicar uma cor sólida, degradê, padrão ou preenchimento de imagem à face frontal e ainda usar as mesmas configurações de câmera, luz, material e extrusão.
+A formatação 3D é independente do preenchimento da forma. Você pode aplicar uma cor sólida, gradiente, padrão ou preenchimento de imagem à face frontal e ainda usar a mesma câmera, luz, material e configurações de extrusão.
 
-Este exemplo aplica um degradê de azul para laranja na face frontal e uma cor laranja escura à extrusão de 150 pontos. As paradas do degradê em 0 e 100 marcam o início e o fim do degradê. Os valores de rotação da câmera estão em graus. O slide é renderizado para uma imagem PNG em duas vezes suas dimensões padrão:
+Este exemplo aplica um gradiente azul‑para‑laranja à face frontal e uma cor laranja escura à extrusão de 150 pontos. As paradas do gradiente em 0 e 100 marcam o início e o fim do gradiente. Os valores de rotação da câmera estão em graus. O slide é renderizado em uma imagem PNG com o dobro das dimensões padrão:
 
 ```python
 import jpype
@@ -221,11 +257,11 @@ finally:
     presentation.dispose()
 ```
 
-A saída renderizada mantém o degradê na face frontal e renderiza a extrusão separadamente:
+A saída renderizada mantém o gradiente na face frontal e renderiza a extrusão separadamente:
 
-![Retângulo 3D renderizado com preenchimento degradê azul-para-laranja e extrusão laranja](img_02_03.png)
+![Retângulo 3D renderizado com preenchimento de gradiente azul para laranja e extrusão laranja](img_02_03.png)
 
-Para usar um preenchimento de imagem, adicione a imagem à apresentação e atribua-a ao preenchimento da forma. Este exemplo requer um arquivo existente chamado "image.jpg" no diretório de trabalho. Ele estica a imagem para preencher o retângulo, aplica uma extrusão de 150 pontos e define a rotação da câmera em graus. Ele configura a forma na memória sem salvar ou renderizar um arquivo:
+Para usar um preenchimento de imagem, adicione a imagem à apresentação e atribua‑a ao preenchimento da forma. Este exemplo requer um arquivo existente chamado "image.jpg" no diretório de trabalho. Ele estica a foto para preencher o retângulo, aplica uma extrusão de 150 pontos e define a rotação da câmera em graus. Ele configura a forma na memória sem salvar ou renderizar um arquivo:
 
 ```python
 import jpype
@@ -264,15 +300,15 @@ finally:
     presentation.dispose()
 ```
 
-A imagem é renderizada na face frontal, enquanto a extrusão é renderizada como a superfície lateral 3D:
+A foto é renderizada na face frontal, enquanto a extrusão é renderizada como a superfície lateral 3D:
 
-![Retângulo 3D renderizado com preenchimento fotográfico na face frontal e extrusão laranja](img_02_04.png)
+![Retângulo 3D renderizado com preenchimento de foto na face frontal e extrusão laranja](img_02_04.png)
 
 ## **Aplicar Formatação 3D ao Texto**
 
-A formatação 3D da forma afeta o corpo da forma. A formatação 3D do texto afeta o quadro de texto. Isso é útil para efeitos semelhantes ao WordArt, onde as próprias letras precisam de extrusão, material, iluminação e configurações de câmera.
+A formatação 3D da forma afeta o corpo da forma. A formatação 3D do texto afeta o quadro de texto. Isso é útil para efeitos tipo WordArt onde as próprias letras precisam de extrusão, material, iluminação e configurações de câmera.
 
-O exemplo a seguir cria texto com um padrão de grade laranja e branco, aplica um arco ascendente e configura as configurações 3D através de [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#getThreeDFormat). A altura da extrusão e a profundidade estão em pontos, e a rotação da luz está em graus. O preenchimento e o contorno da forma são ocultados para que apenas o texto fique visível. O exemplo renderiza uma imagem PNG em duas vezes as dimensões padrão do slide e salva a apresentação como PPTX:
+O exemplo a seguir cria texto com um padrão de grade laranja e branca, aplica um arco ascendente e configura as definições 3D através de [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat). A altura da extrusão e a profundidade estão em pontos, e a rotação da luz está em graus. O preenchimento e o contorno da forma são ocultados para que apenas o texto seja visível. O exemplo renderiza uma imagem PNG com o dobro das dimensões padrão do slide e salva a apresentação como PPTX:
 
 ```python
 import jpype
@@ -325,17 +361,15 @@ finally:
     presentation.dispose()
 ```
 
-O texto é renderizado como letras 3D curvadas e extrudidas:
-
-![Texto 3D renderizado com transformação WordArt arqueada, preenchimento padrão laranja e extrusão escura](img_02_05.png)
+![Texto 3D renderizado com transformação arqueada de WordArt, preenchimento de padrão laranja e extrusão escura](img_02_05.png)
 
 ## **Manter o Texto Plano em uma Forma 3D**
 
-Para manter o texto legível enquanto preserva a aparência 3D de uma forma, chame [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setKeepTextFlat) através de [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframe/#getTextFrameFormat). Quando o valor é `True`, o texto permanece fora da cena 3D. Quando é `False`, o texto participa da cena e segue sua orientação 3D.
+Para manter o texto legível enquanto preserva a aparência 3D da forma, chame [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setKeepTextFlat) através de [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getTextFrameFormat). Quando o valor é `True`, o texto permanece fora da cena 3D. Quando é `False`, o texto participa da cena e segue a orientação 3D.
 
-Essa configuração não remove a formatação 3D da forma: sua câmera, iluminação, material e extrusão permanecem configurados através de [Shape.getThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shape/#getThreeDFormat). Também é diferente da rotação comum. [Shape.setRotation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shape/#setRotation) rotaciona a forma no plano do slide, enquanto [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setRotationAngle) controla a rotação personalizada do texto dentro de sua caixa delimitadora. Manter o texto fora da cena 3D não redefine nenhum desses ângulos.
+Esta configuração não remove a formatação 3D da forma: sua câmera, iluminação, material e extrusão permanecem configurados através de [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat). Também difere da rotação comum. [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) roda a forma no plano do slide, enquanto [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) controla a rotação personalizada do texto dentro de sua caixa delimitadora. Manter o texto fora da cena 3D não redefinie nenhum desses ângulos.
 
-O exemplo autocontido a seguir cria um retângulo azul com texto e o clona ao lado do original. Ambas as formas têm a mesma formatação 3D; apenas a configuração de texto difere: `False` à esquerda e `True` à direita. Os ângulos da câmera estão em graus, e a altura da extrusão é 40 pontos. O exemplo salva a apresentação como PPTX e renderiza o slide de comparação para PNG em duas vezes suas dimensões padrão.
+O exemplo autocontido a seguir cria um retângulo azul com texto e o duplica ao lado do original. Ambas as formas têm a mesma formatação 3D; apenas a configuração de texto difere: `False` à esquerda e `True` à direita. Os ângulos da câmera estão em graus, e a altura da extrusão é de 40 pontos. O exemplo salva a apresentação como PPTX e renderiza o slide de comparação em PNG com o dobro das dimensões padrão.
 
 ```python
 import jpype
@@ -388,37 +422,37 @@ finally:
 
 ## **Comportamento de Exportação e Renderização**
 
-Aspose.Slides preserva a formatação 3D ao salvar em formatos PowerPoint como PPTX. Ao renderizar ou exportar para formatos de layout fixo, a cena 3D é rasterizada ou desenhada na saída como um resultado 2D. Isso se aplica quando você renderiza slides para [PNG](/slides/pt/python-java/convert-powerpoint-to-png/), exporta para [PDF](/slides/pt/python-java/convert-powerpoint-to-pdf/), exporta para [HTML](/slides/pt/python-java/convert-powerpoint-to-html/), ou gera quadros para [conversão de vídeo](/slides/pt/python-java/convert-powerpoint-to-video/).
+O Aspose.Slides preserva a formatação 3D ao salvar em formatos PowerPoint como PPTX. Ao renderizar ou exportar para formatos de layout fixo, a cena 3D é rasterizada ou desenhada na saída como um resultado 2D. Isso ocorre ao renderizar slides para [PNG](/slides/pt/python-java/convert-powerpoint-to-png/), exportar para [PDF](/slides/pt/python-java/convert-powerpoint-to-pdf/), exportar para [HTML](/slides/pt/python-java/convert-powerpoint-to-html/), ou gerar quadros para [conversão de vídeo](/slides/pt/python-java/convert-powerpoint-to-video/).
 
-Tenha em mente os seguintes pontos:
+Mantenha estes pontos em mente:
 
-- Imagens e PDFs exportados não são interativos. O objeto não pode ser rotacionado pelo visualizador após a exportação.
-- A aparência final depende da combinação de câmera, conjunto de luzes, material, extrusão, preenchimento e dimensionamento do slide.
-- Se precisar inspecionar valores de formatação herdados ou baseados em tema, leia as [effective shape properties](/slides/pt/python-java/shape-effective-properties/).
-- Alguns formatos de saída não podem armazenar a formatação 3D editável do PowerPoint. Nestes formatos, o resultado visual é renderizado em vez de preservado como configurações 3D editáveis.
+- Imagens e PDFs exportados não são interativos. O objeto não pode ser girado pelo visualizador após a exportação.
+- A aparência final depende da combinação de câmera, iluminação, material, extrusão, preenchimento e escala do slide.
+- Se precisar inspecionar valores de formatação herdados ou baseados em tema, leia as [propriedades eficazes da forma](/slides/pt/python-java/shape-effective-properties/).
+- Alguns formatos de saída não podem armazenar formatação 3D editável do PowerPoint. Nesses formatos, o resultado visual é renderizado em vez de preservado como configurações 3D editáveis.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
-**Aspose.Slides pode criar apresentações 3D interativas?**
+**O Aspose.Slides pode criar apresentações 3D interativas?**
 
-Aspose.Slides cria e renderiza efeitos 3D do PowerPoint para formas e texto. Ele não torna imagens, PDFs ou páginas HTML exportados em cenas 3D interativas que o visualizador possa rotacionar. No PPTX, a formatação 3D permanece editável no PowerPoint onde o formato a suporta.
+O Aspose.Slides cria e renderiza efeitos 3D do PowerPoint para formas e texto. Não torna imagens, PDFs ou páginas HTML exportadas em cenas 3D interativas que o visualizador possa girar. Em PPTX, a formatação 3D permanece editável no PowerPoint onde o formato a suporta.
 
 **Qual é a diferença entre um modelo 3D e um efeito 3D?**
 
-Um modelo 3D é um objeto 3D separado inserido em uma apresentação. Um efeito 3D é formatação aplicada a uma forma ou texto padrão do PowerPoint, como rotação, extrusão, chanfrado, iluminação e material. Este artigo aborda efeitos 3D.
+Um modelo 3D é um objeto 3D separado inserido em uma apresentação. Um efeito 3D é formatação aplicada a uma forma ou texto padrão do PowerPoint, como rotação, extrusão, chanfrado, iluminação e material. Este artigo cobre efeitos 3D.
 
 **Quais configurações são necessárias para uma forma 3D visível?**
 
-No mínimo, defina uma rotação de câmera e extrusão ou profundidade. Na prática, também defina um conjunto de luzes e material para que as faces renderizadas tenham realces e sombras claros.
+No mínimo, defina uma rotação de câmera e either extrusão ou profundidade. Na prática, também configure um rig de iluminação e material para que as faces renderizadas tenham realces e sombras claros.
 
 **Posso aplicar efeitos 3D tanto a formas quanto a texto?**
 
-Sim. Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shape/#getThreeDFormat) para o corpo da forma e [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#getThreeDFormat) para o texto.
+Sim. Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) para o corpo da forma e [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) para o texto.
 
 **Os efeitos 3D aparecerão ao exportar para imagens, PDF, HTML ou quadros de vídeo?**
 
-Sim. Aspose.Slides renderiza os efeitos 3D ao gerar imagens de slides, saída PDF, saída HTML e quadros usados para conversão de vídeo. A saída exportada contém a aparência renderizada, não um objeto 3D editável.
+Sim. O Aspose.Slides renderiza os efeitos 3D ao produzir imagens de slides, saída PDF, saída HTML e quadros usados na conversão de vídeo. A saída exportada contém a aparência renderizada, não um objeto 3D editável.
 
-**Posso ler os valores finais de 3D após a aplicação de herança e configurações de tema?**
+**Posso ler os valores finais 3D após a aplicação de herança e configurações de tema?**
 
-Sim. Use as APIs de formatação efetiva descritas em [Shape Effective Properties](/slides/pt/python-java/shape-effective-properties/) para ler os valores finais de câmera, conjunto de luzes, chanfrado e outros valores 3D relacionados.
+Sim. Use as APIs de formatação eficaz descritas em [propriedades eficazes da forma](/slides/pt/python-java/shape-effective-properties/) para ler a câmera final, rig de luz, chanfrado e valores 3D relacionados.

@@ -1,63 +1,61 @@
 ---
-title: Δημιουργία 3D εφέ σε παρουσιάσεις χρησιμοποιώντας Python
-linktitle: 3D Παρουσίαση
+title: Δημιουργία 3Δ Εφέ σε Παρουσιάσεις με Python
+linktitle: 3Δ Παρουσίαση
 type: docs
 weight: 232
 url: /el/python-java/3d-presentation/
 keywords:
-- 3D PowerPoint
-- 3D παρουσίαση
-- 3D περιστροφή
-- 3D βάθος
-- 3D εξώθηση
-- 3D διαβάθμιση
-- 3D κείμενο
+- 3Δ PowerPoint
+- 3Δ παρουσίαση
+- 3Δ περιστροφή
+- 3Δ βάθος
+- 3Δ εξώθηση
+- 3Δ διαβάθμιση
+- 3Δ κείμενο
 - PowerPoint
 - παρουσίαση
 - Python
 - Java
 - Aspose.Slides
-description: "Εφαρμόστε και αποδώστε 3D εφέ για σχήματα και κείμενο PowerPoint σε Python μέσω Java με Aspose.Slides. Διαμορφώστε κάμερα, φωτισμό, υλικό, εξώθηση, γεμίσεις και 3D κείμενο."
+description: "Εφαρμόστε και αποδώστε 3Δ εφέ για σχήματα και κείμενο PowerPoint σε Python μέσω Java με Aspose.Slides. Διαμορφώστε κάμερα, φωτισμό, υλικό, εξώθηση, γεμίσματα και 3Δ κείμενο."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides for Python via Java μπορεί να δημιουργήσει, να επεξεργαστεί, να διατηρήσει και να αποδώσει 3D μορφοποίηση τύπου PowerPoint για σχήματα και κείμενο. Αυτό το άρθρο καλύπτει εφέ 3D όπως περιστροφή, εξώθηση, κλίση, φωτισμό, υλικό, διαβάθμιση ή γεμίση εικόνας, και 3D κείμενο.
+Aspose.Slides for Python via Java μπορεί να δημιουργήσει, επεξεργαστεί, διατηρήσει και αποδώσει μορφοποίηση 3Δ σε στυλ PowerPoint για σχήματα και κείμενο. Αυτό το άρθρο καλύπτει εφέ 3Δ όπως περιστροφή, εξώθηση, λοξά, φωτισμό, υλικό, διαβάθμιση ή γεμίσματα εικόνας, και κείμενο 3Δ.
 
 {{% alert color="info" title="Note" %}}
-
-Αυτό το άρθρο αφορά εφέ μορφοποίησης 3D σε σχήματα και κείμενο του PowerPoint. Δεν αφορά την εισαγωγή ή επεξεργασία ανεξάρτητων αρχείων 3D μοντέλου. Όταν εξάγετε μια διαφάνεια σε εικόνα, PDF ή HTML, το Aspose.Slides αποδίδει αυτά τα εφέ 3D στην εξαγόμενη 2D έξοδο.
-
+This article is about 3D formatting effects on PowerPoint shapes and text. It is not about inserting or editing standalone 3D model files. When you export a slide to an image, PDF, or HTML, Aspose.Slides renders those 3D effects into the exported 2D output.
 {{% /alert %}}
 
-## **Έννοιες 3D Μορφοποίησης**
+## **Έννοιες Μορφοποίησης 3Δ**
 
-Χρησιμοποιήστε τη μέθοδο [Shape.getThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getThreeDFormat) για να εφαρμόσετε 3D μορφοποίηση σε ένα σχήμα. Η μέθοδος επιστρέφει το [ThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/), που ελέγχει τη 3D σκηνή για το σχήμα αυτό.
+Χρησιμοποιήστε τη μέθοδο [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) για να εφαρμόσετε μορφοποίηση 3Δ σε ένα σχήμα. Η μέθοδος επιστρέφει το [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/), το οποίο ελέγχει τη σκηνή 3Δ για εκείνο το σχήμα.
 
-Για κείμενο, χρησιμοποιήστε τη μέθοδο [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#getThreeDFormat). Αυτό εφαρμόζει 3D μορφοποίηση στο πλαίσιο κειμένου αντί στο σώμα του σχήματος.
+Για κείμενο, χρησιμοποιήστε τη μέθοδο [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat). Αυτό εφαρμόζει μορφοποίηση 3Δ στο πλαίσιο κειμένου αντί στο σώμα του σχήματος.
 
-Τα πιο σημαντικά μέλη του API είναι:
+Τα πιο σημαντικά μέλη API είναι:
 
 | Μέλος API | Τι ελέγχει | Πότε να το χρησιμοποιήσετε |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getCamera) | Οπτική γωνία, προεπιλεγμένος τύπος κάμερας, περιστροφή, ζουμ και προοπτική. | Περιστρέψτε το αντικείμενο σε 3D χώρο ή ταιριάξτε μια προεπιλεγμένη περιστροφή 3D του PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getLightRig) | Προεπιλογή φωτισμού, κατεύθυνση και περιστροφή φωτός. | Αλλάξτε τον τρόπο εμφάνισης των φωτεινών σημείων και των σκιών στην 3D επιφάνεια. |
-| [getMaterial](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getMaterial) και [setMaterial](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setMaterial) | Υλικό επιφάνειας, π.χ. επίπεδο, ματ, πλαστικό ή μέταλλο. | Κάντε την ίδια γεωμετρία πιο επίπεδη, μαλακότερη, γυαλιστερή ή μεταλλική. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getExtrusionHeight) και [setExtrusionHeight](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setExtrusionHeight) | Πόσο πολύ το σχήμα εκτείνεται προς τα πίσω από την εμπρόσθια όψη. | Μετατρέψτε ένα επίπεδο σχήμα σε ένα εμφανώς παχύ 3D αντικείμενο. |
-| [getExtrusionColor](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getExtrusionColor) | Χρώμα των εξωθημένων πλευρών. | Κάντε το βάθος ορατό ή εναρμονίστε το χρώμα των πλευρών με τη γέμιση της εμπρόσθιας όψης. |
-| [getDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getDepth) και [setDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setDepth) | Πρόσθετο 3D βάθος που χρησιμοποιείται από τη μορφοποίηση 3D του PowerPoint. | Ρυθμίστε το βάθος για σχήματα ή κείμενο, ιδίως μαζί με ρυθμίσεις κλίσης και υλικού. |
-| [getBevelTop](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getBevelTop) και [getBevelBottom](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getBevelBottom) | Ανυψωμένες ή στρογγυλεμένες άκρες στις εμπρόσθιες και οπίσθιες όψεις. | Προσθέστε μια μαλμένη ή σχηματισμένη άκρη αντί για μια αιχμηρή επίπεδη όψη. |
-| [getContourColor](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getContourColor) και [getContourWidth](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getContourWidth) και [setContourWidth](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setContourWidth) | Περιγράμματα γύρω από το 3D αντικείμενο. | Τονίστε το σύνορο του αντικειμένου στην αποδοθείσα εικόνα. |
+| [getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera) | Σημείο θέασης, προεπιλεγμένος τύπος κάμερας, περιστροφή, ζουμ και προοπτική. | Περιστρέψτε το αντικείμενο σε χώρο 3Δ ή ταιριάξτε μια προεπιλεγμένη περιστροφή 3Δ του PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getLightRig) | Προεπιλογή φωτισμού, κατεύθυνση και περιστροφή φωτός. | Αλλάξτε την εμφάνιση των φωτεινών σημείων και των σκιών στην επιφάνεια 3Δ. |
+| [getMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getMaterial) and [setMaterial](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setMaterial) | Υλικό επιφάνειας, όπως επίπεδο, ματ, πλαστικό ή μέταλλο. | Κάντε την ίδια γεωμετρία πιο επίπεδη, πιο μαλακή, πιο γυαλιστερή ή μεταλλική. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionHeight) and [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) | Πόσο μακριά το σχήμα εκτείνεται προς τα πίσω από τη μπροστινή πλευρά του. | Μετατρέψτε ένα επίπεδο σχήμα σε ένα ορατά παχύ 3Δ αντικείμενο. |
+| [getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) | Χρώμα των εξωτερικά εκθεισμένων πλευρών. | Κάντε το βάθος ορατό ή συντονίστε το χρώμα των πλευρών με τη γέμιση του μπροστά. |
+| [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getDepth) and [setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) | Επιπλέον βάθος 3Δ που χρησιμοποιείται από τη μορφοποίηση 3Δ του PowerPoint. | Ρυθμίστε ακριβώς το βάθος για σχήματα ή κείμενο, ειδικά μαζί με ρυθμίσεις λοξά και υλικού. |
+| [getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) and [getBevelBottom](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelBottom) | Ανασηκωμένα ή στρογγυλεμένα άκρα στις μπροστινές και πίσω πλευρές. | Προσθέστε ένα απαλυνόμενο ή αψυγμένο άκρο αντί για μια αιχμηρή επίπεδη πλευρά. |
+| [getContourColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourColor) and [getContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getContourWidth) and [setContourWidth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setContourWidth) | Περίγραμμα γύρω από το αντικείμενο 3Δ. | Τονίστε το όριο του αντικειμένου στην αποδοθείσα έξοδο. |
 
-## **Δημιουργία 3D Σχήματος**
+## **Δημιουργία 3Δ Σχήματος**
 
-Ένα σχήμα συνήθως χρειάζεται τέσσερις τύπους ρυθμίσεων πριν να φαίνεται πειστικά 3D:
+Ένα σχήμα συνήθως χρειάζεται τέσσερις κατηγορίες ρυθμίσεων πριν φαίνεται πειστικά 3Δ:
 
-- Ρυθμίσεις κάμερας, επειδή η προεπιλεγμένη προβολή εμπρός μπορεί να κρύβει την εξώθηση.
-- Ρυθμίσεις φωτισμού, επειδή ο φωτισμός κάνει τις όψεις και τις πλευρές αναγνώσιμες.
-- Ρυθμίσεις υλικού, επειδή η επιφάνεια επηρεάζει τον τρόπο απόδοσης του φωτός.
+- Ρυθμίσεις κάμερας, επειδή η προεπιλεγμένη πρόσοψη ενδέχεται να κρύβει την εξώθηση.
+- Ρυθμίσεις φωτισμού, επειδή ο φωτισμός κάνει τις πλευρές και τις όψεις αναγνώσιμες.
+- Ρυθμίσεις υλικού, επειδή η επιφάνεια επηρεάζει πώς αποδίδεται το φως.
 - Ρυθμίσεις εξώθησης ή βάθους, επειδή ένα επίπεδο σχήμα χρειάζεται πάχος.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο, προσθέτει κείμενο στην εμπρόσθια όψη του και εφαρμόζει 3D μορφοποίηση. Οι τιμές περιστροφής της κάμερας είναι σε μοίρες, και το ύψος εξώθησης είναι 100 points. Το παράδειγμα αποδίδει τη διαφάνεια σε εικόνα PNG με διπλά τις προεπιλεγμένες διαστάσεις και αποθηκεύει την παρουσίαση ως PPTX.
+Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο, προσθέτει κείμενο στην εμπρόσθια πλευρά του και εφαρμόζει μορφοποίηση 3Δ. Οι τιμές περιστροφής της κάμερας είναι σε μοίρες και το ύψος εξώθησης είναι 100 μονάδες. Το παράδειγμα αποδίδει τη διαφάνειά σε εικόνα PNG με διπλάσια προεπιλεγμένα διαμέτρα και αποθηκεύει την παρουσίαση ως PPTX.
 
 ```python
 import jpype
@@ -101,17 +99,17 @@ finally:
     presentation.dispose()
 ```
 
-Η παραγόμενη εικόνα της διαφάνειας δείχνει το ορθογώνιο ως ένα παχύ 3D μπλοκ:
+Η αποδοθείσα εικόνα της διαφάνειας δείχνει το ορθογώνιο ως ένα παχύ 3Δ μπλοκ:
 
-![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
+![Αποδιδόμενο μπλε 3Δ ορθογώνιο με λευκό 3Δ κείμενο στην εμπρόσθια πλευρά](img_01_01.png)
 
 ## **Περιστροφή Σχήματος με την Κάμερα**
 
-Στο PowerPoint, η 3D περιστροφή ρυθμίζεται από το πλαίσιο 3‑D Rotation. Οι τιμές περιστροφής X, Y και Z αντιστοιχούν στη περιστροφή που ορίζετε μέσω του API της κάμερας.
+Στο PowerPoint, η περιστροφή 3Δ ρυθμίζεται από το παράθυρο 3‑D Rotation. Οι τιμές περιστροφής X, Y και Z αντιστοιχούν στην περιστροφή που ορίζετε μέσω του API της κάμερας.
 
-![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
+![Παράθυρο 3‑D Rotation του PowerPoint με επισημασμένες τιμές περιστροφής X, Y, Z](img_02_01.png)
 
-Στο Aspose.Slides, αποκτήστε πρόσβαση στην κάμερα μέσω του [ThreeDFormat.getCamera](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getCamera). Αυτό το παράδειγμα δημιουργεί ένα ορθογώνιο, επιλέγει μια ορθογώνια προβολή εμπρός και ορίζει τις περιστροφές X, Y, Z στα 20, 30 και 40 μοίρες αντίστοιχα. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
+Στο Aspose.Slides, προσπελάστε την κάμερα μέσω του [ThreeDFormat.getCamera](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getCamera). Αυτό το παράδειγμα δημιουργεί ένα ορθογώνιο, επιλέγει ορθογραφική άποψη πρόσοψης και ορίζει τις περιστροφές X, Y, Z στα 20, 30 και 40 μοίρες αντίστοιχα. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
 
 ```python
 import jpype
@@ -134,15 +132,51 @@ finally:
     presentation.dispose()
 ```
 
-Χρησιμοποιήστε την κάμερα όταν χρειάζεται να αλλάξετε τον τρόπο που ο θεατής βλέπει το αντικείμενο. Δεν αλλάζει τη γεωμετρία του 2D σχήματος στη διαφάνεια. Αλλάζει τη 3D οπτική γωνία που χρησιμοποιούν το PowerPoint και το Aspose.Slides κατά την απόδοση.
+Χρησιμοποιήστε την κάμερα όταν χρειάζεται να αλλάξετε τον τρόπο που ο θεατής βλέπει το αντικείμενο. Δεν αλλάζει τη γεωμετρία του 2Δ σχήματος στη διαφάνεια. Αλλάζει το 3Δ σημείο θέασης που χρησιμοποιούν το PowerPoint και το Aspose.Slides κατά την απόδοση.
+
+### **Αντιγραφή Προσανατολισμού Κάμερας από Σχήμα Προτύπου**
+
+Για να ταιριάξετε τον προσανατολισμό ενός σχήματος προτύπου, διαβάστε την προεπιλογή κάμερας με το [Camera.getCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getCameraType) και τις γωνίες περιστροφής με το [Camera.getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#getRotation). Το παράδειγμα ανοίγει το `template.pptx` και αντιγράφει τον προσανατολισμό κάμερας από το πρώτο σχήμα της πρώτης διαφάνειας στο δεύτερο σχήμα. Και τα δύο σχήματα έχουν ήδη 3Δ φωτισμό, ενώ το δεύτερο σχήμα δεν έχει ρητή περιστροφή κάμερας.
+
+Οι γωνίες είναι σε μοίρες. Δείκτης `0` είναι γεωγραφικό πλάτος, δείκτης `1` είναι γεωγραφικό μήκος, και δείκτης `2` είναι επανάληψη. Περάστε τα στη μέθοδο [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) με αυτή τη σειρά. Αν η πηγή επιστρέψει `None`, δεν υπάρχει ρητή περιστροφή, οπότε αφήστε τις γωνίες του δεύτερου σχήματος ακαθόριστες. Μια ρητή περιστροφή `(0, 0, 0)` επιστρέφει τρία μηδενικά και πρέπει να αντιγραφεί.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    shapes = presentation.getSlides().get_Item(0).getShapes()
+    
+    source_camera = shapes.get_Item(0).getThreeDFormat().getCamera()
+    destination_camera = shapes.get_Item(1).getThreeDFormat().getCamera()
+
+    destination_camera.setCameraType(source_camera.getCameraType())
+    angles = source_camera.getRotation()
+    if angles is not None:
+        destination_camera.setRotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Όταν ανοίξετε ξανά το `camera-copy.pptx` στο PowerPoint, το βέλος δεξιά έχει την ίδια προεπιλογή κάμερας και περιστροφή με το ορθογώνιο αριστερά. Και τα δύο σχήματα χρησιμοποιούν τον ίδιο φωτισμό και βάθος εξώθησης.
+
+![Μπλε 3Δ ορθογώνιο και δεξιό βέλος με αντίστοιχο προσανατολισμό κάμερας, προβλήματα από πάνω και δεξιά](camera-orientation.png)
 
 ## **Προσθήκη Εξώθησης και Βάθους**
 
-Η εξώθηση κάνει ένα σχήμα να φαίνεται παχύ, επεκτείνοντάς το πίσω από την εμπρόσθια όψη. Στο PowerPoint, ο έλεγχος βάθους ορίζει αυτό το ορατό πάχος, ενώ ο έλεγχος χρώματος ορίζει το χρώμα των πλευρικών όψεων.
+Η εξώθηση κάνει ένα σχήμα να φαίνεται παχύ επεκτείνοντας το από την εμπρόσθια πλευρά. Στο PowerPoint, ο έλεγχος βάθους ορίζει αυτήν την ορατή πάχος, και ο έλεγχος χρώματος ορίζει το χρώμα των πλευρικών όψεων.
 
-![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
+![Έλεγχοι βάθους του PowerPoint χαρτογραφημένοι σε ιδιότητες χρώματος εξώθησης και ύψους εξώθησης](img_02_02.png)
 
-Χρησιμοποιήστε το [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setExtrusionHeight) για να ορίσετε το πάχος και το [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#getExtrusionColor) για πρόσβαση στο χρώμα των πλευρών. Αυτό το παράδειγμα δίνει στο ορθογώνιο εξώθηση 100 points με μωβ πλευρές και περιστρέφει την κάμερα ώστε να εμφανιστεί το πάχος. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
+Χρησιμοποιήστε τη μέθοδο [ThreeDFormat.setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) για να ορίσετε το πάχος και τη μέθοδο [ThreeDFormat.getExtrusionColor](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getExtrusionColor) για πρόσβαση στο χρώμα των πλευρών. Αυτό το παράδειγμα δίνει σε ένα ορθογώνιο εξώθηση 100 μονάδες με μοβ πλευρές και περιστρέφει την κάμερα για να αποκαλύψει το πάχος. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση αρχείου:
 
 ```python
 import jpype
@@ -173,13 +207,13 @@ finally:
     presentation.dispose()
 ```
 
-Η μέθοδος [ThreeDFormat.setDepth](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setDepth) ορίζει το βάθος ενός 3D σχήματος. Η μέθοδος [setExtrusionHeight](https://reference.aspose.com/slides/el/python-java/aspose.slides/threedformat/#setExtrusionHeight) ελέγχει το ύψος του εφέ εξώθησης, όπως φαίνεται σε αυτό το παράδειγμα.
+Η μέθοδος [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) ορίζει το βάθος ενός 3Δ σχήματος. Η μέθοδος [setExtrusionHeight](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setExtrusionHeight) ελέγχει το ύψος του εφέ εξώθησης, όπως φαίνεται σε αυτό το παράδειγμα.
 
-## **Χρήση Διαβαθμίσεων ή Γέμισης Εικόνας με 3D Εφέ**
+## **Χρήση Διαβάθμισης ή Γεμίσματος Εικόνας με Εφέ 3Δ**
 
-Η 3D μορφοποίηση είναι ανεξάρτητη από τη γέμιση του σχήματος. Μπορείτε να εφαρμόσετε μονή χρώμα, διαβάθμιση, μοτίβο ή γέμιση εικόνας στην εμπρόσθια όψη και να χρησιμοποιήσετε τις ίδιες ρυθμίσεις κάμερας, φωτισμού, υλικού και εξώθησης.
+Η μορφοποίηση 3Δ είναι ανεξάρτητη από το γέμισμα του σχήματος. Μπορείτε να εφαρμόσετε στερεό χρώμα, διαβάθμιση, μοτίβο ή γέμισμα εικόνας στην εμπρόσθια πλευρά και να διατηρήσετε τις ίδιες ρυθμίσεις κάμερας, φωτισμού, υλικού και εξώθησης.
 
-Αυτό το παράδειγμα εφαρμόζει μια διαβάθμιση από μπλε σε πορτοκαλί στην εμπρόσθια όψη και χρώμα σκούρο πορτοκαλί στην εξώθηση 150 points. Οι στάσεις διαβάθμισης στα 0 και 100 σηματοδοτούν την αρχή και το τέλος της διαβάθμισης. Οι τιμές περιστροφής της κάμερας είναι σε μοίρες. Η διαφάνεια αποδίδεται σε εικόνα PNG με διπλά τις προεπιλεγμένες διαστάσεις:
+Αυτό το παράδειγμα εφαρμόζει διαβάθμιση από μπλε σε πορτοκαλί στην εμπρόσθια πλευρά και σκούρο πορτοκαλί χρώμα στην εξώθηση 150 μονάδων. Τα σημεία διαβάθμισης στο 0 και 100 σηματοδοτούν την αρχή και το τέλος της διαβάθμισης. Οι τιμές περιστροφής της κάμερας είναι σε μοίρες. Η διαφάνεια αποδίδεται σε εικόνα PNG με διπλάσια προεπιλεγμένα διαμέτρα:
 
 ```python
 import jpype
@@ -223,11 +257,11 @@ finally:
     presentation.dispose()
 ```
 
-Η παραγόμενη έξοδος διατηρεί τη διαβάθμιση στην εμπρόσθια όψη και αποδίδει την εξώθηση ξεχωριστά:
+Το αποδοθέν αποτέλεσμα διατηρεί τη διαβάθμιση στην εμπρόσθια πλευρά και αποδίδει την εξώθηση ξεχωριστά:
 
-![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
+![Αποδιδόμενο 3Δ ορθογώνιο με διαβάθμιση μπλε‑πορτοκαλί και εξώθηση πορτοκαλί](img_02_03.png)
 
-Για χρήση γέμισης εικόνας, προσθέστε την εικόνα στην παρουσίαση και αντιστοιχίστε την στη γέμιση του σχήματος. Αυτό το παράδειγμα απαιτεί ένα υπάρχον αρχείο με όνομα "image.jpg" στον κατάλογο εργασίας. Τεντώνει την εικόνα ώστε να γεμίσει το ορθογώνιο, εφαρμόζει εξώθηση 150 points και ορίζει την περιστροφή της κάμερας σε μοίρες. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση ή απόδοση αρχείου:
+Για να χρησιμοποιήσετε γέμισμα εικόνας, προσθέστε την εικόνα στην παρουσίαση και αναθέστε την στο γέμισμα του σχήματος. Αυτό το παράδειγμα απαιτεί ένα υπάρχον αρχείο με όνομα “image.jpg” στον τρέχοντα φάκελο. Τεντώνει την εικόνα ώστε να γεμίσει το ορθογώνιο, εφαρμόζει εξώθηση 150 μονάδων και ορίζει την περιστροφή της κάμερας σε μοίρες. Διαμορφώνει το σχήμα στη μνήμη χωρίς αποθήκευση ή απόδοση αρχείου:
 
 ```python
 import jpype
@@ -266,15 +300,15 @@ finally:
     presentation.dispose()
 ```
 
-Η εικόνα αποδίδεται στην εμπρόσθια όψη, ενώ η εξώθηση αποδίδεται ως η 3D πλευρική επιφάνεια:
+Η εικόνα αποδίδεται στην εμπρόσθια πλευρά, ενώ η εξώθηση αποδίδεται ως η 3Δ πλευρική επιφάνεια:
 
-![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
+![Αποδιδόμενο 3Δ ορθογώνιο με γέμισμα φωτογραφίας στην εμπρόσθια πλευρά και εξώθηση πορτοκαλί](img_02_04.png)
 
-## **Εφαρμογή 3D Μορφοποίησης σε Κείμενο**
+## **Εφαρμογή Μορφοποίησης 3Δ σε Κείμενο**
 
-Η 3D μορφοποίηση σχήματος επηρεάζει το σώμα του σχήματος. Η 3D μορφοποίηση κειμένου επηρεάζει το πλαίσιο κειμένου. Αυτό είναι χρήσιμο για εφέ τύπου WordArt όπου τα γράμματα χρειάζονται εξώθηση, υλικό, φωτισμό και ρυθμίσεις κάμερας.
+Η μορφοποίηση 3Δ του σχήματος επηρεάζει το σώμα του σχήματος. Η μορφοποίηση 3Δ του κειμένου επηρεάζει το πλαίσιο κειμένου. Αυτό είναι χρήσιμο για εφέ παρόμοια με WordArt, όπου τα γράμματα χρειάζονται εξώθηση, υλικό, φωτισμό και ρυθμίσεις κάμερας.
 
-Το παρακάτω παράδειγμα δημιουργεί κείμενο με μοτίβο πλέγματος πορτοκαλί‑άσπρο, εφαρμόζει ένα αρχικό τόξο και διαμορφώνει ρυθμίσεις 3D μέσω του [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#getThreeDFormat). Το ύψος εξώθησης και το βάθος είναι σε points, και η περιστροφή φωτός σε μοίρες. Η γέμιση και το περίγραμμα του σχήματος κρύβονται ώστε να είναι ορατό μόνο το κείμενο. Το παράδειγμα αποδίδει μια εικόνα PNG με διπλά τις προεπιλεγμένες διαστάσεις διαφάνειας και αποθηκεύει την παρουσίαση ως PPTX:
+Το παρακάτω παράδειγμα δημιουργεί κείμενο με μοτίβο πορτοκαλί‑λευκό πλέγμα, εφαρμόζει ένα αρχι φακό προς τα πάνω και διαμορφώνει ρυθμίσεις 3Δ μέσω του [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat). Το ύψος εξώθησης και το βάθος είναι σε μονάδες, και η περιστροφή φωτός σε μοίρες. Το γέμισμα σχήματος και το περίγραμμα κρύβονται ώστε να είναι ορατό μόνο το κείμενο. Το παράδειγμα αποδίδει εικόνα PNG με διπλάσια προεπιλεγμένα διαμέτρα της διαφάνειας και αποθηκεύει την παρουσίαση ως PPTX:
 
 ```python
 import jpype
@@ -327,17 +361,17 @@ finally:
     presentation.dispose()
 ```
 
-Το κείμενο αποδίδεται ως καμπυλωτά, εξωθημένα 3D γράμματα:
+Το κείμενο αποδίδεται ως καμπυλωτά, εξωθημένα 3Δ γράμματα:
 
-![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
+![Αποδιδόμενο 3Δ κείμενο με αρχι φάση WordArt, γέμισμα μοτίβου πορτοκαλί και σκούρα εξώθηση](img_02_05.png)
 
-## **Διατήρηση Κειμένου Επίπεδου σε 3D Σχήμα**
+## **Διατήρηση Κειμένου Επίπεδου σε 3Δ Σχήμα**
 
-Για να παραμείνει το κείμενο ευανάγνωστο ενώ διατηρείται η 3D εμφάνιση του σχήματος, καλέστε το [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#setKeepTextFlat) μέσω του [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getTextFrameFormat). Όταν η τιμή είναι `True`, το κείμενο παραμένει εκτός της 3D σκηνής. Όταν είναι `False`, το κείμενο συμμετέχει στη σκηνή και ακολουθεί τον 3D προσανατολισμό.
+Για να παραμείνει το κείμενο ευανάγνωστο ενώ διατηρείται η 3Δ εμφάνιση του σχήματος, καλέστε το [TextFrameFormat.setKeepTextFlat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setKeepTextFlat) μέσω του [TextFrame.getTextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getTextFrameFormat). Όταν η τιμή είναι `True`, το κείμενο παραμένει εκτός της 3Δ σκηνής. Όταν είναι `False`, το κείμενο συμμετέχει στη σκηνή και ακολουθεί τον 3Δ προσανατολισμό.
 
-Αυτή η ρύθμιση δεν αφαιρεί τη 3D μορφοποίηση του σχήματος: η κάμερα, ο φωτισμός, το υλικό και η εξώθηση παραμένουν ρυθμισμένα μέσω του [Shape.getThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getThreeDFormat). Επίσης διαφέρει από την κοινή περιστροφή. Η μέθοδος [Shape.setRotation](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#setRotation) περιστρέφει το σχήμα στο επίπεδο της διαφάνειας, ενώ η [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#setRotationAngle) ελέγχει την προσαρμοσμένη περιστροφή του κειμένου μέσα στο πλαίσιο του. Η διατήρηση του κειμένου εκτός 3D σκηνής δεν επαναφέρει καμία από αυτές τις γωνίες.
+Αυτή η ρύθμιση δεν αφαιρεί τη μορφοποίηση 3Δ του σχήματος: η κάμερα, ο φωτισμός, το υλικό και η εξώθηση παραμένουν ρυθμισμένα μέσω του [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat). Είναι επίσης διαφορετικό από την κοινή περιστροφή. Το [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) περιστρέφει το σχήμα στο επίπεδο της διαφάνειας, ενώ το [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) ελέγχει την προσαρμοσμένη περιστροφή του κειμένου μέσα στο πλαίσιο του. Η διατήρηση του κειμένου εκτός της 3Δ σκηνής δεν επαναφέρει καμία από αυτές τις γωνίες.
 
-Το παρακάτω αυτοσχέδιο παράδειγμα δημιουργεί ένα μπλε ορθογώνιο με κείμενο και το αντιγράφει δίπλα στο αρχικό. Και τα δύο σχήματα έχουν την ίδια 3D μορφοποίηση· μόνο η ρύθμιση κειμένου διαφέρει: `False` στα αριστερά και `True` στα δεξιά. Οι γωνίες της κάμερας είναι σε μοίρες και το ύψος εξώθησης είναι 40 points. Το παράδειγμα αποθηκεύει την παρουσίαση ως PPTX και αποδίδει τη διαφάνεια σύγκρισης σε PNG με διπλά τις προεπιλεγμένες διαστάσεις.
+Το παρακάτω αυτόματο παράδειγμα δημιουργεί ένα μπλε ορθογώνιο με κείμενο και το κλωνοποιεί δίπλα στο αρχικό. Και τα δύο σχήματα έχουν την ίδια μορφοποίηση 3Δ· μόνο η ρύθμιση κειμένου διαφέρει: `False` αριστερά και `True` δεξιά. Οι γωνίες κάμερας είναι σε μοίρες και το ύψος εξώθησης 40 μονάδες. Το παράδειγμα αποθηκεύει την παρουσίαση ως PPTX και αποδίδει τη διαφάνεια σύγκρισης σε PNG με διπλάσια προεπιλεγμένα διαμέτρα.
 
 ```python
 import jpype
@@ -384,43 +418,43 @@ finally:
     presentation.dispose()
 ```
 
-Στα αριστερά, το κείμενο ακολουθεί τον 3D προσανατολισμό. Στα δεξιά, παραμένει επίπεδο και πιο εύκολο στην ανάγνωση. Και τα δύο ορθογώνια διατηρούν την ίδια ορατή εξώθηση και 3D προσανατολισμό.
+Στα αριστερά, το κείμενο ακολουθεί τον 3Δ προσανατολισμό. Στα δεξιά, παραμένει επίπεδο και πιο εύκολο στην ανάγνωση. Και τα δύο ορθογώνια διατηρούν την ίδια ορατή εξώθηση και 3Δ προσανατολισμό.
 
-![Side-by-side 3D rectangles: text follows the 3D orientation on the left and stays flat on the right](keep_text_flat.png)
+![Δύο πλάσι 3Δ ορθογώνια: κείμενο ακολουθεί τον 3Δ προσανατολισμό στα αριστερά και παραμένει επίπεδο στα δεξιά](keep_text_flat.png)
 
 ## **Συμπεριφορά Εξαγωγής και Απόδοσης**
 
-Το Aspose.Slides διατηρεί τη 3D μορφοποίηση όταν αποθηκεύει σε μορφές PowerPoint όπως PPTX. Όταν αποδίδει ή εξάγει σε μορφές σταθερής διάταξης, η 3D σκηνή ραστεροποιείται ή σχεδιάζεται στην έξοδο ως 2D αποτέλεσμα. Αυτό ισχύει όταν αποδίδετε διαφάνειες σε [PNG](/slides/el/python-java/convert-powerpoint-to-png/), εξάγετε σε [PDF](/slides/el/python-java/convert-powerpoint-to-pdf/), εξάγετε σε [HTML](/slides/el/python-java/convert-powerpoint-to-html/), ή δημιουργείτε πλαίσια για [μετατροπή βίντεο](/slides/el/python-java/convert-powerpoint-to-video/).
+Το Aspose.Slides διατηρεί τη μορφοποίηση 3Δ κατά την αποθήκευση σε μορφές PowerPoint όπως το PPTX. Κατά την απόδοση ή εξαγωγή σε μορφές στατικών σελίδων, η 3Δ σκηνή ραστεριάζεται ή σχεδιάζεται στην έξοδο ως 2Δ αποτέλεσμα. Αυτό ισχύει όταν αποδίδετε διαφάνειες σε [PNG](/slides/el/python-java/convert-powerpoint-to-png/), εξάγετε σε [PDF](/slides/el/python-java/convert-powerpoint-to-pdf/), εξάγετε σε [HTML](/slides/el/python-java/convert-powerpoint-to-html/), ή δημιουργείτε καρέ για [μετατροπή βίντεο](/slides/el/python-java/convert-powerpoint-to-video/).
 
-Να θυμάστε τα εξής:
+Κρατήστε αυτά τα σημεία στο μυαλό:
 
-- Οι εξαγώμενες εικόνες και PDF δεν είναι διαδραστικά. Το αντικείμενο δεν μπορεί να περιστραφεί από τον θεατή μετά την εξαγωγή.
-- Η τελική εμφάνιση εξαρτάται από το συνδυασμό κάμερας, φωτισμού, υλικού, εξώθησης, γέμισης και κλιμάκωσης της διαφάνειας.
-- Εάν χρειάζεστε να ελέγξετε κληρονομημένες ή θεματικές τιμές μορφοποίησης, διαβάστε τις [effective shape properties](/slides/el/python-java/shape-effective-properties/).
-- Ορισμένες μορφές εξόδου δεν μπορούν να αποθηκεύσουν επεξεργάσιμη 3D μορφοποίηση PowerPoint. Σε αυτές τις μορφές το οπτικό αποτέλεσμα αποδίδεται αντί να διατηρείται ως επεξεργάσιμες 3D ρυθμίσεις.
+- Οι εξαγόμενες εικόνες και PDF δεν είναι διαδραστικές. Το αντικείμενο δεν μπορεί να περιστραφεί από τον θεατή μετά την εξαγωγή.
+- Η τελική εμφάνιση εξαρτάται από τον συνδυασμό κάμερας, φωτισμού, υλικού, εξώθησης, γεμίσματος και κλιμάκωσης διαφάνειας.
+- Αν χρειάζεται να ελέγξετε κληρονομημένες ή βασισμένες σε θέμα τιμές μορφοποίησης, διαβάστε τις [effective shape properties](/slides/el/python-java/shape-effective-properties/).
+- Ορισμένες μορφές εξόδου δεν μπορούν να αποθηκεύσουν επεξεργάσιμη μορφοποίηση 3Δ του PowerPoint. Σε αυτές τις μορφές, το οπτικό αποτέλεσμα αποδίδεται αντί να διατηρείται ως επεξεργάσιμες ρυθμίσεις 3Δ.
 
-## **ΣΥΝΗΘΕΣΕΙΣ (FAQ)**
+## **Συχνές Ερωτήσεις**
 
-**Μπορεί το Aspose.Slides να δημιουργήσει διαδραστικές 3D παρουσιάσεις;**
+**Μπορεί το Aspose.Slides να δημιουργήσει διαδραστικές 3Δ παρουσιάσεις;**
 
-Το Aspose.Slides δημιουργεί και αποδίδει τα 3D εφέ του PowerPoint για σχήματα και κείμενο. Δεν κάνει τις εξαγώμενες εικόνες, PDF ή HTML σελίδες διαδραστικές 3D σκηνές που ο θεατής μπορεί να περιστρέψει. Σε PPTX, η 3D μορφοποίηση παραμένει επεξεργάσιμη στο PowerPoint όπου η μορφή το υποστηρίζει.
+Το Aspose.Slides δημιουργεί και αποδίδει εφέ 3Δ του PowerPoint για σχήματα και κείμενο. Δεν δημιουργεί διαδραστικές 3Δ σκηνές σε εξαγόμενες εικόνες, PDF ή σελίδες HTML που ο θεατής να μπορεί να περιστρέφει. Σε PPTX, η μορφοποίηση 3Δ παραμένει επεξεργάσιμη στο PowerPoint όπου η μορφή το υποστηρίζει.
 
-**Ποια είναι η διαφορά μεταξύ 3D μοντέλου και 3D εφέ;**
+**Ποια είναι η διαφορά μεταξύ 3Δ μοντέλου και 3Δ εφέ;**
 
-Ένα 3D μοντέλο είναι ξεχωριστό 3D αντικείμενο που εισάγεται σε μια παρουσίαση. Ένα 3D εφέ είναι μορφοποίηση που εφαρμόζεται σε ένα κανονικό σχήμα ή κείμενο του PowerPoint, όπως περιστροφή, εξώθηση, κλίση, φωτισμός και υλικό. Αυτό το άρθρο καλύπτει 3D εφέ.
+Ένα 3Δ μοντέλο είναι ένα ξεχωριστό 3Δ αντικείμενο που εισάγεται σε μια παρουσίαση. Ένα 3Δ εφέ είναι μορφοποίηση που εφαρμόζεται σε κανονικό σχήμα ή κείμενο του PowerPoint, όπως περιστροφή, εξώθηση, λοξό, φωτισμό και υλικό. Αυτό το άρθρο καλύπτει 3Δ εφέ.
 
-**Ποιες ρυθμίσεις απαιτούνται για ένα ορατό 3D σχήμα;**
+**Ποιες ρυθμίσεις απαιτούνται για ορατό 3Δ σχήμα;**
 
-Το ελάχιστο είναι να ορίσετε περιστροφή κάμερας και είτε εξώθηση είτε βάθος. Στην πράξη, ορίστε επίσης φωτισμό και υλικό ώστε οι αποδοθείσες όψεις να έχουν σαφή ανάγνωση φωτεινών σημείων και σκιών.
+Στο ελάχιστο, ορίστε περιστροφή κάμερας και είτε εξώθηση είτε βάθος. Στην πράξη, ορίστε επίσης φωτισμό και υλικό ώστε οι αποδοθείσες όψεις να έχουν καθαρά φωτισμούς και σκιές.
 
-**Μπορώ να εφαρμόσω 3D εφέ τόσο σε σχήματα όσο και σε κείμενο;**
+**Μπορώ να εφαρμόσω εφέ 3Δ σε σχήματα και κείμενο;**
 
-Ναι. Χρησιμοποιήστε το [Shape.getThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getThreeDFormat) για το σώμα του σχήματος και το [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframeformat/#getThreeDFormat) για το κείμενο.
+Ναι. Χρησιμοποιήστε το [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) για το σώμα του σχήματος και το [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getThreeDFormat) για το κείμενο.
 
-**Θα εμφανιστούν τα 3D εφέ κατά την εξαγωγή σε εικόνες, PDF, HTML ή πλαίσια βίντεο;**
+**Θα εμφανιστούν τα εφέ 3Δ κατά την εξαγωγή σε εικόνες, PDF, HTML ή καρέ βίντεο;**
 
-Ναι. Το Aspose.Slides αποδίδει τα 3D εφέ όταν παράγει εικόνες διαφανειών, PDF, HTML και πλαίσια που χρησιμοποιούνται για μετατροπή βίντεο. Η εξαγώμενη έξοδος περιέχει την αποδοθείσα εμφάνιση, όχι ένα επεξεργάσιμο 3D αντικείμενο.
+Ναι. Το Aspose.Slides αποδίδει τα εφέ 3Δ όταν παράγει εικόνες διαφανειών, PDF, HTML και καρέ που χρησιμοποιούνται για μετατροπή βίντεο. Η εξαγόμενη έξοδος περιέχει την αποδοθείσα εμφάνιση, όχι ένα επεξεργάσιμο 3Δ αντικείμενο.
 
-**Μπορώ να διαβάσω τις τελικές 3D τιμές μετά την κληρονόμηση και τις θεματικές ρυθμίσεις;**
+**Μπορώ να διαβάσω τις τελικές τιμές 3Δ μετά την κληρονομικότητα και τις ρυθμίσεις θέματος;**
 
-Ναι. Χρησιμοποιήστε τα APIs αποτελεσματικής μορφοποίησης που περιγράφονται στις [Shape Effective Properties](/slides/el/python-java/shape-effective-properties/) για να διαβάσετε τελικές τιμές κάμερας, φωτισμού, κλίσης και σχετικών 3D τιμών.
+Ναι. Χρησιμοποιήστε τα API αποτελεσματικής μορφοποίησης που περιγράφονται στις [Shape Effective Properties](/slides/el/python-java/shape-effective-properties/) για να διαβάσετε τις τελικές τιμές κάμερας, φωτισμού, λοξού και σχετικών 3Δ τιμών.

@@ -18,39 +18,39 @@ keywords:
 - Aspose.Slides
 description: "Terapkan dan render efek 3D untuk bentuk dan teks PowerPoint di Python dengan Aspose.Slides. Konfigurasikan kamera, pencahayaan, material, ekstrusi, isian, dan teks 3D."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides for Python via .NET dapat membuat, menyunting, mempertahankan, dan merender pemformatan 3D bergaya PowerPoint untuk bentuk dan teks. Artikel ini mencakup efek 3D seperti rotasi, ekstrusi, bevel, pencahayaan, material, isian gradien atau gambar, dan teks 3D.
+Aspose.Slides untuk Python melalui .NET dapat membuat, mengedit, mempertahankan, dan merender format 3D bergaya PowerPoint untuk bentuk dan teks. Artikel ini mencakup efek 3D seperti rotasi, ekstrusi, bevel, pencahayaan, material, isian gradien atau gambar, dan teks 3D.
 
 {{% alert color="info" title="Note" %}}
-Artikel ini membahas efek pemformatan 3D pada bentuk dan teks PowerPoint. Ini bukan tentang menyisipkan atau menyunting file model 3D terpisah. Saat Anda mengekspor slide ke gambar, PDF, atau HTML, Aspose.Slides merender efek 3D tersebut ke output 2D yang diekspor.
+Artikel ini membahas efek pemformatan 3D pada bentuk dan teks PowerPoint. Artikel ini tidak membahas penyisipan atau penyuntingan file model 3D terpisah. Saat Anda mengekspor slide ke gambar, PDF, atau HTML, Aspose.Slides merender efek 3D tersebut ke output 2D yang diekspor.
 {{% /alert %}}
 
 ## **Konsep Pemformatan 3D**
 
-Gunakan properti [Shape.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/three_d_format/) untuk menerapkan pemformatan 3D pada sebuah bentuk. Properti tersebut mengekspos [ThreeDFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/), yang mengontrol adegan 3D untuk bentuk itu.
+Gunakan properti [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) untuk menerapkan pemformatan 3D pada sebuah bentuk. Properti tersebut mengekspos [ThreeDFormat](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/), yang mengontrol adegan 3D untuk bentuk tersebut.
 
-Untuk teks, gunakan properti [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/three_d_format/). Ini menerapkan pemformatan 3D pada bingkai teks alih-alih badan bentuk.
+Untuk teks, gunakan properti [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/three_d_format/) . Ini menerapkan pemformatan 3D ke frame teks alih-alih badan bentuk.
 
 Properti paling penting adalah:
 
-| Properti | Apa yang dikendalikan | Kapan menggunakannya |
+| Properti | Apa yang dikontrol | Kapan digunakan |
 |---|---|---|
-| [camera](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/camera/) | Sudut pandang, tipe kamera bawaan, rotasi, zoom, dan perspektif. | Putar objek dalam ruang 3D atau cocokkan dengan preset rotasi 3D PowerPoint. |
-| [light_rig](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/light_rig/) | Preset cahaya, arah, dan rotasi cahaya. | Ubah cara sorotan dan bayangan muncul pada permukaan 3D. |
-| [material](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/material/) | Material permukaan, seperti rata, matte, plastik, atau logam. | Buat geometri yang sama terlihat lebih rata, lembut, mengkilap, atau metalik. |
-| [extrusion_height](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/extrusion_height/) | Seberapa jauh bentuk menjorok ke belakang dari permukaan depannya. | Ubah bentuk datar menjadi objek 3D tebal yang terlihat. |
-| [extrusion_color](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/extrusion_color/) | Warna sisi yang diekstrusi. | Buat kedalaman terlihat atau koordinasikan warna sisi dengan isian depan. |
-| [depth](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/depth/) | Kedalaman 3D tambahan yang digunakan oleh pemformatan 3D PowerPoint. | Sesuaikan kedalaman untuk bentuk atau teks, terutama bersama pengaturan bevel dan material. |
-| [bevel_top](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/bevel_top/) dan [bevel_bottom](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/bevel_bottom/) | Tepi yang terangkat atau melengkung pada permukaan depan dan belakang. | Tambahkan tepi yang lunak atau dibentuk alih-alih permukaan datar yang tajam. |
-| [contour_color](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/contour_color/) dan [contour_width](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/contour_width/) | Garis tepi di sekitar objek 3D. | Tekankan batas objek dalam output yang dirender. |
+| [camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/) | Titik pandang, tipe kamera preset, rotasi, zoom, dan perspektif. | Putar objek dalam ruang 3D atau cocokkan dengan preset rotasi 3D PowerPoint. |
+| [light_rig](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/light_rig/) | Preset cahaya, arah, dan rotasi cahaya. | Ubah cara sorotan dan bayangan muncul pada permukaan 3D. |
+| [material](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/material/) | Material permukaan, seperti datar, matte, plastik, atau logam. | Membuat geometri yang sama tampak lebih datar, lembut, mengkilap, atau logam. |
+| [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) | Seberapa jauh bentuk memperluas ke belakang dari permukaan depannya. | Mengubah bentuk datar menjadi objek 3D yang terlihat tebal. |
+| [extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/) | Warna sisi yang diekstrusi. | Membuat kedalaman terlihat atau mengkoordinasikan warna sisi dengan isi depan. |
+| [depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) | Kedalaman 3D tambahan yang digunakan oleh pemformatan 3D PowerPoint. | Menyetel kedalaman secara halus untuk bentuk atau teks, terutama bersamaan dengan pengaturan bevel dan material. |
+| [bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/) dan [bevel_bottom](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_bottom/) | Tepi yang terangkat atau melengkung pada permukaan depan dan belakang. | Tambahkan tepi yang lembut atau dibentuk alih-alih permukaan datar tajam. |
+| [contour_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_color/) dan [contour_width](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/contour_width/) | Garis tepi di sekitar objek 3D. | Tekankan batas objek dalam output yang dirender. |
 
 ## **Buat Bentuk 3D**
 
-Sebuah bentuk biasanya memerlukan empat jenis pengaturan agar terlihat meyakinkan sebagai 3D:
+Sebuah bentuk biasanya membutuhkan empat jenis pengaturan sebelum tampak meyakinkan sebagai 3D:
 
-- Pengaturan kamera, karena tampilan depan default mungkin menyembunyikan ekstrusi.
-- Pengaturan cahaya, karena pencahayaan membuat permukaan dan sisinya dapat dibaca.
+- Pengaturan kamera, karena tampilan depan default dapat menyembunyikan ekstrusi.
+- Pengaturan cahaya, karena pencahayaan membuat wajah dan sisi dapat dibaca.
 - Pengaturan material, karena permukaan memengaruhi cara cahaya dirender.
 - Pengaturan ekstrusi atau kedalaman, karena bentuk datar membutuhkan ketebalan.
 
@@ -87,17 +87,17 @@ with slides.Presentation() as presentation:
     presentation.save("shape_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gambar slide yang dirender menampilkan persegi panjang biru 3D dengan teks 3D putih di permukaan depannya:
+Gambar slide yang dirender menunjukkan persegi panjang sebagai blok 3D tebal:
 
-![Gambar slide yang dirender menampilkan persegi panjang biru 3D dengan teks 3D putih di permukaan depannya](img_01_01.png)
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
 ## **Putar Bentuk dengan Kamera**
 
-Di PowerPoint, rotasi 3D dikonfigurasi melalui panel 3‑D Rotation. Nilai rotasi X, Y, dan Z sesuai dengan rotasi yang Anda atur melalui API kamera.
+Di PowerPoint, rotasi 3D dikonfigurasi dari panel Rotasi 3-D. Nilai rotasi X, Y, dan Z sesuai dengan rotasi yang Anda atur melalui API kamera.
 
-![Panel Rotasi 3‑D PowerPoint dengan nilai rotasi X, Y, dan Z disorot](img_02_01.png)
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
-Di Aspose.Slides, akses kamera melalui [ThreeDFormat.camera](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/camera/). Contoh ini membuat persegi panjang, memilih tampilan depan ortografik, dan mengatur rotasi X, Y, dan Z menjadi 20, 30, dan 40 derajat masing‑masing. Ia mengonfigurasi bentuk di memori tanpa menyimpan berkas:
+Di Aspose.Slides, akses kamera melalui [ThreeDFormat.camera](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/camera/). Contoh ini membuat persegi panjang, memilih tampilan depan ortografik, dan menetapkan rotasi X, Y, dan Z menjadi 20, 30, dan 40 derajat masing‑masing. Ini mengonfigurasi bentuk di memori tanpa menyimpan file:
 
 ```py
 import aspose.slides as slides
@@ -111,15 +111,42 @@ with slides.Presentation() as presentation:
     shape.three_d_format.camera.set_rotation(20, 30, 40)
 ```
 
-Gunakan kamera ketika Anda perlu mengubah cara penonton melihat objek. Ini tidak mengubah geometri bentuk 2D pada slide. Ini mengubah sudut pandang 3D yang digunakan PowerPoint dan Aspose.Slides saat merender.
+Gunakan kamera ketika Anda perlu mengubah cara penonton melihat objek. Kamera tidak mengubah geometri bentuk 2D pada slide. Kamera mengubah titik pandang 3D yang digunakan PowerPoint dan Aspose.Slides saat merender.
+
+### **Salin Orientasi Kamera dari Bentuk Template**
+
+Untuk mencocokkan orientasi bentuk template, salin preset [camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) dan baca rotasinya dengan [get_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/get_rotation/). Contoh membuka `template.pptx` dan menyalin orientasi kamera dari bentuk pertama pada slide pertama ke bentuk kedua. Kedua bentuk sudah memiliki pencahayaan 3D, dan bentuk kedua tidak memiliki rotasi kamera eksplisit.
+
+Sudutnya dalam derajat. Indeks `0`, `1`, dan `2` masing‑masing menyimpan lintang, bujur, dan revolusi. Kirimkan ke [set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) dalam urutan itu. Jika sumber tidak memiliki rotasi eksplisit, `get_rotation` mengembalikan `None`, jadi biarkan sudut tujuan tidak diatur. Jika sumber secara eksplisit menetapkan ketiga sudut ke nol, salin nol tersebut.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    shapes = presentation.slides[0].shapes
+    
+    source_camera = shapes[0].three_d_format.camera
+    destination_camera = shapes[1].three_d_format.camera
+
+    destination_camera.camera_type = source_camera.camera_type
+    angles = source_camera.get_rotation()
+    if angles is not None:
+        destination_camera.set_rotation(angles[0], angles[1], angles[2])
+
+    presentation.save("camera-copy.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ketika Anda membuka kembali `camera-copy.pptx` di PowerPoint, kedua bentuk memiliki preset kamera dan rotasi yang sama. Panah di kanan menggunakan orientasi yang disalin dari persegi panjang di kiri. Kedua bentuk menggunakan pencahayaan dan kedalaman ekstrusi yang sama.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
 
 ## **Tambahkan Ekstrusi dan Kedalaman**
 
-Ekstrusi membuat bentuk terlihat tebal dengan memperpanjangnya ke belakang permukaan depan. Di PowerPoint, kontrol kedalaman mengatur ketebalan yang terlihat, dan kontrol warna mengatur warna sisi.
+Ekstrusi membuat bentuk tampak tebal dengan memperluasnya di belakang permukaan depan. Di PowerPoint, kontrol kedalaman mengatur ketebalan yang terlihat, dan kontrol warna mengatur warna sisi.
 
-![Kontrol kedalaman PowerPoint dipetakan ke properti warna ekstrusi dan tinggi ekstrusi](img_02_02.png)
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
 
-Atur [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/extrusion_height/) untuk ketebalan dan [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/extrusion_color/) untuk warna sisi. Contoh ini memberikan persegi panjang ekstrusi 100 poin dengan sisi ungu dan memutar kamera untuk memperlihatkan ketebalannya. Ia mengonfigurasi bentuk di memori tanpa menyimpan berkas:
+Setel [ThreeDFormat.extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) untuk ketebalan dan [ThreeDFormat.extrusion_color](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_color/) untuk warna sisi. Contoh ini memberi persegi panjang ekstrusi 100 poin dengan sisi ungu dan memutar kamera untuk memperlihatkan ketebalannya. Ini mengonfigurasi bentuk di memori tanpa menyimpan file:
 
 ```py
 import aspose.pydrawing as drawing
@@ -139,13 +166,13 @@ with slides.Presentation() as presentation:
     shape.three_d_format.extrusion_color.color = drawing.Color.purple
 ```
 
-Properti [ThreeDFormat.depth](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/depth/) mengatur kedalaman bentuk 3D. Properti [extrusion_height](https://reference.aspose.com/slides/id/python-net/aspose.slides/threedformat/extrusion_height/) mengontrol tinggi efek ekstrusi, sebagaimana ditunjukkan dalam contoh ini.
+Properti [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) mengatur kedalaman bentuk 3D. Properti [extrusion_height](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/extrusion_height/) mengontrol tinggi efek ekstrusi, seperti pada contoh ini.
 
 ## **Gunakan Isian Gradien atau Gambar dengan Efek 3D**
 
-Pemformatan 3D bersifat independen dari isian bentuk. Anda dapat menerapkan warna solid, gradien, pola, atau isian gambar pada permukaan depan dan tetap menggunakan kamera, cahaya, material, serta pengaturan ekstrusi yang sama.
+Pemformatan 3D independen dari isian bentuk. Anda dapat menerapkan warna solid, gradien, pola, atau isian gambar ke permukaan depan dan tetap menggunakan kamera, cahaya, material, serta pengaturan ekstrusi yang sama.
 
-Contoh ini menerapkan gradien biru‑ke‑oren pada permukaan depan dan warna oranye gelap pada ekstrusi 150 poin. Titik henti gradien pada 0 dan 100 menandai awal dan akhir gradien. Nilai rotasi kamera dalam derajat. Slide dirender ke gambar PNG dengan ukuran dua kali dimensi default:
+Contoh ini menerapkan gradien biru‑ke‑oren pada permukaan depan dan warna oranye gelap pada ekstrusi 150 poin. Hentian gradien pada 0 dan 100 menandai awal dan akhir gradien. Nilai rotasi kamera dalam derajat. Slide dirender ke gambar PNG dengan ukuran dua kali dimensi default:
 
 ```py
 import aspose.pydrawing as drawing
@@ -177,11 +204,11 @@ with slides.Presentation() as presentation:
         thumbnail.save("gradient_3d.png")
 ```
 
-Gambar persegi panjang 3D dengan isian gradien biru‑ke‑oren dan ekstrusi oranye:
+Output yang dirender mempertahankan gradien pada permukaan depan dan merender ekstrusi secara terpisah:
 
-![Gambar persegi panjang 3D dengan isian gradien biru‑ke‑oren dan ekstrusi oranye](img_02_03.png)
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-Untuk menggunakan isian gambar, tambahkan gambar ke presentasi dan tetapkan ke isian bentuk. Contoh ini memerlukan berkas yang sudah ada bernama "image.jpg" di direktori kerja. Ia memperluas gambar untuk mengisi persegi panjang, menerapkan ekstrusi 150 poin, dan mengatur rotasi kamera dalam derajat. Ia mengonfigurasi bentuk di memori tanpa menyimpan atau merender berkas:
+Untuk menggunakan isian gambar, tambahkan gambar ke presentasi dan tetapkan ke isian bentuk. Contoh ini memerlukan berkas yang ada bernama "image.jpg" di direktori kerja. Gambar diperluas untuk mengisi persegi panjang, menerapkan ekstrusi 150 poin, dan menetapkan rotasi kamera dalam derajat. Ini mengonfigurasi bentuk di memori tanpa menyimpan atau merender file:
 
 ```py
 import aspose.pydrawing as drawing
@@ -210,15 +237,15 @@ with slides.Presentation() as presentation:
     shape.three_d_format.extrusion_color.color = drawing.Color.dark_orange
 ```
 
-Gambar persegi panjang 3D dengan isian foto pada permukaan depan dan ekstrusi oranye:
+Gambar dirender pada permukaan depan, sementara ekstrusi dirender sebagai permukaan sisi 3D:
 
-![Gambar persegi panjang 3D dengan isian foto pada permukaan depan dan ekstrusi oranye](img_02_04.png)
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
 ## **Terapkan Pemformatan 3D pada Teks**
 
-Pemformatan 3D pada bentuk memengaruhi badan bentuk. Pemformatan 3D pada teks memengaruhi bingkai teks. Ini berguna untuk efek mirip WordArt di mana huruf‑huruf itu sendiri memerlukan ekstrusi, material, pencahayaan, dan pengaturan kamera.
+Pemformatan 3D pada bentuk memengaruhi badan bentuk. Pemformatan 3D pada teks memengaruhi frame teks. Ini berguna untuk efek mirip WordArt di mana huruf‑huruf itu sendiri memerlukan ekstrusi, material, pencahayaan, dan pengaturan kamera.
 
-Contoh berikut membuat teks dengan pola grid oranye‑putih, menerapkan lengkungan ke atas, dan mengonfigurasi pengaturan 3D melalui [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/three_d_format/). Tinggi ekstrusi dan kedalaman dalam poin, dan rotasi cahaya dalam derajat. Isian bentuk dan garis tepi disembunyikan sehingga hanya teks yang terlihat. Contoh ini merender gambar PNG dengan ukuran dua kali dimensi slide default dan menyimpan presentasi sebagai PPTX:
+Contoh berikut membuat teks dengan pola kisi oranye‑dan‑putih, menerapkan lengkungan ke atas, dan mengonfigurasi pengaturan 3D melalui [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/three_d_format/). Tinggi ekstrusi dan kedalaman dalam poin, dan rotasi cahaya dalam derajat. Isian bentuk dan garis tepi disembunyikan sehingga hanya teks yang terlihat. Contoh ini merender gambar PNG dengan ukuran dua kali dimensi slide default dan menyimpan presentasi sebagai PPTX:
 
 ```py
 import aspose.pydrawing as drawing
@@ -259,17 +286,17 @@ with slides.Presentation() as presentation:
     presentation.save("text_3d.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gambar teks 3D yang dirender dengan transformasi WordArt melengkung, isian pola oranye, dan ekstrusi gelap:
+Teks dirender sebagai huruf 3D melengkung dan diekstrusi:
 
-![Gambar teks 3D yang dirender dengan transformasi WordArt melengkung, isian pola oranye, dan ekstrusi gelap](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
 
 ## **Jaga Teks Tetap Datar pada Bentuk 3D**
 
-Untuk menjaga teks tetap dapat dibaca sambil mempertahankan tampilan 3D bentuk, atur [TextFrameFormat.keep_text_flat](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/keep_text_flat/) melalui [TextFrame.text_frame_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframe/text_frame_format/). Ketika nilai `True`, teks berada di luar adegan 3D. Ketika nilai `False`, teks berpartisipasi dalam adegan dan mengikuti orientasi 3D.
+Untuk menjaga teks tetap dapat dibaca sambil mempertahankan tampilan 3D bentuk, setel [TextFrameFormat.keep_text_flat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/keep_text_flat/) melalui [TextFrame.text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/text_frame_format/). Ketika nilai `True`, teks tetap berada di luar adegan 3D. Ketika `False`, teks berpartisipasi dalam adegan dan mengikuti orientasi 3D.
 
-Pengaturan ini tidak menghapus pemformatan 3D bentuk: kamera, pencahayaan, material, dan ekstrusi tetap dikonfigurasi melalui [Shape.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/three_d_format/). Ini juga berbeda dari rotasi biasa. [Shape.rotation](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/rotation/) memutar bentuk dalam bidang slide, sementara [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/rotation_angle/) mengontrol rotasi khusus teks dalam kotak pembatasnya. Menjaga teks di luar adegan 3D tidak mereset kedua sudut tersebut.
+Pengaturan ini tidak menghapus pemformatan 3D bentuk: kamera, pencahayaan, material, dan ekstrusi tetap dikonfigurasi melalui [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/). Ini juga berbeda dari rotasi biasa. [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) memutar bentuk pada bidang slide, sementara [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) mengontrol rotasi khusus teks dalam kotak pembatasnya. Menjaga teks di luar adegan 3D tidak mereset kedua sudut tersebut.
 
-Contoh mandiri berikut membuat persegi panjang biru dengan teks dan menggandakannya di sebelah aslinya. Kedua bentuk memiliki pemformatan 3D yang sama; hanya pengaturan teks yang berbeda: `False` di kiri dan `True` di kanan. Sudut kamera dalam derajat, dan tinggi ekstrusi 40 poin. Contoh ini menyimpan presentasi sebagai PPTX dan merender slide perbandingan ke PNG dengan ukuran dua kali dimensi default.
+Contoh berikut membuat persegi panjang biru dengan teks dan menggandakannya di samping yang asli. Kedua bentuk memiliki pemformatan 3D yang sama; hanya pengaturan teks yang berbeda: `False` di kiri dan `True` di kanan. Sudut kamera dalam derajat, dan tinggi ekstrusi 40 poin. Contoh menyimpan presentasi sebagai PPTX dan merender slide perbandingan ke PNG dengan ukuran dua kali dimensi default.
 
 ```py
 import aspose.pydrawing as drawing
@@ -304,26 +331,24 @@ with slides.Presentation() as presentation:
         image.save("keep_text_flat.png")
 ```
 
-Di kiri, teks mengikuti orientasi 3D. Di kanan, teks tetap datar dan lebih mudah dibaca. Kedua persegi panjang mempertahankan ekstrusi dan orientasi 3D yang sama terlihat.
+Di kiri, teks mengikuti orientasi 3D. Di kanan, teks tetap datar dan lebih mudah dibaca. Kedua persegi panjang mempertahankan ekstrusi terlihat dan orientasi 3D yang sama.
 
-![Dua persegi panjang 3D berdampingan: keep_text_flat False di kiri dan True di kanan](keep_text_flat.png)
+![Side-by-side 3D rectangles: keep_text_flat is False on the left and True on the right](keep_text_flat.png)
 
-## **Ekspor dan Perilaku Rendering**
+## **Perilaku Ekspor dan Rendering**
 
-Aspose.Slides mempertahankan pemformatan 3D saat menyimpan ke format PowerPoint seperti PPTX. Saat merender atau mengekspor ke format tata letak tetap, adegan 3D dirasterisasi atau digambar ke output sebagai hasil 2D. Hal ini berlaku ketika Anda merender slide ke [PNG](/slides/id/python-net/convert-powerpoint-to-png/), mengekspor ke [PDF](/slides/id/python-net/convert-powerpoint-to-pdf/), mengekspor ke [HTML](/slides/id/python-net/convert-powerpoint-to-html/), atau menghasilkan frame untuk [konversi video](/slides/id/python-net/convert-powerpoint-to-video/).
-
-Perlu diingat:
+Aspose.Slides mempertahankan pemformatan 3D saat menyimpan ke format PowerPoint seperti PPTX. Saat merender atau mengekspor ke format tata letak tetap, adegan 3D di‑rasterisasi atau digambar ke output sebagai hasil 2D. Hal ini berlaku ketika Anda merender slide ke [PNG](/slides/id/python-net/convert-powerpoint-to-png/), mengekspor ke [PDF](/slides/id/python-net/convert-powerpoint-to-pdf/), mengekspor ke [HTML](/slides/id/python-net/convert-powerpoint-to-html/), atau menghasilkan frame untuk [video conversion](/slides/id/python-net/convert-powerpoint-to-video/).
 
 - Gambar dan PDF yang diekspor tidak interaktif. Objek tidak dapat diputar oleh penonton setelah diekspor.
-- Penampilan akhir bergantung pada kombinasi kamera, rig cahaya, material, ekstrusi, isian, dan skala slide.
-- Jika Anda perlu memeriksa nilai pemformatan yang diwarisi atau berbasis tema, baca [effective shape properties](/slides/id/python-net/shape-effective-properties/).
-- Beberapa format output tidak dapat menyimpan pemformatan 3D PowerPoint yang dapat diedit. Pada format tersebut, hasil visual dirender alih‑alih dipertahankan sebagai pengaturan 3D yang dapat diedit.
+- Penampilan akhir bergantung pada kombinasi kamera, light rig, material, ekstrusi, isian, dan skala slide.
+- Jika Anda perlu memeriksa nilai pemformatan yang diwariskan atau berbasis tema, baca [effective shape properties](/slides/id/python-net/shape-effective-properties/).
+- Beberapa format output tidak dapat menyimpan pemformatan 3D PowerPoint yang dapat disunting. Pada format tersebut, hasil visual dirender bukan dipertahankan sebagai pengaturan 3D yang dapat disunting.
 
 ## **FAQ**
 
-**Apakah Aspose.Slides dapat membuat presentasi 3D interaktif?**
+**Bisakah Aspose.Slides membuat presentasi 3D interaktif?**
 
-Aspose.Slides membuat dan merender efek 3D PowerPoint untuk bentuk dan teks. Ia tidak membuat gambar, PDF, atau halaman HTML yang interaktif sebagai adegan 3D yang dapat diputar penonton. Pada PPTX, pemformatan 3D tetap dapat diedit di PowerPoint bila formatnya mendukungnya.
+Aspose.Slides membuat dan merender efek 3D PowerPoint untuk bentuk dan teks. Ia tidak membuat gambar, PDF, atau halaman HTML yang interaktif sebagai adegan 3D yang dapat diputar oleh penonton. Pada PPTX, pemformatan 3D tetap dapat disunting di PowerPoint bila format mendukungnya.
 
 **Apa perbedaan antara model 3D dan efek 3D?**
 
@@ -331,16 +356,16 @@ Model 3D adalah objek 3D terpisah yang disisipkan ke dalam presentasi. Efek 3D a
 
 **Pengaturan apa yang diperlukan untuk bentuk 3D yang terlihat?**
 
-Minimal, atur rotasi kamera dan ekstrusi atau kedalaman. Praktiknya, juga atur rig cahaya dan material agar wajah yang dirender memiliki sorotan dan bayangan yang jelas.
+Setidaknya, tetapkan rotasi kamera dan ekstrusi atau kedalaman. Pada praktiknya, juga tetapkan light rig dan material agar wajah yang dirender memiliki sorotan dan bayangan yang jelas.
 
-**Dapatkah saya menerapkan efek 3D pada bentuk dan teks?**
+**Bisakah saya menerapkan efek 3D pada bentuk dan teks?**
 
-Ya. Gunakan [Shape.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/three_d_format/) untuk badan bentuk dan [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/id/python-net/aspose.slides/textframeformat/three_d_format/) untuk teks.
+Ya. Gunakan [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) untuk badan bentuk dan [TextFrameFormat.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/three_d_format/) untuk teks.
 
 **Apakah efek 3D akan muncul saat mengekspor ke gambar, PDF, HTML, atau frame video?**
 
-Ya. Aspose.Slides merender efek 3D ketika menghasilkan gambar slide, output PDF, output HTML, dan frame yang digunakan untuk konversi video. Output yang diekspor berisi tampilan yang dirender, bukan objek 3D yang dapat diedit.
+Ya. Aspose.Slides merender efek 3D saat menghasilkan gambar slide, output PDF, output HTML, dan frame yang digunakan untuk konversi video. Output yang diekspor berisi tampilan yang dirender, bukan objek 3D yang dapat disunting.
 
-**Dapatkah saya membaca nilai 3D akhir setelah pewarisan dan pengaturan tema diterapkan?**
+**Bisakah saya membaca nilai 3D akhir setelah pewarisan dan pengaturan tema diterapkan?**
 
-Ya. Gunakan API pemformatan efektif yang dijelaskan dalam [Shape Effective Properties](/slides/id/python-net/shape-effective-properties/) untuk membaca kamera, rig cahaya, bevel, dan nilai 3D terkait lainnya yang final.
+Ya. Gunakan API pemformatan efektif yang dijelaskan dalam [Shape Effective Properties](/slides/id/python-net/shape-effective-properties/) untuk membaca kamera, light rig, bevel, dan nilai 3D terkait lainnya yang akhir.

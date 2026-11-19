@@ -1,61 +1,61 @@
 ---
-title: 3D‑Effekte in Präsentationen mit .NET erstellen
-linktitle: 3D‑Präsentation
+title: 3D-Effekte in Präsentationen mit .NET erstellen
+linktitle: 3D-Präsentation
 type: docs
 weight: 232
 url: /de/net/3d-presentation/
 keywords:
 - 3D PowerPoint
-- 3D Präsentation
-- 3D Drehung
-- 3D Tiefe
-- 3D Extrusion
-- 3D Farbverlauf
-- 3D Text
+- 3D-Präsentation
+- 3D-Drehung
+- 3D-Tiefe
+- 3D-Extrusion
+- 3D-Farbverlauf
+- 3D-Text
 - PowerPoint
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Wenden Sie 3D‑Effekte für PowerPoint‑Formen und -Text in .NET mit Aspose.Slides an und rendern Sie sie. Konfigurieren Sie Kamera, Beleuchtung, Material, Extrusion, Füllungen und 3D‑Text."
+description: "3D‑Effekte für PowerPoint‑Formen und -Text in .NET mit Aspose.Slides anwenden und rendern. Kamera, Beleuchtung, Material, Extrusion, Füllungen und 3D‑Text konfigurieren."
 ---
 ## **Übersicht**
 
-Aspose.Slides für .NET kann 3D‑Formatierungen im PowerPoint‑Stil für Formen und Text erstellen, bearbeiten, beibehalten und rendern. Dieser Artikel behandelt 3D‑Effekte wie Drehungen, Extrusion, Abschrägungen, Beleuchtung, Material, Farbverläufe oder Bildfüllungen sowie 3D‑Text.
+Aspose.Slides für .NET kann 3D‑Formatierungen im PowerPoint‑Stil für Formen und Text erstellen, bearbeiten, erhalten und rendern. Dieser Artikel behandelt 3D‑Effekte wie Drehung, Extrusion, Abschrägungen, Beleuchtung, Material, Farbverlauf oder Bildfüllungen und 3D‑Text.
 
 {{% alert color="info" title="Note" %}}
-Dieser Artikel behandelt 3D‑Formatierungseffekte für PowerPoint‑Formen und -Text. Es geht nicht um das Einfügen oder Bearbeiten von eigenständigen 3D‑Modelldateien. Wenn Sie eine Folie in ein Bild, PDF oder HTML exportieren, rendert Aspose.Slides diese 3D‑Effekte in die exportierte 2D‑Ausgabe.
+Dieser Artikel behandelt 3D‑Formatierungseffekte für PowerPoint‑Formen und -Text. Er behandelt nicht das Einfügen oder Bearbeiten eigenständiger 3D‑Modelldateien. Wenn Sie eine Folie als Bild, PDF oder HTML exportieren, rendert Aspose.Slides diese 3D‑Effekte in die exportierte 2D‑Ausgabe.
 {{% /alert %}}
 
-## **3D-Formatierungskonzepte**
+## **Konzepte der 3D-Formatierung**
 
-Verwenden Sie die [IShape.ThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/properties/threedformat)-Eigenschaft, um einer Form 3D‑Formatierung zuzuweisen. Die Eigenschaft stellt [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat) bereit, das die 3D‑Szene für diese Form steuert.
+Verwenden Sie die [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat)-Eigenschaft, um einer Form 3D‑Formatierung zuzuweisen. Die Eigenschaft stellt [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat) bereit, die die 3D‑Szene für diese Form steuert.
 
-Für Text verwenden Sie die [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/properties/threedformat)-Eigenschaft. Diese wendet 3D‑Formatierung auf den Textrahmen statt auf den Formkörper an.
+Für Text verwenden Sie die [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat)-Eigenschaft. Damit wird die 3D‑Formatierung auf den Textrahmen anstatt auf den Formkörper angewendet.
 
 Die wichtigsten Eigenschaften sind:
 
-| Eigenschaft | Was es steuert | Wann zu verwenden |
+| Eigenschaft | Was es steuert | Wann es zu verwenden ist |
 |---|---|---|
-| [Camera](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/camera) | Ansichtspunkt, voreingestellter Kameratyp, Drehung, Zoom und Perspektive. | Drehen Sie das Objekt im 3D‑Raum oder verwenden Sie eine PowerPoint‑Drehvorgabe. |
-| [LightRig](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/lightrig) | Lichtvoreinstellung, Richtung und Lichtdrehung. | Ändern Sie, wie Hervorhebungen und Schatten auf der 3D‑Oberfläche erscheinen. |
-| [Material](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/material) | Oberflächenmaterial, z. B. flach, matt, Kunststoff oder Metall. | Lassen Sie die gleiche Geometrie flacher, weicher, glänzender oder metallisch wirken. |
-| [ExtrusionHeight](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/extrusionheight) | Wie weit die Form von ihrer Vorderseite nach hinten ausgedehnt wird. | Verwandeln Sie eine flache Form in ein sichtbar dickes 3D‑Objekt. |
-| [ExtrusionColor](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/extrusioncolor) | Farbe der extrudierten Seiten. | Machen Sie die Tiefe sichtbar oder stimmen Sie die Seitenfarbe mit der Vorderfüllung ab. |
-| [Depth](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/depth) | Zusätzliche 3D‑Tiefe, die von PowerPoint‑3D‑Formatierung verwendet wird. | Feinabstimmung der Tiefe für Formen oder Text, insbesondere zusammen mit Abschrägungs‑ und Materialeinstellungen. |
-| [BevelTop](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/beveltop) and [BevelBottom](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/bevelbottom) | Erhobene oder abgerundete Kanten an Vorder- und Rückseite. | Fügen Sie eine weiche oder geformte Kante hinzu anstelle einer scharfen flachen Fläche. |
-| [ContourColor](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/contourcolor) and [ContourWidth](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/contourwidth) | Umriss um das 3D‑Objekt. | Betonen Sie die Objektgrenze in der gerenderten Ausgabe. |
+| [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) | Ansichtspunkt, vordefinierter Kameratyp, Rotation, Zoom und Perspektive. | Drehen Sie das Objekt im 3D‑Raum oder passen Sie eine vordefinierte PowerPoint‑3D‑Drehung an. |
+| [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig) | Lichtvorgabe, Richtung und Lichtrotation. | Ändern Sie, wie Highlights und Schatten auf der 3D‑Oberfläche erscheinen. |
+| [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material) | Oberflächenmaterial, z. B. flach, matt, Kunststoff oder Metall. | Lassen Sie dieselbe Geometrie flacher, weicher, glänzender oder metallisch wirken. |
+| [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) | Wie weit die Form von ihrer Vorderseite nach hinten ausgedehnt wird. | Verwandeln Sie eine flache Form in ein sichtbar dickes 3D‑Objekt. |
+| [ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) | Farbe der extrudierten Seiten. | Machen Sie die Tiefe sichtbar oder koordinieren Sie die Seitenfarbe mit der Vorderseiten‑Füllung. |
+| [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) | Zusätzliche 3D‑Tiefe, die von PowerPoint‑3D‑Formatierung verwendet wird. | Feinabstimmung der Tiefe für Formen oder Text, insbesondere zusammen mit Abschrägungs‑ und Materialeinstellungen. |
+| [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop) und [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) | Erhöhte oder abgerundete Kanten an Vorder- und Rückseiten. | Fügen Sie eine abgeflachte oder geformte Kante hinzu, anstatt einer scharfen flachen Fläche. |
+| [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) und [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth) | Umriss um das 3D‑Objekt. | Betonen Sie die Objektgrenze in der gerenderten Ausgabe. |
 
-## **Erstellen einer 3D‑Form**
+## **Eine 3D‑Form erstellen**
 
-Eine Form benötigt in der Regel vier Arten von Einstellungen, bevor sie überzeugend 3D aussieht:
+Eine Form benötigt normalerweise vier Arten von Einstellungen, bevor sie überzeugend 3D wirkt:
 
-- Kameraeinstellungen, da die Standard‑Vorderansicht die Extrusion verbergen kann.
+- Kameraeinstellungen, weil die voreingestellte Vorderansicht die Extrusion verbergen könnte.
 - Lichteinstellungen, weil Beleuchtung die Flächen und Seiten lesbar macht.
-- Materialeinstellungen, weil die Oberfläche beeinflusst, wie Licht gerendert wird.
-- Extrusions‑ oder Tiefeinstellungen, da eine flache Form Dicke benötigt.
+- Materialeinstellungen, weil die Oberfläche beeinflusst, wie das Licht gerendert wird.
+- Extrusions‑ oder Tiefe‑Einstellungen, weil eine flache Form Dicke benötigt.
 
-Das folgende Beispiel erstellt ein Rechteck, fügt Text zu seiner Vorderseite hinzu und wendet 3D‑Formatierung an. Die Kameradrehwerte sind in Grad angegeben, und die Extrusionshöhe beträgt 100 Punkte. Das Beispiel rendert die Folie zu einem PNG‑Bild in der doppelten Standardgröße und speichert die Präsentation als PPTX.
+Das folgende Beispiel erstellt ein Rechteck, fügt seiner Vorderseite Text hinzu und wendet 3D‑Formatierung an. Die Kamerarotationswerte sind in Grad angegeben, und die Extrusionshöhe beträgt 100 Punkte. Das Beispiel rendert die Folie zu einem PNG‑Bild mit dem Doppelten ihrer Standardgröße und speichert die Präsentation als PPTX.
 
 ```csharp
 using System.Drawing;
@@ -88,15 +88,17 @@ thumbnail.Save("shape_3d.png");
 presentation.Save("shape_3d.pptx", SaveFormat.Pptx);
 ```
 
+Das gerenderte Folienbild zeigt das Rechteck als dicken 3D‑Block:
+
 ![Gerendertes blaues 3D‑Rechteck mit weißem 3D‑Text auf der Vorderseite](img_01_01.png)
 
 ## **Eine Form mit der Kamera drehen**
 
-In PowerPoint wird die 3D‑Drehung im Fenster „3‑D‑Drehung“ konfiguriert. Die X‑, Y‑ und Z‑Drehwerte entsprechen der Drehung, die Sie über die Kamera‑API festlegen.
+In PowerPoint wird die 3D‑Drehung über das Fenster 3‑D‑Drehung konfiguriert. Die X‑, Y‑ und Z‑Rotationswerte entsprechen der Drehung, die Sie über die Kamera‑API festlegen.
 
-![PowerPoint‑3‑D‑Drehungs‑Fenster mit hervorgehobenen X‑, Y‑ und Z‑Drehwerten](img_02_01.png)
+![PowerPoint‑Fenster 3‑D‑Drehung mit hervorgehobenen X‑, Y‑ und Z‑Rotationswerten](img_02_01.png)
 
-In Aspose.Slides greifen Sie über [IThreeDFormat.Camera](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/camera) auf die Kamera zu. Dieses Beispiel erstellt ein Rechteck, wählt eine orthografische Vorderansicht und setzt seine X‑, Y‑ und Z‑Drehungen auf 20, 30 bzw. 40 Grad. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern:
+In Aspose.Slides greifen Sie über [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) auf die Kamera zu. Dieses Beispiel erstellt ein Rechteck, wählt eine orthografische Vorderansicht und setzt die X‑, Y‑ und Z‑Rotationen auf 20, 30 bzw. 40 Grad. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern:
 
 ```csharp
 using Aspose.Slides;
@@ -110,15 +112,45 @@ shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 ```
 
-Verwenden Sie die Kamera, wenn Sie ändern müssen, wie der Betrachter das Objekt sieht. Sie ändert nicht die 2D‑Geometrie der Form auf der Folie, sondern den 3D‑Blickpunkt, den PowerPoint und Aspose.Slides beim Rendern nutzen.
+Verwenden Sie die Kamera, wenn Sie ändern müssen, wie der Betrachter das Objekt sieht. Sie ändert nicht die 2D‑Formgeometrie auf der Folie. Sie ändert den 3D‑Standort, den PowerPoint und Aspose.Slides beim Rendern verwenden.
+
+### **Kameraausrichtung von einer Vorlagenform kopieren**
+
+Um eine Form in einer Vorlage anzupassen, kopieren Sie deren [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/)‑Voreinstellung und lesen Sie die Winkel mit [GetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/getrotation/). Das Beispiel öffnet `template.pptx`, liest die Kamera der ersten Form auf der ersten Folie und überträgt deren Ausrichtung auf die zweite Form. Beide Formen besitzen bereits 3D‑Beleuchtung, und die zweite Form hat keine explizite Kameradrehung.
+
+Die Winkel sind in Grad angegeben. Index `0` ist die Breite, Index `1` die Länge und Index `2` die Umdrehung. Übergeben Sie sie in dieser Reihenfolge an [SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/). Gibt die Quelle `null` zurück, hat sie keine explizite Drehung, sodass die Winkel der zweiten Form unbeändert bleiben. Eine explizite Drehung von `(0, 0, 0)` liefert drei Nullen und sollte kopiert werden.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var shapes = presentation.Slides[0].Shapes;
+
+var sourceCamera = shapes[0].ThreeDFormat.Camera;
+var destinationCamera = shapes[1].ThreeDFormat.Camera;
+
+destinationCamera.CameraType = sourceCamera.CameraType;
+var angles = sourceCamera.GetRotation();
+if (angles != null)
+{
+    destinationCamera.SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation.Save("camera-copy.pptx", SaveFormat.Pptx);
+```
+
+Wenn Sie `camera-copy.pptx` erneut öffnen, haben die beiden Formen dieselbe Kameravoreinstellung und -rotation. In PowerPoint verwendet der rechte Pfeil die von dem linken Rechteck kopierte Kameraausrichtung. Beide Formen nutzen dieselbe Beleuchtung und Extrusionstiefe.
+
+![Ein blaues 3D‑Rechteck und ein rechter Pfeil mit übereinstimmender Kameraausrichtung, von oben rechts betrachtet](camera-orientation.png)
 
 ## **Extrusion und Tiefe hinzufügen**
 
-Extrusion lässt eine Form dick wirken, indem sie hinter die Vorderfläche erweitert wird. In PowerPoint legt die Tiefensteuerung diese sichtbare Dicke fest, und die Farbsteuerung bestimmt die Farbe der Seitenflächen.
+Extrusion lässt eine Form dick erscheinen, indem sie hinter der Vorderfläche erweitert wird. In PowerPoint legt die Tiefensteuerung diese sichtbare Dicke fest, und die Farbsteuerung bestimmt die Farbe der Seitenflächen.
 
-![PowerPoint‑Tiefensteuerungen, zugeordnet zu den Eigenschaften ExtrusionColor und ExtrusionHeight](img_02_02.png)
+![PowerPoint‑Tiefensteuerungen, zugeordnet zu Extrusionsfarbe und Extrusionshöhe‑Eigenschaften](img_02_02.png)
 
-Setzen Sie [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/extrusionheight) für die Dicke und [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/extrusioncolor) für die Seitenfarbe. Dieses Beispiel gibt einem Rechteck eine 100‑Punkte‑Extrusion mit violetten Seiten und dreht die Kamera, um die Dicke sichtbar zu machen. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern:
+Setzen Sie [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) für die Dicke und [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) für die Seitenfarbe. Dieses Beispiel gibt einem Rechteck eine 100‑Punkte‑Extrusion mit violetten Seiten und dreht die Kamera, um die Dicke zu zeigen. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern:
 
 ```csharp
 using System.Drawing;
@@ -138,13 +170,13 @@ shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
 ```
 
-Die [IThreeDFormat.Depth](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/depth)-Eigenschaft legt die Tiefe einer 3D‑Form fest. Die [ExtrusionHeight](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/properties/extrusionheight)-Eigenschaft steuert die Höhe des Extrusions‑Effekts, wie in diesem Beispiel gezeigt.
+Die [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth)‑Eigenschaft legt die Tiefe einer 3D‑Form fest. Die [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight)‑Eigenschaft steuert die Höhe des Extrusionseffekts, wie in diesem Beispiel gezeigt.
 
-## **Verlauf‑ oder Bildfüllungen mit 3D‑Effekten verwenden**
+## **Verwenden von Farbverlauf‑ oder Bildfüllungen mit 3D‑Effekten**
 
-3D‑Formatierung ist unabhängig von der Formfüllung. Sie können eine einfarbige, verlaufende, gemusterte oder Bildfüllung auf die Vorderseite anwenden und dennoch dieselbe Kamera, Beleuchtung, Material und Extrusion verwenden.
+3D‑Formatierung ist unabhängig von der Formfüllung. Sie können der Vorderseite eine Vollfarbe, einen Farbverlauf, ein Muster oder eine Bildfüllung zuweisen und dennoch dieselben Kamera‑, Licht‑, Material‑ und Extrusionseinstellungen verwenden.
 
-Dieses Beispiel wendet einen blau‑zu‑orangefarbenen Verlauf auf die Vorderseite und eine dunkelorange Farbe auf die 150‑Punkte‑Extrusion an. Die Verlaufs‑Stops bei 0 % und 100 % markieren Anfang und Ende des Verlaufs. Die Kameradrehwerte sind in Grad. Die Folie wird zu einem PNG‑Bild in der doppelten Standardgröße gerendert:
+Dieses Beispiel wendet einen Blau‑zu‑Orange‑Farbverlauf auf die Vorderseite an und eine dunkelorange Farbe auf die 150‑Punkte‑Extrusion. Die Farbverlaufs‑Stopps bei 0 und 100 markieren den Anfang und das Ende des Verlaufs. Die Kamerarotationswerte sind in Grad. Die Folie wird zu einem PNG‑Bild mit dem Doppelten ihrer Standardgröße gerendert:
 
 ```csharp
 using System.Drawing;
@@ -175,9 +207,11 @@ using var thumbnail = slide.GetImage(imageScale, imageScale);
 thumbnail.Save("gradient_3d.png");
 ```
 
-![Gerendertes 3D‑Rechteck mit blau‑zu‑orangefarbenem Verlaufs‑Fill und orangefarbener Extrusion](img_02_03.png)
+Die gerenderte Ausgabe behält den Farbverlauf auf der Vorderseite bei und rendert die Extrusion separat:
 
-Um stattdessen eine Bildfüllung zu verwenden, fügen Sie das Bild zur Präsentation hinzu und weisen es der Formfüllung zu. Dieses Beispiel setzt voraus, dass im Arbeitsverzeichnis eine Datei namens "image.jpg" existiert. Das Bild wird über das Rechteck gestreckt, die Extrusion auf 150 Punkte gesetzt und die Kameradrehung in Grad angegeben. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern oder zu rendern:
+![Gerendertes 3D‑Rechteck mit blau‑zu‑orangefarbenem Farbverlauf und orangefarbener Extrusion](img_02_03.png)
+
+Um stattdessen eine Bildfüllung zu verwenden, fügen Sie das Bild zur Präsentation hinzu und weisen es der Formfüllung zu. Dieses Beispiel erfordert eine vorhandene Datei namens "image.jpg" im Arbeitsverzeichnis. Es streckt das Bild, um das Rechteck zu füllen, wendet eine 150‑Punkte‑Extrusion an und setzt die Kamerarotation in Grad. Es konfiguriert die Form im Speicher, ohne eine Datei zu speichern oder zu rendern:
 
 ```csharp
 using System.Drawing;
@@ -205,13 +239,15 @@ shape.ThreeDFormat.ExtrusionHeight = 150;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
 ```
 
-![Gerendertes 3D‑Rechteck mit Foto‑Fill auf der Vorderseite und orangefarbener Extrusion](img_02_04.png)
+Das Bild wird auf der Vorderseite gerendert, während die Extrusion als 3D‑Seitenfläche gerendert wird:
+
+![Gerendertes 3D‑Rechteck mit Fotofüllung auf der Vorderseite und orangefarbener Extrusion](img_02_04.png)
 
 ## **3D‑Formatierung auf Text anwenden**
 
-Die 3D‑Formatierung einer Form betrifft den Formkörper. Die 3D‑Formatierung von Text betrifft den Textrahmen. Das ist nützlich für WordArt‑ähnliche Effekte, bei denen die Buchstaben selbst Extrusion, Material, Beleuchtung und Kamera benötigen.
+Die 3D‑Formatierung von Formen wirkt auf den Formkörper. Die 3D‑Formatierung von Text wirkt auf den Textrahmen. Das ist nützlich für WordArt‑ähnliche Effekte, bei denen die Buchstaben selbst Extrusion, Material, Beleuchtung und Kameraeinstellungen benötigen.
 
-Das folgende Beispiel erstellt Text mit einem orange‑weiß‑Gittermuster, wendet einen nach oben gerichteten Bogen an und konfiguriert 3D‑Einstellungen über [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/properties/threedformat). Die Extrusions‑Höhe und Tiefe sind in Punkten angegeben, die Lichtdrehung in Grad. Die Formfüllung und Kontur sind ausgeblendet, sodass nur der Text sichtbar ist. Das Beispiel rendert ein PNG‑Bild in der doppelten Standard‑Foliengröße und speichert die Präsentation als PPTX:
+Das folgende Beispiel erstellt Text mit einem orange‑weiß‑gitter Muster, wendet einen nach oben gerichteten Bogen an und konfiguriert 3D‑Einstellungen über [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat). Die Extrusionshöhe und Tiefe sind in Punkten angegeben, und die Lichtrotation ist in Grad. Die Formfüllung und Kontur werden ausgeblendet, sodass nur der Text sichtbar ist. Das Beispiel rendert ein PNG‑Bild mit dem Doppelten der Standardfolienabmessungen und speichert die Präsentation als PPTX:
 
 ```csharp
 using System.Drawing;
@@ -252,15 +288,17 @@ thumbnail.Save("text_3d.png");
 presentation.Save("text_3d.pptx", SaveFormat.Pptx);
 ```
 
-![Gerenderter 3D‑Text mit bogenförmiger WordArt‑Transformation, orangefarbenem Muster‑Fill und dunkler Extrusion](img_02_05.png)
+Der Text wird als gebogene, extrudierte 3D‑Beschriftung gerendert:
 
-## **Text flach auf einer 3D‑Form halten**
+![Gerendeter 3D‑Text mit einem gebogenen WordArt‑Transform, orangefarbener Mustervollfüllung und dunkler Extrusion](img_02_05.png)
 
-Um Text lesbar zu halten und gleichzeitig das 3D‑Aussehen einer Form zu bewahren, setzen Sie [ITextFrameFormat.KeepTextFlat](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/keeptextflat/) über [ITextFrame.TextFrameFormat](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/textframeformat/). Wenn der Wert `true` ist, bleibt der Text außerhalb der 3D‑Szene. Ist er `false`, nimmt der Text an der Szene teil und folgt ihrer 3D‑Ausrichtung.
+## **Text auf einer 3D‑Form flach halten**
 
-Diese Einstellung entfernt nicht die 3D‑Formatierung der Form: Kamera, Beleuchtung, Material und Extrusion bleiben über [IShape.ThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/threedformat/) konfiguriert. Sie unterscheidet sich außerdem von einer normalen Drehung. [IShape.Rotation](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/rotation/) dreht die Form in der Folienebene, während [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/rotationangle/) die benutzerdefinierte Drehung des Textes innerhalb seines Begrenzungsrahmens steuert. Das Halten des Textes außerhalb der 3D‑Szene setzt keinen dieser Winkel zurück.
+Um Text lesbar zu halten und gleichzeitig das 3D‑Aussehen einer Form zu bewahren, setzen Sie [ITextFrameFormat.KeepTextFlat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/keeptextflat/) über [ITextFrame.TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframe/textframeformat/). Ist der Wert `true`, bleibt der Text außerhalb der 3D‑Szene. Ist er `false`, nimmt der Text an der Szene teil und folgt ihrer 3D‑Ausrichtung.
 
-Das folgende eigenständige Beispiel erstellt ein blaues Rechteck mit Text und dupliziert es neben dem Original. Beide Formen haben dieselbe 3D‑Formatierung; nur die Texteinstellung unterscheidet sich: `false` links und `true` rechts. Die Kamerawinkel sind in Grad angegeben, die Extrusions‑Höhe beträgt 40 Punkte. Das Beispiel speichert die Präsentation als PPTX und rendert die Vergleichs‑Folie zu PNG in der doppelten Standardgröße.
+Diese Einstellung entfernt nicht die 3D‑Formatierung der Form: Kamera, Beleuchtung, Material und Extrusion bleiben über [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) konfiguriert. Sie unterscheidet sich zudem von einer normalen Drehung. [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) dreht die Form in der Folienebene, während [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) die benutzerdefinierte Drehung des Textes innerhalb seiner Begrenzungsbox steuert. Den Text aus der 3D‑Szene herauszuhalten, setzt keine dieser Winkel zurück.
+
+Das folgende eigenständige Beispiel erstellt ein blaues Rechteck mit Text und dupliziert es neben dem Original. Beide Formen besitzen dieselbe 3D‑Formatierung; nur die Texteinstellung unterscheidet sich: `false` links und `true` rechts. Die Kamerawinkel sind in Grad, und die Extrusionshöhe beträgt 40 Punkte. Das Beispiel speichert die Präsentation als PPTX und rendert die Vergleichsfolie zu PNG mit dem Doppelten ihrer Standardgröße.
 
 ```csharp
 using System.Drawing;
@@ -296,41 +334,41 @@ using var image = slide.GetImage(2, 2);
 image.Save("keep_text_flat.png");
 ```
 
-![Nebeneinander‑stehende 3D‑Rechtecke: KeepTextFlat ist links false und rechts true](keep_text_flat.png)
+Links folgt der Text der 3D‑Ausrichtung. Rechts bleibt er flach und leichter lesbar. Beide Rechtecke behalten dieselbe sichtbare Extrusion und 3D‑Ausrichtung bei.
+
+![Nebeneinander stehende 3D‑Rechtecke: KeepTextFlat ist links false und rechts true](keep_text_flat.png)
 
 ## **Export‑ und Rendering‑Verhalten**
 
-Aspose.Slides bewahrt 3D‑Formatierung beim Speichern in PowerPoint‑Formaten wie PPTX. Beim Rendern oder Exportieren in Layout‑feste Formate wird die 3D‑Szene rasterisiert bzw. in das Ergebnis als 2D‑Darstellung gezeichnet. Das gilt beim Rendern von Folien zu [PNG](/slides/de/net/convert-powerpoint-to-png/), beim Export zu [PDF](/slides/de/net/convert-powerpoint-to-pdf/), zu [HTML](/slides/de/net/convert-powerpoint-to-html/) oder beim Erzeugen von Frames für die [Video‑Konvertierung](/slides/de/net/convert-powerpoint-to-video/).
+Aspose.Slides bewahrt die 3D‑Formatierung beim Speichern in PowerPoint‑Formate wie PPTX. Beim Rendern oder Exportieren in fixierte Layout‑Formate wird die 3D‑Szene gerastert oder als 2D‑Ergebnis in die Ausgabe gezeichnet. Dies gilt, wenn Sie Folien zu [PNG](/slides/de/net/convert-powerpoint-to-png/) rendern, zu [PDF](/slides/de/net/convert-powerpoint-to-pdf/) exportieren, zu [HTML](/slides/de/net/convert-powerpoint-to-html/) exportieren oder Frames für die [Video‑Konvertierung](/slides/de/net/convert-powerpoint-to-video/) erzeugen.
 
-Beachten Sie folgende Punkte:
-
-- Exportierte Bilder und PDFs sind nicht interaktiv. Das Objekt kann nach dem Export vom Betrachter nicht mehr gedreht werden.
-- Das endgültige Erscheinungsbild hängt von der Kombination aus Kamera, Beleuchtung, Material, Extrusion, Füllung und Folien‑Skalierung ab.
-- Wenn Sie vererbte oder themenbasierte Formatierungswerte prüfen müssen, lesen Sie die [effektiven Form‑Eigenschaften](/slides/de/net/shape-effective-properties/).
-- Einige Ausgabeformate können keine editierbare PowerPoint‑3D‑Formatierung speichern. In diesen Formaten wird das visuelle Ergebnis gerendert, nicht als editierbare 3D‑Einstellungen erhalten.
+- Exportierte Bilder und PDFs sind nicht interaktiv. Das Objekt kann vom Betrachter nach dem Export nicht gedreht werden.
+- Das endgültige Erscheinungsbild hängt von der Kombination aus Kamera, Licht‑Rig, Material, Extrusion, Füllung und Folien‑Skalierung ab.
+- Wenn Sie geerbte oder themenbasierte Formatierungswerte prüfen müssen, lesen Sie die [effektiven Formeigenschaften](/slides/de/net/shape-effective-properties/).
+- Einige Ausgabeformate können die editierbare PowerPoint‑3D‑Formatierung nicht speichern. In diesen Formaten wird das visuelle Ergebnis gerendert, anstatt als editierbare 3D‑Einstellungen erhalten zu bleiben.
 
 ## **FAQ**
 
 **Kann Aspose.Slides interaktive 3D‑Präsentationen erstellen?**
 
-Aspose.Slides erstellt und rendert PowerPoint‑3D‑Effekte für Formen und Text. Es macht exportierte Bilder, PDFs oder HTML‑Seiten nicht zu interaktiven 3D‑Szenen, die ein Betrachter rotieren kann. In PPTX bleibt die 3D‑Formatierung in PowerPoint editierbar, sofern das Format sie unterstützt.
+Aspose.Slides erstellt und rendert PowerPoint‑3D‑Effekte für Formen und Text. Es macht exportierte Bilder, PDFs oder HTML‑Seiten nicht zu interaktiven 3D‑Szenen, die ein Betrachter drehen könnte. In PPTX bleibt die 3D‑Formatierung in PowerPoint editierbar, sofern das Format dies unterstützt.
 
 **Was ist der Unterschied zwischen einem 3D‑Modell und einem 3D‑Effekt?**
 
-Ein 3D‑Modell ist ein separates 3D‑Objekt, das in eine Präsentation eingefügt wird. Ein 3D‑Effekt ist eine Formatierung, die auf eine reguläre PowerPoint‑Form oder auf Text angewendet wird, z. B. Drehung, Extrusion, Abschrägung, Beleuchtung und Material. Dieser Artikel behandelt 3D‑Effekte.
+Ein 3D‑Modell ist ein separates 3D‑Objekt, das in eine Präsentation eingefügt wird. Ein 3D‑Effekt ist eine Formatierung, die auf eine normale PowerPoint‑Form oder -Text angewendet wird, wie Drehung, Extrusion, Abschrägung, Beleuchtung und Material. Dieser Artikel behandelt 3D‑Effekte.
 
-**Welche Einstellungen sind erforderlich, damit eine 3D‑Form sichtbar wird?**
+**Welche Einstellungen sind für eine sichtbare 3D‑Form erforderlich?**
 
-Mindestens eine Kameradrehung und entweder Extrusion oder Tiefe müssen gesetzt werden. In der Praxis sollten zudem ein LightRig und Material gesetzt werden, damit die gerenderten Flächen klare Highlights und Schatten zeigen.
+Mindestens muss eine Kameradrehung und entweder Extrusion oder Tiefe festgelegt werden. In der Praxis sollten zudem ein Licht‑Rig und ein Material gesetzt werden, damit die gerenderten Flächen klare Highlights und Schatten besitzen.
 
 **Kann ich 3D‑Effekte sowohl auf Formen als auch auf Text anwenden?**
 
-Ja. Verwenden Sie [IShape.ThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/properties/threedformat) für den Formkörper und [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformat/properties/threedformat) für Text.
+Ja. Verwenden Sie [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) für den Formkörper und [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) für Text.
 
-**Werden 3D‑Effekte beim Export zu Bildern, PDF, HTML oder Video‑Frames angezeigt?**
+**Werden 3D‑Effekte beim Exportieren zu Bildern, PDF, HTML oder Video‑Frames angezeigt?**
 
-Ja. Aspose.Slides rendert 3D‑Effekte, wenn Folienbilder, PDF‑Ausgaben, HTML‑Ausgaben oder Frames für die Video‑Konvertierung erzeugt werden. Die exportierten Ausgaben enthalten das gerenderte Erscheinungsbild, nicht ein editierbares 3D‑Objekt.
+Ja. Aspose.Slides rendert 3D‑Effekte beim Erzeugen von Folienbildern, PDF‑Ausgabe, HTML‑Ausgabe und Frames für die Videokonvertierung. Die exportierte Ausgabe enthält das gerenderte Erscheinungsbild, nicht ein editierbares 3D‑Objekt.
 
-**Kann ich die endgültigen 3D‑Werte nach Vererbung und Themen‑Einstellungen auslesen?**
+**Kann ich die endgültigen 3D‑Werte nach Vererbung und Anwendung von Theme‑Einstellungen auslesen?**
 
-Ja. Verwenden Sie die APIs für effektive Formatierung, die in [Shape Effective Properties](/slides/de/net/shape-effective-properties/) beschrieben sind, um die endgültigen Kamera‑, LightRig‑, Bevel‑ und zugehörigen 3D‑Werte zu lesen.
+Ja. Verwenden Sie die APIs für effektive Formatierung, die in [Effektive Formeigenschaften](/slides/de/net/shape-effective-properties/) beschrieben werden, um die endgültigen Kamera‑, Licht‑Rig‑, Abschrägungs‑ und verwandten 3D‑Werte auszulesen.

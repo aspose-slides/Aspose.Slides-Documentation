@@ -1,5 +1,5 @@
 ---
-title: Buat Efek 3D pada Presentasi Menggunakan .NET
+title: Buat Efek 3D dalam Presentasi Menggunakan .NET
 linktitle: Presentasi 3D
 type: docs
 weight: 232
@@ -10,7 +10,7 @@ keywords:
 - rotasi 3D
 - kedalaman 3D
 - ekstrusi 3D
-- gradasi 3D
+- gradien 3D
 - teks 3D
 - PowerPoint
 - presentasi
@@ -19,43 +19,42 @@ keywords:
 - Aspose.Slides
 description: "Terapkan dan render efek 3D untuk bentuk dan teks PowerPoint di .NET dengan Aspose.Slides. Konfigurasikan kamera, pencahayaan, material, ekstrusi, isian, dan teks 3D."
 ---
-## **Ringkasan**
+## **Gambaran Umum**
 
-Aspose.Slides untuk .NET dapat membuat, mengedit, mempertahankan, dan merender pemformatan 3D gaya PowerPoint untuk bentuk dan teks. Artikel ini mencakup efek 3D seperti rotasi, ekstrusi, bevel, pencahayaan, material, isian gradasi atau gambar, dan teks 3D.
+Aspose.Slides untuk .NET dapat membuat, mengedit, mempertahankan, dan merender format 3D bergaya PowerPoint untuk bentuk dan teks. Artikel ini mencakup efek 3D seperti rotasi, ekstrusi, bevel, pencahayaan, material, isian gradien atau gambar, dan teks 3D.
 
 {{% alert color="info" title="Note" %}}
-Artikel ini tentang efek pemformatan 3D pada bentuk dan teks PowerPoint. Ini bukan tentang memasukkan atau mengedit file model 3D terpisah. Saat Anda mengekspor slide ke gambar, PDF, atau HTML, Aspose.Slides merender efek 3D tersebut ke dalam output 2D yang diekspor.
+Artikel ini membahas efek pemformatan 3D pada bentuk dan teks PowerPoint. Ini bukan tentang menyisipkan atau mengedit file model 3D terpisah. Saat Anda mengekspor slide ke gambar, PDF, atau HTML, Aspose.Slides merender efek 3D tersebut ke dalam output 2D yang diekspor.
 {{% /alert %}}
 
 ## **Konsep Pemformatan 3D**
 
-Gunakan properti [IShape.ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/properties/threedformat) untuk menerapkan pemformatan 3D pada sebuah bentuk. Properti tersebut mengekspos [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat), yang mengontrol adegan 3D untuk bentuk tersebut.
+Gunakan properti [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) untuk menerapkan pemformatan 3D pada sebuah bentuk. Properti tersebut mengekspos [IThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat), yang mengontrol adegan 3D untuk bentuk tersebut.
 
-Untuk teks, gunakan properti [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/properties/threedformat). Ini menerapkan pemformatan 3D pada bingkai teks, bukan pada badan bentuk.
+Untuk teks, gunakan properti [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat). Ini menerapkan pemformatan 3D pada bingkai teks alih-alih tubuh bentuk.
 
-Properti terpenting adalah:
+Properti paling penting adalah:
 
 | Properti | Apa yang dikontrol | Kapan digunakan |
 |---|---|---|
-| [Camera](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/camera) | Titik pandang, jenis kamera preset, rotasi, zoom, dan perspektif. | Putar objek dalam ruang 3D atau cocokkan dengan preset rotasi 3D PowerPoint. |
-| [LightRig](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/lightrig) | Preset cahaya, arah, dan rotasi cahaya. | Ubah cara sorotan dan bayangan muncul pada permukaan 3D. |
-| [Material](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/material) | Material permukaan, seperti datar, matte, plastik, atau logam. | Membuat geometri yang sama tampak lebih datar, lebih lembut, mengkilap, atau logam. |
-| [ExtrusionHeight](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/extrusionheight) | Seberapa jauh bentuk memperluas ke belakang dari wajah depannya. | Mengubah bentuk datar menjadi objek 3D yang tampak tebal. |
-| [ExtrusionColor](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/extrusioncolor) | Warna sisi yang diekstrusi. | Membuat kedalaman terlihat atau menyesuaikan warna sisi dengan isian depan. |
-| [Depth](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/depth) | Kedalaman 3D tambahan yang digunakan oleh pemformatan 3D PowerPoint. | Menyetel kedalaman secara halus untuk bentuk atau teks, terutama bersama dengan pengaturan bevel dan material. |
-| [BevelTop](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/beveltop) and [BevelBottom](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/bevelbottom) | Tepi yang terangkat atau melengkung pada wajah depan dan belakang. | Menambahkan tepi yang lembut atau dibentuk alih-alih wajah datar yang tajam. |
-| [ContourColor](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/contourcolor) and [ContourWidth](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/contourwidth) | Garis tepi di sekitar objek 3D. | Menekankan batas objek dalam output yang dirender. |
+| [Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) | Titik pandang, tipe kamera preset, rotasi, zoom, dan perspektif. | Putar objek dalam ruang 3D atau sesuaikan dengan preset rotasi 3D PowerPoint. |
+| [LightRig](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/lightrig) | Preset cahaya, arah, dan rotasi cahaya. | Ubah tampilan sorotan dan bayangan pada permukaan 3D. |
+| [Material](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/material) | Material permukaan, seperti datar, matte, plastik, atau logam. | Membuat geometri yang sama terlihat lebih datar, lebih lembut, mengkilap, atau logam. |
+| [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) | Seberapa jauh bentuk menonjol ke belakang dari wajah depannya. | Mengubah bentuk datar menjadi objek 3D yang tampak tebal. |
+| [ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) | Warna sisi yang diekstrusi. | Membuat kedalaman terlihat atau mengkoordinasikan warna sisi dengan isian depan. |
+| [Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) | Kedalaman 3D tambahan yang digunakan oleh pemformatan 3D PowerPoint. | Menyempurnakan kedalaman untuk bentuk atau teks, terutama bersama dengan pengaturan bevel dan material. |
+| [BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/beveltop) dan [BevelBottom](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/bevelbottom) | Tepi yang terangkat atau melengkung pada wajah depan dan belakang. | Menambahkan tepi yang lembut atau dibentuk alih-alih wajah datar yang tajam. |
+| [ContourColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourcolor) dan [ContourWidth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/contourwidth) | Garis luar di sekitar objek 3D. | Menekankan batas objek dalam output yang dirender. |
 
 ## **Buat Bentuk 3D**
 
 Sebuah bentuk biasanya memerlukan empat jenis pengaturan sebelum terlihat meyakinkan sebagai 3D:
-
 - Pengaturan kamera, karena tampilan depan default dapat menyembunyikan ekstrusi.
-- Pengaturan cahaya, karena pencahayaan membuat wajah dan sisi dapat dilihat.
+- Pengaturan cahaya, karena pencahayaan membuat permukaan dan sisi dapat dibaca.
 - Pengaturan material, karena permukaan memengaruhi cara cahaya dirender.
-- Pengaturan ekstrusi atau kedalaman, karena bentuk datar memerlukan ketebalan.
+- Pengaturan ekstrusi atau kedalaman, karena bentuk datar membutuhkan ketebalan.
 
-Contoh berikut membuat sebuah persegi panjang, menambahkan teks ke wajah depannya, dan menerapkan pemformatan 3D. Nilai rotasi kamera dalam derajat, dan tinggi ekstrusi adalah 100 poin. Contoh ini merender slide ke gambar PNG dengan ukuran dua kali dimensi defaultnya dan menyimpan presentasi sebagai PPTX.
+Contoh berikut membuat sebuah persegi panjang, menambahkan teks pada wajah depannya, dan menerapkan pemformatan 3D. Nilai rotasi kamera dalam derajat, dan tinggi ekstrusi adalah 100 poin. Contoh ini merender slide menjadi gambar PNG dengan ukuran dua kali dimensi defaultnya dan menyimpan presentasi sebagai PPTX.
 
 ```csharp
 using System.Drawing;
@@ -88,17 +87,17 @@ thumbnail.Save("shape_3d.png");
 presentation.Save("shape_3d.pptx", SaveFormat.Pptx);
 ```
 
-Gambar slide yang dirender menunjukkan persegi panjang sebagai balok 3D yang tebal:
+Gambar slide yang dirender menunjukkan persegi panjang sebagai balok 3D tebal:
 
 ![Persegi panjang 3D biru yang dirender dengan teks 3D putih pada wajah depan](img_01_01.png)
 
 ## **Putar Bentuk dengan Kamera**
 
-Di PowerPoint, rotasi 3D dikonfigurasi dari panel 3‑D Rotation. Nilai rotasi X, Y, dan Z sesuai dengan rotasi yang Anda atur melalui API kamera.
+Di PowerPoint, rotasi 3D dikonfigurasi dari panel Rotasi 3-D. Nilai rotasi X, Y, dan Z sesuai dengan rotasi yang Anda atur lewat API kamera.
 
-![Panel 3‑D Rotation PowerPoint dengan nilai rotasi X, Y, dan Z disorot](img_02_01.png)
+![Panel Rotasi 3-D PowerPoint dengan nilai rotasi X, Y, dan Z disorot](img_02_01.png)
 
-Di Aspose.Slides, akses kamera melalui [IThreeDFormat.Camera](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/camera). Contoh ini membuat sebuah persegi panjang, memilih tampilan depan ortografik, dan mengatur rotasi X, Y, dan Z menjadi 20, 30, dan 40 derajat masing‑masing. Ia mengonfigurasi bentuk di memori tanpa menyimpan file:
+Di Aspose.Slides, akses kamera melalui [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera). Contoh ini membuat sebuah persegi panjang, memilih tampilan depan ortografik, dan mengatur rotasi X, Y, dan Z menjadi 20, 30, dan 40 derajat masing-masing. Ia mengkonfigurasi bentuk di memori tanpa menyimpan file:
 
 ```csharp
 using Aspose.Slides;
@@ -112,15 +111,45 @@ shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 ```
 
-Gunakan kamera ketika Anda perlu mengubah cara penonton melihat objek. Itu tidak mengubah geometri bentuk 2D pada slide. Itu mengubah titik pandang 3D yang digunakan oleh PowerPoint dan oleh Aspose.Slides saat merender.
+Gunakan kamera ketika Anda perlu mengubah cara penonton melihat objek. Hal ini tidak mengubah geometri bentuk 2D pada slide. Ini mengubah sudut pandang 3D yang digunakan oleh PowerPoint dan oleh Aspose.Slides saat merender.
+
+### **Salin Orientasi Kamera dari Bentuk Template**
+
+Untuk mencocokkan sebuah bentuk dalam template, salin preset [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) dan baca sudutnya dengan [GetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/getrotation/). Contoh ini membuka `template.pptx`, membaca kamera dari bentuk pertama pada slide pertama, dan menerapkan orientasinya ke bentuk kedua. Kedua bentuk sudah memiliki pencahayaan 3D, dan bentuk kedua tidak memiliki rotasi kamera eksplisit.
+
+Sudutnya dalam derajat. Indeks `0` adalah lintang, indeks `1` adalah bujur, dan indeks `2` adalah revolusi. Kirimkan ke [SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) dalam urutan tersebut. Jika sumber mengembalikan `null`, berarti tidak ada rotasi eksplisit, jadi biarkan sudut bentuk kedua tidak diatur. Rotasi eksplisit `(0, 0, 0)` menghasilkan tiga nol dan harus disalin.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var shapes = presentation.Slides[0].Shapes;
+
+var sourceCamera = shapes[0].ThreeDFormat.Camera;
+var destinationCamera = shapes[1].ThreeDFormat.Camera;
+
+destinationCamera.CameraType = sourceCamera.CameraType;
+var angles = sourceCamera.GetRotation();
+if (angles != null)
+{
+    destinationCamera.SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation.Save("camera-copy.pptx", SaveFormat.Pptx);
+```
+
+Ketika Anda membuka kembali `camera-copy.pptx`, kedua bentuk memiliki preset kamera dan rotasi yang sama. Di PowerPoint, panah di kanan menggunakan orientasi kamera yang disalin dari persegi panjang di kiri. Kedua bentuk menggunakan pencahayaan dan kedalaman ekstrusi yang sama.
+
+![Sebuah persegi panjang 3D biru dan panah kanan dengan orientasi kamera yang cocok, dilihat dari atas dan ke kanan](camera-orientation.png)
 
 ## **Tambahkan Ekstrusi dan Kedalaman**
 
-Ekstrusi membuat bentuk terlihat tebal dengan memperluasnya ke belakang dari wajah depan. Di PowerPoint, kontrol kedalaman mengatur ketebalan yang terlihat, dan kontrol warna mengatur warna sisi.
+Ekstrusi membuat sebuah bentuk tampak tebal dengan memperluasnya ke belakang wajah depan. Di PowerPoint, kontrol kedalaman mengatur ketebalan yang terlihat ini, dan kontrol warna mengatur warna sisi.
 
 ![Kontrol kedalaman PowerPoint dipetakan ke properti warna ekstrusi dan tinggi ekstrusi](img_02_02.png)
 
-Atur [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/extrusionheight) untuk ketebalan dan [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/extrusioncolor) untuk warna sisi. Contoh ini memberi persegi panjang ekstrusi 100 poin dengan sisi ungu dan memutar kamera untuk menampilkan ketebalannya. Ia mengonfigurasi bentuk di memori tanpa menyimpan file:
+Atur [IThreeDFormat.ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) untuk ketebalan dan [IThreeDFormat.ExtrusionColor](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) untuk warna sisi. Contoh ini memberikan sebuah persegi panjang ekstrusi 100 poin dengan sisi ungu dan memutar kamera untuk memperlihatkan ketebalannya. Ia mengkonfigurasi bentuk di memori tanpa menyimpan file:
 
 ```csharp
 using System.Drawing;
@@ -140,13 +169,13 @@ shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
 ```
 
-[IThreeDFormat.Depth](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/depth) mengatur kedalaman bentuk 3D. Properti [ExtrusionHeight](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/properties/extrusionheight) mengontrol tinggi efek ekstrusi, seperti yang ditunjukkan pada contoh ini.
+Properti [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/depth) mengatur kedalaman sebuah bentuk 3D. Properti [ExtrusionHeight](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusionheight) mengontrol tinggi efek ekstrusi, seperti yang ditunjukkan pada contoh ini.
 
 ## **Gunakan Isian Gradien atau Gambar dengan Efek 3D**
 
-Pemformatan 3D independen dari isian bentuk. Anda dapat menerapkan warna padat, gradien, pola, atau isian gambar ke wajah depan dan tetap menggunakan kamera, cahaya, material, serta pengaturan ekstrusi yang sama.
+Pemformatan 3D bersifat independen dari isian bentuk. Anda dapat menerapkan warna solid, gradien, pola, atau isian gambar pada wajah depan dan tetap menggunakan kamera, cahaya, material, serta pengaturan ekstrusi yang sama.
 
-Contoh ini menerapkan gradien biru‑ke‑oranye ke wajah depan dan warna oranye gelap ke ekstrusi 150 poin. Henti gradien pada 0 dan 100 menandai awal dan akhir gradien. Nilai rotasi kamera dalam derajat. Slide dirender ke gambar PNG dengan ukuran dua kali dimensi defaultnya:
+Contoh ini menerapkan gradien biru-ke-oren pada wajah depan dan warna oranye tua pada ekstrusi 150 poin. Hentian gradien pada 0 dan 100 menandakan awal dan akhir gradien. Nilai rotasi kamera dalam derajat. Slide dirender menjadi gambar PNG dengan ukuran dua kali dimensi defaultnya:
 
 ```csharp
 using System.Drawing;
@@ -177,11 +206,9 @@ using var thumbnail = slide.GetImage(imageScale, imageScale);
 thumbnail.Save("gradient_3d.png");
 ```
 
-Gambar yang dirender mempertahankan gradien pada wajah depan dan merender ekstrusi secara terpisah:
+![Persegi panjang 3D yang dirender dengan isian gradien biru-ke-oren dan ekstrusi oranye](img_02_03.png)
 
-![Persegi panjang 3D yang dirender dengan isian gradien biru‑ke‑oranye dan ekstrusi oranye](img_02_03.png)
-
-Untuk menggunakan isian gambar, tambahkan gambar ke presentasi dan tetapkan ke isian bentuk. Contoh ini memerlukan file yang sudah ada bernama "image.jpg" di direktori kerja. Ia memperluas gambar untuk mengisi persegi panjang, menerapkan ekstrusi 150 poin, dan mengatur rotasi kamera dalam derajat. Ia mengonfigurasi bentuk di memori tanpa menyimpan atau merender file:
+Untuk menggunakan isian gambar, tambahkan gambar ke presentasi dan tetapkan ke isian bentuk. Contoh ini memerlukan file yang ada bernama "image.jpg" di direktori kerja. Ia memperluas gambar untuk mengisi persegi panjang, menerapkan ekstrusi 150 poin, dan mengatur rotasi kamera dalam derajat. Ia mengkonfigurasi bentuk di memori tanpa menyimpan atau merender file:
 
 ```csharp
 using System.Drawing;
@@ -209,15 +236,13 @@ shape.ThreeDFormat.ExtrusionHeight = 150;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
 ```
 
-Gambar dirender pada wajah depan, sementara ekstrusi dirender sebagai permukaan sisi 3D:
-
 ![Persegi panjang 3D yang dirender dengan isian foto pada wajah depan dan ekstrusi oranye](img_02_04.png)
 
-## **Terapkan Pemformatan 3D ke Teks**
+## **Terapkan Pemformatan 3D pada Teks**
 
-Pemformatan 3D pada bentuk memengaruhi badan bentuk. Pemformatan 3D pada teks memengaruhi bingkai teks. Ini berguna untuk efek mirip WordArt di mana huruf‑hurufnya sendiri memerlukan ekstrusi, material, pencahayaan, dan pengaturan kamera.
+Pemformatan 3D pada bentuk memengaruhi tubuh bentuk. Pemformatan 3D pada teks memengaruhi bingkai teks. Ini berguna untuk efek mirip WordArt dimana huruf-huruf sendiri memerlukan ekstrusi, material, pencahayaan, dan pengaturan kamera.
 
-Contoh berikut membuat teks dengan pola kisi oranye‑dan‑putih, menerapkan lengkungan ke atas, dan mengonfigurasi pengaturan 3D melalui [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/properties/threedformat). Tinggi ekstrusi dan kedalaman dalam poin, dan rotasi cahaya dalam derajat. Isian bentuk dan garis luar disembunyikan sehingga hanya teks yang terlihat. Contoh ini merender gambar PNG dengan ukuran dua kali dimensi slide default dan menyimpan presentasi sebagai PPTX:
+Contoh berikut membuat teks dengan pola kisi oranye-dan-putih, menerapkan lengkungan ke atas, dan mengkonfigurasi pengaturan 3D melalui [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat). Tinggi dan kedalaman ekstrusi dalam poin, dan rotasi cahaya dalam derajat. Isian bentuk dan kontur disembunyikan sehingga hanya teks yang terlihat. Contoh ini merender gambar PNG dengan ukuran dua kali dimensi slide default dan menyimpan presentasi sebagai PPTX:
 
 ```csharp
 using System.Drawing;
@@ -258,17 +283,15 @@ thumbnail.Save("text_3d.png");
 presentation.Save("text_3d.pptx", SaveFormat.Pptx);
 ```
 
-Teks dirender sebagai huruf 3D melengkung dan diekstrusi:
-
 ![Teks 3D yang dirender dengan transformasi WordArt melengkung, isian pola oranye, dan ekstrusi gelap](img_02_05.png)
 
-## **Jaga Teks Tetap Datar pada Bentuk 3D**
+## **Pertahankan Teks Datar pada Bentuk 3D**
 
-Untuk menjaga teks tetap terbaca sambil mempertahankan tampilan 3D bentuk, atur [ITextFrameFormat.KeepTextFlat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/keeptextflat/) lewat [ITextFrame.TextFrameFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/textframeformat/). Ketika nilai `true`, teks berada di luar adegan 3D. Ketika `false`, teks berpartisipasi dalam adegan dan mengikuti orientasi 3D.
+Untuk menjaga teks tetap terbaca sambil mempertahankan tampilan 3D bentuk, atur [ITextFrameFormat.KeepTextFlat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/keeptextflat/) melalui [ITextFrame.TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframe/textframeformat/). Ketika nilainya `true`, teks berada di luar adegan 3D. Ketika `false`, teks ikut dalam adegan dan mengikuti orientasi 3D.
 
-Pengaturan ini tidak menghapus pemformatan 3D bentuk: kamera, pencahayaan, material, dan ekstrusinya tetap dikonfigurasi melalui [IShape.ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/threedformat/). Ini juga berbeda dari rotasi biasa. [IShape.Rotation](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/rotation/) memutar bentuk dalam bidang slide, sementara [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/rotationangle/) mengontrol rotasi khusus teks dalam kotak pembatasnya. Menjaga teks di luar adegan 3D tidak mengatur ulang kedua sudut tersebut.
+Pengaturan ini tidak menghapus pemformatan 3D bentuk: kamera, pencahayaan, material, dan ekstrusinya tetap dikonfigurasi melalui [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/). Ini juga berbeda dari rotasi biasa. [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) memutar bentuk di bidang slide, sedangkan [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/rotationangle/) mengontrol rotasi khusus teks dalam kotak pembatasnya. Menjaga teks di luar adegan 3D tidak mereset salah satu sudut tersebut.
 
-Contoh mandiri berikut membuat persegi panjang biru dengan teks dan menggandakannya di samping yang asli. Kedua bentuk memiliki pemformatan 3D yang sama; hanya pengaturan teks yang berbeda: `false` di kiri dan `true` di kanan. Sudut kamera dalam derajat, dan tinggi ekstrusi 40 poin. Contoh ini menyimpan presentasi sebagai PPTX dan merender slide perbandingan ke PNG dengan ukuran dua kali dimensi defaultnya.
+Contoh mandiri berikut membuat persegi panjang biru dengan teks dan menggandakannya di samping asli. Kedua bentuk memiliki pemformatan 3D yang sama; hanya pengaturan teks yang berbeda: `false` di kiri dan `true` di kanan. Sudut kamera dalam derajat, dan tinggi ekstrusi 40 poin. Contoh ini menyimpan presentasi sebagai PPTX dan merender slide perbandingan ke PNG dengan ukuran dua kali dimensi defaultnya.
 
 ```csharp
 using System.Drawing;
@@ -304,41 +327,41 @@ using var image = slide.GetImage(2, 2);
 image.Save("keep_text_flat.png");
 ```
 
-![Dua persegi panjang 3D berdampingan: KeepTextFlat false di kiri dan true di kanan](keep_text_flat.png)
+Di kiri, teks mengikuti orientasi 3D. Di kanan, teks tetap datar dan lebih mudah dibaca. Kedua persegi panjang mempertahankan ekstrusi dan orientasi 3D yang sama.
+
+![Persegi panjang 3D berdampingan: KeepTextFlat false di kiri dan true di kanan](keep_text_flat.png)
 
 ## **Perilaku Ekspor dan Rendering**
 
-Aspose.Slides mempertahankan pemformatan 3D saat menyimpan ke format PowerPoint seperti PPTX. Saat merender atau mengekspor ke format tata letak tetap, adegan 3D dirasterisasi atau digambar ke dalam output sebagai hasil 2D. Hal ini berlaku ketika Anda merender slide ke [PNG](/slides/id/net/convert-powerpoint-to-png/), mengekspor ke [PDF](/slides/id/net/convert-powerpoint-to-pdf/), mengekspor ke [HTML](/slides/id/net/convert-powerpoint-to-html/), atau menghasilkan bingkai untuk [konversi video](/slides/id/net/convert-powerpoint-to-video/).
-
-Ingat poin-poin berikut:
+Aspose.Slides mempertahankan pemformatan 3D saat menyimpan ke format PowerPoint seperti PPTX. Saat merender atau mengekspor ke format tata letak tetap, adegan 3D di rasterisasi atau digambar ke output sebagai hasil 2D. Hal ini berlaku ketika Anda merender slide ke [PNG](/slides/id/net/convert-powerpoint-to-png/), mengekspor ke [PDF](/slides/id/net/convert-powerpoint-to-pdf/), mengekspor ke [HTML](/slides/id/net/convert-powerpoint-to-html/), atau menghasilkan frame untuk [video conversion](/slides/id/net/convert-powerpoint-to-video/).
 
 - Gambar dan PDF yang diekspor tidak interaktif. Objek tidak dapat diputar oleh penonton setelah diekspor.
-- Penampilan akhir tergantung pada kombinasi kamera, light rig, material, ekstrusi, isian, dan skala slide.
-- Jika Anda perlu memeriksa nilai format yang diwariskan atau berbasis tema, baca [properti bentuk efektif](/slides/id/net/shape-effective-properties/).
-- Beberapa format output tidak dapat menyimpan pemformatan 3D PowerPoint yang dapat diedit. Pada format tersebut, hasil visual dirender alih‑alih disimpan sebagai pengaturan 3D yang dapat diedit.
+- Penampilan akhir tergantung pada kombinasi kamera, rig cahaya, material, ekstrusi, isian, dan skala slide.
+- Jika Anda perlu memeriksa nilai pemformatan yang diwarisi atau berbasis tema, bacalah [properti bentuk efektif](/slides/id/net/shape-effective-properties/).
+- Beberapa format output tidak dapat menyimpan pemformatan 3D PowerPoint yang dapat diedit. Pada format tersebut, hasil visual dirender alih-alih dipertahankan sebagai pengaturan 3D yang dapat diedit.
 
 ## **FAQ**
 
-**Apakah Aspose.Slides dapat membuat presentasi 3D interaktif?**
+**Bisakah Aspose.Slides membuat presentasi 3D interaktif?**
 
-Aspose.Slides membuat dan merender efek 3D PowerPoint untuk bentuk dan teks. Ia tidak menjadikan gambar, PDF, atau halaman HTML yang diekspor menjadi adegan 3D interaktif yang dapat diputar oleh penonton. Pada PPTX, pemformatan 3D tetap dapat diedit di PowerPoint bila formatnya mendukungnya.
+Aspose.Slides membuat dan merender efek 3D PowerPoint untuk bentuk dan teks. Ia tidak membuat gambar, PDF, atau halaman HTML yang diekspor menjadi adegan 3D interaktif yang dapat diputar oleh penonton. Pada PPTX, pemformatan 3D tetap dapat diedit di PowerPoint bila format tersebut mendukungnya.
 
 **Apa perbedaan antara model 3D dan efek 3D?**
 
-Model 3D adalah objek 3D terpisah yang dimasukkan ke dalam presentasi. Efek 3D adalah format yang diterapkan pada bentuk atau teks PowerPoint biasa, seperti rotasi, ekstrusi, bevel, pencahayaan, dan material. Artikel ini membahas efek 3D.
+Model 3D adalah objek 3D terpisah yang disisipkan ke dalam presentasi. Efek 3D adalah pemformatan yang diterapkan pada bentuk atau teks PowerPoint biasa, seperti rotasi, ekstrusi, bevel, pencahayaan, dan material. Artikel ini membahas efek 3D.
 
 **Pengaturan apa yang diperlukan untuk bentuk 3D yang terlihat?**
 
-Setidaknya, atur rotasi kamera dan ekstrusi atau kedalaman. Praktiknya, juga atur light rig dan material agar wajah yang dirender memiliki sorotan dan bayangan yang jelas.
+Minimal, atur rotasi kamera dan baik ekstrusi maupun kedalaman. Pada praktiknya, juga atur rig cahaya dan material agar permukaan yang dirender memiliki sorotan dan bayangan yang jelas.
 
 **Bisakah saya menerapkan efek 3D pada bentuk dan teks?**
 
-Ya. Gunakan [IShape.ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/properties/threedformat) untuk badan bentuk dan [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/properties/threedformat) untuk teks.
+Ya. Gunakan [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/properties/threedformat) untuk tubuh bentuk dan [ITextFrameFormat.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/threedformat) untuk teks.
 
-**Apakah efek 3D akan muncul saat mengekspor ke gambar, PDF, HTML, atau bingkai video?**
+**Apakah efek 3D akan muncul saat mengekspor ke gambar, PDF, HTML, atau frame video?**
 
-Ya. Aspose.Slides merender efek 3D saat menghasilkan gambar slide, output PDF, output HTML, dan bingkai yang digunakan untuk konversi video. Output yang diekspor berisi tampilan yang dirender, bukan objek 3D yang dapat diedit.
+Ya. Aspose.Slides merender efek 3D saat menghasilkan gambar slide, output PDF, output HTML, dan frame yang digunakan untuk konversi video. Output yang diekspor berisi tampilan yang dirender, bukan objek 3D yang dapat diedit.
 
-**Bisakah saya membaca nilai 3D akhir setelah warisan dan pengaturan tema diterapkan?**
+**Bisakah saya membaca nilai 3D akhir setelah pewarisan dan pengaturan tema diterapkan?**
 
-Ya. Gunakan API pemformatan efektif yang dijelaskan dalam [Shape Effective Properties](/slides/id/net/shape-effective-properties/) untuk membaca kamera, light rig, bevel, dan nilai 3D terkait yang final.
+Ya. Gunakan API pemformatan efektif yang dijelaskan dalam [Properti Bentuk Efektif](/slides/id/net/shape-effective-properties/) untuk membaca nilai kamera, rig cahaya, bevel, dan nilai 3D terkait yang akhir.
