@@ -1,51 +1,54 @@
 ---
-title: إدارة ارتباطات العرض التقديمي في .NET
-linktitle: إدارة الارتباطات
+title: إدارة الروابط التشعبية للعرض التقديمي في .NET
+linktitle: إدارة الروابط التشعبية
 type: docs
 weight: 20
 url: /ar/net/manage-hyperlinks/
 keywords:
 - إضافة URL
-- إضافة ارتباط تشعبي
-- إنشاء ارتباط تشعبي
-- تنسيق ارتباط تشعبي
-- إزالة ارتباط تشعبي
-- تحديث ارتباط تشعبي
-- ارتباط تشعبي نصي
-- ارتباط تشعبي شريحة
-- ارتباط تشعبي شكل
-- ارتباط تشعبي صورة
-- ارتباط تشعبي فيديو
-- ارتباط تشعبي قابل للتغيير
+- إضافة رابط تشعبي
+- إنشاء رابط تشعبي
+- تنسيق رابط تشعبي
+- إزالة رابط تشعبي
+- تحديث رابط تشعبي
+- رابط تشعبي للنص
+- رابط تشعبي للشريحة
+- رابط تشعبي للشكل
+- رابط تشعبي للصورة
+- رابط تشعبي للفيديو
+- رابط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إضافة، تنسيق، تحديث، وإزالة الارتباطات التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET، مع أمثلة C#."
+description: "إضافة، تنسيق، تحديث، وإزالة الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for .NET، مع أمثلة بلغة C#."
 ---
-## **مقدمة**
+## **المقدمة**
 
-يوفر الارتباط التشعّبي اتصالًا بين محتوى العرض التقديمي وموقع ويب أو موقع داخل العرض التقديمي. في PowerPoint، عادةً ما يخدم الارتباطات التشعبية غرضين:
+يُربط الارتباط التشعبي محتوى العرض التقديمي بموقع ويب أو بموقع داخل العرض نفسه. في PowerPoint، يُستَخدم الارتباط التشعبي عادةً لهدفين:
+
 * فتح موقع ويب من نص أو شكل أو إطار وسائط.
 * الانتقال إلى شريحة أخرى، على سبيل المثال من جدول المحتويات.
 
-Aspose.Slides for .NET يتيح لك إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. توضح الأمثلة أدناه كيفية العمل مع الارتباطات التشعبية على العناصر الفردية وكيفية الوصول إلى الارتباطات التشعبية على مستوى العرض التقديمي أو الشريحة أو إطار النص.
+Aspose.Slides for .NET يتيح لك إضافة هذه الروابط، التحكم في مظهرها وصوتها، تحديث خصائصها، وإزالتها. تُظهر الأمثلة أدناه كيفية العمل مع الروابط التشعبية على عناصر فردية وكيفية الوصول إلى الروابط على مستوى العرض أو الشريحة أو إطار النص.
 
 {{% alert color="info" title="Note" %}}
-يمكنك أيضًا تعديل العروض التقديمية باستخدام [محرر Aspose PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
 
-## **إضافة ارتباطات URL**
+يمكنك أيضًا تحرير العروض التقديمية باستخدام [المحرر المجاني عبر الإنترنت لبرنامج Aspose PowerPoint](https://products.aspose.app/slides/editor).
 
-يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط التشعّبي يحدد المنطقة القابلة للنقر: جزء النص يربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
+{{% /alert %}}
 
-للعروض التقديمية التي تحتوي على ارتباطات تشعبية نسبية، انظر [إدارة قاعدة الارتباط التشعّبي](/slides/ar/net/presentation-properties/#manage-the-hyperlink-base) للقراءة أو التغيير أو مسح القاعدة على مستوى المستند.
+## **إضافة روابط URL**
 
-### **إضافة ارتباطات URL إلى النص**
+يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط التشعبي يحدد منطقة النقر: جزء النص يربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
 
-لربط النص بموقع ويب، عيّن [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) إلى خاصية [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/portionformat/hyperlinkclick/) لجزء النص، كما هو موضح أدناه. يصبح ذلك الجزء فقط من النص قابلًا للنقر.
+لعروض تحتوي على روابط تشعبية نسبية، راجع [إدارة أساس الارتباط التشعبي](/slides/ar/net/presentation-properties/#manage-the-hyperlink-base) للقراءة أو التغيير أو مسح الأساس على مستوى المستند.
+
+### **إضافة روابط URL إلى النص**
+
+لربط نص بموقع ويب، عيّن [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) إلى خاصية [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/portionformat/hyperlinkclick/) لجزء النص، كما هو موضح أدناه. يصبح ذلك الجزء فقط من النص قابلاً للنقر.
 
 ```csharp
 using Aspose.Slides;
@@ -63,13 +66,9 @@ portionFormat.FontHeight = 32;
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **إضافة ارتباطات URL إلى الأشكال وإطارات الوسائط**
+### **إضافة روابط URL إلى الأشكال وإطارات الوسائط**
 
-لجعل شكل أو إطار قابل للنقر، اضبط خاصية [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/hyperlinkclick/) الخاصة به. الارتباط التشعّبي يخص الكائن نفسه وليس جزء نص داخل ذلك الكائن.
-
-ينطبق النهج نفسه على إطارات الصورة والصوت والفيديو: عيّن الارتباط التشعّبي إلى الإطار واضبط [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) للارتباط إذا لزم الأمر.
-
-المثال التالي يجعل المستطيل قابلًا للنقر:
+عيّن URL إلى خاصية [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/hyperlinkclick/) للمستطيل لجعل مساحته بالكامل قابلة للنقر. تُظهر خاصية [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) تلميحًا للقراء حول الوجهة عند تمرير الماوس فوق المستطيل. نفس الخصائص تنطبق على إطارات الصورة والصوت والفيديو.
 
 ```csharp
 using Aspose.Slides;
@@ -85,9 +84,9 @@ shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-## **استخدام الارتباطات التشعبية لإنشاء جدول محتويات**
+## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
 
-تمكن الارتباطات التشعبية الداخلية القرّاء من الانتقال من جدول المحتويات إلى شريحة محددة. يستخدم المثال التالي [SetInternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) لربط نص “Page 2” في الشريحة الأولى بالشريحة الثانية.
+تُتيح الروابط التشعبية الداخلية للقراء القفز من جدول المحتويات إلى شريحة محددة. يستخدم المثال التالي [SetInternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) لربط النص “Page 2” في الشريحة الأولى بالشريحة الثانية.
 
 ```csharp
 using System.Drawing;
@@ -119,13 +118,15 @@ tableOfContents.TextFrame.Paragraphs.Add(paragraph);
 presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
-## **تنسيق الارتباطات التشعبية**
+## **تنسيق الروابط التشعبية**
+
+يمكنك تغيير لون النص المربوط، تشغيل أو إيقاف صوت عندما يُفعّل القارئ الرابط، وتعيين تلميح الأدوات الذي يظهر عند المرور.
 
 ### **اللون**
 
-تحدد خاصية [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) لـ [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) ما إذا كان الارتباط التشعّبي يستخدم لون الارتباط التشعّبي للعرض التقديمي أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkcolorsource/) واضبط لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات القديمة لا تطبق هذا الإعداد.
+تحدِّد خاصية [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) لكائن [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) ما إذا كان الارتباط التشعبي يستخدم لون الارتباط التشعبي للعرض أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkcolorsource/) واضبط لون ملء الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
 
-المثال التالي يضيف ارتباطي نص إلى نفس الشريحة. الأول يستخدم تعبئة نصية حمراء، بينما الثاني يحتفظ باللون الافتراضي للارتباط التشعّبي.
+في هذا المثال، يجعل تعيين [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) على الرابط الأول يظهر نصه باللون الأحمر. الرابط الثاني يحتفظ بلون الارتباط التشعبي للعرض.
 
 ```csharp
 using System.Drawing;
@@ -148,15 +149,17 @@ defaultShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = 
 
 presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 ```
+
 ### **الصوت**
 
-يمكن للارتباط التشعّبي تشغيل صوت عند تفعيله أو إيقاف صوت يُشغل بالفعل. استخدم الخصائص التالية لتكوين هذه السلوكيات:
-- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) يحدد الصوت المرتبط بالارتباط التشعّبي.
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) يتحكم فيما إذا كان تفعيل الارتباط التشعّبي يوقف الصوت السابق.
+يمكن للارتباط التشعبي تشغيل صوت عند تنشيطه أو إيقاف صوت يُشغَل بالفعل. استخدم الخصائص التالية لتكوين هذه السلوكيات:
 
-#### **إضافة صوت للارتباط التشعّبي**
+- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) يحدد الصوت المرتبط بالارتباط التشعبي.
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) يتحكم فيما إذا كان تنشيط الارتباط التشعبي يوقف الصوت السابق.
 
-المثال التالي يحمل الملف `sampleaudio.wav` ويربطه بزر في الشريحة الأولى. النقر على الزر يشغل الصوت وينتقل إلى الشريحة التالية. الشكل الثاني في تلك الشريحة يوقف الصوت السابق عند النقر، دون تنفيذ إجراء تنقل.
+#### **إضافة صوت للارتباط التشعبي**
+
+يستخدم الزر في الشريحة الأولى خاصية [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) لتشغيل صوت من ملف WAV عند النقر للتقدم. في الشريحة الثانية، يستخدم زر منفصل خاصية [StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) لإيقاف التشغيل وإبقاء القارئ على تلك الشريحة.
 
 ```csharp
 using System.IO;
@@ -188,9 +191,9 @@ stopButton.HyperlinkClick.StopSoundOnClick = true;
 presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 ```
 
-#### **استخراج صوت الارتباط التشعّبي**
+#### **استخراج صوت الارتباط التشعبي**
 
-المثال التالي يفتح العرض التقديمي المُنشئ أعلاه ويقرأ صوت الارتباط التشعّبي للشكل الأول إلى الذاكرة عبر [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) و[BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/).
+يفتح المثال التالي العرض الذي تم إنشاؤه أعلاه ويقرأ صوت الارتباط التشعبي للشكل الأول إلى الذاكرة عبر خاصية [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) و[BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/).
 
 ```csharp
 using System;
@@ -218,17 +221,18 @@ else
 }
 ```
 
-### **تلميح الأدلة وإعدادات التفاعل**
+### **إعدادات تلميحات الأدوات والتفاعل**
 
-يمكنك تحديث الخصائص التالية لـ [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) بعد تعيين ارتباط تشعّبي إلى نص أو شكل:
-- [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) يحدد النص الذي يمكن للمُشاهد عرضه كتلميح للارتباط.
-- [TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetframe/) يحدد إطار الهدف داخل مجموعة إطارات HTML أمًّا كانت، إذا كان ذلك مناسبًا.
-- [History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/history/) يتحكم فيما إذا كان تنشيط الارتباط يضيف وجهته إلى قائمة الارتباطات المشاهدة.
-- [HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/highlightclick/) يتحكم فيما إذا كان الارتباط يُبرز عند النقر.
+يمكنك تحديث الخصائص التالية لكائن [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) بعد تعيين ارتباط تشعبي إلى نص أو شكل:
 
-## **إزالة الارتباطات التشعبية من العروض التقديمية**
+- [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) يحدد النص الذي يمكن للمُشاهِد عرضه كتلميح للارتباط.
+- [TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetframe/) يحدد إطار الهدف داخل مجموعة إطارات HTML أصلية، إذا كان ذلك مناسبًا.
+- [History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/history/) يتحكم فيما إذا كان تنشيط الرابط يضيف وجهته إلى قائمة الروابط التي تمت مشاهدتها.
+- [HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/highlightclick/) يتحكم فيما إذا كان يُبرز الارتباط التشعبي عند النقر.
 
-استخدم [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) لجمع حاويات الارتباطات التشعبية، بما في ذلك روابط أجزاء النص، قبل تعديلها. المثال التالي يزيل كلا نوعي التنشيط من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ فقط [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) أو [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); إزالة إجراء النقر لا يزيل نظيره عند مرور الفأرة.
+## **إزالة الروابط التشعبية من العروض التقديمية**
+
+استخدم [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) لجمع حاويات الروابط، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التنشيط من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ فقط [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) أو [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)؛ إزالة فعل النقر لا يزيل ما يعادله من فعل مرور الماوس.
 
 ```csharp
 using System;
@@ -254,22 +258,56 @@ else
 }
 ```
 
-للإزالة غير المشروطة، [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) يزيل كلا نوعي التنشيط في النطاق المحدد في استدعاء واحد. لتنظيف انتقائي وتغطية الماسترز، التخطيطات، والملاحظات، انظر [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+لإزالة غير مشروطة، [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) يزيل كلا نوعي التنشيط في النطاق المحدد في استدعاء واحد. للحصول على تنظيف انتقائي وتغطية للماستر، التخطيطات، والملاحظات، راجع [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **إنشاء جرد كامل للارتباطات التشعبية**
+### **مسح الروابط التشعبية قبل استبدال نص SmartArt**
 
-قبل توزيع عرض تقديمي، قم بجرد الإجراءات التفاعلية بالإضافة إلى روابط الويب الخاصة به. تُعيد [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) كائنات [IHyperlinkContainer](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/)، وليس قائمة مسطحة من سلاسل URL. افحص كلًا من [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) و[HyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الإجراءين، لذا يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
+عند استبدال فقرة في عقدة SmartArt موجودة، قد يترك مسح أجزاء النص رابطًا تشعبيًا قديمًا فعالًا. استرجع الفقرة عبر [ISmartArtNode.TextFrame](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartnode/textframe/). قبل مسح أجزائها، استدعِ [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) عبر كائن [HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/) على إطار النص لشكل العقدة الذي يعرض الفقرة. يزيل هذا كل الارتباطات في ذلك الإطار، بما في ذلك الروابط في فقراته الأخرى.
 
-قد يؤدي فحص الارتباطات التشعبية على مستوى الشكل فقط إلى فقدان الروابط المرفقة بأجزاء النص. استعلم عن النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات المسترجعة لتتمكن لاحقًا من تحديث أو إزالة إجراءاتها.
+يفترض المثال أن الشكل الثالث في الشريحة الأولى هو رسم SmartArt. يستبدل الفقرة الأولى من العقدة الرابعة. في هذا العرض، يعرض الشكل الأول للعقدة تلك الفقرة.
 
-### **استعلام عن نطاقات العرض التقديمي، الشريحة، وإطار النص**
+بعد إضافة كلا الجزأين، يقرأ المثال تنسيقهما الفعّال عبر [GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/). تُعيد الخاصية الفعّالة [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/iportionformateffectivedata/hyperlinkclick/) الرابط التشعبي الجديد للجزء الأول و`null` للثاني.
 
-واجهة [IHyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/) متوفرة عبر [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/hyperlinkqueries/)، [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/hyperlinkqueries/)، و[ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/). كل نطاق يدعم نفس الاستعلامات:
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) تُعيد الحاويات التي لها إجراء نقر.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) تُعيد الحاويات التي لها إجراء مرور الفأرة.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) تُعيد الحاويات التي لها أحد الإجراءين أو كليهما.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
 
-المثال التالي يُنشئ الملف `hyperlink-audit-input.pptx` مع رابط نقر خارجي، رابط مرور الفأرة لملف، تنقل شريحة داخلي، رابط مرور الفأرة لنص، وإجراء ماكرو. لا ينفّذ أيًا من هذه الإجراءات. تعمل الاستعلامات الثلاثة نفسها على كل نطاق؛ الأعداد تصف الحاويات، لا مجموعات الإجراءات. نطاق إطار النص لا يتضمن روابط الشكل المحيط.
+using var presentation = new Presentation("SmartArtHyperlink.pptx");
+var slide = presentation.Slides[0];
+
+var smartArt = (ISmartArt)slide.Shapes[2];
+var node = smartArt.AllNodes[3];
+var paragraph = node.TextFrame.Paragraphs[0];
+
+node.Shapes[0].TextFrame.HyperlinkQueries.RemoveAllHyperlinks();
+paragraph.Portions.Clear();
+
+var link = new Portion("New reference");
+link.PortionFormat.HyperlinkClick = new Hyperlink("https://example.com/new");
+paragraph.Portions.Add(link);
+var text = new Portion(" (updated)");
+paragraph.Portions.Add(text);
+
+Console.WriteLine(link.PortionFormat.GetEffective().HyperlinkClick.ExternalUrl); // https://example.com/new
+Console.WriteLine(text.PortionFormat.GetEffective().HyperlinkClick?.ToString() ?? "null"); // null
+```
+
+## **إنشاء جرد كامل للروابط التشعبية**
+
+قبل توزيع عرض تقديمي، قم بجرد إجراءاته التفاعلية بالإضافة إلى روابطه على الويب. تُعيد [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) كائنات [IHyperlinkContainer](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/)، ليست قائمة مسطحة من سلاسل URL. افحص كل من [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) و[HyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تُظهر كلا الفعلين، لذا يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
+
+فحص الروابط على مستوى الشكل فقط قد يتغاضى عن الروابط المرتبطة بأجزاء النص. استعلم النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات التي تم إرجاعها لتتمكن لاحقًا من تحديث أو إزالة أفعالها.
+
+### **استعلام عن نطاقات العرض، الشريحة، وإطار النص**
+
+واجهة [IHyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/) متاحة عبر [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/hyperlinkqueries/)، [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/hyperlinkqueries/)، و[ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/). يدعم كل نطاق نفس الاستعلامات:
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) يُرجع الحاويات التي لها فعل نقر.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) يُرجع الحاويات التي لها فعل مرور ماوس.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) يُرجع الحاويات التي لها أي من الفعلين أو كليهما.
+
+يعطي هذا المثال أفعال النقر والمرور إلى شكل ونصه، وإجراء ماكرو إلى زر منفصل. يقارن الحاويات التي تُرجعها [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) مع عدد كل نوع من أفعال التنشيط. استعلام إطار النص يُحصي الروابط في النص فقط. تظهر أفعال الشكل نفسه في استعلامات الشريحة والعرض.
 
 ```csharp
 using System;
@@ -305,37 +343,37 @@ static void PrintCounts(string scope, IHyperlinkQueries queries)
 }
 ```
 
-في هذا المثال، تقارير استعلامات العرض التقديمي والشريحة كل منها تشير إلى ثلاث حاويات نقر، حاويتين مرور الفأرة، وثلاث حاويات ذات أي إجراء. تقرير إطار النص يُظهر حاوية واحدة في كل فئة.
+في هذا المثال، تُظهر استعلامات العرض والشريحة كلٌ منها ثلاثة حاويات نقر، حاويتين مرور ماوس، وثلاث حاويات تحتوي على أي من الفعلين. يُظهر استعلام إطار النص حاوية واحدة في كل فئة.
 
-### **تصنيف الإجراءات والوجهات**
+### **تصنيف الأفعال والوجهات**
 
-استخدم [IHyperlink.ActionType](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/actiontype/) لتفسير الإجراء قبل تفسير وجهته. قيم [HyperlinkActionType](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkactiontype/) تغطي أكثر من تنقل الويب:
+استخدم [IHyperlink.ActionType](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/actiontype/) لتفسير الفعل قبل تفسير وجهته. تغطي قيم [HyperlinkActionType](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkactiontype/) ما هو أكثر من تنقل ويب:
 
-| القيم | المعنى للتدقيق |
+| القيم | المعنى لتدقيق |
 | --- | --- |
-| `Hyperlink` | ارتباط تشعّبي خارجي؛ افحص عنوان URL ومخططه. |
+| `Hyperlink` | ارتباط تشعبي خارجي؛ افحص URL ومخططه. |
 | `JumpSpecificSlide` | تنقل داخلي إلى شريحة معينة. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُفسَّر في سياق عرض الشرائح. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُفسَّر في سياق العرض. |
 | `JumpEndShow`, `StartCustomSlideShow` | إنهاء العرض الحالي أو بدء عرض مخصص. |
 | `StartMacro` | تنفيذ ماكرو. |
 | `StartProgram` | تشغيل برنامج. |
-| `OpenFile`, `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ مراجعة منفصلة عن عناوين URL الويب. |
+| `OpenFile`, `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ قدِّم مراجعة منفصلة عن روابط الويب. |
 | `StartStopMedia` | بدء أو إيقاف تشغيل وسائط. |
-| `NoAction`, `Unknown` | لا إجراء تنقل، أو إجراء غير معروف يتطلب مراجعة. |
+| `NoAction`, `Unknown` | لا عمل تنقل، أو فعل غير معروف يتطلب مراجعة. |
 
-اقرأ الوجهات الخارجية من [ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) والوجهات الداخلية المحددة من [TargetSlide](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetslide/). قد لا تحتوي الإجراءات الداخلية أو الأوامر المدمجة على عنوان URL خارجي؛ عنوان URL الفارغ لا يعني أن الحاوية لا تملك إجراء. احتفظ بـ [ExternalUrlOriginal](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurloriginal/) عندما يختلف عن عنوان URL المُعَدل، وضمّن [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) عندما يكون متاحًا.
+اقرأ الوجهات الخارجية من [ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) والوجهات الداخلية المحددة من [TargetSlide](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetslide/). قد لا تحتوي الأفعال الداخلية والأوامر المدمجة على URL خارجي؛ URL فارغ لا يعني أن الحاوية لا تحوي فعلًا. احفظ [ExternalUrlOriginal](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurloriginal/) عندما يختلف عن URL المُعَدل، واشمل [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) إذا كان متوفرًا.
 
-### **التقرير، التنظيف، والتحقق من الارتباطات التشعبية**
+### **تقرير، تنقية، والتحقق من الروابط التشعبية**
 
-المثال التالي على .NET 6+ يقرأ عرضًا تقديميًا موجودًا (استخدم الملف الذي تم إنشاؤه أعلاه)، يكتب `hyperlink-audit.json`، يطبّق سياسة، يحفظ `hyperlink-sanitized.pptx`، ثم يعيد فتحه للتحقق من كلا نوعي التنشيط مرة أخرى. يجمع الحاويات قبل تعديلها ويستخدم مساواة المرجع لتجنب معالجة نفس الحاوية مرتين. تغطي استعلامات العرض الشرائح العادية؛ لجرد شامل على مستوى الحزمة، يستعلم صراحةً عن الماسترز، التخطيطات، الملاحظات، والماستر للملاحظات وتوزيع الأوراق عند وجودها.
+يفتح مثال .NET 6+ هذا العرض من المثال السابق ويكتب سجلًّا بصيغة JSON لكل فعل. يستخدم [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) لجمع الحاويات على الشرائح العادية، الماسترز، التخطيطات، والملاحظات، بما في ذلك ماستر الملاحظات والنسخة المطبوعة عند وجودهما. يستخدم مساواة مرجعية لحساب كل حاوية مرة واحدة، يُطبق السياسة الموضحة أدناه، ثم يعيد فتح العرض المُحَفَظ للتحقق من كل من أفعال النقر ومرور الماوس.
 
-يسجل التقرير فهرس الشريحة (بدءًا من 1) و[SlideId](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideid/) حيثما كان متاحًا. يوفر [ISlideComponent.Slide](https://reference.aspose.com/slides/net/aspose.slides/islidecomponent/slide/) الشريحة المالكة للحاويات المدعومة. لا تمتلك الماسترز، التخطيطات، والملاحظات فهرس شريحة عادي وتُحدد بنطاقها. تُصنّف حاويات الشكل وحاويات تنسيق جزء النص بشكل منفصل؛ الأنواع الأخرى تحتفظ باسم النوع في وقت التشغيل. يحصل كل حاوية على معرف تقرير محلي لتتم ربط إجراءاتها.
+يسجِّل التقرير فهرس شريحة يبدأ من 1 و[SlideId](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideid/) عند توفره. يُوفر [ISlideComponent.Slide](https://reference.aspose.com/slides/net/aspose.slides/islidecomponent/slide/) الشريحة المالكة للحاويات المدعومة. لا تمتلك الماسترز، التخطيطات، والملاحظات فهرس شريحة عادي وتُعرَّف بنطاقها. تُوسَّم حاويات الأشكال وحاويات تنسيق أجزاء النص منفصلًا؛ تحتفظ الأنواع الأخرى باسم نوعها في وقت التنفيذ. يحصل كل حاوية على معرف محلي في التقرير لتُربط أفعالها معًا.
 
-تسمح هذه السياسة التطبيقية المقيدة عمدًا فقط بعناوين URL مطلقة عبر HTTPS وعناوين شريحة داخلية صالحة. ترفض الماكرو، البرامج، إجراءات الملفات، إجراءات عرض الشرائح الأخرى، الإجراءات غير المعروفة، وبروتوكولات URL أخرى. هذه الرفضات هي قرارات سياسة، لا حكم أمان من Aspose.Slides. لا يضمن HTTPS وحده الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. يتم فحص كل من عناوين URL الخارجية الأصلية والمعدلة. يراجع المثال البيانات الوصفية دون متابعة الروابط أو تشغيل الإجراءات.
+هذه السياسة التقييدية تسمح فقط بروابط HTTPS مطلقة ووجهات شرائح داخلية صالحة. تُرفض الماكروهات، البرامج، أفعال الملفات، أفعال عرض الشرائح الأخرى، الأفعال غير المعروفة، ومخططات URL الأخرى. هذه الرفضات قرارات سياسة، ليست حكمًا أمانًا من Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. يتم فحص كل من URL الأصلي والـ URL المُعدَّل. يراجع المثال بيانات التعريف دون اتباع الروابط أو تنفيذ الأفعال.
 
-للتصحيح، يدعم [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) الخاص بالحاوية [SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)، [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)، و[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). هنا، تُستبدل الروابط الخارجية المنقوصة بصفحة هبوط HTTPS ثابتة؛ تُزال الروابط والنقرات غير المسموح بها بشكل مستقل. اضبط `replaceExternalClicks` إلى `false` لإزالة جميع انتهاكات السياسة بدلاً من ذلك. اختر صفحة بديلة مملوكة للتطبيق قبل النشر.
+للتصحيح، يدعم [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) الخاص بالحاوية [SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)، [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)، و[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). هنا، تُستبدل الروابط الخارجية غير المسموح بها بصفحة هبوط HTTPS ثابتة؛ تُحذف باقي الأفعال غير المسموح بها بشكل مستقل. عيّن `replaceExternalClicks` إلى `false` لإزالة جميع انتهاكات السياسة بدلاً من الاستبدال. اختر صفحة استبدال مملوكة لتطبيقك قبل النشر.
 
-علم تصدير التقرير يستخدم سياسة مراجعة PDF تحفظية: يعلّم إجراءات مرور الفأرة وأي شيء غير الرابط الخارجي أو القفزة إلى شريحة محددة على أنه قد لا يكون مدعومًا. إنها إشارة مراجعة، ليست اختبار قدرة أو ضمان بقاء الروابط غير المعلّمة عند التصدير. قد تحافظ الصادرات المدعومة من [PDF](/slides/ar/net/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/net/convert-powerpoint-to-html/) على الارتباطات، حسب الإجراء، خيارات التصدير، والمشاهد. لا يمكن للصور النقطية [images](/slides/ar/net/convert-powerpoint-to-png/) و[video](/slides/ar/net/convert-powerpoint-to-video/) الحفاظ على الارتباطات التفاعلية؛ علم كل إجراء عند التدقيق لتلك المخرجات.
+علامة تصدير التقرير تستخدم سياسة مراجعة PDF تحفظية: تُعلِّم أفعال مرور الماوس وأي شيء غير الرابط الخارجي أو القفزة إلى شريحة محددة بأنه قد يكون غير مدعوم. إنها إشعار مراجعة، ليست اختبار قدرة أو ضمان بقاء الروابط غير المؤشرة عند التصدير. قد تحافظ عمليات تصدير [PDF](/slides/ar/net/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/net/convert-powerpoint-to-html/) المدعومة على الروابط حسب الفعل، خيارات التصدير، والمشاهد. لا تستطيع [الصور](/slides/ar/net/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/net/convert-powerpoint-to-video/) حفظ الروابط التفاعلية؛ علِّم كل فعل عند التدقيق لتلك النواتج.
 
 ```csharp
 using System;
@@ -474,20 +512,20 @@ static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
 }
 ```
 
-مع الإدخال المُنشأ أعلاه، يحتوي التقرير على خمس صفوف إجراءات. يُزال رابط مرور الفأرة للملف والماكرو النقر، بينما تظل الروابط HTTPS والتنقل الداخلي محفوظة. تُظهر عملية التحقق عدم وجود إجراءات محظورة. الإدخال الذي يحتوي على رابط نقر خارجي محظور أيضًا يجرّب فرع الاستبدال. الحاوية التي لديها نقر مسموح ومرور فأرة محظور تحتفظ بإجراء النقر.
+مع المدخل المُنشأ أعلاه، يحتوي التقرير على خمسة صفوف أفعال. يُزال رابط مرور الماوس للملف والماكرو النقر، بينما تُبقى روابط HTTPS والتنقل الداخلي إلى الشرائح. تطبع عملية التحقق صفر أفعال محظورة. يُظهر مدخل يحتوي على رابط خارجي غير مسموح به فرع الاستبدال. حاوية ذات نقرة مسموح بها ومرور ماوس غير مسموح يُبقي فعل النقر.
 
-هذا التنظيف الانتقائي يختلف عن [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)، الذي يزيل كلا نوعي التنشيط في جميع النطاقات المحددة بغض النظر عن السياسة. التحقق هنا يتحقق فقط من إجراءات الارتباط التشعّبي؛ لا يزيل مشاريع VBA المضمنة أو كائنات OLE أو محتوى نشط آخر، ولا يتحقق من صحة ملف PDF أو HTML المصدر.
+هذا التنظيف الانتقائي يختلف عن [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)، الذي يُزيل كلا الفعلين في النطاق المحدد بغض النظر عن السياسة. التحقق هنا يركّز على أفعال الارتباط التشعبي فقط؛ لا يزيل مشروعات VBA المضمَّنة، كائنات OLE، أو محتوى نشط آخر، ولا يتحقق من صحة ملفات PDF أو HTML المُصدَّرة.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني ربط قسم أو شريحته الأولى؟**
+**كيف يمكنني الربط إلى قسم أو أول شريحة له؟**
 
-تُجَمّع الأقسام في PowerPoint الشرائح، لكن الارتباط التشعّبي الداخلي يستهدف شريحة واحدة. لإنشاء تنقل إلى قسم، اربط إلى الشريحة الأولى في ذلك القسم.
+تُجمع الشرائح في PowerPoint ضمن أقسام، لكن الارتباط التشعبي الداخلي يستهدف شريحة واحدة. لإنشاء تنقل إلى قسم، اربط إلى الشريحة الأولى في ذلك القسم.
 
-**هل يمكنني إرفاق ارتباط تشعّبي لعناصر الشريحة الرئيسة بحيث يعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق ارتباط تشعبي لعناصر شريحة الماستر لتعمل على جميع الشرائح؟**
 
-نعم. تدعم عناصر الشريحة الرئيسة (الماستر) والتخطيط الارتباطات التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح على الشرائح التي تستخدم الماستر أو التخطيط المقابل.
+نعم. تدعم عناصر شريحة الماستر والتخطيط الارتباطات التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح على الشريحة التي تستخدم الماستر أو التخطيط المقابل.
 
-**هل سيتم الاحتفاظ بالارتباطات التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
+**هل ستُحافظ الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
 
-قد تحافظ صادرات PDF وHTML المدعومة على الارتباطات التشعبية؛ لا يمكن للصور النقطية أو الفيديو حفظ الارتباطات التفاعلية. انظر اعتبارات التصدير في [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+قد تُحافظ عمليات تصدير PDF وHTML المدعومة على الروابط التشعبية؛ لا يمكن للصور النقطية والفيديو حفظ الروابط التفاعلية. راجع اعتبارات التصدير في [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

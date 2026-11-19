@@ -1,5 +1,5 @@
 ---
-title: Prezentációs hiperhivatkozások kezelése JavaScriptben
+title: Prezentáció hiperhivatkozások kezelése JavaScriptben
 linktitle: Hiperhivatkozások kezelése
 type: docs
 weight: 20
@@ -27,28 +27,26 @@ description: "Hiperhivatkozások hozzáadása, formázása, frissítése és elt
 ---
 ## **Bevezetés**
 
-Egy hiperhivatkozás a prezentáció tartalmát egy weboldalhoz vagy a prezentáción belüli helyhez köti. A PowerPointban a hiperhivatkozások általában két célra szolgálnak:
+A hiperhivatkozás összeköti a prezentáció tartalmát egy weboldallal vagy a prezentáción belüli helyszínnel. A PowerPointban a hiperhivatkozások általában két célra szolgálnak:
 
 * Weboldal megnyitása szövegből, alakzatból vagy média keretből.
-* Egy másik diára navigálás, például egy tartalomjegyzékből.
+* Navigálás egy másik dia felé, például a tartalomjegyzékből.
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi ezen linkek hozzáadását, megjelenésük és hangjuk szabályozását, tulajdonságaik frissítését és eltávolítását. Az alábbi példák bemutatják, hogyan dolgozhatunk hiperhivatkozásokkal egyedi elemeknél, valamint hogyan érhetjük el azokat a prezentáció, dia vagy szövegkeret szinten.
+Az Aspose.Slides for Node.js via Java lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangzásuk vezérlését, tulajdonságaik frissítését, valamint eltávolítását. Az alábbi példák bemutatják, hogyan dolgozhatunk hiperhivatkozásokkal egyedi elemeknél, valamint hogyan érhetjük el a hiperhivatkozásokat a prezentáció, dia vagy szövegkeret szintjén.
 
 {{% alert color="info" title="Note" %}}
-
-A [ingyenes online Aspose PowerPoint szerkesztő](https://products.aspose.app/slides/editor) segítségével is szerkesztheti a prezentációkat.
-
-{{% /alert %}} 
+Szerkeszthet prezentációkat is a [ingyenes online Aspose PowerPoint szerkesztő](https://products.aspose.app/slides/editor) segítségével.
+{{% /alert %}}
 
 ## **URL hiperhivatkozások hozzáadása**
 
-Weboldal URL-t rendelhet szöveghez, alakzathoz vagy média kerethez. Az a elem, amelyhez a hiperhivatkozást rendeli, határozza meg a kattintható területet: egy szövegrész a kiválasztott szöveget kapcsolja, míg egy alakzat vagy keret a dia objektumát.
+Webcím (URL) hozzárendelhető szöveghez, alakzathoz vagy média kerethez. Az a elem, amelyhez a hiperhivatkozást rendeljük, határozza meg a kattintható területet: egy szövegrész a kijelölt szöveget teszi kattinthatóvá, míg egy alakzat vagy keret a dia objektumát kapcsolja.
 
-A relatív hiperhivatkozásokat tartalmazó prezentációk esetén tekintse meg a [A hiperhivatkozás alapjának kezelése](/slides/hu/nodejs-java/presentation-properties/#manage-the-hyperlink-base) cikket a dokumentumszintű alap beolvasásához, módosításához vagy törléséhez.
+A relatív hiperhivatkozásokat tartalmazó prezentációk esetén tekintse meg a [Hiperhivatkozás-alap kezelése](/slides/hu/nodejs-java/presentation-properties/#manage-the-hyperlink-base) című oldalt a dokumentumszintű alap beolvasásához, módosításához vagy törléséhez.
 
 ### **URL hiperhivatkozások hozzáadása szöveghez**
 
-A szöveget egy weboldalra hivatkozáshoz adja át egy [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) objektumnak a szövegrész [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) metódusán keresztül, ahogyan az alább látható. Csak az adott szövegrész válik kattinthatóvá.
+A szöveg weboldalra való linkeléséhez adjon át egy [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) objektumot a szövegrész [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) metódusának, ahogy az alább látható. Csak ez a szövegrész lesz kattintható.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -70,11 +68,7 @@ try {
 
 ### **URL hiperhivatkozások hozzáadása alakzatokhoz és média keretekhez**
 
-Ahhoz, hogy egy alakzat vagy keret kattintható legyen, hívja meg annak [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) metódusát. A hiperhivatkozás az objektumhoz tartozik, nem az azon belüli szövegrészhez.
-
-Ugyanez a megközelítés vonatkozik kép-, hang- és videókeretekre is: rendelje hozzá a hiperhivatkozást a kerethez, és ha szükséges, hívja meg a [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) metódust.
-
-Az alábbi példa egy téglalapot tesz kattinthatóvá:
+Hívja meg a [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) metódust a téglalapon, hogy annak teljes területe kattintható legyen. Használja a [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) metódust a célhelyről szóló tipp megjelenítéséhez, amikor a felhasználó a téglalap fölé viszi az egérmutatót. Mindkét metódus alkalmazható képekre, hang- és videókeretekre is.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -94,7 +88,7 @@ try {
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-Belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy a tartalomjegyzékből egy adott diára ugorjanak. Az alábbi példa a [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) metódust használja, hogy az első dián lévő „2. oldal” szöveget a második diára linkelje.
+Belső hiperhivatkozások lehetővé teszik, hogy az olvasó a tartalomjegyzékből egy adott diára ugorjon. Az alábbi példa a [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) metódust használja, hogy az első dia „2. oldal” szövegét a második diára linkelje.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -130,11 +124,13 @@ try {
 
 ## **Hiperhivatkozások formázása**
 
+Megváltoztathatja a linkelt szöveg színét, lejátszhat vagy leállíthat egy hangot, amikor a felhasználó aktiválja a hivatkozást, valamint beállíthatja a lebegőablak (tooltip) szövegét.
+
 ### **Szín**
 
-A [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) metódusa meghatározza, hogy a hiperhivatkozás a prezentáció hiperhivatkozás színét vagy a szövegrész formázását használja-e. Egy egyedi szövegszín alkalmazásához válassza a [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) lehetőséget, és állítsa be a rész kitöltőszínét. Ez a funkció a PowerPoint 2019‑ben került bevezetésre; a korábbi verziók nem alkalmazzák ezt a beállítást.
+A [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) metódusa határozza meg, hogy a hiperhivatkozás a prezentáció általános hiperhivatkozás‑színét vagy a szövegrész formázását használja‑e. Egyedi szövegszín alkalmazásához válassza a [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) értéket, és állítsa be a rész kitöltőszínét. Ez a funkció a PowerPoint 2019‑ben került be, a régebbi verziók nem alkalmazzák ezt a beállítást.
 
-Az alábbi példa két szöveges hiperhivatkozást ad ugyanarra a diára. Az első vörös szövegszínnel jelenik meg, míg a másik az alapértelmezett hiperhivatkozás színét használja.
+Ebben a példában a [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) az első hivatkozást a szövegrész piros kitöltésére állítja. A második hivatkozás a prezentáció hiperhivatkozás‑színét használja.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -159,16 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Hang**
 
-Egy hiperhivatkozás lejátszhat egy hangot aktiváláskor, vagy leállíthat egy már futó hangot. A következő metódusokkal állíthatja be ezeket a viselkedéseket:
+Egy hiperhivatkozás lejátszhat egy hangot aktiváláskor, vagy leállíthat egy már futó hangot. Az alábbi metódusokkal konfigurálhatja ezeket a viselkedéseket:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) adja meg a hiperhivatkozáshoz tartozó audiót.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) szabályozza, hogy a hiperhivatkozás aktiválása megállítsa‑e az előző hangot.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) megadja a hiperhivatkozáshoz tartozó audio‑fájlt.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) szabályozza, hogy a hiperhivatkozás aktiválásakor leálljon‑e az előző hang.
 
 #### **Hiperhivatkozás hangjának hozzáadása**
 
-Az alábbi példa betölti a `sampleaudio.wav` fájlt, és egy gombhoz rendeli az első dián. A gomb megnyomása lejátszik a hangot és a következő diára navigál. Egy másik alakzat ugyanazon a dián leállítja az előző hangot kattintáskor, anélkül hogy navigációt végezne.
+Az első dián lévő gomb a [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) segítségével a `sampleaudio.wav` fájlt játssza le, amikor a felhasználó a továbbhaladáshoz kattint. A második dián egy másik gomb a [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) metódussal állítja le a lejátszást, és a felhasználót a dia maradék részén tartja.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -209,7 +206,7 @@ try {
 
 #### **Hiperhivatkozás hangjának kinyerése**
 
-Az alábbi példa megnyitja a fent létrehozott prezentációt, és a [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) és a [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData) metódusok segítségével beolvassa az első alakzat hiperhivatkozás hangját a memóriába.
+Az alábbi példa megnyitja a fent létrehozott prezentációt, és a [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) és a [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData) metódusokkal beolvassa az első alakzat hiperhivatkozás‑audio‑adatát a memóriába.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -235,16 +232,16 @@ try {
 
 ### **Tooltip és interakciós beállítások**
 
-Miután egy hiperhivatkozást szöveghez vagy alakzathoz rendelt, a következő [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) metódusok hívhatók:
+A hiperhivatkozás szöveghez vagy alakzathoz való hozzárendelése után az alábbi [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) metódusok hívhatók:
 
-- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) beállítja a szöveget, amelyet a felhasználó tippetként láthat a hivatkozásra.
-- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) meghatározza a céltáblát egy szülő HTML keretcsoportban, ha alkalmazható.
-- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) szabályozza, hogy a hivatkozás aktiválása felvegye‑e a célját a megtekintett hiperhivatkozások listájába.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) beállítja a megjelenő tippet a hivatkozásra mutató olvasó számára.
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) megadja a célt keretet egy szülő HTML keretcsoporton belül, ha alkalmazható.
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) szabályozza, hogy a hivatkozás aktiválása felkerüljön‑e a megtekintett hiperhivatkozások listájára.
 - [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) szabályozza, hogy a hiperhivatkozás kattintáskor ki legyen‑e emelve.
 
 ## **Hiperhivatkozások eltávolítása a prezentációkból**
 
-Használja a [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) metódust a hiperhivatkozás‑konténerek gyűjtéséhez, beleértve a szövegrész‑linkeket is, mielőtt módosítaná őket. Az alábbi példa eltávolítja mindkét aktiválási típust az első diáról. Egyetlen típus eltávolításához hívja csak a [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) vagy a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) metódust; a kattintás eltávolítása nem távolítja el az egér‑overhez tartozó akciót.
+Használja a [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) metódust a hiperhivatkozás‑konténerek (beleértve a szövegrész‑linkeket is) összegyűjtéséhez, mielőtt módosítaná őket. Az alábbi példa mindkét aktiválási típust eltávolítja az első diáról. Ha csak egy típust szeretne eltávolítani, hívja csak a [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) vagy a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) metódust; egy kattintási művelet eltávolítása nem távolítja el az egér‑over megfelelőjét.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -270,23 +267,58 @@ try {
 }
 ```
 
-Feltétlen eltávolítás esetén a [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) egy hívásban mindkét aktiválási típust törli a kiválasztott hatókörben. A mester, elrendezés és megjegyzések szelektív tisztításához és lefedettségéhez tekintse meg a [Hiperhivatkozások jelentése, szanitizálása és ellenőrzése](#report-sanitize-and-verify-hyperlinks) részt.
+Feltétlen eltávolításhoz a [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) eltávolítja mindkét aktiválási típust a kiválasztott környezetben egy hívásban. A mester‑, elrendezés‑ és jegyzet‑szintű szelektív tisztításhoz lásd a [Hiperhivatkozások jelentése, tisztítása és ellenőrzése](#report-sanitize-and-verify-hyperlinks) részt.
 
-## **Teljes hiperhivatkozás‑leltár felépítése**
+### **SmartArt szöveg eltávolítása előtt a hiperhivatkozások törlése**
 
-A prezentáció terjesztése előtt vegye fel egyes interaktív műveleteit és webes linkjeit. A [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) konténereket ad vissza, nem egy lapos URL‑lista. Vizsgálja meg mind a [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick), mind a [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) metódust minden konténeren. Ezek függetlenek: ugyanaz a konténer mindkét akciót kifejezheti, ezért egy teljes jelentés akár két sorra is szükség lehet konténerenként.
+Amikor egy meglévő SmartArt csomópontban lévő bekezdést cserél, a szövegrészek törlése régi hiperhivatkozást hagyhat működésben. A bekezdést a [SmartArtNode.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getTextFrame) metódussal érheti el. A részek törlése előtt hívja a [getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) metódust a csomópont alakzatának szövegkeretén, majd a visszakapott objektumon a [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) metódust. Ez eltávolít minden hiperhivatkozást az adott keretben, beleértve a többi bekezdésben szereplő linkeket is.
 
-A csak alakzatszintű hiperhivatkozások vizsgálata kihagyhat szövegrészhez rendelt linkeket. A megfelelő hatókört kell lekérdezni, majd a visszakapott konténereket megőrizni a későbbi frissítéshez vagy eltávolításhoz.
+A példa feltételezi, hogy a `SmartArtHyperlink.pptx` első diájának harmadik alakzata egy SmartArt grafika, és a negyedik csomópont első bekezdését cseréli. Ebben a prezentációban a csomópont első alakzata jeleníti meg azt a bekezdést.
 
-### **Prezentáció, dia és szövegkeret hatókörök lekérdezése**
+A két részlet hozzáadása után a példa a [getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#getEffective) metódussal olvassa ki a hatékony formázást. Ezen formázás alapján a `getHyperlinkClick` visszaadja az új hiperhivatkozást az első részhez, a másodikhoz pedig `null` értéket.
 
-A [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) osztály elérhető a [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) és a [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) metódusokon keresztül. Minden hatókör ugyanazokat a lekérdezéseket támogatja:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) konténereket ad vissza kattintási akcióval.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) konténereket ad vissza egér‑over akcióval.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) konténereket ad vissza bármelyik vagy mindkét akcióval.
+const presentation = new aspose.slides.Presentation("SmartArtHyperlink.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-Az alábbi példa egy `hyperlink-audit-input.pptx` fájlt hoz létre, amely külső kattintási linket, fájl egér‑over linket, belső dia‑navigációt, szöveg egér‑over linket és makró‑akciót tartalmaz. A példában egyik akció sem kerül végrehajtásra. Ugyanaz a három lekérdezés minden hatókörben működik; a számlálók konténerek számát mutatják, nem az akciók összegét. A szövegkeret hatókör kizárja az azt körülvevő alakzat saját linkjeit.
+    const smartArt = slide.getShapes().get_Item(2);
+    const node = smartArt.getAllNodes().get_Item(3);
+    const paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    const link = new aspose.slides.Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new aspose.slides.Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    const text = new aspose.slides.Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    console.log(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    console.log(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Teljes hiperhivatkozás‑készlet felállítása**
+
+A prezentáció terjesztése előtt készítsen leltárt az interaktív műveletekről és a webes linkekről. A [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) hiperhivatkozás‑konténereket ad vissza, nem pedig egy lapos URL‑lista. Ellenőrizze mind a [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick), mind a [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) metódusok eredményét minden konténeren. Ezek függetlenek: ugyanaz a konténer mindkét műveletet kifejtheti, így egy teljes jelentés akár két sort is igényelhet konténerenként.
+
+Csak alakzat‑szintű hiperhivatkozások lekérdezése kimaradhat a szövegrész‑linkektől. Használja a megfelelő környezetet, és őrizze meg a visszakapott konténereket, hogy később frissíthesse vagy eltávolíthassa a műveleteket.
+
+### **Prezentáció, dia és szövegkeret környezetek lekérdezése**
+
+A [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) osztály a következőkkel érhető el: [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) és [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Minden környezet ugyanazokat a lekérdezéseket támogatja:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) kattintásos konténereket ad vissza.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) egér‑over konténereket ad vissza.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) bármelyik vagy mindkét műveletet tartalmazó konténereket ad vissza.
+
+Ez a példa kattintási és egér‑over műveleteket rendel egy alakzathoz és a szövegéhez, valamint egy makró‑műveletet egy külön gombhoz. Összehasonlítja a [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) által visszaadott konténerek számát az egyes aktiválási típusok számaival. A szövegkeret‑lekérdezés csak a szövegben lévő linkeket számolja. A körülvevő alakzat saját műveletei a dia‑ és prezentáció‑lekérdezésekben is megjelennek.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -323,37 +355,37 @@ try {
 }
 ```
 
-Ebben a példában a prezentáció‑ és dia‑lekérdezések három kattintási, két egér‑over és három vegyes konténert adnak vissza. A szövegkeret lekérdezés egy‑egy konténert jelez minden kategóriában.
+Ebben a példában a prezentáció‑ és dia‑lekérdezések három kattintási, két egér‑over és három „bármelyik” konténert jelentenek. A szövegkeret‑lekérdezés egy konténert ad minden kategóriában.
 
-### **Akciók és célpontok osztályozása**
+### **Műveletek és célpontok osztályozása**
 
-Használja a [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) metódust az akció értelmezéséhez, mielőtt a célpontot vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) értékek a web‑navigáción túl is kiterjednek:
+Használja a [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) metódust a művelet értelmezéséhez, mielőtt a célpontot vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) értékek többek között a következőket tartalmazzák:
 
-| Értékek | Jelentés felülvizsgálat során |
+| Értékek | Jelentés auditáláskor |
 | --- | --- |
-| `Hyperlink` | Külső hiperhivatkozás; vizsgálja meg az URL‑t és annak sémáját. |
+| `Hyperlink` | Külső hiperhivatkozás; ellenőrizze az URL‑t és a protokollt. |
 | `JumpSpecificSlide` | Belső navigáció egy adott diára. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés‑navigáció, a diavetítés kontextusában értelmezve. |
-| `JumpEndShow`, `StartCustomSlideShow` | Az aktuális bemutató befejezése vagy egy egyéni bemutató indítása. |
-| `StartMacro` | Makró végrehajtása. |
+| `JumpEndShow`, `StartCustomSlideShow` | A jelenlegi előadás befejezése vagy egy egyéni előadás indítása. |
+| `StartMacro` | Makró futtatása. |
 | `StartProgram` | Program indítása. |
-| `OpenFile`, `OpenPresentation` | Fájl vagy másik prezentáció megnyitása; külön ellenőrizze a web‑URL‑ektől. |
+| `OpenFile`, `OpenPresentation` | Fájl vagy másik prezentáció megnyitása; külön vizsgálja a web‑URL‑ektől. |
 | `StartStopMedia` | Média lejátszás indítása vagy leállítása. |
-| `NoAction`, `Unknown` | Nincs navigációs akció, vagy ismeretlen akció, amely felülvizsgálatot igényel. |
+| `NoAction`, `Unknown` | Nincs navigációs művelet, vagy nem felismert művelet, ami felülvizsgálatot igényel. |
 
-A külső célpontokat a [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) metódussal olvassa ki, a specifikus belső célokat pedig a [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) segítségével. Belső akciók és beépített parancsok esetén előfordulhat, hogy nincs külső URL; egy üres URL nem jelenti azt, hogy a konténernek nincs akciója. Ha a [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) más értéket ad vissza a normalizált URL‑hez képest, őrizze meg azt, és ha elérhető, a [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) által visszaadott tooltipet is vegye figyelembe.
+Olvassa ki a külső célpontokat a [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) metódussal, a belső célpontokat a [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) segítségével. Belső és beépített parancsok esetén előfordulhat, hogy nincs külső URL; egy üres URL nem jelenti, hogy a konténernek nincs művelete. Tárolja a [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) által visszaadott értéket, ha az eltér a normalizált URL‑től, és ha elérhető, vegye bele a [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) által visszaadott tooltip‑et is.
 
-### **Hiperhivatkozások jelentése, szanitizálása és ellenőrzése**
+### **Hiperhivatkozások jelentése, tisztítása és ellenőrzése**
 
-Az alábbi JavaScript‑példa beolvassa a meglévő prezentációt (a fent létrehozott fájlt használja), a `hyperlink-audit.json`‑t írja, alkalmaz egy szabályt, elmenti a `hyperlink-sanitized.pptx`‑t, majd újra megnyitja, hogy újból ellenőrizze mindkét aktiválási típust. A módosítás előtt konténereket gyűjt, és referencia‑egyenlőséget használ, hogy ne dolgozza fel ugyanazt a konténert kétszer. A prezentáció‑lekérdezések a szokásos diákat fedik le; egy csomagszintű leltárhoz kifejezetten a master‑eket, elrendezéseket, megjegyzéseket és a megjegyzés‑ illetve kézbeadás‑mastereket is lekérdezi, ha léteznek.
+Ez a példa megnyitja az előző példában létrehozott prezentációt, és minden művelethez egy JSON‑rekordot ír. A [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) segítségével gyűjti a konténereket normál diák, mesterek, elrendezések és jegyzetek esetén, beleértve a jegyzet‑ és szórólap‑mestereket is, ha jelen vannak. Az egyenlő referenciát használja a konténerek egyedi számlálásához, alkalmazza az alább leírt szabályt, majd újra megnyitja a mentett prezentációt a kattintási és egér‑over műveletek ellenőrzéséhez.
 
-A jelentés egy‑alapú dia‑indexet és a [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) értéket tartalmaz, ha elérhető. A [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) megadja a tulajdonó diát a támogatott konténerekhez. A master‑ek, elrendezések és megjegyzések nem rendelkeznek szokásos dia‑indexszel, ezeket hatókörük alapján azonosítja. Az alakzat‑konténereket és a szövegrész‑formázási konténereket külön címkézi; a többi konténer típusa megtartja a futásidejű típusnevét. Minden konténer kap egy jelentés‑helyi azonosítót, hogy a két akció összekapcsolható legyen. A jelentés az akciótípusokat a HyperlinkActionType felsorolásban definiált egész‑konstansokként tárolja.
+A jelentés egy‑alapú dia‑indexet és a [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) értékét tartalmazza, ahol elérhető. A [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) biztosítja a tulajdonos diát a támogatott konténerekhez. Mesterek, elrendezések és jegyzetek nem rendelkeznek hagyományos dia‑indexszel, ezért a környezetük alapján azonosítják őket. Az alakzat‑konténereket és a szövegrész‑formázási konténereket külön címkézi; egyéb konténer‑típusok megtartják futás‑idejű típusnevüket. Minden konténer kap egy jelentés‑helyi azonosítót, hogy a két művelet összekapcsolható legyen. A jelentés a művelettípusokat a HyperlinkActionType felsorlat egész‑konstansaként tárolja.
 
-Ez a szándékosan szigorú alkalmazási szabály csak abszolút HTTPS URL‑eket és érvényes belső diacélokat engedélyez. Elutasítja a makrókat, programokat, fájl‑akciókat, egyéb diavetítés‑akciókat, ismeretlen akciókat és más URL‑sémákat. Ezek az elutasítások szabályozási döntések, nem az Aspose.Slides biztonsági megítélése. Az HTTPS önmagában nem garantálja a megbízhatóságot: adjon hozzá host‑engedélylistákat és egyéb ellenőrzéseket alkalmazásához. Az eredeti és a normalizált külső URL‑eket egyaránt ellenőrzi. A példa metaadatokat auditál linkek követése vagy akciók futtatása nélkül.
+Ez a tudatosan szigorú alkalmazási szabály csak abszolút HTTPS‑URL‑eket és érvényes belső dia‑célpontokat engedélyezi. Elutasítja a makrókat, programokat, fájl‑műveleteket, egyéb diavetítés‑műveleteket, ismeretlen műveleteket és az egyéb URL‑sémákat. Ezek az elutasítások szabályozási döntések, nem az Aspose.Slides biztonsági ítéletei. Az HTTPS önmagában nem garantálja a megbízhatóságot: adjon hozzá host‑engedélylistákat és egyéb ellenőrzéseket a saját alkalmazásához. Az eredeti és a normalizált külső URL‑eket egyaránt ellenőrzi. A példa a metaadatokat auditálja anélkül, hogy a linkeket követné vagy a műveleteket végrehajtaná.
 
-Javításkor a konténer [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) támogatja a [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), a [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) és a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) metódusokat. Itt a tiltott külső kattintási linkeket egy rögzített HTTPS céloldallal helyettesítik; a többi tiltott kattintás és egér‑over akció önállóan eltávolításra kerül. Állítsa `replaceExternalClicks` értékét `false`‑ra, ha az összes szabálysértést eltávolítaná. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a kiadás előtt.
+Javításként a konténer [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) támogatja a [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), a [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) és a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) metódusokat. Itt a tiltott külső kattintási linkek egy rögzített HTTPS‑céloldallal vannak helyettesítve; a többi tiltott kattintás és egér‑over művelet önállóan eltávolításra kerül. Állítsa a `replaceExternalClicks` értékét `false`‑ra, ha minden szabálysértést el szeretne távolítani. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a telepítés előtt.
 
-A jelentés exportálási jelzője egy konzervatív PDF‑ellenőrzési szabályt használ: egér‑over akciókat és minden, az externális link vagy konkrét dia‑ugrás kivételével, potenciálisan nem támogatottként jelöli. Ez egy felülvizsgálati tipp, nem teljesítményteszt vagy garancia arra, hogy a jelzés nélküli linkek megmaradnak az exportálás során. A támogatott [PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/nodejs-java/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, az akciótól, az export‑beállításoktól és a megjelenítőtől függően. A raszteres [képek](/slides/hu/nodejs-java/convert-powerpoint-to-png/) és [videók](/slides/hu/nodejs-java/convert-powerpoint-to-video/) nem képesek megőrizni interaktív hiperhivatkozásokat; ezért auditáláskor minden ilyen kimenet esetén jelölje meg az összes akciót.
+A jelentés export‑jelzője konzervatív PDF‑ellenőrzési szabályt használ: jelölje meg az egér‑over műveleteket és minden olyan elemet, amely nem egy külső link vagy konkrét dia‑ugrás, potenciálisan nem támogatottként. Ez egy ellenőrzési tipp, nem egy képesség‑teszt vagy garancia arra, hogy a jelöletlen linkek exportáláskor megmaradnak. A támogatott [PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/nodejs-java/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, a művelettől, az export‑beállításoktól és a megjelenítőtől függően. A raszter [képek](/slides/hu/nodejs-java/convert-powerpoint-to-png/) és [videók](/slides/hu/nodejs-java/convert-powerpoint-to-video/) nem tudják megőrizni az interaktív hiperhivatkozásokat; ezért ezeknél a kimeneteknél minden műveletet jelöljön meg auditáláskor.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -501,20 +533,20 @@ try {
 }
 ```
 
-A fenti bemenettel a jelentés öt akciósort tartalmaz. A fájl‑egér‑over link és a makró‑kattintás eltávolításra kerül, míg a HTTPS linkek és a belső dia‑navigáció megmarad. Az ellenőrzés nulla tiltott akciót jelez. Egy tiltott külső kattintási URL‑t tartalmazó bemenet a helyettesítési ágat is teszteli. Egy engedélyezett kattintással és tiltott egér‑overrel rendelkező konténer megtartja a kattintási akciót.
+A fenti bemenet alapján a jelentés öt műveleti sort tartalmaz. A fájl egér‑over link és a makró‑kattintás eltávolításra kerül, míg a HTTPS‑linkek és a belső dia‑navigáció megmarad. Az ellenőrzés nulla tiltott műveletet jelez. Egy tiltott külső kattintási URL‑t tartalmazó bemenet a helyettesítési ágat is teszteli. Egy engedélyezett kattintással és tiltott egér‑overrel rendelkező konténer megtartja a kattintási műveletet.
 
-Ez a szelektív tisztítás eltér a [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) működésétől, amely a kiválasztott hatókörben mindkét aktiválási típust eltávolítja a szabályok figyelembevétele nélkül. Az ellenőrzés itt csak a hiperhivatkozás‑akciókat vizsgálja; nem távolítja el a beágyazott VBA‑projektek, OLE‑objektumok vagy egyéb aktív tartalmakat, és nem validálja a kiexportált PDF vagy HTML fájlt.
+Ez a szelektív tisztítás különbözik a [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) metódustól, amely a kiválasztott környezetben mindkét aktiválási típust eltávolítja a szabályoktól függetlenül. Az itt végzett ellenőrzés csak a hiperhivatkozás‑műveleteket vizsgálja; nem távolítja el a beágyazott VBA‑projekteket, OLE‑objektumokat vagy egyéb aktív tartalmakat, és nem ellenőrzi a PDF‑ vagy HTML‑exportált fájlokat.
 
 ## **GYIK**
 
-**Hogyan linkelhetek egy szakaszra vagy annak első diájára?**
+**Hogyan linkelhetek egy szekcióra vagy annak első diájára?**
 
-A PowerPointban a szakaszok diákat csoportosítanak, de egy belső hiperhivatkozás egy adott diára mutat. A szakaszra történő navigáció létrehozásához linkelje a szakasz első diájára.
+A PowerPointban a szekciók a diákat csoportosítják, de egy belső hiperhivatkozás egyetlen diát céloz. A szekcióhoz való navigáció létrehozásához linkelje az adott szekció első diáját.
 
-**Hozzáadhatok-e hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
+**Hozzá tudok-e adni hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
 
-Igen. A mesterdia és az elrendezés elemei támogatják a hiperhivatkozásokat. Ezek a linkek a diavetítés során elérhetők azon diáken, amelyek a megfelelő master‑t vagy elrendezést használják.
+Igen. A mesterdia és elrendezés elemei támogatják a hiperhivatkozásokat. Ezek a linkek a diavetítés során elérhetők azon diákon, amelyek a megfelelő mestert vagy elrendezést használják.
 
-**Megmaradnak-e a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
+**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
 
-A támogatott PDF és HTML exportok megőrizhetik a hiperhivatkozásokat; a raszteres képek és videók nem képesek erre. Lásd a [Hiperhivatkozások jelentése, szanitizálása és ellenőrzése](#report-sanitize-and-verify-hyperlinks) részt az exportálási szempontokról.
+A támogatott PDF és HTML exportok megőrizhetik a hiperhivatkozásokat; a raszter képek és videó nem képesek interaktív hivatkozásokat megőrizni. Lásd a [Hiperhivatkozások jelentése, tisztítása és ellenőrzése](#report-sanitize-and-verify-hyperlinks) alábbi export‑szempontokat.

@@ -1,52 +1,54 @@
 ---
-title: Zarządzanie hiperłączami prezentacji w JavaScript
-linktitle: Zarządzaj hiperłączami
+title: Zarządzanie hiperlinkami w prezentacji w JavaScript
+linktitle: Zarządzaj hiperlinkami
 type: docs
 weight: 20
 url: /pl/nodejs-java/manage-hyperlinks/
 keywords:
 - dodaj URL
-- dodaj hiperłącze
-- utwórz hiperłącze
-- formatuj hiperłącze
-- usuń hiperłącze
-- zaktualizuj hiperłącze
-- hiperłącze tekstowe
-- hiperłącze slajdu
-- hiperłącze kształtu
-- hiperłącze obrazu
-- hiperłącze wideo
-- modyfikowalne hiperłącze
+- dodaj hiperlink
+- utwórz hiperlink
+- formatuj hiperlink
+- usuń hiperlink
+- zaktualizuj hiperlink
+- hiperlink tekstowy
+- hiperlink slajdu
+- hiperlink kształtu
+- hiperlink obrazu
+- hiperlink wideo
+- hiperlink modyfikowalny
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperłącza w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js via Java, korzystając z przykładów w JavaScript."
+description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperlinki w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js via Java, korzystając z przykładów w JavaScript."
 ---
 ## **Wprowadzenie**
 
-Hiperłącze łączy zawartość prezentacji ze stroną internetową lub lokalizacją w obrębie prezentacji. W programie PowerPoint hiperłącza zazwyczaj pełnią dwa cele:
+Hiperlink łączy zawartość prezentacji ze stroną internetową lub lokalizacją w obrębie prezentacji. W programie PowerPoint hiperlinki zwykle służą dwóm celom:
 
-* Otwórz stronę internetową z tekstu, kształtu lub ramki multimedialnej.
-* Nawiguj do innego slajdu, na przykład z tabeli treści.
+* Otworzyć stronę internetową z tekstu, kształtu lub ramki multimedialnej.  
+* Przejść do innego slajdu, na przykład ze spisu treści.
 
-Aspose.Slides dla Node.js via Java umożliwia dodawanie tych linków, kontrolowanie ich wyglądu i dźwięku, aktualizowanie ich właściwości oraz usuwanie ich. Poniższe przykłady pokazują, jak pracować z hiperłączami na pojedynczych elementach oraz jak uzyskać dostęp do hiperłączy na poziomie prezentacji, slajdu lub ramki tekstowej.
+Aspose.Slides for Node.js via Java umożliwia dodawanie tych linków, kontrolowanie ich wyglądu i dźwięku, aktualizowanie ich właściwości oraz usuwanie ich. Poniższe przykłady pokazują, jak pracować z hiperlinkami na poszczególnych elementach oraz jak uzyskać dostęp do hiperlinków na poziomie prezentacji, slajdu lub ramki tekstowej.
 
 {{% alert color="info" title="Note" %}}
-Możesz również edytować prezentacje za pomocą [bezpłatnego edytora Aspose PowerPoint online](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
 
-## **Dodaj hiperłącza URL**
+Możesz także edytować prezentacje przy użyciu [darmowego internetowego edytora PowerPoint firmy Aspose](https://products.aspose.app/slides/editor).
 
-Możesz przypisać adres URL strony internetowej do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypisujesz hiperłącze, określa obszar klikalny: fragment tekstu wiąże wybrany tekst, natomiast kształt lub ramka wiąże obiekt slajdu.
+{{% /alert %}}
 
-W prezentacjach zawierających względne hiperłącza zobacz [Zarządzanie bazą hiperłączy](/slides/pl/nodejs-java/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić bazę na poziomie dokumentu.
+## **Dodawanie hiperlinków URL**
 
-### **Dodaj hiperłącza URL do tekstu**
+Możesz przypisać adres URL strony internetowej do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypisujesz hiperlink, określa obszar klikalny: fragment tekstu linkuje zaznaczony tekst, natomiast kształt lub ramka linkują obiekt slajdu.
 
-Aby połączyć tekst ze stroną internetową, przekaż [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) do metody [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) fragmentu tekstu, jak pokazano poniżej. Tylko ten fragment tekstu stanie się klikalny.
+W prezentacjach zawierających względne hiperlinki zobacz [Manage the Hyperlink Base](/slides/pl/nodejs-java/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić bazę na poziomie dokumentu.
+
+### **Dodawanie hiperlinków URL do tekstu**
+
+Aby połączyć tekst ze stroną internetową, przekaż obiekt [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) do metody [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) fragmentu tekstu, jak pokazano poniżej. Tylko ten fragment tekstu stanie się klikalny.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -66,13 +68,9 @@ try {
 }
 ```
 
-### **Dodaj hiperłącza URL do kształtów i ram multimedialnych**
+### **Dodawanie hiperlinków URL do kształtów i ramek multimedialnych**
 
-Aby uczynić kształt lub ramkę klikalną, wywołaj jej metodę [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick). Hiperłącze należy do samego obiektu, a nie do fragmentu tekstu wewnątrz niego.
-
-To samo podejście dotyczy ramek obrazu, dźwięku i wideo: przypisz hiperłącze do ramki i, w razie potrzeby, wywołaj [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip).
-
-Poniższy przykład sprawia, że prostokąt jest klikalny:
+Wywołaj [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) na prostokącie, aby cały jego obszar był klikalny. Użyj [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip), aby wyświetlić podpowiedź o miejscu docelowym po najechaniu na prostokąt. Obie metody działają również dla ramek obrazu, audio i wideo.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -90,9 +88,9 @@ try {
 }
 ```
 
-## **Użyj hiperłączy do utworzenia spisu treści**
+## **Używanie hiperlinków do tworzenia spisu treści**
 
-Wewnętrzne hiperłącza umożliwiają czytelnikom przejście ze spisu treści do konkretnego slajdu. Poniższy przykład używa [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick), aby połączyć tekst „Page 2” na pierwszym slajdzie z drugim slajdem.
+Wewnętrzne hiperlinki pozwalają czytelnikom przechodzić ze spisu treści do konkretnego slajdu. W poniższym przykładzie użyto [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick), aby połączyć tekst „Page 2” na pierwszym slajdzie z drugim slajdem.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -126,13 +124,15 @@ try {
 }
 ```
 
-## **Formatuj hiperłącza**
+## **Formatowanie hiperlinków**
+
+Możesz zmienić kolor połączonego tekstu, odtworzyć lub zatrzymać dźwięk po aktywacji linku oraz ustawić podpowiedź wyświetlaną po najechaniu.
 
 ### **Kolor**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) klasy [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) określa, czy hiperłącze używa koloru hiperłącza prezentacji, czy formatowania fragmentu tekstu. Aby zastosować niestandardowy kolor tekstu, wybierz [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) i ustaw kolor wypełnienia fragmentu. Ta funkcja została wprowadzona w PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
+Metoda [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) klasy [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) określa, czy hiperlink używa koloru hiperlinku z prezentacji, czy formatowania fragmentu tekstu. Aby zastosować własny kolor tekstu, wybierz [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) i ustaw kolor wypełnienia fragmentu. Funkcję wprowadzono w PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
 
-Poniższy przykład dodaje dwa hiperłącza tekstowe do tego samego slajdu. Pierwszy używa czerwonego wypełnienia tekstu, natomiast drugi zachowuje domyślny kolor hiperłącza.
+W tym przykładzie [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) sprawia, że pierwszy link używa czerwonego wypełnienia fragmentu tekstu. Drugi link zachowuje kolor hiperlinku z prezentacji.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -157,16 +157,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Dźwięk**
 
-Hiperłącze może odtwarzać dźwięk po aktywacji lub zatrzymać dźwięk, który już odtwarza. Użyj następujących metod, aby skonfigurować te zachowania:
+Hiperlink może odtwarzać dźwięk po aktywacji lub zatrzymać już odtwarzany dźwięk. Użyj następujących metod, aby skonfigurować te zachowania:
 
-- Metoda [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) określa dźwięk powiązany z hiperłączem.
-- Metoda [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) kontroluje, czy aktywacja hiperłącza zatrzymuje poprzedni dźwięk.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) określa dźwięk powiązany z hiperlinkiem.  
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) kontroluje, czy aktywacja hiperlinku zatrzymuje poprzedni dźwięk.
 
-#### **Dodaj dźwięk do hiperłącza**
+#### **Dodawanie dźwięku do hiperlinku**
 
-Poniższy przykład ładuje `sampleaudio.wav` i łączy go z przyciskiem na pierwszym slajdzie. Kliknięcie przycisku odtwarza dźwięk i przechodzi do kolejnego slajdu. Drugi kształt na tym slajdzie zatrzymuje poprzedni dźwięk po kliknięciu, bez wykonywania akcji nawigacji.
+Przycisk na pierwszym slajdzie używa [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound), aby odtworzyć plik `sampleaudio.wav` po kliknięciu. Na drugim slajdzie osobny przycisk używa [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick), aby zatrzymać odtwarzanie i pozostać na tym slajdzie.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,9 +206,9 @@ try {
 }
 ```
 
-#### **Wyodrębnij dźwięk z hiperłącza**
+#### **Wyodrębnianie dźwięku z hiperlinku**
 
-Poniższy przykład otwiera prezentację utworzoną powyżej i odczytuje dźwięk hiperłącza pierwszego kształtu do pamięci za pomocą [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) i [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
+Poniższy przykład otwiera wcześniej utworzoną prezentację i odczytuje dźwięk hiperlinku pierwszego kształtu do pamięci za pomocą [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) oraz [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -231,18 +232,18 @@ try {
 }
 ```
 
-### **Ustawienia podpowiedzi i interakcji**
+### **Podpowiedź i ustawienia interakcji**
 
-Możesz wywołać następujące metody [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink), po przypisaniu hiperłącza do tekstu lub kształtu:
+Po przypisaniu hiperlinku do tekstu lub kształtu możesz wywołać następujące metody klasy [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink):
 
-- Metoda [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) ustawia tekst, który widz może wyświetlić jako podpowiedź dla linku.
-- Metoda [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) określa docelową ramkę w ramach nadrzędnego zestawu ramek HTML, gdy ma to zastosowanie.
-- Metoda [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) kontroluje, czy aktywacja linku dodaje jego docelowy adres do listy przeglądanych hiperłączy.
-- Metoda [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) kontroluje, czy hiperłącze jest podświetlane po kliknięciu.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) ustawia tekst podpowiedzi wyświetlany użytkownikowi.  
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) określa docelową ramkę w zestawie ramek HTML, jeśli ma zastosowanie.  
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) kontroluje, czy aktywacja linku dodaje jego miejsce docelowe do listy przeglądanych hiperlinków.  
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) kontroluje, czy hiperlink jest podświetlany po kliknięciu.
 
-## **Usuń hiperłącza z prezentacji**
+## **Usuwanie hiperlinków z prezentacji**
 
-Użyj [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks), aby zebrać kontenery hiperłączy, w tym linki fragmentów tekstu, przed ich zmianą. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj tylko [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) lub [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); usunięcie akcji kliknięcia nie usuwa jej odpowiednika po najechaniu myszą.
+Użyj [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks), aby zebrać kontenery hiperlinków, w tym linki fragmentów tekstu, przed ich modyfikacją. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj wyłącznie [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) lub [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); usunięcie akcji kliknięcia nie usuwa odpowiadającej akcji najechania.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,23 +269,58 @@ try {
 }
 ```
 
-W celu bezwarunkowego usunięcia, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) usuwa oba typy aktywacji w wybranym zakresie jednym wywołaniem. Aby wykonać selektywne czyszczenie i objąć mastery, układy i notatki, zobacz [Raport, Oczyszczenie i Weryfikację Hiperłączy](#report-sanitize-and-verify-hyperlinks).
+W przypadku bezwarunkowego usuwania, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) usuwa oba typy aktywacji w wybranym zakresie jednym wywołaniem. Aby przeprowadzić selektywne czyszczenie obejmujące mastery, układy i notatki, zobacz sekcję [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Zbuduj kompletny spis hiperłączy**
+### **Czyszczenie hiperlinków przed zastąpieniem tekstu SmartArt**
 
-Przed dystrybucją prezentacji, sporządź inwentaryzację jej interaktywnych działań oraz linków internetowych. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) zwraca kontenery hiperłączy, a nie płaską listę ciągów URL. Przeglądaj zarówno [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick), jak i [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać oba działania, więc pełny raport wymaga do dwóch wierszy na kontener.
+Podczas zastępowania akapitu w istniejącym węźle SmartArt, usunięcie jego fragmentów tekstu może pozostawić aktywny stary hiperlink. Pobierz akapit przy pomocy [SmartArtNode.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getTextFrame). Przed wyczyszczeniem fragmentów wywołaj [getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) na ramce tekstowej kształtu węzła wyświetlającego akapit, a następnie [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) na zwróconym obiekcie. Spowoduje to usunięcie każdego hiperlinku w tej ramce, w tym linków w innych akapitach.
 
-Skanowanie tylko hiperłączy na poziomie kształtów może pominąć linki przypisane do fragmentów tekstu. Zamiast tego zapytaj odpowiedni zakres i zachowaj zwrócone kontenery, aby później móc zaktualizować lub usunąć ich akcje.
+Przykład zakłada, że trzeci kształt na pierwszym slajdzie pliku `SmartArtHyperlink.pptx` jest grafiką SmartArt. Zastępuje on pierwszy akapit czwartego węzła. W tej prezentacji pierwszy kształt węzła wyświetla ten akapit.
 
-### **Zapytaj zakresy prezentacji, slajdu i ramki tekstowej**
+Po dodaniu obu fragmentów przykład odczytuje ich efektywne formatowanie przy użyciu [getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#getEffective). Dla tego formatowania `getHyperlinkClick` zwraca nowy hiperlink dla pierwszego fragmentu i `null` dla drugiego.
 
-Klasa [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) jest dostępna poprzez [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries), oraz [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Każdy zakres obsługuje te same zapytania:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-- Metoda [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) zwraca kontenery z akcją kliknięcia.
-- Metoda [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) zwraca kontenery z akcją najazdu myszą.
-- Metoda [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) zwraca kontenery z jedną lub obiema akcjami.
+const presentation = new aspose.slides.Presentation("SmartArtHyperlink.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-Poniższy przykład tworzy plik `hyperlink-audit-input.pptx` z zewnętrznym linkiem kliknięcia, linkiem najazdu na plik, wewnętrzną nawigacją slajdu, linkiem najazdu na tekst oraz akcją makra. Nie wykonuje żadnej z tych akcji. Te same trzy zapytania działają w każdym zakresie; liczby opisują kontenery, a nie łączną liczbę akcji. Zakres ramki tekstowej wyklucza własne linki otaczającego kształtu.
+    const smartArt = slide.getShapes().get_Item(2);
+    const node = smartArt.getAllNodes().get_Item(3);
+    const paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    const link = new aspose.slides.Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new aspose.slides.Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    const text = new aspose.slides.Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    console.log(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    console.log(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tworzenie pełnego spisu hiperlinków**
+
+Przed rozpowszechnieniem prezentacji sporządź inwentaryzację jej interaktywnych akcji oraz linków internetowych. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) zwraca kontenery hiperlinków, a nie płaską listę ciągów URL. Sprawdź zarówno [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick), jak i [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać oba akcje, więc pełny raport wymaga do dwóch wierszy na kontener.
+
+Skanowanie tylko hiperlinków na poziomie kształtu może pominąć linki do fragmentów tekstu. Zamiast tego zapytaj odpowiedni zakres i zachowaj zwrócone kontenery, aby później móc aktualizować lub usuwać ich akcje.
+
+### **Zapytania w zakresie prezentacji, slajdu i ramki tekstowej**
+
+Klasa [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) jest dostępna poprzez [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) oraz [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Każdy zakres obsługuje te same zapytania:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) zwraca kontenery z akcją kliknięcia.  
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) zwraca kontenery z akcją najechania.  
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) zwraca kontenery z jedną lub obiema akcjami.
+
+W tym przykładzie przydzielono akcje kliknięcia i najechania do kształtu i jego tekstu oraz akcję makra do osobnego przycisku. Porównano liczbę kontenerów zwróconych przez [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) z liczbami dla poszczególnych typów aktywacji. Zapytanie ramki tekstowej liczy tylko linki w tekście. Akcje samego kształtu pojawiają się w zapytaniach slajdu i prezentacji.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -321,37 +357,37 @@ try {
 }
 ```
 
-Dla tego przykładu, zapytania prezentacji i slajdu każde zgłaszają trzy kontenery kliknięcia, dwa kontenery najazdu myszą i trzy kontenery z jedną z akcji. Zapytanie ramki tekstowej zgłasza po jednym kontenerze w każdej kategorii.
+Dla tego przykładu zapytania prezentacji i slajdu raportują po trzy kontenery kliknięcia, dwa kontenery najechania i trzy kontenery z jedną z akcji. Zapytanie ramki tekstowej raportuje po jednym kontenerze w każdej kategorii.
 
-### **Klasyfikuj akcje i cele**
+### **Klasyfikacja akcji i miejsc docelowych**
 
-Użyj [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType), aby zinterpretować akcję przed interpretacją jej celu. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) obejmują więcej niż nawigację internetową:
+Użyj [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType), aby zinterpretować akcję przed określeniem miejsca docelowego. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) obejmują więcej niż tylko nawigację w sieci:
 
-| Wartości | Znaczenie dla audytu |
+| Wartość | Znaczenie dla audytu |
 | --- | --- |
-| `Hyperlink` | Zewnętrzne hiperłącze; sprawdź URL i jego schemat. |
-| `JumpSpecificSlide` | Wewnętrzna nawigacja do konkretnego slajdu. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja w pokazie slajdów, rozwiązywana w kontekście pokazu. |
-| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub uruchomienie własnego pokazu. |
-| `StartMacro` | Wykonanie makra. |
+| `Hyperlink` | Zewnętrzny hiperlink; sprawdź URL i jego schemat. |
+| `JumpSpecificSlide` | Wewnętrzna nawigacja do określonego slajdu. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja pokazu, rozwiązywana w kontekście pokazu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub uruchomienie pokazu niestandardowego. |
+| `StartMacro` | Uruchomienie makra. |
 | `StartProgram` | Uruchomienie programu. |
-| `OpenFile`, `OpenPresentation` | Otwarcie pliku lub innej prezentacji; przeglądaj oddzielnie od adresów URL. |
-| `StartStopMedia` | Rozpoczęcie lub zatrzymanie odtwarzania multimediów. |
-| `NoAction`, `Unknown` | Brak akcji nawigacyjnej lub nierozpoznana akcja wymagająca przeglądu. |
+| `OpenFile`, `OpenPresentation` | Otwarcie pliku lub innej prezentacji; analizuj oddzielnie od URL‑i internetowych. |
+| `StartStopMedia` | Rozpoczęcie lub zatrzymanie odtwarzania mediów. |
+| `NoAction`, `Unknown` | Brak akcji nawigacyjnej lub nieznana akcja wymagająca przeglądu. |
 
-Odczytaj zewnętrzne cele za pomocą [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) i konkretne wewnętrzne cele za pomocą [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Akcje wewnętrzne i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj wartość zwróconą przez [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal), gdy różni się od znormalizowanego URL, oraz uwzględnij podpowiedź zwróconą przez [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip), gdy jest dostępna.
+Odczytaj zewnętrzne miejsca docelowe przy pomocy [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) oraz konkretne wewnętrzne miejsca docelowe przy pomocy [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Wewnętrzne akcje i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj wartość zwróconą przez [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal), gdy różni się od znormalizowanego URL, oraz podpowiedź zwróconą przez [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip), jeśli jest dostępna.
 
-### **Raport, Oczyszczenie i Weryfikacja Hiperłączy**
+### **Raportowanie, czyszczenie i weryfikacja hiperlinków**
 
-Poniższy przykład JavaScript odczytuje istniejącą prezentację (użyj pliku utworzonego powyżej), zapisuje `hyperlink-audit.json`, stosuje politykę, zapisuje `hyperlink-sanitized.pptx` i ponownie otwiera go, aby ponownie sprawdzić oba typy aktywacji. Zbiera kontenery przed ich zmianą i używa równości referencji, aby uniknąć dwukrotnego przetwarzania tego samego kontenera. Zapytania prezentacji obejmują zwykłe slajdy; dla inwentaryzacji na poziomie pakietu, explicite zapytuje także mastery, układy, notatki oraz mastery notatek i materiałów pomocniczych, gdy są obecne.
+Ten przykład otwiera prezentację z poprzedniego przykładu i zapisuje jeden rekord JSON dla każdej akcji. Używa [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) do zebrania kontenerów na zwykłych slajdach, masterach, układach i notatkach, w tym w masterach notatek i materiałów pomocniczych, jeśli występują. Używa równości referencyjnej, aby policzyć każdy kontener tylko raz, stosuje opisane poniżej zasady i ponownie otwiera zapisaną prezentację, aby sprawdzić zarówno akcje kliknięcia, jak i najechania.
 
-Raport zapisuje indeks slajdu rozpoczynający się od jedynki i [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) , gdy dostępny. [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez ich zakres. Kontenery kształtów i kontenery formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują swoją nazwę typu w czasie wykonywania. Każdy kontener otrzymuje lokalny identyfikator raportu, aby jego dwie akcje można było powiązać. Raport przechowuje typy akcji jako stałe całkowite zdefiniowane przez wyliczenie HyperlinkActionType.
+Raport zawiera indeks slajdu (liczbowany od 1) oraz [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId), jeśli jest dostępny. [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez swój zakres. Kontenery kształtów i formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują nazwę typu w czasie wykonywania. Każdy kontener otrzymuje lokalny identyfikator raportu, aby jego dwie akcje można było powiązać. Typy akcji są zapisywane jako stałe liczbowe określone w wyliczeniu HyperlinkActionType.
 
-Ta celowo restrykcyjna polityka aplikacji pozwala wyłącznie na bezwzględne adresy HTTPS i prawidłowe wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plików, inne akcje pokazu, nieznane akcje oraz inne schematy URL. Te odrzucenia są decyzjami polityki, a nie oceną bezpieczeństwa Aspose.Slides. Sam protokół HTTPS nie zapewnia zaufania: dodaj listy dozwolonych hostów i inne kontrole w swojej aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne URL. Przykład audytuje metadane bez podążania za linkami lub uruchamiania akcji.
+Ta celowo restrykcyjna polityka aplikacji dopuszcza wyłącznie absolutne URL‑e HTTPS i poprawne wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plikowe, inne akcje pokazu, nieznane akcje oraz inne schematy URL. Odrzucenia są decyzjami politycznymi, a nie oceną bezpieczeństwa Aspose.Slides. Sam protokół HTTPS nie gwarantuje zaufania: dodaj listy dozwolonych hostów i inne kontrole w swojej aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane URL‑e zewnętrzne. Przykład audytuje metadane bez podążania za linkami ani uruchamiania akcji.
 
-W celu naprawy, kontenerowy [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) obsługuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) oraz [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Tutaj zabronione zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne zabronione kliknięcia i zabronione akcje najazdu są usuwane niezależnie. Ustaw `replaceExternalClicks` na `false`, aby zamiast tego usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą zarządzaną przez aplikację przed wdrożeniem.
+W celu naprawy, [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) obsługuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) oraz [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Tutaj zabronione zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne zabronione kliknięcia i zabronione akcje najechania są usuwane niezależnie. Ustaw `replaceExternalClicks` na `false`, aby usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą zarządzaną przez aplikację przed wdrożeniem.
 
-Flaga eksportu w raporcie używa konserwatywnej polityki przeglądu PDF: oznacza akcje najazdu i wszystko poza zewnętrznym linkiem lub konkretnym skokiem slajdu jako potencjalnie nieobsługiwane. To wskazówka przeglądu, a nie test możliwości ani gwarancja, że nieoznaczone linki przeżyją eksport. Obsługiwane eksporty do [PDF](/slides/pl/nodejs-java/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/nodejs-java/convert-powerpoint-to-html/) mogą zachować hiperłącza, w zależności od akcji, opcji eksportu i przeglądarki. Rasterowe [obrazy](/slides/pl/nodejs-java/convert-powerpoint-to-png/) i [wideo](/slides/pl/nodejs-java/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperłączy; oznacz każdą akcję przy audycie pod kątem tych wyjść.
+Flaga eksportu raportu stosuje konserwatywną politykę przeglądu PDF: oznacza akcje najechania oraz wszystko oprócz zewnętrznego linku lub konkretnego przeskoku slajdu jako potencjalnie nieobsługiwane. To wskazówka przeglądu, a nie test możliwości ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/nodejs-java/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/nodejs-java/convert-powerpoint-to-html/) mogą zachować hiperlinki, zależnie od akcji, opcji eksportu i przeglądarki. Rasterowe [obrazy](/slides/pl/nodejs-java/convert-powerpoint-to-png/) i [wideo](/slides/pl/nodejs-java/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperlinków; oznacz każdy rodzaj akcji przy audycie pod kątem tych wyjść.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -499,20 +535,20 @@ try {
 }
 ```
 
-Przy danych wejściowych utworzonych powyżej, raport zawiera pięć wierszy akcji. Link najazdu na plik i kliknięcie makra są usunięte, podczas gdy linki HTTPS i wewnętrzna nawigacja slajdów pozostają. Weryfikacja wypisuje zero zabronionych akcji. Wejście zawierające zabroniony zewnętrzny URL kliknięcia również testuje gałąź zamiany. Kontener z dozwolonym kliknięciem i zabronionym najazdem zachowuje akcję kliknięcia.
+Przy danych utworzonych powyżej raport zawiera pięć wierszy akcji. Link najechania pliku i kliknięcie makra zostały usunięte, natomiast linki HTTPS i wewnętrzna nawigacja slajdów pozostały. Weryfikacja wyświetla zero niedozwolonych akcji. Wejście zawierające zabroniony zewnętrzny URL kliknięcia również testuje ścieżkę zamiany. Kontener z dozwolonym kliknięciem i zabronionym najechaniem zachowuje akcję kliknięcia.
 
-To selektywne czyszczenie różni się od [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), który usuwa oba typy aktywacji w całym wybranym zakresie niezależnie od polityki. Weryfikacja tutaj sprawdza tylko akcje hiperłączy; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej aktywnej zawartości, oraz nie weryfikuje wyeksportowanego pliku PDF lub HTML.
+To selektywne czyszczenie różni się od [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), które usuwa oba typy aktywacji w całym wybranym zakresie, niezależnie od polityki. Weryfikacja tutaj sprawdza jedynie akcje hiperlinków; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej treści aktywnej i nie waliduje wyeksportowanego pliku PDF ani HTML.
 
 ## **FAQ**
 
 **Jak mogę połączyć się z sekcją lub jej pierwszym slajdem?**
 
-Sekcje w PowerPoint grupują slajdy, ale wewnętrzne hiperłącze wskazuje pojedynczy slajd. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
+Sekcje w PowerPoint grupują slajdy, ale wewnętrzny hiperlink wskazuje pojedynczy slajd. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
 
-**Czy mogę przypiąć hiperłącze do elementów slajdu master, aby działało na wszystkich slajdach?**
+**Czy mogę dodać hiperlink do elementów mastera, aby działał na wszystkich slajdach?**
 
-Tak. Elementy slajdu master i układu obsługują hiperłącza. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach korzystających z odpowiedniego mastera lub układu.
+Tak. Elementy mastera i układu obsługują hiperlinki. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach wykorzystujących odpowiedni master lub układ.
 
-**Czy hiperłącza zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
+**Czy hiperlinki zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
 
-Obsługiwane eksporty do PDF i HTML mogą zachować hiperłącza; obrazy rastrowe i wideo nie mogą. Zobacz uwagi dotyczące eksportu w [Raport, Oczyszczenie i Weryfikację Hiperłączy](#report-sanitize-and-verify-hyperlinks).
+Obsługiwane eksporty PDF i HTML mogą zachować hiperlinki; obrazy rastrowe i wideo nie mogą. Zobacz uwagi dotyczące eksportu w sekcji [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

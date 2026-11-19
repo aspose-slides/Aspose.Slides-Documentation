@@ -1,52 +1,52 @@
 ---
-title: Android'de Sunum Köprülerini Yönet
+title: Android'de Sunum Köprülerini Yönetme
 linktitle: Köprüleri Yönet
 type: docs
 weight: 20
 url: /tr/androidjava/manage-hyperlinks/
 keywords:
 - URL ekle
-- Köprü ekle
-- Köprü oluştur
-- Köprü biçimlendir
-- Köprü kaldır
-- Köprüyü güncelle
-- Metin köprüsü
-- Slayt köprüsü
-- Şekil köprüsü
-- Görsel köprüsü
-- Video köprüsü
-- Değiştirilebilir köprü
+- köprü ekle
+- köprü oluştur
+- köprü biçimlendir
+- köprü kaldır
+- köprü güncelle
+- metin köprüsü
+- slayt köprüsü
+- şekil köprüsü
+- görsel köprüsü
+- video köprüsü
+- değiştirilebilir köprü
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak, Java örnekleriyle PowerPoint ve OpenDocument sunumlarında köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın."
+description: "Android için Java üzerinden Aspose.Slides kullanarak PowerPoint ve OpenDocument sunumlarında köprü ekleme, biçimlendirme, güncelleme ve kaldırma işlemleri, Java örnekleriyle."
 ---
 ## **Giriş**
 
-Bir köprü, sunum içeriğini bir web sitesine veya sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaca hizmet eder:
+Bir köprü, sunum içeriğini bir web sitesine ya da sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaç için kullanılır:
 
-* Metinden, bir şekilden veya bir medya çerçevesinden bir web sitesini açma.
-* Örneğin içindekiler tablosundan başka bir slayta gitme.
+* Metin, şekil veya medya çerçevesinden bir web sitesini açar.
+* Örneğin, bir içerik tablosundan başka bir slayta geçiş yapar.
 
-Aspose.Slides for Android via Java, bu köprüleri eklemenize, görünüm ve seslerini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, tek tek öğelerde köprülerle nasıl çalışılacağını ve köprülere sunum, slayt veya metin‑çerçevesi seviyesinde nasıl erişileceğini gösterir.
+Aspose.Slides for Android via Java, bu bağlantıları eklemenizi, görünüm ve seslerini kontrol etmenizi, özelliklerini güncellemenizi ve kaldırmanızı sağlar. Aşağıdaki örnekler, tek tek öğelerde köprülerle nasıl çalışılacağını ve köprülere sunum, slayt veya metin çerçevesi seviyesinde nasıl erişileceğini gösterir.
 
 {{% alert color="info" title="Note" %}}
 Sunumları ayrıca [ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
-{{% /alert %}} 
+{{% /alert %}}
 
-## **URL Köprülerini Ekle**
+## **URL Köprüleri Ekleme**
 
-Metne, bir şekle veya bir medya çerçevesine bir web sitesi URL'si atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
+Bir web sitesi URL'sini metne, bir şekle veya bir medya çerçevesine atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
 
-Göreceli köprüler içeren sunumlar için, belge‑seviye temel adresi okumak, değiştirmek veya temizlemek amacıyla [Manage the Hyperlink Base](/slides/tr/androidjava/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
+Bağıl köprüler içeren sunumlar için, belge düzeyindeki temeli okumak, değiştirmek veya temizlemek amacıyla [Hyperlink Temelini Yönet](/slides/tr/androidjava/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-### **Metne URL Köprüsü Ekle**
+### **Metne URL Köprüsü Ekleme**
 
-Metni bir web sitesine bağlamak için, aşağıdaki gibi bir [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) nesnesini metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metoduna aktarın. Yalnızca o metin bölümü tıklanabilir hâle gelir.
+Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) yöntemine bir [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) gönderin. Yalnızca o metin bölümü tıklanabilir hâle gelir.
 
 ```java
 import com.aspose.slides.*;
@@ -66,13 +66,9 @@ try {
 }
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekle**
+### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekleme**
 
-Bir şekli veya çerçeveyi tıklanabilir hâle getirmek için, onun [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metodunu çağırın. Köprü, içinde metin bölümü bulunmasından bağımsız olarak nesneye aittir.
-
-Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: köprüyü çerçeveye atayın ve gerekirse [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) metodunu çağırın.
-
-Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
+Dikdörtgenin tüm alanını tıklanabilir hâle getirmek için [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) yöntemini çağırın. Kullanıcı fareyi dikdörtgenin üzerine getirdiğinde hedef hakkında bir ipucu göstermek için [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) yöntemini kullanın. Her iki yöntem de resim, ses ve video çerçevelerine de uygulanır.
 
 ```java
 import com.aspose.slides.*;
@@ -90,9 +86,9 @@ try {
 }
 ```
 
-## **İçindekiler Tablosu Oluşturmak İçin Köprüleri Kullan**
+## **Köprüleri Kullanarak İçindekiler Tablosu Oluşturma**
 
-Dahili köprüler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, birinci slaydın “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) metodunu kullanır.
+İç köprüler, okuyucuların bir içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slayttaki “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) yöntemini kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -126,13 +122,15 @@ try {
 }
 ```
 
-## **Köprüleri Biçimlendir**
+## **Köprüleri Biçimlendirme**
+
+Köprülenmiş metnin rengini değiştirebilir, bir okuyucu köprüyü etkinleştirdiğinde ses çalabilir ya da durdurabilir ve fare üzerine gelindiğinde görülen ipucu metnini ayarlayabilirsiniz.
 
 ### **Renk**
 
-[IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) arayüzünün [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) metodu, köprünün sunumun köprü rengi mi yoksa metin bölümünün biçimlendirmesi mi kullanılacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) seçin ve bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümler bu ayarı uygulamaz.
+Köprünün sunumun köprü rengi mi yoksa metin bölümünün biçimlendirmesini mi kullandığını belirlemek için [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) ara yüzünün [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) yöntemi kullanılır. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) seçilir ve bölümün dolgu rengi ayarlanır. Bu özellik PowerPoint 2019'da tanıtıldı; daha eski sürümlerde bu ayar uygulanmaz.
 
-Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlkinde kırmızı metin dolgusu, ikincisinde ise varsayılan köprü rengi kullanılır.
+Bu örnekte, [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) ilk bağlantının metin bölümünün kırmızı dolgusunu kullanmasını sağlar. İkinci bağlantı ise sunumun köprü rengini korur.
 
 ```java
 import com.aspose.slides.*;
@@ -157,16 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Ses**
 
-Bir köprü etkinleştirildiğinde ses çalabilir ya da hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
+Köprü, etkinleştirildiğinde bir ses çalabilir ya da zaten çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) köprüye atanacak ses dosyasını belirtir.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) köprünün etkinleştirilmesiyle önceki sesin durdurulup durdurulmayacağını kontrol eder.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) köprüyle ilişkili ses dosyasını belirtir.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) köprünün etkinleştirilmesinin önceki sesi durdurup durdurmayacağını kontrol eder.
 
-#### **Köprüye Ses Ekle**
+#### **Köprüye Ses Ekleme**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve birinci slayttaki bir düğmeye ilişkilendirir. Düğmeye tıklandığında ses çalar ve bir sonraki slayta geçilir. Aynı slayttaki ikinci bir şekil tıklandığında ses durur, ancak bir gezinme işlemi gerçekleşmez.
+İlk slayttaki düğme, okuyucu ilerlemek için tıkladığında `sampleaudio.wav` dosyasından ses çalmak için [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) yöntemini kullanır. İkinci slaytta ayrı bir düğme, çalmayı durdurmak ve okuyucuyu o slaytta tutmak için [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) yöntemini kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -205,9 +204,9 @@ try {
 }
 ```
 
-#### **Köprü Sesini Çıkar**
+#### **Köprü Sesini Çıkarma**
 
-Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) ve [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) yöntemleriyle belleğe okur.
+Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) ve [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) aracılığıyla belleğe okur.
 
 ```java
 import com.aspose.slides.*;
@@ -231,18 +230,18 @@ try {
 }
 ```
 
-### **Araç İpucu ve Etkileşim Ayarları**
+### **İpucu ve Etkileşim Ayarları**
 
-Bir köprüyü metne veya şekle atadıktan sonra aşağıdaki [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) yöntemlerini çağırabilirsiniz:
+Metne veya şekle bir köprü atadıktan sonra aşağıdaki [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) yöntemlerini çağırabilirsiniz:
 
-- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) izleyicinin bağlantı için bir ipucu (tooltip) göstermesini sağlar.
-- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) uygulanabilir olduğunda, üst HTML çerçeve grubundaki hedef çerçeveyi belirtir.
-- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) bağlantının etkinleştirilmesinin hedefini izlenen köprüler listesine ekleyip eklemeyeceğini denetler.
-- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) köprünün tıklandığında vurgulanıp vurgulanmayacağını belirler.
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) bağlantı için izleyicinin ipucu olarak gösterebileceği metni ayarlar.
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) uygulanabilir olduğunda, üst HTML çerçeve seti içinde hedef çerçeveyi belirtir.
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) bağlantının etkinleştirilmesinin hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) tıklandığında köprünün vurgulanıp vurgulanmayacağını kontrol eder.
 
-## **Sunumlardan Köprüleri Kaldır**
+## **Sunumlardan Köprüleri Kaldırma**
 
-[ getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) yöntemini kullanarak, değiştirmeden önce metin‑parça bağlantıları da dahil olmak üzere köprü kapsayıcılarını toplayın. Aşağıdaki örnek, birinci slayttaki her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak istiyorsanız, sadece [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) veya [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) yöntemlerini çağırın; bir tıklama eylemini kaldırmak, fare‑üzerinde eylemi kaldırmaz.
+Değişiklik yapmadan önce metin bölümü köprüleri de dahil olmak üzere köprü kapsayıcılarını toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) kullanın. Aşağıdaki örnek, ilk slayttan iki etkinleştirme türünü de kaldırır. Sadece bir türü kaldırmak için yalnızca [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) veya [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) çağırın; bir tıklama eylemini kaldırmak, fare üzerine gelme eylemini kaldırmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +268,58 @@ try {
 }
 ```
 
-Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) yöntemi seçili kapsamda iki etkinleştirme türünü tek bir çağrıyla kaldırır. Master, yerleşim ve notların yanı sıra bu kapsamlarda seçici temizlik ve kapsama için [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) seçilen kapsamda iki etkinleştirme türünü tek bir çağrıyla kaldırır. Seçimli temizlik ve ana slaytlar, düzenler ve notlar kapsamı için [Raporla, Temizle ve Köprüleri Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
 
-## **Tam Bir Köprü Envanteri Oluştur**
+### **SmartArt Metni Değiştirmeden Önce Köprüleri Temizleme**
 
-Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) yöntemi, URL dizesi düz listesi yerine [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür. Her kapsayıcıda hem [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) incelenmelidir. Bunlar bağımsızdır: aynı kapsayıcı iki eylemi de barındırabilir; bu nedenle eksiksiz bir rapor, her kapsayıcı için iki satır gerektirebilir.
+Mevcut bir SmartArt düğümünde bir paragrafı değiştirdiğinizde, metin bölümlerini temizlemek eski bir köprünün etkili kalmasına neden olabilir. Paragrafı [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getTextFrame--) aracılığıyla alın. Bölümleri temizlemeden önce, paragrafı gösteren düğüm şeklinin metin çerçevesinde [getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) çağırın, ardından dönen nesnede [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) çağırın. Bu, o çerçevedeki tüm köprüleri, diğer paragraflardaki bağlantılar dahil, kaldırır.
 
-Yalnızca şekil‑seviyesi köprüleri taramak, metin parçalarına eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve döndürülen kapsayıcıları saklayarak ileride eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+Örnek, `SmartArtHyperlink.pptx` dosyasının ilk slaydındaki üçüncü şeklin bir SmartArt grafik olduğunu varsayar. Dördüncü düğümün ilk paragrafını değiştirir. Bu sunumda, düğümün ilk şekli o paragrafı gösterir.
 
-### **Sunum, Slayt ve Metin‑Çerçeve Kapsamlarını Sorgula**
+Her iki bölümü ekledikten sonra, örnek bunların etkili biçimlendirmesini [getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--) ile okur. Bu biçimlendirmede, [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) ilk bölüm için yeni köprüyü ve ikinci bölüm için `null` değerini döndürür.
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) arayüzü, [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) ve [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) üzerinden kullanılabilir. Her kapsam aynı sorguları destekler:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tam Bir Köprü Envanteri Oluşturma**
+
+Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür, düz URL dizesi listesi değil. Her kapsayıcıda hem [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) incelenir. Bunlar bağımsızdır: aynı kapsayıcı iki eylemi de ortaya çıkarabilir, bu nedenle tam bir rapor her kapsayıcı için iki satır gerektirebilir.
+
+Sadece şekil seviyesindeki köprüleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve dönen kapsayıcıları tutun, böylece daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+
+### **Sunum, Slayt ve Metin-Çerçeve Kapsamlarını Sorgulama**
+
+[IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) arayüzü, [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), ve [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) aracılığıyla kullanılabilir. Her kapsam aynı sorguları destekler:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) tıklama eylemi olan kapsayıcıları döndürür.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) fare‑üzerinde eylemi olan kapsayıcıları döndürür.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) her iki eylemden birini veya ikisini de barındıran kapsayıcıları döndürür.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) fare üzerine gelme eylemi olan kapsayıcıları döndürür.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) bir veya iki eylemi olan kapsayıcıları döndürür.
 
-Aşağıdaki örnek, dış tıklama bağlantısı, dosya fare‑üzerinde bağlantısı, dahili slayt gezintisi, metin fare‑üzerinde bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Bu eylemlerden hiçbiri yürütülmez. Aynı üç sorgu her kapsamda çalışır; sayımlar kapsayıcı sayısını, eylem toplamını değil, gösterir. Metin‑çerçeve kapsamı, içinde bulunduğu şeklin kendi bağlantılarını dışarıda tutar.
+Bu örnek, bir şekle ve metnine tıklama ve fare üzerine gelme eylemleri atar, ayrıca ayrı bir düğmeye makro eylemi atar. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) tarafından döndürülen kapsayıcı sayısını her etkinleştirme türü sayısıyla karşılaştırır. Metin-çerçeve sorgusu yalnızca metindeki bağlantıları sayar. İçeren şeklin kendi eylemleri slayt ve sunum sorgularında görünür.
 
 ```java
 import com.aspose.slides.*;
@@ -325,37 +359,37 @@ try {
 }
 ```
 
-Bu örnek için, sunum ve slayt sorguları her birinde üç tıklama kapsayıcısı, iki fare‑üzerinde kapsayıcısı ve üç toplam kapsayıcı raporlar. Metin‑çerçeve sorgusu her kategoride bir kapsayıcı raporlar.
+Bu örnek için, sunum ve slayt sorguları her biri üç tıklama kapsayıcısı, iki fare üzerine gelme kapsayıcısı ve bir eyleme sahip üç kapsayıcı rapor eder. Metin-çerçeve sorgusu her kategoride bir kapsayıcı rapor eder.
 
-### **Eylemleri ve Hedefleri Sınıflandır**
+### **Eylemleri ve Hedefleri Sınıflandırma**
 
-Bir eylemin hedefine bakmadan önce, [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) yöntemiyle eylemi yorumlayın. [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) değerleri, yalnızca web gezintisini değil, şu amaçları da kapsar:
+Eylemi, hedefini yorumlamadan önce yorumlamak için [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) değerleri web gezintisinden daha fazlasını kapsar:
 
-| Değerler | Denetim İçin Anlam |
+| Değerler | Denetim için Anlamı |
 | --- | --- |
-| `Hyperlink` | Dış köprü; URL ve şemasını inceleyin. |
-| `JumpSpecificSlide` | Belirli bir slayta dahili geçiş. |
+| `Hyperlink` | Harici köprü; URL'yi ve şemasını inceleyin. |
+| `JumpSpecificSlide` | Belirli bir slayta iç gezinme. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Slayt gösterisi içinde yerleşik gezinme, slayt gösterisi bağlamında çözülür. |
-| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandır veya özel bir gösteri başlat. |
-| `StartMacro` | Bir makroyu çalıştır. |
-| `StartProgram` | Bir program başlat. |
-| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunum aç; web URL'lerinden ayrı olarak incelenir. |
-| `StartStopMedia` | Medya oynatmasını başlat veya durdur. |
-| `NoAction`, `Unknown` | Navigasyon eylemi yok ya da tanınmayan bir eylem; inceleme gerekir. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandırır veya özel bir gösteri başlatır. |
+| `StartMacro` | Bir makro çalıştırır. |
+| `StartProgram` | Bir program başlatır. |
+| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunum açar; web URL'lerinden ayrı olarak incelenmelidir. |
+| `StartStopMedia` | Medya oynatmayı başlatır veya durdurur. |
+| `NoAction`, `Unknown` | Navigasyon eylemi yoktur veya gözden geçirme gerektiren tanınmayan bir eylemdir. |
 
-Dış hedefleri [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) ile, belirli dahili hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--) ile okuyun. Dahili eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) değerini koruyun ve mevcutsa [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) tarafından döndürülen araç ipucunu ekleyin.
+Dış hedefleri [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) üzerinden, belirli iç hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--) üzerinden okuyun. İç eylemler ve yerleşik komutlar dış URL olmayabilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklı olduğunda [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) tarafından döndürülen değeri koruyun ve mevcut olduğunda [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) tarafından döndürülen ipucu metnini ekleyin.
 
-### **Köprüleri Raporla, Temizle ve Doğrula**
+### **Köprüleri Raporlama, Temizleme ve Doğrulama**
 
-Aşağıdaki Java örneği, mevcut bir sunumu (yukarıda oluşturulan dosyayı) okur, `hyperlink-audit.json` yazar, bir politika uygular, `hyperlink-sanitized.pptx` kaydeder ve iki etkinleştirme türünü tekrar kontrol etmek için yeniden açar. Değiştirmeden önce kapsayıcıları toplar ve aynı kapsayıcıyı iki kez işlememek için referans eşitliğini kullanır. Sunum sorguları sıradan slaytları kapsar; paket‑geneli envanter için ayrıca master, yerleşim, not ve not‑ve‑el ilanı masterlarını da sorgular.
+Bu örnek, önceki örnekten sunumu açar ve her eylem için bir JSON kaydı yazar. Normal slaytlarda, ana slaytlarda, düzenlerde ve notlarda (varsa not ve el ilanı ana slaytları dahil) kapsayıcıları toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) kullanır. Her kapsayıcıyı bir kez saymak için referans eşitliğini kullanır, aşağıda açıklanan politikayı uygular ve kaydedilen sunumu yeniden açarak tıklama ve fare üzerine gelme eylemlerini kontrol eder.
 
-Rapor, mevcut olduğunda bir‑bazlı slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) değerini kaydeder. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) desteklenen kapsayıcılar için sahibi slaytı sağlar. Master, yerleşim ve notların sıradan slayt indeksi yoktur; kapsamlarıyla tanımlanırlar. Şekil kapsayıcıları ve metin‑parça biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı tipleri çalışma zamanı tip adını korur. Her kapsayıcı, iki eylemi ilişkilendirebilmek için rapor‑içinde bir kimlik alır. Rapor, eylem türlerini Java enum'unda tanımlı tamsayı sabitleri olarak saklar.
+Rapor, mevcut olduğunda birden başlayan slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) kaydeder. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) desteklenen kapsayıcılar için sahibi slaytı sağlar. Ana slaytlar, düzenler ve notlar normal bir slayt indeksine sahip değildir ve kapsamlarıyla tanımlanır. Şekil kapsayıcıları ve metin bölümü biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adını korur. Her kapsayıcı, iki eylemini ilişkilendirebilmek için rapor içinde yerel bir kimlik alır. Rapor, eylem tiplerini Java enum'unda tanımlı tamsayı sabitleri olarak saklar.
 
-Bu kasıtlı kısıtlayıcı uygulama politikası, yalnızca mutlak HTTPS URL'lerini ve geçerli dahili slayt hedeflerini izin verir. Makrolar, programlar, dosya eylemleri, diğer slayt gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS yalnız başına güven oluşturmaz: uygulamanız için host izin listeleri ve ekstra kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
+Bu bilerek kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL'lerine ve geçerli iç slayt hedeflerine izin verir. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güven sağlamaz: uygulamanız için host izin listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
 
-Düzeltme için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) yöntemi [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) metodlarını destekler. Burada, yasak dış tıklama bağlantıları sabit bir HTTPS açılış sayfasıyla değiştirilir; diğer yasak tıklamalar ve yasak fare‑üzerinde eylemleri bağımsız olarak kaldırılır. `replaceExternalClicks` değerini `false` yaparak tüm politika ihlallerini kaldırabilirsiniz. Dağıtımdan önce uygulamaya ait bir yedek sayfa seçin.
+İyileştirme için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) yöntemlerini destekler. Burada, yasak dış tıklama bağlantıları sabit bir HTTPS iniş sayfası ile değiştirilir; diğer yasak tıklamalar ve yasak fare üzerine gelme eylemleri bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `replaceExternalClicks` değerini `false` olarak ayarlayın. Dağıtımdan önce uygulamaya ait bir yedek sayfa seçin.
 
-Raporun dışa aktarım bayrağı, tutucu bir PDF inceleme politikası kullanır: fare‑üzerinde eylemler ve dış bağlantı ya da belirli slayt atlaması dışındaki her şey potansiyel olarak desteklenmeyebilir olarak işaretlenir. Bu bir inceleme ipucu olup, işaretlenmemiş bağlantıların dışa aktarımda sorunsuz çalışacağını garanti etmez. Desteklenen [PDF](/slides/tr/androidjava/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/androidjava/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarım seçeneklerine ve izleyiciye bağlı olarak köprüleri koruyabilir; raster [images](/slides/tr/androidjava/convert-powerpoint-to-png/) ve [video](/slides/tr/androidjava/convert-powerpoint-to-video/) köprüleri koruyamaz; bu çıktılar için denetim sırasında her eylemi işaretleyin.
+Raporun dışa aktarma işareti, temkinli bir PDF inceleme politikası kullanır: fare üzerine gelme eylemleri ve harici bağlantı ya da belirli slayt atlaması dışındaki her şey potansiyel olarak desteklenmemiş olarak işaretlenir. Bu bir inceleme ipucu olup, yetenek testi ya da işaretsiz bağlantıların dışa aktarımda korunacağı garantisi değildir. Desteklenen [PDF](/slides/tr/androidjava/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/androidjava/convert-powerpoint-to-html/) dışa aktarmaları, eyleme, dışa aktarma seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir. Raster [görüntüler](/slides/tr/androidjava/convert-powerpoint-to-png/) ve [video](/slides/tr/androidjava/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktılar için denetim yaparken her eylemi işaretleyin.
 
 ```java
 import com.aspose.slides.*;
@@ -542,20 +576,20 @@ try {
 }
 ```
 
-Yukarıdaki girdiyi oluşturduktan sonra rapor beş eylem satırı içerir. Dosya fare‑üzerinde bağlantısı ve makro tıklaması kaldırılır, HTTPS bağlantıları ve dahili slayt geçişi kalır. Doğrulama, sıfır yasaklı eylem çıktılar. Yasak bir dış tıklama URL'si içeren bir giriş, değişim dalını çalıştırır. İzinli bir tıklama ve yasak fare‑üzerinde eylemi olan bir kapsayıcı, tıklama eylemini tutar.
+Yukarıda oluşturulan girişle, rapor beş eylem satırı içerir. Dosya fare üzerine gelme bağlantısı ve makro tıklaması kaldırılır, HTTPS bağlantıları ve iç slayt navigasyonu kalır. Doğrulama, sıfır yasak eylem yazdırır. Yasak bir dış tıklama URL'si içeren giriş, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir fare üzerine gelme içeren bir kapsayıcı tıklama eylemini korur.
 
-Bu seçici temizlik, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) yönteminden farklıdır; bu yöntem, politika dikkate alınmadan seçili kapsamda her iki etkinleştirme türünü de kaldırır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projeleri, OLE nesneleri veya diğer aktif içerikleri kaldırmaz ve dışa aktarılmış PDF ya da HTML dosyasını doğrulamaz.
+Bu seçici temizlik, politika fark etmeksizin seçilen kapsamda her iki etkinleştirme türünü kaldıran [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) yönteminden farklıdır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış bir PDF ya da HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme veya onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölüme ya da onun ilk slaytına nasıl bağlanabilirim?**
 
-PowerPoint’te bölümler slaytları gruplayarak düzenler, ancak dahili bir köprü bireysel bir slaytı hedef alır. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına bağlanın.
+PowerPoint'teki bölümler slaytları gruplayarak düzenler, ancak iç köprüler bireysel bir slaytı hedef alır. Bir bölüme navigasyon oluşturmak için, o bölümün ilk slaytına bağlanın.
 
-**Master slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
+**Ana slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
 
-Evet. Master slayt ve yerleşim öğeleri köprüleri destekler. Bu öğelere eklenen köprüler, ilgili master veya yerleşimi kullanan slayt gösterisi sırasında erişilebilir olur.
+Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu öğeler üzerindeki bağlantılar, ilgili ana slaytı ya da düzeni kullanan slaytlarda gösterim sırasında kullanılabilir.
 
-**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarılırken korunur mu?**
+**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
 
-Desteklenen PDF ve HTML dışa aktarımları köprüleri koruyabilir; raster görüntüler ve video köprüleri koruyamaz. Bununla ilgili detayları [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümünde bulabilirsiniz.
+Desteklenen PDF ve HTML dışa aktarmaları köprüleri koruyabilir; raster görüntüler ve videolar koruyamaz. Dışa aktarma hususlarını [Raporla, Temizle ve Köprüleri Doğrula](#report-sanitize-and-verify-hyperlinks) bölümünde inceleyin.

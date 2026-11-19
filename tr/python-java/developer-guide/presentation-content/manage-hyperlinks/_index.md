@@ -1,52 +1,52 @@
 ---
-title: Python üzerinden Java ile Sunum Köprülerini Yönet
+title: Python aracılığıyla Java'da Sunum Köprülerini Yönetme
 linktitle: Köprüleri Yönet
 type: docs
 weight: 20
 url: /tr/python-java/manage-hyperlinks/
 keywords:
 - URL ekle
-- köprü ekle
-- köprü oluştur
-- köprü biçimlendir
-- köprü kaldır
-- köprü güncelle
-- metin köprüsü
-- slayt köprüsü
-- şekil köprüsü
-- resim köprüsü
-- video köprüsü
-- değiştirilebilir köprü
+- Köprü ekle
+- Köprü oluştur
+- Köprüyü biçimlendir
+- Köprüyü kaldır
+- Köprüyü güncelle
+- Metin köprüsü
+- Slayt köprüsü
+- Şekil köprüsü
+- Görsel köprüsü
+- Video köprüsü
+- Değiştirilebilir köprü
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Python üzerinden Java ile Aspose.Slides kullanarak PowerPoint ve OpenDocument sunumlarındaki köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın, Python örnekleriyle."
+description: "Python aracılığıyla Java'da Aspose.Slides ile PowerPoint ve OpenDocument sunumlarında köprüleri ekleme, biçimlendirme, güncelleme ve kaldırma, Python örnekleri kullanarak."
 ---
 ## **Giriş**
 
-Bir köprü, sunum içeriğini bir web sitesine ya da sunum içindeki bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaçla kullanılır:
+Bir köprü, sunum içeriğini bir web sitesine veya sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaçla kullanılır:
 
-* Metinden, bir şekilden veya medya çerçevesinden bir web sitesini açar.
-* Örneğin bir içindekiler tablosundan başka bir slayta gider.
+* Metinden, bir şekilden veya bir medya çerçevesinden bir web sitesini açar.
+* Örneğin bir içerik tablosundan başka bir slayta gider.
 
-Aspose.Slides for Python via Java, bu bağlantıları eklemenize, görünüm ve seslerini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, tek tek öğelerde köprülerle nasıl çalışılacağını ve sunum, slayt ya da metin çerçevesi düzeyinde köprülere nasıl erişileceğini gösterir.
+Aspose.Slides for Python via Java, bu bağlantıları eklemenizi, görünüm ve seslerini kontrol etmenizi, özelliklerini güncellemenizi ve kaldırmanızı sağlar. Aşağıdaki örnekler, bireysel öğelerde köprülerle nasıl çalışılacağını ve sunum, slayt veya metin‑çerçevesi düzeyinde köprülere nasıl erişileceğini gösterir.
 
-{{% alert color="info" title="Note" %}}
-Ayrıca sunumları [Ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
-{{% /alert %}} 
+{{% alert color="info" title="Not" %}}
+Sunumları ayrıca ücretsiz çevrimiçi [Aspose PowerPoint editörü](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
+{{% /alert %}}
 
-## **URL Köprüleri Ekle**
+## **URL Köprüleri Ekleme**
 
-Metne, bir şekle veya bir medya çerçevesine bir web sitesi URL'si atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçilen metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
+Metne, bir şekle veya bir medya çerçevesine bir web sitesi URL'si atayabilirsiniz. Köprüyü atadığınız öğe tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
 
-Göreceli köprüler içeren sunumlar için, belge düzeyindeki temeli okumak, değiştirmek veya temizlemek amacıyla [Köprü Temelini Yönet](/slides/tr/python-java/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
+Bağıl köprüler içeren sunumlar için, belge‑seviyesi temeli okumak, değiştirmek veya temizlemek amacıyla [Köprü Temelini Yönet](/slides/tr/python-java/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-### **Metne URL Köprüsü Ekle**
+### **Metne URL Köprüleri Ekleme**
 
-Metni bir web sitesine bağlamak için, metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) metoduna bir [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) nesnesi gönderin; yalnızca o metin bölümü tıklanabilir hâle gelir.
+Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) yöntemine bir [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) geçin. Yalnızca bu metin bölümü tıklanabilir hâle gelir.
 
 ```python
 import jpype
@@ -72,13 +72,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekle**
+### **Şekillere ve Medya Çerçevelerine URL Köprüleri Ekleme**
 
-Bir şekli veya çerçeveyi tıklanabilir hâle getirmek için, onun [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) metodunu çağırın. Köprü nesneye kendisine aittir, içindeki metin bölümüne değil.
-
-Aynı yaklaşım resim, ses ve video çerçeveleri için de geçerlidir: köprüyü çerçeveye atayın ve gerekirse [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) metodunu çağırın.
-
-Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
+Dikdörtgenin tüm alanını tıklanabilir hâle getirmek için [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) metodunu çağırın. Kullanıcı dikdörtgenin üzerine geldiğinde hedef hakkında bir ipucu göstermek için [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) metodunu kullanın. Her iki yöntem de resim, ses ve video çerçevelerine de uygulanır.
 
 ```python
 import jpype
@@ -101,9 +97,9 @@ finally:
     presentation.dispose()
 ```
 
-## **İçindekiler Tablosu Oluşturmak İçin Köprüleri Kullan**
+## **İçindekiler Tablosu Oluşturmak için Köprüler Kullanma**
 
-Dahili köprüler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slaydın “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) metodunu kullanır.
+Dahili köprüler, okuyucuların bir içerik tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slaydın “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) metodunu kullanır.
 
 ```python
 import jpype
@@ -143,13 +139,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Köprüleri Biçimlendir**
+## **Köprüleri Biçimlendirme**
+
+Bağlı metnin rengini değiştirebilir, bir okuyucu bir köprüyü etkinleştirdiğinde ses çalabilir veya durdurabilir ve fare üzerine gelindiğinde görünen ipucu metnini ayarlayabilirsiniz.
 
 ### **Renk**
 
-[Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) sınıfının [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) yöntemi, bir köprünün sunumun köprü rengi mi yoksa metin bölümünün biçimlendirmesi mi kullanacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) seçilir ve bölümün dolgu rengi ayarlanır. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümlerde bu ayar uygulanmaz.
+[Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) sınıfının [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) yöntemi, bir köprünün sunumun köprü rengini mi yoksa metin bölümünün biçimlendirmesini mi kullandığını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) seçin ve bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; daha eski sürümler bu ayarı uygulamaz.
 
-Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlki kırmızı metin dolgusu kullanırken, ikincisi varsayılan köprü rengini korur.
+Bu örnekte, [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) ilk bağlantının metin bölümünün kırmızı dolgusunu kullanmasını sağlar. İkinci bağlantı ise sunumun köprü rengini korur.
 
 ```python
 import jpype
@@ -180,16 +178,17 @@ try:
 finally:
     presentation.dispose()
 ```
+
 ### **Ses**
 
-Bir köprü etkinleştirildiğinde bir ses çalabilir ya da hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
+Bir köprü etkinleştirildiğinde bir ses çalabilir veya hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) köprüyle ilişkili ses dosyasını belirtir.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) köprünün tıklanmasıyla önceki sesin durdurulup durdurulmayacağını kontrol eder.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) köprüyle ilişkili sesi belirtir.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) köprünün etkinleştirilmesiyle önceki sesin durdurulup durdurulmayacağını kontrol eder.
 
-#### **Köprü Sesi Ekle**
+#### **Köprüye Ses Ekleme**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve ilk slayttaki bir düğmeye ilişkilendirir. Düğmeye tıklandığında ses çalar ve sonraki slayta geçiş yapılır. Aynı slayttaki ikinci bir şekil, tıklandığında önceki sesi durdurur; ancak bir gezinme eylemi gerçekleştirmez.
+İlk slaydın düğmesi, okuyucu ilerlemek için tıkladığında `sampleaudio.wav` dosyasından ses çalmak için [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) metodunu kullanır. İkinci slayttaki ayrı bir düğme ise çalmayı durdurmak ve okuyucuyu o slaytta tutmak için [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) metodunu kullanır.
 
 ```python
 from pathlib import Path
@@ -223,7 +222,7 @@ finally:
     presentation.dispose()
 ```
 
-#### **Köprü Sesini Çıkar**
+#### **Köprü Sesini Çıkarma**
 
 Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) ve [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) aracılığıyla belleğe okur.
 
@@ -254,16 +253,16 @@ finally:
 
 ### **İpucu ve Etkileşim Ayarları**
 
-Bir köprüyü metne ya da şekle atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) yöntemlerini çağırabilirsiniz:
+Metne veya şekle bir köprü atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) yöntemlerini çağırabilirsiniz:
 
-- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) izleyicinin bağlantı için ipucu olarak görüntüleyebileceği metni belirler.
-- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) uygulanabilir olduğunda, bir ana HTML çerçeve kümesindeki hedef çerçeveyi belirtir.
-- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) bağlantının etkinleştirilmesinin hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
-- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) tıklanırken köprünün vurgulanıp vurgulanmayacağını belirler.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) izleyicinin link için bir ipucu olarak gösterebileceği metni ayarlar.
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) uygulanabilir olduğunda bir ebeveyn HTML çerçeve kümesindeki hedef çerçeveyi belirtir.
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) linkin etkinleştirilmesinin hedefini görüntülenmiş köprüler listesine ekleyip eklemeyeceğini denetler.
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) tıklandığında köprünün vurgulanıp vurgulanmayacağını kontrol eder.
 
-## **Sunumlardan Köprüleri Kaldır**
+## **Sunumlardan Köprüleri Kaldırma**
 
-[Köprüleri toplamak] için [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) metodunu kullanın; böylece değiştirmeden önce metin‑bölümü bağlantıları da dahil tüm köprü kapsayıcılarını alabilirsiniz. Aşağıdaki örnek, ilk slayttan her iki etkinleştirme türünü de kaldırır. Sadece bir türü kaldırmak isterseniz, yalnızca [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ya da [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metodunu çağırın; bir tıklama eylemini kaldırmak, fare‑üstü eylemini kaldırmaz.
+Değiştirmeden önce metin‑bölümü bağlantılarını da içeren köprü konteynerlerini toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) metodunu kullanın. Aşağıdaki örnek, ilk slayttan her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak için yalnızca [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ya da [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metodunu çağırın; bir tıklama eylemini kaldırmak, fare‑üstü eşdeğerini kaldırmaz.
 
 ```python
 import jpype
@@ -288,23 +287,63 @@ finally:
     presentation.dispose()
 ```
 
-Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) seçili kapsamda her iki etkinleştirme türünü tek bir çağrıyla kaldırır. Öğretmenler, düzenler ve notlar dahil olmak üzere kapsamlı bir temizlik ve kapsama için [Köprüleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Şartsız kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) seçili kapsamda iki etkinleştirme türünü tek bir çağrıyla kaldırır. Seçimli temizlik ve ana düzen, düzenler ve notlar kapsamasını kapsamak için [Köprüleri Raporlama, Temizleme ve Doğrulama](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
 
-## **Tam Bir Köprü Envanteri Oluştur**
+### **SmartArt Metnini Değiştirmeden Önce Köprüleri Temizleme**
 
-Bir sunumu dağıtmadan önce, etkileşimli eylemlerinin ve web bağlantılarının envanterini çıkarın. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) metoduyla, [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) ve [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) gibi köprü kapsayıcıları alınır; düz bir URL listesi döndürülmez. Her kapsayıcıda hem [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) metodlarını inceleyin. Bu iki eylem bağımsızdır: aynı kapsayıcı her iki eylemi de sergileyebilir, bu yüzden tam bir rapor için kapsayıcı başına iki satır gerekebilir.
+Mevcut bir SmartArt düğümünde bir paragrafı değiştirirken, metin bölümlerini temizlemek eski bir köprünün etkili kalmasına neden olabilir. Paragrafı [SmartArtNode.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/smartartnode/#getTextFrame) üzerinden alın. Bölümleri temizlemeden önce, düğümün şeklinin metin çerçevesinde [getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries) metodunu çağırın ve ardından döndürülen nesnede [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) metodunu çalıştırın. Bu, çerçevedeki tüm köprüleri, diğer paragraf bağlantılarını da içerecek şekilde kaldırır.
 
-Yalnızca şekil‑seviyesi köprüleri taramak, metin bölümlerine eklenmiş köprüleri kaçırabilir. Uygun kapsamı sorgulayın ve dönen kapsayıcıları tutun; böylece daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+Örnek, `SmartArtHyperlink.pptx` dosyasının ilk slaydındaki üçüncü şeklin bir SmartArt grafiği olduğunu varsayar. Dördüncü düğümün ilk paragrafını değiştirir. Bu sunumda, düğümün ilk şekli o paragrafı gösterir.
 
-### **Sunum, Slayt ve Metin‑Çerçeve Kapsamlarını Sorgula**
+Her iki bölümü ekledikten sonra örnek, [getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) ile etkili biçimlendirmeyi okur. Bu biçimlendirmede, `getHyperlinkClick` ilk bölüm için yeni köprüyü, ikinci bölüm için ise `None` döndürür.
 
-[HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) sınıfına, [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries) ve [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries) üzerinden erişilir. Her kapsam aynı sorguları destekler:
+```python
+import jpype
+import asposeslides
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) tıklama eylemi olan kapsayıcıları döndürür.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) fare‑üstü eylemi olan kapsayıcıları döndürür.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) bir veya her iki eylemi de içeren kapsayıcıları döndürür.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-Aşağıdaki örnek, dış tıklama bağlantısı, dosya fare‑üstü bağlantısı, dahili slayt yönlendirmesi, metin fare‑üstü bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Bu eylemlerden hiçbiri yürütülmez. Aynı üç sorgu her kapsamda çalışır; sayılar kapsayıcıları ifade eder, eylem toplamını değil. Metin‑çerçeve kapsamı, içinde bulunduğu şeklin kendi bağlantılarını içermez.
+from asposeslides.api import Hyperlink, Portion, Presentation
+
+presentation = Presentation("SmartArtHyperlink.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    smart_art = slide.getShapes().get_Item(2)
+    node = smart_art.getAllNodes().get_Item(3)
+    paragraph = node.getTextFrame().getParagraphs().get_Item(0)
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks()
+    paragraph.getPortions().clear()
+
+    link = Portion("New reference")
+    link.getPortionFormat().setHyperlinkClick(Hyperlink("https://example.com/new"))
+    paragraph.getPortions().add(link)
+    text = Portion(" (updated)")
+    paragraph.getPortions().add(text)
+
+    print(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl())  # https://example.com/new
+    print(text.getPortionFormat().getEffective().getHyperlinkClick())  # None
+finally:
+    presentation.dispose()
+```
+
+## **Tam Bir Köprü Envanteri Oluşturma**
+
+Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) yönteminin döndürdüğü nesneler, URL dizesi listesi yerine [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) ve [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) gibi köprü konteynerleridir. Her konteynerde hem [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) metodlarını inceleyin. Bunlar bağımsızdır: aynı konteyner hem tıklama hem fare‑üstü eylemlerini sunabilir, bu yüzden eksiksiz bir rapor her konteyner için iki satır gerektirebilir.
+
+Sadece şekil‑seviyesindeki köprüleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve döndürülen konteynerleri saklayarak ileride eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+
+### **Sunum, Slayt ve Metin Çerçevesi Kapsamlarını Sorgulama**
+
+[HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) sınıfına [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries) ve [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries) üzerinden erişilir. Her kapsam aynı sorguları destekler:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) tıklama eylemi olan konteynerleri döndürür.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) fare‑üstü eylemi olan konteynerleri döndürür.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) her iki eylemden birine veya ikisine sahip konteynerleri döndürür.
+
+Bu örnek, bir şeklin ve metninin tıklama ve fare‑üstü eylemlerini, ayrı bir düğmenin makro eylemini atar. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) ile dönen konteyner sayısını her eylem türünün sayısıyla karşılaştırır. Metin‑çerçevesi sorgusu yalnızca metindeki bağlantıları sayar. İçeren şeklin kendi eylemleri slayt ve sunum sorgularında görülür.
 
 ```python
 import jpype
@@ -345,37 +384,37 @@ finally:
     presentation.dispose()
 ```
 
-Bu örnek için, sunum ve slayt sorguları her biri üç tıklama kapsayıcısı, iki fare‑üstü kapsayıcısı ve üç toplam kapsayıcı rapor eder. Metin‑çerçeve sorgusu her kategori için bir kapsayıcı raporlar.
+Bu örnek için, sunum ve slayt sorguları üç tıklama konteyneri, iki fare‑üstü konteyneri ve her iki eyleme sahip üç konteyner rapor eder. Metin‑çerçevesi sorgusu her kategoride bir konteyner rapor eder.
 
-### **Eylemleri ve Hedefleri Sınıflandır**
+### **Eylemleri ve Hedefleri Sınıflandırma**
 
-Bir eylemi yorumlamadan önce, hedefini yorumlamak için [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) metodunu kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) değerleri web gezinmesinden çok daha fazlasını kapsar:
+Bir eylemi yorumlamadan önce hedefini yorumlamak için [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) metodunu kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) değerleri web gezinmesinden çok daha fazlasını kapsar:
 
-| Değerler | Denetim Anlamı |
+| Değerler | Denetim için Anlamı |
 | --- | --- |
-| `Hyperlink` | Dış köprü; URL ve şemasını inceleyin. |
-| `JumpSpecificSlide` | Belirli bir slayta dahili yönlendirme. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Slayt gösterisi içinde yerleşik gezinme, slayt gösterisi bağlamında çözülür. |
-| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandır veya özel bir gösteri başlat. |
-| `StartMacro` | Bir makro çalıştır. |
-| `StartProgram` | Bir program başlat. |
-| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunum aç; web URL’lerinden ayrı inceleyin. |
-| `StartStopMedia` | Medya oynatımını başlat veya durdur. |
-| `NoAction`, `Unknown` | Navigasyon eylemi yok veya tanınmayan eylem; incelenmeli. |
+| `Hyperlink` | Harici köprü; URL ve şemasını inceleyin. |
+| `JumpSpecificSlide` | Belirli bir slayta içsel gezinme. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Yerleşik slayt gösterisi gezinmesi, slayt gösterisi bağlamında çözülür. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandırır veya özel bir gösteri başlatır. |
+| `StartMacro` | Bir makroyu çalıştırır. |
+| `StartProgram` | Bir programı başlatır. |
+| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunumu açar; web URL'lerinden ayrı olarak incelenmelidir. |
+| `StartStopMedia` | Ortam oynatmayı başlatır veya durdurur. |
+| `NoAction`, `Unknown` | Gezinme eylemi yok veya incelenmesi gereken tanınmayan bir eylem. |
 
-Dış hedefleri [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) ile, belirli dahili hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide) ile okuyun. Dahili eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL’den farklıysa, [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) tarafından döndürülen değeri koruyun ve mevcutsa [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) tarafından döndürülen ipucunu ekleyin.
+Harici hedefleri [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) ile, belirli içsel hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide) ile okuyun. İçsel eylemler ve yerleşik komutlar harici bir URL içermeyebilir; boş bir URL, konteynerin hiç eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) değerini koruyun ve mevcutsa [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) tarafından döndürülen ipucunu ekleyin.
 
-### **Köprüleri Raporla, Temizle ve Doğrula**
+### **Köprüleri Raporlama, Temizleme ve Doğrulama**
 
-Aşağıdaki Python örneği mevcut bir sunumu okur (yukarıda oluşturulan dosyayı kullanın), `hyperlink-audit.json` dosyasına yazar, bir politika uygular, `hyperlink-sanitized.pptx` dosyasını kaydeder ve tekrar açarak hem tıklama hem de fare‑üstü eylemlerini yeniden kontrol eder. Değiştirmeden önce kapsayıcıları toplar ve aynı kapsayıcıyı iki kez işlememek için referans eşitliğini kullanır. Sunum sorguları normal slaytları kapsar; paket‑geneli envanter için aynı zamanda öğretmenler, düzenler, notlar ve var ise not ve el ilanı öğretmenleri de açıkça sorgulanır.
+Bu örnek, önceki örnekten sunumu açar ve her eylem için bir JSON kaydı yazar. Normal slaytların, ana düzenlerin, düzenlerin ve notların yanı sıra mevcutsa not ve el ilanı ana düzenlerini de kapsayan konteynerleri toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) kullanır. Her konteyneri yalnızca bir kez saymak için referans eşitliğini kullanır, aşağıda tanımlanan politikayı uygular ve kaydedilen sunumu yeniden açarak hem tıklama hem fare‑üstü eylemlerini kontrol eder.
 
-Rapor, bir‑tabanlı slayt indeksini ve mevcut olduğunda [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) değerini kaydeder. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) desteklenen kapsayıcılar için sahip slaytı sağlar. Öğretmenler, düzenler ve notların normal bir slayt indeksi yoktur; kapsamlarıyla tanımlanırlar. Şekil kapsayıcıları ve metin‑bölümü biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adlarını korur. Her kapsayıcı, iki eylemi ilişkilendirebilmek için rapor‑yerel bir kimlik alır. Rapor, eylem türlerini Java sayımının tanımladığı tamsayı sabitleri olarak saklar.
+Rapor, kullanılabilir olduğunda bir‑baz‑bir slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) değerini içerir. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) desteklenen konteynerler için sahip slaytı sağlar. Ana düzenler, düzenler ve notlar normal bir slayt indeksine sahip olmaz; kapsamlarıyla tanımlanırlar. Şekil konteynerleri ve metin‑bölüm biçimlendirme konteynerleri ayrı ayrı etiketlenir; diğer konteyner tipleri çalışma zamanı tip adlarını korur. Her konteyner, iki eylemini ilişkilendirebilmek için rapor içinde yerel bir kimlik alır. Rapor, eylem türlerini Java enum'unda tanımlı tam sayı sabitleri olarak saklar.
 
-Bu kasıtlı olarak kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL’lerini ve geçerli dahili slayt hedeflerini kabul eder. Makrolar, programlar, dosya eylemleri, diğer slayt gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS yalnızca güven oluşturmaz: uygulamanız için host izin listeleri ve ek kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL’ler kontrol edilir. Örnek, bağlantıları takip etmeden ya da eylemleri çalıştırmadan meta verileri denetler.
+Bu kısıtlayıcı uygulama politikası, yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini izin verir. Makrolar, programlar, dosya eylemleri, diğer slayt gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenliği kararı değildir. HTTPS tek başına güven oluşturmaz: uygulamanız için host izin listeleri ve ek kontroller ekleyin. Hem orijinal hem de normalleştirilmiş harici URL'ler denetlenir. Örnek, bağlantılara gidip eylemleri çalıştırmadan meta verileri denetler.
 
-Düzeltme için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) nesnesi [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metodlarını destekler. Burada, yasak dış tıklama bağlantıları sabit bir HTTPS açılış sayfasıyla değiştirilir; diğer yasak tıklama ve fare‑üstü eylemleri bağımsız olarak kaldırılır. `replace_external_clicks` değerini `False` yaparak tüm politika ihlallerini kaldırabilirsiniz. Dağıtıma başlamadan önce uygulama‑sahibi bir yedekleme sayfası seçin.
+Düzeltme için, konteynerin [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) yöntemi [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metodlarını destekler. Burada, yasaklanmış dış tıklama bağlantıları sabit bir HTTPS açılış sayfası ile değiştirilir; diğer yasak tıklama ve fare‑üstü eylemler bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `replace_external_clicks` değerini `False` olarak ayarlayın. Dağıtıma geçmeden önce uygulama sahipli bir yedek sayfa seçin.
 
-Raporun dışa aktarım bayrağı, ihtiyatlı bir PDF inceleme politikası kullanır: fare‑üstü eylemler ve dış bağlantı olmayan ya da belirli slayt atlaması olmayan her şey potansiyel olarak desteklenmeyen olarak işaretlenir. Bu bir inceleme ipucu olup, desteklenmeyen bağlantıların dışa aktarımda hayatta kalacağını garanti etmez. Desteklenen [PDF](/slides/tr/python-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/python-java/convert-powerpoint-to-html/) dışa aktarımlar, eyleme, dışa aktarım seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir. Raster [görseller](/slides/tr/python-java/convert-powerpoint-to-png/) ve [videolar](/slides/tr/python-java/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktılar için denetleme yaparken her eylemi işaretleyin.
+Raporun dışa aktarım bayrağı, temkinli bir PDF inceleme politikasını kullanır: fare‑üstü eylemler ve harici bir bağlantı ya da belirli slayt atlaması olmayan her şey potansiyel olarak desteklenmez olarak işaretlenir. Bu bir inceleme ipucu olup, bir yetenek testi ya da işaretlenmemiş bağlantıların dışa aktarımda kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/python-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/python-java/convert-powerpoint-to-html/) dışa aktarmaları, eyleme, dışa aktarım seçeneklerine ve izleyiciye bağlı olarak köprüleri koruyabilir. Raster [görüntüler](/slides/tr/python-java/convert-powerpoint-to-png/) ve [videolar](/slides/tr/python-java/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktılar için denetleme yaparken tüm eylemler işaretlenmelidir.
 
 ```python
 import json
@@ -528,20 +567,17 @@ finally:
     presentation.dispose()
 ```
 
-Yukarıda oluşturulan giriş ile rapor beş eylem satırı içerir. Dosya fare‑üstü bağlantısı ve makro tıklaması kaldırılırken, HTTPS bağlantıları ve dahili slayt gezinmesi korunur. Doğrulama, sıfır yasaklı eylem çıktılar. Yasak bir dış tıklama URL’si içeren bir giriş, değiştirme dalını da gösterir. İzin verilen bir tıklama ve yasak bir fare‑üstü eylemi olan bir kapsayıcı, tıklama eylemini tutar.
+Yukarıda oluşturulan girdi ile rapor beş eylem satırı içerir. Dosya fare‑üstü bağlantısı ve makro tıklaması kaldırılırken, HTTPS bağlantıları ve iç slayt gezinmesi kalır. Doğrulama, sıfır yasaklı eylem yazdırır. Yasak bir dış tıklama URL'si içeren bir girdi, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir fare‑üstü eyleme sahip bir konteyner, tıklama eylemini korur.
 
-Bu seçici temizlik, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) metodundan farklıdır; bu metod, politika gözetmeksizin seçili kapsam içinde her iki etkinleştirme türünü de kaldırır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış PDF ya da HTML dosyasını doğrulamaz.
+Bu seçici temizlik, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) metodunun aksine, politika göz önünde bulundurulmadan seçili kapsamda hem tıklama hem fare‑üstü eylemleri kaldırır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış PDF ya da HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme ya da onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölüme veya onun ilk slaytına nasıl bağlanabilirim?**  
+PowerPoint’te bölümler slaytları gruplar, ancak iç köprüler tek bir slaytı hedefler. Bir bölüme gezinme oluşturmak için o bölümün ilk slaytına bağlanın.
 
-PowerPoint’te bölümler slaytları gruplar, ancak dahili bir köprü yalnızca tek bir slayta yönelir. Bir bölüme yönlendirme oluşturmak için, o bölümün ilk slaytına bağlanın.
+**Ana slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**  
+Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu öğelere eklenen köprüler, ilgili ana slayt veya düzeni kullanan slayt gösterisi sırasında kullanılabilir.
 
-**Köprüleri tüm slaytlarda çalışması için ana slayt öğelerine ekleyebilir miyim?**
-
-Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu öğeler üzerindeki bağlantılar, ilgili ana slaytı ya da düzeni kullanan slayt gösterisi sırasında kullanılabilir.
-
-**Köprüler PDF, HTML, görseller veya video olarak dışa aktarılırken korunur mu?**
-
-Desteklenen PDF ve HTML dışa aktarımlar köprüleri koruyabilir; raster görseller ve video koruyamaz. Detaylı dışa aktarım hususlarına [Köprüleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümünden bakın.
+**PDF, HTML, görüntüler veya video olarak dışa aktarırken köprüler korunur mu?**  
+Desteklenen PDF ve HTML dışa aktarmaları köprüleri koruyabilir; raster görüntüler ve videolar ise koruyamaz. Detaylı dışa aktarım değerlendirmesi için [Köprüleri Raporlama, Temizleme ve Doğrulama](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.

@@ -9,7 +9,7 @@ keywords:
 - 添加超链接
 - 创建超链接
 - 格式化超链接
-- 删除超链接
+- 移除超链接
 - 更新超链接
 - 文本超链接
 - 幻灯片超链接
@@ -23,32 +23,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java，在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和删除超链接，提供 Java 示例。"
+description: "使用 Aspose.Slides for Android via Java 的 Java 示例，在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和移除超链接。"
 ---
 ## **介绍**
 
-超链接将演示文稿内容连接到网站或演示文稿中的位置。在 PowerPoint 中，超链接通常有两个目的：
+超链接将演示文稿内容连接到网站或演示文稿内的某个位置。在 PowerPoint 中，超链接通常有两种用途：
 
 * 从文本、形状或媒体框打开网站。
-* 导航到另一张幻灯片，例如，从目录。
+* 导航到另一张幻灯片，例如从目录跳转。
 
-Aspose.Slides for Android via Java 让您可以添加这些链接、控制其外观和声音、更新其属性并将其删除。下面的示例展示了如何在单个元素上使用超链接，以及如何在演示文稿、幻灯片或文本框级别访问超链接。
+Aspose.Slides for Android via Java 允许您添加这些链接，控制其外观和声音，更新其属性，并将其移除。下面的示例展示了如何在单个元素上使用超链接，以及如何在演示文稿、幻灯片或文本框级别访问超链接。
 
-{{% alert color="info" title="注意" %}}
-
-您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/editor)编辑演示文稿。
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+您也可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/editor)编辑演示文稿。
+{{% /alert %}}
 
 ## **添加 URL 超链接**
 
-您可以将网站 URL 分配给文本、形状或媒体框。分配超链接的元素决定可点击区域：文本部分链接所选文本，而形状或框链接幻灯片对象。
+您可以将网站 URL 分配给文本、形状或媒体框。分配超链接的元素决定了可点击区域：文本段落链接选中的文本，而形状或框则链接整个幻灯片对象。
 
-对于包含相对超链接的演示文稿，请参阅[管理超链接基准](/slides/zh/androidjava/presentation-properties/#manage-the-hyperlink-base)以读取、修改或清除文档级基准。
+对于包含相对超链接的演示文稿，请参阅[Manage the Hyperlink Base](/slides/zh/androidjava/presentation-properties/#manage-the-hyperlink-base)以读取、修改或清除文档级别的基准。
 
 ### **向文本添加 URL 超链接**
 
-要将文本链接到网站，请将[Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/)传递给文本部分的[setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-)方法，如下所示。只有该文本段落会变为可点击。
+要将文本链接到网站，请将[Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/)传递给文本段落的[setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-)方法，如下所示。只有该段文本会变为可点击。
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +68,7 @@ try {
 
 ### **向形状和媒体框添加 URL 超链接**
 
-要使形状或框可点击，请调用其[setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-)方法。超链接属于对象本身，而不是对象内部的文本段落。
-
-相同的方法适用于图片、音频和视频框：将超链接分配给框并在需要时调用[setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-)。
-
-下面的示例使一个矩形可点击：
+对矩形调用[setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-)使其整个区域可点击。使用[setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-)在鼠标悬停矩形时向读者显示目的地提示。两种方法同样适用于图片、音频和视频框。
 
 ```java
 import com.aspose.slides.*;
@@ -94,7 +88,7 @@ try {
 
 ## **使用超链接创建目录**
 
-内部超链接让读者可以从目录跳转到特定幻灯片。以下示例使用[setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-)将第一张幻灯片上的“第 2 页”文本链接到第二张幻灯片。
+内部超链接让读者可以从目录跳转到特定幻灯片。以下示例使用[setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-)将第一页上的“Page 2”文本链接到第二页。
 
 ```java
 import com.aspose.slides.*;
@@ -130,11 +124,13 @@ try {
 
 ## **格式化超链接**
 
+您可以更改已链接文本的颜色，在读者激活链接时播放或停止声音，并设置悬停时出现的工具提示。
+
 ### **颜色**
 
-[IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/)的[setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-)方法决定超链接是使用演示文稿的超链接颜色还是文本段落的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/)并设置段落的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不应用此设置。
+[IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/)的[setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-)方法决定超链接是使用演示文稿的超链接颜色还是文本段落的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/)并设置段落的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不支持此设置。
 
-下面的示例在同一张幻灯片上添加了两个文本超链接。第一个使用红色文本填充，第二个保留默认超链接颜色。
+在本例中，[setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-)使第一个链接使用文本段落的红色填充。第二个链接保持演示文稿的超链接颜色。
 
 ```java
 import com.aspose.slides.*;
@@ -159,16 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **声音**
 
-超链接可以在激活时播放声音，或停止已在播放的声音。使用以下方法配置这些行为：
+超链接可以在激活时播放声音或停止正在播放的声音。使用以下方法配置这些行为：
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-)指定与超链接关联的音频。
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-)控制激活超链接时是否停止先前的声音。
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) 指定与超链接关联的音频。
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) 控制激活超链接时是否停止先前的声音。
 
 #### **添加超链接声音**
 
-下面的示例加载 `sampleaudio.wav` 并将其与第一张幻灯片上的按钮关联。单击按钮会播放声音并跳转到下一张幻灯片。该幻灯片上的第二个形状在单击时停止先前的声音，而不执行导航操作。
+第一页上的按钮使用[IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-)在读者点击前进时播放 `sampleaudio.wav`。第二页上的另一个按钮使用[IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-)停止播放并保持读者停留在该页。
 
 ```java
 import com.aspose.slides.*;
@@ -209,7 +206,7 @@ try {
 
 #### **提取超链接声音**
 
-下面的示例打开上面创建的演示文稿，并通过[getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--)和[getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--)将第一个形状的超链接音频读取到内存中。
+以下示例打开上述创建的演示文稿，并通过[getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--)和[getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--)将第一个形状的超链接音频读取到内存。
 
 ```java
 import com.aspose.slides.*;
@@ -233,18 +230,18 @@ try {
 }
 ```
 
-### **提示和交互设置**
+### **工具提示和交互设置**
 
-在为文本或形状分配超链接后，您可以调用以下[IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/)方法：
+为文本或形状分配超链接后，您可以调用以下[IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/)方法：
 
-- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-)设置查看者可以显示为链接提示的文本。
-- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-)在适用时指定父 HTML frameset 中的目标框架。
-- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-)控制激活链接时是否将其目的地添加到已查看超链接列表。
-- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-)控制点击时是否高亮显示超链接。
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) 设置观众在悬停时看到的提示文本。
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) 指定父 HTML frameset 中的目标框（如适用）。
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) 控制激活链接时是否将其目的地加入已查看超链接列表。
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) 控制点击时是否高亮显示超链接。
 
-## **从演示文稿中删除超链接**
+## **从演示文稿中移除超链接**
 
-使用[getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)收集包括文本段落链接在内的超链接容器，然后再进行更改。下面的示例删除第一张幻灯片的两种激活类型。若只删除一种类型，只调用[removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)或[removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)；删除点击操作不会删除其鼠标悬停对应操作。
+使用[getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)收集包括文本段落链接在内的超链接容器，然后再进行修改。下面的示例从第一页移除两种激活方式。若只需移除一种，请仅调用[removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)或[removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)；移除点击动作并不会移除其鼠标悬停对应项。
 
 ```java
 import com.aspose.slides.*;
@@ -271,23 +268,58 @@ try {
 }
 ```
 
-如需无条件删除，[removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)一次调用即可在所选范围内删除两种激活类型。有关选择性清理以及对母版、布局和备注的覆盖，请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)。
+若要无条件移除，[removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)在一次调用中删除选定范围内的两种激活方式。有关选择性清理以及对母版、布局和备注的覆盖，请参阅[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)。
+
+### **在替换 SmartArt 文本前清除超链接**
+
+当您替换现有 SmartArt 节点中的段落时，清除其文本段落可能会留下旧的超链接。通过[ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getTextFrame--)获取段落。在清除段落之前，对显示该段落的节点形状的文本框调用[getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--)，然后在返回的对象上调用[removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)。这将删除该框中所有超链接，包括其他段落中的链接。
+
+示例假设 `SmartArtHyperlink.pptx` 第一本页的第三个形状是 SmartArt 图形。它替换了第四个节点的第一段。在该演示文稿中，节点的第一个形状显示该段落。
+
+在添加两段后，示例使用[getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--)读取它们的有效格式。在该格式上，[getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--)返回第一段的新超链接，而第二段返回 `null`。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **构建完整的超链接清单**
 
-在分发演示文稿之前，清点其交互操作以及网页链接。[getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)返回[IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/)对象，而不是扁平的 URL 字符串列表。检查每个容器的[getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--)和[getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它们是独立的：同一容器可以同时暴露两种操作，因此完整报告每个容器可能需要两行。
+在分发演示文稿之前，需对其交互操作以及网络链接进行清点。[getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)返回[IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/)对象，而不是 URL 字符串的平面列表。检查每个容器的[getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--)和[getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它们相互独立：同一容器可以同时暴露两种操作，因此完整报告可能需要每个容器最多两行。
 
-仅在形状级别扫描超链接可能会遗漏附加到文本段落的链接。请改为查询适当的范围，并保留返回的容器，以便稍后更新或删除其操作。
+仅扫描形状级别的超链接可能会遗漏附加在文本段落上的链接。请改为查询适当的作用域，并保留返回的容器，以便以后更新或移除其操作。
 
-### **查询演示文稿、幻灯片和文本框范围**
+### **查询演示文稿、幻灯片和文本框作用域**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/)接口可通过[IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--)、[IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--)和[ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--)访问。每个范围支持相同的查询：
+[IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) 接口可通过[IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--)、[IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--)和[ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--)获取。每个作用域支持相同的查询：
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--)返回带有点击操作的容器。
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--)返回带有鼠标悬停操作的容器。
-- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)返回带有任一或两种操作的容器。
+- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) 返回包含点击操作的容器。
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) 返回包含鼠标悬停操作的容器。
+- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 返回包含任一或两种操作的容器。
 
-下面的示例创建 `hyperlink-audit-input.pptx`，其中包含外部点击链接、文件鼠标悬停链接、内部幻灯片导航、文本鼠标悬停链接和宏操作。它不执行这些操作。相同的三个查询在每个范围内都可工作；计数描述的是容器数量，而非操作总数。文本框范围排除了其所在形状的链接。
+本例对形状及其文本分配了点击和鼠标悬停操作，并对另一个按钮分配了宏操作。它比较了[getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)返回的容器数量与每种激活类型的计数。文本框查询仅统计文本中的链接。包含形状自身操作的容器出现在幻灯片和演示文稿查询中。
 
 ```java
 import com.aspose.slides.*;
@@ -327,37 +359,37 @@ try {
 }
 ```
 
-在此示例中，演示文稿和幻灯片查询各报告三个点击容器、两个鼠标悬停容器以及三个任一操作的容器。文本框查询在每个类别中报告一个容器。
+在本例中，演示文稿和幻灯片查询各报告 3 个点击容器、2 个鼠标悬停容器和 3 个任一操作的容器。文本框查询在每个类别中各报告 1 个容器。
 
-### **对操作和目标进行分类**
+### **对操作和目的地进行分类**
 
-使用[IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--)在解释目标之前先解释操作。[HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/)的取值覆盖了不仅是网页导航的场景：
+使用[IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--)在解释目的地之前先解释操作。[HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) 的取值覆盖了不仅仅是网页导航的场景：
 
 | 值 | 审计时的含义 |
 | --- | --- |
-| `Hyperlink` | 外部超链接；检查 URL 及其协议。 |
-| `JumpSpecificSlide` | 跳转到特定幻灯片的内部导航。 |
+| `Hyperlink` | 外部超链接；检查 URL 及其方案。 |
+| `JumpSpecificSlide` | 内部跳转到特定幻灯片。 |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 内置幻灯片放映导航，在放映上下文中解析。 |
 | `JumpEndShow`, `StartCustomSlideShow` | 结束当前放映或启动自定义放映。 |
 | `StartMacro` | 执行宏。 |
 | `StartProgram` | 启动程序。 |
-| `OpenFile`, `OpenPresentation` | 打开文件或另一个演示文稿；需与网页 URL 分开审查。 |
+| `OpenFile`, `OpenPresentation` | 打开文件或其他演示文稿；需与网页 URL 分别审查。 |
 | `StartStopMedia` | 开始或停止媒体播放。 |
 | `NoAction`, `Unknown` | 无导航操作，或未识别的操作，需要审查。 |
 
-通过[getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--)读取外部目标；通过[getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--)读取特定内部目标。内部操作和内置命令可能没有外部 URL；空 URL 并不表示容器没有操作。当[getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--)的返回值与标准化 URL 不同时，请保留原始值，并在可用时包含由[getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--)返回的提示。
+通过[getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--)读取外部目的地，通过[getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--)读取特定内部目的地。内部操作和内置命令可能没有外部 URL；空 URL 并不意味着容器没有操作。当[getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--)的返回值与归一化 URL 不同时，请保留原始值，并在可用时包含[getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--)返回的工具提示。
 
-### **报告、清理和验证超链接**
+### **报告、清理并验证超链接**
 
-以下 Java 示例读取已有的演示文稿（使用上面创建的文件），写入 `hyperlink-audit.json`，应用策略，保存为 `hyperlink-sanitized.pptx`，并重新打开以再次检查两种激活类型。它在更改前收集容器，并使用引用相等性避免对同一容器进行二次处理。演示文稿查询覆盖普通幻灯片；若需对整个包进行清点，还显式查询母版、布局、备注以及可能存在的备注和讲义母版。
+本示例打开前述示例的演示文稿，并为每个操作写入一条 JSON 记录。它使用[getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)收集普通幻灯片、母版、布局和备注上的容器，包括出现时的备注和讲义母版。它使用引用相等性对每个容器计数一次，应用下面描述的策略，并重新打开保存的演示文稿以检查点击和鼠标悬停操作。
 
-报告记录基于 1 的幻灯片索引和[getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--)（如有）。[ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--)提供支持容器的所属幻灯片。母版、布局和备注没有普通幻灯片索引，使用其范围标识。形状容器和文本段落格式容器单独标记；其他容器类型保留其运行时类型名称。每个容器获得报告本地 ID，以便关联其两种操作。报告将操作类型存为 Java 枚举定义的整数常量。
+报告记录基于 1 的幻灯片索引和[getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--)（如可用）。[ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--)提供受支持容器的所属幻灯片。母版、布局和备注没有普通幻灯片索引，使用其作用域标识。形状容器和文本段落格式容器单独标记；其他容器类型保留其运行时类型名称。每个容器获得报告本地 ID，以便关联其两个操作。报告将操作类型存为 Java 枚举定义的整数常量。
 
-此有意限制的应用策略仅允许绝对 HTTPS URL 和有效的内部幻灯片目标。它拒绝宏、程序、文件操作、其他放映操作、未知操作以及其他 URL 协议。这些拒绝是策略决定，而非 Aspose.Slides 安全判定。HTTPS 本身并不建立信任：请为您的应用添加主机白名单和其他检查。原始和标准化的外部 URL 均会被检查。示例在不跟随链接或执行操作的情况下审计元数据。
+此刻意限制的应用策略仅允许绝对 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他幻灯片操作、未知操作以及其他 URL 方案。这些拒绝是策略决定，而非 Aspose.Slides 安全判定。HTTPS 本身并不建立信任：请为您的应用添加主机白名单及其他检查。原始和归一化的外部 URL 均会被检查。示例在不跟随链接或执行操作的情况下审计元数据。
 
-为修复问题，容器的[getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--)支持[setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)、[removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)以及[removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)。这里，将被禁止的外部点击链接替换为固定的 HTTPS 登陆页；其他被禁止的点击和鼠标悬停操作独立移除。将 `replaceExternalClicks` 设置为 `false` 可删除所有策略违规项。请在部署前选择应用拥有的替代页面。
+若需修复，容器的[getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--)支持[setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)、[removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)和[removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)。这里，将被禁止的外部点击链接替换为固定的 HTTPS 着陆页；其他被禁止的点击和被禁止的鼠标悬停操作分别被移除。将 `replaceExternalClicks` 设置为 `false` 可以删除所有策略违规项。请在部署前选择应用拥有的替换页面。
 
-报告的导出标记使用保守的 PDF 复审策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转之外的任何操作标记为可能不受支持。这是复审提示，而非能力测试或未标记链接一定能在导出后存活的保证。受支持的[PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/androidjava/convert-powerpoint-to-html/) 导出可能会保留超链接，取决于操作、导出选项和查看器。光栅[images](/slides/zh/androidjava/convert-powerpoint-to-png/)和[video](/slides/zh/androidjava/convert-powerpoint-to-video/)无法保留交互式超链接；在审计这些输出时请对每个操作都进行标记。
+报告的导出标记使用保守的 PDF 审查策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转外的任何操作标记为可能不受支持。这是审查提示，而非功能测试或未标记链接一定能在导出后存活的保证。支持的[PDF](/slides/zh/androidjava/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/androidjava/convert-powerpoint-to-html/)导出可能保留超链接，具体取决于操作、导出选项和查看器。光栅[图片](/slides/zh/androidjava/convert-powerpoint-to-png/)和[视频](/slides/zh/androidjava/convert-powerpoint-to-video/)无法保留交互式超链接；在为这些输出审计时请标记每个操作。
 
 ```java
 import com.aspose.slides.*;
@@ -459,7 +491,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // 序列化此报告的平面行，而无需额外的 JSON 依赖。
+    // 序列化此报告的平面行而无需额外的 JSON 依赖。
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -544,20 +576,20 @@ try {
 }
 ```
 
-使用上述输入创建的报告包含五行操作。文件鼠标悬停链接和宏点击被删除，而 HTTPS 链接和内部幻灯片导航保留。验证打印零个违规操作。包含违规外部点击 URL 的输入还演示了替换分支。一个允许点击但禁止鼠标悬停的容器保留其点击操作。
+使用上述输入创建的报告包含五行操作。文件鼠标悬停链接和宏点击被移除，而 HTTPS 链接和内部幻灯片导航保留。验证打印零个违规操作。包含违规外部点击 URL 的输入也会走替换分支。一个拥有允许点击但违规鼠标悬停的容器保留其点击操作。
 
-此选择性清理不同于[removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)——后者在所选范围内不考虑策略而删除两种激活类型。此处的验证仅检查超链接操作；它不删除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不验证导出的 PDF 或 HTML 文件。
+此选择性清理不同于[removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)——后者会在选定范围内不考虑策略地移除两种激活方式。这里的验证仅检查超链接操作；它不移除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不验证导出的 PDF 或 HTML 文件。
 
-## **常见问题**
+## **FAQ**
 
-**如何链接到章节或其第一张幻灯片？**
+**如何链接到某个节或该节的第一张幻灯片？**
 
-PowerPoint 中的章节将幻灯片分组，但内部超链接只能定位到单个幻灯片。若要创建章节导航，请链接到该章节的第一张幻灯片。
+PowerPoint 中的节用于对幻灯片分组，但内部超链接只能定位到单个幻灯片。要实现对节的导航，请链接到该节的第一张幻灯片。
 
-**我可以将超链接附加到母版幻灯片元素上，以便在所有幻灯片上工作吗？**
+**我可以将超链接附加到母版幻灯片元素，以便在所有幻灯片上生效吗？**
 
 可以。母版幻灯片和布局元素支持超链接。这些元素上的链接在使用相应母版或布局的幻灯片放映期间可用。
 
-**导出为 PDF、HTML、图片或视频时，超链接会被保留吗？**
+**导出为 PDF、HTML、图片或视频时会保留超链接吗？**
 
-受支持的 PDF 和 HTML 导出可能会保留超链接；光栅图片和视频则不能。请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)中的导出注意事项。
+支持的 PDF 和 HTML 导出可能保留超链接；光栅图片和视频则不能。请参阅[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)中的导出注意事项。

@@ -5,12 +5,12 @@ type: docs
 weight: 20
 url: /id/java/manage-hyperlinks/
 keywords:
-- menambahkan URL
-- menambahkan hyperlink
-- membuat hyperlink
-- memformat hyperlink
-- menghapus hyperlink
-- memperbarui hyperlink
+- tambahkan URL
+- tambahkan hyperlink
+- buat hyperlink
+- format hyperlink
+- hapus hyperlink
+- perbarui hyperlink
 - hyperlink teks
 - hyperlink slide
 - hyperlink bentuk
@@ -22,28 +22,26 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Menambahkan, memformat, memperbarui, dan menghapus hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Java, menggunakan contoh Java."
+description: "Tambahkan, format, perbarui, dan hapus hyperlink dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java, dengan contoh Java."
 ---
 ## **Pendahuluan**
 
-Tautan hiperlink menghubungkan konten presentasi ke situs web atau lokasi di dalam presentasi. Di PowerPoint, hiperlink biasanya berfungsi untuk dua tujuan:
+Hyperlink menghubungkan konten presentasi ke situs web atau ke lokasi di dalam presentasi. Di PowerPoint, hyperlink biasanya berfungsi untuk dua tujuan:
 
 * Membuka situs web dari teks, bentuk, atau bingkai media.
-* Menavigasi ke slide lain, misalnya, dari daftar isi.
+* Menavigasi ke slide lain, misalnya dari daftar isi.
 
-Aspose.Slides for Java memungkinkan Anda menambahkan tautan ini, mengontrol penampilan dan suaranya, memperbarui propertinya, dan menghapusnya. Contoh di bawah ini menunjukkan cara bekerja dengan hiperlink pada elemen individual dan cara mengakses hiperlink pada tingkat presentasi, slide, atau bingkai teks.
+Aspose.Slides for Java memungkinkan Anda menambahkan tautan ini, mengendalikan penampilan dan suaranya, memperbarui propertinya, dan menghapusnya. Contoh di bawah ini menunjukkan cara bekerja dengan hyperlink pada elemen individu dan cara mengakses hyperlink pada level presentasi, slide, atau bingkai teks.
 
 {{% alert color="info" title="Note" %}}
-Anda juga dapat mengedit presentasi dengan [editor gratis Aspose PowerPoint online](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Anda juga dapat mengedit presentasi dengan [editor Aspose PowerPoint online gratis](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **Menambahkan Hyperlink URL**
+## **Tambahkan Hyperlink URL**
 
-Anda dapat menetapkan URL situs web ke teks, bentuk, atau bingkai media. Elemen tempat Anda menetapkan hiperlink menentukan area yang dapat diklik: bagian teks menautkan teks yang dipilih, sedangkan bentuk atau bingkai menautkan objek slide.
+Anda dapat menetapkan URL situs web ke teks, bentuk, atau bingkai media. Elemen yang Anda tetapkan hyperlink menentukan area yang dapat diklik: bagian teks menautkan teks yang dipilih, sedangkan bentuk atau bingkai menautkan objek slide. Untuk presentasi yang berisi hyperlink relatif, lihat [Kelola Basis Hyperlink](/slides/id/java/presentation-properties/#manage-the-hyperlink-base) untuk membaca, mengubah, atau menghapus basis tingkat dokumen.
 
-Untuk presentasi yang berisi hiperlink relatif, lihat [Kelola Dasar Hyperlink](/slides/id/java/presentation-properties/#manage-the-hyperlink-base) untuk membaca, mengubah, atau menghapus dasar tingkat dokumen.
-
-### **Menambahkan Hyperlink URL ke Teks**
+### **Tambahkan Hyperlink URL ke Teks**
 
 Untuk menautkan teks ke situs web, berikan sebuah [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) ke metode [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) pada bagian teks, seperti ditunjukkan di bawah. Hanya bagian teks tersebut yang menjadi dapat diklik.
 
@@ -65,13 +63,9 @@ try {
 }
 ```
 
-### **Menambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
+### **Tambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
 
-Untuk membuat bentuk atau bingkai dapat diklik, panggil metode [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) miliknya. Hyperlink tersebut menjadi milik objek itu sendiri, bukan bagian teks di dalamnya.
-
-Pendekatan yang sama berlaku untuk bingkai gambar, audio, dan video: tetapkan hyperlink ke bingkai dan panggil [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) jika diperlukan.
-
-Contoh berikut membuat sebuah persegi panjang dapat diklik:
+Panggil [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) pada persegi panjang untuk membuat seluruh area dapat diklik. Gunakan [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) untuk menampilkan petunjuk kepada pembaca tentang tujuan ketika mereka mengarahkan kursor ke persegi panjang. Kedua metode juga berlaku untuk bingkai gambar, audio, dan video.
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +121,13 @@ try {
 
 ## **Format Hyperlink**
 
+Anda dapat mengubah warna teks yang ditautkan, memutar atau menghentikan suara ketika pembaca mengaktifkan tautan, dan mengatur tooltip yang muncul saat kursor diarahkan.
+
 ### **Warna**
 
-Metode [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) dari [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) menentukan apakah sebuah hyperlink menggunakan warna hyperlink presentasi atau pemformatan bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) dan atur warna isian bagian tersebut. Fitur ini diperkenalkan di PowerPoint 2019; versi yang lebih lama tidak menerapkan pengaturan ini.
+Metode [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) dari [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) menentukan apakah hyperlink menggunakan warna hyperlink presentasi atau format bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) dan atur warna isi bagian tersebut. Fitur ini diperkenalkan di PowerPoint 2019; versi lebih lama tidak menerapkan pengaturan ini.
 
-Contoh berikut menambahkan dua hyperlink teks ke slide yang sama. Yang pertama menggunakan isian teks merah, sedangkan yang kedua mempertahankan warna hyperlink default.
+Dalam contoh ini, [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) membuat tautan pertama menggunakan isi merah pada bagian teks. Tautan kedua mempertahankan warna hyperlink presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -156,16 +152,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Suara**
 
-Sebuah hyperlink dapat memutar suara saat diaktifkan atau menghentikan suara yang sedang diputar. Gunakan metode berikut untuk mengonfigurasi perilaku ini:
+Hyperlink dapat memutar suara saat diaktifkan atau menghentikan suara yang sedang diputar. Gunakan metode berikut untuk mengonfigurasi perilaku ini:
 
 - [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) menentukan audio yang terkait dengan hyperlink.
 - [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) mengontrol apakah mengaktifkan hyperlink menghentikan suara sebelumnya.
 
-#### **Menambahkan Suara Hyperlink**
+#### **Tambahkan Suara Hyperlink**
 
-Contoh berikut memuat `sampleaudio.wav` dan mengaitkannya dengan tombol pada slide pertama. Mengklik tombol memutar suara dan menavigasi ke slide berikutnya. Bentuk kedua pada slide tersebut menghentikan suara sebelumnya ketika diklik, tanpa melakukan tindakan navigasi.
+Tombol pada slide pertama menggunakan [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) untuk memutar audio dari `sampleaudio.wav` ketika pembaca mengklik untuk melanjutkan. Pada slide kedua, tombol terpisah menggunakan [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) untuk menghentikan pemutaran dan menjaga pembaca tetap pada slide tersebut.
 
 ```java
 import com.aspose.slides.*;
@@ -203,9 +200,9 @@ try {
 }
 ```
 
-#### **Mengekstrak Suara Hyperlink**
+#### **Ekstrak Suara Hyperlink**
 
-Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink pada bentuk pertama ke dalam memori melalui [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) dan [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
+Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink dari bentuk pertama ke memori melalui [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) dan [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -231,14 +228,14 @@ try {
 
 ### **Pengaturan Tooltip dan Interaksi**
 
-Anda dapat memanggil metode [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) berikut setelah menetapkan hyperlink pada teks atau bentuk:
+Anda dapat memanggil metode [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) berikut setelah menetapkan hyperlink ke teks atau bentuk:
 
-- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) menetapkan teks yang dapat ditampilkan penampil sebagai petunjuk untuk tautan.
-- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) menentukan bingkai target dalam frameset HTML induk, bila berlaku.
-- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) mengontrol apakah mengaktifkan tautan menambahkan destinasinya ke daftar hyperlink yang telah dilihat.
-- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) mengontrol apakah hyperlink disorot ketika diklik.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) mengatur teks yang dapat ditampilkan penonton sebagai petunjuk untuk tautan.
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) menentukan bingkai target dalam set bingkai HTML induk, bila berlaku.
+- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) mengontrol apakah mengaktifkan tautan menambahkan tujuannya ke daftar hyperlink yang telah dilihat.
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) mengontrol apakah hyperlink disorot saat diklik.
 
-## **Menghapus Hyperlink dari Presentasi**
+## **Hapus Hyperlink dari Presentasi**
 
 Gunakan [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) untuk mengumpulkan kontainer hyperlink, termasuk tautan bagian teks, sebelum mengubahnya. Contoh berikut menghapus kedua jenis aktivasi dari slide pertama. Untuk menghapus hanya satu jenis, panggil hanya [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) atau [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); menghapus aksi klik tidak menghapus aksi mouse-over yang bersangkutan.
 
@@ -267,13 +264,48 @@ try {
 }
 ```
 
-Untuk penghapusan tanpa syarat, [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) menghapus kedua jenis aktivasi dalam ruang lingkup yang dipilih dalam satu panggilan. Untuk pembersihan selektif dan cakupan master, tata letak, serta catatan, lihat [Laporan, Sanitisasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
+Untuk penghapusan tanpa syarat, [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) menghapus kedua jenis aktivasi dalam ruang lingkup yang dipilih dalam satu panggilan. Untuk pembersihan selektif dan cakupan master, tata letak, dan catatan, lihat [Laporan, Sanitasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
 
-## **Membangun Inventaris Hyperlink Lengkap**
+### **Bersihkan Hyperlink Sebelum Mengganti Teks SmartArt**
 
-Sebelum mendistribusikan sebuah presentasi, inventarisasikan aksi interaktifnya serta tautan webnya. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), bukan daftar datar string URL. Periksa baik [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) maupun [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) pada setiap kontainer. Mereka bersifat independen: kontainer yang sama dapat menampilkan kedua aksi, sehingga laporan lengkap memerlukan hingga dua baris per kontainer.
+Ketika Anda mengganti paragraf dalam node SmartArt yang ada, membersihkan bagian teksnya dapat meninggalkan hyperlink lama yang masih berlaku. Dapatkan paragraf melalui [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getTextFrame--). Sebelum membersihkan bagiannya, panggil [getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) pada bingkai teks dari bentuk node yang menampilkan paragraf, kemudian panggil [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) pada objek yang dikembalikan. Ini menghapus semua hyperlink di bingkai tersebut, termasuk tautan pada paragraf lain.
 
-Memindai hanya hyperlink tingkat bentuk dapat melewatkan tautan yang terlampir pada bagian teks. Sebagai gantinya, kueri ruang lingkup yang sesuai, dan simpan kontainer yang dikembalikan sehingga Anda dapat memperbarui atau menghapus aksinya nanti.
+Contoh ini mengasumsikan bahwa bentuk ketiga pada slide pertama `SmartArtHyperlink.pptx` adalah grafik SmartArt. Ia mengganti paragraf pertama dari node keempat. Dalam presentasi ini, bentuk pertama node menampilkan paragraf tersebut.
+
+Setelah menambahkan kedua bagian, contoh membaca pemformatan efektif mereka dengan [getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--). Pada pemformatan tersebut, [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) mengembalikan hyperlink baru untuk bagian pertama dan `null` untuk bagian kedua.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Buat Inventaris Hyperlink Lengkap**
+
+Sebelum mendistribusikan sebuah presentasi, inventarisasi aksi interaktifnya serta tautan webnya. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) , bukan daftar datar string URL. Periksa baik [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) maupun [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) pada setiap kontainer. Mereka bersifat independen: kontainer yang sama dapat menampilkan kedua aksi, sehingga laporan lengkap memerlukan hingga dua baris per kontainer.
+
+Memindai hanya hyperlink pada tingkat bentuk dapat melewatkan tautan yang terlampir pada bagian teks. Sebagai gantinya, kueri ruang lingkup yang sesuai, dan simpan kontainer yang dikembalikan agar Anda dapat memperbarui atau menghapus aksi mereka nanti.
 
 ### **Kueri Ruang Lingkup Presentasi, Slide, dan Bingkai Teks**
 
@@ -283,7 +315,7 @@ Antarmuka [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspos
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) mengembalikan kontainer dengan aksi mouse-over.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) mengembalikan kontainer dengan salah satu atau kedua aksi.
 
-Contoh berikut membuat `hyperlink-audit-input.pptx` dengan tautan klik eksternal, tautan file mouse-over, navigasi slide internal, tautan teks mouse-over, dan aksi makro. Contoh ini tidak mengeksekusi aksi apa pun. Tiga kueri yang sama berfungsi pada setiap ruang lingkup; jumlahnya menggambarkan kontainer, bukan total aksi. Ruang lingkup bingkai teks mengecualikan tautan bentuk yang melingkupinya.
+Contoh ini menetapkan aksi klik dan mouse-over pada sebuah bentuk dan teksnya, serta aksi makro pada tombol terpisah. Ia membandingkan jumlah kontainer yang dikembalikan oleh [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) dengan hitungan untuk setiap jenis aktivasi. Kueri bingkai teks menghitung hanya tautan dalam teks. Aksi bentuk yang membungkus muncul dalam kueri slide dan presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -325,11 +357,11 @@ try {
 
 Untuk contoh ini, kueri presentasi dan slide masing-masing melaporkan tiga kontainer klik, dua kontainer mouse-over, dan tiga kontainer dengan salah satu aksi. Kueri bingkai teks melaporkan satu kontainer di setiap kategori.
 
-### **Mengklasifikasikan Aksi dan Tujuan**
+### **Klasifikasikan Aksi dan Tujuan**
 
 Gunakan [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) untuk menafsirkan sebuah aksi sebelum menafsirkan tujuannya. Nilai [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) mencakup lebih dari navigasi web:
 
-| Nilai | Makna untuk audit |
+| Values | Makna untuk audit |
 | --- | --- |
 | `Hyperlink` | Hyperlink eksternal; periksa URL dan skemanya. |
 | `JumpSpecificSlide` | Navigasi internal ke slide tertentu. |
@@ -339,21 +371,21 @@ Gunakan [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.
 | `StartProgram` | Meluncurkan program. |
 | `OpenFile`, `OpenPresentation` | Membuka file atau presentasi lain; tinjau terpisah dari URL web. |
 | `StartStopMedia` | Memulai atau menghentikan pemutaran media. |
-| `NoAction`, `Unknown` | Tidak ada aksi navigasi, atau aksi tidak dikenali yang memerlukan peninjauan. |
+| `NoAction`, `Unknown` | Tidak ada aksi navigasi, atau aksi tidak dikenal yang memerlukan tinjauan. |
 
-Baca tujuan eksternal dari [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) dan tujuan internal spesifik dari [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti kontainer tidak memiliki aksi. Simpan nilai yang dikembalikan oleh [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) ketika berbeda dari URL yang dinormalisasi, dan sertakan tooltip yang dikembalikan oleh [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) bila tersedia.
+Baca tujuan eksternal dari [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) dan tujuan internal spesifik dari [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti bahwa kontainer tidak memiliki aksi. Simpan nilai yang dikembalikan oleh [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) ketika berbeda dari URL yang dinormalisasi, dan sertakan tooltip yang dikembalikan oleh [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) bila tersedia.
 
-### **Laporan, Sanitisasi, dan Verifikasi Hyperlink**
+### **Laporan, Sanitasi, dan Verifikasi Hyperlink**
 
-Contoh Java berikut membaca presentasi yang ada (gunakan file yang dibuat di atas), menulis `hyperlink-audit.json`, menerapkan kebijakan, menyimpan `hyperlink-sanitized.pptx`, dan membukanya kembali untuk memeriksa kembali kedua jenis aktivasi. Ia mengumpulkan kontainer sebelum mengubahnya dan menggunakan kesetaraan referensi untuk menghindari memproses kontainer yang sama dua kali. Kueri presentasi mencakup slide biasa; untuk inventarisasi seluruh paket, ia juga secara eksplisit mengkueri master, tata letak, catatan, serta master catatan dan handout bila ada.
+Contoh ini membuka presentasi dari contoh sebelumnya dan menulis satu rekaman JSON per aksi. Ia menggunakan [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) untuk mengumpulkan kontainer pada slide biasa, master, tata letak, dan catatan, termasuk master catatan dan handout bila ada. Ia menggunakan kesetaraan referensi untuk menghitung setiap kontainer satu kali, menerapkan kebijakan yang dijelaskan di bawah, dan membuka kembali presentasi yang disimpan untuk memeriksa aksi klik dan mouse-over.
 
-Laporan mencatat indeks slide berbasis satu dan [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) bila tersedia. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) menyediakan slide pemilik untuk kontainer yang didukung. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi berdasarkan ruang lingkupnya. Kontainer bentuk dan kontainer pemformatan bagian teks diberi label terpisah; tipe kontainer lain mempertahankan nama tipe runtime-nya. Setiap kontainer mendapatkan ID lokal laporan sehingga dua aksinya dapat dikorelasikan. Laporan menyimpan tipe aksi sebagai konstanta integer yang didefinisikan oleh enumerasi Java.
+Laporan mencatat indeks slide berbasis satu dan [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) bila tersedia. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) menyediakan slide pemilik untuk kontainer yang didukung. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi oleh ruang lingkupnya. Kontainer bentuk dan kontainer format bagian teks diberi label terpisah; tipe kontainer lain mempertahankan nama tipe runtime mereka. Setiap kontainer mendapatkan ID lokal laporan sehingga dua aksinya dapat dikorelasikan. Laporan menyimpan tipe aksi sebagai konstanta integer yang didefinisikan oleh enumerasi Java.
 
-Kebijakan aplikasi yang sengaja ketat ini mengizinkan hanya URL HTTPS absolut dan target slide internal yang valid. Ia menolak macro, program, aksi file, aksi slideshow lain, aksi tidak dikenal, dan skema URL lain. Penolakan ini merupakan keputusan kebijakan, bukan penilaian keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar putih host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun yang dinormalisasi diperiksa. Contoh ini mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
+Kebijakan aplikasi yang sengaja ketat ini hanya memperbolehkan URL HTTPS absolut dan target slide internal yang valid. Ia menolak macro, program, aksi file, aksi slideshow lainnya, aksi tidak dikenal, dan skema URL lain. Penolakan ini merupakan keputusan kebijakan, bukan penilaian keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar putih host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun yang dinormalisasi diperiksa. Contoh ini mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
 
-Untuk remediasi, [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) pada kontainer mendukung [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) , dan [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman arahan HTTPS tetap; klik terlarang lainnya dan aksi mouse-over terlarang dihapus secara independen. Atur `replaceExternalClicks` ke `false` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti milik aplikasi sebelum penyebaran.
+Untuk perbaikan, [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) pada kontainer mendukung [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--), dan [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman landing HTTPS tetap; klik terlarang lainnya dan aksi mouse-over terlarang dihapus secara terpisah. Atur `replaceExternalClicks` ke `false` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti yang dimiliki aplikasi sebelum penyebaran.
 
-Bendera ekspor laporan menggunakan kebijakan peninjauan PDF yang konservatif: menandai aksi mouse-over dan apapun selain tautan eksternal atau loncatan slide spesifik sebagai kemungkinan tidak didukung. Itu hanya petunjuk peninjauan, bukan uji kemampuan atau jaminan bahwa tautan yang tidak ditandai akan tetap ada setelah ekspor. Ekspor [PDF](/slides/id/java/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/java/convert-powerpoint-to-html/) yang didukung dapat mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. [Gambar](/slides/id/java/convert-powerpoint-to-png/) raster dan [video](/slides/id/java/convert-powerpoint-to-video/) tidak dapat mempertahankan hyperlink interaktif; tandai setiap aksi saat mengaudit untuk output tersebut.
+Flag ekspor laporan menggunakan kebijakan tinjauan PDF yang konservatif: menandai aksi mouse-over dan apa pun selain tautan eksternal atau loncatan slide spesifik sebagai berpotensi tidak didukung. Ini merupakan petunjuk tinjauan, bukan uji kemampuan atau jaminan bahwa tautan yang tidak ditandai akan bertahan setelah ekspor. Ekspor [PDF](/slides/id/java/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/java/convert-powerpoint-to-html/) yang didukung dapat mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. [Gambar](/slides/id/java/convert-powerpoint-to-png/) dan [video](/slides/id/java/convert-powerpoint-to-video/) raster tidak dapat mempertahankan hyperlink interaktif; tandai setiap aksi saat mengaudit output tersebut.
 
 ```java
 import com.aspose.slides.*;
@@ -455,7 +487,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // Serialisasikan baris datar laporan ini tanpa ketergantungan JSON tambahan.
+    // Serialisasi baris datar laporan ini tanpa ketergantungan JSON tambahan.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -538,20 +570,20 @@ try {
 }
 ```
 
-Dengan input yang dibuat di atas, laporan berisi lima baris aksi. Tautan file mouse-over dan klik macro dihapus, sementara tautan HTTPS dan navigasi slide internal tetap. Verifikasi mencetak nol aksi terlarang. Input yang berisi URL klik eksternal terlarang juga menguji cabang penggantian. Kontainer dengan klik yang diizinkan dan mouse-over terlarang mempertahankan aksi kliknya.
+Dengan input yang dibuat di atas, laporan berisi lima baris aksi. Tautan mouse-over berkas dan klik macro dihapus, sementara tautan HTTPS dan navigasi slide internal tetap. Verifikasi mencetak nol aksi terlarang. Input yang berisi URL klik eksternal terlarang juga menguji cabang penggantian. Kontainer dengan klik yang diizinkan dan mouse-over terlarang mempertahankan aksi kliknya.
 
-Pembersihan selektif ini berbeda dari [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), yang menghapus kedua jenis aktivasi di seluruh ruang lingkup yang dipilih tanpa mempedulikan kebijakan. Verifikasi di sini hanya memeriksa aksi hyperlink; ia tidak menghapus proyek VBA tertanam, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi file PDF atau HTML yang diekspor.
+Pembersihan selektif ini berbeda dari [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), yang menghapus kedua jenis aktivasi di seluruh ruang lingkup yang dipilih tanpa mempedulikan kebijakan. Verifikasi di sini hanya memeriksa aksi hyperlink; ia tidak menghapus proyek VBA tersemat, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi file PDF atau HTML yang diekspor.
 
 ## **FAQ**
 
 **Bagaimana saya dapat menautkan ke sebuah bagian atau slide pertamanya?**
 
-Bagian di PowerPoint mengelompokkan slide, tetapi hyperlink internal menargetkan satu slide. Untuk membuat navigasi ke sebuah bagian, tautkan ke slide pertama dalam bagian tersebut.
+Bagian di PowerPoint mengelompokkan slide, namun hyperlink internal menargetkan satu slide tertentu. Untuk membuat navigasi ke sebuah bagian, tautkan ke slide pertama dalam bagian tersebut.
 
 **Apakah saya dapat menempelkan hyperlink pada elemen master slide sehingga berfungsi pada semua slide?**
 
-Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen ini tersedia selama pertunjukan slide pada slide yang menggunakan master atau tata letak yang bersangkutan.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen tersebut tersedia selama pertunjukan slide pada slide yang menggunakan master atau tata letak yang bersangkutan.
 
 **Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
 
-Ekspor PDF dan HTML yang didukung dapat mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor di [Laporan, Sanitisasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
+Ekspor PDF dan HTML yang didukung dapat mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor pada [Laporan, Sanitasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).

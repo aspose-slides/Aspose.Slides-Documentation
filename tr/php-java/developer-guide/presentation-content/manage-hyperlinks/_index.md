@@ -1,51 +1,51 @@
 ---
-title: PHP'de Sunum Hiperlinklerini Yönet
-linktitle: Hiperlinkleri Yönet
+title: PHP'de Sunum Köprülerini Yönet
+linktitle: Köprüleri Yönet
 type: docs
 weight: 20
 url: /tr/php-java/manage-hyperlinks/
 keywords:
 - URL ekle
-- hiperlink ekle
-- hiperlink oluştur
-- hiperlink biçimlendir
-- hiperlink kaldır
-- hiperlink güncelle
-- metin hiperlinki
-- slayt hiperlinki
-- şekil hiperlinki
-- resim hiperlinki
-- video hiperlinki
-- değiştirilebilir hiperlink
+- Köprü ekle
+- Köprü oluştur
+- Köprü biçimlendir
+- Köprü kaldır
+- Köprü güncelle
+- Metin köprüsü
+- Slayt köprüsü
+- Şekil köprüsü
+- Görsel köprüsü
+- Video köprüsü
+- Değiştirilebilir köprü
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PHP örnekleriyle PowerPoint ve OpenDocument sunumlarında hiperlinkleri ekleyin, biçimlendirin, güncelleyin ve kaldırın."
+description: "Aspose.Slides for PHP via Java kullanarak, PHP örnekleriyle PowerPoint ve OpenDocument sunumlarında köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın."
 ---
 ## **Giriş**
 
-Bir köprü (hiperlink), sunum içeriğini bir web sitesine ya da sunum içindeki bir konuma bağlar. PowerPoint'te hiperlinkler genellikle iki amaçla kullanılır:
+Bir köprü, sunum içeriğini bir web sitesine veya sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaç için kullanılır:
 
-* Metinden, bir şekilden ya da bir medya çerçevesinden bir web sitesini açmak.
-* Başka bir slayta gitmek, örneğin bir içerik tablosundan.
+* Metin, şekil veya medya çerçevesinden bir web sitesini açar.
+* Örneğin bir içindekiler tablosundan başka bir slayta gider.
 
-Aspose.Slides for PHP via Java, bu bağlantıları eklemenize, görünüm ve sesini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, bireysel öğelerdeki hiperlinklerle nasıl çalışılacağını ve sunum, slayt veya metin çerçevesi düzeyinde hiperlinklere nasıl erişileceğini gösterir. PHP/Java Bridge ve Aspose.Slides PHP sarmalayıcısının başlatıldığını varsayar. PHP referans sayfası bağlantısı olmayan API üyeleri, altında yatan Java API'sine yönlendirilir.
+Aspose.Slides for PHP via Java, bu köprüleri eklemenizi, görünüm ve seslerini kontrol etmenizi, özelliklerini güncellemenizi ve kaldırmanızı sağlar. Aşağıdaki örneklerde bireysel öğelerde köprülerle nasıl çalışılacağını ve köprülere sunum, slayt veya metin‑çerçevesi seviyesinden nasıl erişileceğini gösterir. PHP/Java Bridge ve Aspose.Slides PHP sarmalayıcısının başlatıldığını varsayar. PHP referans sayfası olmayan API üyeleri, altındaki Java API'sine yönlendirilir.
 
 {{% alert color="info" title="Note" %}}
-Sunumları ayrıca [ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
-{{% /alert %}} 
+Sunumları aynı zamanda [free online Aspose PowerPoint editor](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
+{{% /alert %}}
 
-## **URL Hiperlinkleri Ekle**
+## **URL Köprüleri Ekle**
 
-Bir web sitesi URL'sini metne, bir şekle veya bir medya çerçevesine atayabilirsiniz. Hiperlinki atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçilen metni, şekil veya çerçeve ise slayt nesnesini bağlar.
+Bir web sitesi URL'sini metne, şekle veya medya çerçevesine atayabilirsiniz. Köprüyü atadığınız öğe tıklanabilir alanı belirler: bir metin bölümü seçilen metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
 
-For presentations containing relative hyperlinks, see [Hyperlink Temelini Yönet](/slides/tr/php-java/presentation-properties/#manage-the-hyperlink-base) to read, change, or clear the document-level base.
+Göreceli köprüler içeren sunumlar için, belge‑seviyesindeki temeli okumak, değiştirmek veya temizlemek üzere [Manage the Hyperlink Base](/slides/tr/php-java/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-### **Metne URL Hiperlinkleri Ekle**
+### **Metne URL Köprüsü Ekle**
 
-Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi bir [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) nesnesini metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) metoduna iletin. Yalnızca o metin bölümü tıklanabilir olur.
+Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi, metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) metoduna bir [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) nesnesi geçirin. Sadece o metin bölümü tıklanabilir olur.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -68,13 +68,9 @@ try {
 }
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Hiperlinkleri Ekle**
+### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekle**
 
-Bir şekli ya da çerçeveyi tıklanabilir yapmak için, onun [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) metodunu çağırın. Hiperlink, içindeki bir metin bölümüne değil, nesnenin kendisine aittir.
-
-Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: hiperlinki çerçeveye atayın ve gerekirse [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) metodunu çağırın.
-
-Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
+Dikdörtgene tüm alanının tıklanabilir olması için [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) yöntemini çağırın. Kullanıcı dikdörtgenin üzerine geldiğinde hedef hakkında bir ipucu göstermek için [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) yöntemini kullanın. Her iki yöntem aynı zamanda resim, ses ve video çerçevelerine de uygulanır.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -95,9 +91,9 @@ try {
 }
 ```
 
-## **İçindekiler Tablosu Oluşturmak İçin Hiperlinkleri Kullan**
+## **İçindekiler Tablosu Oluşturmak için Köprüleri Kullan**
 
-Dahili hiperlinkler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slaydın “Sayfa 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) metodunu kullanır.
+Dahili köprüler, okuyucuların bir içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, “Page 2” metnini ilk slayttan ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) yöntemini kullanır.
 
 ```php
 use aspose\slides\FillType;
@@ -135,13 +131,15 @@ try {
 }
 ```
 
-## **Hiperlinkleri Biçimlendir**
+## **Köprüleri Biçimlendir**
+
+Bağlantılı metnin rengini değiştirebilir, bir okuyucu köprüyü etkinleştirdiğinde ses çalabilir veya durdurabilir ve üzerine gelindiğinde görülen ipucu metnini ayarlayabilirsiniz.
 
 ### **Renk**
 
-[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) sınıfının [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) metodu, bir hiperlinkin sunumun hiperlink rengini mi yoksa metin bölümünün biçimlendirmesini mi kullanacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) seçin ve bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019'da tanıtıldı; eski sürümler bu ayarı uygulamaz.
+[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) sınıfının [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) yöntemi, köprünün sunumun köprü rengi mi yoksa metin bölümünün biçimlendirmesi mi kullanacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) seçin ve bölümün doldurma rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümler bu ayarı uygulamaz.
 
-Aşağıdaki örnek aynı slayta iki metin hiperlinki ekler. İlkinde kırmızı bir metin dolgu rengi kullanılırken, ikincisi varsayılan hiperlink rengini korur.
+Bu örnekte, [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) ilk köprünün metin bölümünün kırmızı doldurmasını sağlar. İkinci köprü ise sunumun köprü rengini korur.
 
 ```php
 use aspose\slides\FillType;
@@ -173,14 +171,14 @@ try {
 
 ### **Ses**
 
-Bir hiperlink etkinleştirildiğinde ses çalabilir ya da halihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
+Bir köprü etkinleştirildiğinde ses çalabilir veya zaten çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) hiperlinke bağlı ses dosyasını belirler.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) hiperlinkin etkinleştirilmesinin önceki sesi durdurup durdurmayacağını kontrol eder.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) köprünün ilişkili sesini belirtir.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) köprünün etkinleştirilmesi önceki sesi durdurup durdurmayacağını kontrol eder.
 
-#### **Bir Hiperlink Sesini Ekle**
+#### **Köprü Sesi Ekle**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve ilk slaydın üzerindeki bir düğmeye atar. Düğmeye tıklamak sesi çalar ve bir sonraki slayta geçer. Aynı slayttaki ikinci bir şekil, tıklandığında önceki sesi durdurur ve herhangi bir gezinme işlemi yapmaz.
+İlk slayttaki düğme, okuyucu ilerlemek için tıkladığında `sampleaudio.wav` dosyasından ses çalmak üzere [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) yöntemini kullanır. İkinci slaytta ayrı bir düğme, çalmayı durdurmak ve okuyucuyu aynı slaytta tutmak için [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) yöntemini kullanır.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -220,9 +218,9 @@ try {
 }
 ```
 
-#### **Bir Hiperlink Sesini Çıkar**
+#### **Köprü Sesini Çıkar**
 
-Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin hiperlink sesini, [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) ve [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) metodlarıyla belleğe okur.
+Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) ve [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) aracılığıyla belleğe okur.
 
 ```php
 use aspose\slides\Presentation;
@@ -246,18 +244,18 @@ try {
 }
 ```
 
-### **Araç İpucu ve Etkileşim Ayarları**
+### **İpucu ve Etkileşim Ayarları**
 
-Metne veya bir şekle hiperlink atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) metodlarını çağırabilirsiniz:
+Bir metne veya şekle köprü atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) yöntemlerini çağırabilirsiniz:
 
-- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) bir izleyicinin bağlantı için ipucu olarak gösterebileceği metni ayarlar.
-- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) uygulanabilir olduğunda, bir üst HTML çerçeve kümesindeki hedef çerçeveyi belirtir.
-- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) bağlantıyı etkinleştirmenin, hedefini görüntülenen hiperlinkler listesine ekleyip eklemeyeceğini kontrol eder.
-- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) tıklandığında hiperlinkin vurgulanıp vurgulanmayacağını kontrol eder.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) izleyicinin link hakkında bir ipucu gösterebileceği metni ayarlar.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) uygulanabilir olduğunda üst HTML çerçeve kümesindeki hedef çerçeveyi belirtir.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) linkin etkinleştirilmesinin hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) linkin tıklandığında vurgulanıp vurgulanmayacağını kontrol eder.
 
-## **Sunumlardan Hiperlinkleri Kaldır**
+## **Sunumlardan Köprüleri Kaldır**
 
-[getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) metodunu, değiştirmeden önce metin bölümü bağlantıları da dahil olmak üzere hiperlink kapsayıcıları toplamak için kullanın. Aşağıdaki örnek, ilk slayttan her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak için sadece [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) ya da [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) metodunu çağırın; bir tıklama eylemini kaldırmak, onun fare üzeri eylemini kaldırmaz.
+[Köprüleri toplamak] için [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) yöntemini kullanın; böylece metin‑bölümü köprüleri dahil tüm köprü kapsayıcılarını değiştirmeden önce toplayabilirsiniz. Aşağıdaki örnek, ilk slayttaki iki etkinleştirme türünü kaldırır. Yalnızca bir türü kaldırmak için sadece [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) veya [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) yöntemini çağırın; bir tıklama eylemini kaldırmak, fare‑üzerinde eylemini kaldırmaz.
 
 ```php
 use aspose\slides\Presentation;
@@ -283,23 +281,60 @@ try {
 }
 ```
 
-Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) seçilen kapsamda her iki etkinleştirme türünü tek bir çağrıda kaldırır. Seçici temizlik ve ana slaytlar, düzenler ve notlar için kapsamı görmek için [Hiperlinkleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) seçili kapsamda iki etkinleştirme türünü tek bir çağrıyla kaldırır. Seçici temizlik ve ana sayfa, düzen ve not kapsayıcılarını kapsamak için [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
 
-## **Tam Bir Hiperlink Envanteri Oluştur**
+### **Akıllı Sanat Metnini Değiştirmeden Önce Köprüleri Temizle**
 
-Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere almanız gerekir. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) metodu, URL dizileri yerine [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür. Her kapsayıcıda hem [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) yöntemlerini inceleyin. Bunlar bağımsızdır: aynı kapsayıcı her iki eylemi de ortaya çıkarabilir, bu yüzden tam bir rapor için kapsayıcı başına iki satıra kadar gerek duyulabilir.
+Mevcut bir SmartArt düğümünde bir paragrafı değiştirdiğinizde, metin bölümlerini temizlemek eski bir köprünün etkili kalmasına neden olabilir. Paragrafı [SmartArtNode::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/gettextframe/) yöntemiyle alın. Bölümlerini temizlemeden önce düğüm şeklinin metin çerçevesinde [getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) çağırın ve dönen nesnede [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) yöntemiyle tüm köprüleri kaldırın. Böylece o çerçevedeki tüm köprüler, diğer paragraflardaki köprüler de dahil, silinmiş olur.
 
-Sadece şekil düzeyindeki hiperlinkleri taramak, metin bölümlerine eklenen bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve daha sonra eylemlerini güncelleyebilmek veya kaldırabilmek için döndürülen kapsayıcıları saklayın.
+Örnek, `SmartArtHyperlink.pptx` dosyasının ilk slaydındaki üçüncü şeklin bir SmartArt grafiği olduğunu varsayar. Dördüncü düğümün ilk paragrafını değiştirir. Bu sunumda, düğümün ilk şekli o paragrafı gösterir.
 
-### **Sunum, Slayt ve Metin-Çerçeve Kapsamlarını Sorgula**
+Her iki bölümü ekledikten sonra örnek, [getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/) yöntemiyle etkin biçimlendirmeyi okur. Bu biçimlendirmede, [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) ilk bölüm için yeni köprüyü ve ikinci bölüm için `null` döndürür.
+
+```php
+use aspose\slides\Hyperlink;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $smartArt = $slide->getShapes()->get_Item(2);
+    $node = $smartArt->getAllNodes()->get_Item(3);
+    $paragraph = $node->getTextFrame()->getParagraphs()->get_Item(0);
+
+    $node->getShapes()->get_Item(0)->getTextFrame()->getHyperlinkQueries()->removeAllHyperlinks();
+    $paragraph->getPortions()->clear();
+
+    $link = new Portion("New reference");
+    $link->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    $paragraph->getPortions()->add($link);
+    $text = new Portion(" (updated)");
+    $paragraph->getPortions()->add($text);
+
+    echo java_values($link->getPortionFormat()->getEffective()->getHyperlinkClick()->getExternalUrl()), PHP_EOL; // https://example.com/new
+    var_dump(java_is_null($text->getPortionFormat()->getEffective()->getHyperlinkClick())); // bool(true): ikinci bölümde köprü yok.
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Tam Bir Köprü Envanteri Oluştur**
+
+Sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) yöntemi, düz bir URL listesi değil, [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür. Her kapsayıcı için hem [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) yöntemlerini inceleyin. Bunlar bağımsızdır: aynı kapsayıcı iki eylemi de içerebilir, bu yüzden tam rapor her kapsayıcı için iki satır gerektirebilir.
+
+Sadece şekil‑seviyesindeki köprüleri taramak, metin bölümlerine eklenmiş köprüleri kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve dönen kapsayıcıları saklayarak daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+
+### **Sunum, Slayt ve Metin‑Çerçeve Kapsamlarını Sorgula**
 
 [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) sınıfı, [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) ve [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) aracılığıyla kullanılabilir. Her kapsam aynı sorguları destekler:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) tıklama eylemi olan kapsayıcıları döndürür.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) fare üzeri eylemi olan kapsayıcıları döndürür.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) bir veya her iki eylemi de olan kapsayıcıları döndürür.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) fare‑üzerinde eylemi olan kapsayıcıları döndürür.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) her iki eylemi de veya birini içeren kapsayıcıları döndürür.
 
-Aşağıdaki örnek, dış bir tıklama bağlantısı, dosya fare üzeri bağlantısı, iç slayt gezinmesi, metin fare üzeri bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Bu eylemler çalıştırılmaz. Aynı üç sorgu her kapsamda çalışır; sayılar kapsayıcıları tanımlar, eylem toplamlarını değil. Metin-çerçeve kapsamı, içinde bulunduğu şeklin kendi bağlantılarını dışarıda bırakır.
+Bu örnek, bir şekle ve metnine tıklama ve fare‑üzerinde eylemleri ile ayrı bir düğmeye makro eylemi atar. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) tarafından döndürülen kapsayıcı sayısını her etkinleştirme türünün sayısıyla karşılaştırır. Metin‑çerçeve sorgusu sadece metindeki bağlantıları sayar. İçeren şeklin kendi eylemleri slayt ve sunum sorgularında görünür.
 
 ```php
 use aspose\slides\Presentation;
@@ -338,37 +373,37 @@ try {
 }
 ```
 
-Bu örnek için, sunum ve slayt sorguları sırasıyla üç tıklama kapsayıcısı, iki fare üzeri kapsayıcısı ve bir eylemi olan üç kapsayıcı raporlar. Metin-çerçeve sorgusu her kategoride bir kapsayıcı raporlar.
+Bu örnek için, sunum ve slayt sorguları her biri üç tıklama kapsayıcısı, iki fare‑üzerinde kapsayıcısı ve toplam üç kapsayıcı rapor eder. Metin‑çerçeve sorgusu her kategori için bir kapsayıcı raporlar.
 
 ### **Eylemleri ve Hedefleri Sınıflandır**
 
-[Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) metodunu, bir eylemi hedefi yorumlamadan önce yorumlamak için kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) değerleri web gezinmesinden daha fazlasını kapsar:
+Bir eylemi yorumlamadan önce hedefi yorumlamak için [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) yöntemini kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) değerleri, sadece web gezinmesinden daha fazlasını kapsar:
 
-| Değerler | Denetim için Anlamı |
+| Değerler | Denetim için Anlam |
 | --- | --- |
-| `Hyperlink` | Harici hiperlink; URL ve şemasını inceleyin. |
-| `JumpSpecificSlide` | Belirli bir slayta iç gezinme. |
+| `Hyperlink` | Harici köprü; URL'yi ve şemasını inceleyin. |
+| `JumpSpecificSlide` | Belirli bir slayta iç içe gezinme. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Yerleşik slayt gösterisi gezinmesi, slayt gösterisi bağlamında çözülür. |
-| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandırır veya özel bir gösteri başlatır. |
-| `StartMacro` | Bir makroyu çalıştırır. |
-| `StartProgram` | Bir program başlatır. |
-| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunumu açar; web URL'lerinden ayrı olarak incelenmelidir. |
-| `StartStopMedia` | Medya oynatımını başlatır veya durdurur. |
-| `NoAction`, `Unknown` | Gezinti eylemi yok veya gözden geçirme gerektiren tanınmayan bir eylem. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandır veya özel bir gösteri başlat. |
+| `StartMacro` | Bir makroyu çalıştır. |
+| `StartProgram` | Bir programı başlat. |
+| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunumu aç; web URL'lerinden ayrı incele. |
+| `StartStopMedia` | Medya oynatımını başlat veya durdur. |
+| `NoAction`, `Unknown` | Gezİnme eylemi yok veya tanınmayan eylem; inceleme gerektirir. |
 
-[getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) ile dış hedefleri, [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/) ile belirli iç hedefleri okuyun. İç eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklı olduğunda [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) tarafından döndürülen değeri koruyun ve mevcut olduğunda [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) tarafından döndürülen araç ipucunu ekleyin.
+Harici hedefleri [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) ile, belirli iç hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/) ile okuyun. İç eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa, [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) tarafından döndürülen değeri koruyun ve mevcutsa [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) tarafından döndürülen ipucunu da ekleyin.
 
-### **Hiperlinkleri Raporla, Temizle ve Doğrula**
+### **Raporla, Temizle ve Köprüleri Doğrula**
 
-Aşağıdaki PHP örneği, mevcut bir sunumu okur (yukarıda oluşturulan dosyayı kullanın), `hyperlink-audit.json` dosyasını yazar, bir politika uygular, `hyperlink-sanitized.pptx` olarak kaydeder ve her iki etkinleştirme türünü tekrar kontrol etmek üzere yeniden açar. Kapsayıcıları değiştirmeden önce toplar ve aynı kapsayıcının iki kez işlenmesini önlemek için referans eşitliğini kullanır. Sunum sorguları normal slaytları kapsar; paket genelinde bir envanter için ayrıca ana slaytları, düzenleri, notları ve mevcut olduğunda not ve el ilanı ana slaytlarını açıkça sorgular.
+Bu örnek, bir önceki örnekten sunumu açar ve her eylem için bir JSON kaydı yazar. Normal slaytların yanı sıra ana sayfalar, düzenler ve notlar, varsa not ve el ilanı ana sayfaları dahil olmak üzere [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) ile kapsayıcıları toplar. Her kapsayıcıyı yalnızca bir kez saymak için referans eşitliğini kullanır, aşağıda açıklanan politikayı uygular ve kaydedilen sunumu yeniden açarak hem tıklama hem de fare‑üzerinde eylemleri kontrol eder.
 
-Rapor, mevcut olduğunda bir‑bazlı slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) değerini kaydeder. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) desteklenen kapsayıcıların sahip olduğu slaytı sağlar. Ana slaytlar, düzenler ve notlar normal bir slayt indeksine sahip değildir ve kapsamlarıyla tanımlanır. Şekil kapsayıcıları ve metin bölümü biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adını korur. Her kapsayıcı, iki eylemini ilişkilendirmek için rapor içinde yerel bir kimlik alır. Rapor, eylem türlerini PHP enum'ı tarafından tanımlanan tamsayı sabitleri olarak saklar.
+Rapor, mevcut olduğunda bir‑tabanlı slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) değerini kaydeder. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) desteklenen kapsayıcılar için sahip slaytı sağlar. Ana sayfalar, düzenler ve notlar normal slayt indeksine sahip değildir ve kapsamlarıyla tanımlanır. Şekil kapsayıcıları ve metin‑bölümü biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adılarını korur. Her kapsayıcı, iki eylemin ilişkilendirilebilmesi için rapor‑yerel bir kimlik alır. Rapor, eylem türlerini PHP enum'unda tanımlı tam sayı sabitleri olarak saklar.
 
-Bu bilinçli şekilde kısıtlayıcı uygulama politikası, yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini kabul eder. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. Tek başına HTTPS güven oluşturmaz: uygulamanız için sunucu beyaz listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
+Bu kısıtlayıcı uygulama politikası, yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini kabul eder. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bunlar politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS yalnız başına güven oluşturmaz: uygulamanız için host izin listeleri ve ek kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
 
-Kurtarma için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) metodu, [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) yöntemlerini destekler. Burada, yasaklanan dış tıklama bağlantıları sabit bir HTTPS hedef sayfası ile değiştirilir; diğer yasak tıklama ve yasak fare üzeri eylemleri bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `$replaceExternalClicks` değerini `false` olarak ayarlayın. Dağıtıma geçmeden önce uygulamaya ait bir değiştirme sayfası seçin.
+Düzeltme için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) aşağıdaki yöntemleri destekler: [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/), ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Burada, yasak dış tıklama linkleri sabit bir HTTPS açılış sayfasıyla değiştirilir; diğer yasak tıklamalar ve yasak fare‑üzerinde eylemler bağımsız olarak kaldırılır. `$replaceExternalClicks` değişkenini `false` yaparak tüm politika ihlallerini kaldırabilirsiniz. Dağıtımdan önce uygulama‑sahibi bir değiştirme sayfası seçin.
 
-Raporun dışa aktarma bayrağı, temkinli bir PDF gözden geçirme politikası kullanır: fare üzeri eylemler ve harici bağlantı veya belirli slayt atlaması olmayan her şeyi potansiyel olarak desteklenmeyen olarak işaretler. Bu bir inceleme ipucudur, yetenek testi ya da işaretsiz bağlantıların dışa aktarımda kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/php-java/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarma seçeneklerine ve görüntüleyiciye bağlı olarak hiperlinkleri koruyabilir. Raster [görüntüler](/slides/tr/php-java/convert-powerpoint-to-png/) ve [video](/slides/tr/php-java/convert-powerpoint-to-video/) etkileşimli hiperlinkleri koruyamaz; bu çıktıların denetimi sırasında her eylemi işaretleyin.
+Raporun dışa aktarım bayrağı, temkinli bir PDF inceleme politikası kullanır: fare‑üzerinde eylemleri ve dış link olmayan ya da belirli slayt atlaması olmayan her şeyi potansiyel olarak desteklenmeyen olarak işaretler. Bu bir inceleme ipucu olup, bir yetenek testi ya da işaretlenmemiş linklerin dışa aktarımda hayatta kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/php-java/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarma seçeneklerine ve izleyiciye bağlı olarak köprüleri koruyabilir. Raster [images](/slides/tr/php-java/convert-powerpoint-to-png/) ve [video](/slides/tr/php-java/convert-powerpoint-to-video/) interaktif köprüleri koruyamaz; bu çıktılar için denetleme yaparken her eylemi işaretleyin.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -525,20 +560,20 @@ try {
 }
 ```
 
-Yukarıda oluşturulan girdi ile rapor beş eylem satırı içerir. Dosya fare üzeri bağlantısı ve makro tıklaması kaldırılır, HTTPS bağlantıları ve iç slayt gezinmesi kalır. Doğrulama, sıfır yasak eylem yazdırır. Yasak bir dış tıklama URL'si içeren bir girdi, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir fare üzeri içeren bir kapsayıcı, tıklama eylemini korur.
+Yukarıdaki girdiyle rapor beş eylem satırı içerir. Dosya fare‑üzerinde linki ve makro tıklaması kaldırılır, HTTPS linkleri ve iç slayt gezinmeleri kalır. Doğrulama, hiçbir yasak eylem olmadığını yazdırır. Yasak dış tıklama URL'si içeren bir girdi, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir fare‑üzerinde eylemi olan bir kapsayıcı, tıklama eylemini tutar.
 
-Bu seçici temizlik, politikadan bağımsız olarak seçilen kapsamda her iki etkinleştirme türünü de kaldıran [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) yönteminden farklıdır. Buradaki doğrulama yalnızca hiperlink eylemlerini denetler; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış bir PDF veya HTML dosyasını doğrulamaz.
+Bu seçici temizlik, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) yönteminin politikadan bağımsız olarak seçili kapsamda iki etkinleştirme türünü de kaldırmasından farklıdır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içerikleri kaldırmaz ve dışa aktarılan PDF veya HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme ya da onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölüme ya da bölümün ilk slaytına nasıl bağlanabilirim?**
 
-PowerPoint'teki bölümler slaytları gruplar, ancak iç hiperlink bir bireysel slaytı hedef alır. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına bağlanın.
+PowerPoint bölümleri slaytları gruplayarak düzenler, ancak dahili bir köprü bireysel bir slayta hedeflenir. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına bağlanın.
 
-**Ana slayt unsurlarına bir hiperlink ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
+**Ana sayfa slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
 
-Evet. Ana slayt ve düzen unsurları hiperlinkleri destekler. Bu unsurlardaki bağlantılar, ilgili ana slaytı ya da düzeni kullanan slayt gösterisi sırasında kullanılabilir.
+Evet. Ana sayfa slaytı ve düzen öğeleri köprüleri destekler. Bu öğelerdeki köprüler, ilgili ana sayfa veya düzeni kullanan slayt gösterisi sırasında kullanılabilir.
 
-**PDF, HTML, görüntüler ya da video olarak dışa aktarırken hiperlinkler korunacak mı?**
+**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
 
-Desteklenen PDF ve HTML dışa aktarımları hiperlinkleri koruyabilir; raster görüntüler ve video bunu yapamaz. Dışa aktarma hususlarını [Hiperlinkleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümünde inceleyin.
+Desteklenen PDF ve HTML dışa aktarımları köprüleri koruyabilir; raster görüntüler ve video koruyamaz. Ayrıntılar için [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümündeki dışa aktarma hususlarına bakın.

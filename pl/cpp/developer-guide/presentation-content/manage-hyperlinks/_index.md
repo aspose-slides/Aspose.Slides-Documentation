@@ -1,5 +1,5 @@
 ---
-title: Z zarządzanie hiperłączami prezentacji w C++
+title: Zarządzanie hiperłączami prezentacji w C++
 linktitle: Zarządzaj hiperłączami
 type: docs
 weight: 20
@@ -8,9 +8,9 @@ keywords:
 - dodaj URL
 - dodaj hiperłącze
 - utwórz hiperłącze
-- formatowanie hiperłącza
+- formatuj hiperłącze
 - usuń hiperłącze
-- zaktualizuj hiperłącze
+- aktualizuj hiperłącze
 - hiperłącze tekstowe
 - hiperłącze slajdu
 - hiperłącze kształtu
@@ -22,30 +22,30 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperłącza w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla C++, korzystając z przykładów w C++."
+description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperłącza w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for C++, z przykładami w C++."
 ---
 ## **Wprowadzenie**
 
-Hiperłącze łączy treść prezentacji ze stroną internetową lub lokalizacją w obrębie prezentacji. W programie PowerPoint hiperłącza zazwyczaj służą dwóm celom:
+Hyperlink łączy zawartość prezentacji ze stroną internetową lub lokalizacją w obrębie prezentacji. W programie PowerPoint hiperłącza zazwyczaj służą dwóm celom:
 
-* Otworzyć stronę internetową z tekstu, kształtu lub ramki multimedialnej.  
-* Przejść do innego slajdu, na przykład z tabeli treści.  
+* Otworzyć stronę internetową z tekstu, kształtu lub ramki multimedialnej.
+* Przejść do innego slajdu, na przykład z tabeli treści.
 
-Aspose.Slides for C++ umożliwia dodawanie tych odnośników, kontrolowanie ich wyglądu i dźwięku, aktualizowanie ustawień oraz usuwanie ich. Poniższe przykłady pokazują, jak pracować z hiperłączami na poszczególnych elementach oraz jak uzyskać dostęp do hiperłączy na poziomie prezentacji, slajdu lub ramki tekstowej.
+Aspose.Slides for C++ umożliwia dodawanie tych linków, kontrolowanie ich wyglądu i dźwięku, aktualizowanie ustawień oraz usuwanie ich. Poniższe przykłady pokazują, jak pracować z hiperłączami na poszczególnych elementach oraz jak uzyskać dostęp do hiperłączy na poziomie prezentacji, slajdu lub ramki tekstowej.
 
 {{% alert color="info" title="Note" %}}
-Możesz również edytować prezentacje za pomocą [bezpłatny edytor Aspose PowerPoint online](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Możesz również edytować prezentacje za pomocą [darmowego internetowego edytora Aspose PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
 ## **Dodaj hiperłącza URL**
 
-Możesz przypisać adres URL strony internetowej do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypiszesz hiperłącze, określa obszar klikalny: fragment tekstu łączy wybrany tekst, natomiast kształt lub ramka łączy obiekt slajdu.
+Możesz przypisać adres URL witryny do tekstu, kształtu lub ramki multimedialnej. Element, do którego przypiszesz hiperłącze, określa obszar klikalny: część tekstu łączy wybrany tekst, natomiast kształt lub ramka łączy obiekt slajdu.
 
-W przypadku prezentacji zawierających względne hiperłącza zobacz [Zarządzaj bazą hiperłączy](/slides/pl/cpp/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić bazę na poziomie dokumentu.
+W prezentacjach zawierających względne hiperłącza zobacz [Zarządzanie bazą hiperłącza](/slides/pl/cpp/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić bazę na poziomie dokumentu.
 
 ### **Dodaj hiperłącza URL do tekstu**
 
-Aby połączyć tekst ze stroną internetową, utwórz [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) i przypisz go metodą [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) fragmentu tekstu, jak pokazano poniżej. Tylko ten fragment tekstu stanie się klikalny.
+Aby połączyć tekst ze stroną internetową, utwórz [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) i przypisz go metodą [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) części tekstu, jak pokazano poniżej. Tylko ta część tekstu stanie się klikalna.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -80,11 +80,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ### **Dodaj hiperłącza URL do kształtów i ramek multimedialnych**
 
-Aby uczynić kształt lub ramkę klikalną, użyj jego metody [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). Hiperłącze należy do samego obiektu, a nie do fragmentu tekstu wewnątrz niego.
-
-To samo podejście dotyczy ramek obrazu, dźwięku i wideo: przypisz hiperłącze do ramki i użyj [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/), aby dodać podpowiedź w razie potrzeby.
-
-Poniższy przykład sprawia, że prostokąt jest klikalny:
+Wywołaj [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) na prostokącie, aby całe jego obszar było klikalne. Użyj [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/), aby dać czytelnikom podpowiedź o miejscu docelowym podczas najechania na prostokąt. Obie metody mają zastosowanie także do ramek obrazów, dźwięku i wideo.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -111,7 +107,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Użyj hiperłączy do stworzenia spisu treści**
 
-Wewnętrzne hiperłącza umożliwiają czytelnikom przejście ze spisu treści do konkretnego slajdu. Poniższy przykład używa [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/), aby połączyć tekst „Page 2” na pierwszym slajdzie z drugim slajdem.
+Wewnętrzne hiperłącza pozwalają czytelnikom przejść z tabeli treści do określonego slajdu. Poniższy przykład używa [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/), aby połączyć tekst „Page 2” na pierwszym slajdzie z drugim slajdem.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Formatuj hiperłącza**
 
+Możesz zmienić kolor połączonego tekstu, odtworzyć lub zatrzymać dźwięk, gdy czytelnik aktywuje link, oraz ustawić podpowiedź wyświetlaną po najechaniu.
+
 ### **Kolor**
 
-Metoda [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) interfejsu [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) określa, czy hiperłącze używa koloru hiperłącza w prezentacji, czy formatowania fragmentu tekstu. Aby zastosować niestandardowy kolor tekstu, wybierz [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) i ustaw kolor wypełnienia fragmentu. Funkcja ta została wprowadzona w programie PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
+Metoda [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) interfejsu [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) określa, czy hiperłącze używa koloru hiperłącza prezentacji, czy formatowania części tekstu. Aby zastosować własny kolor tekstu, wybierz [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) i ustaw kolor wypełnienia części. Funkcja ta została wprowadzona w PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
 
-Poniższy przykład dodaje dwa hiperłącza tekstowe do tego samego slajdu. Pierwsze używa czerwonego wypełnienia tekstu, natomiast drugie zachowuje domyślny kolor hiperłącza.
+W tym przykładzie pierwszy link używa [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/), aby wyświetlić czerwone wypełnienie tekstu. Drugi link zachowuje kolor hiperłącza prezentacji.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,16 +212,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Dźwięk**
 
-Hiperłącze może odtworzyć dźwięk po aktywacji lub zatrzymać już odtwarzany dźwięk. Użyj następujących metod, aby skonfigurować te zachowania:
+Hyperlink może odtworzyć dźwięk po aktywacji lub zatrzymać już odtwarzany dźwięk. Użyj następujących metod, aby skonfigurować te zachowania:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) określa dźwięk powiązany z hiperłączem.  
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) kontroluje, czy aktywacja hiperłącza zatrzymuje poprzedni dźwięk.  
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) określa dźwięk powiązany z hiperłączem.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) kontroluje, czy aktywacja hiperłącza zatrzymuje poprzedni dźwięk.
 
 #### **Dodaj dźwięk do hiperłącza**
 
-Poniższy przykład ładuje `sampleaudio.wav` i kojarzy go z przyciskiem na pierwszym slajdzie. Kliknięcie przycisku odtwarza dźwięk i przechodzi do następnego slajdu. Drugi kształt na tym slajdzie zatrzymuje poprzedni dźwięk po kliknięciu, nie wykonując akcji nawigacji.
+Przycisk na pierwszym slajdzie używa [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/), aby odtworzyć dźwięk z pliku `sampleaudio.wav`, gdy czytelnik kliknie, aby przejść dalej. Na drugim slajdzie osobny przycisk używa [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/), aby zatrzymać odtwarzanie i pozostawić czytelnika na tym slajdzie.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -269,7 +268,7 @@ presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 
 #### **Wyodrębnij dźwięk z hiperłącza**
 
-Poniższy przykład otwiera prezentację utworzoną powyżej i odczytuje dźwięk hiperłącza pierwszego kształtu do pamięci za pomocą [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) oraz [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
+Poniższy przykład otwiera powyżej utworzoną prezentację i odczytuje dźwięk hiperłącza pierwszego kształtu do pamięci za pomocą metod [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) i [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,18 +304,18 @@ else
 }
 ```
 
-### **Podpowiedź i ustawienia interakcji**
+### **Ustawienia podpowiedzi i interakcji**
 
-Możesz zaktualizować następujące ustawienia [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/), używając tych metod po przypisaniu hiperłącza do tekstu lub kształtu:
+Możesz zaktualizować następujące ustawienia [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) za pomocą tych metod po przypisaniu hiperłącza do tekstu lub kształtu:
 
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) ustawia tekst, który widz może wyświetlić jako podpowiedź do linku.  
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) określa docelową ramkę w ramach nadrzędnego zestawu ramek HTML, jeśli ma zastosowanie.  
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) kontroluje, czy aktywacja linku dodaje jego docelowy adres do listy oglądanych hiperłączy.  
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) kontroluje, czy hiperłącze jest podświetlane po kliknięciu.  
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) ustawia tekst, który widz może wyświetlić jako podpowiedź dla linku.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) określa docelową ramkę w ramach rodzica HTML, jeśli ma zastosowanie.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) kontroluje, czy aktywacja linku dodaje jego docelowy adres do listy oglądanych hiperłączy.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) kontroluje, czy hiperłącze jest podświetlane po kliknięciu.
 
 ## **Usuń hiperłącza z prezentacji**
 
-Użyj [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/), aby zebrać kontenery hiperłączy, w tym linki fragmentów tekstu, przed ich zmianą. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj wyłącznie [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) lub [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); usunięcie akcji kliknięcia nie usuwa odpowiadającej akcji najechania.
+Użyj [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/), aby zebrać kontenery hiperłączy, w tym linki części tekstu, przed ich zmianą. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj jedynie [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) lub [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); usunięcie akcji kliknięcia nie usuwa odpowiadającej akcji najazdu myszą.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +349,76 @@ else
 }
 ```
 
-W przypadku bezwarunkowego usunięcia, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) usuwa oba typy aktywacji w wybranym zakresie jednocześnie. Dla selektywnego czyszczenia i objęcia masterów, układów i notatek, zobacz [Raportuj, sanityzuj i weryfikuj hiperłącza](#report-sanitize-and-verify-hyperlinks).
+Do bezwarunkowego usunięcia, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) usuwa oba typy aktywacji w wybranym zakresie w jednym wywołaniu. W celu selektywnego czyszczenia i objęcia masterów, układów i notatek, zobacz [Raport, oczyszczanie i weryfikację hiperłączy](#report-sanitize-and-verify-hyperlinks).
 
-## **Zbuduj kompletny inwentarz hiperłączy**
+### **Wyczyść hiperłącza przed zastąpieniem tekstu SmartArt**
 
-Przed udostępnieniem prezentacji, zinwentaryzuj jej interaktywne akcje oraz linki internetowe. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) zwraca obiekty [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), a nie płaską listę ciągów URL. Sprawdź zarówno [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) jak i [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać obie akcje, więc pełny raport wymaga do dwóch wierszy na kontener.
+Podczas zastępowania akapitu w istniejącym węźle SmartArt, wyczyszczenie jego części tekstowych może pozostawić aktywne stare hiperłącze. Pobierz akapit za pomocą [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Przed wyczyszczeniem jego części, wywołaj [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) poprzez [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) na ramce tekstowej kształtu węzła, który wyświetla akapit. To usuwa wszystkie hiperłącza w tej ramce, w tym linki w innych akapitach.
 
-Skanowanie wyłącznie hiperłączy na poziomie kształtu może pominąć linki dołączone do fragmentów tekstu. Zamiast tego wykonaj zapytanie odpowiedniego zakresu i zachowaj zwrócone kontenery, aby później móc zaktualizować lub usunąć ich akcje.
+Przykład zakłada, że trzeci kształt na pierwszym slajdzie jest grafiką SmartArt. Zastępuje pierwszy akapit czwartego węzła. W tej prezentacji pierwszy kształt węzła wyświetla ten akapit.
+
+Po dodaniu obu części przykład odczytuje ich efektywne formatowanie przy użyciu [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). Efektywna metoda [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) zwraca nowe hiperłącze dla pierwszej części i `nullptr` dla drugiej.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
+## **Zbuduj kompletną inwentaryzację hiperłączy**
+
+Przed udostępnieniem prezentacji, zinwentaryzuj jej interaktywne akcje oraz linki internetowe. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) zwraca obiekty [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), a nie płaską listę ciągów URL. Sprawdź zarówno [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) jak i [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać obie akcje, więc kompletny raport wymaga do dwóch wierszy na kontener.
+
+Skanowanie tylko hiperłączy na poziomie kształtu może pominąć linki dołączone do części tekstu. Zamiast tego zapytaj odpowiedni zakres i zachowaj zwrócone kontenery, aby później móc zaktualizować lub usunąć ich akcje.
 
 ### **Zapytaj zakresy prezentacji, slajdu i ramki tekstowej**
 
-Interfejs [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) jest dostępny przez [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) oraz [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Każdy zakres obsługuje te same zapytania:
+Interfejs [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) jest dostępny poprzez [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), oraz [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Każdy zakres obsługuje te same zapytania:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) zwraca kontenery z akcją kliknięcia.  
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) zwraca kontenery z akcją najechania myszą.  
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) zwraca kontenery z dowolną lub obiema akcjami.  
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) zwraca kontenery z akcją kliknięcia.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) zwraca kontenery z akcją najazdu myszą.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) zwraca kontenery z jedną lub obiema akcjami.
 
-Poniższy przykład tworzy `hyperlink-audit-input.pptx` z zewnętrznym linkiem kliknięcia, linkiem pliku na najechanie, wewnętrzną nawigacją slajdu, linkiem tekstowym na najechanie oraz akcją makra. Nie wykonuje żadnej z tych akcji. Te same trzy zapytania działają w każdym zakresie; liczby opisują kontenery, a nie sumy akcji. Zakres ramki tekstowej wyklucza własne linki otaczającego kształtu.
+Ten przykład przypisuje akcje kliknięcia i najazdu myszą do kształtu i jego tekstu oraz akcję makra do oddzielnego przycisku. Porównuje kontenery zwrócone przez [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) z liczbą dla każdego typu aktywacji. Zapytanie ramki tekstowej liczy tylko linki w tekście. Własne akcje otaczającego kształtu pojawiają się w zapytaniach slajdu i prezentacji.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Dla tego przykładu, zapytania prezentacji i slajdu zgłaszają po trzy kontenery kliknięcia, dwa kontenery najechania i trzy kontenery z dowolną akcją. Zapytanie ramki tekstowej zgłasza po jednym kontenerze w każdej kategorii.
+W tym przykładzie zapytania prezentacji i slajdu zgłaszają po trzy kontenery kliknięć, dwa kontenery najazdów myszą i trzy kontenery z dowolną akcją. Zapytanie ramki tekstowej zgłasza po jednym kontenerze w każdej kategorii.
 
 ### **Klasyfikuj akcje i cele**
 
 Użyj [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/), aby zinterpretować akcję przed interpretacją jej celu. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) obejmują więcej niż nawigację internetową:
 
-| Wartości | Znaczenie w audycie |
+| Wartości | Znaczenie dla audytu |
 | --- | --- |
-| `Hyperlink` | Zewnętrzne hiperłącze; sprawdź URL i jego schemat. |
-| `JumpSpecificSlide` | Wewnętrzna nawigacja do konkretnego slajdu. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja pokazu slajdów, rozwiązywana w kontekście pokazu. |
-| `JumpEndShow`, `StartCustomSlideShow` | Zakończ bieżący pokaz lub rozpocznij pokaz niestandardowy. |
-| `StartMacro` | Uruchom makro. |
+| `Hyperlink` | Zewnętrzne hiperłącze; sprawdź adres URL i jego schemat. |
+| `JumpSpecificSlide` | Nawigacja wewnętrzna do określonego slajdu. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Nawigacja wbudowana w pokaz slajdów, rozwiązywana w kontekście pokazu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub rozpoczęcie pokazu niestandardowego. |
+| `StartMacro` | Wykonaj makro. |
 | `StartProgram` | Uruchom program. |
-| `OpenFile`, `OpenPresentation` | Otwórz plik lub inną prezentację; przeglądaj oddzielnie od URL‑i internetowych. |
-| `StartStopMedia` | Rozpocznij lub zatrzymaj odtwarzanie multimediów. |
-| `NoAction`, `Unknown` | Brak akcji nawigacji lub nieznana akcja wymagająca przeglądu. |
+| `OpenFile`, `OpenPresentation` | Otwórz plik lub inną prezentację; przeglądaj oddzielnie od adresów URL. |
+| `StartStopMedia` | Rozpocznij lub zatrzymaj odtwarzanie mediów. |
+| `NoAction`, `Unknown` | Brak akcji nawigacyjnej lub nieznana akcja wymagająca przeglądu. |
 
-Odczytaj zewnętrzne cele z [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) oraz konkretne wewnętrzne cele z [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Wewnętrzne akcje i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/), gdy różni się od znormalizowanego URL, i uwzględnij podpowiedź zwróconą przez [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/), jeśli jest dostępna.
+Odczytaj zewnętrzne cele z [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) oraz konkretne wewnętrzne cele z [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Wewnętrzne akcje i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/), gdy różni się od znormalizowanego URL, i dołącz podpowiedź zwróconą przez [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/), jeśli jest dostępna.
 
-### **Raportuj, sanityzuj i weryfikuj hiperłącza**
+### **Raportowanie, oczyszczanie i weryfikacja hiperłączy**
 
-Poniższy przykład w C++ odczytuje istniejącą prezentację (użyj pliku utworzonego wyżej), zapisuje `hyperlink-audit.json`, stosuje politykę, zapisuje `hyperlink-sanitized.pptx` i otwiera go ponownie, aby ponownie sprawdzić oba typy aktywacji. Zbiera kontenery przed ich zmianą i używa tożsamości wskaźników, aby nie przetwarzać tego samego kontenera dwa razy. Zapytania prezentacji obejmują zwykłe slajdy; dla inwentaryzacji całego pakietu wyraźnie zapytuje również o mastery, układy, notatki oraz mastery notatek i materiałów rozdawczych, jeśli są obecne.
+Ten przykład w C++ otwiera prezentację z poprzedniego przykładu i zapisuje jeden rekord JSON dla każdej akcji. Używa [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/), aby zebrać kontenery na zwykłych slajdach, masterach, układach i notatkach, w tym masterach notatek i materiałów pomocniczych, jeśli są obecne. Używa tożsamości wskaźnika, aby policzyć każdy kontener raz, stosuje opisane poniżej zasady i ponownie otwiera zapisaną prezentację, aby sprawdzić zarówno akcje kliknięcia, jak i najazdu myszą.
 
-Raport rejestruje indeks slajdu zaczynający się od 1 oraz [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/), gdy jest dostępny. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez swój zakres. Kontenery kształtów i kontenery formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują swoją nazwę typu w czasie działania. Każdy kontener otrzymuje identyfikator lokalny raportu, aby jego dwie akcje można było powiązać.
+Raport zapisuje indeks slajdu zaczynający się od 1 oraz [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/), jeśli jest dostępny. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez swój zakres. Kontenery kształtów i kontenery formatowania części tekstu są oznaczane oddzielnie; inne typy kontenerów zachowują swoją nazwę typu w czasie działania. Każdy kontener otrzymuje lokalny identyfikator raportu, aby jego dwie akcje można było powiązać.
 
-Ta celowo restrykcyjna polityka aplikacji zezwala wyłącznie na bezwzględne adresy HTTPS i prawidłowe wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plikowe, inne akcje pokazu, nieznane akcje oraz inne schematy URL. Te odrzucenia są decyzjami polityki, a nie werdyktem bezpieczeństwa Aspose.Slides. Sam protokół HTTPS nie zapewnia zaufania: dodaj listy dozwolonych hostów i inne kontrole w swojej aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne adresy URL. Przykład audytuje metadane bez podążania za linkami ani uruchamiania akcji.
+Ta celowo restrykcyjna polityka aplikacji zezwala tylko na bezwzględne adresy HTTPS oraz prawidłowe wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plików, inne akcje pokazu slajdów, nieznane akcje i inne schematy URL. Te odrzucenia są decyzjami politycznymi, a nie werdyktem bezpieczeństwa Aspose.Slides. Same HTTPS nie zapewnia zaufania: dodaj listy dozwolonych hostów i inne kontrole w swojej aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne URL. Przykład audytuje metadane bez podążania za linkami lub wykonywania akcji.
 
-W celu naprawy, [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) kontenera obsługuje [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) i [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Tutaj zabronione zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne zabronione kliknięcia i zabronione akcje najechania są usuwane niezależnie. Ustaw `replaceExternalClicks` na `false`, aby usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą zarządzaną przez aplikację przed wdrożeniem.
+W celu naprawy, kontener posiada [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/), które obsługuje [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), oraz [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Tutaj zabronione zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne zabronione kliknięcia i zabronione akcje najazdu myszą są usuwane niezależnie. Ustaw `replaceExternalClicks` na `false`, aby zamiast tego usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą zarządzaną przez aplikację przed wdrożeniem.
 
-Flaga eksportu w raporcie stosuje konserwatywną politykę przeglądu PDF: oznacza akcje najechania i wszystko poza zewnętrznym linkiem lub konkretnym skokiem slajdu jako potencjalnie nieobsługiwane. Jest to wskazówka przeglądu, a nie test możliwości ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/cpp/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/cpp/convert-powerpoint-to-html/) mogą zachować hiperłącza, w zależności od akcji, opcji eksportu i przeglądarki. Rasterowe [images](/slides/pl/cpp/convert-powerpoint-to-png/) i [video](/slides/pl/cpp/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperłączy; oznacz każdą akcję przy audycie pod kątem tych wyjść.
+Flaga eksportu w raporcie używa konserwatywnej polityki przeglądu PDF: oznacza akcje najazdu myszą oraz wszystko inne niż zewnętrzny link lub konkretny skok slajdu jako potencjalnie nieobsługiwane. Jest to wskazówka przeglądowa, a nie test możliwości ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/cpp/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/cpp/convert-powerpoint-to-html/) mogą zachować hiperłącza, w zależności od akcji, opcji eksportu i przeglądarki. Rasterowe [obrazki](/slides/pl/cpp/convert-powerpoint-to-png/) i [wideo](/slides/pl/cpp/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperłączy; oznacz każdą akcję przy audycie pod kątem tych wyjść.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-Z utworzonego wyżej wejścia raport zawiera pięć wierszy akcji. Link na najechanie pliku i kliknięcie makra są usunięte, podczas gdy linki HTTPS oraz wewnętrzna nawigacja slajdów pozostają. Weryfikacja wypisuje zero zabronionych akcji. Wejście zawierające zabroniony zewnętrzny URL kliknięcia również uruchamia gałąź zastąpienia. Kontener z dozwoloną akcją kliknięcia i zabronioną akcją najechania zachowuje akcję kliknięcia.
+Przy powyższym wejściu raport zawiera pięć wierszy akcji. Link najazdu myszą na plik oraz kliknięcie makra są usunięte, natomiast linki HTTPS i wewnętrzna nawigacja slajdów pozostają. Weryfikacja wyświetla zero zabronionych akcji. Wejście zawierające zabroniony zewnętrzny URL kliknięcia również testuje gałąź zastąpienia. Kontener z dozwolonym kliknięciem i zabronionym najazdem myszą zachowuje akcję kliknięcia.
 
-To selektywne czyszczenie różni się od [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), które usuwa oba typy aktywacji w całym wybranym zakresie niezależnie od polityki. Weryfikacja tutaj sprawdza jedynie akcje hiperłączy; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej treści aktywnej i nie waliduje wyeksportowanego pliku PDF ani HTML.
+To selektywne czyszczenie różni się od [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), które usuwa oba typy aktywacji w całym wybranym zakresie niezależnie od polityki. Weryfikacja tutaj sprawdza tylko akcje hiperłączy; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej aktywnej zawartości, i nie waliduje wyeksportowanego pliku PDF lub HTML.
 
 ## **FAQ**
 
 **Jak mogę połączyć się z sekcją lub jej pierwszym slajdem?**
 
-Sekcje w PowerPoint grupują slajdy, ale wewnętrzne hiperłącze celuje w pojedynczy slajd. Aby stworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
+Rozdziały w PowerPoint grupują slajdy, ale wewnętrzne hiperłącze celuje w pojedynczy slajd. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem w tej sekcji.
 
-**Czy mogę dołączyć hiperłącze do elementów slajdu master, aby działało na wszystkich slajdach?**
+**Czy mogę dołączyć hiperłącze do elementów mastera slajdu, aby działało na wszystkich slajdach?**
 
-Tak. Elementy slajdu master i układów obsługują hiperłącza. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach, które używają odpowiedniego mastera lub układu.
+Tak. Elementy mastera slajdu i układów obsługują hiperłącza. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach korzystających z odpowiedniego mastera lub układu.
 
 **Czy hiperłącza będą zachowane podczas eksportu do PDF, HTML, obrazów lub wideo?**
 
-Obsługiwane eksporty PDF i HTML mogą zachować hiperłącza; obrazy rastrowe i wideo nie mogą. Zobacz uwagi dotyczące eksportu w [Raportuj, sanityzuj i weryfikuj hiperłącza](#report-sanitize-and-verify-hyperlinks).
+Obsługiwane eksporty PDF i HTML mogą zachować hiperłącza; obrazy rastrowe i wideo nie mogą. Zobacz uwagi dotyczące eksportu w [Raportowanie, oczyszczanie i weryfikacja hiperłączy](#report-sanitize-and-verify-hyperlinks).

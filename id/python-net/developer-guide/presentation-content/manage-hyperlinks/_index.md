@@ -1,16 +1,16 @@
 ---
-title: Kelola Hyperlink Presentasi di Python
+title: Kelola Hyperlink Presentasi dalam Python
 linktitle: Kelola Hyperlink
 type: docs
 weight: 20
 url: /id/python-net/manage-hyperlinks/
 keywords:
-- tambahkan URL
-- tambahkan hyperlink
-- buat hyperlink
-- format hyperlink
-- hapus hyperlink
-- perbarui hyperlink
+- menambahkan URL
+- menambahkan hyperlink
+- membuat hyperlink
+- memformat hyperlink
+- menghapus hyperlink
+- memperbarui hyperlink
 - hyperlink teks
 - hyperlink slide
 - hyperlink bentuk
@@ -22,30 +22,30 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Tambahkan, format, perbarui, dan hapus hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via .NET, menggunakan contoh Python."
+description: "Menambahkan, memformat, memperbarui, dan menghapus hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via .NET, menggunakan contoh Python."
 ---
 ## **Pendahuluan**
 
-Sebuah hyperlink menghubungkan konten presentasi ke situs web atau ke lokasi di dalam presentasi. Di PowerPoint, hyperlink biasanya berfungsi untuk dua tujuan:
+Sebuah hyperlink menghubungkan konten presentasi ke situs web atau ke lokasi dalam presentasi. Di PowerPoint, hyperlink biasanya memiliki dua tujuan:
 
 * Membuka situs web dari teks, bentuk, atau bingkai media.
 * Menavigasi ke slide lain, misalnya, dari daftar isi.
 
-Aspose.Slides for Python via .NET memungkinkan Anda menambahkan tautan ini, mengontrol tampilan dan suaranya, memperbarui propertinya, dan menghapusnya. Contoh di bawah ini menunjukkan cara bekerja dengan hyperlink pada elemen individual dan cara mengakses hyperlink pada tingkat presentasi, slide, atau bingkai teks.
+Aspose.Slides for Python via .NET memungkinkan Anda menambahkan tautan ini, mengontrol tampilan dan suara mereka, memperbarui properti mereka, dan menghapusnya. Contoh di bawah ini menunjukkan cara bekerja dengan hyperlink pada elemen individu dan cara mengakses hyperlink pada tingkat presentasi, slide, atau bingkai teks.
 
 {{% alert color="info" title="Note" %}}
-Anda juga dapat mengedit presentasi menggunakan [editor Aspose PowerPoint online gratis](https://products.aspose.app/slides/editor).
+Anda juga dapat mengedit presentasi dengan [editor PowerPoint online gratis Aspose](https://products.aspose.app/slides/editor).
 {{% /alert %}}
 
-## **Menambahkan Hyperlink URL**
+## **Tambahkan Hyperlink URL**
 
 Anda dapat menetapkan URL situs web ke teks, bentuk, atau bingkai media. Elemen tempat Anda menetapkan hyperlink menentukan area yang dapat diklik: bagian teks menautkan teks yang dipilih, sementara bentuk atau bingkai menautkan objek slide.
 
-Untuk presentasi yang berisi hyperlink relatif, lihat [Kelola Dasar Hyperlink](/slides/id/python-net/presentation-properties/#manage-the-hyperlink-base) untuk membaca, mengubah, atau menghapus dasar tingkat dokumen.
+Untuk presentasi yang berisi hyperlink relatif, lihat [Kelola Basis Hyperlink](/slides/id/python-net/presentation-properties/#manage-the-hyperlink-base) untuk membaca, mengubah, atau menghapus basis tingkat dokumen.
 
-### **Menambahkan Hyperlink URL ke Teks**
+### **Tambahkan Hyperlink URL ke Teks**
 
-Untuk menautkan teks ke situs web, tetapkan sebuah [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) ke properti [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) pada bagian teks, seperti ditampilkan di bawah. Hanya bagian teks tersebut yang menjadi dapat diklik.
+Untuk menautkan teks ke situs web, tetapkan sebuah [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) ke properti [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) bagian teks, seperti yang ditunjukkan di bawah. Hanya bagian teks tersebut yang menjadi dapat diklik.
 
 ```python
 import aspose.slides as slides
@@ -60,13 +60,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Menambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
+### **Tambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
 
-Untuk membuat bentuk atau bingkai dapat diklik, atur properti [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/)‑nya. Hyperlink tersebut melekat pada objek itu sendiri, bukan pada bagian teks di dalamnya.
-
-Pendekatan yang sama berlaku untuk bingkai gambar, audio, dan video: tetapkan hyperlink ke bingkai dan atur [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) pada tautan bila diperlukan.
-
-Contoh berikut membuat sebuah persegi panjang dapat diklik:
+Tetapkan sebuah URL ke properti [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) pada persegi panjang untuk membuat seluruh area dapat diklik. [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) memberikan petunjuk kepada pembaca tentang tujuan ketika mereka mengarahkan kursor ke persegi panjang. Properti yang sama berlaku untuk bingkai gambar, audio, dan video.
 
 ```python
 import aspose.slides as slides
@@ -107,11 +103,13 @@ with slides.Presentation() as presentation:
 
 ## **Format Hyperlink**
 
-### **Color**
+Anda dapat mengubah warna teks yang ditautkan, memutar atau menghentikan suara ketika pembaca mengaktifkan tautan, dan menetapkan tooltip yang muncul saat mengarahkan kursor.
 
-Properti [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) dari [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) menentukan apakah hyperlink menggunakan warna hyperlink presentasi atau format bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) dan atur warna isi bagian tersebut. Fitur ini diperkenalkan di PowerPoint 2019; versi lama tidak menerapkan pengaturan ini.
+### **Warna**
 
-Contoh berikut menambahkan dua hyperlink teks ke slide yang sama. Yang pertama menggunakan isi teks merah, sedangkan yang kedua mempertahankan warna hyperlink default.
+Properti [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) pada [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) menentukan apakah hyperlink menggunakan warna hyperlink presentasi atau format bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) dan tetapkan warna isi bagian. Fitur ini diperkenalkan di PowerPoint 2019; versi lebih lama tidak menerapkan pengaturan ini.
+
+Dalam contoh ini, mengatur [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) pada tautan pertama membuat teksnya berwarna merah. Tautan kedua mempertahankan warna hyperlink presentasi.
 
 ```python
 import aspose.pydrawing as draw
@@ -131,16 +129,16 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out-hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Sound**
+### **Suara**
 
-Sebuah hyperlink dapat memutar suara ketika diaktifkan atau menghentikan suara yang sudah diputar. Gunakan properti berikut untuk mengkonfigurasi perilaku ini:
+Sebuah hyperlink dapat memutar suara ketika diaktifkan atau menghentikan suara yang sedang diputar. Gunakan properti berikut untuk mengkonfigurasi perilaku ini:
 
 - [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) menentukan audio yang terkait dengan hyperlink.
 - [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) mengontrol apakah mengaktifkan hyperlink menghentikan suara sebelumnya.
 
-#### **Add a Hyperlink Sound**
+#### **Tambahkan Suara Hyperlink**
 
-Contoh berikut memuat `sampleaudio.wav` dan mengaitkannya dengan sebuah tombol pada slide pertama. Mengklik tombol memutar suara dan menavigasi ke slide berikutnya. Bentuk kedua pada slide tersebut menghentikan suara sebelumnya ketika diklik, tanpa melakukan aksi navigasi.
+Tombol pada slide pertama menggunakan [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) untuk memutar audio dari file WAV ketika pembaca mengklik untuk melanjutkan. Pada slide kedua, tombol terpisah menggunakan [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) untuk menghentikan pemutaran dan menjaga pembaca tetap di slide tersebut.
 
 ```python
 import aspose.slides as slides
@@ -162,9 +160,9 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-#### **Extract a Hyperlink Sound**
+#### **Ekstrak Suara Hyperlink**
 
-Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink dari bentuk pertama ke dalam memori melalui [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) dan [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
+Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink bentuk pertama ke memori melalui [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) dan [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
 
 ```python
 import aspose.slides as slides
@@ -182,18 +180,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **Tooltip and Interaction Settings**
+### **Pengaturan Tooltip dan Interaksi**
 
 Anda dapat memperbarui properti [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) berikut setelah menetapkan hyperlink ke teks atau bentuk:
 
 - [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) menetapkan teks yang dapat ditampilkan penonton sebagai petunjuk untuk tautan.
-- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) menentukan bingkai target dalam frameset HTML induk, bila berlaku.
-- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) mengontrol apakah mengaktifkan tautan menambahkan destinasinya ke daftar hyperlink yang telah dilihat.
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) menentukan bingkai target dalam frameset HTML induk, jika berlaku.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) mengontrol apakah mengaktifkan tautan menambahkan tujuannya ke daftar hyperlink yang telah dilihat.
 - [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) mengontrol apakah hyperlink disorot ketika diklik.
 
-## **Menghapus Hyperlink dari Presentasi**
+## **Hapus Hyperlink dari Presentasi**
 
-Gunakan [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) untuk mengumpulkan kontainer hyperlink, termasuk tautan bagian teks, sebelum mengubahnya. Contoh berikut menghapus kedua jenis aktivasi dari slide pertama. Untuk menghapus hanya satu jenis, panggil hanya [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) atau [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); menghapus aksi klik tidak menghapus pasangan mouse-over‑nya.
+Gunakan [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) untuk mengumpulkan kontainer hyperlink, termasuk tautan bagian teks, sebelum mengubahnya. Contoh berikut menghapus kedua jenis aktivasi dari slide pertama. Untuk menghapus hanya satu jenis, panggil hanya [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) atau [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); menghapus aksi klik tidak menghapus pasangan mouse-over-nya.
 
 ```python
 import aspose.slides as slides
@@ -209,23 +207,52 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-Untuk penghapusan tanpa syarat, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) menghapus kedua jenis aktivasi dalam ruang lingkup yang dipilih dalam satu pemanggilan. Untuk pembersihan selektif dan mencakup master, tata letak, dan catatan, lihat [Laporan, Sanitasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
+Untuk penghapusan tanpa syarat, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) menghapus kedua jenis aktivasi dalam ruang lingkup yang dipilih dalam satu panggilan. Untuk pembersihan selektif dan cakupan master, tata letak, serta catatan, lihat [Laporan, Sanitisasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
 
-## **Membangun Inventaris Hyperlink Lengkap**
+### **Bersihkan Hyperlink Sebelum Mengganti Teks SmartArt**
 
-Sebelum mendistribusikan sebuah presentasi, inventarisasi aksi interaktifnya serta tautan webnya. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/), bukan daftar datar string URL. Periksa baik [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) maupun [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) pada setiap kontainer. Mereka independen: kontainer yang sama dapat menampilkan kedua aksi, sehingga laporan lengkap memerlukan hingga dua baris per kontainer.
+Ketika Anda mengganti paragraf dalam node SmartArt yang ada, membersihkan bagian teksnya dapat meninggalkan hyperlink lama yang masih aktif. Dapatkan paragraf melalui [SmartArtNode.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/text_frame/). Sebelum membersihkan bagiannya, panggil [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) melalui [hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) pada bingkai teks dari bentuk node yang menampilkan paragraf tersebut. Ini menghapus semua hyperlink dalam bingkai itu, termasuk tautan pada paragraf lainnya.
 
-Meng‑scan hanya hyperlink tingkat bentuk dapat melewatkan tautan yang terlampir pada bagian teks. Sebagai gantinya, kueri ruang lingkup yang sesuai, dan simpan kontainer yang dikembalikan sehingga Anda dapat memperbarui atau menghapus aksinya nanti.
+Dalam `SmartArtHyperlink.pptx`, bentuk ketiga pada slide pertama adalah grafik SmartArt. Contoh mengganti paragraf pertama dari node keempatnya. Dalam presentasi ini, bentuk pertama node menampilkan paragraf tersebut.
 
-### **Query Presentation, Slide, and Text-Frame Scopes**
+Setelah menambahkan kedua bagian, contoh membaca format efektif mereka dengan [get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/). Properti [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/iportionformateffectivedata/hyperlink_click/) efektif mengembalikan hyperlink baru untuk bagian pertama dan `None` untuk bagian kedua.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("SmartArtHyperlink.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes[2]
+    node = smart_art.all_nodes[3]
+    paragraph = node.text_frame.paragraphs[0]
+
+    node.shapes[0].text_frame.hyperlink_queries.remove_all_hyperlinks()
+    paragraph.portions.clear()
+
+    link = slides.Portion("New reference")
+    link.portion_format.hyperlink_click = slides.Hyperlink("https://example.com/new")
+    paragraph.portions.add(link)
+    text = slides.Portion(" (updated)")
+    paragraph.portions.add(text)
+
+    print(link.portion_format.get_effective().hyperlink_click.external_url)  # https://example.com/new
+    print(text.portion_format.get_effective().hyperlink_click)  # None
+```
+
+## **Bangun Inventaris Hyperlink Lengkap**
+
+Sebelum mendistribusikan sebuah presentasi, inventarisasikan tindakan interaktifnya serta tautan webnya. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/), bukan daftar datar string URL. Periksa baik [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) maupun [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) pada setiap kontainer. Mereka independen: kontainer yang sama dapat menampilkan kedua aksi, sehingga laporan lengkap membutuhkan hingga dua baris per kontainer.
+
+### **Kueri Ruang Lingkup Presentasi, Slide, dan Bingkai Teks**
 
 Kelas [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) tersedia melalui [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/), dan [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Setiap ruang lingkup mendukung kueri yang sama:
 
 - [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) mengembalikan kontainer dengan aksi klik.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) mengembalikan kontainer dengan aksi mouse‑over.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) mengembalikan kontainer dengan aksi mouse-over.
 - [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) mengembalikan kontainer dengan salah satu atau kedua aksi.
 
-Contoh berikut membuat `hyperlink-audit-input.pptx` dengan tautan klik eksternal, tautan mouse‑over berkas, navigasi slide internal, tautan mouse‑over teks, dan aksi makro. Contoh ini tidak mengeksekusi aksi apa pun. Tiga kueri yang sama berfungsi di setiap ruang lingkup; hitungan menggambarkan kontainer, bukan total aksi. Ruang lingkup teks‑frame mengecualikan tautan milik bentuk yang memuatnya.
+Contoh ini menetapkan aksi klik dan mouse-over pada sebuah bentuk dan teksnya, serta aksi makro pada tombol terpisah. Ini membandingkan kontainer yang dikembalikan oleh [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) dengan jumlah untuk masing-masing jenis aktivasi. Kueri bingkai teks menghitung hanya tautan dalam teks. Aksi bentuk yang membungkus muncul dalam kueri slide dan presentasi.
 
 ```python
 import aspose.slides as slides
@@ -259,37 +286,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk contoh ini, kueri presentasi dan slide masing‑masing melaporkan tiga kontainer klik, dua kontainer mouse‑over, dan tiga kontainer dengan salah satu aksi. Kueri teks‑frame melaporkan satu kontainer di setiap kategori.
+Untuk contoh ini, kueri presentasi dan slide masing-masing melaporkan tiga kontainer klik, dua kontainer mouse-over, dan tiga kontainer dengan salah satu aksi. Kueri bingkai teks melaporkan satu kontainer di setiap kategori.
 
-### **Classify Actions and Destinations**
+### **Klasifikasikan Aksi dan Tujuan**
 
-Gunakan [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) untuk menafsirkan suatu aksi sebelum menafsirkan destinasi‑nya. Nilai [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) mencakup lebih dari navigasi web:
+Gunakan [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) untuk menginterpretasikan sebuah aksi sebelum menginterpretasikan tujuannya. Nilai [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) mencakup lebih dari navigasi web:
 
 | Nilai | Makna untuk audit |
 | --- | --- |
 | `HYPERLINK` | Hyperlink eksternal; periksa URL dan skemanya. |
 | `JUMP_SPECIFIC_SLIDE` | Navigasi internal ke slide tertentu. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Navigasi slideshow bawaan, diselesaikan dalam konteks slideshow. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Navigasi bawaan slideshow, diselesaikan dalam konteks slideshow. |
 | `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Mengakhiri pertunjukan saat ini atau memulai pertunjukan khusus. |
 | `START_MACRO` | Menjalankan makro. |
 | `START_PROGRAM` | Meluncurkan program. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | Membuka berkas atau presentasi lain; tinjau terpisah dari URL web. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | Membuka file atau presentasi lain; tinjau terpisah dari URL web. |
 | `START_STOP_MEDIA` | Memulai atau menghentikan pemutaran media. |
-| `NO_ACTION`, `UNKNOWN` | Tidak ada aksi navigasi, atau aksi yang tidak dikenali yang memerlukan tinjauan. |
+| `NO_ACTION`, `UNKNOWN` | Tidak ada aksi navigasi, atau aksi tidak dikenal yang memerlukan tinjauan. |
 
-Baca destinasi eksternal dari [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) dan destinasi internal spesifik dari [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti bahwa kontainer tidak memiliki aksi. Pertahankan [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) bila berbeda dari URL yang dinormalisasi, dan sertakan [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) bila tersedia.
+Baca tujuan eksternal dari [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) dan tujuan internal spesifik dari [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti kontainer tidak memiliki aksi. Pertahankan [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) jika berbeda dari URL yang dinormalisasi, dan sertakan [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) bila tersedia.
 
-### **Report, Sanitize, and Verify Hyperlinks**
+### **Laporan, Sanitisasi, dan Verifikasi Hyperlink**
 
-Contoh Python berikut membaca presentasi yang ada (gunakan file yang dibuat di atas), menulis `hyperlink-audit.json`, menerapkan kebijakan, menyimpan `hyperlink-sanitized.pptx`, dan membukanya kembali untuk memeriksa kedua jenis aktivasi lagi. Ia mengumpulkan kontainer sebelum mengubahnya dan melakukan kueri setiap ruang lingkup slide satu kali untuk menghindari pemrosesan duplikat. Kueri presentasi mencakup slide biasa; untuk inventarisasi seluruh paket, contoh ini mengkueri slide biasa, master, tata letak, catatan, serta master catatan dan handout bila ada.
+Contoh ini membuka presentasi dari contoh sebelumnya dan menulis satu rekaman JSON per aksi. Ini menggunakan [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) untuk mengumpulkan kontainer pada slide biasa, master, tata letak, dan catatan, termasuk master catatan dan handout bila ada. Ia mengkueri setiap ruang lingkup sekali untuk menghindari pemrosesan duplikat, menerapkan kebijakan yang dijelaskan di bawah, dan membuka kembali presentasi yang disimpan untuk memeriksa kedua aksi klik dan mouse-over.
 
-Laporan mencatat indeks slide berbasis satu dan [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) bila tersedia. Pengumpul menyimpan slide pemilik dan ruang lingkup bersama setiap kontainer yang dikembalikan. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi berdasarkan ruang lingkupnya. Kontainer bentuk dan kontainer format bagian teks diberi label terpisah; tipe kontainer lain mempertahankan nama tipe waktu jalan mereka. Setiap kontainer mendapatkan ID lokal laporan sehingga dua aksinya dapat dikorelasikan.
+Laporan mencatat indeks slide berbasis satu dan [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) bila tersedia. Pengumpul mempertahankan slide pemilik dan ruang lingkup bersama setiap kontainer yang dikembalikan. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi oleh ruang lingkupnya. Kontainer bentuk dan kontainer format bagian teks diberi label terpisah; jenis kontainer lain mempertahankan nama tipe runtime mereka. Setiap kontainer mendapatkan ID lokal laporan sehingga dua aksinya dapat dikorelasikan.
 
-Kebijakan aplikasi yang sengaja ketat ini hanya mengizinkan URL HTTPS absolut dan target slide internal yang valid. Ia menolak makro, program, aksi berkas, aksi slideshow lain, aksi tidak dikenal, dan skema URL lain. Penolakan ini merupakan keputusan kebijakan, bukan verdict keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar putih host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun yang dinormalisasi diperiksa. Contoh ini mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
+Kebijakan aplikasi yang sengaja ketat ini hanya memperbolehkan URL HTTPS absolut dan target slide internal yang valid. Ia menolak makro, program, aksi file, aksi slideshow lain, aksi tidak dikenal, dan skema URL lain. Penolakan ini merupakan keputusan kebijakan, bukan keputusan keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar izinkan host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun yang dinormalisasi diperiksa. Contoh ini mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
 
-Untuk remediasi, [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) kontainer mendukung [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/), dan [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman landing HTTPS tetap; klik terlarang lainnya dan aksi mouse‑over terlarang dihapus secara independen. Atur `replace_external_clicks` ke `False` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti yang dimiliki aplikasi sebelum deployment.
+Untuk remediasi, [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) kontainer mendukung [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/), dan [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman landing HTTPS tetap; klik yang dilarang lainnya dan aksi mouse-over yang dilarang dihapus secara independen. Atur `replace_external_clicks` ke `False` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti milik aplikasi sebelum penyebaran.
 
-Tanda ekspor laporan menggunakan kebijakan peninjauan PDF yang konservatif: menandai aksi mouse‑over dan apa pun selain tautan eksternal atau lompat slide spesifik sebagai berpotensi tidak didukung. Ini adalah petunjuk peninjauan, bukan tes kemampuan atau jaminan bahwa tautan yang tidak ditandai akan tetap ada setelah ekspor. Ekspor [PDF](/slides/id/python-net/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/python-net/convert-powerpoint-to-html/) yang didukung dapat mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. [Gambar](/slides/id/python-net/convert-powerpoint-to-png/) raster dan [video](/slides/id/python-net/convert-powerpoint-to-video/) tidak dapat mempertahankan hyperlink interaktif; tandai setiap aksi saat mengaudit untuk output tersebut.
+Bendera ekspor laporan menggunakan kebijakan tinjauan PDF yang konservatif: menandai aksi mouse-over dan apa pun selain tautan eksternal atau lompat slide spesifik sebagai potensial tidak didukung. Ini merupakan petunjuk tinjauan, bukan uji kemampuan atau jaminan bahwa tautan yang tidak ditandai akan tetap setelah ekspor. Ekspor [PDF](/slides/id/python-net/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/python-net/convert-powerpoint-to-html/) yang didukung dapat mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. [gambar](/slides/id/python-net/convert-powerpoint-to-png/) dan [video](/slides/id/python-net/convert-powerpoint-to-video/) raster tidak dapat mempertahankan hyperlink interaktif; tandai setiap aksi saat mengaudit untuk keluaran tersebut.
 
 ```python
 import json
@@ -332,7 +359,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # Kueri setiap ruang lingkup slide sekali, mempertahankan pemiliknya pada setiap kontainer.
+    # Kueri setiap ruang lingkup slide sekali, menyimpan pemiliknya bersama setiap kontainer.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -419,20 +446,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-Dengan input yang dibuat di atas, laporan berisi lima baris aksi. Tautan mouse‑over berkas dan klik makro dihapus, sementara tautan HTTPS dan navigasi slide internal tetap. Verifikasi mencetak nol aksi terlarang. Input yang berisi URL klik eksternal terlarang juga menguji cabang penggantian. Kontainer dengan klik yang diizinkan dan mouse‑over terlarang mempertahankan aksi kliknya.
+Dengan masukan yang dibuat di atas, laporan berisi lima baris aksi. Tautan mouse-over file dan klik makro dihapus, sementara tautan HTTPS dan navigasi slide internal tetap. Verifikasi mencetak nol aksi terlarang. Masukan yang berisi URL klik eksternal terlarang juga menguji cabang penggantian. Kontainer dengan klik yang diizinkan dan mouse-over terlarang mempertahankan aksi kliknya.
 
-Pembersihan selektif ini berbeda dari [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), yang menghapus kedua jenis aktivasi di seluruh ruang lingkup yang dipilih tanpa memperhatikan kebijakan. Verifikasi di sini hanya memeriksa aksi hyperlink; ia tidak menghapus proyek VBA tersemat, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi file PDF atau HTML yang diekspor.
+Pembersihan selektif ini berbeda dari [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), yang menghapus kedua jenis aktivasi di seluruh ruang lingkup yang dipilih tanpa mempertimbangkan kebijakan. Verifikasi di sini memeriksa hanya aksi hyperlink; tidak menghapus proyek VBA yang disematkan, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi file PDF atau HTML yang diekspor.
 
 ## **FAQ**
 
-**Bagaimana saya dapat menautkan ke sebuah seksi atau slide pertamanya?**
+**Bagaimana saya dapat menautkan ke bagian atau slide pertamanya?**
 
-Section di PowerPoint mengelompokkan slide, tetapi hyperlink internal menargetkan satu slide. Untuk membuat navigasi ke sebuah section, tautkan ke slide pertama dalam section tersebut.
+Bagian dalam PowerPoint mengelompokkan slide, tetapi hyperlink internal menargetkan slide individual. Untuk membuat navigasi ke sebuah bagian, tautkan ke slide pertama dalam bagian tersebut.
 
-**Apakah saya dapat menempelkan hyperlink pada elemen master slide sehingga berfungsi pada semua slide?**
+**Apakah saya dapat menambahkan hyperlink ke elemen master slide sehingga berfungsi pada semua slide?**
 
-Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen ini tersedia selama pertunjukan slide pada slide yang menggunakan master atau tata letak yang bersangkutan.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen ini tersedia selama tampilan slide pada slide yang menggunakan master atau tata letak yang bersangkutan.
 
 **Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
 
-Ekspor PDF dan HTML yang didukung mungkin mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor di [Laporan, Sanitasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
+Ekspor PDF dan HTML yang didukung dapat mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor dalam [Laporan, Sanitisasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).

@@ -1,51 +1,51 @@
 ---
-title: C++ でプレゼンテーション ハイパーリンクを管理する
+title: C++ でプレゼンテーションハイパーリンクを管理する
 linktitle: ハイパーリンクの管理
 type: docs
 weight: 20
 url: /ja/cpp/manage-hyperlinks/
 keywords:
-- URL を追加
-- ハイパーリンクを追加
-- ハイパーリンクを作成
+- URL の追加
+- ハイパーリンクの追加
+- ハイパーリンクの作成
 - ハイパーリンクの書式設定
-- ハイパーリンクを削除
-- ハイパーリンクを更新
-- テキスト ハイパーリンク
-- スライド ハイパーリンク
-- 図形 ハイパーリンク
-- 画像 ハイパーリンク
-- 動画 ハイパーリンク
+- ハイパーリンクの削除
+- ハイパーリンクの更新
+- テキストハイパーリンク
+- スライドハイパーリンク
+- 図形ハイパーリンク
+- 画像ハイパーリンク
+- ビデオハイパーリンク
 - 可変ハイパーリンク
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "C++ 用 Aspose.Slides を使用し、C++ のサンプルで PowerPoint および OpenDocument プレゼンテーションのハイパーリンクを追加、書式設定、更新、削除します。"
+description: "Aspose.Slides for C++ を使用し、C++ のサンプルで PowerPoint と OpenDocument のプレゼンテーションにおけるハイパーリンクの追加、書式設定、更新、削除を行います。"
 ---
 ## **はじめに**
 
-ハイパーリンクはプレゼンテーションのコンテンツを Web サイトまたはプレゼンテーション内の場所に接続します。PowerPoint では、ハイパーリンクは主に次の 2 つの目的で使用されます：
+ハイパーリンクは、プレゼンテーションのコンテンツを Web サイトやプレゼンテーション内の場所に接続します。PowerPoint では、ハイパーリンクは一般的に 2 つの目的で使用されます。
 
-* テキスト、図形、またはメディア フレームから Web サイトを開く。
-* 目次などから別のスライドへ移動する。
+* テキスト、図形、またはメディアフレームから Web サイトを開く。
+* 例えば目次から別のスライドへ移動する。
 
-Aspose.Slides for C++ を使用すると、これらのリンクを追加し、外観やサウンドを制御し、設定を更新し、削除できます。以下の例は、個々の要素に対するハイパーリンクの操作方法と、プレゼンテーション、スライド、テキスト フレーム レベルでハイパーリンクにアクセスする方法を示しています。
+Aspose.Slides for C++ では、これらのリンクを追加し、外観やサウンドを制御し、設定を更新し、削除することができます。以下の例は、個々の要素に対するハイパーリンクの操作方法と、プレゼンテーション、スライド、テキストフレームレベルでハイパーリンクにアクセスする方法を示しています。
 
 {{% alert color="info" title="Note" %}}
-プレゼンテーションは、[無料のオンライン Aspose PowerPoint エディター](https://products.aspose.app/slides/editor)でも編集できます。
-{{% /alert %}} 
+プレゼンテーションは、[無料オンライン Aspose PowerPoint エディター](https://products.aspose.app/slides/editor)でも編集できます。
+{{% /alert %}}
 
-## **URL ハイパーリンクの追加**
+## **URL ハイパーリンクを追加**
 
-テキスト、図形、またはメディア フレームに Web サイトの URL を割り当てることができます。ハイパーリンクを割り当てた要素がクリック可能領域を決定します。テキスト部分の場合は選択したテキストがリンクになり、図形やフレームの場合はスライドオブジェクト全体がリンクになります。
+テキスト、図形、またはメディアフレームに Web サイトの URL を割り当てることができます。ハイパーリンクを割り当てる要素がクリック領域を決定します。テキスト部分は選択されたテキストにリンクし、図形やフレームはスライドオブジェクトにリンクします。
 
-相対ハイパーリンクを含むプレゼンテーションについては、[ハイパーリンクベースの管理](/slides/ja/cpp/presentation-properties/#manage-the-hyperlink-base)をご覧ください。
+相対ハイパーリンクを含むプレゼンテーションについては、[ハイパーリンクベースの管理](/slides/ja/cpp/presentation-properties/#manage-the-hyperlink-base)を参照して、ドキュメントレベルのベースを読み取り、変更、またはクリアしてください。
 
 ### **テキストへの URL ハイパーリンクの追加**
 
-テキストを Web サイトにリンクさせるには、[Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) を作成し、テキスト部分の [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) メソッドで割り当てます（以下を参照）。これにより、そのテキスト部分だけがクリック可能になります。
+テキストを Web サイトにリンクするには、[Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) を作成し、テキスト部分の [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) メソッドに割り当てます（下記参照）。そのテキスト部分だけがクリック可能になります。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **図形とメディア フレームへの URL ハイパーリンクの追加**
+### **図形とメディアフレームへの URL ハイパーリンクの追加**
 
-図形またはフレームをクリック可能にするには、[set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) メソッドを使用します。ハイパーリンクはオブジェクト自体に属し、内部のテキスト部分には属しません。
-
-画像、音声、動画フレームにも同じ方法が適用されます。フレームにハイパーリンクを割り当て、必要に応じて [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) でヒントを追加します。
-
-次の例は矩形をクリック可能にします：
+矩形に対して [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) を呼び出すと、領域全体がクリック可能になります。マウスオーバー時に目的地のヒントを表示するには、[set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) を使用します。これらのメソッドは、画像、音声、ビデオフレームにも適用できます。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -109,9 +105,9 @@ shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-## **ハイパーリンクを使用した目次の作成**
+## **ハイパーリンクを使用して目次を作成する**
 
-内部ハイパーリンクを使用すると、目次から特定のスライドへジャンプできます。次の例では、[SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) を使用して、最初のスライドの「Page 2」テキストを 2 番目のスライドにリンクしています。
+内部ハイパーリンクを使用すると、目次から特定のスライドへジャンプできます。次の例は、[SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) を使用して、1 枚目のスライドの「Page 2」テキストを 2 枚目のスライドにリンクしています。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **ハイパーリンクの書式設定**
 
+リンクされたテキストの色を変更したり、読者がリンクを有効にしたときにサウンドを再生または停止したり、マウスオーバー時に表示されるツールチップを設定したりできます。
+
 ### **色**
 
-[set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) メソッド（[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)）は、ハイパーリンクがプレゼンテーションのハイパーリンク色を使用するかテキスト部分の書式設定を使用するかを決定します。カスタムのテキスト色を適用するには、[HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) を選択し、部分の塗りつぶし色を設定します。この機能は PowerPoint 2019 で導入され、旧バージョンではこの設定は適用されません。
+[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) の [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) メソッドは、ハイパーリンクがプレゼンテーションのハイパーリンク色を使用するか、テキスト部分の書式設定を使用するかを決定します。カスタムテキスト色を適用するには、[HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) を選択し、部分の塗りつぶし色を設定します。この機能は PowerPoint 2019 で導入され、古いバージョンでは適用されません。
 
-次の例は同じスライドに 2 つのテキストハイパーリンクを追加します。最初のリンクは赤いテキスト塗りつぶしを使用し、2 番目はデフォルトのハイパーリンク色を保持します。
+この例では、最初のリンクが [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) を使用して赤いテキスト塗りを表示しています。2 番目のリンクはプレゼンテーションのハイパーリンク色を保持しています。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -217,14 +215,14 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 
 ### **サウンド**
 
-ハイパーリンクは、アクティブ化されたときにサウンドを再生したり、再生中のサウンドを停止したりできます。これらの動作を設定するには、以下のメソッドを使用します。
+ハイパーリンクは、アクティブ化時にサウンドを再生したり、既に再生中のサウンドを停止したりできます。以下のメソッドで動作を設定します。
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) はハイパーリンクに関連付けるオーディオを指定します。
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) はハイパーリンクをアクティブ化したときに前のサウンドを停止するかどうかを制御します。
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) はハイパーリンクに関連付けられたオーディオを指定します。
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) はハイパーリンクを有効にしたときに前のサウンドを停止するかどうかを制御します。
 
-#### **ハイパーリンクサウンドの追加**
+#### **ハイパーリンク サウンドの追加**
 
-次の例は `sampleaudio.wav` をロードし、最初のスライドのボタンに関連付けます。ボタンをクリックするとサウンドが再生され、次のスライドへ移動します。同じスライド上の別の図形はクリック時に前のサウンドを停止し、ナビゲーションは行いません。
+1 枚目のスライドのボタンは [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) を使用して `sampleaudio.wav` のオーディオを再生します。2 枚目のスライドでは別のボタンが [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) を使用して再生を停止し、スライド上に留まります。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -268,9 +266,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **ハイパーリンクサウンドの抽出**
+#### **ハイパーリンク サウンドの抽出**
 
-次の例は、上記で作成したプレゼンテーションを開き、最初の図形のハイパーリンクオーディオを [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) と [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) を使用してメモリに読み込みます。
+以下の例は、上記で作成したプレゼンテーションを開き、最初の図形のハイパーリンクオーディオを [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) と [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) を介してメモリに読み取ります。
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -311,13 +309,13 @@ else
 テキストまたは図形にハイパーリンクを割り当てた後、以下の [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) 設定をこれらのメソッドで更新できます。
 
 - [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) は、リンクのヒントとして表示できるテキストを設定します。
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) は、該当する場合に親 HTML フレームセット内のターゲットフレームを指定します。
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) は、リンクをアクティブ化したときにその宛先を閲覧済みハイパーリンクのリストに追加するかどうかを制御します。
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) は、適用可能な場合に親 HTML フレームセット内のターゲットフレームを指定します。
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) は、リンクを有効にしたときに目的地を閲覧済みハイパーリンクリストに追加するかどうかを制御します。
 - [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) は、クリック時にハイパーリンクをハイライト表示するかどうかを制御します。
 
-## **プレゼンテーションからハイパーリンクを削除**
+## **プレゼンテーションからハイパーリンクを削除する**
 
-[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) を使用して、テキスト部分のリンクを含むハイパーリンクコンテナを取得し、変更前に収集します。次の例は最初のスライドから両方のアクティベーションタイプを削除します。1 つだけ削除したい場合は、[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) または [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) を呼び出します。クリックアクションを削除してもマウスオーバー側は削除されません。
+[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) を使用して、テキスト部分リンクを含むハイパーリンクコンテナを収集し、変更前に取得します。以下の例は、1 枚目のスライドから両方のアクティベーションタイプを削除します。1 つだけ削除したい場合は、[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) または [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) のみを呼び出してください。クリックアクションを削除しても、マウスオーバーの対応は削除されません。
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -351,23 +349,76 @@ else
 }
 ```
 
-無条件にすべて削除するには、[RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) を呼び出すと、選択したスコープ内の両方のアクティベーションタイプが一括で削除されます。マスター、レイアウト、ノートの選択的クリーンアップと網羅については、[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) を参照してください。
+条件なしで削除する場合は、[RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) が選択したスコープ内の両方のアクティベーションタイプを一度に削除します。マスター、レイアウト、ノートの選択的クリーンアップとカバレッジについては、[レポート、サニタイズ、検証ハイパーリンク](#report-sanitize-and-verify-hyperlinks) を参照してください。
 
-## **完全なハイパーリンクインベントリの構築**
+### **SmartArt テキストを置換する前にハイパーリンクをクリアする**
 
-プレゼンテーションを配布する前に、インタラクティブなアクションと Web リンクをインベントリ化します。[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) は URL 文字列のフラットリストではなく、[IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) オブジェクトを返します。各コンテナで [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) と [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) の両方を調べます。これらは独立しており、同じコンテナが両方のアクションを持つことがあるため、完全なレポートにはコンテナごに最大 2 行が必要です。
+既存の SmartArt ノードの段落を置換する際、テキスト部分をクリアすると古いハイパーリンクが残る場合があります。段落は [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/) で取得します。部分をクリアする前に、ノード形状のテキストフレーム上で [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) を介して [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) を呼び出してください。これにより、そのフレーム内のすべてのハイパーリンク（他の段落のリンクを含む）が削除されます。
 
-形状レベルのハイパーリンクだけをスキャンすると、テキスト部分に付随するリンクを見逃す可能性があります。代わりに適切なスコープをクエリし、返されたコンテナを保持して後でアクションの更新や削除ができるようにします。
+例では、1 枚目のスライドの 3 番目の図形が SmartArt グラフィックであると想定し、4 番目のノードの最初の段落を置換します。このプレゼンテーションでは、ノードの最初の図形がその段落を表示しています。
 
-### **プレゼンテーション、スライド、テキスト フレーム スコープのクエリ**
+両方の部分を追加した後、例は [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) を使用して有効な書式設定を読み取ります。有効な [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) メソッドは最初の部分に新しいハイパーリンクを返し、2 番目には `nullptr` を返します。
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) インターフェイスは、[IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/)、[IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/)、[ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) を通じて利用できます。各スコープは同じクエリをサポートします：
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
+## **完全なハイパーリンクインベントリの作成**
+
+プレゼンテーションを配布する前に、インタラクティブアクションと Web リンクのインベントリを作成します。[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) は [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) オブジェクトを返し、URL 文字列のフラットリストは返しません。各コンテナの [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) と [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) の両方を確認してください。これらは独立しており、同じコンテナが両方のアクションを提供できるため、完全なレポートにはコンテナごとに最大 2 行が必要です。
+
+形状レベルのハイパーリンクだけをスキャンすると、テキスト部分に付属したリンクが見逃されることがあります。代わりに適切なスコープをクエリし、返されたコンテナを保持して後でアクションを更新または削除できるようにしてください。
+
+### **プレゼンテーション、スライド、テキストフレームのスコープをクエリする**
+
+[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) インターフェイスは、[IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/)、[IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/)、[ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) を通じて利用できます。各スコープは同じクエリをサポートします。
 
 - [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) はクリックアクションを持つコンテナを返します。
 - [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) はマウスオーバーアクションを持つコンテナを返します。
 - [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) はいずれか、または両方のアクションを持つコンテナを返します。
 
-次の例は、外部クリックリンク、ファイルマウスオーバーリンク、内部スライドナビゲーション、テキストマウスオーバーリンク、マクロアクションを持つ `hyperlink-audit-input.pptx` を作成します。これらのアクションは実行されません。同じ 3 つのクエリはすべてのスコープで機能し、カウントはコンテナ数を示し、アクションの合計ではありません。テキスト フレーム スコープは、囲む図形自身のリンクは除外します。
+この例は、図形とそのテキストにクリックとマウスオーバーのアクションを割り当て、別のボタンにマクロアクションを割り当てています。[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) で返されたコンテナを、各アクティベーションタイプの数と比較しています。テキストフレームのクエリはテキスト内のリンクだけをカウントします。囲む図形自体のアクションはスライドとプレゼンテーションのクエリに現れます。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -422,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-この例では、プレゼンテーションとスライドのクエリはそれぞれ 3 つのクリックコンテナ、2 つのマウスオーバーコンテナ、いずれかのアクションを持つ 3 つのコンテナを報告します。テキスト フレームのクエリは各カテゴリで 1 つのコンテナを報告します。
+この例では、プレゼンテーションおよびスライドのクエリはそれぞれクリックコンテナが 3 件、マウスオーバーコンテナが 2 件、いずれかのアクションを持つコンテナが 3 件を報告します。テキストフレームのクエリは各カテゴリで 1 件を報告します。
 
 ### **アクションと宛先の分類**
 
-[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) を使用して、宛先を解釈する前にアクションを判断します。[HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) の値は Web ナビゲーションだけでなく、以下を含みます：
+[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) を使用してアクションを解釈し、次に宛先を解釈します。[HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) の値は Web ナビゲーション以外もカバーしています。
 
-| 値 | 監査上の意味 |
+| 値 | 監査時の意味 |
 | --- | --- |
 | `Hyperlink` | 外部ハイパーリンク；URL とそのスキームを確認してください。 |
 | `JumpSpecificSlide` | 特定のスライドへの内部ナビゲーション。 |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 組み込みのスライドショー ナビゲーションで、スライドショー コンテキストで解決されます。 |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 組み込みのスライドショーナビゲーションで、スライドショーコンテキストで解決されます。 |
 | `JumpEndShow`, `StartCustomSlideShow` | 現在のショーを終了するか、カスタムショーを開始します。 |
 | `StartMacro` | マクロを実行します。 |
 | `StartProgram` | プログラムを起動します。 |
-| `OpenFile`, `OpenPresentation` | ファイルまたは別のプレゼンテーションを開きます。Web URL とは別に確認してください。 |
-| `StartStopMedia` | メディアの再生を開始または停止します。 |
-| `NoAction`, `Unknown` | ナビゲーションアクションがない、または認識できないアクションで、レビューが必要です。 |
+| `OpenFile`, `OpenPresentation` | ファイルまたは別のプレゼンテーションを開きます；Web URL とは別に確認してください。 |
+| `StartStopMedia` | メディア再生を開始または停止します。 |
+| `NoAction`, `Unknown` | ナビゲーションアクションなし、またはレビューが必要な未認識のアクションです。 |
 
-[get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) で外部宛先を読み取り、[get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/) で特定の内部宛先を取得します。内部アクションや組み込みコマンドは外部 URL を持たないことがあります。空の URL があるからといってコンテナにアクションがないわけではありません。正規化された URL と異なる場合は [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) を保持し、利用可能な場合は [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) が返すツールチップも含めます。
+外部宛先は [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) から読み取り、特定の内部宛先は [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/) から取得します。内部アクションや組み込みコマンドは外部 URL を持たないことがありますが、URL が空でもコンテナにアクションがないことを意味しません。正規化された URL と異なる場合は [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) を保持し、利用可能な場合は [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) が返すツールチップも含めます。
 
 ### **レポート、サニタイズ、検証ハイパーリンク**
 
-次の C++ の例は、既存のプレゼンテーションを読み込み（上記で作成したファイルを使用）、`hyperlink-audit.json` を書き込み、ポリシーを適用し、`hyperlink-sanitized.pptx` を保存して再度開き、両方のアクティベーションタイプを確認します。変更前にコンテナを収集し、ポインタの同一性を利用して同一コンテナの二重処理を防ぎます。プレゼンテーションのクエリは通常のスライドを対象とし、パッケージ全体のインベントリの場合は、マスター、レイアウト、ノート、およびノート・ハンドアウト マスターも明示的にクエリします。
+この C++ の例は前述の例のプレゼンテーションを開き、アクションごとに 1 つの JSON レコードを書き出します。[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) を使用して、通常のスライド、マスター、レイアウト、ノート、および存在する場合はノートとハンドアウトマスターからコンテナを収集します。ポインタの同一性を利用して各コンテナを 1 回だけカウントし、以下に示すポリシーを適用し、保存されたプレゼンテーションを再度開いてクリックとマウスオーバーの両方のアクションを確認します。
 
-レポートは、1 から始まるスライドインデックスと、利用可能な場合は [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) を記録します。[ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) はサポート対象コンテナに所有スライドを提供します。マスター、レイアウト、ノートは通常のスライドインデックスを持たず、スコープで識別されます。図形コンテナとテキスト部分の書式コンテナは別々にラベル付けされ、他のコンテナタイプはランタイム型名を保持します。各コンテナにはレポートローカル ID が付与され、2 つのアクションを関連付けられます。
+レポートは 1 ベースのスライドインデックスと、利用可能な場合は [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) を記録します。[ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) はサポート対象のコンテナに対して所有スライドを提供します。マスター、レイアウト、ノートには通常のスライドインデックスがなく、スコープで識別されます。図形コンテナとテキスト部分書式コンテナは別々にラベル付けされ、他のコンテナタイプは実行時の型名を保持します。各コンテナにはローカル ID が付与され、2 つのアクションを相関付けできるようにします。
 
-この意図的に制限されたアプリケーションポリシーは、絶対パスの HTTPS URL と有効な内部スライドターゲットのみを許可します。マクロ、プログラム、ファイルアクション、その他のスライドショーアクション、未知のアクション、およびその他の URL スキームは拒否されます。これらの拒否はポリシー上の判断であり、Aspose.Slides の安全性判定ではありません。HTTPS だけでは信頼性は保証できませんので、ホスト許可リストなどのチェックを追加してください。元の URL と正規化された外部 URL の両方がチェックされます。例ではリンクをたどったりアクションを実行したりせずにメタデータを監査します。
+この意図的に制限的なアプリケーションポリシーは、絶対 HTTPS URL と有効な内部スライドターゲットのみを許可します。マクロ、プログラム、ファイルアクション、その他のスライドショーアクション、未知のアクション、その他の URL スキームは拒否されます。これらの拒否はポリシー上の決定であり、Aspose.Slides の安全性判定ではありません。HTTPS だけでは信頼が確立されない点に留意し、ホスト許可リストやその他のチェックをアプリケーションに組み込んでください。元の外部 URL と正規化された外部 URL の両方がチェックされます。例はリンクをたどったりアクションを実行したりせずにメタデータを監査します。
 
-修正のために、コンテナの [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) は [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)、[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)、[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) をサポートします。ここでは、禁止された外部クリックリンクは固定の HTTPS ランディングページに置き換え、他の禁止クリックや禁止マウスオーバーアクションは個別に削除します。`replaceExternalClicks` を `false` に設定すると、すべてのポリシー違反が削除されます。デプロイ前にアプリケーション所有の置換ページを選択してください。
+是正手段として、コンテナの [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) は [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)、[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)、[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) をサポートします。ここでは、禁止された外部クリックリンクを固定の HTTPS ランディングページに置き換え、その他の禁止クリックおよび禁止マウスオーバーアクションは個別に削除します。`replaceExternalClicks` を `false` に設定すると、すべてのポリシー違反が削除されます。デプロイ前にアプリケーション所有の置換ページを選択してください。
 
-レポートのエクスポートフラグは、保守的な PDF レビュー ポリシーを使用します。マウスオーバーアクションや外部リンク・特定スライドジャンプ以外のものは、潜在的にサポートされない可能性があるとしてフラグ付けします。これはレビューのヒントであり、機能テストやフラグが付いていないリンクがエクスポート後に残る保証ではありません。サポートされている [PDF](/slides/ja/cpp/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/cpp/convert-powerpoint-to-html/) のエクスポートは、アクションやエクスポートオプション、ビューアに依存してハイパーリンクを保持できる場合があります。ラスター [画像](/slides/ja/cpp/convert-powerpoint-to-png/) と [動画](/slides/ja/cpp/convert-powerpoint-to-video/) はインタラクティブなハイパーリンクを保持できないため、これらの出力を監査する際はすべてのアクションにフラグを付けてください。
+レポートのエクスポートフラグは保守的な PDF レビュー ポリシーを使用します：マウスオーバーアクションと外部リンク以外または特定のスライドジャンプ以外のすべてを潜在的にサポート外としてフラグ付けします。これはレビューのヒントであり、機能テストやフラグが付いていないリンクがエクスポートで残る保証ではありません。サポートされている [PDF](/slides/ja/cpp/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/cpp/convert-powerpoint-to-html/) のエクスポートはアクション、エクスポートオプション、ビューアに応じてハイパーリンクを保持する場合があります。ラスタ [画像](/slides/ja/cpp/convert-powerpoint-to-png/) と [ビデオ](/slides/ja/cpp/convert-powerpoint-to-video/) はインタラクティブハイパーリンクを保持できないため、これらの出力を監査する際はすべてのアクションにフラグを付けてください。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -653,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-上記で作成した入力に対して、レポートには 5 行のアクションが含まれます。ファイルマウスオーバーリンクとマクロクリックは削除され、HTTPS リンクと内部スライドナビゲーションは残ります。検証では禁止アクションは 0 件と表示されます。禁止された外部クリック URL を含む入力は置換ブランチも実行します。許可されたクリックと禁止されたマウスオーバーを持つコンテナはクリックアクションを保持します。
+上記で作成した入力で、レポートには 5 行のアクションが含まれます。ファイルのマウスオーバーリンクとマクロクリックは削除され、HTTPS リンクと内部スライドナビゲーションは残ります。検証は禁止アクションがゼロであることを出力します。禁止された外部クリック URL を含む入力は置換ブランチも実行します。許可されたクリックと禁止されたマウスオーバーを持つコンテナはクリックアクションを保持します。
 
-この選択的クリーンアップは、ポリシーに関係なく選択したスコープ全体の両方のアクティベーションタイプを削除する [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) とは異なります。ここでの検証はハイパーリンクアクションのみをチェックし、埋め込み VBA プロジェクト、OLE オブジェクト、その他のアクティブ コンテンツは削除せず、エクスポートされた PDF や HTML ファイルの検証も行いません。
+この選択的クリーンアップは、ポリシーに関係なく選択したスコープ全体の両方のアクティベーションタイプを削除する [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) とは異なります。ここでの検証はハイパーリンクアクションのみをチェックし、埋め込み VBA プロジェクト、OLE オブジェクト、その他のアクティブコンテンツの削除や、エクスポートされた PDF や HTML ファイルの検証は行いません。
 
-## **よくある質問**
+## **FAQ**
 
 **セクションまたはその最初のスライドにリンクするにはどうすればよいですか？**
 
-PowerPoint のセクションはスライドをグループ化しますが、内部ハイパーリンクは個々のスライドを対象とします。セクションへのナビゲーションを作成するには、そのセクションの最初のスライドにリンクします。
+PowerPoint のセクションはスライドをグループ化しますが、内部ハイパーリンクは個々のスライドを対象にします。セクションへのナビゲーションを作成するには、そのセクションの最初のスライドにリンクしてください。
 
-**マスタースライド要素にハイパーリンクを付与して、すべてのスライドで機能させることは可能ですか？**
+**マスタースライドの要素にハイパーリンクを付けてすべてのスライドで機能させることはできますか？**
 
-可能です。マスタースライドおよびレイアウト要素はハイパーリンクをサポートします。これらの要素に設定されたリンクは、対応するマスターまたはレイアウトを使用しているスライドのスライドショー中に利用可能です。
+はい。マスタースライドやレイアウトの要素はハイパーリンクをサポートします。これらの要素上のリンクは、対応するマスターまたはレイアウトを使用するスライドのスライドショー中に利用可能です。
 
-**PDF、HTML、画像、または動画へのエクスポート時にハイパーリンクは保持されますか？**
+**PDF、HTML、画像、またはビデオにエクスポートする際にハイパーリンクは保持されますか？**
 
-サポートされている PDF と HTML のエクスポートではハイパーリンクが保持される場合がありますが、ラスター画像や動画では保持できません。エクスポート時の考慮事項は、[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) を参照してください。
+サポートされた PDF と HTML のエクスポートはハイパーリンクを保持する場合がありますが、ラスタ画像やビデオは保持できません。詳細は [レポート、サニタイズ、検証ハイパーリンク](#report-sanitize-and-verify-hyperlinks) のエクスポートに関する考慮事項をご覧ください。

@@ -12,7 +12,7 @@ keywords:
 - Hyperlink entfernen
 - Hyperlink aktualisieren
 - Text-Hyperlink
-- Folien-Hyperlink
+- Folie-Hyperlink
 - Form-Hyperlink
 - Bild-Hyperlink
 - Video-Hyperlink
@@ -22,30 +22,30 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Hinzufügen, Formatieren, Aktualisieren und Entfernen von Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für PHP via Java, anhand von PHP-Beispielen."
+description: "Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für PHP über Java hinzufügen, formatieren, aktualisieren und entfernen, anhand von PHP-Beispielen."
 ---
-## **Einleitung**
+## **Einführung**
 
 Ein Hyperlink verbindet Präsentationsinhalt mit einer Website oder einem Ort innerhalb der Präsentation. In PowerPoint dienen Hyperlinks üblicherweise zwei Zwecken:
 
-* Öffnen einer Website aus Text, einer Form oder einem Medienrahmen.
-* Navigieren zu einer anderen Folie, zum Beispiel aus einem Inhaltsverzeichnis.
+* Eine Website aus Text, einer Form oder einem Medienrahmen öffnen.
+* Zu einer anderen Folie wechseln, zum Beispiel aus einem Inhaltsverzeichnis.
 
-Aspose.Slides for PHP via Java ermöglicht das Hinzufügen dieser Links, die Steuerung ihres Aussehens und Sounds, das Aktualisieren ihrer Eigenschaften und das Entfernen. Die nachstehenden Beispiele zeigen, wie man mit Hyperlinks an einzelnen Elementen arbeitet und wie man Hyperlinks auf Präsentations-, Folien- oder Textfeldebene zugreift. Sie gehen davon aus, dass PHP/Java Bridge und der Aspose.Slides PHP Wrapper initialisiert sind. API‑Mitglieder ohne PHP‑Referenzseiten‑Link verweisen auf die zugrunde liegende Java‑API.
+Aspose.Slides für PHP über Java ermöglicht das Hinzufügen dieser Links, die Steuerung von Aussehen und Klang, das Aktualisieren ihrer Eigenschaften und das Entfernen. Die nachstehenden Beispiele zeigen, wie man mit Hyperlinks an einzelnen Elementen arbeitet und wie man Hyperlinks auf Präsentations‑, Folien‑ oder Text‑Frame‑Ebene zugreift. Sie setzen voraus, dass PHP/Java Bridge und der Aspose.Slides PHP‑Wrapper initialisiert sind. API‑Mitglieder ohne PHP‑Referenzseiten‑Link verweisen auf die zugrunde liegende Java‑API.
 
 {{% alert color="info" title="Note" %}}
-Sie können Präsentationen auch mit dem [kostenlosen Online-Aspose‑PowerPoint‑Editor](https://products.aspose.app/slides/editor) bearbeiten.
-{{% /alert %}} 
+Sie können Präsentationen auch mit dem [kostenlosen Online-Aspose PowerPoint-Editor](https://products.aspose.app/slides/editor) bearbeiten.
+{{% /alert %}}
 
 ## **URL‑Hyperlinks hinzufügen**
 
-Sie können einer Textstelle, einer Form oder einem Medienrahmen eine Website‑URL zuweisen. Das Element, dem Sie den Hyperlink zuweisen, bestimmt den anklickbaren Bereich: Ein Textabschnitt verlinkt den ausgewählten Text, während eine Form oder ein Rahmen das Folienobjekt verlinkt.
+Sie können einer URL einer Website Text, einer Form oder einem Medienrahmen zuweisen. Das Element, dem Sie den Hyperlink zuweisen, bestimmt den anklickbaren Bereich: Ein Textabschnitt verlinkt den ausgewählten Text, während eine Form oder ein Rahmen das Folienobjekt verlinkt.
 
-Für Präsentationen, die relative Hyperlinks enthalten, siehe [Hyperlink‑Basis verwalten](/slides/de/php-java/presentation-properties/#manage-the-hyperlink-base), um die dokumentweite Basis zu lesen, zu ändern oder zu löschen.
+Für Präsentationen mit relativen Hyperlinks siehe [Verwalten der Hyperlinkbasis](/slides/de/php-java/presentation-properties/#manage-the-hyperlink-base), um die dokumentweite Basis zu lesen, zu ändern oder zu leeren.
 
 ### **URL‑Hyperlinks zu Text hinzufügen**
 
-Um Text mit einer Website zu verlinken, übergeben Sie ein [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) an die [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/)‑Methode des Textabschnitts, wie unten gezeigt. Nur dieser Textabschnitt wird anklickbar.
+Um Text mit einer Website zu verknüpfen, übergeben Sie ein [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) an die Methode [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) des Textabschnitts, wie unten gezeigt. Nur dieser Textabschnitt wird anklickbar.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -70,11 +70,7 @@ try {
 
 ### **URL‑Hyperlinks zu Formen und Medienrahmen hinzufügen**
 
-Um eine Form oder einen Rahmen anklickbar zu machen, rufen Sie deren [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/)‑Methode auf. Der Hyperlink gehört zum Objekt selbst und nicht zu einem Textabschnitt darin.
-
-Das gleiche Vorgehen gilt für Bild-, Audio‑ und Video‑Frames: Weisen Sie dem Frame den Hyperlink zu und rufen Sie bei Bedarf [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) auf.
-
-Das folgende Beispiel macht ein Rechteck anklickbar:
+Rufen Sie [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) für das Rechteck auf, um dessen gesamten Bereich anklickbar zu machen. Verwenden Sie [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/), um Lesern beim Überfahren des Rechtecks einen Hinweis auf das Ziel anzuzeigen. Beide Methoden gelten außerdem für Bild‑, Audio‑ und Video‑Frames.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -97,7 +93,7 @@ try {
 
 ## **Hyperlinks zur Erstellung eines Inhaltsverzeichnisses verwenden**
 
-Interne Hyperlinks ermöglichen es Lesern, vom Inhaltsverzeichnis zu einer bestimmten Folie zu springen. Das folgende Beispiel verwendet [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/), um den Text „Seite 2“ auf der ersten Folie mit der zweiten Folie zu verlinken.
+Interne Hyperlinks ermöglichen es Lesern, von einem Inhaltsverzeichnis zu einer bestimmten Folie zu springen. Das folgende Beispiel verwendet [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/), um den Text „Page 2“ auf der ersten Folie mit der zweiten Folie zu verknüpfen.
 
 ```php
 use aspose\slides\FillType;
@@ -137,11 +133,13 @@ try {
 
 ## **Hyperlinks formatieren**
 
+Sie können die Farbe des verlinkten Textes ändern, beim Aktivieren eines Links einen Klang abspielen oder stoppen und den Tooltip festlegen, der beim Überfahren angezeigt wird.
+
 ### **Farbe**
 
-Die [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/)‑Methode von [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) bestimmt, ob ein Hyperlink die Hyperlink‑Farbe der Präsentation oder die Formatierung des Textabschnitts verwendet. Um eine benutzerdefinierte Textfarbe anzuwenden, wählen Sie [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) und setzen die Füllfarbe des Abschnitts. Diese Funktion wurde in PowerPoint 2019 eingeführt; ältere Versionen berücksichtigen diese Einstellung nicht.
+Die Methode [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) von [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) bestimmt, ob ein Hyperlink die Hyperlink‑Farbe der Präsentation oder die Formatierung des Textabschnitts verwendet. Um eine benutzerdefinierte Textfarbe anzuwenden, wählen Sie [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) und setzen die Füllfarbe des Abschnitts. Diese Funktion wurde in PowerPoint 2019 eingeführt; ältere Versionen unterstützen diese Einstellung nicht.
 
-Das folgende Beispiel fügt derselben Folie zwei Text‑Hyperlinks hinzu. Der erste verwendet eine rote Textfüllung, während der zweite die Standard‑Hyperlink‑Farbe beibehält.
+In diesem Beispiel lässt [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) den ersten Link die rote Füllung des Textabschnitts verwenden. Der zweite Link behält die Hyperlink‑Farbe der Präsentation bei.
 
 ```php
 use aspose\slides\FillType;
@@ -170,16 +168,17 @@ try {
     $presentation->dispose();
 }
 ```
-### **Sound**
 
-Ein Hyperlink kann beim Aktivieren einen Sound abspielen oder einen bereits spielenden Sound stoppen. Verwenden Sie die folgenden Methoden, um dieses Verhalten zu konfigurieren:
+### **Ton**
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) legt das dem Hyperlink zugeordnete Audio fest.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) bestimmt, ob das Aktivieren des Hyperlinks den vorherigen Sound stoppt.
+Ein Hyperlink kann beim Aktivieren einen Klang abspielen oder einen bereits spielenden Klang stoppen. Verwenden Sie die folgenden Methoden, um dieses Verhalten zu konfigurieren:
 
-#### **Hyperlink‑Sound hinzufügen**
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) gibt die dem Hyperlink zugeordnete Audiodatei an.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) steuert, ob das Aktivieren des Hyperlinks den vorherigen Ton stoppt.
 
-Das folgende Beispiel lädt `sampleaudio.wav` und verknüpft es mit einem Button auf der ersten Folie. Ein Klick auf den Button spielt den Sound ab und navigiert zur nächsten Folie. Eine zweite Form auf dieser Folie stoppt beim Klicken den vorherigen Sound, ohne eine Navigationsaktion auszuführen.
+#### **Hyperlink‑Ton hinzufügen**
+
+Der Button auf der ersten Folie verwendet [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/), um beim Klicken die Audiodatei `sampleaudio.wav` abzuspielen. Auf der zweiten Folie verwendet ein separater Button [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/), um die Wiedergabe zu stoppen und den Leser auf dieser Folie zu halten.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -219,9 +218,9 @@ try {
 }
 ```
 
-#### **Hyperlink‑Sound extrahieren**
+#### **Hyperlink‑Ton extrahieren**
 
-Das folgende Beispiel öffnet die oben erstellte Präsentation und liest das Hyperlink‑Audio der ersten Form mithilfe von [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) und [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) in den Speicher.
+Das folgende Beispiel öffnet die oben erstellte Präsentation und liest den Hyperlink‑Ton des ersten Shapes über [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) und [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) in den Speicher.
 
 ```php
 use aspose\slides\Presentation;
@@ -247,16 +246,16 @@ try {
 
 ### **Tooltip‑ und Interaktionseinstellungen**
 
-Sie können die folgenden [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/)‑Methoden aufrufen, nachdem Sie einem Text oder einer Form einen Hyperlink zugewiesen haben:
+Sie können nach dem Zuweisen eines Hyperlinks zu Text oder einer Form die folgenden [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/)‑Methoden aufrufen:
 
-- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) legt den Text fest, den ein Betrachter als Hinweis für den Link anzeigen kann.
-- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) gibt den Ziel‑Frame innerhalb eines übergeordneten HTML‑Framesets an, falls zutreffend.
-- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) bestimmt, ob das Aktivieren des Links sein Ziel zur Liste der angezeigten Hyperlinks hinzufügt.
-- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) legt fest, ob der Hyperlink bei Klick hervorgehoben wird.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) setzt den Text, den ein Betrachter als Hinweis für den Link anzeigen kann.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) gibt den Zielrahmen innerhalb eines übergeordneten HTML‑Framesatzes an, falls zutreffend.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) steuert, ob das Aktivieren des Links sein Ziel zur Liste der angesehenen Hyperlinks hinzufügt.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) steuert, ob der Hyperlink beim Klicken hervorgehoben wird.
 
 ## **Hyperlinks aus Präsentationen entfernen**
 
-Verwenden Sie [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/), um Hyperlink‑Container, einschließlich Text‑Abschnitt‑Links, zu sammeln, bevor Sie sie ändern. Das folgende Beispiel entfernt beide Aktivierungstypen von der ersten Folie. Um nur einen Typ zu entfernen, rufen Sie ausschließlich [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) oder [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) auf; das Entfernen einer Klick‑Aktion entfernt nicht deren Mouse‑Over‑Gegenstück.
+Verwenden Sie [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/), um Hyperlink‑Container, einschließlich Text‑Abschnitt‑Links, zu sammeln, bevor Sie sie ändern. Das folgende Beispiel entfernt beide Aktivierungstypen von der ersten Folie. Um nur einen Typ zu entfernen, rufen Sie nur [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) bzw. [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) auf; das Entfernen einer Klick‑Aktion entfernt nicht die zugehörige Maus‑Über‑Aktion.
 
 ```php
 use aspose\slides\Presentation;
@@ -282,23 +281,60 @@ try {
 }
 ```
 
-Für uneingeschränkte Entfernung entfernt [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) beide Aktivierungstypen im ausgewählten Bereich in einem Aufruf. Für selektive Bereinigung und Abdeckung von Master‑Folien, Layouts und Notizen siehe [Bericht, Bereinigen und Verifizieren von Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Für uneingeschränktes Entfernen entfernt [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) beide Aktivierungstypen im ausgewählten Geltungsbereich in einem Aufruf. Für selektive Bereinigung und Abdeckung von Mastern, Layouts und Notizen siehe [Bericht, Bereinigen und Verifizieren von Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Vollständiges Hyperlink‑Inventar erstellen**
+### **Hyperlinks vor dem Ersetzen von SmartArt‑Text löschen**
 
-Bevor Sie eine Präsentation verteilen, erfassen Sie deren interaktive Aktionen sowie Web‑Links. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) liefert [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/)‑Objekte, nicht eine flache Liste von URL‑Zeichenketten. Untersuchen Sie sowohl [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) als auch [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) jedes Containers. Sie sind unabhängig: derselbe Container kann beide Aktionen bereitstellen, sodass ein vollständiger Bericht bis zu zwei Zeilen pro Container benötigen kann.
+Wenn Sie einen Absatz in einem bestehenden SmartArt‑Knoten ersetzen, kann das Löschen seiner Textabschnitte einen alten Hyperlink wirksam lassen. Rufen Sie den Absatz über [SmartArtNode::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/gettextframe/) ab. Bevor Sie seine Abschnitte löschen, rufen Sie [getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) auf dem Text‑Frame des Knotensymbols auf, das den Absatz anzeigt, und anschließend [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) auf dem zurückgegebenen Objekt auf. Damit werden alle Hyperlinks in diesem Frame entfernt, einschließlich der Links in anderen Absätzen.
 
-Das Scannen von Hyperlinks nur auf Form‑Ebene kann Links übersehen, die an Text‑Abschnitten befestigt sind. Fragen Sie stattdessen den entsprechenden Umfang ab und bewahren Sie die zurückgegebenen Container, damit Sie deren Aktionen später aktualisieren oder entfernen können.
+Das Beispiel geht davon aus, dass die dritte Form auf der ersten Folie von `SmartArtHyperlink.pptx` ein SmartArt‑Grafikobjekt ist. Es ersetzt den ersten Absatz des vierten Knotens. In dieser Präsentation zeigt die erste Form des Knotens diesen Absatz an.
 
-### **Präsentations‑, Folien‑ und Textfeld‑Bereiche abfragen**
+Nach dem Hinzufügen beider Abschnitte liest das Beispiel deren effektive Formatierung mit [getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/) aus. Auf dieser Formatierung liefert [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) den neuen Hyperlink für den ersten Abschnitt und `null` für den zweiten.
 
-Die Klasse [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) ist über [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) und [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) verfügbar. Jeder Umfang unterstützt dieselben Abfragen:
+```php
+use aspose\slides\Hyperlink;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) liefert Container mit einer Klick‑Aktion.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) liefert Container mit einer Mouse‑Over‑Aktion.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) liefert Container mit einer oder beiden Aktionen.
+$presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $smartArt = $slide->getShapes()->get_Item(2);
+    $node = $smartArt->getAllNodes()->get_Item(3);
+    $paragraph = $node->getTextFrame()->getParagraphs()->get_Item(0);
 
-Das folgende Beispiel erstellt `hyperlink-audit-input.pptx` mit einem externen Klick‑Link, einem Datei‑Mouse‑Over‑Link, einer internen Folien‑Navigation, einem Text‑Mouse‑Over‑Link und einer Makro‑Aktion. Es führt keine dieser Aktionen aus. Die gleichen drei Abfragen funktionieren in jedem Umfang; die Zähler beschreiben Container, nicht die Gesamtzahl der Aktionen. Der Text‑Frame‑Umfang schließt die eigenen Links der umgebenden Form aus.
+    $node->getShapes()->get_Item(0)->getTextFrame()->getHyperlinkQueries()->removeAllHyperlinks();
+    $paragraph->getPortions()->clear();
+
+    $link = new Portion("New reference");
+    $link->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    $paragraph->getPortions()->add($link);
+    $text = new Portion(" (updated)");
+    $paragraph->getPortions()->add($text);
+
+    echo java_values($link->getPortionFormat()->getEffective()->getHyperlinkClick()->getExternalUrl()), PHP_EOL; // https://example.com/new
+    var_dump(java_is_null($text->getPortionFormat()->getEffective()->getHyperlinkClick())); // bool(true): der zweite Abschnitt hat keinen Hyperlink.
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Ein vollständiges Hyperlink‑Inventar erstellen**
+
+Bevor Sie eine Präsentation verteilen, sollten Sie ihre interaktiven Aktionen sowie ihre Web‑Links inventarisieren. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) liefert Objekte vom Typ [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), nicht eine flache Liste von URL‑Strings. Untersuchen Sie sowohl [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) als auch [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) jedes Containers. Sie sind unabhängig: Derselbe Container kann beide Aktionen enthalten, daher benötigt ein vollständiger Bericht bis zu zwei Zeilen pro Container.
+
+Das Scannen nur von Hyperlinks auf Form‑Ebene kann Links, die an Textabschnitte angehängt sind, übersehen. Fragen Sie stattdessen den passenden Geltungsbereich ab und bewahren Sie die zurückgelieferten Container, sodass Sie ihre Aktionen später aktualisieren oder entfernen können.
+
+### **Abfrage von Präsentations-, Folien- und Textrahmenbereichen**
+
+Die Klasse [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) ist über [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) und [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) verfügbar. Jeder Geltungsbereich unterstützt dieselben Abfragen:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) gibt Container mit einer Klick‑Aktion zurück.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) gibt Container mit einer Maus‑Über‑Aktion zurück.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) gibt Container zurück, die eine oder beide Aktionen besitzen.
+
+Dieses Beispiel weist einer Form und ihrem Text Klick‑ und Maus‑Über‑Aktionen zu und einer separaten Schaltfläche eine Makro‑Aktion. Es vergleicht die Anzahl der von [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) zurückgelieferten Container mit den Zählungen für jede Aktivierungsart. Eine Text‑Frame‑Abfrage zählt nur Links im Text. Die Aktionen der umgebenden Form erscheinen in den Folien‑ und Präsentations‑Abfragen.
 
 ```php
 use aspose\slides\Presentation;
@@ -337,37 +373,37 @@ try {
 }
 ```
 
-Für dieses Beispiel melden die Präsentations‑ und Folien‑Abfragen jeweils drei Klick‑Container, zwei Mouse‑Over‑Container und drei Container mit einer der Aktionen. Die Text‑Frame‑Abfrage meldet je eine Container in jeder Kategorie.
+Für dieses Beispiel melden die Präsentations‑ und Folien‑Abfragen jeweils drei Klick‑Container, zwei Maus‑Über‑Container und drei Container mit einer beliebigen Aktion. Die Text‑Frame‑Abfrage meldet je eine Einheit in jeder Kategorie.
 
 ### **Aktionen und Ziele klassifizieren**
 
-Verwenden Sie [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/), um eine Aktion zu interpretieren, bevor Sie ihr Ziel interpretieren. Die Werte von [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) decken mehr als Web‑Navigation ab:
+Verwenden Sie [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/), um eine Aktion zu interpretieren, bevor Sie ihr Ziel interpretieren. Die Werte von [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) decken mehr als nur die Web‑Navigation ab:
 
-| Werte | Bedeutung für ein Audit |
+| Werte | Bedeutung für eine Prüfung |
 | --- | --- |
-| `Hyperlink` | Externer Hyperlink; prüfen Sie die URL und ihr Schema. |
+| `Hyperlink` | Externer Hyperlink; URL und Schema prüfen. |
 | `JumpSpecificSlide` | Interne Navigation zu einer bestimmten Folie. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Eingebaute Folien‑Navigation, im Kontext der Präsentation aufgelöst. |
-| `JumpEndShow`, `StartCustomSlideShow` | Beendet die aktuelle Show oder startet eine benutzerdefinierte Show. |
-| `StartMacro` | Führt ein Makro aus. |
-| `StartProgram` | Startet ein Programm. |
-| `OpenFile`, `OpenPresentation` | Öffnet eine Datei oder eine andere Präsentation; separat von Web‑URLs prüfen. |
-| `StartStopMedia` | Startet oder stoppt die Medienwiedergabe. |
-| `NoAction`, `Unknown` | Keine Navigationsaktion bzw. eine nicht erkannte Aktion, die überprüft werden muss. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Eingebaute Diashow‑Navigation, im Diashow‑Kontext aufgelöst. |
+| `JumpEndShow`, `StartCustomSlideShow` | Aktuelle Show beenden oder benutzerdefinierte Show starten. |
+| `StartMacro` | Ein Makro ausführen. |
+| `StartProgram` | Ein Programm starten. |
+| `OpenFile`, `OpenPresentation` | Eine Datei oder eine andere Präsentation öffnen; separat von Web‑URLs prüfen. |
+| `StartStopMedia` | Medienwiedergabe starten oder stoppen. |
+| `NoAction`, `Unknown` | Keine Navigationsaktion oder eine nicht erkannte Aktion, die geprüft werden muss. |
 
-Lese externe Ziele über [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) und spezifische interne Ziele über [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/) aus. Interne Aktionen und eingebaute Befehle können keine externe URL besitzen; eine leere URL bedeutet nicht, dass der Container keine Aktion hat. Bewahren Sie den von [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) zurückgegebenen Wert, wenn er von der normalisierten URL abweicht, und fügen Sie den von [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) zurückgegebenen Tooltip hinzu, falls vorhanden.
+Lesen Sie externe Ziele mit [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) und spezifische interne Ziele mit [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Interne Aktionen und eingebaute Befehle können keine externe URL besitzen; eine leere URL bedeutet nicht, dass der Container keine Aktion hat. Bewahren Sie den Wert von [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) auf, wenn er von der normalisierten URL abweicht, und fügen Sie den Tooltip von [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) hinzu, sofern verfügbar.
 
-### **Bericht, Bereinigen und Verifizieren von Hyperlinks**
+### **Bericht, Bereinigung und Verifizierung von Hyperlinks**
 
-Das folgende PHP‑Beispiel liest eine vorhandene Präsentation (verwenden Sie die oben erstellte Datei), schreibt `hyperlink-audit.json`, wendet eine Richtlinie an, speichert `hyperlink-sanitized.pptx` und öffnet sie erneut, um beide Aktivierungstypen zu prüfen. Es sammelt Container, bevor sie geändert werden, und nutzt Referenzgleichheit, um eine doppelte Verarbeitung desselben Containers zu vermeiden. Präsentations‑Abfragen decken normale Folien ab; für ein paketweites Inventar werden zudem explizit Master‑Folien, Layouts, Notizen sowie die Notiz‑ und Handzettel‑Master abgefragt, sofern vorhanden.
+Dieses Beispiel öffnet die Präsentation aus dem vorherigen Beispiel und schreibt pro Aktion einen JSON‑Datensatz. Es verwendet [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/), um Container auf normalen Folien, Mastern, Layouts und Notizen zu sammeln, einschließlich der Notizen‑ und Handzettel‑Master, falls vorhanden. Es nutzt Referenzgleichheit, um jeden Container einmal zu zählen, wendet die unten beschriebene Richtlinie an und öffnet die gespeicherte Präsentation erneut, um sowohl Klick‑ als auch Maus‑Über‑Aktionen zu prüfen.
 
-Der Bericht speichert einen einbasierten Folien‑Index und, falls verfügbar, [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--). [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) liefert die zugehörige Folie für unterstützte Container. Master‑Folien, Layouts und Notizen besitzen keinen normalen Folien‑Index und werden durch ihren Umfang identifiziert. Form‑Container und Text‑Abschnitt‑Formatierungs‑Container werden getrennt benannt; andere Containertypen behalten ihren Laufzeit‑Typnamen. Jeder Container erhält eine berichtslokale ID, damit seine beiden Aktionen korreliert werden können. Der Bericht speichert Aktionstypen als die von der PHP‑Aufzählung definierten Ganzzahl‑Konstanten.
+Der Bericht speichert einen einsbasierten Folien‑Index und [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) sofern verfügbar. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) liefert die zugehörige Folie für unterstützte Container. Master, Layouts und Notizen besitzen keinen regulären Folien‑Index und werden über ihren Geltungsbereich identifiziert. Form‑Container und Text‑Abschnitt‑Formatierungs‑Container werden getrennt gekennzeichnet; andere Containertypen behalten ihren Laufzeit‑Typnamen. Jeder Container erhält eine berichtslokale ID, damit seine beiden Aktionen korreliert werden können. Der Bericht speichert Aktionstypen als die von der PHP‑Aufzählung definierten Ganzzahl‑Konstanten.
 
-Diese bewusst restriktive Anwendungsrichtlinie erlaubt nur absolute HTTPS‑URLs und gültige interne Folien‑Ziele. Sie verwirft Makros, Programme, Datei‑Aktionen, andere Diashow‑Aktionen, unbekannte Aktionen und andere URL‑Schemen. Diese Ablehnungen sind Richtlinienentscheidungen, kein Sicherheitsurteil von Aspose.Slides. HTTPS allein schafft kein Vertrauen: Fügen Sie Host‑Whitelist‑Einträge und weitere Prüfungen für Ihre Anwendung hinzu. Sowohl originale als auch normalisierte externe URLs werden geprüft. Das Beispiel prüft Metadaten, ohne Links zu folgen oder Aktionen auszuführen.
+Diese bewusst restriktive Anwendungsrichtlinie erlaubt nur absolute HTTPS‑URLs und gültige interne Folienziele. Sie verwirft Makros, Programme, Datei‑Aktionen, andere Diashow‑Aktionen, unbekannte Aktionen und andere URL‑Schemen. Diese Ablehnungen sind Richtlinienentscheidungen, kein Sicherheitsurteil von Aspose.Slides. HTTPS allein schafft kein Vertrauen: Fügen Sie Host‑Allowlisten und weitere Prüfungen für Ihre Anwendung hinzu. Sowohl originale als auch normalisierte externe URLs werden geprüft. Das Beispiel prüft Metadaten, ohne Links zu folgen oder Aktionen auszuführen.
 
-Zur Abhilfe unterstützt der Container’s [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) und [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Hier werden verbotene externe Klick‑Links durch eine feste HTTPS‑Landing‑Page ersetzt; andere verbotene Klicks und verbotene Mouse‑Over‑Aktionen werden unabhängig voneinander entfernt. Setzen Sie `$replaceExternalClicks` auf `false`, um stattdessen alle Richtlinienverstöße zu entfernen. Wählen Sie vor dem Deployment eine ersatzseitige Anwendung.
+Zur Behebung unterstützt der Container‑[getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) und [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Hier werden verbotene externe Klick‑Links durch eine feste HTTPS‑Landing‑Page ersetzt; andere verbotene Klick‑ und Maus‑Über‑Aktionen werden unabhängig entfernt. Setzen Sie `$replaceExternalClicks` auf `false`, um alle Richtlinienverstöße zu entfernen. Wählen Sie vor dem Deployment eine anwendungsinterne Ersatz‑Seite.
 
-Das Export‑Flag des Berichts verwendet eine konservative PDF‑Überprüfungspolicy: Mouse‑Over‑Aktionen und alles außer einem externen Link oder einem spezifischen Folien‑Sprung werden als potenziell nicht unterstützt markiert. Es ist ein Hinweis für die Überprüfung, kein Fähigkeitstest oder eine Garantie, dass nicht markierte Links den Export überstehen. Unterstützte [PDF](/slides/de/php-java/convert-powerpoint-to-pdf/)‑ und [HTML](/slides/de/php-java/convert-powerpoint-to-html/)‑Exporte können Hyperlinks erhalten, abhängig von der Aktion, den Exportoptionen und dem Betrachter. Raster-[Bilder](/slides/de/php-java/convert-powerpoint-to-png/) und -[Videos](/slides/de/php-java/convert-powerpoint-to-video/) können interaktive Hyperlinks nicht erhalten; markieren Sie jede Aktion, wenn Sie für diese Ausgaben prüfen.
+Die Export‑Flagge des Berichts verwendet eine konservative PDF‑Prüfungsrichtlinie: Sie markiert Maus‑Über‑Aktionen sowie alles außer einem externen Link oder einem spezifischen Folien‑Sprung als potenziell nicht unterstützt. Sie ist ein Hinweis für die Prüfung, kein Funktionstest oder eine Garantie, dass nicht markierte Links den Export überstehen. Unterstützte [PDF](/slides/de/php-java/convert-powerpoint-to-pdf/)‑ und [HTML](/slides/de/php-java/convert-powerpoint-to-html/)‑Exporte können Hyperlinks je nach Aktion, Exportoptionen und Viewer erhalten. Raster‑[images](/slides/de/php-java/convert-powerpoint-to-png/) und [video](/slides/de/php-java/convert-powerpoint-to-video/) können interaktive Hyperlinks nicht bewahren; kennzeichnen Sie jede Aktion, wenn Sie für diese Ausgaben prüfen.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -524,9 +560,9 @@ try {
 }
 ```
 
-Mit dem oben erstellten Input enthält der Bericht fünf Aktionszeilen. Der Datei‑Mouse‑Over‑Link und der Makro‑Klick werden entfernt, während die HTTPS‑Links und die interne Folien‑Navigation erhalten bleiben. Die Verifizierung gibt null verbotene Aktionen aus. Ein Input, der eine verbotene externe Klick‑URL enthält, testet ebenfalls den Ersetzungszweig. Ein Container mit einem erlaubten Klick und einem verbotenen Mouse‑Over behält seine Klick‑Aktion.
+Mit dem oben erstellten Input enthält der Bericht fünf Aktionszeilen. Der Dateimaus‑Über‑Link und das Makro‑Klick‑Ereignis werden entfernt, während die HTTPS‑Links und die interne Folien‑Navigation erhalten bleiben. Die Verifizierung gibt null verbotene Aktionen aus. Ein Input, der eine verbotene externe Klick‑URL enthält, durchläuft ebenfalls den Ersetzungszweig. Ein Container mit einem erlaubten Klick und einem verbotenen Maus‑Über‑Ereignis behält seine Klick‑Aktion.
 
-Diese selektive Bereinigung unterscheidet sich von [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), das beide Aktivierungstypen im ausgewählten Umfang unabhängig von der Richtlinie entfernt. Die Verifizierung prüft hier nur Hyperlink‑Aktionen; sie entfernt keine eingebetteten VBA‑Projekte, OLE‑Objekte oder anderen aktiv‑Inhalt und validiert keine exportierte PDF‑ oder HTML‑Datei.
+Diese selektive Bereinigung unterscheidet sich von [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), das beide Aktivierungstypen im ausgewählten Geltungsbereich unabhängig von Richtlinien entfernt. Die hier durchgeführte Verifizierung prüft ausschließlich Hyperlink‑Aktionen; sie entfernt keine eingebetteten VBA‑Projekte, OLE‑Objekte oder andere aktive Inhalte und validiert keine exportierte PDF‑ oder HTML‑Datei.
 
 ## **FAQ**
 
@@ -536,8 +572,8 @@ Abschnitte in PowerPoint gruppieren Folien, aber ein interner Hyperlink zielt au
 
 **Kann ich einen Hyperlink an Master‑Folienelementen anbringen, sodass er auf allen Folien funktioniert?**
 
-Ja. Master‑Folien‑ und Layout‑Elemente unterstützen Hyperlinks. Links auf diesen Elementen sind während der Bildschirmpräsentation auf Folien verfügbar, die den entsprechenden Master oder das Layout verwenden.
+Ja. Elemente von Master‑Folien und Layouts unterstützen Hyperlinks. Links auf diesen Elementen stehen während der Bildlauf­show auf allen Folien, die den jeweiligen Master oder das Layout verwenden, zur Verfügung.
 
-**Werden Hyperlinks beim Export in PDF, HTML, Bilder oder Video erhalten bleiben?**
+**Werden Hyperlinks beim Exportieren nach PDF, HTML, Bildern oder Video erhalten bleiben?**
 
-Unterstützte PDF‑ und HTML‑Exporte können Hyperlinks erhalten; Raster‑Bilder und Video können dies nicht. Siehe die Export‑Überlegungen in [Bericht, Bereinigen und Verifizieren von Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Unterstützte PDF‑ und HTML‑Exporte können Hyperlinks bewahren; Raster‑Bilder und Video können keine interaktiven Hyperlinks erhalten. Siehe die Export‑Hinweise in [Bericht, Bereinigen und Verifizieren von Hyperlinks](#report-sanitize-and-verify-hyperlinks).

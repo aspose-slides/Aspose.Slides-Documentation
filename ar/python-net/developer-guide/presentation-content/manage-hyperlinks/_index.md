@@ -1,6 +1,6 @@
 ---
-title: إدارة ارتباطات العرض التقديمي في Python
-linktitle: إدارة الارتباطات التشعبية
+title: إدارة الروابط التشعبية للعرض في بايثون
+linktitle: إدارة الروابط التشعبية
 type: docs
 weight: 20
 url: /ar/python-net/manage-hyperlinks/
@@ -11,41 +11,41 @@ keywords:
 - تنسيق ارتباط تشعبي
 - إزالة ارتباط تشعبي
 - تحديث ارتباط تشعبي
-- ارتباط تشعبي نصي
-- ارتباط تشعبي شريحة
-- ارتباط تشعبي شكل
-- ارتباط تشعبي صورة
-- ارتباط تشعبي فيديو
+- ارتباط تشعبي للنص
+- ارتباط تشعبي للشرائح
+- ارتباط تشعبي للشكل
+- ارتباط تشعبي للصورة
+- ارتباط تشعبي للفيديو
 - ارتباط تشعبي قابل للتغيير
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إضافة، تنسيق، تحديث وإزالة الارتباطات التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Python عبر .NET، باستخدام أمثلة بايثون."
+description: "إضافة وتنسيق وتحديث وإزالة الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET، مع أمثلة بايثون."
 ---
-## **مقدمة**
+## **المقدمة**
 
-يُربط الارتباط التشعبي محتوى العرض التقديمي بموقع إلكتروني أو بموقع داخل العرض نفسه. في PowerPoint، عادةً ما يخدم الارتباطات التشعبية هدفين:
+يُربط الارتباط التشعبي محتوى العرض بموقع ويب أو بموقع داخل العرض نفسه. في PowerPoint، يُستخدم الارتباط التشعبي عادةً لأغراضين:
 
-* فتح موقع ويب من النص أو الشكل أو إطار وسائط.
-* الانتقال إلى شريحة أخرى، على سبيل المثال، من جدول المحتويات.
+* فتح موقع ويب من نص أو شكل أو إطار وسائط.
+* الانتقال إلى شريحة أخرى، على سبيل المثال من جدول المحتويات.
 
-تتيح لك Aspose.Slides for Python via .NET إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. تُظهر الأمثلة أدناه كيفية التعامل مع الارتباطات التشعبية على العناصر الفردية وكيفية الوصول إلى الارتباطات على مستوى العرض التقديمي أو الشريحة أو إطار النص.
+تتيح لك Aspose.Slides for Python via .NET إضافة هذه الروابط، التحكم في مظهرها وصوتها، تحديث خصائصها، وإزالتها. تُظهر الأمثلة أدناه كيفية التعامل مع الروابط التشعبية على العناصر الفردية وكيفية الوصول إلى الروابط على مستوى العرض أو الشريحة أو إطار النص.
 
 {{% alert color="info" title="Note" %}}
-يمكنك أيضًا تعديل العروض باستخدام [محرر Aspose PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/editor).
+يمكنك أيضًا تحرير العروض باستخدام [محرر Aspose PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/editor).
 {{% /alert %}}
 
-## **إضافة ارتباطات URL**
+## **إضافة روابط تشعبية URL**
 
-يمكنك تعيين عنوان URL لموقع ويب إلى النص أو الشكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط يحدد منطقة النقر: جزء النص يربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
+يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط يحدد المنطقة القابلة للنقر: ربط جزء من النص يجعل النص المحدد قابلًا للنقر، بينما يجعل الشكل أو الإطار كامل الكائن في الشريحة قابلًا للنقر.
 
-للعروض التي تحتوي على ارتباطات تشعبية نسبية، راجع [إدارة قاعدة الارتباط التشعبي](/slides/ar/python-net/presentation-properties/#manage-the-hyperlink-base) للقراءة أو التغيير أو المسح.
+للعروض التي تحتوي على روابط تشعبية نسبية، راجع [Manage the Hyperlink Base](/slides/ar/python-net/presentation-properties/#manage-the-hyperlink-base) لقراءة أو تغيير أو مسح القاعدة على مستوى المستند.
 
-### **إضافة ارتباطات URL إلى النص**
+### **إضافة روابط تشعبية URL إلى النص**
 
-لربط النص بموقع ويب، عيّن [الارتباط التشعبي](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) إلى خاصية [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) لجزء النص، كما هو موضح أدناه. يصبح ذلك الجزء فقط من النص قابلاً للنقر.
+لربط النص بموقع ويب، عيّن [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) إلى خاصية [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) لجزء النص، كما هو موضح أدناه. سيصبح ذلك الجزء فقط من النص قابلًا للنقر.
 
 ```python
 import aspose.slides as slides
@@ -60,13 +60,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **إضافة ارتباطات URL إلى الأشكال وإطارات الوسائط**
+### **إضافة روابط تشعبية URL إلى الأشكال وإطارات الوسائط**
 
-لجعل شكل أو إطار قابل للنقر، اضبط خاصية [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) الخاصة به. ينتمي الارتباط إلى الكائن نفسه بدلاً من جزء النص داخل الكائن.
-
-ينطبق نفس النهج على إطارات الصورة والصوت والفيديو: عيّن الارتباط إلى الإطار واضبط [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) إذا لزم الأمر.
-
-المثال التالي يجعل المستطيل قابلًا للنقر:
+عيّن عنوان URL إلى خاصية [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) للمستطيل لجعل كامل مساحته قابلة للنقر. تُظهر خاصية [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) تلميحًا للقراء حول الوجهة عند تمرير الماوس فوق المستطيل. تنطبق نفس الخصائص على إطارات الصور والصوت والفيديو.
 
 ```python
 import aspose.slides as slides
@@ -78,9 +74,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **استخدام الارتباطات لإنشاء جدول محتويات**
+## **استخدام الروابط لإنشاء جدول محتويات**
 
-تسمح الارتباطات الداخلية للقارئ بالقفز من جدول المحتويات إلى شريحة معينة. يستخدم المثال التالي [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) لربط نص “Page 2” في الشريحة الأولى إلى الشريحة الثانية.
+تسمح الروابط الداخلية للقراء بالانتقال من جدول المحتويات إلى شريحة معينة. يستخدم المثال التالي الدالة [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) لربط نص “Page 2” في الشريحة الأولى بالشريحة الثانية.
 
 ```python
 import aspose.pydrawing as draw
@@ -105,13 +101,15 @@ with slides.Presentation() as presentation:
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنسيق الارتباطات التشعبية**
+## **تنسيق الروابط**
+
+يمكنك تغيير لون النص المرتبط، تشغيل أو إيقاف صوت عند تنشيط القارئ للارتباط، وتعيين التلميح (tooltip) الذي يظهر عند المرور فوقه.
 
 ### **اللون**
 
-تحدد خاصية [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) لـ[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) ما إذا كان الارتباط يستخدم لون الارتباط في العرض أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) واضبط لون ملء الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
+تحدد خاصية [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) لكائن [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) ما إذا كان الارتباط يستخدم لون الروابط في العرض أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) واضبط لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
 
-المثال التالي يضيف ارتباطين نصيين إلى نفس الشريحة. الأول يستخدم ملء نص أحمر، بينما الثاني يحتفظ بلون الارتباط الافتراضي.
+في هذا المثال، يجعل تعيين [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) على الرابط الأول نصه يظهر باللون الأحمر. الرابط الثاني يحتفظ بلون الروابط في العرض.
 
 ```python
 import aspose.pydrawing as draw
@@ -133,14 +131,14 @@ with slides.Presentation() as presentation:
 
 ### **الصوت**
 
-يمكن للارتباط التشعبي تشغيل صوت عند التفعيل أو إيقاف صوت يُشغل مسبقًا. استخدم الخصائص التالية لتكوين هذه السلوكيات:
+يمكن للارتباط تشغيل صوت عند التنشيط أو إيقاف صوت يُشغل بالفعل. استخدم الخصائص التالية لتكوين هذه السلوكيات:
 
 - [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) يحدد الصوت المرتبط بالارتباط.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) يتحكم فيما إذا كان تفعيل الارتباط يُوقف الصوت السابق.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) يتحكم فيما إذا كان تنشيط الارتباط يوقف الصوت السابق.
 
-#### **إضافة صوت ارتباط تشعبي**
+#### **إضافة صوت للارتباط**
 
-المثال التالي يحمل `sampleaudio.wav` ويربطه بزر في الشريحة الأولى. النقر على الزر يشغل الصوت وينتقل إلى الشريحة التالية. الشكل الثاني في تلك الشريحة يُوقف الصوت السابق عند النقر، دون تنفيذ إجراء انتقالي.
+يستخدم الزر في الشريحة الأولى الخاصية [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) لتشغيل ملف WAV عندما ينقر القارئ للتقدم. في الشريحة الثانية، يستخدم زر منفصل الخاصية [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) لإيقاف التشغيل وإبقاء القارئ على تلك الشريحة.
 
 ```python
 import aspose.slides as slides
@@ -162,9 +160,9 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-#### **استخراج صوت الارتباط التشعبي**
+#### **استخراج صوت الارتباط**
 
-المثال التالي يفتح العرض المُنشأ أعلاه ويقرأ صوت الارتباط الخاص بالشكل الأول إلى الذاكرة عبر [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) و[binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
+يفتح المثال التالي العرض الذي تم إنشاؤه أعلاه ويقرأ صوت الارتباط للعنصر الأول إلى الذاكرة عبر الخاصيتين [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) و [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
 
 ```python
 import aspose.slides as slides
@@ -182,18 +180,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **إعدادات التلميح والتفاعل**
+### **التلميح وإعدادات التفاعل**
 
-يمكنك تحديث خصائص [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) التالية بعد تعيين ارتباط إلى نص أو شكل:
+يمكنك تحديث الخصائص التالية لكائن [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) بعد تعيين الارتباط إلى نص أو شكل:
 
 - [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) يحدد النص الذي يمكن للمشاهد عرضه كتلميح للارتباط.
-- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) يحدد الإطار الهدف داخل مجموعة إطارات HTML父ية، إذا كان ذلك مناسبًا.
-- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) يتحكم فيما إذا كان تفعيل الرابط يضيف وجهته إلى قائمة الارتباطات المشاهدة.
-- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) يتحكم فيما إذا كان الارتباط يبرز عند النقر.
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) يحدد إطار الهدف داخل مجموعة إطارات HTML أصلية، إذا كان ذلك مناسبًا.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) يتحكم فيما إذا كان تنشيط الارتباط يضيف هدفه إلى قائمة الروابط التي تم عرضها.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) يتحكم فيما إذا كان الارتباط يُبرز عند النقر.
 
-## **إزالة الارتباطات التشعبية من العروض**
+## **إزالة الروابط من العروض**
 
-استخدم [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) لجمع حاويات الارتباط، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التفعيل من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) أو [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)؛ إزالة فعل النقر لا تزيل نظيره عند مرور الفأرة.
+استخدم الدالة [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) لجمع حاويات الروابط، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التنشيط من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ فقط [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) أو [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)؛ إزالة إجراء النقر لا تُزيل نظيره عند مرور الماوس.
 
 ```python
 import aspose.slides as slides
@@ -209,23 +207,54 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-لإزالة غير مشروطة، [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) يزيل كلا نوعي التفعيل في النطاق المحدد في استدعاء واحد. للتنظيف الانتقائي وتغطية الماسترز والتخطيطات والملاحظات، راجع [تقارير، تنقية، والتحقق من الارتباطات التشعبية](#report-sanitize-and-verify-hyperlinks).
+لإزالة غير مشروطة، تُزيل الدالة [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) كلا نوعي التنشيط في النطاق المحدد في استدعاء واحد. للتنظيف الانتقائي وتغطية القوالب، التخطيطات، والملاحظات، راجع [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **إنشاء جرد كامل للارتباطات التشعبية**
+### **مسح الروابط قبل استبدال نص SmartArt**
 
-قبل توزيع عرض، قم بجرد إجراءاتها التفاعلية وكذلك روابط الويب. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) يُرجع كائنات [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) وليس قائمة مسطحة من سلاسل URL. افحص كل من [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) و[hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) في كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الفعلين، لذا يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
+عند استبدال فقرة في عقدة SmartArt موجودة، قد يؤدي مسح أجزاء النص إلى ترك ارتباط قديم ساري. استرجع الفقرة عبر [SmartArtNode.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/text_frame/). قبل مسح أجزائها، استدعِ [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) عبر [hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) على إطار النص للشكل الذي يعرض الفقرة. يزيل ذلك كل ارتباط في ذلك الإطار، بما فيها الروابط في الفقرات الأخرى.
 
-قد يتغاضى فحص الارتباطات على مستوى الشكل فقط عن الروابط المرفقة بأجزاء النص. استعلم النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات التي تم إرجاعها حتى تتمكن لاحقًا من تحديث أو إزالة أفعالها.
+في ملف `SmartArtHyperlink.pptx`، الشكل الثالث في الشريحة الأولى هو رسم SmartArt. يستبدل المثال الفقرة الأولى من العقدة الرابعة. في هذا العرض، يعرض الشكل الأول من العقدة تلك الفقرة.
+
+بعد إضافة الجزأين، تقرأ الأمثلة تنسيقهما الفعّال باستخدام الدالة [get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/). تُعيد خاصية [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/iportionformateffectivedata/hyperlink_click/) الفعّالية الرابط الجديد للجزء الأول و`None` للثاني.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("SmartArtHyperlink.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes[2]
+    node = smart_art.all_nodes[3]
+    paragraph = node.text_frame.paragraphs[0]
+
+    node.shapes[0].text_frame.hyperlink_queries.remove_all_hyperlinks()
+    paragraph.portions.clear()
+
+    link = slides.Portion("New reference")
+    link.portion_format.hyperlink_click = slides.Hyperlink("https://example.com/new")
+    paragraph.portions.add(link)
+    text = slides.Portion(" (updated)")
+    paragraph.portions.add(text)
+
+    print(link.portion_format.get_effective().hyperlink_click.external_url)  # https://example.com/new
+    print(text.portion_format.get_effective().hyperlink_click)  # لا شيء
+```
+
+## **إنشاء جرد كامل للروابط**
+
+قبل توزيع العرض، اجمع جردًا للإجراءات التفاعلية وروابط الويب. تُعيد الدالة [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) كائنات من نوع [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/)، وليس قائمة مسطحة من سلاسل URL. افحص كلًا من [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) و [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الإجراءين، لذا يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
+
+قد يفوتك فحص الروابط على مستوى الشكل إذا لم تشمل الروابط المرفقة بأجزاء النص. استعلم عن النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات المرجعة لتتمكن لاحقًا من تحديثها أو إزالتها.
 
 ### **استعلام عن نطاقات العرض، الشريحة، وإطار النص**
 
-فئة [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) متاحة عبر [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)، [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)، و[TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). يدعم كل نطاق نفس الاستعلامات:
+تتوفر الفئة [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) عبر الخصائص [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)، [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)، و [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). يدعم كل نطاق نفس الاستعلامات:
 
-- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) يُرجع حاويات ذات فعل نقرة.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) يُرجع حاويات ذات فعل تمرير الفأرة.
-- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) يُرجع حاويات إما ذات أحد الفعلين أو كليهما.
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) يُعيد الحاويات ذات إجراء النقر.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) يُعيد الحاويات ذات إجراء المرور فوق الماوس.
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) يُعيد الحاويات التي لديها أي من الإجراءين أو كليهما.
 
-المثال التالي ينشئ `hyperlink-audit-input.pptx` بارتباط نقرة خارجي، رابط تمرير ملف، تنقل داخلي بين الشرائح، رابط تمرير نص، وإجراء ماكرو. لا ينفذ أيًا من هذه الأفعال. تعمل الاستعلامات الثلاثة نفسها على كل نطاق؛ الأعداد تصف الحاويات، لا مجموع الأفعال. نطاق إطار النص يستثني روابط الشكل المحتوى.
+يُسند هذا المثال إجراءات النقر والمرور فوق الماوس إلى شكل ونصه، وإجراء ماكرو إلى زر منفصل. يقارن الحاويات المرجعة من [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) مع عدد كل نوع من إجراءات التنشيط. يُظهر استعلام إطار النص عدد الروابط الموجودة في النص فقط. تظهر إجراءات الشكل الخاصة بالاحتواء في استعلامات الشريحة والعرض.
 
 ```python
 import aspose.slides as slides
@@ -259,37 +288,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-في هذا المثال، تقارير استعلامات العرض والشريحة تُظهر ثلاث حاويات نقر، حاويتين تمرير، وثلاث حاويات ذات أي فعل. تقرير إطار النص يُظهر حاوية واحدة في كل فئة.
+في هذا المثال، تُبلغ استعلامات العرض والشريحة عن ثلاثة حاويات نقر، وحاويتين مرور فوق الماوس، وثلاث حاويات ذات أي إجراء. يُبلغ استعلام إطار النص عن حاوية واحدة في كل فئة.
 
 ### **تصنيف الإجراءات والوجهات**
 
-استخدم [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) لتفسير فعل قبل تفسير وجهته. قيم [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) تغطي أكثر من التنقل عبر الويب:
+استخدم الخاصية [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) لتفسير الإجراء قبل تفسير الوجهة. تغطي قيم [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) ما هو أكثر من تنقل ويب:
 
 | القيم | المعنى للتدقيق |
 | --- | --- |
 | `HYPERLINK` | ارتباط تشعبي خارجي؛ افحص URL ومخططه. |
 | `JUMP_SPECIFIC_SLIDE` | تنقل داخلي إلى شريحة معينة. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | تنقل مدمج في عرض الشرائح، يُحل في سياق عرض الشرائح. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | تنقل مدمج في عرض الشرائح، يُفسّر في سياق العرض. |
 | `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | إنهاء العرض الحالي أو بدء عرض مخصص. |
 | `START_MACRO` | تنفيذ ماكرو. |
 | `START_PROGRAM` | تشغيل برنامج. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | فتح ملف أو عرض تقديمي آخر؛ يُراجع منفصلًا عن روابط الويب. |
-| `START_STOP_MEDIA` | بدء أو إيقاف تشغيل وسائط. |
-| `NO_ACTION`, `UNKNOWN` | لا فعل تنقل، أو فعل غير معروف يتطلب مراجعة. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | فتح ملف أو عرض آخر؛ راجعها منفصلًا عن عناوين URL للويب. |
+| `START_STOP_MEDIA` | تشغيل أو إيقاف تشغيل وسائط. |
+| `NO_ACTION`, `UNKNOWN` | لا يوجد إجراء تنقل، أو إجراء غير معروف يتطلب مراجعة. |
 
-اقرأ الوجهات الخارجية من [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) والوجهات الداخلية المحددة من [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). قد لا تحتوي الإجراءات الداخلية والأوامر المدمجة على URL خارجي؛ URL فارغ لا يعني أن الحاوية لا تحتوي على فعل. احفظ [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) عندما يختلف عن URL المُعَدل، واشمل [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) إذا كان متاحًا.
+اقرأ الوجهات الخارجية من الخاصية [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) والوجهات الداخلية المحددة من الخاصية [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). قد لا تحتوي الإجراءات الداخلية والأوامر المدمجة على URL خارجي؛ URL الفارغ لا يعني أن الحاوية لا تحتوي على إجراء. احتفظ بـ [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) عندما يختلف عن URL المُقنّن، وضمّن [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) عندما يكون متاحًا.
 
-### **تقرير، تنقية، والتحقق من الارتباطات التشعبية**
+### **التقرير، التنظيف، والتحقق من الروابط**
 
-المثال التالي بلغة Python يقرأ عرضًا موجودًا (استخدم الملف المُنشأ أعلاه)، يكتب `hyperlink-audit.json`، يطبق سياسة، يحفظ `hyperlink-sanitized.pptx`، ثم يعيد فتحه للتحقق من كلا نوعي التفعيل مرة أخرى. يجمع الحاويات قبل تعديلها ويستعلم كل نطاق شريحة مرة واحدة لتفادي المعالجة المتكررة. تغطي استعلامات العرض الشرائح العادية؛ لإنشاء جرد على مستوى الحزمة، يستعلم المثال عن الشرائح العادية، الماسترز، التخطيطات، الملاحظات، وMasters الملاحظات وخارجية إذا وجدت.
+يفتح هذا المثال العرض من المثال السابق ويكتب سجل JSON واحد لكل إجراء. يستخدم [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) لجمع الحاويات على الشرائح العادية، القوالب، التخطيطات، والملاحظات، بما في ذلك قوالب الملاحظات والنشرات عند وجودها. يستعلم كل نطاق مرة واحدة لتفادي المعالجة المتكررة، يطبق السياسة الموضحة أدناه، ثم يعيد فتح العرض المحفوظ للتحقق من إجراءات النقر والمرور فوق الماوس.
 
-السجل يُسجل فهرس شريحة يبدأ من 1 و[slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) إذا كان متوفرًا. يحتفظ المجمع بالشريحة المالكة والنطاق إلى جانب كل حاوية مُرجعة. الماسترز، التخطيطات، والملاحظات ليس لها فهرس شريحة عادي وتُحدد بنطاقها. تُصنّف حاويات الشكل وتنسيق جزء النص منفصلة؛ الأنواع الأخرى تحتفظ باسم النوع وقت التشغيل. كل حاوية تحصل على معرف تقريري محلي لربط الفعلين.
+يسجل التقرير فهرس شريحة يبدأ من واحد و[slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) عندما يكون متاحًا. يحتفظ الجمع بالشرائح المالكة والنطاق إلى جانب كل حاوية مرتجعة. القوالب، التخطيطات، والملاحظات ليس لها فهرس شريحة عادي وتُعرف بنطاقها. تُصنّف حاويات الشكل وحاويات تنسيق جزء النص بشكل منفصل؛ تحتفظ الأنواع الأخرى باسم نوعها في وقت التشغيل. يُعطى كل حاوية معرف تقرير محلي لتقريبه بين إجراءي النقر والمرور فوق الماوس.
 
-هذه السياسة التطبيقية المقيدة تسمح فقط بـ URLs HTTPS مطلقة ووجهات شرائح داخلية صالحة. تُرفض الماكروهات، البرامج، إجراءات الملفات، إجراءات عرض الشرائح الأخرى، الأفعال غير المعروفة، ومخططات URL أخرى. هذه الرفضات هي قرارات سياسة، ليست حكم أمان Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. تُفحص كل من URLs الأصلية والمُعَدلّة. المثال يدقق البيانات الوصفية دون اتباع الروابط أو تشغيل الأفعال.
+تسمح سياسة التطبيق الصارمة هذه بوجود عناوين URL مطلقة فقط عبر HTTPS ووجهات شرائح داخلية صالحة. تُرفض الماكروهات، البرامج، إجراءات الملفات، إجراءات عرض الشرائح الأخرى، الإجراءات غير المعروفة، ومخططات URL الأخرى. هذه الرفضات قرارات سياسة، ولا تُعدّ حُكمًا على أمان Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. تُفحص كل من URL الأصلي والـ URL المُقنّن. يُجرى التدقيق على البيانات الوصفية دون تتبع الروابط أو تشغيل الإجراءات.
 
-لإصلاح، يدعم [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) الخاص بالحاوية [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)، [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/)، و[remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). هنا تُستبدل روابط النقر الخارجية المحظورة بصفحة هبوط HTTPS ثابتة؛ تُزال النقرات الأخرى المحظورة وإجراءات تمرير الفأرة المحظورة بشكل مستقل. اضبط `replace_external_clicks` إلى `False` لإزالة جميع انتهاكات السياسة بدلاً من ذلك. اختر صفحة استبدال مملوكة للتطبيق قبل النشر.
+للتصحيح، يدعم [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) الخاص بالحاوية الدوال [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)، [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/)، و [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). هنا، تُستبدل روابط النقر الخارجية المحظورة بصفحة هبوط HTTPS ثابتة؛ تُزال النقرات والمرور فوق الماوس المحظورة بشكل مستقل. اضبط المتغير `replace_external_clicks` إلى `False` لإزالة جميع مخالفات السياسة بدلًا من استبدالها. اختر صفحة بديلة مملوكة للتطبيق قبل النشر.
 
-علامة تصدير التقرير تستخدم سياسة مراجعة PDF متحفظة: علم إجراءات تمرير الفأرة وأي شيء غير الرابط الخارجي أو القفزة إلى شريحة معينة كغير مدعوم محتمل. هذه إشارة مراجعة، ليست اختبار قدرة أو ضمان أن الروابط غير المعلَّمة ستبقى بعد التصدير. قد تحتفظ تصديرات [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/python-net/convert-powerpoint-to-html/) المدعومة بالارتباطات، بناءً على الفعل، خيارات التصدير، والمستعرض. لا يمكن لل[images](/slides/ar/python-net/convert-powerpoint-to-png/) و[video](/slides/ar/python-net/convert-powerpoint-to-video/) رستر الحفاظ على الارتباطات التفاعلية؛ علم كل فعل عند تدقيق تلك المخرجات.
+يستخدم علم تصدير التقرير سياسة مراجعة PDF متحفظة: يُعلَّم إجراءات المرور فوق الماوس وأي شيء غير رابط خارجي أو قفزة شريحة محددة على أنه قد لا يُدعم. هذا مجرد تلميح مراجعة، وليس اختبار قدرة أو ضمان بقاء الروابط غير المعلّمة عند التصدير. قد تحتفظ عمليات تصدير [PDF](/slides/ar/python-net/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/python-net/convert-powerpoint-to-html/) المدعومة بالروابط، اعتمادًا على الإجراء، خيارات التصدير، والمشاهد. لا يمكن لإطارات [images](/slides/ar/python-net/convert-powerpoint-to-png/) و[video](/slides/ar/python-net/convert-powerpoint-to-video/) الاحتفاظ بالروابط التفاعلية؛ علّم كل إجراء عند التدقيق لتلك المخرجات.
 
 ```python
 import json
@@ -419,20 +448,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-باستخدام الإدخال المُنشأ أعلاه، يحتوي التقرير على خمسة صفوف إجراءات. يُزال رابط تمرير الملف والماكرو النقر، بينما تبقى روابط HTTPS والتنقل الداخلي بين الشرائح. تُظهر عملية التحقق صفر إجراءات محظورة. إدخال يحتوي على URL نقر خارجي محظور يختبر فرع الاستبدال أيضًا. حاوية ذات نقرة مسموح بها وتمرير فأرة محظور تحتفظ بفعل النقر.
+مع الإدخال المنشأ أعلاه، يحتوي التقرير على خمس صفوف إجراءات. تُزيل رابط المرور فوق الماوس والماكرو، بينما تُحافظ روابط HTTPS والتنقل الداخلي على وجودها. يطبع التحقق صفر إجراءات محظورة. يُظهر إدخال يحتوي على URL خارجي محظور فرع الاستبدال. حاوية ذات نقر مسموح ومرور فوق ماكرو محظور تحتفظ بإجراء النقر الخاص بها.
 
-يختلف هذا التنظيف الانتقائي عن [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)، الذي يزيل كلا نوعي التفعيل في النطاق المحدد بغض النظر عن السياسة. التحقق هنا يفحص فقط أفعال الارتباط ولا يزيل مشاريع VBA المدمجة أو كائنات OLE أو محتوى نشط آخر، ولا يتحقق من ملف PDF أو HTML المُصدّر.
+يختلف هذا التنظيف الانتقائي عن الدالة [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)، التي تُزيل كلا نوعي التنشيط عبر النطاق المحدد بغض النظر عن السياسة. تتحقق عملية التحقق هنا من إجراءات الروابط فقط؛ لا تُزيل مشاريع VBA المدمجة، كائنات OLE، أو محتوى نشط آخر، ولا تتحقق من ملف PDF أو HTML المصدر.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني ربط قسم أو شريحةه الأولى؟**
+**كيف يمكنني الربط بقسم أو أول شريحة له؟**
 
-تقسيمات PowerPoint تُجَمِّع الشرائح، لكن الارتباط الداخلي يستهدف شريحة فردية. لإنشاء تنقل إلى قسم، اربط إلى الشريحة الأولى في ذلك القسم.
+تُجَمّع الأقسام في PowerPoint شرائح معًا، لكن الارتباط الداخلي يستهدف شريحة فردية. لإنشاء تنقل إلى قسم، اربط بأول شريحة في ذلك القسم.
 
-**هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق ارتباط تشعبي لعناصر شريحة القالب لتعمل على جميع الشرائح؟**
 
-نعم. عناصر الشريحة الرئيسية والتخطيط تدعم الارتباطات التشعبية. الروابط على هذه العناصر تكون متاحة أثناء عرض الشرائح على الشرائح التي تستخدم الماستر أو التخطيط المقابل.
+نعم. تدعم عناصر شريحة القالب والتخطيط الارتباطات التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح للشرائح التي تستخدم القالب أو التخطيط المقابل.
 
-**هل سيتم الحفاظ على الارتباطات التشعبية عند التصدير إلى PDF أو HTML أو الصور أو الفيديو؟**
+**هل ستُحفظ الروابط عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
 
-قد تحافظ تصديرات PDF وHTML المدعومة على الارتباطات؛ الصور والفيديو رستر لا يمكنها ذلك. راجع اعتبارات التصدير في [تقارير، تنقية، والتحقق من الارتباطات التشعبية](#report-sanitize-and-verify-hyperlinks).
+قد تحتفظ عمليات تصدير PDF وHTML المدعومة بالروابط؛ لا يمكن للصور النقطية والفيديو الاحتفاظ بالروابط التفاعلية. راجع اعتبارات التصدير في [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

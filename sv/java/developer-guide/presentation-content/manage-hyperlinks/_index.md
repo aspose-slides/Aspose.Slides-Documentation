@@ -12,17 +12,17 @@ keywords:
 - ta bort hyperlänk
 - uppdatera hyperlänk
 - texthyperlänk
-- bildhyperlänk
+- diahyperlänk
 - formhyperlänk
-- grafikhyperlänk
-- video‑hyperlänk
-- muterbar hyperlänk
+- bildhyperlänk
+- videohyperlänk
+- ändringsbar hyperlänk
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Lägg till, formatera, uppdatera och ta bort hyperlänkar i PowerPoint‑ och OpenDocument‑presentationer med Aspose.Slides för Java, med Java‑exempel."
+description: "Lägg till, formatera, uppdatera och ta bort hyperlänkar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Java, med Java-exempel."
 ---
 ## **Introduktion**
 
@@ -31,21 +31,21 @@ En hyperlänk kopplar presentationsinnehåll till en webbplats eller en plats in
 * Öppna en webbplats från text, en form eller en mediaram.
 * Navigera till en annan bild, till exempel från en innehållsförteckning.
 
-Aspose.Slides for Java låter dig lägga till dessa länkar, kontrollera deras utseende och ljud, uppdatera deras egenskaper och ta bort dem. Exemplen nedan visar hur du arbetar med hyperlänkar på enskilda element och hur du får åtkomst till hyperlänkar på presentations-, bild- eller textramnivå.
+Aspose.Slides for Java låter dig lägga till dessa länkar, kontrollera deras utseende och ljud, uppdatera deras egenskaper och ta bort dem. Exemplen nedan visar hur du arbetar med hyperlänkar på enskilda element och hur du får åtkomst till hyperlänkar på presentations-, bild- eller textram‑nivå.
 
 {{% alert color="info" title="Note" %}}
-Du kan också redigera presentationer med den [gratis online Aspose PowerPoint‑redigeraren](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+du kan också redigera presentationer med den [kostnadsfria online Aspose PowerPoint‑redigeraren](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
 ## **Lägg till URL‑hyperlänkar**
 
-Du kan tilldela en webbplats‑URL till text, en form eller ett mediaram. Det element du tilldelar hyperlänken bestämmer det klickbara området: en textdel länkar den markerade texten, medan en form eller ett ram länkar bildobjektet.
+Du kan tilldela en webbplats‑URL till text, en form eller ett mediaram. Det element som du tilldelar hyperlänken bestämmer det klickbara området: en textdel länkar den markerade texten, medan en form eller ett ram länkar bildobjektet.
 
-För presentationer som innehåller relativa hyperlänkar, se [Hantera hyperlänksbasen](/slides/sv/java/presentation-properties/#manage-the-hyperlink-base) för att läsa, ändra eller rensa dokumentnivåbasen.
+För presentationer som innehåller relativa hyperlänkar, se [Hantera hyperlänkbasen](/slides/sv/java/presentation-properties/#manage-the-hyperlink-base) för att läsa, ändra eller rensa dokumentnivåbasen.
 
 ### **Lägg till URL‑hyperlänkar till text**
 
-För att länka text till en webbplats, skicka en [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) till textdelens [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metod, som visas nedan. Endast den textdelen blir klickbar.
+För att länka text till en webbplats, skicka en [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) till textdelens [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metod, som visas nedan. Endast den delen av texten blir klickbar.
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,7 @@ try {
 
 ### **Lägg till URL‑hyperlänkar till former och mediaramar**
 
-För att göra en form eller ett ram klickbart, anropa dess [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metod. Hyperlänken tillhör själva objektet snarare än en textdel i det.
-
-Samma tillvägagångssätt gäller för bild-, ljud- och videoramar: tilldela hyperlänken till ramen och anropa [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) om det behövs.
-
-Följande exempel gör en rektangel klickbar:
+Anropa [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) på rektangeln för att göra hela området klickbart. Använd [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) för att visa läsarna en ledtråd om destinationen när de svävar över rektangeln. Båda metoderna gäller också för bild-, ljud- och videoramar.
 
 ```java
 import com.aspose.slides.*;
@@ -91,7 +87,7 @@ try {
 
 ## **Använd hyperlänkar för att skapa en innehållsförteckning**
 
-Interna hyperlänkar låter läsare hoppa från en innehållsförteckning till en specifik bild. Följande exempel använder [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) för att länka texten “Page 2” på den första bilden till den andra bilden.
+Interna hyperlänkar låter läsarna hoppa från en innehållsförteckning till en specifik bild. Följande exempel använder [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) för att länka texten ”Page 2” på den första bilden till den andra bilden.
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +123,13 @@ try {
 
 ## **Formatera hyperlänkar**
 
+Du kan ändra färgen på länkad text, spela upp eller stoppa ett ljud när en läsare aktiverar en länk, och ange verktygstipset som visas vid hovring.
+
 ### **Färg**
 
-Metoden [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) i [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänksfärg eller textdelens formatering. För att använda en anpassad textfärg, välj [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) och ange delens fyllningsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner tillämpar inte denna inställning.
+Metoden [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) för [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänksfärg eller textdelens formatering. För att använda en anpassad textfärg, välj [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) och ange delens fyllningsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner tillämpar inte denna inställning.
 
-Följande exempel lägger till två texthyperlänkar på samma bild. Den första använder en röd textfyllning, medan den andra behåller standardhyperlänksfärgen.
+I detta exempel får [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) den första länken att använda textdelens röda fyllning. Den andra länken behåller presentationens hyperlänksfärg.
 
 ```java
 import com.aspose.slides.*;
@@ -156,16 +154,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Ljud**
 
-En hyperlänk kan spela upp ett ljud när den aktiveras eller stoppa ett ljud som redan spelas. Använd följande metoder för att konfigurera dessa beteenden:
+En hyperlänk kan spela ett ljud när den aktiveras eller stoppa ett ljud som redan spelas. Använd följande metoder för att konfigurera dessa beteenden:
 
 - [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) specificerar ljudet som är associerat med hyperlänken.
 - [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) styr om aktivering av hyperlänken stoppar föregående ljud.
 
 #### **Lägg till ett hyperlänkljud**
 
-Följande exempel läser in `sampleaudio.wav` och associerar det med en knapp på den första bilden. När knappen klickas spelas ljudet och navigerar till nästa bild. En andra form på samma bild stoppar föregående ljud när den klickas, utan att utföra någon navigationsåtgärd.
+Knappen på den första bilden använder [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) för att spela upp ljudet från `sampleaudio.wav` när läsaren klickar för att gå vidare. På den andra bilden använder en separat knapp [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) för att stoppa uppspelningen och behålla läsaren på den bilden.
 
 ```java
 import com.aspose.slides.*;
@@ -205,7 +204,7 @@ try {
 
 #### **Extrahera ett hyperlänkljud**
 
-Följande exempel öppnar presentationen som skapades ovan och läser den första formens hyperlänksljud till minnet via [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) och [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
+Följande exempel öppnar presentationen som skapades ovan och läser den första formens hyperlänkljud till minnet via [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) och [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -233,14 +232,14 @@ try {
 
 Du kan anropa följande [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) metoder efter att ha tilldelat en hyperlänk till text eller en form:
 
-- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) anger texten som en visare kan visa som en ledtråd för länken.
-- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) specificerar målramen inom en förälders HTML‑ramverk, om tillämpligt.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) anger den text som en visare kan visa som en ledtråd för länken.
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) specificerar målramen inom ett föräldra‑HTML‑frameset, när det är tillämpligt.
 - [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) styr om aktivering av länken lägger till dess destination i listan över visade hyperlänkar.
 - [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) styr om hyperlänken markeras när den klickas.
 
 ## **Ta bort hyperlänkar från presentationer**
 
-Använd [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) för att samla hyperlänkbehållare, inklusive textdelslänkar, innan du ändrar dem. Följande exempel tar bort båda aktiverings typerna från den första bilden. För att ta bort bara en typ, anropa endast [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) eller [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); att ta bort en klickåtgärd tar inte bort motsvarande mus‑över‑åtgärd.
+Använd [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) för att samla in hyperlänksbehållare, inklusive länkar på textdelar, innan du ändrar dem. Följande exempel tar bort båda aktiveringstyperna från den första bilden. För att bara ta bort en typ, anropa bara [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) eller [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); att ta bort en klickåtgärd tar inte bort motsvarande mus‑över‑åtgärd.
 
 ```java
 import com.aspose.slides.*;
@@ -267,23 +266,58 @@ try {
 }
 ```
 
-För villkorsfri borttagning tar [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) bort båda aktiveringstyperna i den valda omfattningen i ett anrop. För selektiv rensning och täckning av master‑bilder, layouter och anteckningar, se [Rapport, sanera och verifiera hyperlänkar](#report-sanitize-and-verify-hyperlinks).
+För ovillkorlig borttagning tar [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) bort båda aktiveringstyperna i det valda omfånget med ett anrop. För selektiv rensning och täckning av mastrar, layouter och anteckningar, se [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Bygg ett komplett hyperlänkregister**
+### **Rensa hyperlänkar innan SmartArt‑text ersätts**
 
-Innan du distribuerar en presentation, inventera dess interaktiva åtgärder samt dess webb länkar. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) objekt, inte en platt lista med URL‑strängar. Inspektera både [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) och [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) för varje behållare. De är oberoende: samma behållare kan exponera båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
+När du ersätter ett stycke i en befintlig SmartArt‑nod, kan rensning av dess textdelar lämna en gammal hyperlänk i kraft. Hämta stycket via [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getTextFrame--). Innan du rensar dess delar, anropa [getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) på textram‑ramen för nodformen som visar stycket, och anropa sedan [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) på det returnerade objektet. Detta tar bort varje hyperlänk i den ramen, inklusive länkar i dess andra stycken.
 
-Att endast skanna hyperlänkar på formnivå kan missa länkar som är bifogade till textdelar. Fråga istället rätt omfattning och behåll de returnerade behållarna så att du senare kan uppdatera eller ta bort deras åtgärder.
+Exemplet antar att den tredje formen på den första bilden i `SmartArtHyperlink.pptx` är en SmartArt‑grafik. Det ersätter det första stycket i den fjärde noden. I denna presentation visar nodens första form det stycket.
 
-### **Fråga presentations-, bild‑ och textram‑omfattningar**
+Efter att ha lagt till båda delarna läser exemplet deras effektiva formatering med [getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--). På den formateringen returnerar [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) den nya hyperlänken för den första delen och `null` för den andra.
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/)‑gränssnittet är tillgängligt via [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) och [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Varje omfattning stöder samma frågor:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Bygg ett komplett hyperlänk‑inventarium**
+
+Innan en presentation distribueras, inventera dess interaktiva åtgärder samt dess webb‑länkar. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/)‑objekt, inte en rak lista med URL‑strängar. Inspektera både [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) och [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) på varje behållare. De är oberoende: samma behållare kan exponera båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
+
+Att bara skanna hyperlänkar på formnivå kan missa länkar som är knutna till textdelar. Fråga istället det lämpliga omfånget, och behåll de returnerade behållarna så att du senare kan uppdatera eller ta bort deras åtgärder.
+
+### **Fråga presentations-, bild- och textram‑omfång**
+
+[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/)‑gränssnittet är tillgängligt via [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) och [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Varje omfång stödjer samma frågor:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) returnerar behållare med en klickåtgärd.
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) returnerar behållare med en mus‑över‑åtgärd.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) returnerar behållare med antingen eller båda åtgärderna.
 
-Följande exempel skapar `hyperlink-audit-input.pptx` med en extern klicklänk, en fil‑mus‑över‑länk, intern bildnavigering, en text‑mus‑över‑länk och en makroåtgärd. Det utför ingen av dessa åtgärder. Samma tre frågor fungerar i varje omfattning; räknarna beskriver behållare, inte åtgärdstotaltal. Textram‑omfattningen exkluderar den omgivande formens egna länkar.
+Detta exempel tilldelar klick‑ och mus‑över‑åtgärder till en form och dess text, samt en makro‑åtgärd till en separat knapp. Det jämför antalet behållare som returneras av [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) med räknarna för varje aktiveringstyp. En textram‑fråga räknar bara länkar i texten. Formens egna åtgärder visas i bild‑ och presentations‑frågorna.
 
 ```java
 import com.aspose.slides.*;
@@ -323,37 +357,37 @@ try {
 }
 ```
 
-För detta exempel rapporterar presentations‑ och bild‑frågor var och en tre klickbehållare, två mus‑över‑behållare och tre behållare med någon av åtgärderna. Textram‑frågan rapporterar en behållare i varje kategori.
+För detta exempel rapporterar presentations‑ och bild‑frågorna var och en tre klickbehållare, två mus‑över‑behållare och tre behållare med antingen åtgärd. Textram‑frågan rapporterar en behållare i varje kategori.
 
 ### **Klassificera åtgärder och destinationer**
 
 Använd [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) för att tolka en åtgärd innan du tolkar dess destination. [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/)‑värdena omfattar mer än webbnavigering:
 
-| Values | Meaning for an audit |
+| Värden | Betydelse för en revision |
 | --- | --- |
-| `Hyperlink` | Extern hyperlänk; granska URL:en och dess schema. |
+| `Hyperlink` | Extern hyperlänk; inspektera URL:en och dess schema. |
 | `JumpSpecificSlide` | Intern navigering till en specifik bild. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Inbyggd bildspelsnavigering, löses i bildspelskontext. |
-| `JumpEndShow`, `StartCustomSlideShow` | Avsluta aktuellt bildspel eller starta ett anpassat bildspel. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Inbyggd bildspelsnavigering, löst i bildspelskontext. |
+| `JumpEndShow`, `StartCustomSlideShow` | Avsluta det aktuella bildspelet eller starta ett anpassat bildspel. |
 | `StartMacro` | Kör ett makro. |
 | `StartProgram` | Starta ett program. |
 | `OpenFile`, `OpenPresentation` | Öppna en fil eller en annan presentation; granska separat från webbadresser. |
-| `StartStopMedia` | Starta eller stoppa medieuppspelning. |
+| `StartStopMedia` | Starta eller stoppa uppspelning av media. |
 | `NoAction`, `Unknown` | Ingen navigeringsåtgärd, eller en okänd åtgärd som kräver granskning. |
 
 Läs externa destinationer från [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) och specifika interna destinationer från [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Interna åtgärder och inbyggda kommandon kan sakna extern URL; en tom URL betyder inte att behållaren saknar åtgärd. Bevara värdet som returneras av [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) när det skiljer sig från den normaliserade URL:en, och inkludera verktygstipset som returneras av [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) när det finns.
 
-### **Rapport, sanering och verifiering av hyperlänkar**
+### **Rapportera, sanera och verifiera hyperlänkar**
 
-Följande Java‑exempel läser en befintlig presentation (använd filen som skapades ovan), skriver `hyperlink-audit.json`, tillämpar en policy, sparar `hyperlink-sanitized.pptx` och öppnar den igen för att kontrollera båda aktiveringstyperna igen. Det samlar in behållare innan de ändras och använder referenslikhet för att undvika att bearbeta samma behållare två gånger. Presentationsfrågor täcker vanliga bilder; för ett paketomfattande register frågar den också explicit master‑bilder, layouter, anteckningar samt antecknings‑ och utdelnings‑master‑bilder när de finns.
+Detta exempel öppnar presentationen från föregående exempel och skriver ett JSON‑post per åtgärd. Det använder [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) för att samla behållare på vanliga bilder, mastrar, layouter och anteckningar, inklusive antecknings‑ och utdelnings‑mastrar när de finns. Det använder referensjämförelse för att räkna varje behållare en gång, tillämpar policyn som beskrivs nedan, och öppnar den sparade presentationen igen för att kontrollera både klick‑ och mus‑över‑åtgärder.
 
-Rapporten registrerar ett ett‑baserat bildindex och [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) där det finns. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) tillhandahåller den ägande bilden för stödjade behållare. Master‑bilder, layouter och anteckningar har inget vanligt bildindex och identifieras av sin omfattning. Formbehållare och textdel‑formateringsbehållare märks separat; andra behållartyper behåller sitt körtidstypnamn. Varje behållare får ett rapportlokalt ID så att dess två åtgärder kan korreleras. Rapporten lagrar åtgärdstyper som de heltalskonstanter som definieras av Java‑enumerationen.
+Rapporten registrerar ett ett‑baserat bildindex och [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) där det finns. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) tillhandahåller den ägande bilden för stödjade behållare. Mastrar, layouter och anteckningar har inget vanligt bildindex och identifieras av sitt omfång. Form‑behållare och formatteringsbehållare för textdelar märks separat; andra behållartyper behåller sitt kör‑tids typnamn. Varje behållare får ett rapport‑lokalt ID så att dess två åtgärder kan korreleras. Rapporten lagrar åtgärdstyper som de heltalskonstanter som definieras av Java‑enumerationen.
 
-Denna medvetet restriktiva applikationspolicy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bildmål. Den avvisar makron, program, filåtgärder, andra bildspelsåtgärder, okända åtgärder och andra URL‑scheman. Dessa avslag är policybeslut, inte ett Aspose.Slides‑säkerhetsbeslut. HTTPS ensamt etablerar inte förtroende: lägg till värd‑allowlistor och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller köra åtgärder.
+Denna avsiktligt restriktiva applikationspolicy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bildmål. Den förkastar makron, program, filåtgärder, andra bildspelsåtgärder, okända åtgärder och andra URL‑scheman. Dessa förkastanden är policybeslut, inte ett säkerhetsbeslut från Aspose.Slides. HTTPS ensam etablerar inte förtroende: lägg till värd‑allowlistor och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller köra åtgärder.
 
-För åtgärd, stödjer behållarens [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) och [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Här ersätts förbjudna externa klicklänkar med en fast HTTPS‑landningssida; andra förbjudna klick och förbjudna mus‑över‑åtgärder tas bort oberoende. Ställ in `replaceExternalClicks` till `false` för att ta bort alla policyöverträdelse istället. Välj en applikationsägd ersättningssida innan implementering.
+För åtgärdssökning stöder behållarens [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) och [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Här ersätts förbjudna externa klick‑länkar med en fast HTTPS‑landningssida; andra förbjudna klick och förbjudna mus‑över‑åtgärder tas bort oberoende. Sätt `replaceExternalClicks` till `false` för att ta bort alla policy‑överträdelse istället. Välj en applikations‑ägd ersättningssida innan distribution.
 
-Rapportens exportflagga använder en konservativ PDF‑granskningspolicy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifikt bildhopp som potentiellt osupporterat. Det är en granskningshint, inte ett förmågetest eller en garanti för att oflaggrade länkar överlever export. Stödda [PDF](/slides/sv/java/convert-powerpoint-to-pdf/)‑ och [HTML](/slides/sv/java/convert-powerpoint-to-html/)‑exporter kan bevara hyperlänkar, beroende på åtgärd, exportalternativ och visare. Raster[bilder](/slides/sv/java/convert-powerpoint-to-png/) och [video](/slides/sv/java/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid granskning för dessa utdata.
+Rapportens exportflagga använder en konservativ PDF‑granskningspolicy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifik bildhopp som potentiellt ej stödjda. Det är en granskningsindikering, inte ett kapacitetstest eller en garanti för att ovflagade länkar överlever export. Stödda [PDF](/slides/sv/java/convert-powerpoint-to-pdf/)‑ och [HTML](/slides/sv/java/convert-powerpoint-to-html/)‑exporter kan bevara hyperlänkar, beroende på åtgärden, exportalternativen och visaren. Raster‑[bilder](/slides/sv/java/convert-powerpoint-to-png/) och [video](/slides/sv/java/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid granskning för dessa utdata.
 
 ```java
 import com.aspose.slides.*;
@@ -538,20 +572,20 @@ try {
 }
 ```
 
-Med den indata som skapats ovan innehåller rapporten fem åtgärdsrader. Fil‑mus‑över‑länken och makroklicken tas bort, medan HTTPS‑länkarna och intern bildnavigering kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En indata som innehåller en förbjuden extern klick‑URL övar också ersättningsgrenen. En behållare med ett tillåtet klick och ett förbjudet mus‑över‑åtgärd behåller sin klickåtgärd.
+Med den input som skapats ovan innehåller rapporten fem åtgärdsrader. Fil‑mus‑över‑länken och makro‑klicket tas bort, medan HTTPS‑länkarna och intern bildnavigering kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En input som innehåller en förbjuden extern klick‑URL utnyttjar också ersättningsgrenen. En behållare med ett tillåtet klick och en förbjuden mus‑över‑åtgärd behåller sin klick‑åtgärd.
 
-Denna selektiva rensning skiljer sig från [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) som tar bort båda aktiveringstyperna i hela den valda omfattningen oavsett policy. Verifieringen här kontrollerar endast hyperlänkåtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
+Denna selektiva rensning skiljer sig från [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) som tar bort båda aktiveringstyperna i hela det valda omfånget oavsett policy. Verifieringen här kontrollerar endast hyperlänkåtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Hur kan jag länka till ett avsnitt eller dess första bild?**
 
-Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk riktar sig mot en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i det avsnittet.
+Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk pekar på en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i det avsnittet.
 
-**Kan jag bifoga en hyperlänk till master‑bildselement så att den fungerar på alla bilder?**
+**Kan jag bifoga en hyperlänk till element på en masternivå så att den fungerar på alla bilder?**
 
-Ja. Master‑bild‑ och layout‑element stöder hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på bilder som använder motsvarande master eller layout.
+Ja. Element på master‑bilder och layouter stödjer hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på bilder som använder den motsvarande mastern eller layouten.
 
 **Kommer hyperlänkar att bevaras vid export till PDF, HTML, bilder eller video?**
 
-Stödda PDF‑ och HTML‑exporter kan bevara hyperlänkar; rasterbilder och video kan det inte. Se exportaspekterna i [Rapport, sanera och verifiera hyperlänkar](#report-sanitize-and-verify-hyperlinks).
+Stödda PDF‑ och HTML‑exporter kan bevara hyperlänkar; raster‑bilder och video kan inte. Se exportaspekterna i [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

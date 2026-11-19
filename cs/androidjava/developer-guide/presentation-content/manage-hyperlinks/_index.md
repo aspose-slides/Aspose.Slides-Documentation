@@ -1,5 +1,5 @@
 ---
-title: Spravovat hypertextové odkazy v prezentacích na Androidu
+title: Správa hypertextových odkazů v prezentacích na Androidu
 linktitle: Spravovat hypertextové odkazy
 type: docs
 weight: 20
@@ -16,37 +16,37 @@ keywords:
 - hypertextový odkaz na tvar
 - hypertextový odkaz na obrázek
 - hypertextový odkaz na video
-- měnitelný hypertextový odkaz
+- mutovatelný hypertextový odkaz
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Android přes Java s použitím Java příkladů."
+description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Android prostřednictvím Javy, s ukázkami v Javě."
 ---
 ## **Úvod**
 
-Hyperlink spojuje obsah prezentace s webovou stránkou nebo s místem v rámci prezentace. V PowerPointu slouží hypertextové odkazy obvykle k dvěma účelům:
+Hyperlink spojuje obsah prezentace s webovou stránkou nebo s místem v rámci prezentace. V aplikaci PowerPoint slouží odkazy obvykle ke dvěma účelům:
 
 * Otevřít webovou stránku z textu, tvaru nebo mediálního rámce.
 * Přechod na jiný snímek, například z obsahu.
 
-Aspose.Slides pro Android přes Java vám umožňuje přidávat tyto odkazy, ovládat jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak získat přístup k odkazům na úrovni prezentace, snímku nebo textového rámce.
+Aspose.Slides for Android via Java vám umožňuje přidávat tyto odkazy, řídit jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s odkazy u jednotlivých prvků a jak přistupovat k odkazům na úrovni prezentace, snímku nebo textového rámce.
 
 {{% alert color="info" title="Note" %}}
-Prezentace můžete také upravovat pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Můžete také upravovat prezentace pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **Přidat URL hypertextové odkazy**
+## **Přidat URL odkazy**
 
 Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámci. Prvek, ke kterému odkaz přiřadíte, určuje klikací oblast: část textu propojí vybraný text, zatímco tvar nebo rámec propojí objekt snímku.
 
-Pro prezentace obsahující relativní hypertextové odkazy viz [Spravovat základ hypertextových odkazů](/slides/cs/androidjava/presentation-properties/#manage-the-hyperlink-base) pro čtení, změnu nebo vymazání dokumentově úrovňového základu.
+U prezentací obsahujících relativní hypertextové odkazy se podívejte na [Spravovat základ hypertextových odkazů](/slides/cs/androidjava/presentation-properties/#manage-the-hyperlink-base), kde můžete číst, měnit nebo vymazat základ na úrovni dokumentu.
 
-### **Přidat URL hypertextové odkazy do textu**
+### **Přidat URL odkazy do textu**
 
-Pro propojení textu s webovou stránkou předáte [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) textové části, jak je ukázáno níže. Pouze tato část textu se stane klikací.
+Pro propojení textu s webovou stránkou předáte objekt [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) textové části, jak je ukázáno níže. Pouze tato část textu se stane klikací.
 
 ```java
 import com.aspose.slides.*;
@@ -66,13 +66,9 @@ try {
 }
 ```
 
-### **Přidat URL hypertextové odkazy k tvarům a mediálním rámcům**
+### **Přidat URL odkazy k tvarům a mediálním rámcům**
 
-Pro učinění tvaru nebo rámce klikacím zavolejte jeho metodu [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-). Hyperlink patří samotnému objektu, nikoli textové části uvnitř něj.
-
-Stejný přístup platí pro obrázkové, audio a video rámce: přiřaďte hypertextový odkaz k rámci a v případě potřeby zavolejte [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-).
-
-Následující příklad učiní obdélník klikacím:
+Voláním [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) na obdélníku umožníte, aby byla celá jeho oblast klikací. Použijte [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) k zobrazení nápovědy o cíli, když uživatel přejede myší nad obdélníkem. Obě metody platí i pro obrázkové, audio a video rámce.
 
 ```java
 import com.aspose.slides.*;
@@ -92,7 +88,7 @@ try {
 
 ## **Použít hypertextové odkazy k vytvoření obsahu**
 
-Interní hypertextové odkazy umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) k propojení textu „Page 2“ na prvním snímku s druhým snímkem.
+Interní hypertextové odkazy umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) k propojení textu „Page 2“ na prvním snímku se druhým snímkem.
 
 ```java
 import com.aspose.slides.*;
@@ -128,11 +124,13 @@ try {
 
 ## **Formátovat hypertextové odkazy**
 
+Můžete změnit barvu propojeného textu, přehrát nebo zastavit zvuk při aktivaci odkazu a nastavit tooltip, který se zobrazí při najetí.
+
 ### **Barva**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) rozhraní [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) určuje, zda hypertextový odkaz používá barvu hypertextových odkazů prezentace nebo formátování textové části. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) a nastavte výplň barvu části. Tato funkce byla zavedena v PowerPointu 2019; starší verze toto nastavení nepoužívají.
+Metoda [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) rozhraní [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu z celé prezentace nebo formátování části textu. Pro nastavení vlastní barvy textu vyberte [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) a nastavte barvu výplně části. Tato funkce byla zavedena v PowerPointu 2019; starší verze toto nastavení nepoužívají.
 
-Následující příklad přidá dva textové hypertextové odkazy na stejný snímek. První používá červenou výplň textu, zatímco druhý zachovává výchozí barvu hypertextového odkazu.
+V tomto příkladu metoda [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) způsobí, že první odkaz použije červenou výplň části textu. Druhý odkaz zachová barvu odkazu z celé prezentace.
 
 ```java
 import com.aspose.slides.*;
@@ -160,14 +158,14 @@ try {
 
 ### **Zvuk**
 
-Může hypertextový odkaz přehrávat zvuk při aktivaci nebo zastavit již přehrávaný zvuk. K nastavení těchto chování použijte následující metody:
+Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit zvuk, který již přehrává. K nastavení těchto chování použijte následující metody:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) určuje audio spojené s hypertextovým odkazem.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) určuje, zda aktivace hypertextového odkazu zastaví předchozí zvuk.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) určuje audio přidružené k hypertextovému odkazu.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) řídí, zda aktivace odkazu zastaví předchozí zvuk.
 
-#### **Přidat zvuk k hypertextovému odkazu**
+#### **Přidat zvuk hypertextového odkazu**
 
-Následující příklad načte `sampleaudio.wav` a přiřadí jej k tlačítku na prvním snímku. Kliknutím na tlačítko se přehraje zvuk a přejde na další snímek. Druhý tvar na tom samém snímku po kliknutí zastaví předchozí zvuk, aniž by provedl navigační akci.
+Tlačítko na prvním snímku používá [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) k přehrání audia ze souboru `sampleaudio.wav`, když uživatel klikne pro postup. Na druhém snímku samostatné tlačítko používá [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) k zastavení přehrávání a ponechání uživatele na tomto snímku.
 
 ```java
 import com.aspose.slides.*;
@@ -206,9 +204,9 @@ try {
 }
 ```
 
-#### **Extrahovat zvuk z hypertextového odkazu**
+#### **Extrahovat zvuk hypertextového odkazu**
 
-Následující příklad otevře výše vytvořenou prezentaci a načte audio hypertextového odkazu prvního tvaru do paměti pomocí [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) a [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
+Následující příklad otevře výše vytvořenou prezentaci a načte audio hypertextového odkazu první tvary do paměti pomocí [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) a [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -232,18 +230,18 @@ try {
 }
 ```
 
-### **Vysvětlivka a nastavení interakce**
+### **Nastavení tooltipu a interakce**
 
-Můžete po přiřazení hypertextového odkazu k textu nebo tvaru zavolat následující metody rozhraní [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/):
+Po přiřazení hypertextového odkazu k textu nebo tvaru můžete volat následující metody rozhraní [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/):
 
-- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) nastavuje text, který může uživatel zobrazit jako nápovědu k odkazu.
-- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) určuje cílový rámec v rámci nadřazeného HTML framesetu, je-li to relevantní.
-- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) určuje, zda aktivace odkazu přidá jeho cíl do seznamu zhlédnutých hypertextových odkazů.
-- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) určuje, zda je hypertextový odkaz při kliknutí zvýrazněn.
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) nastavuje text, který může prohlížeč zobrazit jako nápovědu k odkazu.
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) určuje cílový rámec v rámci rodičovské HTML sady rámců, pokud je to relevantní.
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) řídí, zda aktivace odkazu přidá jeho cíl do seznamu zobrazených odkazů.
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) řídí, zda je odkaz po kliknutí zvýrazněn.
 
 ## **Odstranit hypertextové odkazy z prezentací**
 
-Použijte [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) k shromáždění kontejnerů hypertextových odkazů, včetně odkazů na textové části, před jejich změnou. Následující příklad odstraní oba typy aktivace z prvního snímku. Pro odstranění pouze jednoho typu zavolejte pouze [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); odstranění akce kliknutí neodstraňuje odpovídající akci při najetí myši.
+Použijte [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) ke shromáždění kontejnerů hypertextových odkazů, včetně odkazů na části textu, před jejich úpravou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Pro odstranění pouze jednoho typu zavolejte jen [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); odstranění akce kliknutí neodstraní její protějšek při najetí myší.
 
 ```java
 import com.aspose.slides.*;
@@ -270,23 +268,58 @@ try {
 }
 ```
 
-Pro neomezené odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) odstraňuje oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní úklid a zahrnutí masterů, rozložení a poznámek viz [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Pro neomezené odstranění metoda [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) odstraní oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní úklid a pokrytí mistrů, rozložení a poznámek viz [Zpráva, sanace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).
+
+### **Vymazat hypertextové odkazy před nahrazením textu SmartArt**
+
+Když nahradíte odstavec v existujícím uzlu SmartArt, vymazání jeho částí textu může ponechat starý odkaz aktivní. Získejte odstavec pomocí [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getTextFrame--). Před vymazáním částí zavolejte [getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) na textovém rámci tvaru uzlu zobrazujícím odstavec a poté [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) na získaném objektu. Tím se odstraní každý odkaz v tomto rámci, včetně odkazů v ostatních odstavcích.
+
+Příklad předpokládá, že třetí tvar na prvním snímku souboru `SmartArtHyperlink.pptx` je grafika SmartArt. Nahrazuje první odstavec čtvrtého uzlu. V této prezentaci první tvar uzlu zobrazuje tento odstavec.
+
+Po přidání obou částí příklad načte jejich efektivní formátování pomocí [getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--). Na tomto formátování [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) vrací nový odkaz pro první část a `null` pro druhou.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Vytvořit kompletní inventář hypertextových odkazů**
 
-Před distribucí prezentace zkontrolujte její interaktivní akce i webové odkazy. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam řetězců URL. Prohlédněte si jak [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) , tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) u každého kontejneru. Jsou nezávislé: stejný kontejner může obsahovat obě akce, takže kompletní zpráva potřebuje až dva řádky na kontejner.
+Před distribuováním prezentace proveďte inventuru jejích interaktivních akcí i webových odkazů. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam řetězců URL. Prozkoumejte jak [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--), tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) u každého kontejneru. Jsou nezávislé: stejný kontejner může expose obě akce, takže kompletní zpráva potřebuje až dva řádky na kontejner.
 
-Skenování pouze hypertextových odkazů na úrovni tvaru může přehlédnout odkazy připojené k textovým částem. Místo toho dotazujte příslušný rozsah a uchovávejte vrácené kontejnery, abyste je později mohli aktualizovat nebo odstranit jejich akce.
+Skenování jen odkazů na úrovni tvaru může přehlédnout odkazy připojené k částem textu. Místo toho dotazujte vhodný rozsah a zachovejte vrácené kontejnery, abyste je mohli později aktualizovat nebo odstranit jejich akce.
 
 ### **Dotazovat rozsahy prezentace, snímku a textového rámce**
 
 Rozhraní [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) je dostupné přes [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) a [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). Každý rozsah podporuje stejné dotazy:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) vrací kontejnery s akcí kliknutí.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) vrací kontejnery s akcí při najetí myši.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) vrací kontejnery s akcí při najetí myší.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) vrací kontejnery s jednou nebo oběma akcemi.
 
-Následující příklad vytvoří `hyperlink-audit-input.pptx` s externím odkazem na kliknutí, odkazem na soubor při najetí myši, interní navigací mezi snímky, textovým odkazem při najetí myši a makro akcí. Neprovádí žádnou z těchto akcí. Stejné tři dotazy fungují v každém rozsahu; počty popisují kontejnery, nikoli celkový počet akcí. Rozsah textového rámce vylučuje vlastní odkazy obklopujícího tvaru.
+Tento příklad přiřadí akce kliknutí a najetí myší tvaru a jeho textu a makro akci samostatnému tlačítku. Porovnává počet kontejnerů vrácených metodou [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) s počty pro každý typ aktivace. Dotaz na textový rámec počítá jen odkazy v textu. Akce vlastní obalujícího tvaru se objeví v dotazech na snímek a prezentaci.
 
 ```java
 import com.aspose.slides.*;
@@ -326,7 +359,7 @@ try {
 }
 ```
 
-V tomto příkladu dotazy na prezentaci i snímek uvádějí tři kontejnery s kliknutím, dva kontejnery s najetím myši a tři kontejnery s jednou z akcí. Dotaz na textový rámec uvádí jeden kontejner v každé kategorii.
+Pro tento příklad dotazy na prezentaci a snímek každá uvádějí tři kontejnery kliknutí, dva kontejnery najetí myší a tři kontejnery s jednou z akcí. Dotaz na textový rámec uvádí po jednom kontejneru v každé kategorii.
 
 ### **Klasifikovat akce a cíle**
 
@@ -334,29 +367,29 @@ Použijte [IHyperlink.getActionType](https://reference.aspose.com/slides/android
 
 | Hodnoty | Význam pro audit |
 | --- | --- |
-| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a jeho schéma. |
+| `Hyperlink` | Externí hypertextový odkaz; zkontrolovat URL a její schéma. |
 | `JumpSpecificSlide` | Interní navigace na konkrétní snímek. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace prezentace, řešená v kontextu prezentace. |
-| `JumpEndShow`, `StartCustomSlideShow` | Ukončení aktuální prezentace nebo spuštění vlastní prezentace. |
-| `StartMacro` | Spustit makro. |
-| `StartProgram` | Spustit program. |
-| `OpenFile`, `OpenPresentation` | Otevřít soubor nebo jinou prezentaci; posuzujte odděleně od webových URL. |
-| `StartStopMedia` | Spustit nebo zastavit přehrávání média. |
-| `NoAction`, `Unknown` | Žádná navigační akce, nebo neznámá akce vyžadující kontrolu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Ukončení aktuálního představení nebo spuštění vlastního představení. |
+| `StartMacro` | Spuštění makra. |
+| `StartProgram` | Spuštění programu. |
+| `OpenFile`, `OpenPresentation` | Otevření souboru nebo jiné prezentace; kontrolovat odděleně od webových URL. |
+| `StartStopMedia` | Spuštění nebo zastavení přehrávání média. |
+| `NoAction`, `Unknown` | Žádná navigační akce, nebo nerozpoznaná akce vyžadující kontrolu. |
 
-Ctěte externí cíle pomocí [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) a konkrétní interní cíle pomocí [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). Interní akce a vestavěné příkazy mohou postrádat externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Uchovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) , pokud se liší od normalizované URL, a zahrňte vysvětlivku vrácenou metodou [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) , pokud je k dispozici.
+Čtěte externí cíle z [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) a specifické interní cíle z [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). Interní akce a vestavěné příkazy mohou nemít externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Zachovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) pokud se liší od normalizované URL, a zahrňte tooltip vrácený metodou [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) pokud je k dispozici.
 
-### **Zpráva, sanitizace a ověření hypertextových odkazů**
+### **Zpráva, sanace a ověření hypertextových odkazů**
 
-Následující Java příklad načte existující prezentaci (použijte soubor vytvořený výše), zapíše `hyperlink-audit.json`, použije politiku, uloží `hyperlink-sanitized.pptx` a znovu ji otevře k ověření obou typů aktivace. Před změnou sbírá kontejnery a používá referenční rovnost, aby se zabránilo dvojímu zpracování stejného kontejneru. Dotazy na prezentaci zahrnují běžné snímky; pro inventář celého balíčku také explicitně dotazuje mastery, rozložení, poznámky a mastery poznámek a podkladových listů, pokud jsou přítomny.
+Tento příklad otevře prezentaci z předchozího příkladu a zapíše jeden JSON záznam na akci. Používá [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) ke shromáždění kontejnerů na obyčejných snímcích, mistry, rozloženích a poznámkách, včetně poznámkových a výstupních mistrů, pokud jsou přítomny. Používá referenční rovnost k jednorázovému spočítání každého kontejneru, aplikuje politiku popsanou níže a znovu otevírá uloženou prezentaci k ověření jak akcí kliknutí, tak akcí najetí myší.
 
-Zpráva zaznamenává jednorozměrný index snímku a [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) , pokud je k dispozici. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) poskytuje vlastní snímek pro podporované kontejnery. Mastery, rozložení a poznámky nemají běžný index snímku a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a kontejnery formátování textových částí jsou označeny odděleně; ostatní typy kontejnerů si zachovávají svůj název typu za běhu. Každý kontejner získá místní ID zprávy, aby jeho dvě akce mohly být propojeny. Zpráva ukládá typy akcí jako celočíselné konstanty definované Java výčtem.
+Zpráva zaznamenává jednorozměrný index snímku a [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) pokud je k dispozici. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) poskytuje vlastnický snímek pro podporované kontejnery. Mistři, rozložení a poznámky nemají běžný index snímku a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a formátovací kontejnery částí textu jsou označeny odděleně; ostatní typy kontejnerů si ponechávají název typu za běhu. Každý kontejner získá lokální ID zprávy, aby jeho dvě akce mohly být propojeny. Zpráva ukládá typy akcí jako celočíselné konstanty definované Java výčtem.
 
-Tato záměrně restriktivní aplikační politika povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, jiné akce prezentace, neznámé akce a jiné schémata URL. Tyto odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. Pouze HTTPS nezaručuje důvěru: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak původní, tak normalizované externí URL. Příklad auditu metadata bez sledování odkazů nebo spouštění akcí.
+Tato záměrně restriktivní aplikační politika povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, jiné akce prezentace, neznámé akce a jiné schémata URL. Tato odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. HTTPS samo o sobě nestaví důvěru: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak původní, tak normalizované externí URL. Příklad audituje metadata bez sledování odkazů nebo spouštění akcí.
 
-Pro nápravu kontejnerů [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) podporuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Zde jsou zakázané externí odkazy na kliknutí nahrazeny pevnou HTTPS vstupní stránkou; ostatní zakázané kliknutí a zakázané akce při najetí myší jsou odstraněny samostatně. Nastavte `replaceExternalClicks` na `false`, pokud chcete místo toho odstranit všechna porušení politiky. Vyberte stránku náhradní, kterou spravuje aplikace, před nasazením.
+Pro nápravu kontejnerů [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) podporuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Zde jsou zakázané externí odkazy na kliknutí nahrazeny pevnou HTTPS cílovou stránkou; ostatní zakázané kliknutí a zakázané akce při najetí myší jsou odstraněny nezávisle. Nastavte `replaceExternalClicks` na `false` pro odstranění všech porušení politiky. Vyberte stránku nahrazení vlastněnou aplikací před nasazením.
 
-Exportní příznak zprávy používá konzervativní politiku revize PDF: označuje akce při najetí myši a vše kromě externího odkazu nebo konkrétního skoku na snímek jako potenciálně nepodporované. Jedná se o vodítko pro revizi, nikoli o test schopností nebo záruku, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/androidjava/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/androidjava/convert-powerpoint-to-html/) mohou uchovat hypertextové odkazy, v závislosti na akci, možnostech exportu a prohlížeči. Rasterové [images](/slides/cs/androidjava/convert-powerpoint-to-png/) a [video](/slides/cs/androidjava/convert-powerpoint-to-video/) nemohou uchovat interaktivní hypertextové odkazy; při auditu pro tyto výstupy označte každou akci.
+Značka exportu v sestavě používá konzervativní politiku revize PDF: označuje akce při najetí myší a vše ostatní než externí odkaz nebo konkrétní skok na snímek jako potenciálně nepodporované. Jedná se o návod k revizi, ne o test schopností ani záruku, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/androidjava/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/androidjava/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy v závislosti na akci, možnostech exportu a prohlížeči. Rasterové [obrázky](/slides/cs/androidjava/convert-powerpoint-to-png/) a [video](/slides/cs/androidjava/convert-powerpoint-to-video/) nemohou zachovat interaktivní odkazy; označte každou akci při auditu pro tyto výstupy.
 
 ```java
 import com.aspose.slides.*;
@@ -458,7 +491,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // Serializovat ploché řádky této zprávy bez další závislosti na JSON.
+    // Serializovat ploché řádky tohoto reportu bez další závislosti na JSON.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -543,20 +576,20 @@ try {
 }
 ```
 
-S výše vytvořeným vstupem zpráva obsahuje pět řádků akcí. Odkaz na soubor při najetí myší a makro kliknutí jsou odstraněny, zatímco HTTPS odkazy a interní navigace snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázané externí URL pro kliknutí také spouští větev nahrazení. Kontejner s povoleným kliknutím a zakázaným akcí při najetí myší si ponechává akci kliknutí.
+S výše vytvořeným vstupem obsahuje zpráva pět řádků akcí. Odkaz na najetí myší a makro kliknutí jsou odstraněny, zatímco HTTPS odkazy a interní navigace snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázanou externí URL při kliknutí také otestuje větev nahrazení. Kontejner s povoleným kliknutím a zakázaným najetím myší si zachová akci kliknutí.
 
-Tento selektivní úklid se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze akce hypertextových odkazů; neodstraňuje vložené projekty VBA, OLE objekty ani jiný aktivní obsah a neověřuje exportovaný PDF nebo HTML soubor.
+Tento selektivní úklid se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje jen akce hypertextových odkazů; neodstraňuje vložené projekty VBA, OLE objekty ani jiný aktivní obsah a nekontroluje exportovaný PDF nebo HTML soubor.
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Jak mohu vytvořit odkaz na sekci nebo její první snímek?**
 
-Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na konkrétní snímek. Pro vytvoření navigace na sekci odkažte na první snímek v dané sekci.
+Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na jednotlivý snímek. Pro vytvoření navigace na sekci odkažte na první snímek v dané sekci.
 
 **Mohu připojit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
 
-Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou k dispozici během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozvržení.
+Ano. Prvky hlavního snímku a rozložení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou dostupné během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozložení.
 
 **Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
 
-Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rasterové obrázky a video to neumí. Viz úvahy o exportu v [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rasterové obrázky a video nemohou. Viz úvahy o exportu v [Zpráva, sanace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).

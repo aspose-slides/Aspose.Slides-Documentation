@@ -1,6 +1,6 @@
 ---
-title: Hyperlinks in presentaties beheren in Java
-linktitle: Hyperlinks beheren
+title: Beheer presentatiehyperlinks in Java
+linktitle: Beheer hyperlinks
 type: docs
 weight: 20
 url: /nl/java/manage-hyperlinks/
@@ -15,37 +15,37 @@ keywords:
 - diahyperlink
 - vormhyperlink
 - afbeeldingshyperlink
-- video-hyperlink
+- video hyperlink
 - aanpasbare hyperlink
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Hyperlinks toevoegen, opmaken, bijwerken en verwijderen in PowerPoint en OpenDocument-presentaties met Aspose.Slides for Java, met Java-voorbeelden."
+description: "Hyperlinks toevoegen, opmaken, bijwerken en verwijderen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Java, met Java-voorbeelden."
 ---
 ## **Introductie**
 
-Een hyperlink verbindt presentatiew inhoud met een website of een locatie binnen de presentatie. In PowerPoint dienen hyperlinks doorgaans twee doelen:
+Een hyperlink verbindt de inhoud van de presentatie met een website of een locatie binnen de presentatie. In PowerPoint dienen hyperlinks meestal twee doeleinden:
 
-* Een website openen vanuit tekst, een vorm of een mediaraam.
+* Een website openen vanaf tekst, een vorm of een mediakader.
 * Navigeren naar een andere dia, bijvoorbeeld vanuit een inhoudsopgave.
 
-Aspose.Slides for Java stelt je in staat om deze koppelingen toe te voegen, hun uiterlijk en geluid te regelen, hun eigenschappen bij te werken en ze te verwijderen. De voorbeelden hieronder laten zien hoe je werkt met hyperlinks op individuele elementen en hoe je hyperlinks benadert op presentatieniveau, dia‑niveau of tekst‑frame‑niveau.
+Aspose.Slides for Java stelt u in staat deze koppelingen toe te voegen, hun uiterlijk en geluid te regelen, hun eigenschappen bij te werken en ze te verwijderen. De onderstaande voorbeelden laten zien hoe u met hyperlinks werkt op individuele elementen en hoe u hyperlinks kunt benaderen op presentatie-, dia- of tekstkaderniveau.
 
 {{% alert color="info" title="Note" %}}
+U kunt ook presentaties bewerken met de [gratis online Aspose PowerPoint editor](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-Je kunt ook presentaties bewerken met de [gratis online Aspose PowerPoint‑editor](https://products.aspose.app/slides/nl/editor).
+## **URL-hyperlinks toevoegen**
 
-{{% /alert %}} 
+U kunt een website‑URL toewijzen aan tekst, een vorm of een mediakader. Het element waaraan u de hyperlink toewijst, bepaalt het klikbare gebied: een tekstdelen koppelt de geselecteerde tekst, terwijl een vorm of kader het diaobject koppelt.
 
-## **URL‑hyperlinks toevoegen**
+Voor presentaties met relatieve hyperlinks, zie [Hyperlinkbasis beheren](/slides/nl/java/presentation-properties/#manage-the-hyperlink-base) om de document‑niveau basis te lezen, wijzigen of wissen.
 
-Je kunt een website‑URL toewijzen aan tekst, een vorm of een mediaraam. Het element waaraan je de hyperlink toewijst bepaalt het klikbare gebied: een tekstdeel linkt de geselecteerde tekst, terwijl een vorm of frame het dia‑object linkt.
+### **URL-hyperlinks toevoegen aan tekst**
 
-### **URL‑hyperlinks toevoegen aan tekst**
-
-Om tekst naar een website te linken, geef je een [Hyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/hyperlink/) door aan de [setHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-)‑methode van het tekstdeel, zoals hieronder getoond. Alleen dat tekstdeel wordt klikbaar.
+Om tekst aan een website te koppelen, geeft u een [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) door aan de [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) methode van het tekstdelen, zoals hieronder getoond. Alleen dat gedeelte van de tekst wordt klikbaar.
 
 ```java
 import com.aspose.slides.*;
@@ -65,13 +65,9 @@ try {
 }
 ```
 
-### **URL‑hyperlinks toevoegen aan vormen en mediakaders**
+### **URL-hyperlinks toevoegen aan vormen en mediakaders**
 
-Om een vorm of kader klikbaar te maken, roep je haar [setHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-)‑methode aan. De hyperlink behoort tot het object zelf in plaats van tot een tekstdeel erin.
-
-Dezelfde aanpak geldt voor afbeelding‑, audio‑ en videokaders: ken de hyperlink toe aan het kader en roep, indien nodig, [setTooltip](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) aan.
-
-Het volgende voorbeeld maakt een rechthoek klikbaar:
+Roep [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) aan op het rechthoek om het volledige gebied klikbaar te maken. Gebruik [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) om lezers een hint over de bestemming te tonen wanneer ze over het rechthoek zweven. Beide methoden gelden ook voor afbeelding‑, audio‑ en videokaders.
 
 ```java
 import com.aspose.slides.*;
@@ -91,7 +87,7 @@ try {
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [setInternalHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) om de tekst “Pagina 2” op de eerste dia te linken naar de tweede dia.
+Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) om de tekst “Page 2” op de eerste dia te koppelen aan de tweede dia.
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +123,13 @@ try {
 
 ## **Hyperlinks opmaken**
 
+U kunt de kleur van gekoppelde tekst wijzigen, een geluid afspelen of stoppen wanneer een lezer een link activeert, en de tooltip instellen die verschijnt bij het zweven.
+
 ### **Kleur**
 
-De [setColorSource](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setColorSource-int-)‑methode van [IHyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/) bepaalt of een hyperlink de hyperlink‑kleur van de presentatie gebruikt of de opmaak van het tekstdeel. Om een aangepaste tekstkleur toe te passen, selecteer je [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/hyperlinkcolorsource/) en stel je de vulkleur van het deel in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
+De [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) methode van [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) bepaalt of een hyperlink de hyperlinkkleur van de presentatie gebruikt of de opmaak van het tekstdelen. Om een aangepaste tekstkleur toe te passen, selecteert u [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) en stelt u de vulkleur van het deel in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
 
-Het volgende voorbeeld voegt twee tekst‑hyperlinks toe aan dezelfde dia. De eerste gebruikt een rode tekstvulling, de tweede behoudt de standaard hyperlink‑kleur.
+In dit voorbeeld maakt [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) de eerste link de rode vulkleur van het tekstdelen gebruiken. De tweede link behoudt de hyperlinkkleur van de presentatie.
 
 ```java
 import com.aspose.slides.*;
@@ -156,16 +154,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Geluid**
 
-Een hyperlink kan een geluid afspelen wanneer die wordt geactiveerd of een al lopend geluid stoppen. Gebruik de volgende methoden om dit gedrag te configureren:
+Een hyperlink kan een geluid afspelen wanneer deze geactiveerd wordt of een al afspelend geluid stoppen. Gebruik de volgende methoden om dit gedrag te configureren:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) specificeert het audio‑bestand dat aan de hyperlink is gekoppeld.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) bepaalt of het activeren van de hyperlink het vorige geluid stopt.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) specificeert de audio die aan de hyperlink is gekoppeld.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) bepaalt of het activeren van de hyperlink het vorige geluid stopt.
 
-#### **Een hyperlink‑geluid toevoegen**
+#### **Een hyperlinkgeluid toevoegen**
 
-Het volgende voorbeeld laadt `sampleaudio.wav` en koppelt het aan een knop op de eerste dia. Klikken op de knop speelt het geluid af en navigeert naar de volgende dia. Een tweede vorm op die dia stopt het vorige geluid bij een klik, zonder een navigatie‑actie uit te voeren.
+De knop op de eerste dia gebruikt [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) om audio van `sampleaudio.wav` af te spelen wanneer de lezer klikt om verder te gaan. Op de tweede dia gebruikt een aparte knop [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) om de weergave te stoppen en de lezer op die dia te houden.
 
 ```java
 import com.aspose.slides.*;
@@ -203,9 +202,9 @@ try {
 }
 ```
 
-#### **Een hyperlink‑geluid extraheren**
+#### **Een hyperlinkgeluid extraheren**
 
-Het volgende voorbeeld opent de presentatie die hierboven is aangemaakt en leest het audio‑bestand van de eerste vorm via [getSound](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#getSound--) en [getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iaudio/#getBinaryData--).
+Het volgende voorbeeld opent de hierboven gemaakte presentatie en leest de hyperlinkaudio van de eerste vorm in het geheugen via [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) en [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -229,18 +228,18 @@ try {
 }
 ```
 
-### **Tooltip‑ en interactie‑instellingen**
+### **Tooltip- en interactie‑instellingen**
 
-Na het toewijzen van een hyperlink aan tekst of een vorm kun je de volgende [IHyperlink](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/)‑methoden aanroepen:
+U kunt de volgende [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) methoden aanroepen na het toewijzen van een hyperlink aan tekst of een vorm:
 
-- [setTooltip](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) stelt de tekst in die een kijker kan zien als hint voor de link.
-- [setTargetFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) geeft het doel‑frame binnen een bovenliggende HTML‑frameset aan, indien van toepassing.
-- [setHistory](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) bepaalt of het activeren van de link de bestemming toevoegt aan de lijst met bekeken hyperlinks.
-- [setHighlightClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) bepaalt of de hyperlink gemarkeerd wordt bij een klik.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) stelt de tekst in die een kijker kan weergeven als hint voor de link.
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) specificeert het doelkader binnen een bovenliggend HTML‑frameset, indien van toepassing.
+- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) bepaalt of het activeren van de link de bestemming toevoegt aan de lijst van bekeken hyperlinks.
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) bepaalt of de hyperlink gemarkeerd wordt wanneer erop geklikt wordt.
 
 ## **Hyperlinks uit presentaties verwijderen**
 
-Gebruik [getAnyHyperlinks](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) om hyperlink‑containers, inclusief tekst‑deel‑links, te verzamelen voordat je ze wijzigt. Het volgende voorbeeld verwijdert beide activatietypen van de eerste dia. Om slechts één type te verwijderen, roep je alleen [removeHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) of [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) aan; het verwijderen van een klik‑actie verwijdert niet de bijbehorende muis‑over‑actie.
+Gebruik [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) om hyperlinkcontainers te verzamelen, inclusief tekstdelen‑links, vóórdat u ze wijzigt. Het volgende voorbeeld verwijdert beide activeringstypen van de eerste dia. Om slechts één type te verwijderen, roep alleen [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) of [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) aan; het verwijderen van een klikactie verwijdert de muis‑over tegenhanger niet.
 
 ```java
 import com.aspose.slides.*;
@@ -267,23 +266,58 @@ try {
 }
 ```
 
-Voor onvoorwaardelijke verwijdering verwijdert [removeAllHyperlinks](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) beide activatietypen in de geselecteerde scope in één oproep. Voor selectieve opschoning en dekking van masters, lay-outs en notities, zie [Rapporteren, saniteren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Voor onvoorwaardelijke verwijdering verwijdert [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) beide activeringstypen in de geselecteerde scope in één oproep. Voor selectieve opruiming en dekking van masters, lay‑outs en notities, zie [Hyperlinks rapporteren, saneren en verifiëren](#report-sanitize-and-verify-hyperlinks).
 
-## **Een volledige hyperlink‑inventaris opbouwen**
+### **Hyperlinks wissen vóór het vervangen van SmartArt‑tekst**
 
-Voordat je een presentatie verspreidt, inventariseer je de interactieve acties en web‑koppelingen. [getAnyHyperlinks](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) retourneert [IHyperlinkContainer](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkcontainer/)‑objecten, geen platte lijst van URL‑strings. Inspecteer zowel [getHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) als [getHyperlinkMouseOver](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties blootstellen, dus een volledig rapport heeft tot twee rijen per container nodig.
+Wanneer u een alinea vervangt in een bestaand SmartArt‑knooppunt, kan het wissen van de tekstdelen een oude hyperlink behouden. Haal de alinea op via [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getTextFrame--). Voordat u de delen wist, roept u [getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) aan op het tekstkader van de knooppuntvorm die de alinea weergeeft, waarna u [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) aanroept op het geretourneerde object. Dit verwijdert elke hyperlink in dat kader, inclusief links in de andere alinea's.
 
-Alleen hyperlinks op vorm‑niveau scannen kan links die aan tekstdelen zijn gekoppeld missen. Vraag in plaats daarvan de juiste scope op en bewaar de teruggegeven containers zodat je later hun acties kunt bijwerken of verwijderen.
+Het voorbeeld gaat ervan uit dat de derde vorm op de eerste dia van `SmartArtHyperlink.pptx` een SmartArt-afbeelding is. Het vervangt de eerste alinea van het vierde knooppunt. In deze presentatie toont de eerste vorm van het knooppunt die alinea.
 
-### **Presentatie‑, dia‑ en tekst‑frame‑scopes bevragen**
+Na het toevoegen van beide delen, leest het voorbeeld hun effectieve opmaak met [getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--). Op die opmaak geeft [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) de nieuwe hyperlink voor het eerste deel terug en `null` voor het tweede.
 
-De [IHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/)‑interface is beschikbaar via [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) en [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nl/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Elke scope ondersteunt dezelfde bevragingen:
+```java
+import com.aspose.slides.*;
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) retourneert containers met een klik‑actie.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) retourneert containers met een muis‑over‑actie.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) retourneert containers met een van beide acties.
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-Het volgende voorbeeld maakt `hyperlink-audit-input.pptx` met een externe klik‑link, een bestand‑muis‑over‑link, interne dia‑navigatie, een tekst‑muis‑over‑link en een macro‑actie. Het voert geen van deze acties uit. Dezelfde drie bevragingen werken op elke scope; de tellingen beschrijven containers, niet het totale aantal acties. De tekst‑frame‑scope sluit de eigen links van de omvattende vorm uit.
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Een volledige hyperlinkinventaris opbouwen**
+
+Voordat u een presentatie distribueert, maakt u een inventaris van de interactieve acties en de webkoppelingen. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) retourneert [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) objecten, niet een platte lijst van URL‑strings. Inspecteer zowel [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) als [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties blootleggen, dus een volledig rapport heeft tot twee rij per container nodig.
+
+Alleen hyperlinks op vormniveau scannen kan links die aan tekstdelen zijn gekoppeld missen. Vraag in plaats daarvan de juiste scope op en bewaar de geretourneerde containers zodat u later hun acties kunt bijwerken of verwijderen.
+
+### **Presentatie-, dia- en tekstkader‑scope opvragen**
+
+[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) interface is beschikbaar via [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), en [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Elke scope ondersteunt dezelfde queries:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) retourneert containers met een klikactie.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) retourneert containers met een muis‑over actie.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) retourneert containers met één of beide acties.
+
+Dit voorbeeld kent klik- en muis‑overacties toe aan een vorm en zijn tekst, en een macro‑actie aan een aparte knop. Het vergelijkt het aantal containers dat [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) retourneert met de aantallen per activeringstype. Een tekstkader‑query telt alleen links in de tekst. De eigen acties van de omvattende vorm verschijnen in de dia‑ en presentatie‑queries.
 
 ```java
 import com.aspose.slides.*;
@@ -323,37 +357,37 @@ try {
 }
 ```
 
-Voor dit voorbeeld geven presentatiew‑ en dia‑bevragingen elk drie klik‑containers, twee muis‑over‑containers en drie containers met een van beide acties terug. De tekst‑frame‑bevraging geeft één container in elke categorie weer.
+Voor dit voorbeeld rapporteren de presentatie‑ en dia‑queries elk drie klikcontainers, twee muis‑over containers en drie containers met één van beide acties. De tekstkader‑query rapporteert één container in elke categorie.
 
 ### **Acties en bestemmingen classificeren**
 
-Gebruik [IHyperlink.getActionType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#getActionType--) om een actie te interpreteren voordat je de bestemming interpreteert. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/hyperlinkactiontype/) omvatten meer dan alleen web‑navigatie:
+Gebruik [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) om een actie te interpreteren vóórdat u de bestemming interpreteert. De [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) waarden omvatten meer dan webnavigatie:
 
 | Waarden | Betekenis voor een audit |
 | --- | --- |
-| `Hyperlink` | Externe hyperlink; inspecteer de URL en diens schema. |
+| `Hyperlink` | Externe hyperlink; controleer de URL en het protocol. |
 | `JumpSpecificSlide` | Interne navigatie naar een specifieke dia. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ingebouwde diavoorstelling‑navigatie, opgelost in de diavoorstelling‑context. |
-| `JumpEndShow`, `StartCustomSlideShow` | Huidige show beëindigen of een aangepaste show starten. |
-| `StartMacro` | Een macro uitvoeren. |
-| `StartProgram` | Een programma starten. |
-| `OpenFile`, `OpenPresentation` | Een bestand of een andere presentatie openen; afzonderlijk van web‑URL’s beoordelen. |
-| `StartStopMedia` | Media‑afspelen starten of stoppen. |
-| `NoAction`, `Unknown` | Geen navigatie‑actie, of een niet‑herkende actie die herzien moet worden. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ingebouwde diavoorstellingsnavigatie, opgelost in de diavoorstellingcontext. |
+| `JumpEndShow`, `StartCustomSlideShow` | Beëindigt de huidige show of start een aangepaste show. |
+| `StartMacro` | Voert een macro uit. |
+| `StartProgram` | Start een programma. |
+| `OpenFile`, `OpenPresentation` | Open een bestand of een andere presentatie; afzonderlijk beoordelen van web‑URL's. |
+| `StartStopMedia` | Start of stop mediaspel. |
+| `NoAction`, `Unknown` | Geen navigatieactie, of een niet‑herkende actie die herzien moet worden. |
 
-Lees externe bestemmingen uit via [getExternalUrl](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#getExternalUrl--) en specifieke interne bestemmingen via [getTargetSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Interne acties en ingebouwde commando’s kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Bewaar de waarde die wordt geretourneerd door [getExternalUrlOriginal](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) wanneer die afwijkt van de genormaliseerde URL, en voeg de tooltip toe die wordt geretourneerd door [getTooltip](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlink/#getTooltip--) indien beschikbaar.
+Lees externe bestemmingen uit via [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) en specifieke interne bestemmingen via [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Interne acties en ingebouwde commando's kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Bewaar de waarde die wordt geretourneerd door [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) wanneer deze afwijkt van de genormaliseerde URL, en voeg de tooltip toe die wordt geretourneerd door [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) wanneer beschikbaar.
 
-### **Hyperlinks rapporteren, saniteren en verifiëren**
+### **Hyperlinks rapporteren, saneren en verifiëren**
 
-Het volgende Java‑voorbeeld leest een bestaande presentatie (gebruik het bestand dat hierboven is aangemaakt), schrijft `hyperlink-audit.json`, past een beleid toe, slaat `hyperlink-sanitized.pptx` op en opent deze opnieuw om beide activatietypen opnieuw te controleren. Het verzamelt containers vóór wijziging en gebruikt referentie‑gelijkheid om dubbele verwerking te voorkomen. Presentatie‑bevragingen bestrijken gewone dia’s; voor een volledige inventaris binnen een pakket wordt expliciet ook master‑, layout‑, notitie‑ en handout‑master‑scopes bevraagd wanneer aanwezig.
+Dit voorbeeld opent de presentatie uit het voorgaande voorbeeld en schrijft één JSON‑record per actie. Het gebruikt [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) om containers op gewone dia's, masters, lay‑outs en notities te verzamelen, inclusief de notitie‑ en uitdelings‑masters wanneer aanwezig. Het telt elke container één keer met referentiegelijkheid, past het hieronder beschreven beleid toe, en opent de opgeslagen presentatie opnieuw om zowel klik‑ als muis‑overacties te controleren.
 
-Het rapport noteert een één‑gebaseerde dia‑index en [getSlideId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseslide/#getSlideId--) waar beschikbaar. [ISlideComponent.getSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidecomponent/#getSlide--) levert de bijbehorende dia voor ondersteunde containers. Masters, lay‑outs en notities hebben geen gewone dia‑index en worden geïdentificeerd door hun scope. Vorm‑containers en tekst‑deel‑opmaak‑containers worden apart gelabeld; andere containertypen behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat zijn twee acties kunnen worden gekoppeld. Het rapport slaat actietypen op als de gehele getallen‑constanten gedefinieerd door de Java‑enumeratie.
+Het rapport registreert een één‑gebaseerde dia‑index en [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) waar beschikbaar. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) levert de bijbehorende dia voor ondersteunde containers. Masters, lay‑outs en notities hebben geen gewone dia‑index en worden geïdentificeerd aan de hand van hun scope. Vorm‑containers en tekstdelen‑opmaak‑containers worden afzonderlijk gelabeld; andere containertypen behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat zijn twee acties kunnen worden gecorreleerd. Het rapport slaat actietypen op als de gehele getallen‑constanten gedefinieerd door de Java‑enumeratie.
 
-Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL’s en geldige interne dia‑doelen toe. Het wijst macro’s, programma’s, bestand‑acties, andere diavoorstelling‑acties, onbekende acties en andere URL‑schema’s af. Deze afwijzingen zijn beleids‑beslissingen, geen veiligheids­beoordeling van Aspose.Slides. Alleen HTTPS garandeert geen vertrouwen: voeg host‑allowlists en andere controles toe voor jouw toepassing. Zowel originele als genormaliseerde externe URL’s worden gecontroleerd. Het voorbeeld controleert metadata zonder links te volgen of acties uit te voeren.
+Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL's en geldige interne dia‑doelen toe. Het wijst macro's, programma's, bestandsacties, andere diavoorstellingsacties, onbekende acties en andere URL‑schema's af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheidsoordeel van Aspose.Slides. HTTPS alleen biedt geen vertrouwen: voeg host‑whitelists en andere controles toe voor uw toepassing. Zowel originele als genormaliseerde externe URL's worden gecontroleerd. Het voorbeeld controleert metadata zonder links te volgen of acties uit te voeren.
 
-Voor remediering ondersteunt de [getHyperlinkManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager-) van de container [setExternalHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) en [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Hier worden verboden externe klik‑links vervangen door een vaste HTTPS‑landingspagina; andere verboden klikken en verboden muis‑over‑acties worden onafhankelijk verwijderd. Stel `replaceExternalClicks` in op `false` om alle beleids‑schendingen te verwijderen. Kies een door de toepassing geleverde vervangingspagina voordat je implementeert.
+Voor herstel ondersteunt de container's [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--), en [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Hier worden verboden externe kliklinks vervangen door een vaste HTTPS‑landingspagina; andere verboden klikken en verboden muis‑overacties worden onafhankelijk verwijderd. Stel `replaceExternalClicks` in op `false` om alle beleids‑schendingen te verwijderen. Kies een door de toepassing beheerde vervangingspagina vóór implementatie.
 
-De export‑vlag van het rapport hanteert een conservatief PDF‑review‑beleid: markeer muis‑over‑acties en alles wat geen externe link of specifieke dia‑sprong is als potentieel niet‑ondersteund. Het is een review‑hint, geen capaciteits‑test of garantie dat ongemarkeerde links behouden blijven bij export. Ondersteunde [PDF](/slides/nl/java/convert-powerpoint-to-pdf/)‑ en [HTML](/slides/nl/java/convert-powerpoint-to-html/)‑exporten kunnen hyperlinks behouden, afhankelijk van de actie, export‑opties en viewer. Raster‑[images](/slides/nl/java/convert-powerpoint-to-png/) en [video](/slides/nl/java/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij audit voor die uitvoerformaten.
+De export‑vlag van het rapport gebruikt een conservatief PDF‑reviewbeleid: markeer muis‑overacties en alles behalve een externe link of een specifieke dia‑sprong als potentieel niet‑ondersteund. Het is een review‑hint, geen capaciteits‑test of garantie dat ongemarkeerde links de export overleven. Ondersteunde [PDF](/slides/nl/java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/java/convert-powerpoint-to-html/) exports kunnen hyperlinks behouden, afhankelijk van de actie, exportopties en viewer. Raster-[afbeeldingen](/slides/nl/java/convert-powerpoint-to-png/) en [video](/slides/nl/java/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij het auditen voor die output.
 
 ```java
 import com.aspose.slides.*;
@@ -455,7 +489,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // Serialiseer de platte rijen van dit rapport zonder een extra JSON dependency.
+    // Serialiseer de platte rijen van dit rapport zonder extra JSON-afhankelijkheid.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -538,20 +572,20 @@ try {
 }
 ```
 
-Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De bestand‑muis‑over‑link en macro‑klik worden verwijderd, terwijl de HTTPS‑links en interne dia‑navigatie behouden blijven. De verificatie geeft nul verboden acties weer. Een invoer met een verboden externe klik‑URL test ook de vervangings‑tak. Een container met een toegestane klik en een verboden muis‑over behoudt haar klik‑actie.
+Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De muis‑over‑link van het bestand en de macro‑klik worden verwijderd, terwijl de HTTPS‑links en de interne diapnavigation behouden blijven. De verificatie toont nul verboden acties. Een invoer die een verboden externe klik‑URL bevat, test ook de vervangings‑tak. Een container met een toegestane klik en een verboden muis‑over behoudt zijn klikactie.
 
-Deze selectieve opschoning verschilt van [removeAllHyperlinks](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), die beide activatietypen in de geselecteerde scope verwijdert ongeacht beleid. Verificatie hier controleert uitsluitend hyperlink‑acties; het verwijdert geen ingebedde VBA‑projecten, OLE‑objecten of andere actieve content, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
+Deze selectieve opruiming verschilt van [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), die beide activeringstypen in de geselecteerde scope verwijdert ongeacht beleid. Verificatie hier controleert alleen hyperlinkacties; het verwijdert geen ingesloten VBA‑projecten, OLE‑objecten of andere actieve inhoud, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Hoe kan ik naar een sectie of de eerste dia daarvan linken?**
+**Hoe kan ik naar een sectie of de eerste dia ervan linken?**
 
-Secties in PowerPoint groeperen dia’s, maar een interne hyperlink richt zich op een afzonderlijke dia. Om naar een sectie te navigeren, link je naar de eerste dia in die sectie.
+Secties in PowerPoint groeperen dia's, maar een interne hyperlink richt zich op een individuele dia. Om navigatie naar een sectie te maken, koppelt u naar de eerste dia in die sectie.
 
-**Kan ik een hyperlink aan master‑dia‑elementen koppelen zodat deze op alle dia’s werkt?**
+**Kan ik een hyperlink aan elementen van de masterdia koppelen zodat deze op alle dia's werkt?**
 
-Ja. Elementen van master‑dia’s en lay‑outs ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia’s die de betreffende master of lay‑out gebruiken.
+Ja. Masterdia‑ en lay‑outelementen ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia's die de overeenkomstige master of layout gebruiken.
 
-**Worden hyperlinks behouden bij export naar PDF, HTML, afbeeldingen of video?**
+**Worden hyperlinks behouden bij het exporteren naar PDF, HTML, afbeeldingen of video?**
 
-Ondersteunde PDF‑ en HTML‑exporten kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de export‑overwegingen in [Rapporteren, saniteren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Ondersteunde PDF‑ en HTML‑exports kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de export‑overwegingen in [Hyperlinks rapporteren, saneren en verifiëren](#report-sanitize-and-verify-hyperlinks).

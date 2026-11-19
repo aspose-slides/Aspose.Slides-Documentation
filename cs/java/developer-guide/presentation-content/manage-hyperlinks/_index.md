@@ -1,6 +1,6 @@
 ---
-title: Správa hypertextových odkazů v prezentaci v Javě
-linktitle: Správa hypertextových odkazů
+title: Správa hypertextových odkazů v prezentacích v Java
+linktitle: Spravovat hypertextové odkazy
 type: docs
 weight: 20
 url: /cs/java/manage-hyperlinks/
@@ -13,39 +13,39 @@ keywords:
 - aktualizovat hypertextový odkaz
 - hypertextový odkaz v textu
 - hypertextový odkaz na snímek
-- hypertextový odkaz ve tvaru
+- hypertextový odkaz na tvar
 - hypertextový odkaz na obrázek
 - hypertextový odkaz na video
-- měnitelný hypertextový odkaz
+- mutabilní hypertextový odkaz
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Java s ukázkami v Javě."
+description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Java s využitím příkladů v jazyce Java."
 ---
 ## **Úvod**
 
-Odkaz (hyperlink) spojuje obsah prezentace s webovou stránkou nebo místem v prezentaci. V PowerPointu hypertextové odkazy obvykle slouží ke dvěma účelům:
+Hyperlink spojuje obsah prezentace s webovou stránkou nebo umístěním v rámci prezentace. V PowerPointu hyperliny obvykle slouží ke dvěma účelům:
 
 * Otevřít webovou stránku z textu, tvaru nebo mediálního rámce.
-* Přeskočit na jiný snímek, například z obsahu.
+* Navigovat na jiný snímek, například z obsahu.
 
-Aspose.Slides pro Java vám umožňuje tyto odkazy přidávat, řídit jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hyperlinky na jednotlivých prvcích a jak získat přístup k hyperlinkům na úrovni prezentace, snímku nebo textového rámce.
+Aspose.Slides pro Java vám umožňuje přidávat tyto odkazy, řídit jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak získat přístup k hypertextovým odkazům na úrovni prezentace, snímku nebo textového rámce.
 
 {{% alert color="info" title="Note" %}}
-Můžete také upravovat prezentace pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Můžete také upravovat prezentace pomocí [bezplatného online editoru PowerPoint od Aspose](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **Přidat URL odkazy**
+## **Přidat URL hyperlinky**
 
-Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámci. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje oblast, na kterou lze kliknout: část textu odkazuje na vybraný text, zatímco tvar nebo rámec odkazují na objekt snímku.
+Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámci. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje klikací oblast: část textu odkazuje na vybraný text, zatímco tvar nebo rámec odkazuje na objekt snímku.
 
-U prezentací obsahujících relativní hypertextové odkazy se podívejte na [Správa základny hypertextových odkazů](/slides/cs/java/presentation-properties/#manage-the-hyperlink-base), kde můžete přečíst, změnit nebo vymazat základní úroveň dokumentu.
+Pro prezentace obsahující relativní hypertextové odkazy viz [Spravovat základ hypertextových odkazů](/slides/cs/java/presentation-properties/#manage-the-hyperlink-base) pro čtení, změnu nebo vymazání úrovně dokumentu.
 
-### **Přidat URL odkazy do textu**
+### **Přidat URL hyperlinky k textu**
 
-Pro vytvoření odkazu textu na webovou stránku předáte třídu [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) podílu textu, jak je ukázáno níže. Pouze tato část textu se stane klikací.
+Pro propojení textu s webovou stránkou předáte [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) části textu, jak je ukázáno níže. Pouze tato část textu se stane klikací.
 
 ```java
 import com.aspose.slides.*;
@@ -65,13 +65,9 @@ try {
 }
 ```
 
-### **Přidat URL odkazy do tvarů a mediálních rámců**
+### **Přidat URL hyperlinky k tvarům a mediálním rámcům**
 
-Aby byl tvar nebo rámec klikací, zavolejte jeho metodu [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-). Hyperlink patří samotnému objektu, nikoli části textu uvnitř něj.
-
-Stejný postup platí pro rámy obrázků, audia a videa: přiřaďte hyperlink rámci a v případě potřeby zavolejte [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-).
-
-Následující příklad učiní obdélník klikacím:
+Metodu [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) zavolejte na obdélník, aby se celá jeho oblast stala klikací. Použijte [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) k zobrazení nápovědy o cíli, když uživatel najede myší na obdélník. Obě metody platí i pro obrázkové, audio a video rámečky.
 
 ```java
 import com.aspose.slides.*;
@@ -89,9 +85,9 @@ try {
 }
 ```
 
-## **Použít hypertextové odkazy k vytvoření obsahu**
+## **Použít hyperlinky k vytvoření obsahu**
 
-Vnitřní hypertextové odkazy umožňují čtenářům přeskakovat z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) k propojení textu „Page 2“ na prvním snímku s druhým snímkem.
+Interní hyperlinky umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) k propojení textu „Page 2“ na první snímku na druhý snímek.
 
 ```java
 import com.aspose.slides.*;
@@ -125,13 +121,15 @@ try {
 }
 ```
 
-## **Formátovat hypertextové odkazy**
+## **Formátovat hyperlinky**
+
+Můžete změnit barvu propojeného textu, přehrát nebo zastavit zvuk, když čtenář aktivuje odkaz, a nastavit tooltip, který se zobrazí při najetí myší.
 
 ### **Barva**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) rozhraní [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu z celé prezentace nebo formátování dané části textu. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) a nastavte výplňovou barvu části. Tato funkce byla zavedena v PowerPoint 2019; starší verze tuto volbu nepoužívají.
+Metoda [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) rozhraní [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) určuje, zda hypertextový odkaz používá barvu hypertextového odkazu prezentace nebo formátování části textu. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) a nastavte výplňovou barvu části. Tato funkce byla zavedena v PowerPointu 2019; starší verze tuto možnost nepoužijí.
 
-Následující příklad přidá dva textové odkazy na stejný snímek. První používá červenou výplň textu, zatímco druhý zachovává výchozí barvu hypertextového odkazu.
+V tomto příkladu metoda [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) způsobí, že první odkaz použije červenou výplň části textu. Druhý odkaz zachová barvu hypertextového odkazu prezentace.
 
 ```java
 import com.aspose.slides.*;
@@ -156,16 +154,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Zvuk**
 
-Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit zvuk, který již přehrává. K nastavení tohoto chování použijte následující metody:
+Hyperlink může při aktivaci přehrát zvuk nebo zastavit již přehrávaný zvuk. K nastavení těchto chování použijte následující metody:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) určuje audio přidružené k hypertextovému odkazu.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) určuje, zda aktivace odkazu zastaví předchozí zvuk.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) určuje audio přiřazené k hypertextovému odkazu.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) řídí, zda aktivace hypertextového odkazu zastaví předchozí zvuk.
 
 #### **Přidat zvuk k hypertextovému odkazu**
 
-Následující příklad načte `sampleaudio.wav` a přiřadí jej tlačítku na prvním snímku. Kliknutím na tlačítko se přehraje zvuk a přejde na další snímek. Druhý tvar na tomto snímku po kliknutí zastaví předchozí zvuk, aniž by provedl navigační akci.
+Tlačítko na prvním snímku používá [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) k přehrání audia ze `sampleaudio.wav`, když čtenář klikne pro posun. Na druhém snímku samostatné tlačítko používá [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) k zastavení přehrávání a zůstání čtenáře na tomto snímku.
 
 ```java
 import com.aspose.slides.*;
@@ -229,18 +228,18 @@ try {
 }
 ```
 
-### **Popisek a nastavení interakce**
+### **Tooltip a nastavení interakce**
 
-Můžete po přiřazení hypertextového odkazu k textu nebo tvaru volat následující metody rozhraní [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/):
+Po přiřazení hypertextového odkazu k textu nebo tvaru můžete zavolat následující metody rozhraní [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/):
 
-- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) nastaví text, který může prohlížeč zobrazit jako nápovědu k odkazu.
-- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) určuje cílový rámec v rámci rodičovské HTML sady rámců, pokud je to aplikovatelné.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) nastavuje text, který může prohlížeč zobrazit jako nápovědu k odkazu.
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) určuje cílový rámec v rámci nadřazeného HTML framesetu, pokud je to použitelné.
 - [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) řídí, zda aktivace odkazu přidá jeho cíl do seznamu zobrazených hypertextových odkazů.
-- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) řídí, zda bude hypertextový odkaz po kliknutí zvýrazněn.
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) řídí, zda je hypertextový odkaz zvýrazněn po kliknutí.
 
-## **Odstranit hypertextové odkazy z prezentací**
+## **Odstranit hyperlinky z prezentací**
 
-Použijte [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) k získání kontejnerů hypertextových odkazů, včetně odkazů na části textu, před jejich změnou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Pro odstranění jen jednoho typu zavolejte pouze [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); odstranění klikací akce neodstraní její protějšek při přejetí myší.
+Použijte [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) k sesbírání kontejnerů hypertextových odkazů, včetně odkazů na části textu, před jejich úpravou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Chcete-li odstranit pouze jeden typ, zavolejte jen [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); odebrání akce kliknutí neodstraňuje její protějšek při najetí myší.
 
 ```java
 import com.aspose.slides.*;
@@ -267,23 +266,58 @@ try {
 }
 ```
 
-Pro bezpodmínek odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) odstraňuje oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní čištění a pokrytí hlav, rozložení a poznámek viz [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Pro bezpodmínečné odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) odstraňuje oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní čištění a zahrnutí masterů, rozvržení a poznámek viz [Zpráva, sanitizace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).
 
-## **Vytvořit kompletní inventář hypertextových odkazů**
+### **Vymazat hyperlinky před nahrazením textu SmartArt**
 
-Před distribuováním prezentace si vytvořte inventář jejích interaktivních akcí i webových odkazů. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam URL řetězců. Prohlédněte jak [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) , tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) u každého kontejneru. Jsou nezávislé: stejný kontejner může mít obě akce, takže úplná zpráva vyžaduje až dva řádky na kontejner.
+Pokud nahradíte odstavec ve stávajícím uzlu SmartArt, vymazání jeho částí textu může zanechat starý hypertextový odkaz v platnosti. Získáte odstavec pomocí [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getTextFrame--). Před vymazáním jeho částí zavolejte [getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) na textovém rámci tvaru uzlu, který zobrazuje odstavec, poté zavolejte [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) na vráceném objektu. Tím se odstraní každý hypertextový odkaz v tomto rámci, včetně odkazů v jeho dalších odstavcích.
 
-Skenování pouze hypertextových odkazů na úrovni tvaru může opomenout odkazy připojené k částem textu. Místo toho dotazujte vhodný rozsah a uchovávejte vrácené kontejnery, abyste je mohli později aktualizovat nebo odstranit jejich akce.
+Příklad předpokládá, že třetí tvar na prvním snímku souboru `SmartArtHyperlink.pptx` je grafika SmartArt. Nahrazuje první odstavec čtvrtého uzlu. V této prezentaci první tvar uzlu zobrazuje tento odstavec.
 
-### **Dotazování rozsahů prezentace, snímku a textového rámce**
+Po přidání obou částí příklad načte jejich efektivní formátování pomocí [getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--). Na tomto formátování [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) vrací nový hypertextový odkaz pro první část a `null` pro druhou.
 
-Rozhraní [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) je dostupné přes [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) a [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Každý rozsah podporuje stejné dotazy:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Sestavit kompletní inventář hypertextových odkazů**
+
+Před distribucí prezentace inventarizujte její interaktivní akce i webové odkazy. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam řetězců URL. Prozkoumejte jak [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) u každého kontejneru. Jsou nezávislé: stejný kontejner může vystavit obě akce, takže úplná zpráva potřebuje až dva řádky na kontejner.
+
+Skenování pouze hypertextových odkazů na úrovni tvaru může minout odkazy připojené k částem textu. Dotazujte místo toho odpovídající rozsah a uchovejte vrácené kontejnery, abyste je mohli později aktualizovat nebo odstranit jejich akce.
+
+### **Dotazovat rozsahy prezentace, snímku a textového rámce**
+
+Rozhraní [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) je k dispozici přes [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) a [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Každý rozsah podporuje stejné dotazy:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) vrací kontejnery s akcí kliknutí.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) vrací kontejnery s akcí při přejetí myší.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) vrací kontejnery s akcí při najetí myší.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) vrací kontejnery s jednou nebo oběma akcemi.
 
-Následující příklad vytvoří `hyperlink-audit-input.pptx` s externím klikacím odkazem, odkazem na soubor při přejetí myší, vnitřní navigací mezi snímky, textovým odkazem při přejetí myší a makro akcí. Žádná z těchto akcí se neprovede. Stejné tři dotazy fungují v každém rozsahu; počty popisují kontejnery, nikoli celkový počet akcí. Rozsah textového rámce vylučuje odkazy vlastního obklopujícího tvaru.
+Tento příklad přiřazuje akce kliknutí a při najetí myší tvaru a jeho textu a makro akci samostatnému tlačítku. Porovnává počet kontejnerů vrácených metodou [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) s počty pro každý typ aktivace. Dotaz na textový rámec počítá jen odkazy v textu. Akce obalujícího tvaru se objevují v dotazech na snímek i prezentaci.
 
 ```java
 import com.aspose.slides.*;
@@ -323,37 +357,37 @@ try {
 }
 ```
 
-V tomto příkladu dotazy prezentace a snímku uvádějí tři kontejnery kliknutí, dva kontejnery při přejetí myší a tři kontejnery s jednou z akcí. Dotaz textového rámce uvádí po jednom kontejneru v každé kategorii.
+Pro tento příklad dotazy na prezentaci a snímek každé uvádějí tři kontejnery kliknutí, dva kontejnery při najetí myší a tři kontejnery s jednou nebo druhou akcí. Dotaz na textový rámec uvádí po jednom kontejneru v každé kategorii.
 
 ### **Klasifikovat akce a cíle**
 
-Použijte [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) k interpretaci akce před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) zahrnují více než webovou navigaci:
+Použijte [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) k interpretaci akce před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) pokrývají více než webovou navigaci:
 
 | Hodnoty | Význam pro audit |
 | --- | --- |
-| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a jeho schéma. |
-| `JumpSpecificSlide` | Vnitřní navigace na konkrétní snímek. |
+| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a její schéma. |
+| `JumpSpecificSlide` | Interní navigace na konkrétní snímek. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace v prezentaci, řešená v kontextu prezentace. |
 | `JumpEndShow`, `StartCustomSlideShow` | Ukončit aktuální prezentaci nebo spustit vlastní prezentaci. |
 | `StartMacro` | Spustit makro. |
 | `StartProgram` | Spustit program. |
-| `OpenFile`, `OpenPresentation` | Otevřít soubor nebo jinou prezentaci; posoudit odděleně od webových URL. |
+| `OpenFile`, `OpenPresentation` | Otevřít soubor nebo jinou prezentaci; zkontrolovat odděleně od webových URL. |
 | `StartStopMedia` | Spustit nebo zastavit přehrávání média. |
-| `NoAction`, `Unknown` | Žádná navigační akce, nebo nerozpoznaná akce vyžadující revizi. |
+| `NoAction`, `Unknown` | Žádná navigační akce nebo neznámá akce vyžadující revizi. |
 
-Přečtěte externí cíle pomocí [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) a konkrétní vnitřní cíle pomocí [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Vnitřní akce a vestavěné příkazy mohou mít žádnou externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Zachovejte hodnotu vrácenou [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) pokud se liší od normalizované URL, a zahrňte popisek vrácený [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) pokud je dostupný.
+Externí cíle čtěte z [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) a konkrétní interní cíle z [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Interní akce a vestavěné příkazy mohou postrádat externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Uchovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) když se liší od normalizované URL a zahrňte tooltip vrácený metodou [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) pokud je k dispozici.
 
-### **Vytvořit zprávu, očistit a ověřit hypertextové odkazy**
+### **Zpráva, sanitizace a ověření hypertextových odkazů**
 
-Následující Java příklad načte existující prezentaci (použijte výše vytvořený soubor), zapíše `hyperlink-audit.json`, aplikuje politiku, uloží `hyperlink-sanitized.pptx` a znovu jej otevře pro kontrolu obou typů aktivace. Před změnou sbírá kontejnery a používá referenční rovnost k zabránění dvojitému zpracování stejného kontejneru. Dotazy prezentace zahrnují obyčejné snímky; pro inventář na úrovni balíčku také explicitně dotazuje hlavní snímky, rozložení, poznámky a hlavní a podklady pro poznámky, pokud jsou přítomny.
+Tento příklad otevře prezentaci z předchozího příkladu a zapíše jeden JSON záznam na akci. Používá [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) k sesbírání kontejnerů na běžných snímcích, masterech, rozvrženích a poznámkách, včetně poznámkových a podkladových masterů, pokud jsou přítomny. Používá referenční rovnost k jednorázovému spočítání každého kontejneru, aplikuje níže popsanou politiku a znovu otevře uloženou prezentaci k ověření jak akcí kliknutí, tak akcí při najetí myší.
 
-Zpráva zaznamenává číslování snímků od jedné a [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) pokud je k dispozici. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) poskytuje vlastní snímek pro podporované kontejnery. Hlavní snímky, rozložení a poznámky nemají běžné číslování snímků a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a kontejner formátování částí textu jsou označeny samostatně; ostatní typy kontejnerů zachovávají název svého runtime typu. Každý kontejner získá místní ID v rámci zprávy, aby bylo možné propojit jeho dvě akce. Zpráva ukládá typy akcí jako celočíselné konstanty definované Java výčtem.
+Zpráva zaznamenává jednorozměrný index snímku a [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) pokud je k dispozici. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) poskytuje vlastní snímek pro podporované kontejnery. Masteré, rozvržení a poznámky nemají běžný index snímku a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a kontejnery formátování částí textu jsou označeny odděleně; jiné typy kontejnerů zachovávají název svého runtime typu. Každý kontejner získá lokální ID pro zprávu, aby jeho dvě akce mohly být korelovány. Zpráva ukládá typy akcí jako celočíselné konstanty definované v Java enumeraci.
 
-Tato záměrně restriktivní politika aplikace povoluje pouze absolutní HTTPS URL a platné vnitřní cíle snímků. Odmítá makra, programy, akce na souborech, jiné akce prezentace, neznámé akce a jiné schémata URL. Tato odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. Pouze HTTPS nezaručuje důvěryhodnost: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak původní, tak normalizované externí URL. Příklad auditu metadata nevybírá odkazy ani nespouští akce.
+Tato úmyslně restriktivní aplikační politika povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, jiné akce prezentace, neznámé akce a jiné schémata URL. Tato odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. Pouze HTTPS nezaručuje důvěru: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak originální, tak normalizované externí URL. Příklad audituje metadata bez sledování odkazů nebo spouštění akcí.
 
-Pro opravu podporuje kontejner [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Zde jsou zakázané externí klikací odkazy nahrazeny pevnou HTTPS vstupní stránkou; ostatní zakázané klikání a zakázané akce při přejetí myší jsou odstraněny nezávisle. Nastavte `replaceExternalClicks` na `false` pro odstranění všech porušení politiky. Vyberte náhradní stránku spravovanou aplikací před nasazením.
+Pro nápravu kontejnerů [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) podporuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Zde jsou zakázané externí odkazy kliknutí nahrazeny pevnou HTTPS cílovou stránkou; ostatní zakázané kliknutí a zakázané akce při najetí myší jsou odstraněny nezávisle. Nastavte `replaceExternalClicks` na `false` pro odstranění všech porušení politiky. Vyberte stránku náhradní vlastněnou aplikací před nasazením.
 
-Exportní příznak zprávy používá konzervativní politiku kontroly PDF: označuje akce při přejetí myší a vše kromě externího odkazu nebo konkrétního přechodu na snímek jako potenciálně nepodporované. Jedná se o návod pro revizi, nikoli test schopnosti nebo záruku, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/java/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy v závislosti na akci, nastavení exportu a prohlížeči. Rasterové [obrázky](/slides/cs/java/convert-powerpoint-to-png/) a [video](/slides/cs/java/convert-powerpoint-to-video/) nemohou zachovat interaktivní hypertextové odkazy; označte každou akci při auditu pro tyto výstupy.
+Exportní příznak zprávy používá konzervativní PDF revizní politiku: označuje akce při najetí myší a vše kromě externího odkazu nebo specifického skoku na snímek jako potenciálně nepodporované. Je to referenční nápověda, ne test schopnosti ani záruka, že neoznačené odkazy přežijí export. Podporované [PDF](/slides/cs/java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/java/convert-powerpoint-to-html/) exporty mohou zachovat hypertextové odkazy v závislosti na akci, možnostech exportu a prohlížeči. Rasterové [images](/slides/cs/java/convert-powerpoint-to-png/) a [video](/slides/cs/java/convert-powerpoint-to-video/) nemohou zachovat interaktivní hypertextové odkazy; označte každou akci při auditu pro tyto výstupy.
 
 ```java
 import com.aspose.slides.*;
@@ -538,20 +572,20 @@ try {
 }
 ```
 
-S výše vytvořeným vstupem zpráva obsahuje pět řádků akcí. Odkaz při přejetí souboru a kliknutí na makro jsou odstraněny, zatímco HTTPS odkazy a vnitřní navigace mezi snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázané externí klikací URL také využívá větev nahrazení. Kontejner s povoleným kliknutím a zakázaným přejetím myší zachovává svou akci kliknutí.
+S vytvořeným vstupem výše zpráva obsahuje pět řádků akcí. Odkaz na soubor při najetí myší a kliknutí makra jsou odstraněny, zatímco HTTPS odkazy a interní navigace mezi snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázané externí URL kliknutí také otestuje větev nahrazení. Kontejner s povoleným kliknutím a zakázaným najetím myší si zachová akci kliknutí.
 
 Toto selektivní čištění se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze akce hypertextových odkazů; neodstraňuje vložené VBA projekty, OLE objekty ani jiný aktivní obsah a nevaliduje exportovaný PDF ani HTML soubor.
 
-## **Často kladené otázky**
+## **FAQ**
 
-**How can I link to a section or its first slide?**
+**Jak mohu odkazovat na sekci nebo její první snímek?**
 
-Oddíly v PowerPointu seskupují snímky, ale vnitřní hypertextový odkaz cílí na konkrétní snímek. Pro vytvoření navigace na oddíl odkazujte na první snímek v tomto oddíle.
+Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na jednotlivý snímek. Pro vytvoření navigace na sekci odkažte na první snímek v dané sekci.
 
-**Can I attach a hyperlink to master slide elements so it works on all slides?**
+**Mohu přiřadit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
 
-Ano. Prvky hlavního snímku a rozložení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou k dispozici během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozložení.
+Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou dostupné během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozvržení.
 
-**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
+**Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
 
-Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rastrové obrázky a video to nemohou. Viz úvahy o exportu v [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Podporované PDF a HTML exporty mohou zachovat hypertextové odkazy; rastrové obrázky a video nemohou. Viz exportní úvahy v [Zpráva, sanitizace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).

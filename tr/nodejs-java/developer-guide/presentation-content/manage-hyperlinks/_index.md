@@ -1,54 +1,52 @@
 ---
-title: JavaScript'te Sunum Köprülerini Yönet
-linktitle: Köprüleri Yönet
+title: JavaScript'te Sunum Hiperlinklerini Yönet
+linktitle: Hiperlinkleri Yönet
 type: docs
 weight: 20
 url: /tr/nodejs-java/manage-hyperlinks/
 keywords:
-- URL ekle
-- köprü ekle
-- köprü oluştur
-- köprü biçimlendir
-- köprü kaldır
-- köprü güncelle
-- metin köprüsü
-- slayt köprüsü
-- şekil köprüsü
-- görsel köprüsü
-- video köprüsü
-- değiştirilebilir köprü
-- PowerPoint
-- OpenDocument
-- sunum
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile PowerPoint ve OpenDocument sunumlarında köprü ekleme, biçimlendirme, güncelleme ve kaldırma işlemlerini JavaScript örnekleri kullanarak yapın."
+  - URL ekle
+  - hiperlink ekle
+  - hiperlink oluştur
+  - hiperlink biçimlendir
+  - hiperlink kaldır
+  - hiperlink güncelle
+  - metin hiperlinki
+  - slayt hiperlinki
+  - şekil hiperlinki
+  - resim hiperlinki
+  - video hiperlinki
+  - değiştirilebilir hiperlink
+  - PowerPoint
+  - OpenDocument
+  - sunum
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: Aspose.Slides for Node.js via Java kullanarak, JavaScript örnekleriyle PowerPoint ve OpenDocument sunumlarında hiperlinkleri ekleyin, biçimlendirin, güncelleyin ve kaldırın.
 ---
 ## **Giriş**
 
-Bir köprü, sunum içeriğini bir web sitesine ya da sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaçla kullanılır:
+Bir köprü (hiperlink), sunum içeriğini bir web sitesine ya da sunum içinde bir konuma bağlar. PowerPoint’te hiperlinkler genellikle iki amaçla kullanılır:
 
-* Metinden, şekilden veya medya çerçevesinden bir web sitesini açar.
-* Örneğin bir içindekiler tablosundan başka bir slayta gider.
+* Metinden, şekilden veya medya çerçevesinden bir web sitesini açmak.
+* Örneğin içindekiler tablosundan başka bir slayta gitmek.
 
-Aspose.Slides for Node.js via Java, bu bağlantıları eklemenize, görünüm ve seslerini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, bireysel öğelerdeki köprülerle nasıl çalışılacağını ve sunum, slayt ya da metin‑çerçevesi seviyesinde köprülere nasıl erişileceğini gösterir.
+Aspose.Slides for Node.js via Java, bu bağlantıları eklemenizi, görünümlerini ve seslerini kontrol etmenizi, özelliklerini güncellemenizi ve kaldırmanızı sağlar. Aşağıdaki örnekler, hiperlinklerle bireysel öğeler üzerinde nasıl çalışılacağını ve hiperlinklere sunum, slayt ya da metin çerçevesi seviyesinde nasıl erişileceğini gösterir.
 
 {{% alert color="info" title="Note" %}}
-
 Sunumları ayrıca [Ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
+{{% /alert %}}
 
-{{% /alert %}} 
+## **URL Hiperlinkleri Ekle**
 
-## **URL Köprüleri Ekle**
+Bir web sitesi URL'sini metne, şekle veya medya çerçevesine atayabilirsiniz. Hiperlinki atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
 
-Metne, şekle veya medya çerçevesine bir web sitesi URL'si atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: metin bölümü seçilen metni bağlarken, şekil ya da çerçeve slayt nesnesini bağlar.
+Göreceli hiperlinkler içeren sunumlar için, belge düzeyindeki temeli okuyup değiştirmek veya temizlemek için [Hiperlink Temelini Yönet](/slides/tr/nodejs-java/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-Göreli köprüler içeren sunumlar için, belge‑seviye temeli okumak, değiştirmek veya temizlemek üzere [Köprü Temelini Yönet](/slides/tr/nodejs-java/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
+### **Metne URL Hiperlinkleri Ekle**
 
-### **Metne URL Köprüsü Ekle**
-
-Metni bir web sitesine bağlamak için, metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) yöntemine bir [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) nesnesi gönderin; aşağıda gösterildiği gibi. Yalnızca o metin bölümü tıklanabilir hâle gelir.
+Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi bir [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) nesnesini metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) metoduna gönderin. Yalnızca o metin bölümü tıklanabilir olur.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -68,13 +66,9 @@ try {
 }
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekle**
+### **Şekillere ve Medya Çerçevelerine URL Hiperlinkleri Ekle**
 
-Bir şekli ya da çerçeveyi tıklanabilir hâle getirmek için, onun [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) yöntemini çağırın. Köprü, içinde metin bölümü bulunmasından bağımsız olarak nesnenin kendisine aittir.
-
-Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: köprüyü çerçeveye atayın ve gerekirse [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) metodunu çağırın.
-
-Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
+Rektangül üzerine [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) metodunu çağırarak tüm alanının tıklanabilir olmasını sağlayın. Kullanıcılar dikdörtgenin üzerine geldiğinde hedef hakkında bir ipucu göstermek için [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) metodunu kullanın. Her iki metod da resim, ses ve video çerçevelerine de uygulanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -92,9 +86,9 @@ try {
 }
 ```
 
-## **İçindekiler Tablosu Oluşturmak için Köprüleri Kullan**
+## **İçindekiler Tablosu Oluşturmak İçin Hiperlinkleri Kullan**
 
-Dahili köprüler, okuyucuların bir içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, birinci slayttaki “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) yöntemini kullanır.
+Dahili hiperlinkler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slayttaki “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) metodunu kullanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -128,13 +122,15 @@ try {
 }
 ```
 
-## **Köprüleri Biçimlendir**
+## **Hiperlinkleri Biçimlendir**
+
+Hiperlinkli metnin rengini değiştirebilir, okuyucu bir linki etkinleştirdiğinde ses çalabilir veya durdurabilir ve üzerine gelindiğinde görünen araç ipucunu (tooltip) ayarlayabilirsiniz.
 
 ### **Renk**
 
-[Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) sınıfının [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) yöntemi, bir köprünün sunumun köprü rengi mi yoksa metin bölümünün biçimlendirmesi mi kullanacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) seçin ve bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; daha eski sürümler bu ayarı uygulamaz.
+[Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) sınıfının [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) metodu, bir hiperlinkin sunumun hiperlink rengini mi yoksa metin bölümünün biçimini mi kullandığını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) seçin ve bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019'da tanıtıldı; eski sürümler bu ayarı uygulamaz.
 
-Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlki kırmızı metin dolgu rengine sahiptir, ikincisi ise varsayılan köprü rengini korur.
+Bu örnekte, [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) ilk linkin metin bölümünün kırmızı dolgu rengini kullanmasını sağlar. İkinci link ise sunumun hiperlink rengini korur.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -159,16 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Ses**
 
-Bir köprü, etkinleştirildiğinde bir ses çalabilir ya da hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
+Bir hiperlink etkinleştirildiğinde ses çalabilir veya zaten çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki metodları kullanın:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound), köprüye ilişkilendirilen sesi belirler.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick), köprünün etkinleştirilmesinin önceki sesi durdurup durdurmayacağını kontrol eder.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) hiperlink ile ilişkili ses dosyasını belirler.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) hiperlinki etkinleştirmenin önceki sesi durdurup durdurmayacağını kontrol eder.
 
-#### **Köprünün Sesini Ekle**
+#### **Hiperlink Ses Ekle**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve birinci slayttaki bir düğmeye ilişkilendirir. Düğmeye tıklandığında ses çalar ve bir sonraki slayta geçilir. Aynı slayttaki ikinci bir şekil, tıklandığında önceki sesi durdurur; navigasyon eylemi gerçekleştirmez.
+İlk slayttaki düğme, okuyucu ilerlemek için tıkladığında `sampleaudio.wav` dosyasını çalmak için [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) metodunu kullanır. İkinci slaytta ayrı bir düğme, oynatmayı durdurmak ve okuyucuyu o slaytta tutmak için [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) metodunu kullanır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -207,9 +204,9 @@ try {
 }
 ```
 
-#### **Köprü Sesini Çıkar**
+#### **Hiperlink Sesini Çıkar**
 
-Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve birinci şeklin köprü sesini [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) ve [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData) yöntemleriyle belleğe okur.
+Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin hiperlink sesini [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) ve [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData) metodlarıyla belleğe okur.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -233,18 +230,18 @@ try {
 }
 ```
 
-### **İpucu ve Etkileşim Ayarları**
+### **Araç İpucu ve Etkileşim Ayarları**
 
-Metne ya da şekle bir köprü atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) yöntemlerini çağırabilirsiniz:
+Metne veya şekle bir hiperlink atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) metodlarını çağırabilirsiniz:
 
-- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip), izleyicinin bağlantı için ipucu olarak gösterebileceği metni ayarlar.
-- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame), uygulanabilir olduğunda üst HTML çerçeve kümesindeki hedef çerçeveyi belirtir.
-- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory), bağlantının etkinleştirilmesinin hedefi görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
-- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick), köprünün tıklandığında vurgulanıp vurgulanmayacağını kontrol eder.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) bağlantı için izleyicinin ipucu olarak gösterebileceği metni ayarlar.
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) uygulanabilir olduğunda, bir üst HTML çerçeve kümesi içinde hedef çerçeveyi belirtir.
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) bağlantıyı etkinleştirmenin hedefini görüntülenen hiperlinkler listesine ekleyip eklemeyeceğini kontrol eder.
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) hiperlinkin tıklandığında vurgulanıp vurgulanmayacağını kontrol eder.
 
-## **Sunumlardan Köprüleri Kaldır**
+## **Sunumlardan Hiperlinkleri Kaldır**
 
-[ getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) yöntemini kullanarak metin‑bölümü köprüleri dahil tüm köprü kapsayıcılarını toplayın; ardından değişiklik yapın. Aşağıdaki örnek birinci slayttan her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak isterseniz, sadece [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) ya da [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) yöntemini çağırın; bir tıklama eylemini kaldırmak, fare‑üzerinde eylemini kaldırmaz.
+Değiştirmeden önce, metin bölümü linklerini dahil olmak üzere hiperlink konteynerlerini toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) metodunu kullanın. Aşağıdaki örnek, ilk slayttan her iki etkinleştirme türünü kaldırır. Yalnızca bir türü kaldırmak için sadece [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) veya [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) metodunu çağırın; bir tıklama eylemini kaldırmak, mouse-over eşdeğerini kaldırmaz.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -270,23 +267,58 @@ try {
 }
 ```
 
-Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) seçili kapsam içinde her iki etkinleştirme türünü tek bir çağrıyla kaldırır. Seçici temizlik ve ana‑slayt, yerleşim ve notların kapsamlı ele alınması için [Köprüleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) seçilen kapsamda tek bir çağrıyla her iki etkinleştirme türünü de kaldırır. Seçmeli temizlik ve master, düzen ve notların kapsanması için [Raporla, Temizle ve Hiperlinkleri Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
 
-## **Tam Bir Köprü Envanteri Oluştur**
+### **Akıllı Sanat Metnini Değiştirmeden Önce Hiperlinkleri Temizle**
 
-Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) yalnızca URL dizesi listesi yerine köprü kapsayıcılarını döndürür. Her kapsayıcıda hem [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) metodlarını inceleyin. Bunlar birbirinden bağımsızdır: aynı kapsayıcı iki eylemi de sunabilir; bu yüzden kapsamlı bir rapor her kapsayıcı için iki satır gerektirebilir.
+Mevcut bir SmartArt düğümündeki paragrafı değiştirdiğinizde, metin bölümlerini temizlemek eski bir hiperlinkin etkili kalmasına neden olabilir. Paragrafı [SmartArtNode.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getTextFrame) yöntemiyle alın. Bölümlerini temizlemeden önce, paragrafı gösteren düğüm şeklinin metin çerçevesinde [getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) metodunu çağırın, ardından dönen nesnede [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) metodunu çalıştırın. Bu, çerçevedeki tüm hiperlinkleri, diğer paragraflardaki linkler dahil, kaldırır.
 
-Yalnızca şekil‑seviyesi köprüleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve döndürülen kapsayıcıları saklayın; böylece daha sonra eylemlerini güncelleyebilir ya da kaldırabilirsiniz.
+Örnek, `SmartArtHyperlink.pptx` dosyasının ilk slaydındaki üçüncü şeklin bir SmartArt grafiği olduğunu varsayar. Dördüncü düğümün ilk paragrafını değiştirir. Bu sunumda, düğümün ilk şekli o paragrafı gösterir.
+
+Her iki bölümü ekledikten sonra, örnek [getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#getEffective) ile etkili biçimlendirmelerini okur. Bu biçimlendirmede, `getHyperlinkClick` ilk bölüm için yeni hiperlinki ve ikinci bölüm için `null` değerini döndürür.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("SmartArtHyperlink.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const smartArt = slide.getShapes().get_Item(2);
+    const node = smartArt.getAllNodes().get_Item(3);
+    const paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    const link = new aspose.slides.Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new aspose.slides.Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    const text = new aspose.slides.Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    console.log(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    console.log(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tam Bir Hiperlink Envanteri Oluştur**
+
+Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web linklerini envanterleyin. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) hiperlink konteynerlerini döndürür, URL dizelerinin düz bir listesini değil. Her konteynerde hem [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) metodlarını inceleyin. Bunlar bağımsızdır: aynı konteyner her iki eylemi de sunabilir, bu yüzden tam bir rapor konteyner başına iki satır gerektirebilir.
+
+Sadece şekil düzeyindeki hiperlinkleri taramak, metin bölümlerine eklenmiş linkleri kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve dönen konteynerleri saklayın, böylece daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
 
 ### **Sunum, Slayt ve Metin Çerçevesi Kapsamlarını Sorgula**
 
-[HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) sınıfı, [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) ve [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) aracılığıyla kullanılabilir. Her kapsam aynı sorguları destekler:
+[HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) sınıfı, [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries), ve [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) üzerinden kullanılabilir. Her kapsam aynı sorguları destekler:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) tıklama eylemi olan kapsayıcıları döndürür.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) fare‑üzerinde eylemi olan kapsayıcıları döndürür.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) bir ya da iki eylemi olan kapsayıcıları döndürür.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) tıklama eylemi içeren konteynerleri döndürür.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) mouse-over eylemi içeren konteynerleri döndürür.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) bir ya da her iki eylemi de içeren konteynerleri döndürür.
 
-Aşağıdaki örnek, dış tıklama bağlantısı, dosya fare‑üzerinde bağlantısı, dahili slayt gezintisi, metin fare‑üzerinde bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Hiçbir eylemi çalıştırmaz. Aynı üç sorgu her kapsamda çalışır; sayılar kapsayıcı adedini, eylem toplamını değil, gösterir. Metin‑çerçevesi kapsamı dışındaki şeklin kendi bağlantılarını dışlar.
+Bu örnek, bir şekle ve metnine tıklama ve mouse-over eylemleri, ayrı bir düğmeye ise makro eylemi atar. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) tarafından döndürülen konteyner sayısını, her aktivasyon tipi için sayılarla karşılaştırır. Metin çerçevesi sorgusu yalnızca metindeki linkleri sayar. İçeren şeklin kendi eylemleri slayt ve sunum sorgularında görünür.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -323,37 +355,37 @@ try {
 }
 ```
 
-Bu örnek için, sunum ve slayt sorguları her birinde üç tıklama kapsayıcısı, iki fare‑üzerinde kapsayıcısı ve üç ortak kapsayıcı rapor eder. Metin‑çerçevesi sorgusu her kategoride bir kapsayıcı bildirir.
+Bu örnek için, sunum ve slayt sorguları her biri üç tıklama konteyneri, iki mouse-over konteyneri ve bir eylemi olan üç konteyner raporlar. Metin çerçevesi sorgusu her kategoride bir konteyner rapor eder.
 
 ### **Eylemleri ve Hedefleri Sınıflandır**
 
-[Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) metodunu, bir eylemi yorumlamadan önce kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) değerleri web gezinmesinden daha fazlasını kapsar:
+[Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) metodunu, bir eylemin hedefini yorumlamadan önce eylemi yorumlamak için kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) değerleri, yalnızca web gezinmesinden daha fazlasını kapsar:
 
 | Değerler | Denetim için Anlamı |
 | --- | --- |
-| `Hyperlink` | Harici köprü; URL ve şemasını inceleyin. |
+| `Hyperlink` | Harici hiperlink; URL ve şemasını inceleyin. |
 | `JumpSpecificSlide` | Belirli bir slayta içsel gezinme. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Yerleşik slayt gösterisi gezinmesi, slayt gösterisi bağlamında çözülür. |
 | `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandırır veya özel bir gösteri başlatır. |
 | `StartMacro` | Makro çalıştırır. |
-| `StartProgram` | Program başlatır. |
-| `OpenFile`, `OpenPresentation` | Dosya veya başka bir sunumu açar; web URL'lerinden ayrı incelenir. |
-| `StartStopMedia` | Medya oynatımını başlatır veya durdurur. |
-| `NoAction`, `Unknown` | Gezinti eylemi yoktur veya tanımlanamayan eylem, incelenmesi gerekir. |
+| `StartProgram` | Bir program başlatır. |
+| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunum açar; web URL'lerinden ayrı inceleyin. |
+| `StartStopMedia` | Medya oynatmayı başlatır veya durdurur. |
+| `NoAction`, `Unknown` | Gezinme eylemi yok ya da gözden geçirilmesi gereken tanınmayan bir eylem. |
 
-Harici hedefleri [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) ile, belirli iç hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) ile okuyun. İç eylemler ve yerleşik komutlar harici URL içermeyebilir; boş bir URL kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) değerini koruyun ve mevcutsa [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) tarafından döndürülen ipucunu ekleyin.
+[getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) ile harici hedefleri, [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) ile belirli iç hedefleri okuyun. İç eylemler ve yerleşik komutlar harici bir URL içermeyebilir; boş bir URL konteynerin eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklı olduğunda [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) tarafından döndürülen değeri koruyun ve mevcut olduğunda [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) tarafından döndürülen araç ipucunu ekleyin.
 
-### **Köprüleri Raporla, Temizle ve Doğrula**
+### **Raporla, Temizle ve Hiperlinkleri Doğrula**
 
-Aşağıdaki JavaScript örneği mevcut bir sunumu okur (yukarıda oluşturulan dosyayı kullanın), `hyperlink-audit.json` yazar, bir politika uygular, `hyperlink-sanitized.pptx` dosyasını kaydeder ve tekrar açarak her iki etkinleştirme türünü yeniden kontrol eder. Değişiklik öncesi kapsayıcıları toplar ve aynı kapsayıcıyı iki kez işlememek için referans eşitliğini kullanır. Sunum sorguları normal slaytları kapsar; paket‑geneli envanter için ayrıca ana‑slayt, yerleşim, not ve not‑el dağıtım ana‑slaytları açıkça sorgulanır.
+Bu örnek, önceki örnekten sunumu açar ve her eylem için bir JSON kaydı yazar. Normal slaytlarda, master, düzen ve notlarda (varsa not ve dağıtım masterları da dahil) konteynerleri toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) metodunu kullanır. Her konteyneri yalnızca bir kez saymak için referans eşitliğini kullanır, aşağıda açıklanan politikayı uygular ve kaydedilen sunuyu yeniden açarak hem tıklama hem de mouse-over eylemlerini kontrol eder.
 
-Rapor, bir‑bazlı slayt indeksini ve mümkünse [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) değerini kaydeder. Desteklenen kapsayıcılar için [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) ilgili slaytı sağlar. Ana‑slayt, yerleşim ve notların normal slayt indeksi yoktur; kapsamlarıyla tanımlanırlar. Şekil kapsayıcıları ve metin‑bölümü biçimlendirme kapsayıcıları ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adını korur. Her kapsayıcı, iki eylemin ilişkilendirilebilmesi için rapor‑yerel bir kimlik alır. Rapor, eylem türlerini HyperlinkActionType enum'unda tanımlı tamsayı sabitleri olarak saklar.
+Rapor, birden başlayan slayt indeksini ve mevcut olduğunda [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) değerini kaydeder. [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) desteklenen konteynerler için sahip slaytı sağlar. Master, düzen ve notlar normal bir slayt indeksine sahip değildir ve kapsamlarıyla tanımlanır. Şekil konteynerleri ve metin bölümü biçimlendirme konteynerleri ayrı ayrı etiketlenir; diğer konteyner tipleri çalışma zamanı tip adını korur. Her konteyner, iki eylemin ilişkilendirilebilmesi için rapor içinde yerel bir kimlik alır. Rapor, eylem tiplerini HyperlinkActionType sayım tipinde tanımlanan tamsayı sabitleri olarak saklar.
 
-Bu kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL'lerini ve geçerli dahili slayt hedeflerini izin verir. Makrolar, programlar, dosya eylemleri, diğer slayt‑gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güven sağlamaz: uygulamanıza uygun host beyaz listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden ya da eylemleri çalıştırmadan meta verileri denetler.
+Bu kasıtlı olarak kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini izin verir. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güven oluşturmaz: uygulamanız için host izin listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş harici URL'ler kontrol edilir. Örnek, linkleri takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
 
-Düzeltme için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) metodu [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) yöntemlerini destekler. Burada, yasak dış tıklama bağlantıları sabit bir HTTPS açılış sayfası ile değiştirilir; diğer yasak tıklama ve fare‑üzerinde eylemleri bağımsız olarak kaldırılır. `replaceExternalClicks` değerini `false` yaparak tüm politika ihlallerini kaldırabilirsiniz. Dağıtıma geçmeden önce uygulama‑sahibi bir yedekleme sayfası seçin.
+Düzeltme için, konteynerin [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) metodu [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) metodlarını destekler. Burada, yasaklanmış dış tıklama linkleri sabit bir HTTPS giriş sayfası ile değiştirilir; diğer yasak tıklamalar ve yasak mouse-over eylemleri bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `replaceExternalClicks` değerini `false` olarak ayarlayın. Dağıtımdan önce uygulamaya ait bir değiştirme sayfası seçin.
 
-Raporun dışa aktarım bayrağı, temkinli bir PDF inceleme politikası uygular: fare‑üzerinde eylemler ve harici bağlantı ya da belirli slayt atlaması dışındaki her şey potansiyel olarak desteklenmez olarak işaretlenir. Bu bir inceleme ipucu olup, yetenek testi ya da işaretlenmemiş bağlantıların dışa aktarımda hayatta kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/nodejs-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/nodejs-java/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarım seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir. Raster [görüntüler](/slides/tr/nodejs-java/convert-powerpoint-to-png/) ve [videolar](/slides/tr/nodejs-java/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktılar için denetim sırasında her eylem işaretlenmelidir.
+Raporun dışa aktarma bayrağı, temkinli bir PDF inceleme politikası kullanır: mouse-over eylemleri ve dış link ya da belirli slayt atlaması dışındaki her şey potansiyel olarak desteklenmeyebilir olarak işaretlenir. Bu bir inceleme ipucu olup, yetenek testi ya da işaretlenmemiş linklerin dışa aktarmada hayatta kalacağının garantisi değildir. Desteklenen [PDF](/slides/tr/nodejs-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/nodejs-java/convert-powerpoint-to-html/) dışa aktarmaları, eyleme, dışa aktarma seçeneklerine ve izleyiciye bağlı olarak hiperlinkleri koruyabilir. Raster [görseller](/slides/tr/nodejs-java/convert-powerpoint-to-png/) ve [video](/slides/tr/nodejs-java/convert-powerpoint-to-video/) interaktif hiperlinkleri koruyamaz; bu çıktılar için denetleme yaparken her eylemi işaretleyin.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -501,20 +533,20 @@ try {
 }
 ```
 
-Yukarıda oluşturulan giriş ile rapor beş eylem satırı içerir. Dosya fare‑üzerinde bağlantısı ve makro tıklaması kaldırılırken, HTTPS bağlantıları ve dahili slayt gezinmesi kalır. Doğrulama, yasak eylem olmadığını sıfır olarak gösterir. Yasak bir dış tıklama URL'si içeren bir giriş, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak fare‑üzerinde eylemi olan bir kapsayıcı, tıklama eylemini korur.
+Yukarıda oluşturulan girdi ile rapor beş eylem satırı içerir. Dosya mouse-over linki ve makro tıklaması kaldırılırken, HTTPS linkleri ve iç slayt gezinmesi kalır. Doğrulama, sıfır yasak eylem yazdırır. Yasak bir dış tıklama URL'i içeren bir girdi, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir mouse-over içeren bir konteyner, tıklama eylemini korur.
 
-Bu seçici temizlik, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) yönteminin aksine, politika gözetmeksizin seçili kapsam içinde her iki etkinleştirme türünü de kaldırmaz. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içerikleri kaldırmaz ve dışa aktarılmış PDF ya da HTML dosyasını doğrulamaz.
+Bu seçmeli temizlik, politikadan bağımsız olarak seçilen kapsamda her iki etkinleştirme türünü de kaldıran [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) metodundan farklıdır. Buradaki doğrulama yalnızca hiperlink eylemlerini kontrol eder; gömülü VBA projeleri, OLE nesneleri veya diğer aktif içeriği kaldırmaz ve dışa aktarılan bir PDF ya da HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme ya da onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölüme veya onun ilk slaytına nasıl link ekleyebilirim?**
 
-PowerPoint'te bölümler slaytları gruplar, ancak dahili bir köprü yalnızca tek bir slaytı hedef alır. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına bağlanın.
+"Bölümler, PowerPoint’te slaytları gruplar, ancak bir iç hiperlink bireysel bir slaytı hedef alır. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına link verin."
 
-**Ana slayt öğelerine bir köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
+**Tüm slaytlarda çalışması için master slayt öğelerine bir hiperlink ekleyebilir miyim?**
 
-Evet. Ana slayt ve yerleşim öğeleri köprüleri destekler. Bu öğelere eklenen köprüler, ilgili ana‑slaytı veya yerleşimi kullanan slayt gösterisi sırasında kullanılabilir.
+"Evet. Master slayt ve düzen öğeleri hiperlinkleri destekler. Bu öğelerdeki linkler, ilgili master veya düzeni kullanan slayt gösterisi sırasında kullanılabilir."
 
-**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
+**PDF, HTML, görüntüler veya video olarak dışa aktarırken hiperlinkler korunur mu?**
 
-Desteklenen PDF ve HTML dışa aktarımları köprüleri koruyabilir; raster görüntüler ve videolar etkileşimli köprüleri koruyamaz. Ayrıntılar için [Köprüleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+"Desteklenen PDF ve HTML dışa aktarmaları hiperlinkleri koruyabilir; raster görüntüler ve videolar koruyamaz. Ayrıntılar için [Raporla, Temizle ve Hiperlinkleri Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın."

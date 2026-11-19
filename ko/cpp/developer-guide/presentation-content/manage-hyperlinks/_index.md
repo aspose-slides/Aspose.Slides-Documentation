@@ -7,7 +7,7 @@ url: /ko/cpp/manage-hyperlinks/
 keywords:
 - URL 추가
 - 하이퍼링크 추가
-- 하이퍼링크 생성
+- 하이퍼링크 만들기
 - 하이퍼링크 서식 지정
 - 하이퍼링크 제거
 - 하이퍼링크 업데이트
@@ -22,29 +22,30 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 C++ 예제로 PowerPoint 및 OpenDocument 프레젠테이션에서 하이퍼링크를 추가, 서식 지정, 업데이트 및 제거합니다."
+description: "Aspose.Slides for C++을 사용하여 C++ 예제로 PowerPoint 및 OpenDocument 프레젠테이션에서 하이퍼링크를 추가, 서식 지정, 업데이트 및 제거합니다."
 ---
 ## **소개**
 
-하이퍼링크는 프레젠테이션 콘텐츠를 웹사이트나 프레젠테이션 내의 위치에 연결합니다. PowerPoint에서 하이퍼링크는 일반적으로 두 가지 용도로 사용됩니다:
-* 텍스트, 도형 또는 미디어 프레임에서 웹사이트를 엽니다.
-* 예를 들어 목차에서 다른 슬라이드로 이동합니다.
+하이퍼링크는 프레젠테이션 콘텐츠를 웹사이트 또는 프레젠테이션 내의 위치에 연결합니다. PowerPoint에서 하이퍼링크는 일반적으로 두 가지 목적을 가집니다:
 
-Aspose.Slides for C++를 사용하면 이러한 링크를 추가하고, 모양 및 사운드를 제어하며, 설정을 업데이트하고, 제거할 수 있습니다. 아래 예제는 개별 요소에서 하이퍼링크를 작업하는 방법과 프레젠테이션, 슬라이드 또는 텍스트 프레임 수준에서 하이퍼링크에 액세스하는 방법을 보여줍니다.
+* 텍스트, 도형 또는 미디어 프레임에서 웹사이트를 엽니다.
+* 목차 등에서 다른 슬라이드로 이동합니다.
+
+Aspose.Slides for C++를 사용하면 이러한 링크를 추가하고, 모양 및 사운드를 제어하며, 설정을 업데이트하고, 제거할 수 있습니다. 아래 예제에서는 개별 요소의 하이퍼링크를 다루는 방법과 프레젠테이션, 슬라이드 또는 텍스트 프레임 수준에서 하이퍼링크에 접근하는 방법을 보여줍니다.
 
 {{% alert color="info" title="Note" %}}
-프레젠테이션은 [무료 온라인 Aspose PowerPoint 편집기](https://products.aspose.app/slides/editor)로 편집할 수도 있습니다.
-{{% /alert %}} 
+또한 [무료 온라인 Aspose PowerPoint 편집기](https://products.aspose.app/slides/editor)로 프레젠테이션을 편집할 수 있습니다.
+{{% /alert %}}
 
 ## **URL 하이퍼링크 추가**
 
-텍스트, 도형 또는 미디어 프레임에 웹사이트 URL을 할당할 수 있습니다. 하이퍼링크를 할당하는 요소에 따라 클릭 가능한 영역이 결정됩니다: 텍스트 부분은 선택된 텍스트에 연결되고, 도형이나 프레임은 슬라이드 객체에 연결됩니다.
+텍스트, 도형 또는 미디어 프레임에 웹사이트 URL을 할당할 수 있습니다. 하이퍼링크를 할당하는 요소에 따라 클릭 가능한 영역이 결정됩니다: 텍스트 부분은 선택된 텍스트에 링크를 걸고, 도형이나 프레임은 슬라이드 개체에 링크를 겁니다.
 
-문서 수준 기본을 읽고, 변경하거나 지우려면 [하이퍼링크 기본 관리](/slides/ko/cpp/presentation-properties/#manage-the-hyperlink-base)를 참조하십시오.
+상대 하이퍼링크가 포함된 프레젠테이션의 경우, 문서 수준 기본값을 읽고, 변경하고, 지우려면 [Manage the Hyperlink Base](/slides/ko/cpp/presentation-properties/#manage-the-hyperlink-base)를 참조하세요.
 
 ### **텍스트에 URL 하이퍼링크 추가**
 
-텍스트를 웹사이트에 연결하려면 아래와 같이 [하이퍼링크](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/)를 만들고 텍스트 부분의 [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) 메서드를 사용하여 할당합니다. 해당 텍스트 부분만 클릭 가능하게 됩니다.
+텍스트를 웹사이트에 연결하려면 아래와 같이 [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/)을 생성하고 텍스트 부분의 [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) 메서드에 할당합니다. 해당 텍스트 부분만 클릭 가능하게 됩니다.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -79,11 +80,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ### **도형 및 미디어 프레임에 URL 하이퍼링크 추가**
 
-도형이나 프레임을 클릭 가능하게 만들려면 해당 객체의 [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) 메서드를 사용합니다. 하이퍼링크는 내부 텍스트 부분이 아니라 객체 자체에 속합니다.
-
-그 동일한 방법이 그림, 오디오 및 비디오 프레임에도 적용됩니다: 프레임에 하이퍼링크를 할당하고 필요에 따라 [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)을 사용하여 힌트를 추가합니다.
-
-다음 예제는 사각형을 클릭 가능하게 만듭니다:
+사각형에 [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/)을 호출하여 전체 영역을 클릭 가능하게 합니다. 마우스를 사각형 위에 올렸을 때 목적지에 대한 힌트를 제공하려면 [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)을 사용합니다. 두 메서드는 그림, 오디오 및 비디오 프레임에도 적용됩니다.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -167,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **하이퍼링크 서식 지정**
 
+링크된 텍스트의 색상을 변경하고, 사용자가 링크를 활성화할 때 사운드를 재생하거나 중지하며, 마우스 오버 시 표시되는 툴팁을 설정할 수 있습니다.
+
 ### **색상**
 
-[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)의 [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) 메서드는 하이퍼링크가 프레젠테이션의 하이퍼링크 색상을 사용할지 텍스트 부분의 서식을 사용할지를 결정합니다. 사용자 정의 텍스트 색상을 적용하려면 [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/)을 선택하고 해당 부분의 채우기 색상을 설정합니다. 이 기능은 PowerPoint 2019에 도입되었으며, 이전 버전에서는 이 설정이 적용되지 않습니다.
+[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)의 [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) 메서드는 하이퍼링크가 프레젠테이션의 하이퍼링크 색상을 사용할지 텍스트 부분의 서식을 사용할지를 결정합니다. 사용자 지정 텍스트 색상을 적용하려면 [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/)을 선택하고 부분의 채우기 색을 설정합니다. 이 기능은 PowerPoint 2019에서 도입되었으며 이전 버전에서는 적용되지 않습니다.
 
-다음 예제는 동일한 슬라이드에 두 개의 텍스트 하이퍼링크를 추가합니다. 첫 번째는 빨간색 텍스트 채우기를 사용하고, 두 번째는 기본 하이퍼링크 색상을 유지합니다.
+이 예제에서 첫 번째 링크는 [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/)를 사용하여 빨간색 텍스트 채우기를 표시합니다. 두 번째 링크는 프레젠테이션의 하이퍼링크 색상을 유지합니다.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -213,15 +212,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **소리**
 
 하이퍼링크는 활성화될 때 사운드를 재생하거나 이미 재생 중인 사운드를 중지할 수 있습니다. 다음 메서드를 사용하여 이러한 동작을 구성합니다:
+
 - [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/)은 하이퍼링크와 연결된 오디오를 지정합니다.
 - [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/)은 하이퍼링크를 활성화할 때 이전 사운드를 중지할지 여부를 제어합니다.
 
 #### **하이퍼링크 사운드 추가**
 
-다음 예제는 `sampleaudio.wav`를 로드하고 첫 번째 슬라이드의 버튼에 연결합니다. 버튼을 클릭하면 사운드가 재생되고 다음 슬라이드로 이동합니다. 같은 슬라이드의 두 번째 도형은 클릭 시 이전 사운드를 중지하며, 탐색 동작은 수행하지 않습니다.
+첫 번째 슬라이드의 버튼은 [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/)을 사용하여 독자가 클릭해 진행할 때 `sampleaudio.wav`의 오디오를 재생합니다. 두 번째 슬라이드에서는 별도의 버튼이 [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/)을 사용하여 재생을 중지하고 독자를 해당 슬라이드에 머물게 합니다.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -267,7 +268,7 @@ presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 
 #### **하이퍼링크 사운드 추출**
 
-다음 예제는 위에서 만든 프레젠테이션을 열고 첫 번째 도형의 하이퍼링크 오디오를 [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) 및 [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/)를 통해 메모리로 읽어들입니다.
+다음 예제는 앞에서 만든 프레젠테이션을 열고 첫 번째 도형의 하이퍼링크 오디오를 [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/)와 [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/)을 통해 메모리로 읽어들입니다.
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,15 +306,16 @@ else
 
 ### **툴팁 및 상호 작용 설정**
 
-텍스트나 도형에 하이퍼링크를 할당한 후, 다음 [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) 설정을 이러한 메서드를 통해 업데이트할 수 있습니다:
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)은 하이퍼링크에 대한 힌트 텍스트를 설정합니다.
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/)은 적용 가능한 경우, 상위 HTML 프레임셋 내의 대상 프레임을 지정합니다.
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/)은 링크를 활성화할 때 대상이 본 하이퍼링크 목록에 추가되는지 여부를 제어합니다.
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/)은 클릭 시 하이퍼링크가 강조 표시되는지 여부를 제어합니다.
+텍스트나 도형에 하이퍼링크를 할당한 후, 다음 메서드를 통해 [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) 설정을 업데이트할 수 있습니다:
+
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)은 사용자가 링크에 대한 힌트로 표시할 텍스트를 설정합니다.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/)은 해당되는 경우 상위 HTML 프레임셋 내의 대상 프레임을 지정합니다.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/)은 링크를 활성화할 때 목적지가 조회된 하이퍼링크 목록에 추가되는지를 제어합니다.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/)은 클릭 시 하이퍼링크가 강조 표시되는지를 제어합니다.
 
 ## **프레젠테이션에서 하이퍼링크 제거**
 
-[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)를 사용하여 텍스트 부분 링크를 포함한 하이퍼링크 컨테이너를 수집한 후 변경합니다. 다음 예제는 첫 번째 슬라이드에서 두 가지 활성화 유형을 모두 제거합니다. 하나만 제거하려면 [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) 또는 [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)만 호출하십시오; 클릭 동작을 제거해도 마우스오버 동작은 제거되지 않습니다.
+[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)을 사용하여 텍스트 부분 링크를 포함한 하이퍼링크 컨테이너를 수집한 후 변경합니다. 다음 예제는 첫 번째 슬라이드에서 두 가지 활성화 유형을 모두 제거합니다. 하나만 제거하려면 [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) 또는 [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)만 호출합니다; 클릭 동작을 제거해도 마우스 오버 동작은 제거되지 않습니다.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -347,22 +349,76 @@ else
 }
 ```
 
-조건 없이 제거하려면 [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)이 선택된 범위에서 두 활성화 유형을 한 번에 제거합니다. 마스터, 레이아웃 및 노트에 대한 선택적 정리와 커버리지를 위해 [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)를 참조하십시오.
+무조건 제거하려면 [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)을 사용하여 선택된 범위에서 한 번에 두 활성화 유형을 모두 제거합니다. 마스터, 레이아웃 및 노트를 포함한 선택적 정리와 범위 검사는 [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)를 참고하세요.
+
+### **SmartArt 텍스트 교체 전 하이퍼링크 지우기**
+
+기존 SmartArt 노드에서 단락을 교체할 때, 텍스트 부분을 지우면 이전 하이퍼링크가 남을 수 있습니다. [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/)을 통해 단락을 검색합니다. 부분을 지우기 전에 해당 노드 도형의 텍스트 프레임에 대해 [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/)를 통해 [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)를 호출합니다. 이렇게 하면 해당 프레임에 있는 모든 하이퍼링크가 제거되며, 다른 단락에 있는 링크도 포함됩니다.
+
+예제에서는 첫 번째 슬라이드의 세 번째 도형이 SmartArt 그래픽이라고 가정합니다. 네 번째 노드의 첫 번째 단락을 교체합니다. 이 프레젠테이션에서 해당 노드의 첫 번째 도형이 해당 단락을 표시합니다.
+
+두 부분을 추가한 후, 예제는 [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/)을 사용해 실제 서식을 읽습니다. 실제 [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) 메서드는 첫 번째 부분에 대한 새로운 하이퍼링크를 반환하고 두 번째에는 `nullptr`를 반환합니다.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
 
 ## **전체 하이퍼링크 인벤토리 구축**
 
-프레젠테이션을 배포하기 전에, 대화형 동작과 웹 링크를 모두 조사합니다. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)은 URL 문자열의 평면 목록이 아니라 [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) 객체를 반환합니다. 각 컨테이너에서 [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/)와 [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/)를 모두 검사합니다. 이들은 독립적이며 동일한 컨테이너가 두 동작을 모두 가질 수 있으므로 전체 보고서에는 컨테이너당 최대 두 행이 필요합니다.
+프레젠테이션을 배포하기 전에 인터랙티브 동작과 웹 링크를 모두 인벤토리합니다. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)은 URL 문자열 목록이 아니라 [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) 객체를 반환합니다. 각 컨테이너에서 [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/)과 [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/)를 모두 검사합니다. 두 메서드는 독립적이며, 동일한 컨테이너가 두 동작을 모두 가질 수 있으므로 전체 보고서에는 컨테이너당 최대 두 행이 필요합니다.
 
-도형 수준 하이퍼링크만 스캔하면 텍스트 부분에 연결된 링크를 놓칠 수 있습니다. 대신 적절한 범위를 쿼리하고 반환된 컨테이너를 보관하여 나중에 동작을 업데이트하거나 제거할 수 있습니다.
+도형 수준 하이퍼링크만 스캔하면 텍스트 부분에 연결된 링크를 놓칠 수 있습니다. 대신 적절한 범위를 쿼리하고 반환된 컨테이너를 유지하여 나중에 동작을 업데이트하거나 제거할 수 있습니다.
 
 ### **프레젠테이션, 슬라이드 및 텍스트 프레임 범위 쿼리**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) 인터페이스는 [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) 및 [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/)를 통해 사용할 수 있습니다. 각 범위는 동일한 쿼리를 지원합니다:
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/)은 클릭 동작이 있는 컨테이너를 반환합니다.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/)은 마우스오버 동작이 있는 컨테이너를 반환합니다.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)은 클릭 또는 마우스오버 동작 중 하나 또는 둘 다 있는 컨테이너를 반환합니다.
+[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) 인터페이스는 [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/)를 통해 사용할 수 있습니다. 각 범위는 동일한 쿼리를 지원합니다:
 
-다음 예제는 외부 클릭 링크, 파일 마우스오버 링크, 내부 슬라이드 탐색, 텍스트 마우스오버 링크 및 매크로 동작을 포함하는 `hyperlink-audit-input.pptx`를 생성합니다. 이 예제는 이러한 동작을 실행하지 않습니다. 동일한 세 쿼리는 모든 범위에서 작동하며, 카운트는 컨테이너 수를 나타내고 동작 총합이 아닙니다. 텍스트 프레임 범위는 포함하는 도형 자체의 링크를 제외합니다.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/)은 클릭 동작이 있는 컨테이너를 반환합니다.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/)은 마우스 오버 동작이 있는 컨테이너를 반환합니다.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)은 클릭이든 마우스 오버든 두 동작 중 하나라도 있는 컨테이너를 반환합니다.
+
+이 예제는 도형과 텍스트에 클릭 및 마우스 오버 동작을 할당하고, 별도 버튼에 매크로 동작을 할당합니다. 그런 다음 [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)이 반환한 컨테이너를 각 활성화 유형별 개수와 비교합니다. 텍스트 프레임 쿼리는 텍스트에 있는 링크만 계산합니다. 포함된 도형의 자체 동작은 슬라이드 및 프레젠테이션 쿼리에 나타납니다.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -417,17 +473,17 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-이 예제에서는 프레젠테이션 및 슬라이드 쿼리가 각각 클릭 컨테이너 3개, 마우스오버 컨테이너 2개, 어느 동작이든 포함하는 컨테이너 3개를 보고합니다. 텍스트 프레임 쿼리는 각 카테고리당 하나의 컨테이너를 보고합니다.
+이 예제에서 프레젠테이션 및 슬라이드 쿼리는 각각 클릭 컨테이너 3개, 마우스 오버 컨테이너 2개, 두 동작 중 하나를 가진 컨테이너 3개를 보고합니다. 텍스트 프레임 쿼리는 각 범주에서 컨테이너 1개를 보고합니다.
 
 ### **동작 및 대상 분류**
 
-[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/)을 사용하여 동작을 해석한 후 대상을 해석합니다. [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) 값은 웹 탐색보다 더 많은 동작을 포함합니다:
+[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/)을 사용하여 대상을 해석하기 전에 동작을 해석합니다. [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) 값은 웹 탐색을 넘어서는 다양한 동작을 포함합니다:
 
 | Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | 외부 하이퍼링크; URL과 그 스키마를 검사합니다. |
-| `JumpSpecificSlide` | 특정 슬라이드로 내부 탐색. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 기본 슬라이드쇼 탐색, 슬라이드쇼 컨텍스트에서 해결됩니다. |
+| `Hyperlink` | 외부 하이퍼링크; URL 및 스키마를 검사합니다. |
+| `JumpSpecificSlide` | 특정 슬라이드로 내부 이동합니다. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 슬라이드쇼 컨텍스트에서 해결되는 내장 슬라이드쇼 네비게이션입니다. |
 | `JumpEndShow`, `StartCustomSlideShow` | 현재 쇼를 종료하거나 사용자 정의 쇼를 시작합니다. |
 | `StartMacro` | 매크로를 실행합니다. |
 | `StartProgram` | 프로그램을 실행합니다. |
@@ -435,19 +491,19 @@ presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 | `StartStopMedia` | 미디어 재생을 시작하거나 중지합니다. |
 | `NoAction`, `Unknown` | 탐색 동작이 없거나 인식되지 않은 동작으로 검토가 필요합니다. |
 
-외부 대상은 [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/)을 통해 읽고, 특정 내부 대상은 [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/)을 통해 읽습니다. 내부 동작 및 내장 명령은 외부 URL이 없을 수 있으며, 빈 URL이 컨테이너에 동작이 없다는 의미는 아닙니다. 정규화된 URL과 다를 경우 [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/)을 보존하고, 가능한 경우 [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/)이 반환하는 툴팁을 포함합니다.
+외부 목적지는 [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/)을, 특정 내부 목적지는 [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/)을 통해 읽습니다. 내부 동작 및 내장 명령에는 외부 URL이 없을 수 있으며, 빈 URL이 컨테이너에 동작이 없다는 의미는 아닙니다. 정규화된 URL와 다를 경우 [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/)을 보존하고, 사용 가능한 경우 [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/)이 반환하는 툴팁을 포함합니다.
 
-### **보고서, 정리 및 확인 하이퍼링크**
+### **하이퍼링크 보고, 정리 및 검증**
 
-다음 C++ 예제는 기존 프레젠테이션을 읽고(위에서 만든 파일 사용), `hyperlink-audit.json`을 작성하고, 정책을 적용한 뒤 `hyperlink-sanitized.pptx`를 저장하고 다시 열어 두 활성화 유형을 다시 확인합니다. 변경하기 전에 컨테이너를 수집하고 포인터 식별을 사용해 동일한 컨테이너를 두 번 처리하지 않도록 합니다. 프레젠테이션 쿼리는 일반 슬라이드를 포함하고, 패키지 전체 인벤토리를 위해 마스터, 레이아웃, 노트 및 노트와 유인물 마스터도 명시적으로 쿼리합니다.
+이 C++ 예제는 앞 예제의 프레젠테이션을 열고 동작당 하나씩 JSON 레코드를 작성합니다. 일반 슬라이드, 마스터, 레이아웃 및 노트뿐만 아니라 노트와 핸드아웃 마스터도 포함하여 [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)로 컨테이너를 수집합니다. 포인터 정체성을 사용해 각 컨테이너를 한 번만 셈하고 아래 정책을 적용한 뒤 저장된 프레젠테이션을 다시 열어 클릭 및 마우스 오버 동작을 확인합니다.
 
-보고서는 1부터 시작하는 슬라이드 인덱스와 가능한 경우 [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/)를 기록합니다. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/)은 지원되는 컨테이너에 대한 소유 슬라이드를 제공합니다. 마스터, 레이아웃 및 노트는 일반 슬라이드 인덱스가 없으며 범위로 식별됩니다. 도형 컨테이너와 텍스트 부분 서식 컨테이너는 별도로 라벨링되며, 다른 컨테이너 유형은 런타임 타입 이름을 유지합니다. 각 컨테이너는 보고서 내 지역 ID를 부여받아 두 동작을 연관시킬 수 있습니다.
+보고서는 1 기반 슬라이드 인덱스와 가능한 경우 [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/)를 기록합니다. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/)은 지원되는 컨테이너에 대해 소유 슬라이드를 제공합니다. 마스터, 레이아웃 및 노트에는 일반 슬라이드 인덱스가 없으며 범위로 식별됩니다. 도형 컨테이너와 텍스트 부분 서식 컨테이너는 별도로 레이블이 붙으며, 다른 컨테이너 유형은 런타임 형식 이름을 유지합니다. 각 컨테이너는 두 동작을 연계할 수 있도록 보고서 로컬 ID를 받습니다.
 
-이 고의적인 제한적 적용 정책은 절대 HTTPS URL과 유효한 내부 슬라이드 대상만 허용합니다. 매크로, 프로그램, 파일 동작, 기타 슬라이드쇼 동작, 알 수 없는 동작 및 기타 URL 스키마는 거부합니다. 이러한 거부는 정책 결정이며 Aspose.Slides 안전성 판단이 아닙니다. HTTPS만으로는 신뢰를 보장하지 않으므로 호스트 허용 목록 및 기타 검사를 추가하십시오. 원본 및 정규화된 외부 URL 모두 확인됩니다. 예제는 링크를 따라가거나 동작을 실행하지 않고 메타데이터를 감사합니다.
+이 제한적인 적용 정책은 절대 HTTPS URL과 유효한 내부 슬라이드 대상만 허용합니다. 매크로, 프로그램, 파일 동작, 기타 슬라이드쇼 동작, 알 수 없는 동작 및 기타 URL 스키마는 거부합니다. 이러한 거부는 정책 결정이며 Aspose.Slides 안전성 판단이 아닙니다. HTTPS만으로는 신뢰를 보장하지 않으므로 호스트 허용 목록 및 추가 검사를 구현해야 합니다. 원본 및 정규화된 외부 URL 모두 검증됩니다. 예제는 링크를 따라가거나 동작을 실행하지 않고 메타데이터만 감사합니다.
 
-수정하기 위해 컨테이너의 [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/)는 [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)을 지원합니다. 여기서는 금지된 외부 클릭 링크를 고정된 HTTPS 랜딩 페이지로 교체하고, 다른 금지된 클릭 및 금지된 마우스오버 동작은 독립적으로 제거합니다. 모든 정책 위반을 제거하려면 `replaceExternalClicks`를 `false`로 설정하십시오. 배포 전에 애플리케이션 소유 교체 페이지를 선택하십시오.
+수정하려면 컨테이너의 [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/)를 통해 [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)를 사용할 수 있습니다. 여기서는 금지된 외부 클릭 링크를 고정된 HTTPS 랜딩 페이지로 교체하고, 다른 금지된 클릭 및 금지된 마우스 오버 동작은 독립적으로 제거합니다. `replaceExternalClicks`를 `false`로 설정하면 모든 정책 위반을 제거합니다. 배포 전에 애플리케이션이 소유한 교체 페이지를 선택하세요.
 
-보고서의 내보내기 플래그는 보수적인 PDF 검토 정책을 사용합니다: 마우스오버 동작 및 외부 링크나 특정 슬라이드 점프가 아닌 모든 동작을 잠재적으로 지원되지 않을 수 있다고 표시합니다. 이는 검토 힌트이며 기능 테스트나 플래그가 없는 링크가 내보내기에서 살아남는다는 보장은 아닙니다. 지원되는 [PDF](/slides/ko/cpp/convert-powerpoint-to-pdf/) 및 [HTML](/slides/ko/cpp/convert-powerpoint-to-html/) 내보내기는 동작, 내보내기 옵션 및 뷰어에 따라 하이퍼링크를 유지할 수 있습니다. 래스터 [images](/slides/ko/cpp/convert-powerpoint-to-png/) 및 [video](/slides/ko/cpp/convert-powerpoint-to-video/)는 대화형 하이퍼링크를 보존할 수 없으므로 해당 출력에 대한 감사를 수행할 때 모든 동작을 표시하십시오.
+보고서의 export 플래그는 보수적인 PDF 검토 정책을 사용합니다: 마우스 오버 동작 및 외부 링크나 특정 슬라이드 점프가 아닌 모든 동작을 잠재적으로 지원되지 않음으로 표시합니다. 이것은 검토 힌트일 뿐이며, 표시되지 않은 링크가 내보내기에서 살아남을 것이라는 보장은 아닙니다. 지원되는 [PDF](/slides/ko/cpp/convert-powerpoint-to-pdf/) 및 [HTML](/slides/ko/cpp/convert-powerpoint-to-html/) 내보내기는 동작, 내보내기 옵션 및 뷰어에 따라 하이퍼링크를 보존할 수 있습니다. 래스터 [images](/slides/ko/cpp/convert-powerpoint-to-png/)와 [video](/slides/ko/cpp/convert-powerpoint-to-video/)는 인터랙티브 하이퍼링크를 보존할 수 없으므로 이러한 출력에 대한 감사를 수행할 때 모든 동작을 표시합니다.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -648,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-위에서 만든 입력으로 보고서는 다섯 개의 동작 행을 포함합니다. 파일 마우스오버 링크와 매크로 클릭은 제거되고, HTTPS 링크와 내부 슬라이드 탐색은 유지됩니다. 검증 결과 금지된 동작이 0개임을 출력합니다. 금지된 외부 클릭 URL이 포함된 입력은 교체 분기를 실행합니다. 허용된 클릭과 금지된 마우스오버를 가진 컨테이너는 클릭 동작을 유지합니다.
+위에서 만든 입력으로 보고서에는 다섯 개의 동작 행이 포함됩니다. 파일 마우스 오버 링크와 매크로 클릭은 제거되고, HTTPS 링크와 내부 슬라이드 네비게이션은 유지됩니다. 검증은 금지된 동작이 없음을 출력합니다. 금지된 외부 클릭 URL을 포함한 입력은 교체 분기를 실행합니다. 허용된 클릭과 금지된 마우스 오버가 있는 컨테이너는 클릭 동작을 유지합니다.
 
-이 선택적 정리는 정책과 무관하게 선택된 범위 전체에서 두 활성화 유형을 모두 제거하는 [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)와 다릅니다. 여기서의 검증은 하이퍼링크 동작만 확인하며, 포함된 VBA 프로젝트, OLE 개체 또는 기타 활성 콘텐츠를 제거하지 않으며, 내보낸 PDF 또는 HTML 파일을 검증하지도 않습니다.
+이 선택적 정리는 정책에 따라 [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)가 선택한 범위 내 모든 활성화 유형을 일괄 제거하는 것과 다릅니다. 여기서 검증은 하이퍼링크 동작만 확인하며, 포함된 VBA 프로젝트, OLE 개체 또는 기타 활성 콘텐츠를 제거하지 않으며, 내보낸 PDF 또는 HTML 파일을 검증하지도 않습니다.
 
 ## **FAQ**
 
-**섹션이나 그 첫 번째 슬라이드에 어떻게 연결할 수 있나요?**
+**섹션 또는 해당 섹션의 첫 번째 슬라이드에 어떻게 링크합니까?**
 
-PowerPoint의 섹션은 슬라이드를 그룹화하지만, 내부 하이퍼링크는 개별 슬라이드를 대상으로 합니다. 섹션으로 이동하려면 해당 섹션의 첫 번째 슬라이드에 링크하세요.
+PowerPoint에서 섹션은 슬라이드를 그룹화하지만 내부 하이퍼링크는 개별 슬라이드를 대상으로 합니다. 섹션으로 이동하려면 해당 섹션의 첫 번째 슬라이드에 링크하면 됩니다.
 
-**마스터 슬라이드 요소에 하이퍼링크를 연결하여 모든 슬라이드에서 작동하도록 할 수 있나요?**
+**마스터 슬라이드 요소에 하이퍼링크를 붙여 모든 슬라이드에서 작동하게 할 수 있나요?**
 
-예. 마스터 슬라이드와 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 요소에 대한 링크는 해당 마스터 또는 레이아웃을 사용하는 슬라이드쇼 중에 사용할 수 있습니다.
+예. 마스터 슬라이드 및 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 요소에 대한 링크는 해당 마스터 또는 레이아웃을 사용하는 슬라이드 쇼 동안 사용할 수 있습니다.
 
 **PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 유지되나요?**
 
-지원되는 PDF 및 HTML 내보내기는 하이퍼링크를 유지할 수 있지만, 래스터 이미지와 비디오는 유지할 수 없습니다. 자세한 내용은 [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)에서 내보내기 고려 사항을 확인하십시오.
+지원되는 PDF 및 HTML 내보내기는 하이퍼링크를 보존할 수 있지만, 래스터 이미지와 비디오는 보존할 수 없습니다. 자세한 내보내기 고려 사항은 [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)를 참고하세요.

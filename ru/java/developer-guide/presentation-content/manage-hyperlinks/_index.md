@@ -12,10 +12,10 @@ keywords:
 - удалить гиперссылку
 - обновить гиперссылку
 - текстовая гиперссылка
-- гиперссылка слайда
-- гиперссылка фигуры
-- гиперссылка изображения
-- видеогиперссылка
+- гиперссылка на слайд
+- гиперссылка на фигуру
+- гиперссылка на изображение
+- гиперссылка на видео
 - изменяемая гиперссылка
 - PowerPoint
 - OpenDocument
@@ -26,28 +26,26 @@ description: "Добавляйте, форматируйте, обновляйт
 ---
 ## **Введение**
 
-Гиперссылка соединяет содержимое презентации с веб‑сайтом или местом внутри самой презентации. В PowerPoint гиперссылки обычно выполняют две функции:
+Гиперссылка соединяет содержимое презентации с веб‑сайтом или расположением внутри презентации. В PowerPoint гиперссылки обычно служат двум целям:
 
-* Открывают веб‑сайт из текста, фигуры или медиа‑кадра.
-* Переходят к другому слайду, например, из оглавления.
+* Открыть веб‑сайт из текста, фигуры или мультимедийного кадра.
+* Перейти к другому слайду, например, из оглавления.
 
-Aspose.Slides for Java позволяет добавлять такие ссылки, управлять их внешним видом и звуком, обновлять свойства и удалять их. Примеры ниже показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
+Aspose.Slides for Java позволяет добавлять такие ссылки, управлять их внешним видом и звуком, обновлять их свойства и удалять их. Приведённые ниже примеры показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
 
 {{% alert color="info" title="Note" %}}
-
-Вы также можете редактировать презентации с помощью [бесплатного онлайн‑редактора Aspose PowerPoint](https://products.aspose.app/slides/editor).
-
-{{% /alert %}} 
+Вы можете также редактировать презентации с помощью [бесплатный онлайн-редактор Aspose PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
 ## **Добавить URL‑гиперссылки**
 
-Можно назначить URL‑адрес веб‑сайта тексту, фигуре или медиа‑кадру. Элемент, к которому назначена гиперссылка, определяет область, по которой можно кликнуть: часть текста связывает выбранный текст, а фигура или кадр связывают объект слайда.
+Вы можете присвоить URL‑адрес веб‑сайта тексту, фигуре или мультимедийному кадру. Элемент, к которому вы назначаете гиперссылку, определяет область щелчка: часть текста связывает выделенный текст, тогда как фигура или кадр связывают объект слайда.
 
-Для презентаций, содержащих относительные гиперссылки, см. [Управление базой гиперссылок](/slides/ru/java/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базовый путь уровня документа.
+Для презентаций, содержащих относительные гиперссылки, см. [Управление базой гиперссылок](/slides/ru/java/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базу уровня документа.
 
 ### **Добавить URL‑гиперссылки к тексту**
 
-Чтобы связать текст с веб‑сайтом, передайте объект [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) в метод [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) части текста, как показано ниже. Кликать можно будет только по этой части текста.
+Чтобы связать текст с веб‑сайтом, передайте объект [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) в метод [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) части текста, как показано ниже. Только эта часть текста станет кликабельной.
 
 ```java
 import com.aspose.slides.*;
@@ -67,13 +65,9 @@ try {
 }
 ```
 
-### **Добавить URL‑гиперссылки к фигурам и медиа‑кадрам**
+### **Добавить URL‑гиперссылки к фигурам и мультимедийным кадрам**
 
-Чтобы сделать фигуру или кадр кликабельным, вызовите её метод [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-). Гиперссылка принадлежит самому объекту, а не части текста внутри него.
-
-То же самое применимо к изображениям, аудио‑ и видео‑кадрам: назначьте гиперссылку кадру и при необходимости вызовите [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-).
-
-В следующем примере прямоугольник становится кликабельным:
+Вызовите [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) у прямоугольника, чтобы сделать всю его область кликабельной. Используйте [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-), чтобы показать читателям подсказку о назначении при наведении курсора на прямоугольник. Оба метода также применимы к кадрам изображений, аудио и видео.
 
 ```java
 import com.aspose.slides.*;
@@ -93,7 +87,7 @@ try {
 
 ## **Использовать гиперссылки для создания оглавления**
 
-Внутренние гиперссылки позволяют читателям переходить из оглавления к конкретному слайду. В примере ниже используется метод [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) для связи текста «Страница 2» на первом слайде со вторым слайдом.
+Внутренние гиперссылки позволяют читателям перейти из оглавления к конкретному слайду. В следующем примере используется [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) , чтобы связать текст “Page 2” на первом слайде со вторым слайдом.
 
 ```java
 import com.aspose.slides.*;
@@ -129,11 +123,13 @@ try {
 
 ## **Форматировать гиперссылки**
 
+Вы можете изменить цвет связанного текста, воспроизводить или останавливать звук при активации ссылки читателем, а также задать подсказку, отображаемую при наведении.
+
 ### **Цвет**
 
-Метод [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) интерфейса [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) определяет, будет ли гиперссылка использовать цвет гиперссылок презентации или форматирование части текста. Чтобы задать собственный цвет текста, выберите [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) и задайте цвет заливки части. Эта возможность была введена в PowerPoint 2019; более старые версии эту настройку не поддерживают.
+Метод [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) интерфейса [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) определяет, будет ли гиперссылка использовать цвет гиперссылок презентации или форматирование части текста. Чтобы задать пользовательский цвет текста, выберите [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) и задайте цвет заливки части. Эта возможность была введена в PowerPoint 2019; в более ранних версиях этот параметр не применяется.
 
-В примере ниже добавляются две текстовые гиперссылки на один слайд. Первая использует красный цвет заливки текста, вторая сохраняет цвет гиперссылки по умолчанию.
+В этом примере [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) заставляет первую ссылку использовать красный залив части текста. Вторая ссылка сохраняет цвет гиперссылок презентации.
 
 ```java
 import com.aspose.slides.*;
@@ -158,6 +154,7 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Звук**
 
 Гиперссылка может воспроизводить звук при активации или останавливать уже воспроизводящийся звук. Используйте следующие методы для настройки этих поведений:
@@ -167,7 +164,7 @@ try {
 
 #### **Добавить звук к гиперссылке**
 
-В примере ниже загружается файл `sampleaudio.wav` и связывается с кнопкой на первом слайде. Нажатие кнопки воспроизводит звук и переходит к следующему слайду. Вторая фигура на том же слайде останавливает предыдущий звук при клике, не выполняя перехода.
+Кнопка на первом слайде использует [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) для воспроизведения аудио из `sampleaudio.wav`, когда читатель нажимает для перехода вперёд. На втором слайде отдельная кнопка использует [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) для остановки воспроизведения и удержания читателя на этом слайде.
 
 ```java
 import com.aspose.slides.*;
@@ -207,7 +204,7 @@ try {
 
 #### **Извлечь звук из гиперссылки**
 
-В примере ниже открывается созданная выше презентация и читается аудио гиперссылки первой фигуры в память через методы [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) и [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
+Следующий пример открывает созданную выше презентацию и считывает аудио гиперссылки первой фигуры в память через [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) и [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -231,18 +228,18 @@ try {
 }
 ```
 
-### **Всплывающая подсказка и параметры взаимодействия**
+### **Настройки подсказок и взаимодействия**
 
-После назначения гиперссылки тексту или фигуре можно вызвать следующие методы интерфейса [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/):
+Вы можете вызвать следующие методы [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) после назначения гиперссылки тексту или фигуре:
 
-- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) задаёт текст, который пользователь может увидеть в виде подсказки ссылки.
-- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) указывает целевой кадр внутри родительского HTML‑фреймсета, если это применимо.
-- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) управляет тем, будет ли активация ссылки добавлять её пункт назначения в список просмотренных гиперссылок.
-- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) определяет, будет ли гиперссылка подсвечиваться при клике.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) задаёт текст, который пользователь может отобразить как подсказку для ссылки.
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) указывает целевой кадр внутри родительского HTML‑фреймсета, если применимо.
+- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) контролирует, будет ли активация ссылки добавлять её назначение в список просмотренных гиперссылок.
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) контролирует, будет ли гиперссылка подсвечиваться при щелчке.
 
 ## **Удалить гиперссылки из презентаций**
 
-Используйте метод [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) для сбора контейнеров гиперссылок, включая ссылки в частях текста, перед их изменением. В примере ниже удаляются оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) или [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); удаление действия клика не удаляет соответствующее действие наведения мыши.
+Используйте [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) , чтобы собрать контейнеры гиперссылок, включая ссылки частей текста, перед их изменением. Приведённый пример удаляет оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) или [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); удаление действия щелчка не удаляет его аналог при наведении.
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +266,58 @@ try {
 }
 ```
 
-Для безусловного удаления метод [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) удаляет оба типа активации в выбранной области одним вызовом. Для выборочной очистки и охвата мастеров, макетов и заметок см. раздел [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
+Для безусловного удаления [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) удаляет оба типа активации в выбранной области одним вызовом. Для выборочной очистки и охвата мастеров, макетов и заметок см. [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
 
-## **Создать полный инвентарь гиперссылок**
+### **Очистить гиперссылки перед заменой текста SmartArt**
 
-Перед распространением презентации следует собрать информацию о её интерактивных действиях и веб‑ссылках. Метод [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) возвращает объекты [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), а не простой список строк URL. Проверяйте как [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--), так и [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) у каждого контейнера. Они независимы: один контейнер может содержать оба действия, поэтому полный отчёт требует до двух строк на контейнер.
+При замене абзаца в существующей вершине SmartArt очистка её частей текста может оставить старую гиперссылку в действии. Получите абзац через [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getTextFrame--). Перед очисткой его частей вызовите [getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) у текстового кадра формы вершины, отображающей абзац, затем вызовите [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) у полученного объекта. Это удалит каждую гиперссылку в этом кадре, включая ссылки в других абзацах.
 
-Опрос только гиперссылок уровня фигур может пропустить ссылки, привязанные к частям текста. Запрашивайте нужную область и сохраняйте полученные контейнеры, чтобы позже обновить или удалить их действия.
+Пример предполагает, что третья фигура на первом слайде `SmartArtHyperlink.pptx` является графикой SmartArt. Он заменяет первый абзац четвёртой вершины. В этой презентации первая форма вершины отображает этот абзац.
 
-### **Запрос областей презентации, слайда и текстового кадра**
+После добавления обеих частей пример считывает их эффективное форматирование через [getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--). Для этого форматирования [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) возвращает новую гиперссылку для первой части и `null` для второй.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Создать полный перечень гиперссылок**
+
+Перед распространением презентации составьте перечень её интерактивных действий, а также веб‑ссылок. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) возвращает объекты [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), а не плоский список URL‑строк. Проверьте как [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) , так и [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) у каждого контейнера. Они независимы: один контейнер может предоставлять обе операции, поэтому для полного отчёта требуется до двух строк на контейнер.
+
+Сканирование только гиперссылок уровня фигур может пропустить ссылки, прикреплённые к частям текста. Запрашивайте соответствующую область вместо этого и сохраняйте полученные контейнеры, чтобы позже обновлять или удалять их действия.
+
+### **Запрос областей Презентация, Слайд и Текстовый кадр**
 
 Интерфейс [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) доступен через [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) и [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Каждая область поддерживает одинаковые запросы:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) возвращает контейнеры с действием клика.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) возвращает контейнеры с действием щелчка.
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) возвращает контейнеры с действием наведения.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) возвращает контейнеры с любым из действий или с обоими.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) возвращает контейнеры с любым из этих действий или с обоими.
 
-В примере ниже создаётся файл `hyperlink-audit-input.pptx` с внешней ссылкой‑кликом, ссылкой‑наведение‑файла, внутренней навигацией по слайдам, ссылкой‑наведение‑текста и макросом. Никакое из этих действий не выполняется. Три указанных запроса работают во всех областях; их результаты описывают количество контейнеров, а не количество действий. Область текстового кадра исключает ссылки, принадлежащие окружающей фигуре.
+Этот пример назначает действия щелчка и наведения фигуре и её тексту, а действие макроса – отдельной кнопке. Он сравнивает количество контейнеров, возвращённых [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--), с числами для каждого типа активации. Запрос текстового кадра считает только ссылки в тексте. Действия самой охватывающей фигуры появляются в запросах слайда и презентации.
 
 ```java
 import com.aspose.slides.*;
@@ -325,37 +357,37 @@ try {
 }
 ```
 
-Для этого примера запросы презентации и слайда возвращают по три контейнера клика, два контейнера наведения и три контейнера с любым действием. Запрос текстового кадра возвращает по одному контейнеру в каждой категории.
+Для этого примера запросы презентации и слайда каждый возвращают три контейнера щелчка, два контейнера наведения и три контейнера с любым действием. Запрос текстового кадра возвращает по одному контейнеру в каждой категории.
 
 ### **Классифицировать действия и назначения**
 
-Для интерпретации действия перед получением назначения используйте метод [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--). Значения перечисления [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) охватывают не только веб‑навигацию:
+Используйте [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) , чтобы интерпретировать действие перед интерпретацией его назначения. Значения [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) охватывают более чем веб‑навигацию:
 
 | Значения | Смысл для аудита |
 | --- | --- |
-| `Hyperlink` | Внешняя гиперссылка; проверьте URL и её схему. |
-| `JumpSpecificSlide` | Внутренняя навигация к определённому слайду. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Встроенные команды навигации слайд‑шоу, применимые в контексте показа. |
-| `JumpEndShow`, `StartCustomSlideShow` | Завершить текущий показ или запустить пользовательский показ. |
+| `Hyperlink` | Внешняя гиперссылка; проверьте URL и его схему. |
+| `JumpSpecificSlide` | Внутренняя навигация к конкретному слайду. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Встроенная навигация по слайд‑шоу, разрешаемая в контексте слайд‑шоу. |
+| `JumpEndShow`, `StartCustomSlideShow` | Завершить текущее шоу или запустить пользовательское шоу. |
 | `StartMacro` | Выполнить макрос. |
 | `StartProgram` | Запустить программу. |
-| `OpenFile`, `OpenPresentation` | Открыть файл или другую презентацию; проверяйте отдельно от веб‑URL. |
-| `StartStopMedia` | Запуск или остановка воспроизведения медиа. |
-| `NoAction`, `Unknown` | Нет навигационного действия или действие не распознано и требует проверки. |
+| `OpenFile`, `OpenPresentation` | Открыть файл или другую презентацию; рассматривать отдельно от веб‑URL. |
+| `StartStopMedia` | Запустить или остановить воспроизведение медиа. |
+| `NoAction`, `Unknown` | Отсутствие навигационного действия или нераспознанное действие, требующее проверки. |
 
-Внешние назначения получайте через [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--), а конкретные внутренние назначения — через [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия. Сохраняйте значение, возвращаемое [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--), если оно отличается от нормализованного URL, и включайте подсказку из [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--), когда она доступна.
+Читайте внешние назначения через [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) и конкретные внутренние назначения через [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия у контейнера. Сохраняйте значение, возвращаемое [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--), когда оно отличается от нормализованного URL, и включайте подсказку, возвращаемую [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--), если она доступна.
 
 ### **Отчёт, очистка и проверка гиперссылок**
 
-В примере Java читается существующая презентация (используется файл, созданный выше), записывается `hyperlink-audit.json`, применяется политика, сохраняется `hyperlink-sanitized.pptx`, затем файл открывается вновь для повторной проверки обоих типов активации. Сначала собираются контейнеры, после чего используется проверка равенства ссылок, чтобы не обрабатывать один и тот же контейнер дважды. Запросы презентации охватывают обычные слайды; для инвентаризации всего пакета они также явно запрашивают мастера, макеты, заметки и мастера нот и раздач, если они присутствуют.
+Этот пример открывает презентацию из предыдущего примера и записывает одну запись JSON на каждое действие. Он использует [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) для сбора контейнеров на обычных слайдах, мастерах, макетах и заметках, включая мастеры заметок и раздаточных материалов, если они присутствуют. Он использует проверку равенства ссылок, чтобы посчитать каждый контейнер один раз, применяет описанную ниже политику и повторно открывает сохранённую презентацию для проверки действий щелчка и наведения.
 
-В отчёте фиксируется индекс слайда (начиная с 1) и [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) при наличии. Метод [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) предоставляет принадлежащий слайд для поддерживаемых контейнеров. У мастеров, макетов и заметок нет обычного индекса слайда и они идентифицируются по своей области. Контейнеры фигур и контейнеры форматирования текстовых частей маркируются отдельно; другие типы сохраняют своё имя типа во время выполнения. Каждый контейнер получает локальный идентификатор отчёта, чтобы его два действия можно было сопоставить. В отчёте типы действий сохраняются как целочисленные константы, определённые в Java‑перечислении.
+Отчёт фиксирует однорядный индекс слайда (начиная с 1) и [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) при наличии. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) предоставляет слайд‑владельца для поддерживаемых контейнеров. У мастеров, макетов и заметок нет обычного индекса слайда и они идентифицируются по своей области. Контейнеры фигур и контейнеры форматирования частей текста помечаются отдельно; остальные типы сохраняют своё имя типа во время выполнения. Каждый контейнер получает локальный ID отчёта, чтобы его два действия можно было сопоставить. В отчёте типы действий сохраняются как целочисленные константы, определённые перечислением Java.
 
-Эта ограничительная политика допускает только абсолютные HTTPS‑URL и допустимые внутренние цели слайдов. Она отклоняет макросы, программы, файловые действия, другие команды слайд‑шоу, неизвестные действия и прочие схемы URL. Такие отклонения — решения политики, а не оценка безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки в своё приложение. Проверяются как оригинальные, так и нормализованные внешние URL. Пример проверяет метаданные без переходов по ссылкам и без выполнения действий.
+Эта преднамеренно строгая политика приложения допускает только абсолютные HTTPS‑URL и допустимые внутренние цели слайдов. Она отклоняет макросы, программы, файловые действия, остальные действия слайд‑шоу, неизвестные действия и прочие схемы URL. Эти отклонения – решения политики, а не оценка безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки для вашего приложения. Проверяются как оригинальные, так и нормализованные внешние URL. Пример проверяет метаданные без перехода по ссылкам или выполнения действий.
 
-Для исправления контейнерный метод [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) поддерживает [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) и [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Здесь запрещённые внешние ссылки‑клики заменяются фиксированной HTTPS‑страницей‑назначения; остальные запрещённые клики и действия наведения удаляются независимо. Установите `replaceExternalClicks` в `false`, чтобы удалить все нарушения политики. Выберите страницу‑заменитель, принадлежащую вашему приложению, перед развертыванием.
+Для исправления контейнерный [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) поддерживает [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) и [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Здесь запрещённые внешние ссылки‑клики заменяются фиксированной HTTPS‑страницей; остальные запрещённые клики и действия наведения удаляются независимо. Установите `replaceExternalClicks` в `false`, чтобы удалить все нарушения политики. Выберите страницу‑заменитель, принадлежащую приложению, перед развертыванием.
 
-Флаг экспорта отчёта использует консервативную политику проверки PDF: помечать действия наведения и всё, что не является внешней ссылкой или переходом к конкретному слайду, как потенциально неподдерживаемое. Это лишь рекомендация для проверки, а не тест возможностей или гарантия, что непомеченные ссылки сохранятся при экспорте. Поддерживаемый экспорт в [PDF](/slides/ru/java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/java/convert-powerpoint-to-html/) может сохранять гиперссылки в зависимости от действия, параметров экспорта и программы‑просмотрщика. Растровые [изображения](/slides/ru/java/convert-powerpoint-to-png/) и [видео](/slides/ru/java/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; помечайте каждое действие при аудите для этих форматов вывода.
+Флаг экспорта отчёта использует консервативную политику проверки PDF: помечать действия наведения и всё, кроме внешних ссылок или переходов к конкретному слайду, как потенциально неподдерживаемые. Это лишь рекомендация для проверки, а не тест возможностей или гарантия, что непомеченные ссылки сохранятся при экспорте. Поддерживаемые [PDF](/slides/ru/java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/java/convert-powerpoint-to-html/) экспорты могут сохранять гиперссылки, в зависимости от действия, параметров экспорта и просмотрщика. Растровые [images](/slides/ru/java/convert-powerpoint-to-png/) и [video](/slides/ru/java/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; помечайте каждое действие при аудите для этих форматов вывода.
 
 ```java
 import com.aspose.slides.*;
@@ -540,20 +572,20 @@ try {
 }
 ```
 
-С созданным выше вводом в отчёте пять строк действий. Ссылка‑наведение к файлу и макрос‑клик удаляются, а HTTPS‑ссылки и внутренняя навигация по слайдам остаются. Проверка выводит ноль запрещённых действий. Ввод с запрещённым внешним URL‑кликом демонстрирует ветвление замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет свой клик.
+С созданным выше вводом отчёт содержит пять строк действий. Ссылка‑наведение файла и клик макроса удаляются, тогда как HTTPS‑ссылки и внутренняя навигация по слайдам остаются. Проверка выводит ноль запрещённых действий. Ввод, содержащий запрещённый внешний URL‑клик, также демонстрирует ветку замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет своё действие‑клик.
 
-Эта выборочная очистка отличается от метода [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), который удаляет оба типа активации во всей выбранной области независимо от политики. Проверка здесь анализирует только действия гиперссылок; она не удаляет внедрённые проекты VBA, OLE‑объекты или другой активный контент и не проверяет экспортированный PDF или HTML файл.
+Эта выборочная очистка отличается от [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), который удаляет оба типа активации во всей выбранной области независимо от политики. Проверка здесь проверяет только действия гиперссылок; она не удаляет встроенные VBA‑проекты, OLE‑объекты или другой активный контент и не проверяет экспортированный PDF или HTML файл.
 
 ## **FAQ**
 
-**Как связать раздел или его первый слайд?**
+**Как можно создать ссылку на раздел или его первый слайд?**
 
-Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка указывает на отдельный слайд. Чтобы создать переход к разделу, свяжите её с первым слайдом этого раздела.
+Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка указывает на отдельный слайд. Чтобы создать навигацию к разделу, свяжите её с первым слайдом этого раздела.
 
-**Можно ли привязать гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
+**Могу ли я прикрепить гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Такие ссылки доступны во время показа на всех слайдах, использующих соответствующий мастер или макет.
+Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Ссылки на этих элементах доступны во время показа слайдов на тех слайдах, которые используют соответствующий мастер или макет.
 
-**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
+**Будут ли гиперссылки сохраняться при экспорте в PDF, HTML, изображения или видео?**
 
-Поддерживаемый экспорт в PDF и HTML может сохранять гиперссылки; растровые изображения и видео — нет. Смотрите рекомендации по экспорту в разделе [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
+Поддерживаемые PDF и HTML экспорты могут сохранять гиперссылки; растровые изображения и видео – нет. См. соображения по экспорту в [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).

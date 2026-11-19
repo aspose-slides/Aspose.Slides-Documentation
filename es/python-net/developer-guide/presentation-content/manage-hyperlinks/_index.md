@@ -1,5 +1,5 @@
 ---
-title: Gestionar hipervínculos de presentación en Python
+title: Gestionar hipervínculos de la presentación en Python
 linktitle: Gestionar hipervínculos
 type: docs
 weight: 20
@@ -8,21 +8,21 @@ keywords:
 - añadir URL
 - añadir hipervínculo
 - crear hipervínculo
-- formatear hipervínculo
+- dar formato al hipervínculo
 - eliminar hipervínculo
 - actualizar hipervínculo
 - hipervínculo de texto
 - hipervínculo de diapositiva
 - hipervínculo de forma
 - hipervínculo de imagen
-- hipervínculo de vídeo
+- hipervínculo de video
 - hipervínculo mutable
 - PowerPoint
 - OpenDocument
 - presentación
 - Python
 - Aspose.Slides
-description: "Añadir, formatear, actualizar y eliminar hipervínculos en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python a través de .NET, utilizando ejemplos en Python."
+description: "Añadir, dar formato, actualizar y eliminar hipervínculos en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python via .NET, usando ejemplos en Python."
 ---
 ## **Introducción**
 
@@ -31,19 +31,21 @@ Un hipervínculo conecta el contenido de la presentación con un sitio web o una
 * Abrir un sitio web desde texto, una forma o un marco multimedia.
 * Navegar a otra diapositiva, por ejemplo, desde una tabla de contenidos.
 
-Aspose.Slides for Python via .NET le permite añadir estos enlaces, controlar su apariencia y sonido, actualizar sus propiedades y eliminarlos. Los ejemplos siguientes muestran cómo trabajar con hipervínculos en elementos individuales y cómo acceder a los hipervínculos a nivel de presentación, diapositiva o marco de texto.
+Aspose.Slides for Python via .NET le permite añadir estos enlaces, controlar su apariencia y sonido, actualizar sus propiedades y eliminarlos. Los ejemplos a continuación muestran cómo trabajar con hipervínculos en elementos individuales y cómo acceder a hipervínculos a nivel de presentación, diapositiva o marco de texto.
 
 {{% alert color="info" title="Note" %}}
-También puede editar presentaciones con el [editor gratuito en línea de Aspose PowerPoint](https://products.aspose.app/slides/editor).
+
+Puede también editar presentaciones con el [editor de PowerPoint en línea gratuito de Aspose](https://products.aspose.app/slides/editor).
+
 {{% /alert %}}
 
-## **Agregar hipervínculos URL**
+## **Añadir hipervínculos URL**
 
 Puede asignar una URL de sitio web a texto, una forma o un marco multimedia. El elemento al que asigna el hipervínculo determina el área pulsable: una porción de texto enlaza el texto seleccionado, mientras que una forma o marco enlaza el objeto de la diapositiva.
 
-Para presentaciones que contengan hipervínculos relativos, consulte [Gestionar la base de hipervínculos](/slides/es/python-net/presentation-properties/#manage-the-hyperlink-base) para leer, cambiar o borrar la base a nivel de documento.
+Para presentaciones que contengan hipervínculos relativos, consulte [Administrar la base de hipervínculos](/slides/es/python-net/presentation-properties/#manage-the-hyperlink-base) para leer, cambiar o borrar la base a nivel de documento.
 
-### **Agregar hipervínculos URL al texto**
+### **Añadir hipervínculos URL al texto**
 
 Para enlazar texto a un sitio web, asigne un [Hipervínculo](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) a la propiedad [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) de la porción de texto, como se muestra a continuación. Sólo esa porción de texto se vuelve pulsable.
 
@@ -60,13 +62,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Agregar hipervínculos URL a formas y marcos multimedia**
+### **Añadir hipervínculos URL a formas y marcos multimedia**
 
-Para hacer que una forma o un marco sea pulsable, establezca su propiedad [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/). El hipervínculo pertenece al propio objeto y no a una porción de texto dentro de él.
-
-El mismo enfoque se aplica a marcos de imagen, audio y vídeo: asigne el hipervínculo al marco y establezca el [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) del enlace si es necesario.
-
-El siguiente ejemplo hace que un rectángulo sea pulsable:
+Asigne una URL a la propiedad [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) del rectángulo para que todo su área sea pulsable. El [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) muestra a los lectores una pista sobre el destino cuando pasan el cursor sobre el rectángulo. Las mismas propiedades se aplican a marcos de imagen, audio y video.
 
 ```python
 import aspose.slides as slides
@@ -78,9 +76,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Usar hipervínculos para crear una tabla de contenidos**
+## **Usar hipervínculos para crear una tabla de contenido**
 
-Los hipervínculos internos permiten a los lectores saltar de una tabla de contenidos a una diapositiva concreta. El siguiente ejemplo usa [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) para enlazar el texto “Page 2” en la primera diapositiva a la segunda diapositiva.
+Los hipervínculos internos permiten a los lectores saltar de una tabla de contenido a una diapositiva específica. El siguiente ejemplo utiliza [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) para enlazar el texto “Page 2” en la primera diapositiva a la segunda diapositiva.
 
 ```python
 import aspose.pydrawing as draw
@@ -105,13 +103,15 @@ with slides.Presentation() as presentation:
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Formatear hipervínculos**
+## **Dar formato a los hipervínculos**
+
+Puede cambiar el color del texto enlazado, reproducir o detener un sonido cuando un lector activa un enlace, y establecer la información sobre herramientas que aparece al pasar el cursor.
 
 ### **Color**
 
-La propiedad [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) de [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) determina si un hipervínculo utiliza el color de hipervínculo de la presentación o el formato de la porción de texto. Para aplicar un color de texto personalizado, seleccione [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) y establezca el color de relleno de la porción. Esta característica se introdujo en PowerPoint 2019; las versiones anteriores no aplican este ajuste.
+La propiedad [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) de [Hipervínculo](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) determina si un hipervínculo utiliza el color de hipervínculo de la presentación o el formato de la porción de texto. Para aplicar un color de texto personalizado, seleccione [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) y establezca el color de relleno de la porción. Esta característica se introdujo en PowerPoint 2019; versiones anteriores no aplican esta configuración.
 
-El siguiente ejemplo añade dos hipervínculos de texto a la misma diapositiva. El primero usa un relleno de texto rojo, mientras que el segundo conserva el color de hipervínculo predeterminado.
+En este ejemplo, establecer [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) en el primer enlace hace que su texto aparezca en rojo. El segundo enlace mantiene el color de hipervínculo de la presentación.
 
 ```python
 import aspose.pydrawing as draw
@@ -133,14 +133,14 @@ with slides.Presentation() as presentation:
 
 ### **Sonido**
 
-Un hipervínculo puede reproducir un sonido al activarse o detener un sonido que ya se está reproduciendo. Use las siguientes propiedades para configurar estos comportamientos:
+Un hipervínculo puede reproducir un sonido al activarse o detener un sonido que ya se esté reproduciendo. Utilice las siguientes propiedades para configurar estos comportamientos:
 
 - [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) especifica el audio asociado al hipervínculo.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) controla si al activar el hipervínculo se detiene el sonido previo.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) controla si la activación del hipervínculo detiene el sonido previo.
 
-#### **Añadir un sonido a un hipervínculo**
+#### **Añadir un sonido de hipervínculo**
 
-El siguiente ejemplo carga `sampleaudio.wav` y lo asocia a un botón en la primera diapositiva. Al pulsar el botón se reproduce el sonido y se navega a la diapositiva siguiente. Una segunda forma en esa diapositiva detiene el sonido anterior al pulsarse, sin realizar una acción de navegación.
+El botón en la primera diapositiva utiliza [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) para reproducir audio de un archivo WAV cuando el lector hace clic para avanzar. En la segunda diapositiva, un botón diferente utiliza [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) para detener la reproducción y mantener al lector en esa diapositiva.
 
 ```python
 import aspose.slides as slides
@@ -162,9 +162,9 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-#### **Extraer el sonido de un hipervínculo**
+#### **Extraer un sonido de hipervínculo**
 
-El siguiente ejemplo abre la presentación creada arriba y lee el audio del hipervínculo de la primera forma en memoria mediante [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) y [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
+El siguiente ejemplo abre la presentación creada anteriormente y lee el audio del hipervínculo de la primera forma en memoria mediante [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) y [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
 
 ```python
 import aspose.slides as slides
@@ -182,18 +182,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **Información sobre herramientas y configuraciones de interacción**
+### **Configuración de información sobre herramientas y de interacción**
 
-Puede actualizar las siguientes propiedades de [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) después de asignar un hipervínculo a texto o a una forma:
+Puede actualizar las siguientes propiedades de [Hipervínculo](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) después de asignar un hipervínculo a texto o a una forma:
 
-- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) define el texto que un visor puede mostrar como pista para el enlace.
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) establece el texto que el espectador puede mostrar como pista para el enlace.
 - [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) especifica el marco de destino dentro de un conjunto de marcos HTML principal, cuando corresponda.
-- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) controla si al activar el enlace se añade su destino a la lista de hipervínculos vistos.
-- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) controla si el hipervínculo se resalta al pulsarse.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) controla si la activación del enlace añade su destino a la lista de hipervínculos vistos.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) controla si el hipervínculo se resalta al hacer clic.
 
 ## **Eliminar hipervínculos de presentaciones**
 
-Utilice [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) para recopilar contenedores de hipervínculos, incluidos los enlaces de porciones de texto, antes de modificarlos. El siguiente ejemplo elimina ambos tipos de activación de la primera diapositiva. Para eliminar sólo un tipo, llame únicamente a [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) o a [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); eliminar una acción de clic no elimina su contraparte de paso del ratón.
+Utilice [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) para recopilar contenedores de hipervínculos, incluidos los enlaces de porciones de texto, antes de modificarlos. El siguiente ejemplo elimina ambos tipos de activación de la primera diapositiva. Para eliminar sólo un tipo, llame únicamente a [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) o [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); eliminar una acción de clic no elimina su contrapartida de mouse‑over.
 
 ```python
 import aspose.slides as slides
@@ -209,23 +209,54 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-Para una eliminación incondicional, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) elimina ambos tipos de activación en el ámbito seleccionado en una sola llamada. Para una limpieza selectiva y cobertura de maestros, diseños y notas, consulte [Informe, saneado y verificación de hipervínculos](#report-sanitize-and-verify-hyperlinks).
+Para una eliminación incondicional, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) elimina ambos tipos de activación en el ámbito seleccionado en una sola llamada. Para una limpieza selectiva y cobertura de maestros, diseños y notas, consulte [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+
+### **Eliminar hipervínculos antes de reemplazar texto de SmartArt**
+
+Cuando reemplaza un párrafo en un nodo existente de SmartArt, borrar sus porciones de texto puede dejar un hipervínculo antiguo activo. Recupere el párrafo a través de [SmartArtNode.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/text_frame/). Antes de borrar sus porciones, llame a [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) mediante [hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) sobre el marco de texto del nodo forma que muestra el párrafo. Esto elimina todo hipervínculo en ese marco, incluidos los enlaces en sus otros párrafos.
+
+En `SmartArtHyperlink.pptx`, la tercera forma de la primera diapositiva es un gráfico SmartArt. El ejemplo reemplaza el primer párrafo de su cuarto nodo. En esta presentación, la primera forma del nodo muestra ese párrafo.
+
+Después de añadir ambas porciones, el ejemplo lee su formato efectivo con [get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/). La propiedad efectiva [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/iportionformateffectivedata/hyperlink_click/) devuelve el nuevo hipervínculo para la primera porción y `None` para la segunda.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("SmartArtHyperlink.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes[2]
+    node = smart_art.all_nodes[3]
+    paragraph = node.text_frame.paragraphs[0]
+
+    node.shapes[0].text_frame.hyperlink_queries.remove_all_hyperlinks()
+    paragraph.portions.clear()
+
+    link = slides.Portion("New reference")
+    link.portion_format.hyperlink_click = slides.Hyperlink("https://example.com/new")
+    paragraph.portions.add(link)
+    text = slides.Portion(" (updated)")
+    paragraph.portions.add(text)
+
+    print(link.portion_format.get_effective().hyperlink_click.external_url)  # https://example.com/new
+    print(text.portion_format.get_effective().hyperlink_click)  # Ninguno
+```
 
 ## **Crear un inventario completo de hipervínculos**
 
-Antes de distribuir una presentación, inventaríe sus acciones interactivas así como sus enlaces web. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) devuelve objetos [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/), no una lista plana de cadenas URL. Examine tanto [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) como [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) en cada contenedor. Son independientes: el mismo contenedor puede exponer ambas acciones, por lo que un informe completo necesita hasta dos filas por contenedor.
+Antes de distribuir una presentación, inventarie sus acciones interactivas así como sus enlaces web. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) devuelve objetos [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/), no una lista plana de cadenas URL. Inspeccione tanto [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) como [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) en cada contenedor. Son independientes: el mismo contenedor puede exponer ambas acciones, por lo que un informe completo necesita hasta dos filas por contenedor.
 
-Escanear sólo los hipervínculos a nivel de forma puede pasar por alto enlaces adjuntos a porciones de texto. En su lugar, consulte el ámbito apropiado y conserve los contenedores devueltos para poder actualizar o eliminar sus acciones más adelante.
+Escanear sólo los hipervínculos a nivel de forma puede pasar por alto enlaces adjuntos a porciones de texto. Consulte el ámbito apropiado en su lugar y conserve los contenedores devueltos para poder actualizar o eliminar sus acciones más tarde.
 
 ### **Consultar ámbitos de presentación, diapositiva y marco de texto**
 
-La clase [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) está disponible a través de [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) y [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Cada ámbito admite las mismas consultas:
+La clase [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) está disponible a través de [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/), y [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Cada ámbito admite las mismas consultas:
 
 - [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) devuelve contenedores con una acción de clic.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) devuelve contenedores con una acción de paso del ratón.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) devuelve contenedores con una acción de mouse‑over.
 - [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) devuelve contenedores con cualquiera o ambas acciones.
 
-El siguiente ejemplo crea `hyperlink-audit-input.pptx` con un enlace de clic externo, un enlace de paso del ratón a un archivo, navegación interna de diapositivas, un enlace de paso del ratón en texto y una acción de macro. No ejecuta ninguna de estas acciones. Las mismas tres consultas funcionan en cada ámbito; los recuentos describen contenedores, no totales de acciones. El ámbito de marco de texto excluye los enlaces propios de la forma contenedora.
+Este ejemplo asigna acciones de clic y mouse‑over a una forma y su texto, y una acción de macro a un botón separado. Compara los contenedores devueltos por [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) con los recuentos de cada tipo de activación. Una consulta de marco de texto cuenta sólo los enlaces en el texto. Las propias acciones de la forma contenedora aparecen en las consultas de diapositiva y presentación.
 
 ```python
 import aspose.slides as slides
@@ -259,21 +290,21 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Para este ejemplo, las consultas de presentación y de diapositiva informan tres contenedores de clic, dos contenedores de paso del ratón y tres contenedores con cualquiera acción. La consulta de marco de texto informa un contenedor en cada categoría.
+Para este ejemplo, las consultas de presentación y diapositiva informan tres contenedores de clic, dos de mouse‑over y tres contenedores con cualquiera de las acciones. La consulta de marco de texto informa un contenedor en cada categoría.
 
 ### **Clasificar acciones y destinos**
 
 Utilice [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) para interpretar una acción antes de interpretar su destino. Los valores de [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) cubren más que la navegación web:
 
-| Values | Meaning for an audit |
+| Valores | Significado para una auditoría |
 | --- | --- |
 | `HYPERLINK` | Hipervínculo externo; inspeccione la URL y su esquema. |
 | `JUMP_SPECIFIC_SLIDE` | Navegación interna a una diapositiva concreta. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Navegación incorporada de presentación, resuelta en el contexto de la presentación. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Navegación incorporada de la presentación, resuelta en contexto de la presentación. |
 | `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Finalizar la presentación actual o iniciar una presentación personalizada. |
 | `START_MACRO` | Ejecutar una macro. |
 | `START_PROGRAM` | Iniciar un programa. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | Abrir un archivo o otra presentación; revisar por separado de las URLs web. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | Abrir un archivo u otra presentación; revise por separado de las URLs web. |
 | `START_STOP_MEDIA` | Iniciar o detener la reproducción de medios. |
 | `NO_ACTION`, `UNKNOWN` | Sin acción de navegación, o una acción no reconocida que requiere revisión. |
 
@@ -281,15 +312,15 @@ Lea destinos externos desde [external_url](https://reference.aspose.com/slides/p
 
 ### **Informar, sanear y verificar hipervínculos**
 
-El siguiente ejemplo en Python lee una presentación existente (utilice el archivo creado arriba), escribe `hyperlink-audit.json`, aplica una política, guarda `hyperlink-sanitized.pptx` y la vuelve a abrir para comprobar ambos tipos de activación nuevamente. Recopila los contenedores antes de modificarlos y consulta cada ámbito de diapositiva una vez para evitar procesamientos duplicados. Las consultas de presentación cubren diapositivas ordinarias; para un inventario a nivel de paquete, el ejemplo consulta diapositivas ordinarias, maestros, diseños, notas y los maestros de notas y folletos cuando están presentes.
+Este ejemplo abre la presentación del ejemplo anterior y escribe un registro JSON por acción. Utiliza [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) para recopilar contenedores en diapositivas ordinarias, maestros, diseños y notas, incluidos los maestros de notas y folletos cuando existan. Consulta cada ámbito una sola vez para evitar procesamiento duplicado, aplica la política descrita a continuación y vuelve a abrir la presentación guardada para comprobar tanto las acciones de clic como las de mouse‑over.
 
-El informe registra un índice de diapositiva basado en 1 y [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) cuando está disponible. El recopilador conserva la diapositiva propietaria y el ámbito junto a cada contenedor devuelto. Los maestros, diseños y notas no tienen índice de diapositiva ordinario y se identifican por su ámbito. Los contenedores de forma y los contenedores de formato de porción de texto se etiquetan por separado; otros tipos de contenedor conservan su nombre de tipo en tiempo de ejecución. Cada contenedor recibe un ID local del informe para que sus dos acciones puedan correlacionarse.
+El informe registra un índice de diapositiva basado en uno y [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) cuando está disponible. El recopilador conserva la diapositiva propietaria y el ámbito junto a cada contenedor devuelto. Los maestros, diseños y notas no tienen índice de diapositiva ordinario y se identifican por su ámbito. Los contenedores de forma y los contenedores de formato de porción de texto se etiquetan por separado; otros tipos de contenedor conservan su nombre de tipo en tiempo de ejecución. Cada contenedor recibe un ID local de informe para que sus dos acciones puedan correlacionarse.
 
-Esta política de aplicación deliberadamente restrictiva permite sólo URLs HTTPS absolutas y destinos internos de diapositiva válidos. Rechaza macros, programas, acciones de archivo, otras acciones de presentación, acciones desconocidas y otros esquemas de URL. Estos rechazos son decisiones de política, no un veredicto de seguridad de Aspose.Slides. HTTPS por sí solo no establece confianza: añada listas de hosts permitidos y otras comprobaciones para su aplicación. Se revisan tanto las URL externas originales como las normalizadas. El ejemplo audita metadatos sin seguir enlaces ni ejecutar acciones.
+Esta política de aplicación deliberadamente restrictiva permite sólo URLs HTTPS absolutas y destinos internos de diapositiva válidos. Rechaza macros, programas, acciones de archivo, otras acciones de presentación, acciones desconocidas y otros esquemas de URL. Estas rechazos son decisiones de política, no un veredicto de seguridad de Aspose.Slides. HTTPS por sí solo no establece confianza: añada listas blancas de hosts y otras comprobaciones para su aplicación. Tanto las URLs externas originales como las normalizadas se comprueban. El ejemplo audita metadatos sin seguir enlaces ni ejecutar acciones.
 
-Para la remediación, el [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) del contenedor admite [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) y [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Aquí, los enlaces de clic externos prohibidos se sustituyen por una página de destino HTTPS fija; los demás clics prohibidos y acciones de paso del ratón prohibidas se eliminan de forma independiente. Establezca `replace_external_clicks` a `False` para eliminar todas las violaciones de política. Elija una página de sustitución perteneciente a la aplicación antes de la implementación.
+Para la remediación, el [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) del contenedor admite [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/), y [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Aquí, los enlaces externos de clic prohibidos se sustituyen por una página de destino HTTPS fija; los demás clics prohibidos y las acciones de mouse‑over prohibidas se eliminan de forma independiente. Establezca `replace_external_clicks` a `False` para eliminar todas las violaciones de política. Elija una página de sustitución propia de la aplicación antes de la implementación.
 
-La bandera de exportación del informe utiliza una política conservadora de revisión PDF: marca acciones de paso del ratón y cualquier cosa que no sea un enlace externo o un salto de diapositiva específico como potencialmente no soportada. Es una sugerencia de revisión, no una prueba de capacidad o una garantía de que los enlaces no marcados sobrevivirán a la exportación. Las exportaciones compatibles de [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/) y [HTML](/slides/es/python-net/convert-powerpoint-to-html/) pueden conservar los hipervínculos, según la acción, las opciones de exportación y el visor. Las [imágenes](/slides/es/python-net/convert-powerpoint-to-png/) y [vídeo](/slides/es/python-net/convert-powerpoint-to-video/) raster no pueden conservar hipervínculos interactivos; marque cada acción al auditar para esas salidas.
+La bandera de exportación del informe utiliza una política conservadora de revisión PDF: marca acciones de mouse‑over y cualquier cosa que no sea un enlace externo o un salto de diapositiva específico como potencialmente no compatible. Es una pista de revisión, no una prueba de capacidad o una garantía de que los enlaces no marcados sobrevivirán a la exportación. Las exportaciones compatibles de [PDF](/slides/es/python-net/convert-powerpoint-to-pdf/) y [HTML](/slides/es/python-net/convert-powerpoint-to-html/) pueden preservar hipervínculos, según la acción, las opciones de exportación y el visor. Las [imágenes](/slides/es/python-net/convert-powerpoint-to-png/) y [video](/slides/es/python-net/convert-powerpoint-to-video/) raster no pueden preservar hipervínculos interactivos; marque cada acción al auditar para esas salidas.
 
 ```python
 import json
@@ -332,7 +363,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # Query each slide scope once, retaining its owner with each container.
+    # Consultar cada ámbito de diapositiva una sola vez, conservando su propietario con cada contenedor.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -419,20 +450,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-Con la entrada creada arriba, el informe contiene cinco filas de acción. El enlace de paso del ratón a archivo y el clic de macro se eliminan, mientras que los enlaces HTTPS y la navegación interna de diapositivas permanecen. La verificación muestra cero acciones prohibidas. Una entrada que contiene una URL de clic externo prohibida también ejecuta la rama de sustitución. Un contenedor con un clic permitido y un paso del ratón prohibido conserva su acción de clic.
+Con la entrada creada arriba, el informe contiene cinco filas de acción. El enlace de mouse‑over del archivo y la macro de clic se eliminan, mientras que los enlaces HTTPS y la navegación interna de diapositivas permanecen. La verificación muestra cero acciones prohibidas. Una entrada que contiene una URL de clic externo prohibida también ejercita la rama de sustitución. Un contenedor con un clic permitido y un mouse‑over prohibido mantiene su acción de clic.
 
-Esta limpieza selectiva difiere de [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), que elimina ambos tipos de activación en todo el ámbito seleccionado sin considerar la política. La verificación aquí comprueba sólo las acciones de hipervínculo; no elimina proyectos VBA incrustados, objetos OLE u otro contenido activo, y no valida un archivo PDF o HTML exportado.
+Esta limpieza selectiva difiere de [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), que elimina ambos tipos de activación en todo el ámbito seleccionado sin importar la política. La verificación aquí comprueba sólo las acciones de hipervínculo; no elimina proyectos VBA incrustados, objetos OLE u otro contenido activo, y no valida un archivo PDF o HTML exportado.
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Cómo puedo enlazar a una sección o a su primera diapositiva?**
 
-Las secciones en PowerPoint agrupan diapositivas, pero un hipervínculo interno apunta a una diapositiva individual. Para crear una navegación a una sección, enlaza a la primera diapositiva de esa sección.
+Las secciones en PowerPoint agrupan diapositivas, pero un hipervínculo interno apunta a una diapositiva individual. Para crear una navegación a una sección, enlace a la primera diapositiva de esa sección.
 
-**¿Puedo adjuntar un hipervínculo a los elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
+**¿Puedo adjuntar un hipervínculo a elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
 
 Sí. Los elementos de la diapositiva maestra y de los diseños admiten hipervínculos. Los enlaces en estos elementos están disponibles durante la presentación en las diapositivas que utilizan la maestra o el diseño correspondiente.
 
 **¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o vídeo?**
 
-Las exportaciones a PDF y HTML compatibles pueden conservar los hipervínculos; las imágenes raster y el vídeo no pueden. Consulte las consideraciones de exportación en [Informe, saneado y verificación de hipervínculos](#report-sanitize-and-verify-hyperlinks).
+Las exportaciones compatibles de PDF y HTML pueden conservar hipervínculos; las imágenes raster y el vídeo no pueden. Consulte las consideraciones de exportación en [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

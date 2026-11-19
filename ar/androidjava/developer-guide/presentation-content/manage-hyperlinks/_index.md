@@ -1,52 +1,52 @@
 ---
 title: إدارة روابط العرض التقديمي على Android
-linktitle: إدارة الروابط
+linktitle: إدارة الروابط التشعبية
 type: docs
 weight: 20
 url: /ar/androidjava/manage-hyperlinks/
 keywords:
 - إضافة URL
-- إضافة رابط تشعبي
-- إنشاء رابط تشعبي
-- تنسيق رابط تشعبي
-- إزالة رابط تشعبي
-- تحديث رابط تشعبي
-- رابط تشعبي للنص
-- رابط تشعبي للشريحة
-- رابط تشعبي للشكل
-- رابط تشعبي للصورة
-- رابط تشعبي للفيديو
-- رابط تشعبي قابل للتعديل
+- إضافة ارتباط تشعبي
+- إنشاء ارتباط تشعبي
+- تنسيق ارتباط تشعبي
+- إزالة ارتباط تشعبي
+- تحديث ارتباط تشعبي
+- ارتباط تشعبي نصي
+- ارتباط تشعبي شريحة
+- ارتباط تشعبي شكل
+- ارتباط تشعبي صورة
+- ارتباط تشعبي فيديو
+- ارتباط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إضافة، تنسيق، تحديث، وإزالة الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Android عبر Java، باستخدام أمثلة Java."
+description: "إضافة وتنسيق وتحديث وإزالة الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لنظام Android عبر Java، باستخدام أمثلة Java."
 ---
-## **المقدمة**
+## **مقدمة**
 
-يُربط الرابط التشعبي محتوى العرض التقديمي بموقع ويب أو بموقع داخل العرض نفسه. في PowerPoint، يُستخدم الرابط التشعبي عادةً لهدفين:
+يُربط الارتباط التشعبي محتوى العرض التقديمي بموقع ويب أو بموقع داخل العرض التقديمي. في PowerPoint، غالبًا ما تخدم الروابط التشعبية هدفين:
 
-* فتح موقع ويب من النص أو الشكل أو إطار الوسائط.
+* فتح موقع ويب من نص أو شكل أو إطار وسائط.
 * الانتقال إلى شريحة أخرى، على سبيل المثال من جدول المحتويات.
 
-يتيح Aspose.Slides for Android عبر Java إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. توضح الأمثلة أدناه كيفية العمل مع الروابط التشعبية على العناصر الفردية وكيفية الوصول إلى الروابط على مستوى العرض أو الشريحة أو إطار النص.
+يتيح لك Aspose.Slides for Android عبر Java إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. تُظهر الأمثلة أدناه كيفية العمل مع الروابط التشعبية على العناصر الفردية وكيفية الوصول إلى الروابط التشعبية على مستوى العرض التقديمي أو الشريحة أو إطار النص.
 
 {{% alert color="info" title="Note" %}}
-يمكنك أيضاً تعديل العروض باستخدام [محرر Aspose PowerPoint المجاني على الإنترنت](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+يمكنك أيضًا تعديل العروض التقديمية باستخدام [محرر Aspose PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **إضافة روابط URL**
+## **إضافة روابط تشعبية URL**
 
-يمكنك إسناد عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُسند إليه الرابط يحدد المنطقة القابلة للنقر: الجزء النصي يربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
+يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط التشعبي يحدد منطقة القابلية للنقر: يربط جزء النص النص المحدد، بينما يربط الشكل أو الإطار كائن الشريحة.
 
-للعروض التي تحتوي على روابط تشعبية نسبية، راجع [Manage the Hyperlink Base](/slides/ar/androidjava/presentation-properties/#manage-the-hyperlink-base) لقراءة أو تعديل أو مسح الأساس على مستوى المستند.
+لعروض تقديمية تحتوي على روابط تشعبية نسبية، راجع [إدارة قاعدة الارتباط التشعبي](/slides/ar/androidjava/presentation-properties/#manage-the-hyperlink-base) للقراءة أو التعديل أو مسح القاعدة على مستوى المستند.
 
-### **إضافة روابط URL إلى النص**
+### **إضافة روابط تشعبية URL إلى النص**
 
-لربط نص بموقع ويب، مرّر كائن [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) إلى طريقة [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) لجزء النص، كما هو موضح أدناه. يقتصر النقر على ذلك الجزء من النص فقط.
+لربط نص بموقع ويب، مرّر كائن [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) إلى طريقة [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) لجزء النص، كما هو موضح أدناه. يصبح ذلك الجزء فقط من النص قابلًا للنقر.
 
 ```java
 import com.aspose.slides.*;
@@ -66,13 +66,9 @@ try {
 }
 ```
 
-### **إضافة روابط URL إلى الأشكال وإطارات الوسائط**
+### **إضافة روابط تشعبية URL إلى الأشكال وإطارات الوسائط**
 
-لجعل شكل أو إطار قابل للنقر، استدعِ طريقة [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) الخاصة به. ينتمي الرابط التشعبي إلى الكائن نفسه بدلاً من أن يكون جزءًا من النص داخل الكائن.
-
-ينطبق النهج نفسه على إطارات الصور والصوت والفيديو: اسند الرابط إلى الإطار واستدعِ [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) إذا لزم الأمر.
-
-المثال التالي يجعل مستطيلًا قابلاً للنقر:
+استدعِ الطريقة [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) على المستطيل لجعل مساحته بالكامل قابلة للنقر. استخدم [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) لإظهار تلميح للقراء حول الوجهة عندما يمرّون فوق المستطيل. تُطبق كلتا الطريقتين أيضًا على إطارات الصورة والصوت والفيديو.
 
 ```java
 import com.aspose.slides.*;
@@ -90,9 +86,9 @@ try {
 }
 ```
 
-## **استخدام الروابط لإنشاء جدول محتويات**
+## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
 
-تتيح الروابط التشعبية الداخلية للقارئ الانتقال من جدول المحتويات إلى شريحة معينة. يستخدم المثال التالي طريقة [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) لربط نص “Page 2” في الشريحة الأولى بالشريحة الثانية.
+تسمح الروابط التشعبية الداخلية للقراء بالقفز من جدول المحتويات إلى شريحة معينة. يستخدم المثال التالي الطريقة [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) لربط نص "Page 2" في الشريحة الأولى بالشريحة الثانية.
 
 ```java
 import com.aspose.slides.*;
@@ -128,11 +124,13 @@ try {
 
 ## **تنسيق الروابط التشعبية**
 
+يمكنك تغيير لون النص المرتبط، تشغيل أو إيقاف صوت عند تفعيل القارئ للارتباط، وتعيين التلميح (tooltip) الذي يظهر عند المرور.
+
 ### **اللون**
 
-تحدد طريقة [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) الخاصة بـ[IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) ما إذا كان الرابط يستخدم لون الرابط التشعبي في العرض أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) وحدد لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
+تحدد طريقة [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) في الواجهة [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) ما إذا كان الارتباط التشعبي سيستخدم لون الارتباط التشعبي في العرض التقديمي أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) واضبط لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
 
-المثال التالي يضيف رابطين نصيين إلى نفس الشريحة. الأول يستخدم تعبئة نص حمراء، بينما يحتفظ الثاني بلون الرابط الافتراضي.
+في هذا المثال، تجعل طريقة [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) الرابط الأول يستخدم تعبئة حمراء لجزء النص. الرابط الثاني يحتفظ بلون الارتباط التشعبي في العرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -157,16 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **الصوت**
 
-يمكن للرابط التشعبي تشغيل صوت عند تنشيطه أو إيقاف صوت قيد التشغيل بالفعل. استخدم الطرق التالية لتكوين هذه السلوكيات:
+يمكن للارتباط التشعبي تشغيل صوت عند تفعيله أو إيقاف صوت يُشغل بالفعل. استخدم الطرق التالية لتكوين هذه السلوكيات:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) يحدد ملف الصوت المرتبط بالرابط.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) يتحكم فيما إذا كان تنشيط الرابط يوقف الصوت السابق.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) يحدد الصوت المرتبط بالارتباط التشعبي.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) يتحكم فيما إذا كان تفعيل الارتباط التشعبي يوقف الصوت السابق.
 
-#### **إضافة صوت للرابط التشعبي**
+#### **إضافة صوت للارتباط التشعبي**
 
-يقوم المثال التالي بتحميل الملف `sampleaudio.wav` وربطه بزر في الشريحة الأولى. النقر على الزر يشغل الصوت ويُنقلك إلى الشريحة التالية. الشكل الثاني في تلك الشريحة يوقف الصوت السابق عند النقر، دون تنفيذ أي عملية تنقل.
+يستخدم الزر في الشريحة الأولى الطريقة [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) لتشغيل الصوت من `sampleaudio.wav` عندما ينقر القارئ للتقدم. في الشريحة الثانية، يستخدم زر منفصل الطريقة [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) لإيقاف التشغيل وإبقاء القارئ على تلك الشريحة.
 
 ```java
 import com.aspose.slides.*;
@@ -205,9 +204,9 @@ try {
 }
 ```
 
-#### **استخراج صوت للرابط التشعبي**
+#### **استخراج صوت الارتباط التشعبي**
 
-يفتح المثال التالي العرض الذي تم إنشاؤه أعلاه ويقرأ الصوت المرتبط بالرابط في الشكل الأول إلى الذاكرة عبر [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) و[getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
+يفتح المثال التالي العرض التقديمي الذي تم إنشاؤه أعلاه ويقرأ الصوت المرتبط بالارتباط التشعبي للشكل الأول إلى الذاكرة عبر [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) و [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -231,18 +230,18 @@ try {
 }
 ```
 
-### **تلميحات الأدوات وإعدادات التفاعل**
+### **إعدادات التلميح (Tooltip) والتفاعل**
 
-يمكنك استدعاء طرق [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) التالية بعد إسناد رابط إلى نص أو شكل:
+يمكنك استدعاء الطرق التالية في الواجهة [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) بعد تعيين ارتباط تشعبي إلى نص أو شكل:
 
-- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) يحدد النص الذي يمكن للمشاهد عرضه كشرح مختصر للرابط.
-- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) يحدد إطار الهدف داخل مجموعة إطارات HTML أصلية، إذا كان ذلك مناسبًا.
-- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) يتحكم فيما إذا كان تنشيط الرابط يضيف هدفه إلى قائمة الروابط المشاهدة.
-- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) يتحكم فيما إذا كان الرابط يُظهر تمييزًا عند النقر.
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) يحدد النص الذي يمكن للمشاهد عرضه كتلميح للارتباط.
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) يحدد إطار الهدف داخل مجموعة إطارات HTML الأب، عندما يكون ذلك مناسبًا.
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) يتحكم فيما إذا كان تفعيل الرابط يضيف وجهته إلى قائمة الروابط المشاهدة.
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) يتحكم فيما إذا كان يتم تمييز الارتباط التشعبي عند النقر.
 
-## **إزالة الروابط من العروض**
+## **إزالة الروابط التشعبية من العروض التقديمية**
 
-استخدم [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) لجمع حاويات الروابط، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التنشيط من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ إما [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) أو [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); إزالة فعل النقر لا يزيل الفعل المقابل عند التمرير فوق الفأرة.
+استخدم [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) لجمع حاويات الروابط التشعبية، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التفعيل من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ فقط [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) أو [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); إزالة إجراء النقر لا تزيل مكافئه عند تمرير الفأرة.
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +268,58 @@ try {
 }
 ```
 
-لإزالة غير مشروطة، تقوم [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) بإزالة كلا نوعي التنشيط في النطاق المحدد بنداء واحد. للحصول على تنظيف انتقائي وتغطية الماسترز، التخطيطات، والملاحظات، راجع [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+لللإزالة غير المشروطة، تقوم الطريقة [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) بإزالة كلا نوعي التفعيل في النطاق المحدد في استدعاء واحد. للتنظيف الانتقائي وتغطية القوالب الرئيسة، التخطيطات، والملاحظات، راجع [الإبلاغ، التعقيم، والتحقق من الروابط التشعبية](#report-sanitize-and-verify-hyperlinks).
+
+### **مسح الروابط التشعبية قبل استبدال نص SmartArt**
+
+عند استبدال فقرة في عقدة SmartArt موجودة، قد يترك مسح أجزاء النص رابطًا تشعبيًا قديمًا ساريًا. استخرج الفقرة عبر [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getTextFrame--). قبل مسح أجزائها، استدعِ [getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) على إطار النص لشكل العقدة الذي يعرض الفقرة، ثم استدعِ [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) على الكائن المرجع. يزيل هذا كل رابط تشعبي في ذلك الإطار، بما في ذلك الروابط في فقراته الأخرى.
+
+يفترض المثال أن الشكل الثالث في الشريحة الأولى من ملف `SmartArtHyperlink.pptx` هو رسم SmartArt. يستبدل الفقرة الأولى من العقدة الرابعة. في هذا العرض، يعرض الشكل الأول للعقدة تلك الفقرة.
+
+بعد إضافة كلا الجزئين، يقرأ المثال تنسيقهما الفعلي باستخدام [getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--). على ذلك التنسيق، تُعيد الطريقة [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) الارتباط التشعبي الجديد للجزء الأول وتُعيد `null` للثاني.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **إنشاء جرد كامل للروابط التشعبية**
 
-قبل توزيع عرض، قم بجرد الإجراءات التفاعلية وروابط الويب الخاصة به. تُرجع [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) كائنات من نوع [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/) وليس قائمة مسطحة من سلاسل URL. راجع كلًا من [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و[getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) على كل حاوية. هي مستقلة: يمكن لنفس الحاوية أن تعرض كلا الفعلين، لذا يتطلب التقرير الكامل ما يصل إلى صفين لكل حاوية.
+قبل توزيع عرض تقديمي، قم بجرد الإجراءات التفاعلية وروابط الويب الخاصة به. تُعيد الطريقة [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) كائنات [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/)، وليس قائمة مسطحة من سلاسل URL. افحص كل من [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الإجراءين، لذا يحتاج تقرير كامل إلى ما يصل إلى صفين لكل حاوية.
 
-قد يؤدي فحص الروابط على مستوى الشكل فقط إلى فقدان الروابط المرفقة بأجزاء النص. استعلم النطاق المناسب بدلًا من ذلك، واحتفظ بالحاويات المسترجعة لتتمكن لاحقًا من تحديث أو إزالة أفعالها.
+يمكن أن يؤدي فحص الروابط التشعبية على مستوى الشكل فقط إلى فقدان الروابط المرفقة بأجزاء النص. استعلم عن النطاق المناسب بدلاً من ذلك، واحفظ الحاويات المرجعة حتى تتمكن لاحقًا من تحديث أو إزالة إجراءاتها.
 
-### **استعلام نطاقات العرض والشريحة وإطار النص**
+### **استعلام عن نطاقات العرض التقديمي، الشريحة، وإطار النص**
 
-واجهة [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) متاحة عبر [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--)، [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--)، و[ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). كل نطاق يدعم نفس الاستعلامات:
+الواجهة [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) متاحة عبر [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), و[ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). كل نطاق يدعم نفس الاستعلامات:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) يُعيد الحاويات التي لها فعل نقر.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) يُعيد الحاويات التي لها فعل تمرير فوق الفأرة.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) يُعيد الحاويات التي لها أحد الفعلين أو كليهما.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) تُعيد الحاويات التي تحتوي على إجراء نقرة.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) تُعيد الحاويات التي تحتوي على إجراء تمرير الماوس.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) تُعيد الحاويات التي لديها إما أحد الإجراءين أو كليهما.
 
-ينشئ المثال التالي الملف `hyperlink-audit-input.pptx` مع رابط نقر خارجي، ورابط تمرير فوق ملف، وتنقل داخلي إلى شريحة، ورابط تمرير فوق نص، وإجراء ماكرو. لا يُنفّذ أيًا من هذه الأفعال. تعمل الاستعلامات الثلاثة نفسها في كل نطاق؛ الأعداد تُعطي عدد الحاويات، لا مجموع الأفعال. يستثني نطاق إطار النص الروابط الخاصة بالشكل المحيط.
+يُعيّن هذا المثال إجراءات النقر والتمرير إلى شكل ونصه، وإجراء ماكرو إلى زر منفصل. يقارن عدد الحاويات التي تُعيدها [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) مع عدد الحاويات لكل نوع تفعيل. يُظهر استعلام إطار النص عدد الروابط الموجودة فقط في النص. تظهر إجراءات الشكل المتضمن في استعلامات الشريحة والعرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -325,37 +359,37 @@ try {
 }
 ```
 
-في هذا المثال، تُظهر استعلامات العرض والشريحة ثلاث حاويات نقر، وحاويتين تمرير فوق الفأرة، وثلاث حاويات إما فعلًا أو كلاهما. يُظهر استعلام إطار النص حاوية واحدة في كل فئة.
+في هذا المثال، يُبلغ استعلاما العرض التقديمي والشريحة عن ثلاثة حاويات نقرة، وحاويتين تمرير، وثلاث حاويات تحتوي على أي من الإجراءين. يُبلغ استعلام إطار النص عن حاوية واحدة في كل فئة.
 
-### **تصنيف الأفعال والوجهات**
+### **تصنيف الإجراءات والوجهات**
 
-استخدم [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) لتفسير الفعل قبل تفسير وجهته. تغطي قيم [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) أكثر من مجرد تنقل ويب:
+استخدم [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) لتفسير إجراء قبل تفسير وجهته. قيم [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) تغطي أكثر من تنقل الويب:
 
 | القيم | المعنى للتدقيق |
 | --- | --- |
-| `Hyperlink` | رابط خارجي؛ افحص URL ومخططه. |
-| `JumpSpecificSlide` | تنقل داخلي إلى شريحة محددة. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل ضمن عرض الشرائح المدمج، يُفسر في سياق العرض. |
+| `Hyperlink` | ارتباط تشعبي خارجي؛ افحص الـ URL ومخططه. |
+| `JumpSpecificSlide` | تنقل داخلي إلى شريحة معينة. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُفسّر في سياق عرض الشرائح. |
 | `JumpEndShow`, `StartCustomSlideShow` | إنهاء العرض الحالي أو بدء عرض مخصص. |
-| `StartMacro` | تشغيل ماكرو. |
-| `StartProgram` | إطلاق برنامج. |
-| `OpenFile`, `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ يُراجع منفصلًا عن روابط الويب. |
+| `StartMacro` | تنفيذ ماكرو. |
+| `StartProgram` | تشغيل برنامج. |
+| `OpenFile`, `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ راجعها بشكل منفصل عن عناوين URL للويب. |
 | `StartStopMedia` | بدء أو إيقاف تشغيل وسائط. |
-| `NoAction`, `Unknown` | لا توجد عملية تنقل، أو فعل غير معروف يتطلب مراجعة. |
+| `NoAction`, `Unknown` | لا إجراء تنقل، أو إجراء غير معروف يتطلب مراجعة. |
 
-اقرأ الوجهات الخارجية من [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) والوجهات الداخلية المحددة من [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). قد لا تحتوي الإجراءات الداخلية أو الأوامر المدمجة على URL خارجي؛ وجود URL فارغ لا يعني أن الحاوية لا تحتوي على فعل. احتفظ بالقيمة التي تُعيدها [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) عندما تختلف عن URL المُعْدَل، وتضمّن تلميح الأدوات الذي تُعيده [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) إذا كان متوفرًا.
+اقرأ الوجهات الخارجية عبر [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) والوجهات الداخلية المحددة عبر [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). قد لا تحتوي الإجراءات الداخلية أو الأوامر المدمجة على عنوان URL خارجي؛ وجود URL فارغ لا يعني أن الحاوية لا تملك إجراءً. احفظ القيمة التي تُعيدها [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) عندما تختلف عن الـ URL المُعَدَّل، وضمن التلميح (tooltip) الذي تُعيده [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) عندما يكون متوفرًا.
 
-### **التقرير، التنظيف، والتحقق من الروابط**
+### **الإبلاغ، التعقيم، والتحقق من الروابط التشعبية**
 
-يعرض مثال Java التالي قراءة عرض موجود (استخدم الملف الذي تم إنشاؤه أعلاه)، كتابة `hyperlink-audit.json`، تطبيق سياسة، حفظ `hyperlink-sanitized.pptx`، وإعادة فتحه للتحقق من كلا نوعي التنشيط مرة أخرى. يجمع الحاويات قبل تعديلها ويستخدم مساواة المرجع لتجنب معالجة نفس الحاوية مرتين. تغطي استعلامات العرض الشرائح العادية؛ للحصول على جرد على مستوى الحزمة، يتم استعلام الماسترز، التخطيطات، الملاحظات، وكذلك ماستر الملاحظات ونشرات اليد عند وجودها.
+يفتح هذا المثال العرض التقديمي من المثال السابق ويكتب سجل JSON واحد لكل إجراء. يستخدم [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) لجمع الحاويات على الشرائح العادية، القوالب الرئيسة، التخطيطات، والملاحظات، بما في ذلك القوالب الرئيسة للملاحظات والنشرات عند وجودها. يستخدم مساواة المرجع لحساب كل حاوية مرة واحدة، يطبق السياسة الموضحة أدناه، ويعيد فتح العرض التقديمي المحفوظ للتحقق من إجراءات النقر والتمرير.
 
-يسجل التقرير فهرس شريحة يبدأ من 1 و[getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) عندما يكون متاحًا. توفر [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) الشريحة المالكة للحاويات المدعومة. الماسترز، التخطيطات، والملاحظات لا تملك فهرس شريحة عادي وتُعرّف بنطاقها. تُصنّف حاويات الشكل وحاويات تنسيق جزء النص بشكل منفصل؛ أنواع الحاويات الأخرى تحتفظ باسم نوعها في وقت التشغيل. يحصل كل حاوية على معرف محلي في التقرير لربط فعلَيها. يُخزن التقرير أنواع الأفعال كقيم عددية معرفة في تعداد Java.
+يسجل التقرير فهرس الشريحة بدءًا من الواحد و[getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) عندما يكون متاحًا. تُوفر الطريقة [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) الشريحة المالكة للحاويات المدعومة. لا تحتوي القوالب الرئيسة، التخطيطات، والملاحظات على فهرس شريحة عادي وتُحدد بنطاقها. تُصنّف حاويات الأشكال وحاويات تنسيق أجزاء النص بشكل منفصل؛ تحتفظ الأنواع الأخرى بأسمائها في وقت التشغيل. يحصل كل حاوية على معرف محلي في التقرير لربط إجراءاتها الاثنين. يخزن التقرير أنواع الإجراءات كقواميس عددية محددة في تعداد Java.
 
-تسمح هذه السياسة التطبيقية المقيدة بتطبيق روابط HTTPS مطلقة فقط وأهداف شرائح داخلية صالحة. تُرفض ماكروهات، برامج، إجراءات ملفات، أفعال عروض الشرائح الأخرى، أفعال غير معروفة، ومخططات URL أخرى. هذه الرفضات هي قرارات سياسة، لا حكم أمان من Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. يتم فحص كل من URL الأصلي والـ URL المُعْدَل. لا يتتبع المثال الروابط أو ينفّذ الأفعال.
+تسمح هذه السياسة التطبيقية المقصودة بكونها مقيدة فقط عناوين URL مطلقة عبر HTTPS ووجهات شرائح داخلية صالحة. ترفض الماكروهات، البرامج، إجراءات الملفات، إجراءات عرض الشرائح الأخرى، الإجراءات غير المعروفة، ومخططات URL الأخرى. هذه الرفضات هي قرارات سياسة، ليست حكم أمان من Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم السماح للمضيفات وفحوصات أخرى لتطبيقك. يتم فحص كل من عناوين URL الخارجية الأصلية والمُعَدَّلة. يقوم المثال بتدقيق البيانات الوصفية دون تتبع الروابط أو تشغيل الإجراءات.
 
-للإصلاح، يدعم [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) في الحاوية طرقًا مثل [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)، [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)، و[removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). هنا، تُستبدل الروابط الخارجية غير المسموح بها بصفحة هبوط HTTPS ثابتة؛ تُزال الروابط والنقرات غير المسموح بها الأخرى بشكل مستقل. اضبط `replaceExternalClicks` إلى `false` لإزالة جميع الانتهاكات. اختر صفحة بديلة مملوكة لتطبيقك قبل النشر.
+للتصحيح، يدعم [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) الحاوية الطرق [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--), و[removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). هنا، تُستبدَل الروابط الخارجية غير المسموح بها بصفحة هبوط HTTPS ثابتة؛ تُزال النقرات غير المسموح بها وإجراءات التمرير غير المسموح بها بشكل مستقل. عيّن `replaceExternalClicks` إلى `false` لإزالة جميع مخالفات السياسة بدلاً من ذلك. اختر صفحة استبدال مملوكة للتطبيق قبل النشر.
 
-تستخدم علامة تصدير التقرير سياسة مراجعة PDF متحفظة: تُعلّم أفعال تمرير الفأرة وأي شيء غير رابط خارجي أو قفزة شريحة محددة على أنه قد لا يُدعم. هذه إشارة مراجعة، ليست اختبار قدرة أو ضمان بقاء الروابط غير الموسومة عند التصدير. قد تحافظ عمليات التصدير إلى [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/androidjava/convert-powerpoint-to-html/) على الروابط حسب الفعل، خيارات التصدير، والمشاهد. لا يمكن للصور [Raster](/slides/ar/androidjava/convert-powerpoint-to-png/) والفيديو [Video](/slides/ar/androidjava/convert-powerpoint-to-video/) حفظ الروابط التفاعلية؛ علّم كل فعل عندما تُجري تدقيقًا لتلك المخرجات.
+يستخدم علم التصدير في التقرير سياسة مراجعة PDF محافظة: يعلّق إجراءات التمرير وأي شيء غير رابط خارجي أو قفزة شريحة معينة على أنه قد لا يكون مدعومًا. هذا مجرد تلميح مراجعة، ليس اختبار قدرة أو ضمان أن الروابط غير المعلّقة ستبقى بعد التصدير. قد تحافظ عمليات تصدير [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/androidjava/convert-powerpoint-to-html/) المدعومة على الروابط التشعبية، حسب الإجراء، خيارات التصدير، والمشاهد. لا يمكن للصور النقطية [images](/slides/ar/androidjava/convert-powerpoint-to-png/) والفيديو [video](/slides/ar/androidjava/convert-powerpoint-to-video/) حفظ الروابط التفاعلية؛ علّق كل إجراء عند تدقيق هذه المخرجات.
 
 ```java
 import com.aspose.slides.*;
@@ -457,7 +491,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // تسلسل صفوف التقرير المسطحة دون اعتماد إضافي على JSON.
+    // تسلسل صفوف التقرير المسطّحة دون الاعتماد على مكتبة JSON إضافية.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -542,20 +576,20 @@ try {
 }
 ```
 
-مع الإدخال الذي تم إنشاؤه أعلاه، يحتوي التقرير على خمسة صفوف أفعال. يُزال رابط تمرير الفأرة للملف والماكرو، بينما تُبقى الروابط HTTPS والتنقل الداخلي إلى الشرائح. يطبع التحقق صفر أفعال محظورة. يُظهر إدخال يحتوي على رابط نقر خارجي محظور فرع الاستبدال. الحاوية ذات النقر المسموح به وتمرير الفأرة المحظور تحتفظ بفعل النقر فقط.
+مع الإدخال الذي تم إنشاؤه أعلاه، يحتوي التقرير على خمس صفوف إجراءات. تُزيل رابط تمرير الملف والماكرو النقر، بينما تظل روابط HTTPS والتنقل الداخلي بين الشرائح. تُظهر عملية التحقق عدم وجود إجراءات محظورة. الإدخال الذي يحتوي على رابط نقر خارجي محظور يُجرب فرع الاستبدال أيضًا. الحاوية التي لديها نقر مسموح به وتمرير محظور تحتفظ بإجراء النقر.
 
-يختلف هذا التنظيف الانتقائي عن [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) الذي يزيل كلا نوعي التنشيط في النطاق المحدد بغض النظر عن السياسة. يختص التحقق هنا بفحص أفعال الروابط فقط؛ لا يزيل مشاريع VBA المضمنة، كائنات OLE، أو محتوى نشط آخر، ولا يتحقق من ملفات PDF أو HTML المصدرة.
+يختلف هذا التنظيف الانتقائي عن [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) الذي يزيل كلا نوعي التفعيل في النطاق المحدد بغض النظر عن السياسة. يتحقق التحقق هنا من إجراءات الروابط التشعبية فقط؛ لا يزيل مشاريع VBA المضمنة، كائنات OLE، أو محتوى نشط آخر، ولا يتحقق من صحة ملف PDF أو HTML مُصدَّر.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
-**كيف يمكنني ربط قسم أو أول شريحة له؟**
+**كيف يمكنني الربط إلى قسم أو الشريحة الأولى منه؟**
 
-تُجمّع الأقسام في PowerPoint الشرائح، لكن الرابط الداخلي يستهدف شريحة فردية. لإنشاء تنقل إلى قسم، اربط إلى أول شريحة في ذلك القسم.
+تقسّم الأقسام في PowerPoint الشرائح، لكن الارتباط التشعبي الداخلي يستهدف شريحة واحدة. لإنشاء تنقل إلى قسم، اربط إلى الشريحة الأولى في ذلك القسم.
 
-**هل يمكنني إرفاق رابط تشعبي لعناصر شريحة الماستر بحيث يعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسة بحيث يعمل على جميع الشرائح؟**
 
-نعم. تدعم عناصر شريحة الماستر والتخطيط الروابط التشعبية. تكون الروابط على هذه العناصر متاحة خلال عرض الشرائح على الشرائح التي تستخدم الماستر أو التخطيط المقابل.
+نعم. تدعم عناصر الشريحة الرئيسة والتخطيط الروابط التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح على الشرائح التي تستخدم الشريحة الرئيسة أو التخطيط المقابل.
 
-**هل ستُحفظ الروابط عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
+**هل سيُحافظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
 
-قد تحافظ عمليات تصدير PDF وHTML المدعومة على الروابط؛ لا يمكن للصور النقطية والفيديو الحفاظ على الروابط التفاعلية. راجع اعتبار التصدير في [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+قد تحفظ عمليات تصدير PDF وHTML المدعومة الروابط التشعبية؛ ولا يمكن للصور النقطية والفيديو ذلك. راجع اعتبارات التصدير في [الإبلاغ، التعقيم، والتحقق من الروابط التشعبية](#report-sanitize-and-verify-hyperlinks).
