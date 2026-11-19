@@ -92,6 +92,60 @@ presentation->Dispose();
 
 {{% /alert %}}
 
+### **Combine Math Blocks**
+
+When parts of an equation are built independently as [IMathBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathblock/) objects, use [JoinBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathblock/joinblock/) to combine them. The example builds `c² =` in the left block and `a² + b²` in the right block. [SetSuperscript](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/setsuperscript/) creates editable mathematical superscripts for all three powers.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddMathShape(20, 20, 600, 100);
+auto mathPortion = System::ExplicitCast<MathPortion>(shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0));
+auto mathParagraph = mathPortion->get_MathParagraph();
+
+auto leftBlock = System::MakeObject<MathBlock>();
+auto cSquared = System::MakeObject<MathematicalText>(u"c")->SetSuperscript(u"2");
+leftBlock->Add(cSquared);
+auto equalsSign = System::MakeObject<MathematicalText>(u"=");
+leftBlock->Add(equalsSign);
+
+auto rightBlock = System::MakeObject<MathBlock>();
+auto aSquared = System::MakeObject<MathematicalText>(u"a")->SetSuperscript(u"2");
+rightBlock->Add(aSquared);
+auto plusSign = System::MakeObject<MathematicalText>(u"+");
+rightBlock->Add(plusSign);
+auto bSquared = System::MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2");
+rightBlock->Add(bSquared);
+
+auto combinedBlock = leftBlock->JoinBlock(rightBlock);
+mathParagraph->Add(combinedBlock);
+
+presentation->Save(u"equation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+[JoinBlock](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathblock/joinblock/) returns `leftBlock` itself, now containing both parts in order, and leaves `rightBlock` empty. Add the combined block to the [IMathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathparagraph/) only once. After reopening `equation.pptx`, the paragraph contains one block representing `c² = a² + b²`, with all three powers preserved as mathematical superscripts.
+
+Calling [Add](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelementcollection/add/) as `leftBlock->Add(rightBlock)` instead attempts to nest one block directly inside another and throws `System::InvalidOperationException`.
+
 ## **Add Fractions**
 
 Use [Divide](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/divide/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathfractiontypes/).
