@@ -1,88 +1,215 @@
 ---
-title: Anpassen von 3D-Diagrammen in Präsentationen mit .NET
-linktitle: 3D-Diagramm
+title: 3D‑Diagramme in Präsentationen in .NET anpassen
+linktitle: 3D‑Diagramm
 type: docs
 url: /de/net/3d-chart/
 keywords:
-- 3D-Diagramm
-- Rotation
+- 3D‑Diagramm
+- Drehung
 - Tiefe
 - PowerPoint
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie 3-D-Diagramme in Aspose.Slides für .NET erstellen und anpassen, mit Unterstützung für PPT- und PPTX-Dateien - verbessern Sie noch heute Ihre Präsentationen."
+description: "Erstellen Sie 3D‑Diagramme in PowerPoint‑Präsentationen mit Aspose.Slides für .NET. Passen Sie Drehung, Höhenverhältnisse, Diagrammtiefe und den Abstand zwischen Serien mit C#‑Beispielen an."
 ---
+## **Übersicht**
 
-## **RotationX-, RotationY- und DepthPercents-Eigenschaften eines 3D-Diagramms festlegen**
-Aspose.Slides für .NET bietet eine einfache API zum Festlegen dieser Eigenschaften. Der folgende Artikel hilft Ihnen, verschiedene Eigenschaften wie X‑, Y‑Rotation, **DepthPercents** usw. zu setzen. Der Beispielcode zeigt, wie die oben genannten Eigenschaften gesetzt werden.
+Aspose.Slides für .NET ermöglicht es Ihnen, die Ansicht eines 3D‑Diagramms über die Eigenschaft [IChart.Rotation3D](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/rotation3d/) anzupassen. Dieser Artikel zeigt, wie Sie Rotation, Höhenverhältnisse, Tiefe, rechtwinklige Achsen und den Abstand zwischen Serien anpassen und die Präsentation dann im PPTX‑Format speichern.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) Klasse.  
-1. Greifen Sie auf die erste Folie zu.  
-1. Fügen Sie ein Diagramm mit Standarddaten hinzu.  
-1. Setzen Sie die Rotation3D‑Eigenschaften.  
-1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.  
-```c#
-// Instanz der Presentation-Klasse erstellen
-Presentation presentation = new Presentation();
-           
-// Erste Folie zugreifen
-ISlide slide = presentation.Slides[0];
+## **Drehung und Tiefe eines 3D‑Diagramms festlegen**
 
-// Diagramm mit Standarddaten hinzufügen
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
+Das nachstehende Beispiel erstellt eine [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) und verwendet [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/), um dem ersten Folie ein gestapeltes 3D‑Säulendiagramm hinzuzufügen. Es ersetzt die Standard‑Serien und -Kategorien durch zwei Serien mit jeweils drei Werten. Der Arbeitsblatt‑Index `0` identifiziert das erste Daten‑Arbeitsblatt des Diagramms; Zeile `0` enthält die Seriennamen und Spalte `0` die Kategorielabels.
 
-// Index des Diagrammdatenblatts festlegen
-int defaultWorksheetIndex = 0;
+Die Eigenschaften [RotationX](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationx/) und [RotationY](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rotationy/) setzen die Drehung des Diagramms auf 40 bzw. 270 Grad. [DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) legt die Tiefe auf 150 % der Breite fest, während [RightAngleAxes](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/rightangleaxes/) rechtwinklige Achsen anstelle von Perspektive aktiviert. Die resultierende Präsentation enthält das befüllte Diagramm mit diesen 3D‑Ansichtseinstellungen.
 
-// Diagrammdaten-Arbeitsblatt abrufen
-IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Serie hinzufügen
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Kategorien hinzufügen
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn3D, 0, 0, 500, 500);
 
-// Rotation3D-Eigenschaften festlegen
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+var worksheetIndex = 0;
+
+var values = new double[,] { { 20, 50, 30 }, { 30, 10, 60 } };
+
+for (var categoryIndex = 0; categoryIndex < 3; categoryIndex++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, categoryIndex + 1, 0, $"Category {categoryIndex + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+}
+
+for (var seriesIndex = 0; seriesIndex < 2; seriesIndex++)
+{
+    var seriesCell = workbook.GetCell(worksheetIndex, 0, seriesIndex + 1, $"Series {seriesIndex + 1}");
+    var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+
+    for (var categoryIndex = 0; categoryIndex < 3; categoryIndex++)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, categoryIndex + 1, seriesIndex + 1, values[seriesIndex, categoryIndex]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
+}
+
 chart.Rotation3D.RightAngleAxes = true;
 chart.Rotation3D.RotationX = 40;
 chart.Rotation3D.RotationY = 270;
 chart.Rotation3D.DepthPercents = 150;
 
-// Zweite Diagrammserie übernehmen
-IChartSeries series = chart.ChartData.Series[1];
-
-// Jetzt Serien-Daten befüllen
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-// Overlap-Wert festlegen
-series.ParentSeriesGroup.Overlap = 100;         
-
-// Präsentation auf Festplatte schreiben
 presentation.Save("Rotation3D_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Höhenverhältnisse eines 3D‑Diagramms anpassen**
+
+Verwenden Sie [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/), um die Höhe eines 3D‑Diagramms als Prozentsatz seiner Breite festzulegen. Dadurch ändern sich die Proportionen der 3D‑Szene, ohne das Diagrammobjekt auf der Folie zu skalieren.
+
+Das folgende Beispiel erstellt ein [Column3D](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)-Diagramm mit den Standarddaten: drei Serien und vier Kategorien. Es speichert drei Präsentationen mit Höhenverhältnissen von 50 %, 100 % und 200 %. Position, Breite und Höhe des Diagramms bleiben unverändert. Die Daten, Drehung, Tiefe, Serienabstand und Formatierung sind in allen drei Dateien identisch; nur der Höhen‑Prozentsatz ändert sich.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 40, 30, 620, 460);
+chart.Rotation3D.RotationX = 20;
+chart.Rotation3D.RotationY = 30;
+chart.Rotation3D.RightAngleAxes = true;
+chart.Rotation3D.DepthPercents = 100;
+chart.ChartData.Series[0].ParentSeriesGroup.GapDepth = 150;
+
+foreach (ushort heightPercent in new ushort[] { 50, 100, 200 })
+{
+    chart.Rotation3D.HeightPercents = heightPercent;
+    presentation.Save($"chart_height_{heightPercent}.pptx", SaveFormat.Pptx);
+}
+```
+
+Die folgenden Bilder wurden aus den erzeugten Präsentationen mit Microsoft PowerPoint exportiert. Ein kleinerer Prozentsatz erzeugt eine flachere Szene, während ein größerer Prozentsatz eine höhere Szene innerhalb desselben Diagrammobjekts erzeugt. PowerPoint kann zudem die Achsen‑Tick‑Intervalle und die Beschriftungspositionen an die Szene anpassen.
+
+| Höhe: 50% | Höhe: 100% | Höhe: 200% |
+| --- | --- | --- |
+| ![3D‑Säulendiagramm mit einer Höhe von 50 % seiner Breite](height_percent_50.png) | ![3D‑Säulendiagramm mit einer Höhe von 100 % seiner Breite](height_percent_100.png) | ![3D‑Säulendiagramm mit einer Höhe von 200 % seiner Breite](height_percent_200.png) |
+
+Diese Eigenschaften steuern verschiedene Aspekte des Diagramms:
+
+| Eigenschaft | Auswirkung |
+| --- | --- |
+| [IRotation3D.HeightPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/heightpercents/) | Höhe der 3D‑Szene als Prozentsatz ihrer Breite. |
+| [IChart.Height](https://reference.aspose.com/slides/net/aspose.slides/ishape/height/) | Höhe des Diagrammobjekts auf der Folie, in Punkten. |
+| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | Tiefe der 3D‑Szene als Prozentsatz ihrer Breite. |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Abstand zwischen Serien entlang der Tiefenachse, als Prozentsatz der Markierungsbreite. |
+
+Die Höheneinstellung wirkt sich auf 3D‑Säulen‑ und Balkendiagramme aus, einschließlich Zylinder-, Kegel‑ und Pyramiden‑Varianten, sowie auf 3D‑Linien‑, Flächen‑, Kreis‑ und Oberflächendiagramme. Der obige Vergleich verwendet den geprüften Typ `Column3D`. Die Einstellung ändert das Erscheinungsbild eines 2D‑`ClusteredColumn`‑Diagramms oder eines `BubbleWith3D`‑Diagramms nicht; diese Namen sind Mitglieder der Aufzählung [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/). Weitere Diagramm‑Erscheinungseinstellungen finden Sie unter [Chart Formatting](/slides/de/net/chart-formatting/).
+
+## **Abstand zwischen Serien anpassen**
+
+Verwenden Sie [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/), um den Abstand zwischen Datenserien entlang der Tiefenachse eines 3D‑Diagramms zu steuern, ausgedrückt als Prozentsatz der Markierungsbreite. Verwenden Sie Werte von **0 bis 500**, inklusiv: `0` entfernt den Abstand, während höhere Werte den Abstand vergrößern. Bei fester Diagrammtiefe führt ein größerer Abstand zu dünneren Markierungen entlang der Tiefenachse.
+
+Greifen Sie über [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) auf die Gruppe zu. Die Einstellung gilt für alle Serien in dieser Gruppe, nicht nur für die Serie, über die zugegriffen wird. [IChartSeries.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/gapdepth/) ist schreibgeschützt und spiegelt die Einstellung der übergeordneten Gruppe wider.
+
+Diese Einstellung wirkt sich auf 3D‑Säulen‑ und Balkendiagramme aus, einschließlich ihrer Zylinder-, Kegel- und Pyramiden‑Varianten, sowie auf 3D‑Linien‑ und Flächendiagramme. Das Erscheinungsbild hängt davon ab, ob die Serien in der Tiefe, gruppiert oder gestapelt angeordnet sind. Für einen klaren Vergleich der Abstände zwischen einzelnen Serien verwenden Sie `ChartType.Column3D` aus der Aufzählung [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/).
+
+| Eigenschaft | Auswirkung |
+| --- | --- |
+| [IChartSeriesGroup.GapDepth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapdepth/) | Abstand zwischen Serien entlang der Tiefenachse, als Prozentsatz der Markierungsbreite. |
+| [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) | Abstand zwischen benachbarten Balken‑ oder Säulen‑Clustern, als Prozentsatz der Balken‑ oder Säulenbreite. |
+| [IRotation3D.DepthPercents](https://reference.aspose.com/slides/net/aspose.slides.charts/irotation3d/depthpercents/) | Gesamttiefe des Diagramms, als Prozentsatz der Diagrammbreite. |
+
+Das folgende eigenständige Beispiel verwendet die Standarddiagrammdaten, die drei Serien und vier Kategorien enthalten. Es speichert zwei Präsentationen mit identischen Daten, Drehung, Lückenbreite und Diagrammtiefe; nur die Lückentiefe ändert sich.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Column3D, 40, 30, 620, 230);
+
+chart.Rotation3D.RotationX = 20;
+chart.Rotation3D.RotationY = 30;
+chart.Rotation3D.DepthPercents = 100;
+
+var series = chart.ChartData.Series[0];
+var group = series.ParentSeriesGroup;
+group.GapWidth = 150;
+
+foreach (ushort gapDepth in new ushort[] { 0, 500 })
+{
+    group.GapDepth = gapDepth;
+
+    var fileName = $"series_gap_depth_{gapDepth}.pptx";
+    presentation.Save(fileName, SaveFormat.Pptx);
+
+}
+```
+
+Die folgenden Bilder wurden aus den erzeugten Präsentationen mit Microsoft PowerPoint exportiert.
+
+| Lückentiefe: 0% | Lückentiefe: 500% |
+| --- | --- |
+| ![3D‑Säulendiagramm ohne Abstand zwischen Serien entlang der Tiefenachse](gap_depth_0.png) | ![3D‑Säulendiagramm mit einem Abstand von 500 % zwischen Serien entlang der Tiefenachse](gap_depth_500.png) |
+
+## **3D‑Serientyp und Balkenform ändern**
+
+In einem gruppierten Zylinderdiagramm beginnt die erste Serie mit einer zylindrischen Balkenform. Das Beispiel liest [IChartSeries.Type](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/type/) und [IChartSeries.Bar3DShape](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/bar3dshape/) vor und nach jeder Änderung.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredCylinder, 20, 20, 500, 300);
+var series = chart.ChartData.Series[0];
+
+Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
+
+series.Type = ChartType.ClusteredCone;
+Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
+
+series.Bar3DShape = ChartShapeType.Box;
+Console.WriteLine($"{series.Type} | {series.Bar3DShape}");
+
+presentation.Save("series_shape.pptx", SaveFormat.Pptx);
+```
+
+| Änderung an der ersten Serie | `Type` | `Bar3DShape` |
+| --- | --- | --- |
+| Diagramm erstellen | `ClusteredCylinder` | `Cylinder` |
+| `Type` auf `ClusteredCone` setzen | `ClusteredCone` | `Cone` |
+| `Bar3DShape` auf `Box` setzen | `ClusteredColumn3D` | `Box` |
+
+Das Setzen der Form auf `Box` ändert zudem den Serientyp zu `ClusteredColumn3D`. Wenn Ihr Code abhängig vom Serientyp verzweigt, lesen Sie `series.Type` nach dem Ändern der Form. Ein vor der Zuweisung zwischengespeicherter Wert würde weiterhin den `ClusteredCone`‑Zweig auswählen.
+
+![PowerPoint-Vergleich, der die erste Serie von links nach rechts als Zylinder, Kegel und rechteckige Säulen zeigt](series-shapes.png)
 
 ## **FAQ**
 
 **Welche Diagrammtypen unterstützen den 3D‑Modus in Aspose.Slides?**
 
-Aspose.Slides unterstützt 3D‑Varianten von Säulendiagrammen, einschließlich Column 3D, Clustered Column 3D, Stacked Column 3D und 100 % Stacked Column 3D, sowie verwandte 3D‑Typen, die über die [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)‑Aufzählung verfügbar sind. Für eine genaue, aktuelle Liste prüfen Sie die Mitglieder der [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)-Aufzählung in der API‑Referenz Ihrer installierten Version.
+Aspose.Slides unterstützt 3D‑Varianten von Säulendiagrammen, darunter Column 3D, Clustered Column 3D, Stacked Column 3D und 100 % Stacked Column 3D, sowie verwandte 3D‑Typen, die über die Aufzählung [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) bereitgestellt werden. Für eine genaue, aktuelle Liste prüfen Sie die Mitglieder von [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) in der API‑Referenz Ihrer installierten Version.
 
 **Kann ich ein Rasterbild eines 3D‑Diagramms für einen Bericht oder das Web erhalten?**
 
-Ja. Sie können ein Diagramm über die [chart API](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) in ein Bild exportieren oder die gesamte Folie mit [render the entire slide](/slides/de/net/convert-powerpoint-to-png/) in Formate wie PNG oder JPEG rendern. Dies ist nützlich, wenn Sie eine pixelgenaue Vorschau benötigen oder das Diagramm in Dokumente, Dashboards oder Webseiten einbetten möchten, ohne PowerPoint zu benötigen.
+Ja. Sie können ein Diagramm mit [Shape.GetImage](https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/) in ein Bild exportieren oder die gesamte Folie mit [die gesamte Folie rendern](/slides/de/net/convert-powerpoint-to-png/) in Formate wie PNG oder JPEG rendern. Dies ist nützlich, wenn Sie eine Raster‑Vorschau benötigen oder das Diagramm in Dokumente, Dashboards oder Webseiten einbetten möchten, ohne PowerPoint zu benötigen.
 
 **Wie leistungsfähig ist das Erstellen und Rendern großer 3D‑Diagramme?**
 
-Die Leistung hängt vom Datenvolumen und der visuellen Komplexität ab. Für optimale Ergebnisse halten Sie 3D‑Effekte minimal, vermeiden schwere Texturen auf Wänden und Diagrammbereichen, begrenzen nach Möglichkeit die Anzahl der Datenpunkte pro Serie und rendern Sie in eine angemessen große Ausgabe (Auflösung und Abmessungen), die den Zielanzeige‑ oder Druckanforderungen entspricht.
+Die Leistung hängt vom Datenvolumen und der visuellen Komplexität ab. Für optimale Ergebnisse sollten 3D‑Effekte minimal gehalten, schwere Texturen an Wänden und Plot‑Bereichen vermieden, die Anzahl der Datenpunkte pro Serie nach Möglichkeit begrenzt und in eine angemessen große Ausgabe (Auflösung und Abmessungen) gerendert werden, die der Zielanzeige oder den Druckanforderungen entspricht.

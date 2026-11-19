@@ -1,47 +1,49 @@
 ---
-title: Управление данными серии диаграммы в презентациях на Python
-linktitle: Серии данных
+title: "Управление сериями данных диаграмм в презентациях на Python"
+linktitle: "Серии данных"
 type: docs
 url: /ru/python-java/chart-series/
 keywords:
-- серии диаграмм
-- перекрытие серии
-- цвет серии
-- имя серии
-- точка данных
-- ячейка рабочей книги
-- промежуток серии
-- отрицательное значение
-- PowerPoint
-- презентация
-- Python
-- Java
-- Aspose.Slides
-description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной промежутка и отрицательными значениями в презентациях с Aspose.Slides для Python через Java."
+- "серии диаграмм"
+- "наложение серий"
+- "цвет серии"
+- "имя серии"
+- "точка данных"
+- "ячейка рабочей книги"
+- "промежуток серии"
+- "отрицательное значение"
+- "PowerPoint"
+- "презентация"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, наложением, шириной промежутка и отрицательными значениями в презентациях с Aspose.Slides для Python через Java."
 ---
 ## **Обзор**
 
-Диаграмма может хранить построенные значения в ячейках рабочей книги или непосредственно как числовые литералы. [ChartSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/) представляет один набор связанных значений, а каждый [ChartDataPoint](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/) представляет точку в этом наборе. Объекты [ChartCategory](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/) предоставляют метки или значения группировки, общие для серии. В диаграммах, созданных с данными по умолчанию, имена серий, категории и значения точек используют объекты [ChartDataCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/) из рабочей книги диаграммы.
+Диаграмма может сохранять отображаемые значения в ячейках рабочей книги или непосредственно в виде числовых литералов. Объект [ChartSeries](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/) представляет один набор связанных значений, а каждый [ChartDataPoint](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/) представляет точку в этом наборе. Объекты [ChartCategory](https://reference.aspose.com/slides/python-java/aspose.slides/chartcategory/) предоставляют метки или группирующие значения, общие для серий. В диаграммах, созданных с данными по умолчанию, имена серий, категории и значения точек используют объекты [ChartDataCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/) из рабочей книги диаграммы.
 
-Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell), начинаются с нуля. Такой макет полезен при создании диаграммы с данными по умолчанию, но не следует полагать, что каждый существующий график использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, перед изменением значений в рабочей книге.
+Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и остальные ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCell), начинаются с 0. Этот макет полезен, когда вы создаёте диаграмму с данными по умолчанию, но не следует предполагать, что каждая существующая диаграмма использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем менять значения в рабочей книге.
 
 Настройки диаграммы имеют три разных уровня:
 
-- Настройки уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat), задают оформление по умолчанию для всех точек в одной серии.
-- Настройки точек данных, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat), переопределяют оформление серии для отдельной точки.
-- Настройки группы применяются к совместимым сериям, принадлежащим одному [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/). Доступ к группе осуществляется через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup), когда требуется задать параметры, такие как перекрытие или ширина промежутка.
+- Настройки уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat), задают внешний вид по умолчанию для всех точек в одной серии.
+- Настройки отдельной точки, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat), переопределяют внешний вид серии для одной точки.
+- Настройки группы применяются к совместимым сериям, принадлежащим одному [ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/). Доступ к группе осуществляется через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup), когда необходимо задать параметры, такие как наложение или ширина промежутка.
 
-Когда явное заполнение точки или серии не задано, стиль и тема диаграммы определяют автоматическое оформление. Если присутствует как оформление серии, так и точек, оформление точек имеет приоритет для соответствующей точки.
+Когда явное заполнение точки или серии не задано, стиль и тема диаграммы определяют автоматический вид. Когда присутствуют как настройки серии, так и точки, приоритет имеет форматирование точки.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![диаграмма‑ряды‑PowerPoint](chart-series-powerpoint.png)
 
-## **Установка значений серии с помощью числовых литералов**
+Для группируемой цилиндрической диаграммы посмотрите, как [изменение 3D типа серии или формы столбца](/slides/ru/python-java/3d-chart/#change-the-3d-series-type-and-bar-shape) влияет на первую серию.
 
-Используйте числовые литералы, когда значения серии берутся из данных приложения или вычислений и не требуют ссылок на ячейки листа. Вызовите [setDataSourceTypeForValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForValues) с параметром [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/#DoubleLiterals) перед назначением результата [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) каждой точки через [setAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#setAsLiteralDouble).
+## **Установка значений серии с использованием числовых литералов**
 
-Параметр коллекции управляет типом источника всех значений точек в этой серии. Метод [getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/basechartvalue/#getDataSourceType) каждой точки сообщает выбранный тип; изменить его можно через параметр коллекции. При работе с `Worksheet` используйте [getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsCell) для доступа к ячейке. При работе с `DoubleLiterals` используйте [getAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsLiteralDouble) или `setAsLiteralDouble` для чтения или записи числа напрямую.
+Используйте числовые литералы, когда значения серии поступают из данных приложения или вычислений и не требуют ссылок на ячейки листа. Вызовите [setDataSourceTypeForValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForValues) с [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/python-java/aspose.slides/datasourcetype/#DoubleLiterals) перед присвоением каждому результату [getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue) точки через [setAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#setAsLiteralDouble).
 
-Следующий пример создаёт столбчатую диаграмму с сериями и категориями по умолчанию, затем назначает вычисленные значения 10, 20 и так далее существующим точкам первой серии. Пример сохраняет презентацию, открывает её снова и выводит сохранённые значения.
+Настройка коллекции управляет типом источника всех значений точек в этой серии. Метод [getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/basechartvalue/#getDataSourceType) каждой точки возвращает выбранный тип; измените его через настройку коллекции. С `Worksheet` используйте [getAsCell](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsCell) для доступа к ссылочной ячейке. С `DoubleLiterals` используйте [getAsLiteralDouble](https://reference.aspose.com/slides/python-java/aspose.slides/doublechartvalue/#getAsLiteralDouble) или `setAsLiteralDouble` для чтения или записи числа напрямую.
+
+Следующий пример создаёт столбчатую диаграмму с сериями и категориями по умолчанию, затем присваивает вычисленные значения 10, 20 и т.д. существующим точкам первой серии. Он сохраняет презентацию, открывает её снова и выводит сохранённые значения.
 
 ```python
 import jpype
@@ -78,22 +80,22 @@ finally:
     reopened_presentation.dispose()
 ```
 
-Тип источника значения точки отличается от [ChartData.getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType), который определяет конфигурацию внутренней или внешней рабочей книги диаграммы. Использование числовых литералов само по себе не удаляет встроенную рабочую книгу. В данном примере рабочая книга остаётся доступной для меток категорий, имён серий и остальных серий. См. [Chart Workbook](/slides/ru/python-java/chart-workbook/) для управления рабочими книгами.
+Тип источника значения точки отдельный от [ChartData.getDataSourceType](https://reference.aspose.com/slides/python-java/aspose.slides/chartdata/#getDataSourceType), который определяет конфигурацию внутренней или внешней рабочей книги диаграммы. Использование числовых литералов само по себе не удаляет встроенную рабочую книгу. В этом примере рабочая книга остаётся доступной для меток категорий, имён серий и остальных серий. См. [Chart Workbook](/slides/ru/python-java/chart-workbook/) для управления рабочей книгой.
 
-Для диаграмм разброса и пузырей используйте [setDataSourceTypeForXValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForXValues) и [setDataSourceTypeForYValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForYValues), чтобы выбрать источники для [getXValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getXValue) и [getYValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getYValue). Диаграммы‑пузыри также используют [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForBubbleSizes) для [getBubbleSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getBubbleSize). Установите каждый применимый источник в `DoubleLiterals` перед назначением чисел через метод `setAsLiteralDouble`.
+Для точечных и пузырьковых диаграмм используйте [setDataSourceTypeForXValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForXValues) и [setDataSourceTypeForYValues](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForYValues) для выбора источников для [getXValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getXValue) и [getYValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getYValue). Пузырьковые диаграммы также используют [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#setDataSourceTypeForBubbleSizes) для [getBubbleSize](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getBubbleSize). Установите каждый применимый источник в `DoubleLiterals` перед присвоением чисел через метод `setAsLiteralDouble` соответствующего значения.
 
-## **Установка перекрытия серии диаграммы**
+## **Установка наложения серий диаграммы**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getOverlap) сообщает, насколько бары или столбцы перекрываются в 2‑D диаграмме, от -100 до 100 процентов. Это только чтение проекции настройки группы родительской серии. Используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap), чтобы обновить все совместимые серии в этой группе. Эта опция применяется к типам диаграмм, отображающим сгруппированные бары или столбцы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getOverlap) сообщает, насколько столбцы или полосы перекрываются в 2D‑диаграмме, от ‑100 до 100 процентов. Это только чтение проекции настройки в родительской группе серий. Используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setOverlap) для обновления всех совместимых серий в этой группе. Эта опция применима к типам диаграмм, отображающим группированные столбцы или полосы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
 
-Следующий пример задаёт перекрытие для группы, содержащей первую серию:
+Следующий пример задаёт наложение для группы, содержащей первую серию:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpirthartJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
@@ -105,7 +107,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(first_slide_index)
 
-    # Новая диаграмма содержит образцовые серии, категории и значения.
+    # Новая диаграмма содержит примерные серии, категории и значения.
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200)
 
     series = chart.getChartData().getSeries().get_Item(first_series_index)
@@ -118,11 +120,11 @@ finally:
 
 Результат:
 
-![The series overlap](series_overlap.png)
+![Наложение серий](series_overlap.png)
 
 ## **Изменение цвета заливки серии**
 
-Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat), чтобы задать заливку по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) переопределяет заливку серии для этой точки.
+Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getFormat) для задания заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getFormat) переопределяет заливку серии для этой точки.
 
 Следующий пример применяет сплошную синюю заливку к первой серии:
 
@@ -157,11 +159,11 @@ finally:
 
 Результат:
 
-![The color of the series](series_color.png)
+![Цвет серии](series_color.png)
 
 ## **Изменение имени серии**
 
-Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию, созданной для кластеризованной столбчатой диаграммы, ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные переменные в следующем примере делают эту структуру явной:
+Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для группируемой столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные переменные в следующем примере делают эту структуру явной:
 
 ```python
 import jpype
@@ -192,7 +194,7 @@ finally:
     presentation.dispose()
 ```
 
-Вы также можете обновить уже используемую ячейку через [ChartSeries.getName](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getName). Такой подход позволяет избежать предположений о конкретных строке и столбце в существующей диаграмме:
+Вы также можете обновить ячейку, уже используемую [ChartSeries.getName](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getName). Такой подход избавляет от предположения о конкретных строке и столбце в существующей диаграмме:
 
 ```python
 import jpype
@@ -224,13 +226,13 @@ finally:
 
 Результат:
 
-![The series name](series_name.png)
+![Имя серии](series_name.png)
 
 ### **Создание серии с именем из нескольких ячеек**
 
-Составное имя серии полезно, когда название продукта и отчётный период хранятся в разных ячейках рабочей книги. Например, вы можете объединить `Product A` в B1 и `2026` в C1 в одно имя серии, при этом обе части остаются связанными со своими исходными ячейками.
+Составное имя серии удобно, когда название продукта и период отчёта хранятся в отдельных ячейках рабочей книги. Например, вы можете объединить `Product A` в B1 и `2026` в C1 в одно имя серии, сохранив связь обеих частей с их исходными ячейками.
 
-Используйте [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCellCollection), чтобы получить диапазон имён, а затем передайте эту коллекцию в [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriescollection/#add). Параметр `skipHiddenCells` управляет включением скрытых ячеек: `True` исключает их, `False` включает. В примере используется `False`, чтобы включить каждую ячейку в диапазоне имён.
+Используйте [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/#getCellCollection) для получения диапазона имён, затем передайте эту коллекцию в [ChartSeriesCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriescollection/#add). Параметр `skipHiddenCells` управляет включением скрытых ячеек: `True` исключает их, `False` — включает. В этом примере используется `False` для включения всех ячеек в диапазоне имён.
 
 Следующий пример создаёт презентацию с одной серией и двумя точками данных. Ячейки B1:C1 содержат только имя серии; A2:A3 — метки категорий, B2:B3 — числовые значения.
 
@@ -277,13 +279,13 @@ finally:
     presentation.dispose()
 ```
 
-Полученное имя серии — `Product A 2026`, между двумя значениями ячеек вставлен пробел. Легенда отображает его как одну запись для обеих колонок. Ниже показан результат:
+Получаемое имя серии — `Product A 2026`, между двумя значениями ячеек вставлен пробел. В легенде это отображается как один пункт для обеих колонок. Ниже изображён результат:
 
-![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+![Столбчатая диаграмма с названиями Север и Юг и составным именем серии Product A 2026 в легенде](composite_series_name.png)
 
 ## **Получение автоматического цвета заливки серии**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) возвращает цвет, вычисленный на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не определена явно. Вызов метода лишь считывает вычисленный цвет; он не задаёт новую заливку.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getAutomaticSeriesColor) возвращает цвет, вычисленный на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не задана явно. Вызов метода лишь читает вычисленный цвет; он не задаёт новую заливку.
 
 Следующий пример выводит автоматический цвет каждой серии по умолчанию:
 
@@ -325,9 +327,9 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 ## **Установка инвертированного цвета заливки для серии диаграммы**
 
-Для бар‑, столбцовых и пузырьковых серий [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) может отображать отрицательные значения другим цветом. Задайте обычную заливку серии как сплошную, включите инверсию и задайте цвет отрицательного значения через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Отрицательные числа в рабочей книге остаются неизменными; меняется только их цвет отображения.
+Для серий столбцов, полос и пузырьков [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) может отображать отрицательные значения другим цветом заливки. Задайте обычную заливку серии сплошной, включите инверсию и укажите цвет отрицательного значения через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Отрицательные числа в рабочей книге остаются без изменений; меняется только их цвет отображения.
 
-Следующий пример заменяет данные диаграммы одной серией. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
+Следующий пример заменяет данные диаграммы на одну серию. В строке 0 листа находится имя серии, в столбце 0 — имена категорий, в столбце 1 — значения:
 
 ```python
 import jpype
@@ -389,9 +391,9 @@ finally:
 
 Результат:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Инвертированный сплошной цвет заливки](inverted_solid_fill_color.png)
 
-Инверсию можно включить для отдельной точки через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присваивается отрицательное значение, чтобы эффект был виден:
+Вы можете включить инверсию для одной точки через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присвоено отрицательное значение, чтобы эффект был виден:
 
 ```python
 import jpype
@@ -433,7 +435,7 @@ finally:
 
 ## **Очистка конкретного значения точки данных**
 
-Чтобы сделать одну точку пустой, не удаляя остальные, установите её ячейку в рабочей книге в `None`. Для столбчатой диаграммы построенное значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue). Точка остаётся в том же положении категории, но диаграмма считает её значение пустым в соответствии с настройками обработки пустых значений.
+Чтобы сделать одну точку пустой, не удаляя остальные, установите её ячейку в рабочей книге в значение `None`. Для столбчатой диаграммы отображаемое значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#getValue). Точка остаётся в той же позиции категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками отображения пустых значений.
 
 Следующий пример очищает только вторую точку первой серии:
 
@@ -465,24 +467,24 @@ finally:
     presentation.dispose()
 ```
 
-Диаграммы разброса используют отдельные ячейки X и Y, а диаграммы‑пузыри – также ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое планируется удалить. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear), если необходимо оставить остальные точки, так как этот метод удаляет все точки из коллекции.
+Точечные диаграммы используют отдельные ячейки для X и Y, а пузырьковые диаграммы — также ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое хотите удалить. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear), если хотите оставить остальные точки, так как этот метод удаляет все точки из коллекции.
 
 ## **Управление отображением пустых ячеек**
 
-Скрытые ячейки, содержащие значения, отличаются от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Скрытые ячейки, содержащие значения, — отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/python-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Пустая ячейка рабочей книги обозначает отсутствие данных; ячейка, содержащая `0`, — известное числовое значение. Вызовите [ChartDataCell.setValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setValue) с `None`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки обработки пустых ячеек.
+Пустая ячейка рабочей книги представляет отсутствие данных; ячейка, содержащая `0`, представляет известное числовое значение. Вызовите [ChartDataCell.setValue](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setValue) с `None`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулём независимо от настройки отображения пустых ячеек.
 
-Используйте [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs), чтобы выбрать способ отображения пустых ячеек. Эта настройка применяется ко всей диаграмме. Она изменяет способ построения пустот, не заполняя пустую ячейку нулём или интерполированным значением.
+Используйте [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs) для выбора способа отображения пустых ячеек диаграммой. Эта настройка применяется ко всей диаграмме. Она меняет способ построения пустот без заполнения пустой ячейки нулём или интерполированным значением.
 
-Следующий самодостаточный пример создаёт линейную диаграмму с одной серией, очищает значение для Дня 3 и сохраняет диаграмму в каждом режиме. Входной файл не требуется. [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 содержит имя серии. Итоговые данные: `10, 20, empty, 30, 40`.
+Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для Дня 3 и сохраняет одну и ту же диаграмму в каждом режиме. Входной файл не требуется. [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/) использует лист 0, столбец 0 для меток категорий и столбец 1 для значений; строка 0 хранит имя серии. Окончательные данные: `10, 20, empty, 30, 40`.
 
 ```python
-import jpide
+import jpype
 import asposeslides
 
-if not jpide.isJVMStarted():
-    jpide.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import ChartType, DisplayBlanksAsType, Presentation, SaveFormat
 
@@ -504,10 +506,10 @@ try:
     for i, value in enumerate(values):
         category_cell = workbook.getCell(0, i + 1, 0, f"Day {i + 1}")
         chart_data.getCategories().add(category_cell)
-        value_cell = workbook.getCell(0, i + 1, 1, jpide.JInt(value))
+        value_cell = workbook.getCell(0, i + 1, 1, jpype.JInt(value))
         series.getDataPoints().addDataPointForLineSeries(value_cell)
 
-    # Оставить день 3 действительно пустым, при этом сохранить его категорию и точку данных.
+    # Оставить день 3 действительно пустым, сохранив его категорию и точку данных.
     workbook.getCell(0, 3, 1).setValue(None)
 
     modes = [DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span]
@@ -519,19 +521,19 @@ finally:
     presentation.dispose()
 ```
 
-Каждый выходной файл сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо перебора режимов.
+Каждый выходной файл сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо итерации по режимам.
 
-Сравнение ниже показывает одни и те же данные во всех трёх файлах. День 3 пуст в рабочей книге во всех случаях:
+Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге в каждом случае:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Линейные диаграммы с одинаковыми данными: Gap разрывает линию в Дне 3, Zero опускает линию до нуля, а Span соединяет День 2 с Днём 4.](display_blanks_as.png)
 
-Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнивать все три режима. Бар‑ и столбцовые диаграммы не имеют линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, показанный выше; пустой столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, диаграмма разброса только с маркерами не имеет соединительной линии. Не ожидайте три разных результата для каждого типа диаграммы; проверьте вывод для используемого типа.
+Видимый эффект зависит от типа диаграммы. На линейной диаграмме все три режима легко сравнить. На столбчатых и полосовых диаграммах нет линии, соединяющей пункт с отсутствующей категорией, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, точечная диаграмма только с маркерами не имеет соединительной линии. Не ожидайте три разных результата для каждого типа диаграммы; проверьте вывод для используемого типа.
 
-## **Установка ширины промежутка серии**
+## **Установка ширины промежутка между сериями**
 
-Ширина промежутка — это пространство между соседними кластерами баров или столбцов, выраженное в процентах от ширины бара или столбца. Как и перекрытие, она относится к родительской группе серий, а не к отдельной серии. Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) один раз для группы. Большое значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
+Ширина промежутка — это пространство между соседними кластерами столбцов или полос, выраженное в процентах от ширины столбца или полосы. Как и наложение, она относится к родительской группе серий, а не к отдельной серии. Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) один раз для группы. Большое значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
 
-Следующий пример меняет ширину промежутка и сохраняет только окончательную презентацию:
+Следующий пример меняет ширину промежутка и сохраняет только конечную презентацию:
 
 ```python
 import jpype
@@ -562,46 +564,87 @@ finally:
 
 Результат:
 
-![The gap width](gap_width.png)
+![Ширина промежутка](gap_width.png)
+
+## **Показ или скрытие линий серии**
+
+Линии серии визуально соединяют связанные части диаграммы. Используйте [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setSeriesLines), чтобы показать или скрыть их в поддерживаемых сложенных столбчатых и PieOfPie‑диаграммах. В двумерных сложенных столбчатых и полосовых диаграммах они соединяют соответствующие границы стека через категории. В Pie of Pie и Bar of Pie они соединяют основную диаграмму со вторичной. Эта настройка не является универсальным соединителем для других типов диаграмм.
+
+Доступ к группе осуществляется через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getParentSeriesGroup). Настройка применяется ко всем сериям в этой группе. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#hasSeriesLines) только для чтения и отражает настройку группы; вызывайте сеттер группы для её изменения.
+
+Следующий пример создаёт одну диаграмму [PieOfPie](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/#PieOfPie) с данными по умолчанию. Он сохраняет одну и ту же диаграмму с включёнными линиями серии, а затем с отключёнными, получая две презентации для сравнения.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400)
+    series = chart.getChartData().getSeries().get_Item(0)
+    series_group = series.getParentSeriesGroup()
+
+    series_group.setSeriesLines(True)
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx)
+
+    series_group.setSeriesLines(False)
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+| Линии серии включены | Линии серии отключены |
+| --- | --- |
+| ![Диаграмма Pie of Pie с включёнными линиями серии](series_lines_enabled.png) | ![Диаграмма Pie of Pie с отключёнными линиями серии](series_lines_disabled.png) |
+| Две линии соединяют главный пирог со вторичным. | Оба пирога остаются видимыми, но соединительные линии скрыты. |
+
+Линии серии отличаются от линий-выноски меток данных, которые соединяют метки с их точками; от линий сетки, отмечающих интервалы вдоль осей; и от линий в линейных диаграммах, представляющих сами данные. Эта настройка не управляет этими элементами.
 
 ## **FAQ**
 
 **Какие типы диаграмм поддерживают серии данных?**
 
-Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, категориальные диаграммы используют категории и значения, диаграммы разброса — X и Y, а диаграммы‑пузыри добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам баров или столбцов.
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/python-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, диаграммы категорий используют категории и значения, точечные диаграммы используют X и Y, а пузырьковые добавляют размеры пузырьков. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как наложение и ширина промежутка, применимы только к совместимым группам столбцов или полос.
 
-**Что такое группа серий диаграммы?**
+**Что такое группа серии диаграммы?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, которые используют общие настройки построения на уровне группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит все серии диаграммы.
+[ChartSeriesGroup](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, которые разделяют групповые настройки построения. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно меняет все серии в диаграмме.
 
-**Создаётся ли в новой диаграмме набор данных по умолчанию?**
+**Содержит ли только что созданная диаграмма данные по умолчанию?**
 
-Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) создаёт образцы серий, категорий и значений. Вы можете изменить эти ячейки или очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Перегрузка метода также позволяет создать диаграмму без данных по умолчанию.
+Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addChart) создаёт примерные серии, категории и значения. Вы можете изменить эти ячейки или полностью очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Перегрузка также может создать диаграмму без данных по умолчанию.
 
-**Как объекты диаграммы связываются с ячейками рабочей книги?**
+**Как объекты диаграммы связаны с ячейками рабочей книги?**
 
-Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных следите за тем, чтобы строки категорий и строки значений серий оставались согласованными, чтобы каждая точка отображалась под нужной категорией.
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/python-java/aspose.slides/chartdataworkbook/). Изменение ссылочной ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных поддерживайте выравнивание строк категорий и строк значений серий, чтобы каждая точка отображалась под нужной категорией.
 
 **Как очистить одну точку, а не всю серию?**
 
-Установите соответствующую ячейку значения в `None`, чтобы сохранить позицию категории точки как пустую точку. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) только тогда, когда хотите удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались согласованными с коллекцией категорий.
+Установите соответствующую ячейку значения в `None`, чтобы сохранить позицию категории точки как пустой. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapointcollection/#clear) только когда нужно удалить все точки из серии, поскольку этот метод удаляет каждую точку из коллекции.
 
 **Как отображаются пустые точки?**
 
-Результат зависит от типа диаграммы и значения, заданного в [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs). Поддерживаемые диаграммы могут отображать пустоты как пробелы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. [Control the Display of Empty Cells](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
+Результат зависит от типа диаграммы и значения, настроенного через [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setDisplayBlanksAs). Поддерживаемые диаграммы могут отображать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел [Управление отображением пустых ячеек](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
 
-**Как форматировать отрицательные значения?**
+**Как форматируются отрицательные значения?**
 
-Для поддерживаемых бар‑, столбцовых и пузырьковых серий вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Вы можете переопределить поведение для отдельной точки с помощью [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Эти методы влияют на форматирование, а не на сохраняемые числовые значения.
+Для поддерживаемых столбцовых, колонных и пузырьковых серий вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#setInvertIfNegative) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Вы можете переопределить поведение для отдельной точки с помощью [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Эти методы влияют на форматирование, а не на сохранённые числовые значения.
 
-**Какой формат выигрывает, когда одновременно задано форматирование серии и точки?**
+**Какое форматирование имеет приоритет, когда и серия, и точка отформатированы?**
 
-Явное форматирование точки данных имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина промежутка, управляют расположением и не являются переопределениями формата уровня точки.
+Явное форматирование точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не задан, автоматический стиль и тему диаграммы. Настройки группы, такие как наложение и ширина промежутка, управляют расположением и не переопределяют форматирование точек.
 
-**Есть ли лимит на количество серий в диаграмме?**
+**Есть ли ограничение на количество серий в диаграмме?**
 
-Aspose.Slides не налагает отдельный фиксированный лимит на количество серий. На практике ограничения определяются размером файла презентации, доступной памятью, временем рендеринга и читаемостью диаграммы.
+Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения файлов презентации, доступная память, время рендеринга и читаемость диаграммы определяют практический лимит.
 
-**Что изменить, если столбцы слишком близко друг к другу или слишком далеко?**
+**Что менять, когда столбцы слишком близко или слишком далеко друг от друга?**
 
-Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) у соответствующей родительской группы серий. Увеличьте значение, чтобы расширить промежуток между кластерами, или уменьшите его, чтобы собрать кластеры ближе.
+Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/python-java/aspose.slides/chartseriesgroup/#setGapWidth) для соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы собрать кластеры ближе.

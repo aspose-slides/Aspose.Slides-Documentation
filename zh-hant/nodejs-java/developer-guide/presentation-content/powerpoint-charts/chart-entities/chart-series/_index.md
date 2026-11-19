@@ -1,5 +1,5 @@
 ---
-title: 在簡報中使用 JavaScript 管理圖表資料系列
+title: 使用 JavaScript 在簡報中管理圖表資料系列
 linktitle: 資料系列
 type: docs
 url: /zh-hant/nodejs-java/chart-series/
@@ -9,7 +9,7 @@ keywords:
 - 系列顏色
 - 系列名稱
 - 資料點
-- 活頁本儲存格
+- 工作簿儲存格
 - 系列間距
 - 負值
 - PowerPoint
@@ -17,29 +17,77 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "了解如何在簡報中使用 JavaScript 管理圖表系列、資料點、活頁本儲存格、格式設定、重疊、間距寬度和負值。"
+description: "學習如何使用 JavaScript 在簡報中管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間距寬度與負值。"
 ---
-## **概觀**
+## **概述**
 
-圖表將其繪製的資料儲存在圖表資料活頁本中。 [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) 代表一組相關值，而系列中的每個 [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) 均參照一個或多個活頁本儲存格。[ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) 物件提供系列共用的標籤或分組值。因此，系列名稱、類別和點值會連結至 [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) 物件，而非僅以顯示文字儲存。
+A chart can store its plotted values in workbook cells or directly as numeric literals. A [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) represents a point in that series. [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) objects from the chart workbook.
 
-對於一般的類別圖，預設活頁本使用第 0 列儲存系列名稱，第 0 行儲存類別名稱，其餘儲存格用於系列值。傳遞給 [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) 的工作表、列與欄索引為零基礎。此佈局在建立預設資料的圖表時相當有用，但不要假設每個現有圖表皆採用此佈局。對於已載入的簡報，請於變更活頁本資料前先檢查系列、類別與資料點所參照的儲存格。
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
-圖表設定有三種不同的範圍：
+Chart settings have three different scopes:
 
-- 系列層級設定，例如 [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat)，提供整個系列內所有點的預設外觀。
-- データ點層級設定，例如 [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat)，會覆寫該系列的外觀僅針對單一點。
-- 群組設定套用於屬於同一個 [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) 的相容系列。當需要設定重疊或間距寬度等選項時，請透過 [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) 取得群組。
+- Series-level settings, such as [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), provide the default appearance for all points in one series.
+- Data-point settings, such as [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) when you need to set options such as overlap or gap width.
 
-當未明確設定點或系列的填色時，圖表樣式與主題會決定自動外觀。若同時存在系列與點的格式設定，點的格式會優先套用於該點。
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **設定圖表系列重疊**
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/zh-hant/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getOverlap) 回報 2D 圖表中長條或柱狀的重疊程度，範圍從 -100% 到 100%。它是父系列群組設定的唯讀投射。使用 [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) 可更新該群組中所有相容系列。此選項套用於顯示分組長條或柱狀的圖表類型；不會影響組合圖中不相關的系列群組。
+## **使用數值字面量設定系列值**
 
-下列範例設定包含第一個系列的群組重疊：
+Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) with [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) before assigning each point's [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) result through [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+
+The collection setting controls the source type of all point values in that series. Each point value's [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) method reports the selected type; change it through the collection setting. With `Worksheet`, use [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) to access the referenced cell. With `DoubleLiterals`, use [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) or `setAsLiteralDouble` to read or write the number directly.
+
+The following example creates a column chart with default series and categories, then assigns calculated values of 10, 20, and so on to the existing points of its first series. It saves the presentation, reopens it, and prints the stored values.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    series.getDataPoints().setDataSourceTypeForValues(aspose.slides.DataSourceType.DoubleLiterals);
+    for (let i = 0; i < series.getDataPoints().size(); i++) {
+        series.getDataPoints().get_Item(i).getValue().setAsLiteralDouble((i + 1) * 10);
+    }
+
+    presentation.save("numeric_literals.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopenedPresentation = new aspose.slides.Presentation("numeric_literals.pptx");
+try {
+    const reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    const reopenedChart = reopenedSlide.getShapes().get_Item(0);
+    const reopenedSeries = reopenedChart.getChartData().getSeries().get_Item(0);
+    for (let i = 0; i < reopenedSeries.getDataPoints().size(); i++) {
+        const point = reopenedSeries.getDataPoints().get_Item(i);
+        console.log(point.getValue().getAsLiteralDouble());
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+The point value source type is separate from [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), which identifies the chart's internal or external workbook configuration. Using numeric literals does not, by itself, remove the embedded workbook. In this example, the workbook remains available for category labels, series names, and the other series. See [Chart Workbook](/slides/zh-hant/nodejs-java/chart-workbook/) for workbook management.
+
+For scatter and bubble charts, use [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) and [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) to choose the sources for [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) and [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Bubble charts also use [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) for [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Set each applicable source to `DoubleLiterals` before assigning numbers through that value's `setAsLiteralDouble` method.
+
+## **設定圖表系列的重疊度**
+
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Use [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
+
+The following example sets the overlap for the group that contains the first series:
 
 ```javascript
 const aspose = {};
@@ -54,7 +102,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // 新圖表包含示範系列、類別和數值。
+    // 新圖表包含範例系列、類別和數值。
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -66,15 +114,15 @@ try {
 }
 ```
 
-結果：
+The result:
 
 ![The series overlap](series_overlap.png)
 
-## **變更系列填色**
+## **變更系列填充色彩**
 
-使用 [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat) 設定整個系列的預設填色。如果某個點已有明確的填色，則其 [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat) 設定會覆寫該系列的填色。
+Use [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) to set the default fill for an entire series. If a point already has an explicit fill, its [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) setting overrides the series fill for that point.
 
-下列範例將第一個系列設定為實心藍色填充：
+The following example applies a solid blue fill to the first series:
 
 ```javascript
 const aspose = {};
@@ -102,13 +150,13 @@ try {
 }
 ```
 
-結果：
+The result:
 
 ![The color of the series](series_color.png)
 
 ## **變更系列名稱**
 
-系列名稱儲存在圖表資料活頁本中，通常顯示於圖例。對於預設用於群組柱狀圖的活頁本，儲存格 B1 位於第 0 列第 1 欄，內含第一個系列的名稱。以下範例中的具名常數明確說明了此結構：
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named constants in the following example make that structure explicit:
 
 ```javascript
 const aspose = {};
@@ -135,7 +183,7 @@ try {
 }
 ```
 
-您也可以直接更新 [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getName) 已參照的儲存格。此作法避免假設現有圖表中的特定列與欄：
+You can also update the cell already referenced by [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). This approach avoids assuming a particular row and column in an existing chart:
 
 ```javascript
 const aspose = {};
@@ -161,17 +209,17 @@ try {
 }
 ```
 
-結果：
+The result:
 
 ![The series name](series_name.png)
 
 ### **從多個儲存格建立具有名稱的系列**
 
-當產品名稱與報告期間分別儲存在不同活頁本儲存格時，複合系列名稱會很有用。例如，您可以將 B1 中的 `Product A` 與 C1 中的 `2026` 合併為單一系列名稱，同時保留兩個部份與其來源儲存格的連結。
+A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
 
-使用 [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCellCollection) 取得名稱範圍，然後將該集合傳遞給 [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/#add)。`skipHiddenCells` 參數控制是否包含隱藏儲存格：`true` 會排除，`false` 會包含。本範例使用 `false` 以包含名稱範圍中的每個儲存格。
+Use [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) to retrieve the name range, then pass that collection to [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
 
-下列範例建立一個包含一個系列與兩個資料點的簡報。B1:C1 僅提供系列名稱；A2:A3 提供類別標籤；B2:B3 提供數值。
+The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
 
 ```javascript
 const aspose = {};
@@ -212,15 +260,15 @@ try {
 }
 ```
 
-產生的系列名稱為 `Product A 2026`，兩個儲存格值之間保有空格。圖例會將此顯示為單一條目。下圖說明結果：
+The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below illustrates the result:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **取得自動系列填色**
+## **取得自動系列填充色彩**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) 會回傳依系列索引與圖表樣式計算出的顏色。此顏色在系列填色未明確定義時使用。呼叫此方法僅讀取計算出的顏色，不會指派新填色。
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
 
-下列範例列印每個預設系列的自動顏色：
+The following example prints the automatic color of each default series:
 
 ```javascript
 const aspose = {};
@@ -246,7 +294,7 @@ try {
 }
 ```
 
-預設圖表樣式的範例輸出：
+Example output for the default chart style:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -254,13 +302,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-實際顏色取決於圖表樣式與主題。
+The exact colors depend on the chart style and theme.
 
-## **為圖表系列設定負值反向填色**
+## **設定系列的負向填充色彩**
 
-對於長條、柱狀與氣泡系列，[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) 可讓負值以不同的填色顯示。先將系列填色設定為實心，啟用反向，並透過 [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) 指定負值顏色。負數在活頁本中仍保留原值，僅改變顯示顏色。
+For bar, column, and bubble series, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Negative numbers remain unchanged in the workbook; only their display color changes.
 
-下列範例以一個系列取代預設圖表資料。第 0 列儲存系列名稱，第 0 欄儲存類別名稱，第 1 欄儲存數值：
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```javascript
 const aspose = {};
@@ -318,11 +366,11 @@ try {
 }
 ```
 
-結果：
+The result:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-您也可以透過 [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) 為單一點啟用反向。以下範例在系列停用反向的同時，僅為所選點啟用，且該點同時被賦予負值，以便顯示效果：
+You can enable inversion for one point through [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```javascript
 const aspose = {};
@@ -359,11 +407,11 @@ try {
 }
 ```
 
-## **清除特定資料點值**
+## **清除特定資料點的值**
 
-若要讓單一點變為空白而不移除其他點，請將其背後的活頁本儲存格設為 `null`。對於柱狀圖，可透過 [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getValue) 取得繪製值。資料點仍保留在相同類別位置，但圖表會依據空白值設定將其視為空白。
+To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-下列範例僅清除第一個系列的第二個點：
+The following example clears only the second point in the first series:
 
 ```javascript
 const aspose = {};
@@ -389,17 +437,17 @@ try {
 }
 ```
 
-散佈圖使用分別的 X 與 Y 儲存格，氣泡圖亦使用大小儲存格。僅清除欲移除之值的儲存格。若只想保留其他點，請勿呼叫 [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear)，因為該方法會移除該系列的全部資料點。
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) when you want to keep the other points, because that method removes every data point from the collection.
 
 ## **控制空儲存格的顯示方式**
 
-包含值的隱藏儲存格與空儲存格屬不同情況。若要包含或排除隱藏工作表列與欄的資料，請參閱 [Include Data from Hidden Rows and Columns](/slides/zh-hant/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns)。
+Hidden cells that contain values are a separate case from empty cells. To include or exclude data from hidden worksheet rows and columns, see [Include Data from Hidden Rows and Columns](/slides/zh-hant/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-空的活頁本儲存格代表缺少資料；包含 `0` 的儲存格則代表已知的數值。呼叫 [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setValue) 並傳入 `null` 即可將儲存格設為空白。數值零即使在空白儲存格設定下仍保持為零。
+An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Call [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) with `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
 
-使用 [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) 來選擇圖表如何顯示空儲存格。此設定套用於整個圖表，會改變空白的繪製方式，而不會將空儲存格填入零或插值值。
+Use [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
 
-以下自行包含的範例建立一個含一個系列的折線圖，清除第 3 天的值，並以每種模式儲存同一圖表。無需輸入檔案。[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) 使用第 0 工作表，第 0 欄作為類別標籤，第 1 欄作為數值；第 0 列儲存系列名稱。最終資料為 `10, 20, empty, 30, 40`。
+The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -427,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // 讓第 3 天實際保持空白，同時保留其類別和資料點。
+    // 將第 3 天真正留空，同時保留其類別和資料點。
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -441,19 +489,19 @@ try {
 }
 ```
 
-每個輸出檔案會以儲存前設定的模式命名：`empty_cells_Gap.pptx`、`empty_cells_Zero.pptx`、`empty_cells_Span.pptx`。若只需保存一個版本，請先設定所需模式，然後只儲存一次簡報。
+Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
 
-下圖比較三個檔案的相同資料。第 3 天在活頁本中皆為空白：
+The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-可見效果取決於圖表類型。折線圖最能清楚比較三種模式。長條與柱狀圖因缺少可跨越缺失類別的連接線，`Span` 無法產生上述連接段；缺失的柱狀與高度為零的柱狀也可能看起來相似。散佈圖僅有標記時亦無連接線。請勿期望每種圖表類型都有三種明顯結果；請依您使用的圖表類型檢查輸出。
+The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `Span` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
 
 ## **設定系列間距寬度**
 
-間距寬度是相鄰長條或柱狀叢集之間的空間，表示為長條或柱狀寬度的百分比。與重疊相同，它屬於父系列群組而非單一系列。對群組呼叫一次 [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) 即可。較大的數值會在叢集之間產生更大空間，較小的數值則使叢集更緊密。
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
 
-下列範例變更間距寬度，並僅儲存最終簡報：
+The following example changes the gap width and saves only the final presentation:
 
 ```javascript
 const aspose = {};
@@ -478,48 +526,84 @@ try {
 }
 ```
 
-結果：
+The result:
 
 ![The gap width](gap_width.png)
 
-## **常見問題集**
+## **顯示或隱藏系列線**
 
-**哪些圖表類型支援資料系列？**
+Series lines visually connect related parts of a chart. Use [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/) to show or hide them in supported stacked bar and OfPie charts. In two-dimensional stacked bar and column charts, they connect corresponding stack boundaries across categories. In Pie of Pie and Bar of Pie charts, they connect the main plot to the secondary plot. This setting is not a general-purpose connector for other chart types.
 
-所有由 [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) 列舉表示的圖表類型皆使用圖表資料，但其系列的值結構或設定並不完全相同。例如，類別圖使用類別與值，散佈圖使用 X 與 Y 值，氣泡圖則額外加入氣泡大小。請使用與系列類型相符的資料點建立方法。重疊與間距寬度等選項僅適用於相容的長條或柱狀群組。
+Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). The setting applies to every series in that group. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) is read-only and reflects the parent group's setting; call the group's setter to update it.
+
+The following example creates one [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Series lines enabled | Series lines disabled |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| The two lines connect the main pie to the secondary pie. | Both pies remain visible, but the connecting lines are hidden. |
+
+Series lines differ from data label leader lines, which connect labels to their data points; gridlines, which mark intervals along chart axes; and the lines in a line chart, which represent data values. This setting does not control those elements.
+
+## **常見問題**
+
+**哪種類型的圖表支援資料系列？**
+
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
 **什麼是圖表系列群組？**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) 包含共享群組層級繪製設定的相容系列。組合圖可以包含多個群組，因此透過某個系列取得的群組設定不一定會影響圖表中的所有系列。
+A [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
 
-**新建立的圖表會包含預設資料嗎？**
+**新建立的圖表是否包含預設資料？**
 
-會。預設情況下，[ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) 會產生範例系列、類別與值。您可以編輯這些儲存格，或在加入完全自訂的資料集之前先清除系列與類別集合。亦可使用其他重載建立不含預設資料的圖表。
+Yes. By default, [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
-**圖表物件如何與活頁本儲存格連結？**
+**圖表物件如何與工作簿儲存格連結？**
 
-系列名稱、類別標籤與資料點值皆參照 [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) 中的儲存格。變更被參照的儲存格會即時更新相應的圖表元素。建立自訂資料時，請確保類別列與系列值列保持對齊，使每個點都繪製在正確的類別下。
+Series names, category labels, and data-point values reference cells in a [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
 
 **如何只清除單一點而不是整個系列？**
 
-將相關的值儲存格設為 `null`，即可保留該點的類別位置作為空白點。僅在希望移除該系列所有點時才使用 [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear)。
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
 
 **空白點會如何顯示？**
 
-結果取決於圖表類型以及透過 [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) 設定的值。支援的圖表可將空白顯示為間隙、零值或連接相鄰點。選擇最符合簡報中缺失資料意涵的設定。請參閱 [Control the Display of Empty Cells](#control-the-display-of-empty-cells) 取得完整範例與視覺比較。
+The result depends on the chart type and the value configured through [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
-**負值的格式如何設定？**
+**負值會如何格式化？**
 
-對於支援的長條、柱狀與氣泡系列，呼叫 [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) 並設定 [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) 回傳的顏色。您也可以使用 [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) 為單一點覆寫此行為。這些方法僅影響格式，不會改變儲存的數值。
+For supported bar, column, and bubble series, call [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) and set the color returned by [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). You can override the behavior for an individual point with [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). These methods affect formatting, not the stored numeric values.
 
-**當系列與資料點同時設定格式時，哪個會贏？**
+**當系列和資料點同時設定格式時，哪個優先？**
 
-明確的資料點格式會優先套用於該點。其他點仍會使用明確的系列格式，或在系列未設定時使用自動圖表樣式與主題。群組設定（例如重疊與間距寬度）屬於版面配置，並非點層級的格式覆寫。
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
 
-**圖表能容納多少個系列？是否有上限？**
+**圖表系列的數量有限制嗎？**
 
-Aspose.Slides 本身未設定固定的系列數量上限。實務上，簡報檔案的限制、可用記憶體、渲染時間與圖表可讀性會決定實際可用的上限。
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
 
-**當欄位過於靠近或過於分散時，應如何調整？**
+**當欄位過於接近或過於分離時，應該怎麼調整？**
 
-對相應的父系列群組呼叫 [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth)。提高數值可擴大叢集之間的間距，降低數值則使叢集更靠近。
+Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

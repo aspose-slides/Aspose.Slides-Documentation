@@ -1,47 +1,49 @@
 ---
-title: Beheer grafiekseries in presentaties met JavaScript
-linktitle: Dataseries
+title: Beheer diagramseries in presentaties met JavaScript
+linktitle: Gegevensseries
 type: docs
 url: /nl/nodejs-java/chart-series/
 keywords:
-- grafiekseries
-- seriesoverlap
-- serieskleur
-- serienaam
-- datapunt
-- werkboekcel
-- seriesgat
+- grafiekserie
+- overlap van series
+- serie kleur
+- serie naam
+- gegevenspunt
+- werkbladcel
+- serie tussenruimte
 - negatieve waarde
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer hoe u grafiekseries, datapunten, werkboekcellen, opmaak, overlap, gatbreedte en negatieve waarden in presentaties kunt beheren met JavaScript."
+description: "Leer hoe u diagramseries, gegevenspunten, werkbladcellen, opmaak, overlap, tussenruimte en negatieve waarden in presentaties met JavaScript kunt beheren."
 ---
 ## **Overzicht**
 
-Een grafiek kan zijn weergegeven waarden opslaan in werkboekcellen of rechtstreeks als numerieke literalwaarden. Een [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elke [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) vertegenwoordigt een punt in die serie. [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/)‑objecten leveren de labels of groepeerwaarden die door de series worden gedeeld. In grafieken die met standaardgegevens zijn gemaakt, gebruiken serie‑namen, categorieën en puntwaarden [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/)‑objecten uit het grafiekwerkboek.
+Een diagram kan zijn geplotte waarden opslaan in werkbladcellen of direct als numerieke literals. Een [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elke [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) vertegenwoordigt een punt in die serie. [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/)‑objecten bieden de labels of groeperingswaarden die door de series worden gedeeld. In diagrammen die met standaardgegevens zijn gemaakt, gebruiken serienaam, categorieën en puntwaarden [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/)‑objecten uit het diagram‑werkboek.
 
-Voor een typische categoriegrafiek gebruikt het standaardwerkboek rij 0 voor serienamen, kolom 0 voor categorienamen en de resterende cellen voor seriewaarden. Werkblad‑, rij‑ en kolomindexen die aan [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) worden doorgegeven, zijn nul‑gebaseerd. Deze indeling is nuttig wanneer u een grafiek met standaardgegevens maakt, maar ga er niet van uit dat elke bestaande grafiek dit gebruikt. Voor een geladen presentatie inspecteert u de cellen die door de series, categorieën en datapunten worden gerefereerd voordat u werkboekwaarden wijzigt.
+Voor een typisch categorie‑diagram gebruikt het standaardwerkboek rij 0 voor sernamen, kolom 0 voor categorienamen en de resterende cellen voor serie‑waarden. Werkblad‑, rij‑ en kolomindexen die aan [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/) worden doorgegeven, zijn nul‑gebaseerd. Deze indeling is handig wanneer u een diagram met standaardgegevens maakt, maar ga er niet vanuit dat elk bestaand diagram dit gebruikt. Voor een geladen presentatie moet u de cellen die door de series, categorieën en gegevenspunten worden gerefereerd inspecteren voordat u werkboek‑waarden wijzigt.
 
-Grafiek‑instellingen hebben drie verschillende reikwijdtes:
+Diagraminstellingen hebben drie verschillende scopes:
 
-- Instellingen op serieniveau, zoals [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), bieden de standaardweergave voor alle punten in één serie.
-- Instellingen voor datapunten, zoals [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), overschrijven de serie‑weergave voor één punt.
-- Groepsinstellingen zijn van toepassing op compatibele series die tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) behoren. Toegang tot de groep via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) wanneer u opties zoals overlap of gatbreedte moet instellen.
+- Instellingen op serie‑niveau, zoals [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), bieden de standaardweergave voor alle punten in één serie.
+- Instellingen voor gegevenspunten, zoals [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), overschrijven de serie‑weergave voor één punt.
+- Groepsinstellingen gelden voor compatibele series die tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) behoren. Toegang tot de groep gebeurt via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/) wanneer u opties wilt instellen zoals overlap of breedte van de tussenruimte.
 
-Wanneer geen expliciete punt‑ of serie‑vulling is ingesteld, bepalen het grafiek‑stijl en thema de automatische weergave. Wanneer zowel serie‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
+Wanneer er geen expliciete punt‑ of serie‑opvulling is ingesteld, bepalen de diagramstijl en het thema het automatische uiterlijk. Wanneer zowel serie‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Stel serie‑waarden in met numerieke literalwaarden**
+Voor een gegroepeerd cilinderdia­gram, zie hoe [het wijzigen van het 3D‑serietype of de balkvorm](/slides/nl/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) de eerste serie beïnvloedt.
 
-Gebruik numerieke literalwaarden wanneer seriewaarden afkomstig zijn van applicatie‑gegevens of berekeningen en geen verwijzingen naar werkbladcellen nodig hebben. Roep [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) aan met [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) voordat u het resultaat van elke punt‑[getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) toewijst via [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+## **Serieswaarden instellen met numerieke literals**
 
-Collectie‑instelling bepaalt het brontype van alle puntwaarden in die serie. Elke puntwaarde‑[getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) methode rapporteert het geselecteerde type; wijzig het via de collectie‑instelling. Met `Worksheet` gebruikt u [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) om de gerefereerde cel te benaderen. Met `DoubleLiterals` gebruikt u [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) of `setAsLiteralDouble` om het getal direct te lezen of te schrijven.
+Gebruik numerieke literals wanneer de serie‑waarden afkomstig zijn van toepassingsdata of berekeningen en geen referenties naar werkbladcellen nodig hebben. Roep [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) aan met [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) voordat u het resultaat van elk punt‑[getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) toewijst via [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
 
-Het volgende voorbeeld maakt een staafgrafiek met standaard series en categorieën, en kent vervolgens berekende waarden van 10, 20, enzovoort toe aan de bestaande punten van de eerste serie. Het slaat de presentatie op, opent deze opnieuw, en drukt de opgeslagen waarden af.
+De collectie‑instelling bepaalt het brontype van alle puntwaarden in die serie. De [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/)‑methode van elke puntwaarde meldt het geselecteerde type; wijzig het via de collectie‑instelling. Met `Worksheet` gebruikt u [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) om de gerefereerde cel te benaderen. Met `DoubleLiterals` gebruikt u [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) of `setAsLiteralDouble` om het getal direct te lezen of te schrijven.
+
+Het volgende voorbeeld maakt een kolomdiagram met standaard series en categorieën, en kent vervolgens berekende waarden van 10, 20, enzovoort toe aan de bestaande punten van de eerste serie. Het slaat de presentatie op, opent deze opnieuw, en drukt de opgeslagen waarden af.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -77,13 +79,13 @@ try {
 }
 ```
 
-Het puntwaarde‑brontype staat los van [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), dat de interne of externe werkboekconfiguratie van de grafiek identificeert. Het gebruik van numerieke literalwaarden verwijdert op zich niet het ingebedde werkboek. In dit voorbeeld blijft het werkboek beschikbaar voor categorielabels, serienamen en de andere series. Zie [Grafiekwerkboek](/slides/nl/nodejs-java/chart-workbook/) voor werkboekbeheer.
+Het brontype van de puntwaarde staat los van [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), dat de interne of externe werkboekconfiguratie van het diagram identificeert. Het gebruik van numerieke literals verwijdert op zich het ingesloten werkboek niet. In dit voorbeeld blijft het werkboek beschikbaar voor categorielabels, sernamen en de andere series. Zie [Chart Workbook](/slides/nl/nodejs-java/chart-workbook/) voor werkboekbeheer.
 
-Voor spreidings‑ en bubbelgrafieken gebruikt u [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) en [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) om de bronnen voor [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) en [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/) te kiezen. Bubbelgrafieken gebruiken ook [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) voor [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Stel elke toepasselijke bron in op `DoubleLiterals` voordat u getallen toewijst via de `setAsLiteralDouble`‑methode van die waarde.
+Voor spreidings‑ en bubbel‑diagrammen gebruikt u [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) en [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) om de bronnen voor [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) en [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/) te kiezen. Bubbel‑diagrammen gebruiken ook [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) voor [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Stel elke toepasselijke bron in op `DoubleLiterals` voordat u nummers toewijst via de `setAsLiteralDouble`‑methode van die waarde.
 
-## **Stel de overlap van de grafiekserie in**
+## **Overlap van de diagramserie instellen**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) rapporteert hoeveel balken of kolommen overlappen in een 2D‑grafiek, van -100 tot 100 procent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende serie‑groep. Gebruik [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) om elke compatibele serie in die groep bij te werken. Deze optie is van toepassing op grafiektype­n die gegroepeerde balken of kolommen tonen; hij heeft geen invloed op niet‑gerelateerde serie‑groepen in een combinatiegrafiek.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) geeft aan hoeveel balken of kolommen overlappen in een 2D‑diagram, van -100 tot 100 procent. Het is een alleen‑lezen weergave van de instelling op de bovenliggende series‑groep. Gebruik [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) om elke compatibele serie in die groep bij te werken. Deze optie geldt voor diagramtypen die gegroepeerde balken of kolommen tonen; het heeft geen invloed op niet‑gerelateerde series‑groepen in een combinatiediagram.
 
 Het volgende voorbeeld stelt de overlap in voor de groep die de eerste serie bevat:
 
@@ -100,7 +102,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // De nieuwe grafiek bevat voorbeeldseries, categorieën en waarden.
+    // Het nieuwe diagram bevat voorbeeldseries, categorieën en waarden.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -112,11 +114,11 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![The series overlap](series_overlap.png)
 
-## **Wijzig de vulkleur van de serie**
+## **Vulkleur van de serie wijzigen**
 
 Gebruik [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) om de standaardvulling voor een volledige serie in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/)‑instelling de serie‑vulling voor dat punt.
 
@@ -148,13 +150,13 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![The color of the series](series_color.png)
 
-## **Wijzig de serienaam**
+## **Serienaam wijzigen**
 
-Een serienaam wordt opgeslagen in het grafiek‑werkboek en normaal weergegeven in de legenda. In het standaardwerkboek dat voor een gegroepeerde staafgrafiek wordt aangemaakt, bevindt zich cel B1 op rij 0, kolom 1 en bevat de naam van de eerste serie. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
+Een serienaam wordt opgeslagen in het diagram‑datwerkboek en wordt normaal weergegeven in de legende. In het standaardwerkboek dat voor een gegroepeerd kolomdiagram wordt aangemaakt, bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste serie. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
 
 ```javascript
 const aspose = {};
@@ -181,7 +183,7 @@ try {
 }
 ```
 
-U kunt ook de cel bijwerken die al wordt gerefereerd door [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Deze aanpak voorkomt aannames over een specifieke rij en kolom in een bestaande grafiek:
+U kunt ook de cel bijwerken die al wordt gerefereerd door [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Deze aanpak voorkomt dat u een specifieke rij en kolom in een bestaand diagram moet aannemen:
 
 ```javascript
 const aspose = {};
@@ -207,17 +209,17 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![The series name](series_name.png)
 
-### **Maak een serie met een naam uit meerdere cellen**
+### **Een serie maken met een naam uit meerdere cellen**
 
-Een samengestelde serienaam is nuttig wanneer een productnaam en een rapportageperiode in afzonderlijke werkboekcellen zijn opgeslagen. U kunt bijvoorbeeld `Product A` in B1 en `2026` in C1 combineren tot één serienaam terwijl beide delen gekoppeld blijven aan hun broncellen.
+Een samengestelde serienaam is handig wanneer een productnaam en een verslagperiode in afzonderlijke werkboekcellen zijn opgeslagen. Bijvoorbeeld, u kunt `Product A` in B1 en `2026` in C1 combineren tot één serienaam, terwijl beide delen gekoppeld blijven aan hun broncellen.
 
-Gebruik [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) om het naam‑bereik op te halen, en geef dat bereik vervolgens door aan [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Het argument `skipHiddenCells` bepaalt of verborgen cellen worden meegenomen: `true` sluit ze uit, `false` neemt ze op. Dit voorbeeld gebruikt `false` om elke cel in het naam‑bereik op te nemen.
+Gebruik [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) om het naam‑bereik op te halen, en geef die collectie vervolgens door aan [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Het argument `skipHiddenCells` bepaalt of verborgen cellen worden meegenomen: `true` sluit ze uit, `false` neemt ze op. Dit voorbeeld gebruikt `false` om elke cel in het naam‑bereik op te nemen.
 
-Het volgende voorbeeld maakt een presentatie met één serie en twee datapunten. Cell­len B1:C1 leveren alleen de serienaam; A2:A3 leveren de categorielabels, en B2:B3 leveren de numerieke waarden.
+Het volgende voorbeeld maakt een presentatie met één serie en twee gegevenspunten. Cellen B1:C1 leveren alleen de serienaam; A2:A3 leveren de categorielabels, en B2:B3 leveren de numerieke waarden.
 
 ```javascript
 const aspose = {};
@@ -242,7 +244,7 @@ try {
     const nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     const series = chart.getChartData().getSeries().add(nameCells, aspose.slides.ChartType.ClusteredColumn);
 
-    // Aparte cellen leveren de categorieën en numerieke datapunten.
+    // Aparte cellen leveren de categorieën en numerieke gegevenspunten.
     const northCategory = workbook.getCell(0, 1, 0, "North");
     const southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -258,15 +260,15 @@ try {
 }
 ```
 
-De resulterende serienaam is `Product A 2026`, met een spatie tussen de twee celwaarden. De legenda toont dit als één invoer voor beide kolommen. De afbeelding hieronder illustreert het resultaat:
+Het resulterende serienaam is `Product A 2026`, met een spatie tussen de twee celwaarden. De legende toont dit als één entry voor beide kolommen. De afbeelding hieronder illustreert het resultaat:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Haal de automatische vulkleur van de serie op**
+## **Automatische serievulkleur ophalen**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) retourneert de kleur die is berekend op basis van de serie‑index en de grafiekstijl. Dit is de kleur die wordt gebruikt wanneer de serie‑vulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij wijst geen nieuwe vulling toe.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) retourneert de kleur die is berekend op basis van de serie‑index en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de serie‑vulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; het wijst geen nieuwe vulling toe.
 
-Het volgende voorbeeld drukt de automatische kleur van elke standaardserie af:
+Het volgende voorbeeld drukt de automatische kleur van elke standaard serie af:
 
 ```javascript
 const aspose = {};
@@ -292,7 +294,7 @@ try {
 }
 ```
 
-Voorbeeldoutput voor de standaardgrafiekstijl:
+Voorbeeldoutput voor de standaard diagramstijl:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -300,13 +302,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-De exacte kleuren hangen af van de grafiekstijl en het thema.
+De exacte kleuren hangen af van de diagramstijl en het thema.
 
-## **Stel omgekeerde vulkleur in voor een grafiekserie**
+## **Omgekeerde vulkleur voor een diagramserie instellen**
 
-Voor balk‑, kolom‑ en bubbel‑series kan [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) negatieve waarden weergeven met een andere vulling. Stel de reguliere serie‑vulling in op een egale kleur, schakel inversie in, en wijs de negatieve‑waarde‑kleur toe via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
+Voor balk‑, kolom‑ en bubbel‑series kan [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) negatieve waarden tonen met een andere vulling. Stel de reguliere serie‑vulling in op egaal, schakel inversie in, en wijs de negatieve‑waarde‑kleur toe via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergavekleur verandert.
 
-Het volgende voorbeeld vervangt de standaardgrafiekgegevens door één serie. Werkblad rij 0 bevat de serienaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
+Het volgende voorbeeld vervangt de standaard diagramdata door één serie. Werkblad‑rij 0 bevat de serienaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
 
 ```javascript
 const aspose = {};
@@ -364,11 +366,11 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-U kunt inversie voor één punt inschakelen via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). In het volgende voorbeeld is inversie uitgeschakeld voor de serie en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde toegewezen zodat het effect zichtbaar is:
+U kunt inversie voor één punt inschakelen via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). In het volgende voorbeeld is inversie uitgeschakeld voor de serie en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt ook een negatieve waarde zodat het effect zichtbaar is:
 
 ```javascript
 const aspose = {};
@@ -405,9 +407,9 @@ try {
 }
 ```
 
-## **Wis een specifieke datapuntenwaarde**
+## **Specifieke gegevenspuntwaarde wissen**
 
-Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `null`. Voor een staafgrafiek is de weergegeven waarde beschikbaar via [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Het datumpunt blijft op dezelfde categoriepositie, maar de grafiek behandelt zijn waarde als leeg volgens de instelling voor lege waarden van de grafiek.
+Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `null`. Voor een kolomdiagram is de geplotte waarde beschikbaar via [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Het gegevenspunt blijft op dezelfde categorielocatie, maar het diagram behandelt zijn waarde als leeg volgens de leeg‑waarde‑instelling van het diagram.
 
 Het volgende voorbeeld wist alleen het tweede punt in de eerste serie:
 
@@ -435,17 +437,17 @@ try {
 }
 ```
 
-Spreidingsgrafieken gebruiken afzonderlijke X‑ en Y‑cellen, en bubbelgrafieken gebruiken ook een grootte‑cel. Wis alleen de cel die de waarde vertegenwoordigt die u wilt verwijderen. Roep niet [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) aan wanneer u de andere punten wilt behouden, want die methode verwijdert elk datumpunt uit de collectie.
+Spreidingsdiagrammen gebruiken afzonderlijke X‑ en Y‑cellen, en bubbel‑diagrammen gebruiken ook een grootte‑cel. Wis alleen de cel die de waarde representeert die u wilt verwijderen. Roep [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) niet aan wanneer u de andere punten wilt behouden, want die methode verwijdert elk gegevenspunt uit de collectie.
 
-## **Beheer de weergave van lege cellen**
+## **Weergave van lege cellen regelen**
 
-Verborgen cellen die waarden bevatten vormen een afzonderlijk geval ten opzichte van lege cellen. Zie [Gegevens van verborgen rijen en kolommen opnemen](/slides/nl/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns) voor het opnemen of uitsluiten van gegevens uit verborgen werkbladrijen en -kolommen.
+Verborgen cellen die waarden bevatten vormen een apart geval ten opzichte van lege cellen. Om gegevens uit verborgen werkbladrijen en -kolommen op te nemen of uit te sluiten, zie [Include Data from Hidden Rows and Columns](/slides/nl/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Een lege werkboekcel staat voor ontbrekende data; een cel met `0` staat voor een bekende numerieke waarde. Roep [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) aan met `null` om een cel leeg te maken. Een numeriek nul blijft nul, ongeacht de instelling voor lege cellen.
+Een lege werkboekcel vertegenwoordigt ontbrekende gegevens; een cel met `0` vertegenwoordigt een bekende numerieke waarde. Roep [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) aan met `null` om een cel leeg te maken. Een numerieke nul blijft een nul ongeacht de instelling voor lege cellen.
 
-Gebruik [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) om te kiezen hoe de grafiek lege cellen weergeeft. Deze instelling geldt voor de hele grafiek. Hij verandert hoe leegtes worden geplot, zonder de lege werkboekcel te vullen met nul of een geïnterpoleerde waarde.
+Gebruik [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) om te kiezen hoe het diagram lege cellen weergeeft. Deze instelling geldt voor het hele diagram. Het verandert hoe lege waarden worden uitgezet, zonder de lege werkboekcel te vullen met nul of een geïnterpoleerde waarde.
 
-Het volgende zelf‑containende voorbeeld maakt een lijngrafiek met één serie, wist de waarde voor Dag 3, en slaat dezelfde grafiek op met elke modus. Er is geen invoerbestand vereist. De [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels, en kolom 1 voor waarden; rij 0 bevat de serienaam. De uiteindelijke data is `10, 20, empty, 30, 40`.
+Het volgende zelfstandige voorbeeld maakt een lijndiagram met één serie, wist de waarde voor Dag 3, en slaat hetzelfde diagram op met elke modus. Er is geen invoerbestand nodig. De [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels en kolom 1 voor waarden; rij 0 bevat de serienaam. De uiteindelijke data is `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -473,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Laat Dag 3 echt leeg, terwijl de categorie en het datapunt behouden blijven.
+    // Laat Dag 3 echt leeg, terwijl de categorie en gegevenspunt behouden blijven.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -487,19 +489,19 @@ try {
 }
 ```
 
-Elke uitvoer‑bestand slaat de vóór het opslaan toegewezen modus op: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, wijs de gewenste modus toe en sla de presentatie eenmalig op in plaats van over de modi te itereren.
+Elke uitvoer‑bestand slaat de vóór het opslaan toegewezen modus op: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, ken de gewenste modus toe en sla de presentatie één keer op in plaats van over de modi te itereren.
 
 De vergelijking hieronder toont dezelfde data in alle drie de bestanden. Dag 3 is in elk geval leeg in het werkboek:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Het zichtbare effect hangt af van het grafiektype. Een lijngrafiek maakt alle drie de modi eenvoudig te vergelijken. Balk‑ en kolomgrafieken hebben geen lijn om een ontbrekende categorie te verbinden, dus `Span` kan het verbindingssegment niet produceren; een ontbrekende kolom en een nul‑hoogte kolom kunnen er ook vergelijkbaar uitzien. Evenzo heeft een spreidingsgrafiek met alleen markers geen verbindingslijn. Verwacht niet drie afzonderlijke resultaten voor elk grafiektype; controleer de uitvoer voor het type dat u gebruikt.
+Het zichtbare effect hangt af van het diagramtype. Een lijndiagram maakt het eenvoudig om alle drie de modi te vergelijken. Balk‑ en kolomdiagrammen hebben geen lijn om over een ontbrekende categorie te verbinden, dus `Span` kan het verbindingssegment hierboven niet produceren; een ontbrekende kolom en een kolom met nulhoogte kunnen er ook identiek uitzien. Evenzo heeft een spreidingsdiagram met alleen markers geen verbindingslijn. Verwacht niet drie verschillende resultaten voor elk diagramtype; controleer de output voor het type dat u gebruikt.
 
-## **Stel de gatbreedte van de serie in**
+## **Breedte van de serietussenruimte instellen**
 
-Gatbreedte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlap behoort het tot de bovenliggende serie‑groep in plaats van tot één serie. Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) eenmalig voor de groep aan. Een hogere waarde creëert meer ruimte tussen clusters; een lagere waarde maakt ze dichter.
+De tussenruimte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de breedte van de balk of kolom. Net als overlap behoort hij tot de bovenliggende series‑groep in plaats van tot één serie. Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) één keer voor de groep aan. Een grotere waarde creëert meer ruimte tussen clusters; een kleinere waarde maakt ze dichter op elkaar.
 
-Het volgende voorbeeld wijzigt de gatbreedte en slaat alleen de uiteindelijke presentatie op:
+Het volgende voorbeeld wijzigt de tussenruimte en slaat alleen de uiteindelijke presentatie op:
 
 ```javascript
 const aspose = {};
@@ -524,48 +526,84 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
 ![The gap width](gap_width.png)
 
+## **Serielijnen tonen of verbergen**
+
+Serielijnen verbinden visueel gerelateerde delen van een diagram. Gebruik [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/) om ze te tonen of verbergen in ondersteunde gestapelde balk‑ en OfPie‑diagrammen. In tweedimensionale gestapelde balk‑ en kolomdiagrammen verbinden ze overeenkomstige stapelgrenzen over categorieën heen. In Pie of Pie‑ en Bar of Pie‑diagrammen verbinden ze de hoofdplot met de secundaire plot. Deze instelling is geen algemene connector voor andere diagramtypen.
+
+Toegang tot de groep gebeurt via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). De instelling geldt voor elke serie in die groep. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) is alleen‑lezen en weerspiegelt de instelling van de bovenliggende groep; roep de setter van de groep aan om deze bij te werken.
+
+Het volgende voorbeeld maakt één [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) diagram met standaard data. Het slaat hetzelfde diagram op met serielijnen ingeschakeld en vervolgens uitgeschakeld, waardoor twee presentaties voor vergelijking ontstaan.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Serie‑lijnen ingeschakeld | Serie‑lijnen uitgeschakeld |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| De twee lijnen verbinden de hoofd‑cirkel met de secundaire cirkel. | Beide cirkels blijven zichtbaar, maar de verbindingslijnen zijn verborgen. |
+
+Serielijnen verschillen van leader‑lines van gegevenslabels, die labels met hun gegevenspunten verbinden; rasterlijnen, die intervallen langs diagramassen markeren; en de lijnen in een lijndiagram, die gegevenswaarden representeren. Deze instelling regelt die elementen niet.
+
 ## **FAQ**
 
-**Welke grafiektype ondersteunen dataseries?**
+**Welke diagramtypen ondersteunen gegevensseries?**
 
-Alle grafiektype‑n die worden vertegenwoordigd door de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‑enumeratie gebruiken grafiek‑data, maar hun series hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categoriegrafieken gebruiken categorieën en waarden, spreidingsgrafieken gebruiken X‑ en Y‑waarden, en bubbelgrafieken voegen bubbelgroottes toe. Gebruik de datapunten‑creatiemethode die past bij het serietype. Opties zoals overlap en gatbreedte zijn alleen van toepassing op compatibele balk‑ of kolomgroepen.
+Alle diagramtypen die worden vertegenwoordigd door de [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‑enumeratie gebruiken diagramdata, maar hun series hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑diagrammen gebruiken categorieën en waarden, spreidings‑diagrammen gebruiken X‑ en Y‑waarden, en bubbel‑diagrammen voegen bubbelgroottes toe. Gebruik de gegevenspunt‑creatiemethode die overeenkomt met het serietype. Opties zoals overlap en tussenruimte gelden alleen voor compatibele balk‑ of kolomgroepen.
 
-**Wat is een grafiekserie‑groep?**
+**Wat is een diagramserie‑groep?**
 
-Een [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) bevat compatibele series die groeps‑niveau plotinstellingen delen. Een combinatiegrafiek kan meer dan één groep bevatten, dus het wijzigen van de groep die via één serie wordt bereikt, verandert niet noodzakelijkerwijs elke serie in de grafiek.
+Een [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) bevat compatibele series die groeps‑niveau plotinstellingen delen. Een combinatiediagram kan meer dan één groep bevatten, dus het wijzigen van de groep die via één serie wordt bereikt, verandert niet noodzakelijk elke serie in het diagram.
 
-**Bevat een nieuw aangemaakte grafiek standaardgegevens?**
+**Bevat een nieuw aangemaakt diagram standaardgegevens?**
 
-Ja. Standaard maakt [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) voorbeeld‑series, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de serie‑ als de categoricollecties wissen voordat u een volledig aangepaste dataset toevoegt. Een overload kan ook een grafiek zonder standaardgegevens aanmaken.
+Ja. Standaard maakt [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) voorbeeld‑series, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de series‑ als de categoriecollecties wissen voordat u een volledig aangepaste dataset toevoegt. Een overload kan ook een diagram zonder standaardgegevens maken.
 
-**Hoe zijn grafiekobjecten verbonden met werkboekcellen?**
+**Hoe zijn diagramobjecten gekoppeld aan werkboekcellen?**
 
-Serienamen, categorielabels en datapunten‑waarden refereren naar cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige grafiekelement bij. Wanneer u aangepaste data bouwt, houdt u categorie‑rijen en seriewaarde‑rijen op één lijn zodat elk punt onder de beoogde categorie wordt geplot.
+Serienamen, categorielabels en gegevenspunt‑waarden verwijzen naar cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige diagramonderdeel bij. Wanneer u aangepaste data bouwt, houdt u de rijen voor categorieën en de rijen voor serie‑waarden op één lijn zodat elk punt onder de beoogde categorie wordt geplot.
 
 **Hoe kan ik één punt wissen in plaats van de hele serie?**
 
-Stel de relevante waarde‑cel in op `null` om de punt‑categoriepositie te behouden als een leeg punt. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) alleen wanneer u alle punten uit die serie wilt verwijderen. Als u ook categorieën verwijdert, werk dan elke serie bij zodat hun waarden uitgelijnd blijven met de categoricollectie.
+Stel de relevante waardecel in op `null` om de punt‑categorielocatie als een leeg punt te behouden. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) alleen wanneer u alle punten uit die serie wilt verwijderen. Als u ook categorieën verwijdert, werk dan elke serie bij zodat hun waarden uitgelijnd blijven met de categoricollectie.
 
 **Hoe worden lege punten weergegeven?**
 
-Het resultaat hangt af van het grafiektype en de waarde die is geconfigureerd via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Ondersteunde grafieken kunnen leegtes weergeven als gaten, als nul‑waarden, of door aangrenzende punten te verbinden. Kies de instelling die past bij de betekenis van ontbrekende data in uw presentatie. Zie [Beheer de weergave van lege cellen](#control-the-display-of-empty-cells) voor een volledig voorbeeld en visuele vergelijking.
+Het resultaat hangt af van het diagramtype en de via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) geconfigureerde modus. Ondersteunde diagrammen kunnen lege waarden weergeven als gaten, als nulwaarden of door naburige punten te verbinden. Kies de instelling die overeenkomt met de betekenis van ontbrekende data in uw presentatie. Zie [Weergave van lege cellen regelen](#control-the-display-of-empty-cells) voor een volledig voorbeeld en visuele vergelijking.
 
 **Hoe worden negatieve waarden opgemaakt?**
 
-Voor ondersteunde balk‑, kolom‑ en bubbel‑series roept u [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) aan en stelt u de kleur in die wordt geretourneerd door [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). U kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Deze methoden beïnvloeden alleen de opmaak, niet de opgeslagen numerieke waarden.
+Voor ondersteunde balk‑, kolom‑ en bubbel‑series kunt u [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) aanroepen en de kleur instellen die wordt geretourneerd door [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). U kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Deze methoden beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
 
-**Welke opmaak heeft voorrang wanneer zowel een serie als een punt zijn opgemaakt?**
+**Welke opmaak wint wanneer zowel een serie als een punt zijn opgemaakt?**
 
-Expliciete datumpunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete serie‑opmaak gebruiken of, wanneer de serie‑opmaak niet is gedefinieerd, de automatische grafiekstijl en het thema. Groepsinstellingen zoals overlap en gatbreedte regelen de lay‑out en zijn geen punt‑niveau opmaak‑overschrijvingen.
+Expliciete gegevenspunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete serie‑opmaak gebruiken of, wanneer de serie‑opmaak niet is gedefinieerd, de automatische diagramstijl en het thema. Groepsinstellingen zoals overlap en tussenruimte regelen de lay‑out en vormen geen opmaak‑overschrijvingen op punt‑niveau.
 
-**Is er een limiet aan het aantal series dat een grafiek kan bevatten?**
+**Is er een limiet aan het aantal series dat een diagram kan bevatten?**
 
-Aspose.Slides legt geen aparte vaste limiet op voor het aantal series. In de praktijk bepalen bestands‑beperkingen van de presentatie, beschikbaar geheugen, render‑tijd en leesbaarheid van de grafiek een praktisch limiet.
+Aspose.Slides legt geen afzonderlijke vaste limiet op voor het aantal series. In de praktijk bepalen de beperkingen van het presentatie‑bestand, beschikbaar geheugen, render‑tijd en de leesbaarheid van het diagram een bruikbare grens.
 
 **Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver uit elkaar staan?**
 
-Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) aan op de juiste bovenliggende serie‑groep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.
+Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) aan op de juiste bovenliggende series‑groep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.

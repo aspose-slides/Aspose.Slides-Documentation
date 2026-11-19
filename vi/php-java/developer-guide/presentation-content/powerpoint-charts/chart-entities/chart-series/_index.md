@@ -1,11 +1,11 @@
 ---
-title: Quản lý Dữ liệu Series Biểu đồ trong Bản thuyết trình bằng PHP
-linktitle: Series Dữ liệu
+title: Quản lý series dữ liệu biểu đồ trong bản trình chiếu bằng PHP
+linktitle: Series dữ liệu
 type: docs
 url: /vi/php-java/chart-series/
 keywords:
 - series biểu đồ
-- giao nhau của series
+- chồng lấn series
 - màu series
 - tên series
 - điểm dữ liệu
@@ -13,33 +13,36 @@ keywords:
 - khoảng cách series
 - giá trị âm
 - PowerPoint
-- bản thuyết trình
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý series biểu đồ, điểm dữ liệu, ô workbook, định dạng, giao nhau, độ rộng khoảng cách và giá trị âm trong bản thuyết trình bằng PHP."
+description: "Tìm hiểu cách quản lý series biểu đồ, điểm dữ liệu, ô workbook, định dạng, chồng lấn, khoảng cách giữa các series và giá trị âm trong bản trình chiếu bằng PHP."
 ---
 ## **Tổng quan**
 
-Biểu đồ có thể lưu các giá trị đã vẽ vào các ô của workbook hoặc trực tiếp dưới dạng các literal số. Một [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) đại diện cho một điểm trong tập hợp đó. Các đối tượng [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) cung cấp các nhãn hoặc giá trị nhóm được các chuỗi dùng chung. Trong các biểu đồ được tạo với dữ liệu mặc định, tên chuỗi, danh mục và giá trị điểm sử dụng các đối tượng [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) từ workbook của biểu đồ.
+A chart can store its plotted values in workbook cells or directly as numeric literals. A [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) represents a point in that series. [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) objects from the chart workbook.
 
-Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên chuỗi, cột 0 cho tên danh mục và các ô còn lại cho giá trị chuỗi. Các chỉ mục worksheet, hàng và cột được truyền cho [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) là dựa trên chỉ số 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản thuyết trình đã tải, hãy kiểm tra các ô được chuỗi, danh mục và điểm dữ liệu tham chiếu trước khi thay đổi giá trị trong workbook.
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
-Cài đặt biểu đồ có ba phạm vi khác nhau:
-- Cài đặt mức chuỗi, chẳng hạn như [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), cung cấp giao diện mặc định cho tất cả các điểm trong một chuỗi.
-- Cài đặt mức điểm dữ liệu, chẳng hạn như [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), ghi đè giao diện chuỗi cho một điểm.
-- Cài đặt nhóm áp dụng cho các chuỗi tương thích thuộc cùng [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/), truy cập nhóm qua [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) khi bạn cần đặt các tùy chọn như overlap hoặc gap width.
+Chart settings have three different scopes:
 
-Khi không có màu nền điểm hoặc chuỗi nào được đặt rõ ràng, kiểu biểu đồ và chủ đề sẽ quyết định giao diện tự động. Khi cả định dạng chuỗi và điểm đều có, định dạng điểm sẽ được ưu tiên cho điểm đó.
+- Series-level settings, such as [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/), provide the default appearance for all points in one series.
+- Data-point settings, such as [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/). Access the group through [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/) when you need to set options such as overlap or gap width.
+
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Đặt Giá Trị Chuỗi Bằng Literal Số**
+For a clustered cylinder chart, see how [changing the 3D series type or bar shape](/slides/vi/php-java/3d-chart/#change-the-3d-series-type-and-bar-shape) affects the first series.
 
-Sử dụng các literal số khi giá trị chuỗi đến từ dữ liệu hoặc tính toán trong ứng dụng và không cần tham chiếu tới ô worksheet. Gọi [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) với [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) trước khi gán kết quả của [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) cho mỗi điểm thông qua [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+## **Đặt Giá Trị Dòng Dữ Liệu Bằng Các Literal Số**
 
-Cài đặt bộ sưu tập kiểm soát loại nguồn của tất cả các giá trị điểm trong chuỗi đó. Phương thức [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) của mỗi giá trị điểm trả về loại đã chọn; thay đổi nó qua cài đặt bộ sưu tập. Khi dùng `Worksheet`, sử dụng [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) để truy cập ô được tham chiếu. Khi dùng `DoubleLiterals`, sử dụng [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) hoặc `setAsLiteralDouble` để đọc hoặc ghi số trực tiếp.
+Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Call [setDataSourceTypeForValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) with [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/php-java/aspose.slides/datasourcetype/) before assigning each point's [getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/) result through [setAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/setasliteraldouble/).
 
-Ví dụ sau tạo một biểu đồ cột với các chuỗi và danh mục mặc định, sau đó gán các giá trị tính toán 10, 20, … cho các điểm hiện có của chuỗi đầu tiên. Nó lưu bản thuyết trình, mở lại và in các giá trị đã lưu.
+The collection setting controls the source type of all point values in that series. Each point value's [getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/basechartvalue/) method reports the selected type; change it through the collection setting. With `Worksheet`, use [getAsCell](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getascell/) to access the referenced cell. With `DoubleLiterals`, use [getAsLiteralDouble](https://reference.aspose.com/slides/php-java/aspose.slides/doublechartvalue/getasliteraldouble/) or `setAsLiteralDouble` to read or write the number directly.
+
+The following example creates a column chart with default series and categories, then assigns calculated values of 10, 20, and so on to the existing points of its first series. It saves the presentation, reopens it, and prints the stored values.
 
 ```php
 use aspose\slides\ChartType;
@@ -80,15 +83,15 @@ try {
 }
 ```
 
-Loại nguồn giá trị điểm tách rời khỏi [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/), xác định cấu hình workbook nội bộ hoặc ngoại bộ của biểu đồ. Sử dụng các literal số không tự động loại bỏ workbook nhúng. Trong ví dụ này, workbook vẫn còn khả dụng cho nhãn danh mục, tên chuỗi và các chuỗi khác. Xem [Chart Workbook](/slides/vi/php-java/chart-workbook/) để quản lý workbook.
+The point value source type is separate from [ChartData::getDataSourceType](https://reference.aspose.com/slides/php-java/aspose.slides/chartdata/getdatasourcetype/), which identifies the chart's internal or external workbook configuration. Using numeric literals does not, by itself, remove the embedded workbook. In this example, the workbook remains available for category labels, series names, and the other series. See [Chart Workbook](/slides/vi/php-java/chart-workbook/) for workbook management.
 
-Đối với biểu đồ scatter và bubble, sử dụng [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) và [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) để chọn nguồn cho [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) và [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). Biểu đồ bubble cũng sử dụng [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) cho [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). Đặt mỗi nguồn áp dụng thành `DoubleLiterals` trước khi gán số qua phương thức `setAsLiteralDouble` của giá trị đó.
+For scatter and bubble charts, use [setDataSourceTypeForXValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) and [setDataSourceTypeForYValues](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) to choose the sources for [getXValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getxvalue/) and [getYValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getyvalue/). Bubble charts also use [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) for [getBubbleSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getbubblesize/). Set each applicable source to `DoubleLiterals` before assigning numbers through that value's `setAsLiteralDouble` method.
 
-## **Đặt Độ Giao Nhau Chuỗi Biểu Đồ**
+## **Đặt Độ Chồng Lên Nhau Của Series Trong Biểu Đồ**
 
-[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) báo cáo mức độ giao nhau của các cột hoặc thanh trong biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm chuỗi cha. Sử dụng [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) để cập nhật mọi chuỗi tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các cột hoặc thanh nhóm; nó không ảnh hưởng đến các nhóm chuỗi không liên quan trong biểu đồ kết hợp.
+[ChartSeries::getOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getoverlap/) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Use [ChartSeriesGroup::setOverlap](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setoverlap/) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
 
-Ví dụ sau đặt độ giao nhau cho nhóm chứa chuỗi đầu tiên:
+The following example sets the overlap for the group that contains the first series:
 
 ```php
 $firstSlideIndex = 0;
@@ -99,7 +102,7 @@ $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-    // Biểu đồ mới chứa các series mẫu, các danh mục và các giá trị.
+    // Biểu đồ mới chứa các series mẫu, danh mục và giá trị.
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
     $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
@@ -113,15 +116,15 @@ try {
 }
 ```
 
-Kết quả:
+The result:
 
 ![The series overlap](series_overlap.png)
 
-## **Thay Đổi Màu Nền Chuỗi**
+## **Thay Đổi Màu Đổ Nhận Dạng Của Series**
 
-Sử dụng [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) để đặt màu nền mặc định cho toàn bộ chuỗi. Nếu một điểm đã có màu nền rõ ràng, cài đặt [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) của nó sẽ ghi đè màu nền chuỗi cho điểm đó.
+Use [ChartSeries::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getformat/) to set the default fill for an entire series. If a point already has an explicit fill, its [ChartDataPoint::getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getformat/) setting overrides the series fill for that point.
 
-Ví dụ sau áp dụng màu nền xanh đậm trên chuỗi đầu tiên:
+The following example applies a solid blue fill to the first series:
 
 ```php
 $firstSlideIndex = 0;
@@ -146,13 +149,13 @@ try {
 }
 ```
 
-Kết quả:
+The result:
 
 ![The color of the series](series_color.png)
 
-## **Thay Đổi Tên Chuỗi**
+## **Thay Đổi Tên Series**
 
-Tên chuỗi được lưu trong workbook dữ liệu biểu đồ và thường hiển thị trong chú giải. Trong workbook mặc định được tạo cho biểu đồ cột nhóm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của chuỗi đầu tiên. Các biến được đặt tên trong ví dụ sau làm rõ cấu trúc này:
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named variables in the following example make that structure explicit:
 
 ```php
 $firstSlideIndex = 0;
@@ -178,7 +181,7 @@ try {
 }
 ```
 
-Bạn cũng có thể cập nhật ô đã được [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong biểu đồ hiện có:
+You can also update the cell already referenced by [ChartSeries::getName](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getname/). This approach avoids assuming a particular row and column in an existing chart:
 
 ```php
 $firstSlideIndex = 0;
@@ -203,17 +206,17 @@ try {
 }
 ```
 
-Kết quả:
+The result:
 
 ![The series name](series_name.png)
 
-### **Tạo Chuỗi Với Tên Từ Nhiều Ô**
+### **Tạo Series Với Tên Từ Nhiều Ô**
 
-Tên chuỗi tổng hợp hữu ích khi tên sản phẩm và giai đoạn báo cáo được lưu trong các ô workbook riêng biệt. Ví dụ, bạn có thể kết hợp `Product A` ở B1 và `2026` ở C1 thành một tên chuỗi duy nhất trong khi vẫn giữ cả hai phần liên kết tới ô nguồn.
+A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
 
-Sử dụng [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) để lấy phạm vi tên, sau đó truyền bộ sưu tập đó cho [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/). Tham số `skipHiddenCells` điều khiển việc có bao gồm các ô ẩn hay không: `true` loại bỏ chúng, `false` bao gồm chúng. Ví dụ này sử dụng `false` để bao gồm mọi ô trong phạm vi tên.
+Use [ChartDataWorkbook::getCellCollection](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcellcollection/) to retrieve the name range, then pass that collection to [ChartSeriesCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriescollection/add/). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
 
-Ví dụ sau tạo một bản thuyết trình với một chuỗi và hai điểm dữ liệu. Các ô B1:C1 cung cấp chỉ tên chuỗi; A2:A3 cung cấp nhãn danh mục, và B2:B3 cung cấp các giá trị số.
+The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
 
 ```php
 use aspose\slides\ChartType;
@@ -239,7 +242,7 @@ try {
     $nameCells = $workbook->getCellCollection('Sheet1!$B$1:$C$1', false);
     $series = $chart->getChartData()->getSeries()->add($nameCells, ChartType::ClusteredColumn);
 
-    // Các ô riêng biệt cung cấp các danh mục và các điểm dữ liệu số.
+    // Các ô riêng biệt cung cấp danh mục và các điểm dữ liệu số.
     $northCategory = $workbook->getCell(0, 1, 0, "North");
     $southCategory = $workbook->getCell(0, 2, 0, "South");
     $chart->getChartData()->getCategories()->add($northCategory);
@@ -255,15 +258,15 @@ try {
 }
 ```
 
-Tên chuỗi kết quả là `Product A 2026`, với dấu cách giữa hai giá trị ô. Chú giải hiển thị điều này như một mục duy nhất cho cả hai cột. Hình ảnh dưới đây minh họa kết quả:
+The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below illustrates the result:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Lấy Màu Nền Tự Động Của Chuỗi**
+## **Lấy Màu Đổ Tự Động Của Series**
 
-[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) trả về màu được tính dựa trên chỉ số chuỗi và kiểu biểu đồ. Đây là màu được sử dụng khi màu nền chuỗi không được xác định rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu nền mới.
+[ChartSeries::getAutomaticSeriesColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
 
-Ví dụ sau in màu tự động của mỗi chuỗi mặc định:
+The following example prints the automatic color of each default series:
 
 ```php
 $firstSlideIndex = 0;
@@ -290,7 +293,7 @@ try {
 }
 ```
 
-Kết quả ví dụ cho kiểu biểu đồ mặc định:
+Example output for the default chart style:
 
 ```text
 Series 0: java.awt.Color[r=79,g=129,b=189]
@@ -298,13 +301,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-Màu chính xác phụ thuộc vào kiểu biểu đồ và chủ đề.
+The exact colors depend on the chart style and theme.
 
-## **Đặt Màu Nền Đảo Ngược Cho Chuỗi Biểu Đồ**
+## **Đặt Màu Đảo Ngược Cho Series Trong Biểu Đồ**
 
-Đối với các chuỗi thanh, cột và bubble, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) có thể hiển thị các giá trị âm với màu nền khác. Đặt màu nền chuỗi thường thành đặc, bật chế độ đảo, và gán màu giá trị âm qua [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Các số âm không thay đổi trong workbook; chỉ màu hiển thị của chúng thay đổi.
+For bar, column, and bubble series, [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Negative numbers remain unchanged in the workbook; only their display color changes.
 
-Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một chuỗi. Hàng 0 của worksheet chứa tên chuỗi, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```php
 $firstSlideIndex = 0;
@@ -360,11 +363,11 @@ try {
 }
 ```
 
-Kết quả:
+The result:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Bạn có thể bật đảo cho một điểm thông qua [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Trong ví dụ sau, đảo được tắt cho chuỗi và chỉ bật cho điểm đã chọn. Điểm này cũng được gán giá trị âm để hiệu ứng hiển thị:
+You can enable inversion for one point through [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```php
 $firstSlideIndex = 0;
@@ -398,11 +401,11 @@ try {
 }
 ```
 
-## **Xóa Giá Trị Điểm Dữ Liệu Cụ Thể**
+## **Xóa Giá Trị Của Một Điểm Dữ Liệu Cụ Thể**
 
-Để làm một điểm trống mà không xóa các điểm khác, đặt ô workbook của nó thành `null`. Đối với biểu đồ cột, giá trị được vẽ có sẵn qua [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). Điểm dữ liệu vẫn ở cùng vị trí danh mục, nhưng biểu đồ sẽ coi giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
+To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [ChartDataPoint::getValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/getvalue/). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-Ví dụ sau chỉ xóa điểm thứ hai trong chuỗi đầu tiên:
+The following example clears only the second point in the first series:
 
 ```php
 $firstSlideIndex = 0;
@@ -427,17 +430,17 @@ try {
 }
 ```
 
-Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bubble cũng sử dụng một ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) khi bạn muốn giữ lại các điểm khác, vì phương thức này sẽ xóa mọi điểm dữ liệu trong bộ sưu tập.
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) when you want to keep the other points, because that method removes every data point from the collection.
 
-## **Kiểm Soát Hiển Thị Các Ô Trống**
+## **Kiểm Soát Việc Hiển Thị Các Ô Trống**
 
-Các ô ẩn chứa giá trị là một trường hợp riêng so với các ô trống. Để bao gồm hoặc loại trừ dữ liệu từ các hàng và cột worksheet ẩn, xem [Include Data from Hidden Rows and Columns](/slides/vi/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Hidden cells that contain values are a separate case from empty cells. To include or exclude data from hidden worksheet rows and columns, see [Include Data from Hidden Rows and Columns](/slides/vi/php-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Một ô workbook trống đại diện cho dữ liệu bị thiếu; một ô chứa `0` đại diện cho một giá trị số đã biết. Gọi [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) với `null` để làm ô trở nên trống. Số 0 vẫn là 0 bất kể cài đặt ô trống.
+An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Call [ChartDataCell::setValue](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setvalue/) with `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
 
-Sử dụng [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) để chọn cách biểu đồ hiển thị các ô trống. Cài đặt này áp dụng cho toàn bộ biểu đồ. Nó thay đổi cách các ô trống được vẽ, mà không lấp đầy ô workbook trống bằng số 0 hay giá trị nội suy.
+Use [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
 
-Ví dụ tự chứa sau tạo một biểu đồ đường với một chuỗi, xóa giá trị cho Ngày 3, và lưu cùng một biểu đồ với mỗi chế độ. Không cần tệp đầu vào. [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) sử dụng worksheet 0, cột 0 cho nhãn danh mục, và cột 1 cho giá trị; hàng 0 chứa tên chuỗi. Dữ liệu cuối cùng là `10, 20, empty, 30, 40`.
+The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
 
 ```php
 use aspose\slides\ChartType;
@@ -467,7 +470,7 @@ try {
         $series->getDataPoints()->addDataPointForLineSeries($valueCell);
     }
 
-    // Để Ngày 3 thực sự trống, đồng thời giữ lại danh mục và điểm dữ liệu của nó.
+    // Để ngày 3 thực sự trống, đồng thời giữ lại danh mục và điểm dữ liệu của nó.
     $workbook->getCell(0, 3, 1)->setValue(null);
 
     $modes = [DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span];
@@ -481,19 +484,19 @@ try {
 }
 ```
 
-Mỗi tệp đầu ra lưu chế độ được chỉ định trước khi lưu: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` và `empty_cells_Span.pptx`. Để lưu chỉ một phiên bản, gán chế độ mong muốn và lưu bản thuyết trình một lần thay vì lặp lại qua các chế độ.
+Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
 
-So sánh dưới đây hiển thị cùng một dữ liệu trong ba tệp. Ngày 3 là trống trong workbook trong mọi trường hợp:
+The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Hiệu ứng hiển thị phụ thuộc vào loại biểu đồ. Biểu đồ đường khiến ba chế độ dễ so sánh. Biểu đồ thanh và cột không có đường nối qua danh mục thiếu, vì vậy `Span` không thể tạo đoạn nối như trên; một cột thiếu và một cột có chiều cao 0 cũng có thể trông giống nhau. Tương tự, biểu đồ scatter chỉ có các dấu marker không có đường nối. Đừng mong đợi ba kết quả riêng biệt cho mọi loại biểu đồ; hãy kiểm tra đầu ra cho loại bạn đang dùng.
+The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `Span` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
 
-## **Đặt Độ Rộng Khoảng Cách Chuỗi**
+## **Đặt Độ Rộng Khoảng Cách Giữa Các Series**
 
-Khoảng cách (gap width) là không gian giữa các cụm thanh hoặc cột liền kề, được biểu thị dưới dạng phần trăm của độ rộng thanh hoặc cột. Giống như overlap, nó thuộc về nhóm chuỗi cha chứ không phải một chuỗi riêng. Gọi [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) một lần cho nhóm. Giá trị lớn hơn tạo nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
 
-Ví dụ sau thay đổi khoảng cách và chỉ lưu bản thuyết trình cuối cùng:
+The following example changes the gap width and saves only the final presentation:
 
 ```php
 $firstSlideIndex = 0;
@@ -517,48 +520,86 @@ try {
 }
 ```
 
-Kết quả:
+The result:
 
 ![The gap width](gap_width.png)
 
-## **FAQ**
+## **Hiển Thị Hoặc Ẩn Đường Nối Series**
 
-**Các loại biểu đồ nào hỗ trợ series dữ liệu?**
+Series lines visually connect related parts of a chart. Use [ChartSeriesGroup::setSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setserieslines/) to show or hide them in supported stacked bar and OfPie charts. In two-dimensional stacked bar and column charts, they connect corresponding stack boundaries across categories. In Pie of Pie and Bar of Pie charts, they connect the main plot to the secondary plot. This setting is not a general-purpose connector for other chart types.
 
-Tất cả các loại biểu đồ được biểu diễn bởi enum [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng các series của chúng không phải luôn có cùng cấu trúc giá trị hoặc cài đặt. Ví dụ, biểu đồ danh mục sử dụng danh mục và giá trị, biểu đồ scatter sử dụng giá trị X và Y, và biểu đồ bubble thêm kích thước bubble. Hãy dùng phương thức tạo điểm dữ liệu phù hợp với loại series. Các tùy chọn như overlap và gap width chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
+Access the group through [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/). The setting applies to every series in that group. [ChartSeries::hasSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/hasserieslines/) is read-only and reflects the parent group's setting; call the group's setter to update it.
 
-**Nhóm series biểu đồ là gì?**
+The following example creates one [ChartType::PieOfPie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
 
-Một [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) chứa các series tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một series không nhất thiết thay đổi mọi series trong biểu đồ.
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**Biểu đồ mới tạo có chứa dữ liệu mặc định không?**
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Có. Mặc định, [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) tạo các series, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô đó hoặc xóa cả bộ sưu tập series và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ không có dữ liệu mặc định.
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $seriesGroup = $series->getParentSeriesGroup();
 
-**Các đối tượng biểu đồ được kết nối với các ô workbook như thế nào?**
+    $seriesGroup->setSeriesLines(true);
+    $presentation->save("series_lines_enabled.pptx", SaveFormat::Pptx);
 
-Tên series, nhãn danh mục và giá trị điểm dữ liệu tham chiếu tới các ô trong một [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ cho các hàng danh mục và các hàng giá trị series đồng bộ để mỗi điểm được vẽ dưới đúng danh mục.
+    $seriesGroup->setSeriesLines(false);
+    $presentation->save("series_lines_disabled.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Làm thế nào để xóa một điểm thay vì toàn bộ series?**
+| Dòng series được bật | Dòng series bị tắt |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| The two lines connect the main pie to the secondary pie. | Both pies remain visible, but the connecting lines are hidden. |
 
-Đặt ô giá trị tương ứng thành `null` để giữ vị trí danh mục của điểm như một điểm trống. Chỉ sử dụng [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) khi bạn muốn xóa mọi điểm trong series đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi series sao cho giá trị của chúng vẫn đồng bộ với bộ sưu tập danh mục.
+Series lines differ from data label leader lines, which connect labels to their data points; gridlines, which mark intervals along chart axes; and the lines in a line chart, which represent data values. This setting does not control those elements.
 
-**Các điểm trống được hiển thị như thế nào?**
+## **Câu Hỏi Thường Gặp**
 
-Kết quả phụ thuộc vào loại biểu đồ và giá trị được cấu hình qua [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Các biểu đồ hỗ trợ có thể hiển thị các điểm trống dưới dạng khoảng trống, giá trị zero, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản thuyết trình của bạn. Xem [Control the Display of Empty Cells](#control-the-display-of-empty-cells) để có ví dụ hoàn chỉnh và so sánh hình ảnh.
+**Which chart types support data series?**
 
-**Giá trị âm được định dạng như thế nào?**
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
-Đối với các series thanh, cột và bubble được hỗ trợ, gọi [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) và đặt màu được trả về bởi [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). Những phương thức này ảnh hưởng tới định dạng, không phải giá trị số được lưu.
+**What is a chart series group?**
 
-**Định dạng nào được ưu tiên khi cả series và điểm đều được định dạng?**
+A [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
 
-Định dạng điểm dữ liệu rõ ràng sẽ được ưu tiên cho điểm đó. Các điểm khác tiếp tục sử dụng định dạng series rõ ràng hoặc, khi định dạng series không được xác định, kiểu và chủ đề biểu đồ tự động. Các cài đặt nhóm như overlap và gap width kiểm soát bố cục và không phải là ghi đè định dạng mức điểm.
+**Does a newly created chart contain default data?**
 
-**Có giới hạn số lượng series mà một biểu đồ có thể chứa không?**
+Yes. By default, [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
-Aspose.Slides không đặt giới hạn cố định cho số lượng series. Trong thực tế, các ràng buộc của tệp bản thuyết trình, bộ nhớ khả dụng, thời gian render và khả năng đọc của biểu đồ quyết định giới hạn thực tế.
+**How are chart objects connected to workbook cells?**
 
-**Tôi nên thay đổi gì khi các cột quá gần nhau hoặc quá xa nhau?**
+Series names, category labels, and data-point values reference cells in a [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
 
-Gọi [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) trên nhóm series cha phù hợp. Tăng giá trị để mở rộng khoảng cách giữa các cụm, hoặc giảm giá trị để các cụm lại gần nhau hơn.
+**How do I clear one point instead of the whole series?**
+
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [ChartDataPointCollection::clear](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointcollection/clear/) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
+
+**How are empty points displayed?**
+
+The result depends on the chart type and the value configured through [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
+
+**How are negative values formatted?**
+
+For supported bar, column, and bubble series, call [ChartSeries::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/setinvertifnegative/) and set the color returned by [ChartSeries::getInvertedSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). You can override the behavior for an individual point with [ChartDataPoint::setInvertIfNegative](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/setinvertifnegative/). These methods affect formatting, not the stored numeric values.
+
+**Which formatting wins when both a series and a point are formatted?**
+
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
+
+**Is there a limit to how many series a chart can contain?**
+
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
+
+**What should I change when columns are too close together or too far apart?**
+
+Call [ChartSeriesGroup::setGapWidth](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setgapwidth/) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

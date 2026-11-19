@@ -1,5 +1,5 @@
 ---
-title: Diagramadat-sorozatok kezelése Android prezentációkban
+title: Diagram adatsorozatok kezelése prezentációkban Androidon
 linktitle: Adatsorozatok
 type: docs
 url: /hu/androidjava/chart-series/
@@ -17,31 +17,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan kezelje a diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket Android prezentációkban."
+description: "Ismerje meg, hogyan kezelje a diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket Androidos prezentációkban."
 ---
 ## **Áttekintés**
 
-A diagram tárolhatja a ábrázolt értékeket a munkafüzet celláiban vagy közvetlenül numerikus literálokként. Egy [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) egy kapcsolódó értékkészletet képvisel, és minden [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) egy pontot jelöl ebben a sorozatban. Az [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. Az alapértelmezett adatokkal létrehozott diagramokban a sorozatneveket, kategóriákat és pontértékeket [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) objektumokból veszik a diagram munkafüzetéből.
+Egy diagram tárolhatja a megjelenített értékeket a munkafüzet celláiban vagy közvetlenül numerikus literálokként. Egy [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) egy kapcsolódó értékkészletet képvisel, és minden [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) a sorozat egy pontját jelöli. [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. Az alapértelmezett adatokkal létrehozott diagramokban a sorozatnevek, kategóriák és pontértékek [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) objektumokat használnak a diagram munkafüzetéből.
 
-Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0. sort használja a sorozatneveknek, a 0. oszlopot a kategória neveknek, a maradék cellákat pedig a sorozatértékeknek. A [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) metódusnak átadott munkalap, sor és oszlop indexek 0‑alapúak. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén vizsgálja meg a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit módosítaná.
+Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0‑s sort a sorozatneveknek, a 0‑s oszlopot a kategória neveknek, a többi cellát pedig a sorozat értékeknek használja. A [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-)‑nek átadott munkalap, sor és oszlop indexek nullával kezdődnek. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén ellenőrizze a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt a munkafüzet értékeit módosítaná.
 
-A diagram beállítások három különböző hatókörrel rendelkeznek:
+A diagrambeállítások három különböző hatókörrel rendelkeznek:
 
-- Sorozatszintű beállítások, például az [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) alapértelmezett megjelenést adnak egy sorozat összes pontjához.
-- Adatpont‑szintű beállítások, például az [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) felülírják a sorozat megjelenését egy pont esetében.
-- Csoportbeállítások alkalmazandók kompatibilis sorozatokra, amelyek ugyanahhoz az [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) csoporthoz tartoznak. A csoportot a [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) segítségével érheti el, amikor például átfedés vagy hézag szélesség beállítására van szükség.
+- Sorozat szintű beállítások, például [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) biztosítják az alapértelmezett megjelenést egy sorozat összes pontjához.
+- Adatpont szintű beállítások, például [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) felülírják a sorozat megjelenését egy pont esetén.
+- Csoport beállítások a kompatibilis sorozatokra vonatkoznak, amelyek ugyanolyan [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) tagjai. A csoportot a [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) segítségével érheti el, ha például átfedés vagy hézag szélesség beállítását szeretné módosítani.
 
-Ha nincs kifejezetten pont‑ vagy sorozat‑kitöltés meghatározva, a diagram stílusa és sablonja határozza meg a automatikus megjelenést. Ha mind a sorozat, mind a pont formázása meg van adva, a pont formázása élvez elsőbbséget az adott pontnál.
+Ha nincs kifejezetten beállítva pont vagy sorozat kitöltés, a diagram stílusa és témája határozza meg az automatikus megjelenést. Ha mind a sorozat, mind a pont formázása jelen van, a pont formázása élvez elsőbbséget az adott pontnál.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
+Egy klaszterezett henger diagram esetén tekintse meg, hogy a [changing the 3D series type or bar shape](/slides/hu/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) hogyan befolyásolja az első sorozatot.
+
 ## **Sorozatértékek beállítása numerikus literálokkal**
 
-Használjon numerikus literálokat, ha a sorozatértékek az alkalmazás adataiból vagy számításaiból származnak, és nincs szükség munkalap cellahivatkozásokra. Hívja a [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) metódust a [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) értékkel, mielőtt minden pont [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) eredményét a [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-) segítségével állítaná be.
+Használjon numerikus literálokat, ha a sorozatértékek alkalmazásadatokból vagy számításokból származnak, és nem szükséges munkalap cellahivatkozás. Hívja meg a [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-)‑t a [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) értékkel, mielőtt minden pont [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) eredményét a [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-)‑vel állítaná be.
 
-A gyűjtemény beállítása szabályozza az adott sorozat összes pont értékének forrástípusát. Egy pont értékének [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) metódusa jelzi a kiválasztott típust; változtassa meg a gyűjtemény beállításán keresztül. `Worksheet` esetén a [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) segítségével érheti el a hivatkozott cellát. `DoubleLiterals` esetén a [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) vagy a `setAsLiteralDouble` használatával olvashatja vagy írhatja a számot közvetlenül.
+A gyűjtemény beállítása szabályozza az összes pont értékének forrástípusát az adott sorozatban. Minden pont értékének [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) metódusa jelzi a kiválasztott típust; ezt a gyűjtemény beállításával módosíthatja. `Worksheet` esetén a [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) használható a hivatkozott cella eléréséhez. `DoubleLiterals` esetén a [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) vagy a `setAsLiteralDouble` segítségével olvashat vagy írhat számot közvetlenül.
 
-Az alábbi példa egy oszlopdiagramot hoz létre alapértelmezett sorozatokkal és kategóriákkal, majd a már létező első sorozat pontjaira kiszámított 10, 20, stb. értékeket rendel. A prezentációt elmenti, újra megnyitja, és kiírja a tárolt értékeket.
+A következő példa egy oszlopdiagramot hoz létre alapértelmezett sorozatokkal és kategóriákkal, majd a számított 10, 20 stb. értékeket rendeli az első sorozat meglévő pontjaihoz. A prezentációt elmenti, újra megnyitja, és kiírja a tárolt értékeket.
 
 ```java
 import com.aspose.slides.*;
@@ -76,15 +78,15 @@ try {
 }
 ```
 
-A pontérték forrástípusa elkülönül a [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) beállítástól, amely a diagram belső vagy külső munkafüzet‑konfigurációját azonosítja. A numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet. Ebben a példában a munkafüzet továbbra is elérhető a kategória címkék, sorozatnevek és a többi sorozat számára. Lásd a [Diagramm munkafüzet](/slides/hu/androidjava/chart-workbook/) oldalt a munkafüzet kezeléséhez.
+A pontérték forrástípusa különbözik az [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--)‑tól, amely a diagram belső vagy külső munkafüzet konfigurációját azonosítja. A numerikus literálok használata önmagában nem távolítja el a beágyazott munkafüzetet. Ebben a példában a munkafüzet továbbra is elérhető a kategória címkék, sorozatnevek és a többi sorozat számára. A munkafüzet kezeléséről lásd a [Chart Workbook](/slides/hu/androidjava/chart-workbook/) oldalt.
 
-Szórt és buborék diagramok esetén használja a [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) és a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) metódusokat a [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) és a [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--) forrásainak kiválasztásához. A buborék diagramok a [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) segítségével állítják be a [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--) forrást. Minden alkalmazandó forrást állítson `DoubleLiterals`‑re, mielőtt a `setAsLiteralDouble` metódussal számokat rendelne.
+Szórás- és buborékdiagramoknál a [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) és a [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) használható a [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) és [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--) forrásainak kiválasztásához. A buborékdiagramok a [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) segítségével állítják be a [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--) forrását. Minden alkalmazandó forrást állítson `DoubleLiterals`‑re, mielőtt a `setAsLiteralDouble` metódussal számokat rendelnél hozzá.
 
-## **A diagram sorozat‑átfedésének beállítása**
+## **A diagram sorozat átfedésének beállítása**
 
-Az [IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) metódus arról tájékoztat, hogy a 2D diagram oszlopai vagy sávjai milyen mértékben fednek át egymást, -100‑tól 100‑ig százalékban. Ez a beállítás csak olvasható, mivel a szülő sorozatcsoport beállításnak felel meg. A [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) használatával frissítheti a csoport minden kompatibilis sorozatát. Ez a lehetőség olyan diagramtípusokra vonatkozik, amelyek csoportosított oszlopokat vagy sávokat jelenítenek meg; egy kombinációs diagram nem kapcsolódó sorozatcsoportokra nincs hatással.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) azt jelzi, hogy a sávok vagy oszlopok milyen mértékben fednek át egy 2D diagramon, -100 és 100 százalék között. Ez a beállítás a szülő sorozatcsoport beállításának csak olvasható leképezése. A [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) segítségével frissítheti az összes kompatibilis sorozatot a csoportban. Ez az opció a csoportosított sávok vagy oszlopok megjelenítésére alkalmas diagramtípusoknál; nem érinti a kombinált diagramon a nem kapcsolódó sorozatcsoportokat.
 
-Az alábbi példa beállítja az első sorozatot tartalmazó csoport átfedését:
+A következő példa beállítja az átfedést annak a csoportnak, amely az első sorozatot tartalmazza:
 
 ```java
 import com.aspose.slides.*;
@@ -115,9 +117,9 @@ Az eredmény:
 
 ## **A sorozat kitöltőszínének módosítása**
 
-Használja az [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) metódust a teljes sorozat alapértelmezett kitöltésének megadásához. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) beállítása felülírja a sorozat kitöltését a pontnál.
+Használja az [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) metódust a teljes sorozatra vonatkozó alapértelmezett kitöltés beállításához. Ha egy pont már explicit kitöltéssel rendelkezik, annak a [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) beállítása felülírja a sorozat kitöltését az adott pontnál.
 
-Az alábbi példa egy egységes kék kitöltést alkalmaz az első sorozatra:
+A következő példa egy egységes kék kitöltést alkalmaz az első sorozatra:
 
 ```java
 import com.aspose.slides.*;
@@ -148,7 +150,7 @@ Az eredmény:
 
 ## **A sorozat nevének módosítása**
 
-A sorozat neve a diagram adatmunkafüzetében van tárolva, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzetben, amely egy csoportosított oszlopdiagramhoz jön létre, a B1 cella (0. sor, 1. oszlop) az első sorozat nevét tartalmazza. Az alábbi példában a névkonstansok expliciten tükrözik ezt a struktúrát:
+A sorozat neve a diagram adatmunkafüzetében van tárolva, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzet egy klaszterezett oszlopdiagram esetén a B1 cella a 0‑s sorban, 1‑s oszlopban található, és az első sorozat nevét tartalmazza. Az alábbi példában szereplő névkonstansok explicit módon szemléltetik ezt a struktúrát:
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +176,7 @@ try {
 }
 ```
 
-A cellát közvetlenül is frissítheti a [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) által már hivatkozott cellával. Ezzel a megközelítéssel elkerülhető, hogy egy meglévő diagramra egy adott sor és oszlop feltételezésére építsen:
+Frissítheti azt a cellát is, amelyet már a [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) hivatkozik. Ez a megközelítés elkerüli egy adott sor és oszlop feltételezését egy meglévő diagramban:
 
 ```java
 import com.aspose.slides.*;
@@ -203,13 +205,13 @@ Az eredmény:
 
 ![The series name](series_name.png)
 
-### **Sorozat létrehozása több cella nevével**
+### **Sorozat létrehozása több cellából származó névvel**
 
-Összetett sorozatnév akkor hasznos, ha egy termék neve és egy jelentési időszak külön munkafüzetcellákban van tárolva. Például a `Product A` B1‑ben és a `2026` C1‑ben egyetlen sorozatnevébe kombinálható, miközben mindkét rész továbbra is a forráscellához van kapcsolva.
+Összetett sorozatnév hasznos, ha a termék neve és a jelentési időszak külön munkafüzetcellákban van tárolva. Például a `Product A` értéket a B1‑ben és a `2026` értéket a C1‑ben egyetlen sorozatnévre kombinálhatja, miközben mindkét rész a forráscellához van kapcsolva.
 
-Használja az [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) metódust a névtartomány lekéréséhez, majd adja át ezt a gyűjteményt a [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) metódusnak. A `skipHiddenCells` argumentum szabályozza, hogy a rejtett cellák is szerepeljenek‑e: `true` kizárja őket, `false` pedig beleveszi. Ebben a példában `false`‑t használunk, hogy minden cella szerepeljen a névtartományban.
+Használja a [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) metódust a névtartomány lekéréséhez, majd adja át a gyűjteményt a [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-)‑nek. A `skipHiddenCells` argumentum határozza meg, hogy a rejtett cellák szerepeljen‑e: `true` kizárja őket, `false` pedig belefoglalja. Ebben a példában `false`‑t használunk, hogy minden cellát felvegye a névtartományba.
 
-Az alábbi példa egy prezentációt hoz létre egy sorozattal és két adatponttal. A B1:C1 cellák csak a sorozatnevet biztosítják; az A2:A3 a kategóriacímkéket, a B2:B3 pedig a numerikus értékeket.
+Az alábbi példa egy prezentációt hoz létre egy sorozattal és két adatponttal. A B1:C1 cellák kizárólag a sorozat nevét biztosítják; az A2:A3 cellák a kategória címkéket, a B2:B3 cellák a numerikus értékeket tartalmazzák.
 
 ```java
 import com.aspose.slides.*;
@@ -227,13 +229,13 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Ez a két cella adja a sorozat nevét.
+    // Ez a két cella biztosítja a sorozat nevét.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     IChartSeries series = chart.getChartData().getSeries().add(nameCells, ChartType.ClusteredColumn);
 
-    // Külön cellák biztosítják a kategóriákat és a numerikus adatpontokat.
+    // Különálló cellák biztosítják a kategóriákat és a numerikus adatpontokat.
     IChartDataCell northCategory = workbook.getCell(0, 1, 0, "North");
     IChartDataCell southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -249,15 +251,15 @@ try {
 }
 ```
 
-Az eredményül kapott sorozatnév `Product A 2026`, egy szóközzel elválasztva a két cella értékét. A jelmagyarázat egy bejegyzésként jeleníti meg mindkét oszlopot. Az alábbi kép mutatja az eredményt:
+Az eredményül kapott sorozatnév `Product A 2026`, egy szóközzel a két cellaérték között. A jelmagyarázat egy bejegyzésként jeleníti meg mindkét oszlopot. Az alábbi kép szemlélteti az eredményt:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Az automatikus sorozat‑kitöltőszín lekérése**
+## **Az automatikus sorozat kitöltőszín lekérdezése**
 
-Az [IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) metódus a sorozat indexe és a diagram stílusa alapján számított Android ARGB színt egész számként adja vissza. Ez a szín akkor használatos, amikor a sorozat kitöltése nincs kifejezetten meghatározva. A metódus hívása csak a számított színt olvassa, nem állít be új kitöltést.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) visszaadja a sorozat indexéből és a diagram stílusából számított Android ARGB szín egész számát. Ez a szín akkor kerül felhasználásra, amikor a sorozat kitöltése nincs kifejezetten definiálva. A metódus meghívása csak a számított színt olvassa; nem rendel hozzá új kitöltést.
 
-Az alábbi példa kiírja minden alapértelmezett sorozat automatikus színértékét:
+A következő példa kiírja minden alapértelmezett sorozat automatikus színértékét:
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +283,13 @@ try {
 }
 ```
 
-A pontos egész szám értékek a diagram stílusától és sablonjától függenek.
+A pontos egész szám értékek a diagram stílusától és témájától függenek.
 
-## **Invertált kitöltőszín beállítása diagram sorozathoz**
+## **Inverz kitöltőszín beállítása diagram sorozathoz**
 
-Oszlop, sáv és buborék sorozatok esetén az [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) használatával a negatív értékek más kitöltéssel jeleníthetők meg. Állítsa be a normál sorozatkitöltést szilárdra, engedélyezze az invertálást, és adja meg a negatív érték színét az [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) segítségével. A negatív számok a munkafüzetben érintetlenül maradnak; csak a megjelenített színük változik.
+Oszlop-, sáv- és buboréksorozatoknál az [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) lehetővé teszi, hogy a negatív értékeket más színnel jelenítse meg. Állítsa be a szabályos sorozatkitöltést szilárdra, engedélyezze az inverziót, és adja meg a negatív érték színét az [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenítési színük változik.
 
-Az alábbi példa egy sorozattal helyettesíti az alapértelmezett diagramadatot. A munkalap 0. sora a sorozatnevet, a 0. oszlop a kategória neveket, az 1. oszlop pedig az értékeket tartalmazza:
+Az alábbi példa lecseréli az alapértelmezett diagram adatot egy sorozatra. A munkalap 0‑s sora tartalmazza a sorozat nevét, a 0‑s oszlop a kategória neveket, az 1‑s oszlop pedig az értékeket:
 
 ```java
 import com.aspose.slides.*;
@@ -346,7 +348,7 @@ Az eredmény:
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Inverziót egyetlen pontnál az [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) segítségével is engedélyezheti. Az alábbi példában a sorozatra vonatkozó invertálás ki van kapcsolva, csak a kiválasztott pontnál van bekapcsolva, amelynek negatív értéket is adunk a hatás láthatósága érdekében:
+Engedélyezheti az inverziót egyetlen pontnál a [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) segítségével. Az alábbi példában a sorozatra vonatkozó inverzió ki van kapcsolva, és csak a kiválasztott pontra van bekapcsolva. A pontnak negatív értéket is adunk, hogy a hatás látható legyen:
 
 ```java
 import com.aspose.slides.*;
@@ -382,7 +384,7 @@ try {
 
 ## **Egy adott adatpont értékének törlése**
 
-Egy pont üresen hagyásához, a többi pontot nem érintve, állítsa a mögöttes munkafüzetcellát `null`‑ra. Oszlopdiagram esetén a ábrázolt érték a [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) metódussal érhető el. Az adatpont ugyanazon kategóriapozícióban marad, de a diagram a beállított üres‑érték opció szerint a pontot üresnek tekinti.
+Egy pont üresen hagyásához a többi pont eltávolítása nélkül, állítsa a mögöttes munkafüzet celláját `null`‑ra. Oszlopdiagram esetén a megjelenített érték a [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--)‑val érhető el. Az adatpont ugyanazon kategória pozícióban marad, de a diagram a beállított üres‑érték opciók szerint üresként kezeli.
 
 Az alábbi példa csak a második pontot törli az első sorozatban:
 
@@ -409,17 +411,17 @@ try {
 }
 ```
 
-A szórt diagramok külön X és Y cellákat használnak, a buborék diagramok méretcellát is. Csak azt a cellát törölje, amely a törlendő értéket tartalmazza. Ne hívja a [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) metódust, ha a többi pontot meg akarja tartani, mert ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
+A szórásdiagramok külön X és Y cellákat használnak, a buborékdiagramok pedig méretcellát is. Csak azt a cellát törölje, amely a törlendő értéket tartalmazza. Ne hívja a [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) metódust, ha a többi pontot meg akarja tartani, mivel ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
 
-## **Az üres cellák megjelenítésének vezérlése**
+## **Az üres cellák megjelenítésének szabályozása**
 
-A rejtett, de értékkel rendelkező cellák más esetet képeznek, mint az üres cellák. A rejtett munkalapról származó sorok és oszlopok adatainak belefoglalásához tekintse meg a [Include Data from Hidden Rows and Columns](/slides/hu/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) oldalt.
+A rejtett cellák, amelyek értéket tartalmaznak, külön kategória az üres celláktól. A rejtett munkalap sorok és oszlopok adatainak felvételéhez vagy kihagyásához lásd a [Include Data from Hidden Rows and Columns](/slides/hu/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) cikket.
 
-Egy üres munkafüzetcellát a [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) metódussal `null`‑ra állítva tehet üressé. Egy numerikus nulla továbbra is nulla marad, függetlenül az üres‑cellák beállításától.
+Az üres munkafüzetcellák hiányzó adatot jelentenek; a `0` értékű cella ismert numerikus értéket jelent. Hívja meg az [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) metódust `null`‑val, hogy a cellát üressé tegye. Egy numerikus nulla továbbra is nulla marad, függetlenül az üres‑cellás beállítástól.
 
-Az [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) metódussal választhatja ki, hogyan jelenjenek meg az üres cellák. Ez a beállítás az egész diagramra vonatkozik, és úgy módosítja, hogy a hiányzó értékek hogyan kerülnek ábrázolásra, anélkül, hogy az üres munkafüzetcellát nullával vagy interpolált értékkel töltené fel.
+Használja a [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) metódust, hogy kiválassza, hogyan jelenítse meg a diagram az üres cellákat. Ez a beállítás a teljes diagramra vonatkozik. Megváltoztatja, hogyan vannak ábrázolva a hiányzó értékek, anélkül, hogy az üres munkafüzetcellát nullával vagy interpolált értékkel töltené fel.
 
-Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorozattal, a 3. nap értékét törli, és minden módhoz elmenti a diagramot. Bemeneti fájlra nincs szükség. A [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) a 0. munkalapot, az 0. oszlopot használja a kategória címkékhez, az 1. oszlopot az értékekhez; a 0. sor a sorozat nevet tartalmazza. A végső adatsor `10, 20, empty, 30, 40`.
+Az alábbi önálló példa egy vonaldiagramot hoz létre egy sorozattal, törli a 3. nap értékét, és minden módot elmenti ugyanabba a diagramba. Nem szükséges bemeneti fájl. Az [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) a 0‑s munkalapot, 0‑s oszlopot használja a kategória címkékhez, és az 1‑s oszlopot az értékekhez; a 0‑s sor a sorozat nevet tartalmazza. A végső adat `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -446,7 +448,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Hagyd a 3. napot valóban üresen, miközben megtartod a kategóriáját és az adatpontját.
+    // Hagyja a 3. napot valóban üresen, miközben megtartja a kategóriát és az adatpontot.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -460,19 +462,19 @@ try {
 }
 ```
 
-Minden kimeneti fájl a mentés előtt beállított módot tárolja: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy verziót szeretne menteni, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok ismétlése helyett.
+Minden kimeneti fájl tárolja a mentés előtt beállított módot: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` és `empty_cells_Span.pptx`. Ha csak egy változatot szeretne menteni, állítsa be a kívánt módot, és egyszer mentse a prezentációt a módok iterálása helyett.
 
 Az alábbi összehasonlítás ugyanazt az adatot mutatja mindhárom fájlban. A 3. nap minden esetben üres a munkafüzetben:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-A látható hatás a diagram típusától függ. Egy vonaldiagram esetén mindhárom mód könnyen összehasonlítható. Az oszlop- és sávdiagramoknak nincs vonala, amely összekötné a hiányzó kategóriát, így a `Span` nem tudja létrehozni a fenti összekötő szegmenst; egy hiányzó oszlop és egy nulla magaságú oszlop is hasonlóan nézhet ki. Hasonlóképpen, a csak jelölőket tartalmazó szórt diagramnak nincs összekötő vonala. Ne várjon három különböző eredményt minden diagramtípusnál; ellenőrizze a kimenetet a használt típus esetén.
+A látható hatás a diagram típusától függ. A vonaldiagram esetén mindhárom mód könnyen összehasonlítható. Az oszlop- és sávdiagramoknál nincs vonal, amely a hiányzó kategória felett összeköttetést hozna létre, így a `Span` nem tudja előállítani a fenti összekötő szegmenst; egy hiányzó oszlop és egy nulla magasságú oszlop is hasonlóan nézhet ki. Hasonlóképpen egy csak jelölőkkel rendelkező szórásdiagramnak sincs vonala, amely összekötne. Ne várjon három különböző eredményt minden diagramtípusnál; ellenőrizze a kimenetet a használt típusra.
 
 ## **A sorozat hézag szélességének beállítása**
 
-A hézag szélessége a szomszédos sáv‑ vagy oszlopklaszterek közötti térköz, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Hívja egyszer a [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) metódust a csoportra. A nagyobb érték nagyobb távolságot hoz létre a klaszterek között; a kisebb érték sűrűbb elrendezést eredményez.
+A hézag szélesség a szomszédos sáv vagy oszlop klaszterek közötti távolság, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Hívja meg egyszer a [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) metódust a csoporton. Egy nagyobb érték több helyet hoz létre a klaszterek között; egy kisebb érték sűrűbbé teszi őket.
 
-Az alábbi példa módosítja a hézag szélességét, és csak a végső prezentációt menti el:
+A következő példa megváltoztatja a hézag szélességet, és csak a végső prezentációt menti:
 
 ```java
 import com.aspose.slides.*;
@@ -500,44 +502,80 @@ Az eredmény:
 
 ![The gap width](gap_width.png)
 
+## **Sorozatvonalak megjelenítése vagy elrejtése**
+
+A sorozatvonalak vizuálisan összekötik a diagram kapcsolódó részeit. Használja a [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) metódust a támogatott halmozott sáv és OfPie diagramokban való megjelenítéshez vagy elrejtéshez. Két dimenziós halmozott sáv- és oszlopdiagramokban a vonalak a megfelelő halom határait kötik össze a kategóriák között. Pie of Pie és Bar of Pie diagramokban a vonalak a fő diagramot kötik össze a másodlagos diagrammal. Ez a beállítás nem általános célú csatlakozó más diagramtípusokhoz.
+
+A csoportot a [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) segítségével érheti el. A beállítás a csoport minden sorozatára vonatkozik. Az [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#hasSeriesLines--) csak olvasható, és a szülő csoport beállítását tükrözi; a csoport setterét hívja meg a frissítéshez.
+
+A következő példa egy [PieOfPie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#PieOfPie) diagramot hoz létre alapértelmezett adatokkal. Mentse el ugyanazt a diagramot sorozatvonalakkal engedélyezve, majd letiltva, hogy két prezentációt kapjon összehasonlításra.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Sorozatvonalak engedélyezve | Sorozatvonalak letiltva |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| A két vonal összeköti a fő tortát a másodlagos tortával. | Mindkét torta látható, de a csatlakozó vonalak rejtve vannak. |
+
+A sorozatvonalak eltérnek az adatcímke vezető vonalaitól, amelyek a címkéket kötik az adatpontokhoz; a rácsvonalaktól, amelyek a diagram tengelyek mentén jelölik az intervallumokat; és a vonaldiagram vonalai, amelyek az adatértékeket ábrázolják. Ez a beállítás nem szabályozza ezeket az elemeket.
+
 ## **GYIK**
 
-**Mely diagramtípusok támogatják a adat sorozatokat?**
+**Mely diagramtípusok támogatják az adat sorozatokat?**
 
-Az összes olyan diagramtípus, amelyet a [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) felsorolás tartalmaz, használ diagramadatokat, de sorozataik nem minden esetben rendelkeznek ugyanazzal az értékszerkezettel vagy beállításokkal. Például a kategória diagramok kategóriákat és értékeket, a szórt diagramok X és Y értékeket, a buborék diagramok pedig buborékméreteket használnak. A sorozattípusnak megfelelő adatpont‑létrehozó metódust kell alkalmazni. Az olyan opciók, mint az átfedés és a hézag szélesség, csak kompatibilis sáv‑ vagy oszlopcsoportokra vonatkoznak.
+Minden, a [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) felsorolásban szereplő diagramtípus használ diagram adatot, de a sorozatok nem mindegyiknek ugyanaz a értékstruktúrája vagy beállítása. Például a kategória diagramok kategóriákat és értékeket használnak, a szórás diagramok X és Y értékeket, a buborék diagramok pedig buborékméreteket adnak hozzá. Használja a sorozattípusnak megfelelő adatpont‑létrehozó metódust. Az olyan opciók, mint az átfedés és a hézag szélesség, csak a kompatibilis sáv vagy oszlop csoportokra vonatkoznak.
 
-**Mi az a diagram sorozatcsoport?**
+**Mi a diagram sorozatcsoport?**
 
-Egy [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek a csoport‑szintű ábrázolási beállításokat osztják meg. Egy kombinációs diagram több csoportot is tartalmazhat, így egy sorozaton keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram minden sorozatát.
+Egy [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoport‑szintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több mint egy csoportot is tartalmazhat, így egy sorozaton keresztül elérhető csoport módosítása nem feltétlenül változtatja meg a diagram összes sorozatát.
 
-**Egy újból létrehozott diagram alapértelmezett adatokat tartalmaz?**
+**Tartalmaz-e egy újonnan létrehozott diagram alapértelmezett adatot?**
 
-Igen. Alapértelmezés szerint az [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) metódus mintasorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy törölheti a sorozat‑ és kategória‑gyűjteményeket, mielőtt teljesen saját adatkészletet adna hozzá. Egy túlterhelés segítségével diagramot is létrehozhat alapértelmezett adatok nélkül.
+Igen. Alapértelmezés szerint a [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) mintavörű sorozatokat, kategóriákat és értékeket hoz létre. Szerkesztheti ezeket a cellákat, vagy törölheti a sorozat‑ és kategória‑gyűjteményeket, mielőtt teljesen custom adatot adna hozzá. Egy túlterhelés (overload) is létrehozhat diagramot alapértelmezett adatok nélkül.
 
-**Hogyan kapcsolódnak a diagram objektumok a munkafüzetcellákhoz?**
+**Hogyan kapcsolódnak a diagram objektumok a munkafüzet cellákhoz?**
 
-A sorozatnevek, kategória címkék és adatpont‑értékek egy [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagramelemet. Egyedi adat felépítésekor tartsa a kategória sorokat és a sorozat‑érték sorokat összehangoltan, hogy minden pont a kívánt kategória alatt legyen ábrázolva.
+A sorozatnevek, kategória címkék és adatpont‑értékek egy [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagram elemet. Egyedi adat felépítésekor tartsa a kategória sorokat és a sorozat‑érték sorokat igazítottan, hogy minden pont a kívánt kategória alá legyen ábrázolva.
 
-**Hogyan töröljek egy pontot a teljes sorozat helyett?**
+**Hogyan törölhetem egy pontot a teljes sorozat helyett?**
 
-Állítsa a megfelelő értékcellát `null`‑ra, így a pont kategória pozíciója üres pontként marad. A [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) metódust csak akkor használja, ha az adott sorozat összes pontját el akarja távolítani. Ha a kategóriákat is eltávolítja, frissítse minden sorozatot, hogy értékeik a kategória‑gyűjteménnyel igazodva maradjanak.
+Állítsa a releváns értékcellát `null`‑ra, hogy a pont kategória‑pozíciója üres maradjon. Használja a [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) csak akkor, ha minden pontot el akar távolítani az adott sorozatból. Ha a kategóriákat is eltávolítja, frissítse minden sorozatot, hogy az értékek a kategória gyűjteménnyel összhangban maradjanak.
 
 **Hogyan jelennek meg az üres pontok?**
 
-Az eredmény a diagram típusától és a [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) által beállított értéktől függ. A támogatott diagramok megjeleníthetik a hiányzókat hézagként, nullaként vagy a szomszédos pontok összekapcsolásával. Válassza ki a jelentésnek leginkább megfelelő beállítást a prezentációjában. Tekintse meg a [Üres cellák megjelenítésének vezérlése](#control-the-display-of-empty-cells) részt a teljes példáért és vizuális összehasonlításért.
+Az eredmény a diagram típusától és a [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) által konfigurált beállítástól függ. A támogatott diagramok megjeleníthetik a hiányzó adatokat hézagként, nulla értékként vagy a szomszédos pontok összekapcsolásával. Válassza ki a hiányzó adatok jelentésének megfelelő beállítást a prezentációban. Lásd a [Control the Display of Empty Cells](#control-the-display-of-empty-cells) részt a teljes példa és vizuális összehasonlítás érdekében.
 
-**Hogyan formázódnak a negatív értékek?**
+**Hogyan formázzák a negatív értékeket?**
 
-Támogatott sáv-, oszlop- és buborék sorozatok esetén hívja az [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) metódust, és állítsa be a [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) által visszaadott színt. Egy egyedi pontnál a [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) metódussal felülbírálhatja a viselkedést. Ezek a metódusok a formázásra hatnak, nem a tárolt numerikus értékekre.
+A támogatott sáv, oszlop és buborék sorozatoknál hívja meg a [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) és állítsa be a [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) által visszaadott színt. Egy egyedi pontnál felülbírálhatja a viselkedést a [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) segítségével. Ezek a metódusok a formázást érintik, nem a tárolt numerikus értékeket.
 
 **Melyik formázás nyer, ha egy sorozat és egy pont is formázva van?**
 
-A kifejezett adatpont‑formázás elsőbbséget élvez az adott pontnál. A többi pont továbbra is az explicit sorozat‑formátumot vagy, ha az nincs definiálva, a automatikus diagramstílust és sablont használja. A csoport‑beállítások, mint az átfedés és a hézag szélesség, elrendezést szabályoznak, és nem pont‑szintű formázási felülbírálások.
+Az explicit adatpont‑formázás élvezi az adott pont előnyét. A többi pont a kifejezett sorozatformátumot használja, vagy ha a sorozatformátum nincs definiálva, akkor az automatikus diagram stílus és téma szerinti megjelenést. A csoport‑beállítások, mint az átfedés és a hézag szélesség, a elrendezésért felelnek, nem pont‑szintű formázási felülírások.
 
-**Van korlát arra, hogy hány sorozatot tartalmazhat egy diagram?**
+**Van-e korlát arra, hány sorozatot tartalmazhat egy diagram?**
 
-Az Aspose.Slides nem határoz meg különálló, rögzített sorozatszám‑korlátot. Gyakorlatban a prezentációfájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg az értelmes határt.
+Az Aspose.Slides nem állapít meg különálló fix sorozatszám‑korlátot. Gyakorlatban a prezentáció fájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos határt.
 
-**Mit kell módosítani, ha az oszlopok túl közel vagy túl messze vannak egymástól?**
+**Mit kell módosítanom, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
 
-Hívja a [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) metódust a megfelelő szülő sorozatcsoporton. Növelje az értéket a klaszterek közötti térköz bővítéséhez, vagy csökkentse, ha közelebb szeretné helyezni a klasztereket.
+Hívja meg a [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) megfelelő szülő sorozatcsoporton. Növelje az értéket a klaszterek közti tér növeléséhez, vagy csökkentse a közelebbi elrendezéshez.

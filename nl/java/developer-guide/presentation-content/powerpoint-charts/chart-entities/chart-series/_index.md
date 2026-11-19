@@ -1,46 +1,48 @@
 ---
-title: Beheer diagramdataseries in presentaties in Java
-linktitle: Dataseries
+title: Beheer grafiekreeksen in presentaties in Java
+linktitle: Gegevensreeksen
 type: docs
 url: /nl/java/chart-series/
 keywords:
-- diagramreeks
-- reeks overlap
+- grafiekreeksen
+- reeks overlapping
 - reeks kleur
 - reeksnaam
-- datumpunt
-- werkboekcel
-- reeks gat
+- datapunten
+- werkboekcellen
+- reeks tussenruimte
 - negatieve waarde
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe u diagramreeksen, datapunten, werkboekcellen, opmaak, overlap, gatbreedte en negatieve waarden kunt beheren in presentaties met Java."
+description: "Leer hoe u grafiekreeksen, datapunten, werkboekcellen, opmaak, overlapping, tussenbreedte en negatieve waarden in presentaties kunt beheren met Java."
 ---
 ## **Overzicht**
 
-Een diagram kan zijn getekende waarden opslaan in werkboekcellen of rechtstreeks als numerieke letterlijke waarden. Een [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) vertegenwoordigt een punt in die reeks. [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/)‑objecten leveren de labels of groeperingswaarden die door de reeksen worden gedeeld. In diagrammen die met standaardgegevens zijn aangemaakt, gebruiken serienaam‑, categorie‑ en puntwaarden [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/)‑objecten uit het werkboek van het diagram.
+Een diagram kan zijn uitgeplotte waarden opslaan in werkbladcellen of rechtstreeks als numerieke letterlijke waarden. Een [IChartSeries](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/) vertegenwoordigt één set verwante waarden, en elk [IChartDataPoint](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/) vertegenwoordigt een punt in die reeks. [IChartCategory](https://reference.aspose.com/slides/java/com.aspose.slides/ichartcategory/)‑objecten leveren de labels of groeperingswaarden die door de reeksen gedeeld worden. In diagrammen die met standaarddata zijn aangemaakt, gebruiken reeksnamen, categorieën en puntwaarden [IChartDataCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/)‑objecten uit het diagramwerkboek.
 
-Voor een typisch categorie‑diagram gebruikt het standaardwerkboek rij 0 voor serienamen, kolom 0 voor categorienamen en de resterende cellen voor seriewaarden. Werkblad‑, rij‑ en kolom‑indexes die worden doorgegeven aan [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) zijn nul‑gebaseerd. Deze indeling is handig wanneer je een diagram met standaardgegevens maakt, maar ga er niet van uit dat elk bestaand diagram dit volgt. Voor een geladen presentatie, inspecteer de cellen waarnaar de reeksen, categorieën en datapunten verwijzen voordat je werkboekwaarden wijzigt.
+Voor een typische categorie‑diagram gebruikt het standaardwerkboek rij 0 voor reeksnamen, kolom 0 voor categorienamen en de resterende cellen voor reekswaarden. Werkblad‑, rij‑ en kolomindexen die worden doorgegeven aan [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) zijn nul‑gebaseerd. Deze indeling is handig wanneer u een diagram met standaarddata maakt, maar ga er niet vanuit dat elk bestaand diagram het zo gebruikt. Voor een geladen presentatie, inspecteer de cellen waarnaar de reeksen, categorieën en datapoints verwijzen voordat u werkboekwaarden wijzigt.
 
-Diagraminstellingen hebben drie verschillende toepassingsgebieden:
+Diagraminstellingen hebben drie verschillende scopes:
 
-- Instellingen op serieniveau, zoals [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--), bieden de standaardweergave voor alle punten in één reeks.
-- Instellingen per datumpunt, zoals [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--), overschrijven de serieweergave voor één punt.
-- Groepsinstellingen gelden voor compatibele reeksen die tot dezelfde [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) behoren. Open de groep via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) wanneer je opties moet instellen zoals overlap of gatbreedte.
+- Instellingen op reeksniveau, zoals [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--), geven de standaardopmaak voor alle punten in één reeks.
+- Instellingen per datapunt, zoals [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--), overschrijven de reeksopmaak voor één punt.
+- Groepsinstellingen zijn van toepassing op compatibele reeksen die tot dezelfde [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) behoren. Benader de groep via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) wanneer u opties wilt instellen zoals overlap of tussenruimte.
 
-Wanneer er geen expliciete punt‑ of serievulling is ingesteld, bepalen diagramstijl en thema het automatische uiterlijk. Wanneer zowel serie‑ als punt‑formattering aanwezig zijn, heeft de punt‑formattering voorrang voor dat punt.
+Wanneer er geen expliciete punt‑ of reeksvulling is ingesteld, bepalen de diagramstijl en het thema de automatische weergave. Wanneer zowel reeks‑ als puntopmaak aanwezig zijn, heeft de puntopmaak voorrang voor dat punt.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![grafiek-reeks-powerpoint](chart-series-powerpoint.png)
 
-## **Seriewaarden instellen met numerieke letterlijke waarden**
+Voor een gegroepeerde cilinderschijf‑diagram, zie hoe [het wijzigen van het 3D‑reeks‑type of de staafvorm](/slides/nl/java/3d-chart/#change-the-3d-series-type-and-bar-shape) de eerste reeks beïnvloedt.
 
-Gebruik numerieke letterlijke waarden wanneer seriewaarden afkomstig zijn van toepassingsdata of berekeningen en geen verwijzingen naar werkbladcellen nodig hebben. Roep [setDataSourceTypeForValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) aan met [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/#DoubleLiterals) voordat je voor elk punt de [getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--)‑resultaat toewijst via [setAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
+## **Reekswaarden Instellen Met Numerieke Letterlijke Waarden**
 
-De collectiesetting bepaalt het brontype van alle puntwaarden in die reeks. De [getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ibasechartvalue/#getDataSourceType--)‑methode van elke puntwaarde geeft het geselecteerde type terug; wijzig het via de collectiesetting. Met `Worksheet` gebruik je [getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/isinglecellchartvalue/#getAsCell--) om de verwijzende cel te benaderen. Met `DoubleLiterals` gebruik je [getAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) of `setAsLiteralDouble` om het getal rechtstreeks te lezen of te schrijven.
+Gebruik numerieke letterlijke waarden wanneer reekswaarden afkomstig zijn van toepassingsdata of berekeningen en geen verwijzingen naar werkbladcellen nodig hebben. Roep [setDataSourceTypeForValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) aan met [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/java/com.aspose.slides/datasourcetype/#DoubleLiterals) voordat u het resultaat van elk punt‑[getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--) toewijst via [setAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
 
-Het volgende voorbeeld maakt een kolomdiagram met standaardreeksen en -categorieën, en kent vervolgens berekende waarden 10, 20, enzovoort toe aan de bestaande punten van de eerste reeks. Het slaat de presentatie op, opent deze opnieuw en drukt de opgeslagen waarden af.
+De collectiesetting bepaalt het brontype van alle puntwaarden in die reeks. De [getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ibasechartvalue/#getDataSourceType--)‑methode van elk punt meldt het gekozen type; wijzig het via de collectiesetting. Met `Worksheet` gebruikt u [getAsCell](https://reference.aspose.com/slides/java/com.aspose.slides/isinglecellchartvalue/#getAsCell--) om de verwijzende cel te benaderen. Met `DoubleLiterals` gebruikt u [getAsLiteralDouble](https://reference.aspose.com/slides/java/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) of `setAsLiteralDouble` om het getal direct te lezen of te schrijven.
+
+Het volgende voorbeeld maakt een kolomdiagram met standaardreeksen en -categorieën, en kent vervolgens berekende waarden 10, 20, enz. toe aan de bestaande punten van de eerste reeks. Het slaat de presentatie op, opent deze opnieuw en drukt de opgeslagen waarden af.
 
 ```java
 import com.aspose.slides.*;
@@ -75,13 +77,13 @@ try {
 }
 ```
 
-Het brontype van de puntwaarde staat los van [IChartData.getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getDataSourceType--), dat de interne of externe werkboekconfiguratie van het diagram identificeert. Het gebruik van numerieke letterlijke waarden verwijdert niet automatisch het ingebedde werkboek. In dit voorbeeld blijft het werkboek beschikbaar voor categorielabels, serienamen en de overige reeksen. Zie [Chart Workbook](/slides/nl/java/chart-workbook/) voor werkboekbeheer.
+Het bron‑type van de puntwaarde staat los van [IChartData.getDataSourceType](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdata/#getDataSourceType--), dat de interne of externe werkboekconfiguratie van het diagram identificeert. Het gebruik van numerieke letterlijke waarden verwijdert niet automatisch het ingebedde werkboek. In dit voorbeeld blijft het werkboek beschikbaar voor categorielabels, reeksnamen en de andere reeksen. Zie [Chart Workbook](/slides/nl/java/chart-workbook/) voor werkboekbeheer.
 
-Voor spreidings‑ en bubbel‑diagrammen gebruik je [setDataSourceTypeForXValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) en [setDataSourceTypeForYValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) om de bronnen voor [getXValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getXValue--) en [getYValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getYValue--) te kiezen. Bubbel‑diagrammen gebruiken ook [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) voor [getBubbleSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Stel elke toepasselijke bron in op `DoubleLiterals` voordat je getallen toewijst via de `setAsLiteralDouble`‑methode van die waarde.
+Voor spreidings‑ en bubbel‑diagrammen gebruikt u [setDataSourceTypeForXValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) en [setDataSourceTypeForYValues](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) om de bronnen voor [getXValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getXValue--) en [getYValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getYValue--) te kiezen. Bubbel‑diagrammen gebruiken ook [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) voor [getBubbleSize](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Stel elke toepasselijke bron in op `DoubleLiterals` voordat u getallen toewijst via de `setAsLiteralDouble`‑methode van die waarde.
 
-## **De overlap van diagramreeksen instellen**
+## **Overlap van de Diagramreeksen Instellen**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) geeft aan hoeveel balken of kolommen overlappen in een 2D‑diagram, van –100 tot 100 percent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende seriegroep. Gebruik [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) om elke compatibele reeks in die groep bij te werken. Deze optie geldt voor diagramtypen die gegroepeerde balken of kolommen weergeven; hij heeft geen invloed op ongerelateerde seriegroepen in een combinatie‑diagram.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getOverlap--) geeft aan hoeveel staven of kolommen overlappen in een 2D‑diagram, van -100 tot 100 procent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende reeks‑groepsobject. Gebruik [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) om elke compatibele reeks in die groep bij te werken. Deze optie is van toepassing op diagramtypen die gegroepeerde staven of kolommen weergeven; hij beïnvloedt geen niet‑gerelateerde reeksgroepen in een combinatiediagram.
 
 Het volgende voorbeeld stelt de overlap in voor de groep die de eerste reeks bevat:
 
@@ -110,11 +112,11 @@ try {
 
 Het resultaat:
 
-![The series overlap](series_overlap.png)
+![De overlap van de reeks](series_overlap.png)
 
-## **De vulkleur van de reeks wijzigen**
+## **Kleur van de Reeksvulling Wijzigen**
 
-Gebruik [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) om de standaardvulling voor een volledige reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--)‑instelling de serievulling voor dat punt.
+Gebruik [IChartSeries.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getFormat--) om de standaardvulling voor een volledige reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft de [IChartDataPoint.getFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getFormat--)‑instelling de reeksvulling voor dat punt.
 
 Het volgende voorbeeld past een egale blauwe vulling toe op de eerste reeks:
 
@@ -143,11 +145,11 @@ try {
 
 Het resultaat:
 
-![The color of the series](series_color.png)
+![De kleur van de reeks](series_color.png)
 
-## **De serienaam wijzigen**
+## **Naam van de Reeks Wijzigen**
 
-Een serienaam wordt opgeslagen in het diagram‑werkboek en normaal weergegeven in de legenda. In het standaardwerkboek dat wordt aangemaakt voor een gegroepeerd kolomdiagram bevindt cel B1 zich op rij 0, kolom 1 en bevat de naam van de eerste reeks. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
+Een reeksnamen wordt opgeslagen in het diagram‑werkboek en doorgaans weergegeven in de legende. In het standaardwerkboek dat wordt aangemaakt voor een gegroepeerde kolomdiagram, staat cel B1 op rij 0, kolom 1 en bevat deze de naam van de eerste reeks. De benoemde constanten in het volgende voorbeeld maken die structuur expliciet:
 
 ```java
 import com.aspose.slides.*;
@@ -173,7 +175,7 @@ try {
 }
 ```
 
-Je kunt ook de cel bijwerken die al wordt verwezen door [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--). Deze aanpak vermijdt aannames over een specifieke rij en kolom in een bestaand diagram:
+U kunt ook de cel bijwerken die al wordt gerefereerd door [IChartSeries.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getName--). Deze aanpak voorkomt dat u een bepaalde rij‑ en kolompositie moet veronderstellen in een bestaand diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -200,15 +202,15 @@ try {
 
 Het resultaat:
 
-![The series name](series_name.png)
+![De naam van de reeks](series_name.png)
 
-### **Een reeks maken met een naam uit meerdere cellen**
+### **Een Reeks Maken met een Naam uit Meerdere Cellen**
 
-Een samengestelde serienaam is nuttig wanneer een productnaam en een rapportage‑periode in afzonderlijke werkboekcellen staan. Je kunt bijvoorbeeld `Product A` in B1 en `2026` in C1 combineren tot één serienaam terwijl beide delen gekoppeld blijven aan hun broncellen.
+Een samengestelde reeksnamen is nuttig wanneer een productnaam en een rapportage‑periode in afzonderlijke werkbladcellen worden opgeslagen. U kunt bijvoorbeeld `Product A` in B1 combineren met `2026` in C1 tot één reeksnamen, terwijl beide delen gekoppeld blijven aan hun broncellen.
 
-Gebruik [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) om het naam‑bereik op te halen, en geef die collectie door aan [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Het argument `skipHiddenCells` bepaalt of verborgen cellen worden meegenomen: `true` sluit ze uit, `false` neemt ze op. Dit voorbeeld gebruikt `false` om elke cel in het naam‑bereik op te nemen.
+Gebruik [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) om het naam‑bereik op te halen, en geef die collectie vervolgens door aan [IChartSeriesCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). Het argument `skipHiddenCells` bepaalt of verborgen cellen worden meegenomen: `true` sluit ze uit, `false` neemt ze op. Dit voorbeeld gebruikt `false` om elke cel in het naam‑bereik op te nemen.
 
-Het volgende voorbeeld maakt een presentatie met één reeks en twee datapunten. Cellen B1:C1 leveren alleen de serienaam; A2:A3 leveren de categorielabels, en B2:B3 de numerieke waarden.
+Het volgende voorbeeld maakt een presentatie met één reeks en twee datapoints. Cellen B1:C1 leveren alleen de reeksnamen; A2:A3 leveren de categorielabels, en B2:B3 leveren de numerieke waarden.
 
 ```java
 import com.aspose.slides.*;
@@ -226,7 +228,7 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Deze twee cellen leveren de serienaam.
+    // Deze twee cellen leveren de naam van de reeks.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
@@ -248,15 +250,15 @@ try {
 }
 ```
 
-De resulterende serienaam is `Product A 2026`, met een spatie tussen de twee celwaarden. De legenda toont dit als één entry voor beide kolommen. De afbeelding hieronder illustreert het resultaat:
+De resulterende reeksnamen is `Product A 2026`, met een spatie tussen de twee celwaarden. De legende toont dit als één invoer voor beide kolommen. De afbeelding hieronder illustreert het resultaat:
 
-![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+![Kolomdiagram met Noord‑ en Zuid‑waarden en de samengestelde reeksnamen Product A 2026 in de legende](composite_series_name.png)
 
-## **De automatische vulkleur van de reeks ophalen**
+## **Automatische Reekskleur Ophalen**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) retourneert de kleur die wordt berekend op basis van de reeks‑index en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de serievulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; het wijzigt geen vulling.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) retourneert de kleur die wordt berekend op basis van de reeks‑index en de diagramstijl. Dit is de kleur die wordt gebruikt wanneer de reeksvulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij wijzigt geen vulling.
 
-Het volgende voorbeeld drukt de automatische kleur van elke standaardreeks af:
+Het volgende voorbeeld drukt de automatische kleur af van elke standaardreeks:
 
 ```java
 import com.aspose.slides.*;
@@ -291,11 +293,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 De exacte kleuren hangen af van de diagramstijl en het thema.
 
-## **Inversie‑vulkleur voor een diagramreeks instellen**
+## **Omgekeerde Vulkleur Instellen voor een Diagramreeks**
 
-Voor balk‑, kolom‑ en bubbelreeksen kan [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negatieve waarden met een andere vulling weergeven. Stel de reguliere serievulling in op solide, schakel inversie in, en wijs de negatieve‑waarde‑kleur toe via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergevenkleur verandert.
+Voor staaf‑, kolom‑ en bubbelreeksen kan [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negatieve waarden met een andere vulling weergeven. Stel de reguliere reeksvulling in op een effen kleur, schakel inversie in, en wijs de negatieve‑kleur toe via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negatieve getallen blijven onveranderd in het werkboek; alleen de weergavekleur verandert.
 
-Het volgende voorbeeld vervangt de standaarddiagramdata door één reeks. Werkbladrij 0 bevat de serienaam, kolom 0 de categorienamen, en kolom 1 de waarden:
+Het volgende voorbeeld vervangt de standaard diagramdata door één reeks. Werkbladrij 0 bevat de reeksnamen, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
 
 ```java
 import com.aspose.slides.*;
@@ -352,9 +354,9 @@ try {
 
 Het resultaat:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![De omgekeerde solide vulkleur](inverted_solid_fill_color.png)
 
-Je kunt inversie voor één punt inschakelen via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). In het volgende voorbeeld is inversie uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt bovendien een negatieve waarde zodat het effect zichtbaar is:
+U kunt inversie inschakelen voor één punt via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). In het volgende voorbeeld wordt inversie uitgeschakeld voor de reeks en alleen voor het geselecteerde punt ingeschakeld. Het punt krijgt tevens een negatieve waarde zodat het effect zichtbaar is:
 
 ```java
 import com.aspose.slides.*;
@@ -388,9 +390,9 @@ try {
 }
 ```
 
-## **Een specifieke datumpuntwaarde wissen**
+## **Een Specifieke Datapuntwaarde Wissen**
 
-Om één punt leeg te maken zonder de andere punten te verwijderen, stel je de onderliggende werkboekcel in op `null`. Voor een kolomdiagram is de getekende waarde beschikbaar via [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). Het datumpunt blijft op dezelfde categorische positie staan, maar het diagram behandelt de waarde als leeg volgens de instellingen voor lege waarden.
+Om één punt leeg te maken zonder de andere punten te verwijderen, stelt u de onderliggende werkboekcel in op `null`. Voor een kolomdiagram is de uitgeplotte waarde beschikbaar via [IChartDataPoint.getValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#getValue--). Het datapunt blijft op dezelfde categorietoestand, maar het diagram behandelt de waarde als leeg volgens de instellingen voor lege waarden van het diagram.
 
 Het volgende voorbeeld wist alleen het tweede punt in de eerste reeks:
 
@@ -417,17 +419,17 @@ try {
 }
 ```
 
-Spreidings‑diagrammen gebruiken afzonderlijke X‑ en Y‑cellen, en bubbel‑diagrammen gebruiken ook een grootte‑cel. Wis alleen de cel die de te verwijderen waarde vertegenwoordigt. Roep niet [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) aan wanneer je de andere punten wilt behouden, want die methode verwijdert elk datumpunt uit de collectie.
+Spreidingsdiagrammen gebruiken afzonderlijke X‑ en Y‑cellen, en bubbel‑diagrammen gebruiken ook een groottecel. Wis alleen de cel die de waarde vertegenwoordigt die u wilt verwijderen. Roep [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) niet aan wanneer u de andere punten wilt behouden, want die methode verwijdert alle datapoints uit de collectie.
 
-## **De weergave van lege cellen beheren**
+## **Weergave van Lege Cellen Besturen**
 
-Verborgen cellen die waarden bevatten vormen een apart geval ten opzichte van lege cellen. Om gegevens uit verborgen werkblad‑rijen en -kolommen op te nemen of uit te sluiten, zie [Include Data from Hidden Rows and Columns](/slides/nl/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Verborgen cellen die waarden bevatten vormen een apart geval ten opzichte van lege cellen. Om gegevens uit verborgen werkbladrijen en -kolommen wel of niet op te nemen, zie [Gegevens Uit Verborgen Rijen en Kolommen Opnemen](/slides/nl/java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Een lege werkboekcel staat voor ontbrekende data; een cel met `0` staat voor een bekende numerieke waarde. Roep [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) aan met `null` om een cel leeg te maken. Een numeriek nul blijft een nul, ongeacht de instelling voor lege cellen.
+Een lege werkboekcel stelt ontbrekende gegevens voor; een cel met `0` stelt een bekende numerieke waarde voor. Roep [IChartDataCell.setValue](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) aan met `null` om een cel leeg te maken. Een numerieke nul blijft een nul, ongeacht de instelling voor lege cellen.
 
-Gebruik [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) om te kiezen hoe het diagram lege cellen weergeeft. Deze instelling geldt voor het gehele diagram. Het wijzigt hoe lege waarden worden getekend, zonder de lege werkboekcel te vullen met nul of een geïnterpoleerde waarde.
+Gebruik [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) om te kiezen hoe het diagram lege cellen weergeeft. Deze instelling is van toepassing op het gehele diagram. Hij verandert de manier waarop leegtes worden uitgebeeld, zonder de lege werkboekcel te vullen met nul of een geïnterpoleerde waarde.
 
-Het volgende autonome voorbeeld maakt een lijndiagram met één reeks, wist de waarde voor Dag 3, en slaat hetzelfde diagram op met elke modus. Er is geen invoerbestand nodig. De [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels, en kolom 1 voor waarden; rij 0 bevat de serienaam. De uiteindelijke data is `10, 20, empty, 30, 40`.
+Het volgende zelfstandige voorbeeld maakt een lijndiagram met één reeks, wist de waarde voor Dag 3, en slaat hetzelfde diagram op met elke modus. Er is geen invoerbestand vereist. De [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/) gebruikt werkblad 0, kolom 0 voor categorielabels, en kolom 1 voor waarden; rij 0 bevat de reeksnamen. De uiteindelijke data is `10, 20, leeg, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -454,7 +456,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Laat Dag 3 echt leeg, terwijl de categorie en het datumpunt behouden blijven.
+    // Laat dag 3 echt leeg, terwijl de categorie en het datapunt behouden blijven.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -468,19 +470,19 @@ try {
 }
 ```
 
-Elk uitvoerbestand slaat de modus op die vóór het opslaan is ingesteld: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, stel je de gewenste modus in en sla je de presentatie één keer op in plaats van de modi te itereren.
+Elk uitvoerbestand slaat de modus op die vóór het opslaan is ingesteld: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` en `empty_cells_Span.pptx`. Om slechts één versie op te slaan, stelt u de gewenste modus in en slaat u de presentatie één keer op in plaats van over alle modi te itereren.
 
 De vergelijking hieronder toont dezelfde data in alle drie de bestanden. Dag 3 is in elk geval leeg in het werkboek:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Lijndiagrammen met identieke data: Gap verbreekt de lijn op Dag 3, Zero laat de lijn naar nul zakken, en Span verbindt Dag 2 met Dag 4.](display_blanks_as.png)
 
-Het zichtbare effect hangt af van het diagramtype. Een lijndiagram maakt alle drie de modi gemakkelijk te vergelijken. Balk‑ en kolomdiagrammen hebben geen lijn die over een ontbrekende categorie kan worden doorgetrokken, dus `Span` kan de verbindingssegmenten niet produceren die hierboven worden getoond; een ontbrekende kolom en een kolom met nulhoogte kunnen er ook vergelijkbaar uitzien. Evenzo heeft een spreidings‑diagram met alleen markers geen verbindingslijn. Verwacht niet drie verschillende resultaten voor elk diagramtype; controleer de output voor het type dat je gebruikt.
+Het zichtbare effect hangt af van het diagramtype. Een lijndiagram maakt alle drie de modi gemakkelijk te vergelijken. Staaf‑ en kolomdiagrammen hebben geen lijn om een ontbrekende categorie te verbinden, dus `Span` kan de verbindingssegment niet produceren; een missende kolom en een nul‑hoogte kolom kunnen er ook gelijk uitzien. Evenzo heeft een spreidingsdiagram met alleen markers geen verbindingslijn. Verwacht geen drie verschillende resultaten voor elk diagramtype; controleer de uitvoer voor het type dat u gebruikt.
 
-## **De gatbreedte van de reeks instellen**
+## **Tussenruimte van de Reeks Instellen**
 
-Gatbreedte is de ruimte tussen aangrenzende balk‑ of kolom‑clusters, uitgedrukt als een percentage van de balk‑ of kolom‑breedte. Net als overlap behoort dit tot de bovenliggende seriegroep en niet tot één enkele reeks. Roep [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) één keer aan voor de groep. Een grotere waarde creëert meer ruimte tussen clusters; een kleinere waarde maakt ze dichter op elkaar.
+De tussenruimte is de ruimte tussen aangrenzende staaf‑ of kolomclusters, uitgedrukt als een percentage van de staaf‑ of kolombreedte. Net als overlap behoort deze instelling tot de bovenliggende reeks‑groep in plaats van tot één enkele reeks. Roep [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) eenmaal voor de groep aan. Een grotere waarde creëert meer ruimte tussen clusters; een kleinere waarde maakt ze dichter.
 
-Het volgende voorbeeld wijzigt de gatbreedte en slaat alleen de definitieve presentatie op:
+Het volgende voorbeeld verandert de tussenruimte en slaat alleen de uiteindelijke presentatie op:
 
 ```java
 import com.aspose.slides.*;
@@ -506,46 +508,82 @@ try {
 
 Het resultaat:
 
-![The gap width](gap_width.png)
+![De tussenruimte](gap_width.png)
+
+## **Reeks‑Lijnen Tonen of Verbergen**
+
+Reeks‑lijnen verbinden visueel gerelateerde delen van een diagram. Gebruik [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) om ze weer te geven of te verbergen in ondersteunde gestapelde staaf‑ en OfPie‑diagrammen. In tweedimensionale gestapelde staaf‑ en kolomdiagrammen verbinden ze overeenkomstige stapelgrenzen over categorieën. In Pie of Pie‑ en Bar of Pie‑diagrammen verbinden ze de hoofdplot met de secundaire plot. Deze instelling is geen algemene connector voor andere diagramtypen.
+
+Benader de groep via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--). De instelling geldt voor elke reeks in die groep. [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#hasSeriesLines--) is alleen‑lezen en weerspiegelt de instelling van de bovenliggende groep; roep de setter van de groep aan om deze bij te werken.
+
+Het volgende voorbeeld maakt één [PieOfPie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#PieOfPie) diagram met standaarddata. Het slaat hetzelfde diagram op met reeks‑lijnen ingeschakeld en vervolgens uitgeschakeld, waardoor twee presentaties voor vergelijking ontstaan.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Reekslijnen ingeschakeld | Reekslijnen uitgeschakeld |
+| --- | --- |
+| ![Pie‑of‑Pie‑diagram met reekslijnen ingeschakeld](series_lines_enabled.png) | ![Pie‑of‑Pie‑diagram met reekslijnen uitgeschakeld](series_lines_disabled.png) |
+| De twee lijnen verbinden de hoofd‑pie met de secundaire pie. | Beide pies blijven zichtbaar, maar de verbindingslijnen zijn verborgen. |
+
+Reeks‑lijnen verschillen van leader‑lijnen van gegevenslabels, die labels met hun datapoints verbinden; van rasterlijnen, die intervallen langs de assen markeren; en van de lijnen in een lijndiagram, die gegevenswaarden weergeven. Deze instelling regelt die elementen niet.
 
 ## **FAQ**
 
-**Welke diagramtypen ondersteunen dataseries?**
+**Welke diagramtypen ondersteunen gegevensreeksen?**
 
-Alle diagramtypen die door de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑enumeratie worden vertegenwoordigd, gebruiken diagramdata, maar hun series hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑diagrammen gebruiken categorieën en waarden, spreidings‑diagrammen gebruiken X‑ en Y‑waarden, en bubbel‑diagrammen voegen bubbelgroottes toe. Gebruik de datumpunt‑creatiemethode die past bij het serietype. Opties zoals overlap en gatbreedte gelden alleen voor compatibele balk‑ of kolomgroepen.
+Alle diagramtypen die worden vertegenwoordigd door de [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/)‑enumeratie gebruiken diagramdata, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categorie‑diagrammen gebruiken categorieën en waarden, spreidingsdiagrammen gebruiken X‑ en Y‑waarden, en bubbel‑diagrammen voegen bubbelgroottes toe. Gebruik de datapunt‑creatiemethode die overeenkomt met het type reeks. Opties zoals overlap en tussenruimte gelden alleen voor compatibele staaf‑ of kolomgroepen.
 
 **Wat is een diagramreeks‑groep?**
 
-Een [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) bevat compatibele reeksen die groeps‑level plot‑instellingen delen. Een combinatie‑diagram kan meer dan één groep bevatten, dus het wijzigen van de groep die via één reeks wordt bereikt, verandert niet per se elke reeks in het diagram.
+Een [IChartSeriesGroup](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/) bevat compatibele reeksen die groeps‑niveau plotinstellingen delen. Een combinatiediagram kan meer dan één groep bevatten, dus het wijzigen van de via één reeks bereikbare groep verandert niet per‑se elke reeks in het diagram.
 
 **Bevat een nieuw aangemaakt diagram standaarddata?**
 
-Ja. Standaard maakt [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) voorbeeldreeksen, -categorieën en -waarden aan. Je kunt die cellen bewerken of zowel de reeksen‑ als de categoricollecties wissen voordat je een volledig aangepaste dataset toevoegt. Een overload kan ook een diagram zonder standaarddata aanmaken.
+Ja. Standaard maakt [IShapeCollection.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) voorbeeldreeksen, -categorieën en -waarden aan. U kunt die cellen bewerken of zowel de reeksen‑ als categorie‑collecties wissen voordat u een volledig aangepaste dataset toevoegt. Een overload kan ook een diagram zonder standaarddata aanmaken.
 
-**Hoe zijn diagramobjecten gekoppeld aan werkboekcellen?**
+**Hoe zijn diagramobjecten gekoppeld aan werkbladcellen?**
 
-Serienamen, categorielabels en datumpuntwaarden verwijzen naar cellen in een [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Het wijzigen van een verwezen cel werkt het overeenkomstige diagramonderdeel bij. Wanneer je aangepaste data opbouwt, houd dan de categorierijen en de rijen met serie‑waarden op één lijn zodat elk punt onder de beoogde categorie wordt getekend.
+Reeksnamen, categorielabels en datapuntwaarden refereren naar cellen in een [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/). Het wijzigen van een gerefereerde cel werkt het overeenkomstige diagramonderdeel bij. Wanneer u aangepaste data opbouwt, houd de rijen voor categorieën en de rijen voor reekswerte op één lijn zodat elk punt onder de gewenste categorie wordt uitgezet.
 
-**Hoe kan ik één punt wissen in plaats van de hele reeks?**
+**Hoe wis ik één punt in plaats van de hele reeks?**
 
-Stel de betreffende waardecel in op `null` om de positie van de punt in de categorie te behouden als een lege punt. Gebruik [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) alleen wanneer je alle punten uit die reeks wilt verwijderen. Als je ook categorieën verwijdert, werk dan elke reeks bij zodat hun waarden nog steeds op één lijn staan met de categoricollectie.
+Stel de betreffende waarde‑cel in op `null` om de puntpositie te behouden als een leeg punt. Gebruik [IChartDataPointCollection.clear](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapointcollection/#clear--) alleen wanneer u alle punten uit die reeks wilt verwijderen, want die methode verwijdert elke datapunt uit de collectie.
 
 **Hoe worden lege punten weergegeven?**
 
-Het resultaat hangt af van het diagramtype en de waarde die is geconfigureerd via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Ondersteunde diagrammen kunnen lege waarden weergeven als gaten, als nul‑waarden, of door naburige punten te verbinden. Kies de instelling die overeenkomt met de betekenis van missende data in jouw presentatie. Zie [Control the Display of Empty Cells](#control-the-display-of-empty-cells) voor een volledig voorbeeld en visuele vergelijking.
+Het resultaat hangt af van het diagramtype en de via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) geconfigureerde waarde. Ondersteunde diagrammen kunnen leegtes weergeven als gaten, als nul‑waarden, of door aangrenzende punten te verbinden. Kies de instelling die overeenkomt met de betekenis van ontbrekende data in uw presentatie. Zie [Weergave van Lege Cellen Besturen](#control-the-display-of-empty-cells) voor een volledig voorbeeld en visuele vergelijking.
 
 **Hoe worden negatieve waarden opgemaakt?**
 
-Voor ondersteunde balk‑, kolom‑ en bubbelreeksen roep je [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) aan en stel je de kleur in die wordt geretourneerd door [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Je kunt het gedrag voor een individueel punt overschrijven met [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Deze methoden beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+Voor ondersteunde staaf‑, kolom‑ en bubbelreeksen roept u [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) aan en stelt u de kleur in die wordt geretourneerd door [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). U kunt het gedrag voor een individueel punt overschrijven met [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Deze methoden beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
 
 **Welke opmaak wint wanneer zowel een reeks als een punt worden opgemaakt?**
 
-Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer de reeks‑opmaak niet is gedefinieerd, de automatische diagramstijl en het thema. Groepsinstellingen zoals overlap en gatbreedte regelen de lay‑out en zijn geen punt‑niveau opmaak‑overschrijvingen.
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer die niet is gedefinieerd, de automatische diagramstijl en het thema. Groepsinstellingen zoals overlap en tussenruimte regelen de lay‑out en zijn geen punt‑niveau opmaakoverschrijvingen.
 
 **Is er een limiet aan het aantal reeksen dat een diagram kan bevatten?**
 
-Aspose.Slides legt geen afzonderlijke vaste limiet aan het aantal reeksen vast. In de praktijk bepalen bestands‑beperkingen, beschikbaar geheugen, render‑tijd en leesbaarheid van het diagram een praktisch limiet.
+Aspose.Slides legt geen apart vaste limiet op voor het aantal reeksen. In de praktijk bepalen bestandsbeperkingen, beschikbaar geheugen, render‑tijd en leesbaarheid van het diagram een bruikbare grens.
 
 **Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver uit elkaar staan?**
 
-Roep [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) aan op de juiste bovenliggende seriegroep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag deze om de clusters dichter bij elkaar te brengen.
+Roep [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) aan op de betreffende bovenliggende reeks‑groep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag de waarde om de clusters dichter bij elkaar te brengen.

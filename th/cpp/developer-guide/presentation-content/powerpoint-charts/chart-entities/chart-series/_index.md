@@ -4,10 +4,10 @@ linktitle: ชุดข้อมูล
 type: docs
 url: /th/cpp/chart-series/
 keywords:
-- ชุดข้อมูลแผนภูมิ
+- ชุดแผนภูมิ
 - การทับซ้อนของชุด
 - สีของชุด
-- สีของหมวดหมู่
+- สีของประเภท
 - ชื่อชุด
 - จุดข้อมูล
 - ช่องว่างของชุด
@@ -15,31 +15,33 @@ keywords:
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์ในเวิร์กบุ๊ค, การจัดรูปแบบ, การทับซ้อน, ความกว้างช่องว่าง, และค่าติดลบในงานนำเสนอด้วย C++."
+description: "เรียนรู้วิธีจัดการชุดแผนภูมิ, จุดข้อมูล, เซลล์เวิร์กบุ๊ก, การจัดรูปแบบ, การทับซ้อน, ความกว้างช่องว่าง, และค่าติดลบในงานนำเสนอด้วย C++."
 ---
 ## **ภาพรวม**
 
-แผนภูมิสามารถจัดเก็บค่าที่พล็อตไว้ในเซลล์ของเวิร์กบุ๊คหรือโดยตรงเป็นลิเตอร์ัลตัวเลขได้ [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) แทนชุดค่าที่เกี่ยวข้องหนึ่งชุดและแต่ละ [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) แทนจุดหนึ่งในชุดนั้น [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) ให้ป้ายกำกับหรือค่ากลุ่มที่ใช้ร่วมกันระหว่างชุด  ในแผนภูมิที่สร้างด้วยข้อมูลเริ่มต้น ชื่อชุด, หมวดหมู่และค่าจุดจะใช้ [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) จากเวิร์กบุ๊คของแผนภูมิ
+แผนภูมิสามารถเก็บค่าที่พลอตไว้ในเซลล์ของเวิร์กบุ๊กหรือโดยตรงเป็นลิเทอรัลเชิงตัวเลขได้ [IChartSeries](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/) แทนชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [IChartDataPoint](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/) แทนจุดหนึ่งในชุดนั้น [IChartCategory](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartcategory/) ให้ป้ายชื่อหรือค่าการจัดกลุ่มที่ใช้ร่วมกันโดยชุดข้อมูล ในแผนภูมิที่สร้างด้วยข้อมูลเริ่มต้น ชื่อชุด, ประเภท, และค่าจุดจะใช้วัตถุ [IChartDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/) จากเวิร์กบุ๊กของแผนภูมิ
 
-สำหรับแผนภูมิแบบหมวดหมู่ทั่วไป เวิร์กบุ๊คเริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่และเซลล์ที่เหลือสำหรับค่าชุด Worksheet, แถวและคอลัมน์ที่ส่งผ่านไปยัง [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) จะเริ่มจาก 0 เค้าโครงนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสมมติว่าแผนภูมิที่มีอยู่ทั้งหมดใช้เค้าโครงนี้ สำหรับการนำเสนอที่โหลดมา ให้ตรวจสอบเซลล์ที่อ้างอิงโดยชุด, หมวดหมู่และจุดข้อมูลก่อนที่จะเปลี่ยนค่าในเวิร์กบุ๊ค
+สำหรับแผนภูมิประเภทหมวดหมู่ทั่วไป เวิร์กบุ๊กเริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด Worksheet, แถวและคอลัมน์ที่ส่งให้ [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) เป็นค่าเริ่มนับจากศูนย์ การจัดเรียงนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสันนิษฐานว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้ สำหรับงานนำเสนอที่โหลดมา ให้ตรวจสอบเซลล์ที่ชุดข้อมูล, ประเภท, และจุดข้อมูลอ้างอิงก่อนที่จะเปลี่ยนค่าในเวิร์กบุ๊ก
 
-การตั้งค่าแผนภูมิมีสามระดับ:
+การตั้งค่าแผนภูมิมีสามระดับขอบเขตต่างกัน:
 
-- การตั้งค่าระดับชุด เช่น [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) ให้รูปแบบเริ่มต้นสำหรับทุกจุดในชุดเดียว
-- การตั้งค่าระดับจุด เช่น [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) จะครอบคลุมรูปแบบชุดสำหรับจุดหนึ่ง
-- การตั้งค่ากลุ่มจะใช้กับชุดที่เข้ากันได้ซึ่งอยู่ใน [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) เข้าถึงกลุ่มผ่าน [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) เมื่อคุณต้องการตั้งค่าต่าง ๆ เช่น overlap หรือ gap width
+- การตั้งค่าที่ระดับชุด เช่น [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) กำหนดลักษณะเริ่มต้นสำหรับทุกจุดในชุดเดียว
+- การตั้งค่าระดับจุดข้อมูล เช่น [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) จะทับลักษณะของชุดสำหรับจุดนั้น
+- การตั้งค่ากลุ่มจะใช้กับชุดที่เข้ากันได้ซึ่งเป็นส่วนหนึ่งของ [IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) เข้าถึงกลุ่มผ่าน [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) เมื่อคุณต้องการตั้งค่าต่างๆ เช่น overlap หรือ gap width
 
-เมื่อไม่ได้ตั้งค่าสีเติมจุดหรือชุดโดยชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดรูปลักษณ์อัตโนมัติ เมื่อทั้งรูปแบบชุดและรูปแบบจุดมีอยู่ รูปแบบจุดจะเป็นลำดับแรกสำหรับจุดนั้น
+เมื่อไม่ได้กำหนดการเติมจุดหรือชุดโดยชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ หากมีการจัดรูปแบบทั้งชุดและจุดพร้อมกัน การจัดรูปแบบจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **กำหนดค่าชุดข้อมูลโดยใช้ลิเตอร์ัลตัวเลข**
+สำหรับแผนภูมิทรงกระบอกแบบจัดกลุ่ม ดูว่า [การเปลี่ยนประเภทชุด 3D หรือรูปแบบแท่ง](/slides/th/cpp/3d-chart/#change-the-3d-series-type-and-bar-shape) ส่งผลต่อชุดแรกอย่างไร
 
-ใช้ลิเตอร์ัลตัวเลขเมื่อค่าชุดมาจากข้อมูลหรือการคำนวณของแอปพลิเคชันและไม่จำเป็นต้องอ้างอิงเซลล์ในเวิร์กชีต เรียก [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) พร้อม [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) ก่อนกำหนดค่าที่ส่งกลับจาก [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) ของแต่ละจุดผ่าน [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/)
+## **ตั้งค่าค่าชุดโดยใช้ลิเทอรัลเชิงตัวเลข**
 
-การตั้งค่าคอลเลกชันจะควบคุมประเภทแหล่งที่มาของค่าจุดทั้งหมดในชุด แต่ละ [get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) ของ IBaseChartValue รายงานประเภทที่เลือก เปลี่ยนผ่านการตั้งค่าคอลเลกชัน หากใช้ Worksheet ให้เรียก [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) เพื่อเข้าถึงเซลล์ที่อ้างอิง หากใช้ DoubleLiterals ให้เรียก [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) หรือ set_AsLiteralDouble เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+ใช้ลิเทอรัลเชิงตัวเลขเมื่อค่าชุดมาจากข้อมูลหรือการคำนวณของแอปพลิเคชันและไม่จำเป็นต้องอ้างอิงเซลล์ของ worksheet เรียก [set_DataSourceTypeForValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforvalues/) พร้อม [DataSourceType::DoubleLiterals](https://reference.aspose.com/slides/cpp/aspose.slides.charts/datasourcetype/) ก่อนที่จะกำหนดค่าที่ได้จาก [get_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_value/) ของแต่ละจุดผ่าน [set_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/set_asliteraldouble/)
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์พร้อมชุดและหมวดหมู่เริ่มต้น แล้วกำหนดค่าที่คำนวณได้ 10, 20 เป็นต้น ให้กับจุดที่มีอยู่ของชุดแรก บันทึกการนำเสนอ, เปิดใหม่อีกครั้งและพิมพ์ค่าที่เก็บไว้
+การตั้งค่าคอลเลกชันจะควบคุมประเภทแหล่งข้อมูลของค่าจุดทั้งหมดในชุดนั้น [IBaseChartValue::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ibasechartvalue/get_datasourcetype/) รายงานประเภทที่เลือก; เปลี่ยนผ่านการตั้งค่าคอลเลกชัน โดยใช้ `Worksheet` ให้เรียก [get_AsCell](https://reference.aspose.com/slides/cpp/aspose.slides.charts/isinglecellchartvalue/get_ascell/) เพื่อเข้าถึงเซลล์อ้างอิง โดยใช้ `DoubleLiterals` ให้เรียก [get_AsLiteralDouble](https://reference.aspose.com/slides/cpp/aspose.slides.charts/idoublechartvalue/get_asliteraldouble/) หรือ `set_AsLiteralDouble` เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์ด้วยชุดและประเภทเริ่มต้น แล้วกำหนดค่าที่คำนวณได้ 10, 20 และต่อ ๆ ไป ให้กับจุดที่มีอยู่ของชุดแรก บันทึกงานนำเสนอ, เปิดใหม่อีกครั้ง, และพิมพ์ค่าที่เก็บไว้
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -91,15 +93,15 @@ for (auto i = 0; i < reopenedSeries->get_DataPoints()->get_Count(); i++)
 reopenedPresentation->Dispose();
 ```
 
-ประเภทแหล่งที่มาของค่าจุดแยกจาก [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/) ซึ่งระบุการกำหนดค่าเวิร์กบุ๊คภายในหรือภายนอกของแผนภูมิ การใช้ลิเตอร์ัลตัวเลขโดยตัวมันเองไม่ได้ลบเวิร์กบุ๊คที่ฝังอยู่ ในตัวอย่างนี้ เวิร์กบุ๊คยังคงใช้สำหรับป้ายชื่อหมวดหมู่, ชื่อชุดและชุดอื่น ๆ ดู [Chart Workbook](/slides/th/cpp/chart-workbook/) เพื่อการจัดการเวิร์กบุ๊ค
+ประเภทแหล่งข้อมูลของค่าจุดแยกจาก [IChartData::get_DataSourceType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdata/get_datasourcetype/) ซึ่งบ่งบอกการกำหนดค่าเวิร์กบุ๊กภายในหรือภายนอกของแผนภูมิ การใช้ลิเทอรัลเชิงตัวเลขไม่ทำให้เวิร์กบุ๊กฝังอยู่หายไป ในตัวอย่างนี้เวิร์กบุ๊กยังคงใช้สำหรับป้ายชื่อหมวดหมู่, ชื่อชุด, และชุดอื่น ๆ ดู [Chart Workbook](/slides/th/cpp/chart-workbook/) สำหรับการจัดการเวิร์กบุ๊ก
 
-สำหรับแผนภูมิแบบกระจายและฟองน้ำ ให้เรียก [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) และ [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) เพื่อเลือกแหล่งที่มาสำหรับ [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) และ [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) แผนภูมิบับน้ำ additionally ใช้ [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) สำหรับ [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/) ตั้งค่าแหล่งที่มาที่เกี่ยวข้องเป็น DoubleLiterals ก่อนกำหนดตัวเลขผ่านเมธอด set_AsLiteralDouble ของค่านั้น
+สำหรับแผนภูมิกระจายและฟองคู่ ให้เรียก [set_DataSourceTypeForXValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforxvalues/) และ [set_DataSourceTypeForYValues](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforyvalues/) เพื่อเลือกแหล่งสำหรับ [get_XValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_xvalue/) และ [get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). แผนภูมิกระจายฟองยังใช้ [set_DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/set_datasourcetypeforbubblesizes/) สำหรับ [get_BubbleSize](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_bubblesize/). ตั้งค่าแหล่งที่เกี่ยวข้องแต่ละอย่างเป็น `DoubleLiterals` ก่อนกำหนดตัวเลขผ่านเมธอด `set_AsLiteralDouble` ของค่าเหล่านั้น
 
-## **ตั้งค่าการทับซ้อนของชุดแผนภูมิ**
+## **ตั้งค่า Overlap ของชุดแผนภูมิ**
 
-[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) รายงานว่าคอลัมน์หรือแถบทับซ้อนกันเท่าใดในแผนภูมิ 2D ค่าตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการฉายภาพแบบอ่าน‑อย่างเดียวของการตั้งค่าในกลุ่มชุดแม่ เรียก [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนี้ ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงแถบหรือคอลัมน์แบบจัดกลุ่ม; จะไม่กระทบต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_overlap/) รายงานว่าบาร์หรือคอลัมน์ทับกันเท่าใดในแผนภูมิ 2D ค่าตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการฉายภาพแบบอ่านอย่างเดียวของการตั้งค่าในกลุ่มชุดพาเรนท์ เรียก [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; ไม่ส่งผลต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
 
-ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่บรรจุชุดแรก
+ตัวอย่างต่อไปนี้ตั้งค่า overlap สำหรับกลุ่มที่มีชุดแรกอยู่
 
 ```cpp
 #include <cstdint>
@@ -126,7 +128,7 @@ const int8_t overlapPercent = 30;
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(firstSlideIndex);
 
-// แผนภูมิใหม่ประกอบด้วยชุดตัวอย่าง, หมวดหมู่, และค่า.
+// แผนภูมิใหม่มีชุดตัวอย่าง, ประเภท, และค่า.
 auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
 auto seriesCollection = chart->get_ChartData()->get_Series();
@@ -141,11 +143,11 @@ presentation->Dispose();
 
 ![The series overlap](series_overlap.png)
 
-## **เปลี่ยนสีเติมของชุดแผนภูมิ**
+## **เปลี่ยนสีเติมของชุด**
 
-ใช้ [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) เพื่อกำหนดสีเติมเริ่มต้นสำหรับชุดทั้งหมด หากจุดมีการกำหนดสีเติมโดยชัดเจน [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) ของจุดนั้นจะครอบคลุมสีเติมของชุดสำหรับจุดนั้น
+ใช้ [IChartSeries::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_format/) เพื่อตั้งค่าสีเติมเริ่มต้นสำหรับทั้งชุด หากจุดมีการกำหนดสีเติมเฉพาะ [IChartDataPoint::get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_format/) จะทับสีเติมของชุดสำหรับจุดนั้น
 
-ตัวอย่างต่อไปนี้ใช้สีเติมสีน้ำเงินทึบกับชุดแรก
+ตัวอย่างต่อไปนี้ใช้สีเติมสีฟ้าแบบทึบกับชุดแรก
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -192,9 +194,9 @@ presentation->Dispose();
 
 ![The color of the series](series_color.png)
 
-## **เปลี่ยนชื่อชุดแผนภูมิ**
+## **เปลี่ยนชื่อชุด**
 
-ชื่อชุดจะถูกจัดเก็บในเวิร์กบุ๊คของแผนภูมิและปกติจะแสดงในคำอธิบาย ในเวิร์กบุ๊คเริ่มต้นสำหรับแผนภูมิคอลัมน์แบบกลุ่ม เซลล์ B1 อยู่ที่แถว 0 คอลัมน์ 1 และบรรจุชื่อของชุดแรก ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างดังกล่าวชัดเจน
+ชื่อชุดถูกเก็บในเวิร์กบุ๊กของแผนภูมิและโดยปกติจะแสดงใน legend ในเวิร์กบุ๊กเริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบจัดกลุ่ม เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และบรรจุชื่อของชุดแรก ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้ชัดเจน
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -235,7 +237,7 @@ presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-คุณยังสามารถอัปเดตเซลล์ที่ [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/) อ้างอิงอยู่ วิธีนี้หลีกเลี่ยงการสมมติแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่
+คุณยังสามารถอัปเดตเซลล์ที่ [IChartSeries::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_name/) อ้างอิงอยู่ได้ วิธีนี้หลีกเลี่ยงการสันนิษฐานเกี่ยวกับแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -284,13 +286,13 @@ presentation->Dispose();
 
 ![The series name](series_name.png)
 
-### **สร้างชุดโดยใช้ชื่อจากหลายเซลล์**
+### **สร้างชุดด้วยชื่อจากหลายเซลล์**
 
-ชื่อชุดแบบผสมเป็นประโยชน์เมื่อชื่อสินค้าและช่วงเวลารายงานถูกจัดเก็บในเซลล์เวิร์กบุ๊คแยกกัน เช่น คุณสามารถรวม `Product A` ใน B1 และ `2026` ใน C1 เป็นชื่อชุดเดียวขณะยังคงเชื่อมต่อแต่ละส่วนกับเซลล์ต้นทางของมัน
+ชื่อชุดเชิงประกอบมีประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลาออกรายงานถูกเก็บในเซลล์เวิร์กบุ๊กแยกกัน เช่น `Product A` ใน B1 และ `2026` ใน C1 สามารถรวมเป็นชื่อชุดเดียวได้โดยยังคงเชื่อมโยงทั้งสองส่วนกับเซลล์ต้นทาง
 
-ใช้ [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) เพื่อดึงช่วงชื่อแล้วส่งคอลเลกชันนั้นไปยัง [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/) อาร์กิวเมนต์ skipHiddenCells ควบคุมว่าจะรวมเซลล์ที่ซ่อนหรือไม่ `true` จะเว้นไว้, `false` จะรวม ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
+ใช้ [IChartDataWorkbook::GetCellCollection](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/getcellcollection/) เพื่อดึงช่วงชื่อ แล้วส่งคอลเลกชันนั้นให้ [IChartSeriesCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriescollection/add/). อาร์กิวเมนต์ `skipHiddenCells` ควบคุมว่าจะรวมเซลล์ที่ซ่อนหรือไม่: `true` ยกเว้น, `false` รวม ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
 
-ตัวอย่างต่อไปนี้สร้างการนำเสนอที่มีหนึ่งชุดและสองจุดข้อมูล เซลล์ B1:C1 ให้เฉพาะชื่อชุด; A2:A3 ให้ป้ายหมวดหมู่, B2:B3 ให้ค่าตัวเลข
+ตัวอย่างต่อไปนี้สร้างงานนำเสนอที่มีชุดหนึ่งและจุดข้อมูลสองจุด เซลล์ B1:C1 ให้เฉพาะชื่อชุด; A2:A3 ให้ป้ายชื่อหมวดหมู่, B2:B3 ให้ค่าตัวเลข
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -330,7 +332,7 @@ chart->set_HasLegend(true);
 auto workbook = chartData->get_ChartDataWorkbook();
 workbook->Clear(0);
 
-// เซลล์สองเซลล์นี้ให้ชื่อชุด.
+// เซลล์สองเซลล์นี้ใช้เป็นชื่อชุด.
 auto productName = ObjectExt::Box<String>(u"Product A");
 auto reportingPeriod = ObjectExt::Box<String>(u"2026");
 workbook->GetCell(0, 0, 1, productName);
@@ -338,7 +340,7 @@ workbook->GetCell(0, 0, 2, reportingPeriod);
 auto nameCells = workbook->GetCellCollection(u"Sheet1!$B$1:$C$1", false);
 auto series = chartData->get_Series()->Add(nameCells, ChartType::ClusteredColumn);
 
-// เซลล์แยกต่างหากให้หมวดหมู่และจุดข้อมูลเชิงตัวเลข.
+// เซลล์แยกกันใช้เป็นประเภทและจุดข้อมูลเชิงตัวเลข.
 auto northLabel = ObjectExt::Box<String>(u"North");
 auto southLabel = ObjectExt::Box<String>(u"South");
 auto northCategory = workbook->GetCell(0, 1, 0, northLabel);
@@ -356,13 +358,13 @@ presentation->Save(u"composite_series_name.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ชื่อชุดที่ได้คือ `Product A 2026` โดยมีช่องว่างระหว่างค่าจากสองเซลล์ คำอธิบายจะแสดงเป็นรายการเดียวในคำอธิบายของทั้งสองคอลัมน์ รูปด้านล่างแสดงผลลัพธ์:
+ชื่อชุดที่ได้เป็น `Product A 2026` โดยมีช่องว่างคั่นระหว่างค่าจากสองเซลล์ legend จะแสดงเป็นรายการเดียวสำหรับคอลัมน์ทั้งสอง รูปด้านล่างแสดงผลลัพธ์
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **รับสีเติมอัตโนมัติของชุดแผนภูมิ**
+## **รับสีเติมอัตโนมัติของชุด**
 
-[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์ของแผนภูมิ นี่คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดนี้เพียงอ่านสีที่คำนวณ ไม่ได้กำหนดสีเติมใหม่
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์ของแผนภูมิ นี่คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดนี้อ่านสีที่คำนวณได้; ไม่ได้กำหนดสีเติมใหม่
 
 ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น
 
@@ -406,7 +408,7 @@ for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 presentation->Dispose();
 ```
 
-ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิปริยาย:
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเบื้องต้น
 
 ```text
 Series 0: ff4f81bd
@@ -414,13 +416,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-สีที่ได้จะขึ้นกับสไตล์และธีมของแผนภูมิ
+สีที่แน่นอนขึ้นอยู่กับสไตล์และธีมของแผนภูมิ
 
-## **กำหนดสีเติมที่กลับด้านสำหรับชุดแผนภูมิ**
+## **ตั้งค่าสีเติมย้อนกลับสำหรับชุดแผนภูมิ**
 
-สำหรับชุดแบบแถบ, คอลัมน์และฟองน้ำ [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) สามารถแสดงค่าลบด้วยสีเติมที่ต่างออกไป ตั้งค่าสีเติมของชุดเป็นสีทึบ, เปิดการกลับด้าน, แล้วกำหนดสีค่าลบผ่าน [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) ค่าติดลบในเวิร์กบุ๊คจะไม่มีการเปลี่ยนแปลง; เพียงสีที่แสดงเท่านั้นที่เปลี่ยน
+สำหรับชุดบาร์, คอลัมน์, และฟอง [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) สามารถแสดงค่าติดลบด้วยสีเติมที่แตกต่างกัน ตั้งค่าสีเติมของชุดเป็นสีทึบ, เปิดใช้งานการย้อนกลับ, แล้วกำหนดสีค่าติดลบผ่าน [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). ตัวเลขติดลบยังคงไม่เปลี่ยนในเวิร์กบุ๊ก; เพียงสีแสดงเท่านั้นที่เปลี่ยน
 
-ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยชุดเดียว แถว 0 ของ Worksheet บรรจุชื่อชุด, คอลัมน์ 0 บรรจุชื่อหมวดหมู่, คอลัมน์ 1 บรรจุค่าต่าง ๆ
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยชุดหนึ่ง แถว 0 ของ worksheet มีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, คอลัมน์ 1 มีค่าต่าง ๆ
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -510,7 +512,7 @@ presentation->Dispose();
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-คุณสามารถเปิดการกลับด้านสำหรับจุดเดียวผ่าน [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) ในตัวอย่างต่อไปนี้ การกลับด้านจะปิดสำหรับชุดและเปิดเฉพาะสำหรับจุดที่เลือก จุดนั้นยังถูกกำหนดค่าเป็นค่าลบเพื่อให้เห็นผล
+คุณสามารถเปิดใช้งานการย้อนกลับสำหรับจุดเดียวผ่าน [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). ในตัวอย่างต่อไปนี้ การย้อนกลับถูกปิดสำหรับชุดและเปิดเฉพาะจุดที่เลือก จุดนั้นยังได้รับค่าติดลบเพื่อให้เห็นผล
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -568,11 +570,11 @@ presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx
 presentation->Dispose();
 ```
 
-## **ล้างค่าจุดข้อมูลเฉพาะ**
+## **ลบค่าจุดข้อมูลเฉพาะ**
 
-เพื่อทำให้จุดหนึ่งว่างโดยไม่ลบจุดอื่น ๆ ให้ตั้งค่าเซลล์เวิร์กบุ๊คที่เป็นพื้นหลังของจุดนั้นเป็น `nullptr` สำหรับแผนภูมิคอลัมน์ ค่าที่พล็อตสามารถเข้าถึงได้ผ่าน [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/) จุดข้อมูลจะคงตำแหน่งหมวดหมู่เดิม แต่แผนภูมิจะถือค่านั้นว่าเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
+เพื่อทำให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ใหตั้งค่าเซลล์เวิร์กบุ๊กที่สนับสนุนจุดนั้นเป็น `nullptr`. สำหรับแผนภูมิคอลัมน์ ค่าที่พลอตสามารถเข้าถึงได้ผ่าน [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). จุดข้อมูลจะยังคงอยู่ในตำแหน่งหมวดหมู่เดียวกัน แต่แผนภูมิจะถือค่าของมันว่าเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
 
-ตัวอย่างต่อไปนี้ล้างเฉพาะจุดที่สองของชุดแรก
+ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองในชุดแรก
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -611,17 +613,17 @@ presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-แผนภูมิแบบกระจายใช้เซลล์ X และ Y แยกกัน, แผนภูมิบับน้ำก็ใช้เซลล์ขนาด เช่นกัน ลบเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ อย่าเรียก [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) เมื่อต้องการเก็บจุดอื่น ๆ เนื่องจากเมธอดนี้จะลบจุดข้อมูลทั้งหมดจากคอลเลกชัน
+แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน, และแผนภูมิกระจายฟองยังใช้เซลล์ขนาด ลบเฉพาะเซลล์ที่เป็นค่าที่คุณต้องการลบ อย่าเรียก [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) เมื่อคุณต้องการเก็บจุดอื่นไว้, เนื่องจากเมธอดนั้นจะลบจุดข้อมูลทั้งหมดจากคอลเลกชัน
 
 ## **ควบคุมการแสดงผลของเซลล์ว่าง**
 
-เซลล์ที่ซ่อนอยู่ซึ่งมีค่าเป็นกรณีแยกจากเซลล์ว่าง เพื่อรวมหรือยกเว้นข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่ ให้ดู [Include Data from Hidden Rows and Columns](/slides/th/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns)
+เซลล์ที่ซ่อนอยู่แต่มีค่าเป็นกรณีแยกจากเซลล์ว่าง เพื่อรวมหรือแยกข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่ ดู [Include Data from Hidden Rows and Columns](/slides/th/cpp/chart-workbook/#include-data-from-hidden-rows-and-columns)
 
-เซลล์เวิร์กบุ๊คที่ว่างแทนข้อมูลที่หายไป; เซลล์ที่มีค่า `0` แทนค่าตัวเลขที่รู้จัก เรียก [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) ด้วย `nullptr` เพื่อทำให้เซลล์ว่าง ศูนย์จำนวนจะคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างจะเป็นอย่างไร
+เซลล์เวิร์กบุ๊กว่างแสดงถึงข้อมูลที่ขาดหาย; เซลล์ที่มีค่า `0` แสดงถึงค่าตัวเลขที่ทราบ เรียก [IChartDataCell::set_Value](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_value/) ด้วย `nullptr` เพื่อทำให้เซลล์ว่าง ศูนย์เชิงตัวเลขยังคงเป็นศูนย์ไม่ว่าการตั้งค่าความว่างของเซลล์จะเป็นอย่างไร
 
-ใช้ [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) เพื่อเลือกวิธีที่แผนภูมิแสดงเซลล์ว่าง การตั้งค่านี้ใช้กับแผนภูมิทั้งหมด มันเปลี่ยนวิธีการพล็อตค่าว่างโดยไม่เติมศูนย์หรือค่าที่ประมาณลงในเซลล์เวิร์กบุ๊คที่ว่าง
+ใช้ [IChart::set_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/set_displayblanksas/) เพื่อเลือกวิธีที่แผนภูมิแสดงเซลล์ว่าง การตั้งค่านี้ใช้กับแผนภูมิทั้งหมด มันเปลี่ยนวิธีการพลอตค่าว่างโดยไม่เติมเซลล์เวิร์กบุ๊กด้วยศูนย์หรือค่าที่ประมวลผล
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดเดียว, ลบค่าของ Day 3, แล้วบันทึกแผนภูมิเดียวกันในแต่ละโหมด ไม่ต้องใช้ไฟล์อินพุต [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) ใช้ Worksheet 0, คอลัมน์ 0 สำหรับป้ายหมวดหมู่, และคอลัมน์ 1 สำหรับค่า; แถว 0 บรรจุชื่อชุด ค่าขั้นสุดท้ายคือ `10, 20, empty, 30, 40`
+ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดหนึ่ง, ลบค่าของ Day 3, และบันทึกแผนภูมิเดียวกันในแต่ละโหมด ไม่ต้องใช้ไฟล์อินพุต [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับป้ายชื่อหมวดหมู่, และคอลัมน์ 1 สำหรับค่าต่าง ๆ; แถว 0 บรรจุชื่อชุด ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
 
 ```cpp
 #include <array>
@@ -675,7 +677,7 @@ for (auto i = 0; i < values.size(); i++)
     series->get_DataPoints()->AddDataPointForLineSeries(valueCell);
 }
 
-// ปล่อยให้วันที่ 3 ว่างจริง ๆ ขณะยังคงรักษาหมวดหมู่และจุดข้อมูลของมันไว้
+// ปล่อยให้ Day 3 ว่างเปล่าอย่างแท้จริง โดยคงไว้ซึ่งประเภทและจุดข้อมูลของมัน.
 workbook->GetCell(0, 3, 1)->set_Value(nullptr);
 
 auto modes = std::array<DisplayBlanksAsType, 3>{DisplayBlanksAsType::Gap, DisplayBlanksAsType::Zero, DisplayBlanksAsType::Span};
@@ -689,19 +691,19 @@ for (auto mode : modes)
 presentation->Dispose();
 ```
 
-แต่ละไฟล์เอาต์พุตจะบันทึกโหมดที่กำหนดก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx` เพื่อบันทึกเวอร์ชันเดียว ให้กำหนดโหมดที่ต้องการและบันทึกการนำเสนอครั้งเดียวแทนการวนลูปตามโหมด
+แต่ละไฟล์ผลลัพธ์บันทึกโหมดที่ตั้งค่าไว้ก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx`. เพื่อบันทึกเพียงเวอร์ชันเดียว ให้ตั้งค่าโหมดที่ต้องการแล้วบันทึกงานนำเสนอครั้งเดียวแทนการวนลูปผ่านโหมดต่าง ๆ
 
-การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในสามไฟล์ Day 3 จะว่างในเวิร์กบุ๊คทุกกรณี:
+การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม Day 3 จะเป็นค่าว่างในเวิร์กบุ๊กทุกกรณี:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-ผลกระทบที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ แผนภูมิเส้นทำให้เปรียบเทียบทั้งสามโหมดได้ง่าย แผนภูมิแบบแถบและคอลัมน์ไม่มีเส้นเชื่อมต่อผ่านหมวดหมู่ที่หายไป ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมต่อที่แสดงด้านบน; คอลัมน์ที่หายไปและคอลัมน์ที่สูงศูนย์อาจดูคล้ายกัน เช่นกัน แผนภูมิแบบกระจายที่มีเพียงมาร์คเกอร์ก็ไม่มีเส้นเชื่อมต่อ อย่าคาดหวังผลลัพธ์ที่แตกต่างสามแบบสำหรับทุกประเภทแผนภูมิ; ให้ตรวจสอบเอาต์พุตสำหรับประเภทที่คุณใช้
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทแผนภูมิ แผนภูมิเส้นทำให้สามโหมดเปรียบเทียบได้ง่าย แผนภูมิบาร์และคอลัมน์ไม่มีเส้นเชื่อมระหว่างคอลัมน์ที่ขาดหาย, ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมได้; คอลัมน์ที่ขาดหายและคอลัมน์ศูนย์สูงอาจดูคล้ายกัน เช่นเดียวกับแผนภูมิกระจายที่มีเครื่องหมายเท่านั้นไม่มีเส้นเชื่อม อย่าคาดหวังผลลัพธ์ที่แตกต่างสามแบบสำหรับทุกประเภทแผนภูมิ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้งาน
 
-## **ตั้งค่าความกว้างช่องว่างของชุด**
+## **ตั้งค่าความกว้างของช่องว่างระหว่างชุด**
 
-ความกว้างช่องว่างคือช่องว่างระหว่างกลุ่มแถบหรือคอลัมน์ที่อยู่ติดกัน คำนวณเป็นเปอร์เซ็นต์ของความกว้างแถบหรือคอลัมน์ คล้ายกับการทับซ้อน มันเป็นของกลุ่มชุดแม่ ไม่ใช่ของชุดเดียว เรียก [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) ครั้งเดียวสำหรับกลุ่ม ค่าที่มากจะสร้างช่องว่างมากระหว่างกลุ่ม, ค่าที่น้อยจะทำให้กลุ่มแน่นขึ้น
+ความกว้างของช่องว่างคือระยะห่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน, แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์ เช่นเดียวกับ overlap, ค่านี้เป็นของกลุ่มชุดพาเรนท์ ไม่ใช่ของชุดเดียว เรียก [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) ครั้งเดียวสำหรับกลุ่ม ค่าที่ใหญ่กว่าจะทำให้ช่องว่างระหว่างกลุ่มเพิ่มขึ้น, ค่าที่เล็กกว่าจะทำให้กลุ่มแน่นขึ้น
 
-ตัวอย่างต่อไปนี้เปลี่ยนความกว้างช่องว่างและบันทึกการนำเสนอครั้งสุดท้ายเท่านั้น
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกงานนำเสนอสุดท้ายเท่านั้น
 
 ```cpp
 #include <cstdint>
@@ -710,7 +712,7 @@ presentation->Dispose();
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
 #include <DOM/Chart/IChartSeriesGroup.h>
-#include <DOM/IChart.h>
+#include <DOM/IChart>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
@@ -742,44 +744,92 @@ presentation->Dispose();
 
 ![The gap width](gap_width.png)
 
+## **แสดงหรือซ่อนเส้นชุด**
+
+เส้นชุดเชื่อมต่อส่วนที่เกี่ยวข้องของแผนภูมิด้วยสายภาพ ใช้ [IChartSeriesGroup::set_HasSeriesLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_hasserieslines/) เพื่อแสดงหรือซ่อนเส้นเหล่านี้ในแผนภูมิแบบ stacked bar และ OfPie ที่รองรับ ในแผนภูมิ stacked bar และ column 2‑มิติ เส้นจะเชื่อมขอบส่วนสแตกที่สอดคล้องกันข้ามหมวดหมู่ ในแผนภูมิ Pie of Pie และ Bar of Pie เส้นจะเชื่อมพล็อตหลักกับพล็อตรอง การตั้งค่านี้ไม่ใช่ตัวเชื่อมทั่วไปสำหรับประเภทแผนภูมิอื่น
+
+เข้าถึงกลุ่มผ่าน [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/). การตั้งค่านี้ใช้กับทุกชุดในกลุ่ม [IChartSeries::get_HasSeriesLines](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_hasserieslines/) อ่านค่าเท่านั้นและสะท้อนการตั้งค่าของกลุ่มพาเรนท์; ใช้เมธอดตั้งค่ากลุ่มเพื่ออัปเดต
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ [ChartType::PieOfPie](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) หนึ่งแบบข้อมูลเริ่มต้น บันทึกแผนภูมิเดียวกันพร้อมเส้นชุดเปิดและปิดตามลำดับ, ผลลัพธ์เป็นสองงานนำเสนอเพื่อเปรียบเทียบ
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::PieOfPie, 50, 50, 600, 400);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+auto seriesGroup = series->get_ParentSeriesGroup();
+
+seriesGroup->set_HasSeriesLines(true);
+presentation->Save(u"series_lines_enabled.pptx", SaveFormat::Pptx);
+
+seriesGroup->set_HasSeriesLines(false);
+presentation->Save(u"series_lines_disabled.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+| เส้นชุดเปิดใช้งาน | เส้นชุดปิดใช้งาน |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| สองเส้นเชื่อมพายหลักกับพายรอง | ทั้งสองพายยังคงมองเห็นได้, แต่เส้นเชื่อมถูกซ่อน |
+
+เส้นชุดแตกต่างจากเส้นนำของป้ายข้อมูล (เชื่อมป้ายกับจุดข้อมูล), เส้นกริด (ทำเครื่องหมายช่วงบนแกน), และเส้นในแผนภูมิเส้น (แทนค่าข้อมูล) การตั้งค่านี้ไม่ควบคุมส่วนเหล่านั้น
+
 ## **FAQ**
 
-**แผนภูมิประเภทใดบ้างที่สนับสนุนชุดข้อมูล?**
+**แผนภูมิประเภทใดรองรับชุดข้อมูล?**
 
-ทุกประเภทแผนภูมิที่แสดงโดย [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ใช้ข้อมูลแผนภูมิ, แต่ชุดข้อมูลของแต่ละประเภทไม่ได้มีโครงสร้างค่า หรือการตั้งค่าเดียวกัน เช่น แผนภูมิประเภทหมวดหมู่ใช้ categories และ values, แผนภูมิแบบกระจายใช้ X และ Y values, แผนภูมิบับน้ำเพิ่ม bubble sizes ใช้เมธอดการสร้างจุดข้อมูลที่สอดคล้องกับประเภทชุด ตัวเลือกเช่น overlap และ gap width ใช้ได้กับกลุ่มแถบหรือคอลัมน์ที่เข้ากันได้เท่านั้น
+ทุกประเภทแผนภูมิที่แสดงโดย enumeration [ChartType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/charttype/) ใช้ข้อมูลแผนภูมิ, แต่ชุดของพวกมันไม่ได้มีโครงสร้างค่าหรือการตั้งค่าเดียวกัน เช่นแผนภูมิจัดหมวดใช้ประเภทและค่า, แผนภูมิกระจายใช้ X และ Y ค่า, แผนภูมิกระจายฟองเพิ่มขนาดฟอง ใช้วิธีการสร้างจุดข้อมูลที่สอดคล้องกับประเภทชุด ตัวเลือกเช่น overlap และ gap width ใช้กับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้เท่านั้น
 
 **กลุ่มชุดแผนภูมิคืออะไร?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) ประกอบด้วยชุดที่เข้ากันได้ซึ่งแชร์การตั้งค่าการพล็อตระดับกลุ่ม แผนภูมิผสมอาจมีมากกว่าหนึ่งกลุ่ม, ดังนั้นการเปลี่ยนแปลงกลุ่มผ่านชุดหนึ่งไม่จำเป็นต้องเปลี่ยนทุกชุดในแผนภูมิ
+[IChartSeriesGroup](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/) ประกอบด้วยชุดที่เข้ากันได้ซึ่งแชร์การตั้งค่าการพลอตระดับกลุ่ม แผนภูมิผสมอาจมีมากกว่าหนึ่งกลุ่ม, ดังนั้นการเปลี่ยนกลุ่มผ่านชุดหนึ่งไม่จำเป็นต้องเปลี่ยนทุกชุดในแผนภูมิ
 
 **แผนภูมิที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
 
-ใช่ โดยค่าเริ่มต้น [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) สร้างชุดตัวอย่าง, หมวดหมู่และค่า คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งชุดและคอลเลกชันหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างสมบูรณ์ การ overload ยังสามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้นได้
+ใช่ โดยค่าเริ่มต้น [IShapeCollection::AddChart](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addchart/) จะสร้างชุดตัวอย่าง, ประเภท, และค่า คุณสามารถแก้ไขเซลล์เหล่านั้นหรือทำความสะอาดทั้งชุดและประเภทก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างสมบูรณ์ มี overload ที่สามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้นได้เช่นกัน
 
-**แผนภูมิเชื่อมต่อกับเซลล์เวิร์กบุ๊คอย่างไร?**
+**วัตถุแผนภูมิเชื่อมกับเซลล์เวิร์กบุ๊กอย่างไร?**
 
-ชื่อชุด, ป้ายหมวดหมู่และค่าจุดข้อมูลอ้างอิงเซลล์ใน [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิที่สอดคล้อง เมื่อคุณสร้างข้อมูลกำหนดเอง, รักษาให้แถวหมวดหมู่และแถวค่าชุดสอดคล้องกันเพื่อให้แต่ละจุดถูกพล็อตภายใต้หมวดหมู่ที่ตั้งใจ
+ชื่อชุด, ป้ายชื่อหมวด, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/). การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิที่สอดคล้อง เมื่อคุณสร้างข้อมูลที่กำหนดเอง, ให้รักษาแถวหมวดและแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดพลอตอยู่ภายใต้หมวดที่ต้องการ
 
-**จะลบจุดหนึ่งแทนการลบทั้งชุดอย่างไร?**
+**ฉันจะลบจุดเดียวแทนจะลบทั้งชุดได้อย่างไร?**
 
-ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `nullptr` เพื่อรักษาตำแหน่งหมวดหมู่ของจุดเป็นจุดว่าง เรียก [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) เฉพาะเมื่อคุณต้องการลบจุดทั้งหมดจากชุดนั้น หากคุณลบหมวดหมู่ด้วย, ให้อัปเดตทุกชุดเพื่อให้ค่าของพวกเขายังคงสอดคล้องกับคอลเลกชันหมวดหมู่
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `nullptr` เพื่อให้จุดยังคงอยู่ในตำแหน่งหมวดหมู่เป็นจุดว่าง เรียก [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) เฉพาะเมื่อคุณต้องการลบจุดทั้งหมดจากชุดนั้น หากคุณลบหมวดด้วย, ให้อัปเดตทุกชุดให้ค่าตรงกับคอลเลกชันหมวด
 
 **จุดว่างจะแสดงอย่างไร?**
 
-ผลลัพธ์ขึ้นกับประเภทแผนภูมิและ [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/) แผนภูมิที่รองรับสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่า 0 หรือโดยเชื่อมต่อจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในงานนำเสนอของคุณ ดู [Control the Display of Empty Cells](#control-the-display-of-empty-cells) สำหรับตัวอย่างครบและการเปรียบเทียบภาพ
+ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและ [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/get_displayblanksas/). แผนภูมิที่รองรับสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นศูนย์, หรือเชื่อมจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลหายในงานนำเสนอของคุณ ดู [Control the Display of Empty Cells](#control-the-display-of-empty-cells) สำหรับตัวอย่างเต็มและการเปรียบเทียบภาพ
 
-**ค่าติดลบถูกจัดรูปแบบอย่างไร?**
+**ค่าติดลบถูกฟอร์แมตอย่างไร?**
 
-สำหรับชุดแถบ, คอลัมน์และบับน้ำที่รองรับ, เรียก [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) และกำหนดสีผ่าน [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/) คุณสามารถลบการทำงานนี้สำหรับจุดเดี่ยวด้วย [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/) เมธอดเหล่านี้ส่งผลต่อการจัดรูปแบบ, ไม่ใช่ค่าตัวเลขที่บันทึกไว้
+สำหรับชุดบาร์, คอลัมน์, และฟองที่รองรับ, เรียก [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) และตั้งค่าสีผ่าน [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). คุณสามารถละเมิดพฤติกรรมสำหรับจุดเดียวด้วย [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). เมธอดเหล่านี้ส่งผลต่อรูปแบบการแสดง, ไม่ใช่ค่าตัวเลขที่จัดเก็บ
 
-**รูปแบบใดชนะเมื่อทั้งชุดและจุดมีการจัดรูปแบบ?**
+**การฟอร์แมตใดชนะเมื่อทั้งชุดและจุดถูกฟอร์แมต?**
 
-การจัดรูปแบบจุดโดยชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น จุดอื่น ๆ จะใช้รูปแบบชุดที่กำหนดไว้หรือถ้าชุดไม่มีการกำหนดรูปแบบ จะใช้สไตล์และธีมอัตโนมัติของแผนภูมิ การตั้งค่ากลุ่มเช่น overlap และ gap width ควบคุมการจัดวางและไม่ใช่การแทนที่ระดับจุด
+การฟอร์แมตจุดข้อมูลโดยชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น จุดอื่น ๆ จะยังคงใช้ฟอร์แมตชุดที่ชัดเจนหรือเมื่อไม่มีฟอร์แมตชุดจะใช้สไตล์และธีมแผนภูมิตามอัตโนมัติ การตั้งค่ากลุ่มเช่น overlap และ gap width ควบคุมการจัดวางและไม่ใช่การทับซ้อนระดับจุด
 
 **มีขีดจำกัดจำนวนชุดที่แผนภูมิสามารถมีได้หรือไม่?**
 
-Aspose.Slides ไม่กำหนดขีดจำกัดจำนวนชุดแยกจากกัน อย่างไรก็ตามข้อจำกัดของไฟล์พรีเซนเทชั่น, หน่วยความจำที่มี, เวลาเรนเดอร์และความอ่านง่ายของแผนภูมิจะกำหนดขีดจำกัดที่ใช้งานได้จริง
+Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดแยกจากกัน ความจำกัดจริงขึ้นกับข้อจำกัดของไฟล์งานนำเสนอ, หน่วยความจำ, เวลาเรนเดอร์, และการอ่านง่ายของแผนภูมิ
 
-**ควรเปลี่ยนอะไรเมื่อคอลัมน์อยู่ใกล้กันเกินไปหรือห่างเกินไป?**
+**ควรเปลี่ยนอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างเกินไป?**
 
-เรียก [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) บนกลุ่มชุดแม่ที่เหมาะสม เพิ่มค่าที่จะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น, หรือ ลดค่าที่จะทำให้กลุ่มเข้าหาใกล้กันมากขึ้น.
+เรียก [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) บนกลุ่มพาเรนท์ที่เหมาะสม เพิ่มค่าจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น, ลดค่าจะทำให้กลุ่มใกล้กันขึ้น
+

@@ -5,91 +5,195 @@ type: docs
 url: /hi/python-net/3d-chart/
 keywords:
 - 3D चार्ट
-- रोटेशन
+- घूर्णन
 - गहराई
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET में 3-D चार्ट को बनाने और अनुकूलित करने का तरीका सीखें, PPT, PPTX और ODP फ़ाइलों के समर्थन के साथ—आज ही अपनी प्रस्तुतियों को बेहतर बनाएं।"
+description: "Aspose.Slides for Python via .NET के साथ PowerPoint प्रस्तुतियों में 3D चार्ट बनाएं। Python उदाहरणों के साथ घूर्णन, ऊँचाई अनुपात, चार्ट गहराई, और श्रृंखलाओं के बीच स्पेसिंग समायोजित करें।"
 ---
-## **समीक्षा**
+## **सारांश**
 
-यह लेख बताता है कि Aspose.Slides में `rotation_3d` सेटिंग्स जैसे `rotation_x`, `rotation_y`, `depth_percents`, और `right_angle_axes` को कॉन्फ़िगर करके 3D चार्ट को कैसे कस्टमाइज़ किया जाए। यह एक प्रेजेंटेशन बनाना, डिफ़ॉल्ट डेटा के साथ 3D चार्ट जोड़ना, आवश्यक 3D व्यू सेटिंग्स लागू करना, और संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में सेव करने की प्रक्रिया को दर्शाता है।
+Aspose.Slides for Python via .NET आपको 3D चार्ट के दृश्य को [Chart.rotation_3d](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/rotation_3d/) प्रॉपर्टी के माध्यम से कस्टमाइज़ करने देता है। यह लेख दिखाता है कि घूर्णन, ऊँचाई अनुपात, गहराई, समकोण अक्ष, और श्रृंखलाओं के बीच स्पेसिंग को कैसे समायोजित किया जाए, और फिर प्रस्तुति को PPTX फ़ॉर्मेट में सहेजा जाए।
 
-## **3D चार्ट के RotationX, RotationY और DepthPercents गुण सेट करें**
-Aspose.Slides for Python via .NET इन गुणों को सेट करने के लिए एक सरल API प्रदान करता है। यह लेख आपको X, Y Rotation, **DepthPercents** आदि जैसे विभिन्न गुणों को कैसे सेट किया जाए, यह समझाने में मदद करेगा। नमूना कोड उपर्युक्त गुणों को सेट करता है।
+## **3D चार्ट का घूर्णन और गहराई सेट करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टैंस बनाएं।
-1. पहली स्लाइड तक पहुँचें।
-1. डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें।
-1. Rotation3D गुण सेट करें।
-1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल में लिखें।
+नीचे दिया गया उदाहरण एक [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) बनाता है और [ShapeCollection.add_chart](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_chart/) का उपयोग करके पहले स्लाइड पर एक स्टैक्ड 3D कॉलम चार्ट जोड़ता है। यह डिफ़ॉल्ट श्रृंखला और श्रेणियों को दो श्रृंखलाओं से बदल देता है, प्रत्येक में तीन मान होते हैं। कार्यपत्रक सूचकांक `0` चार्ट की पहली डेटा कार्यपत्रक को पहचानता है; पंक्ति `0` में श्रृंखला नाम होते हैं, और स्तम्भ `0` में श्रेणी लेबल होते हैं।
 
-```py
-import aspose.slides.charts as charts
+[rotation_x](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_x/) और [rotation_y](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/rotation_y/) प्रॉपर्टीज़ क्रमशः चार्ट का घूर्णन 40 और 270 डिग्री पर सेट करती हैं। [depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) इसकी गहराई को इसकी चौड़ाई का 150% सेट करता है, जबकि [right_angle_axes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/right_angle_axes/) परिप्रेक्ष्य के बजाय समकोण अक्ष सक्षम करता है। परिणामी प्रस्तुति इन 3D दृश्य सेटिंग्स के साथ भरपूर चार्ट को शामिल करती है।
+
+```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
+import aspose.slides.charts as charts
 
-# Presentation क्लास का एक उदाहरण बनाएं
 with slides.Presentation() as presentation:
-            
-    # पहली स्लाइड तक पहुँचें
     slide = presentation.slides[0]
 
-    # डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN_3D, 0, 0, 500, 500)
 
-    # चार्ट डेटा शीट का इंडेक्स सेट करना
-    defaultWorksheetIndex = 0
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
 
-    # चार्ट डेटा वर्कशीट प्राप्त करना
-    fact = chart.chart_data.chart_data_workbook
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    
+    values = [[20, 50, 30], [30, 10, 60]]
 
-    # सीरीज़ जोड़ें
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
+    for category_index in range(3):
+        category_cell = workbook.get_cell(worksheet_index, category_index + 1, 0, f"Category {category_index + 1}")
+        chart.chart_data.categories.add(category_cell)
 
-    # श्रेणियां जोड़ें
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
+    for series_index in range(2):
+        series_cell = workbook.get_cell(worksheet_index, 0, series_index + 1, f"Series {series_index + 1}")
+        series = chart.chart_data.series.add(series_cell, chart.type)
 
-    # Rotation3D गुण सेट करें
+        for category_index in range(3):
+            value_cell = workbook.get_cell(worksheet_index, category_index + 1, series_index + 1, values[series_index][category_index])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
     chart.rotation_3d.right_angle_axes = True
     chart.rotation_3d.rotation_x = 40
     chart.rotation_3d.rotation_y = 270
     chart.rotation_3d.depth_percents = 150
 
-    # दूसरी चार्ट सीरीज़ लें
-    series = chart.chart_data.series[1]
-
-    # अब सीरीज़ डेटा भर रहे हैं
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
-
-    # Overlap मान सेट करें
-    series.parent_series_group.overlap = 100         
-
-    # प्रेजेंटेशन को डिस्क पर लिखें
     presentation.save("Rotation3D_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **3D चार्ट की ऊँचाई अनुपात को समायोजित करें**
+
+[Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) का उपयोग करके 3D चार्ट की ऊँचाई को उसकी चौड़ाई के प्रतिशत के रूप में सेट किया जाता है। इससे स्लाइड पर चार्ट ऑब्जेक्ट का आकार बदले बिना 3D दृश्य के अनुपात बदलते हैं।
+
+निम्न उदाहरण एक [COLUMN_3D](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) चार्ट को डिफ़ॉल्ट डेटा के साथ बनाता है: तीन श्रृंखलाएँ और चार श्रेणियाँ। यह 50 %, 100 % और 200 % ऊँचाई अनुपात के साथ तीन प्रस्तुतियों को सहेजता है। चार्ट की स्थिति, चौड़ाई और ऊँचाई स्थिर रहती है। डेटा, घूर्णन, गहराई, श्रृंखला स्पेसिंग, और फ़ॉर्मेट सभी तीन फ़ाइलों में समान हैं; केवल ऊँचाई प्रतिशत बदलता है।
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 40, 30, 620, 460)
+    chart.rotation_3d.rotation_x = 20
+    chart.rotation_3d.rotation_y = 30
+    chart.rotation_3d.right_angle_axes = True
+    chart.rotation_3d.depth_percents = 100
+    chart.chart_data.series[0].parent_series_group.gap_depth = 150
+
+    for height_percent in (50, 100, 200):
+        chart.rotation_3d.height_percents = height_percent
+        presentation.save(f"chart_height_{height_percent}.pptx", slides.export.SaveFormat.PPTX)
+```
+
+निम्न छवियों को Microsoft PowerPoint का उपयोग करके उत्पन्न प्रस्तुतियों से निर्यात किया गया है। छोटा प्रतिशत कम गहराई वाला दृश्‍य देता है, जबकि बड़ा प्रतिशत समान चार्ट ऑब्जेक्ट के भीतर ऊँचा दृश्‍य बनाता है। PowerPoint दृश्‍य को फिट करने के लिए अक्ष टिक अंतराल और लेबल प्लेसमेंट भी समायोजित कर सकता है।
+
+| ऊँचाई: 50% | ऊँचाई: 100% | ऊँचाई: 200% |
+| --- | --- | --- |
+| ![3D कॉलम चार्ट जिसमें ऊँचाई उसकी चौड़ाई के 50 प्रतिशत पर सेट है](height_percent_50.png) | ![3D कॉलम चार्ट जिसमें ऊँचाई उसकी चौड़ाई के 100 प्रतिशत पर सेट है](height_percent_100.png) | ![3D कॉलम चार्ट जिसमें ऊँचाई उसकी चौड़ाई के 200 प्रतिशत पर सेट है](height_percent_200.png) |
+
+इन गुणों से चार्ट के विभिन्न पहलुओं को नियंत्रित किया जाता है:
+
+| गुण | प्रभाव |
+| --- | --- |
+| [Rotation3D.height_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/height_percents/) | 3D दृश्‍य की ऊँचाई उसकी चौड़ाई के प्रतिशत के रूप में। |
+| [Chart.height](https://reference.aspose.com/slides/python-net/aspose.slides/shape/height/) | स्लाइड पर चार्ट ऑब्जेक्ट की ऊँचाई, पॉइंट्स में। |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | 3D दृश्‍य की गहराई उसकी चौड़ाई के प्रतिशत के रूप में। |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | गहराई अक्ष के साथ श्रृंखलाओं के बीच की दूरी, मार्कर चौड़ाई के प्रतिशत के रूप में। |
+
+ऊँचाई सेटिंग 3D कॉलम और बार चार्टों को प्रभावित करती है, जिसमें सिलिंडर, शंकु, और पिरामिड रूपांतरण शामिल हैं, साथ ही 3D रेखा, क्षेत्र, पाई और सतह चार्ट। ऊपर का तुलनात्मक उदाहरण सत्यापित `COLUMN_3D` प्रकार का उपयोग करता है। यह सेटिंग 2D `CLUSTERED_COLUMN` या `BUBBLE_WITH_3D` चार्ट की उपस्थिति नहीं बदलती; ये नाम [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) एन्उमेरेशन के सदस्य हैं। अन्य चार्ट फ़ॉर्मेट सेटिंग्स के लिए देखें [Chart Formatting](/slides/hi/python-net/chart-formatting/)।
+
+## **श्रृंखलाओं के बीच अंतराल को समायोजित करें**
+
+[ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) का उपयोग करके 3D चार्ट के गहराई अक्ष के साथ डेटा श्रृंखलाओं के बीच की दूरी को नियंत्रित किया जाता है, जिसे मार्कर चौड़ाई के प्रतिशत में व्यक्त किया जाता है। **0 से 500** तक के मान (समावेशी) का उपयोग करें: `0` अंतराल हटाता है, जबकि बड़े मान स्पेसिंग बढ़ाते हैं। स्थिर चार्ट गहराई के साथ, अंतराल बढ़ाने से मार्कर गहराई अक्ष के साथ पतले हो जाते हैं।
+
+समूह तक पहुँचने के लिए [ChartSeries.parent_series_group](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/parent_series_group/) का उपयोग करें। यह सेटिंग उस समूह की प्रत्येक श्रृंखला पर लागू होती है, न कि केवल पहुँच प्राप्त करने वाली श्रृंखला पर। [ChartSeries.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_depth/) केवल पढ़ने योग्य है और पैरेंट समूह की सेटिंग को दर्शाता है।
+
+यह सेटिंग 3D कॉलम और बार चार्टों को प्रभावित करती है, जिसमें उनके सिलिंडर, शंकु, और पिरामिड रूपांतरण, साथ ही 3D रेखा और क्षेत्र चार्ट शामिल हैं। उपस्थिति इस पर निर्भर करती है कि श्रृंखलाएँ गहराई में व्यवस्थित हैं, क्लस्टर्ड हैं या स्टैक्ड। अलग-अलग श्रृंखलाओं के बीच अंतराल की स्पष्ट तुलना के लिए, [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) एन्उमेरेशन से `ChartType.COLUMN_3D` का उपयोग करें।
+
+इन गुणों से चार्ट के विभिन्न पहलुओं को नियंत्रित किया जाता है:
+
+| गुण | प्रभाव |
+| --- | --- |
+| [ChartSeriesGroup.gap_depth](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_depth/) | गहराई अक्ष के साथ श्रृंखलाओं के बीच की दूरी, मार्कर चौड़ाई के प्रतिशत के रूप में। |
+| [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) | सन्निकट बार या कॉलम क्लस्टर के बीच की दूरी, बार या कॉलम चौड़ाई के प्रतिशत के रूप में। |
+| [Rotation3D.depth_percents](https://reference.aspose.com/slides/python-net/aspose.slides.charts/rotation3d/depth_percents/) | चार्ट की कुल गहराई, चार्ट चौड़ाई के प्रतिशत के रूप में। |
+
+निम्न स्वयंक-contained उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है, जिसमें तीन श्रृंखलाएँ और चार श्रेणियाँ हैं। यह दो प्रस्तुतियों को समान डेटा, घूर्णन, अंतराल चौड़ाई, और चार्ट गहराई के साथ सहेजता है; केवल अंतराल गहराई बदलती है।
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.COLUMN_3D, 40, 30, 620, 230)
+
+    chart.rotation_3d.rotation_x = 20
+    chart.rotation_3d.rotation_y = 30
+    chart.rotation_3d.depth_percents = 100
+
+    series = chart.chart_data.series[0]
+    group = series.parent_series_group
+    group.gap_width = 150
+
+    for gap_depth in (0, 500):
+        group.gap_depth = gap_depth
+        file_name = f"series_gap_depth_{gap_depth}.pptx"
+        presentation.save(file_name, slides.export.SaveFormat.PPTX)
+```
+
+निम्न छवियों को Microsoft PowerPoint का उपयोग करके उत्पन्न प्रस्तुतियों से निर्यात किया गया है।
+
+| अंतराल गहराई: 0% | अंतराल गहराई: 500% |
+| --- | --- |
+| ![3D कॉलम चार्ट जिसमें गहराई अक्ष के साथ श्रृंखलाओं के बीच कोई अंतराल नहीं है](gap_depth_0.png) | ![3D कॉलम चार्ट जिसमें गहराई अक्ष के साथ श्रृंखलाओं के बीच 500 प्रतिशत अंतराल है](gap_depth_500.png) |
+
+## **3D श्रृंखला प्रकार और बार आकार बदलें**
+
+एक क्लस्टर्ड सिलिंडर चार्ट में, पहली श्रृंखला सिलिंड्रिकल बार से शुरू होती है। उदाहरण प्रत्येक परिवर्तन से पहले और बाद में [ChartSeries.type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/type/) और [ChartSeries.bar_3d_shape](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/bar_3d_shape/) को पढ़ता है।
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_CYLINDER, 20, 20, 500, 300)
+    series = chart.chart_data.series[0]
+    
+    print(f"{series.type.name} | {series.bar_3d_shape.name}")
+
+    series.type = charts.ChartType.CLUSTERED_CONE
+    print(f"{series.type.name} | {series.bar_3d_shape.name}")
+
+    series.bar_3d_shape = charts.ChartShapeType.BOX
+    print(f"{series.type.name} | {series.bar_3d_shape.name}")
+
+    presentation.save("series_shape.pptx", slides.export.SaveFormat.PPTX)
+```
+
+| पहली श्रृंखला में परिवर्तन | `type` | `bar_3d_shape` |
+| --- | --- | --- |
+| चार्ट बनाएं | `CLUSTERED_CYLINDER` | `CYLINDER` |
+| `type` को `CLUSTERED_CONE` पर सेट करें | `CLUSTERED_CONE` | `CONE` |
+| `bar_3d_shape` को `BOX` पर सेट करें | `CLUSTERED_COLUMN_3D` | `BOX` |
+
+`BOX` आकार सेट करने से श्रृंखला प्रकार भी `CLUSTERED_COLUMN_3D` में बदल जाता है। यदि आपका कोड श्रृंखला प्रकार पर निर्भर करता है, तो रूप बदलने के बाद `series.type` को पुनः पढ़ें। असाइनमेंट से पहले कैश किया गया मान अभी भी `CLUSTERED_CONE` शाखा को चुनेगा।
+
+![PowerPoint तुलना जो पहली श्रृंखला को बाएँ से दाएँ सिलिंडर, शंकु, और आयताकार कॉलम के रूप में दिखाती है](series-shapes.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **Aspose.Slides में कौन से चार्ट प्रकार 3D मोड का समर्थन करते हैं?**
 
-Aspose.Slides कॉलम चार्ट के 3D वैरिएंट्स का समर्थन करता है, जिसमें Column 3D, Clustered Column 3D, Stacked Column 3D, और 100% Stacked Column 3D शामिल हैं, साथ ही संबंधित 3D प्रकार जो [ChartType](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/charttype/) एन्यूमरेशन के माध्यम से उपलब्ध कराए गए हैं। सटीक और अद्यतन सूची के लिए, अपने स्थापित संस्करण के API रेफरेंस में [ChartType](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/charttype/) सदस्यों को देखें।
+Aspose.Slides कॉलम चार्टों के 3D रूपों का समर्थन करता है, जिसमें Column 3D, Clustered Column 3D, Stacked Column 3D, और 100 % Stacked Column 3D शामिल हैं, साथ ही संबंधित 3D प्रकार जो [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) एन्उमेरेशन में उजागर हैं। सटीक और अद्यतन सूची के लिए, अपने स्थापित संस्करण के API रेफरेंस में [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) सदस्य देखें।
 
-**क्या मैं रिपोर्ट या वेब के लिए 3D चार्ट की रास्टर इमेज प्राप्त कर सकता हूँ?**
+**क्या मैं रिपोर्ट या वेब के लिये 3D चार्ट की रास्टर छवि प्राप्त कर सकता हूँ?**
 
-हाँ। आप चार्ट को इमेज में [chart API](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chart/get_image/) के माध्यम से एक्सपोर्ट कर सकते हैं या पूरे स्लाइड को [/slides/hi/python-net/convert-powerpoint-to-png/](/slides/hi/python-net/convert-powerpoint-to-png/) पर PNG या JPEG जैसे फ़ॉर्मेट में रेंडर कर सकते हैं। यह तब उपयोगी होता है जब आपको पिक्सेल-परफेक्ट प्रीव्यू चाहिए या आप चार्ट को दस्तावेज़ों, डैशबोर्ड या वेब पेजों में एम्बेड करना चाहते हैं बिना PowerPoint की आवश्यकता के।
+हां। आप [Shape.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_image/) या पूरी स्लाइड को [render the entire slide](/slides/hi/python-net/convert-powerpoint-to-png/) करके PNG या JPEG जैसे फ़ॉर्मेट में निर्यात कर सकते हैं। यह तब उपयोगी होता है जब आपको रास्टर प्रिव्यू चाहिए या चार्ट को दस्तावेज़, डैशबोर्ड या वेब पेजों में एम्बेड करना है, बिना PowerPoint की आवश्यकता के।
 
-**बड़े 3D चार्ट बनाने और रेंडर करने में प्रदर्शन कैसे रहता है?**
+**बड़े 3D चार्टों को बनाना और रेंडर करना कितना प्रदर्शनशील है?**
 
-प्रदर्शन डेटा मात्रा और दृश्य जटिलता पर निर्भर करता है। सर्वोत्तम परिणामों के लिए, 3D इफ़ेक्ट्स को न्यूनतम रखें, दीवारों और प्लॉट एरिया पर भारी टेक्सचर से बचें, संभव हो तो प्रत्येक सीरीज में डेटा पॉइंट्स की संख्या सीमित रखें, और लक्ष्य डिस्प्ले या प्रिंट आवश्यकताओं के अनुरूप उपयुक्त रिज़ॉल्यूशन और आकार के आउटपुट में रेंडर करें।
+प्रदर्शन डेटा की मात्रा और दृश्य जटिलता पर निर्भर करता है। सर्वोत्तम परिणाम के लिये 3D इफ़ेक्ट कम रखें, दीवारों और प्लॉट एरिया पर भारी टेक्सचर से बचें, संभव हो तो प्रत्येक श्रृंखला के डेटा बिंदुओं की संख्या सीमित रखें, और लक्षित डिस्प्ले या प्रिंट आवश्यकताओं के अनुसार उपयुक्त रेज़ॉल्यूशन और आयामों के साथ आउटपुट रेंडर करें।

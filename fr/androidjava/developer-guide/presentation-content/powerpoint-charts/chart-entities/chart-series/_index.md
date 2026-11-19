@@ -1,47 +1,49 @@
 ---
-title: Gérer les séries de données de diagramme dans les présentations sur Android
+title: Gérer les séries de données de graphiques dans les présentations sur Android
 linktitle: Séries de données
 type: docs
 url: /fr/androidjava/chart-series/
 keywords:
-- séries de diagramme
+- séries de graphiques
 - chevauchement des séries
-- couleur de la série
+- couleur des séries
 - nom de la série
 - point de données
 - cellule de classeur
-- écart de série
+- écart des séries
 - valeur négative
 - PowerPoint
 - présentation
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez comment gérer les séries de diagramme, les points de données, les cellules de classeur, le formatage, le chevauchement, la largeur d'écart et les valeurs négatives dans les présentations sur Android."
+description: "Apprenez à gérer les séries de graphiques, les points de données, les cellules de classeur, le formatage, le chevauchement, la largeur d'écart et les valeurs négatives dans les présentations sur Android."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Un diagramme peut stocker ses valeurs tracées dans les cellules du classeur ou directement sous forme de littéraux numériques. Un [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) représente un ensemble de valeurs liées, et chaque [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) représente un point de cette série. Les objets [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) fournissent les libellés ou les valeurs de regroupement partagés par les séries. Dans les diagrammes créés avec des données par défaut, les noms de séries, les catégories et les valeurs des points utilisent des objets [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) du classeur du diagramme.
+Un graphique peut stocker ses valeurs tracées dans des cellules de classeur ou directement sous forme de littéraux numériques. Un [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) représente un ensemble de valeurs liées, et chaque [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) représente un point de cette série. Les objets [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) fournissent les étiquettes ou les valeurs de regroupement partagées par les séries. Dans les graphiques créés avec des données par défaut, les noms de séries, les catégories et les valeurs des points utilisent des objets [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) du classeur du graphique.
 
-Pour un diagramme à barres de catégorie typique, le classeur par défaut utilise la ligne 0 pour les noms de séries, la colonne 0 pour les noms de catégorie, et les cellules restantes pour les valeurs des séries. Les index de feuille, de ligne et de colonne transmis à [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) sont basés à zéro. Cette disposition est pratique lorsque vous créez un diagramme avec des données par défaut, mais ne supposez pas qu’elle soit utilisée par chaque diagramme existant. Pour une présentation chargée, inspectez les cellules référencées par les séries, les catégories et les points de données avant de modifier les valeurs du classeur.
+Pour un graphique de catégorie typique, le classeur par défaut utilise la ligne 0 pour les noms de séries, la colonne 0 pour les noms de catégories, et les cellules restantes pour les valeurs des séries. Les index de feuille, de ligne et de colonne transmis à [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) sont basés sur zéro. Cette disposition est utile lorsque vous créez un graphique avec des données par défaut, mais ne supposez pas que chaque graphique existant l’utilise. Pour une présentation chargée, inspectez les cellules référencées par les séries, les catégories et les points de données avant de modifier les valeurs du classeur.
 
-Les paramètres du diagramme ont trois portées différentes :
+Les paramètres du graphique ont trois portées différentes :
 
-- Paramètres au niveau de la série, tels que [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), fournissent l’apparence par défaut pour tous les points d’une même série.
-- Paramètres au niveau du point de données, tels que [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), remplacent l’apparence de la série pour un point donné.
+- Paramètres au niveau de la série, tels que [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--), fournissent l’apparence par défaut pour tous les points d’une série.
+- Paramètres de point de données, tels que [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), remplacent l’apparence de la série pour un point.
 - Les paramètres de groupe s’appliquent aux séries compatibles appartenant au même [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/). Accédez au groupe via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) lorsque vous devez définir des options telles que le chevauchement ou la largeur d’écart.
 
-Lorsqu’aucun remplissage de point ou de série n’est explicitement défini, le style et le thème du diagramme déterminent l’apparence automatique. Lorsque le formatage de la série et celui du point sont présents, le formatage du point l’emporte pour ce point.
+Lorsqu’aucun remplissage de point ou de série explicite n’est défini, le style et le thème du graphique déterminent l’apparence automatique. Lorsque les deux formats, série et point, sont présents, le format du point l’emporte pour ce point.
 
-![diagramme-series-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Définir les valeurs de série à l’aide de littéraux numériques**
+Pour un graphique à cylindres groupés, voyez comment [changing the 3D series type or bar shape](/slides/fr/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) affecte la première série.
 
-Utilisez des littéraux numériques lorsque les valeurs de la série proviennent de données d’application ou de calculs et n’ont pas besoin de références à des cellules de feuille. Appelez [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) avec [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) avant d’attribuer le résultat de [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) de chaque point via [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
+## **Définir les valeurs de séries à l'aide de littéraux numériques**
+
+Utilisez des littéraux numériques lorsque les valeurs de séries proviennent de données ou de calculs d’application et n’ont pas besoin de références à des cellules de feuille. Appelez [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) avec [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) avant d’affecter le résultat de [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) de chaque point via [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-).
 
 Le paramètre de collection contrôle le type de source de toutes les valeurs de points de cette série. La méthode [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) de chaque valeur de point indique le type sélectionné ; modifiez‑le via le paramètre de collection. Avec `Worksheet`, utilisez [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) pour accéder à la cellule référencée. Avec `DoubleLiterals`, utilisez [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) ou `setAsLiteralDouble` pour lire ou écrire le nombre directement.
 
-L’exemple suivant crée un diagramme en colonnes avec des séries et catégories par défaut, puis affecte les valeurs calculées 10, 20, etc. aux points existants de sa première série. Il enregistre la présentation, la rouvre et imprime les valeurs stockées.
+L’exemple suivant crée un graphique en colonnes avec les séries et catégories par défaut, puis assigne les valeurs calculées 10, 20, etc. aux points existants de sa première série. Il enregistre la présentation, la rouvre et affiche les valeurs stockées.
 
 ```java
 import com.aspose.slides.*;
@@ -76,13 +78,13 @@ try {
 }
 ```
 
-Le type de source de la valeur du point est distinct de [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--), qui identifie la configuration du classeur interne ou externe du diagramme. L’utilisation de littéraux numériques ne supprime pas, en elle‑même, le classeur incorporé. Dans cet exemple, le classeur reste disponible pour les libellés de catégorie, les noms de séries et les autres séries. Consultez [Chart Workbook](/slides/fr/androidjava/chart-workbook/) pour la gestion du classeur.
+Le type de source de la valeur du point est distinct de [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--), qui identifie la configuration du classeur interne ou externe du graphique. L’utilisation de littéraux numériques ne supprime pas, à elle seule, le classeur incorporé. Dans cet exemple, le classeur reste disponible pour les libellés de catégories, les noms de séries et les autres séries. Consultez [Chart Workbook](/slides/fr/androidjava/chart-workbook/) pour la gestion du classeur.
 
-Pour les diagrammes en nuage de points et à bulles, utilisez [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) et [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) afin de choisir les sources pour [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) et [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--). Les diagrammes à bulles utilisent également [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) pour [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Définissez chaque source applicable sur `DoubleLiterals` avant d’attribuer les nombres via la méthode `setAsLiteralDouble` de cette valeur.
+Pour les graphiques de dispersion et de bulles, utilisez [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) et [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) pour choisir les sources de [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) et [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--). Les graphiques à bulles utilisent également [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) pour [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--). Définissez chaque source applicable sur `DoubleLiterals` avant d’affecter des nombres via la méthode `setAsLiteralDouble` de cette valeur.
 
-## **Définir le chevauchement des séries du diagramme**
+## **Définir le chevauchement des séries du graphique**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) indique le degré de chevauchement des barres ou colonnes dans un diagramme 2D, de –100 à 100 %. C’est une projection en lecture‑seule du paramètre du groupe de séries parent. Utilisez [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) pour mettre à jour toutes les séries compatibles de ce groupe. Cette option s’applique aux types de diagrammes qui affichent des barres ou colonnes groupées ; elle n’affecte pas les groupes de séries non liés dans un diagramme combiné.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) indique le pourcentage de chevauchement des barres ou colonnes dans un graphique 2D, de –100 à 100 %. Il s’agit d’une projection en lecture seule du paramètre sur le groupe de séries parent. Utilisez [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) pour mettre à jour toutes les séries compatibles de ce groupe. Cette option s’applique aux types de graphiques affichant des barres ou colonnes groupées ; elle n’affecte pas les groupes de séries non liés dans un graphique combiné.
 
 L’exemple suivant définit le chevauchement pour le groupe contenant la première série :
 
@@ -97,7 +99,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Le nouveau diagramme contient des séries d'exemple, des catégories et des valeurs.
+    // Le nouveau graphique contient des séries, catégories et valeurs d'exemple.
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -111,7 +113,7 @@ try {
 
 Le résultat :
 
-![Le chevauchement des séries](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Modifier la couleur de remplissage de la série**
 
@@ -144,11 +146,11 @@ try {
 
 Le résultat :
 
-![La couleur de la série](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Modifier le nom de la série**
 
-Le nom d’une série est stocké dans le classeur de données du diagramme et apparaît normalement dans la légende. Dans le classeur par défaut créé pour un diagramme à colonnes groupées, la cellule B1 se trouve à la ligne 0, colonne 1 et contient le nom de la première série. Les constantes nommées de l’exemple suivant rendent cette structure explicite :
+Un nom de série est stocké dans le classeur de données du graphique et apparaît normalement dans la légende. Dans le classeur par défaut créé pour un graphique à colonnes groupées, la cellule B1 se trouve à la ligne 0, colonne 1 et contient le nom de la première série. Les constantes nommées de l’exemple suivant rendent cette structure explicite :
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +176,7 @@ try {
 }
 ```
 
-Vous pouvez également mettre à jour la cellule déjà référencée par [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). Cette approche évite de supposer une ligne ou une colonne particulière dans un diagramme existant :
+Vous pouvez également mettre à jour la cellule déjà référencée par [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--). Cette approche évite de supposer une ligne ou une colonne particulière dans un graphique existant :
 
 ```java
 import com.aspose.slides.*;
@@ -201,13 +203,13 @@ try {
 
 Le résultat :
 
-![Le nom de la série](series_name.png)
+![The series name](series_name.png)
 
 ### **Créer une série avec un nom provenant de plusieurs cellules**
 
-Un nom de série composite est utile lorsqu’un nom de produit et une période de rapport sont stockés dans des cellules de classeur distinctes. Par exemple, vous pouvez combiner `Product A` en B1 et `2026` en C1 en un seul nom de série tout en conservant les deux parties liées à leurs cellules sources.
+Un nom de série composite est utile lorsqu’un nom de produit et une période de reporting sont stockés dans des cellules de classeur distinctes. Par exemple, vous pouvez combiner `Product A` dans B1 et `2026` dans C1 en un seul nom de série tout en conservant les deux parties liées à leurs cellules sources.
 
-Utilisez [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) pour récupérer la plage de noms, puis transmettez cette collection à [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). L’argument `skipHiddenCells` contrôle l’inclusion des cellules cachées : `true` les exclut, `false` les inclut. Cet exemple utilise `false` pour inclure chaque cellule de la plage de noms.
+Utilisez [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) pour récupérer la plage de noms, puis transmettez cette collection à [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-). L’argument `skipHiddenCells` contrôle l’inclusion des cellules masquées : `true` les exclut, `false` les inclut. Cet exemple utilise `false` pour inclure chaque cellule de la plage de noms.
 
 L’exemple suivant crée une présentation avec une série et deux points de données. Les cellules B1:C1 ne fournissent que le nom de la série ; A2:A3 fournissent les libellés de catégorie, et B2:B3 les valeurs numériques.
 
@@ -251,13 +253,13 @@ try {
 
 Le nom de série résultant est `Product A 2026`, avec un espace entre les deux valeurs de cellules. La légende l’affiche comme une seule entrée pour les deux colonnes. L’image ci‑dessous illustre le résultat :
 
-![Diagramme en colonnes avec valeurs Nord et Sud et le nom de série composite Product A 2026 dans la légende](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Obtenir la couleur de remplissage automatique de la série**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) renvoie la couleur calculée à partir de l’index de la série et du style du diagramme sous forme d’entier ARGB Android. C’est la couleur utilisée lorsque le remplissage de la série n’est pas explicitement défini. L’appel de la méthode lit la couleur calculée ; il n’attribue pas de nouveau remplissage.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) renvoie la couleur calculée à partir de l’index de la série et du style du graphique sous forme d’entier couleur ARGB Android. C’est la couleur utilisée lorsque le remplissage de la série n’est pas explicitement défini. L’appel de la méthode lit la couleur calculée ; il ne définit pas de nouveau remplissage.
 
-L’exemple suivant imprime l’entier de couleur automatique de chaque série par défaut :
+L’exemple suivant affiche l’entier couleur automatique de chaque série par défaut :
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +283,13 @@ try {
 }
 ```
 
-Les valeurs entières exactes dépendent du style et du thème du diagramme.
+Les valeurs entières exactes dépendent du style et du thème du graphique.
 
-## **Définir la couleur de remplissage inversée pour une série de diagramme**
+## **Définir la couleur de remplissage inversée pour une série de graphique**
 
-Pour les séries à barres, en colonnes et à bulles, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) peut afficher les valeurs négatives avec un remplissage différent. Définissez le remplissage régulier de la série sur solide, activez l’inversion et attribuez la couleur des valeurs négatives via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Les nombres négatifs restent inchangés dans le classeur ; seul leur couleur d’affichage varie.
+Pour les séries de barres, colonnes et bulles, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) peut afficher les valeurs négatives avec un remplissage différent. Définissez le remplissage régulier de la série sur solide, activez l’inversion et affectez la couleur de la valeur négative via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Les nombres négatifs restent inchangés dans le classeur ; seule leur couleur d’affichage varie.
 
-L’exemple suivant remplace les données du diagramme par défaut par une série. La ligne 0 de la feuille contient le nom de la série, la colonne 0 les noms de catégorie, et la colonne 1 les valeurs :
+L’exemple suivant remplace les données de graphique par défaut par une série. La ligne 0 de la feuille contient le nom de la série, la colonne 0 les noms de catégories, et la colonne 1 les valeurs :
 
 ```java
 import com.aspose.slides.*;
@@ -344,9 +346,9 @@ try {
 
 Le résultat :
 
-![La couleur de remplissage solide inversée](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Vous pouvez activer l’inversion pour un point via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Dans l’exemple suivant, l’inversion est désactivée pour la série et activée uniquement pour le point sélectionné. Le point reçoit également une valeur négative afin que l’effet soit visible :
+Vous pouvez activer l’inversion pour un seul point via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Dans l’exemple suivant, l’inversion est désactivée pour la série et activée uniquement pour le point choisi. Le point reçoit également une valeur négative afin que l’effet soit visible :
 
 ```java
 import com.aspose.slides.*;
@@ -380,9 +382,9 @@ try {
 }
 ```
 
-## **Effacer la valeur d’un point de données spécifique**
+## **Effacer la valeur d'un point de données spécifique**
 
-Pour rendre un point vide sans supprimer les autres points, attribuez `null` à sa cellule de classeur sous‑jacent. Dans un diagramme en colonnes, la valeur tracée est accessible via [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Le point de données reste à la même position de catégorie, mais le diagramme considère sa valeur comme vide selon les paramètres de gestion des valeurs vides du diagramme.
+Pour rendre un point vide sans supprimer les autres points, affectez `null` à sa cellule de classeur sous‑jacent. Pour un graphique en colonnes, la valeur tracée est accessible via [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Le point reste à la même position de catégorie, mais le graphique considère sa valeur comme vide selon les paramètres d’affichage des valeurs vides du graphique.
 
 L’exemple suivant efface uniquement le deuxième point de la première série :
 
@@ -409,17 +411,17 @@ try {
 }
 ```
 
-Les diagrammes en nuage de points utilisent des cellules X et Y distinctes, et les diagrammes à bulles utilisent également une cellule de taille. Effacez uniquement la cellule représentant la valeur que vous souhaitez supprimer. N’appeler pas [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) si vous voulez conserver les autres points, car cette méthode supprime tous les points de la collection.
+Les graphiques de dispersion utilisent des cellules X et Y séparées, et les graphiques à bulles utilisent également une cellule de taille. Effacez uniquement la cellule qui représente la valeur que vous souhaitez supprimer. N’appeler pas [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) lorsque vous voulez conserver les autres points, car cette méthode supprime tous les points de la collection.
 
-## **Contrôler l’affichage des cellules vides**
+## **Contrôler l'affichage des cellules vides**
 
-Les cellules cachées contenant des valeurs constituent un cas distinct des cellules vides. Pour inclure ou exclure des données provenant de lignes et colonnes de feuille masquées, consultez [Include Data from Hidden Rows and Columns](/slides/fr/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Les cellules masquées contenant des valeurs sont un cas distinct des cellules vides. Pour inclure ou exclure des données provenant de lignes et colonnes masquées, consultez [Include Data from Hidden Rows and Columns](/slides/fr/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Une cellule de classeur vide représente une donnée manquante ; une cellule contenant `0` représente une valeur numérique connue. Appelez [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) avec `null` pour rendre une cellule vide. Un zéro numérique reste zéro quel que soit le réglage des cellules vides.
+Une cellule de classeur vide représente des données manquantes ; une cellule contenant `0` représente une valeur numérique connue. Appelez [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) avec `null` pour rendre une cellule vide. Un zéro numérique reste un zéro, quel que soit le paramètre de cellule vide.
 
-Utilisez [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) pour choisir comment le diagramme affiche les cellules vides. Ce paramètre s’applique à l’ensemble du diagramme. Il modifie la façon dont les vides sont tracés, sans remplir la cellule de classeur vide avec zéro ou une valeur interpolée.
+Utilisez [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) pour choisir la façon dont le graphique affiche les cellules vides. Ce paramètre s’applique à l’ensemble du graphique. Il modifie la façon dont les blancs sont tracés, sans remplir la cellule vide du classeur avec zéro ou une valeur interpolée.
 
-L’exemple autonome suivant crée un diagramme en ligne avec une série, vide la valeur du jour 3, et enregistre le même diagramme avec chaque mode. Aucun fichier d’entrée n’est requis. Le [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) utilise la feuille 0, la colonne 0 pour les libellés de catégorie, et la colonne 1 pour les valeurs ; la ligne 0 contient le nom de la série. Les données finales sont `10, 20, empty, 30, 40`.
+L’exemple autonome suivant crée un graphique en ligne avec une série, efface la valeur du Jour 3 et enregistre le même graphique avec chaque mode. Aucun fichier d’entrée n’est requis. Le [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) utilise la feuille 0, la colonne 0 pour les libellés de catégorie et la colonne 1 pour les valeurs ; la ligne 0 contient le nom de la série. Les données finales sont `10, 20, empty, 30, 40`.
 
 ```java
 import com.aspose.slides.*;
@@ -460,17 +462,17 @@ try {
 }
 ```
 
-Chaque fichier de sortie stocke le mode assigné avant l’enregistrement : `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` et `empty_cells_Span.pptx`. Pour n’enregistrer qu’une version, affectez le mode souhaité et enregistrez la présentation une seule fois au lieu d’itérer sur les modes.
+Chaque fichier de sortie stocke le mode attribué avant l’enregistrement : `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` et `empty_cells_Span.pptx`. Pour n’enregistrer qu’une version, définissez le mode souhaité et sauvegardez la présentation une seule fois au lieu d’itérer sur les modes.
 
-La comparaison ci‑dessous montre les mêmes données dans les trois fichiers. Le jour 3 est vide dans le classeur dans chaque cas :
+La comparaison ci‑dessous montre les mêmes données dans les trois fichiers. Le Jour 3 est vide dans le classeur dans tous les cas :
 
-![Diagrammes en ligne avec données identiques : Gap interrompt la ligne au jour 3, Zero abaisse la ligne à zéro, et Span relie le jour 2 au jour 4.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-L’effet visible dépend du type de diagramme. Un diagramme en ligne rend les trois modes faciles à comparer. Les diagrammes à barres et à colonnes n’ont pas de ligne à connecter à travers une catégorie manquante, si bien que `Span` ne peut pas produire le segment de connexion affiché ci‑dessus ; une colonne manquante et une colonne de hauteur zéro peuvent également se ressembler. De même, un diagramme en nuage de points avec uniquement des marqueurs n’a pas de ligne de connexion. N’attendez pas trois résultats distincts pour chaque type de diagramme ; vérifiez la sortie pour le type que vous utilisez.
+L’effet visible dépend du type de graphique. Un graphique en ligne rend les trois modes faciles à comparer. Les graphiques en barres et en colonnes n’ont aucune ligne pour relier une catégorie manquante, de sorte que `Span` ne peut pas produire le segment de connexion montré ci‑dessus ; une colonne manquante et une colonne de hauteur zéro peuvent également se ressembler. De même, un graphique de dispersion avec seulement des marqueurs n’a pas de ligne de connexion. N’attendez pas trois résultats distincts pour chaque type de graphique ; vérifiez le rendu pour le type que vous utilisez.
 
-## **Définir la largeur d’écart des séries**
+## **Définir la largeur d'écart des séries**
 
-La largeur d’écart est l’espace entre les groupes de barres ou de colonnes adjacents, exprimé en pourcentage de la largeur de la barre ou de la colonne. Comme le chevauchement, elle appartient au groupe de séries parent plutôt qu’à une seule série. Appelez [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) une fois pour le groupe. Une valeur plus grande crée plus d’espace entre les groupes ; une valeur plus petite les rend plus denses.
+La largeur d’écart est l’espace entre les groupes adjacents de barres ou de colonnes, exprimé en pourcentage de la largeur de la barre ou de la colonne. Comme le chevauchement, elle appartient au groupe de séries parent plutôt qu’à une seule série. Appelez [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) une fois pour le groupe. Une valeur plus grande crée davantage d’espace entre les groupes ; une valeur plus petite les rend plus denses.
 
 L’exemple suivant modifie la largeur d’écart et enregistre uniquement la présentation finale :
 
@@ -498,46 +500,82 @@ try {
 
 Le résultat :
 
-![La largeur d’écart](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Afficher ou masquer les lignes de séries**
+
+Les lignes de séries relient visuellement les parties liées d’un graphique. Utilisez [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) pour les afficher ou les masquer dans les graphiques à barres empilées et les graphiques “OfPie” pris en charge. Dans les graphiques à barres empilées et en colonnes bidimensionnels, elles relient les limites de piles correspondantes entre les catégories. Dans les graphiques “Pie of Pie” et “Bar of Pie”, elles relient le tracé principal au tracé secondaire. Ce paramètre n’est pas un connecteur général pour d’autres types de graphiques.
+
+Accédez au groupe via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--). Le paramètre s’applique à chaque série du groupe. [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#hasSeriesLines--) est en lecture seule et reflète le paramètre du groupe parent ; appelez le setter du groupe pour le mettre à jour.
+
+L’exemple suivant crée un graphique [PieOfPie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#PieOfPie) avec les données par défaut. Il enregistre le même graphique avec les lignes de séries activées, puis désactivées, produisant deux présentations pour comparaison.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Lignes de séries activées | Lignes de séries désactivées |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| Les deux lignes relient le diagramme principal au diagramme secondaire. | Les deux diagrammes restent visibles, mais les lignes de connexion sont cachées. |
+
+Les lignes de séries diffèrent des lignes de leader des étiquettes de données, qui relient les étiquettes à leurs points de données ; des quadrillages, qui marquent les intervalles le long des axes du graphique ; et des lignes d’un graphique en ligne, qui représentent les valeurs de données. Ce paramètre ne contrôle pas ces éléments.
 
 ## **FAQ**
 
-**Quels types de diagrammes prennent en charge les séries de données ?**
+**Quels types de graphiques prennent en charge les séries de données ?**
 
-Toutes les formes de diagrammes représentées par l’énumération [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) utilisent des données de diagramme, mais leurs séries n’ont pas toutes la même structure de valeur ou les mêmes paramètres. Par exemple, les diagrammes de catégorie utilisent des catégories et des valeurs, les diagrammes en nuage de points utilisent des valeurs X et Y, et les diagrammes à bulles ajoutent des tailles de bulles. Utilisez la méthode de création de point de données qui correspond au type de série. Les options telles que le chevauchement et la largeur d’écart s’appliquent uniquement aux groupes de barres ou colonnes compatibles.
+Tous les types de graphiques représentés par l’énumération [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) utilisent des données de graphique, mais leurs séries n’ont pas toutes la même structure de valeurs ou les mêmes paramètres. Par exemple, les graphiques de catégories utilisent des catégories et des valeurs, les graphiques de dispersion utilisent des valeurs X et Y, et les graphiques à bulles ajoutent des tailles de bulles. Utilisez la méthode de création de points de données correspondant au type de série. Les options telles que le chevauchement et la largeur d’écart ne s’appliquent qu’aux groupes de barres ou de colonnes compatibles.
 
-**Qu’est‑ce qu’un groupe de séries de diagramme ?**
+**Qu’est‑ce qu’un groupe de séries de graphique ?**
 
-Un [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) regroupe des séries compatibles qui partagent des paramètres de tracé au niveau du groupe. Un diagramme combiné peut contenir plusieurs groupes, de sorte que la modification du groupe atteint via une série ne modifie pas nécessairement toutes les séries du diagramme.
+Un [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) regroupe des séries compatibles qui partagent des paramètres de traçage au niveau du groupe. Un graphique combiné peut contenir plusieurs groupes, de sorte que la modification du groupe atteinte via une série ne modifie pas nécessairement toutes les séries du graphique.
 
-**Un diagramme nouvellement créé contient‑il des données par défaut ?**
+**Un graphique nouvellement créé contient‑il des données par défaut ?**
 
-Oui. Par défaut, [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) crée des séries, des catégories et des valeurs d’exemple. Vous pouvez modifier ces cellules ou vider les collections de séries et de catégories avant d’ajouter un jeu de données entièrement personnalisé. Une surcharge peut également créer un diagramme sans données par défaut.
+Oui. Par défaut, [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) crée des séries, catégories et valeurs d’exemple. Vous pouvez modifier ces cellules ou vider les collections de séries et de catégories avant d’ajouter un jeu de données entièrement personnalisé. Une surcharge peut également créer un graphique sans données par défaut.
 
-**Comment les objets du diagramme sont‑ils reliés aux cellules du classeur ?**
+**Comment les objets du graphique sont‑ils liés aux cellules du classeur ?**
 
-Les noms de série, les libellés de catégorie et les valeurs des points de données font référence à des cellules d’un [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Modifier une cellule référencée met à jour l’élément de diagramme correspondant. Lorsque vous construisez des données personnalisées, maintenez les lignes de catégorie et les lignes de valeurs de séries alignées afin que chaque point soit tracé sous la catégorie prévue.
+Les noms de séries, les libellés de catégories et les valeurs des points de données référencent des cellules d’un [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/). Modifier une cellule référencée met à jour l’élément du graphique correspondant. Lorsque vous créez des données personnalisées, maintenez les lignes de catégorie et les lignes de valeurs de séries alignées afin que chaque point soit tracé sous la catégorie prévue.
 
-**Comment effacer un point sans supprimer toute la série ?**
+**Comment effacer un seul point au lieu de toute la série ?**
 
-Attribuez `null` à la cellule de valeur concernée pour conserver la position de catégorie du point comme point vide. Utilisez [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) uniquement lorsque vous souhaitez supprimer tous les points d’une série. Si vous supprimez aussi les catégories, mettez à jour chaque série afin que leurs valeurs restent alignées avec la collection de catégories.
+Affectez la cellule de valeur concernée à `null` afin de conserver la position de catégorie du point comme point vide. Utilisez [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) uniquement lorsque vous souhaitez supprimer tous les points de cette série. Si vous supprimez également les catégories, mettez à jour chaque série afin que leurs valeurs restent alignées avec la collection de catégories.
 
 **Comment les points vides sont‑ils affichés ?**
 
-Le résultat dépend du type de diagramme et du paramètre configuré via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Les diagrammes pris en charge peuvent afficher les vides sous forme d’intervalles, de valeurs zéro ou en reliant les points voisins. Choisissez le réglage qui correspond à la signification des données manquantes dans votre présentation. Consultez [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pour un exemple complet et une comparaison visuelle.
+Le résultat dépend du type de graphique et du paramètre configuré via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Les graphiques pris en charge peuvent afficher les blancs comme des espaces, comme des valeurs zéro ou en reliant les points voisins. Choisissez le paramètre qui correspond à la signification des données manquantes dans votre présentation. Consultez [Control the Display of Empty Cells](#control-the-display-of-empty-cells) pour un exemple complet et une comparaison visuelle.
 
 **Comment les valeurs négatives sont‑elles formatées ?**
 
-Pour les séries à barres, colonnes et bulles prises en charge, appelez [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) et définissez la couleur renvoyée par [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Vous pouvez remplacer le comportement pour un point individuel avec [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Ces méthodes affectent le formatage, pas les valeurs numériques stockées.
+Pour les séries de barres, de colonnes et de bulles prises en charge, appelez [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) et définissez la couleur renvoyée par [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Vous pouvez remplacer le comportement pour un point individuel avec [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Ces méthodes affectent le formatage, pas les valeurs numériques stockées.
 
-**Quel formatage l’emporte lorsque la série et le point sont tous deux formatés ?**
+**Quel format gagne lorsqu’une série et un point sont tous deux formatés ?**
 
-Le formatage explicite d’un point de données l’emporte pour ce point. Les autres points continuent d’utiliser le format de série explicite ou, lorsqu’il n’est pas défini, le style et le thème automatiques du diagramme. Les paramètres de groupe tels que le chevauchement et la largeur d’écart contrôlent la mise en page et ne sont pas des remplacements de formatage au niveau du point.
+Le formatage explicite du point de données l’emporte pour ce point. Les autres points continuent d’utiliser le format de série explicite ou, si le format de série n’est pas défini, le style et le thème automatiques du graphique. Les paramètres de groupe tels que le chevauchement et la largeur d’écart contrôlent la disposition et ne constituent pas des remplacements de formatage au niveau du point.
 
-**Existe‑t‑il une limite au nombre de séries qu’un diagramme peut contenir ?**
+**Existe‑t‑il une limite au nombre de séries qu’un graphique peut contenir ?**
 
-Aspose.Slides n’impose pas de limite fixe distincte du nombre de séries. En pratique, les contraintes du fichier de présentation, la mémoire disponible, le temps de rendu et la lisibilité du diagramme déterminent une limite raisonnable.
+Aspose.Slides n’impose pas de limite fixe séparée au nombre de séries. En pratique, les contraintes du fichier de présentation, la mémoire disponible, le temps de rendu et la lisibilité du graphique déterminent une limite utile.
 
-**Que faut‑il modifier lorsque les colonnes sont trop rapprochées ou trop éloignées ?**
+**Que faut‑il modifier lorsque les colonnes sont trop proches ou trop éloignées ?**
 
 Appelez [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) sur le groupe de séries parent approprié. Augmentez la valeur pour élargir l’espace entre les groupes, ou diminuez‑la pour rapprocher les groupes.

@@ -1,11 +1,11 @@
 ---
-title: .NET ile Sunumlardaki Grafik Veri Serilerini Yönetme
+title: .NET'te Sunumlarda Grafik Veri Serilerini Yönetme
 linktitle: Veri Serileri
 type: docs
 url: /tr/net/chart-series/
 keywords:
 - grafik serisi
-- seri çakışması
+- seri üst üste gelme
 - seri rengi
 - kategori rengi
 - seri adı
@@ -16,31 +16,33 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, çakışmayı, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
+description: "C# ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, üst üste gelmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-A chart can store its plotted values in workbook cells or directly as numeric literals. An [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) represents one set of related values, and each [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) represents a point in that series. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) objects from the chart workbook.
+Bir grafik, çizilen değerlerini çalışma kitabı hücrelerinde veya doğrudan sayısal sabitler olarak depolayabilir. Bir [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) bir dizi ilgili değeri temsil eder ve her [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) o serideki bir noktayı temsil eder. [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) nesneleri, seriler tarafından paylaşılan etiketleri veya gruplama değerlerini sağlar. Varsayılan verilerle oluşturulan grafiklerde, seri adları, kategoriler ve nokta değerleri grafik çalışma kitabındaki [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) nesnelerini kullanır.
 
-For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve kalan hücreleri seri değerleri için kullanır. [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) metoduna iletilen çalışma sayfası, satır ve sütun indeksleri sıfır‑bazlıdır. Bu düzen, varsayılan veriyle bir grafik oluştururken yararlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
 
-Chart settings have three different scopes:
+Grafik ayarlarının üç farklı kapsamı vardır:
 
-- Series-level settings, such as [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), provide the default appearance for all points in one series.
-- Data-point settings, such as [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), override the series appearance for one point.
-- Group settings apply to compatible series that belong to the same [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/). Access the group through [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) when you need to set options such as overlap or gap width.
+- Bir serinin tüm noktaları için varsayılan görünümü sağlayan, [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) gibi seri‑seviyesi ayarlar.
+- Tek bir nokta için serinin görünümünü geçersiz kılan, [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) gibi veri‑nokta ayarları.
+- Aynı [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) içinde bulunan uyumlu serilere uygulanan grup ayarları. Üst üste gelme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, bu grubu [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) üzerinden erişin.
 
-When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
+Açıkça bir nokta veya seri doldurması ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için önceliklidir.
 
-![grafik-serisi-powerpoint](chart-series-powerpoint.png)
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Seri Değerlerini Sayısal Literaller Kullanarak Ayarlama**
+Kümelenmiş silindir grafik için, [changing the 3D series type or bar shape](/slides/tr/net/3d-chart/#change-the-3d-series-type-and-bar-shape) bağlantısının ilk seriyi nasıl etkilediğine bakın.
 
-Use numeric literals when series values come from application data or calculations and do not need worksheet cell references. Set [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) to [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) before assigning each point's [Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) through [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/).
+## **Seri Değerlerini Sayısal Sabitlerle Ayarlama**
 
-The collection setting controls the source type of all point values in that series. Each point's [Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) reports the selected type; change it through the collection setting. With `Worksheet`, use [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) to access the referenced cell. With `DoubleLiterals`, use `AsLiteralDouble` to read or write the number directly.
+Seri değerleri uygulama verilerinden veya hesaplamalardan geliyorsa ve çalışma sayfası hücre başvurularına ihtiyaç duymuyorsa sayısal sabitler kullanın. Her noktanın [Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) özelliğini [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/) aracılığıyla atamadan önce [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) özelliğini [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) olarak ayarlayın.
 
-The following example creates a column chart with default series and categories, then assigns calculated values of 10, 20, and so on to the existing points of its first series. It saves the presentation, reopens it, and prints the stored values.
+Koleksiyon ayarı, o serideki tüm nokta değerlerinin kaynak türünü kontrol eder. Her noktanın [Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) seçilen türü raporlar; koleksiyon ayarıyla değiştirin. `Worksheet` ile başvurulan hücreye erişmek için [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) kullanın. `DoubleLiterals` ile sayıyı doğrudan okumak veya yazmak için `AsLiteralDouble` kullanın.
+
+Aşağıdaki örnek, varsayılan seri ve kategorilere sahip bir sütun grafiği oluşturur, ardından ilk serinin mevcut noktalarına 10, 20 vb. hesaplanmış değerleri atar. Sunumu kaydeder, tekrar açar ve saklanan değerleri yazdırır.
 
 ```cs
 using System;
@@ -72,15 +74,15 @@ foreach (var point in reopenedSeries.DataPoints)
 }
 ```
 
-The point value source type is separate from [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/), which identifies the chart's internal or external workbook configuration. Using numeric literals does not, by itself, remove the embedded workbook. In this example, the workbook remains available for category labels, series names, and the other series. See [Chart Workbook](/slides/tr/net/chart-workbook/) for workbook management.
+Nokta değeri kaynak türü, grafiğin iç veya dış çalışma kitabı yapılandırmasını belirten [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/) özelliğinden bağımsızdır. Sayısal sabitler kullanmak, yerleşik çalışma kitabını yalnız başına kaldırmaz. Bu örnekte, çalışma kitabı hâlâ kategori etiketleri, seri adları ve diğer seriler için kullanılabilir. Çalışma kitabı yönetimi için [Chart Workbook](/slides/tr/net/chart-workbook/) bölümüne bakın.
 
-For scatter and bubble charts, set [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) and [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) to choose the sources for [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) and [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). Bubble charts also use [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) for [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/). Set each applicable source to `DoubleLiterals` before assigning numbers through that value's `AsLiteralDouble` property.
+Dağılım ve baloncuk grafikler için, [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) ve [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/) kaynaklarını seçmek üzere sırasıyla [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) ve [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) ayarlayın. Baloncuk grafikler ayrıca [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/) için [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) kullanır. Her uygulanabilir kaynağı `DoubleLiterals` olarak ayarlayın ve sayıları ilgili değerin `AsLiteralDouble` özelliği üzerinden atayın.
 
-## **Grafik Serisi Çakışmasını Ayarlama**
+## **Grafik Serisi Üst Üste Gelme Ayarı**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Set [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) 2D bir grafikte çubuk ya da sütunların ne kadar üst üste geldiğini –% -100’den % 100’e kadar – raporlar. Bu, üst grup üzerindeki ayarın yalnızca okunabilir bir yansımasıdır. Tüm uyumlu serileri güncellemek için [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) ayarlayın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türleri için geçerlidir; birleşik bir grafikte bağımsız seri gruplarını etkilemez.
 
-The following example sets the overlap for the group that contains the first series:
+Aşağıdaki örnek, ilk seriyi içeren grubun üst üste gelme değerini ayarlar:
 
 ```cs
 using Aspose.Slides;
@@ -94,7 +96,7 @@ const sbyte overlapPercent = 30;
 using var presentation = new Presentation();
 var slide = presentation.Slides[firstSlideIndex];
 
-// Yeni grafik, örnek serileri, kategorileri ve değerleri içerir.
+// Yeni grafik örnek seriler, kategoriler ve değerler içerir.
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
 var series = chart.ChartData.Series[firstSeriesIndex];
@@ -103,15 +105,15 @@ series.ParentSeriesGroup.Overlap = overlapPercent;
 presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+Sonuç:
 
-![Seri çakışması](series_overlap.png)
+![The series overlap](series_overlap.png)
 
 ## **Seri Dolgu Rengini Değiştirme**
 
-Use [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) to set the default fill for an entire series. If a point already has an explicit fill, its [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) setting overrides the series fill for that point.
+Tüm bir seri için varsayılan dolguyu ayarlamak üzere [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) kullanın. Bir noktanın açıkça bir dolgusu varsa, onun [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) ayarı seri dolgusunu o nokta için geçersiz kılar.
 
-The following example applies a solid blue fill to the first series:
+Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
 
 ```cs
 using System.Drawing;
@@ -134,13 +136,13 @@ series.Format.Fill.SolidFillColor.Color = Color.Blue;
 presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+Sonuç:
 
-![Serinin rengi](series_color.png)
+![The color of the series](series_color.png)
 
 ## **Seri Adını Değiştirme**
 
-A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named constants in the following example make that structure explicit:
+Seri adı grafik veri çalışma kitabında tutulur ve genellikle lejanda görüntülenir. Kümelenmiş sütun grafiği için oluşturulan varsayılan çalışma kitabında B1 hücresi (satır 0, sütun 1) ilk serinin adını içerir. Aşağıdaki örnekteki isimlendirilmiş sabitler bu yapıyı açıkça gösterir:
 
 ```cs
 using Aspose.Slides;
@@ -164,7 +166,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-You can also update the cell already referenced by [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/). This approach avoids assuming a particular row and column in an existing chart:
+Ayrıca [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/) tarafından zaten başvurulan hücreyi doğrudan güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımını ortadan kaldırır:
 
 ```cs
 using Aspose.Slides;
@@ -187,17 +189,17 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+Sonuç:
 
-![Seri adı](series_name.png)
+![The series name](series_name.png)
 
-### **Birden Çok Hücreden Oluşan Seri Adı Oluşturma**
+### **Birden Fazla Hücreden Oluşan Seri Adı Oluşturma**
 
-A composite series name is useful when a product name and a reporting period are stored in separate workbook cells. For example, you can combine `Product A` in B1 and `2026` in C1 into a single series name while keeping both parts linked to their source cells.
+Ürün adı ve raporlama dönemi ayrı hücrelerde tutulurken birleşik bir seri adı oluşturmak faydalı olabilir. Örneğin B1 hücresindeki `Product A` ve C1 hücresindeki `2026` değerlerini tek bir seri adı olarak birleştirip her iki kısmın da kaynak hücrelerine bağlı kalabilirsiniz.
 
-Use [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) to retrieve the name range, then pass that collection to [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). The `skipHiddenCells` argument controls whether hidden cells are included: `true` excludes them, while `false` includes them. This example uses `false` to include every cell in the name range.
+[ IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) ile ad aralığını alın, ardından bu koleksiyonu [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/) metoduna gönderin. `skipHiddenCells` argümanı gizli hücrelerin dahil edilip edilmediğini kontrol eder: `true` hariç tutar, `false` dahil eder. Bu örnek, ad aralığındaki her hücreyi dahil etmek için `false` kullanır.
 
-The following example creates a presentation with one series and two data points. Cells B1:C1 supply only the series name; A2:A3 supply the category labels, and B2:B3 supply the numeric values.
+Aşağıdaki örnek, bir seri ve iki veri noktasına sahip bir sunum oluşturur. B1:C1 yalnızca seri adını sağlar; A2:A3 kategori etiketlerini, B2:B3 sayısal değerleri sağlar.
 
 ```cs
 using Aspose.Slides;
@@ -235,15 +237,15 @@ series.DataPoints.AddDataPointForBarSeries(southValue);
 presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
 ```
 
-The resulting series name is `Product A 2026`, with a space between the two cell values. The legend displays this as one entry for both columns. The image below was rendered from the saved presentation:
+Ortaya çıkan seri adı, iki hücre değerinin arasına bir boşluk koyularak `Product A 2026` olur. Lejanda bu, iki sütun için tek bir giriş olarak gösterilir. Aşağıdaki görsel, kaydedilen sunumdan oluşturulmuştur:
 
-![Küme sütun grafiği, Kuzey ve Güney değerleri ile birleşik seri adı Product A 2026 efsanesi içinde](composite_series_name.png)
+![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
 ## **Otomatik Seri Dolgu Rengini Alma**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) yöntemi, seri indeksine ve grafik stiline göre hesaplanan rengi döndürür. Bu, seri dolgusu açıkça tanımlanmamışsa kullanılan renktir. Yöntem, renk değerini okur; yeni bir dolgu atamaz.
 
-The following example prints the automatic color of each default series:
+Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
 
 ```cs
 using System;
@@ -266,7 +268,7 @@ for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 }
 ```
 
-Example output for the default chart style:
+Varsayılan grafik stili için örnek çıktı:
 
 ```text
 Series 0: ff4f81bd
@@ -274,13 +276,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-The exact colors depend on the chart style and theme.
+Tam renkler, grafik stiline ve temaya bağlıdır.
 
-## **Bir Grafik Serisi İçin Ters Dolgu Rengini Ayarlama**
+## **Bir Grafik Serisi İçin Negatif Durumda Dolgu Rengini Ters Çevirme**
 
-For bar, column, and bubble series, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Negative numbers remain unchanged in the workbook; only their display color changes.
+Çubuk, sütun ve baloncuk serileri için, negatif değerler farklı bir dolgu ile gösterilebilsin diye [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) özelliği kullanılabilir. Normal seri dolgusunu katı olarak ayarlayın, ters çevirme özelliğini etkinleştirin ve negatif değer rengine [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) üzerinden atayın. Negatif sayılar çalışma kitabında aynı kalır; yalnızca gösterim rengi değişir.
 
-The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```cs
 using System.Drawing;
@@ -333,11 +335,11 @@ series.InvertedSolidFillColor.Color = Color.Red;
 presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+Sonuç:
 
-![Ters katı dolgu rengi](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-You can enable inversion for one point through [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
+Bir nokta için ters çevirme, [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) ile etkinleştirilebilir. Aşağıdaki örnekte, seri için ters çevirme devre dışı bırakılmış, sadece seçilen nokta için etkinleştirilmiştir. Etkiyi göstermek amacıyla nokta negatif bir değer alır:
 
 ```cs
 using System.Drawing;
@@ -371,9 +373,9 @@ presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 
 ## **Belirli Bir Veri Noktası Değerini Temizleme**
 
-To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
+Diğer noktaları silmeden bir noktayı boş bırakmak için, onun arka plan hücresini `null` olarak ayarlayın. Sütun grafiğinde, çizilen değer [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/) aracılığıyla elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarına göre değeri boş olarak işler.
 
-The following example clears only the second point in the first series:
+Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
 
 ```cs
 using Aspose.Slides;
@@ -396,17 +398,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) when you want to keep the other points, because that method removes every data point from the collection.
+Dağılım grafiklerinde X ve Y hücreleri ayrı, baloncuk grafiklerinde ise ek bir boyut hücresi bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları korumak istediğinizde [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) yöntemini çağırmayın; bu yöntem serideki tüm veri noktalarını siler.
 
-## **Boş Hücrelerin Görüntülenmesini Kontrol Etme**
+## **Boş Hücrelerin Görünümünü Kontrol Etme**
 
-Hidden cells that contain values are a separate case from empty cells. To include or exclude data from hidden worksheet rows and columns, see [Include Data from Hidden Rows and Columns](/slides/tr/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Değer içeren gizli hücreler, boş hücrelerden farklı bir durumdur. Gizli çalışma sayfası satır ve sütunlarından veri eklemek ya da çıkarmak için [Include Data from Hidden Rows and Columns](/slides/tr/net/chart-workbook/#include-data-from-hidden-rows-and-columns) bölümüne bakın.
 
-An empty workbook cell represents missing data; a cell containing `0` represents a known numeric value. Set [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) to `null` to make a cell empty. A numeric zero remains a zero regardless of the blank-cell setting.
+Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen bir sayısal değeri temsil eder. Hücreyi boş yapmak için [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) özelliğini `null` olarak ayarlayın. Sayısal sıfır, boş‑hücre ayarından bağımsız olarak sıfır olarak kalır.
 
-Use [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) to choose how the chart displays empty cells. This setting applies to the whole chart. It changes how blanks are plotted, without filling the empty workbook cell with zero or an interpolated value.
+Boş hücrelerin grafik üzerinde nasıl gösterileceğini seçmek için [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) özelliğini kullanın. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir; boş çalışma kitabı hücresini sıfır ya da ara değerle doldurmaz.
 
-The following self-contained example creates a line chart with one series, clears the value for Day 3, and saves the same chart with each mode. No input file is required. The [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) uses worksheet 0, column 0 for category labels, and column 1 for values; row 0 holds the series name. The final data is `10, 20, empty, 30, 40`.
+Aşağıdaki bağımsız örnek, bir çizgi grafiği oluşturur, 3. Gün değerini temizler ve her modu ayrı ayrı kaydeder. Girdi dosyasına gerek yoktur. [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0, değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40` şeklindedir.
 
 ```cs
 using Aspose.Slides;
@@ -435,7 +437,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// 3. günü gerçekten boş bırakın, ancak kategorisini ve veri noktasını koruyun.
+// 3. Günü gerçekten boş bırakın, ancak kategori ve veri noktasını koruyun.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -446,19 +448,19 @@ foreach (var mode in modes)
 }
 ```
 
-Each output file stores the mode assigned before saving: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, and `empty_cells_Span.pptx`. To save only one version, assign the desired mode and save the presentation once instead of iterating over the modes.
+Her çıktı dosyası, kaydetmeden önce atanan modu içerir: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek için istediğiniz modu ayarlayıp sunumu bir kez kaydedin; modlar arasında döngü yapmayın.
 
-The comparison below shows the same data in all three files. Day 3 is empty in the workbook in every case:
+Aşağıdaki karşılaştırma, aynı verinin üç dosyada nasıl göründüğünü gösterir. 3. Gün her durumda çalışma kitabında boştur:
 
-![Boş hücrelerin gösterimi: Gap çizgiyi Day 3'te keser, Zero çizgiyi sıfıra düşürür, Span Day 2'yi Day 4'e bağlar.](display_blanks_as.png)
+![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-The visible effect depends on the chart type. A line chart makes all three modes easy to compare. Bar and column charts have no line to connect across a missing category, so `Span` cannot produce the connecting segment shown above; a missing column and a zero-height column can also look alike. Similarly, a scatter chart with markers only has no connecting line. Do not expect three distinct results for every chart type; check the output for the type you use.
+Görünüm etkisi grafik türüne bağlıdır. Çizgi grafiği, üç modu da kolayca karşılaştırmanıza olanak tanır. Çubuk ve sütun grafiklerinde eksik bir kategoriye bağlanacak bir çizgi olmadığı için `Span` yukarıdaki bağlayıcı segmenti oluşturamaz; eksik bir sütun ve sıfır‑yüksekliğinde bir sütun da benzer görünebilir. Benzer şekilde, yalnızca belirteçleri olan dağılım grafiğinde bağlayıcı çizgi yoktur. Her grafik türü için üç ayrı sonuç beklemeyin; kullandığınız tipe göre çıktıyı kontrol edin.
 
 ## **Seri Boşluk Genişliğini Ayarlama**
 
-Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Set [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
+Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluk olup, çubuk veya sütun genişliğinin yüzde olarak ifadesidir. Üst üste gelme gibi, bu da tek bir seriye değil, üst grup seviyesine aittir. Grup için bir kez [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) ayarlayın. Daha büyük bir değer kümeler arasındaki alanı artırır; daha küçük bir değer onları daha sık hâle getirir.
 
-The following example changes the gap width and saves only the final presentation:
+Aşağıdaki örnek, boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
 ```cs
 using Aspose.Slides;
@@ -480,48 +482,82 @@ series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
-The result:
+Sonuç:
 
-![Boşluk genişliği](gap_width.png)
+![The gap width](gap_width.png)
+
+## **Seri Çizgilerini Gösterme veya Gizleme**
+
+Seri çizgileri, bir grafiğin ilgili bölümlerini görsel olarak birbirine bağlar. Desteklenen yığılmış çubuk ve OfPie grafiklerinde göstermek veya gizlemek için [IChartSeriesGroup.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hasserieslines/) kullanın. İki boyutlu yığılmış çubuk ve sütun grafiklerinde, kategoriler arasında ilgili yığın sınırlarını bağlar. Pie of Pie ve Bar of Pie grafiklerinde, ana grafiği ikincil grafiğe bağlar. Bu ayar, diğer grafik türleri için genel bir bağlayıcı değildir.
+
+Gruba, [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) üzerinden erişin. Ayar, gruptaki tüm serileri etkiler. [IChartSeries.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/hasserieslines/) yalnızca okuma amaçlıdır ve üst grup ayarını yansıtır; güncellemek için grup özelliğini değiştirin.
+
+Aşağıdaki örnek, varsayılan veriye sahip bir [PieOfPie](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) grafiği oluşturur. Aynı grafiği, seri çizgileri etkinleştirilmiş ve devre dışı bırakılmış olarak kaydeder; karşılaştırma için iki sunum oluşturur.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 400);
+var series = chart.ChartData.Series[0];
+var seriesGroup = series.ParentSeriesGroup;
+
+seriesGroup.HasSeriesLines = true;
+presentation.Save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+seriesGroup.HasSeriesLines = false;
+presentation.Save("series_lines_disabled.pptx", SaveFormat.Pptx);
+```
+
+| Seri çizgileri etkin | Seri çizgileri devre dışı |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| İki çizgi, ana pasta ile ikincil pastayı bağlar. | Her iki pasta da görünür, ancak bağlayıcı çizgiler gizlenir. |
+
+Seri çizgileri, etiket lider çizgileri (etiketleri veri noktalarına bağlayan), eksen ızgaraları (grafik eksenlerinde aralıkları işaretleyen) ve veri değerlerini temsil eden çizgi grafik çizgileri gibi öğelerden farklıdır. Bu ayar, bu öğeleri kontrol etmez.
 
 ## **SSS**
 
-**Which chart types support data series?**
+**Hangi grafik türleri veri serilerini destekler?**
 
-All chart types represented by the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
+[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumu tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin kategori grafikler kategori ve değer, dağılım grafikler X ve Y değeri, baloncuk grafikler ise baloncuk boyutları kullanır. Seri tipine uygun veri‑nokta oluşturma yöntemini kullanın. Üst üste gelme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun grupları için geçerlidir.
 
-**What is a chart series group?**
+**Bir grafik serisi grubu nedir?**
 
-An [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
+[IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Kombinasyon grafiği birden fazla grup içerebilir; bir seri üzerinden erişilen grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak değiştirmez.
 
-**Does a newly created chart contain default data?**
+**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
 
-Yes. By default, [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
+Evet. Varsayılan olarak, [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir başka aşırı yük, varsayılan veri olmadan grafik oluşturabilir.
 
-**How are chart objects connected to workbook cells?**
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
 
-Series names, category labels, and data-point values reference cells in an [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
+Seri adları, kategori etiketleri ve veri‑nokta değerleri, bir [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırları ve seri‑değer satırlarını hizalı tutun.
 
-**How do I clear one point instead of the whole series?**
+**Bir seri yerine yalnızca bir noktayı nasıl temizlerim?**
 
-Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
+İlgili değer hücresini `null` yaparak, noktanın kategori konumunu boş bir nokta olarak koruyabilirsiniz. Diğer noktaları tutmak istediğinizde, sadece bu hücreyi temizleyin. [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) yalnızca tüm noktaları kaldırmak istediğinizde kullanılmalıdır; aksi takdirde seri içindeki diğer noktalar da silinir. Kategorileri de kaldırıyorsanız, tüm serileri güncelleyerek değerlerin kategori koleksiyonuyla hizalı kalmasını sağlayın.
 
-**How are empty points displayed?**
+**Boş noktalar nasıl gösterilir?**
 
-The result depends on the chart type and [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
+Sonuç, grafik türüne ve [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) ayarına bağlıdır. Desteklenen grafikler, boşlukları boşluk olarak, sıfır değeri olarak ya da komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına en uygun ayarı seçin. Tam bir örnek ve görsel karşılaştırma için [Control the Display of Empty Cells](#control-the-display-of-empty-cells) bölümüne bakın.
 
-**How are negative values formatted?**
+**Negatif değerler nasıl biçimlendirilir?**
 
-For supported bar, column, and bubble series, enable [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) and set [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). You can override the behavior for an individual point with [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). These properties affect formatting, not the stored numeric values.
+Desteklenen çubuk, sütun ve baloncuk serileri için, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) özelliğini etkinleştirip [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) ile negatif değer rengini ayarlayın. Bireysel bir nokta için davranışı [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) ile geçersiz kılabilirsiniz. Bu özellikler biçimlendirmeyi etkiler, saklanan sayısal değeri değiştirmez.
 
-**Which formatting wins when both a series and a point are formatted?**
+**Seri ve nokta her ikisi de biçimlendirilmişse hangi biçimlendirme geçerli olur?**
 
-Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group properties such as overlap and gap width control layout and are not point-level formatting overrides.
+Açıkça ayarlanmış veri‑nokta biçimlendirmesi, o nokta için önceliklidir. Diğer noktalar, açıkça bir seri biçimi tanımlanmadıysa otomatik grafik stili ve teması kullanır. Üst üste gelme ve boşluk genişliği gibi grup özellikleri düzeni kontrol eder; nokta‑seviyesi biçimlendirme geçersiz kılmaz.
 
-**Is there a limit to how many series a chart can contain?**
+**Bir grafiğin içerebileceği seri sayısı için bir sınır var mı?**
 
-Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
+Aspose.Slides, ayrı bir sabit seri sayısı sınırı uygulamaz. Pratik olarak, sunum dosyası kısıtlamaları, kullanılabilir bellek, işleme süresi ve grafik okunabilirliği faydalı bir sınır belirler.
 
-**What should I change when columns are too close together or too far apart?**
+**Sütunlar çok yakın ya da çok uzak olduğunda ne yapmalıyım?**
 
-Set [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.
+Uygun üst grup serisi üzerinde [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) ayarını değiştirin. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine daha yakın hâle getirin.

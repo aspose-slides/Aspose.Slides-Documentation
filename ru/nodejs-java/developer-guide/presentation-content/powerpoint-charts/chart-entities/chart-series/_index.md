@@ -9,7 +9,7 @@ keywords:
 - цвет серии
 - имя серии
 - точка данных
-- ячейка книги
+- ячейка рабочей книги
 - зазор серии
 - отрицательное значение
 - PowerPoint
@@ -17,31 +17,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками книги, форматированием, перекрытием, шириной зазора и отрицательными значениями в презентациях с помощью JavaScript."
+description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной зазора и отрицательными значениями в презентациях с помощью JavaScript."
 ---
 ## **Обзор**
 
-Диаграмма может хранить построенные значения в ячейках книги или непосредственно как числовые литералы. [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) представляет один набор связанных значений, а каждый [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) представляет точку в этом наборе. Объекты [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) предоставляют метки или группирующие значения, общие для серий. В диаграммах, созданных с данными по умолчанию, имена серий, категории и значения точек используют объекты [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) из книги диаграммы.
+Диаграмма может хранить построенные значения в ячейках рабочей книги или напрямую как числовые литералы. [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) представляет один набор связанных значений, а каждый [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) представляет точку в этом наборе. Объекты [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) обеспечивают метки или группирующие значения, общие для серии. В диаграммах, созданных с данными по умолчанию, имена серий, категории и значения точек используют объекты [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) из рабочей книги диаграммы.
 
-Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и оставшиеся ячейки — для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/), являются нулевыми. Такой макет удобен, когда вы создаёте диаграмму с данными по умолчанию, но не следует считать, что каждый существующий график использует его. Для загруженной презентации сначала проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем менять значения книги.
+Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и оставшиеся ячейки для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/), нумеруются с нуля. Такой макет полезен, когда вы создаёте диаграмму с данными по умолчанию, но не следует полагаться, что каждая существующая диаграмма использует его. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, перед изменением значений в рабочей книге.
 
-Параметры диаграммы имеют три разных уровня области действия:
+Настройки диаграммы имеют три различных уровня :
 
-- Параметры уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), задают внешний вид по умолчанию для всех точек в одной серии.
-- Параметры точки данных, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), переопределяют внешний вид серии для одной точки.
-- Параметры группы применяются к совместимым сериям, принадлежащим одному [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Получите доступ к группе через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/), когда необходимо задать параметры, такие как перекрытие или ширина зазора.
+- Настройки уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/), задают оформление по умолчанию для всех точек в одной серии.
+- Настройки отдельной точки, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/), переопределяют оформление серии для одной точки.
+- Настройки группы применяются к совместимым сериям, принадлежащим одному [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/). Доступ к группе осуществляется через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/), когда нужно установить такие параметры, как перекрытие или ширина зазора.
 
-Если явно не задано заполнение точки или серии, стиль и тема диаграммы определяют автоматический вид. Когда присутствует как форматирование серии, так и точечной настройки, приоритет имеет форматирование точки.
+Когда явное заполнение точки или серии не задано, стиль и тема диаграммы определяют автоматическое оформление. Если присутствует как оформление серии, так и точки, оформление точки имеет приоритет для этой точки.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
+Для сгруппированной цилиндрической диаграммы посмотрите, как [изменение 3D‑типа серии или формы столбца](/slides/ru/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape) влияет на первую серию.
+
 ## **Установка значений серии с помощью числовых литералов**
 
-Используйте числовые литералы, когда значения серии берутся из данных приложения или расчётов и не требуют ссылок на ячейки листа. Вызовите [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) с [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) до назначения результата [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) каждой точки через [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
+Используйте числовые литералы, когда значения серии получены из данных приложения или вычислений и не требуют ссылок на ячейки листа. Вызовите [setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/) с [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/) перед назначением результата [getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/) каждой точки через [setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/).
 
-Параметр коллекции управляет типом источника всех значений точек в этой серии. Метод [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) каждой точки возвращает выбранный тип; изменить его можно через параметр коллекции. С `Worksheet` используйте [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) для доступа к ссылочной ячейке. С `DoubleLiterals` используйте [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) или `setAsLiteralDouble` для прямого чтения или записи числа.
+Эта настройка коллекции управляет типом источника всех значений точек в серии. Метод [getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/) каждой точки сообщает выбранный тип; изменить его можно через настройку коллекции. При работе с `Worksheet` используйте [getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/) для доступа к ссылочной ячейке. При `DoubleLiterals` используйте [getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/) или `setAsLiteralDouble` для чтения или записи числа напрямую.
 
-Следующий пример создаёт столбчатую диаграмму с сериями и категориями по умолчанию, затем назначает рассчитанные значения 10, 20 и т.д. существующим точкам первой серии. Он сохраняет презентацию, открывает её снова и выводит сохранённые значения.
+В следующем примере создаётся столбчатая диаграмма с серией и категориями по умолчанию, затем первым точкам первой серии присваиваются вычисленные значения 10, 20 и т.д. Пример сохраняет презентацию, открывает её снова и выводит сохранённые значения.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -77,15 +79,15 @@ try {
 }
 ```
 
-Тип источника значения точки отделён от [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), который указывает внутреннюю или внешнюю конфигурацию книги диаграммы. Использование числовых литералов само по себе не удаляет встроенную книгу. В этом примере книга остаётся доступной для меток категорий, имён серий и остальных серий. См. [Chart Workbook](/slides/ru/nodejs-java/chart-workbook/) для управления книгой.
+Тип источника значения точки отличается от [ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/), который определяет конфигурацию внутренней или внешней рабочей книги диаграммы. Использование числовых литералов само по себе не удаляет вложенную рабочую книгу. В этом примере рабочая книга остаётся доступной для меток категорий, имён серий и остальных серий. См. [Chart Workbook](/slides/ru/nodejs-java/chart-workbook/) для управления рабочими книгами.
 
-Для точечных и пузырьковых диаграмм используйте [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) и [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) для выбора источников [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) и [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Для пузырьковых диаграмм также используется [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) для [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Установите каждый применимый источник в `DoubleLiterals` перед назначением чисел через метод `setAsLiteralDouble` соответствующего значения.
+Для точечных и пузырьковых диаграмм используйте [setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/) и [setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/) для выбора источников [getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/) и [getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/). Для пузырьковых диаграмм также используется [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/) для [getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/). Установите каждый соответствующий источник в `DoubleLiterals` перед присвоением чисел через метод `setAsLiteralDouble` этого значения.
 
-## **Установка перекрытия серий диаграммы**
+## **Установка перекрытия серии диаграммы**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) сообщает, насколько бары или столбцы перекрываются в 2D‑диаграмме, от -100 % до 100 %. Это только чтение проекции настройки в родительской группе серий. Используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) для обновления всех совместимых серий в этой группе. Параметр применяется к типам диаграмм, отображающим сгруппированные бары или столбцы; он не влияет на несвязанные группы серий в составной диаграмме.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/) сообщает, насколько столбцы или бары перекрываются в 2D‑диаграмме, от ‑100 до 100 процентов. Это только чтение проекции настройки группы родительской серии. Используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/) для обновления всех совместимых серий в этой группе. Параметр применяется к типам диаграмм, отображающим сгруппированные бары или столбцы; на несвязанные группы серий в комбинированных диаграммах он не влияет.
 
-Следующий пример задаёт перекрытие для группы, содержащей первую серию:
+В следующем примере задаётся перекрытие для группы, содержащей первую серию:
 
 ```javascript
 const aspose = {};
@@ -100,7 +102,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // Новая диаграмма содержит примерные серии, категории и значения.
+    // Новая диаграмма содержит образцы серий, категорий и значений.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -116,11 +118,11 @@ try {
 
 ![The series overlap](series_overlap.png)
 
-## **Изменение цвета заполнения серии**
+## **Изменение цвета заливки серии**
 
-Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) для задания заполнения по умолчанию всей серии. Если у точки уже задано явное заполнение, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) переопределяет заполнение серии для этой точки.
+Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/) для установки заливки по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/) переопределит заливку серии для этой точки.
 
-Следующий пример применяет сплошное синее заполнение к первой серии:
+В следующем примере задаётся сплошная синяя заливка первой серии:
 
 ```javascript
 const aspose = {};
@@ -154,7 +156,7 @@ try {
 
 ## **Изменение имени серии**
 
-Имя серии хранится в книге данных диаграммы и обычно отображается в легенде. В книге по умолчанию для сгруппированной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
+Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию для сгруппированной столбчатой диаграммы ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. В следующем примере именованные константы делают эту структуру явной:
 
 ```javascript
 const aspose = {};
@@ -181,7 +183,7 @@ try {
 }
 ```
 
-Вы также можете обновить ячейку, уже используемую в [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Этот подход избавляет от предположений о конкретной строке и столбце в существующей диаграмме:
+Также можно обновить ячейку, уже используемую [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/). Такой подход избавляет от предположений о конкретных строках и столбцах в существующей диаграмме:
 
 ```javascript
 const aspose = {};
@@ -213,11 +215,11 @@ try {
 
 ### **Создание серии с именем из нескольких ячеек**
 
-Составное имя серии полезно, когда название продукта и период отчёта хранятся в разных ячейках книги. Например, можно объединить `Product A` из B1 и `2026` из C1 в одно имя серии, при этом оба элемента остаются связанными со своими исходными ячейками.
+Составное имя серии удобно, когда название продукта и отчётный период хранятся в разных ячейках рабочей книги. Например, можно соединить `Product A` из B1 и `2026` из C1 в одно имя серии, при этом обе части остаются связанными со своими ячейками‑источниками.
 
-Используйте [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) для получения диапазона имён, затем передайте эту коллекцию в [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Параметр `skipHiddenCells` управляет включением скрытых ячеек: `true` — исключает, `false` — включает. В примере используется `false`, чтобы включить каждую ячейку диапазона имён.
+Для этого используйте [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/) чтобы получить диапазон имён, затем передайте эту коллекцию в [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/). Параметр `skipHiddenCells` определяет, включать ли скрытые ячейки: `true` — исключить, `false` — включить. В примере используется `false`, чтобы включить все ячейки диапазона имён.
 
-Следующий пример создаёт презентацию с одной серией и двумя точками данных. Ячейки B1:C1 содержат только имя серии; A2:A3 — метки категорий, а B2:B3 — числовые значения.
+В следующем примере создаётся презентация с одной серией и двумя точками данных. Диапазон B1:C1 содержит только имя серии; A2:A3 — метки категорий, а B2:B3 — числовые значения.
 
 ```javascript
 const aspose = {};
@@ -236,13 +238,13 @@ try {
     const workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Эти две ячейки задают имя серии.
+    // Эти две ячейки предоставляют имя серии.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     const nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     const series = chart.getChartData().getSeries().add(nameCells, aspose.slides.ChartType.ClusteredColumn);
 
-    // Отдельные ячейки задают категории и числовые точки данных.
+    // Отдельные ячейки содержат категории и числовые точки данных.
     const northCategory = workbook.getCell(0, 1, 0, "North");
     const southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -258,15 +260,15 @@ try {
 }
 ```
 
-Полученное имя серии — `Product A 2026`, между двумя значениями ячеек пробел. Легенда отображает его как одну запись для обоих столбцов. Ниже изображён результат:
+Полученное имя серии — `Product A 2026`, между двумя значениями ячеек вставлен пробел. Легенда отображает его как одну запись для обеих колонок. Ниже показан результат:
 
 ![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
 
-## **Получение автоматического цвета заполнения серии**
+## **Получение автоматического цвета заливки серии**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) возвращает цвет, рассчитанный на основе индекса серии и стиля диаграммы. Это цвет, используемый, когда заполнение серии не определено явно. Вызов метода только считывает рассчитанный цвет; он не задаёт новое заполнение.
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/) возвращает цвет, вычисленный из индекса серии и стиля диаграммы. Это цвет, который используется, когда заливка серии не задана явно. Вызов метода лишь читает вычисленный цвет; он не назначает новую заливку.
 
-Следующий пример выводит автоматический цвет каждой серии по умолчанию:
+В следующем примере выводится автоматический цвет каждой серии по умолчанию:
 
 ```javascript
 const aspose = {};
@@ -302,11 +304,11 @@ Series 2: java.awt.Color[r=155,g=187,b=89]
 
 Точные цвета зависят от стиля и темы диаграммы.
 
-## **Установка инверсного цвета заполнения для серии диаграммы**
+## **Установка инвертированного цвета заливки для серии диаграммы**
 
-Для серий типа бар, столбец и пузырёк [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) позволяет отображать отрицательные значения другим заполнением. Задайте обычное заполнение серии сплошным, включите инверсию и задайте цвет отрицательного значения через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Отрицательные числа остаются без изменений в книге; меняется только их отображаемый цвет.
+Для баров, столбцов и пузырьковых серий метод [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) позволяет отображать отрицательные значения другим цветом. Установите обычную заливку серии в сплошную, включите инверсию и задайте цвет отрицательного значения через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Отрицательные числа в рабочей книге остаются неизменными; изменяется только их отображаемый цвет.
 
-Следующий пример заменяет данные диаграммы одной серией. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
+В следующем примере заменяются данные диаграммы на одну серию. В строке 0 листа находится имя серии, в столбце 0 — имена категорий, в столбце 1 — значения:
 
 ```javascript
 const aspose = {};
@@ -368,7 +370,7 @@ try {
 
 ![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Вы можете включить инверсию для отдельной точки через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присвоено отрицательное значение, чтобы эффект был виден:
+Инверсию можно включить для одной точки через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). В следующем примере инверсия отключена для серии и включена только для выбранной точки, которой также присвоено отрицательное значение, чтобы эффект был виден:
 
 ```javascript
 const aspose = {};
@@ -405,11 +407,11 @@ try {
 }
 ```
 
-## **Очистка конкретного значения точки данных**
+## **Очистка значения конкретной точки данных**
 
-Чтобы сделать одну точку пустой, не удаляя остальные, задайте её ячейке книги значение `null`. Для столбчатой диаграммы построенное значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Точка остаётся на том же месте категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками пустых значений.
+Чтобы сделать одну точку пустой, не удаляя остальные, установите её ячейку в рабочей книге в `null`. Для столбчатой диаграммы значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/). Точка остаётся на той же позиции категории, но диаграмма рассматривает её как пустую согласно настройкам обработки пустых значений.
 
-Следующий пример очищает только вторую точку первой серии:
+В следующем примере очищается только вторая точка первой серии:
 
 ```javascript
 const aspose = {};
@@ -435,17 +437,17 @@ try {
 }
 ```
 
-Точечные диаграммы используют отдельные ячейки X и Y, а пузырьковые — ещё и ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое нужно удалить. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) если хотите оставить остальные точки, поскольку этот метод удаляет все точки из коллекции.
+Точечные диаграммы используют отдельные ячейки X и Y, а пузырьковые — также ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое вы хотите убрать. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) если хотите оставить остальные точки, поскольку этот метод удаляет все точки из коллекции.
 
 ## **Управление отображением пустых ячеек**
 
-Скрытые ячейки с данными — отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
+Скрытые ячейки, содержащие значения, – отдельный случай от пустых ячеек. Чтобы включать или исключать данные из скрытых строк и столбцов листа, см. [Include Data from Hidden Rows and Columns](/slides/ru/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-Пустая ячейка книги представляет отсутствующие данные; ячейка, содержащая `0`, — известное числовое значение. Вызовите [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) с `null`, чтобы сделать ячейку пустой. Числовой ноль остаётся нулем независимо от настройки пустой ячейки.
+Пустая ячейка рабочей книги означает отсутствие данных; ячейка, содержащая `0`, — известное числовое значение. Вызов [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/) с `null` делает ячейку пустой. Числовой ноль остаётся нулём независимо от настройки пустых ячеек.
 
-Используйте [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) для выбора способа отображения пустых ячеек в диаграмме. Этот параметр применяется ко всей диаграмме. Он изменяет способ построения пустот, не заполняя пустую ячейку нулём или интерполированным значением.
+Используйте [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/) чтобы выбрать, как диаграмма отображает пустые ячейки. Эта настройка применяется к всей диаграмме. Она меняет способ построения пустот, не заполняя пустую ячейку нулём или интерполированным значением.
 
-Следующий автономный пример создаёт линейную диаграмму с одной серией, очищает значение для Day 3 и сохраняет одну и ту же диаграмму в каждом режиме. Входной файл не требуется. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) использует лист 0, столбец 0 — метки категорий, столбец 1 — значения; строка 0 — имя серии. Итоговые данные: `10, 20, empty, 30, 40`.
+В следующем автономном примере создаётся линейная диаграмма с одной серией, значение для 3‑го дня очищается, и диаграмма сохраняется в каждом из режимов. Входной файл не требуется. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) использует лист 0, столбец 0 — метки категорий, столбец 1 — значения; строка 0 — имя серии. Финальные данные — `10, 20, empty, 30, 40`.
 
 ```javascript
 const aspose = {};
@@ -473,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Оставить день 3 действительно пустым, при этом сохранив его категорию и точку данных.
+    // Оставить 3‑й день действительно пустым, при этом сохранить его категорию и точку данных.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -487,19 +489,19 @@ try {
 }
 ```
 
-Каждый выходной файл сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо итераций по режимам.
+Каждый выходной файл сохраняет режим, выбранный перед сохранением: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` и `empty_cells_Span.pptx`. Чтобы сохранить только одну версию, задайте нужный режим и сохраните презентацию один раз вместо перебора режимов.
 
-Сравнение ниже показывает одинаковые данные во всех трёх файлах. Day 3 пустой в книге в любом случае:
+Сравнение ниже показывает одинаковые данные во всех трёх файлах. День 3 пуст в рабочей книге во всех случаях:
 
 ![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
 
-Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнить все три режима. Для бар- и столбчатых диаграмм нет линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты также могут выглядеть одинаково. Аналогично, точечная диаграмма только с маркерами не имеет соединительной линии. Не ожидайте трех разных результатов для каждого типа диаграммы; проверьте вывод для используемого типа.
+Видимый эффект зависит от типа диаграммы. Линейная диаграмма позволяет легко сравнить все три режима. У столбчатых и баровых диаграмм нет линии, соединяющей пропущенную категорию, поэтому `Span` не может создать соединительный сегмент, показанный выше; отсутствующий столбец и столбец нулевой высоты могут выглядеть одинаково. Аналогично, точечная диаграмма только с маркерами не имеет соединяющей линии. Не ожидайте три разных результата для каждого типа диаграмм; проверьте вывод для используемого типа.
 
 ## **Установка ширины зазора между сериями**
 
 Ширина зазора — пространство между соседними кластерами баров или столбцов, выраженное в процентах от их ширины. Как и перекрытие, она относится к родительской группе серий, а не к отдельной серии. Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) один раз для группы. Большее значение создаёт больше пространства между кластерами; меньшее — делает их плотнее.
 
-Следующий пример меняет ширину зазора и сохраняет только финальную презентацию:
+В следующем примере изменяется ширина зазора и сохраняется только окончательная презентация:
 
 ```javascript
 const aspose = {};
@@ -528,44 +530,80 @@ try {
 
 ![The gap width](gap_width.png)
 
+## **Показать или скрыть линии серии**
+
+Линии серии визуально соединяют связанные части диаграммы. Используйте [ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/) чтобы показать или скрыть их в поддерживаемых сложенных баровых и диаграммах типа OfPie. В двумерных сложенных баровых и столбчатых диаграммах они соединяют соответствующие границы стека через категории. В диаграммах Pie of Pie и Bar of Pie они соединяют основной график со вторичным. Эта настройка не является универсальным соединителем для других типов диаграмм.
+
+Получите доступ к группе через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/). Настройка применяется ко всем сериям в этой группе. [ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/) только для чтения и отражает настройку группы; вызывайте сеттер группы, чтобы изменить её.
+
+В следующем примере создаётся одна диаграмма [PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) с данными по умолчанию. Диаграмма сохраняется сначала с включёнными линиями серии, затем с отключёнными, получая две презентации для сравнения.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Series lines enabled | Series lines disabled |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| The two lines connect the main pie to the secondary pie. | Both pies remain visible, but the connecting lines are hidden. |
+
+Линии серии отличаются от линий‑выносок меток данных, которые соединяют метки с их точками; от сеток, отмечающих интервалы осей; и от линий в линейных диаграммах, представляющих сами данные. Эта настройка не управляет перечисленными элементами.
+
 ## **FAQ**
 
 **Какие типы диаграмм поддерживают серии данных?**
 
-Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не всегда имеют одинаковую структуру значений или параметры. Например, диаграммы категорий используют категории и значения, точечные — X и Y, а пузырьковые — добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина зазора, применимы только к совместимым группам баров или столбцов.
+Все типы диаграмм, представленные перечислением [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не имеют одинаковой структуры значений или настроек. Например, диаграммы категорий используют категории и значения, точечные — X и Y, а пузырьковые — размеры пузырей. Используйте метод создания точек, соответствующий типу серии. Параметры, такие как перекрытие и ширина зазора, применимы только к совместимым группам баров или столбцов.
 
-**Что такое группа серии диаграммы?**
+**Что такое группа серий диаграммы?**
 
-[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, использующие общие параметры построения на уровне группы. Составная диаграмма может иметь более одной группы, поэтому изменение группы через одну серию не обязательно изменит каждую серию в диаграмме.
+[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, которые используют общие настройки построения на уровне группы. Комбинированная диаграмма может содержать более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит каждую серию в диаграмме.
 
 **Создаётся ли в новой диаграмме набор данных по умолчанию?**
 
-Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) создаёт образцы серий, категорий и значений. Вы можете изменить эти ячейки или очистить как серии, так и коллекции категорий перед добавлением полностью пользовательского набора данных. Есть перегрузка, позволяющая создать диаграмму без данных по умолчанию.
+Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/) создаёт образцы серий, категорий и значений. Вы можете отредактировать эти ячейки или очистить как коллекцию серий, так и коллекцию категорий перед добавлением полностью собственного набора данных. Перегрузка метода также может создать диаграмму без данных по умолчанию.
 
-**Как объекты диаграммы связаны с ячейками книги?**
+**Как объекты диаграммы связаны с ячейками рабочей книги?**
 
-Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Изменение ссылки ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных держите строки категорий и строки значений серий согласованными, чтобы каждая точка отображалась под нужной категорией.
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/). Изменение ссылочной ячейки обновляет соответствующий элемент диаграммы. При построении собственных данных сохраняйте согласованность строк категорий и строк значений серий, чтобы каждая точка отображалась в нужной категории.
 
 **Как очистить одну точку, а не всю серию?**
 
-Установите соответствующую ячейку значения в `null`, чтобы точка оставалась на месте категории как пустая. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) только тогда, когда хотите удалить все точки из серии. Если вы также удаляете категории, обновите каждую серию, чтобы их значения оставались выровненными с коллекцией категорий.
+Установите соответствующую ячейку значения в `null`, чтобы точка сохранила свою позицию категории как пустую. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/) только когда хотите удалить все точки из серии, потому что этот метод удаляет каждую точку из коллекции.
 
 **Как отображаются пустые точки?**
 
-Результат зависит от типа диаграммы и значения, установленного через [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Поддерживаемые диаграммы могут отображать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите параметр, соответствующий смыслу отсутствующих данных в вашей презентации. См. [Control the Display of Empty Cells](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
+Результат зависит от типа диаграммы и от значения, заданного через [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/). Поддерживаемые диаграммы могут показывать пустоты как разрывы, как нулевые значения или соединяя соседние точки. Выберите настройку, соответствующую смыслу отсутствующих данных в вашей презентации. См. раздел [Control the Display of Empty Cells](#control-the-display-of-empty-cells) для полного примера и визуального сравнения.
 
 **Как форматируются отрицательные значения?**
 
-Для поддерживаемых серий баров, столбцов и пузырей вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Для отдельной точки можете переопределить поведение через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Эти методы влияют на форматирование, а не на хранимые числовые значения.
+Для поддерживаемых баровых, столбцовых и пузырьковых серий вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/). Поведение можно переопределить для отдельной точки с помощью [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/). Эти методы влияют на оформление, а не на хранимые числовые значения.
 
-**Какой формат имеет приоритет, когда форматированы и серия, и точка?**
+**Какой формат выигрывает, когда одновременно отформатированы серия и точка?**
 
-Явное форматирование точки данных имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Параметры группы, такие как перекрытие и ширина зазора, управляют расположением и не переопределяют точечное форматирование.
+Явное форматирование точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не определён, автоматический стиль и тему диаграммы. Настройки группы, такие как перекрытие и ширина зазора, управляют расположением и не переопределяют форматирование точек.
 
 **Есть ли ограничение на количество серий в диаграмме?**
 
-Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения задают размер файла презентации, доступная память, время рендеринга и читаемость диаграммы.
+Aspose.Slides не налагает отдельного фиксированного ограничения на количество серий. На практике ограничения определяют размер файла презентации, доступная память, время рендеринга и читаемость диаграммы.
 
-**Что менять, если столбцы слишком близко или слишком далеко друг от друга?**
+**Что изменить, если столбцы слишком близко или слишком далеко друг от друга?**
 
-Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) для соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите, чтобы сблизить их.
+Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/) для соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы собрать их ближе.

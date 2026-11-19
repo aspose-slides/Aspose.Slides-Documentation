@@ -5,7 +5,7 @@ type: docs
 url: /tr/androidjava/chart-series/
 keywords:
 - grafik serisi
-- seri örtüşmesi
+- seri çakışması
 - seri rengi
 - seri adı
 - veri noktası
@@ -19,29 +19,31 @@ keywords:
 - Aspose.Slides
 description: "Android'de sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, çakışmayı, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
-## **Genel Bakış**
+## **Overview**
 
-Bir grafik, çizilen değerlerini çalışma kitabı hücrelerinde veya doğrudan sayısal sabitler olarak depolayabilir. Bir [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) bir dizi ilgili değeri temsil eder ve her [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) bu serideki bir noktayı temsil eder. [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) nesneleri seriler tarafından paylaşılan etiketleri veya gruplama değerlerini sağlar. Varsayılan verilerle oluşturulan grafiklerde, seri adları, kategoriler ve nokta değerleri grafik çalışma kitabındaki [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) nesnelerini kullanır.
+Bir grafik, çizilmiş değerlerini çalışma kitabı hücrelerinde saklayabilir veya doğrudan sayısal sabitler olarak tutabilir. Bir [IChartSeries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/) ilgili değerlerin bir kümesini, her [IChartDataPoint](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/) ise bu serideki bir noktayı temsil eder. [IChartCategory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartcategory/) nesneleri, seriler tarafından paylaşılan etiketleri veya grup değerlerini sağlar. Varsayılan veriyle oluşturulan grafiklerde, seri adları, kategoriler ve nokta değerleri, grafik çalışma kitabının [IChartDataCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/) nesnelerinden alınır.
 
-Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve geri kalan hücreleri seri değerleri için kullanır. Çalışma sayfası, satır ve sütun dizinleri [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) metoduna sıfır tabanlı olarak geçilir. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda yararlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından referans verilen hücreleri inceleyin.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve kalan hücreler seri değerleri için kullanılır. [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) yöntemine geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır‑bazlıdır. Bu düzen, varsayılan veriyle bir grafik oluştururken kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından başvurulan hücreleri inceleyin.
 
 Grafik ayarlarının üç farklı kapsamı vardır:
 
-- Seriye‑özel ayarlar, örneğin [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) bir serideki tüm noktalar için varsayılan görünümü sağlar.
-- Veri‑noktası ayarları, örneğin [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) bir nokta için serinin görünümünü geçersiz kılar.
-- Grup ayarları aynı [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) içinde bulunan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde gruba [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) üzerinden erişin.
+- Seri‑seviyesindeki ayarlar, örneğin [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri‑nokta ayarları, örneğin [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) içinde bulunan uyumlu serilere uygulanır. Çakışma veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, gruba [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) üzerinden erişin.
 
-Açıkça bir nokta veya seri dolgu ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için önceliklidir.
+Açıkça bir nokta veya seri dolgu ayarı belirtilmediğinde, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcutsa, nokta biçimlendirmesi o nokta için önceliklidir.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![grafik-seri-powerpoint](chart-series-powerpoint.png)
 
-## **Seri Değerlerini Sayısal Sabitler Kullanarak Ayarlama**
+Kümelenmiş silindir grafik için, [changing the 3D series type or bar shape](/slides/tr/androidjava/3d-chart/#change-the-3d-series-type-and-bar-shape) seçeneğinin ilk seriye etkisini görün.
 
-Seri değerleri uygulama verilerinden veya hesaplamalarından geliyor ve çalışma sayfası hücre referansına ihtiyaç duymuyorsa sayısal sabitler kullanın. Her noktanın [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) sonucunu atamadan önce [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) ile [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) çağırın ve ardından [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-) kullanın.
+## **Set Series Values Using Numeric Literals**
 
-Koleksiyon ayarı, serideki tüm nokta değerlerinin kaynak türünü kontrol eder. Her nokta değerinin [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) yöntemi seçili türü raporlar; bunu koleksiyon ayarıyla değiştirin. `Worksheet` kullanıyorsanız, referans verilen hücreye erişmek için [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) kullanın. `DoubleLiterals` ile, sayıyı doğrudan okumak veya yazmak için [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) veya `setAsLiteralDouble` kullanın.
+Seri değerleri uygulama verilerinden veya hesaplamalardan geliyorsa ve çalışma sayfası hücre referansına ihtiyaç duymuyorsa sayısal sabitleri kullanın. Her noktanın [getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) sonucunu [setAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#setAsLiteralDouble-double-) aracılığıyla atamadan önce [setDataSourceTypeForValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForValues-int-) yöntemini [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/androidjava/com.aspose.slides/datasourcetype/#DoubleLiterals) ile çağırın.
 
-Aşağıdaki örnek, varsayılan seriler ve kategorilerle bir sütun grafiği oluşturur, ardından ilk serisinin mevcut noktalarına 10, 20 vb. hesaplanmış değerleri atar. Sunumu kaydeder, yeniden açar ve saklanan değerleri yazdırır.
+Koleksiyon ayarı, o serideki tüm nokta değerlerinin kaynak türünü kontrol eder. Her nokta değerinin [getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibasechartvalue/#getDataSourceType--) yöntemi seçili türü raporlar; türü koleksiyon ayarıyla değiştirin. `Worksheet` ile başvurulan hücreye ulaşmak için [getAsCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isinglecellchartvalue/#getAsCell--) kullanın. `DoubleLiterals` ile doğrudan sayı okumak veya yazmak için [getAsLiteralDouble](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idoublechartvalue/#getAsLiteralDouble--) ya da `setAsLiteralDouble` kullanın.
+
+Aşağıdaki örnek, varsayılan seriler ve kategorilerle bir sütun grafik oluşturur, ardından ilk serisinin mevcut noktalarına 10, 20 vb. hesaplanmış değerleri atar. Sunumu kaydeder, yeniden açar ve depolanan değerleri yazdırır.
 
 ```java
 import com.aspose.slides.*;
@@ -76,15 +78,15 @@ try {
 }
 ```
 
-Nokta değeri kaynak türü, grafiğin iç veya dış çalışma kitabı yapılandırmasını tanımlayan [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) yönteminden ayrıktır. Sayısal sabitler kullanmak, gömülü çalışma kitabını otomatik olarak kaldırmaz. Bu örnekte, çalışma kitabı kategori etiketleri, seri adları ve diğer seriler için kullanılabilir durumda kalır. Çalışma kitabı yönetimi için [Chart Workbook](/slides/tr/androidjava/chart-workbook/) sayfasına bakın.
+Nokta değeri kaynak türü, grafiğin iç veya dış çalışma kitabı yapılandırmasını belirten [IChartData.getDataSourceType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) öğesinden ayrıdır. Sayısal sabitlerin kullanılması, gömülü çalışma kitabını otomatik olarak kaldırmaz. Bu örnekte, çalışma kitabı kategori etiketleri, seri adları ve diğer seriler için hâlâ kullanılmaktadır. Çalışma kitabı yönetimi için [Chart Workbook](/slides/tr/androidjava/chart-workbook/) sayfasına bakın.
 
-Dağılma ve balon grafiklerinde, [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) ve [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) kullanarak [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) ve [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--) kaynaklarını seçin. Balon grafikleri ayrıca [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) ile [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--) kaynaklarını seçer. Her uygulanabilir kaynağı `DoubleLiterals` yapın ve ardından sayıyı `setAsLiteralDouble` yöntemiyle atayın.
+Dağılım (scatter) ve baloncuk (bubble) grafiklerinde, [setDataSourceTypeForXValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForXValues-int-) ve [setDataSourceTypeForYValues](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForYValues-int-) yöntemleri, sırasıyla [getXValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getXValue--) ve [getYValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getYValue--) kaynaklarını seçmenizi sağlar. Baloncuk grafikleri ayrıca [setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#setDataSourceTypeForBubbleSizes-int-) ile [getBubbleSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getBubbleSize--) kaynaklarını belirler. Uygun her kaynağı `DoubleLiterals` olarak ayarlayın, ardından `setAsLiteralDouble` yöntemiyle sayıları atayın.
 
-## **Grafik Seri Çaprazlamasını Ayarlama**
+## **Set the Chart Series Overlap**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 2D bir grafikte çubukların veya sütunların ne kadar çakıştığını –100 ile 100 yüzde arasında raporlar. Bu, üst grup üzerindeki ayarın yalnızca okunabilir bir yansımasıdır. Uyumlu serilerin tümünü güncellemek için [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) kullanın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; birleştirilmiş grafikte ilişkili olmayan seri gruplarını etkilemez.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 2D bir grafikte çubukların veya sütunların ne kadar çakıştığını –100 ile 100 yüzde arasında – raporlar. Bu, üst seriler grubundaki ayarın yalnızca okunabilir bir yansımasıdır. Uyumlu tüm serileri güncellemek için [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) kullanın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik tiplerinde geçerlidir; birleşik bir grafikte ilgili olmayan seri gruplarını etkilemez.
 
-Aşağıdaki örnek, ilk seriyi içeren grup için çakışmayı ayarlar:
+Aşağıdaki örnek, ilk seriyi içeren grup için çakışma değerini ayarlar:
 
 ```java
 import com.aspose.slides.*;
@@ -111,11 +113,11 @@ try {
 
 Sonuç:
 
-![The series overlap](series_overlap.png)
+![Seri çakışması](series_overlap.png)
 
-## **Seri Dolgu Rengini Değiştirme**
+## **Change the Series Fill Color**
 
-Bir serinin tümü için varsayılan dolgu ayarlamak üzere [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) kullanın. Bir nokta zaten açık bir dolguya sahipse, onun [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) ayarı o nokta için serinin dolgusunu geçersiz kılar.
+Bir bütün serinin varsayılan dolgusunu ayarlamak için [IChartSeries.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getFormat--) kullanın. Bir nokta zaten açık bir dolguya sahipse, onun [IChartDataPoint.getFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) ayarı, o nokta için seri dolgusunu geçersiz kılar.
 
 Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
 
@@ -144,11 +146,11 @@ try {
 
 Sonuç:
 
-![The color of the series](series_color.png)
+![Seri rengi](series_color.png)
 
-## **Seri Adını Değiştirme**
+## **Change the Series Name**
 
-Seri adı grafik veri çalışma kitabında saklanır ve genellikle lejanda görüntülenir. Kümeleme sütun grafiği için oluşturulan varsayılan çalışma kitabında B1 hücresi (satır 0, sütun 1) ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı netleştirir:
+Bir seri adı grafik veri çalışma kitabında saklanır ve genellikle lejanda gösterilir. Kümelenmiş sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi (satır 0, sütun 1) ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıkça gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +176,7 @@ try {
 }
 ```
 
-Ayrıca [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) tarafından zaten referans verilen hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
+Ayrıca, [IChartSeries.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getName--) tarafından zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```java
 import com.aspose.slides.*;
@@ -201,15 +203,15 @@ try {
 
 Sonuç:
 
-![The series name](series_name.png)
+![Seri adı](series_name.png)
 
-### **Birden Çok Hücreden Adı Olan Seri Oluşturma**
+### **Create a Series with a Name from Multiple Cells**
 
-Ürün adı ve raporlama dönemi ayrı hücrelerde saklanıyorsa birleşik bir seri adı faydalıdır. Örneğin, B1 hücresindeki `Product A` ve C1 hücresindeki `2026` değerlerini tek bir seri adı haline getirirken her iki kısmı da kaynak hücrelerine bağlı tutabilirsiniz.
+Bir ürün adı ve raporlama dönemi ayrı hücrelerde saklandığında bileşik bir seri adı faydalıdır. Örneğin, B1 hücresindeki `Product A` ile C1 deki `2026` değerlerini tek bir seri adı olarak birleştirip her iki kısmın da kaynak hücrelerine bağlı kalabilirsiniz.
 
-[IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) ile ad aralığını alın, ardından bu koleksiyonu [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) yöntemine geçirin. `skipHiddenCells` argümanı gizli hücrelerin dahil edilip edilmeyeceğini kontrol eder: `true` hariç tutar, `false` dahil eder. Bu örnek, ad aralığındaki tüm hücreleri dahil etmek için `false` kullanır.
+İsim aralığını elde etmek için [IChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/#getCellCollection-java.lang.String-boolean-) yöntemini kullanın, ardından bu koleksiyonu [IChartSeriesCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriescollection/#add-com.aspose.slides.IChartCellCollection-int-) yöntemine geçirin. `skipHiddenCells` parametresi gizli hücrelerin dahil edilip edilmeyeceğini kontrol eder: `true` hariç tutar, `false` dahil eder. Bu örnek, isim aralığındaki tüm hücreleri dahil etmek için `false` kullanır.
 
-Aşağıdaki örnek, bir seri ve iki veri noktası içeren bir sunum oluşturur. B1:C1 aralığı yalnızca seri adını sağlar; A2:A3 kategori etiketlerini, B2:B3 sayısal değerleri sağlar.
+Aşağıdaki örnek, bir seri ve iki veri noktasına sahip bir sunum oluşturur. B1:C1 hücreleri yalnızca seri adını, A2:A3 hücreleri kategori etiketlerini ve B2:B3 hücreleri sayısal değerleri sağlar.
 
 ```java
 import com.aspose.slides.*;
@@ -227,7 +229,7 @@ try {
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // Bu iki hücre seri adını sağlar.
+    // Bu iki hücre seri ismini sağlar.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     IChartCellCollection nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
@@ -249,13 +251,13 @@ try {
 }
 ```
 
-Ortaya çıkan seri adı `Product A 2026` olur; iki hücre değeri arasında bir boşluk bulunur. Lejand bu iki sütunu tek bir giriş olarak gösterir. Sonuç aşağıdaki görselde gösterilmiştir:
+Ortaya çıkan seri adı `Product A 2026`dır; iki hücre değeri arasına bir boşluk eklenir. Lejand bu iki sütun için tek bir giriş olarak gösterilir. Sonuç aşağıdaki resimde gösterilmiştir:
 
-![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+![Kuzey ve Güney değerli sütun grafik ve birleşik seri adı Product A 2026 lejanda](composite_series_name.png)
 
-## **Otomatik Seri Dolgu Rengini Alma**
+## **Get the Automatic Series Fill Color**
 
-[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) yöntem, seri indeksine ve grafik stiline göre hesaplanan Android ARGB renk tamsayısını döndürür. Bu, seri dolgusunun açıkça tanımlanmadığı durumda kullanılan renktir. Yöntemi çağırmak yalnızca hesaplanan rengi okur; yeni bir dolgu atamaz.
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) yöntemi, seri indeksine ve grafik stiline göre hesaplanan Android ARGB renk tamsayısını döndürür. Bu, seri dolgusu açıkça tanımlanmamışsa kullanılan renktir. Yöntem, hesabı okur; yeni bir dolgu atamaz.
 
 Aşağıdaki örnek, varsayılan her seri için otomatik renk tamsayısını yazdırır:
 
@@ -281,13 +283,13 @@ try {
 }
 ```
 
-Tam tamsayı değerleri grafik stili ve temaya bağlıdır.
+Tam sayı değerleri grafik stiline ve temaya bağlıdır.
 
-## **Bir Grafik Serisi İçin Ters Doldurma Rengini Ayarlama**
+## **Set Invert Fill Color for a Chart Series**
 
-Çubuk, sütun ve balon serileri için, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) ile atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntü rengi değişir.
+Çubuk, sütun ve baloncuk serileri için, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) yöntemi negatif değerleri farklı bir dolgu ile gösterebilir. Normal seri dolgusunu katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengi için [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) kullanın. Negatif sayılar çalışma kitabında aynı kalır; yalnızca görüntü rengi değişir.
 
-Aşağıdaki örnek, varsayılan grafik verisini bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını, sütun 1 değerleri içerir:
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfasının satır 0’ı seri adını, sütun 0 kategori adlarını, sütun 1 ise değerleri içerir:
 
 ```java
 import com.aspose.slides.*;
@@ -344,9 +346,9 @@ try {
 
 Sonuç:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![Ters katı dolgu rengi](inverted_solid_fill_color.png)
 
-Bir nokta için tersleme, [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ile etkinleştirilebilir. Aşağıdaki örnek, seride terslemeyi devre dışı bırakır, yalnızca seçilen noktada etkinleştirir ve nokta için negatif bir değer atar:
+Bir nokta için terslemeyi [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılır, yalnızca seçilen nokta için etkinleştirilir ve nokta negatif bir değer alır, böylece efekt görülür:
 
 ```java
 import com.aspose.slides.*;
@@ -380,11 +382,11 @@ try {
 }
 ```
 
-## **Belirli Bir Veri Noktası Değerini Temizleme**
+## **Clear a Specific Data Point Value**
 
-Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, ilgili çalışma kitabı hücresini `null` yapın. Sütun grafiğinde, çizilen değer [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) ile elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarlarına göre değerini boş olarak kabul eder.
+Diğer noktaları silmeden bir noktayı boş bırakmak için o noktanın arka plan hücresini `null` yapın. Bir sütun grafiğinde, çizilen değer [IChartDataPoint.getValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) ile elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik boş‑değer ayarına göre değeri boş kabul eder.
 
-Aşağıdaki örnek, ilk seride yalnızca ikinci noktayı temizler:
+Aşağıdaki örnek, ilk serinin yalnızca ikinci noktasını temizler:
 
 ```java
 import com.aspose.slides.*;
@@ -409,17 +411,17 @@ try {
 }
 ```
 
-Dağılma grafiklerinde X ve Y hücreleri ayrı, balon grafiklerinde ayrıca boyut hücresi bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları tutmak istiyorsanız [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) metodunu çağırmayın; bu yöntem serideki tüm veri noktalarını siler.
+Dağılım (scatter) grafikler ayrı X ve Y hücreleri, baloncuk grafikler ise ek bir boyut hücresi kullanır. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları tutmak istiyorsanız [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) yöntemini çağırmayın; bu yöntem serideki tüm veri noktalarını siler.
 
-## **Boş Hücrelerin Görüntülenmesini Kontrol Etme**
+## **Control the Display of Empty Cells**
 
-Değer içeren gizli hücreler, boş hücrelerden ayrı bir durumdur. Gizli çalışma sayfası satır ve sütunlarından gelen verileri dahil etmek veya hariç tutmak için [Include Data from Hidden Rows and Columns](/slides/tr/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) bölümüne bakın.
+Değer içeren gizli hücreler, boş hücrelerden farklı bir durumdur. Gizli çalışma sayfası satır ve sütunlarından veri dahil veya hariç tutmak için [Include Data from Hidden Rows and Columns](/slides/tr/androidjava/chart-workbook/#include-data-from-hidden-rows-and-columns) bölümüne bakın.
 
-Boş bir çalışma kitabı hücresi eksik veriyi temsil eder; `0` içeren bir hücre bilinen sayısal bir değeri temsil eder. Hücreyi boş yapmak için [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) metodunu `null` ile çağırın. Sayısal sıfır, boş‑hücre ayarına bakılmaksızın sıfır olarak kalır.
+Boş bir çalışma kitabı hücresi eksik veriyi, `0` içeren hücre ise bilinen sayısal değeri temsil eder. Bir hücreyi boş hâle getirmek için [IChartDataCell.setValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setValue-java.lang.Object-) yöntemine `null` geçirin. Sayısal sıfır, boş‑hücre ayarından bağımsız olarak sıfır olarak kalır.
 
-[İChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) ile grafiğin boş hücreleri nasıl göstereceğini seçin. Bu ayar tüm grafik için geçerlidir. Boşlukların nasıl çizileceğini değiştirir, boş çalışma kitabı hücresini sıfır ya da ara değerle doldurmaz.
+Boş hücrelerin grafikte nasıl gösterileceğini seçmek için [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) yöntemini kullanın. Bu ayar tüm grafik için geçerlidir ve boşlukları doldurmaz, sadece boş hücrelerin nasıl çizileceğini değiştirir.
 
-Aşağıdaki bağımsız örnek, bir seri içeren bir çizgi grafiği oluşturur, 3. Gün değerini temizler ve her modda aynı grafiği kaydeder. Girdi dosyasına ihtiyaç yoktur. [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0, değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40` şeklindedir.
+Aşağıdaki bağımsız örnek, bir satır grafik oluşturur, 3. Gün değerini boş bırakır ve her modda aynı grafiği kaydeder. Giriş dosyasına gerek yoktur. [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) çalışma sayfası 0, kategori etiketleri için sütun 0 ve değerler için sütun 1 kullanır; satır 0 seri adını tutar. Son veri `10, 20, empty, 30, 40` şeklindedir.
 
 ```java
 import com.aspose.slides.*;
@@ -446,7 +448,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // Day 3'ü gerçekten boş bırak, ancak kategorisini ve veri noktasını koru.
+    // Gün 3'ü gerçekten boş bırak, ancak kategorisini ve veri noktasını koru.
     workbook.getCell(0, 3, 1).setValue(null);
 
     int[] modes = { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -460,19 +462,19 @@ try {
 }
 ```
 
-Her çıktı dosyası, kaydetmeden önce atanmış modu yansıtır: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir versiyon kaydetmek isterseniz istenen modu atayın ve sunumu bir kez kaydedin.
+Her çıktı dosyası, kaydetmeden önce atanmış modu içerir: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` ve `empty_cells_Span.pptx`. Tek bir sürüm kaydetmek isterseniz, istediğiniz modu ayarlayıp sunumu bir kez kaydedin, modlar arasında döngü yapmayın.
 
-Aşağıdaki karşılaştırma, aynı verinin üç dosyada nasıl göründüğünü gösterir. 3. Gün her durumda çalışma kitabında boştur:
+Aşağıdaki karşılaştırma, üç dosyadaki aynı veriyi gösterir. 3. Gün, her durumda çalışma kitabında boştur:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![Boş hücrelerin gösterimi: Gap çizgiyi 3. Gün'de keser, Zero sıfıra düşürür, Span ise 2. Gün ile 4. Gün arasında bağlar.](display_blanks_as.png)
 
-Görünüm etkisi grafik türüne bağlıdır. Çizgi grafiği üç modu da kolayca karşılaştırır. Çubuk ve sütun grafiklerinde eksik bir kategori olduğunda bağlayıcı bir çizgi olmaz; bu yüzden `Span` yukarıdaki bağlayıcı bölümü üretemez; eksik bir sütun ve sıfır yüksekliğinde bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretleyicileri olan bir dağılma grafiğinde bağlayıcı çizgi yoktur. Her grafik türü için üç farklı sonuç beklemeyin; kullandığınız tür için çıktıyı kontrol edin.
+Görünüm, grafik tipine bağlıdır. Çizgi grafikleri üç modu da rahatça karşılaştırır. Çubuk ve sütun grafiklerinde eksik bir kategori olduğunda bağlayıcı bir çizgi olmadığından `Span` bağlama segmenti oluşturamaz; boş bir sütun ve sıfır‑yükseklikli bir sütun da benzer görünebilir. Benzer şekilde, yalnızca işaretçileri olan dağılım grafiğinde de bağlantı çizgisi yoktur. Her grafik tipi için üç ayrı sonuç beklemeyin; kullandığınız tipteki çıktıyı kontrol edin.
 
-## **Seri Boşluk Genişliğini Ayarlama**
+## **Set the Series Gap Width**
 
-Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluğu, çubuk veya sütun genişliğinin yüzde olarak ifadesidir. Örtüşme gibi, bu ayar bir seriye değil, üst seri grubuna aittir. Grup için bir kez [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha yoğun hâle getirir.
+Boşluk genişliği, komşu çubuk veya sütun kümeleri arasındaki boşluğu, çubuk veya sütun genişliğinin yüzde olarak ifadesini belirtir. Çakışma gibi, bu da tek bir seriye değil, üst seriler grubuna aittir. Grup için bir kez [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) çağırın. Daha büyük değer kümeler arasına daha fazla boşluk ekler; daha küçük değerleri ise daha yoğun hâle getirir.
 
-Aşağıdaki örnek, boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
+Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -498,46 +500,82 @@ try {
 
 Sonuç:
 
-![The gap width](gap_width.png)
+![Boşluk genişliği](gap_width.png)
 
-## **SSS**
+## **Show or Hide Series Lines**
 
-**Hangi grafik türleri veri serilerini destekler?**
+Seri çizgileri, bir grafiğin ilgili bölümlerini görsel olarak birbirine bağlar. Desteklenen yığılmış çubuk ve OfPie grafiklerinde, [IChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setSeriesLines-boolean-) yöntemiyle gösterimlerini açıp kapatabilirsiniz. İki‑boyutlu yığılmış çubuk ve sütun grafiklerinde, bu çizgiler kategori boyunca eşleşen yığın sınırlarını bağlar. Pie of Pie ve Bar of Pie grafiklerinde ise ana çizmeyi ikincil çizmeye bağlar. Bu ayar, diğer grafik tipleri için genel bir bağlayıcı değildir.
 
-[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumʼu tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin, kategori grafiklerinde kategori ve değerler, dağılma grafiklerinde X ve Y değerleri, balon grafiklerinde ise balon boyutları bulunur. Seri tipine uygun veri‑nokta oluşturma yöntemini kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
+Gruba, [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) üzerinden erişin. Ayar, o grup içindeki tüm serilere uygulanır. [IChartSeries.hasSeriesLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#hasSeriesLines--) yalnızca okunabilir ve üst grup ayarını yansıtır; güncellemek için grubun ayarlayıcısını kullanın.
+
+Aşağıdaki örnek, varsayılan veriyle bir [PieOfPie](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#PieOfPie) grafik oluşturur, aynı grafiği seri çizgileri açık ve kapalı olarak kaydeder, karşılaştırma için iki sunum üretir.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.PieOfPie, 50, 50, 600, 400);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    IChartSeriesGroup seriesGroup = series.getParentSeriesGroup();
+
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+| Seri çizgileri açık | Seri çizgileri kapalı |
+| --- | --- |
+| ![Seri çizgileri açık Pie of Pie grafiği](series_lines_enabled.png) | ![Seri çizgileri kapalı Pie of Pie grafiği](series_lines_disabled.png) |
+| İki çizgi, ana pasta ile ikincil pastayı bağlar. | İki pasta görünür, ancak bağlayıcı çizgiler gizlenir. |
+
+Seri çizgileri, etiketleri veri noktalarına bağlayan lider çizgilerden, eksenleri işaretleyen ızgara çizgilerinden ve veri değerlerini temsil eden çizgi grafik çizgilerinden farklıdır. Bu ayar, bu öğeleri kontrol etmez.
+
+## **FAQ**
+
+**Hangi grafik tipleri veri serilerini destekler?**
+
+[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) enumʼu tarafından temsil edilen tüm grafik tipleri veri kullanır, ancak serilerin değer yapısı ve ayarları farklıdır. Örneğin, kategori grafiklerinde kategori ve değerler bulunurken, dağılım grafiklerinde X ve Y değerleri, baloncuk grafiklerinde ise ek olarak baloncuk boyutları vardır. Seri tipine uygun veri‑nokta oluşturma yöntemini kullanın. Çakışma ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarında geçerlidir.
 
 **Grafik seri grubu nedir?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir kombinasyon grafiği birden fazla grup içerebilir; bir seriden ulaşarak grup ayarlarını değiştirmek, grafikteki tüm serileri mutlaka etkilemez.
+[IChartSeriesGroup](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/) uyumlu serileri, grup‑seviyesindeki çizim ayarlarını paylaşan serileri içerir. Kombinasyon grafiği birden çok grup içerebilir; bu nedenle bir seriden ulaşan grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak etkilemez.
 
 **Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
 
-Evet. Varsayılan olarak, [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir veya tamamen özelleştirilmiş bir veri kümesi eklemeden önce hem seri hem de kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da grafik oluşturabilir.
+Evet. Varsayılan olarak, [IShapeCollection.addChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) örnek seriler, kategoriler ve değerler üretir. Bu hücreleri düzenleyebilir veya tamamen özel bir veri kümesi eklemeden önce serileri ve kategorileri temizleyebilirsiniz. Bir aşırı yükleme, varsayılan verisiz bir grafik de oluşturabilir.
 
 **Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
 
-Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) içindeki hücrelere referans verir. Referans verilen bir hücre değiştirilirse ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın amaçlanan kategori altında çizildiğinden emin olmak için kategori satırları ve seri‑değer satırlarını hizalı tutun.
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/) içindeki hücrelere referans verir. Başvurulan hücre değiştiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, her noktanın istenen kategori altında çizildiğinden emin olmak için kategori satırları ve seri‑değer satırlarını hizalı tutun.
 
-**Tüm seriyi değil tek bir noktayı nasıl temizlerim?**
+**Bir seriyi değil, sadece bir noktayı nasıl temizlerim?**
 
-İlgili değer hücresini `null` yaparak noktanın kategori konumunu boş bir nokta olarak tutun. [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) yalnızca serideki tüm noktaları kaldırmak istediğinizde kullanın. Kategorileri de kaldırıyorsanız, diğer serileri de güncelleyerek değerlerin kategori koleksiyonuyla hizalı kalmasını sağlayın.
+Diğer noktaları tutmak için ilgili değer hücresini `null` yapın; nokta kategori konumunu bir boş nokta olarak korur. [IChartDataPointCollection.clear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) yalnızca tüm noktaları kaldırmak istediğinizde kullanılmalıdır; aksi takdirde diğer noktalar silinir.
 
-**Boş noktalar nasıl görüntülenir?**
+**Boş noktalar nasıl gösterilir?**
 
-Sonuç, grafik türüne ve [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) üzerinden yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları kesik, sıfır değer olarak veya komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına en uygun ayarı seçin. Tam bir örnek ve görsel karşılaştırma için [Control the Display of Empty Cells](#control-the-display-of-empty-cells) bölümüne bakın.
+Sonuç, grafik tipi ve [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) ile yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları, sıfır değerlerini veya komşu noktaları bağlayarak gösterebilir. Eksik verinin anlamına en uygun ayarı seçin. Tam bir örnek ve görsel karşılaştırma için [Control the Display of Empty Cells](#control-the-display-of-empty-cells) bölümüne bakın.
 
 **Negatif değerler nasıl biçimlendirilir?**
 
-Desteklenen çubuk, sütun ve balon serileri için [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) çağırın ve [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) ile dönen rengi ayarlayın. Bireysel bir nokta için davranışı [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değil.
+Desteklenen çubuk, sütun ve baloncuk serileri için, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) ve ardından [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) ile renk ayarlaması yapın. Bireysel bir nokta için davranışı [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ile geçersiz kılabilirsiniz. Bu yöntemler yalnızca biçimlendirmeyi etkiler, saklanan sayısal değerleri değiştirmez.
 
-**Hem seri hem de nokta biçimlendirilirse hangisi kazanır?**
+**Seri ve nokta aynı anda biçimlendirilirse hangisi kazanır?**
 
-Açıkça nokta‑seviyesi biçimlendirme o nokta için önceliklidir. Diğer noktalar açıkça belirlenmiş seri biçimini ya da seri biçimi tanımlı değilse otomatik grafik stili ve temasını kullanır. Örtüşme ve boşluk genişliği gibi grup ayarları yerleşimi kontrol eder ve nokta‑seviyesi biçimlendirme geçersizliği değildir.
+Açıkça ayarlanmış veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri biçimini veya, seri biçimi tanımlı değilse otomatik grafik stili ve temasını kullanır. Çakışma ve boşluk genişliği gibi grup ayarları düzeni kontrol eder; nokta‑seviyesinde biçimlendirme geçersiz kılmaz.
 
-**Bir grafiğin içerebileceği seri sayısında bir sınır var mı?**
+**Bir grafik kaç seriyi barındırabilir?**
 
-Aspose.Slides ayrı bir sabit seri‑sayısı sınırı getirmez. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, render süresi ve grafik okunabilirliği faydalı bir sınır belirler.
+Aspose.Slides, ayrı bir sabit seri sayısı sınırı koymaz. Pratikte, sunum dosyası kısıtlamaları, kullanılabilir bellek, işleme süresi ve grafik okunabilirliği sınırlayıcı faktörlerdir.
 
-**Sütunlar çok yakınımı yoksa çok mu uzakta? Ne yapmalıyım?**
+**Sütunlar çok yakın veya çok uzak olduğunda ne yapmalıyım?**
 
-Uygun üst seri grubunda [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) çağırın. Değeri artırmak kümeler arasındaki boşluğu genişletir, azaltmak kümeleri birbirine yaklaştırır.
+Uygun üst seri grubunda [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) yöntemini çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak ise kümeleri birbirine yaklaştırın.

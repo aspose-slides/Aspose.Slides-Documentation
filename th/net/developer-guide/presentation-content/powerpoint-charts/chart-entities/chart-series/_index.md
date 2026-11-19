@@ -1,46 +1,48 @@
 ---
-title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอใน .NET
+title: จัดการชุดข้อมูลแผนภูมิในพรีเซนเทชันด้วย .NET
 linktitle: ชุดข้อมูล
 type: docs
 url: /th/net/chart-series/
 keywords:
 - ชุดข้อมูลแผนภูมิ
-- การทับซ้อนของชุดข้อมูล
-- สีของชุดข้อมูล
+- การซ้อนกันของชุด
+- สีชุด
 - สีหมวดหมู่
-- ชื่อชุดข้อมูล
+- ชื่อชุด
 - จุดข้อมูล
-- ช่องว่างของชุดข้อมูล
+- ช่องว่างของชุด
 - PowerPoint
-- งานนำเสนอ
+- พรีเซนเทชัน
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์ workbook, การจัดรูปแบบ, การทับซ้อน, ความกว้างช่องว่าง, และค่าติดลบในงานนำเสนอด้วย C#."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์เวิร์กบุ๊ก, การกำหนดรูปแบบ, การซ้อน, ความกว้างของช่องว่าง, และค่าติดลบในพรีเซนเทชันด้วย C#."
 ---
 ## **ภาพรวม**
 
-แผนภูมิสามารถเก็บค่าที่พล็อตไว้ในเซลล์ของ workbook หรือโดยตรงเป็นค่าตัวเลขลิตเตรัลได้ [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) แสดงชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) แทนจุดหนึ่งในชุดนั้น [IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) ให้ฉลากหรือค่ากลุ่มที่ใช้ร่วมกันระหว่างชุดข้อมูล ในแผนภูมิที่สร้างด้วยข้อมูลเริ่มต้น ชื่อชุดข้อมูล หมวดหมู่ และค่าจุดต่าง ๆ จะใช้วัตถุ [IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) จาก workbook ของแผนภูมิ
+แผนภูมิสามารถจัดเก็บค่าที่พลอตไว้ในเซลล์ของเวิร์กบุ๊กหรือโดยตรงเป็นค่าตัวเลขลิตเทอรัล. [IChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/) แทนชุดค่าที่เกี่ยวข้องหนึ่งชุด, และแต่ละ[IChartDataPoint](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/) แทนจุดในชุดนั้น. วัตถุ[IChartCategory](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartcategory/) ให้ป้ายหรือค่ากลุ่มที่ใช้ร่วมกันโดยชุดข้อมูล. ในแผนภูมิที่สร้างด้วยข้อมูลเริ่มต้น, ชื่อชุด, หมวดหมู่, และค่าจุดจะใช้วัตถุ[IChartDataCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/) จากเวิร์กบุ๊กของแผนภูมิ.
 
-สำหรับแผนภูมิกลุ่มประเภททั่วไป workbook เริ่มต้นจะใช้แถว 0 สำหรับชื่อชุดข้อมูล คอลัมน์ 0 สำหรับชื่อหมวดหมู่ และเซลล์ที่เหลือสำหรับค่าชุดข้อมูล ดัชนี worksheet, แถว และคอลัมน์ที่ส่งให้ [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) มีค่าเริ่มจาก 0 Layout นี้เป็นประโยชน์เมื่อต้องการสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ห้ามสันนิษฐานว่าแผนภูมิที่มีอยู่ทุกแผนภูมิใช้รูปแบบนี้ สำหรับการนำเสนอที่โหลดแล้ว ให้ตรวจสอบเซลล์ที่อ้างอิงโดยชุดข้อมูล หมวดหมู่ และจุดข้อมูลก่อนที่จะเปลี่ยนค่าใน workbook
+สำหรับแผนภูมิประเภทหมวดหมู่อันดับต้น, เวิร์กบุ๊กเริ่มต้นใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด. ดัชนี Worksheet, แถว, และคอลัมน์ที่ส่งให้[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcell/) นั้นเริ่มที่ศูนย์. การจัดวางนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิกับข้อมูลเริ่มต้น, แต่ไม่ควรสันนิษฐานว่าทุกแผนภูมิที่มีอยู่ใช้รูปแบบนี้. สำหรับพรีเซนเทชันที่โหลดแล้ว, ตรวจสอบเซลล์ที่ชุด, หมวดหมู่, และจุดข้อมูลอ้างอิงก่อนที่จะเปลี่ยนค่าในเวิร์กบุ๊ก.
 
-การตั้งค่าแผนภูมิมีสามระดับที่แตกต่างกัน:
+Chart settings have three different scopes:
 
-- การตั้งค่าระดับชุดข้อมูล เช่น [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) ให้ลักษณะเริ่มต้นสำหรับทุกจุดในชุดเดียว
-- การตั้งค่าจุดข้อมูล เช่น [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) จะทับลักษณะของชุดข้อมูลสำหรับจุดเดียว
-- การตั้งค่ากลุ่มนำไปใช้กับชุดข้อมูลที่เข้ากันซึ่งอยู่ภายใต้ [IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) เดียวกัน เข้าถึงกลุ่มผ่าน [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) เมื่อจำเป็นต้องตั้งค่าตัวเลือกเช่น overlap หรือ gap width
+- การตั้งค่าระดับชุดข้อมูล, เช่น [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/), ให้ลักษณะการแสดงผลเริ่มต้นสำหรับจุดทั้งหมดในชุดเดียว.
+- การตั้งค่าจุดข้อมูล, เช่น [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/), จะทับลักษณะการแสดงผลของชุดข้อมูลสำหรับจุดเดียว.
+- การตั้งค่ากลุ่มใช้กับชุดข้อมูลที่เข้ากันได้ซึ่งอยู่ใน[IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) เดียวกัน. เข้าถึงกลุ่มผ่าน[IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/) เมื่อคุณต้องการตั้งค่าตัวเลือกเช่นการซ้อนกันหรือความกว้างของช่องว่าง.
 
-เมื่อไม่มีการกำหนดสีเติมของจุดหรือชุดข้อมูลอย่างชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะที่สร้างโดยอัตโนมัติ เมื่อมีการกำหนดรูปแบบทั้งระดับชุดและระดับจุด รูปแบบจุดจะมีลำดับความสำคัญสูงกว่า
+เมื่อไม่มีการกำหนดรูปแบบการเติมสีจุดหรือชุดข้อมูลอย่างชัดเจน, สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ. เมื่อมีการกำหนดรูปแบบทั้งชุดและจุด, รูปแบบของจุดจะมีลำดับความสำคัญสำหรับจุดนั้น.
 
-![แผนภูมิ-ซีรีส์-พาวเวอร์พอยท์](chart-series-powerpoint.png)
+![แผนภูมิซีรีส์ PowerPoint](chart-series-powerpoint.png)
 
-## **กำหนดค่าชุดข้อมูลโดยใช้ค่าตัวเลขลิตเตรัล**
+สำหรับแผนภูมิทรงกระบอกแบบทำกลุ่ม, ดูว่า [การเปลี่ยนประเภทชุด 3D หรือรูปแบบแท่ง](/slides/th/net/3d-chart/#change-the-3d-series-type-and-bar-shape) มีผลต่อชุดแรกอย่างไร.
 
-ใช้ค่าตัวเลขลิตเตรัลเมื่อค่าชุดข้อมูลมาจากข้อมูลหรือการคำนวนในแอปพลิเคชันและไม่ต้องอ้างอิงเซลล์ worksheet ตั้งค่า [DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/) ให้เป็น [DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/) ก่อนกำหนดค่า [Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/) ของแต่ละจุดผ่าน [AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/)
+## **ตั้งค่าค่าชุดข้อมูลโดยใช้ค่าตัวเลขลิตเทอรัล**
 
-การตั้งค่าคอลเลกชันควบคุมประเภทแหล่งข้อมูลของค่าจุดทั้งหมดในชุดนั้น แต่ละจุดจะรายงานประเภทที่เลือกผ่าน [Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/) ซึ่งสามารถเปลี่ยนได้โดยการแก้ไขการตั้งค่าคอลเลกชัน เมื่ใช้ `Worksheet` ให้ใช้ [AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/) เพื่อเข้าถึงเซลล์ที่อ้างอิง เมื่ใช้ `DoubleLiterals` ให้ใช้ `AsLiteralDouble` เพื่ออ่านหรือเขียนตัวเลขโดยตรง
+ใช้ค่าตัวเลขลิตเทอรัลเมื่อค่าชุดมาจากข้อมูลหรือการคำนวณของแอปพลิเคชันและไม่ต้องอ้างอิงเซลล์ในเวิร์กชีต. ตั้งค่า[DataSourceTypeForValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforvalues/)เป็น[DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/net/aspose.slides.charts/datasourcetype/)ก่อนกำหนด[Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/value/)ของแต่ละจุดผ่าน[AsLiteralDouble](https://reference.aspose.com/slides/net/aspose.slides.charts/idoublechartvalue/asliteraldouble/).
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์พร้อมชุดข้อมูลและหมวดหมู่เริ่มต้น แล้วกำหนดค่าที่คำนวนได้ 10, 20 ฯลฯ ให้กับจุดที่มีอยู่ของชุดแรก บันทึกการนำเสนอ เปิดใหม่อีกครั้งและพิมพ์ค่าที่เก็บไว้
+การตั้งค่าคอลเลกชันควบคุมประเภทแหล่งที่มาของค่าจุดทั้งหมดในชุดนั้น. แต่ละจุดมี[Value.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ibasechartvalue/datasourcetype/)ที่รายงานประเภทที่เลือก; เปลี่ยนผ่านการตั้งค่าคอลเลกชัน. เมื่อใช้`Worksheet`, ใช้[AsCell](https://reference.aspose.com/slides/net/aspose.slides.charts/isinglecellchartvalue/ascell/)เพื่อเข้าถึงเซลล์ที่อ้างอิง. เมื่อใช้`DoubleLiterals`, ใช้`AsLiteralDouble`เพื่ออ่านหรือเขียนตัวเลขโดยตรง.
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์ด้วยชุดและหมวดหมู่เริ่มต้น, แล้วกำหนดค่าที่คำนวณได้ 10, 20, เป็นต้นให้กับจุดที่มีอยู่ของชุดแรก. จากนั้นบันทึกพรีเซนเทชัน, เปิดใหม่, และพิมพ์ค่าที่จัดเก็บไว้.
 
 ```cs
 using System;
@@ -72,15 +74,15 @@ foreach (var point in reopenedSeries.DataPoints)
 }
 ```
 
-ประเภทแหล่งข้อมูลของค่าจุดแยกจาก [IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/) ซึ่งระบุการตั้งค่า workbook ภายในหรือภายนอกของแผนภูมิ การใช้ค่าตัวเลขลิตเตรัลไม่ได้ลบ workbook ที่ฝังอยู่โดยอัตโนมัติ ในตัวอย่างนี้ workbook ยังคงใช้สำหรับฉลากหมวดหมู่ ชื่อชุดข้อมูล และชุดข้อมูลอื่น ๆ ดู [Chart Workbook](/slides/th/net/chart-workbook/) เพื่อเรียนรู้การจัดการ workbook
+ประเภทแหล่งที่มาของค่าจุดแยกจาก[IChartData.DataSourceType](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdata/datasourcetype/), ซึ่งระบุการกำหนดค่าเวิร์กบุ๊กภายในหรือภายนอกของแผนภูมิ. การใช้ค่าตัวเลขลิตเทอรัลไม่ได้ทำให้เวิร์กบุ๊กที่ฝังอยู่หายไปโดยอัตโนมัติ. ในตัวอย่างนี้, เวิร์กบุ๊กยังคงใช้สำหรับป้ายหมวดหมู่, ชื่อชุด, และชุดอื่น ๆ. ดู[Chart Workbook](/slides/th/net/chart-workbook/)สำหรับการจัดการเวิร์กบุ๊ก.
 
-สำหรับแผนภูมิ scatter และ bubble ให้ตั้งค่า [DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/) และ [DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/) เพื่อเลือกแหล่งข้อมูลของ [XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/) และ [YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/) แผนภูมิ bubble ยังใช้ [DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/) สำหรับ [BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/) ตั้งค่าแต่ละแหล่งที่เกี่ยวข้องเป็น `DoubleLiterals` ก่อนกำหนดตัวเลขผ่านคุณสมบัติ `AsLiteralDouble` ของค่าดังกล่าว
+สำหรับแผนภูมิแบบกระจายและฟองอากาศ, ตั้งค่า[DataSourceTypeForXValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforxvalues/)และ[DataSourceTypeForYValues](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforyvalues/)เพื่อเลือกแหล่งที่มาสำหรับ[XValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/xvalue/)และ[YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). แผนภูมิบับอากาศยังใช้[DataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/datasourcetypeforbubblesizes/)สำหรับ[BubbleSize](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/bubblesize/). ตั้งค่าแหล่งที่เกี่ยวข้องแต่ละอย่างเป็น`DoubleLiterals`ก่อนกำหนดตัวเลขผ่านคุณสมบัติ`AsLiteralDouble`ของค่าดังกล่าว.
 
-## **กำหนดค่า Overlap ของชุดข้อมูลในแผนภูมิ**
+## **ตั้งค่าการซ้อนกันของชุดแผนภูมิ**
 
-[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) รายงานว่าคอลลัมน์หรือแถบทับซ้อนกันเท่าใดในแผนภูมิ 2 มิติ จาก -100 ถึง 100 เปอร์เซ็นต์ ค่านี้เป็นการฉายผลแบบอ่านอย่างเดียวจากการตั้งค่าที่กลุ่มชุดข้อมูลแม่ ตั้งค่า [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/) เพื่ออัปเดตทุกชุดที่เข้ากันในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงแถบหรือคอลลัมน์เป็นกลุ่ม และไม่ส่งผลต่อกลุ่มชุดข้อมูลที่ไม่ได้เกี่ยวข้องในแผนภูมิแบบผสม
+[IChartSeries.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/overlap/) รายงานว่าบาร์หรือคอลัมน์ซ้อนทับกันเท่าไหร่ในแผนภูมิ 2D, ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์. มันเป็นการฉายภาพแบบอ่าน‑อย่างเดียวของการตั้งค่าในกลุ่มชุดพาเรนต์. ตั้งค่า[IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/overlap/)เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น. ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; ไม่ส่งผลต่อกลุ่มชุดอื่น ๆ ในแผนภูมิกำเนิด.
 
-ตัวอย่างต่อไปนี้ตั้งค่า overlap สำหรับกลุ่มที่บรรจุชุดแรก
+ตัวอย่างต่อไปนี้ตั้งค่าการซ้อนกันสำหรับกลุ่มที่มีชุดแรกอยู่:
 
 ```cs
 using Aspose.Slides;
@@ -94,7 +96,7 @@ const sbyte overlapPercent = 30;
 using var presentation = new Presentation();
 var slide = presentation.Slides[firstSlideIndex];
 
-// แผนภูมิใหม่มีชุดข้อมูลตัวอย่าง, หมวดหมู่, และค่า.
+// แผนภูมิใหม่ประกอบด้วยชุดตัวอย่าง, หมวดหมู่, และค่า.
 var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
 var series = chart.ChartData.Series[firstSeriesIndex];
@@ -105,13 +107,13 @@ presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![การทับซ้อนของชุดข้อมูล](series_overlap.png)
+![การซ้อนกันของชุด](series_overlap.png)
 
-## **เปลี่ยนสีเติมของชุดข้อมูล**
+## **เปลี่ยนสีเติมของชุดแผนภูมิ**
 
-ใช้ [IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/) เพื่อตั้งค่าสีเติมเริ่มต้นสำหรับทั้งชุด หากจุดหนึ่งมีการกำหนดสีเติมอย่างชัดเจน การตั้งค่า [IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/) จะทับสีเติมของชุดสำหรับจุดนั้น
+ใช้[IChartSeries.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/format/)เพื่อกำหนดสีเติมเริ่มต้นสำหรับชุดทั้งหมด. หากจุดใดจุดหนึ่งมีการกำหนดสีเติมอย่างชัดเจน, การตั้งค่า[IChartDataPoint.Format](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/format/)ของจุดนั้นจะทับสีเติมของชุดสำหรับจุดนั้น.
 
-ตัวอย่างต่อไปนี้ใช้สีเติมแบบโซลิดสีน้ำเงินให้กับชุดแรก
+ตัวอย่างต่อไปนี้ใช้สีเติมสีฟ้าเข้มแบบทึบกับชุดแรก:
 
 ```cs
 using System.Drawing;
@@ -136,11 +138,11 @@ presentation.Save("series_color.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![สีของชุดข้อมูล](series_color.png)
+![สีของชุด](series_color.png)
 
 ## **เปลี่ยนชื่อชุดข้อมูล**
 
-ชื่อชุดข้อมูลถูกเก็บไว้ใน workbook ของแผนภูมิและปกติจะแสดงใน legend ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบ clustered เซลล์ B1 อยู่ที่แถว 0 คอลัมน์ 1 และมีชื่อของชุดแรก ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนี้ชัดเจน
+ชื่อชุดถูกเก็บไว้ในเวิร์กบุ๊กของแผนภูมิและโดยปกติจะแสดงในคำอธิบาย. ในเวิร์กบุ๊กเริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบทำกลุ่ม, เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และมีชื่อของชุดแรก. ค่าคงที่ที่ตั้งชื่อไว้ในตัวอย่างต่อไปทำให้โครงสร้างนี้ชัดเจน:
 
 ```cs
 using Aspose.Slides;
@@ -164,7 +166,7 @@ seriesNameCell.Value = "Revenue";
 presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-คุณยังสามารถอัปเดตเซลล์ที่อ้างอิงโดย [IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/) ได้ วิธีนี้จะหลีกเลี่ยงการสันนิษฐานแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่แล้ว
+คุณสามารถอัปเดตเซลล์ที่[IChartSeries.Name](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/name/)อ้างอิงอยู่ได้เช่นกัน. วิธีนี้หลีกเลี่ยงการสันนิษฐานแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่:
 
 ```cs
 using Aspose.Slides;
@@ -189,15 +191,15 @@ presentation.Save("series_name.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![ชื่อชุดข้อมูล](series_name.png)
+![ชื่อชุด](series_name.png)
 
-### **สร้างชุดข้อมูลโดยใช้ชื่อจากหลายเซลล์**
+### **สร้างชุดข้อมูลจากหลายเซลล์**
 
-ชื่อชุดข้อมูลแบบคอมโพสท์มีประโยชน์เมื่อชื่อสินค้าและช่วงเวลารายงานถูกเก็บในเซลล์ workbook แยกกัน ตัวอย่างเช่น สามารถรวม `Product A` ใน B1 กับ `2026` ใน C1 เป็นชื่อชุดเดียวโดยยังคงเชื่อมโยงทั้งสองส่วนไปยังเซลล์ต้นทาง
+ชื่อชุดผสมเป็นประโยชน์เมื่อชื่อผลิตภัณฑ์และช่วงเวลารายงานถูกเก็บในเซลล์เวิร์กบุ๊กแยกกัน. ตัวอย่างเช่น, คุณสามารถรวม `Product A` ใน B1 และ `2026` ใน C1 ให้เป็นชื่อชุดเดียวในขณะที่ยังคงเชื่อมโยงทั้งสองส่วนกับเซลล์ต้นทางของมันได้.
 
-ใช้ [IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/) เพื่อดึงช่วงชื่อ แล้วส่งคอลเลกชันนั้นให้กับ [IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/) พารามิเตอร์ `skipHiddenCells` ควบคุมว่าจะรวมเซลล์ที่ซ่อนหรือไม่: `true` จะยกเว้น, `false` จะรวม ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ
+ใช้[IChartDataWorkbook.GetCellCollection](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/getcellcollection/)เพื่อดึงช่วงชื่อ, จากนั้นส่งคอลเลกชันนั้นไปยัง[IChartSeriesCollection.Add](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriescollection/add/). พารามิเตอร์`skipHiddenCells`ควบคุมว่าควรรวมเซลล์ที่ซ่อนไว้หรือไม่: `true` จะไม่รวม, `false` จะรวม. ตัวอย่างนี้ใช้ `false` เพื่อรวมทุกเซลล์ในช่วงชื่อ.
 
-ตัวอย่างต่อไปนี้สร้างการนำเสนอที่มีหนึ่งชุดและสองจุดข้อมูล เซลล์ B1:C1 มีชื่อชุดเท่านั้น; A2:A3 มีฉลากหมวดหมู่; B2:B3 มีค่าตัวเลข
+ตัวอย่างต่อไปนี้สร้างพรีเซนเทชันที่มีหนึ่งชุดและสองจุดข้อมูล. เซลล์ B1:C1 มีเพียงชื่อชุด; A2:A3 มีป้ายหมวดหมู่, และ B2:B3 มีค่าตัวเลข.
 
 ```cs
 using Aspose.Slides;
@@ -216,13 +218,13 @@ chart.HasLegend = true;
 var workbook = chart.ChartData.ChartDataWorkbook;
 workbook.Clear(0);
 
-// เซลล์สองเซลล์นี้จัดหาให้ชื่อชุดข้อมูล.
+// เซลล์สองเซลล์นี้ใช้เป็นชื่อชุดข้อมูล.
 workbook.GetCell(0, 0, 1, "Product A");
 workbook.GetCell(0, 0, 2, "2026");
 var nameCells = workbook.GetCellCollection("Sheet1!$B$1:$C$1", skipHiddenCells: false);
 var series = chart.ChartData.Series.Add(nameCells, ChartType.ClusteredColumn);
 
-// เซลล์แยกต่างหากจัดหาให้หมวดหมู่และจุดข้อมูลเชิงตัวเลข.
+// เซลล์แยกต่างหากใช้เป็นหมวดหมู่และจุดข้อมูลเชิงตัวเลข.
 var northCategory = workbook.GetCell(0, 1, 0, "North");
 var southCategory = workbook.GetCell(0, 2, 0, "South");
 chart.ChartData.Categories.Add(northCategory);
@@ -235,15 +237,15 @@ series.DataPoints.AddDataPointForBarSeries(southValue);
 presentation.Save("composite_series_name.pptx", SaveFormat.Pptx);
 ```
 
-ชื่อชุดที่ได้คือ `Product A 2026` (มีช่องว่างระหว่างค่าจากสองเซลล์) legend แสดงผลเป็นรายการเดียวสำหรับทั้งสองคอลัมน์ ภาพด้านล่างได้เรนเดอร์จากการบันทึกการนำเสนอแล้ว
+ชื่อชุดที่ได้คือ `Product A 2026`, มีช่องว่างระหว่างค่าจากสองเซลล์. คำอธิบายจะแสดงเป็นรายการเดียวสำหรับทั้งสองคอลัมน์. ภาพด้านล่างแสดงจากพรีเซนเทชันที่บันทึกแล้ว:
 
-![แผนภูมิคอลัมน์พร้อมค่าทิศเหนือและทิศใต้และชื่อชุดคอมโพสท์ Product A 2026 ใน legend](composite_series_name.png)
+![แผนภูมิคอลัมน์ที่มีค่าเหนือและใต้และชื่อชุดผสม Product A 2026 ในคำอธิบาย](composite_series_name.png)
 
-## **รับสีเติมอัตโนมัติของชุดข้อมูล**
+## **รับสีเติมอัตโนมัติของชุดแผนภูมิ**
 
-[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) คืนค่าสีที่คำนวนจากดัชนีชุดข้อมูลและสไตล์ของแผนภูมิ นี่คือสีที่ใช้เมื่อไม่มีการกำหนดสีเติมของชุดข้อมูลอย่างชัดเจน การเรียกเมธอดนี้เพียงอ่านสีที่คำนวน ไม่ได้กำหนดสีเติมใหม่
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์ของแผนภูมิ. นี่คือลักษณะที่ใช้เมื่อสีเติมชุดไม่ได้กำหนดอย่างชัดเจน. การเรียกเมธอดนี้อ่านสีที่คำนวณแล้ว; ไม่ได้กำหนดสีเติมใหม่.
 
-ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดข้อมูลเริ่มต้น
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น:
 
 ```cs
 using System;
@@ -266,7 +268,7 @@ for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 }
 ```
 
-ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเบื้องต้น
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเริ่มต้น:
 
 ```text
 Series 0: ff4f81bd
@@ -274,13 +276,13 @@ Series 1: ffc0504d
 Series 2: ff9bbb59
 ```
 
-สีที่ได้ขึ้นกับสไตล์และธีมของแผนภูมิ
+สีที่ได้จะขึ้นกับสไตล์และธีมของแผนภูมิ.
 
-## **ตั้งค่าสีเติมกลับด้านสำหรับชุดข้อมูลในแผนภูมิ**
+## **ตั้งค่าสีเติมกลับกลับสำหรับชุดแผนภูมิ**
 
-สำหรับชุดข้อมูลแบบบาร์, คอลลัมน์และบับเบิล [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) สามารถแสดงค่าลบด้วยสีเติมที่ต่างออกไป ตั้งค่าสีเติมปกติให้เป็นโซลิด เปิดใช้งานการกลับด้าน และกำหนดสีค่าลบผ่าน [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) ค่าตัวเลขลบใน workbook จะไม่เปลี่ยนแปลง เพียงสีที่แสดงเท่านั้นที่เปลี่ยน
+สำหรับชุดบาร์, คอลัมน์, และฟองอากาศ, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) สามารถแสดงค่าติดลบด้วยสีเติมที่ต่างออกไป. ตั้งค่าสีเติมปกติเป็นสีทึบ, เปิดการกลับสี, แล้วกำหนดสีค่าติดลบผ่าน[IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). ตัวเลขติดลบจะไม่เปลี่ยนแปลงในเวิร์กบุ๊ก; มีเพียงสีแสดงที่เปลี่ยน.
 
-ตัวอย่างต่อไปนี้แทนข้อมูลแผนภูมิเริ่มต้นด้วยชุดข้อมูลหนึ่ง Worksheet แถว 0 มีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, คอลัมน์ 1 มีค่าต่าง ๆ
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิจำนวนเริ่มต้นด้วยชุดเดียว. แถว 0 ของเวิร์กชีตมีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, และคอลัมน์ 1 มีค่าตัวเลข:
 
 ```cs
 using System.Drawing;
@@ -335,9 +337,9 @@ presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![สีเติมโซลิดกลับด้าน](inverted_solid_fill_color.png)
+![สีเติมทึบที่กลับสี](inverted_solid_fill_color.png)
 
-คุณสามารถเปิดใช้งานการกลับด้านสำหรับจุดเดียวได้ผ่าน [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) ตัวอย่างต่อไปนี้ปิดการกลับด้านสำหรับชุดข้อมูลและเปิดเฉพาะสำหรับจุดที่เลือก พร้อมกำหนดค่าติดลบเพื่อให้เห็นผล
+คุณสามารถเปิดการกลับสีสำหรับจุดเดียวผ่าน[IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). ในตัวอย่างต่อไปนี้ การกลับสีถูกปิดสำหรับชุดและเปิดสำหรับจุดที่เลือกเท่านั้น. จุดนั้นยังถูกกำหนดค่าเป็นค่าติดลบเพื่อให้เห็นผล:
 
 ```cs
 using System.Drawing;
@@ -369,11 +371,11 @@ dataPoint.InvertIfNegative = true;
 presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **ลบค่าจุดข้อมูลเฉพาะ**
+## **ล้างค่าจุดข้อมูลเฉพาะ**
 
-หากต้องการทำให้จุดหนึ่งเป็นค่าว่างโดยไม่ลบจุดอื่น ให้ตั้งค่าเซลล์ workbook ที่เป็นพื้นหลังของจุดนั้นเป็น `null` สำหรับแผนภูมิคอลัมน์ ค่าที่พล็อตได้อยู่ใน [IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/) จุดข้อมูลยังคงอยู่ในตำแหน่งหมวดหมู่เดิม แต่แผนภูมิจะถือค่าดังกล่าวว่าเป็นค่าว่างตามการตั้งค่าการแสดงค่าว่างของแผนภูมิ
+เพื่อทำให้จุดหนึ่งเป็นค่าว่างโดยไม่ลบจุดอื่น, ตั้งค่าเซลล์เวิร์กบุ๊กที่สนับสนุนเป็น `null`. สำหรับแผนภูมิคอลัมน์, ค่าที่พลอตได้สามารถเข้าถึงได้ผ่าน[IChartDataPoint.YValue](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/yvalue/). จุดข้อมูลจะยังคงอยู่ในตำแหน่งหมวดหมู่เดิม, แต่แผนภูมิจะถือค่าของมันว่าเป็นค่าว่างตามการตั้งค่าแสดงค่าว่างของแผนภูมิ.
 
-ตัวอย่างต่อไปนี้ลบค่าเฉพาะจุดที่สองของชุดแรก
+ตัวอย่างต่อไปนี้ล้างเฉพาะจุดที่ 2 ของชุดแรก:
 
 ```cs
 using Aspose.Slides;
@@ -396,17 +398,17 @@ dataPoint.YValue.AsCell.Value = null;
 presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-แผนภูมิสเก็ตเตอร์ใช้เซลล์ X และ Y แยกกัน และแผนภูมิบับเบิลยังใช้เซลล์ขนาดด้วย ให้ลบเฉพาะเซลล์ที่แทนค่าที่ต้องการลบ อย่าดำเนินการเรียก [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) หากต้องการคงจุดอื่นไว้ เพราะเมธอดนี้จะลบจุดข้อมูลทั้งหมดในคอลเลกชัน
+แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน, ส่วนแผนภูมิฟองอากาศยังใช้เซลล์ขนาด. ให้ล้างเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ. อย่าเรียก[IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/)เมื่อคุณต้องการเก็บจุดอื่น ๆ ไว้, เนื่องจากเมธอดนี้จะลบทุกจุดจากคอลเลกชัน.
 
-## **ควบคุมการแสดงผลของเซลล์ที่ว่าง**
+## **ควบคุมการแสดงผลของเซลล์ว่าง**
 
-เซลล์ที่ซ่อนอยู่แต่มีค่าเป็นกรณีที่แยกจากเซลล์ที่ว่างเปล่า หากต้องการรวมหรือยกเว้นข้อมูลจากแถวและคอลัมน์ที่ซ่อนอยู่ ให้ดูที่ [Include Data from Hidden Rows and Columns](/slides/th/net/chart-workbook/#include-data-from-hidden-rows-and-columns)
+เซลล์ที่ซ่อนแต่มีค่าเป็นกรณีที่แตกต่างจากเซลล์ว่าง. เพื่อรวมหรือยกเว้นข้อมูลจากแถวและคอลัมน์ที่ซ่อน, ดู[Include Data from Hidden Rows and Columns](/slides/th/net/chart-workbook/#include-data-from-hidden-rows-and-columns).
 
-เซลล์ workbook ที่ว่างเปล่าจะแสดงว่าขาดข้อมูล; เซลล์ที่มีค่า `0` แสดงว่ามีค่าตัวเลขที่ทราบ ตั้งค่า [IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/) เป็น `null` เพื่อทำให้เซลล์เป็นค่าว่าง ศูนย์ตัวเลขจะคงเป็นศูนย์ไม่ว่าเซลล์ว่างจะถูกตั้งค่าอย่างไร
+เซลล์เวิร์กบุ๊กที่ว่างเปล่าจะแสดงว่าขาดข้อมูล; เซลล์ที่มีค่า `0` แสดงค่าตัวเลขที่ทราบ. ตั้งค่า[IChartDataCell.Value](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/value/)เป็น `null` เพื่อทำให้เซลล์เป็นค่าว่าง. ศูนย์ตัวเลขยังคงเป็นศูนย์ไม่ว่าการตั้งค่าเซลล์ว่างจะเป็นอย่างไร.
 
-ใช้ [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) เพื่อเลือกวิธีที่แผนภูมิจะแสดงเซลล์ที่ว่าง การตั้งค่านี้ใช้กับแผนภูมิทั้งหมดและจะเปลี่ยนวิธีการพล็อตค่าว่างโดยไม่ต้องเติมค่า `0` หรือค่าเฉลี่ยลงในเซลล์
+ใช้[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/)เพื่อเลือกว่าจะแสดงค่าว่างอย่างไร. การตั้งค่านี้ใช้กับแผนภูมิทั้งหมด. มันเปลี่ยนวิธีที่ค่าว่างถูกพลอต, โดยไม่เติมเซลล์ว่างด้วยศูนย์หรือค่าที่ประมาณ.
 
-ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นที่มีชุดข้อมูลหนึ่ง ลบค่าใน Day 3 และบันทึกแผนภูมิเดียวกันด้วยโหมดแต่ละแบบ ไม่ต้องใช้ไฟล์อินพุต [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) ใช้ worksheet 0, คอลัมน์ 0 สำหรับฉลากหมวดหมู่, คอลัมน์ 1 สำหรับค่า; แถว 0 เก็บชื่อชุด ค่าข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`
+ตัวอย่างต่อไปนี้สร้างแผนภูมิเส้นหนึ่งชุด, ล้างค่าของวัน 3, แล้วบันทึกแผนภูมิเดียวกันด้วยแต่ละโหมด. ไม่ต้องใช้ไฟล์อินพุต. [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) ใช้ Worksheet 0, คอลัมน์ 0 สำหรับป้ายหมวดหมู่, และคอลัมน์ 1 สำหรับค่าตัวเลข; แถว 0 มีชื่อชุด. ข้อมูลสุดท้ายคือ `10, 20, empty, 30, 40`.
 
 ```cs
 using Aspose.Slides;
@@ -435,7 +437,7 @@ for (var i = 0; i < values.Length; i++)
     series.DataPoints.AddDataPointForLineSeries(valueCell);
 }
 
-// ทำให้ Day 3 เป็นค่าว่างจริง ๆ ขณะยังคงหมวดหมู่และจุดข้อมูล
+// ปล่อยให้วัน 3 ว่างจริงๆ ขณะที่ยังคงหมวดหมู่และจุดข้อมูลของมันไว้.
 workbook.GetCell(0, 3, 1).Value = null;
 
 var modes = new[] { DisplayBlanksAsType.Gap, DisplayBlanksAsType.Zero, DisplayBlanksAsType.Span };
@@ -446,19 +448,19 @@ foreach (var mode in modes)
 }
 ```
 
-แต่ละไฟล์ผลลัพธ์จะบันทึกโหมดที่ตั้งไว้ก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx` และ `empty_cells_Span.pptx` หากต้องการบันทึกเฉพาะหนึ่งเวอร์ชัน ให้กำหนดโหมดที่ต้องการแล้วบันทึกการนำเสนอเพียงครั้งเดียวแทนการวนลูปหลายโหมด
+แต่ละไฟล์ผลลัพธ์บันทึกโหมดที่ตั้งค่าก่อนบันทึก: `empty_cells_Gap.pptx`, `empty_cells_Zero.pptx`, และ `empty_cells_Span.pptx`. หากต้องการบันทึกเพียงเวอร์ชันเดียว, ตั้งค่าโหมดที่ต้องการแล้วบันทึกพรีเซนเทชันหนึ่งครั้งแทนที่จะวนลูปหลายโหมด.
 
-การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในไฟล์ทั้งสาม Day 3 เป็นค่าว่างใน workbook ทุกกรณี
+การเปรียบเทียบด้านล่างแสดงข้อมูลเดียวกันในทั้งสามไฟล์. วัน 3 เป็นค่าว่างในเวิร์กบุ๊กในทุกกรณี:
 
-![แผนภูมิเส้นที่มีข้อมูลเดียวกัน: Gap ทำให้เส้นขาดที่ Day 3, Zero ทำให้เส้นลงถึงศูนย์, Span เชื่อม Day 2 ไปยัง Day 4](display_blanks_as.png)
+![แผนภูมิเส้นที่มีข้อมูลเดียวกัน: Gap ทำให้เส้นขาดที่วัน 3, Zero ทำให้เส้นลดลงเป็นศูนย์, และ Span เชื่อมต่อวัน 2 ไปยังวัน 4.](display_blanks_as.png)
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับประเภทของแผนภูมิ แผนภูมิเส้นทำให้สามโหมดดูง่าย บาร์และคอลลัมน์ไม่มีเส้นเชื่อมระหว่างคอลัมน์ที่หายไป ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมได้; คอลัมน์ที่หายไปและคอลัมน์ศูนย์อาจดูคล้ายกันเช่นกัน แผนภูมิ scatter ที่มีเพียงมาร์คเกอร์ก็ไม่มีเส้นเชื่อม อย่าคาดหวังผลลัพธ์ที่แตกต่างสามแบบสำหรับทุกประเภทแผนภูมิ; ให้ตรวจสอบผลลัพธ์สำหรับประเภทที่ใช้
+ผลที่มองเห็นขึ้นกับประเภทแผนภูมิ. แผนภูมิเส้นทำให้เปรียบเทียบสามโหมดได้ง่าย. แผนภูมิแท่งและคอลัมน์ไม่มีเส้นเชื่อมต่อระหว่างคอลัมน์ที่ขาดหาย, ดังนั้น `Span` ไม่สามารถสร้างส่วนเชื่อมต่อที่แสดงในภาพได้; คอลัมน์ที่หายและคอลัมน์ศูนย์อาจดูคล้ายกัน. เช่นเดียวกับแผนภูมิกระจายที่มีเพียงมาร์คเกอร์ไม่มีเส้นเชื่อมต่อ. อย่าคาดหวังผลลัพธ์ที่แตกต่างกันสามแบบสำหรับทุกประเภทแผนภูมิ; ตรวจสอบผลลัพธ์สำหรับประเภทที่คุณใช้.
 
-## **ตั้งค่าความกว้าง Gap ของชุดข้อมูล**
+## **ตั้งค่าความกว้างช่องว่างของชุด**
 
-Gap width คือระยะห่างระหว่างกลุ่มบาร์หรือคอลลัมน์ที่อยู่ติดกัน ซึ่งแสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลลัมน์ เช่นเดียวกับ overlap มันเป็นของกลุ่มชุดข้อมูลแม่ ไม่ได้เป็นของชุดข้อมูลเดียว ตั้งค่า [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) หนึ่งครั้งสำหรับกลุ่ม ค่าใหญ่จะทำให้ช่องว่างระหว่างกลุ่มเพิ่มขึ้น ค่าเล็กจะทำให้กลุ่มแน่นขึ้น
+ความกว้างช่องว่างคือช่องว่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน, แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์. เช่นเดียวกับการซ้อน, มันเป็นคุณสมบัติของกลุ่มชุดพาเรนต์ ไม่ได้เป็นของชุดเดียว. ตั้งค่า[IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)หนึ่งครั้งสำหรับกลุ่ม. ค่าใหญ่กว่าจะสร้างช่องว่างมากขึ้นระหว่างกลุ่ม; ค่าเล็กกว่าจะทำให้กลุ่มหนาแน่นขึ้น.
 
-ตัวอย่างต่อไปนี้ปรับเปลี่ยนความกว้าง Gap และบันทึกการนำเสนอสุดท้ายเท่านั้น
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างช่องว่างและบันทึกพรีเซนเทชันสุดท้ายเท่านั้น:
 
 ```cs
 using Aspose.Slides;
@@ -482,46 +484,80 @@ presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![ความกว้าง Gap](gap_width.png)
+![ความกว้างช่องว่าง](gap_width.png)
+
+## **แสดงหรือซ่อนเส้นเชื่อมชุด**
+
+เส้นเชื่อมชุดเชื่อมต่อส่วนที่เกี่ยวข้องของแผนภูมิแบบเชิงภาพ. ใช้[IChartSeriesGroup.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hasserieslines/)เพื่อแสดงหรือซ่อนเส้นเหล่านี้ในแผนภูมิแบบ stacked bar และ OfPie ที่รองรับ. ในแผนภูมิ stacked bar และ column สองมิติ, เส้นเหล่านี้เชื่อมขอบสแตกที่สอดคล้องกันข้ามหมวดหมู่. ในแผนภูมิ Pie of Pie และ Bar of Pie, เส้นเชื่อมแผนภูมิหลักกับแผนภูมิรอง. การตั้งค่านี้ไม่ใช่การเชื่อมต่อทั่วไปสำหรับประเภทแผนภูมิอื่น ๆ.
+
+เข้าถึงกลุ่มผ่าน[IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/). การตั้งค้านี้ใช้กับทุกชุดในกลุ่มนั้น. [IChartSeries.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/hasserieslines/)เป็นแบบอ่าน‑อย่างเดียวและสะท้อนการตั้งค่ากลุ่มพาเรนต์; เปลี่ยนคุณสมบัติกลุ่มเพื่ออัปเดต.
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิ[PieOfPie](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)หนึ่งชุดด้วยข้อมูลเริ่มต้น. จากนั้นบันทึกแผนภูมิเดียวกันโดยเปิดใช้งานเส้นเชื่อมชุดและปิดใช้งาน, ผลลัพธ์เป็นพรีเซนเทชันสองไฟล์เพื่อนำไปเปรียบเทียบ.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 400);
+var series = chart.ChartData.Series[0];
+var seriesGroup = series.ParentSeriesGroup;
+
+seriesGroup.HasSeriesLines = true;
+presentation.Save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+seriesGroup.HasSeriesLines = false;
+presentation.Save("series_lines_disabled.pptx", SaveFormat.Pptx);
+```
+
+| เปิดใช้งานเส้นเชื่อมชุด | ปิดใช้งานเส้นเชื่อมชุด |
+| --- | --- |
+| ![แผนภูมิ Pie of Pie ที่เปิดใช้งานเส้นเชื่อมชุด](series_lines_enabled.png) | ![แผนภูมิ Pie of Pie ที่ปิดการใช้งานเส้นเชื่อมชุด](series_lines_disabled.png) |
+| สองเส้นนี้เชื่อมพายหลักกับพายรอง. | พายทั้งสองยังคงมองเห็นได้, แต่เส้นเชื่อมจะถูกซ่อน. |
+
+เส้นเชื่อมชุดต่างจากเส้นนำของป้ายข้อมูลที่เชื่อมป้ายกับจุดข้อมูล; เส้นกริดที่ระบุช่วงบนแกนแผนภูมิ; และเส้นในแผนภูมิเส้นที่แสดงค่าข้อมูล. การตั้งค่านี้ไม่ควบคุมองค์ประกอบเหล่านั้น.
 
 ## **FAQ**
 
-**แผนภูมิประเภทใดบ้างที่รองรับชุดข้อมูล?**
+**ประเภทแผนภูมิใดบ้างที่รองรับชุดข้อมูล?**
 
-ทุกประเภทแผนภูมิที่แสดงโดยการนับเป็น [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) จะใช้ข้อมูลแผนภูมิ แต่ชุดข้อมูลของแต่ละประเภทไม่จำเป็นต้องมีโครงสร้างค่าและการตั้งค่าเดียวกัน ตัวอย่างเช่น แผนภูมิกลุ่มประเภทใช้หมวดหมู่และค่า, แผนภูมิ scatter ใช้ค่า X และ Y, แผนภูมิ bubble เพิ่มขนาดบับเบิล ใช้วิธีการสร้างจุดข้อมูลที่สอดคล้องกับประเภทชุดข้อมูล ตัวเลือกเช่น overlap และ gap width จะใช้เฉพาะกลุ่มบาร์หรือคอลลัมน์ที่เข้ากันได้
+ทุกประเภทแผนภูมิที่ระบุโดย[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/)ใช้ข้อมูลแผนภูมิ, แต่ชุดข้อมูลของแต่ละประเภทอาจมีโครงสร้างค่าหรือการตั้งค่าที่ต่างกัน. ตัวอย่างเช่น, แผนภูมิเกรดใช้หมวดหมู่และค่า, แผนภูมิกระจายใช้ค่า X และ Y, แผนภูมิบับอากาศเพิ่มขนาดฟอง. ใช้วิธีสร้างจุดข้อมูลที่สอดคล้องกับประเภทชุด. ตัวเลือกเช่นการซ้อนและความกว้างช่องว่างใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้.
 
-**ชุดข้อมูลของแผนภูมิคืออะไร?**
+**ชุดข้อมูลกลุ่มคืออะไร?**
 
-[IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) ประกอบด้วยชุดข้อมูลที่เข้ากันและใช้การตั้งค่าการพล็อตระดับกลุ่ม แผนภูมิแบบผสมอาจมีหลายกลุ่ม ดังนั้นการเปลี่ยนแปลงที่ทำผ่านชุดข้อมูลหนึ่งอาจไม่กระทบต่อทุกชุดในแผนภูมิ
+[IChartSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/) ประกอบด้วยชุดข้อมูลที่เข้ากันได้และแชร์การตั้งค่าการพลอตระดับกลุ่ม. แผนภูมิกำเนิดอาจมีหลายกลุ่ม, ดังนั้นการเปลี่ยนกลุ่มผ่านชุดหนึ่งไม่จำเป็นต้องเปลี่ยนทุกชุดในแผนภูมิ.
 
 **แผนภูมิที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
 
-มีโดยค่าเริ่มต้น [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) จะสร้างตัวอย่างชุดข้อมูล, หมวดหมู่และค่า คุณสามารถแก้ไขเซลล์เหล่านั้นหรือทำความสะอาดคอลเลกชันชุดข้อมูลและหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองได้ อีกทางเลือกหนึ่งคือใช้ overload ที่สร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้น
+ใช่. ตามค่าเริ่มต้น, [IShapeCollection.AddChart](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addchart/) จะสร้างชุดตัวอย่าง, หมวดหมู่, และค่า. คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งชุดและคอลเลกชันหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างเต็มที่. การโอเวอร์โหลดบางตัวยังสามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้นได้.
 
-**วัตถุแผนภูมิเชื่อมโยงกับเซลล์ workbook อย่างไร?**
+**วัตถุแผนภูมิเชื่อมต่อกับเซลล์เวิร์กบุ๊กอย่างไร?**
 
-ชื่อชุดข้อมูล, ฉลากหมวดหมู่และค่าจุดข้อมูลอ้างอิงเซลล์ใน [IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิที่สอดคล้องกัน เมื่อสร้างข้อมูลกำหนดเองให้รักษาแถวหมวดหมู่และแถวค่าชุดข้อมูลให้สอดคล้องกันเพื่อให้แต่ละจุดพล็อตอยู่ภายใต้หมวดหมู่ที่ตั้งใจ
+ชื่อชุด, ป้ายหมวดหมู่, และค่าจุดข้อมูลอ้างอิงเซลล์ใน[IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/). การเปลี่ยนเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิเกี่ยวข้อง. เมื่อคุณสร้างข้อมูลแบบกำหนดเอง, ใหรักษาแถวหมวดหมู่และแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดพลอตอยู่ภายใต้หมวดหมู่ที่ต้องการ.
 
-**จะลบจุดเดียวอย่างไรโดยไม่ลบชุดทั้งหมด?**
+**ฉันจะลบจุดเดียวแทนการลบทั้งชุดอย่างไร?**
 
-ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อให้จุดยังคงตำแหน่งหมวดหมู่เป็นจุดว่าง ใช้ [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/) เฉพาะเมื่อต้องการลบจุดทั้งหมดในชุดนั้น หากลบหมวดหมู่ด้วย ต้องอัปเดตทุกชุดเพื่อให้ค่าตรงกับคอลเลกชันหมวดหมู่
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อรักษาตำแหน่งหมวดหมู่ของจุดเป็นจุดว่าง. ใช้[IChartDataPointCollection.Clear](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointcollection/clear/)เฉพาะเมื่อคุณต้องการลบทุกจุดจากชุดนั้น. หากคุณลบหมวดหมู่ด้วย, ให้อัปเดตทุกชุดเพื่อให้ค่าของพวกเขายังคงสอดคล้องกับคอลเลกชันหมวดหมู่.
 
-**จุดที่ว่างจะแสดงอย่างไร?**
+**จุดว่างจะแสดงอย่างไร?**
 
-ผลลัพธ์ขึ้นกับประเภทแผนภูมิและ [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/) แผนภูมิที่รองรับสามารถแสดงค่าว่างเป็นช่องว่าง, ค่าศูนย์ หรือเชื่อมจุดใกล้เคียงกัน ให้เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่ขาดหาย ดูที่ [Control the Display of Empty Cells](#control-the-display-of-empty-cells) สำหรับตัวอย่างเต็มและการเปรียบเทียบภาพ
+ผลลัพธ์ขึ้นกับประเภทแผนภูมิและ[IChart.DisplayBlanksAs](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/displayblanksas/). แผนภูมิที่รองรับสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่าศูนย์, หรือโดยการเชื่อมจุดใกล้เคียง. เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่หายไปในพรีเซนเทชันของคุณ. ดู[Control the Display of Empty Cells](#control-the-display-of-empty-cells)สำหรับตัวอย่างครบถ้วนและการเปรียบเทียบภาพ.
 
-**ค่าติดลบถูกจัดรูปแบบอย่างไร?**
+**ค่าติดลบจะถูกจัดรูปแบบอย่างไร?**
 
-สำหรับชุดข้อมูลบาร์, คอลลัมน์ และบับเบิลที่รองรับ ให้เปิดใช้งาน [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/) แล้วตั้งค่า [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) คุณสามารถกำหนดพฤติกรรมให้กับจุดเดียวผ่าน [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) คุณสมบัติเหล่านี้มีผลต่อการจัดรูปแบบ ไม่ใช่ค่าตัวเลขที่ถูกเก็บ
+สำหรับชุดบาร์, คอลัมน์, และฟองอากาศที่รองรับ, เปิด[IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertifnegative/)และตั้ง[IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). คุณสามารถทำให้พฤติกรรมนี้แยกสำหรับจุดเดียวด้วย[IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). คุณสมบัติเหล่านี้ส่งผลต่อการจัดรูปแบบ, ไม่ใช่ค่าตัวเลขที่จัดเก็บ.
 
-**เมื่อตั้งค่าทั้งระดับชุดและระดับจุด แกะเอาใครชนะ?**
+**การจัดรูปแบบใดชนะเมื่อทั้งชุดและจุดถูกจัดรูปแบบ?**
 
-การจัดรูปแบบจุดข้อมูลโดยชัดเจนจะมีลำดับความสำคัญสูงกว่าสำหรับจุดนั้น จุดอื่น ๆ จะใช้การจัดรูปแบบระดับชุดที่กำหนดไว้ หรือหากระดับชุดไม่ได้กำหนด จะใช้สไตล์และธีมของแผนภูมิอัตโนมัติ คุณสมบัติกลุ่มเช่น overlap และ gap width ควบคุมการวางเลย์เอาต์และไม่ใช่การจัดรูปแบบระดับจุด
+การจัดรูปแบบจุดข้อมูลโดยชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น. จุดอื่น ๆ จะใช้การจัดรูปแบบชุดที่กำหนดหรือ, เมื่อไม่มีการกำหนดชุด, สไตล์และธีมของแผนภูมิอัตโนมัติ. คุณสมบัติกลุ่มเช่นการซ้อนและความกว้างช่องว่างควบคุมการจัดวางและไม่ใช่การทับซ้อนระดับจุด.
 
-**แผนภูมิสามารถมีชุดข้อมูลได้สูงสุดกี่ชุด?**
+**มีขีดจำกัดจำนวนชุดที่แผนภูมิกี่ชุดหรือไม่?**
 
-Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดข้อมูลแบบคงที่ อย่างไรก็ตาม ข้อจำกัดของไฟล์นำเสนอ, หน่วยความจำที่ใช้, เวลาเรนเดอร์และความอ่านง่ายของแผนภูมิจะเป็นปัจจัยที่กำหนดขีดจำกัดที่ใช้งานได้จริง
+Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดแยกจากกัน. อย่างไรก็ตาม ข้อจำกัดของไฟล์พรีเซนเทชัน, หน่วยความจำที่มี, เวลาเรนเดอร์, และการอ่านค่าแผนภูมิจะกำหนดขีดจำกัดที่ใช้ได้จริง.
 
-**ควรทำอย่างไรเมื่อคอลลัมน์หรือบาร์อยู่ใกล้กันเกินไปหรือห่างกันมากเกินไป?**
+**ควรเปลี่ยนอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันมากเกินไป?**
 
-ตั้งค่า [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) บนกลุ่มชุดข้อมูลแม่ที่เกี่ยวข้อง เพิ่มค่าจะทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น ลดค่าจะทำให้กลุ่มเข้าหากันมากขึ้น
+ตั้งค่า[IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)บนกลุ่มพาเรนต์ที่เหมาะสม. เพิ่มค่าจะทำให้ช่องว่างระหว่างคลัสเตอร์กว้างขึ้น, ลดค่าจะทำให้คลัสเตอร์เข้ากลุ่มกันมากขึ้น.

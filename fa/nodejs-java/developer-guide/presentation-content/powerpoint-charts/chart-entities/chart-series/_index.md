@@ -1,45 +1,93 @@
 ---
-title: مدیریت سری‌های داده نمودار در ارائه‌ها با JavaScript
-linktitle: سری‌های داده
+title: مدیریت مجموعه داده‌های نمودار در ارائه‌ها با استفاده از JavaScript
+linktitle: مجموعه داده
 type: docs
 url: /fa/nodejs-java/chart-series/
 keywords:
-- سری نمودار
-- همپوشانی سری
-- رنگ سری
-- نام سری
+- مجموعه نمودار
+- همپوشانی مجموعه
+- رنگ مجموعه
+- نام مجموعه
 - نقطه داده
-- سلول کارنامه
-- فاصله سری
+- سلول کتاب‌کار
+- فاصله مجموعه
 - مقدار منفی
 - PowerPoint
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "یاد بگیرید چگونه سری‌های نمودار، نقاط داده، سلول‌های کارنامه، قالب‌بندی، همپوشانی، عرض فاصله و مقادیر منفی را در ارائه‌ها با JavaScript مدیریت کنید."
+description: "بیاموزید چگونه مجموعه‌های نمودار، نقاط داده، سلول‌های کتاب‌کار، قالب‌بندی، همپوشانی، عرض فواصل و مقادیر منفی را در ارائه‌ها با JavaScript مدیریت کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-یک نمودار داده‌های ترسیم شده خود را در یک کارنامه داده‌های نمودار (chart data workbook) ذخیره می‌کند. یک [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) یک مجموعه از مقادیر مرتبط را نمایندگی می‌کند و هر [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) در سری به یک یا چند سلول کارنامه ارجاع می‌دهد. اشیاء [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) برچسب‌ها یا مقادیر گروه‌بندی مشترک بین سری‌ها را فراهم می‌کنند. بنابراین نام سری، دسته‌بندی‌ها و مقادیر نقاط به اشیاء [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) متصل هستند نه اینکه فقط به صورت متن نمایش ذخیره شوند.
+یک نمودار می‌تواند مقادیر ترسیم‌شده خود را در سلول‌های کتاب‌کار یا به‌صورت عددی مستقیم ذخیره کند. یک [ChartSeries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/) نمایانگر یک مجموعه از مقادیر مرتبط است و هر [ChartDataPoint](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/) نمایانگر یک نقطه در آن مجموعه است. اشیاء [ChartCategory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartcategory/) برچسب‌ها یا مقادیر گروهی را که توسط مجموعه‌ها مشترک هستند فراهم می‌کنند. در نمودارهای ایجاد شده با داده‌های پیش‌فرض، نام‌های مجموعه، دسته‌ها و مقادیر نقاط از اشیاء [ChartDataCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/) در کتاب‌کار نمودار استفاده می‌شود.
 
-برای یک نمودار دسته‌ای معمولی، کارنامه پیش‌فرض از ردیف 0 برای نام‌های سری، ستون 0 برای نام‌های دسته و سلول‌های باقی‌مانده برای مقادیر سری استفاده می‌کند. شاخص‌های برگه، ردیف و ستون که به [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCell) پاس داده می‌شوند، صفر‑مبنایی هستند. این چیدمان هنگام ایجاد یک نمودار با داده‌های پیش‌فرض مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری شده، قبل از تغییر مقادیر کارنامه، سلول‌های ارجاع داده شده توسط سری‌ها، دسته‌ها و نقاط داده را بررسی کنید.
+برای یک نمودار دسته‌ای معمولی، کتاب‌کار پیش‌فرض از ردیف 0 برای نام‌های مجموعه، ستون 0 برای نام‌های دسته و بقیهٔ سلول‌ها برای مقادیر مجموعه استفاده می‌کند. شاخص‌های برگه، ردیف و ستون که به ‎[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcell/)‎ ارسال می‌شوند صفر‑مبنا هستند. این چیدمان هنگام ایجاد نمودار با داده‌های پیش‌فرض مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائهٔ بارگذاری‌شده، قبل از تغییر مقادیر کتاب‌کار سلول‌های مرجع شده توسط مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
 
-تنظیمات نمودار در سه حوزه مختلف قرار دارند:
+تنظیمات نمودار دارای سه محدودهٔ متفاوت هستند:
 
-- تنظیمات سطح سری، مانند [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat)، ظاهر پیش‌فرض تمام نقاط یک سری را تعیین می‌کند.
-- تنظیمات نقطه داده، مانند [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat)، ظاهر سری را برای یک نقطه بازنویسی می‌کند.
-- تنظیمات گروهی برای سری‌های سازگاری که به یک [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) تعلق دارند، اعمال می‌شود. برای تنظیم گزینه‌هایی مانند همپوشانی یا عرض فاصله، گروه را از طریق [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) دسترسی پیدا کنید.
+- تنظیمات در سطح مجموعه، مانند ‎[ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/)‎، ظاهر پیش‌فرض همهٔ نقاط یک مجموعه را فراهم می‌کند.
+- تنظیمات نقطه‑داده، مانند ‎[ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/)‎، ظاهر مجموعه را برای یک نقطهٔ خاص بازنویسی می‌کند.
+- تنظیمات گروهی بر روی مجموعه‌های سازگاری که به همان ‎[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/)‎ تعلق دارند اعمال می‌شود. برای تنظیم گزینه‌هایی نظیر پوشش‌پذیری یا عرض فاصله، از ‎[ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/)‎ استفاده کنید.
 
-زمانی که پر کردن نقطه یا سری به‌صورت صریح تنظیم نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هم تنظیمات سری و هم تنظیمات نقطه موجود باشد، تنظیمات نقطه برای آن نقطه برتر است.
+زمانی که پر کردن صریح برای نقطه یا مجموعه‌ای تعیین نشده باشد، سبک و تم نمودار ظاهر خودکار را تعیین می‌کند. وقتی هم تنظیمات مجموعه و هم تنظیمات نقطه موجود باشد، تنظیمات نقطه برای آن نقطه اولویت دارد.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+![نمودار‑سری‑پاورپوینت](chart-series-powerpoint.png)
 
-## **تنظیم همپوشانی سری نمودار**
+در یک نمودار استوانه‌ای خوشه‌ای، ببینید چگونه ‎[changing the 3D series type or bar shape](/slides/fa/nodejs-java/3d-chart/#change-the-3d-series-type-and-bar-shape)‎ بر اولین مجموعه تأثیر می‌گذارد.
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getOverlap) مقدار همپوشانی نوارها یا ستون‌ها را در یک نمودار ۲‑بعدی از ‑۱۰۰ تا ۱۰۰ درصد گزارش می‌دهد. این یک تصویر فقط‑خواندنی از تنظیمات گروه سری والد است. برای به‌روزرسانی همه سری‌های سازگار در آن گروه، از [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) استفاده کنید. این گزینه برای انواع نمودارهایی که نوارها یا ستون‌های گروهی را نمایش می‌دهند، اعمال می‌شود؛ بر گروه‌های سری نامرتبط در یک نمودار ترکیبی تأثیری ندارد.
+## **تنظیم مقادیر مجموعه با عددهای صریح**
 
-مثال زیر همپوشانی گروه حاوی اولین سری را تنظیم می‌کند:
+از عددهای صریح زمانی استفاده کنید که مقادیر مجموعه از داده‌های برنامه یا محاسبات می‌آیند و نیازی به ارجاع به سلول‌های برگه کار نیست. قبل از اختصاص نتیجهٔ ‎[getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/)‎ هر نقطه، ‎[setDataSourceTypeForValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforvalues/)‎ را با ‎[DataSourceType.DoubleLiterals](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datasourcetype/)‎ فراخوانی کنید و سپس ‎[setAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/setasliteraldouble/)‎ را اعمال کنید.
+
+تنظیم مجموعهٔ کنترل‌کنندهٔ نوع منبع تمام مقادیر نقطه‌ها در آن مجموعه را تعیین می‌کند. هر مقدار نقطه با ‎[getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/basechartvalue/)‎ نوع انتخاب‌شده را گزارش می‌دهد؛ آن را از طریق تنظیم مجموعه تغییر دهید. با ‎`Worksheet`‎، از ‎[getAsCell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getascell/)‎ برای دسترسی به سلول مرجع استفاده کنید. با ‎`DoubleLiterals`‎، از ‎[getAsLiteralDouble](https://reference.aspose.com/slides/nodejs-java/aspose.slides/doublechartvalue/getasliteraldouble/)‎ یا ‎`setAsLiteralDouble`‎ برای خواندن یا نوشتن مستقیم عدد استفاده کنید.
+
+مثال زیر یک نمودار ستونی با مجموعه‌ها و دسته‌های پیش‌فرض ایجاد می‌کند، سپس مقادیر محاسبه‌شدهٔ 10، 20 و … را به نقاط موجود مجموعهٔ اول اختصاص می‌دهد. سپس ارائه را ذخیره، باز می‌کند و مقادیر ذخیره‌شده را چاپ می‌کند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    const series = chart.getChartData().getSeries().get_Item(0);
+
+    series.getDataPoints().setDataSourceTypeForValues(aspose.slides.DataSourceType.DoubleLiterals);
+    for (let i = 0; i < series.getDataPoints().size(); i++) {
+        series.getDataPoints().get_Item(i).getValue().setAsLiteralDouble((i + 1) * 10);
+    }
+
+    presentation.save("numeric_literals.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopenedPresentation = new aspose.slides.Presentation("numeric_literals.pptx");
+try {
+    const reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    const reopenedChart = reopenedSlide.getShapes().get_Item(0);
+    const reopenedSeries = reopenedChart.getChartData().getSeries().get_Item(0);
+    for (let i = 0; i < reopenedSeries.getDataPoints().size(); i++) {
+        const point = reopenedSeries.getDataPoints().get_Item(i);
+        console.log(point.getValue().getAsLiteralDouble());
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+نوع منبع مقدار نقطه جدا از ‎[ChartData.getDataSourceType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdata/getdatasourcetype/)‎ است که پیکربندی کتاب‌کار داخلی یا خارجی نمودار را مشخص می‌کند. استفاده از عددهای صریح به تنهایی کتاب‌کار توکار را حذف نمی‌کند. در این مثال، کتاب‌کار برای برچسب‌های دسته، نام‌های مجموعه و سایر مجموعه‌ها در دسترس باقی می‌ماند. برای مدیریت کتاب‌کار، بخش ‎[Chart Workbook](/slides/fa/nodejs-java/chart-workbook/)‎ را ببینید.
+
+برای نمودارهای پراکندگی و حبابی، از ‎[setDataSourceTypeForXValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforxvalues/)‎ و ‎[setDataSourceTypeForYValues](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforyvalues/)‎ برای انتخاب منابع ‎[getXValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getxvalue/)‎ و ‎[getYValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getyvalue/)‎ استفاده کنید. نمودارهای حبابی همچنین از ‎[setDataSourceTypeForBubbleSizes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/setdatasourcetypeforbubblesizes/)‎ برای ‎[getBubbleSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getbubblesize/)‎ بهره می‌‏برند. هر منبع مربوطه را قبل از اختصاص عدد با `DoubleLiterals` تنظیم کنید و سپس از روش ‎`setAsLiteralDouble`‎ استفاده کنید.
+
+## **تنظیم تداخل مجموعهٔ نمودار**
+
+‎[ChartSeries.getOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getoverlap/)‎ گزارش می‌دهد که میله‌ها یا ستون‌ها در یک نمودار دو‑بعدی تا چه حد هم‑پوشانی دارند، مقادیر بین ‎-100‎ تا ‎100‎ درصد. این یک تصویر‌نگاری فقط‑خواندنی از تنظیمات گروه مجموعه والد است. برای به‑روزرسانی تمام مجموعه‌های سازگار در آن گروه، از ‎[ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setoverlap/)‎ استفاده کنید. این گزینه برای انواع نمودارهایی که میله‌ها یا ستون‌های گروهی نمایش می‌دهند اعمال می‌شود؛ برای گروه‌های مجموعهٔ نامرتبط در یک نمودار ترکیبی اثر ندارد.
+
+مثال زیر تداخل را برای گروهی که شامل اولین مجموعه است تنظیم می‌کند:
 
 ```javascript
 const aspose = {};
@@ -54,7 +102,7 @@ const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    // نمودار جدید شامل سری‌های نمونه، دسته‌ها و مقادیر است.
+    // چارت جدید شامل مجموعه‌های نمونه، دسته‌ها و مقادیر است.
     const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
 
     const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
@@ -68,13 +116,13 @@ try {
 
 نتیجه:
 
-![The series overlap](series_overlap.png)
+![تداخل مجموعه‌ها](series_overlap.png)
 
-## **تغییر رنگ پر کردن سری**
+## **تغییر رنگ پر کردن مجموعه**
 
-از [ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getFormat) برای تنظیم پر کردن پیش‌فرض یک سری کامل استفاده کنید. اگر برای یک نقطه پر کردن صریحی تنظیم شده باشد، تنظیم [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getFormat) آن، پر کردن سری را برای همان نقطه بازنویسی می‌کند.
+از ‎[ChartSeries.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getformat/)‎ برای تنظیم پر کردن پیش‌فرض تمام مجموعه استفاده کنید. اگر یک نقطه قبلاً پر کردن صریح داشته باشد، تنظیم ‎[ChartDataPoint.getFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getformat/)‎ آن، پر کردن مجموعه را برای همان نقطه بازنویسی می‌کند.
 
-مثال زیر پر کردن آبی ثابت را به اولین سری اعمال می‌کند:
+مثال زیر پر کردن آبی ثابت را به اولین مجموعه اعمال می‌کند:
 
 ```javascript
 const aspose = {};
@@ -104,11 +152,11 @@ try {
 
 نتیجه:
 
-![The color of the series](series_color.png)
+![رنگ مجموعه](series_color.png)
 
-## **تغییر نام سری**
+## **تغییر نام مجموعه**
 
-نام یک سری در کارنامه داده‌های نمودار ذخیره می‌شود و معمولاً در راهنما (legend) نمایش داده می‌شود. در کارنامه پیش‌فرض ایجاد شده برای یک نمودار ستون خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین سری را شامل می‌شود. ثابت‌های نام‌گذاری در مثال زیر این ساختار را صریح می‌کند:
+نام یک مجموعه در کتاب‌کار داده‌های نمودار ذخیره می‌شود و به‌طور معمول در افسانه (legend) نمایش داده می‌شود. در کتاب‌کار پیش‌فرض ایجاد شده برای یک نمودار ستون خوشه‌ای، سلول ‎B1‎ (ردیف 0، ستون 1) شامل نام اولین مجموعه است. ثابت‌های نام‌گذاری در مثال زیر این ساختار را واضح می‌کند:
 
 ```javascript
 const aspose = {};
@@ -135,7 +183,7 @@ try {
 }
 ```
 
-همچنین می‌توانید سلول ارجاع داده شده توسط [ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getName) را به‌روزرسانی کنید. این روش از فرض ردیف و ستون خاصی در یک نمودار موجود جلوگیری می‌کند:
+همچنین می‌توانید سلولی را که توسط ‎[ChartSeries.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getname/)‎ ارجاع داده می‌شود، به‌روزرسانی کنید. این روش از فرض ردیف و ستون خاصی در یک نمودار موجود جلوگیری می‌کند:
 
 ```javascript
 const aspose = {};
@@ -163,15 +211,15 @@ try {
 
 نتیجه:
 
-![The series name](series_name.png)
+![نام مجموعه](series_name.png)
 
-### **ایجاد سری با نامی از چند سلول**
+### **ایجاد مجموعه‌ای با نام از چند سلول**
 
-یک نام سری ترکیبی وقتی مفید است که نام محصول و دوره گزارش در سلول‌های جداگانه کارنامه ذخیره شوند. به عنوان مثال می‌توانید `Product A` در B1 و `2026` در C1 را به یک نام سری ترکیب کنید در حالی که هر دو بخش به سلول‌های منبع خود متصل می‌مانند.
+یک نام مجموعه ترکیبی زمانی مفید است که نام محصول و بازهٔ گزارش‌گیری در سلول‌های جداگانهٔ کتاب‌کار ذخیره شوند. به‌عنوان مثال، می‌توانید `Product A` در ‎B1‎ و `2026` در ‎C1‎ را به یک نام مجموعه ترکیب کنید در حالی که هر دو بخش به سلول‌های منبع خود متصل می‌مانند.
 
-از [ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/#getCellCollection) برای بازیابی ناحیه نام استفاده کنید، سپس آن مجموعه را به [ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/#add) پاس دهید. پارامتر `skipHiddenCells` تعیین می‌کند که آیا سلول‌های مخفی شامل شوند یا نه: `true` آن‌ها را حذف می‌کند، در حالی که `false` شامل می‌شود. این مثال از `false` برای شامل شدن تمام سلول‌های ناحیه نام استفاده می‌کند.
+از ‎[ChartDataWorkbook.getCellCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/getcellcollection/)‎ برای دریافت محدودهٔ نام استفاده کنید، سپس آن مجموعه را به ‎[ChartSeriesCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriescollection/add/)‎ بدهید. آرگومان ‎`skipHiddenCells`‎ تعیین می‌کند که آیا سلول‌های مخفی شامل شوند یا نه: `true` آنها را مستثنی می‌کند، `false` شامل می‌کند. این مثال از `false` برای شامل شدن تمام سلول‌های محدودهٔ نام استفاده می‌کند.
 
-مثال زیر یک ارائه با یک سری و دو نقطه داده ایجاد می‌کند. سلول‌های B1:C1 فقط نام سری را فراهم می‌کنند؛ A2:A3 برچسب‌های دسته را، و B2:B3 مقادیر عددی را فراهم می‌کنند.
+مثال زیر یک ارائه با یک مجموعه و دو نقطه داده ایجاد می‌کند. سلول‌های ‎B1:C1‎ فقط نام مجموعه را فراهم می‌کنند؛ ‎A2:A3‎ برچسب‌های دسته و ‎B2:B3‎ مقادیر عددی را فراهم می‌کنند.
 
 ```javascript
 const aspose = {};
@@ -190,13 +238,13 @@ try {
     const workbook = chart.getChartData().getChartDataWorkbook();
     workbook.clear(0);
 
-    // این دو سلول نام سری را فراهم می‌کنند.
+    // این دو سلول نام مجموعه را تامین می‌کنند.
     workbook.getCell(0, 0, 1, "Product A");
     workbook.getCell(0, 0, 2, "2026");
     const nameCells = workbook.getCellCollection("Sheet1!$B$1:$C$1", false);
     const series = chart.getChartData().getSeries().add(nameCells, aspose.slides.ChartType.ClusteredColumn);
 
-    // سلول‌های جداگانه دسته‌ها و نقاط داده عددی را فراهم می‌کنند.
+    // سلول‌های جداگانه، دسته‌ها و نقاط داده عددی را تامین می‌کنند.
     const northCategory = workbook.getCell(0, 1, 0, "North");
     const southCategory = workbook.getCell(0, 2, 0, "South");
     chart.getChartData().getCategories().add(northCategory);
@@ -212,15 +260,15 @@ try {
 }
 ```
 
-نام سری حاصل `Product A 2026` است، با یک فاصله بین دو مقدار سلولی. راهنما این را به عنوان یک ورودی برای هر دو ستون نمایش می‌دهد. تصویر زیر نتیجه را نشان می‌دهد:
+نام مجموعهٔ حاصل `Product A 2026` است، با یک فاصله بین دو مقدار سلول. افسانه این را به‌عنوان یک ورودی برای هر دو ستون نمایش می‌دهد. تصویر زیر نتیجه را نشان می‌دهد:
 
-![Column chart with North and South values and the composite series name Product A 2026 in the legend](composite_series_name.png)
+![نمودار ستونی با مقادیر North و South و نام مجموعه ترکیبی Product A 2026 در افسانه](composite_series_name.png)
 
-## **دریافت رنگ پر کردن خودکار سری**
+## **دریافت رنگ پر کردن خودکار مجموعه**
 
-[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) رنگی را بر می‌گرداند که بر اساس اندیس سری و سبک نمودار محاسبه می‌شود. این همان رنگی است که هنگام عدم تعریف صریح پر کردن سری استفاده می‌شود. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ رنگ جدیدی را تنظیم نمی‌کند.
+‎[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getautomaticseriescolor/)‎ رنگی را برمی‌گرداند که از شاخص مجموعه و سبک نمودار محاسبه می‌شود. این رنگ هنگامیکه پر کردن مجموعه صریح تعریف نشده باشد، به‌کار می‌رود. فراخوانی این متد رنگ محاسبه‌شده را می‌خواند؛ پر کردن جدیدی ایجاد نمی‌کند.
 
-مثال زیر رنگ خودکار هر سری پیش‌فرض را چاپ می‌کند:
+مثال زیر رنگ خودکار هر مجموعه پیش‌فرض را چاپ می‌کند:
 
 ```javascript
 const aspose = {};
@@ -254,13 +302,13 @@ Series 1: java.awt.Color[r=192,g=80,b=77]
 Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-رنگ‌های دقیق به سبک و تم نمودار بستگی دارند.
+رنگ‌های دقیق بسته به سبک و تم نمودار متفاوت هستند.
 
-## **تنظیم رنگ پر کردن معکوس برای یک سری نمودار**
+## **تنظیم رنگ پر کردن وارون برای مجموعهٔ نمودار**
 
-برای سری‌های نوار، ستون و حباب، [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) می‌تواند مقادیر منفی را با پر کردن متفاوتی نمایش دهد. پر کردن معمولی سری را به حالت ثابت (solid) تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) اختصاص دهید. اعداد منفی در کارنامه بدون تغییر می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
+برای مجموعه‌های میله‌ای، ستونی و حبابی، ‎[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/)‎ می‌تواند مقادیر منفی را با پر کردن متفاوتی نمایش دهد. پر کردن معمولی مجموعه را به حالت ثابت تنظیم کنید، وارونگی را فعال کنید و رنگ منفی را از طریق ‎[ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/)‎ اختصاص دهید. اعداد منفی در کتاب‌کار تغییری نمی‌کنند؛ تنها رنگ نمایش آن‌ها تغییر می‌یابد.
 
-مثال زیر داده‌های پیش‌فرض نمودار را با یک سری جایگزین می‌کند. ردیف 0 برگه نام سری را دارد، ستون 0 نام دسته‌ها و ستون 1 مقادیر را دارد:
+مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 برگه کار شامل نام مجموعه، ستون 0 شامل نام‌های دسته و ستون 1 شامل مقادیر است:
 
 ```javascript
 const aspose = {};
@@ -320,9 +368,9 @@ try {
 
 نتیجه:
 
-![The inverted solid fill color](inverted_solid_fill_color.png)
+![رنگ پر کردن ثابت وارون](inverted_solid_fill_color.png)
 
-می‌توانید برای یک نقطه خاص معکوس‌سازی را از طریق [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) فعال کنید. در مثال زیر، معکوس‌سازی برای کل سری غیرفعال و فقط برای نقطه انتخاب‌شده فعال شده است. همچنین مقدار منفی به نقطه اختصاص داده شده تا اثر قابل مشاهده باشد:
+می‌توانید وارونگی را برای یک نقطه توسط ‎[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/)‎ فعال کنید. در مثال زیر وارونگی برای مجموعه غیرفعال و فقط برای نقطهٔ انتخاب‌شده فعال است. این نقطه همچنین مقدار منفی دریافت می‌کند تا اثر قابل‌مشاهده باشد:
 
 ```javascript
 const aspose = {};
@@ -359,11 +407,11 @@ try {
 }
 ```
 
-## **پاک کردن مقدار یک نقطه داده خاص**
+## **پاک‌کردن مقدار نقطهٔ دادهٔ خاص**
 
-برای خالی کردن یک نقطه بدون حذف نقاط دیگر، سلول پشتیبان آن را به `null` تنظیم کنید. برای یک نمودار ستون، مقدار ترسیم‌شده از طریق [ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#getValue) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را به‌عنوان خالی براساس تنظیمات مقادیر خالی نمودار در نظر می‌گیرد.
+برای خالی کردن یک نقطه بدون حذف سایر نقاط، سلول کتاب‌کار آن را به `null` تنظیم کنید. در یک نمودار ستونی، مقدار ترسیم‌شده از طریق ‎[ChartDataPoint.getValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/getvalue/)‎ در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را به‌عنوان خالی براساس تنظیمات خالی‌بودن نمودار در نظر می‌گیرد.
 
-مثال زیر تنها نقطه دوم در اولین سری را پاک می‌کند:
+مثال زیر تنها نقطه دوم مجموعهٔ اول را پاک می‌کند:
 
 ```javascript
 const aspose = {};
@@ -389,17 +437,17 @@ try {
 }
 ```
 
-نمودارهای پراکندگی از سلول‌های X و Y جداگانه استفاده می‌کنند و نمودارهای حباب نیز از یک سلول اندازه استفاده می‌کنند. فقط سلولی که نمایانگر مقداری است که می‌خواهید حذف کنید را پاک کنید. هنگامیکه می‌خواهید نقاط دیگر را نگه دارید، از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) استفاده نکنید، زیرا این متد تمام نقاط داده را از مجموعه حذف می‌کند.
+نمودارهای پراکندگی از سلول‌های جداگانهٔ X و Y استفاده می‌کنند و نمودارهای حبابی نیز از یک سلول اندازه استفاده می‌کنند. فقط سلولی که نمایانگر مقداری است که می‌خواهید حذف کنید را پاک کنید. هنگام نیاز به حفظ سایر نقاط، ‎[ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/)‎ را صدا نزنید، زیرا این متد تمام نقاط دادهٔ مجموعه را حذف می‌کند.
 
 ## **کنترل نمایش سلول‌های خالی**
 
-سلول‌های مخفی که مقادیر دارند موردی متفاوت نسبت به سلول‌های خالی هستند. برای شامل یا حذف داده‌ها از ردیف‌ها و ستون‌های مخفی برگه، به [Include Data from Hidden Rows and Columns](/slides/fa/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns) مراجعه کنید.
+سلول‌های مخفی که دارای مقادیر هستند موردی متفاوت نسبت به سلول‌های خالی هستند. برای شامل یا مستثنی کردن داده‌ها از ردیف‌ها و ستون‌های مخفی، به ‎[Include Data from Hidden Rows and Columns](/slides/fa/nodejs-java/chart-workbook/#include-data-from-hidden-rows-and-columns)‎ مراجعه کنید.
 
-یک سلول خالی کارنامه نمایانگر دادهٔ گمشده است؛ سلولی که مقدار `0` دارد نمایانگر مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، با `null` به [ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setValue) فراخوانی کنید. مقدار عددی صفر همچنان صفر می‌ماند، صرف‌نظر از تنظیم خالی‑سلول.
+یک سلول کتاب‌کار خالی نشان‌دهندهٔ دادهٔ گمشده است؛ سلولی که ‎`0`‎ داشته باشد نشان‌دهندهٔ یک مقدار عددی شناخته‌شده است. برای خالی کردن یک سلول، ‎[ChartDataCell.setValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setvalue/)‎ را با `null` فراخوانی کنید. عدد صفر عددی صفر می‌ماند بدون در نظر گرفتن تنظیم خالی‑سلول.
 
-از [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) برای انتخاب نحوه نمایش خالی‌ها در نمودار استفاده کنید. این تنظیم برای کل نمودار اعمال می‌شود. نحوهٔ ترسیم خالی‌ها را تغییر می‌دهد بدون اینکه سلول خالی کارنامه با صفر یا مقدار برآوردی پر شود.
+از ‎[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/)‎ برای انتخاب نحوهٔ نمایش سلول‌های خالی استفاده کنید. این تنظیم برای کل نمودار اعمال می‌شود و نحوهٔ ترسیم خالی‌ها را بدون پر کردن سلول خالی با صفر یا مقدار درونیافته تغییر می‌دهد.
 
-مثال زیر یک نمودار خطی با یک سری ایجاد می‌کند، مقدار روز ۳ را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌کند. نیازی به فایل ورودی نیست. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) از برگه 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام سری را دارد. داده نهایی `10, 20, empty, 30, 40` است.
+مثال زیر یک نمودار خطی با یک مجموعه ایجاد می‌کند، مقدار روز 3 را پاک می‌کند و همان نمودار را با هر حالت ذخیره می‌کند. نیازی به پروندهٔ ورودی نیست. ‎[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)‎ از برگه 0، ستون 0 برای برچسب‌های دسته و ستون 1 برای مقادیر استفاده می‌کند؛ ردیف 0 نام مجموعه را نگه می‌دارد. دادهٔ نهایی `10, 20, empty, 30, 40` است.
 
 ```javascript
 const aspose = {};
@@ -427,7 +475,7 @@ try {
         series.getDataPoints().addDataPointForLineSeries(valueCell);
     }
 
-    // روز ۳ را واقعاً خالی بگذارید، در حالی که دسته‌بندی و نقطه دادهٔ آن را حفظ می‌کنید.
+    // روز ۳ را واقعاً خالی بگذارید، در حالی که دسته‌بندی و نقطهٔ دادهٔ آن را حفظ می‌کنید.
     workbook.getCell(0, 3, 1).setValue(null);
 
     const modes = [aspose.slides.DisplayBlanksAsType.Gap, aspose.slides.DisplayBlanksAsType.Zero, aspose.slides.DisplayBlanksAsType.Span];
@@ -441,19 +489,19 @@ try {
 }
 ```
 
-هر فایل خروجی حالت تعیین‌شده قبل از ذخیره را شامل می‌شود: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ تنها یک نسخه، حالت موردنظر را تنظیم کنید و یک‌بار ارائه را ذخیره کنید به‌جای تکرار بر حالت‌ها.
+هر پروندهٔ خروجی حالت انتخاب‌شده پیش از ذخیره‌سازی را ذخیره می‌کند: `empty_cells_Gap.pptx`، `empty_cells_Zero.pptx` و `empty_cells_Span.pptx`. برای ذخیرهٔ تنها یک نسخه، حالت دلخواه را تنظیم کنید و یک‌بار ارائه را ذخیره کنید.
 
-مقایسهٔ زیر همان داده را در هر سه فایل نشان می‌دهد. روز ۳ در هر مورد در کارنامه خالی است:
+مقایسهٔ زیر همان داده‌ها را در هر سه پرونده نشان می‌دهد. روز 3 در هر حالت در کتاب‌کار خالی است:
 
-![Line charts with identical data: Gap breaks the line at Day 3, Zero drops the line to zero, and Span connects Day 2 to Day 4.](display_blanks_as.png)
+![نمودارهای خطی با داده‌های یکسان: Gap خط را در روز 3 قطع می‌کند، Zero خط را به صفر می‌کشد، و Span روز 2 را به روز 4 وصل می‌کند.](display_blanks_as.png)
 
-اثر قابل مشاهده به نوع نمودار بستگی دارد. یک نمودار خطی تمام سه حالت را به راحتی مقایسه می‌کند. نمودارهای نوار و ستون خطی برای اتصال بین دسته‌های گمشده ندارند، بنابراین `Span` نمی‌تواند قطعهٔ اتصال نشان داده‌شده را تولید کند؛ یک ستون گمشده و یک ستون صفر‑ارتفاع نیز می‌توانند مشابه به‌نظر برسند. به‌طور مشابه، یک نمودار پراکندگی فقط با علامت‌ها خط متصل‌کننده‌ای ندارد. انتظار نتایج متمایز برای تمام انواع نمودارها نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
+اثر قابل مشاهده بسته به نوع نمودار متفاوت است. یک نمودار خطی سه حالت را به‌راحتی مقایسه می‌کند. نمودارهای میله‌ای و ستونی خطی برای اتصال بین دسته‌های گمشده ندارند، بنابراین `Span` نمی‌تواند بخشی که در بالا نشان داده شده است ایجاد کند؛ یک ستون گمشده و یک ستون صفر‑ارتفاع می‌توانند مشابه به‌نظر برسند. به‌طور مشابه، یک نمودار پراکندگی فقط با نشانگرها خطی برای اتصال ندارد. انتظار نتایج متمایز برای هر نوع نمودار را نداشته باشید؛ خروجی را برای نوعی که استفاده می‌کنید بررسی کنید.
 
-## **تنظیم عرض فاصله سری**
+## **تنظیم عرض فاصلهٔ مجموعه**
 
-عرض فاصله، فضای بین خوشه‌های نوار یا ستون مجاور است که به‌صورت درصدی از عرض نوار یا ستون بیان می‌شود. همانند همپوشانی، این تنظیم به گروه سری والد تعلق دارد نه به یک سری منفرد. یک بار برای گروه فراخوانی کنید [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth). مقدار بزرگ‌تر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچک‌تر آن‌ها را فشرده‌تر می‌سازد.
+عرض فاصلهٔ بین خوشه‌های میله‌ای یا ستونی، به‌صورت درصدی از عرض میله یا ستون محاسبه می‌شود. همانند تداخل، این تنظیم به گروه مجموعهٔ والد تعلق دارد نه به یک مجموعهٔ منفرد. یک بار برای گروه ‎[ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/)‎ فراخوانی کنید. مقدار بزرگ‌تر فضای بین خوشه‌ها را بیشتر می‌کند؛ مقدار کوچکتر آن‌ها را فشرده‌تر می‌سازد.
 
-مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائهٔ نهایی را ذخیره می‌کند:
+مثال زیر عرض فاصله را تغییر می‌دهد و تنها ارائهٔ نهایی را ذخیره می‌کند:
 
 ```javascript
 const aspose = {};
@@ -480,46 +528,82 @@ try {
 
 نتیجه:
 
-![The gap width](gap_width.png)
+![عرض فاصله](gap_width.png)
 
-## **سؤال‌های متداول**
+## **نمایش یا مخفی‌کردن خطوط مجموعه**
 
-**کدام انواع نمودار از سری داده پشتیبانی می‌کنند؟**
+خطوط مجموعه به‌صورت بصری بخش‌های مربوط به یک نمودار را به‌هم می‌پیوندد. برای نمایش یا مخفی‌کردن آن‌ها در نمودارهای میله‌ای پشته‌ای و OfPie پشتیبانی‌شده، از ‎[ChartSeriesGroup.setSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setserieslines/)‎ استفاده کنید. در نمودارهای میله‌ای و ستونی پشته‌ای دو‑بعدی، این خطوط مرزهای پشتهٔ مربوطه را بین دسته‌ها متصل می‌کند. در نمودارهای Pie of Pie و Bar of Pie، این خطوط نمودار اصلی را به نمودار ثانویه متصل می‌کند. این تنظیم برای دیگر انواع نمودار عمومی نیست.
 
-تمام انواع نمودارهای موجود در شمارش [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) از داده‌های نمودار استفاده می‌کنند، اما ساختار مقدار یا تنظیمات سری‌های آن‌ها همسان نیست. برای مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی مقادیر X و Y، و نمودارهای حباب اندازه حباب‌ها را اضافه می‌کنند. از روش ایجاد نقطه داده‌ای که با نوع سری مطابقت دارد استفاده کنید. گزینه‌هایی مانند همپوشانی و عرض فاصله فقط برای گروه‌های نوار یا ستون سازگار اعمال می‌شوند.
+دست به گروه از طریق ‎[ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getparentseriesgroup/)‎ بگیرید. تنظیم برای تمام مجموعه‌های آن گروه اعمال می‌شود. ‎[ChartSeries.hasSeriesLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/hasserieslines/)‎ فقط‑خواندنی است و تنظیم والد را نشان می‌دهد؛ برای به‌روزرسانی، setter گروه را فراخوانی کنید.
 
-**یک گروه سری نمودار چیست؟**
+مثال زیر یک نمودار ‎[PieOfPie](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‎ با داده‌های پیش‌فرض ایجاد می‌کند. همان نمودار را ابتدا با خطوط مجموعه فعال و سپس غیرفعال ذخیره می‌کند تا دو ارائه برای مقایسه تولید شود.
 
-یک [ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/) شامل سری‌های سازگاری است که تنظیمات رسم سطح‑گروه را به اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک سری به دست می‌آید لزوماً تمام سری‌های نمودار را تحت تأثیر قرار نمی‌دهد.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-**آیا یک نمودار تازه ایجاد شده داده‌های پیش‌فرض دارد؟**
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-بله. به‌صورت پیش‌فرض، [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) سری‌ها، دسته‌ها و مقادیر نمونه ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعه دادهٔ کاملاً سفارشی، هر دو مجموعه سری و دسته را پاک کنید. یک overload نیز می‌تواند نمودار را بدون داده پیش‌فرض ایجاد کند.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 600, 400);
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const seriesGroup = series.getParentSeriesGroup();
 
-**اشیاء نمودار چگونه به سلول‌های کارنامه متصل می‌شوند؟**
+    seriesGroup.setSeriesLines(true);
+    presentation.save("series_lines_enabled.pptx", aspose.slides.SaveFormat.Pptx);
 
-نام‌های سری، برچسب‌های دسته و مقادیر نقاط داده به سلول‌های یک [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول ارجاع‑داده‌شده عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر سری را طوری تنظیم کنید که هر نقطه زیر دستهٔ موردنظر رسم شود.
+    seriesGroup.setSeriesLines(false);
+    presentation.save("series_lines_disabled.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**چگونه یک نقطه را به‌جای کل سری پاک کنم؟**
+| خطوط مجموعه فعال | خطوط مجموعه غیرفعال |
+| --- | --- |
+| ![نمودار Pie of Pie با خطوط مجموعه فعال](series_lines_enabled.png) | ![نمودار Pie of Pie با خطوط مجموعه غیرفعال](series_lines_disabled.png) |
+| دو خط اصلی پیک را به پیک ثانویه وصل می‌کنند. | هر دو پیک قابل مشاهده‌اند، اما خطوط اتصال مخفی‌اند. |
 
-سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان یک نقطهٔ خالی حفظ شود. از [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/#clear) فقط زمانی استفاده کنید که قصد حذف تمام نقاط آن سری را داشته باشید. اگر دسته‌ها را نیز حذف می‌کنید، هر سری را به‌گونه‌ای به‌روز کنید که مقادیر آن‌ها با مجموعه دسته‌ها هم‌راستا بمانند.
+خطوط مجموعه متفاوت از خطوط رهبری برچسب داده هستند که برچسب‌ها را به نقاط داده متصل می‌کنند؛ خطوط شبکه که فواصل را بر روی محورهای نمودار نشان می‌دهند؛ و خطوط در نمودار خطی که مقادیر داده‌ها را نشان می‌دهند. این تنظیم آن‌ها را کنترل نمی‌کند.
+
+## **سوالات متداول**
+
+**کدام انواع نمودار از مجموعه‌های داده پشتیبانی می‌کنند؟**
+
+تمام انواع نمودارهای نشان‌داده‌شده توسط شمارش ‎[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/)‎ از داده‌های نمودار استفاده می‌کنند، اما مجموعه‌های آن‌ها ساختار یا تنظیمات مقدار یکسانی ندارند. برای مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی از مقادیر X و Y، و نمودارهای حبابی به اندازهٔ حباب افزوده می‌شود. از روش ایجاد نقطه‑داده‌ای که با نوع مجموعه سازگار است استفاده کنید. گزینه‌هایی نظیر تداخل و عرض فاصله فقط برای گروه‌های میله‌ای یا ستونی سازگار اعمال می‌شوند.
+
+**یک گروه مجموعهٔ نمودار چیست؟**
+
+یک ‎[ChartSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/)‎ شامل مجموعه‌های سازگاری است که تنظیمات ترسیم سطح‑گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک مجموعه دسترسی پیدا می‌کنید لزوماً همهٔ مجموعه‌های نمودار را تغییر نمی‌دهد.
+
+**آیا یک نمودار تازه ایجاد‌شده داده‌های پیش‌فرض دارد؟**
+
+بله. به‌طور پیش‌فرض، ‎[ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/addchart/)‎ مجموعه‌ها، دسته‌ها و مقادیر نمونه ایجاد می‌کند. می‌توانید آن سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعه دادهٔ کاملاً سفارشی، هر دو مجموعه و دسته‌ها را پاک کنید. یک overload نیز می‌تواند نمودار را بدون داده‌های پیش‌فرض ایجاد کند.
+
+**شیوهٔ اتصال اشیای نمودار به سلول‌های کتاب‌کار چگونه است؟**
+
+نام‌های مجموعه، برچسب‌های دسته و مقادیر نقطه‑داده به سلول‌های یک ‎[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)‎ ارجاع می‌دهند. تغییر یک سلول مرجع‌دار، عنصر مربوط به نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر مجموعه را هم‌راستا نگه‌دارید تا هر نقطه زیر دستهٔ موردنظر ترسیم شود.
+
+**چگونه یک نقطه را به‌جای کل مجموعه پاک کنم؟**
+
+سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دستهٔ نقطه به‌عنوان یک نقطهٔ خالی حفظ شود. ‎[ChartDataPointCollection.clear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapointcollection/clear/)‎ را فقط زمانی به‌کار ببرید که می‌خواهید تمام نقاط آن مجموعه حذف شوند، زیرا این متد تمام نقاط دادهٔ مجموعه را حذف می‌کند.
 
 **نقاط خالی چگونه نمایش داده می‌شوند؟**
 
-نتیجه به نوع نمودار و مقدار تنظیم‌شده از طریق [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فاصله، مقدار صفر یا اتصال نقاط همسایه نشان دهند. تنظیمی را انتخاب کنید که با معنای دادهٔ گمشده در ارائهٔ شما مطابقت دارد. برای مثال کامل و مقایسهٔ تصویری به بخش [Control the Display of Empty Cells](#control-the-display-of-empty-cells) مراجعه کنید.
+نتیجه بستگی به نوع نمودار و مقداری که از طریق ‎[Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/setdisplayblanksas/)‎ پیکربندی شده دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌عنوان فاصله، مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که معنای دادهٔ گمشده در ارائهٔ شما را بازتاب دهد. برای مثال کامل و مقایسهٔ بصری، بخش ‎[Control the Display of Empty Cells](#control-the-display-of-empty-cells)‎ را ببینید.
 
 **مقادیر منفی چگونه قالب‌بندی می‌شوند؟**
 
-برای سری‌های نوار، ستون و حباب پشتیبانی‌شده، [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) را فراخوانی کنید و رنگی که توسط [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) برگردانده می‌شود را تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ منفرد با [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) بازنویسی کنید. این روش‌ها فقط قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
+برای مجموعه‌های میله‌ای، ستونی و حبابی پشتیبانی‌شده، ‎[ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/setinvertifnegative/)‎ را فراخوانی کنید و رنگی که توسط ‎[ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/getinvertedsolidfillcolor/)‎ برگردانده می‌شود، تنظیم کنید. می‌توانید این رفتار را برای یک نقطهٔ جداگانه با ‎[ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatapoint/setinvertifnegative/)‎ بازنویسی کنید. این متدها تنها قالب‌بندی را تحت‌اثر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
 
-**زمانی که هم سری و هم نقطه قالب‌بندی شوند، کدام برنده است؟**
+**در صورتی که هم مجموعه و هم نقطه قالب‌بندی شوند، کدام‌یک برتر است؟**
 
-قالب‌بندی صریح نقطه داده برای همان نقطه برتر است. سایر نقاط همچنان از قالب‌بندی صریح سری یا، اگر قالب‌بندی سری تعریف نشده باشد، از سبک و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروهی مانند همپوشانی و عرض فاصله نحوهٔ چیدمان را کنترل می‌کنند و بازنویسی قالب‌بندی در سطح نقطه نیستند.
+قالب‌بندی صریح نقطه‑داده برای آن نقطه اولویت دارد. سایر نقاط همچنان از قالب‌بندی صریح مجموعه یا، در صورت عدم تعریف قالب‌بندی مجموعه، از سبک و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروهی مانند تداخل و عرض فاصله طرح‌بندی را کنترل می‌کنند و بازنویسی قالب‌بندی سطح نقطه نیستند.
 
-**آیا محدودیتی برای تعداد سری‌های یک نمودار وجود دارد؟**
+**آیا محدودیتی برای تعداد مجموعه‌هایی که یک نمودار می‌تواند داشته باشد وجود دارد؟**
 
-Aspose.Slides محدودیت ثابت جداگانه‌ای برای تعداد سری‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظهٔ موجود، زمان رندرینگ و قابلیت خوانایی نمودار، حد مفیدی تعیین می‌کنند.
+Aspose.Slides محدودیتی ثابت برای تعداد مجموعه‌ها تعیین نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظهٔ موجود، زمان رندر و قابلیت خواندن نمودار تعیین‌کنندهٔ حد وجنی هستند.
 
-**چه کاری باید انجام دهم وقتی ستون‌ها بیش از حد به‌هم نزدیک یا دور هستند؟**
+**چه کاری باید انجام داد وقتی ستون‌ها بیش از حد نزدیک یا دور از هم هستند؟**
 
-بر روی گروه سری والد مناسب [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) فراخوانی کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها عریض‌تر شود یا مقدار را کاهش دهید تا خوشه‌ها به‌یکدیگر نزدیک‌تر شوند.
+بر روی گروه مجموعهٔ والد مناسب، ‎[ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/setgapwidth/)‎ را فراخوانی کنید. مقدار را افزایش دهید تا فضای بین خوشه‌ها بیشتر شود یا کاهش دهید تا خوشه‌ها نزدیک‌تر شوند.
