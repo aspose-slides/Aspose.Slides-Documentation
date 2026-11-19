@@ -1,6 +1,6 @@
 ---
-title: Beheer presentatie‑hyperlinks in PHP
-linktitle: Hyperlinks beheren
+title: Beheer Presentatie‑hyperlinks in PHP
+linktitle: Beheer hyperlinks
 type: docs
 weight: 20
 url: /nl/php-java/manage-hyperlinks/
@@ -11,41 +11,41 @@ keywords:
 - hyperlink opmaken
 - hyperlink verwijderen
 - hyperlink bijwerken
-- tekst hyperlink
-- dia hyperlink
-- vorm hyperlink
-- afbeelding hyperlink
-- video hyperlink
+- tekst‑hyperlink
+- dia‑hyperlink
+- vorm‑hyperlink
+- afbeelding‑hyperlink
+- video‑hyperlink
 - wijzigbare hyperlink
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Hyperlinks toevoegen, opmaken, bijwerken en verwijderen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor PHP via Java, met PHP-voorbeelden."
+description: "URL’s, hyperlinks toevoegen, opmaken, bijwerken en verwijderen in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor PHP via Java, met PHP‑voorbeelden."
 ---
-## **Inleiding**
+## **Introductie**
 
-Een hyperlink verbindt presentatiedata met een website of een locatie binnen de presentatie. In PowerPoint worden hyperlinks meestal voor twee doeleinden gebruikt:
+Een hyperlink verbindt presentatiewaarde met een website of een locatie binnen de presentatie. In PowerPoint dienen hyperlinks meestal twee doelen:
 
-* Een website openen vanuit tekst, een vorm of een media‑frame.
-* Navigeer naar een andere dia, bijvoorbeeld vanuit een inhoudsopgave.
+* Een website openen vanuit tekst, een vorm of een media frame.
+* Navigeren naar een andere dia, bijvoorbeeld vanuit een inhoudsopgave.
 
-Aspose.Slides for PHP via Java stelt je in staat deze koppelingen toe te voegen, hun uiterlijk en geluid te beheren, hun eigenschappen bij te werken en ze te verwijderen. De onderstaande voorbeelden laten zien hoe je hyperlinks op individuele elementen kunt gebruiken en hoe je hyperlinks kunt benaderen op presentatieniveau, dia‑niveau of tekst‑frame‑niveau. Ze gaan ervan uit dat de PHP/Java Bridge en de Aspose.Slides PHP‑wrapper zijn geïnitialiseerd. API‑leden zonder een PHP‑referentiepagina verwijzen naar de onderliggende Java‑API.
+Aspose.Slides for PHP via Java stelt u in staat deze koppelingen toe te voegen, hun uiterlijk en geluid te beheren, hun eigenschappen bij te werken en ze te verwijderen. De onderstaande voorbeelden laten zien hoe u met hyperlinks op individuele elementen werkt en hoe u hyperlinks op presentatieniveau, dia- of tekstframe‑niveau kunt benaderen. Er wordt aangenomen dat PHP/Java Bridge en de Aspose.Slides PHP‑wrapper zijn geïnitialiseerd. API‑leden zonder een PHP‑referentiepagina verwijzen naar de onderliggende Java‑API.
 
-{{% alert color="info" title="Opmerking" %}}
-Je kunt presentaties ook bewerken met de [gratis online Aspose PowerPoint‑editor](https://products.aspose.app/slides/editor).
+{{% alert color="info" title="Note" %}}
+U kunt presentaties ook bewerken met de [gratis online Aspose PowerPoint‑editor](https://products.aspose.app/slides/editor).
 {{% /alert %}}
 
 ## **URL‑hyperlinks toevoegen**
 
-Je kunt een website‑URL toewijzen aan tekst, een vorm of een media‑frame. Het element waaraan je de hyperlink toewijst bepaalt het klikbare gebied: een tekstgedeelte linkt de geselecteerde tekst, terwijl een vorm of frame de dia‑object linkt.
+U kunt een website‑URL toewijzen aan tekst, een vorm of een media‑frame. Het element waaraan u de hyperlink toewijst bepaalt het klikbare gebied: een tekstgedeelte linkt de geselecteerde tekst, terwijl een vorm of frame het dia‑object linkt.
 
 Voor presentaties met relatieve hyperlinks, zie [Beheer de hyperlink‑basis](/slides/nl/php-java/presentation-properties/#manage-the-hyperlink-base) om de document‑niveau basis te lezen, wijzigen of wissen.
 
 ### **URL‑hyperlinks aan tekst toevoegen**
 
-Om tekst aan een website te koppelen, geef je een [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) door aan de [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) methode van het tekstgedeelte, zoals hieronder weergegeven. Alleen dat tekstgedeelte wordt klikbaar.
+Om tekst naar een website te linken, geeft u een [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) door aan de [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/)‑methode van het tekstgedeelte, zoals hieronder getoond. Alleen dat tekstgedeelte wordt klikbaar.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -70,11 +70,7 @@ try {
 
 ### **URL‑hyperlinks aan vormen en media‑frames toevoegen**
 
-Om een vorm of frame klikbaar te maken, roep je de [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) methode aan. De hyperlink behoort toe aan het object zelf in plaats van aan een tekstgedeelte erin.
-
-Dezelfde aanpak geldt voor afbeelding-, audio‑ en video‑frames: ken de hyperlink toe aan het frame en roep indien nodig [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) aan.
-
-Het volgende voorbeeld maakt een rechthoek klikbaar:
+Roep [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) aan op de rechthoek om het gehele gebied klikbaar te maken. Gebruik [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) om lezers een tip over de bestemming te tonen wanneer ze met de muis over de rechthoek bewegen. Beide methoden zijn ook van toepassing op afbeelding-, audio‑ en video‑frames.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -97,7 +93,7 @@ try {
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) om de “Page 2”-tekst op de eerste dia te koppelen aan de tweede dia.
+Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) om de tekst “Page 2” op de eerste dia te koppelen aan de tweede dia.
 
 ```php
 use aspose\slides\FillType;
@@ -137,11 +133,13 @@ try {
 
 ## **Hyperlinks opmaken**
 
+U kunt de kleur van gekoppelde tekst wijzigen, een geluid afspelen of stoppen wanneer een lezer een koppeling activeert, en de tooltip instellen die verschijnt bij hover.
+
 ### **Kleur**
 
-De [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) methode van [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) bepaalt of een hyperlink de hyperlink‑kleur van de presentatie of de opmaak van het tekstgedeelte gebruikt. Om een aangepaste tekstkleur toe te passen, selecteer je [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) en stel je de vulkleur van het gedeelte in. Deze functie is geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
+De [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/)‑methode van [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) bepaalt of een hyperlink de hyperlink‑kleur van de presentatie gebruikt of de opmaak van het tekstgedeelte. Om een aangepaste tekstkleur toe te passen, selecteert u [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) en stelt u de vulkleur van het gedeelte in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
 
-Het volgende voorbeeld voegt twee tekst‑hyperlinks toe aan dezelfde dia. De eerste gebruikt een rode tekstvulling, terwijl de tweede de standaard hyperlink‑kleur behoudt.
+In dit voorbeeld zorgt [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) ervoor dat de eerste koppeling de rode vulling van het tekstgedeelte gebruikt. De tweede koppeling behoudt de hyperlink‑kleur van de presentatie.
 
 ```php
 use aspose\slides\FillType;
@@ -170,16 +168,17 @@ try {
     $presentation->dispose();
 }
 ```
+
 ### **Geluid**
 
-Een hyperlink kan een geluid afspelen bij activatie of een al spelend geluid stoppen. Gebruik de volgende methoden om dit gedrag te configureren:
+Een hyperlink kan een geluid afspelen wanneer hij wordt geactiveerd of een al afspelend geluid stoppen. Gebruik de volgende methoden om dit gedrag te configureren:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) specificeert de audio die aan de hyperlink is gekoppeld.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) specificeert de audio gekoppeld aan de hyperlink.
 - [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) bepaalt of het activeren van de hyperlink het vorige geluid stopt.
 
-#### **Hyperlink‑geluid toevoegen**
+#### **Een hyperlinkgeluid toevoegen**
 
-Het volgende voorbeeld laadt `sampleaudio.wav` en koppelt het aan een knop op de eerste dia. Klikken op de knop speelt het geluid af en navigeert naar de volgende dia. Een tweede vorm op die dia stopt het vorige geluid bij een klik, zonder een navigatie‑actie uit te voeren.
+De knop op de eerste dia gebruikt [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) om audio van `sampleaudio.wav` af te spelen wanneer de lezer klikt om door te gaan. Op de tweede dia gebruikt een aparte knop [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) om het afspelen te stoppen en de lezer op die dia te houden.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -219,9 +218,9 @@ try {
 }
 ```
 
-#### **Hyperlink‑geluid extraheren**
+#### **Een hyperlinkgeluid extraheren**
 
-Het volgende voorbeeld opent de hierboven gemaakte presentatie en leest de hyperlink‑audio van de eerste vorm in het geheugen via [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) en [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
+Het volgende voorbeeld opent de hierboven aangemaakte presentatie en leest de hyperlink‑audio van de eerste vorm in het geheugen via [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) en [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
 
 ```php
 use aspose\slides\Presentation;
@@ -245,18 +244,18 @@ try {
 }
 ```
 
-### **Tooltip‑ en interactie‑instellingen**
+### **Tooltip‑ en interactiesettings**
 
-Je kunt de volgende [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) methoden aanroepen nadat je een hyperlink aan tekst of een vorm hebt toegewezen:
+U kunt de volgende [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/)‑methoden aanroepen nadat u een hyperlink aan tekst of een vorm hebt toegewezen:
 
-- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) stelt de tekst in die een kijker kan weergeven als hint voor de link.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) stelt de tekst in die een kijker als hint voor de koppeling kan weergeven.
 - [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) specificeert het doel‑frame binnen een bovenliggend HTML‑frameset, indien van toepassing.
-- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) bepaalt of het activeren van de link de bestemming toevoegt aan de lijst met bekeken hyperlinks.
-- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) bepaalt of de hyperlink wordt gemarkeerd bij een klik.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) bepaalt of het activeren van de koppeling haar bestemming toevoegt aan de lijst met bekeken hyperlinks.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) bepaalt of de hyperlink gemarkeerd wordt bij klikken.
 
 ## **Hyperlinks uit presentaties verwijderen**
 
-Gebruik [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) om hyperlink‑containers, inclusief tekstgedeelte‑links, te verzamelen voordat je ze wijzigt. Het volgende voorbeeld verwijdert beide activeringstypen van de eerste dia. Om slechts één type te verwijderen, roep je alleen [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) of [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) aan; het verwijderen van een klik‑actie verwijdert niet de bijbehorende muis‑over‑actie.
+Gebruik [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) om hyperlinkcontainers, inclusief tekstgedeelten‑koppelingen, te verzamelen voordat u ze wijzigt. Het volgende voorbeeld verwijdert beide activeringstypen van de eerste dia. Om slechts één type te verwijderen, roep alleen [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) of [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) aan; het verwijderen van een klikactie verwijdert niet de overeenkomstige muis‑over‑actie.
 
 ```php
 use aspose\slides\Presentation;
@@ -282,23 +281,60 @@ try {
 }
 ```
 
-Voor onvoorwaardelijke verwijdering verwijdert [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) beide activeringstypen in de geselecteerde scope in één oproep. Voor selectieve opschoning en dekking van masters, lay‑outs en notities, zie [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Voor onvoorwaardelijke verwijdering verwijdert [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) beide activeringstypen in de geselecteerde scope met één aanroep. Voor selectieve opschoning en dekking van masters, lay-outs en notities, zie [Rapportage, zuiveren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+
+### **Hyperlinks wissen vóór SmartArt‑tekst vervangen**
+
+Wanneer u een alinea in een bestaande SmartArt‑knoop vervangt, kan het wissen van de tekstgedeelten een oude hyperlink behouden. Haal de alinea op via [SmartArtNode::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/gettextframe/). Voordat u de gedeelten wist, roep [getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) aan op het tekstframe van de knoopvorm die de alinea weergeeft, en roep vervolgens [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) aan op het geretourneerde object. Dit verwijdert elke hyperlink in dat frame, inclusief koppelingen in andere alinea's.
+
+Het voorbeeld gaat ervan uit dat de derde vorm op de eerste dia van `SmartArtHyperlink.pptx` een SmartArt‑illustratie is. Het vervangt de eerste alinea van de vierde knoop. In deze presentatie toont de eerste vorm van de knoop die alinea.
+
+Nadat beide gedeelten zijn toegevoegd, leest het voorbeeld hun effectieve opmaak met [getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/). Op die opmaak geeft [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) de nieuwe hyperlink voor het eerste gedeelte terug en `null` voor het tweede.
+
+```php
+use aspose\slides\Hyperlink;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $smartArt = $slide->getShapes()->get_Item(2);
+    $node = $smartArt->getAllNodes()->get_Item(3);
+    $paragraph = $node->getTextFrame()->getParagraphs()->get_Item(0);
+
+    $node->getShapes()->get_Item(0)->getTextFrame()->getHyperlinkQueries()->removeAllHyperlinks();
+    $paragraph->getPortions()->clear();
+
+    $link = new Portion("New reference");
+    $link->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    $paragraph->getPortions()->add($link);
+    $text = new Portion(" (updated)");
+    $paragraph->getPortions()->add($text);
+
+    echo java_values($link->getPortionFormat()->getEffective()->getHyperlinkClick()->getExternalUrl()), PHP_EOL; // https://example.com/new
+    var_dump(java_is_null($text->getPortionFormat()->getEffective()->getHyperlinkClick())); // bool(true): de tweede gedeelte heeft geen hyperlink.
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Een volledige hyperlink‑inventaris opbouwen**
 
-Voordat je een presentatie verspreidt, maak je een inventaris van de interactieve acties en web‑koppelingen. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) retourneert [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) objecten, niet een eenvoudige lijst van URL‑strings. Inspecteer zowel [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) als [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties bevatten, dus een volledig rapport heeft tot twee rijen per container nodig.
+Voordat u een presentatie verspreidt, inventariseert u de interactieve acties evenals de webkoppelingen. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) geeft [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/)‑objecten terug, niet een platte lijst van URL‑strings. Inspecteer zowel [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) als [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties bevatten, dus een volledig rapport heeft tot twee rijen per container nodig.
 
-Alleen hyperlinks op vorm‑niveau scannen kan links op tekstgedeelten missen. Vraag in plaats daarvan de juiste scope op en bewaar de geretourneerde containers zodat je later hun acties kunt bijwerken of verwijderen.
+Alleen hyperlinks op vormniveau scannen kan koppelingen die aan tekstgedeelten zijn gekoppeld missen. Vraag in plaats daarvan de juiste scope op en bewaar de terugontvangen containers zodat u later hun acties kunt bijwerken of verwijderen.
 
-### **Presentatie‑, dia‑ en tekst‑frame‑scopes queryen**
+### **Presentatie-, dia‑ en tekstframe‑scopes bevragen**
 
-De [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) klasse is beschikbaar via [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) en [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). Elke scope ondersteunt dezelfde query's:
+De [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/)‑klasse is beschikbaar via [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), en [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). Elke scope ondersteunt dezelfde queries:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) retourneert containers met een klik‑actie.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) retourneert containers met een klikactie.
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) retourneert containers met een muis‑over‑actie.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) retourneert containers met één of beide acties.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) retourneert containers met een van beide of beide acties.
 
-Het volgende voorbeeld maakt `hyperlink-audit-input.pptx` met een externe klik‑link, een bestand‑muisknop‑link, interne dia‑navigatie, een tekst‑muisknop‑link en een macro‑actie. Het voert geen van deze acties uit. Dezelfde drie query's werken op elke scope; de tellingen beschrijven containers, niet het aantal acties. De tekst‑frame‑scope sluit de eigen links van de omringende vorm uit.
+Dit voorbeeld wijst klik‑ en muis‑over‑acties toe aan een vorm en zijn tekst, en een macro‑actie aan een afzonderlijke knop. Het vergelijkt het aantal containers dat door [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) wordt geretourneerd met de aantallen per activeringstype. Een tekstframe‑query telt alleen koppelingen in de tekst. De eigen acties van de omvattende vorm verschijnen in de dia‑ en presentatie‑queries.
 
 ```php
 use aspose\slides\Presentation;
@@ -337,37 +373,37 @@ try {
 }
 ```
 
-Voor dit voorbeeld rapporteren presentatie‑ en dia‑query's elk drie klik‑containers, twee muis‑over‑containers en drie containers met één van beide acties. De tekst‑frame‑query rapporteert één container in elke categorie.
+Voor dit voorbeeld rapporteren presentatie‑ en dia‑queries elk drie klikcontainers, twee muis‑over‑containers en drie containers met één van beide acties. De tekstframe‑query meldt één container in elke categorie.
 
 ### **Acties en bestemmingen classificeren**
 
-Gebruik [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) om een actie te interpreteren vóór het interpreteren van de bestemming. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) omvatten meer dan web‑navigatie:
+Gebruik [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) om een actie te interpreteren vóór het interpreteren van de bestemming. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) bestrijken meer dan webnavigatie:
 
-| Waarden | Betekenis voor audit |
+| Waarden | Betekenis voor een audit |
 | --- | --- |
-| `Hyperlink` | Externe hyperlink; controleer de URL en het schema. |
+| `Hyperlink` | Externe hyperlink; inspecteer de URL en het schema. |
 | `JumpSpecificSlide` | Interne navigatie naar een specifieke dia. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ingebouwde diavoorstelling‑navigatie, opgelost in diavoorstellingscontext. |
-| `JumpEndShow`, `StartCustomSlideShow` | Eindig de huidige show of start een aangepaste show. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ingebouwde diavoorstellingnavigatie, opgelost in diavoorstellingscontext. |
+| `JumpEndShow`, `StartCustomSlideShow` | Beëindig de huidige show of start een aangepaste show. |
 | `StartMacro` | Voer een macro uit. |
 | `StartProgram` | Start een programma. |
-| `OpenFile`, `OpenPresentation` | Open een bestand of een andere presentatie; afzonderlijk beoordelen van web‑URL's. |
+| `OpenFile`, `OpenPresentation` | Open een bestand of een andere presentatie; controleer afzonderlijk van web‑URL’s. |
 | `StartStopMedia` | Start of stop media‑afspelen. |
-| `NoAction`, `Unknown` | Geen navigatie‑actie, of een niet‑herkende actie die beoordeling vereist. |
+| `NoAction`, `Unknown` | Geen navigatie‑actie, of een onbekende actie die nadere controle vereist. |
 
-Lees externe bestemmingen uit [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) en specifieke interne bestemmingen uit [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Interne acties en ingebouwde commando's kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Bewaar de waarde die wordt geretourneerd door [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) wanneer deze verschilt van de genormaliseerde URL, en neem de tooltip van [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) op wanneer beschikbaar.
+Lees externe bestemmingen uit via [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) en specifieke interne bestemmingen via [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Interne acties en ingebouwde commando's kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Bewaar de waarde die [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) retourneert wanneer die verschilt van de genormaliseerde URL, en voeg de tooltip van [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) toe wanneer beschikbaar.
 
-### **Rapporteren, opschonen en verifiëren van hyperlinks**
+### **Rapportage, zuiveren en verifiëren van hyperlinks**
 
-Het volgende PHP‑voorbeeld leest een bestaande presentatie (gebruik het hierboven gemaakte bestand), schrijft `hyperlink-audit.json`, past een beleid toe, slaat `hyperlink-sanitized.pptx` op en opent deze opnieuw om beide activeringstypen opnieuw te controleren. Het verzamelt containers voordat ze worden gewijzigd en gebruikt referentie‑gelijkheid om te voorkomen dat dezelfde container twee keer wordt verwerkt. Presentatie‑query's omvatten gewone dia's; voor een pakket‑brede inventaris vraagt het ook expliciet masters, lay‑outs, notities en de notitie‑ en handout‑masters wanneer aanwezig.
+Dit voorbeeld opent de presentatie uit het voorgaande voorbeeld en schrijft één JSON‑record per actie. Het gebruikt [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) om containers te verzamelen op gewone dia's, masters, lay-outs en notities, inclusief de notitie‑ en handout‑masters indien aanwezig. Het gebruikt referentie‑gelijkheid om elke container één keer te tellen, past het hieronder beschreven beleid toe, en opent de opgeslagen presentatie opnieuw om zowel klik‑ als muis‑over‑acties te controleren.
 
-Het rapport registreert een één‑gebaseerde dia‑index en [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) waar beschikbaar. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) levert de eigenaars‑dia voor ondersteunde containers. Masters, lay‑outs en notities hebben geen gewone dia‑index en worden geïdentificeerd door hun scope. Vorm‑containers en tekst‑gedeelte‑opmaak‑containers worden apart gelabeld; andere containertypen behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat zijn twee acties kunnen worden gecorreleerd. Het rapport slaat actietypen op als de gehele getallenconstanten gedefinieerd door de PHP‑enumeratie.
+Het rapport legt een één‑gebaseerde dia‑index en [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) vast, waar beschikbaar. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) levert de eigenaar‑dia voor ondersteunde containers. Masters, lay-outs en notities hebben geen gewone dia‑index en worden geïdentificeerd op basis van hun scope. Vormcontainers en tekstgedeelte‑opmaakcontainers worden afzonderlijk gelabeld; andere containertypen behouden hun runtime‑typenaam. Elke container krijgt een rapport‑lokale ID zodat de twee acties kunnen worden gekoppeld. Het rapport slaat actietypen op als de gehele getallen‑constanten gedefinieerd door de PHP‑enumeratie.
 
-Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL's en geldige interne diadoelen toe. Het wijst macro's, programma's, bestandsacties, andere diavoorstellingsacties, onbekende acties en andere URL‑schema's af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheidsbeoordeling van Aspose.Slides. HTTPS alleen vestigt geen vertrouwen: voeg host‑toelijst en andere controles toe voor je toepassing. Zowel originele als genormaliseerde externe URL's worden gecontroleerd. Het voorbeeld controleert metadata zonder links te volgen of acties uit te voeren.
+Dit bewust beperkende toepassingsbeleid staat alleen absolute HTTPS‑URL’s en geldige interne diatargets toe. Het wijst macro’s, programma’s, bestand‑acties, andere diavoorstelling‑acties, onbekende acties en andere URL‑schema’s af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheidsbeoordeling van Aspose.Slides. Alleen HTTPS garandeert geen vertrouwen: voeg host‑whitelists en andere controles toe voor uw applicatie. Zowel de originele als genormaliseerde externe URL’s worden gecontroleerd. Het voorbeeld controleert metadata zonder de koppelingen te volgen of acties uit te voeren.
 
-Voor herstel ondersteunt de [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) van de container [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) en [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Hier worden verboden externe klik‑links vervangen door een vaste HTTPS‑landingspagina; andere verboden klikken en verboden muis‑over‑acties worden afzonderlijk verwijderd. Stel `$replaceExternalClicks` in op `false` om alle beleids­schendingen te verwijderen. Kies een door de toepassing beheerde vervangingspagina vóór uitrol.
+Voor herstel ondersteunt de container’s [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) en [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Hier worden verboden externe klik‑koppelingen vervangen door een vaste HTTPS‑landingspagina; andere verboden klikken en verboden muis‑over‑acties worden onafhankelijk verwijderd. Stel `$replaceExternalClicks` in op `false` om alle beleids‑schendingen te verwijderen. Kies een door de applicatie beheerde vervangingspagina vóór de inzet.
 
-De export‑vlag van het rapport gebruikt een conservatief PDF‑review‑beleid: markeer muis‑over‑acties en alles anders dan een externe link of specifieke diavlucht als potentieel niet‑ondersteund. Het is een review‑hint, geen capaciteits‑test of garantie dat niet‑gemarkeerde links behouden blijven bij export. Ondersteunde [PDF](/slides/nl/php-java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/php-java/convert-powerpoint-to-html/) exporten kunnen hyperlinks behouden, afhankelijk van de actie, export‑opties en viewer. Raster‑[images](/slides/nl/php-java/convert-powerpoint-to-png/) en [video](/slides/nl/php-java/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij audit voor die outputs.
+De export‑vlag van het rapport gebruikt een conservatief PDF‑reviewbeleid: markeer muis‑over‑acties en alles behalve een externe link of een specifieke dia‑sprong als potentieel niet‑ondersteund. Het is een review‑hint, geen capaciteits‑test of garantie dat niet‑gemarkeerde koppelingen de export overleven. Ondersteunde [PDF](/slides/nl/php-java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/php-java/convert-powerpoint-to-html/) export kan hyperlinks behouden, afhankelijk van de actie, exportopties en viewer. Raster‑[afbeeldingen](/slides/nl/php-java/convert-powerpoint-to-png/) en [video](/slides/nl/php-java/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij het auditen voor die output.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -524,20 +560,20 @@ try {
 }
 ```
 
-Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De bestand‑muisknop‑link en macro‑klik worden verwijderd, terwijl de HTTPS‑links en interne diavlucht behouden blijven. De verificatie toont nul verboden acties. Een invoer met een verboden externe klik‑URL test ook de vervangings‑tak. Een container met een toegestane klik en een verboden muis‑over behoudt zijn klik‑actie.
+Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De bestands‑muis‑over‑link en macro‑klik worden verwijderd, terwijl de HTTPS‑koppelingen en interne dia‑navigatie blijven. De verificatie geeft nul verboden acties weer. Een invoer met een verboden externe klik‑URL doorloopt ook de vervangings‑branch. Een container met een toegestane klik en een verboden muis‑over behoudt zijn klik‑actie.
 
-Deze selectieve opschoning verschilt van [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), die beide activeringstypen verwijdert in de geselecteerde scope, ongeacht beleid. Verificatie hier controleert alleen hyperlink‑acties; het verwijdert geen ingesloten VBA‑projecten, OLE‑objecten of andere actieve content, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
+Deze selectieve opschoning verschilt van [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), die beide activeringstypen verwijdert in de geselecteerde scope, ongeacht beleid. Verificatie hier controleert alleen hyperlink‑acties; het verwijdert geen ingebedde VBA‑projecten, OLE‑objecten of andere actieve inhoud, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
 
 ## **FAQ**
 
-**Hoe kan ik naar een sectie of de eerste dia ervan linken?**
+**Hoe kan ik linken naar een sectie of de eerste dia ervan?**
 
-Secties in PowerPoint groeperen dia's, maar een interne hyperlink richt zich op een individuele dia. Om te navigeren naar een sectie, link je naar de eerste dia van die sectie.
+Secties in PowerPoint groeperen dia's, maar een interne hyperlink richt zich op een individuele dia. Om navigatie naar een sectie te maken, koppelt u naar de eerste dia in die sectie.
 
 **Kan ik een hyperlink aan master‑dia‑elementen koppelen zodat deze op alle dia's werkt?**
 
-Ja. Master‑dia‑ en lay‑out‑elementen ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia's die de betreffende master of lay‑out gebruiken.
+Ja. Master‑dia‑ en lay‑outelementen ondersteunen hyperlinks. Koppelingen op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia's die de corresponderende master of lay‑out gebruiken.
 
 **Worden hyperlinks behouden bij export naar PDF, HTML, afbeeldingen of video?**
 
-Ondersteunde PDF‑ en HTML‑exports kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de export‑overwegingen in [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Ondersteunde PDF‑ en HTML‑exports kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de exportoverwegingen in [Rapportage, zuiveren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).

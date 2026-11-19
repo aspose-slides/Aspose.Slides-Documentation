@@ -1,6 +1,6 @@
 ---
-title: Gestisci i collegamenti ipertestuali della presentazione in C++
-linktitle: Gestisci i collegamenti ipertestuali
+title: Gestire i collegamenti ipertestuali della presentazione in C++
+linktitle: Gestisci collegamenti ipertestuali
 type: docs
 weight: 20
 url: /it/cpp/manage-hyperlinks/
@@ -15,7 +15,7 @@ keywords:
 - collegamento ipertestuale di diapositiva
 - collegamento ipertestuale di forma
 - collegamento ipertestuale di immagine
-- collegamento ipertestuale video
+- collegamento ipertestuale di video
 - collegamento ipertestuale modificabile
 - PowerPoint
 - OpenDocument
@@ -28,24 +28,24 @@ description: "Aggiungi, formatta, aggiorna e rimuovi collegamenti ipertestuali n
 
 Un collegamento ipertestuale collega il contenuto della presentazione a un sito web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali servono comunemente a due scopi:
 
-* Aprire un sito web da un testo, una forma o un riquadro multimediale.
+* Aprire un sito web da testo, forma o cornice multimediale.
 * Passare a un'altra diapositiva, ad esempio da un indice.
 
-Aspose.Slides per C++ consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le impostazioni e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti ipertestuali a livello di presentazione, diapositiva o riquadro di testo.
+Aspose.Slides per C++ consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le impostazioni e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti a livello di presentazione, diapositiva o cornice di testo.
 
 {{% alert color="info" title="Note" %}}
-È possibile anche modificare le presentazioni con il [gratuito editor online di Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+È inoltre possibile modificare le presentazioni con il [gratuito editor online Aspose PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
 ## **Aggiungere collegamenti URL**
 
-È possibile assegnare l'URL di un sito web a un testo, a una forma o a un riquadro multimediale. L'elemento a cui si assegna il collegamento ipertestuale determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o un riquadro collega l'oggetto della diapositiva.
+È possibile assegnare un URL di un sito web a testo, forma o cornice multimediale. L'elemento a cui si assegna il collegamento ipertestuale determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o cornice collega l'oggetto della diapositiva.
 
-Per presentazioni che contengono collegamenti ipertestuali relativi, vedere [Gestisci la base dei collegamenti ipertestuali](/slides/it/cpp/presentation-properties/#manage-the-hyperlink-base) per leggere, modificare o cancellare la base a livello di documento.
+Per le presentazioni contenenti collegamenti ipertestuali relativi, vedere [Gestire la base dei collegamenti ipertestuali](/slides/it/cpp/presentation-properties/#manage-the-hyperlink-base) per leggere, modificare o cancellare la base a livello di documento.
 
 ### **Aggiungere collegamenti URL al testo**
 
-Per collegare il testo a un sito web, creare un [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) e assegnarlo tramite il metodo [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
+Per collegare del testo a un sito web, creare un [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) e assegnarlo con il metodo [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Aggiungere collegamenti URL a forme e riquadri multimediali**
+### **Aggiungere collegamenti URL a forme e cornici multimediali**
 
-Per rendere cliccabile una forma o un riquadro, utilizzare il suo metodo [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). Il collegamento ipertestuale appartiene all'oggetto stesso anziché a una porzione di testo al suo interno.
-
-Lo stesso approccio si applica a riquadri di immagine, audio e video: assegnare il collegamento ipertestuale al riquadro e utilizzare [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) per aggiungere un suggerimento, se necessario.
-
-L'esempio seguente rende cliccabile un rettangolo:
+Chiamare [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) sul rettangolo per rendere cliccabile l'intera area. Usare [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) per fornire ai lettori un suggerimento sulla destinazione quando passano il mouse sopra il rettangolo. Entrambi i metodi si applicano anche a cornici di immagini, audio e video.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -109,9 +105,9 @@ shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-## **Usare i collegamenti ipertestuali per creare un indice**
+## **Usare i collegamenti per creare un indice**
 
-I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) per collegare il testo “Page 2” nella prima diapositiva alla seconda diapositiva.
+I collegamenti ipertestuali interni permettono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) per collegare il testo “Page 2” nella prima diapositiva alla seconda diapositiva.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Formattare i collegamenti ipertestuali**
 
+È possibile modificare il colore del testo collegato, riprodurre o fermare un suono quando un lettore attiva un collegamento e impostare il tooltip che appare al passaggio del mouse.
+
 ### **Colore**
 
 Il metodo [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) di [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) determina se un collegamento ipertestuale utilizza il colore dei collegamenti della presentazione o la formattazione della porzione di testo. Per applicare un colore di testo personalizzato, selezionare [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) e impostare il colore di riempimento della porzione. Questa funzionalità è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
 
-L'esempio seguente aggiunge due collegamenti ipertestuali di testo alla stessa diapositiva. Il primo utilizza un riempimento di testo rosso, mentre il secondo mantiene il colore predefinito del collegamento ipertestuale.
+In questo esempio, il primo collegamento utilizza [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) per visualizzare il riempimento rosso del testo. Il secondo collegamento mantiene il colore dei collegamenti della presentazione.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -217,14 +215,14 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 
 ### **Suono**
 
-Un collegamento ipertestuale può riprodurre un suono quando attivato o fermare un suono già in riproduzione. Utilizzare i seguenti metodi per configurare questi comportamenti:
+Un collegamento ipertestuale può riprodurre un suono quando è attivato o fermare un suono già in riproduzione. Utilizzare i seguenti metodi per configurare questi comportamenti:
 
 - [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) specifica l'audio associato al collegamento ipertestuale.
 - [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) controlla se l'attivazione del collegamento ipertestuale interrompe il suono precedente.
 
 #### **Aggiungere un suono al collegamento ipertestuale**
 
-L'esempio seguente carica `sampleaudio.wav` e lo associa a un pulsante nella prima diapositiva. Cliccando il pulsante il suono viene riprodotto e si passa alla diapositiva successiva. Una seconda forma su quella diapositiva interrompe il suono precedente quando viene cliccata, senza eseguire un'azione di navigazione.
+Il pulsante nella prima diapositiva utilizza [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) per riprodurre l'audio da `sampleaudio.wav` quando il lettore fa clic per avanzare. Nella seconda diapositiva, un pulsante separato utilizza [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) per interrompere la riproduzione e mantenere il lettore su quella diapositiva.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -268,7 +266,7 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Estrarre un suono dal collegamento ipertestuale**
+#### **Estrarre un suono da un collegamento ipertestuale**
 
 L'esempio seguente apre la presentazione creata sopra e legge l'audio del collegamento ipertestuale della prima forma in memoria tramite [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) e [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
@@ -306,18 +304,18 @@ else
 }
 ```
 
-### **Tooltip e impostazioni di interazione**
+### **Impostazioni di tooltip e interazione**
 
 È possibile aggiornare le seguenti impostazioni di [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) tramite questi metodi dopo aver assegnato un collegamento ipertestuale a testo o forma:
 
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) imposta il testo che un visualizzatore può visualizzare come suggerimento per il collegamento.
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) specifica il frame di destinazione all'interno di un frameset HTML genitore, se applicabile.
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) controlla se l'attivazione del collegamento aggiunge la destinazione all'elenco dei collegamenti ipertestuali visualizzati.
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) controlla se il collegamento ipertestuale è evidenziato quando viene cliccato.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) imposta il testo che un visualizzatore può mostrare come suggerimento per il collegamento.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) specifica il frame di destinazione all'interno di un frameset HTML padre, quando applicabile.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) controlla se l'attivazione del collegamento aggiunge la sua destinazione all'elenco dei collegamenti ipertestuali visualizzati.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) controlla se il collegamento ipertestuale è evidenziato quando cliccato.
 
 ## **Rimuovere i collegamenti ipertestuali dalle presentazioni**
 
-Utilizzare [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) per raccogliere i contenitori di collegamenti ipertestuali, inclusi i collegamenti a porzioni di testo, prima di modificarli. L'esempio seguente rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiamare solo [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) o [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); rimuovere un'azione di clic non rimuove la sua controparte al passaggio del mouse.
+Use [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) to collect hyperlink containers, including text-portion links, before changing them. The following example removes both activation types from the first slide. To remove only one type, call only [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) or [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); removing a click action does not remove its mouse-over counterpart.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -351,23 +349,76 @@ else
 }
 ```
 
-Per una rimozione incondizionata, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) rimuove entrambi i tipi di attivazione nell'ambito selezionato con una singola chiamata. Per una pulizia selettiva e la copertura di master, layout e note, vedere [Report, Sanitize e Verifica i collegamenti ipertestuali](#report-sanitize-and-verify-hyperlinks).
+Per rimozione incondizionata, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) rimuove entrambi i tipi di attivazione nell'ambito selezionato in una sola chiamata. Per una pulizia selettiva e la copertura di master, layout e note, vedere [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+
+### **Cancellare i collegamenti prima di sostituire il testo SmartArt**
+
+Quando si sostituisce un paragrafo in un nodo SmartArt esistente, cancellare le sue porzioni di testo può lasciare in vigore un vecchio collegamento ipertestuale. Recuperare il paragrafo tramite [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Prima di cancellare le sue porzioni, chiamare [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) attraverso [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) sulla cornice di testo della forma nodo che visualizza il paragrafo. Questo rimuove tutti i collegamenti ipertestuali in quella cornice, inclusi i collegamenti nei suoi altri paragrafi.
+
+L'esempio presume che la terza forma nella prima diapositiva sia una grafica SmartArt. Sostituisce il primo paragrafo del quarto nodo. In questa presentazione, la prima forma del nodo visualizza quel paragrafo.
+
+Dopo aver aggiunto entrambe le porzioni, l'esempio legge la loro formattazione effettiva con [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). Il metodo effettivo [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) restituisce il nuovo collegamento ipertestuale per la prima porzione e `nullptr` per la seconda.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
 
 ## **Creare un inventario completo dei collegamenti ipertestuali**
 
-Prima di distribuire una presentazione, è necessario inventariare le sue azioni interattive così come i suoi collegamenti web. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) restituisce oggetti [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), non un elenco piatto di stringhe URL. Ispezionare sia [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) sia [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) su ogni contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un report completo richiede fino a due righe per contenitore.
+Prima di distribuire una presentazione, inventariare le sue azioni interattive così come i suoi collegamenti web. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) restituisce oggetti [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), non un elenco semplice di stringhe URL. Ispezionare sia [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) che [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) su ogni contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un report completo richiede fino a due righe per contenitore.
 
-Scansionare solo i collegamenti ipertestuali a livello di forma può far perdere i collegamenti allegati a porzioni di testo. Interrogare invece l'ambito appropriato e conservare i contenitori restituiti in modo da poter successivamente aggiornare o rimuovere le loro azioni.
+Eseguire la scansione solo dei collegamenti a livello di forma può far perdere i collegamenti associati alle porzioni di testo. Interrogare invece l'ambito appropriato e conservare i contenitori restituiti in modo da poter successivamente aggiornare o rimuovere le loro azioni.
 
-### **Interrogare gli ambiti di presentazione, diapositiva e riquadro di testo**
+### **Interrogare gli ambiti Presentazione, Diapositiva e Cornice di testo**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) interfaccia è disponibile tramite [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) e [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Ogni ambito supporta le stesse query:
+L'interfaccia [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) è disponibile tramite [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) e [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Ogni ambito supporta le stesse query:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) restituisce i contenitori con un'azione di clic.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) restituisce i contenitori con un'azione al passaggio del mouse.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) restituisce i contenitori con una o entrambe le azioni.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) restituisce contenitori con un'azione di click.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) restituisce contenitori con un'azione di passaggio del mouse.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) restituisce contenitori con una o entrambe le azioni.
 
-L'esempio seguente crea `hyperlink-audit-input.pptx` con un collegamento di clic esterno, un collegamento di passaggio del mouse a file, una navigazione interna della diapositiva, un collegamento di testo al passaggio del mouse e un'azione macro. Non esegue nessuna di queste azioni. Le stesse tre query funzionano in ogni ambito; i conteggi descrivono i contenitori, non il totale delle azioni. L'ambito del riquadro di testo esclude i collegamenti della forma che lo contiene.
+Questo esempio assegna azioni di click e passaggio del mouse a una forma e al suo testo, e un'azione macro a un pulsante separato. Confronta i contenitori restituiti da [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) con i conteggi per ciascun tipo di attivazione. Una query sulla cornice di testo conta solo i collegamenti nel testo. Le azioni della forma contenente compaiono nelle query di diapositiva e presentazione.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -422,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Per questo esempio, le query di presentazione e diapositiva riportano ciascuna tre contenitori di clic, due contenitori di passaggio del mouse e tre contenitori con una delle due azioni. La query del riquadro di testo riporta un contenitore in ciascuna categoria.
+Per questo esempio, le query di presentazione e di diapositiva riportano ciascuna tre contenitori di click, due contenitori di passaggio del mouse e tre contenitori con una delle due azioni. La query sulla cornice di testo riporta un contenitore in ciascuna categoria.
 
 ### **Classificare azioni e destinazioni**
 
-Utilizzare [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) coprono più della semplice navigazione web:
+Usare [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) coprono più della semplice navigazione web:
 
 | Valori | Significato per un audit |
 | --- | --- |
-| `Hyperlink` | Collegamento ipertestuale esterno; controllare l'URL e il suo schema. |
+| `Hyperlink` | Collegamento ipertestuale esterno; ispezionare l'URL e il suo schema. |
 | `JumpSpecificSlide` | Navigazione interna a una diapositiva specifica. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigazione integrata della presentazione, risolta nel contesto della presentazione. |
-| `JumpEndShow`, `StartCustomSlideShow` | Termina lo spettacolo corrente o avvia uno spettacolo personalizzato. |
-| `StartMacro` | Esegue una macro. |
-| `StartProgram` | Avvia un programma. |
-| `OpenFile`, `OpenPresentation` | Apre un file o un'altra presentazione; revisionare separatamente dagli URL web. |
-| `StartStopMedia` | Avvia o interrompe la riproduzione multimediale. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigazione slideshow integrata, risolta nel contesto della presentazione. |
+| `JumpEndShow`, `StartCustomSlideShow` | Terminare lo spettacolo corrente o avviare uno spettacolo personalizzato. |
+| `StartMacro` | Eseguire una macro. |
+| `StartProgram` | Avviare un programma. |
+| `OpenFile`, `OpenPresentation` | Aprire un file o un'altra presentazione; revisionare separatamente dagli URL web. |
+| `StartStopMedia` | Avviare o fermare la riproduzione multimediale. |
 | `NoAction`, `Unknown` | Nessuna azione di navigazione, o un'azione non riconosciuta che richiede revisione. |
 
-Leggere le destinazioni esterne da [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) e le destinazioni interne specifiche da [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Le azioni interne e i comandi integrati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia alcuna azione. Conservare [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) quando differisce dall'URL normalizzato, e includere il tooltip restituito da [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) quando disponibile.
+Leggere le destinazioni esterne da [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) e le destinazioni interne specifiche da [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Le azioni interne e i comandi integrati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia azione. Conservare [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) quando differisce dall'URL normalizzato, e includere il tooltip restituito da [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) quando disponibile.
 
-### **Report, Sanitize e Verifica dei collegamenti ipertestuali**
+### **Report, Sanitize e Verifica dei collegamenti**
 
-L'esempio C++ seguente legge una presentazione esistente (utilizzare il file creato sopra), scrive `hyperlink-audit.json`, applica una politica, salva `hyperlink-sanitized.pptx` e lo riapre per controllare nuovamente entrambi i tipi di attivazione. Raccoglie i contenitori prima di modificarli e utilizza l'identità dei puntatori per evitare di elaborare lo stesso contenitore due volte. Le query di presentazione coprono le diapositive ordinarie; per un inventario a livello di pacchetto, interroga esplicitamente anche master, layout, note e i master di note e di handout quando presenti.
+Questo esempio C++ apre la presentazione dell'esempio precedente e scrive un record JSON per ogni azione. Utilizza [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) per raccogliere i contenitori su diapositive ordinarie, master, layout e note, incluse le master di note e di opuscoli quando presenti. Usa l'identità dei puntatori per contare ogni contenitore una sola volta, applica la politica descritta di seguito e riapre la presentazione salvata per verificare sia le azioni di click che di passaggio del mouse.
 
-Il report registra un indice di diapositiva a base 1 e [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) dove disponibile. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) fornisce la diapositiva proprietaria per i contenitori supportati. Master, layout e note non hanno un indice di diapositiva ordinario e sono identificati per ambito. I contenitori di forma e i contenitori di formattazione di porzione di testo sono etichettati separatamente; gli altri tipi di contenitore mantengono il loro nome di tipo a runtime. Ogni contenitore ottiene un ID locale al report in modo che le sue due azioni possano essere correlate.
+Il report registra un indice di diapositiva basato su 1 e [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) dove disponibile. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati per ambito. I contenitori di forma e i contenitori di formattazione delle porzioni di testo sono etichettati separatamente; gli altri tipi di contenitore conservano il loro nome di tipo a runtime. Ogni contenitore ottiene un ID locale al report in modo che le sue due azioni possano essere correlate.
 
-Questa politica applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e target di diapositiva interni validi. Rifiuta macro, programmi, azioni su file, altre azioni di presentazione, azioni sconosciute e altri schemi di URL. Queste rifiuti sono decisioni di policy, non un verdetto di sicurezza di Aspose.Slides. HTTPS da solo non stabilisce fiducia: aggiungere liste di host consentiti e altri controlli per l'applicazione. Sia gli URL esterni originali che quelli normalizzati sono verificati. L'esempio verifica i metadati senza seguire i collegamenti o eseguire azioni.
+Questa politica applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e destinazioni di diapositiva interne valide. Rifiuta macro, programmi, azioni su file, altre azioni di slideshow, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni di politica, non un giudizio di sicurezza di Aspose.Slides. HTTPS da solo non stabilisce fiducia: aggiungere whitelist di host e altri controlli per la propria applicazione. Sia gli URL esterni originali sia quelli normalizzati sono controllati. L'esempio verifica i metadati senza seguire i collegamenti o eseguire azioni.
 
-Per la rimessione in stato, il [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) del contenitore supporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) e [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Qui, i collegamenti di clic esterni proibiti vengono sostituiti con una pagina di destinazione HTTPS fissa; gli altri clic proibiti e le azioni di passaggio del mouse proibite vengono rimossi indipendentemente. Impostare `replaceExternalClicks` a `false` per rimuovere tutte le violazioni della policy. Scegliere una pagina di sostituzione gestita dall'applicazione prima del dispiegamento.
+Per la rimborso, il [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) del contenitore supporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) e [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Qui, i collegamenti click esterni proibiti sono sostituiti con una pagina di destinazione HTTPS fissa; altri click proibiti e azioni di passaggio del mouse proibite sono rimossi indipendentemente. Impostare `replaceExternalClicks` su `false` per rimuovere tutte le violazioni della politica. Scegliere una pagina di sostituzione di proprietà dell'applicazione prima della distribuzione.
 
-Il flag di esportazione del report utilizza una politica di revisione PDF conservativa: segnala le azioni al passaggio del mouse e tutto ciò che non è un collegamento esterno o un salto di diapositiva specifico come potenzialmente non supportato. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravvivranno all'esportazione. Le esportazioni PDF e HTML supportate [PDF](/slides/it/cpp/convert-powerpoint-to-pdf/) e [HTML](/slides/it/cpp/convert-powerpoint-to-html/) possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/cpp/convert-powerpoint-to-png/) raster e i [video](/slides/it/cpp/convert-powerpoint-to-video/) non possono preservare i collegamenti ipertestuali interattivi; segnalare ogni azione quando si effettua l'audit per quei output.
+La bandiera di esportazione del report utilizza una politica di revisione PDF conservativa: segna le azioni di passaggio del mouse e tutto ciò che non è un collegamento esterno o un salto di diapositiva specifico come potenzialmente non supportato. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravvivano all'esportazione. Le esportazioni PDF [PDF](/slides/it/cpp/convert-powerpoint-to-pdf/) e HTML [HTML](/slides/it/cpp/convert-powerpoint-to-html/) supportate possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/cpp/convert-powerpoint-to-png/) raster e i [video](/slides/it/cpp/convert-powerpoint-to-video/) non possono preservare i collegamenti interattivi; segnare ogni azione quando si effettua un audit per tali output.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -653,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-Con l'input creato sopra, il report contiene cinque righe di azioni. Il collegamento al file al passaggio del mouse e il clic della macro vengono rimossi, mentre i collegamenti HTTPS e la navigazione interna delle diapositive rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL di clic esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un clic consentito e un passaggio del mouse proibito mantiene la sua azione di clic.
+Con l'input creato sopra, il report contiene cinque righe di azioni. Il collegamento di passaggio del mouse sul file e il click della macro sono rimossi, mentre i collegamenti HTTPS e la navigazione interna delle diapositive rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL di click esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un click consentito e un passaggio del mouse proibito mantiene la sua azione di click.
 
-Questa pulizia selettiva differisce da [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), che rimuove entrambi i tipi di attivazione in tutto l'ambito selezionato indipendentemente dalla policy. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove i progetti VBA incorporati, gli oggetti OLE o altri contenuti attivi, e non convalida un file PDF o HTML esportato.
+Questa pulizia selettiva differisce da [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), che rimuove entrambi i tipi di attivazione in tutto l'ambito selezionato indipendentemente dalla politica. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove i progetti VBA incorporati, gli oggetti OLE o altro contenuto attivo, e non valida un file PDF o HTML esportato.
 
 ## **FAQ**
 
-**Come posso collegare a una sezione o alla sua prima diapositiva?**
+**Come posso collegarmi a una sezione o alla sua prima diapositiva?**
 
-Le sezioni in PowerPoint raggruppano le diapositive, ma un collegamento ipertestuale interno mira a una singola diapositiva. Per creare una navigazione verso una sezione, collegare alla prima diapositiva di quella sezione.
+Le sezioni in PowerPoint raggruppano le diapositive, ma un collegamento interno punta a una diapositiva individuale. Per creare una navigazione verso una sezione, collegarsi alla prima diapositiva di quella sezione.
 
-**Posso allegare un collegamento ipertestuale agli elementi del master in modo che funzioni su tutte le diapositive?**
+**Posso collegare un collegamento ipertestuale agli elementi del master della diapositiva in modo che funzioni su tutte le diapositive?**
 
-Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione su diapositive che utilizzano il master o il layout corrispondente.
+Sì. Gli elementi del master della diapositiva e del layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione sulle diapositive che usano il master o il layout corrispondente.
 
-**I collegamenti ipertestuali saranno conservati quando si esporta in PDF, HTML, immagini o video?**
+**I collegamenti ipertestuali verranno conservati durante l'esportazione in PDF, HTML, immagini o video?**
 
-Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali; le immagini raster e i video non possono. Vedere le considerazioni sull'esportazione in [Report, Sanitize e Verifica i collegamenti ipertestuali](#report-sanitize-and-verify-hyperlinks).
+Le esportazioni PDF e HTML supportate possono conservare i collegamenti ipertestuali; le immagini raster e i video non possono. Vedere le considerazioni sull'esportazione in [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

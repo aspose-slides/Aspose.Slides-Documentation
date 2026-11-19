@@ -1,21 +1,21 @@
 ---
-title: Gestisci i collegamenti ipertestuali della presentazione su Android
-linktitle: Gestisci i collegamenti ipertestuali
+title: Gestire i collegamenti ipertestuali della presentazione su Android
+linktitle: Gestire i collegamenti ipertestuali
 type: docs
 weight: 20
 url: /it/androidjava/manage-hyperlinks/
 keywords:
-- aggiungi URL
-- aggiungi collegamento ipertestuale
-- crea collegamento ipertestuale
-- formatta collegamento ipertestuale
-- rimuovi collegamento ipertestuale
-- aggiorna collegamento ipertestuale
-- collegamento ipertestuale di testo
-- collegamento ipertestuale di diapositiva
-- collegamento ipertestuale di forma
-- collegamento ipertestuale di immagine
-- collegamento ipertestuale di video
+- aggiungere URL
+- aggiungere collegamento ipertestuale
+- creare collegamento ipertestuale
+- formattare collegamento ipertestuale
+- rimuovere collegamento ipertestuale
+- aggiornare collegamento ipertestuale
+- collegamento ipertestuale nel testo
+- collegamento ipertestuale alla diapositiva
+- collegamento ipertestuale alla forma
+- collegamento ipertestuale all'immagine
+- collegamento ipertestuale al video
 - collegamento ipertestuale modificabile
 - PowerPoint
 - OpenDocument
@@ -23,30 +23,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aggiungi, formatta, aggiorna e rimuovi collegamenti ipertestuali nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Android tramite Java, utilizzando esempi Java."
+description: "Aggiungere, formattare, aggiornare e rimuovere i collegamenti ipertestuali nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Android tramite Java, usando esempi Java."
 ---
 ## **Introduzione**
 
-Un collegamento ipertestuale collega il contenuto della presentazione a un sito web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali comunemente servono a due scopi:
+Un collegamento ipertestuale collega il contenuto della presentazione a un sito web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali servono comunemente a due scopi:
 
-* Aprire un sito web da testo, una forma o un riquadro multimediale.
+* Aprire un sito web da testo, forma o riquadro multimediale.
 * Passare a un'altra diapositiva, ad esempio da un indice.
 
-Aspose.Slides per Android tramite Java consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le loro proprietà e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti ipertestuali a livello di presentazione, diapositiva o riquadro di testo.
+Aspose.Slides per Android via Java consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le proprietà e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti a livello di presentazione, diapositiva o riquadro di testo.
 
-{{% alert color="info" title="Note" %}}
-È possibile modificare le presentazioni anche con il [editor online gratuito di Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+{{% alert color="info" title="Nota" %}}
 
-## **Aggiungi collegamenti URL**
+È inoltre possibile modificare le presentazioni con il [editor gratuito online di Aspose PowerPoint](https://products.aspose.app/slides/editor).
+
+{{% /alert %}}
+
+## **Aggiungere collegamenti ipertestuali URL**
 
 È possibile assegnare un URL di sito web a testo, forma o riquadro multimediale. L'elemento a cui si assegna il collegamento ipertestuale determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o un riquadro collega l'oggetto della diapositiva.
 
-Per le presentazioni contenenti collegamenti ipertestuali relativi, vedere [Gestire la base del collegamento ipertestuale](/slides/it/androidjava/presentation-properties/#manage-the-hyperlink-base) per leggere, modificare o cancellare la base a livello di documento.
+Per le presentazioni contenenti collegamenti ipertestuali relativi, vedere [Gestire la base dei collegamenti ipertestuali](/slides/it/androidjava/presentation-properties/#manage-the-hyperlink-base) per leggere, modificare o cancellare la base a livello di documento.
 
-### **Aggiungi collegamenti URL al testo**
+### **Aggiungere collegamenti ipertestuali URL al testo**
 
-Per collegare il testo a un sito web, passare un [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) al metodo [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
+Per collegare del testo a un sito web, passare un [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) al metodo [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
 
 ```java
 import com.aspose.slides.*;
@@ -66,13 +68,9 @@ try {
 }
 ```
 
-### **Aggiungi collegamenti URL a forme e riquadri multimediali**
+### **Aggiungere collegamenti ipertestuali URL a forme e riquadri multimediali**
 
-Per rendere una forma o un riquadro cliccabile, chiamare il suo metodo [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-). Il collegamento ipertestuale appartiene all'oggetto stesso piuttosto che a una porzione di testo al suo interno.
-
-La stessa procedura si applica a riquadri di immagine, audio e video: assegnare il collegamento ipertestuale al riquadro e chiamare [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) se necessario.
-
-L'esempio seguente rende un rettangolo cliccabile:
+Chiamare [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) sul rettangolo per rendere l'intera area cliccabile. Usare [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) per mostrare ai lettori un suggerimento sulla destinazione quando si passa il mouse sopra il rettangolo. Entrambi i metodi si applicano anche a riquadri di immagine, audio e video.
 
 ```java
 import com.aspose.slides.*;
@@ -92,7 +90,7 @@ try {
 
 ## **Usare i collegamenti ipertestuali per creare un indice**
 
-I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) per collegare il testo “Pagina 2” sulla prima diapositiva alla seconda diapositiva.
+I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) per collegare il testo “Page 2” nella prima diapositiva alla seconda diapositiva.
 
 ```java
 import com.aspose.slides.*;
@@ -128,11 +126,13 @@ try {
 
 ## **Formattare i collegamenti ipertestuali**
 
+È possibile modificare il colore del testo collegato, riprodurre o fermare un suono quando un lettore attiva un collegamento e impostare il tooltip che appare al passaggio del mouse.
+
 ### **Colore**
 
-Il metodo [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) di [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) determina se un collegamento ipertestuale utilizza il colore dei collegamenti ipertestuali della presentazione o la formattazione della porzione di testo. Per applicare un colore del testo personalizzato, selezionare [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) e impostare il colore di riempimento della porzione. Questa funzionalità è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
+Il metodo [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) di [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) determina se un collegamento ipertestuale utilizza il colore dei collegamenti della presentazione o la formattazione della porzione di testo. Per applicare un colore di testo personalizzato, selezionare [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) e impostare il colore di riempimento della porzione. Questa funzionalità è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
 
-L'esempio seguente aggiunge due collegamenti ipertestuali di testo alla stessa diapositiva. Il primo utilizza un riempimento di testo rosso, mentre il secondo mantiene il colore predefinito del collegamento ipertestuale.
+In questo esempio, [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) fa sì che il primo collegamento utilizzi il riempimento rosso della porzione di testo. Il secondo collegamento mantiene il colore dei collegamenti della presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -157,6 +157,7 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Suono**
 
 Un collegamento ipertestuale può riprodurre un suono quando viene attivato o fermare un suono già in riproduzione. Utilizzare i seguenti metodi per configurare questi comportamenti:
@@ -164,9 +165,9 @@ Un collegamento ipertestuale può riprodurre un suono quando viene attivato o fe
 - [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) specifica l'audio associato al collegamento ipertestuale.
 - [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) controlla se l'attivazione del collegamento ipertestuale interrompe il suono precedente.
 
-#### **Aggiungi un suono al collegamento ipertestuale**
+#### **Aggiungere un suono al collegamento ipertestuale**
 
-L'esempio seguente carica `sampleaudio.wav` e lo associa a un pulsante sulla prima diapositiva. Cliccando il pulsante il suono viene riprodotto e si passa alla diapositiva successiva. Una seconda forma su quella diapositiva interrompe il suono precedente quando viene cliccata, senza eseguire alcuna azione di navigazione.
+Il pulsante nella prima diapositiva utilizza [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) per riprodurre l'audio da `sampleaudio.wav` quando il lettore fa clic per avanzare. Nella seconda diapositiva, un pulsante separato utilizza [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) per fermare la riproduzione e mantenere il lettore su quella diapositiva.
 
 ```java
 import com.aspose.slides.*;
@@ -205,7 +206,7 @@ try {
 }
 ```
 
-#### **Estrai un suono dal collegamento ipertestuale**
+#### **Estrarre un suono da un collegamento ipertestuale**
 
 L'esempio seguente apre la presentazione creata sopra e legge l'audio del collegamento ipertestuale della prima forma in memoria tramite [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) e [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
 
@@ -231,18 +232,18 @@ try {
 }
 ```
 
-### **Tooltip e impostazioni di interazione**
+### **Impostazioni di tooltip e interazione**
 
-È possibile chiamare i seguenti metodi di [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) dopo aver assegnato un collegamento ipertestuale a testo o a una forma:
+È possibile chiamare i seguenti metodi di [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) dopo aver assegnato un collegamento ipertestuale a testo o forma:
 
-- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) imposta il testo che un visualizzatore può mostrare come suggerimento per il collegamento.
-- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) specifica il frame di destinazione all'interno di un frameset HTML genitore, quando applicabile.
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) imposta il testo che un visualizzatore può visualizzare come suggerimento per il collegamento.
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) specifica il riquadro di destinazione all'interno di un frameset HTML padre, quando applicabile.
 - [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) controlla se l'attivazione del collegamento aggiunge la sua destinazione all'elenco dei collegamenti ipertestuali visualizzati.
 - [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) controlla se il collegamento ipertestuale è evidenziato quando viene cliccato.
 
 ## **Rimuovere i collegamenti ipertestuali dalle presentazioni**
 
-Utilizzare [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) per raccogliere i contenitori di collegamenti ipertestuali, inclusi i collegamenti di porzioni di testo, prima di modificarli. L'esempio seguente rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiamare solo [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) o [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); la rimozione di un'azione di clic non rimuove la sua controparte al passaggio del mouse.
+Usare [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) per raccogliere i contenitori di collegamenti, inclusi i collegamenti delle porzioni di testo, prima di modificarli. L'esempio seguente rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiamare solo [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) o [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); la rimozione di un'azione di clic non rimuove la sua contropartita al passaggio del mouse.
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +270,58 @@ try {
 }
 ```
 
-Per una rimozione incondizionata, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) rimuove entrambi i tipi di attivazione nell'ambito selezionato con una sola chiamata. Per una pulizia selettiva e la copertura di master, layout e note, vedere [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Per una rimozione incondizionata, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) elimina entrambi i tipi di attivazione nell'ambito selezionato con una sola chiamata. Per una pulizia selettiva e per coprire master, layout e note, vedere [Segnalare, sanare e verificare i collegamenti ipertestuali](#report-sanitize-and-verify-hyperlinks).
+
+### **Cancellare i collegamenti ipertestuali prima di sostituire il testo di SmartArt**
+
+Quando si sostituisce un paragrafo in un nodo SmartArt esistente, la cancellazione delle sue porzioni di testo può lasciare in vigore un vecchio collegamento ipertestuale. Recuperare il paragrafo tramite [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getTextFrame--). Prima di cancellare le sue porzioni, chiamare [getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) sul riquadro di testo della forma nodo che visualizza il paragrafo, quindi chiamare [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) sull'oggetto restituito. Questo rimuove ogni collegamento ipertestuale in quel riquadro, inclusi i collegamenti nei suoi altri paragrafi.
+
+L'esempio presuppone che la terza forma nella prima diapositiva di `SmartArtHyperlink.pptx` sia una grafica SmartArt. Sostituisce il primo paragrafo del quarto nodo. In questa presentazione, la prima forma del nodo visualizza quel paragrafo.
+
+Dopo aver aggiunto entrambe le porzioni, l'esempio legge la loro formattazione effettiva con [getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--). Su tale formattazione, [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) restituisce il nuovo collegamento per la prima porzione e `null` per la seconda.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Creare un inventario completo dei collegamenti ipertestuali**
 
-Prima di distribuire una presentazione, inventariare le sue azioni interattive così come i suoi collegamenti web. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) restituisce oggetti [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/), non un elenco piatto di stringhe URL. Ispezionare sia [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) che [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) su ogni contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un report completo richiede fino a due righe per contenitore.
+Prima di distribuire una presentazione, inventariare le sue azioni interattive così come i suoi collegamenti web. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) restituisce oggetti [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/), non un elenco piatto di stringhe URL. Ispezionare sia [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) sia [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) su ogni contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un rapporto completo necessita fino a due righe per contenitore.
 
-Scansionare solo i collegamenti ipertestuali a livello di forma può perdere i collegamenti allegati alle porzioni di testo. Interrogare invece l'ambito appropriato e mantenere i contenitori restituiti in modo da poter successivamente aggiornare o rimuovere le loro azioni.
+Scansionare solo i collegamenti a livello di forma può far mancare i collegamenti allegati alle porzioni di testo. Interrogare l'ambito appropriato invece, e conservare i contenitori restituiti in modo da poter aggiornare o rimuovere in seguito le loro azioni.
 
 ### **Interrogare gli ambiti di presentazione, diapositiva e riquadro di testo**
 
-L'interfaccia [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) è disponibile tramite [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), e [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). Ogni ambito supporta le stesse query:
+L'interfaccia [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) è disponibile tramite [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), e [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). Ogni ambito supporta le stesse interrogazioni:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) restituisce i contenitori con un'azione di clic.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) restituisce i contenitori con un'azione al passaggio del mouse.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) restituisce i contenitori con una o entrambe le azioni.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) restituisce contenitori con un'azione di clic.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) restituisce contenitori con un'azione al passaggio del mouse.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) restituisce contenitori con una o entrambe le azioni.
 
-L'esempio seguente crea `hyperlink-audit-input.pptx` con un collegamento di clic esterno, un collegamento al passaggio del mouse su file, una navigazione interna alla diapositiva, un collegamento di testo al passaggio del mouse e un'azione macro. Non esegue nessuna di queste azioni. Le stesse tre query funzionano in ogni ambito; i conteggi descrivono i contenitori, non il totale delle azioni. L'ambito del riquadro di testo esclude i propri collegamenti della forma contenente.
+Questo esempio assegna azioni di clic e di passaggio del mouse a una forma e al suo testo, e un'azione macro a un pulsante separato. Confronta il numero di contenitori restituiti da [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) con i conteggi per ciascun tipo di attivazione. Un'interrogazione del riquadro di testo conta solo i collegamenti nel testo. Le azioni della forma contenente appaiono nelle interrogazioni di diapositiva e di presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -325,37 +361,37 @@ try {
 }
 ```
 
-Per questo esempio, le query di presentazione e di diapositiva riportano ciascuna tre contenitori di clic, due contenitori di passaggio del mouse e tre contenitori con una delle due azioni. La query del riquadro di testo riporta un contenitore in ciascuna categoria.
+Per questo esempio, le interrogazioni di presentazione e diapositiva riportano tre contenitori di clic, due di passaggio del mouse e tre contenitori con una qualsiasi azione. L'interrogazione del riquadro di testo riporta un contenitore in ciascuna categoria.
 
 ### **Classificare azioni e destinazioni**
 
-Utilizzare [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) coprono più della navigazione web:
+Usare [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) coprono più della navigazione web:
 
 | Valori | Significato per un audit |
 | --- | --- |
 | `Hyperlink` | Collegamento ipertestuale esterno; ispezionare l'URL e il suo schema. |
 | `JumpSpecificSlide` | Navigazione interna a una diapositiva specifica. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigazione integrata della presentazione, risolta nel contesto della presentazione. |
-| `JumpEndShow`, `StartCustomSlideShow` | Termina lo spettacolo corrente o avvia uno spettacolo personalizzato. |
-| `StartMacro` | Esegue una macro. |
-| `StartProgram` | Avvia un programma. |
-| `OpenFile`, `OpenPresentation` | Apri un file o un'altra presentazione; esaminarlo separatamente dagli URL web. |
-| `StartStopMedia` | Avvia o interrompe la riproduzione multimediale. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigazione incorporata della presentazione, risolta nel contesto della presentazione. |
+| `JumpEndShow`, `StartCustomSlideShow` | Terminare lo show corrente o avviare uno show personalizzato. |
+| `StartMacro` | Eseguire una macro. |
+| `StartProgram` | Avviare un programma. |
+| `OpenFile`, `OpenPresentation` | Aprire un file o un'altra presentazione; esaminarli separatamente dagli URL web. |
+| `StartStopMedia` | Avviare o fermare la riproduzione multimediale. |
 | `NoAction`, `Unknown` | Nessuna azione di navigazione, o un'azione non riconosciuta che richiede revisione. |
 
-Leggere le destinazioni esterne da [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) e le destinazioni interne specifiche da [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). Le azioni interne e i comandi integrati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia alcuna azione. Conservare il valore restituito da [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) quando differisce dall'URL normalizzato, e includere il tooltip restituito da [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) quando disponibile.
+Leggere le destinazioni esterne da [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) e le destinazioni interne specifiche da [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). Le azioni interne e i comandi incorporati potrebbero non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia nessuna azione. Conservare il valore restituito da [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) quando differisce dall'URL normalizzato, e includere il tooltip restituito da [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) quando disponibile.
 
-### **Report, pulire e verificare i collegamenti ipertestuali**
+### **Segnalare, sanare e verificare i collegamenti ipertestuali**
 
-L'esempio Java seguente legge una presentazione esistente (usare il file creato sopra), scrive `hyperlink-audit.json`, applica una politica, salva `hyperlink-sanitized.pptx` e lo riapre per controllare nuovamente entrambi i tipi di attivazione. Raccoglie i contenitori prima di modificarli e utilizza l'uguaglianza di riferimento per evitare di elaborare lo stesso contenitore due volte. Le query della presentazione coprono le diapositive ordinarie; per un inventario a livello di pacchetto, interroga esplicitamente master, layout, note e i master di note e di handout quando presenti.
+Questo esempio apre la presentazione dell'esempio precedente e scrive un record JSON per ciascuna azione. Usa [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) per raccogliere i contenitori su diapositive ordinarie, master, layout e note, includendo i master di note e di handout quando presenti. Utilizza l'uguaglianza di riferimento per contare ogni contenitore una sola volta, applica la politica descritta di seguito e riapre la presentazione salvata per verificare sia le azioni di clic sia quelle di passaggio del mouse.
 
-Il report registra un indice di diapositiva basato su 1 e [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) dove disponibile. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati per ambito. I contenitori di forma e i contenitori di formattazione delle porzioni di testo sono etichettati separatamente; gli altri tipi di contenitore mantengono il nome del tipo di runtime. Ogni contenitore riceve un ID locale al report così le sue due azioni possono essere correlate. Il report memorizza i tipi di azione come le costanti intere definite dall'enumerazione Java.
+Il rapporto registra un indice di diapositiva basato su 1 e [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) dove disponibile. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati per ambito. I contenitori di forma e i contenitori di formattazione delle porzioni di testo sono etichettati separatamente; altri tipi di contenitore mantengono il nome del tipo a runtime. Ogni contenitore ottiene un ID locale al rapporto in modo che le sue due azioni possano essere correlate. Il rapporto memorizza i tipi di azione come le costanti intere definite dall'enumerazione Java.
 
-Questa politica applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e destinazioni interne di diapositive valide. Rifiuta macro, programmi, azioni su file, altre azioni di presentazione, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni di politica, non un giudizio di sicurezza di Aspose.Slides. HTTPS da solo non garantisce fiducia: aggiungere liste di host consentiti e altri controlli per la propria applicazione. Sia gli URL esterni originali che quelli normalizzati sono verificati. L'esempio verifica i metadati senza seguire i collegamenti o eseguire azioni.
+Questa politica applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e destinazioni interne diapositive valide. Rifiuta macro, programmi, azioni su file, altre azioni di presentazione, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni politiche, non un verdetto di sicurezza di Aspose.Slides. HTTPS da solo non stabilisce fiducia: aggiungere liste di host consentiti e altri controlli per la propria applicazione. Sia gli URL esterni originali sia quelli normalizzati sono controllati. L'esempio esamina i metadati senza seguire i link o eseguire azioni.
 
-Per la rimessione, il [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) del contenitore supporta [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) e [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Qui, i collegamenti di clic esterni proibiti sono sostituiti con una pagina di destinazione HTTPS fissa; gli altri clic proibiti e le azioni di passaggio del mouse proibite sono rimossi in modo indipendente. Impostare `replaceExternalClicks` su `false` per rimuovere tutte le violazioni di politica. Scegliere una pagina di sostituzione di proprietà dell'applicazione prima del deployment.
+Per la risoluzione, il metodo [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) del contenitore supporta [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) e [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Qui, i collegamenti click esterni proibiti sono sostituiti con una pagina di destinazione HTTPS fissa; gli altri click proibiti e le azioni di passaggio del mouse proibite sono rimossi indipendentemente. Impostare `replaceExternalClicks` a `false` per rimuovere tutte le violazioni di politica. Scegliere una pagina di sostituzione di proprietà dell'applicazione prima del rilascio.
 
-La bandiera di esportazione del report utilizza una politica di revisione PDF conservativa: segnala le azioni al passaggio del mouse e tutto ciò che non è un collegamento esterno o un salto di diapositiva specifico come potenzialmente non supportato. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravvivano all'esportazione. Le esportazioni PDF e HTML supportate [PDF](/slides/it/androidjava/convert-powerpoint-to-pdf/) e [HTML](/slides/it/androidjava/convert-powerpoint-to-html/) possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/androidjava/convert-powerpoint-to-png/) raster e i [video](/slides/it/androidjava/convert-powerpoint-to-video/) non possono preservare i collegamenti ipertestuali interattivi; segnala ogni azione quando esegui l'audit per tali output.
+Il flag di esportazione del rapporto utilizza una politica di revisione PDF conservatrice: segnala le azioni di passaggio del mouse e qualsiasi cosa diversa da un collegamento esterno o da un salto specifico di diapositiva come potenzialmente non supportata. È un suggerimento di revisione, non un test di capacità o una garanzia che i link non segnalati sopravvivano all'esportazione. Le esportazioni PDF [PDF](/slides/it/androidjava/convert-powerpoint-to-pdf/) e HTML [HTML](/slides/it/androidjava/convert-powerpoint-to-html/) supportate possono preservare i collegamenti, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/androidjava/convert-powerpoint-to-png/) raster e i [video](/slides/it/androidjava/convert-powerpoint-to-video/) non possono preservare i collegamenti interattivi; segnalare ogni azione quando si effettua l'audit per tali output.
 
 ```java
 import com.aspose.slides.*;
@@ -542,9 +578,9 @@ try {
 }
 ```
 
-Con l'input creato sopra, il report contiene cinque righe di azioni. Il collegamento al passaggio del mouse su file e il clic macro sono rimossi, mentre i collegamenti HTTPS e la navigazione interna alle diapositive rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL di clic esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un clic consentito e un passaggio del mouse proibito mantiene la sua azione di clic.
+Con l'input creato sopra, il rapporto contiene cinque righe di azione. Il collegamento di passaggio del mouse del file e il click macro sono rimossi, mentre i collegamenti HTTPS e la navigazione interna delle diapositive rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL di click esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un click consentito e un passaggio del mouse proibito mantiene la sua azione di click.
 
-Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), che rimuove entrambi i tipi di attivazione in tutto l'ambito selezionato indipendentemente dalla politica. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove progetti VBA incorporati, oggetti OLE o altri contenuti attivi, e non valida un file PDF o HTML esportato.
+Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) che rimuove entrambi i tipi di attivazione nell'ambito selezionato indipendentemente dalla politica. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove progetti VBA incorporati, oggetti OLE o altri contenuti attivi, e non valida un file PDF o HTML esportato.
 
 ## **FAQ**
 
@@ -552,10 +588,10 @@ Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.a
 
 Le sezioni in PowerPoint raggruppano le diapositive, ma un collegamento ipertestuale interno punta a una singola diapositiva. Per creare una navigazione a una sezione, collegare alla prima diapositiva di quella sezione.
 
-**Posso collegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?**
+**Posso collegare un collegamento ipertestuale agli elementi del master in modo che funzioni su tutte le diapositive?**
 
-Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione sulle diapositive che utilizzano il master o il layout corrispondente.
+Sì. Gli elementi del master e dei layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione su diapositive che utilizzano il master o il layout corrispondente.
 
-**I collegamenti ipertestuali verranno conservati durante l'esportazione in PDF, HTML, immagini o video?**
+**I collegamenti ipertestuali saranno preservati durante l'esportazione in PDF, HTML, immagini o video?**
 
-Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali; le immagini raster e i video non possono. Vedi le considerazioni sull'esportazione in [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali; le immagini raster e i video no. Vedere le considerazioni sull'esportazione in [Segnalare, sanare e verificare i collegamenti ipertestuali](#report-sanitize-and-verify-hyperlinks).

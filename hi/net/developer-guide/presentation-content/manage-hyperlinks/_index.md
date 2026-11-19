@@ -1,52 +1,52 @@
 ---
-title: ".NET में प्रस्तुति हाइपरलिंक प्रबंधित करें"
-linktitle: "हाइपरलिंक प्रबंधित करें"
+title: .NET में प्रस्तुति हाइपरलिंक प्रबंधित करें
+linktitle: हाइपरलिंक प्रबंधित करें
 type: docs
 weight: 20
 url: /hi/net/manage-hyperlinks/
 keywords:
-- "URL जोड़ें"
-- "हाइपरलिंक जोड़ें"
-- "हाइपरलिंक बनाएं"
-- "हाइपरलिंक स्वरूपित करें"
-- "हाइपरलिंक हटाएं"
-- "हाइपरलिंक अपडेट करें"
-- "पाठ हाइपरलिंक"
-- "स्लाइड हाइपरलिंक"
-- "आकार हाइपरलिंक"
-- "छवि हाइपरलिंक"
-- "वीडियो हाइपरलिंक"
-- "परिवर्तनीय हाइपरलिंक"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक जोड़ें, स्वरूपित करें, अपडेट करें और हटाएं, C# उदाहरणों के साथ।"
+- URL जोड़ें
+- हाइपरलिंक जोड़ें
+- हाइपरलिंक बनाएं
+- हाइपरलिंक का स्वरूप
+- हाइपरलिंक हटाएँ
+- हाइपरलिंक अपडेट करें
+- टेक्स्ट हाइपरलिंक
+- स्लाइड हाइपरलिंक
+- आकार हाइपरलिंक
+- छवि हाइपरलिंक
+- वीडियो हाइपरलिंक
+- परिवर्तनीय हाइपरलिंक
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक जोड़ें, स्वरूपित करें, अपडेट करें और हटाएँ, C# उदाहरणों का उपयोग करके।"
 ---
 ## **परिचय**
 
-हाइपरलिंक प्रस्तुति सामग्री को एक वेबसाइट या प्रस्तुति के भीतर किसी स्थान से जोड़ता है। PowerPoint में, हाइपरलिंक आमतौर पर दो उद्देश्यों की पूर्ति करते हैं:
+हाइपरलिंक प्रस्तुति सामग्री को एक वेबसाइट या प्रस्तुति के भीतर के किसी स्थान से जोड़ता है। PowerPoint में, हाइपरलिंक आमतौर पर दो उद्देश्यों की पूर्ति करते हैं:
 
-* पाठ, आकार या मीडिया फ्रेम से वेबसाइट खोलें।
-* उदाहरण के लिए, सामग्री सारणी से किसी अन्य स्लाइड पर नेविगेट करें।
+* पाठ, आकार, या मीडिया फ्रेम से वेबसाइट खोलें।
+* एक अन्य स्लाइड पर जाएँ, उदाहरण के लिए, तालिका‑सामग्री से।
 
-Aspose.Slides for .NET आपको ये लिंक जोड़ने, उनके रूप और ध्वनि को नियंत्रित करने, उनके गुण अपडेट करने और हटाने की सुविधा देता है। नीचे दिए गए उदाहरण दिखाते हैं कि व्यक्तिगत तत्वों पर हाइपरलिंक के साथ कैसे काम किया जाए और प्रस्तुति, स्लाइड या टेक्स्ट‑फ़्रेम स्तर पर हाइपरलिंक तक कैसे पहुँचें।
+Aspose.Slides for .NET आपको इन लिंक को जोड़ने, उनके दिखावे और ध्वनि को नियंत्रित करने, उनके गुणों को अपडेट करने और उन्हें हटाने की सुविधा देता है। नीचे दिए गए उदाहरण दिखाते हैं कि व्यक्तिगत तत्वों पर हाइपरलिंक कैसे काम किया जाता है और प्रस्तुति, स्लाइड, या टेक्स्ट‑फ़्रेम स्तर पर हाइपरलिंक तक कैसे पहुँचा जाता है।
 
 {{% alert color="info" title="Note" %}}
-आप प्रस्तुतियों को [मुफ़्त ऑनलाइन Aspose PowerPoint संपादक](https://products.aspose.app/slides/editor) के साथ भी संपादित कर सकते हैं।
-{{% /alert %}} 
+आप प्रस्तुतियों को [मुक्त ऑनलाइन Aspose PowerPoint संपादक](https://products.aspose.app/slides/editor) के साथ भी संपादित कर सकते हैं।
+{{% /alert %}}
 
 ## **URL हाइपरलिंक जोड़ें**
 
-आप एक वेबसाइट URL को पाठ, आकार या मीडिया फ्रेम को असाइन कर सकते हैं। जिस तत्व पर आप हाइपरलिंक असाइन करते हैं, वह क्लिक करने योग्य क्षेत्र निर्धारित करता है: एक पाठ भाग चयनित पाठ को लिंक करता है, जबकि आकार या फ्रेम स्लाइड ऑब्जेक्ट को लिंक करता है।
+आप टेक्स्ट, आकार, या मीडिया फ्रेम को एक वेबसाइट URL असाइन कर सकते हैं। जिस तत्व को आप हाइपरलिंक असाइन करते हैं, वह क्लिक करने योग्य क्षेत्र निर्धारित करता है: टेक्स्ट भाग चयनित टेक्स्ट को लिंक करता है, जबकि आकार या फ्रेम स्लाइड ऑब्जेक्ट को लिंक करता है।
 
-सापेक्ष हाइपरलिंक वाली प्रस्तुतियों के लिए, [हाइपरलिंक बेस का प्रबंधन](/slides/hi/net/presentation-properties/#manage-the-hyperlink-base) देखें ताकि आप दस्तावेज‑स्तर बेस को पढ़, बदल या साफ कर सकें।
+सापेक्ष हाइपरलिंक वाली प्रस्तुतियों के लिए, [हाइपरलिंक बेस प्रबंधित करें](/slides/hi/net/presentation-properties/#manage-the-hyperlink-base) देखें ताकि आप दस्तावेज़‑स्तर के बेस को पढ़, बदल या साफ़ कर सकें।
 
-### **पाठ के लिए URL हाइपरलिंक जोड़ें**
+### **URL हाइपरलिंक को टेक्स्ट में जोड़ें**
 
-वेबसाइट से पाठ को लिंक करने के लिए, नीचे दिखाए अनुसार पाठ भाग की [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/portionformat/hyperlinkclick/) गुण को एक [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) असाइन करें। केवल वही पाठ भाग क्लिक योग्य बन जाता है।
+टेक्स्ट को वेबसाइट से लिंक करने के लिए, नीचे दिखाए अनुसार टेक्स्ट भाग की [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/portionformat/hyperlinkclick/) प्रॉपर्टी को एक [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) असाइन करें। केवल वह टेक्स्ट भाग क्लिक योग्य बन जाता है।
 
 ```csharp
 using Aspose.Slides;
@@ -64,13 +64,9 @@ portionFormat.FontHeight = 32;
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **आकार और मीडिया फ्रेम में URL हाइपरलिंक जोड़ें**
+### **Shapes और Media Frames में URL हाइपरलिंक जोड़ें**
 
-आकार या फ्रेम को क्लिक करने योग्य बनाने के लिए उसकी [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/hyperlinkclick/) गुण सेट करें। हाइपरलिंक स्वयं ऑब्जेक्ट को संबोधित करता है, न कि उसके अंदर के किसी पाठ भाग को।
-
-समान दृष्टिकोण चित्र, ऑडियो और वीडियो फ्रेम पर भी लागू होता है: फ्रेम को हाइपरलिंक असाइन करें और आवश्यक होने पर लिंक के [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) को सेट करें।
-
-नीचे का उदाहरण एक आयत को क्लिक योग्य बनाता है:
+आयत के [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/hyperlinkclick/) प्रॉपर्टी को एक URL असाइन करने से उसकी पूरी सतह क्लिक करने योग्य हो जाती है। जब पाठक आयत के ऊपर होवर करते हैं तो [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) गंतव्य के बारे में संकेत देता है। ये ही प्रॉपर्टी चित्र, ऑडियो और वीडियो फ्रेम पर भी लागू होते हैं।
 
 ```csharp
 using Aspose.Slides;
@@ -86,9 +82,9 @@ shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-## **हाइपरलिंक का उपयोग करके सामग्री तालिका बनाएं**
+## **हाइपरलिंक का उपयोग करके तालिका सामग्री बनाएं**
 
-आंतरिक हाइपरलिंक पाठकों को सामग्री तालिका से किसी विशिष्ट स्लाइड पर जाकर पहुंचाते हैं। नीचे का उदाहरण [SetInternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) का उपयोग करके पहली स्लाइड पर “Page 2” पाठ को दूसरी स्लाइड से जोड़ता है।
+आंतरिक हाइपरलिंक पाठकों को तालिका‑सामग्री से एक विशिष्ट स्लाइड पर कूदने देते हैं। निम्न उदाहरण [SetInternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) का उपयोग करके पहली स्लाइड के “Page 2” टेक्स्ट को दूसरी स्लाइड से लिंक करता है।
 
 ```csharp
 using System.Drawing;
@@ -120,13 +116,15 @@ tableOfContents.TextFrame.Paragraphs.Add(paragraph);
 presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
-## **हाइपरलिंक स्वरूपित करें**
+## **हाइपरलिंक का स्वरूप**
+
+आप लिंक किए गए टेक्स्ट का रंग बदल सकते हैं, जब पाठक लिंक को सक्रिय करता है तो ध्वनि चलाने या रोकने का प्रबंधन कर सकते हैं, तथा होवर करने पर दिखने वाले टूलटिप को सेट कर सकते हैं।
 
 ### **रंग**
 
-[IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) की [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) गुण निर्धारित करता है कि हाइपरलिंक प्रस्तुति के हाइपरलिंक रंग का उपयोग करता है या पाठ भाग के फ़ॉर्मेट का। कस्टम पाठ रंग लागू करने के लिए, [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkcolorsource/) चुनें और भाग की भराव रंग सेट करें। यह सुविधा PowerPoint 2019 में प्रस्तुत की गई; पुराने संस्करण इस सेटिंग को लागू नहीं करेंगे।
+[IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) की [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) प्रॉपर्टी निर्धारित करती है कि हाइपरलिंक प्रस्तुति के हाइपरलिंक रंग या टेक्स्ट भाग के फ़ॉर्मेट को उपयोग करे। कस्टम टेक्स्ट रंग लागू करने के लिए, [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkcolorsource/) चुनें और भाग का फ़िल रंग सेट करें। यह सुविधा PowerPoint 2019 में प्रस्तुत की गई थी; पुराने संस्करण इस सेटिंग को लागू नहीं करते।
 
-नीचे का उदाहरण एक ही स्लाइड पर दो पाठ हाइपरलिंक जोड़ता है। पहला लाल पाठ भराव का उपयोग करता है, जबकि दूसरा डिफ़ॉल्ट हाइपरलिंक रंग को बनाए रखता है।
+इस उदाहरण में, पहले लिंक पर [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) सेट करने से उसका टेक्स्ट लाल दिखाई देता है। दूसरा लिंक प्रस्तुति के हाइपरलिंक रंग को बरकरार रखता है।
 
 ```csharp
 using System.Drawing;
@@ -149,16 +147,17 @@ defaultShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = 
 
 presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 ```
+
 ### **ध्वनि**
 
-हाइपरलिंक सक्रिय होने पर ध्वनि बजा सकता है या पहले से चल रही ध्वनि को रोक सकता है। इन व्यवहारों को कॉन्फ़िगर करने के लिए निम्नलिखित गुणों का उपयोग करें:
+एक हाइपरलिंक सक्रिय होने पर ध्वनि चला सकता है या पहले से चल रही ध्वनि को रोक सकता है। इन व्यवहारों को कॉन्फ़िगर करने के लिए निम्न प्रॉपर्टी का उपयोग करें:
 
-- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) हाइपरलिंक से संबद्ध ऑडियो निर्दिष्ट करता है।
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) नियंत्रित करता है कि हाइपरलिंक सक्रिय होने पर पिछली ध्वनि बंद होनी चाहिए या नहीं।
+- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) हाइपरलिंक से जुड़ी ऑडियो को निर्दिष्ट करता है।
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) नियंत्रित करता है कि हाइपरलिंक सक्रिय करने पर पहले की ध्वनि रोक दी जाए या नहीं।
 
 #### **हाइपरलिंक ध्वनि जोड़ें**
 
-नीचे का उदाहरण `sampleaudio.wav` लोड करता है और पहले स्लाइड पर एक बटन से जोड़ता है। बटन पर क्लिक करने से ध्वनि चलती है और अगली स्लाइड पर नेविगेट होता है। उसी स्लाइड का दूसरा आकार क्लिक पर पिछले ध्वनि को रोकता है, बिना नेविगेशन किए।
+पहली स्लाइड पर बटन [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) का उपयोग करके जब पाठक आगे बढ़ने के लिये क्लिक करता है तो WAV फ़ाइल से ऑडियो चलाता है। दूसरी स्लाइड पर, एक अलग बटन [StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) का उपयोग करके प्लेबैक रोकता है और पाठक को उसी स्लाइड पर रखता है।
 
 ```csharp
 using System.IO;
@@ -192,7 +191,7 @@ presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 
 #### **हाइपरलिंक ध्वनि निकालें**
 
-नीचे का उदाहरण ऊपर बनाए गए प्रस्तुति को खोलता है और प्रथम आकार की हाइपरलिंक ऑडियो को [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) और [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) के माध्यम से मेमोरी में पढ़ता है।
+निम्न उदाहरण ऊपर बनाई गई प्रस्तुति को खोलता है और पहले आकार की हाइपरलिंक ऑडियो को मेमोरी में [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) और [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/) के माध्यम से पढ़ता है।
 
 ```csharp
 using System;
@@ -222,16 +221,16 @@ else
 
 ### **टूलटिप और इंटरैक्शन सेटिंग्स**
 
-पाठ या आकार को हाइपरलिंक असाइन करने के बाद आप निम्नलिखित [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) गुण अपडेट कर सकते हैं:
+टेक्स्ट या आकार को हाइपरलिंक असाइन करने के बाद आप निम्न [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) प्रॉपर्टी को अपडेट कर सकते हैं:
 
-- [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) वह पाठ सेट करता है जो दर्शक लिंक के संकेत के रूप में देख सकता है।
+- [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) वह टेक्स्ट सेट करता है जो दर्शक लिंक के लिए संकेत के रूप में दिखा सकता है।
 - [TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetframe/) लागू होने पर पैरेंट HTML फ्रेमसेट के भीतर लक्ष्य फ्रेम निर्दिष्ट करता है।
-- [History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/history/) नियंत्रित करता है कि लिंक सक्रिय होने पर उसका गंतव्य देखी गई हाइपरलिंक सूची में जोड़ा जाए या नहीं।
+- [History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/history/) नियंत्रित करता है कि लिंक सक्रिय करने पर उसके गंतव्य को देखे गए हाइपरलिंक की सूची में जोड़ना है या नहीं।
 - [HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/highlightclick/) नियंत्रित करता है कि क्लिक करने पर हाइपरलिंक हाइलाइट हो या नहीं।
 
-## **प्रस्तुति से हाइपरलिंक हटाएं**
+## **प्रस्तुतियों से हाइपरलिंक हटाएँ**
 
-परिवर्तन करने से पहले हाइपरलिंक कंटेनरों को एकत्र करने के लिए [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) का उपयोग करें। नीचे का उदाहरण पहली स्लाइड से दोनों सक्रियता प्रकारों को हटाता है। केवल एक प्रकार हटाने के लिए आप केवल [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) या [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) को कॉल करें; क्लिक कार्रवाई हटाने से माउस‑ओवर समकक्ष नहीं हटता।
+[GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) का उपयोग करके हाइपरलिंक कंटेनर, जिनमें टेक्स्ट‑भाग के लिंक भी शामिल हैं, को बदलने से पहले इकट्ठा करें। निम्न उदाहरण पहली स्लाइड से दोनों सक्रियता प्रकार हटाता है। केवल एक प्रकार हटाने के लिए, केवल [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) या [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) को कॉल करें; क्लिक कार्रवाई हटाने से उसके माउस‑ओवर समकक्ष नहीं हटता।
 
 ```csharp
 using System;
@@ -257,23 +256,54 @@ else
 }
 ```
 
-निरपेक्ष हटाने के लिए, [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) चयनित स्कोप में दोनों सक्रियता प्रकारों को एक ही कॉल में हटाता है। चयनात्मक सफाई और मास्टर, लेआउट और नोट्स की कवरेज के लिए देखें [रिपोर्ट, स्वच्छता, और हाइपरलिंक सत्यापित करें](#report-sanitize-and-verify-hyperlinks)।
+निर्बाध हटाने के लिए, [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) चयनित स्कोप में एक कॉल में दोनों सक्रियता प्रकार हटाता है। चयनात्मक सफ़ाई और मास्टर, लेआउट और नोट्स को कवर करने के लिये, देखें [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)।
+
+### **स्मार्टआर्ट टेक्स्ट बदलने से पहले हाइपरलिंक साफ़ करें**
+
+जब आप मौजूदा SmartArt नोड में एक पैराग्राफ बदलते हैं, तो उसके टेक्स्ट भागों को साफ़ करने से पुराना हाइपरलिंक प्रभावी रह सकता है। पैराग्राफ को [ISmartArtNode.TextFrame](https://reference.aspose.com/slides/net/aspose.slides.smartart/ismartartnode/textframe/) के माध्यम से प्राप्त करें। उसके भागों को साफ़ करने से पहले, उस नोड आकार के टेक्स्ट फ्रेम पर [HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/) के माध्यम से [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) को कॉल करें जो पैराग्राफ प्रदर्शित करता है। यह फ्रेम में सभी हाइपरलिंक हटा देता है, उसमें अन्य पैराग्राफों के लिंक भी शामिल हैं।
+
+उदाहरण यह मानता है कि पहली स्लाइड पर तीसरा आकार SmartArt ग्राफ़िक है। यह चौथे नोड के पहला पैराग्राफ बदलता है। इस प्रस्तुति में, नोड का पहला आकार वह पैराग्राफ प्रदर्शित करता है।
+
+दोनों भाग जोड़ने के बाद, उदाहरण [GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) के साथ उनके प्रभावी फ़ॉर्मेट को पढ़ता है। प्रभावी [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/iportionformateffectivedata/hyperlinkclick/) प्रॉपर्टी पहले भाग के लिए नया हाइपरलिंक और दूसरे के लिए `null` लौटाता है।
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.SmartArt;
+
+using var presentation = new Presentation("SmartArtHyperlink.pptx");
+var slide = presentation.Slides[0];
+
+var smartArt = (ISmartArt)slide.Shapes[2];
+var node = smartArt.AllNodes[3];
+var paragraph = node.TextFrame.Paragraphs[0];
+
+node.Shapes[0].TextFrame.HyperlinkQueries.RemoveAllHyperlinks();
+paragraph.Portions.Clear();
+
+var link = new Portion("New reference");
+link.PortionFormat.HyperlinkClick = new Hyperlink("https://example.com/new");
+paragraph.Portions.Add(link);
+var text = new Portion(" (updated)");
+paragraph.Portions.Add(text);
+
+Console.WriteLine(link.PortionFormat.GetEffective().HyperlinkClick.ExternalUrl); // https://example.com/new
+Console.WriteLine(text.PortionFormat.GetEffective().HyperlinkClick?.ToString() ?? "null"); // null
+```
 
 ## **एक पूर्ण हाइपरलिंक इन्वेंट्री बनाएं**
 
-प्रस्तुति वितरित करने से पहले उसकी इंटरैक्टिव क्रियाओं और वेब लिंक की सूची बनाएं। [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/) ऑब्जेक्ट्स लौटाता है, न कि URL स्ट्रिंग्स की समतल सूची। प्रत्येक कंटेनर पर [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) और [HyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) दोनों की जांच करें। वे स्वतंत्र होते हैं: एक ही कंटेनर दोनों क्रियाएँ रख सकता है, इसलिए पूर्ण रिपोर्ट के लिए प्रति कंटेनर दो पंक्तियों की आवश्यकता हो सकती है।
+प्रस्तुति वितरित करने से पहले, उसकी इंटरैक्टिव क्रियाओं और वेब लिंक की सूची बनाएं। [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/) ऑब्जेक्ट लौटाता है, न कि URL स्ट्रिंग की सीधी सूची। प्रत्येक कंटेनर पर दोनों [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) और [HyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) को निरीक्षण करें। वे स्वतंत्र हैं: वही कंटेनर दोनों क्रियाएँ दे सकता है, इसलिए पूर्ण रिपोर्ट में प्रत्येक कंटेनर के लिए दो पंक्तियों तक की आवश्यकता हो सकती है।
 
-केवल आकार‑स्तर के हाइपरलिंक स्कैन करने से पाठ भागों से जुड़े लिंक मिस हो सकते हैं। उचित स्कोप को क्वेरी करें, और लौटाए गए कंटेनरों को रखें ताकि बाद में आप उनके क्रियाओं को अपडेट या हटाना चाहें।
+### **प्रस्तुति, स्लाइड, और टेक्स्ट‑फ़्रेम स्कोप को क्वेरी करें**
 
-### **प्रस्तुति, स्लाइड, और टेक्स्ट‑फ़्रेम स्कोप की क्वेरी**
+[IHyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/) इंटरफ़ेस [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/hyperlinkqueries/), तथा [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/) के माध्यम से उपलब्ध है। प्रत्येक स्कोप समान क्वेरीज़ को सपोर्ट करता है:
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/) इंटरफ़ेस [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/hyperlinkqueries/), और [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/) के माध्यम से उपलब्ध है। प्रत्येक स्कोप समान क्वेरी का समर्थन करता है:
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) उन कंटेनरों को लौटाता है जिनमें क्लिक कार्रवाई होती है।
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) उन कंटेनरों को लौटाता है जिनमें माउस‑ओवर कार्रवाई होती है।
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) उन कंटेनरों को लौटाता है जिनमें कोई भी या दोनों कार्रवाई होती है।
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) क्लिक क्रिया वाले कंटेनर लौटाता है।
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) माउस‑ओवर क्रिया वाले कंटेनर लौटाता है।
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) किसी भी या दोनों क्रियाओं वाले कंटेनर लौटाता है।
-
-नीचे का उदाहरण `hyperlink-audit-input.pptx` बनाता है जिसमें बाहरी क्लिक लिंक, फ़ाइल माउस‑ओवर लिंक, आंतरिक स्लाइड नेविगेशन, पाठ माउस‑ओवर लिंक, और मैक्रो कार्रवाई शामिल हैं। यह इन कार्यों में से कोई भी नहीं चलाता। समान तीन क्वेरी हर स्कोप पर काम करती हैं; गणना कंटेनरों को दर्शाती है, कार्य कुलों को नहीं। टेक्स्ट‑फ़्रेम स्कोप enclosing shape के अपने लिंक को बाहर रखता है।
+इस उदाहरण में एक आकार और उसके टेक्स्ट को क्लिक और माउस‑ओवर कार्रवाई असाइन की गई है, तथा एक अलग बटन को मैक्रो कार्रवाई। यह [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) द्वारा लौटाए गए कंटेनरों की तुलना प्रत्येक सक्रियता प्रकार की गिनती से करता है। टेक्स्ट‑फ़्रेम क्वेरी केवल टेक्स्ट में लिंक गिनती है। सम्मिलित आकार की अपनी कार्रवाइयाँ स्लाइड और प्रस्तुतियों की क्वेरी में दिखाई देती हैं।
 
 ```csharp
 using System;
@@ -309,37 +339,37 @@ static void PrintCounts(string scope, IHyperlinkQueries queries)
 }
 ```
 
-इस उदाहरण के लिए, प्रस्तुति और स्लाइड क्वेरी प्रत्येक तीन क्लिक कंटेनर, दो माउस‑ओवर कंटेनर, और तीन दोनों प्रकार के कंटेनर रिपोर्ट करती हैं। टेक्स्ट‑फ़्रेम क्वेरी प्रत्येक श्रेणी में एक कंटेनर रिपोर्ट करती है।
+इस उदाहरण में, प्रस्तुति और स्लाइड क्वेरी प्रत्येक तीन क्लिक कंटेनर, दो माउस‑ओवर कंटेनर, और तीन कंटेनर जो कोई भी कार्रवाई रखते हैं, रिपोर्ट करती हैं। टेक्स्ट‑फ़्रेम क्वेरी प्रत्येक श्रेणी में एक कंटेनर रिपोर्ट करती है।
 
-### **कार्यों और गंतव्य का वर्गीकरण**
+### **क्रियाओं और गंतव्यों को वर्गीकृत करें**
 
-एक कार्रवाई को उसके गंतव्य की व्याख्या से पहले समझने के लिए [IHyperlink.ActionType](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/actiontype/) का उपयोग करें। [HyperlinkActionType](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkactiontype/) मान वेब नेविगेशन से अधिक को कवर करते हैं:
+[IHyperlink.ActionType](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/actiontype/) का उपयोग करके आप कार्रवाई को उसके गंतव्य को समझने से पहले व्याख्या कर सकते हैं। [HyperlinkActionType](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkactiontype/) मान वेब नेविगेशन से अधिक कवर करते हैं:
 
 | मान | ऑडिट के लिए अर्थ |
 | --- | --- |
-| `Hyperlink` | बाहरी हाइपरलिंक; URL और उसके स्कीम की जांच करें। |
-| `JumpSpecificSlide` | किसी विशिष्ट स्लाइड पर आंतरिक नेविगेशन। |
+| `Hyperlink` | बाह्य हाइपरलिंक; URL और उसके स्कीम की जाँच करें। |
+| `JumpSpecificSlide` | एक विशिष्ट स्लाइड पर आंतरिक नेविगेशन। |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | बिल्ट‑इन स्लाइडशो नेविगेशन, स्लाइडशो संदर्भ में हल किया जाता है। |
-| `JumpEndShow`, `StartCustomSlideShow` | वर्तमान शो समाप्त करें या कस्टम शो शुरू करें। |
+| `JumpEndShow`, `StartCustomSlideShow` | वर्तमान शो को समाप्त करें या कस्टम शो शुरू करें। |
 | `StartMacro` | मैक्रो चलाएँ। |
-| `StartProgram` | प्रोग्राम लॉन्च करें। |
-| `OpenFile`, `OpenPresentation` | फ़ाइल या अन्य प्रस्तुति खोलें; वेब URL से अलग समीक्षा करें। |
+| `StartProgram` | एक प्रोग्राम लॉन्च करें। |
+| `OpenFile`, `OpenPresentation` | फ़ाइल या अन्य प्रस्तुति खोलें; वेब URLs से अलग समीक्षा करें। |
 | `StartStopMedia` | मीडिया प्लेबैक शुरू या रोकें। |
-| `NoAction`, `Unknown` | कोई नेविगेशन कार्रवाई नहीं, या अपरिचित कार्रवाई जिसे समीक्षा की आवश्यकता है। |
+| `NoAction`, `Unknown` | कोई नेविगेशन कार्रवाई नहीं, या एक अप्रत्याशित कार्रवाई जिसके लिए समीक्षा आवश्यक है। |
 
-बाहरी गंतव्य को [ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) से पढ़ें और विशिष्ट आंतरिक गंतव्य को [TargetSlide](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetslide/) से। आंतरिक कार्रवाइयों और बिल्ट‑इन कमांड में बाहरी URL नहीं हो सकता; खाली URL का अर्थ यह नहीं है कि कंटेनर में कोई कार्रवाई नहीं है। जब [ExternalUrlOriginal](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurloriginal/) सामान्यीकृत URL से भिन्न हो तो उसे संरक्षित रखें, और उपलब्ध होने पर [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) शामिल करें।
+[ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) से बाहरी गंतव्य पढ़ें और [TargetSlide](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetslide/) से विशिष्ट आंतरिक गंतव्य। आंतरिक कार्रवाइयों और बिल्ट‑इन कमांड्स में बाहरी URL नहीं हो सकता; खाली URL का अर्थ यह नहीं है कि कंटेनर में कोई क्रिया नहीं है। जब [ExternalUrlOriginal](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurloriginal/) सामान्यीकृत URL से भिन्न हो तो उसे सुरक्षित रखें, और उपलब्ध होने पर [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) शामिल करें।
 
-### **रिपोर्ट, स्वच्छता, और हाइपरलिंक सत्यापित करें**
+### **हाइपरलिंक की रिपोर्ट, साफ‑सफ़ाई, और सत्यापन**
 
-नीचे .NET 6+ उदाहरण मौजूदा प्रस्तुति (ऊपर बनाई गई फ़ाइल) पढ़ता है, `hyperlink-audit.json` लिखता है, नीति लागू करता है, `hyperlink-sanitized.pptx` सहेजता है, और दो बार सक्रियता प्रकारों की जाँच के लिए पुनः खोलता है। यह परिवर्तन से पहले कंटेनरों को इकट्ठा करता है और समान कंटेनर को दो बार प्रोसेस करने से बचने के लिए रेफ़रेंस समानता का उपयोग करता है। प्रस्तुति क्वेरियां सामान्य स्लाइड को कवर करती हैं; पैकेज‑व्यापी इन्वेंट्री के लिए यह स्पष्ट रूप से मास्टर, लेआउट, नोट्स, तथा नोट्स और हैंडआउट मास्टर को भी क्वेरी करती है।
+यह .NET 6+ उदाहरण ऊपर के उदाहरण से प्रस्तुति खोलता है और प्रत्येक कार्रवाई के लिए एक JSON रिकॉर्ड लिखता है। यह [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) का उपयोग करके सामान्य स्लाइड, मास्टर, लेआउट और नोट्स, तथा उपस्थित नोट्स और हैंडआउट मास्टर पर कंटेनर एकत्र करता है। यह रेफ़रेंस समानता से प्रत्येक कंटेनर को एक बार गिनता है, नीचे वर्णित नीति लागू करता है, और सहेजी गई प्रस्तुति को फिर से खोलकर दोनों क्लिक और माउस‑ओवर कार्रवाई की जाँच करता है।
 
-रिपोर्ट एक‑आधारित स्लाइड इंडेक्स और उपलब्ध होने पर [SlideId](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideid/) को रिकॉर्ड करती है। समर्थित कंटेनरों के लिए [ISlideComponent.Slide](https://reference.aspose.com/slides/net/aspose.slides/islidecomponent/slide/) वह स्वामित्व स्लाइड प्रदान करता है। मास्टर, लेआउट और नोट्स का कोई सामान्य स्लाइड इंडेक्स नहीं होता और वे अपने स्कोप द्वारा पहचाने जाते हैं। आकार कंटेनर और पाठ‑भाग फ़ॉर्मेट कंटेनर अलग‑अलग लेबल होते हैं; अन्य कंटेनर प्रकार अपने रन‑टाइम टाइप नाम रखते हैं। प्रत्येक कंटेनर को रिपोर्ट‑स्थानीय ID दी जाती है ताकि उसकी दो कार्रवाइयों को संबंधित किया जा सके।
+रिपोर्ट में उपलब्ध होने पर एक‑आधारित स्लाइड इंडेक्स और [SlideId](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideid/) दर्ज किया जाता है। [ISlideComponent.Slide](https://reference.aspose.com/slides/net/aspose.slides/islidecomponent/slide/) समर्थित कंटेनरों के स्वामित्व वाली स्लाइड प्रदान करता है। मास्टर, लेआउट और नोट्स के पास सामान्य स्लाइड इंडेक्स नहीं होता और उन्हें उनके स्कोप से पहचाना जाता है। आकार कंटेनर और टेक्स्ट‑भाग फ़ॉर्मेट कंटेनर अलग‑अलग लेबल होते हैं; अन्य कंटेनर प्रकार अपना रनटाइम टाइप नाम रखते हैं। प्रत्येक कंटेनर को रिपोर्ट‑लोकल आईडी दी जाती है ताकि उसकी दो कार्रवाइयों को जोड़ा जा सके।
 
-यह सख्त अनुप्रयोग नीति केवल निरपेक्ष HTTPS URL और वैध आंतरिक स्लाइड लक्ष्य की अनुमति देती है। यह मैक्रो, प्रोग्राम, फ़ाइल कार्रवाई, अन्य स्लाइडशो क्रिया, अज्ञात कार्रवाई, और अन्य URL योजनाओं को अस्वीकार करती है। ये अस्वीकृतियाँ नीति निर्णय हैं, Aspose.Slides सुरक्षा निर्णय नहीं। केवल HTTPS भरोसेमंद नहीं है: अपने अनुप्रयोग के लिए होस्ट अलॉ WL लिस्ट और अन्य जाँचें जोड़ें। मूल और सामान्यीकृत दोनों बाहरी URL जाँचे जाते हैं। उदाहरण लिंक फ़ॉलो किए बिना या कार्रवाई चलाए बिना मेटाडेटा का ऑडिट करता है।
+यह जानबूझकर प्रतिबंधात्मक एप्लिकेशन नीति केवल पूर्ण HTTPS URLs और मान्य आंतरिक स्लाइड लक्ष्य को ही अनुमति देती है। यह मैक्रो, प्रोग्राम, फ़ाइल कार्रवाइयों, अन्य स्लाइडशो कार्रवाइयों, अज्ञात कार्रवाइयों और अन्य URL स्कीम को अस्वीकार करती है। ये अस्वीकृतियां नीति निर्णय हैं, Aspose.Slides सुरक्षा निर्णय नहीं। केवल HTTPS भरोसा नहीं बनाता: अपने एप्लिकेशन के लिए होस्ट अलाउ‑लिस्ट और अन्य जाँचें जोड़ें। मूल और सामान्यीकृत दोनों बाहरी URLs की जाँच की जाती है। उदाहरण लिंक का अनुसरण किए बिना या कार्रवाइयों को चलाए बिना मेटाडेटा का ऑडिट करता है।
 
-समाधान के लिए, कंटेनर का [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), और [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) को समर्थन देता है। यहाँ, निषिद्ध बाहरी क्लिक लिंक को एक स्थिर HTTPS लैंडिंग पेज से बदल दिया जाता है; अन्य निषिद्ध क्लिक और निषिद्ध माउस‑ओवर कार्रवाई स्वतंत्र रूप से हटाई जाती हैं। सभी नीति उल्लंघनों को हटाने के लिए `replaceExternalClicks` को `false` सेट करें। तैनाती से पहले एक अनुप्रयोग‑स्वामित्व वाला प्रतिस्थापन पेज चुनें।
+समाधान के लिए, कंटेनर का [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) और [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) का समर्थन करता है। यहाँ, प्रतिबंधित बाहरी क्लिक लिंक को एक निश्चित HTTPS लैंडिंग पेज से बदला जाता है; अन्य प्रतिबंधित क्लिक और प्रतिबंधित माउस‑ओवर कार्रवाई स्वतंत्र रूप से हटाई जाती हैं। सभी नीति उल्लंघनों को हटाने के लिये `replaceExternalClicks` को `false` सेट करें। डिप्लॉयमेंट से पहले एप्लिकेशन‑स्वामित्व वाले प्रतिस्थापन पेज का चयन करें।
 
-रिपोर्ट का निर्यात फ़्लैग एक सावधानीपूर्ण PDF समीक्षा नीति का उपयोग करता है: माउस‑ओवर कार्रवाई और बाहरी लिंक या विशिष्ट स्लाइड जंप के अलावा किसी भी चीज़ को संभावित रूप से असमर्थित के रूप में चिह्नित करता है। यह एक समीक्षा संकेत है, न कि क्षमता परीक्षण या यह गारंटी कि बिना चिह्नित लिंक निर्यात में बचेंगे। समर्थित [PDF](/slides/hi/net/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/net/convert-powerpoint-to-html/) निर्यात कार्रवाई, निर्यात विकल्प और दर्शक पर निर्भर करते हुए हाइपरलिंक रख सकते हैं। रास्टर [images](/slides/hi/net/convert-powerpoint-to-png/) और [video](/slides/hi/net/convert-powerpoint-to-video/) इंटरैक्टिव हाइपरलिंक नहीं रख सकते; उन आउटपुट के लिए ऑडिट करते समय प्रत्येक कार्रवाई को चिह्नित करें।
+रिपोर्ट का एक्सपोर्ट फ़्लैग एक रूढ़िवादी PDF समीक्षा नीति का उपयोग करता है: माउस‑ओवर कार्रवाइयों तथा बाहरी लिंक या विशिष्ट स्लाइड जंप के अलावा किसी भी चीज़ को संभावित असमर्थित के रूप में फ़्लैग करता है। यह एक समीक्षा संकेत है, न कि क्षमता परीक्षण या यह गारंटी कि अनफ़्लैग किए गए लिंक एक्सपोर्ट में बरकरार रहेंगे। समर्थित [PDF](/slides/hi/net/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/net/convert-powerpoint-to-html/) एक्सपोर्ट हाइपरलिंक को संरक्षित कर सकते हैं, जो कार्रवाई, एक्सपोर्ट विकल्प और व्यूअर पर निर्भर करता है। रास्टर [images](/slides/hi/net/convert-powerpoint-to-png/) और [video](/slides/hi/net/convert-powerpoint-to-video/) इंटरैक्टिव हाइपरलिंक को संरक्षित नहीं कर सकते; उन आउटपुट्स के ऑडिट करते समय प्रत्येक कार्रवाई को फ़्लैग करें।
 
 ```csharp
 using System;
@@ -478,20 +508,20 @@ static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
 }
 ```
 
-ऊपर बनाए गए इनपुट के साथ, रिपोर्ट में पाँच कार्रवाई पंक्तियाँ होती हैं। फ़ाइल माउस‑ओवर लिंक और मैक्रो क्लिक हटाए जाते हैं, जबकि HTTPS लिंक और आंतरिक स्लाइड नेविगेशन बरकरार रहते हैं। सत्यापन शून्य निषिद्ध कार्रवाई प्रिंट करता है। एक निषिद्ध बाहरी क्लिक URL वाले इनपुट से प्रतिस्थापन शाखा भी सक्रिय होती है। एक अनुमोदित क्लिक वाले कंटेनर में निषिद्ध माउस‑ओवर होने पर उसकी क्लिक कार्रवाई बनी रहती है।
+ऊपर बनाए गए इनपुट के साथ, रिपोर्ट में पाँच कार्रवाई पंक्तियां होती हैं। फ़ाइल माउस‑ओवर लिंक और मैक्रो क्लिक हटाए गए हैं, जबकि HTTPS लिंक और आंतरिक स्लाइड नेविगेशन बने रहते हैं। सत्यापन शून्य प्रतिबंधित कार्रवाई प्रदर्शित करता है। प्रतिबंधित बाहरी क्लिक URL वाले इनपुट से प्रतिस्थापन शाखा भी चलती है। अनुमत क्लिक और प्रतिबंधित माउस‑ओवर वाले कंटेनर का क्लिक कार्रवाई बना रहता है।
 
-यह चयनात्मक सफाई [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) से अलग है, जो नीति की परवाह किए बिना चयनित स्कोप में दोनों सक्रियता प्रकारों को हटा देती है। यहाँ सत्यापन केवल हाइपरलिंक कार्रवाई की जाँच करता है; यह एम्बेडेड VBA प्रोजेक्ट, OLE ऑब्जेक्ट या अन्य सक्रिय सामग्री को नहीं हटाता, न ही निर्यातित PDF या HTML फ़ाइल की वैधता जांचता है।
+यह चयनात्मक सफ़ाई [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) से अलग है, जो नीति की परवाह किए बिना चयनित स्कोप में दोनों सक्रियता प्रकार हटाता है। यहाँ का सत्यापन केवल हाइपरलिंक कार्रवाईयों की जाँच करता है; यह एम्बेडेड VBA प्रोजेक्ट, OLE ऑब्जेक्ट या अन्य सक्रिय सामग्री को नहीं हटाता, और न ही निर्यातित PDF या HTML फ़ाइल को वैध करता है।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं किसी अनुभाग या उसके पहले स्लाइड से कैसे लिंक करूँ?**
+**मैं सेक्शन या उसकी पहली स्लाइड से कैसे लिंक कर सकता हूँ?**
 
-PowerPoint में अनुभाग स्लाइड को समूहित करते हैं, लेकिन आंतरिक हाइपरलिंक व्यक्तिगत स्लाइड को लक्षित करता है। अनुभाग पर नेविगेशन बनाने के लिए, उस अनुभाग की पहली स्लाइड से लिंक करें।
+PowerPoint में सेक्शन स्लाइडों को समूहित करते हैं, लेकिन आंतरिक हाइपरलिंक व्यक्तिगत स्लाइड को लक्षित करता है। सेक्शन पर नेविगेशन बनाने के लिए, उस सेक्शन की पहली स्लाइड से लिंक करें।
 
-**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक संलग्न कर सकता हूँ ताकि वह सभी स्लाइड पर कार्य करे?**
+**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक जोड़ सकता हूँ ताकि वह सभी स्लाइडों में काम करे?**
 
-हाँ। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक का समर्थन करते हैं। इन तत्वों पर लिंक उस स्लाइड शो के दौरान उपलब्ध होते हैं जहाँ संबंधित मास्टर या लेआउट प्रयुक्त होता है।
+हाँ। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक को समर्थन देते हैं। इन तत्वों पर लिंक उस स्लाइड शो में उपलब्ध होते हैं जहाँ संबंधित मास्टर या लेआउट का उपयोग किया गया हो।
 
-**क्या PDF, HTML, images, या video में निर्यात करते समय हाइपरलिंक संरक्षित रहते हैं?**
+**क्या PDF, HTML, इमेज या वीडियो में एक्सपोर्ट करते समय हाइपरलिंक संरक्षित रहेंगे?**
 
-समर्थित PDF और HTML निर्यात हाइपरलिंक को संरक्षित कर सकते हैं; रास्टर इमेज और वीडियो नहीं कर सकते। विवरण के लिए देखें [रिपोर्ट, स्वच्छता, और हाइपरलिंक सत्यापित करें](#report-sanitize-and-verify-hyperlinks)।
+समर्थित PDF और HTML एक्सपोर्ट हाइपरलिंक को संरक्षित कर सकते हैं; रास्टर इमेज और वीडियो नहीं कर सकते। अधिक विवरण के लिये [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) देखें।

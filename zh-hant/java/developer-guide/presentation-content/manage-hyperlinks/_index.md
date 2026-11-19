@@ -1,5 +1,5 @@
 ---
-title: 管理 Java 中的簡報超連結
+title: 在 Java 中管理簡報超連結
 linktitle: 管理超連結
 type: docs
 weight: 20
@@ -13,41 +13,39 @@ keywords:
 - 更新超連結
 - 文字超連結
 - 投影片超連結
-- 圖形超連結
-- 圖片超連結
+- 形狀超連結
+- 圖像超連結
 - 影片超連結
-- 可變更超連結
+- 可變的超連結
 - PowerPoint
 - OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 在 PowerPoint 與 OpenDocument 簡報中新增、格式化、更新與移除超連結，搭配 Java 範例。"
+description: "使用 Aspose.Slides for Java 的 Java 範例，在 PowerPoint 和 OpenDocument 簡報中新增、格式化、更新與移除超連結。"
 ---
 ## **簡介**
 
-超連結將投影片內容連接到網站或投影片內的某個位置。在 PowerPoint 中，超連結通常有兩種用途：
+超連結將簡報內容連結至網站或簡報內的某個位置。在 PowerPoint 中，超連結通常具有兩個目的：
 
-* 從文字、圖形或媒體框架開啟網站。
-* 從目錄等處導向另一張投影片。
+* 從文字、形狀或媒體框架開啟網站。
+* 導覽至其他投影片，例如從目錄。
 
-Aspose.Slides for Java 讓您可以新增這些連結、控制其外觀與音效、更新屬性，並移除連結。以下範例示範如何在個別元素上操作超連結，以及如何在投影片、投影片或文字框層級存取超連結。
+Aspose.Slides for Java 允許您新增這些連結、控制其外觀與音效、更新其屬性，並將其移除。以下範例示範如何在個別元素上操作超連結，以及如何在簡報、投影片或文字框層級存取超連結。
 
-{{% alert color="info" title="注意" %}}
-
-您也可以使用 [免費線上 Aspose PowerPoint 編輯器](https://products.aspose.app/slides/editor) 編輯投影片。
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+您也可以使用[免費的線上 Aspose PowerPoint 編輯器](https://products.aspose.app/slides/editor)編輯簡報。
+{{% /alert %}}
 
 ## **新增 URL 超連結**
 
-您可以將網站 URL 指派給文字、圖形或媒體框架。指派超連結的元素決定可點擊區域：文字部份會連結所選文字，而圖形或框架則連結整個投影片物件。
+您可以將網站 URL 指派給文字、形狀或媒體框架。您指派超連結的元素決定了可點擊的範圍：文字部分會將所選文字連結，而形狀或框架則會連結整個投影片物件。
 
-對於包含相對路徑超連結的投影片，請參閱 [管理超連結基礎](/slides/zh-hant/java/presentation-properties/#manage-the-hyperlink-base) 以讀取、變更或清除文件層級的基礎 URL。
+若簡報中包含相對超連結，請參閱[管理超連結基底](/slides/zh-hant/java/presentation-properties/#manage-the-hyperlink-base)以讀取、變更或清除文件層級的基底。
 
-### **將 URL 超連結加入文字**
+### **將 URL 超連結新增至文字**
 
-要將文字連結至網站，請把 [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) 傳入文字部份的 [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) 方法，如下所示。只有該文字部份會變成可點擊。
+若要將文字連結至網站，將[Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/)傳遞給文字部分的[setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-)方法，如下所示。僅該文字部分會變成可點擊。
 
 ```java
 import com.aspose.slides.*;
@@ -67,13 +65,9 @@ try {
 }
 ```
 
-### **將 URL 超連結加入圖形與媒體框架**
+### **將 URL 超連結新增至形狀和媒體框架**
 
-要使圖形或框架可點擊，呼叫其 [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) 方法。超連結屬於該物件本身，而不是其中的文字部份。
-
-相同方式適用於圖片、音訊與影片框架：將超連結指派給框架並在需要時呼叫 [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-)。
-
-以下範例使一個矩形可點擊：
+對矩形呼叫[setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-)即可使其整個區域可點擊。使用[setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-)在讀者將滑鼠懸停於矩形時顯示目的地提示。這兩個方法亦適用於圖片、音訊與影片框架。
 
 ```java
 import com.aspose.slides.*;
@@ -93,7 +87,7 @@ try {
 
 ## **使用超連結建立目錄**
 
-內部超連結讓讀者從目錄跳至特定投影片。以下範例使用 [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-)，將第一張投影片上的「第 2 頁」文字連結至第二張投影片。
+內部超連結讓讀者能從目錄跳至指定投影片。以下範例使用[setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-)將第一張投影片上的「Page 2」文字連結至第二張投影片。
 
 ```java
 import com.aspose.slides.*;
@@ -129,11 +123,13 @@ try {
 
 ## **格式化超連結**
 
+您可以變更已連結文字的顏色、在讀者啟動連結時播放或停止音效，並設定滑鼠懸停時顯示的提示文字。
+
 ### **顏色**
 
-[IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) 的 [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) 方法決定超連結是使用投影片的超連結顏色，還是使用文字部份的格式。若要套用自訂文字顏色，請選擇 [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) 並設定部份的填充顏色。此功能於 PowerPoint 2019 之後加入；較舊版本不支援此設定。
+[setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) 方法屬於[IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/)，用以決定超連結是使用簡報的超連結顏色還是文字部分的格式。若要套用自訂文字顏色，請選取[HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/)並設定該部分的填滿顏色。此功能於 PowerPoint 2019 中推出；較舊版本不會套用此設定。
 
-以下範例在同一張投影片上加入兩個文字超連結。第一個使用紅色文字填充，第二個保留預設的超連結顏色。
+在此範例中，[setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) 讓第一個連結使用文字部分的紅色填滿。第二個連結則保留簡報的超連結顏色。
 
 ```java
 import com.aspose.slides.*;
@@ -158,16 +154,17 @@ try {
     presentation.dispose();
 }
 ```
-### **聲音**
 
-超連結在啟動時可以播放聲音，或停止已在播放的聲音。使用以下方法設定這些行為：
+### **音效**
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) 指定與超連結關聯的音訊。
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) 控制啟動超連結時是否停止先前的聲音。
+超連結可在啟動時播放音效，或停止已在播放的音效。可使用以下方法設定這些行為：
 
-#### **新增超連結聲音**
+- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) 指定與超連結相關聯的音訊。
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) 控制在啟動超連結時是否停止先前的音效。
 
-以下範例載入 `sampleaudio.wav`，並將其與第一張投影片上的按鈕關聯。點擊按鈕會播放聲音並導向下一張投影片。該投影片上的第二個圖形在點擊時會停止先前的聲音，且不執行導向動作。
+#### **新增超連結音效**
+
+第一張投影片上的按鈕使用[IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-)在讀者點擊前進時播放 `sampleaudio.wav` 音訊。第二張投影片上的另一個按鈕則使用[IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-)停止播放，並讓讀者停留在該投影片上。
 
 ```java
 import com.aspose.slides.*;
@@ -205,9 +202,9 @@ try {
 }
 ```
 
-#### **擷取超連結聲音**
+#### **擷取超連結音效**
 
-以下範例開啟前述建立的投影片，並透過 [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) 與 [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--) 讀取第一個圖形的超連結音訊至記憶體。
+以下範例開啟上述建立的簡報，並透過[getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--)與[getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--)將第一個形狀的超連結音訊讀取至記憶體中。
 
 ```java
 import com.aspose.slides.*;
@@ -233,16 +230,16 @@ try {
 
 ### **提示文字與互動設定**
 
-在為文字或圖形指派超連結後，您可以呼叫以下 [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) 方法：
+在將超連結指派給文字或形狀後，您可以呼叫以下[IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/)方法：
 
-- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) 設定觀眾滑鼠懸停時顯示的提示文字。
-- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) 指定在父 HTML 框架集中要導向的目標框架（如適用）。
-- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) 控制啟動連結時是否將其目的地加入已檢視的超連結清單。
-- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) 控制點擊時是否將超連結突出顯示。
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) 設定觀眾可顯示為連結提示的文字。
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) 在適用時指定父 HTML frameset 中的目標框架。
+- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) 控制在啟動連結時是否將其目的地加入已檢視超連結清單。
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) 控制在點擊時是否突顯該超連結。
 
-## **從投影片中移除超連結**
+## **從簡報中移除超連結**
 
-使用 [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 收集包括文字部份連結在內的超連結容器，之後再變更它們。以下範例移除第一張投影片的兩種啟動類型。若只想移除單一類型，僅呼叫 [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) 或 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)；移除點擊動作不會同時移除滑鼠懸停對應的動作。
+使用[getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--)可收集包括文字部分連結在內的超連結容器，於變更前先取得。以下範例從第一張投影片移除兩種啟動方式。若僅移除單一類型，請僅呼叫[removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)或[removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)；移除點擊動作不會移除其滑鼠懸停對應項目。
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +266,58 @@ try {
 }
 ```
 
-若要無條件移除，[removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) 會在選取的範圍內一次移除兩種啟動類型。若需針對母片、佈局與備註進行選擇性清理，請參閱 [報告、清理與驗證超連結](#report-sanitize-and-verify-hyperlinks)。
+若要無條件移除，[removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) 可一次呼叫移除選取範圍內的兩種啟動方式。若需選擇性清理並涵蓋母片、版面配置與備註，請參閱[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)。
+
+### **在取代 SmartArt 文字前清除超連結**
+
+當您在現有 SmartArt 節點中取代段落時，清除其文字部分可能會留下舊的超連結。請透過[ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ismartartnode/#getTextFrame--)取得段落。在清除其文字部分之前，先於顯示該段落的節點形狀的文字框上呼叫[getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--)，然後在回傳的物件上呼叫[removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)。此操作會移除該框架中的所有超連結，包括其他段落中的連結。
+
+此範例假設 `SmartArtHyperlink.pptx` 首張投影片的第三個形狀是 SmartArt 圖形。它取代第四個節點的第一段落。在此簡報中，該節點的第一個形狀顯示該段落。
+
+在加入兩個文字部分後，範例使用[getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--)讀取其有效格式。於該格式上，[getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) 會回傳第一個文字部分的新超連結，第二個則為 `null`。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **建立完整的超連結清單**
 
-在分發投影片前，請清點其互動動作與網站連結。[getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 會回傳 [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) 物件，而非純粹的 URL 字串。請檢查每個容器的 [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) 與 [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它們是獨立的：同一容器可同時擁有兩個動作，因此完整的報告每個容器可能需要兩列。
+在發佈簡報之前，先對其互動動作及網站連結進行清點。[getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 會回傳[IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) 物件，而非僅一個 URL 字串的平面清單。請檢查每個容器的 [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) 與 [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它們是獨立的：同一容器可同時提供兩種動作，故完整報告需要每個容器最多兩列。
 
-僅檢查圖形層級的超連結可能會遺漏附加在文字部份的連結。請改為查詢適當的範圍，並保留回傳的容器，以便之後更新或移除其動作。
+僅掃描形狀層級的超連結可能會遺漏附加於文字部分的連結。請改以查詢適當的範圍，並保留回傳的容器，以便日後更新或移除其動作。
 
-### **查詢投影片、投影片與文字框範圍**
+### **查詢簡報、投影片與文字框範圍**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) 介面可透過 [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--)、[IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) 與 [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) 取得。每個範圍支援相同的查詢：
+[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) 介面可透過[IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--)、[IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--)以及[ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) 取得。每個範圍支援相同的查詢：
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) 回傳具有點擊動作的容器。
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) 回傳具有滑鼠懸停動作的容器。
-- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 回傳具任一或兩種動作的容器。
+- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 回傳包含任一或兩種動作的容器。
 
-以下範例建立 `hyperlink-audit-input.pptx`，內含外部點擊連結、檔案滑鼠懸停連結、內部投影片導覽、文字滑鼠懸停連結以及巨集動作。此範例不會執行任何動作。三種查詢在每個範圍皆適用；計數指的是容器數量，而非動作總數。文字框範圍會排除其所屬圖形本身的連結。
+此範例將點擊與滑鼠懸停動作指派給一個形狀及其文字，並將巨集動作指派給另一個按鈕。它比較 [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 回傳的容器數量與每種啟動類型的計數。文字框查詢僅計算文字中的連結。外層形狀的自身動作會出現在投影片與簡報的查詢結果中。
 
 ```java
 import com.aspose.slides.*;
@@ -325,37 +357,37 @@ try {
 }
 ```
 
-在此範例中，投影片與投影片查詢各回傳三個點擊容器、兩個滑鼠懸停容器，以及三個任一動作的容器。文字框查詢在每個類別各回傳一個容器。
+對於此範例，簡報與投影片的查詢各報告三個點擊容器、兩個滑鼠懸停容器，以及三個含任一動作的容器。文字框的查詢在每個類別各報告一個容器。
 
 ### **分類動作與目的地**
 
-使用 [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) 可在解讀目的地前先判斷動作類型。[HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) 的取值涵蓋超過網站導覽的情況：
+使用[IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) 以在解讀目的地前先判斷動作。[HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) 的值涵蓋了超過網頁導覽的情況：
 
-| 值 | 审计时的含义 |
+| 值 | 於稽核時的意義 |
 | --- | --- |
-| `Hyperlink` | 外部超連結；請檢查 URL 以及其協議。 |
+| `Hyperlink` | 外部超連結；檢查 URL 及其協定。 |
 | `JumpSpecificSlide` | 內部導覽至特定投影片。 |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 內建投影片播放導覽，於播放模式下解析。 |
-| `JumpEndShow`, `StartCustomSlideShow` | 結束目前的投影片秀或啟動自訂投影片秀。 |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 內建投影片放映導覽，於放映環境中解析。 |
+| `JumpEndShow`, `StartCustomSlideShow` | 結束目前的放映或啟動自訂放映。 |
 | `StartMacro` | 執行巨集。 |
-| `StartProgram` | 啟動程式。 |
-| `OpenFile`, `OpenPresentation` | 開啟檔案或其他投影片；需與網站 URL 分別審查。 |
+| `StartProgram` | 執行程式。 |
+| `OpenFile`, `OpenPresentation` | 開啟檔案或其他簡報；需與網頁 URL 分別檢視。 |
 | `StartStopMedia` | 開始或停止媒體播放。 |
-| `NoAction`, `Unknown` | 無導覽動作，或為未辨識的動作，需要進一步審查。 |
+| `NoAction`, `Unknown` | 無導覽動作，或未辨識的動作需檢查。 |
 
-使用 [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) 讀取外部目的地，使用 [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--) 取得特定的內部目的地。內部動作與內建指令可能沒有外部 URL；空的 URL 並不代表容器沒有動作。若 [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) 回傳的值與正規化的 URL 不同，請保留原始值；若有可取得的提示文字，亦請保留 [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--)。
+可從[getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) 讀取外部目的地，從[getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--) 讀取特定的內部目的地。內部動作與內建指令可能沒有外部 URL；空的 URL 並不代表容器沒有動作。當[getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) 回傳的值與正規化 URL 不同時，請保留該值，且在可取得時加入[getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) 回傳的提示文字。
 
 ### **報告、清理與驗證超連結**
 
-以下 Java 範例讀取先前建立的投影片（使用前面的檔案），寫入 `hyperlink-audit.json`，套用政策，儲存為 `hyperlink-sanitized.pptx`，再重新開啟以再次檢查兩種啟動類型。它在變更前收集容器，並使用參考相等性避免重複處理同一容器。投影片查詢涵蓋普通投影片；若要全套件清點，亦會明確查詢母片、佈局、備註以及備註與講義母片（如有）。
+此範例開啟前述範例的簡報，並為每個動作寫入一筆 JSON 記錄。它使用[getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 收集普通投影片、母片、版面配置與備註中的容器，若有備註與講義母片亦會包含。它使用參考相等性以確保每個容器只計數一次，套用以下說明的政策，並重新開啟已儲存的簡報以檢查點擊與滑鼠懸停動作。
 
-報告會記錄以 1 為起點的投影片索引與 [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--)（如可取得）。[ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) 提供支援容器的所屬投影片。母片、佈局與備註沒有普通投影片索引，以其範圍辨識。圖形容器與文字部份格式容器分別標示；其他容器類型保留其執行時型別名稱。每個容器取得報告本地 ID，以便將其兩個動作關聯。報告將動作類型儲存為 Java 列舉定義的整數常數。
+報告會記錄以 1 為起始的投影片索引以及[getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--)（如有）。[ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) 為支援的容器提供其所屬投影片。母片、版面配置與備註沒有普通投影片索引，會以其範圍辨識。形狀容器與文字部分格式容器會分別標記；其他容器類型保留其執行時類型名稱。每個容器取得一個報告本地 ID，以便將其兩個動作關聯起來。報告將動作類型以 Java 列舉定義的整數常數儲存。
 
-此限制性政策僅允許絕對 HTTPS URL 與有效的內部投影片目標。它會拒絕巨集、程式、檔案動作、其他投影片秀動作、未知動作與其他 URL 協議。這些拒絕屬於政策決策，而非 Aspose.Slides 安全性的判斷。僅有 HTTPS 並不代表可信任：請自行加入主機白名單與其他檢查。原始與正規化的外部 URL 皆會被檢查。範例僅審計中繼資料，並不會追蹤連結或執行動作。
+此刻意限制的應用政策僅允許絕對的 HTTPS URL 與有效的內部投影片目標。它會拒絕巨集、程式、檔案動作、其他投影片放映動作、未知動作以及其他 URL 協定。這些拒絕屬於政策決策，而非 Aspose.Slides 安全性判斷。僅有 HTTPS 並不足以建立信任：請於您的應用程式加入主機白名單與其他檢查。原始與正規化的外部 URL 皆會被檢查。此範例在不追蹤連結或執行動作的情況下稽核中繼資料。
 
-若要修正，容器的 [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) 支援 [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)、[removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) 與 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)。此處，受限制的外部點擊連結會被替換為固定的 HTTPS 登陸頁面；其他受限制的點擊與受限制的滑鼠懸停動作則會獨立移除。將 `replaceExternalClicks` 設為 `false` 會移除所有政策違規項目。請在部署前先決定應用程式所使用的替代頁面。
+若要修復，容器的[getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) 支援[setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)、[removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)與[removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)。此處，將被禁止的外部點擊連結替換為固定的 HTTPS 登陸頁面；其他被禁止的點擊與滑鼠懸停動作則分別移除。將 `replaceExternalClicks` 設為 `false` 可改為移除所有政策違規項目。請於部署前選擇由應用程式提供的替代頁面。
 
-報告的匯出旗標採用保守的 PDF 審查政策：將滑鼠懸停動作以及除外部連結或特定投影片跳轉之外的任何動作標記為可能不受支援。這僅是審查提示，並非功能測試或保證未被標記的連結在匯出時一定會保留。支援的 [PDF](/slides/zh-hant/java/convert-powerpoint-to-pdf/) 與 [HTML](/slides/zh-hant/java/convert-powerpoint-to-html/) 匯出可能會依動作、匯出選項與檢視器而保留超連結；光柵化的 [圖片](/slides/zh-hant/java/convert-powerpoint-to-png/) 與 [影片](/slides/zh-hant/java/convert-powerpoint-to-video/) 則無法保留互動超連結；在為這類輸出進行審計時，請將每個動作都標記。
+報告的匯出旗標採用保守的 PDF 檢視政策：將滑鼠懸停動作以及除外部連結或特定投影片跳轉之外的任何動作標記為可能不支援。這僅為檢視建議，非功能測試或保證未標記的連結在匯出後仍能存活。支援的[PDF](/slides/zh-hant/java/convert-powerpoint-to-pdf/)與[HTML](/slides/zh-hant/java/convert-powerpoint-to-html/)匯出可能會保留超連結，取決於動作、匯出選項與檢視器。點陣[圖像](/slides/zh-hant/java/convert-powerpoint-to-png/)與[影片](/slides/zh-hant/java/convert-powerpoint-to-video/)則無法保留互動式超連結；在審核此類輸出時應將所有動作標記。
 
 ```java
 import com.aspose.slides.*;
@@ -457,7 +489,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // 序列化此報告的平面行，無需額外的 JSON 依賴。
+    // 序列化此報告的平面列，無需額外的 JSON 依賴。
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -540,20 +572,20 @@ try {
 }
 ```
 
-使用前述建立的輸入檔，報告會包含五筆動作列。檔案滑鼠懸停連結與巨集點擊會被移除，而 HTTPS 連結與內部投影片導覽則保留。驗證階段會印出零筆被禁止的動作。若輸入包含被禁止的外部點擊 URL，也會測試替換分支。容器若同時具備允許的點擊與被禁止的滑鼠懸停，則會保留點擊動作。
+以上述建立的輸入為例，報告包含五列動作。檔案的滑鼠懸停連結與巨集點擊被移除，HTTPS 連結與內部投影片導覽則保留。驗證結果顯示零個違規動作。若輸入包含被禁止的外部點擊 URL，亦會觸發替換分支。具有允許的點擊且被禁止的滑鼠懸停的容器會保留其點擊動作。
 
-此選擇性清理與 [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) 不同，後者會無條件移除選取範圍內的兩種啟動類型。此處的驗證僅檢查超連結動作；不會移除嵌入的 VBA 專案、OLE 物件或其他活躍內容，也不會驗證匯出的 PDF 或 HTML 檔案。
+此選擇性清理與[removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) 不同，後者會在選取範圍內不論政策皆移除兩種啟動方式。此處的驗證僅檢查超連結動作；不會移除嵌入的 VBA 專案、OLE 物件或其他活躍內容，也不會驗證匯出的 PDF 或 HTML 檔案。
 
 ## **常見問題**
 
-**如何連結到某個區段或其第一張投影片？**
+**如何連結至某個章節或其第一張投影片？**
 
-PowerPoint 中的區段會將投影片分組，但內部超連結只能針對單一投影片。若要導向區段，請連結至該區段的第一張投影片。
+PowerPoint 的章節會將投影片分組，但內部超連結只能定位到單一投影片。若要導覽至章節，請將連結指向該章節的第一張投影片。
 
 **我可以將超連結附加到母片元素，使其在所有投影片上都有效嗎？**
 
-可以。母片與版面配置元素支援超連結。這些元素上的連結在投影片放映期間，會在使用相應母片或版面的投影片上可用。
+可以。母片與版面配置的元素支援超連結。這些元素上的連結會在投影片放映時，於使用相應母片或版面配置的投影片上可用。
 
-**匯出為 PDF、HTML、圖片或影片時，超連結會被保留嗎？**
+**匯出為 PDF、HTML、圖像或影片時，超連結會被保留嗎？**
 
-支援的 PDF 與 HTML 匯出可能會保留超連結；光柵化的圖片與影片則不會。請參閱 [報告、清理與驗證超連結](#report-sanitize-and-verify-hyperlinks) 中的匯出考量。
+支援的 PDF 與 HTML 匯出可能會保留超連結；點陣圖像與影片則無法保留。請參閱[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) 中的匯出考量。

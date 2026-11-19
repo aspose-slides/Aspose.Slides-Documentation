@@ -1,6 +1,6 @@
 ---
-title: Spravovat hypertextové odkazy v prezentaci v PHP
-linktitle: Spravovat odkazy
+title: Správa hypertextových odkazů v prezentaci v PHP
+linktitle: Správa odkazů
 type: docs
 weight: 20
 url: /cs/php-java/manage-hyperlinks/
@@ -16,38 +16,36 @@ keywords:
 - hypertextový odkaz na tvar
 - hypertextový odkaz na obrázek
 - hypertextový odkaz na video
-- mutabilní hypertextový odkaz
+- měnitelný hypertextový odkaz
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java s využitím ukázek v PHP."
+description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides for PHP via Java, s ukázkami v PHP."
 ---
 ## **Úvod**
 
-Hyperlink spojuje obsah prezentace s webovou stránkou nebo s místem v rámci prezentace. V PowerPointu slouží hypertextové odkazy obvykle k dvěma účelům:
+Hypertextový odkaz spojuje obsah prezentace s webovou stránkou nebo místem v rámci prezentace. V PowerPointu slouží hypertextové odkazy obvykle ke dvěma účelům:
 
 * Otevřít webovou stránku z textu, tvaru nebo mediálního rámce.
-* Přesunout se na jiný snímek, například z obsahu.
+* Přejít na jiný snímek, například z obsahu.
 
-Aspose.Slides for PHP via Java vám umožňuje tyto odkazy přidávat, řídit jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak přistupovat k odkazům na úrovni prezentace, snímku nebo textového rámce. Předpokládají, že je inicializován PHP/Java Bridge a obal Aspose.Slides pro PHP. Členové API bez odkazu na stránku reference PHP odkazují na podkladové Java API.
+Aspose.Slides for PHP via Java umožňuje přidávat tyto odkazy, řídit jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy u jednotlivých prvků a jak přistupovat k odkazům na úrovni prezentace, snímku nebo textového rámce. Předpokládají, že je inicializován PHP/Java Bridge a wrapper Aspose.Slides pro PHP. Členové API bez odkazu na stránku PHP reference odkazují na podkladové Java API.
 
 {{% alert color="info" title="Note" %}}
+Můžete také upravovat prezentace pomocí [free online Aspose PowerPoint editor](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-Můžete také upravovat prezentace pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/editor).
+## **Přidání URL hypertextových odkazů**
 
-{{% /alert %}} 
+Můžete přiřadit webovou URL textu, tvaru nebo mediálnímu rámci. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje klikací oblast: část textu odkazuje vybraný text, zatímco tvar nebo rámec odkazuje objekt snímku.
 
-## **Přidat URL odkazy**
+Pro prezentace obsahující relativní hypertextové odkazy viz [Manage the Hyperlink Base](/slides/cs/php-java/presentation-properties/#manage-the-hyperlink-base) a přečtěte, změňte nebo vymažte základ dokumentu.
 
-Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámci. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje oblast, na kterou lze kliknout: část textu propojí vybraný text, zatímco tvar nebo rámec propojí objekt snímku.
+### **Přidání URL hypertextových odkazů do textu**
 
-Pro prezentace obsahující relativní hypertextové odkazy viz [Spravovat základ hypertextových odkazů](/slides/cs/php-java/presentation-properties/#manage-the-hyperlink-base) pro čtení, změnu nebo vymazání základny na úrovni dokumentu.
-
-### **Přidat URL odkazy do textu**
-
-Pro propojení textu s webovou stránkou předejte objekt [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) části textu, jak je ukázáno níže. Pouze tato část textu se stane klikací.
+Chcete‑li odkazovat text na web, předáte [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) částí textu, jak je ukázáno níže. Pouze tato část textu se stane klikací.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -70,13 +68,9 @@ try {
 }
 ```
 
-### **Přidat URL odkazy do tvarů a mediálních rámců**
+### **Přidání URL hypertextových odkazů do tvarů a mediálních rámců**
 
-Pro vytvoření klikatelného tvaru nebo rámce zavolejte jeho metodu [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/). Hypertextový odkaz patří samotnému objektu, nikoli části textu uvnitř něj.
-
-Stejný přístup platí pro obrázkové, audio a video rámečky: přiřaďte hypertextový odkaz rámci a v případě potřeby zavolejte [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/).
-
-Následující příklad vytvoří klikací obdélník:
+Zavolejte [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) na obdélník, aby se celá jeho oblast stala klikací. Použijte [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) k zobrazení nápovědy o cíli, když uživatel přejede kurzorem nad obdélníkem. Obě metody platí také pro obrázkové, audio‑ a video‑rámce.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -97,9 +91,9 @@ try {
 }
 ```
 
-## **Použít hypertextové odkazy k vytvoření obsahu**
+## **Použití hypertextových odkazů k vytvoření obsahu**
 
-Interní hypertextové odkazy umožňují čtenářům přeskakovat z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) pro propojení textu „Strana 2“ na prvním snímku na druhý snímek.
+Interní hypertextové odkazy umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) k propojení textu „Page 2“ na prvním snímku s druhým snímkem.
 
 ```php
 use aspose\slides\FillType;
@@ -137,13 +131,15 @@ try {
 }
 ```
 
-## **Formátovat hypertextové odkazy**
+## **Formátování hypertextových odkazů**
+
+Můžete změnit barvu propojeného textu, přehrát nebo zastavit zvuk při aktivaci odkazu a nastavit tooltip, který se zobrazí při přejetí kurzorem.
 
 ### **Barva**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) třídy [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu prezentace nebo formátování části textu. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) a nastavte barvu výplně části. Tato funkce byla zavedena v PowerPoint 2019; starší verze toto nastavení nepoužívají.
+Metoda [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) třídy [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu prezentace nebo formátování části textu. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) a nastavte barvu výplně části. Tato funkce byla zavedena v PowerPointu 2019; starší verze toto nastavení nepoužívají.
 
-Následující příklad přidává dva textové hypertextové odkazy na stejný snímek. První používá červenou výplň textu, zatímco druhý zachovává výchozí barvu odkazu.
+V tomto příkladu metoda [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) způsobí, že první odkaz použije červenou výplň části textu. Druhý odkaz zachová barvu odkazu prezentace.
 
 ```php
 use aspose\slides\FillType;
@@ -172,16 +168,17 @@ try {
     $presentation->dispose();
 }
 ```
+
 ### **Zvuk**
 
-Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit již přehrávaný zvuk. K nastavení tohoto chování použijte následující metody:
+Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit již přehrávaný zvuk. Použijte následující metody k nastavení tohoto chování:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) určuje zvuk spojený s hypertextovým odkazem.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) určuje audio soubor spojený s odkazem.
 - [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) určuje, zda aktivace odkazu zastaví předchozí zvuk.
 
-#### **Přidat zvuk hypertextového odkazu**
+#### **Přidání zvuku k hypertextovému odkazu**
 
-Následující příklad načte `sampleaudio.wav` a přiřadí jej tlačítku na prvním snímku. Kliknutí na tlačítko přehraje zvuk a přejde na další snímek. Druhý tvar na tomto snímku při kliknutí zastaví předchozí zvuk, aniž by provedl navigaci.
+Tlačítko na prvním snímku používá [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) k přehrání audio souboru `sampleaudio.wav` při kliknutí čtenáře. Na druhém snímku samostatné tlačítko používá [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) k zastavení přehrávání a ponechání čtenáře na tomto snímku.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -221,9 +218,9 @@ try {
 }
 ```
 
-#### **Extrahovat zvuk hypertextového odkazu**
+#### **Extrahování zvuku z hypertextového odkazu**
 
-Následující příklad otevře výše vytvořenou prezentaci a přečte zvuk hypertextového odkazu prvního tvaru do paměti pomocí [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) a [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
+Následující příklad otevře výše vytvořenou prezentaci a načte audio hypertextového odkazu první formy do paměti pomocí [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) a [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
 
 ```php
 use aspose\slides\Presentation;
@@ -247,18 +244,18 @@ try {
 }
 ```
 
-### **Nápověda a nastavení interakce**
+### **Nastavení tooltipu a interakce**
 
-Po přiřazení hypertextového odkazu k textu nebo tvaru můžete zavolat následující metody třídy [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/):
+Po přiřazení hypertextového odkazu textu nebo tvaru můžete volat následující metody třídy [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/):
 
-- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) nastaví text, který může uživatel zobrazit jako nápovědu pro odkaz.
-- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) specifikuje cílový rámec v rámci nadřazené HTML sady rámců, pokud je to použitelné.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) nastaví text, který se zobrazí jako nápověda k odkazu.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) určuje cílový rámec v rámci rodičovského HTML framesetu, pokud je to relevantní.
 - [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) určuje, zda aktivace odkazu přidá jeho cíl do seznamu zobrazených hypertextových odkazů.
-- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) určuje, zda je hypertextový odkaz zvýrazněn při kliknutí.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) určuje, zda je odkaz po kliknutí zvýrazněn.
 
-## **Odstranit hypertextové odkazy z prezentací**
+## **Odstranění hypertextových odkazů z prezentací**
 
-Pro sběr kontejnerů hypertextových odkazů, včetně odkazů na části textu, použijte [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) před jejich změnou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Pro odstranění jen jednoho typu zavolejte pouze [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); odstranění akce kliknutí neodstraňuje její protějšek při najetí myší.
+Použijte [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) k získání kontejnerů hypertextových odkazů, včetně odkazů částí textu, před jejich změnou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Pro odstranění jen jednoho typu zavolejte pouze [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); odstranění akce kliknutí neodstraní její protějšek při přejetí kurzorem.
 
 ```php
 use aspose\slides\Presentation;
@@ -284,23 +281,60 @@ try {
 }
 ```
 
-Pro neomezené odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) odstraňuje oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní úklid a pokrytí hlav, rozvržení a poznámek viz [Zpráva, Sanace a Ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).
+Pro bezpodmínečné odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) odstraňuje oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní úklid a pokrytí masterů, rozvržení a poznámek viz [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Vytvořit kompletní inventář hypertextových odkazů**
+### **Vymazání hypertextových odkazů před nahrazením textu SmartArt**
 
-Před distribucí prezentace si zmapujte její interaktivní akce i webové odkazy. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), nikoliv plochý seznam řetězců URL. Pro každý kontejner prohlédněte jak [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--). Jsou nezávislé: stejný kontejner může poskytovat obě akce, takže úplná zpráva vyžaduje až dva řádky na kontejner.
+Při nahrazování odstavce v existujícím uzlu SmartArt může vymazání jeho částí textu ponechat starý hypertextový odkaz aktivní. Získejte odstavec pomocí [SmartArtNode::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/gettextframe/). Před vymazáním částí zavolejte [getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) na textovém rámci tvaru uzlu, který odstavec zobrazuje, a potom [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) na vráceném objektu. Tím odstraníte každý hypertextový odkaz v tomto rámci, včetně odkazů v jeho dalších odstavcích.
 
-Skenování pouze hypertextových odkazů na úrovni tvaru může vynechat odkazy připojené k částem textu. Dotazujte místo toho vhodný rozsah a uchovávejte vrácené kontejnery, abyste je později mohli aktualizovat nebo odstranit jejich akce.
+Příklad předpokládá, že třetí tvar na prvním snímku souboru `SmartArtHyperlink.pptx` je grafika SmartArt. Nahrazuje první odstavec čtvrtého uzlu. V této prezentaci první tvar uzlu zobrazuje tento odstavec.
 
-### **Dotazovat na prezentaci, snímek a textový rámec**
+Po přidání obou částí příklad načte jejich efektivní formátování pomocí [getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/). Na tomto formátování [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) vrací nový odkaz pro první část a `null` pro druhou.
+
+```php
+use aspose\slides\Hyperlink;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $smartArt = $slide->getShapes()->get_Item(2);
+    $node = $smartArt->getAllNodes()->get_Item(3);
+    $paragraph = $node->getTextFrame()->getParagraphs()->get_Item(0);
+
+    $node->getShapes()->get_Item(0)->getTextFrame()->getHyperlinkQueries()->removeAllHyperlinks();
+    $paragraph->getPortions()->clear();
+
+    $link = new Portion("New reference");
+    $link->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    $paragraph->getPortions()->add($link);
+    $text = new Portion(" (updated)");
+    $paragraph->getPortions()->add($text);
+
+    echo java_values($link->getPortionFormat()->getEffective()->getHyperlinkClick()->getExternalUrl()), PHP_EOL; // https://example.com/new
+    var_dump(java_is_null($text->getPortionFormat()->getEffective()->getHyperlinkClick())); // bool(true): druhá část nemá hypertextový odkaz.
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Vytvoření kompletního inventáře hypertextových odkazů**
+
+Před distribucí prezentace si vytvořte inventuru jejích interaktivních akcí i webových odkazů. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam řetězců URL. Prozkoumejte jak [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) u každého kontejneru. Jsou nezávislé: stejný kontejner může exponovat oba typy akcí, takže kompletní zpráva vyžaduje až dva řádky na kontejner.
+
+Prohledávání pouze hypertextových odkazů na úrovni tvaru může minout odkazy připojené k částem textu. Dotazujte se na vhodný rozsah a uchovávejte vrácené kontejnery, abyste je mohli později aktualizovat nebo odstranit jejich akce.
+
+### **Dotazování na rozsahy prezentace, snímku a textového rámce**
 
 Třída [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) je dostupná přes [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) a [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). Každý rozsah podporuje stejné dotazy:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) vrací kontejnery s akcí kliknutí.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) vrací kontejnery s akcí při najetí myší.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) vrací kontejnery s akcí při přejetí kurzorem.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) vrací kontejnery s jednou nebo oběma akcemi.
 
-Následující příklad vytvoří `hyperlink-audit-input.pptx` s externím odkazem na kliknutí, odkazem na soubor při najetí myší, interní navigací mezi snímky, odkazem na najetí myší u textu a akcí makra. Neprovádí žádnou z těchto akcí. Stejné tři dotazy fungují v každém rozsahu; počty popisují kontejnery, nikoliv celkový počet akcí. Rozsah textového rámce vylučuje odkazy vlastního tvaru.
+Tento příklad přiřadí akce kliknutí a přejetí kurzorem tvaru a jeho textu a makro akci samostatnému tlačítku. Porovnává počet kontejnerů vrácených metodou [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) s počty pro každý typ aktivace. Dotaz na textový rámec počítá pouze odkazy v textu. Akce samotného tvaru se objeví v dotazech snímku a prezentace.
 
 ```php
 use aspose\slides\Presentation;
@@ -339,37 +373,37 @@ try {
 }
 ```
 
-Pro tento příklad dotazy na prezentaci a na snímek uvádějí tři kontejnery kliknutí, dva kontejnery najetí myší a tři kontejnery s jednou nebo druhou akcí. Dotaz na textový rámec uvádí po jednom kontejneru v každé kategorii.
+Pro tento příklad dotazy prezentace a snímku uvádějí každé tři kontejnery kliknutí, dva kontejnery přejetí a tři kontejnery s libovolnou akcí. Dotaz textového rámce uvádí po jednom kontejneru v každé kategorii.
 
-### **Klasifikovat akce a cíle**
+### **Klasifikace akcí a cílů**
 
-Pro interpretaci akce před interpretací cíle použijte [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/). Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) zahrnují více než jen webovou navigaci:
+Pomocí [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) můžete interpretovat akci před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) zahrnují více než jen navigaci na web:
 
 | Hodnoty | Význam pro audit |
 | --- | --- |
-| `Hyperlink` | Externí hypertextový odkaz; prověřte URL a její schéma. |
+| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a její schéma. |
 | `JumpSpecificSlide` | Interní navigace na konkrétní snímek. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace v prezentaci, vyhodnocovaná v kontextu prezentace. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace v prezentaci, vyhodnocovaná v kontextu promítání. |
 | `JumpEndShow`, `StartCustomSlideShow` | Ukončení aktuálního představení nebo spuštění vlastního představení. |
 | `StartMacro` | Spuštění makra. |
 | `StartProgram` | Spuštění programu. |
-| `OpenFile`, `OpenPresentation` | Otevření souboru nebo jiné prezentace; zpracovávejte odděleně od webových URL. |
+| `OpenFile`, `OpenPresentation` | Otevření souboru nebo jiné prezentace; posuzujte odděleně od webových URL. |
 | `StartStopMedia` | Spuštění nebo zastavení přehrávání média. |
-| `NoAction`, `Unknown` | Žádná navigační akce nebo nerozpoznaná akce vyžadující přezkoumání. |
+| `NoAction`, `Unknown` | Žádná navigační akce nebo neznámá akce vyžadující revizi. |
 
-Externí cíle načtěte pomocí [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) a specifické interní cíle pomocí [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Interní akce a vestavěné příkazy nemusí mít externí URL; prázdná URL neznamená, že kontejner nemá akci. Zachovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) pokud se liší od normalizované URL, a zahrňte nápovědu vrácenou metodou [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) pokud je k dispozici.
+Externí cíle načtěte pomocí [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) a konkrétní interní cíle pomocí [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Interní akce a vestavěné příkazy nemusí mít externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Zachovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) pokud se liší od normalizované URL, a zahrňte tooltip vrácený metodou [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) pokud je k dispozici.
 
-### **Zpráva, Sanace a Ověření hypertextových odkazů**
+### **Zpráva, sanitizace a ověření hypertextových odkazů**
 
-Následující PHP příklad načte existující prezentaci (použijte výše vytvořený soubor), zapíše `hyperlink-audit.json`, aplikuje politiku, uloží `hyperlink-sanitized.pptx` a znovu ji otevře, aby ověřil oba typy aktivace. Před změnou sbírá kontejnery a používá referenční rovnost, aby se zabránilo dvojitému zpracování stejného kontejneru. Dotazy na prezentaci pokrývají běžné snímky; pro inventář na úrovni celého balíčku také explicitně dotazují hlavní šablony, rozvržení, poznámky a hlavní šablony poznámek a rozdání, pokud jsou přítomny.
+Tento příklad otevírá prezentaci z předchozího příkladu a zapisuje jeden JSON záznam na akci. Používá [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) k sesbírání kontejnerů na běžných snímcích, masterech, rozvrženích a poznámkách, včetně masterů poznámek a podkladových listů, pokud jsou přítomny. Používá referenční rovnost k počítání každého kontejneru jen jednou, aplikuje níže popsanou politiku a po uložení znovu otevírá prezentaci k ověření jak akcí kliknutí, tak akcí při přejetí kurzorem.
 
-Zpráva zaznamenává jednorozměrný index snímku a [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) pokud je dostupný. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) poskytuje vlastní snímek pro podporované kontejnery. Hlavní šablony, rozvržení a poznámky nemají běžný index snímku a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a kontejnery formátování částí textu jsou označeny odděleně; ostatní typy kontejnerů si zachovávají svůj název typu za běhu. Každý kontejner získá místní ID zprávy, aby jeho dvě akce mohly být vzájemně spojeny. Zpráva ukládá typy akcí jako celočíselné konstanty definované PHP výčtem.
+Zpráva ukládá jednorozměrný index snímku a [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) pokud je k dispozici. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) poskytuje vlastní snímek pro podporované kontejnery. Mastere, rozvržení a poznámky nemají běžný index snímku a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a kontejnerů formátování částí textu jsou označeny odděleně; jiné typy kontejnerů si ponechávají název typu za běhu. Každý kontejner získá lokální ID zprávy, aby jeho dvě akce mohly být vzájemně propojeny. Zpráva ukládá typy akcí jako celočíselné konstanty definované PHP výčtem.
 
-Tato úmyslně restriktivní aplikační politika povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Zamítá makra, programy, souborové akce, jiné akce prezentace, neznámé akce a další schémata URL. Tato odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. Pouze HTTPS nezaručuje důvěru: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak původní, tak normalizované externí URL. Příklad audituje metadata bez sledování odkazů nebo spouštění akcí.
+Tato úmyslně restriktivní politika aplikace povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, jiné akce prezentace, neznámé akce a jiné schémata URL. Tyto odmítnutí jsou rozhodnutí politiky, ne bezpečnostní verdikt Aspose.Slides. HTTPS samotné nezaručuje důvěru: přidejte seznam povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak originální, tak normalizované externí URL. Příklad audituje metadata bez sledování odkazů nebo spouštění akcí.
 
-Pro nápravu podporuje [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Zde jsou zakázané externí odkazy na kliknutí nahrazeny pevnou HTTPS vstupní stránkou; ostatní zakázané kliknutí a zakázané akce při najetí myší jsou odstraněny nezávisle. Nastavte `$replaceExternalClicks` na `false`, pokud chcete místo toho odstranit všechna porušení politiky. Vyberte náhradní stránku vlastněnou aplikací před nasazením.
+Pro nápravu kontejnerů [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) podporuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Zde jsou zakázané externí odkazy kliknutí nahrazeny pevnou HTTPS vstupní stránkou; ostatní zakázané kliknutí a zakázané akce při přejetí jsou odstraněny samostatně. Nastavte `$replaceExternalClicks` na `false` pro úplné odstranění všech porušení politiky. Zvolte stránku vlastněnou aplikací před nasazením.
 
-Exportní příznak zprávy používá konzervativní politiku kontroly PDF: označuje akce při najetí myší a vše kromě externího odkazu nebo konkrétního skoku na snímek jako potenciálně nepodporované. Jedná se o návod k revizi, nikoli o test schopností nebo záruku, že neoznačené odkazy přežijí export. Podporované [PDF](/slides/cs/php-java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/php-java/convert-powerpoint-to-html/) exporty mohou zachovat hypertextové odkazy v závislosti na akci, možnostech exportu a prohlížeči. Rasterové [images](/slides/cs/php-java/convert-powerpoint-to-png/) a [video](/slides/cs/php-java/convert-powerpoint-to-video/) nemohou zachovat interaktivní hypertextové odkazy; při auditu pro tyto výstupy označte každou akci.
+Exportní příznak zprávy používá konzervativní politiku revize PDF: označuje akce při přejetí kurzorem a vše kromě externího odkazu nebo konkrétního skoku na snímek jako potenciálně nepodporované. Je to pouze návod k revizi, ne test schopností ani záruka, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/php-java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/php-java/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy v závislosti na akci, nastavení exportu a prohlížeči. Rasterové [images](/slides/cs/php-java/convert-powerpoint-to-png/) a [video](/slides/cs/php-java/convert-powerpoint-to-video/) nemohou zachovat interaktivní odkazy; při auditu pro tyto výstupy označte každou akci.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -526,20 +560,20 @@ try {
 }
 ```
 
-S výše vytvořeným vstupem obsahuje zpráva pět řádků akcí. Odkaz na soubor při najetí myší a makro kliknutí jsou odstraněny, zatímco HTTPS odkazy a interní navigace mezi snímky zůstávají. Ověření vypisuje nula zakázaných akcí. Vstup s zakázaným externím URL kliknutím také testuje větev nahrazení. Kontejner s povoleným kliknutím a zakázaným najetím myší si ponechává akci kliknutí.
+S vytvořeným vstupem výše obsahuje zpráva pět řádků akcí. Odkaz na soubor při přejetí kurzorem a makro kliknutí jsou odstraněny, zatímco HTTPS odkazy a interní navigace po snímcích zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázanou externí URL kliknutí také otestuje větev nahrazení. Kontejner s povoleným kliknutím a zakázaným přejetím zachová akci kliknutí.
 
-Tento selektivní úklid se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze akce hypertextových odkazů; neodstraňuje zabudované VBA projekty, OLE objekty ani jiný aktivní obsah a nevaliduje exportovaný PDF nebo HTML soubor.
+Tento selektivní úklid se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze akce hypertextových odkazů; neodstraňuje vložené VBA projekty, OLE objekty ani jiný aktivní obsah a nevaliduje exportovaný PDF nebo HTML soubor.
 
 ## **Často kladené otázky**
 
 **Jak mohu propojit sekci nebo její první snímek?**
 
-Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na jednotlivý snímek. Pro vytvoření navigace na sekci odkažte na první snímek v dané sekci.
+Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na jednotlivý snímek. Pro vytvoření navigace na sekci odkažte na první snímek v této sekci.
 
-**Mohu přiřadit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
+**Mohu přiřadit hypertextový odkaz k prvkům master snímku, aby fungoval na všech snímcích?**
 
-Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou dostupné během prezentace na snímcích, které používají odpovídající hlavní šablonu nebo rozvržení.
+Ano. Prvky master snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou dostupné během prezentace na snímcích, které používají odpovídající master nebo rozvržení.
 
-**Budou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
+**Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
 
-Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rasterové obrázky a video to nemohou. Viz úvahy o exportu v [Zpráva, Sanace a Ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).
+Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rasterové obrázky a video jej nezachovají. Viz úvahy o exportu v [Zpráva, sanitizace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).

@@ -1,22 +1,22 @@
 ---
-title: Управление гиперссылками презентаций в Python
-linktitle: Управление гиперссылками
+title: "Управление гиперссылками презентации в Python"
+linktitle: "Управление гиперссылками"
 type: docs
 weight: 20
 url: /ru/python-net/manage-hyperlinks/
 keywords:
-- добавить URL
-- добавить гиперссылку
-- создать гиперссылку
-- форматировать гиперссылку
-- удалить гиперссылку
-- обновить гиперссылку
-- текстовая гиперссылка
-- гиперссылка слайда
-- гиперссылка фигуры
-- гиперссылка изображения
-- видео гиперссылка
-- изменяемая гиперссылка
+- "добавить URL"
+- "добавить гиперссылку"
+- "создать гиперссылку"
+- "форматировать гиперссылку"
+- "удалить гиперссылку"
+- "обновить гиперссылку"
+- "текстовая гиперссылка"
+- "гиперссылка на слайд"
+- "гиперссылка на фигуру"
+- "гиперссылка на изображение"
+- "гиперссылка на видео"
+- "изменяемая гиперссылка"
 - PowerPoint
 - OpenDocument
 - презентация
@@ -26,26 +26,28 @@ description: "Добавляйте, форматируйте, обновляйт
 ---
 ## **Введение**
 
-Гиперссылка соединяет контент презентации с веб‑сайтом или местом внутри презентации. В PowerPoint гиперссылки обычно служат двум целям:
+Гиперссылка соединяет содержимое презентации с веб‑сайтом или местом внутри презентации. В PowerPoint гиперссылки обычно используются в двух целях:
 
 * Открыть веб‑сайт из текста, фигуры или медиа‑кадра.
 * Перейти к другому слайду, например, из оглавления.
 
-Aspose.Slides for Python via .NET позволяет добавлять такие ссылки, управлять их внешним видом и звуком, обновлять их свойства и удалять их. Приведённые ниже примеры показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
+Aspose.Slides for Python via .NET позволяет добавлять такие ссылки, управлять их внешним видом и звуком, обновлять свойства и удалять их. Примеры ниже показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
 
 {{% alert color="info" title="Note" %}}
-Вы можете также редактировать презентации с помощью [бесплатный онлайн‑редактор Aspose PowerPoint](https://products.aspose.app/slides/editor).
+
+Вы также можете редактировать презентации с помощью [бесплатного онлайн‑редактора Aspose PowerPoint](https://products.aspose.app/slides/editor).
+
 {{% /alert %}}
 
 ## **Добавление URL‑гиперссылок**
 
-Вы можете назначить URL‑адрес веб‑сайта тексту, фигуре или медиарежиму. Элемент, к которому назначена гиперссылка, определяет область кликабельности: часть текста связывает выбранный текст, а фигура или кадр связывают объект слайда.
+Вы можете назначить URL‑адрес веб‑сайта тексту, фигуре или медиа‑кадру. Элемент, к которому присваивается гиперссылка, определяет область, по которой можно кликнуть: часть текста связывает выбранный текст, тогда как фигура или кадр связывают объект слайда.
 
-Для презентаций, содержащих относительные гиперссылки, см. [Управление базой гиперссылок](/slides/ru/python-net/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базу уровня документа.
+Для презентаций, содержащих относительные гиперссылки, см. [Manage the Hyperlink Base](/slides/ru/python-net/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базовый путь уровня документа.
 
 ### **Добавление URL‑гиперссылок к тексту**
 
-Чтобы связать текст с веб‑сайтом, назначьте [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) свойству [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) части текста, как показано ниже. Только эта часть текста станет кликабельной.
+Чтобы связать текст с веб‑сайтом, назначьте [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) свойству [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) части текста, как показано ниже. Кликабельной становится только эта часть текста.
 
 ```python
 import aspose.slides as slides
@@ -60,13 +62,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Добавление URL‑гиперссылок к фигурам и медиакадрам**
+### **Добавление URL‑гиперссылок к фигурам и медиа‑кадрам**
 
-Чтобы сделать фигуру или кадр кликабельным, задайте её свойство [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/). Гиперссылка принадлежит самому объекту, а не части текста внутри него.
-
-Тот же подход применяется к кадрам изображений, аудио и видео: назначьте гиперссылку кадру и при необходимости задайте [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/).
-
-Следующий пример делает прямоугольник кликабельным:
+Назначьте URL‑адрес свойству [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) прямоугольника, чтобы сделать всю его площадь кликабельной. Атрибут [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) показывает читателям подсказку о назначении при наведении курсора на прямоугольник. Те же свойства применимы к кадрам изображения, аудио и видео.
 
 ```python
 import aspose.slides as slides
@@ -80,7 +78,7 @@ with slides.Presentation() as presentation:
 
 ## **Использование гиперссылок для создания оглавления**
 
-Внутренние гиперссылки позволяют читателям переходить от оглавления к конкретному слайду. В следующем примере используется [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) для связывания текста «Page 2» на первом слайде со вторым слайдом.
+Внутренние гиперссылки позволяют читателям переходить из оглавления к определённому слайду. В следующем примере используется [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) для ссылки текста «Page 2» на первом слайде ко второму слайду.
 
 ```python
 import aspose.pydrawing as draw
@@ -107,11 +105,13 @@ with slides.Presentation() as presentation:
 
 ## **Форматирование гиперссылок**
 
+Вы можете изменить цвет связанного текста, воспроизвести или остановить звук при активации ссылки и задать всплывающую подсказку, отображаемую при наведении.
+
 ### **Цвет**
 
-Свойство [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) класса [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) определяет, использует ли гиперссылка цвет гиперссылки презентации или форматирование части текста. Чтобы применить пользовательский цвет текста, выберите [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) и задайте цвет заливки части. Эта функция была введена в PowerPoint 2019; более старые версии не применяют эту настройку.
+Свойство [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) у [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) определяет, использует ли гиперссылка цвет гиперссылки презентации или форматирование части текста. Чтобы применить пользовательский цвет текста, выберите [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) и задайте цвет заливки части. Эта возможность была внедрена в PowerPoint 2019; более старые версии эту настройку не поддерживают.
 
-Следующий пример добавляет две текстовые гиперссылки на один и тот же слайд. Первая использует красный цвет текста, а вторая сохраняет цвет гиперссылки по умолчанию.
+В этом примере установка [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) на первой ссылке делает её текст красным. Вторая ссылка сохраняет цвет гиперссылки презентации.
 
 ```python
 import aspose.pydrawing as draw
@@ -133,14 +133,14 @@ with slides.Presentation() as presentation:
 
 ### **Звук**
 
-Гиперссылка может воспроизводить звук при активации или останавливать уже воспроизводящийся звук. Используйте следующие свойства для настройки этих поведений:
+Гиперссылка может воспроизводить звук при активации или остановить уже играющий звук. Используйте следующие свойства для настройки этих поведений:
 
 - [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) указывает аудио, связанное с гиперссылкой.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) контролирует, будет ли активация гиперссылки останавливать предыдущий звук.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) управляет тем, будет ли активация гиперссылки останавливать предыдущий звук.
 
 #### **Добавление звука к гиперссылке**
 
-Следующий пример загружает `sampleaudio.wav` и связывает его с кнопкой на первом слайде. Нажатие кнопки воспроизводит звук и переходит к следующему слайду. Вторая фигура на этом слайде останавливает предыдущий звук при клике, без выполнения перехода.
+Кнопка на первом слайде использует [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) для воспроизведения аудио из WAV‑файла при клике читателя. На втором слайде отдельная кнопка использует [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) для остановки воспроизведения и удерживает читателя на этом слайде.
 
 ```python
 import aspose.slides as slides
@@ -164,7 +164,7 @@ with slides.Presentation() as presentation:
 
 #### **Извлечение звука из гиперссылки**
 
-Следующий пример открывает созданную выше презентацию и считывает аудио гиперссылки первой фигуры в память через [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) и [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
+В следующем примере открывается презентация, созданная выше, и читается звук гиперссылки первой фигуры в память через [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) и [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
 
 ```python
 import aspose.slides as slides
@@ -182,18 +182,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **Настройки подсказок и взаимодействия**
+### **Всплывающая подсказка и настройки взаимодействия**
 
-Вы можете обновить следующие свойства [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) после назначения гиперссылки тексту или фигуре:
+После назначения гиперссылки тексту или фигуре вы можете обновить следующие свойства [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/):
 
-- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) задаёт текст, который пользователь может увидеть в виде подсказки для ссылки.
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) задаёт текст, который пользователь видит как подсказку к ссылке.
 - [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) указывает целевой кадр внутри родительского HTML‑фреймсета, если применимо.
-- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) контролирует, будет ли активация ссылки добавлять её назначение в список просмотренных гиперссылок.
-- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) контролирует, будет ли гиперссылка подсвечена при клике.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) определяет, добавляется ли назначение ссылки в список просмотренных гиперссылок.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) управляет тем, будет ли гиперссылка подсвечиваться при клике.
 
 ## **Удаление гиперссылок из презентаций**
 
-Используйте [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) для сбора контейнеров гиперссылок, включая ссылки частей текста, перед их изменением. Следующий пример удаляет оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) или [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); удаление действия клика не удаляет соответствующее действие при наведении.
+Используйте [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) для получения контейнеров гиперссылок, включая ссылки частей текста, перед их изменением. В следующем примере удаляются оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) или [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); удаление действия клика не удаляет его аналог при наведении.
 
 ```python
 import aspose.slides as slides
@@ -209,23 +209,54 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-Для безусловного удаления [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) удаляет оба типа активации в выбранной области одним вызовом. Для выборочной очистки и охвата мастеров, макетов и заметок см. [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
+Для безусловного удаления [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) удаляет оба типа активации в выбранном диапазоне одним вызовом. Для выборочной очистки и охвата мастеров, макетов и заметок см. [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Создание полного реестра гиперссылок**
+### **Очистка гиперссылок перед заменой текста SmartArt**
 
-Перед распространением презентации выполните инвентаризацию её интерактивных действий и веб‑ссылок. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) возвращает объекты [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/), а не плоский список строк URL. Проверяйте как [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/), так и [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) в каждом контейнере. Они независимы: один контейнер может содержать обе действия, поэтому полный отчёт требует до двух строк на контейнер.
+При замене абзаца в существующей ноде SmartArt очистка её частей текста может оставить старую гиперссылку. Получите абзац через [SmartArtNode.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/text_frame/). Перед очисткой его частей вызовите [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) через [hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) на текстовом кадре фигуры ноды, отображающей абзац. Это удалит каждую гиперссылку в этом кадре, включая ссылки в других её абзацах.
 
-Сканирование только гиперссылок уровня фигур может упустить ссылки, прикреплённые к частям текста. Запрашивайте соответствующую область вместо этого и сохраняйте полученные контейнеры, чтобы позже обновлять или удалять их действия.
+В `SmartArtHyperlink.pptx` третья фигура на первом слайде представляет графику SmartArt. Пример заменяет первый абзац её четвёртой ноды. В этой презентации первая фигура ноды отображает этот абзац.
 
-### **Запрос областей презентации, слайда и текстового кадра**
+После добавления обеих частей пример читает их эффективное форматирование с помощью [get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/). Эффективное свойство [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/iportionformateffectivedata/hyperlink_click/) возвращает новую гиперссылку для первой части и `None` для второй.
 
-Класс [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) доступен через [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) и [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Каждая область поддерживает одинаковые запросы:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("SmartArtHyperlink.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes[2]
+    node = smart_art.all_nodes[3]
+    paragraph = node.text_frame.paragraphs[0]
+
+    node.shapes[0].text_frame.hyperlink_queries.remove_all_hyperlinks()
+    paragraph.portions.clear()
+
+    link = slides.Portion("New reference")
+    link.portion_format.hyperlink_click = slides.Hyperlink("https://example.com/new")
+    paragraph.portions.add(link)
+    text = slides.Portion(" (updated)")
+    paragraph.portions.add(text)
+
+    print(link.portion_format.get_effective().hyperlink_click.external_url)  # https://example.com/new
+    print(text.portion_format.get_effective().hyperlink_click)  # None
+```
+
+## **Создание полного инвентаря гиперссылок**
+
+Перед распространением презентации составьте инвентарь её интерактивных действий и веб‑ссылок. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) возвращает объекты [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/), а не плоский список URL‑строк. Исследуйте как [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/), так и [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) в каждом контейнере. Они независимы: один контейнер может содержать оба действия, поэтому полный отчёт требует до двух строк на контейнер.
+
+Сканирование только гиперссылок уровня фигуры может пропустить ссылки, прикреплённые к частям текста. Запрашивайте соответствующий диапазон и сохраняйте полученные контейнеры, чтобы позже обновлять или удалять их действия.
+
+### **Запрос диапазонов презентации, слайда и текстового кадра**
+
+Класс [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) доступен через [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) и [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Каждый диапазон поддерживает одинаковые запросы:
 
 - [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) возвращает контейнеры с действием клика.
 - [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) возвращает контейнеры с действием при наведении.
 - [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) возвращает контейнеры с любым из действий или с обоими.
 
-Следующий пример создаёт `hyperlink-audit-input.pptx` с внешней ссылкой‑кликом, файловой ссылкой‑наведение, внутренней навигацией по слайдам, текстовой ссылкой‑наведение и действием макроса. Он не выполняет ни одно из этих действий. Три запроса работают в каждой области; счётчики описывают контейнеры, а не общее количество действий. Область текстового кадра исключает ссылки самой охватывающей фигуры.
+В этом примере к фигуре и её тексту назначаются действия клика и наведения, а к отдельной кнопке — действие макроса. Сравниваются контейнеры, возвращённые [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/), с подсчётами для каждого типа активации. Запрос текстового кадра считает только ссылки в тексте. Действия самой фигуры отображаются в запросах слайда и презентации.
 
 ```python
 import aspose.slides as slides
@@ -259,37 +290,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Для этого примера запросы презентации и слайда каждый возвращают три контейнера клика, два контейнера наведения и три контейнера с любым из действий. Запрос текстового кадра возвращает по одному контейнеру в каждой категории.
+Для этого примера запросы презентации и слайда каждая возвращают три контейнера клика, два контейнера наведения и три контейнера с любым действием. Запрос текстового кадра показывает по одному контейнеру в каждой категории.
 
 ### **Классификация действий и назначений**
 
-Используйте [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) для интерпретации действия перед интерпретацией его назначения. Значения [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) охватывают больше, чем веб‑навигацию:
+Используйте [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) для определения действия перед анализом его назначения. Значения [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) охватывают больше, чем веб‑навигацию:
 
 | Значения | Значение для аудита |
 | --- | --- |
 | `HYPERLINK` | Внешняя гиперссылка; проверьте URL и его схему. |
 | `JUMP_SPECIFIC_SLIDE` | Внутренняя навигация к конкретному слайду. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Встроенная навигация слайд‑шоу, разрешаемая в контексте слайд‑шоу. |
-| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Завершить текущое шоу или запустить пользовательское шоу. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Встроенная навигация по показу, разрешается в контексте слайд‑шоу. |
+| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Завершить текущий показ или запустить пользовательский. |
 | `START_MACRO` | Выполнить макрос. |
 | `START_PROGRAM` | Запустить программу. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | Открыть файл или другую презентацию; рассматривать отдельно от веб‑URL. |
-| `START_STOP_MEDIA` | Начать или остановить воспроизведение медиа. |
-| `NO_ACTION`, `UNKNOWN` | Отсутствие навигационного действия или нераспознанное действие, требующее проверки. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | Открыть файл или другую презентацию; проверяйте отдельно от веб‑URL. |
+| `START_STOP_MEDIA` | Запустить или остановить воспроизведение медиа. |
+| `NO_ACTION`, `UNKNOWN` | Нет навигационного действия или действие не распознано и требует проверки. |
 
-Читайте внешние назначения из [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) и конкретные внутренние назначения из [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия у контейнера. Сохраняйте [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/), если он отличается от нормализованного URL, и включайте [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/), когда он доступен.
+Чтите внешние назначения из [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) и конкретные внутренние назначения из [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия. Сохраняйте [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/), если он отличается от нормализованного URL, и включайте [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/), когда он доступен.
 
-### **Отчет, очистка и проверка гиперссылок**
+### **Отчёт, очистка и проверка гиперссылок**
 
-Следующий пример на Python читает существующую презентацию (используйте файл, созданный выше), записывает `hyperlink-audit.json`, применяет политику, сохраняет `hyperlink-sanitized.pptx` и снова открывает её для повторной проверки обоих типов активации. Он собирает контейнеры перед их изменением и запрашивает каждую область слайда один раз, чтобы избежать двойной обработки. Запросы презентации охватывают обычные слайды; для реестра всего пакета пример запрашивает обычные слайды, мастера, макеты, заметки и мастера заметок/раздаточных материалов, если они присутствуют.
+В этом примере открывается презентация из предыдущего примера и создаётся одна запись JSON на каждое действие. Для сбора контейнеров на обычных слайдах, мастерах, макетах и заметках, включая мастера заметок и раздаточных материалов, используется [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/). Каждый диапазон запрашивается один раз, чтобы избежать дублирования, применяется политика, описанная ниже, и затем сохраняется презентация для проверки как кликов, так и наведения.
 
-Отчёт фиксирует индекc слайда, начинающийся с 1, и [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/), где он доступен. Коллектор сохраняет владеющий слайд и область вместе с каждым возвращённым контейнером. У мастеров, макетов и заметок нет обычного индекса слайда и они идентифицируются по своей области. Контейнеры фигур и контейнеры форматирования частей текста помечены отдельно; остальные типы сохраняют своё имя типа во время выполнения. Каждый контейнер получает отчёт‑локальный ID, чтобы можно было сопоставить его два действия.
+В отчёте фиксируются индекс слайда (начиная с 1) и [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/), если он доступен. Коллектор сохраняет владеющий слайд и диапазон вместе с каждым полученным контейнером. Мастера, макеты и заметки не имеют обычного индекса слайда и идентифицируются по диапазону. Контейнеры фигур и контейнеры форматирования частей текста помечаются отдельно; остальные типы сохраняют своё имя типа во время выполнения. Каждый контейнер получает локальный идентификатор отчёта, чтобы его два действия можно было сопоставить.
 
-Эта преднамеренно строгая политика приложения допускает только абсолютные HTTPS‑URL и допустимые внутренние цели слайдов. Она отклоняет макросы, программы, файловые действия, другие действия слайд‑шоу, неизвестные действия и другие схемы URL. Эти отклонения — решения политики, а не вывод о безопасности Aspose.Slides. HTTPS сам по себе не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки для вашего приложения. Проверяются как оригинальные, так и нормализованные внешние URL. Пример проверяет метаданные без переходов по ссылкам или выполнения действий.
+Эта преднамеренно строгая политика приложения разрешает только абсолютные HTTPS‑URL и действительные внутренние цели слайдов. Она отклоняет макросы, программы, действия с файлами, другие действия слайд‑шоу, неизвестные действия и другие схемы URL. Эти отклонения — решения политики, а не оценка безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки для вашего приложения. Проверяются как оригинальные, так и нормализованные внешние URL. Пример аудитирует метаданные без перехода по ссылкам и без выполнения действий.
 
-Для исправления контейнерный [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) поддерживает [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) и [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Здесь запрещённые внешние ссылки‑клики заменяются фиксированной HTTPS‑страницей‑приземления; другие запрещённые клики и действия при наведении удаляются независимо. Установите `replace_external_clicks` в `False`, чтобы вместо замены удалить все нарушения политики. Выберите страницу‑заменитель, принадлежащую вашему приложению, перед развертыванием.
+Для исправления контейнерный [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) поддерживает [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) и [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Здесь запрещённые внешние ссылки кликов заменяются фиксированной HTTPS‑страницей; другие запрещённые клики и запрещённые действия наведения удаляются независимо. Установите `replace_external_clicks` в `False`, чтобы удалить все нарушения политики. Выберите страницу‑заменитель, принадлежащую вашему приложению, перед развертыванием.
 
-Флаг экспорта в отчёте использует консервативную политику проверки PDF: помечать действия при наведении и всё, что не является внешней ссылкой или конкретным переходом по слайду, как потенциально неподдерживаемое. Это рекомендация для проверки, а не тест возможностей или гарантия того, что несомненные ссылки сохранятся при экспорте. Поддерживаемые [PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/python-net/convert-powerpoint-to-html/) экспорты могут сохранять гиперссылки в зависимости от действия, параметров экспорта и средства просмотра. Растровые [images](/slides/ru/python-net/convert-powerpoint-to-png/) и [video](/slides/ru/python-net/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; при аудите для этих выходов отмечайте каждое действие.
+Флаг экспорта в отчёте использует консервативную политику проверки PDF: помечайте действия наведения и всё, что не является внешней ссылкой или переходом к конкретному слайду, как потенциально неподдерживаемое. Это подсказка для проверки, а не тест возможностей или гарантия того, что непомеченные ссылки сохранятся при экспорте. Поддерживаемый [PDF](/slides/ru/python-net/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/python-net/convert-powerpoint-to-html/) экспорт может сохранять гиперссылки в зависимости от действия, параметров экспорта и просмотрщика. Растровые [images](/slides/ru/python-net/convert-powerpoint-to-png/) и [video](/slides/ru/python-net/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; помечайте каждое действие при аудите для этих форматов.
 
 ```python
 import json
@@ -332,7 +363,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # Выполнить запрос каждой области слайда один раз, сохранив её владельца с каждым контейнером.
+    # Запросить каждый диапазон слайда один раз, сохраняя его владельца для каждого контейнера.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -419,20 +450,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-С входными данными, созданными выше, отчёт содержит пять строк действий. Файловая ссылка‑наведение и клик‑макрос удаляются, а HTTPS‑ссылки и внутренняя навигация по слайдам остаются. Проверка выводит ноль запрещённых действий. Вход, содержащий запрещённый внешний URL‑клик, также демонстрирует ветвление замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет действие клика.
+С учётом входных данных, созданных выше, отчёт содержит пять строк действий. Ссылка мыши и клик макроса удаляются, а HTTPS‑ссылки и внутренняя навигация остаются. При проверке выводится ноль запрещённых действий. Ввод с запрещённым внешним URL также демонстрирует ветку замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет действие клика.
 
-Эта выборочная очистка отличается от [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), который удаляет оба типа активации в выбранной области независимо от политики. Проверка здесь проверяет только действия гиперссылок; она не удаляет встроенные проекты VBA, объекты OLE или другое активное содержимое и не проверяет экспортированный PDF или HTML файл.
+Эта выборочная очистка отличается от [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), который удаляет оба типа активации во всём выбранном диапазоне независимо от политики. Проверка здесь проверяет только действия гиперссылок; она не удаляет встроенные VBA‑проекты, OLE‑объекты или другое активное содержимое и не проверяет экспортированный PDF или HTML файл.
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Как можно создать ссылку на раздел или его первый слайд?**
+**Как добавить ссылку на раздел или его первый слайд?**
 
-Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка нацелена на отдельный слайд. Чтобы создать навигацию к разделу, свяжитесь с первым слайдом этого раздела.
+Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка указывает отдельный слайд. Чтобы создать навигацию к разделу, привяжите её к первому слайду в этом разделе.
 
-**Можно ли прикрепить гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
+**Можно ли привязать гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Ссылки на этих элементах доступны во время показа слайдов на тех слайдах, которые используют соответствующий мастер или макет.
+Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Ссылки на этих элементах доступны во время показа на слайдах, использующих соответствующий мастер или макет.
 
-**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
+**Сохраняются ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
 
-Поддерживаемые PDF и HTML экспорты могут сохранять гиперссылки; растровые изображения и видео этого не делают. См. рекомендации по экспорту в [Отчет, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
+Поддерживаемый экспорт в PDF и HTML может сохранять гиперссылки; растровые изображения и видео — нет. См. соображения по экспорту в разделе [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

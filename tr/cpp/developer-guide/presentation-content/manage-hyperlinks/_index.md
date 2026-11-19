@@ -14,7 +14,7 @@ keywords:
 - metin köprüsü
 - slayt köprüsü
 - şekil köprüsü
-- resim köprüsü
+- görsel köprüsü
 - video köprüsü
 - değiştirilebilir köprü
 - PowerPoint
@@ -22,30 +22,30 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ kullanarak, PowerPoint ve OpenDocument sunumlarında köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın; C++ örnekleriyle."
+description: "Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument sunumlarında köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın, C++ örnekleriyle."
 ---
 ## **Giriş**
 
-Bir köprü, sunum içeriğini bir web sitesine veya sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaçla kullanılır:
+Bir köprü, sunum içeriğini bir web sitesine ya da sunum içindeki bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaç hizmet eder:
 
-* Metin, şekil veya bir medya çerçevesinden bir web sitesini açar.
-* Bir içindekiler tablosu gibi bir yerden başka bir slayta geçiş yapar.
+* Metinden, bir şekilden veya bir medya çerçevesinden bir web sitesini açın.
+* Bir içindekiler tablosu gibi bir yerden başka bir slayta gidin.
 
-Aspose.Slides for C++ bu bağlantıları eklemenizi, görünüm ve seslerini kontrol etmenizi, ayarlarını güncellemenizi ve kaldırmanızı sağlar. Aşağıdaki örnekler, tekil öğeler üzerindeki köprülerle nasıl çalışılacağını ve köprülere sunum, slayt veya metin çerçevesi seviyesinde nasıl erişileceğini gösterir.
+Aspose.Slides for C++ bu bağlantıları eklemenize, görünüm ve seslerini kontrol etmenize, ayarlarını güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, tekil öğelerde köprülerle nasıl çalışılacağını ve sunum, slayt veya metin çerçevesi düzeyinde köprülerin nasıl erişileceğini gösterir.
 
 {{% alert color="info" title="Note" %}}
-Sunumları ayrıca [ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
-{{% /alert %}} 
+Sunumları ayrıca [Ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
+{{% /alert %}}
 
 ## **URL Köprüleri Ekleme**
 
-Bir web sitesi URL'sini metne, şekle veya bir medya çerçevesine atayabilirsiniz. Köprüyü atadığınız öğe tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
+Bir web sitesi URL'sini metne, bir şekle veya bir medya çerçevesine atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
 
-Göreli köprüler içeren sunumlar için, belge‑seviyesi temeli okumak, değiştirmek veya temizlemek amacıyla [Köprü Temelini Yönet](/slides/tr/cpp/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
+Göreceli köprüler içeren sunumlar için, belge seviyesindeki temelini okumak, değiştirmek veya temizlemek amacıyla [Hyperlink Temelini Yönet](/slides/tr/cpp/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-### **Metne URL Köprüsü Ekleme**
+### **Metne URL Köprüleri Ekleme**
 
-Metni bir web sitesine bağlamak için bir [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) oluşturun ve metin bölümünün [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) yöntemiyle atayın, aşağıda gösterildiği gibi. Yalnızca o metin bölümü tıklanabilir olur.
+Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi bir [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) oluşturun ve metin bölümünün [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) yöntemiyle atayın. Yalnızca bu metin bölümü tıklanabilir hâle gelir.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekleme**
+### **Şekillere ve Medya Çerçevelerine URL Köprüleri Ekleme**
 
-Bir şekli veya çerçeveyi tıklanabilir hale getirmek için onun [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) yöntemini kullanın. Köprü, içinde metin bölümü bulunmasından ziyade nesnenin kendisine aittir.
-
-Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: köprüyü çerçeveye atayın ve gerekirse bir ipucu eklemek için [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) yöntemini kullanın.
-
-Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
+Dikdörtgenin tüm alanını tıklanabilir hâle getirmek için [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) metodunu çağırın. Kullanıcılar dikdörtgene üzerine geldiğinde hedef hakkında ipucu vermek için [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) metodunu kullanın. Her iki yöntem de resim, ses ve video çerçevelerine uygulanır.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -111,7 +107,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **İçindekiler Tablosu Oluşturmak İçin Köprüleri Kullanma**
 
-İç köprüler, okuyucuların bir içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, “Page 2” metnini ilk slayttan ikinci slayta bağlamak için [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) yöntemini kullanır.
+Dahili köprüler, okuyucuların bir içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slayttaki “Page 2” metnini ikinci slayta bağlamak için [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) yöntemini kullanır.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Köprüleri Biçimlendirme**
 
+Bağlantılı metnin rengini değiştirebilir, bir okuyucu bir köprüyü etkinleştirdiğinde ses çalabilir veya durdurabilir ve üzerine gelindiğinde görünen ipucu balonunu ayarlayabilirsiniz.
+
 ### **Renk**
 
-[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) arayüzünün [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) yöntemi, köprünün sunumun köprü rengine mi yoksa metin bölümünün biçimlendirmesine mi göre renklendirileceğini belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) seçilerek bölümün doldurma rengi ayarlanır. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümler bu ayarı uygulamaz.
+[set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) yöntemi, [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) öğesinin, bir köprünün sunumun köprü rengini mi yoksa metin bölümünün biçimini mi kullandığını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) seçin ve bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019'da tanıtıldı; daha eski sürümler bu ayarı uygulamaz.
 
-Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlki kırmızı metin doldurması kullanırken, ikincisi varsayılan köprü rengini korur.
+Bu örnekte, ilk bağ [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) kullanarak kırmızı metin dolgusu gösterir. İkinci bağ, sunumun köprü rengini korur.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,16 +212,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Ses**
 
 Bir köprü etkinleştirildiğinde bir ses çalabilir veya hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) köprüye ilişkin ses dosyasını belirtir.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) köprü ile ilişkili sesi belirtir.
 - [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) köprünün etkinleştirilmesinin önceki sesi durdurup durdurmayacağını kontrol eder.
 
-#### **Köprüye Ses Ekleme**
+#### **Köprü Sesi Ekleme**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve ilk slayttaki bir düğmeye atar. Düğmeye tıklanması sesi çalar ve bir sonraki slayta geçiş yapar. Aynı slayttaki ikinci bir şekil, tıklandığında önceki sesi durdurur; ancak bir gezinme eylemi gerçekleştirmez.
+İlk slaydın üzerindeki düğme, okuyucu ilerlemek için tıkladığında `sampleaudio.wav` ses dosyasını çalmak için [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) yöntemini kullanır. İkinci slaytta, ayrı bir düğme çalmayı durdurmak ve okuyucuyu o slaytta tutmak için [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) yöntemini kullanır.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -269,7 +268,7 @@ presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 
 #### **Köprü Sesini Çıkarma**
 
-Aşağıdaki örnek yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) ve [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) aracılığıyla belleğe okur.
+Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini, [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) ve [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) aracılığıyla belleğe okur.
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,18 +304,18 @@ else
 }
 ```
 
-### **Araç İpucu ve Etkileşim Ayarları**
+### **İpucu Balonu ve Etkileşim Ayarları**
 
-Bir köprüye metin kısmı veya şekil atandıktan sonra aşağıdaki [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) ayarlarını bu yöntemlerle güncelleyebilirsiniz:
+Metne veya şekle bir köprü atadıktan sonra, aşağıdaki [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) ayarlarını bu yöntemlerle güncelleyebilirsiniz:
 
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) izleyicinin bağlantı için bir ipucu olarak görüntüleyebileceği metni ayarlar.
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) uygulanabilir olduğunda, bir üst HTML çerçeve kümesi içinde hedef çerçeveyi belirtir.
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) bağlantının etkinleştirilmesinin, görüntülenen köprüler listesine eklenip eklenmeyeceğini kontrol eder.
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) bağlantının tıklandığında vurgulanıp vurgulanmayacağını kontrol eder.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) bir izleyicinin bağlantı için ipucu olarak görüntüleyebileceği metni ayarlar.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) uygulanabilir olduğunda, bir üst HTML çerçeve seti içinde hedef çerçeveyi belirler.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) bağlantının etkinleştirilmesinin, hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) köprünün tıklandığında vurgulanıp vurgulanmayacağını kontrol eder.
 
 ## **Sunumlardan Köprüleri Kaldırma**
 
-[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) yöntemini kullanarak, değiştirmeden önce metin‑bölümü köprülerini de içeren köprü konteynerlerini toplayın. Aşağıdaki örnek ilk slayttan her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak için yalnızca [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) veya [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) yöntemini çağırın; bir tıklama eylemini kaldırmak, fare‑üzerinde eylemi kaldırmaz.
+[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) yöntemini, metin bölümü bağlantılarını da içeren köprü kapsayıcılarını toplamak ve değiştirmeden önce kullanın. Aşağıdaki örnek, ilk slayttan her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak için sadece [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) veya [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) çağırın; bir tıklama eylemini kaldırmak, fare üzerine eylemini kaldırmaz.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +349,76 @@ else
 }
 ```
 
-Koşulsuz kaldırma için, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) seçilen kapsamda her iki etkinleştirme türünü tek bir çağrıda siler. Seçici temizlik ve ana, yerleşim ve notlar kapsayıcılığını içerir; detaylar için [Köprüleri Raporlama, Temizleme ve Doğrulama](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Koşulsuz kaldırma için, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) seçilen kapsamda her iki etkinleştirme türünü tek bir çağrıyla kaldırır. Seçmeli temizlik ve ana slaytlar, düzenler ve notların kapsanması için, [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+
+### **SmartArt Metnini Değiştirmeden Önce Köprüleri Temizleme**
+
+Mevcut bir SmartArt düğümündeki bir paragrafı değiştirdiğinizde, metin bölümlerini temizlemek eski bir köprünün etkide kalmasına neden olabilir. Paragrafı [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/) ile alın. Bölümlerini temizlemeden önce, paragrafı görüntüleyen düğüm şeklinin metin çerçevesinde [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) aracılığıyla [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) metodunu çağırın. Bu, o çerçevedeki tüm köprüleri, diğer paragraflardaki bağlantılar dahil, kaldırır.
+
+Örnek, ilk slayttaki üçüncü şeklin bir SmartArt grafiği olduğunu varsayar. Dördüncü düğümün ilk paragrafını değiştirir. Bu sunumda, düğümün ilk şekli o paragrafı görüntüler.
+
+Her iki bölümü ekledikten sonra, örnek bunların etkin biçimlendirmesini [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) ile okur. Etkin [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) yöntemi, ilk bölüm için yeni köprüyü ve ikinci bölüm için `nullptr` döndürür.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
 
 ## **Tam Bir Köprü Envanteri Oluşturma**
 
-Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür, düz URL listesi değil. Her konteynerde hem [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) hem de [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) incelenmelidir. Bunlar bağımsızdır: aynı konteyner iki eylemi de sunabilir; bu nedenle tam bir rapor, her konteyner için iki satır gerektirebilir.
+Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür, URL dizesi düz listesi değil. Her kapsayıcıda hem [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) hem de [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) incelenir. Bunlar bağımsızdır: aynı kapsayıcı iki eylemi de gösterebilir, bu nedenle tam bir rapor her kapsayıcı için iki satıra kadar gerektirebilir.
 
-Sadece şekil‑seviyesi köprüleri taramak, metin bölümü bağlantılarını kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve dönen konteynerleri saklayarak daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+Yalnızca şekil düzeyindeki köprüleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve daha sonra eylemlerini güncelleyebilmek veya kaldırabilmek için döndürülen kapsayıcıları koruyun.
 
-### **Sunum, Slayt ve Metin‑Çerçeve Kapsamlarını Sorgulama**
+### **Sunum, Slayt ve Metin-Çerçeve Kapsamlarını Sorgulama**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) arayüzüne [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) ve [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) üzerinden erişilir. Her kapsam aynı sorguları destekler:
+[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) arayüzü, [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) ve [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) aracılığıyla kullanılabilir. Her kapsam aynı sorguları destekler:
 
 - [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) tıklama eylemi olan kapsayıcıları döndürür.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) fare‑üzerinde eylemi olan kapsayıcıları döndürür.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) her iki eylemi de ya da birini içeren kapsayıcıları döndürür.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) fare üzerine eylemi olan kapsayıcıları döndürür.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) bir veya iki eyleme sahip kapsayıcıları döndürür.
 
-Aşağıdaki örnek, dış tıklama bağlantısı, dosya fare‑üzerinde bağlantısı, iç slayt geçişi, metin fare‑üzerinde bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` oluşturur. Bu eylemler çalıştırılmaz. Aynı üç sorgu her kapsamda aynı şekilde çalışır; sayılar konteyner sayısını gösterir, eylem toplamını değil. Metin‑çerçeve kapsamı, içinde bulunduğu şeklin kendi bağlantılarını dışarıda bırakır.
+Bu örnek, bir şekle ve metnine tıklama ve fare üzerine eylemleri, ayrıca ayrı bir düğmeye makro eylemi atar. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) tarafından döndürülen kapsayıcıları her etkinleştirme türü sayısı ile karşılaştırır. Bir metin-çerçeve sorgusu yalnızca metindeki bağlantıları sayar. İçeren şeklin kendi eylemleri slayt ve sunum sorgularında görünür.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Bu örnek için, sunum ve slayt sorguları her biri üç tıklama konteyneri, iki fare‑üzerinde konteyneri ve üç birleşik konteyner rapor eder. Metin‑çerçeve sorgusu her kategori için bir konteyner raporlar.
+Bu örnek için, sunum ve slayt sorguları her biri üç tık kapsayıcısı, iki fare üzerine kapsayıcısı ve her iki eylemi de içeren üç kapsayıcı rapor eder. Metin-çerçeve sorgusu ise her kategori için bir kapsayıcı rapor eder.
 
 ### **Eylemleri ve Hedefleri Sınıflandırma**
 
-[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) yöntemi, bir hedefi yorumlamadan önce eylemi yorumlamak için kullanılabilir. [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) değerleri web gezinmesinden daha fazlasını kapsar:
+Bir eylemi, hedefini yorumlamadan önce yorumlamak için [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) değerleri web gezinmesinden daha fazlasını kapsar:
 
-| Değerler | Denetim için Anlamı |
+| Değerler | Denetim için anlam |
 | --- | --- |
-| `Hyperlink` | Harici köprü; URL'yi ve şemasını inceleyin. |
-| `JumpSpecificSlide` | Belirli bir slayta içsel gezinme. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Slayt gösterisi içinde yerleşik gezinme; slayt gösterisi bağlamında çözülür. |
-| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandırır veya özel bir gösteri başlatır. |
-| `StartMacro` | Bir makro çalıştırır. |
-| `StartProgram` | Bir program başlatır. |
-| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunum açar; web URL'lerinden ayrı olarak incelenmelidir. |
-| `StartStopMedia` | Medya oynatımını başlatır veya durdurur. |
-| `NoAction`, `Unknown` | Navigasyon eylemi yoktur veya incelenmesi gereken tanınmayan bir eylemdir. |
+| `Hyperlink` | Harici köprü; URL ve şemasını inceleyin. |
+| `JumpSpecificSlide` | Belirli bir slayta iç içe gezinme. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Yerleşik slayt gösterisi gezinmesi, slayt gösterisi bağlamında çözülür. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandır veya özel bir gösteri başlat. |
+| `StartMacro` | Bir makroyu çalıştır. |
+| `StartProgram` | Bir program başlat. |
+| `OpenFile`, `OpenPresentation` | Bir dosya ya da başka bir sunumu aç; web URL'lerinden ayrı olarak gözden geçir. |
+| `StartStopMedia` | Medya çalımını başlat veya durdur. |
+| `NoAction`, `Unknown` | Gezine eylemi yok veya gözden geçirme gerektiren tanımsız eylem. |
 
-Harici hedefleri [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) ile, belirli iç hedefleri ise [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/) ile okuyun. İç eylemler ve yerleşik komutlar harici bir URL içermeyebilir; boş bir URL, konteynerin eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) değerini koruyun ve bir ipucu mevcutsa [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) tarafından dönen değeri ekleyin.
+Harici hedefleri [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) ile, belirli iç hedefleri ise [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/) ile okuyun. İç eylemler ve yerleşik komutlar harici URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklı olduğunda [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) koruyun ve mevcut olduğunda [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) tarafından döndürülen ipucu balonunu dahil edin.
 
 ### **Köprüleri Raporlama, Temizleme ve Doğrulama**
 
-Aşağıdaki C++ örneği var olan bir sunumu (yukarıda oluşturulan dosyayı) okur, `hyperlink-audit.json` yazar, bir politika uygular, `hyperlink-sanitized.pptx` kaydeder ve tekrar açarak iki etkinleştirme türünü tekrar kontrol eder. Değişiklik yapmadan önce konteynerleri toplar ve aynı konteyneri iki kez işlememek için işaretçi kimliğini kullanır. Sunum sorguları normal slaytları kapsar; paket‑geneli envanter için ayrıca ana, yerleşim, not ve not‑ve dağıtım anaları açıkça sorgulanır.
+Bu C++ örneği, önceki örnekten sunumu açar ve her eylem için bir JSON kaydı yazar. Normal slaytlar, ana slaytlar, düzenler ve notlar üzerindeki kapsayıcıları toplamak için [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) kullanır; not ve el ilanı ana slaytları varsa dahil edilir. Her kapsayıcıyı bir kez saymak için işaretçi kimliğini kullanır, aşağıda açıklanan politikayı uygular ve kaydedilmiş sunuyu yeniden açarak hem tıklama hem de fare üzerine eylemlerini kontrol eder.
 
-Rapor, bir‑tabanlı slayt indeksini ve varsa [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) değerini kaydeder. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) desteklenen konteynerler için sahibi slaytı sağlar. Ana, yerleşim ve notlar normal slayt indeksine sahip değildir ve kapsamlarıyla tanımlanır. Şekil konteynerleri ve metin‑bölümü biçim konteynerleri ayrı ayrı etiketlenir; diğer konteyner tipleri çalışma zamanı tip adını korur. Her konteyner rapor‑yerel bir kimlik alır, böylece iki eylemi ilişkilendirilebilir.
+Rapor, mevcut olduğunda bir temelli slayt indeksi ve [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) kaydeder. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) desteklenen kapsayıcılar için sahip slaytı sağlar. Ana slaytlar, düzenler ve notlar normal bir slayt indeksine sahip değildir ve kapsamlarıyla tanımlanır. Şekil kapsayıcıları ve metin-bölüm biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adlarını korur. Her kapsayıcı, iki eylemin ilişkilendirilebilmesi için rapor içinde bir yerel kimlik alır.
 
-Bu kısıtlayıcı politika yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini kabul eder. Makrolar, programlar, dosya eylemleri, diğer slayt‑gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güvenlik sağlamaz: uygulamanız için host izin listeleri ve ek kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
+Bu kasıtlı olarak kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini izin verir. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güven oluşturmaz: uygulamanız için ana bilgisayar beyaz listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş harici URL'ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
 
-Düzeltme için, konteynerin [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) aşağıdaki yöntemleri destekler: [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), ve [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Burada, yasak dış tıklama bağlantıları sabit bir HTTPS iniş sayfasıyla değiştirilirken; diğer yasak tıklama ve yasak fare‑üzerinde eylemler bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `replaceExternalClicks` değerini `false` olarak ayarlayın. Dağıtıma kadar bir uygulama‑sahibi yedek sayfa seçin.
+Düzeltme için, kapsayıcının [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) ve [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) yöntemlerini destekler. Burada, yasaklanan harici tıklama bağlantıları sabit bir HTTPS giriş sayfası ile değiştirilir; diğer yasak tıklamalar ve yasak fare üzerine eylemleri bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `replaceExternalClicks` değerini `false` yapın. Dağıtıma hazır olmadan uygulamaya ait bir değiştirme sayfası seçin.
 
-Raporun dışa aktarım işareti, temkinli bir PDF inceleme politikasını kullanır: fare‑üzerinde eylemleri ve dış link dışındaki tüm eylemleri potansiyel olarak desteklenmeyen olarak işaretler. Bu bir inceleme ipucu olup, yetenek testi ya da işaretlenmemiş bağlantıların dışa aktarımda kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/cpp/convert-powerpoint-to-html/) dışa aktarmaları, eyleme, dışa aktarım seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir; raster [görüntüler](/slides/tr/cpp/convert-powerpoint-to-png/) ve [videolar](/slides/tr/cpp/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktılar için denetim yaparken her eylemi işaretleyin.
+Raporun dışa aktarma bayrağı, temkinli bir PDF inceleme politikası kullanır: fare üzerine eylemleri ve harici bağlantı veya belirli slayt atlaması haricindeki her şeyi potansiyel olarak desteklenmeyen olarak işaretler. Bu bir inceleme ipucu olup, yetenek testi veya işaretlenmemiş bağlantıların dışa aktarımda kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/cpp/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/cpp/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarma seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir. Raster [görüntüler](/slides/tr/cpp/convert-powerpoint-to-png/) ve [video](/slides/tr/cpp/convert-powerpoint-to-video/) interaktif köprüleri koruyamaz; bu çıktılar için denetleme yaparken her eylemi işaretleyin.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-Yukarıda oluşturulan girişle, rapor beş eylem satırı içerir. Dosya fare‑üzerinde bağlantısı ve makro tıklaması kaldırılırken, HTTPS bağlantıları ve iç slayt gezinmesi kalır. Doğrulama, sıfır yasak eylem yazdırır. Yasak bir dış tıklama URL'si içeren bir giriş, değiştirme dalını da gösterir. İzin verilen bir tıklama ve yasak bir fare‑üzerinde eylemi olan bir konteyner, tıklama eylemini korur.
+Yukarıda oluşturulan girdiyle, rapor beş eylem satırı içerir. Dosya fare üzerine bağlantısı ve makro tıklaması kaldırılır, HTTPS bağlantıları ve iç slayt gezinmesi kalır. Doğrulama sıfır yasak eylem yazdırır. Yasak bir harici tıklama URL'si içeren bir girdi, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir fare üzerine eylemi olan bir kapsayıcı, tıklama eylemini korur.
 
-Bu seçici temizlik, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) yönteminden farklıdır; bu yöntem politika fark etmeksizin seçilen kapsamda her iki etkinleştirme türünü de kaldırır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış PDF veya HTML dosyasını doğrulamaz.
+Bu seçmeli temizlik, politika dikkate alınmadan seçilen kapsamda her iki etkinleştirme türünü de kaldıran [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) yönteminden farklıdır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış bir PDF ya da HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme veya onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölüme ya da onun ilk slaytına nasıl bağlanabilirim?**
 
-PowerPoint'te bölümler slaytları gruplayarak düzenler, ancak bir iç köprü bireysel bir slayta yönelir. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına bağlanın.
+PowerPoint'teki bölümler slaytları gruplar, ancak dahili bir köprü bireysel bir slaytı hedef alır. Bir bölüme yönlendirme oluşturmak için, o bölümdeki ilk slayta bağlayın.
 
-**Ana slayt öğelerine bir köprü ekleyebilir ve tüm slaytlarda çalışmasını sağlayabilir miyim?**
+**Bir ana slayt öğesine köprü ekleyebilir ve tüm slaytlarda çalışmasını sağlayabilir miyim?**
 
-Evet. Ana slayt ve yerleşim öğeleri köprüleri destekler. Bu öğelerdeki bağlantılar, ilgili ana veya yerleşimi kullanan slayt gösterisi sırasında kullanılabilir.
+Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu öğelerdeki bağlantılar, ilgili ana slaytı veya düzeni kullanan slaytların gösterimi sırasında kullanılabilir.
 
-**PDF, HTML, görüntüler veya video olarak dışa aktarırken köprüler korunur mu?**
+**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
 
-Desteklenen PDF ve HTML dışa aktarmaları köprüleri koruyabilir; raster görüntüler ve video bunu yapamaz. Ayrıntılar için [Köprüleri Raporlama, Temizleme ve Doğrulama](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Desteklenen PDF ve HTML dışa aktarımları köprüleri koruyabilir; raster görüntüler ve video koruyamaz. Dışa aktarma hususlarını [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümünde inceleyin.

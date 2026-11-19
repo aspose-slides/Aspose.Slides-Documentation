@@ -1,6 +1,6 @@
 ---
-title: Spravovat hypertextové odkazy v prezentaci v C++
-linktitle: Spravovat hypertextové odkazy
+title: Správa hypertextových odkazů v prezentacích v C++
+linktitle: Správa hypertextových odkazů
 type: docs
 weight: 20
 url: /cs/cpp/manage-hyperlinks/
@@ -26,26 +26,26 @@ description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextov
 ---
 ## **Úvod**
 
-Hypertextový odkaz spojuje obsah prezentace s webovou stránkou nebo místem v rámci prezentace. V PowerPointu hypertextové odkazy obvykle slouží ke dvěma účelům:
+Hypertextový odkaz spojuje obsah prezentace s webovou stránkou nebo s místem v rámci prezentace. V PowerPointu hypertextové odkazy obvykle slouží ke dvěma účelům:
 
-* Otevřít webovou stránku z textu, tvaru nebo mediálního rámečku.
+* Otevřít webovou stránku z textu, tvaru nebo mediálního rámce.
 * Přechod na jiný snímek, například z obsahu.
 
-Aspose.Slides pro C++ vám umožňuje tyto odkazy přidávat, řídit jejich vzhled a zvuk, aktualizovat jejich nastavení a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak získat přístup k odkazům na úrovni prezentace, snímku nebo textového rámce.
+Aspose.Slides pro C++ vám umožňuje tyto odkazy přidávat, ovládat jejich vzhled a zvuk, aktualizovat jejich nastavení a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak k nim přistupovat na úrovni prezentace, snímku nebo textového rámce.
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Poznámka" %}}
 Můžete také upravovat prezentace pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Přidat URL odkazy**
+## **Přidat URL hypertextové odkazy**
 
-Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámečku. Prvek, ke kterému přiřadíte hypertextový odkaz, určuje klikací oblast: část textu propojí vybraný text, zatímco tvar nebo rámeček propojí objekt snímku.
+Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámci. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje klikací oblast: část textu propojí vybraný text, zatímco tvar nebo rámec propojí objekt snímku.
 
-Pro prezentace obsahující relativní hypertextové odkazy viz [Spravovat základ hypertextového odkazu](/slides/cs/cpp/presentation-properties/#manage-the-hyperlink-base) pro čtení, změnu nebo vymazání základny na úrovni dokumentu.
+Pro prezentace obsahující relativní hypertextové odkazy viz [Správa základny hypertextových odkazů](/slides/cs/cpp/presentation-properties/#manage-the-hyperlink-base) pro čtení, změnu nebo vymazání základny na úrovni dokumentu.
 
-### **Přidat URL odkazy do textu**
+### **Přidat URL hypertextové odkazy k Textu**
 
-Pro propojení textu s webovou stránkou vytvořte [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) a přiřaďte jej pomocí metody [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) textové části, jak je ukázáno níže. Pouze tato část textu se stane kliknutelnou.
+Pro propojení textu s webovou stránkou vytvořte [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) a přiřaďte jej metodou [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) částí textu, jak je ukázáno níže. Pouze tato část textu se stane klikací.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Přidat URL odkazy do tvarů a mediálních rámečků**
+### **Přidat URL hypertextové odkazy k tvarům a mediálním rámcům**
 
-Pro vytvoření klikatelnosti tvaru nebo rámečku použijte jeho metodu [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). Hypertextový odkaz patří samotnému objektu, nikoli textové části uvnitř něj.
-
-Stejný postup platí pro obrázkové, audio a video rámečky: přiřaďte hypertextový odkaz rámečku a použijte [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) pro přidání nápovědy, pokud je potřeba.
-
-Následující příklad vytvoří klikací obdélník:
+Zavolejte [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) na obdélníku, aby celá jeho oblast byla klikací. Použijte [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) k zobrazení nápovědy o cíli, když uživatel přejede myší přes obdélník. Obě metody platí také pro obrázkové, audio a video rámce.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -111,7 +107,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Použít hypertextové odkazy k vytvoření obsahu**
 
-Interní hypertextové odkazy umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) k propojení textu „Page 2“ na prvním snímku s druhým snímkem.
+Vnitřní hypertextové odkazy umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) k propojení textu “Page 2” na prvním snímku se druhým snímkem.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Formátovat hypertextové odkazy**
 
+Můžete změnit barvu propojeného textu, přehrávat nebo zastavit zvuk při aktivaci odkazu čtenářem a nastavit tooltip, který se zobrazí při najetí myší.
+
 ### **Barva**
 
-Metoda [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) rozhraní [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu prezentace nebo formátování části textu. Pro aplikaci vlastní barvy textu vyberte [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) a nastavte barvu výplně části. Tato funkce byla zavedena v PowerPoint 2019; starší verze toto nastavení nepoužívají.
+Metoda [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) rozhraní [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) určuje, zda hypertextový odkaz používá barvu hypertextu prezentace nebo formátování části textu. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) a nastavte výplň barvu části. Tato funkce byla zavedena v PowerPointu 2019; starší verze toto nastavení nepoužívají.
 
-Následující příklad přidá dva textové hypertextové odkazy na stejný snímek. První používá červenou výplň textu, druhý zachovává výchozí barvu odkazu.
+V tomto příkladu první odkaz používá [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) k zobrazení červené výplně textu. Druhý odkaz zachovává barvu hypertextu prezentace.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,16 +212,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Zvuk**
 
-Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit již přehrávaný zvuk. Použijte následující metody pro nastavení těchto chování:
+Může hypertextový odkaz přehrát zvuk při aktivaci nebo zastavit již přehrávaný zvuk. K nastavení těchto chování použijte následující metody:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) určuje zvuk spojený s hypertextovým odkazem.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) určuje, zda aktivace hypertextového odkazu zastaví předchozí zvuk.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) určuje audio přidružené k hypertextovému odkazu.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) řídí, zda aktivace hypertextového odkazu zastaví předchozí zvuk.
 
 #### **Přidat zvuk k hypertextovému odkazu**
 
-Následující příklad načte `sampleaudio.wav` a přiřadí jej tlačítku na prvním snímku. Kliknutí na tlačítko přehraje zvuk a přejde na další snímek. Druhý tvar na tomto snímku zastaví předchozí zvuk po kliknutí, aniž by provedl navigaci.
+Tlačítko na prvním snímku používá [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) k přehrání audia ze souboru `sampleaudio.wav` při kliknutí čtenáře pro posun. Na druhém snímku samostatné tlačítko používá [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) k zastavení přehrávání a udržení čtenáře na tomto snímku.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -269,7 +268,7 @@ presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 
 #### **Extrahovat zvuk z hypertextového odkazu**
 
-Následující příklad otevře výše vytvořenou prezentaci a načte audio hypertextového odkazu prvního tvaru do paměti pomocí [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) a [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
+Následující příklad otevře výše vytvořenou prezentaci a načte audio hypertextového odkazu první formy do paměti pomocí [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) a [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,18 +304,18 @@ else
 }
 ```
 
-### **Nápověda a nastavení interakce**
+### **Tooltip a nastavení interakce**
 
-Po přiřazení hypertextového odkazu k textu nebo tvaru můžete aktualizovat následující nastavení rozhraní [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) pomocí těchto metod:
+Můžete aktualizovat následující nastavení [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) pomocí těchto metod po přiřazení hypertextového odkazu k textu nebo tvaru:
 
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) nastavuje text, který může divák zobrazit jako nápovědu k odkazu.
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) určuje cílový rámec v nadřazeném HTML framesetu, pokud je to relevantní.
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) určuje, zda aktivace odkazu přidá jeho cíl do seznamu zhlédnutých hypertextových odkazů.
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) určuje, zda je hypertextový odkaz zvýrazněn po kliknutí.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) nastavuje text, který může prohlížeč zobrazit jako nápovědu pro odkaz.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) určuje cílový rámec v rámci nadřazeného HTML framesetu, pokud je to relevantní.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) řídí, zda aktivace odkazu přidá jeho cíl do seznamu zobrazených hypertextových odkazů.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) řídí, zda je hypertextový odkaz zvýrazněn po kliknutí.
 
 ## **Odstranit hypertextové odkazy z prezentací**
 
-Použijte [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) pro shromáždění kontejnerů hypertextových odkazů, včetně odkazů na části textu, před jejich změnou. Následující příklad odstraní oba typy aktivace z prvního snímku. Pro odstranění pouze jednoho typu zavolejte jen [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) nebo [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); odstranění akce kliknutí neodstraní její protějšek při přejezdu myší.
+Použijte [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) k shromáždění kontejnerů hypertextových odkazů, včetně odkazů na textové části, před jejich změnou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Chcete-li odstranit jen jeden typ, zavolejte pouze [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) nebo [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); odstranění akce kliknutí neodstraní její protějšek při najetí myší.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +349,76 @@ else
 }
 ```
 
-Pro nepodmíněné odstranění [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) odstraní oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní úklid a zahrnutí hlav, rozvržení a poznámek viz [Zpráva, sanitizace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).
+Pro nepodmíněné odstranění [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) odstraňuje oba typy aktivace ve vybraném rozsahu v jednom volání. Pro selektivní úklid a pokrytí hlavních snímků, rozvržení a poznámek viz [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Vytvořit úplný inventář hypertextových odkazů**
+### **Vymazat hypertextové odkazy před nahrazením textu SmartArt**
 
-Před distribuováním prezentace si sepište inventář jejích interaktivních akcí i webových odkazů. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam řetězců URL. Prozkoumejte jak [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/), tak [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) u každého kontejneru. Jsou nezávislé: stejný kontejner může vystavovat obě akce, takže úplná zpráva může vyžadovat až dva řádky na kontejner.
+Když nahradíte odstavec v existujícím uzlu SmartArt, vymazání jeho textových částí může ponechat starý hypertextový odkaz aktivní. Získejte odstavec přes [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Před vymazáním jeho částí zavolejte [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) přes [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) na textovém rámci tvaru uzlu, který zobrazuje odstavec. Tím se odstraní každý hypertextový odkaz v tomto rámci, včetně odkazů v ostatních odstavcích.
 
-Skenování pouze hypertextových odkazů na úrovni tvaru může vynechat odkazy připojené k částem textu. Místo toho dotazujte příslušný rozsah a uchovávejte vrácené kontejnery, abyste je později mohli aktualizovat nebo odstranit jejich akce.
+Příklad předpokládá, že třetí tvar na prvním snímku je grafika SmartArt. Nahrazuje první odstavec čtvrtého uzlu. V této prezentaci první tvar uzlu zobrazuje tento odstavec.
 
-### **Dotázat se na rozsahy prezentace, snímku a textového rámce**
+Po přidání obou částí příklad načte jejich efektivní formátování pomocí [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). Efektivní metoda [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) vrací nový hypertextový odkaz pro první část a `nullptr` pro druhou.
 
-Rozhraní [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) je dostupné přes [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) a [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Každý rozsah podporuje stejné dotazy:
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
+## **Vytvořit kompletní inventář hypertextových odkazů**
+
+Před distribucí prezentace zmapujte její interaktivní akce i webové odkazy. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) vrací objekty [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), nikoli plochý seznam řetězců URL. Prohlédněte jak [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) tak [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) u každého kontejneru. Jsou nezávislé: stejný kontejner může obsahovat oba typy akcí, takže úplná zpráva potřebuje až dva řádky na kontejner.
+
+Prohledávání pouze hypertextových odkazů na úrovni tvaru může přehlédnout odkazy připojené k textovým částem. Místo toho dotazujte příslušný rozsah a uchovávejte vrácené kontejnery, abyste je později mohli aktualizovat nebo odstranit jejich akce.
+
+### **Dotazovat rozsahy Prezentace, Snímku a Textového rámce**
+
+Rozhraní [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) je k dispozici přes [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) a [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Každý rozsah podporuje stejné dotazy:
 
 - [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) vrací kontejnery s akcí kliknutí.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) vrací kontejnery s akcí při přejetí myší.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) vrací kontejnery s akcí při najetí myší.
 - [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) vrací kontejnery s jednou nebo oběma akcemi.
 
-Následující příklad vytvoří `hyperlink-audit-input.pptx` s externím odkazem kliknutí, odkazem souboru při přejetí myší, interní navigací mezi snímky, odkazem textu při přejetí myší a akcí makra. Neprovádí žádnou z těchto akcí. Stejné tři dotazy fungují v každém rozsahu; počty popisují kontejnery, ne součty akcí. Rozsah textového rámce vylučuje odkazy vlastního obklopujícího tvaru.
+V tomto příkladu jsou přiřazeny akce kliknutí a najetí myší k tvaru a jeho textu a makro akce k samostatnému tlačítku. Porovnává kontejnery vrácené metodou [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) s počty pro každý typ aktivace. Dotaz na textový rámec počítá jen odkazy v textu. Akce vlastního obalujícího tvaru se objeví v dotazech na snímek a prezentaci.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Pro tento příklad dotazy na prezentaci a snímek uvádějí po třech kontejnerech kliknutí, dvou kontejnerech při přejetí myší a třech kontejnerech s jednou nebo druhou akcí. Dotaz na textový rámec uvádí po jednom kontejneru v každé kategorii.
+Pro tento příklad dotazy na prezentaci a snímek uvádějí každé tři kontejnery kliknutí, dva kontejnery najetí myší a tři kontejnery s jednou z akcí. Dotaz na textový rámec uvádí jeden kontejner v každé kategorii.
 
 ### **Klasifikovat akce a cíle**
 
-Použijte [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) pro interpretaci akce před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) zahrnují více než webovou navigaci:
+Použijte [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) k interpretaci akce před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) zahrnují více než webovou navigaci:
 
 | Hodnoty | Význam pro audit |
 | --- | --- |
-| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a jeho schéma. |
-| `JumpSpecificSlide` | Interní navigace na konkrétní snímek. |
+| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a její schéma. |
+| `JumpSpecificSlide` | Interní navigace k určitému snímku. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace prezentace, řešená v kontextu prezentace. |
-| `JumpEndShow`, `StartCustomSlideShow` | Ukončit aktuální prezentaci nebo spustit vlastní prezentaci. |
+| `JumpEndShow`, `StartCustomSlideShow` | Ukončení aktuálního představení nebo spuštění vlastního představení. |
 | `StartMacro` | Spustit makro. |
 | `StartProgram` | Spustit program. |
-| `OpenFile`, `OpenPresentation` | Otevřít soubor nebo jinou prezentaci; posuzovat odděleně od webových URL. |
+| `OpenFile`, `OpenPresentation` | Otevřít soubor nebo jinou prezentaci; posoudit odděleně od webových URL. |
 | `StartStopMedia` | Spustit nebo zastavit přehrávání média. |
-| `NoAction`, `Unknown` | Žádná navigační akce, nebo nerozpoznaná akce vyžadující revizi. |
+| `NoAction`, `Unknown` | Žádná navigační akce, nebo neznámá akce vyžadující revizi. |
 
-Čtěte externí cíle z [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) a konkrétní interní cíle z [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Interní akce a vestavěné příkazy mohou nemít externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Zachovejte [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/), pokud se liší od normalizované URL, a zahrňte nápovědu vrácenou metodou [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/), pokud je dostupná.
+Externí cíle čtěte z [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) a specifické interní cíle z [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Interní akce a vestavěné příkazy mohou nemít externí URL; prázdná URL neznamená, že kontejner nemá akci. Zachovejte [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/), pokud se liší od normalizované URL, a zahrňte tooltip vrácený metodou [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/), pokud je k dispozici.
 
 ### **Zpráva, sanitizace a ověření hypertextových odkazů**
 
-Následující C++ příklad načte existující prezentaci (použijte soubor vytvořený výše), zapíše `hyperlink-audit.json`, použije politiku, uloží `hyperlink-sanitized.pptx` a znovu jej otevře k opětovné kontrole obou typů aktivace. Před změnou shromažďuje kontejnery a používá identitu ukazatele, aby se stejný kontejner nezpracoval dvakrát. Dotazy na prezentaci pokrývají běžné snímky; pro inventář na úrovni celého balíčku také explicitně dotazují hlavní snímky, rozvržení, poznámky a hlavní snímky poznámek a výstřižků, pokud jsou přítomny.
+Tento C++ příklad otevírá prezentaci z předchozího příkladu a zapisuje jeden JSON záznam na akci. Používá [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) k shromáždění kontejnerů na běžných snímcích, hlavách, rozvrženích a poznámkách, včetně hlav poznámek a výstřižků, pokud jsou přítomny. Používá identitu ukazatelů k jednorázovému spočítání každého kontejneru, aplikuje níže popsanou politiku a znovu otevře uloženou prezentaci pro kontrolu akcí kliknutí i najetí myší.
 
-Zpráva zaznamenává jednorozměrný index snímku a [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/), kde je dostupný. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) poskytuje vlastní snímek pro podporované kontejnery. Hlavní snímky, rozvržení a poznámky nemají běžný index snímku a jsou identifikovány podle svého rozsahu. Kontejnery tvarů a kontejnery formátování částí textu jsou označeny samostatně; jiné typy kontejnerů zachovávají název svého běhového typu. Každý kontejner získá lokální ID zprávy, aby jeho dvě akce mohly být propojeny.
+Zpráva zaznamenává číslování snímků od jedné a [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) pokud je k dispozici. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) poskytuje vlastní snímek pro podporované kontejnery. Hlavní snímky, rozvržení a poznámky nemají běžné číslování snímků a jsou identifikovány podle svého rozsahu. Kontajnery tvarů a formátovacích kontejnerů textových částí jsou označeny zvlášť; ostatní typy kontejnerů zachovávají název svého typového běhu. Každý kontejner získá lokální ID zprávy, aby bylo možné propojit jeho dvě akce.
 
-Tato záměrně restriktivní aplikační politika povoluje jen absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, ostatní akce prezentace, neznámé akce a jiné schémata URL. Tyto odmítnutí jsou rozhodnutími politiky, nikoli bezpečnostním verdiktem Aspose.Slides. Pouze HTTPS nezaručuje důvěru: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak originální, tak normalizované externí URL. Příklad audituje metadata, aniž by následoval odkazy nebo spouštěl akce.
+Tato záměrně restriktivní politika aplikace povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, akce souborů, jiné akce prezentace, neznámé akce a jiné schémata URL. Tato odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. HTTPS samo o sobě nezaručuje důvěru: přidejte seznam povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak originální, tak normalizované externí URL. Příklad audituje metadata bez sledování odkazů nebo spouštění akcí.
 
-Pro nápravu kontejnerů [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) podporuje [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) a [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Zde jsou zakázané externí odkazy kliknutí nahrazeny fixní HTTPS vstupní stránkou; ostatní zakázané kliknutí a zakázané akce při přejetí myší jsou odstraněny samostatně. Nastavte `replaceExternalClicks` na `false` pro odstranění všech porušení politiky. Před nasazením vyberte náhradní stránku vlastněnou aplikací.
+Pro nápravu kontejnerů [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) podporuje [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) a [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Zde jsou zakázané externí odkazy na kliknutí nahrazeny pevnou HTTPS vstupní stránkou; další zakázané kliknutí a zakázané akce najetí myší jsou odstraněny nezávisle. Nastavte `replaceExternalClicks` na `false`, pokud chcete místo toho odstranit všechna porušení politiky. Vyberte náhradní stránku vlastněnou aplikací před nasazením.
 
-Exportní příznak zprávy používá konzervativní politiku revize PDF: označuje akce při přejetí myší a vše kromě externího odkazu nebo konkrétního skoku na snímek jako potenciálně nepodporované. Je to jen vodítko k revizi, nikoli test schopností nebo záruka, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/cpp/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy v závislosti na akci, možnostech exportu a prohlížeči. Rastry [obrázků](/slides/cs/cpp/convert-powerpoint-to-png/) a [videí](/slides/cs/cpp/convert-powerpoint-to-video/) nemohou zachovat interaktivní hypertextové odkazy; při auditu pro tyto výstupy označte každou akci.
+Exportní příznak zprávy používá konzervativní politiku revize PDF: označuje akce najetí myší a vše kromě externího odkazu nebo konkrétního přechodu na snímek jako potenciálně nepodporované. Je to vodítko k revizi, ne test schopností ani záruka, že nezaškrtnuté odkazy přežijí export. Podporované exporty [PDF](/slides/cs/cpp/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/cpp/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy v závislosti na akci, možnostech exportu a prohlížeči. Rasterové [obrázky](/slides/cs/cpp/convert-powerpoint-to-png/) a [video](/slides/cs/cpp/convert-powerpoint-to-video/) nemohou zachovat interaktivní hypertextové odkazy; označte každou akci při auditu pro tyto výstupy.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-S výše vytvořeným vstupem obsahuje zpráva pět řádků akcí. Odkaz na soubor při přejetí myší a kliknutí makra jsou odstraněny, zatímco HTTPS odkazy a interní navigace mezi snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázanou externí URL kliknutí také otestuje větev nahrazení. Kontejner s povoleným kliknutím a zakázaným přejetím myší si zachová akci kliknutí.
+S výše vytvořeným vstupem zpráva obsahuje pět řádků akcí. Odkaz na najetí myší na soubor a makro kliknutí jsou odstraněny, zatímco HTTPS odkazy a interní navigace snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázané externí URL na kliknutí také spouští větev nahrazení. Kontejner s povoleným kliknutím a zakázaným najetím myší si zachová akci kliknutí.
 
-Tento selektivní úklid se liší od [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze akce hypertextových odkazů; neodstraňuje vložené projekty VBA, OLE objekty ani jiný aktivní obsah a nevaliduje exportovaný PDF nebo HTML soubor.
+Tento selektivní úklid se liší od [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze akce hypertextových odkazů; neodstraňuje vložené VBA projekty, OLE objekty ani jiný aktivní obsah a neověřuje exportovaný PDF nebo HTML soubor.
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
-**Jak mohu odkazovat na sekci nebo její první snímek?**
+**Jak mohu propojit na sekci nebo její první snímek?**
 
-Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na konkrétní snímek. Pro vytvoření navigace na sekci odkážete na první snímek v této sekci.
+Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na konkrétní snímek. Pro vytvoření navigace na sekci propojte na první snímek v této sekci.
 
-**Mohu přiřadit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
+**Mohu připojit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
 
-Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou dostupné během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozvržení.
+Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou k dispozici během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozvržení.
 
 **Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
 
-Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rastry obrázků a videa ne. Viz úvahy o exportu v [Zpráva, sanitizace a ověření hypertextových odkazů](#report-sanitize-and-verify-hyperlinks).
+Podporované exporty PDF a HTML mohou zachovat hypertextové odkazy; rastrové obrázky a video to nemohou. Viz úvahy o exportu v [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

@@ -1,5 +1,5 @@
 ---
-title: Beheer presentatie-hyperlinks in C++
+title: Beheer presentatie‑hyperlinks in C++
 linktitle: Beheer hyperlinks
 type: docs
 weight: 20
@@ -11,41 +11,43 @@ keywords:
 - hyperlink opmaken
 - hyperlink verwijderen
 - hyperlink bijwerken
-- tekst-hyperlink
-- dia-hyperlink
-- vorm-hyperlink
-- afbeeldings-hyperlink
-- video-hyperlink
-- veranderbare hyperlink
+- tekst‑hyperlink
+- dia‑hyperlink
+- vorm‑hyperlink
+- afbeeldings‑hyperlink
+- video‑hyperlink
+- aanpasbare hyperlink
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Hyperlinks toevoegen, opmaken, bijwerken en verwijderen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor C++, met C++-voorbeelden."
+description: "Voeg hyperlinks toe, formatteer, werk bij en verwijder hyperlinks in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor C++, met C++‑voorbeelden."
 ---
 ## **Inleiding**
 
-Een hyperlink verbindt presentatiedata met een website of een locatie binnen de presentatie. In PowerPoint worden hyperlinks doorgaans voor twee doelen gebruikt:
+Een hyperlink verbindt presentatiewaarde met een website of een locatie binnen de presentatie. In PowerPoint dienen hyperlinks meestal twee doelen:
 
-* Open een website vanuit tekst, een vorm of een mediakader.
+* Open een website vanuit tekst, een vorm of een mediaraam.
 * Navigeer naar een andere dia, bijvoorbeeld vanuit een inhoudsopgave.
 
-Aspose.Slides for C++ stelt je in staat deze koppelingen toe te voegen, hun uiterlijk en geluid te beheersen, hun instellingen bij te werken en ze te verwijderen. De onderstaande voorbeelden laten zien hoe je met hyperlinks werkt op individuele elementen en hoe je hyperlinks kunt benaderen op presentatieniveau, dia‑ of tekstkaderniveau.
+Aspose.Slides for C++ laat u deze koppelingen toevoegen, hun uiterlijk en geluid regelen, hun instellingen bijwerken en ze verwijderen. De onderstaande voorbeelden tonen hoe u met hyperlinks op individuele elementen werkt en hoe u hyperlinks op presentatieniveau, dia‑ of tekst‑frame‑niveau benadert.
 
 {{% alert color="info" title="Note" %}}
-Je kunt ook presentaties bewerken met de [gratis online Aspose PowerPoint-editor](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+
+U kunt ook presentaties bewerken met de [gratis online Aspose PowerPoint‑editor](https://products.aspose.app/slides/editor).
+
+{{% /alert %}}
 
 ## **URL‑hyperlinks toevoegen**
 
-Je kunt een website‑URL toewijzen aan tekst, een vorm of een mediakader. Het element waaraan je de hyperlink toewijst bepaalt het klikbare gebied: een tekstgedeelte linkt de geselecteerde tekst, terwijl een vorm of kader het dia‑object linkt.
+U kunt een website‑URL toewijzen aan tekst, een vorm of een mediaraam. Het element waaraan u de hyperlink toekent bepaalt het klikbare gebied: een tekstdeel linkt de geselecteerde tekst, terwijl een vorm of raam het dia‑object linkt.
 
-Voor presentaties met relatieve hyperlinks, zie [Beheer de hyperlink‑basis](/slides/nl/cpp/presentation-properties/#manage-the-hyperlink-base) om de document‑niveau basis te lezen, wijzigen of wissen.
+Voor presentaties die relatieve hyperlinks bevatten, zie [Beheer de hyperlinkbasis](/slides/nl/cpp/presentation-properties/#manage-the-hyperlink-base) om de document‑niveau basis te lezen, wijzigen of wissen.
 
 ### **URL‑hyperlinks toevoegen aan tekst**
 
-Om tekst te koppelen aan een website, maak je een [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) aan en wijs je deze toe met de [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/)‑methode van het tekstgedeelte, zoals hieronder weergegeven. Alleen dat tekstgedeelte wordt klikbaar.
+Om tekst naar een website te linken, maak een [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) aan en ken deze toe via de [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/)‑methode van het tekst‑deel, zoals hieronder weergegeven. Alleen dat tekstdeel wordt klikbaar.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +80,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **URL‑hyperlinks toevoegen aan vormen en mediakaders**
+### **URL‑hyperlinks toevoegen aan vormen en mediaramen**
 
-Om een vorm of kader klikbaar te maken, gebruik je de [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/)‑methode. De hyperlink behoort tot het object zelf en niet tot een tekstgedeelte erin.
-
-Dezelfde aanpak geldt voor afbeelding‑, audio‑ en videokaders: wijs de hyperlink toe aan het kader en gebruik [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) om indien nodig een tip toe te voegen.
-
-Het volgende voorbeeld maakt een rechthoek klikbaar:
+Roep [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) aan op de rechthoek om het volledige gebied klikbaar te maken. Gebruik [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) om lezers een hint te geven over de bestemming wanneer ze over de rechthoek zweven. Beide methoden gelden ook voor afbeelding‑, audio‑ en video‑ramen.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -111,7 +109,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) om de tekst “Page 2” op de eerste dia te koppelen aan de tweede dia.
+Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) om de tekst “Page 2” op de eerste dia te linken aan de tweede dia.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +166,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Hyperlinks opmaken**
 
+U kunt de kleur van gelinkte tekst wijzigen, een geluid afspelen of stoppen wanneer een lezer een koppeling activeert, en de tooltip instellen die verschijnt bij hover.
+
 ### **Kleur**
 
-De [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/)‑methode van [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) bepaalt of een hyperlink de hyperlink‑kleur van de presentatie gebruikt of de opmaak van het tekstgedeelte. Om een aangepaste tekstkleur toe te passen, selecteer je [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) en stel je de vulkleur van het gedeelte in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
+De [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/)‑methode van [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) bepaalt of een hyperlink de hyperlinkkleur van de presentatie of de opmaak van het tekstdeel gebruikt. Om een aangepaste tekstkleur toe te passen, selecteer [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) en stel de vulkleur van het deel in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
 
-Het volgende voorbeeld voegt twee tekst‑hyperlinks toe aan dezelfde dia. De eerste gebruikt een rode tekstvulling, terwijl de tweede de standaard hyperlink‑kleur behoudt.
+In dit voorbeeld gebruikt de eerste link [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) om zijn rode tekstvulling weer te geven. De tweede link behoudt de hyperlinkkleur van de presentatie.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,16 +214,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Geluid**
 
-Een hyperlink kan een geluid afspelen wanneer deze wordt geactiveerd of een al afspelend geluid stoppen. Gebruik de volgende methoden om dit gedrag te configureren:
+Een hyperlink kan een geluid afspelen wanneer deze wordt geactiveerd of een al lopend geluid stoppen. Gebruik de volgende methoden om dit gedrag te configureren:
 
 - [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) specificeert het audio‑bestand dat aan de hyperlink is gekoppeld.
 - [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) bepaalt of het activeren van de hyperlink het vorige geluid stopt.
 
-#### **Hyperlinkgeluid toevoegen**
+#### **Een hyperlinkgeluid toevoegen**
 
-Het volgende voorbeeld laadt `sampleaudio.wav` en koppelt het aan een knop op de eerste dia. Het klikken op de knop speelt het geluid af en navigeert naar de volgende dia. Een tweede vorm op die dia stopt het vorige geluid bij klikken, zonder een navigatie‑actie uit te voeren.
+De knop op de eerste dia gebruikt [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) om audio van `sampleaudio.wav` af te spelen wanneer de lezer klikt om door te gaan. Op de tweede dia gebruikt een afzonderlijke knop [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) om de afspeelactie te stoppen en de lezer op die dia te houden.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -267,9 +268,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Hyperlinkgeluid extraheren**
+#### **Een hyperlinkgeluid extraheren**
 
-Het volgende voorbeeld opent de hierboven aangemaakte presentatie en leest het audio‑bestand van de hyperlink van de eerste vorm in het geheugen via [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) en [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
+Het volgende voorbeeld opent de eerder gemaakte presentatie en leest het hyperlink‑audio van de eerste vorm in het geheugen via [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) en [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -307,16 +308,16 @@ else
 
 ### **Tooltip‑ en interactie‑instellingen**
 
-Je kunt de volgende [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)‑instellingen bijwerken via deze methoden nadat je een hyperlink aan tekst of een vorm hebt toegewezen:
+U kunt de volgende [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)‑instellingen bijwerken via deze methoden nadat u een hyperlink aan tekst of een vorm hebt toegewezen:
 
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) stelt de tekst in die een kijker als tip voor de link kan weergeven.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) stelt de tekst in die een kijker kan weergeven als hint voor de koppeling.
 - [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) specificeert het doel‑frame binnen een bovenliggend HTML‑frameset, indien van toepassing.
-- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) bepaalt of het activeren van de link diens bestemming toevoegt aan de lijst met bekeken hyperlinks.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) bepaalt of het activeren van de koppeling de bestemming toevoegt aan de lijst van bekeken hyperlinks.
 - [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) bepaalt of de hyperlink wordt gemarkeerd bij klikken.
 
 ## **Hyperlinks uit presentaties verwijderen**
 
-Gebruik [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) om hyperlink‑containers te verzamelen, inclusief links van tekstgedeelten, voordat je ze wijzigt. Het volgende voorbeeld verwijdert beide activerings‑typen van de eerste dia. Om slechts één type te verwijderen, roep je alleen [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) of [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) aan; het verwijderen van een klik‑actie verwijdert niet de muis‑over‑tegenhanger.
+Gebruik [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) om hyperlink‑containers, inclusief tekstdeel‑links, te verzamelen voordat u ze wijzigt. Het volgende voorbeeld verwijdert beide activeringstypen van de eerste dia. Om slechts één type te verwijderen, roep alleen [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) of [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) aan; het verwijderen van een klikactie verwijdert niet de bijbehorende muis‑over‑actie.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +351,76 @@ else
 }
 ```
 
-Voor onvoorwaardelijke verwijdering verwijdert [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) beide activerings‑typen in de geselecteerde scope met één oproep. Voor selectieve opschoning en dekking van masters, lay‑outs en notities, zie [Rapporteren, sanitiseren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Voor onvoorwaardelijke verwijdering verwijdert [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) beide activeringstypen in de geselecteerde scope met één aanroep. Voor selectieve opschoning en dekking van masters, lay‑outs en notities, zie [Rapporteer, saniteer en verifieer hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Een volledige hyperlink‑inventaris opbouwen**
+### **Hyperlinks wissen voordat SmartArt‑tekst wordt vervangen**
 
-Voordat je een presentatie distribueert, maak je een inventaris van de interactieve acties en web‑links. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retourneert [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/)‑objecten, geen eenvoudige lijst van URL‑strings. Inspecteer zowel [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) als [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties bevatten, dus een volledig rapport heeft tot twee rijen per container nodig.
+Wanneer u een alinea in een bestaande SmartArt‑node vervangt, kan het wissen van de tekstdelen een oude hyperlink laten bestaan. Haal de alinea op via [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Voordat u de delen wist, roep [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) aan via [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) op het tekstframe van de node‑vorm die de alinea weergeeft. Dit verwijdert elke hyperlink in dat frame, inclusief links in andere alinea’s.
 
-Alleen hyper‑links op vorm‑niveau scannen kan links die aan tekstgedeelten zijn gekoppeld missen. Vraag in plaats daarvan de juiste scope aan en bewaar de geretourneerde containers zodat je later hun acties kunt bijwerken of verwijderen.
+Het voorbeeld gaat ervan uit dat de derde vorm op de eerste dia een SmartArt‑grafisch element is. Het vervangt de eerste alinea van de vierde node. In deze presentatie toont de eerste vorm van de node die alinea.
 
-### **Presentatie‑, dia‑ en tekstkader‑scopes bevragen**
+Na het toevoegen van beide delen leest het voorbeeld hun effectieve opmaak met [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). De effectieve [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/)‑methode geeft de nieuwe hyperlink voor het eerste deel terug en `nullptr` voor het tweede.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
+## **Een volledige hyperlink‑inventaris samenstellen**
+
+Voordat u een presentatie distribueert, inventariseert u zowel de interactieve handelingen als de webkoppelingen. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) levert [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/)‑objecten op, geen platte lijst van URL‑strings. Inspecteer zowel [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) als [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties exposeren, dus een volledig rapport kan tot twee rijen per container vereisen.
+
+Alleen op vorm‑niveau zoeken kan links missen die aan tekstdelen zijn gekoppeld. Vraag in plaats daarvan de juiste scope op en bewaar de geretourneerde containers zodat u later hun acties kunt bijwerken of verwijderen.
+
+### **Presentatie-, dia‑ en tekst‑frame‑scopes bevragen**
 
 De [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/)‑interface is beschikbaar via [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) en [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Elke scope ondersteunt dezelfde queries:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) retourneert containers met een klik‑actie.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) retourneert containers met een klikactie.
 - [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) retourneert containers met een muis‑over‑actie.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retourneert containers met een of beide acties.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retourneert containers met één of beide acties.
 
-Het volgende voorbeeld maakt `hyperlink-audit-input.pptx` met een externe klik‑link, een bestand‑muistoever‑link, interne dia‑navigatie, een tekst‑muistoever‑link en een macro‑actie. Het voert geen van deze acties uit. Dezelfde drie queries werken in elke scope; de tellingen beschrijven containers, niet het aantal acties. De tekstkader‑scope sluit de eigen links van de omvattende vorm uit.
+Dit voorbeeld kent klik‑ en muis‑over‑acties toe aan een vorm en diens tekst, en een macro‑actie aan een aparte knop. Het vergelijkt de containers die [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retourneert met de aantallen per activeringstype. Een tekst‑frame query telt alleen links in de tekst. De eigen acties van de omvattende vorm verschijnen in de dia‑ en presentatiescopes.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +475,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Voor dit voorbeeld melden presentatie‑ en dia‑queries elk drie klik‑containers, twee muis‑over‑containers en drie containers met een van de acties. De tekstkader‑query meldt één container in elke categorie.
+Voor dit voorbeeld rapporteren de presentaties‑ en dia‑queries elk drie klik‑containers, twee muis‑over‑containers en drie containers met één van de twee acties. De tekst‑frame query rapporteert één container in elke categorie.
 
-### **Acties en bestemmingen classificeren**
+### **Acties en bestemmingen klasseren**
 
-Gebruik [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) om een actie te interpreteren voordat je de bestemming interpreteert. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) omvatten meer dan web‑navigatie:
+Gebruik [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) om een actie te interpreteren voordat u de bestemming interpreteert. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) omvatten meer dan webnavigatie:
 
 | Waarden | Betekenis voor een audit |
 | --- | --- |
 | `Hyperlink` | Externe hyperlink; inspecteer de URL en het schema. |
 | `JumpSpecificSlide` | Interne navigatie naar een specifieke dia. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ingebouwde diavoorstelling‑navigatie, opgelost in de diavoorstelling‑context. |
-| `JumpEndShow`, `StartCustomSlideShow` | Beëindig de huidige show of start een aangepaste show. |
+| `JumpEndShow`, `StartCustomSlideShow` | Eindig de huidige show of start een aangepaste show. |
 | `StartMacro` | Een macro uitvoeren. |
 | `StartProgram` | Een programma starten. |
-| `OpenFile`, `OpenPresentation` | Een bestand of een andere presentatie openen; apart beoordelen van web‑URL’s. |
+| `OpenFile`, `OpenPresentation` | Een bestand of een andere presentatie openen; afzonderlijk beoordelen van web‑URL’s. |
 | `StartStopMedia` | Media‑afspelen starten of stoppen. |
 | `NoAction`, `Unknown` | Geen navigatie‑actie, of een niet‑herkende actie die beoordeling vereist. |
 
-Lees externe bestemmingen via [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) en specifieke interne bestemmingen via [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Interne acties en ingebouwde commando's hebben mogelijk geen externe URL; een lege URL betekent niet dat de container geen actie heeft. Bewaar [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) wanneer deze afwijkt van de genormaliseerde URL, en voeg de tooltip toe die door [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) wordt geretourneerd indien beschikbaar.
+Lees externe bestemmingen via [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) en specifieke interne bestemmingen via [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Interne acties en ingebouwde opdrachten kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Bewaar [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) wanneer deze verschilt van de genormaliseerde URL, en voeg de tooltip toe die [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) retourneert wanneer die beschikbaar is.
 
-### **Rapporteren, sanitiseren en verifiëren van hyperlinks**
+### **Rapporteer, saniteer en verifieer hyperlinks**
 
-Het volgende C++‑voorbeeld leest een bestaande presentatie (gebruik het hierboven aangemaakte bestand), schrijft `hyperlink-audit.json`, past een beleid toe, slaat `hyperlink-sanitized.pptx` op en opent deze opnieuw om beide activerings‑typen opnieuw te controleren. Het verzamelt containers vóór wijziging en gebruikt pointer‑identiteit om te voorkomen dat dezelfde container twee keer wordt verwerkt. Presentatie‑queries bestrijken gewone dia’s; voor een pakkende inventaris wordt ook expliciet naar masters, lay‑outs, notities en de notitie‑ en handout‑masters gequeryd wanneer aanwezig.
+Dit C++‑voorbeeld opent de presentatie uit het voorgaande voorbeeld en schrijft één JSON‑record per actie. Het gebruikt [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) om containers te verzamelen op gewone dia’s, masters, lay‑outs en notities, inclusief de notitie‑ en handout‑masters indien aanwezig. Het gebruikt pointer‑identiteit om elke container één keer te tellen, past het hieronder beschreven beleid toe, en opent de opgeslagen presentatie opnieuw om zowel klik‑ als muis‑over‑acties te controleren.
 
-Het rapport legt een één‑gebaseerde dia‑index en [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) vast waar beschikbaar. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) levert de bijbehorende dia voor ondersteunde containers. Masters, lay‑outs en notities hebben geen gewone dia‑index en worden geïdentificeerd op basis van hun scope. Vorm‑containers en tekstgedeelte‑opmaak‑containers worden apart gelabeld; andere containertypes behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat de twee acties kunnen worden gekoppeld.
+Het rapport bevat een één‑gebaseerde dia‑index en [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) waar beschikbaar. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) levert de bijbehorende dia voor ondersteunde containers. Masters, lay‑outs en notities hebben geen gewone dia‑index en worden geïdentificeerd op basis van hun scope. Vorm‑containers en tekst‑deel‑opmaak‑containers worden apart gelabeld; andere containertypen behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat zijn twee acties kunnen worden gecorreleerd.
 
-Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL’s en geldige interne dia‑doelen toe. Het wijst macro’s, programma’s, bestand‑acties, andere diavoorstelling‑acties, onbekende acties en andere URL‑schema’s af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheidsbeoordeling van Aspose.Slides. Alleen HTTPS biedt geen vertrouwen: voeg host‑allowlists en andere controles toe voor je toepassing. Zowel de oorspronkelijke als de genormaliseerde externe URL’s worden gecontroleerd. Het voorbeeld controleert metadata zonder links te volgen of acties uit te voeren.
+Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL’s en geldige interne dia‑doelen toe. Het wijst macro’s, programma’s, bestandsacties, andere diavoorstelling‑acties, onbekende acties en andere URL‑schema’s af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheids‑beoordeling van Aspose.Slides. Alleen HTTPS garandeert geen vertrouwen: voeg host‑allowlists en andere controles toe voor uw toepassing. Zowel originele als genormaliseerde externe URL’s worden gecontroleerd. Het voorbeeld controleert metadata zonder links te volgen of acties uit te voeren.
 
-Voor herstel ondersteunt de [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) van de container [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) en [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Hier worden verboden externe klik‑links vervangen door een vaste HTTPS‑landingspagina; andere verboden klik‑ en muis‑over‑acties worden onafhankelijk verwijderd. Stel `replaceExternalClicks` in op `false` om alle beleids­schendingen te verwijderen. Kies een door de applicatie beheerde vervangingspagina vóór implementatie.
+Voor correctie ondersteunt de [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) van de container [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) en [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Hier worden verboden externe klik‑links vervangen door een vaste HTTPS‑landingspagina; andere verboden klik‑ en muis‑over‑acties worden onafhankelijk verwijderd. Stel `replaceExternalClicks` in op `false` om alle beleids­schendingen te verwijderen. Kies een door de toepassing beheerde vervangingspagina vóór de implementatie.
 
-De export‑vlag van het rapport gebruikt een conservatief PDF‑review‑beleid: markeer muis‑over‑acties en alles behalve een externe link of een specifieke dia‑sprong als potentieel niet‑ondersteund. Het is een beoordelingshint, geen functionaliteitstest of garantie dat niet‑gemarkeerde links de export overleven. Ondersteunde [PDF](/slides/nl/cpp/convert-powerpoint-to-pdf/)‑ en [HTML](/slides/nl/cpp/convert-powerpoint-to-html/)‑exporten kunnen hyperlinks behouden, afhankelijk van de actie, exportopties en viewer. Raster‑[images](/slides/nl/cpp/convert-powerpoint-to-png/) en [video](/slides/nl/cpp/convert-powerpoint-to-video/) kunnen interactieve hyperlinks niet behouden; markeer elke actie bij het auditen voor die uitvoerformaten.
+De export‑vlag van het rapport gebruikt een conservatief PDF‑review‑beleid: markeer muis‑over‑acties en alles anders dan een externe link of een specifieke dia‑sprong als potentieel niet‑ondersteund. Het is een review‑hint, geen capaciteits‑test of garantie dat ongemarkeerde links overleven bij export. Ondersteunde [PDF](/slides/nl/cpp/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/cpp/convert-powerpoint-to-html/) exports kunnen hyperlinks behouden, afhankelijk van de actie, exportopties en viewer. Raster‑[images](/slides/nl/cpp/convert-powerpoint-to-png/) en [video](/slides/nl/cpp/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij audit voor die output‑formaten.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +706,20 @@ if (violations != 0)
 }
 ```
 
-Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De bestand‑muistoever‑link en macro‑klik worden verwijderd, terwijl de HTTPS‑links en interne dia‑navigatie blijven bestaan. De verificatie toont nul verboden acties. Een invoer met een verboden externe klik‑URL doorloopt ook de vervangings‑tak. Een container met een toegestane klik en een verboden muistoever behoudt zijn klik‑actie.
+Met de hierboven gemaakte input bevat het rapport vijf actierijen. De muis‑over‑link van het bestand en de macro‑klik worden verwijderd, terwijl de HTTPS‑links en interne dia‑navigatie behouden blijven. De verificatie geeft nul verboden acties weer. Een invoer met een verboden externe klik‑URL test ook de vervangings‑tak. Een container met een toegestane klik en een verboden muis‑over behoudt zijn klik‑actie.
 
-Deze selectieve opschoning verschilt van [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), die beide activerings‑typen in de geselecteerde scope verwijdert, ongeacht het beleid. De verificatie controleert hier alleen hyperlink‑acties; het verwijdert geen ingebedde VBA‑projecten, OLE‑objecten of andere actieve inhoud, en het valideert geen geëxporteerde PDF‑ of HTML‑bestanden.
+Deze selectieve opschoning verschilt van [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), dat beide activeringstypen verwijdert binnen de geselecteerde scope ongeacht beleid. Verificatie hier controleert alleen hyperlink‑acties; het verwijdert geen ingesloten VBA‑projecten, OLE‑objecten of andere actieve inhoud, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Hoe kan ik naar een sectie of de eerste dia ervan linken?**
 
-Secties in PowerPoint groeperen dia's, maar een interne hyperlink richt zich op een individuele dia. Om navigatie naar een sectie te maken, link je naar de eerste dia in die sectie.
+Secties in PowerPoint groeperen dia’s, maar een interne hyperlink richt zich op een individuele dia. Om navigatie naar een sectie te creëren, linkt u naar de eerste dia van die sectie.
 
-**Kan ik een hyperlink aan elementen van de master‑dia koppelen zodat deze op alle dia's werkt?**
+**Kan ik een hyperlink koppelen aan elementen van de master‑dia zodat hij op alle dia’s werkt?**
 
-Ja. Elementen van de master‑dia en lay‑out ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia's die de corresponderende master of lay‑out gebruiken.
+Ja. Elementen van de master‑dia en lay‑out ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia’s die de betreffende master of lay‑out gebruiken.
 
 **Worden hyperlinks behouden bij export naar PDF, HTML, afbeeldingen of video?**
 
-Ondersteunde PDF‑ en HTML‑exporten kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de exportoverwegingen in [Rapporteren, sanitiseren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Ondersteunde PDF‑ en HTML‑exports kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de export‑overwegingen in [Rapporteer, saniteer en verifieer hyperlinks](#report-sanitize-and-verify-hyperlinks).

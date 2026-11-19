@@ -1,52 +1,52 @@
 ---
-title: Zarządzaj hiperłączami prezentacji na Androidzie
-linktitle: Zarządzaj hiperłączami
+title: Zarządzaj hiperlinkami w prezentacji na Androidzie
+linktitle: Zarządzaj hiperlinkami
 type: docs
 weight: 20
 url: /pl/androidjava/manage-hyperlinks/
 keywords:
 - dodaj URL
-- dodaj hiperłącze
-- utwórz hiperłącze
-- formatowanie hiperłącza
-- usuń hiperłącze
-- aktualizuj hiperłącze
-- hiperłącze tekstowe
-- hiperłącze slajdu
-- hiperłącze kształtu
-- hiperłącze obrazu
-- hiperłącze wideo
-- zmienny hiperłącze
+- dodaj hiperlink
+- utwórz hiperlink
+- formatuj hiperlink
+- usuń hiperlink
+- zaktualizuj hiperlink
+- hiperlink tekstowy
+- hiperlink slajdu
+- hiperlink kształtu
+- hiperlink obrazu
+- hiperlink wideo
+- modyfikowalny hiperlink
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Dodaj, formatuj, aktualizuj i usuwaj hiperłącza w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w Javie, korzystając z przykładów w Javie."
+description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperlinki w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w Javie, korzystając z przykładów w Javie."
 ---
 ## **Wprowadzenie**
 
-Hiperłącze łączy treść prezentacji ze stroną internetową lub lokalizacją w samej prezentacji. W programie PowerPoint hiperłącza zwykle spełniają dwa cele:
+Hyperlink łączy zawartość prezentacji ze stroną internetową lub lokalizacją w ramach prezentacji. W programie PowerPoint hiperlinki zazwyczaj służą dwóm celom:
 
 * Otworzyć stronę internetową z tekstu, kształtu lub ramki multimedialnej.
 * Przejść do innego slajdu, na przykład z spisu treści.
 
-Aspose.Slides for Android via Java pozwala dodawać te linki, kontrolować ich wygląd i dźwięk, aktualizować ich właściwości oraz usuwać je. Poniższe przykłady pokazują, jak pracować z hiperłączami na poszczególnych elementach oraz jak uzyskać dostęp do hiperłączy na poziomie prezentacji, slajdu lub ramki tekstowej.
+Aspose.Slides for Android via Java umożliwia dodawanie tych linków, kontrolowanie ich wyglądu i dźwięku, aktualizowanie ich właściwości oraz usuwanie ich. Poniższe przykłady pokazują, jak pracować z hiperlinkami na pojedynczych elementach oraz jak uzyskać dostęp do hiperlinków na poziomie prezentacji, slajdu lub ramki tekstowej.
 
 {{% alert color="info" title="Note" %}}
-Możesz także edytować prezentacje przy użyciu [darmowego internetowego edytora Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Możesz także edytować prezentacje za pomocą [darmowego internetowego edytora Aspose PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **Dodaj hiperłącza URL**
+## **Dodawanie hiperlinków URL**
 
-Możesz przypisać adres URL strony internetowej do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypiszesz hiperłącze, określa obszar klikalny: fragment tekstu łączy zaznaczony tekst, natomiast kształt lub ramka łączy obiekt slajdu.
+Możesz przypisać adres URL strony internetowej do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypiszesz hiperlink, decyduje o obszarze klikalnym: fragment tekstu łączy się z wybranym tekstem, natomiast kształt lub ramka łączy się z obiektem slajdu.
 
-W prezentacjach zawierających względne hiperłącza zobacz [Zarządzanie bazą hiperłączy](/slides/pl/androidjava/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić bazę na poziomie dokumentu.
+W prezentacjach zawierających względne hiperlinki zobacz [Zarządzanie podstawą hiperlinku](/slides/pl/androidjava/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić podstawę na poziomie dokumentu.
 
-### **Dodaj hiperłącza URL do tekstu**
+### **Dodawanie hiperlinków URL do tekstu**
 
-Aby połączyć tekst ze stroną internetową, przekaż obiekt [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) do metody [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) fragmentu tekstu, jak pokazano poniżej. Tylko ten fragment tekstu stanie się klikalny.
+Aby połączyć tekst ze stroną internetową, przekaż [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) do metody [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) fragmentu tekstu, jak pokazano poniżej. Tylko ten fragment tekstu stanie się klikalny.
 
 ```java
 import com.aspose.slides.*;
@@ -66,13 +66,9 @@ try {
 }
 ```
 
-### **Dodaj hiperłącza URL do kształtów i ramek multimedialnych**
+### **Dodawanie hiperlinków URL do kształtów i ramek multimedialnych**
 
-Aby uczynić kształt lub ramkę klikalną, wywołaj metodę [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) tego obiektu. Hiperłącze należy do samego obiektu, a nie do fragmentu tekstu wewnątrz niego.
-
-To samo podejście dotyczy ramek obrazów, dźwięku i wideo: przypisz hiperłącze do ramki i wywołaj [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) w razie potrzeby.
-
-Poniższy przykład sprawia, że prostokąt jest klikalny:
+Wywołaj [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) na prostokącie, aby cały jego obszar był klikalny. Użyj [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) aby pokazać czytelnikom podpowiedź o miejscu docelowym podczas najechania kursorem na prostokąt. Obie metody stosuje się także do ramek obrazów, dźwięku i wideo.
 
 ```java
 import com.aspose.slides.*;
@@ -90,9 +86,9 @@ try {
 }
 ```
 
-## **Użyj hiperłączy do tworzenia spisu treści**
+## **Używanie hiperlinków do tworzenia spisu treści**
 
-Wewnętrzne hiperłącza pozwalają czytelnikom przeskoczyć ze spisu treści do określonego slajdu. Poniższy przykład używa [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) do połączenia tekstu „Page 2” na pierwszym slajdzie z drugim slajdem.
+Wewnętrzne hiperlinki pozwalają czytelnikom przeskoczyć ze spisu treści do konkretnego slajdu. Poniższy przykład używa [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) aby połączyć tekst „Page 2” na pierwszym slajdzie z drugim slajdem.
 
 ```java
 import com.aspose.slides.*;
@@ -126,13 +122,15 @@ try {
 }
 ```
 
-## **Formatowanie hiperłączy**
+## **Formatowanie hiperlinków**
+
+Możesz zmienić kolor połączonego tekstu, odtwarzać lub zatrzymywać dźwięk, gdy czytelnik aktywuje link, oraz ustawić podpowiedź wyświetlaną po najechaniu.
 
 ### **Kolor**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) interfejsu [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) określa, czy hiperłącze używa koloru hiperłącza prezentacji, czy formatowania fragmentu tekstu. Aby zastosować własny kolor tekstu, wybierz [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) i ustaw kolor wypełnienia fragmentu. Funkcja ta została wprowadzona w programie PowerPoint 2019; starsze wersje tego ustawienia nie obsługują.
+[setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) metoda interfejsu [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) określa, czy hiperlink używa koloru hiperlinku prezentacji czy formatowania fragmentu tekstu. Aby zastosować niestandardowy kolor tekstu, wybierz [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) i ustaw kolor wypełnienia fragmentu. Funkcja ta została wprowadzona w PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
 
-Poniższy przykład dodaje dwa hiperłącza tekstowe do tego samego slajdu. Pierwsze używa czerwonego wypełnienia tekstu, natomiast drugie zachowuje domyślny kolor hiperłącza.
+W tym przykładzie [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) sprawia, że pierwszy link używa czerwonego wypełnienia fragmentu tekstu. Drugi link zachowuje kolor hiperlinku prezentacji.
 
 ```java
 import com.aspose.slides.*;
@@ -157,16 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **Dźwięk**
 
-Hiperłącze może odtwarzać dźwięk po aktywacji lub zatrzymać dźwięk już odtwarzany. Użyj następujących metod, aby skonfigurować te zachowania:
+Hiperlink może odtwarzać dźwięk po aktywacji lub zatrzymać już odtwarzany dźwięk. Użyj następujących metod, aby skonfigurować te zachowania:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) określa dźwięk powiązany z hiperłączem.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) kontroluje, czy aktywacja hiperłącza zatrzymuje poprzedni dźwięk.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) określa dźwięk powiązany z hiperlinkiem.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) kontroluje, czy aktywacja hiperlinku zatrzymuje poprzedni dźwięk.
 
-#### **Dodaj dźwięk do hiperłącza**
+#### **Dodanie dźwięku do hiperlinku**
 
-Poniższy przykład ładuje `sampleaudio.wav` i powiązuje go z przyciskiem na pierwszym slajdzie. Kliknięcie przycisku odtwarza dźwięk i przechodzi do następnego slajdu. Drugi kształt na tym slajdzie zatrzymuje poprzedni dźwięk po kliknięciu, nie wykonując akcji nawigacji.
+Przycisk na pierwszym slajdzie używa [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) aby odtworzyć dźwięk z `sampleaudio.wav`, gdy czytelnik kliknie, aby przejść dalej. Na drugim slajdzie oddzielny przycisk używa [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) aby zatrzymać odtwarzanie i utrzymać czytelnika na tym slajdzie.
 
 ```java
 import com.aspose.slides.*;
@@ -205,9 +204,9 @@ try {
 }
 ```
 
-#### **Wyodrębnij dźwięk z hiperłącza**
+#### **Wyodrębnienie dźwięku z hiperlinku**
 
-Poniższy przykład otwiera wcześniej utworzoną prezentację i odczytuje dźwięk hiperłącza pierwszego kształtu do pamięci za pomocą [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) i [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
+Poniższy przykład otwiera prezentację utworzoną powyżej i odczytuje dźwięk hiperlinku pierwszego kształtu do pamięci przy użyciu [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) oraz [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--).
 
 ```java
 import com.aspose.slides.*;
@@ -233,16 +232,16 @@ try {
 
 ### **Ustawienia podpowiedzi i interakcji**
 
-Po przypisaniu hiperłącza do tekstu lub kształtu możesz wywołać następujące metody [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/):
+Możesz wywołać następujące metody [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) po przypisaniu hiperlinku do tekstu lub kształtu:
 
-- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) ustawia tekst, który widz może wyświetlić jako podpowiedź do linku.
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) ustawia tekst, który widz może wyświetlić jako podpowiedź dla linku.
 - [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) określa docelową ramkę w ramach nadrzędnego zestawu ramek HTML, gdy ma to zastosowanie.
-- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) kontroluje, czy aktywacja linku dodaje jego docelowy adres do listy przeglądanych hiperłączy.
-- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) kontroluje, czy hiperłącze jest podświetlane po kliknięciu.
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) kontroluje, czy aktywacja linku dodaje jego docelowy adres do listy przeglądanych hiperlinków.
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) kontroluje, czy hiperlink jest podświetlany po kliknięciu.
 
-## **Usuwanie hiperłączy z prezentacji**
+## **Usuwanie hiperlinków z prezentacji**
 
-Użyj [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) , aby zebrać kontenery hiperłączy, w tym linki fragmentów tekstu, przed ich modyfikacją. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj jedynie [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) lub [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); usunięcie akcji kliknięcia nie usuwa odpowiadającej akcji najazdu myszy.
+Użyj [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) aby zebrac kontenery hiperlinków, w tym linki fragmentów tekstu, przed ich modyfikacją. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj wyłącznie [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) lub [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); usunięcie akcji kliknięcia nie usuwa jej odpowiednika po najechaniu.
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +268,56 @@ try {
 }
 ```
 
-W przypadku bezwarunkowego usuwania, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) usuwa oba typy aktywacji w wybranym zakresie w jednym wywołaniu. W celu selektywnego czyszczenia i objęcia masterów, układów i notatek, zobacz [Raport, dezynfekcję i weryfikację hiperłączy](#report-sanitize-and-verify-hyperlinks).
+W celu bezwarunkowego usunięcia, [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) usuwa oba typy aktywacji w wybranym zakresie w jednym wywołaniu. W celu selektywnego czyszczenia i obejścia masterów, układów i notatek, zobacz [Raport, sanityzacja i weryfikacja hiperlinków](#report-sanitize-and-verify-hyperlinks).
 
-## **Zbuduj kompletny spis hiperłączy**
+### **Wyczyść hiperlinki przed zamianą tekstu w SmartArt**
 
-Przed rozpowszechnieniem prezentacji, dokonaj inwentaryzacji jej interaktywnych akcji oraz linków internetowych. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) zwraca obiekty [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/), a nie płaską listę ciągów URL. Sprawdź zarówno [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) , jak i [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) dla każdego kontenera. Są one niezależne: ten sam kontener może udostępniać oba rodzaje akcji, więc pełny raport wymaga do dwóch wierszy na kontener.
+Kiedy zamieniasz akapit w istniejącym węźle SmartArt, wyczyszczenie jego fragmentów tekstu może pozostawić działający stary hiperlink. Pobierz akapit za pomocą [ISmartArtNode.getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ismartartnode/#getTextFrame--). Przed wyczyszczeniem jego fragmentów wywołaj [getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) na ramce tekstowej kształtu węzła wyświetlającego akapit, a następnie wywołaj [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) na zwróconym obiekcie. To usuwa wszystkie hiperlinki w tej ramce, w tym linki w jej pozostałych akapitach.
 
-Skanowanie tylko hiperłączy na poziomie kształtów może pominąć linki przypisane do fragmentów tekstu. Zamiast tego zapytaj o odpowiedni zakres i zachowaj zwrócone kontenery, aby później móc zaktualizować lub usunąć ich akcje.
+Przykład zakłada, że trzeci kształt na pierwszym slajdzie pliku `SmartArtHyperlink.pptx` jest grafiką SmartArt. Zastępuje pierwszy akapit czwartego węzła. W tej prezentacji pierwszy kształt węzła wyświetla ten akapit.
 
-### **Zapytaj zakresy prezentacji, slajdu i ramki tekstowej**
+Po dodaniu obu fragmentów, przykład odczytuje ich efektywne formatowanie przy użyciu [getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--). W tym formatowaniu, [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) zwraca nowy hiperlink dla pierwszego fragmentu i `null` dla drugiego.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ISmartArt smartArt = (ISmartArt) slide.getShapes().get_Item(2);
+    ISmartArtNode node = smartArt.getAllNodes().get_Item(3);
+    IParagraph paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    IPortion link = new Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    IPortion text = new Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    System.out.println(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    System.out.println(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Budowanie pełnego spisu hiperlinków**
+
+Przed udostępnieniem prezentacji, wykonaj inwentaryzację jej interaktywnych działań oraz linków internetowych. [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) zwraca obiekty [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/), a nie płaską listę ciągów URL. Sprawdź zarówno [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) jak i [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać obie akcje, więc pełny raport wymaga do dwóch wierszy na kontener.
+
+### **Zapytania o zakresy prezentacji, slajdu i ramki tekstowej**
 
 Interfejs [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) jest dostępny poprzez [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), oraz [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). Każdy zakres obsługuje te same zapytania:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) zwraca kontenery z akcją kliknięcia.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) zwraca kontenery z akcją najazdu myszy.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) zwraca kontenery z akcją najechania myszką.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) zwraca kontenery z jedną lub obiema akcjami.
 
-Poniższy przykład tworzy `hyperlink-audit-input.pptx` z zewnętrznym linkiem kliknięcia, linkiem najazdu myszy do pliku, wewnętrzną nawigacją slajdu, linkiem najazdu myszy w tekście oraz akcją makra. Nie wykonuje żadnej z tych akcji. Te same trzy zapytania działają w każdym zakresie; liczby opisują kontenery, a nie sumy akcji. Zakres ramki tekstowej wyklucza własne linki otaczającego kształtu.
+Ten przykład przypisuje akcje kliknięcia i najechania myszką do kształtu i jego tekstu oraz akcję makra do oddzielnego przycisku. Porównuje liczbę kontenerów zwróconych przez [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) z licznikami dla każdego typu aktywacji. Zapytanie ramki tekstowej liczy tylko linki w tekście. Działania własne otaczającego kształtu pojawiają się w zapytaniach slajdu i prezentacji.
 
 ```java
 import com.aspose.slides.*;
@@ -325,35 +357,37 @@ try {
 }
 ```
 
-W tym przykładzie zapytania prezentacji i slajdu zwracają po trzy kontenery kliknięć, dwa kontenery najazdu myszy i trzy kontenery z jedną z akcji. Zapytanie ramki tekstowej zwraca po jednym kontenerze w każdej kategorii.
+Dla tego przykładu zapytania prezentacji i slajdu zwracają po trzy kontenery kliknięć, dwa kontenery najechania i trzy kontenery z dowolną akcją. Zapytanie ramki tekstowej zwraca po jednym kontenerze w każdej kategorii.
 
-### **Klasyfikacja akcji i docelowych miejsc**
+### **Klasyfikacja działań i miejsc docelowych**
 
-Użyj [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) , aby zinterpretować akcję przed interpretacją jej docelowego miejsca. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) obejmują więcej niż nawigację internetową:
+Użyj [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) aby zinterpretować działanie przed interpretacją jego miejsca docelowego. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) obejmują więcej niż nawigację internetową:
 
-| Wartości | Znaczenie w audycie |
+| Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | Zewnętrzne hiperłącze; sprawdź adres URL i jego schemat. |
-| `JumpSpecificSlide` | Wewnętrzna nawigacja do określonego slajdu. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja pokazu slajdów, rozwiązywana w kontekście pokazu slajdów. |
-| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub rozpoczęcie pokazu niestandardowego. |
-| `StartMacro` | Uruchomienie makra. |
+| `Hyperlink` | Zewnętrzny hiperlink; sprawdź URL i jego schemat. |
+| `JumpSpecificSlide` | Wewnętrzna nawigacja do konkretnego slajdu. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja pokazu, rozwiązywana w kontekście pokazu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub uruchomienie pokazu niestandardowego. |
+| `StartMacro` | Wykonanie makra. |
 | `StartProgram` | Uruchomienie programu. |
-| `OpenFile`, `OpenPresentation` | Otworzenie pliku lub innej prezentacji; przeglądaj oddzielnie od adresów URL. |
-| `StartStopMedia` | Rozpoczęcie lub zatrzymanie odtwarzania mediów. |
-| `NoAction`, `Unknown` | Brak akcji nawigacji lub nieznana akcja wymagająca przeglądu. |
+| `OpenFile`, `OpenPresentation` | Otwarcie pliku lub innej prezentacji; przeglądaj oddzielnie od URL‑ów internetowych. |
+| `StartStopMedia` | Rozpoczęcie lub zakończenie odtwarzania multimediów. |
+| `NoAction`, `Unknown` | Brak akcji nawigacyjnej lub nieznana akcja wymagająca przeglądu. |
 
-Odczytuj zewnętrzne cele za pomocą [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) , a konkretne wewnętrzne cele za pomocą [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). Wewnętrzne akcje i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj wartość zwróconą przez [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) , gdy różni się ona od znormalizowanego URL, oraz uwzględnij podpowiedź zwróconą przez [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) , jeśli jest dostępna.
+Odczytaj zewnętrzne miejsca docelowe za pomocą [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) oraz konkretne wewnętrzne miejsca docelowe za pomocą [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). Działania wewnętrzne i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma działania. Zachowaj wartość zwróconą przez [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) gdy różni się ona od znormalizowanego URL, oraz dołącz podpowiedź zwróconą przez [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) jeśli jest dostępna.
 
-### **Raport, dezynfekcja i weryfikacja hiperłączy**
+### **Raport, sanityzacja i weryfikacja hiperlinków**
 
-Poniższy przykład w Javie odczytuje istniejącą prezentację (użyj pliku utworzonego powyżej), zapisuje `hyperlink-audit.json`, stosuje politykę, zapisuje `hyperlink-sanitized.pptx` i ponownie otwiera go, aby ponownie sprawdzić oba typy aktywacji. Zbiera kontenery przed ich zmianą i używa równości referencji, aby uniknąć podwójnego przetwarzania tego samego kontenera. Zapytania prezentacji obejmują zwykłe slajdy; w celu inwentaryzacji całego pakietu, zapytuje także explicite masterów, układów, notatek oraz masterów notatek i kopii, jeśli są obecne. Raport zapisuje indeks slajdu zaczynający się od 1 oraz [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) , gdy jest dostępny. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez ich zakres. Kontenery kształtów i kontenery formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują swoją nazwę typu w czasie wykonywania. Każdy kontener otrzymuje lokalny identyfikator w raporcie, aby jego dwie akcje mogły być skorelowane. Raport przechowuje typy akcji jako stałe całkowite zdefiniowane w enumeracji Javy.
+Niniejszy przykład otwiera prezentację z poprzedniego przykładu i zapisuje jeden rekord JSON na każde działanie. Używa [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) aby zebrać kontenery na zwykłych slajdach, masterach, układach i notatkach, w tym masterach notatek i wersji wydruków, jeśli występują. Używa równości referencyjnej, aby policzyć każdy kontener raz, stosuje politykę opisaną poniżej i ponownie otwiera zapisaną prezentację, aby sprawdzić zarówno akcje kliknięcia, jak i najechania.
 
-Ta celowo restrykcyjna polityka aplikacji zezwala tylko na bezwzględne adresy HTTPS i prawidłowe wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plików, inne akcje pokazu slajdów, nieznane akcje i inne schematy URL. Te odrzucenia są decyzjami polityki, a nie orzeczeniem o bezpieczeństwie Aspose.Slides. HTTPS sam w sobie nie zapewnia zaufania: dodaj listy dozwolonych hostów i inne kontrole w aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne adresy URL. Przykład audytuje metadane bez podążania za linkami lub uruchamiania akcji.
+Raport zapisuje indeks slajdu liczony od jedynki oraz [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) jeśli jest dostępny. [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez swój zakres. Kontenery kształtów i kontenery formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują nazwę swojego typu w czasie wykonania. Każdy kontener otrzymuje raportowy lokalny identyfikator, aby jego dwie akcje mogły być ze sobą powiązane. Raport przechowuje typy akcji jako stałe liczbowe zdefiniowane w wyliczeniu Javy.
 
-W celu naprawy, kontenerowy [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) obsługuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) i [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Tutaj zabronione zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne zabronione kliknięcia i zabronione akcje najazdu myszy są usuwane niezależnie. Ustaw `replaceExternalClicks` na `false`, aby zamiast tego usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą należącą do aplikacji przed wdrożeniem.
+Ta celowo restrykcyjna polityka aplikacji zezwala jedynie na bezwzględne adresy HTTPS i prawidłowe wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plikowe, inne akcje pokazu, nieznane akcje oraz inne schematy URL. Te odrzucenia są decyzjami polityki, a nie oceną bezpieczeństwa Aspose.Slides. Sam protokół HTTPS nie zapewnia zaufania: dodaj listy dozwolonych hostów i inne kontrole dla swojej aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne URL. Przykład audytuje metadane bez podążania za linkami lub wykonywania działań.
 
-Flaga eksportu w raporcie używa konserwatywnej polityki przeglądu PDF: oznacz akcje najazdu myszy oraz wszystko poza zewnętrznym linkiem lub konkretnym skokiem slajdu jako potencjalnie nieobsługiwane. Jest to wskazówka przeglądu, a nie test możliwości ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/androidjava/convert-powerpoint-to-html/) mogą zachować hiperłącza, zależnie od akcji, opcji eksportu i przeglądarki. Rastrowe [obrazy](/slides/pl/androidjava/convert-powerpoint-to-png/) i [wideo](/slides/pl/androidjava/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperłączy; oznaczaj każdą akcję przy audycie pod kątem tych formatów.
+Do naprawy, [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) kontenera obsługuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--), i [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Tutaj zabronione zewnętrzne linki kliknięcia są zamieniane na stałą stronę docelową HTTPS; inne zabronione kliknięcia i zabronione akcje najechania są usuwane niezależnie. Ustaw `replaceExternalClicks` na `false`, aby zamiast tego usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą własną aplikacji przed wdrożeniem.
+
+Flaga eksportu raportu używa konserwatywnej polityki przeglądu PDF: oznacza akcje najechania i wszystko poza zewnętrznym linkiem lub konkretnym przeskokiem slajdu jako potencjalnie nieobsługiwane. To wskazówka przeglądu, a nie test możliwości ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/androidjava/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/androidjava/convert-powerpoint-to-html/) mogą zachować hiperlinki, w zależności od działania, opcji eksportu i przeglądarki. Rasterowe [obrazki](/slides/pl/androidjava/convert-powerpoint-to-png/) i [wideo](/slides/pl/androidjava/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperlinków; oznacz każdą akcję przy audycie pod kątem tych wyjść.
 
 ```java
 import com.aspose.slides.*;
@@ -540,18 +574,20 @@ try {
 }
 ```
 
-Przy użyciu powyższego wejścia raport zawiera pięć wierszy akcji. Link najazdu myszy do pliku i kliknięcie makra są usunięte, podczas gdy linki HTTPS i wewnętrzna nawigacja slajdu pozostają. Weryfikacja wykazuje zero zabronionych akcji. Wejście zawierające zabroniony zewnętrzny URL kliknięcia testuje również gałąź zamiany. Kontener z dozwolonym kliknięciem i zabronionym najazdem myszy zachowuje akcję kliknięcia. To selektywne czyszczenie różni się od [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) , które usuwa oba typy aktywacji w całym wybranym zakresie, niezależnie od polityki. Weryfikacja tutaj sprawdza tylko akcje hiperłącz; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej aktywnej treści, i nie waliduje wyeksportowanego pliku PDF lub HTML.
+Przy danych wejściowych utworzonych powyżej, raport zawiera pięć wierszy działań. Link najechania myszką na plik oraz kliknięcie makra są usunięte, podczas gdy linki HTTPS i wewnętrzna nawigacja slajdów pozostają. Weryfikacja wypisuje zero zabronionych działań. Wejście zawierające zabroniony zewnętrzny URL kliknięcia również uruchamia gałąź zamiany. Kontener z dozwolonym kliknięciem i zabronionym najechaniem zachowuje swoją akcję kliknięcia.
+
+To selektywne czyszczenie różni się od [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), które usuwa oba typy aktywacji w całym wybranym zakresie bez względu na politykę. Weryfikacja tutaj sprawdza tylko akcje hiperlinków; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej aktywnej zawartości oraz nie waliduje wyeksportowanego pliku PDF czy HTML.
 
 ## **FAQ**
 
 **Jak mogę połączyć się z sekcją lub jej pierwszym slajdem?**
 
-Sekcje w programie PowerPoint grupują slajdy, ale wewnętrzne hiperłącze celuje w pojedynczy slajd. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
+Sekcje w PowerPoint grupują slajdy, ale wewnętrzny hiperlink odnosi się do pojedynczego slajdu. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
 
-**Czy mogę dołączyć hiperłącze do elementów mastera slajdu, aby działało na wszystkich slajdach?**
+**Czy mogę dodać hiperlink do elementów slajdu master, aby działał na wszystkich slajdach?**
 
-Tak. Elementy mastera slajdu i układu obsługują hiperłącza. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach korzystających z odpowiedniego mastera lub układu.
+Tak. Elementy slajdu master i układu obsługują hiperlinki. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach korzystających z odpowiedniego mastera lub układu.
 
-**Czy hiperłącza będą zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
+**Czy hiperlinki będą zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
 
-Obsługiwane eksporty PDF i HTML mogą zachować hiperłącza; obrazy rastrowe i wideo nie mogą. Zobacz rozważania dotyczące eksportu w [Raport, dezynfekcję i weryfikację hiperłączy](#report-sanitize-and-verify-hyperlinks).
+Obsługiwane eksporty PDF i HTML mogą zachować hiperlinki; obrazy rastrowe i wideo nie mogą. Zobacz uwagi dotyczące eksportu w [Raport, sanityzacja i weryfikacja hiperlinków](#report-sanitize-and-verify-hyperlinks).

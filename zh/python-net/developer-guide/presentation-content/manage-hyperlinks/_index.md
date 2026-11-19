@@ -9,7 +9,7 @@ keywords:
 - 添加超链接
 - 创建超链接
 - 格式化超链接
-- 删除超链接
+- 移除超链接
 - 更新超链接
 - 文本超链接
 - 幻灯片超链接
@@ -22,28 +22,30 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET，通过 Python 示例在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和删除超链接。"
+description: "使用 Aspose.Slides for Python via .NET，在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和移除超链接，提供 Python 示例。"
 ---
 ## **介绍**
 
-超链接将演示内容连接到网站或演示文稿中的位置。在 PowerPoint 中，超链接通常有两个用途：
+超链接将演示文稿内容连接到网站或演示文稿内部的某个位置。 在 PowerPoint 中，超链接通常有两个作用：
 
-* 从文本、形状或媒体帧打开网站。
-* 从目录等位置导航到另一张幻灯片。
+* 从文本、形状或媒体框打开网站。
+* 从目录等位置跳转到另一张幻灯片。
 
-Aspose.Slides for Python via .NET 允许您添加这些链接，控制其外观和声音，更新其属性，并将其删除。下面的示例展示了如何在单个元素上使用超链接，以及如何在演示文稿、幻灯片或文字框层级访问超链接。
+Aspose.Slides for Python via .NET 允许您添加这些链接，控制其外观和声音，更新属性，并将其移除。下面的示例展示了如何在单个元素上操作超链接，以及如何在演示文稿、幻灯片或文本框层级访问超链接。
 
-{{% alert color="info" title="注意" %}}
-您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/zh/editor)编辑演示文稿。
+{{% alert color="info" title="Note" %}}
+您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/editor)编辑演示文稿。
 {{% /alert %}}
 
 ## **添加 URL 超链接**
 
-您可以将网站 URL 分配给文本、形状或媒体帧。分配超链接的元素决定了可点击的区域：文本部分链接所选文本，而形状或帧则链接整个幻灯片对象。
+您可以为文本、形状或媒体框分配网站 URL。分配超链接的元素决定了可点击区域：文本部分会使所选文本可点击，形状或框则使整个对象可点击。
+
+对于包含相对超链接的演示文稿，请参阅[管理超链接基准](/slides/zh/python-net/presentation-properties/#manage-the-hyperlink-base)以读取、更改或清除文档级基准。
 
 ### **向文本添加 URL 超链接**
 
-要将文本链接到网站，请将一个[超链接]({{guid}})分配给文本部分的[hyperlink_click]({{guid}})属性，如下所示。只有该文本部分会变为可点击。
+要将文本链接到网站，请将[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)分配给文本部分的[hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/)属性，如下所示。只有该文本部分会变为可点击。
 
 ```python
 import aspose.slides as slides
@@ -58,13 +60,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **向形状和媒体帧添加 URL 超链接**
+### **向形状和媒体框添加 URL 超链接**
 
-要使形状或帧可点击，请设置其[hyperlink_click]({{guid}})属性。超链接属于对象本身，而不是其中的文本部分。
-
-相同的做法适用于图片、音频和视频帧：将超链接分配给帧，并在需要时设置链接的[tooltip]({{guid}})。
-
-下面的示例使一个矩形可点击：
+将 URL 分配给矩形的[hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/)属性，使其整个区域可点击。[tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) 在鼠标悬停时向阅读者提示目标。相同的属性适用于图片、音频和视频框。
 
 ```python
 import aspose.slides as slides
@@ -78,7 +76,7 @@ with slides.Presentation() as presentation:
 
 ## **使用超链接创建目录**
 
-内部超链接允许读者从目录跳转到特定幻灯片。以下示例使用[set_internal_hyperlink_click]({{guid}})将第一页上的“第 2 页”文本链接到第二页。
+内部超链接可让阅读者从目录跳转到特定幻灯片。下面的示例使用[set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/)将第一页上的“Page 2”文本链接到第二页。
 
 ```python
 import aspose.pydrawing as draw
@@ -105,11 +103,13 @@ with slides.Presentation() as presentation:
 
 ## **格式化超链接**
 
+您可以更改链接文本的颜色，在阅读者激活链接时播放或停止声音，并设置悬停时显示的提示信息。
+
 ### **颜色**
 
-[Hyperlink]({{guid}})的[color_source]({{guid}})属性决定超链接是使用演示文稿的超链接颜色还是文本部分的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource.PORTION_FORMAT]({{guid}})并设置该部分的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不支持此设置。
+[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)的[color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/)属性决定超链接是使用演示文稿的超链接颜色还是文本部分的格式。若要应用自定义文本颜色，请选择[HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/)并设置该部分的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不适用此设置。
 
-下面的示例在同一幻灯片上添加了两个文本超链接。第一个使用红色文本填充，第二个保留默认超链接颜色。
+在本例中，对第一个链接设置[color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/)后，其文本显示为红色。第二个链接保持演示文稿的超链接颜色。
 
 ```python
 import aspose.pydrawing as draw
@@ -131,14 +131,14 @@ with slides.Presentation() as presentation:
 
 ### **声音**
 
-超链接可以在激活时播放声音，或停止已在播放的声音。使用以下属性配置这些行为：
+超链接可以在激活时播放声音，或停止正在播放的声音。使用以下属性配置这些行为：
 
-- [Hyperlink.sound]({{guid}}) 指定与超链接关联的音频。
-- [Hyperlink.stop_sound_on_click]({{guid}}) 控制激活超链接时是否停止先前的声音。
+- [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) 指定与超链接关联的音频。
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) 控制激活超链接时是否停止先前的声音。
 
 #### **添加超链接声音**
 
-下面的示例加载 `sampleaudio.wav` 并将其关联到第一页上的一个按钮。单击按钮会播放声音并跳转到下一页。该页上的第二个形状在单击时停止先前的声音，但不执行跳转操作。
+第一页上的按钮使用[sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/)在阅读者点击前进时播放 WAV 文件中的音频。第二页的另一个按钮使用[stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/)停止播放并保持阅读者停留在该页。
 
 ```python
 import aspose.slides as slides
@@ -162,7 +162,7 @@ with slides.Presentation() as presentation:
 
 #### **提取超链接声音**
 
-下面的示例打开上述创建的演示文稿，并通过[sound]({{guid}})和[binary_data]({{guid}})将第一个形状的超链接音频读取到内存中。
+以下示例打开上面创建的演示文稿，并通过[sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/)和[binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/)将第一个形状的超链接音频读取到内存中。
 
 ```python
 import aspose.slides as slides
@@ -182,16 +182,16 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
 
 ### **提示和交互设置**
 
-在为文本或形状分配超链接后，您可以更新以下[Hyperlink]({{guid}})属性：
+在为文本或形状分配超链接后，您可以更新以下[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)属性：
 
-- [tooltip]({{guid}}) 设置查看者在悬停时显示的提示文本。
-- [target_frame]({{guid}}) 指定父 HTML frameset 中的目标框架（如果适用）。
-- [history]({{guid}}) 控制激活链接时是否将其目标添加到已查看超链接列表。
-- [highlight_click]({{guid}}) 控制点击时是否高亮显示超链接。
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) 设置阅读者可显示的提示文字。
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) 指定在父 HTML 框架集中目标框架（如适用）。
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) 控制激活链接时是否将其目的地加入已查看超链接列表。
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) 控制点击时是否高亮显示超链接。
 
-## **从演示文稿中删除超链接**
+## **从演示文稿中移除超链接**
 
-使用[get_any_hyperlinks]({{guid}})收集包括文字部分链接在内的所有超链接容器，然后再对其进行修改。下面的示例从第一页同时删除点击和鼠标悬停两种激活方式。若只删除一种，请仅调用[remove_hyperlink_click]({{guid}})或[remove_hyperlink_mouse_over]({{guid}})；删除点击操作不会删除其对应的鼠标悬停操作。
+使用[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)收集包括文本段落链接在内的超链接容器，然后再对其进行更改。下面的示例从第一页移除两种激活类型。若只想移除一种类型，请仅调用[remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/)或[remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)；移除点击操作不会删除其鼠标悬停对应操作。
 
 ```python
 import aspose.slides as slides
@@ -207,23 +207,54 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-若要无条件删除，调用[remove_all_hyperlinks]({{guid}})可一次性在选定范围内删除两种激活方式。有关针对母版、版式和备注的选择性清理，请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)。
+如需无条件移除，[remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) 在一次调用中移除所选范围内的两种激活类型。若要有选择地清理并覆盖母版、布局和备注，请参阅[报告、清理并验证超链接](#report-sanitize-and-verify-hyperlinks)。
+
+### **在替换 SmartArt 文本前清除超链接**
+
+当在现有 SmartArt 节点中替换段落时，清除其文本段落可能会留下旧的超链接。通过[SmartArtNode.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/text_frame/)获取段落。清除其段落前，调用位于节点形状文本框的[hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)的[remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)以移除该框中所有超链接，包括其他段落中的链接。
+
+在 `SmartArtHyperlink.pptx` 中，第一页的第三个形状是一幅 SmartArt 图形。示例替换了其第四个节点的第一段落。该节点的第一个形状显示该段落。
+
+在添加两段后，示例使用[get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/)读取它们的有效格式。有效的[hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/iportionformateffectivedata/hyperlink_click/)属性返回第一段的新超链接，第二段返回 `None`。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("SmartArtHyperlink.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes[2]
+    node = smart_art.all_nodes[3]
+    paragraph = node.text_frame.paragraphs[0]
+
+    node.shapes[0].text_frame.hyperlink_queries.remove_all_hyperlinks()
+    paragraph.portions.clear()
+
+    link = slides.Portion("New reference")
+    link.portion_format.hyperlink_click = slides.Hyperlink("https://example.com/new")
+    paragraph.portions.add(link)
+    text = slides.Portion(" (updated)")
+    paragraph.portions.add(text)
+
+    print(link.portion_format.get_effective().hyperlink_click.external_url)  # https://example.com/new
+    print(text.portion_format.get_effective().hyperlink_click)  # None
+```
 
 ## **构建完整的超链接清单**
 
-在分发演示文稿之前，先清点其交互操作及网络链接。[get_any_hyperlinks]({{guid}})返回[IHyperlinkContainer]({{guid}})对象，而不是 URL 字符串的平面列表。检查每个容器的[hyperlink_click]({{guid}})和[hyperlink_mouse_over]({{guid}})。它们是独立的：同一容器可以同时暴露两种操作，因此完整报告每个容器可能需要两行。
+在分发演示文稿之前，清点其交互操作以及网页链接。[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 返回[IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) 对象，而不是 URL 字符串的平面列表。检查每个容器上的[hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/)和[hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/)。它们是独立的：同一容器可以同时暴露两种操作，因此完整报告需要每个容器最多两行。
 
-仅在形状层级扫描超链接会遗漏附加在文字部分的链接。请改为查询相应的范围，并保留返回的容器，以便后续更新或删除其操作。
+仅扫描形状层级的超链接可能会错过附加在文本段落上的链接。请查询适当的范围，并保留返回的容器，以便后续更新或移除其操作。
 
 ### **查询演示文稿、幻灯片和文本框范围**
 
-[HyperlinkQueries]({{guid}})类可通过[Presentation.hyperlink_queries]({{guid}})、[BaseSlide.hyperlink_queries]({{guid}})和[TextFrame.hyperlink_queries]({{guid}})访问。每个范围支持相同的查询：
+[HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) 类可通过[Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)、[BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)和[TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)访问。每个范围支持相同的查询：
 
-- [get_hyperlink_clicks]({{guid}}) 返回具有点击操作的容器。
-- [get_hyperlink_mouse_overs]({{guid}}) 返回具有鼠标悬停操作的容器。
-- [get_any_hyperlinks]({{guid}}) 返回具有任一或两种操作的容器。
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) 返回带有点击操作的容器。
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) 返回带有鼠标悬停操作的容器。
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 返回带有任意或两种操作的容器。
 
-下面的示例创建 `hyperlink-audit-input.pptx`，其中包含外部点击链接、文件鼠标悬停链接、内部幻灯片导航、文字鼠标悬停链接以及宏操作。示例不执行任何这些操作。相同的三个查询在每个范围都可使用；计数描述的是容器数量，而非操作总数。文字框范围不包括包围形状本身的链接。
+此示例为形状及其文字分配点击和鼠标悬停操作，并为另一个按钮分配宏操作。它将[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)返回的容器数量与每种激活类型的计数进行比较。文本框查询仅统计文本中的链接。包含的形状自身的操作出现在幻灯片和演示文稿查询中。
 
 ```python
 import aspose.slides as slides
@@ -257,37 +288,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-在此示例中，演示文稿和幻灯片查询各报告三个位点击容器、两个鼠标悬停容器以及三个任意操作容器。文字框查询在每个类别中报告一个容器。
+在本例中，演示文稿和幻灯片查询各报告三个点击容器、两个鼠标悬停容器以及三个任意操作容器。文本框查询在每个类别中报告一个容器。
 
-### **对操作和目标进行分类**
+### **对操作和目的地进行分类**
 
-使用[Hyperlink.action_type]({{guid}})在解析目标之前先解释操作类型。[HyperlinkActionType]({{guid}})的取值覆盖了除网页导航之外的多种情况：
+使用[Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/)在解释目的地之前先解释操作。[HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) 的取值覆盖了除网页导航之外的更多场景：
 
 | 值 | 审计含义 |
 | --- | --- |
-| `HYPERLINK` | 外部超链接；检查 URL 及其协议。 |
+| `HYPERLINK` | 外部超链接；检查 URL 及其方案。 |
 | `JUMP_SPECIFIC_SLIDE` | 跳转到特定幻灯片的内部导航。 |
 | `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | 内置幻灯片放映导航，在放映上下文中解析。 |
 | `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | 结束当前放映或启动自定义放映。 |
 | `START_MACRO` | 执行宏。 |
 | `START_PROGRAM` | 启动程序。 |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | 打开文件或其他演示文稿；需与网页 URL 分别审查。 |
-| `START_STOP_MEDIA` | 开始或停止媒体播放。 |
-| `NO_ACTION`, `UNKNOWN` | 无导航操作，或未知需要审查的操作。 |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | 打开文件或其他演示文稿；需单独审查，区别于网页 URL。 |
+| `START_STOP_MEDIA` | 启动或停止媒体播放。 |
+| `NO_ACTION`, `UNKNOWN` | 无导航操作，或需复审的未识别操作。 |
 
-从[external_url]({{guid}})读取外部目标，从[target_slide]({{guid}})读取特定内部目标。内部操作和内置命令可能没有外部 URL；空 URL 并不表示容器没有操作。当[external_url_original]({{guid}})与规范化 URL 不同时时请保留，并在可用时包含[tooltip]({{guid}})。
+通过[external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/)读取外部目的地，通过[target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/)读取特定内部目的地。内部操作和内置命令可能没有外部 URL；空 URL 并不意味着容器没有操作。若[external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) 与规范化 URL 不同，请保留原始值，并在可用时包括[tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)。
 
-### **报告、清理和验证超链接**
+### **报告、清理并验证超链接**
 
-以下 Python 示例读取已有演示文稿（使用上面创建的文件），写入 `hyperlink-audit.json`，应用策略，保存为 `hyperlink-sanitized.pptx`，并重新打开检查两种激活方式。示例在修改前收集容器，并在每个幻灯片范围只查询一次以避免重复处理。演示文稿查询覆盖普通幻灯片；若要对整个包进行清点，示例还查询普通幻灯片、母版、版式、备注以及可能存在的备注和讲义母版。
+此示例打开前述演示文稿，并为每个操作写入一条 JSON 记录。它使用[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)收集普通幻灯片、母版、布局和备注（包括备注母版和讲义母版）中的容器。为避免重复处理，每个范围查询一次，应用下述策略后重新打开保存的演示文稿以检查点击和鼠标悬停操作。
 
-报告记录基于 1 的幻灯片索引和[slide_id]({{guid}})（若可用）。收集器在每个返回的容器旁保留所属幻灯片和范围。母版、版式和备注没有普通幻灯片索引，使用其范围标识。形状容器和文字部分格式容器单独标记；其他容器类型保留其运行时类型名称。每个容器获得报告本地 ID，以便关联其两个操作。
+报告记录基于 1 的幻灯片索引和[slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/)（如有）。收集器保留所属幻灯片和范围信息。母版、布局和备注没有普通幻灯片索引，以其范围标识。形状容器和文本段落格式容器单独标记；其他容器类型保留其运行时类型名称。每个容器获得报告本地 ID，以便关联其两个操作。
 
-此限制性策略只允许绝对 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他放映操作、未知操作以及除 HTTPS 之外的 URL 方案。这些拒绝是策略决定，而非 Aspose.Slides 的安全判定。仅 HTTPS 并不意味着可信：请为您的应用添加主机白名单和其他检查。原始和规范化的外部 URL 都会被检查。示例仅审计元数据，不会跟随链接或执行操作。
+本限制性应用策略仅允许绝对 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他放映操作、未知操作以及其他 URL 方案。这些拒绝是策略决策，不代表 Aspose.Slides 的安全性判断。仅 HTTPS 并不等同于信任：请为您的应用添加主机白名单和其他检查。原始和规范化的外部 URL 都会被检查。示例在不跟随链接或执行操作的情况下审计元数据。
 
-若需整改，容器的[hyperlink_manager]({{guid}})支持[set_external_hyperlink_click]({{guid}})、[remove_hyperlink_click]({{guid}})和[remove_hyperlink_mouse_over]({{guid}})。在此示例中，受限的外部点击链接被替换为固定的 HTTPS 登录页；其他受限的点击和受限的鼠标悬停操作分别被删除。将 `replace_external_clicks` 设置为 `False` 可删除所有策略违规项。请在部署前选择由应用拥有的替代页面。
+若需修复，容器的[hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) 支持[set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)、[remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/)以及[remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)。这里，将被禁止的外部点击链接替换为固定的 HTTPS 着陆页；其他被禁止的点击和鼠标悬停操作则独立移除。将 `replace_external_clicks` 设置为 `False` 可删除所有策略违规项。请在部署前选择由应用拥有的替换页面。
 
-报告的导出标记使用保守的 PDF 审查策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转外的任何操作标记为可能不受支持。这是一种审查提示，而非功能测试或对未标记链接在导出后仍可用的保证。受支持的[PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/python-net/convert-powerpoint-to-html/)导出可能会保留超链接，具体取决于操作、导出选项和查看器。栅格[图像](/slides/zh/python-net/convert-powerpoint-to-png/)和[视频](/slides/zh/python-net/convert-powerpoint-to-video/)无法保留交互式超链接；在审计这些输出时请标记每个操作。
+报告的导出标记采用保守的 PDF 审核策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转之外的任何操作标记为可能不受支持。这是审阅提示，而非功能测试或对未标记链接在导出后仍能存活的保证。受支持的[PDF](/slides/zh/python-net/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/python-net/convert-powerpoint-to-html/) 导出可能会保留超链接，取决于操作、导出选项和查看器。光栅[图片](/slides/zh/python-net/convert-powerpoint-to-png/)和[视频](/slides/zh/python-net/convert-powerpoint-to-video/) 则无法保留交互式超链接；在对这些输出进行审计时请标记每个操作。
 
 ```python
 import json
@@ -330,7 +361,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # 查询每个幻灯片范围一次，并保留其拥有者与每个容器关联。
+    # 查询每个幻灯片范围一次，并保留每个容器的所有者。
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -417,20 +448,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-使用上述输入，报告包含五行操作。文件鼠标悬停链接和宏点击被删除，HTTPS 链接和内部幻灯片导航保留。验证阶段打印零个违规操作。包含受限外部点击 URL 的输入还会触发替换分支。一个允许的点击加上受限的鼠标悬停会保留其点击操作。
+使用上述输入创建的报告包含五行操作。文件鼠标悬停链接和宏点击被移除，而 HTTPS 链接和内部幻灯片导航保留。验证输出零个违规操作。包含被禁止外部点击 URL 的输入还演示了替换分支。一个容器具有允许的点击和被禁止的鼠标悬停时，仅保留其点击操作。
 
-此选择性清理不同于[remove_all_hyperlinks]({{guid}})，后者在选定范围内无论策略如何都移除两种激活方式。此处的验证仅检查超链接操作，不会删除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不对导出的 PDF 或 HTML 文件进行验证。
+此选择性清理不同于[remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)，后者在所选范围内不考虑策略，移除两种激活类型。此处的验证仅检查超链接操作；它不会移除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不验证导出的 PDF 或 HTML 文件。
 
 ## **常见问题**
 
-**如何链接到某个分节或其第一张幻灯片？**
+**如何链接到某个章节或其第一张幻灯片？**
 
-PowerPoint 中的分节用于分组幻灯片，但内部超链接只能定位到单个幻灯片。若要实现分节导航，请链接到该分节的第一张幻灯片。
+PowerPoint 中的章节将幻灯片分组，但内部超链接只能定位到单个幻灯片。若要实现章节导航，请链接到该章节的第一张幻灯片。
 
-**我可以将超链接附加到母版幻灯片元素，使其在所有幻灯片上工作吗？**
+**我可以将超链接附加到母版幻灯片元素，使其在所有幻灯片上都有效吗？**
 
-可以。母版幻灯片和版式元素都支持超链接。使用相应母版或版式的幻灯片在放映时会保留这些链接。
+可以。母版幻灯片和布局元素支持超链接。这些元素上的链接在使用相应母版或布局的幻灯片放映期间可用。
 
-**导出为 PDF、HTML、图像或视频时，超链接会被保留吗？**
+**导出为 PDF、HTML、图片或视频时会保留超链接吗？**
 
-支持的 PDF 和 HTML 导出可能会保留超链接；栅格图像和视频则不能保留交互式超链接。请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)中的导出注意事项。
+受支持的 PDF 和 HTML 导出可能会保留超链接；光栅图片和视频则不能。请参阅[报告、清理并验证超链接](#report-sanitize-and-verify-hyperlinks)中的导出注意事项。

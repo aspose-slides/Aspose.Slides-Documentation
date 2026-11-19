@@ -1,51 +1,52 @@
 ---
-title: إدارة ارتباطات العرض التقديمي في JavaScript
-linktitle: إدارة الارتباطات التشعبية
+title: إدارة الروابط التشعبية للعرض التقديمي في JavaScript
+linktitle: إدارة الروابط التشعبية
 type: docs
 weight: 20
 url: /ar/nodejs-java/manage-hyperlinks/
 keywords:
 - إضافة URL
-- إضافة ارتباط تشعبي
-- إنشاء ارتباط تشعبي
-- تنسيق الارتباط التشعبي
-- إزالة الارتباط التشعبي
-- تحديث الارتباط التشعبي
-- ارتباط تشعبي للنص
-- ارتباط تشعبي للشريحة
-- ارتباط تشعبي للشكل
-- ارتباط تشعبي للصورة
-- ارتباط تشعبي للفيديو
-- ارتباط تشعبي قابل للتعديل
+- إضافة رابط تشعبي
+- إنشاء رابط تشعبي
+- تنسيق رابط تشعبي
+- إزالة رابط تشعبي
+- تحديث رابط تشعبي
+- رابط تشعبي للنص
+- رابط تشعبي للشرائح
+- رابط تشعبي للشكل
+- رابط تشعبي للصورة
+- رابط تشعبي للفيديو
+- رابط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إضافة، تنسيق، تحديث وإزالة الارتباطات التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java، باستخدام أمثلة JavaScript."
+description: "إضافة وتنسيق وتحديث وإزالة الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java، مع أمثلة JavaScript."
 ---
 ## **المقدمة**
 
-يربط الارتباط التشعبي محتوى العرض التقديمي بموقع ويب أو موقع داخل العرض التقديمي. في PowerPoint، يُستخدم الارتباطات التشعبية عادةً لغرضين:
-* فتح موقع ويب من النص أو الشكل أو إطار الوسائط.
-* الانتقال إلى شريحة أخرى، على سبيل المثال، من جدول المحتويات.
+يُربط الرابط التشعبي محتوى العرض التقديمي بموقع ويب أو بموقع داخل العرض التقديمي. في PowerPoint، عادةً ما تخدم الروابط التشعبية هدفين:
 
-يسمح Aspose.Slides for Node.js via Java لك بإضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. تُظهر الأمثلة أدناه كيفية التعامل مع الارتباطات التشعبية على العناصر الفردية وكيفية الوصول إلى الارتباطات التشعبية على مستوى العرض التقديمي أو الشريحة أو إطار النص.
+* فتح موقع ويب من النص أو الشكل أو إطار وسائط.
+* الانتقال إلى شريحة أخرى، على سبيل المثال من جدول المحتويات.
+
+يتيح لك Aspose.Slides for Node.js عبر Java إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. تُظهر الأمثلة أدناه كيفية العمل مع الروابط التشعبية على العناصر الفردية وكيفية الوصول إلى الروابط التشعبية على مستوى العرض التقديمي أو الشريحة أو إطار النص.
 
 {{% alert color="info" title="Note" %}}
-يمكنك أيضًا تعديل العروض التقديمية باستخدام [محرر Aspose PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+يمكنك أيضاً تحرير العروض التقديمية باستخدام [محرر Aspose PowerPoint المجاني على الإنترنت](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **إضافة ارتباطات URL**
+## **إضافة روابط URL**
 
-يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط التشعبي يحدّد المنطقة القابلة للنقر: ربط جزء النص يربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
+يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الرابط التشعيبي يحدد المنطقة القابلة للنقر: يربط جزء النص النص المحدد، بينما يربط الشكل أو الإطار كائن الشريحة.
 
-للعروض التقديمية التي تحتوي على ارتباطات تشعبية نسبية، راجع [إدارة قاعدة الارتباط التشعبي](/slides/ar/nodejs-java/presentation-properties/#manage-the-hyperlink-base) للقراءة أو التغيير أو مسح القاعدة على مستوى المستند.
+للعروض التقديمية التي تحتوي على روابط تشعبية نسبية، راجع [إدارة قاعدة الرابط التشعبي](/slides/ar/nodejs-java/presentation-properties/#manage-the-hyperlink-base) للقراءة أو التعديل أو مسح القاعدة على مستوى المستند.
 
-### **إضافة ارتباطات URL إلى النص**
+### **إضافة روابط URL إلى النص**
 
-لربط النص بموقع إلكتروني، مرّر كائن [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) إلى طريقة [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) لجزء النص، كما هو موضح أدناه. يصبح هذا الجزء فقط من النص قابلًا للنقر.
+لربط النص بموقع ويب، مرّر كائن [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) إلى طريقة [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) لجزء النص، كما هو موضح أدناه. سيصبح فقط ذلك الجزء من النص قابلًا للنقر.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -65,13 +66,9 @@ try {
 }
 ```
 
-### **إضافة ارتباطات URL إلى الأشكال وإطارات الوسائط**
+### **إضافة روابط URL إلى الأشكال وإطارات الوسائط**
 
-لجعل الشكل أو الإطار قابلًا للنقر، استدعِ طريقة [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) الخاصة به. ينتمي الارتباط التشعبي إلى الكائن نفسه بدلاً من جزء نص داخله.
-
-ينطبق النهج نفسه على إطارات الصورة والصوت والفيديو: عيّن الارتباط التشعبي للإطار واستدعِ [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) إذا لزم الأمر.
-
-المثال التالي يجعل المستطيل قابلًا للنقر:
+استدعِ طريقة [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) على المستطيل لجعل كامل مساحته قابلة للنقر. استخدم [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) لعرض تلميح للقراء حول الوجهة عندما يمرّون فوق المستطيل. تُطبق كلتا الطريقتين أيضًا على إطارات الصور والصوت والفيديو.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -89,9 +86,9 @@ try {
 }
 ```
 
-## **استخدام الارتباطات التشعبية لإنشاء جدول محتويات**
+## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
 
-تسمح الارتباطات التشعبية الداخلية للقراء بالتنقل من جدول المحتويات إلى شريحة محددة. يستخدم المثال التالي طريقة [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) لربط نص "Page 2" في الشريحة الأولى بالشريحة الثانية.
+يُستخدم المثال التالي طريقة [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) لربط نص "Page 2" في الشريحة الأولى بالشريحة الثانية.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -125,13 +122,15 @@ try {
 }
 ```
 
-## **تنسيق الارتباطات التشعبية**
+## **تنسيق الروابط التشعبية**
+
+يمكنك تغيير لون النص المرتبط، تشغيل أو إيقاف صوت عند تفعيل القارئ للرابط، وتعيين تلميح الأدوات الذي يظهر عند المرور.
 
 ### **اللون**
 
-طريقة [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) لكائن [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) تحدد ما إذا كان الارتباط التشعبي يستخدم لون الارتباط التشعبي في العرض التقديمي أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) وعيّن لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات القديمة لا تطبق هذا الإعداد.
+تحدد طريقة [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) لكائن [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) ما إذا كان الرابط التشعيبي يستخدم لون الروابط التشعبية في العرض التقديمي أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) وعيّن لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات القديمة لا تطبق هذا الإعداد.
 
-المثال التالي يضيف ارتباطي نص إلى نفس الشريحة. الأول يستخدم تعبئة نص حمراء، بينما الثاني يحتفظ بلون الارتباط التشعبي الافتراضي.
+في هذا المثال، تجعل طريقة [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) الرابط الأول يستخدم تعبئة حمراء لجزء النص. الرابط الثاني يحتفظ بلون الروابط التشعبية في العرض التقديمي.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -156,15 +155,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **الصوت**
 
-يمكن للارتباط التشعبي تشغيل صوت عند التنشيط أو إيقاف صوت يتم تشغيله بالفعل. استخدم الطرق التالية لتكوين هذه السلوكيات:
-- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) يحدد الصوت المرتبط بالارتباط التشعبي.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) يتحكم فيما إذا كان تنشيط الارتباط التشعبي يوقف الصوت السابق.
+يمكن للرابط التشعيبي تشغيل صوت عند تفعيله أو إيقاف صوت يتم تشغيله بالفعل. استخدم الطرق التالية لتكوين هذه السلوكيات:
 
-#### **إضافة صوت للارتباط التشعبي**
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) يحدد ملف الصوت المرتبط بالرابط التشعيبي.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) يتحكم فيما إذا كان تفعيل الرابط التشعيبي يوقف الصوت السابق.
 
-المثال التالي يحمل `sampleaudio.wav` ويربطه بزر في الشريحة الأولى. النقر على الزر يشغل الصوت وينتقل إلى الشريحة التالية. الشكل الثاني في نفس الشريحة يوقف الصوت السابق عند النقر، دون تنفيذ إجراء تنقل.
+#### **إضافة صوت للرابط التشعيبي**
+
+يستخدم الزر في الشريحة الأولى طريقة [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) لتشغيل الصوت من `sampleaudio.wav` عندما ينقر القارئ للتقدم. في الشريحة الثانية، يستخدم زر منفصل طريقة [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) لإيقاف التشغيل وإبقاء القارئ على تلك الشريحة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -203,9 +204,9 @@ try {
 }
 ```
 
-#### **استخراج صوت الارتباط التشعبي**
+#### **استخراج صوت الرابط التشعيبي**
 
-المثال التالي يفتح العرض التقديمي الذي تم إنشاؤه أعلاه ويقرأ صوت الارتباط التشعبي للشكل الأول إلى الذاكرة عبر [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) و[getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
+يفتح المثال التالي العرض التقديمي الذي تم إنشاؤه أعلاه ويقرأ الصوت المرتبط بالرابط التشعبي للشكل الأول إلى الذاكرة عبر [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) و [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -229,17 +230,18 @@ try {
 }
 ```
 
-### **الإعدادات المتعلقة بأدوات التلميح والتفاعل**
+### **إعدادات تلميح الأدوات والتفاعل**
 
-يمكنك استدعاء طرق [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) التالية بعد تعيين ارتباط تشعبي إلى نص أو شكل:
-- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) يحدد النص الذي يمكن للعارض عرضه كتلميح للارتباط.
-- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) يحدد إطار الهدف داخل مجموعة إطارات HTML الأبوية، عند الاقتضاء.
-- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) يتحكم فيما إذا كان تنشيط الرابط يضيف وجهته إلى قائمة الارتباطات المشاهدة.
-- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) يتحكم فيما إذا كان الارتباط التشعبي يُبرز عندما يُنقر.
+يمكنك استدعاء طرق [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) التالية بعد تعيين رابط تشعبي للنص أو الشكل:
 
-## **إزالة الارتباطات التشعبية من العروض التقديمية**
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) يضبط النص الذي يمكن للمشاهد عرضه كتلميح للرابط.
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) يحدد إطار الهدف داخل مجموعة إطارات HTML الأصلية، إذا كان ذلك قابلًا للتطبيق.
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) يتحكم فيما إذا كان تفعيل الرابط يضيف هدفه إلى قائمة الروابط المشاهدة.
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) يتحكم فيما إذا كان يتم تمييز الرابط عند النقر.
 
-استخدم [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) لجمع حاويات الارتباط التشعبي، بما في ذلك روابط أجزاء النص، قبل تعديلها. المثال التالي يزيل كلا نوعي التنشيط من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ فقط [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) أو [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver)؛ إزالة إجراء النقر لا يزيل نظيره عند مرور الفأرة.
+## **إزالة الروابط التشعبية من العروض التقديمية**
+
+استخدم طريقة [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) لجمع حاويات الروابط التشعبية، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التفعيل من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ إما [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) أو [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); إزالة إجراء النقر لا يزيل نظره عند المرور.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -265,22 +267,58 @@ try {
 }
 ```
 
-لإزالة غير مشروطة، [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) يزيل كلا نوعي التنشيط في النطاق المحدد في مكالمة واحدة. للتنظيف الانتقائي وتغطية الماسترز، التخطيطات، والملاحظات، راجع [تقرير، تنقية، والتحقق من الارتباطات التشعبية](#report-sanitize-and-verify-hyperlinks).
+للحذف غير المشروط، تقوم طريقة [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) بإزالة كلا نوعي التفعيل في النطاق المحدد بنداء واحد. للتنظيف الانتقائي وتغطية الرؤوس، التخطيطات، والملاحظات، راجع [تقرير، تنقية، والتحقق من الروابط التشعبية](#report-sanitize-and-verify-hyperlinks).
 
-## **إنشاء جرد كامل للارتباطات التشعبية**
+### **مسح الروابط التشعبية قبل استبدال نص SmartArt**
 
-قبل توزيع عرض تقديمي، قم بجرد إجراءات التفاعل بالإضافة إلى روابط الويب. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) يُرجع حاويات الارتباط التشعبي، وليس قائمة مسطحة من سلاسل URL. افحص كلًا من [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) و[getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الإجراءين، لذا يحتاج التقرير الكامل إلى صفّين كحد أقصى لكل حاوية.
+عند استبدال فقرة في عقدة SmartArt موجودة، قد يؤدي مسح أجزاء النص إلى ترك رابط قديم ساري. استخرج الفقرة عبر [SmartArtNode.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getTextFrame). قبل مسح أجزائها، استدعِ [getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) على إطار النص لشكل العقدة الذي يعرض الفقرة، ثم استدعِ [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) على الكائن المرجع. سيزيل ذلك كل الروابط التشعبية في ذلك الإطار، بما في ذلك الروابط في فقراته الأخرى.
 
-فحص الارتباطات على مستوى الشكل فقط قد يفوت الروابط المرفقة بأجزاء النص. استعلم عن النطاق المناسب بدلًا من ذلك، واحتفظ بالحاويات المرجعة لتتمكن لاحقًا من تحديثها أو إزالة إجراءاتها.
+يفترض المثال أن الشكل الثالث في الشريحة الأولى من `SmartArtHyperlink.pptx` هو رسم SmartArt. يستبدل الفقرة الأولى من العقدة الرابعة. في هذا العرض التقديمي، يعرض الشكل الأول للعقدة تلك الفقرة.
 
-### **استعلام نطاقات العرض التقديمي، الشريحة، وإطار النص**
+بعد إضافة كلا الجزئين، يقرأ المثال تنسيقهما الفعلي باستخدام [getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#getEffective). في ذلك التنسيق، تُعيد `getHyperlinkClick` الرابط التشعيبي الجديد للجزء الأول وتُعيد `null` للثاني.
 
-فئة [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) متاحة عبر [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries)، [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries)، و[TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). كل نطاق يدعم نفس الاستعلامات:
-- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) يُرجع الحاويات التي تحتوي على إجراء نقرة.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) يُرجع الحاويات التي تحتوي على إجراء مرور الفأرة.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) يُرجع الحاويات التي تحتوي على أي من الإجراءين أو كلاهما.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-المثال التالي ينشئ `hyperlink-audit-input.pptx` مع رابط نقرة خارجي، رابط ملف عند مرور الفأرة، تنقل داخلي بين الشرائح، رابط نص عند مرور الفأرة، وإجراء ماكرو. لا ينفّذ أيًا من هذه الإجراءات. الاستعلامات الثلاث نفسها تعمل في كل نطاق؛ العدّات تصف الحاويات، وليس إجمالي الإجراءات. نطاق إطار النص يستثني روابط الشكل المحيط نفسها.
+const presentation = new aspose.slides.Presentation("SmartArtHyperlink.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const smartArt = slide.getShapes().get_Item(2);
+    const node = smartArt.getAllNodes().get_Item(3);
+    const paragraph = node.getTextFrame().getParagraphs().get_Item(0);
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks();
+    paragraph.getPortions().clear();
+
+    const link = new aspose.slides.Portion("New reference");
+    link.getPortionFormat().setHyperlinkClick(new aspose.slides.Hyperlink("https://example.com/new"));
+    paragraph.getPortions().add(link);
+    const text = new aspose.slides.Portion(" (updated)");
+    paragraph.getPortions().add(text);
+
+    console.log(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl()); // https://example.com/new
+    console.log(text.getPortionFormat().getEffective().getHyperlinkClick()); // null
+} finally {
+    presentation.dispose();
+}
+```
+
+## **بناء جرد كامل للروابط التشعبية**
+
+قبل توزيع عرض تقديمي، قم بجرد إجراءات التفاعل وروابط الويب الخاصة به. تُعيد طريقة [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) حاويات الروابط التشعبية، وليس قائمة مسطحة من سلاسل URL. تفحص كلًا من [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الإجراءين، لذا يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
+
+قد يؤدي فحص الروابط التشعبية على مستوى الشكل فقط إلى فقدان الروابط المرفقة بأجزاء النص. استعلم عن النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات المرجعة لكي تتمكن لاحقًا من تحديث أو إزالة إجراءاتها.
+
+### **استعلام عن نطاقات العرض التقديمي، الشريحة، وإطار النص**
+
+فئة [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) متوفرة عبر [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries)، [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries)، و[TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). كل نطاق يدعم نفس الاستعلامات:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) تُعيد الحاويات التي تحتوي على إجراء نقر.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) تُعيد الحاويات التي تحتوي على إجراء تمرير الفأرة.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) تُعيد الحاويات التي تحتوي على أيٍ من الإجراءين أو كلاهما.
+
+يعين هذا المثال إجراءات النقر والتمرير إلى شكل ونصه، وإجراء ماكرو إلى زر منفصل. يقارن عدد الحاويات التي تُعيدها طريقة [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) مع عدد الحاويات لكل نوع تفعيل. يُحسب استعلام إطار النص الروابط الموجودة في النص فقط. تظهر إجراءات الشكل المحيط في استعلامات الشريحة والعرض التقديمي.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -317,37 +355,37 @@ try {
 }
 ```
 
-في هذا المثال، استعلامات العرض التقديمي والشريحة كل منها يُبلغ عن ثلاث حاويات نقرة، حاويتين لمرور الفأرة، وثلاث حاويات لأي من الإجراءين. استعلام إطار النص يُبلغ عن حاوية واحدة في كل فئة.
+في هذا المثال، يُبلغ استعلاما العرض التقديمي والشريحة عن ثلاث حاويات نقر، وحاويتين تمرير، وثلاث حاويات تحتوي على أيٍ من الإجراءين. يُبلغ استعلام إطار النص عن حاوية واحدة في كل فئة.
 
 ### **تصنيف الإجراءات والوجهات**
 
-استخدم [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) لتفسير إجراء قبل تفسير وجهته. قيم [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) تغطي أكثر من تنقل الويب:
+استخدم طريقة [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) لتفسير إجراء قبل تفسير وجهته. قيم [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) تغطي أكثر من تنقل ويب:
 
-| القيم | المعنى في التدقيق |
+| القيم | المعنى للتدقيق |
 | --- | --- |
-| `Hyperlink` | ارتباط تشعبي خارجي؛ افحص عنوان URL ومخططه. |
+| `Hyperlink` | رابط تشعبي خارجي؛ افحص عنوان URL ومخططه. |
 | `JumpSpecificSlide` | تنقل داخلي إلى شريحة معينة. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُفسّر في سياق عرض الشرائح. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُحل في سياق عرض الشرائح. |
 | `JumpEndShow`, `StartCustomSlideShow` | إنهاء العرض الحالي أو بدء عرض مخصص. |
 | `StartMacro` | تنفيذ ماكرو. |
 | `StartProgram` | تشغيل برنامج. |
 | `OpenFile`, `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ راجعها منفصلًا عن عناوين URL الويب. |
-| `StartStopMedia` | بدء أو إيقاف تشغيل الوسائط. |
+| `StartStopMedia` | بدء أو إيقاف تشغيل وسائط. |
 | `NoAction`, `Unknown` | لا إجراء تنقل، أو إجراء غير معروف يتطلب مراجعة. |
 
-اقرأ الوجهات الخارجية من [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) والوجهات الداخلية المحددة من [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). قد لا تحتوي الإجراءات الداخلية أو الأوامر المدمجة على URL خارجي؛ URL فارغ لا يعني أن الحاوية لا تحتوي على إجراء. حافظ على القيمة التي تُرجعها [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) عندما تختلف عن URL المُعَدل، وتضمن أداة التلميح التي تُرجعها [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) عندما تكون متاحة.
+اقرأ الوجهات الخارجية من [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) والوجهات الداخلية المحددة من [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). قد لا تحتوي الإجراءات الداخلية والأوامر المدمجة على عنوان URL خارجي؛ عنوان URL فارغ لا يعني أن الحاوية لا تحتوي على إجراء. احفظ القيمة التي تُعيدها طريقة [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) عندما تختلف عن عنوان URL المُطبع، وشمل تلميح الأدوات الذي تُعيده طريقة [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) إذا كان متاحًا.
 
-### **تقرير، تنقية، والتحقق من الارتباطات التشعبية**
+### **تقرير، تنقية، والتحقق من الروابط التشعبية**
 
-المثال التالي بلغة JavaScript يقرأ عرضًا تقديميًا موجودًا (استخدم الملف الذي تم إنشاؤه أعلاه)، يكتب `hyperlink-audit.json`، يطبق سياسة، يحفظ `hyperlink-sanitized.pptx`، ويعيد فتحه للتحقق من كلا نوعي التنشيط مرة أخرى. يجمع الحاويات قبل تعديلها ويستخدم مساواة المراجع لتجنب معالجة نفس الحاوية مرتين. تغطي استعلامات العرض الشرائح العادية؛ لإنشاء جرد على مستوى الحزمة، يتم أيضًا استعلام الماسترز، التخطيطات، الملاحظات، وماسترز الملاحظات والنسخ عندما تكون موجودة.
+يفتح هذا المثال العرض التقديمي من المثال السابق ويكتب سجل JSON واحد لكل إجراء. يستخدم [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) لجمع الحاويات في الشرائح العادية، والرؤوس، والتخطيطات، والملاحظات، بما في ذلك رؤوس الملاحظات والنُسخ عندما تكون موجودة. يستخدم مساواة المراجع لحساب كل حاوية مرة واحدة، يطبق السياسة الموصوفة أدناه، ويعيد فتح العرض الم保存 للتحقق من إجراءات النقر والتمرير.
 
-يسجل التقرير فهرس الشريحة بقاعدة 1 و[getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) إن توفّر. [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) يوفر الشريحة المالكة للحاويات المدعومة. الماسترز، التخطيطات، والملاحظات لا تحتوي على فهرس شريحة عادي وتُحدد بنطاقها. تُسمّى حاويات الشكل وحاويات تنسيق جزء النص بشكل منفصل؛ الأنواع الأخرى تحتفظ باسم نوع الruntime الخاص بها. يُعطى كل حاوية معرف تقرير محلي لتربط إجراءيها. يخزن التقرير أنواع الإجراءات كقيم عددية ثابتة معرفّة بواسطة تعداد HyperlinkActionType.
+يسجل التقرير فهرس الشريحة بدءًا من الواحد بواسطة [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) حيث يتوفر. تُوفر طريقة [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) الشريحة المالكة للحاويات المدعومة. لا تحتوي الرؤوس، التخطيطات، والملاحظات على فهرس شريحة عادي وتُحدد بنطاقها. تُصنف حاويات الشكل وحاويات تنسيق جزء النص بشكل منفصل؛ تحتفظ الأنواع الأخرى بأسمائها في وقت التشغيل. يحصل كل حاوية على معرف محلي في التقرير لتتبع إجراءاتها الاثنين. يخزن التقرير أنواع الإجراءات كقواميس عددية معرفة في تعداد HyperlinkActionType.
 
-تسمح هذه السياسة المقيدة عمدًا فقط بـ URLs HTTPS مطلقة ووجهات شرائح داخلية صالحة. تُرفض الماكروهات، البرامج، إجراءات الملفات، إجراءات عرض الشرائح الأخرى، الإجراءات غير المعروفة، ومخططات URL الأخرى. هذه الرفض قرارات سياسات، ليس حكم أمان Aspose.Slides. HTTPS وحده لا يُنشئ الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. يُفحص كل من URL الخارجي الأصلي والمُعَدل. يراجع المثال بيانات التعريف دون اتباع الروابط أو تشغيل الإجراءات.
+تسمح هذه السياسة التطبيقية المتعمدة الصارمة فقط بعناوين URL مطلقة عبر HTTPS وهدف شريحة داخلية صالح. ترفض الماكروز، البرامج، إجراءات الملفات، إجراءات الشرائح الأخرى، الإجراءات غير المعروفة، ومخططات URL الأخرى. هذه الرفضات هي قرارات سياسات، ليست حكمًا على أمان Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. يُفحص كل من عناوين URL الأصلية والمُطبع. يقوم المثال بتدقيق البيانات الوصفية دون اتباع الروابط أو تشغيل الإجراءات.
 
-لتصحيح الأخطاء، يدعم [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) الخاص بالحاوية [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick)، [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick)، و[removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). هنا، تُستبدل روابط النقر الخارجية غير المسموح بها بصفحة هبوط HTTPS ثابتة؛ تُزال النقرات وما فوق الفأرة غير المسموح بها بشكل مستقل. ضع `replaceExternalClicks` على `false` لإزالة جميع الانتهاكات السياسية بدلاً من ذلك. اختر صفحة استبدال مملوكة للتطبيق قبل النشر.
+للتصحيح، يدعم مدير الرابط التشعبي في الحاوية [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) الطرق [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick), و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). هنا، تُستبدل الروابط الخارجية الممنوعة بصفحة هبوط HTTPS ثابتة؛ وتُزال النقرات الممنوعة الأخرى وإجراءات التمرير الممنوعة بشكل مستقل. اضبط المتغيّر `replaceExternalClicks` إلى `false` لإزالة جميع مخالفات السياسة بدلاً من ذلك. اختر صفحة بديلة مملوكة للتطبيق قبل النشر.
 
-علم تصدير التقرير يستخدم سياسة مراجعة PDF متحفظة: يتم وضع علامة على إجراءات مرور الفأرة وأي شيء غير رابط خارجي أو قفزة إلى شريحة محددة كـ "قد لا يكون مدعومًا". إنها إشارة مراجعة، ليست اختبار قدرة أو ضمان بقاء الروابط غير المعلَّمّة بعد التصدير. قد تحافظ الصادرات المدعومة من [PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/nodejs-java/convert-powerpoint-to-html/) على الارتباطات التشعبية، حسب الإجراء، خيارات التصدير، والعارض. لا يمكن للصور النقطية [images](/slides/ar/nodejs-java/convert-powerpoint-to-png/) والفيديو [video](/slides/ar/nodejs-java/convert-powerpoint-to-video/) الحفاظ على الارتباطات التشعبية؛ ضع علامة على كل إجراء عند التدقيق لهذه المخرجات.
+تستخدم علم تصدير التقرير سياسة مراجعة PDF محافظة: يتم تعليم إجراءات التمرير وأي شيء آخر غير رابط خارجي أو قفزة شريحة محددة على أنه قد لا يكون مدعومًا. هذه مجرد إشارة مراجعة، ليست اختبار قدرة أو ضمان بأن الروابط غير الموسومة ستبقى عند التصدير. قد تحافظ صادرات [PDF](/slides/ar/nodejs-java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/nodejs-java/convert-powerpoint-to-html/) المدعومة على الروابط التشعبية، بناءً على الإجراء، خيارات التصدير، والمستعرض. لا يمكن للـ[صور](/slides/ar/nodejs-java/convert-powerpoint-to-png/) و[فيديو](/slides/ar/nodejs-java/convert-powerpoint-to-video/) النقطية الحفاظ على الروابط التشعبية التفاعلية؛ علّم كل إجراء عند التدقيق لتلك المخرجات.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -495,20 +533,20 @@ try {
 }
 ```
 
-مع الإدخال الذي تم إنشاؤه أعلاه، يحتوي التقرير على خمس صفوف إجراءات. يُزال رابط ملف المرور الفأرة والماكرو النقر، بينما تُحافظ روابط HTTPS والتنقل بين الشرائح الداخلية. تُطبع عملية التحقق صفر إجراءات ممنوعة. إدخال يحتوي على رابط نقر خارجي ممنوع يختبر مسار الاستبدال. حاوية ذات نقرة مسموح بها ومرور فأرة ممنوع تحتفظ بإجراء النقر الخاص بها.
+مع الإدخال الذي تم إنشاؤه أعلاه، يحتوي التقرير على خمسة صفوف إجراءات. تم إزالة رابط التمرير على الملف ونقر الماكرو، بينما تبقت روابط HTTPS والتنقل الداخلي بين الشرائح. تُظهر عملية التحقق عدم وجود إجراءات ممنوعة. يُظهر إدخال يحتوي على رابط نقر خارجي ممنوع أيضًا فرع الاستبدال. تحتفظ حاوية ذات نقر مسموح به وتمرير ممنوع بإجراء النقر الخاص بها.
 
-هذا التنظيف الانتقائي يختلف عن [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks)، الذي يزيل كلا نوعي التنشيط في النطاق المحدد بغض النظر عن السياسة. التحقق هنا يفحص إجراءات الارتباط التشعبي فقط؛ لا يزيل مشاريع VBA المدمجة، كائنات OLE، أو محتوى نشط آخر، ولا يتحقق من ملف PDF أو HTML المُصدّر.
+يختلف هذا التنظيف الانتقائي عن طريقة [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) التي تُزيل كلا نوعي التفعيل في النطاق المحدد بغض النظر عن السياسة. تتحقق عملية التحقق هنا من إجراءات الروابط التشعبية فقط؛ لا تُزيل مشاريع VBA المدمجة، كائنات OLE، أو أي محتوى نشط آخر، ولا تتحقق من صحة ملف PDF أو HTML المُصدر.
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني الربط إلى قسم أو أول شريحة له؟**
+**كيف يمكنني الربط بقسم أو الشريحة الأولى له؟**
 
-تُجَمّع الأقسام في PowerPoint الشرائح، لكن الارتباط التشعبي الداخلي يستهدف شريحة فردية. لإنشاء تنقل إلى قسم، اربط إلى أول شريحة في ذلك القسم.
+تقسّم الأقسام في PowerPoint الشرائح، لكن الرابط التشعبي الداخلي يستهدف شريحة فردية. لإنشاء تنقل إلى قسم، اربط إلى الشريحة الأولى في ذلك القسم.
 
-**هل يمكنني إرفاق ارتباط تشعبي إلى عناصر الشريحة الرئيسية ليعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق رابط تشعبي لعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
 
-نعم. تدعم عناصر الشريحة الرئيسية والتخطيط الارتباطات التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح على الشرائح التي تستخدم الماستر أو التخطيط المقابل.
+نعم. تدعم عناصر الشريحة الرئيسية والتخطيط الروابط التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح على الشرائح التي تستخدم الشريحة الرئيسية أو التخطيط المقابل.
 
-**هل سيتم الحفاظ على الارتباطات التشعبية عند تصدير إلى PDF أو HTML أو صور أو فيديو؟**
+**هل سيتم الحفاظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
 
-قد تحافظ صادرات PDF وHTML المدعومة على الارتباطات التشعبية؛ لا يمكن للصور النقطية أو الفيديو حفظ الارتباطات التشعبية. راجع اعتبارات التصدير في [تقرير، تنقية، والتحقق من الارتباطات التشعبية](#report-sanitize-and-verify-hyperlinks).
+قد تحافظ صادرات PDF وHTML المدعومة على الروابط التشعبية؛ لا يمكن للصور النقطية والفيديو ذلك. راجع اعتبارات التصدير في [تقرير، تنقية، والتحقق من الروابط التشعبية](#report-sanitize-and-verify-hyperlinks).

@@ -26,26 +26,26 @@ description: "Adicionar, formatar, atualizar e remover hiperlinks em apresentaç
 ---
 ## **Introdução**
 
-Um hiperlink conecta o conteúdo de uma apresentação a um site ou a uma localização dentro da apresentação. No PowerPoint, os hiperlinks normalmente atendem a dois propósitos:
+Um hiperlink conecta o conteúdo da apresentação a um site ou a um local dentro da apresentação. No PowerPoint, os hiperlinks geralmente atendem a dois propósitos:
 
-* Abrir um site a partir de texto, forma ou estrutura de mídia.
+* Abrir um site a partir de texto, forma ou quadro de mídia.
 * Navegar para outro slide, por exemplo, a partir de um índice.
 
-Aspose.Slides for C++ permite que você adicione esses links, controle sua aparência e som, atualize suas configurações e os remova. Os exemplos a seguir mostram como trabalhar com hiperlinks em elementos individuais e como acessar hiperlinks no nível da apresentação, slide ou caixa de texto.
+Aspose.Slides para C++ permite adicionar esses links, controlar sua aparência e som, atualizar suas configurações e removê-los. Os exemplos abaixo mostram como trabalhar com hiperlinks em elementos individuais e como acessar hiperlinks no nível de apresentação, slide ou quadro de texto.
 
 {{% alert color="info" title="Note" %}}
-Você também pode editar apresentações com o [editor online gratuito do Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Você também pode editar apresentações com o [editor gratuito online de PowerPoint da Aspose](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
 ## **Adicionar Hiperlinks de URL**
 
-Você pode atribuir um URL de site a texto, forma ou estrutura de mídia. O elemento ao qual você atribui o hiperlink determina a área clicável: uma porção de texto vincula o texto selecionado, enquanto uma forma ou estrutura vincula o objeto do slide.
+Você pode atribuir um URL de site a texto, forma ou quadro de mídia. O elemento ao qual você atribui o hiperlink determina a área clicável: uma parte de texto vincula o texto selecionado, enquanto uma forma ou quadro vincula o objeto do slide.
 
-Para apresentações que contêm hiperlinks relativos, consulte [Gerenciar a Base de Hiperlink](/slides/pt/cpp/presentation-properties/#manage-the-hyperlink-base) para ler, alterar ou limpar a base no nível do documento.
+Para apresentações que contêm hiperlinks relativos, veja [Gerenciar a Base de Hiperlink](/slides/pt/cpp/presentation-properties/#manage-the-hyperlink-base) para ler, alterar ou limpar a base ao nível do documento.
 
 ### **Adicionar Hiperlinks de URL ao Texto**
 
-Para vincular texto a um site, crie um [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) e atribua-o usando o método [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) da porção de texto, como mostrado abaixo. Apenas aquela porção de texto torna-se clicável.
+Para vincular texto a um site, crie um [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) e atribua-o com o método [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) da parte de texto, conforme mostrado abaixo. Apenas essa parte do texto se torna clicável.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Adicionar Hiperlinks de URL a Formas e Estruturas de Mídia**
+### **Adicionar Hiperlinks de URL a Formas e Quadros de Mídia**
 
-Para tornar uma forma ou estrutura clicável, use seu método [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). O hiperlink pertence ao próprio objeto, não a uma porção de texto dentro dele.
-
-A mesma abordagem se aplica a quadros de imagem, áudio e vídeo: atribua o hiperlink ao quadro e use [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) para adicionar uma dica, se necessário.
-
-O exemplo a seguir torna um retângulo clicável:
+Chame [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) no retângulo para tornar toda a sua área clicável. Use [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) para dar aos leitores uma dica sobre o destino ao passar o mouse sobre o retângulo. Ambos os métodos também se aplicam a quadros de imagem, áudio e vídeo.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -111,7 +107,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Usar Hiperlinks para Criar um Índice**
 
-Hiperlinks internos permitem que os leitores saltem de um índice para um slide específico. O exemplo a seguir usa [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) para vincular o texto “Page 2” no primeiro slide ao segundo slide.
+Hiperlinks internos permitem que os leitores avancem de um índice para um slide específico. O exemplo a seguir usa [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) para vincular o texto “Page 2” no primeiro slide ao segundo slide.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,11 +164,13 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ## **Formatar Hiperlinks**
 
+Você pode alterar a cor do texto vinculado, reproduzir ou interromper um som quando um leitor ativa um link, e definir a dica que aparece ao passar o mouse.
+
 ### **Cor**
 
-O método [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) de [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) determina se um hiperlink usa a cor de hiperlink da apresentação ou a formatação da porção de texto. Para aplicar uma cor de texto personalizada, selecione [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) e defina a cor de preenchimento da porção. Esse recurso foi introduzido no PowerPoint 2019; versões mais antigas não aplicam essa configuração.
+O método [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) de [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) determina se um hiperlink usa a cor de hiperlink da apresentação ou a formatação da parte de texto. Para aplicar uma cor de texto personalizada, selecione [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) e defina a cor de preenchimento da parte. Esse recurso foi introduzido no PowerPoint 2019; versões anteriores não aplicam essa configuração.
 
-O exemplo a seguir adiciona dois hiperlinks de texto ao mesmo slide. O primeiro usa um preenchimento de texto vermelho, enquanto o segundo mantém a cor padrão do hiperlink.
+Neste exemplo, o primeiro link usa [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) para exibir seu preenchimento de texto vermelho. O segundo link mantém a cor de hiperlink da apresentação.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,6 +212,7 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Som**
 
 Um hiperlink pode reproduzir um som quando ativado ou interromper um som que já está sendo reproduzido. Use os métodos a seguir para configurar esses comportamentos:
@@ -223,7 +222,7 @@ Um hiperlink pode reproduzir um som quando ativado ou interromper um som que já
 
 #### **Adicionar um Som ao Hiperlink**
 
-O exemplo a seguir carrega `sampleaudio.wav` e o associa a um botão no primeiro slide. Clicar no botão reproduz o som e navega para o próximo slide. Uma segunda forma naquele slide interrompe o som anterior quando clicada, sem executar uma ação de navegação.
+O botão no primeiro slide usa [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) para reproduzir o áudio de `sampleaudio.wav` quando o leitor clica para avançar. No segundo slide, um botão separado usa [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) para interromper a reprodução e manter o leitor naquele slide.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -267,7 +266,7 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Extrair o Som de um Hiperlink**
+#### **Extrair um Som de Hiperlink**
 
 O exemplo a seguir abre a apresentação criada acima e lê o áudio do hiperlink da primeira forma para a memória através de [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) e [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
@@ -305,18 +304,18 @@ else
 }
 ```
 
-### **Configurações de Tooltip e Interação**
+### **Dica e Configurações de Interação**
 
 Você pode atualizar as seguintes configurações de [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) por meio desses métodos após atribuir um hiperlink a texto ou a uma forma:
 
 - [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) define o texto que o visualizador pode exibir como uma dica para o link.
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) especifica o quadro de destino dentro de um frameset HTML pai, quando aplicável.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) especifica o quadro de destino dentro de um conjunto de quadros HTML pai, quando aplicável.
 - [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) controla se a ativação do link adiciona seu destino à lista de hiperlinks visualizados.
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) controla se o hiperlink é destacado ao ser clicado.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) controla se o hiperlink é destacado quando clicado.
 
 ## **Remover Hiperlinks de Apresentações**
 
-Use [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) para coletar contêineres de hiperlink, incluindo links de porções de texto, antes de alterá-los. O exemplo a seguir remove ambos os tipos de ativação do primeiro slide. Para remover apenas um tipo, chame somente [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) ou [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); remover uma ação de clique não remove seu correspondente de mouse-over.
+Use [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) para coletar contêineres de hiperlink, incluindo links de partes de texto, antes de alterá-los. O exemplo a seguir remove ambos os tipos de ativação do primeiro slide. Para remover apenas um tipo, chame somente [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) ou [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); remover uma ação de clique não remove sua contraparte de mouse-over.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -352,21 +351,74 @@ else
 
 Para remoção incondicional, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) remove ambos os tipos de ativação no escopo selecionado em uma única chamada. Para limpeza seletiva e cobertura de mestres, layouts e notas, veja [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Construir um Inventário Completo de Hiperlinks**
+### **Limpar Hiperlinks Antes de Substituir Texto do SmartArt**
 
-Antes de distribuir uma apresentação, faça um inventário de suas ações interativas, bem como de seus links da web. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retorna objetos [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), não uma lista simples de strings de URL. Inspecione tanto [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) quanto [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) em cada contêiner. Eles são independentes: o mesmo contêiner pode expor ambas as ações, portanto um relatório completo precisa de até duas linhas por contêiner.
+Quando você substitui um parágrafo em um nó SmartArt existente, limpar suas partes de texto pode deixar um hiperlink antigo em vigor. Recupere o parágrafo através de [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Antes de limpar suas partes, chame [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) por meio de [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) no quadro de texto da forma do nó que exibe o parágrafo. Isso remove todos os hiperlinks naquele quadro, incluindo links em seus outros parágrafos.
 
-A varredura apenas de hiperlinks ao nível de forma pode deixar de detectar links anexados a porções de texto. Consulte o escopo apropriado em vez disso e retenha os contêineres retornados para que você possa atualizar ou remover suas ações posteriormente.
+O exemplo assume que a terceira forma no primeiro slide é um gráfico SmartArt. Ele substitui o primeiro parágrafo do quarto nó. Nesta apresentação, a primeira forma do nó exibe esse parágrafo.
 
-### **Consultar Escopos de Apresentação, Slide e Caixa de Texto**
+Depois de adicionar ambas as partes, o exemplo lê sua formatação efetiva com [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). O método efetivo [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) retorna o novo hiperlink para a primeira parte e `nullptr` para a segunda.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
+## **Criar um Inventário Completo de Hiperlinks**
+
+Antes de distribuir uma apresentação, faça o inventário de suas ações interativas assim como de seus links da web. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retorna objetos [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), não uma lista plana de strings URL. Inspecione tanto [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) quanto [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) em cada contêiner. Eles são independentes: o mesmo contêiner pode expor ambas as ações, portanto um relatório completo precisa de até duas linhas por contêiner.
+
+Examinar apenas hiperlinks de nível de forma pode perder links anexados a partes de texto. Consulte o escopo apropriado em vez disso, e retenha os contêineres retornados para que você possa atualizar ou remover suas ações posteriormente.
+
+### **Consultar Escopos de Apresentação, Slide e Quadro de Texto**
 
 A interface [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) está disponível através de [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) e [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Cada escopo suporta as mesmas consultas:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) retorna contêineres com ação de clique.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) retorna contêineres com ação de mouse-over.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) retorna contêineres com uma ação de clique.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) retorna contêineres com uma ação de mouse-over.
 - [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retorna contêineres com uma ou ambas as ações.
 
-O exemplo a seguir cria `hyperlink-audit-input.pptx` com um link de clique externo, um link de mouse-over de arquivo, navegação interna de slide, um link de mouse-over de texto e uma ação de macro. Ele não executa nenhuma dessas ações. As mesmas três consultas funcionam em todos os escopos; as contagens descrevem contêineres, não o total de ações. O escopo de caixa de texto exclui os próprios links da forma que a contém.
+Este exemplo atribui ações de clique e mouse-over a uma forma e seu texto, e uma ação de macro a um botão separado. Ele compara os contêineres retornados por [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) com as contagens para cada tipo de ativação. Uma consulta ao quadro de texto conta apenas os links no texto. As ações próprias da forma envolvente aparecem nas consultas de slide e apresentação.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Para este exemplo, as consultas de apresentação e slide relatam três contêineres de clique, dois contêineres de mouse-over e três contêineres com qualquer ação. A consulta de caixa de texto relata um contêiner em cada categoria.
+Para este exemplo, as consultas de apresentação e slide relatam cada uma três contêineres de clique, dois contêineres de mouse-over e três contêineres com qualquer ação. A consulta ao quadro de texto relata um contêiner em cada categoria.
 
 ### **Classificar Ações e Destinos**
 
-Use [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) para interpretar uma ação antes de interpretar seu destino. Os valores de [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) cobrem mais que navegação web:
+Use [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) para interpretar uma ação antes de interpretar seu destino. Os valores de [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) abrangem mais que navegação na web:
 
 | Valores | Significado para auditoria |
 | --- | --- |
-| `Hyperlink` | Hiperlink externo; inspecionar o URL e seu esquema. |
+| `Hyperlink` | Hiperlink externo; inspecione o URL e seu esquema. |
 | `JumpSpecificSlide` | Navegação interna para um slide específico. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navegação interna de apresentação incorporada, resolvida no contexto da apresentação. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navegação interna de apresentação, resolvida no contexto da apresentação. |
 | `JumpEndShow`, `StartCustomSlideShow` | Encerrar a apresentação atual ou iniciar uma apresentação personalizada. |
 | `StartMacro` | Executar uma macro. |
 | `StartProgram` | Iniciar um programa. |
-| `OpenFile`, `OpenPresentation` | Abrir um arquivo ou outra apresentação; revisar separadamente dos URLs da web. |
-| `StartStopMedia` | Iniciar ou parar a reprodução de mídia. |
-| `NoAction`, `Unknown` | Sem ação de navegação, ou uma ação não reconhecida que requer revisão. |
+| `OpenFile`, `OpenPresentation` | Abrir um arquivo ou outra apresentação; analisar separadamente dos URLs da web. |
+| `StartStopMedia` | Iniciar ou interromper a reprodução de mídia. |
+| `NoAction`, `Unknown` | Sem ação de navegação, ou uma ação não reconhecida que requer análise. |
 
-Leia destinos externos de [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) e destinos internos específicos de [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Ações internas e comandos internos podem não ter URL externo; um URL vazio não significa que o contêiner não tenha ação. Preserve [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) quando ele difere do URL normalizado, e inclua o tooltip retornado por [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) quando disponível.
+Leia destinos externos de [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) e destinos internos específicos de [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Ações internas e comandos internos podem não ter URL externo; um URL vazio não significa que o contêiner não tenha ação. Preserve [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) quando ele difere do URL normalizado, e inclua a dica retornada por [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) quando disponível.
 
 ### **Relatar, Sanitizar e Verificar Hiperlinks**
 
-O exemplo C++ a seguir lê uma apresentação existente (use o arquivo criado acima), grava `hyperlink-audit.json`, aplica uma política, salva `hyperlink-sanitized.pptx` e reabre-a para verificar novamente ambos os tipos de ativação. Ele coleta os contêineres antes de alterá-los e usa identidade de ponteiro para evitar processar o mesmo contêiner duas vezes. As consultas de apresentação cobrem slides comuns; para um inventário de todo o pacote, ele também consulta explicitamente mestres, layouts, notas e os mestres de notas e folhetos quando presentes.
+Este exemplo em C++ abre a apresentação do exemplo anterior e grava um registro JSON por ação. Ele usa [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) para coletar contêineres em slides comuns, mestres, layouts e notas, incluindo os mestres de notas e folhetos quando presentes. Usa a identidade de ponteiro para contar cada contêiner uma vez, aplica a política descrita abaixo e reabre a apresentação salva para verificar as ações de clique e mouse-over.
 
-O relatório registra um índice de slide baseado em 1 e [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) quando disponível. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) fornece o slide proprietário para contêineres suportados. Mestres, layouts e notas não têm um índice de slide comum e são identificados pelo seu escopo. Contêineres de forma e contêineres de formatação de porção de texto são rotulados separadamente; outros tipos de contêiner mantêm seu nome de tipo em tempo de execução. Cada contêiner recebe um ID local ao relatório para que suas duas ações possam ser correlacionadas.
+O relatório registra um índice de slide baseado em 1 e [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) quando disponível. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) fornece o slide proprietário para os contêineres suportados. Mestres, layouts e notas não têm índice de slide comum e são identificados pelo seu escopo. Contêineres de forma e contêineres de formatação de parte de texto são rotulados separadamente; outros tipos de contêiner mantêm seu nome de tipo em tempo de execução. Cada contêiner recebe um ID local ao relatório para que suas duas ações possam ser correlacionadas.
 
-Esta política de aplicação deliberadamente restritiva permite apenas URLs HTTPS absolutos e destinos internos de slide válidos. Ela rejeita macros, programas, ações de arquivo, outras ações de apresentação, ações desconhecidas e outros esquemas de URL. Essas rejeições são decisões de política, não um veredicto de segurança da Aspose.Slides. HTTPS sozinho não estabelece confiança: adicione listas de permissões de hosts e outras verificações para sua aplicação. Tanto os URLs externos originais quanto os normalizados são verificados. O exemplo audita metadados sem seguir links ou executar ações.
+Esta política de aplicação deliberadamente restritiva permite apenas URLs HTTPS absolutos e destinos internos de slide válidos. Ela rejeita macros, programas, ações de arquivo, outras ações de apresentação, ações desconhecidas e outros esquemas de URL. Essas rejeições são decisões de política, não um veredicto de segurança da Aspose.Slides. HTTPS sozinho não estabelece confiança: adicione listas de permissões de hosts e outras verificações para sua aplicação. Tanto URLs externos originais quanto normalizados são verificados. O exemplo audita metadados sem seguir links ou executar ações.
 
-Para remediação, o contêiner's [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) suporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) e [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Aqui, links de clique externos proibidos são substituídos por uma página de destino HTTPS fixa; outros cliques proibidos e ações de mouse-over proibidas são removidos independentemente. Defina `replaceExternalClicks` como `false` para remover todas as violações de política. Escolha uma página de substituição de propriedade da aplicação antes da implantação.
+Para remediação, o [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) do contêiner suporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) e [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Aqui, links externos de clique proibidos são substituídos por uma página de destino HTTPS fixa; outros cliques proibidos e ações de mouse-over proibidas são removidos independentemente. Defina `replaceExternalClicks` como `false` para remover todas as violações de política. Escolha uma página de substituição de propriedade da aplicação antes da implantação.
 
-A bandeira de exportação do relatório usa uma política conservadora de revisão de PDF: sinalizar ações de mouse-over e qualquer coisa que não seja um link externo ou salto de slide específico como potencialmente não suportada. É uma dica de revisão, não um teste de capacidade ou garantia de que links não sinalizados sobreviverão à exportação. Exportações suportadas de [PDF](/slides/pt/cpp/convert-powerpoint-to-pdf/) e [HTML](/slides/pt/cpp/convert-powerpoint-to-html/) podem preservar hiperlinks, dependendo da ação, das opções de exportação e do visualizador. Imagens rasterizadas [images](/slides/pt/cpp/convert-powerpoint-to-png/) e [video](/slides/pt/cpp/convert-powerpoint-to-video/) não podem preservar hiperlinks interativos; sinalize toda ação ao auditar para esses tipos de saída.
+A bandeira de exportação do relatório usa uma política conservadora de revisão de PDF: sinalizar ações de mouse-over e qualquer coisa que não seja um link externo ou salto de slide específico como potencialmente não suportada. É uma dica de revisão, não um teste de capacidade ou garantia de que links não sinalizados sobreviverão à exportação. Exportações de [PDF](/slides/pt/cpp/convert-powerpoint-to-pdf/) e [HTML](/slides/pt/cpp/convert-powerpoint-to-html/) suportadas podem preservar hiperlinks, dependendo da ação, das opções de exportação e do visualizador. [Imagens](/slides/pt/cpp/convert-powerpoint-to-png/) raster e [vídeo](/slides/pt/cpp/convert-powerpoint-to-video/) não podem preservar hiperlinks interativos; sinalize toda ação ao auditorar para esses resultados.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,11 +704,11 @@ if (violations != 0)
 }
 ```
 
-Com a entrada criada acima, o relatório contém cinco linhas de ação. O link de mouse-over de arquivo e o clique de macro são removidos, enquanto os links HTTPS e a navegação interna de slides permanecem. A verificação exibe zero ações proibidas. Uma entrada contendo um URL de clique externo proibido também testa o ramo de substituição. Um contêiner com um clique permitido e um mouse-over proibido mantém sua ação de clique.
+Com a entrada criada acima, o relatório contém cinco linhas de ação. O link de mouse-over do arquivo e o clique de macro são removidos, enquanto os links HTTPS e a navegação interna de slides permanecem. A verificação exibe zero ações proibidas. Uma entrada contendo um URL de clique externo proibido também exercita o ramo de substituição. Um contêiner com clique permitido e mouse-over proibido mantém sua ação de clique.
 
-Essa limpeza seletiva difere de [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), que remove ambos os tipos de ativação em todo o escopo selecionado independentemente da política. A verificação aqui verifica apenas ações de hiperlink; não remove projetos VBA incorporados, objetos OLE ou outro conteúdo ativo, e não valida um PDF ou arquivo HTML exportado.
+Esta limpeza seletiva difere de [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), que remove ambos os tipos de ativação em todo o escopo selecionado independentemente da política. A verificação aqui verifica apenas ações de hiperlink; não remove projetos VBA incorporados, objetos OLE ou outro conteúdo ativo, e não valida um arquivo PDF ou HTML exportado.
 
-## **FAQ**
+## **Perguntas Frequentes**
 
 **Como posso vincular a uma seção ou ao seu primeiro slide?**
 
@@ -668,4 +720,4 @@ Sim. Elementos de slide mestre e de layout suportam hiperlinks. Links nesses ele
 
 **Os hiperlinks serão preservados ao exportar para PDF, HTML, imagens ou vídeo?**
 
-Exportações de PDF e HTML suportadas podem preservar hiperlinks; imagens rasterizadas e vídeo não podem. Veja as considerações de exportação em [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Exportações de PDF e HTML suportadas podem preservar hiperlinks; imagens raster e vídeo não podem. Consulte as considerações de exportação em [Relatar, Sanitizar e Verificar Hiperlinks](#report-sanitize-and-verify-hyperlinks).

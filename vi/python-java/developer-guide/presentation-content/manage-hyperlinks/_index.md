@@ -1,54 +1,52 @@
 ---
-title: Quản lý siêu liên kết trong bản trình bày bằng Python thông qua Java
-linktitle: Quản lý siêu liên kết
+title: Quản lý Liên kết Siêu văn bản trong Bản trình chiếu bằng Python qua Java
+linktitle: Quản lý Liên kết
 type: docs
 weight: 20
 url: /vi/python-java/manage-hyperlinks/
 keywords:
 - thêm URL
-- thêm siêu liên kết
-- tạo siêu liên kết
-- định dạng siêu liên kết
-- xóa siêu liên kết
-- cập nhật siêu liên kết
-- siêu liên kết văn bản
-- siêu liên kết slide
-- siêu liên kết hình dạng
-- siêu liên kết hình ảnh
-- siêu liên kết video
-- siêu liên kết có thể thay đổi
+- thêm liên kết
+- tạo liên kết
+- định dạng liên kết
+- xóa liên kết
+- cập nhật liên kết
+- liên kết văn bản
+- liên kết slide
+- liên kết hình dạng
+- liên kết hình ảnh
+- liên kết video
+- liên kết có thể thay đổi
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Python
 - Java
 - Aspose.Slides
-description: "Thêm, định dạng, cập nhật và xóa siêu liên kết trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides for Python via Java, sử dụng các ví dụ Python."
+description: "Thêm, định dạng, cập nhật và xóa liên kết trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Python qua Java, sử dụng các ví dụ Python."
 ---
-## **Introduction**
+## **Giới thiệu**
 
-Một siêu liên kết kết nối nội dung bản trình bày với một trang web hoặc một vị trí trong bản trình bày. Trong PowerPoint, siêu liên kết thường phục vụ hai mục đích:
+Liên kết siêu văn bản kết nối nội dung bản trình chiếu với một trang web hoặc một vị trí trong bản trình chiếu. Trong PowerPoint, liên kết siêu văn bản thường phục vụ hai mục đích:
 
-* Mở một trang web từ văn bản, hình dạng hoặc khung phương tiện.
-* Điều hướng đến một slide khác, ví dụ, từ mục lục.
+* Mở một trang web từ văn bản, hình dạng hoặc khung đa phương tiện.
+* Điều hướng tới một slide khác, ví dụ, từ mục lục.
 
-Aspose.Slides for Python via Java cho phép bạn thêm các liên kết này, kiểm soát giao diện và âm thanh của chúng, cập nhật thuộc tính và xóa chúng. Các ví dụ dưới đây cho thấy cách làm việc với siêu liên kết trên các phần tử cá nhân và cách truy cập siêu liên kết ở mức bản trình bày, slide hoặc khung văn bản.
+Aspose.Slides for Python via Java cho phép bạn thêm các liên kết này, kiểm soát giao diện và âm thanh của chúng, cập nhật các thuộc tính và xóa chúng. Các ví dụ bên dưới cho thấy cách làm việc với liên kết siêu văn bản trên các yếu tố cá nhân và cách truy cập liên kết ở mức bản trình chiếu, slide hoặc khung văn bản.
 
 {{% alert color="info" title="Note" %}}
+You can also edit presentations with the [trình chỉnh sửa PowerPoint trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-Bạn cũng có thể chỉnh sửa bản trình bày bằng [trình chỉnh sửa PowerPoint trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/editor).
+## **Thêm Liên Kết URL**
 
-{{% /alert %}} 
+Bạn có thể gán URL của một trang web cho văn bản, hình dạng hoặc khung đa phương tiện. Thành phần mà bạn gán liên kết siêu văn bản quyết định khu vực có thể nhấp: một phần văn bản sẽ liên kết tới văn bản đã chọn, trong khi một hình dạng hoặc khung sẽ liên kết tới đối tượng slide.
 
-## **Add URL Hyperlinks**
+For presentations containing relative hyperlinks, see [Quản lý Cơ sở Liên kết](/slides/vi/python-java/presentation-properties/#manage-the-hyperlink-base) to read, change, or clear the document-level base.
 
-Bạn có thể gán một URL trang web cho văn bản, hình dạng hoặc khung phương tiện. Phần tử mà bạn gán siêu liên kết sẽ xác định vùng có thể nhấp: một phần văn bản sẽ liên kết tới văn bản đã chọn, trong khi một hình dạng hoặc khung sẽ liên kết tới đối tượng slide.
+### **Thêm Liên Kết URL vào Văn Bản**
 
-Đối với bản trình bày chứa siêu liên kết tương đối, hãy xem [Manage the Hyperlink Base](/slides/vi/python-java/presentation-properties/#manage-the-hyperlink-base) để đọc, thay đổi hoặc xóa cơ sở mức tài liệu.
-
-### **Add URL Hyperlinks to Text**
-
-Để liên kết văn bản tới một trang web, truyền một [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) vào phương thức [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) của phần văn bản, như ở dưới. Chỉ phần văn bản đó sẽ trở thành có thể nhấp.
+Để liên kết văn bản tới một trang web, truyền một [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) vào phương thức [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) của phần văn bản, như được hiển thị dưới đây. Chỉ phần văn bản đó sẽ có thể nhấp.
 
 ```python
 import jpype
@@ -74,16 +72,12 @@ finally:
     presentation.dispose()
 ```
 
-### **Add URL Hyperlinks to Shapes and Media Frames**
+### **Thêm Liên Kết URL vào Hình Dạng và Khung Đa Phương Tiện**
 
-Để làm cho một hình dạng hoặc khung có thể nhấp, gọi phương thức [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) của nó. Siêu liên kết thuộc về đối tượng đó chứ không phải một phần văn bản bên trong.
-
-Cùng cách tiếp cận áp dụng cho khung ảnh, âm thanh và video: gán siêu liên kết cho khung và gọi [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) nếu cần.
-
-Ví dụ sau làm cho một hình chữ nhật có thể nhấp:
+Gọi [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) trên hình chữ nhật để làm cho toàn bộ khu vực của nó có thể nhấp. Sử dụng [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) để hiển thị cho người đọc một gợi ý về đích đến khi họ di chuột qua hình chữ nhật. Cả hai phương thức này cũng áp dụng cho khung ảnh, âm thanh và video.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -103,9 +97,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Use Hyperlinks to Create a Table of Contents**
+## **Sử dụng Liên Kết để Tạo Mục Lục**
 
-Siêu liên kết nội bộ cho phép người đọc nhảy từ mục lục tới một slide cụ thể. Ví dụ dưới đây sử dụng [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.
+Liên kết nội bộ cho phép người đọc chuyển từ mục lục tới một slide cụ thể. Ví dụ sau sử dụng [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.
 
 ```python
 import jpype
@@ -145,13 +139,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Format Hyperlinks**
+## **Định Dạng Liên Kết**
+
+Bạn có thể thay đổi màu sắc của văn bản có liên kết, phát hoặc dừng âm thanh khi người đọc kích hoạt một liên kết, và đặt tooltip hiển thị khi di chuột.
 
 ### **Color**
 
-Phương thức [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) của [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) xác định siêu liên kết sẽ dùng màu siêu liên kết của bản trình bày hay định dạng của phần văn bản. Để áp dụng màu văn bản tuỳ chỉnh, chọn [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) và đặt màu nền cho phần. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn sẽ không áp dụng cài đặt này.
+Phương thức [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) của [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) xác định liệu một liên kết có sử dụng màu liên kết của bản trình chiếu hay định dạng của phần văn bản. Để áp dụng màu văn bản tùy chỉnh, chọn [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) và đặt màu nền cho phần đó. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn không áp dụng cài đặt này.
 
-Ví dụ sau thêm hai siêu liên kết văn bản vào cùng một slide. Siêu liên kết đầu tiên dùng màu nền văn bản đỏ, trong khi siêu liên kết thứ hai giữ màu siêu liên kết mặc định.
+Trong ví dụ này, [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) làm cho liên kết đầu tiên sử dụng màu nền đỏ của phần văn bản. Liên kết thứ hai giữ màu liên kết của bản trình chiếu.
 
 ```python
 import jpype
@@ -182,16 +178,17 @@ try:
 finally:
     presentation.dispose()
 ```
+
 ### **Sound**
 
-Một siêu liên kết có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương thức sau để cấu hình hành vi này:
+Liên kết có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương thức sau để cấu hình các hành vi này:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) chỉ định âm thanh liên quan tới siêu liên kết.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) kiểm soát việc kích hoạt siêu liên kết có dừng âm thanh trước đó hay không.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) chỉ định âm thanh liên quan đến liên kết.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) kiểm soát việc kích hoạt liên kết có dừng âm thanh trước đó hay không.
 
-#### **Add a Hyperlink Sound**
+#### **Thêm Âm Thanh Liên Kết**
 
-Ví dụ sau tải `sampleaudio.wav` và gán nó cho một nút trên slide đầu tiên. Nhấp vào nút sẽ phát âm thanh và chuyển tới slide tiếp theo. Một hình dạng thứ hai trên cùng slide sẽ dừng âm thanh trước khi thực hiện hành động điều hướng.
+Nút trên slide đầu tiên sử dụng [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) để phát âm thanh từ `sampleaudio.wav` khi người đọc nhấp để tiếp tục. Trên slide thứ hai, một nút riêng biệt sử dụng [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) để dừng phát và giữ người đọc trên slide đó.
 
 ```python
 from pathlib import Path
@@ -225,9 +222,9 @@ finally:
     presentation.dispose()
 ```
 
-#### **Extract a Hyperlink Sound**
+#### **Trích Xuất Âm Thanh Liên Kết**
 
-Ví dụ sau mở bản trình bày đã tạo ở trên và đọc âm thanh siêu liên kết của hình dạng đầu tiên vào bộ nhớ qua [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) và [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData).
+Ví dụ sau mở bản trình chiếu được tạo ở trên và đọc âm thanh liên kết của hình dạng đầu tiên vào bộ nhớ thông qua [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) và [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData).
 
 ```python
 import jpype
@@ -254,18 +251,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Tooltip and Interaction Settings**
+### **Cài Đặt Tooltip và Tương Tác**
 
-Bạn có thể gọi các phương thức [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) sau khi đã gán siêu liên kết cho văn bản hoặc hình dạng:
+Bạn có thể gọi các phương thức [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) sau khi đã gán một liên kết cho văn bản hoặc hình dạng:
 
-- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) đặt văn bản mà người xem có thể hiển thị dưới dạng gợi ý cho liên kết.
-- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) chỉ định khung mục tiêu trong một frameset HTML cha, khi có.
-- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) kiểm soát việc kích hoạt liên kết có thêm đích đến vào danh sách siêu liên kết đã xem hay không.
-- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) kiểm soát việc siêu liên kết có được làm nổi bật khi được nhấp hay không.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) đặt văn bản mà người xem có thể hiển thị như một gợi ý cho liên kết.
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) chỉ định khung mục tiêu trong một khung HTML cha, khi áp dụng.
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) kiểm soát việc kích hoạt liên kết có thêm đích đến vào danh sách các liên kết đã xem hay không.
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) kiểm soát liệu liên kết có được làm nổi bật khi được nhấp hay không.
 
-## **Remove Hyperlinks from Presentations**
+## **Xóa Liên Kết khỏi Bản Trình Chiếu**
 
-Sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) để thu thập các container siêu liên kết, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ dưới đây xóa cả hai loại kích hoạt khỏi slide đầu tiên. Để xóa chỉ một loại, gọi chỉ [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) hoặc [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); việc xóa hành động nhấp không xóa hành động rê chuột tương ứng.
+Sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) để thu thập các container liên kết, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ sau xóa cả hai kiểu kích hoạt khỏi slide đầu tiên. Để chỉ xóa một kiểu, gọi chỉ [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) hoặc [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); việc xóa hành động nhấp không xóa hành động rê chuột tương ứng.
 
 ```python
 import jpype
@@ -290,23 +287,63 @@ finally:
     presentation.dispose()
 ```
 
-Đối với việc xóa vô điều kiện, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) xóa cả hai loại kích hoạt trong phạm vi đã chọn trong một lần gọi. Đối với việc dọn dẹp có chọn lọc và bao phủ các master, layout và notes, hãy xem [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Đối với việc xóa không có điều kiện, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) xóa cả hai kiểu kích hoạt trong phạm vi đã chọn trong một lần gọi. Đối với việc dọn dẹp có chọn lọc và bao phủ các master, layout và notes, xem [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Build a Complete Hyperlink Inventory**
+### **Xóa Liên Kết Trước Khi Thay Thế Văn Bản SmartArt**
 
-Trước khi phân phối bản trình bày, hãy kiểm kê các hành động tương tác cũng như các liên kết web của nó. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) trả về các container siêu liên kết, chẳng hạn như các đối tượng [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) và [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/), chứ không phải một danh sách phẳng các chuỗi URL. Kiểm tra cả [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) và [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) trên mỗi container. Chúng độc lập: cùng một container có thể hiển thị cả hai hành động, vì vậy một báo cáo đầy đủ có thể cần tới hai dòng cho mỗi container.
+Khi bạn thay thế một đoạn văn trong một node SmartArt hiện có, việc xóa các phần văn bản có thể để lại một liên kết cũ vẫn hoạt động. Lấy đoạn văn thông qua [SmartArtNode.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/smartartnode/#getTextFrame). Trước khi xóa các phần, gọi [getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries) trên khung văn bản của hình dạng node hiển thị đoạn văn, sau đó gọi [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) trên đối tượng trả về. Điều này sẽ xóa mọi liên kết trong khung đó, bao gồm các liên kết trong các đoạn văn khác.
 
-Việc chỉ quét siêu liên kết ở mức hình dạng có thể bỏ lỡ các liên kết gắn vào phần văn bản. Hãy truy vấn phạm vi thích hợp thay vì vậy, và giữ lại các container đã trả về để bạn có thể cập nhật hoặc xóa hành động của chúng sau này.
+Ví dụ giả định rằng hình dạng thứ ba trên slide đầu tiên của `SmartArtHyperlink.pptx` là một đồ họa SmartArt. Nó thay thế đoạn văn đầu tiên của node thứ tư. Trong bản trình chiếu này, hình dạng đầu tiên của node hiển thị đoạn văn đó.
 
-### **Query Presentation, Slide, and Text-Frame Scopes**
+Sau khi thêm cả hai phần, ví dụ đọc định dạng thực tế của chúng bằng [getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective). Trên định dạng đó, `getHyperlinkClick` trả về liên kết mới cho phần đầu tiên và `None` cho phần thứ hai.
 
-Lớp [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) có sẵn qua [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries) và [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries). Mỗi phạm vi hỗ trợ cùng các truy vấn:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Hyperlink, Portion, Presentation
+
+presentation = Presentation("SmartArtHyperlink.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    
+    smart_art = slide.getShapes().get_Item(2)
+    node = smart_art.getAllNodes().get_Item(3)
+    paragraph = node.getTextFrame().getParagraphs().get_Item(0)
+
+    node.getShapes().get_Item(0).getTextFrame().getHyperlinkQueries().removeAllHyperlinks()
+    paragraph.getPortions().clear()
+
+    link = Portion("New reference")
+    link.getPortionFormat().setHyperlinkClick(Hyperlink("https://example.com/new"))
+    paragraph.getPortions().add(link)
+    text = Portion(" (updated)")
+    paragraph.getPortions().add(text)
+
+    print(link.getPortionFormat().getEffective().getHyperlinkClick().getExternalUrl())  # https://example.com/new
+    print(text.getPortionFormat().getEffective().getHyperlinkClick())  # None
+finally:
+    presentation.dispose()
+```
+
+## **Xây Dựng Danh Mục Liên Kết Hoàn Đảo**
+
+Trước khi phân phối một bản trình chiếu, hãy lập danh mục các hành động tương tác cũng như các liên kết web của nó. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) trả về các container liên kết, như các đối tượng [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) và [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) , không phải danh sách phẳng các chuỗi URL. Kiểm tra cả [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) và [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) trên mỗi container. Chúng độc lập: cùng một container có thể hiển thị cả hai hành động, vì vậy một báo cáo đầy đủ có thể cần tới hai hàng cho mỗi container.
+
+Việc chỉ quét các liên kết ở mức hình dạng có thể bỏ sót các liên kết gắn vào các phần văn bản. Thay vào đó, truy vấn phạm vi thích hợp và giữ lại các container trả về để bạn có thể cập nhật hoặc xóa các hành động của chúng sau này.
+
+### **Truy Vấn Các Phạm Vi Bản Trình Chiếu, Slide và Khung Văn Bản**
+
+Lớp [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) có sẵn qua [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries), và [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries). Mỗi phạm vi hỗ trợ các truy vấn giống nhau:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) trả về các container có hành động nhấp.
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) trả về các container có hành động rê chuột.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) trả về các container có một hoặc cả hai hành động.
 
-Ví dụ dưới tạo `hyperlink-audit-input.pptx` với một liên kết nhấp ngoài, một liên kết rê chuột tập tin, điều hướng slide nội bộ, một liên kết rê chuột văn bản và một hành động macro. Nó không thực thi bất kỳ hành động nào trong số này. Ba truy vấn giống nhau hoạt động ở mọi phạm vi; các số đếm mô tả container, không phải tổng số hành động. Phạm vi khung văn bản loại trừ các liên kết của chính shape bao quanh.
+Ví dụ này gán các hành động nhấp và rê chuột cho một hình dạng và văn bản của nó, và một hành động macro cho một nút riêng biệt. Nó so sánh số lượng container trả về bởi [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) với số lượng cho mỗi kiểu kích hoạt. Một truy vấn khung văn bản chỉ đếm các liên kết trong văn bản. Các hành động riêng của hình dạng bao bọc xuất hiện trong các truy vấn slide và bản trình chiếu.
 
 ```python
 import jpype
@@ -347,37 +384,37 @@ finally:
     presentation.dispose()
 ```
 
-Trong ví dụ này, các truy vấn ở mức bản trình bày và slide mỗi báo cáo ba container nhấp, hai container rê chuột và ba container có một trong hai hành động. Truy vấn khung văn bản báo cáo một container ở mỗi danh mục.
+Đối với ví dụ này, các truy vấn bản trình chiếu và slide mỗi đều báo cáo ba container nhấp, hai container rê chuột, và ba container có một trong hai hành động. Truy vấn khung văn bản báo cáo một container trong mỗi danh mục.
 
-### **Classify Actions and Destinations**
+### **Phân Loại Hành Động và Đích Đến**
 
-Sử dụng [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) để giải thích hành động trước khi giải thích đích đến của nó. Các giá trị [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) bao gồm hơn việc điều hướng web:
+Sử dụng [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) để giải thích một hành động trước khi giải thích đích đến của nó. Các giá trị [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) bao phủ hơn chỉ việc điều hướng web:
 
-| Values | Meaning for an audit |
+| Giá trị | Ý nghĩa cho kiểm tra |
 | --- | --- |
-| `Hyperlink` | Siêu liên kết bên ngoài; kiểm tra URL và scheme của nó. |
+| `Hyperlink` | Liên kết bên ngoài; kiểm tra URL và giao thức của nó. |
 | `JumpSpecificSlide` | Điều hướng nội bộ tới một slide cụ thể. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Điều hướng trình chiếu tích hợp, được giải quyết trong ngữ cảnh slideshow. |
-| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc show hiện tại hoặc bắt đầu một show tùy chỉnh. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Điều hướng trình chiếu tích hợp, được giải quyết trong ngữ cảnh trình chiếu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc buổi trình chiếu hiện tại hoặc bắt đầu một buổi trình chiếu tùy chỉnh. |
 | `StartMacro` | Thực thi macro. |
-| `StartProgram` | Khởi chạy chương trình. |
-| `OpenFile`, `OpenPresentation` | Mở tệp hoặc bản trình bày khác; xem xét riêng biệt so với URL web. |
+| `StartProgram` | Khởi chạy một chương trình. |
+| `OpenFile`, `OpenPresentation` | Mở một tệp hoặc một bản trình chiếu khác; xem xét riêng biệt so với URL web. |
 | `StartStopMedia` | Bắt đầu hoặc dừng phát phương tiện. |
-| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc hành động không nhận dạng được cần xem xét. |
+| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc một hành động không xác định cần xem xét. |
 
-Đọc đích đến bên ngoài qua [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) và các đích đến nội bộ cụ thể qua [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide). Các hành động nội bộ và lệnh tích hợp có thể không có URL bên ngoài; một URL trống không có nghĩa là container không có hành động. Giữ lại giá trị trả về bởi [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) khi nó khác URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) khi có.
+Đọc các đích đến bên ngoài từ [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl), và các đích đến nội bộ cụ thể từ [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide). Các hành động nội bộ và lệnh tích hợp có thể không có URL bên ngoài; một URL trống không có nghĩa là container không có hành động. Bảo tồn giá trị trả về bởi [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) khi nó khác với URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) khi có.
 
-### **Report, Sanitize, and Verify Hyperlinks**
+### **Báo Cáo, Làm Sạch và Xác Minh Liên Kết**
 
-Ví dụ Python sau đọc một bản trình bày hiện có (sử dụng tệp đã tạo ở trên), ghi `hyperlink-audit.json`, áp dụng chính sách, lưu `hyperlink-sanitized.pptx`, và mở lại để kiểm tra lại cả hai loại kích hoạt. Nó thu thập các container trước khi thay đổi và sử dụng so sánh tham chiếu để tránh xử lý cùng một container hai lần. Các truy vấn bản trình bày bao phủ các slide thông thường; để có kiểm kê toàn gói, nó cũng truy vấn một cách rõ ràng các master, layout, notes và các master notes và handout khi có.
+Ví dụ này mở bản trình chiếu từ ví dụ trước và ghi một bản ghi JSON cho mỗi hành động. Nó sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) để thu thập các container trên các slide thông thường, master, layout và notes, bao gồm cả master notes và handout khi có. Nó dùng so sánh tham chiếu để đếm mỗi container một lần, áp dụng chính sách mô tả bên dưới, và mở lại bản trình chiếu đã lưu để kiểm tra cả hành động nhấp và rê chuột.
 
-Báo cáo ghi lại chỉ số slide bắt đầu từ 1 và [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) nếu có. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) cung cấp slide sở hữu cho các container được hỗ trợ. Các master, layout và notes không có chỉ số slide thông thường và được xác định bằng phạm vi của chúng. Các container shape và container định dạng phần văn bản được gắn nhãn riêng; các loại container khác giữ lại tên kiểu thời gian chạy của chúng. Mỗi container nhận một ID cục bộ trong báo cáo để hai hành động của nó có thể được liên kết. Báo cáo lưu trữ loại hành động dưới dạng các hằng số nguyên được định nghĩa bởi enum Java.
+Báo cáo ghi lại chỉ mục slide bắt đầu từ 1 và [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) khi có. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) cung cấp slide sở hữu cho các container được hỗ trợ. Master, layout và notes không có chỉ mục slide thông thường và được xác định bằng phạm vi của chúng. Các container hình dạng và container định dạng phần văn bản được gắn nhãn riêng; các loại container khác giữ nguyên tên kiểu thời gian chạy. Mỗi container nhận một ID cục bộ trong báo cáo để hai hành động của nó có thể được liên kết. Báo cáo lưu trữ các loại hành động dưới dạng các hằng số nguyên được định nghĩa bởi enumeration Java.
 
-Chính sách ứng dụng hạn chế này chỉ cho phép các URL HTTPS tuyệt đối và các mục tiêu slide nội bộ hợp lệ. Nó từ chối macro, chương trình, hành động tệp, các hành động slideshow khác, hành động không xác định và các scheme URL khác. Những từ chối này là quyết định chính sách, không phải kết luận an toàn của Aspose.Slides. HTTPS một mình không tạo nên niềm tin: hãy thêm danh sách cho phép host và các kiểm tra khác cho ứng dụng của bạn. Cả URL bên ngoài gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ kiểm toán siêu dữ liệu mà không theo dõi liên kết hay thực thi hành động.
+Chính sách ứng dụng có kiểm soát này chỉ cho phép các URL HTTPS tuyệt đối và các đích slide nội bộ hợp lệ. Nó loại bỏ macro, chương trình, hành động tệp, các hành động trình chiếu khác, hành động không xác định, và các giao thức URL khác. Những loại bỏ này là quyết định chính sách, không phải phán quyết an toàn của Aspose.Slides. Chỉ có HTTPS không đủ để tạo lòng tin: hãy thêm danh sách cho phép máy chủ và các kiểm tra khác cho ứng dụng của bạn. Cả URL bên ngoài gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ này kiểm toán siêu dữ liệu mà không theo dõi các liên kết hay thực hiện hành động.
 
-Để khắc phục, [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) của container hỗ trợ [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) và [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Ở đây, các liên kết nhấp ngoài bị cấm được thay thế bằng một trang đích HTTPS cố định; các nhấp bị cấm khác và các hành động rê chuột bị cấm được xóa độc lập. Đặt `replace_external_clicks` thành `False` để xóa tất cả vi phạm chính sách. Chọn một trang thay thế thuộc sở hữu ứng dụng trước khi triển khai.
+Để khắc phục, [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) của container hỗ trợ [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick), và [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Ở đây, các liên kết nhấp bên ngoài bị cấm được thay thế bằng một trang đích HTTPS cố định; các nhấp bị cấm khác và các hành động rê chuột bị cấm được xóa độc lập. Đặt `replace_external_clicks` thành `False` để loại bỏ tất cả vi phạm chính sách. Chọn một trang thay thế thuộc sở hữu ứng dụng trước khi triển khai.
 
-Cờ xuất báo cáo sử dụng chính sách duyệt PDF thận trọng: gắn cờ cho các hành động rê chuột và bất kỳ thứ gì không phải là liên kết bên ngoài hoặc chuyển slide cụ thể như một khả năng không được hỗ trợ. Đây là gợi ý duyệt, không phải kiểm tra khả năng hay bảo đảm các liên kết không được gắn cờ sẽ tồn tại khi xuất. Các xuất PDF và HTML được hỗ trợ ([PDF](/slides/vi/python-java/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/python-java/convert-powerpoint-to-html/)) có thể giữ lại siêu liên kết, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Các [images](/slides/vi/python-java/convert-powerpoint-to-png/) và [video](/slides/vi/python-java/convert-powerpoint-to-video/) dạng raster không thể giữ lại siêu liên kết tương tác; hãy gắn cờ mọi hành động khi kiểm toán cho các đầu ra đó.
+Cờ xuất khẩu của báo cáo sử dụng chính sách xem xét PDF thận trọng: đánh dấu các hành động rê chuột và bất kỳ thứ gì không phải là liên kết bên ngoài hoặc chuyển tới slide cụ thể là có khả năng không được hỗ trợ. Đây là gợi ý xem xét, không phải kiểm tra khả năng hay đảm bảo các liên kết không bị đánh dấu sẽ tồn tại khi xuất. Các xuất khẩu [PDF](/slides/vi/python-java/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/python-java/convert-powerpoint-to-html/) được hỗ trợ có thể giữ lại các liên kết, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Các [hình ảnh](/slides/vi/python-java/convert-powerpoint-to-png/) và [video](/slides/vi/python-java/convert-powerpoint-to-video/) raster không thể giữ lại các liên kết tương tác; đánh dấu mọi hành động khi kiểm toán cho các đầu ra đó.
 
 ```python
 import json
@@ -530,20 +567,20 @@ finally:
     presentation.dispose()
 ```
 
-Với đầu vào được tạo ở trên, báo cáo chứa năm dòng hành động. Liên kết rê chuột tệp và macro click bị xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Phần xác minh in ra không có hành động bị cấm. Một đầu vào chứa URL click ngoài bị cấm cũng sẽ kích hoạt nhánh thay thế. Một container có click được cho phép và rê chuột bị cấm sẽ giữ lại hành động click.
+Với đầu vào được tạo ở trên, báo cáo chứa năm hàng hành động. Liên kết rê chuột tệp và nhấp macro bị xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Kiểm tra in ra không có hành động bị cấm. Một đầu vào chứa URL nhấp bên ngoài bị cấm cũng sẽ thực thi nhánh thay thế. Một container có nhấp được cho phép và rê chuột bị cấm sẽ giữ lại hành động nhấp.
 
-Việc dọn dẹp có chọn lọc này khác với [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), vốn xóa cả hai loại kích hoạt trong phạm vi đã chọn mà không xét đến chính sách. Việc xác minh ở đây chỉ kiểm tra các hành động siêu liên kết; nó không xóa các dự án VBA nhúng, đối tượng OLE hoặc nội dung tương tác khác, và không xác thực tệp PDF hoặc HTML đã xuất.
+Sự dọn dẹp có chọn lọc này khác với [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), vốn xóa cả hai kiểu kích hoạt trong toàn bộ phạm vi đã chọn bất kể chính sách. Kiểm tra ở đây chỉ kiểm tra các hành động liên kết; nó không xóa các dự án VBA nhúng, đối tượng OLE, hoặc nội dung hoạt động khác, và không xác thực một tệp PDF hoặc HTML đã xuất.
 
 ## **FAQ**
 
-**Làm sao tôi có thể liên kết tới một phần hoặc slide đầu tiên của phần đó?**
+**Làm thế nào tôi có thể liên kết tới một phần hoặc slide đầu tiên của nó?**
 
-Các phần trong PowerPoint nhóm các slide lại, nhưng một siêu liên kết nội bộ chỉ nhắm tới một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.
+Các phần trong PowerPoint nhóm các slide lại với nhau, nhưng một liên kết nội bộ hướng tới một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.
 
-**Tôi có thể gắn siêu liên kết vào các yếu tố slide master để nó hoạt động trên mọi slide không?**
+**Tôi có thể gắn liên kết vào các yếu tố của master slide để nó hoạt động trên tất cả các slide không?**
 
-Có. Các yếu tố master slide và layout hỗ trợ siêu liên kết. Các liên kết trên những yếu tố này sẽ khả dụng trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.
+Có. Các yếu tố trên master slide và layout hỗ trợ liên kết. Các liên kết trên các yếu tố này sẽ khả dụng trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.
 
-**Siêu liên kết có được giữ lại khi xuất sang PDF, HTML, hình ảnh hoặc video không?**
+**Liên kết có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?**
 
-Các xuất PDF và HTML được hỗ trợ có thể giữ lại siêu liên kết; hình ảnh raster và video không thể. Xem các cân nhắc xuất trong [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Các xuất khẩu PDF và HTML được hỗ trợ có thể giữ lại các liên kết; hình ảnh raster và video không thể. Xem các lưu ý xuất khẩu trong [Báo Cáo, Làm Sạch và Xác Minh Liên Kết](#report-sanitize-and-verify-hyperlinks).

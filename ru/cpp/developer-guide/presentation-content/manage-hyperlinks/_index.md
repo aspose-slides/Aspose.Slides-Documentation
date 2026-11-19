@@ -11,9 +11,9 @@ keywords:
 - форматировать гиперссылку
 - удалить гиперссылку
 - обновить гиперссылку
-- текстовая гиперссылка
+- гиперссылка в тексте
 - гиперссылка на слайд
-- гиперссылка на фигуру
+- гиперссылка на форму
 - гиперссылка на изображение
 - гиперссылка на видео
 - изменяемая гиперссылка
@@ -26,26 +26,26 @@ description: "Добавляйте, форматируйте, обновляйт
 ---
 ## **Введение**
 
-Гиперссылка соединяет содержимое презентации с веб‑сайтом или местом внутри презентации. В PowerPoint гиперссылки обычно служат двум целям:
+Гиперссылка соединяет содержимое презентации с веб‑сайтом или местоположением внутри презентации. В PowerPoint гиперссылки обычно служат двум целям:
 
 * Открыть веб‑сайт из текста, фигуры или медиа‑кадра.
 * Перейти к другому слайду, например, из оглавления.
 
-Aspose.Slides for C++ позволяет добавлять эти ссылки, управлять их внешним видом и звуком, обновлять их настройки и удалять их. Приведённые ниже примеры показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
+Aspose.Slides for C++ позволяет добавлять такие ссылки, управлять их внешним видом и звуком, обновлять параметры и удалять их. Приведённые ниже примеры показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
 
 {{% alert color="info" title="Note" %}}
-You can also edit presentations with the [бесплатный онлайн-редактор Aspose PowerPoint](https://products.aspose.app/slides/editor).
-{{% /alert %}} 
+Вы также можете редактировать презентации с помощью [бесплатного онлайн‑редактора Aspose PowerPoint](https://products.aspose.app/slides/editor).
+{{% /alert %}}
 
-## **Добавить URL‑гиперссылки**
+## **Добавление URL‑гиперссылок**
 
-Вы можете назначить URL веб‑сайта тексту, фигуре или медиа‑кадру. Элемент, к которому вы назначаете гиперссылку, определяет область клика: часть текста связывает выбранный текст, а фигура или кадр связывают объект слайда.
+Можно привязать URL веб‑сайта к тексту, фигуре или медиа‑кадру. Элемент, к которому назначена гиперссылка, определяет область, по которой можно кликнуть: часть текста связывает выбранный текст, а фигура или кадр связывают объект слайда.
 
-Для презентаций, содержащих относительные гиперссылки, см. [Управление базой гиперссылок](/slides/ru/cpp/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базовый путь документа.
+Для презентаций с относительными гиперссылками см. [Управление базой гиперссылок](/slides/ru/cpp/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базовый путь документа.
 
-### **Добавить URL‑гиперссылки к тексту**
+### **Добавление URL‑гиперссылок к тексту**
 
-Чтобы связать текст с веб‑сайтом, создайте [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) и назначьте его с помощью метода части текста [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/), как показано ниже. Только эта часть текста станет кликабельной.
+Чтобы связать текст с веб‑сайтом, создайте [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) и назначьте его с помощью метода [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) части текста, как показано ниже. Щелкать можно будет только по этой части текста.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,9 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Добавить URL‑гиперссылки к фигурам и медиа‑кадрам**
+### **Добавление URL‑гиперссылок к фигурам и медиа‑кадрам**
 
-Чтобы сделать фигуру или кадр кликабельными, используйте её метод [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). Гиперссылка принадлежит самому объекту, а не части текста внутри него.
-
-Тот же подход применяется к кадрам изображений, аудио и видео: назначьте гиперссылку кадру и при необходимости используйте [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) для добавления подсказки.
-
-Следующий пример делает прямоугольник кликабельным:
+Вызовите [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) у прямоугольника, чтобы сделать всю его площадь кликабельной. Используйте [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) для подсказки о назначении при наведении курсора на прямоугольник. Оба метода также применяются к кадрам с изображениями, аудио и видео.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -109,9 +105,9 @@ shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-## **Использовать гиперссылки для создания оглавления**
+## **Использование гиперссылок для создания оглавления**
 
-Внутренние гиперссылки позволяют читателям переходить из оглавления к определённому слайду. Следующий пример использует [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/), чтобы связать текст «Page 2» на первом слайде со вторым слайдом.
+Внутренние гиперссылки позволяют переходить из оглавления к определённому слайду. В следующем примере используется [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) для связи текста «Страница 2» на первом слайде со вторым слайдом.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -166,13 +162,15 @@ tableOfContents->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 ```
 
-## **Форматировать гиперссылки**
+## **Форматирование гиперссылок**
+
+Можно изменить цвет связанного текста, воспроизводить или останавливать звук при активации ссылки и задать всплывающую подсказку.
 
 ### **Цвет**
 
-Метод [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) интерфейса [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) определяет, использует ли гиперссылка цвет гиперссылки презентации или форматирование части текста. Чтобы применить пользовательский цвет текста, выберите [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) и задайте цвет заливки части. Эта возможность появилась в PowerPoint 2019; более ранние версии эту настройку не поддерживают.
+Метод [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) интерфейса [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) определяет, будет ли гиперссылка использовать цвет гиперссылки презентации или форматирование части текста. Чтобы задать собственный цвет текста, выберите [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) и установите цвет заливки части. Эта возможность появилась в PowerPoint 2019; более ранние версии эту настройку не поддерживают.
 
-Следующий пример добавляет две текстовые гиперссылки на один слайд. Первая использует красный цвет заливки текста, а вторая оставляет цвет гиперссылки по умолчанию.
+В этом примере первая ссылка использует [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) для отображения красного заливки текста. Вторая ссылка сохраняет цвет гиперссылки презентации.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,16 +212,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Звук**
 
-Гиперссылка может воспроизводить звук при активации или останавливать уже воспроизводящийся звук. Используйте следующие методы для настройки этих поведения:
+Гиперссылка может воспроизводить звук при активации или останавливать уже воспроизводимый звук. Используйте следующие методы для настройки поведения:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) задаёт аудио, связанное с гиперссылкой.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) определяет, будет ли активация гиперссылки останавливать предыдущее звучание.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) указывает аудио, связанное с гиперссылкой.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) управляет тем, будет ли активация гиперссылки останавливать предыдущее звучание.
 
-#### **Добавить звук к гиперссылке**
+#### **Добавление звука к гиперссылке**
 
-Следующий пример загружает `sampleaudio.wav` и связывает его с кнопкой на первом слайде. Нажатие на кнопку воспроизводит звук и переходит к следующему слайду. Вторая фигура на этом слайде останавливает предыдущий звук при клике, не выполняя перехода.
+Кнопка на первом слайде использует [set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) для воспроизведения аудио из `sampleaudio.wav`, когда пользователь щёлкает для перехода вперёд. На втором слайде отдельная кнопка использует [set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) для остановки воспроизведения и удержания пользователя на этом слайде.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -267,9 +266,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Извлечь звук из гиперссылки**
+#### **Извлечение звука из гиперссылки**
 
-Следующий пример открывает презентацию, созданную выше, и читает аудио гиперссылки первой фигуры в память через [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) и [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
+Следующий пример открывает созданную выше презентацию и читает звуковой файл гиперссылки первой фигуры в память через [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) и [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,18 +304,18 @@ else
 }
 ```
 
-### **Подсказка и настройки взаимодействия**
+### **Всплывающая подсказка и настройки взаимодействия**
 
-Вы можете обновить следующие настройки [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) через эти методы после назначения гиперссылки тексту или фигуре:
+После назначения гиперссылки тексту или фигуре можно изменить следующие параметры [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) с помощью указанных методов:
 
-- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) устанавливает текст, который пользователь может увидеть как подсказку к ссылке.
-- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) задаёт целевой кадр внутри родительского HTML‑фреймсета, если применимо.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) задаёт текст подсказки, который пользователь видит при наведении.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) указывает целевой фрейм внутри родительского HTML‑фреймсета, если применимо.
 - [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) определяет, будет ли активация ссылки добавлять её назначение в список просмотренных гиперссылок.
-- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) определяет, будет ли гиперссылка выделяться при нажатии.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) управляет тем, будет ли гиперссылка подсвечиваться при клике.
 
-## **Удалить гиперссылки из презентаций**
+## **Удаление гиперссылок из презентаций**
 
-Используйте [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) для сбора контейнеров гиперссылок, включая ссылки частей текста, прежде чем изменять их. Следующий пример удаляет оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) или [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); удаление действия клика не удаляет соответствующее действие наведения.
+Используйте [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) для сбора контейнеров гиперссылок, включая ссылки в частях текста, перед их изменением. Ниже пример, удаляющий оба типа активации с первого слайда. Чтобы удалить только один тип, вызывайте только [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) или [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); удаление действия клика не удаляет соответствующее действие при наведении.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +349,76 @@ else
 }
 ```
 
-Для безусловного удаления [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) удаляет оба типа активации в выбранной области одним вызовом. Для выборочной очистки и охвата шаблонов, раскладок и заметок см. [Отчет, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
+Для безусловного удаления [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) удаляет оба типа активации в выбранном диапазоне одним вызовом. Для выборочной очистки, затрагивающей мастера, разметки и заметки, см. раздел [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
 
-## **Создать полный инвентарь гиперссылок**
+### **Очистка гиперссылок перед заменой текста SmartArt**
 
-Перед распространением презентации составьте инвентарь её интерактивных действий, а также веб‑ссылок. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) возвращает объекты [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), а не простой список URL‑строк. Проверяйте как [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/), так и [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) в каждом контейнере. Они независимы: один контейнер может содержать оба действия, поэтому полноценный отчёт требует до двух строк на контейнер.
+При замене абзаца в существующем узле SmartArt очистка его частей текста может оставить прежнюю гиперссылку активной. Получите абзац через [ISmartArtNode::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_textframe/). Перед очисткой его частей вызовите [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) через [get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) у текстового кадра фигуры‑узла, отображающего абзац. Это удалит все гиперссылки в этом кадре, включая ссылки в других абзацах.
 
-Сканирование только гиперссылок уровня фигур может пропустить ссылки, прикреплённые к частям текста. Запрашивайте соответствующую область и сохраняйте полученные контейнеры, чтобы позже можно было обновить или удалить их действия.
+В примере предполагается, что третья фигура на первом слайде — графика SmartArt. Заменяется первый абзац четвертого узла. В этой презентации первый объект узла отображает этот абзац.
 
-### **Запрос областей презентации, слайда и текстового кадра**
+После добавления обеих частей пример читает их действующее форматирование через [GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/). Метод [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformateffectivedata/get_hyperlinkclick/) возвращает новую гиперссылку для первой части и `nullptr` для второй.
 
-Интерфейс [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) доступен через [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) и [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Каждая область поддерживает одинаковые запросы:
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/SmartArt/ISmartArt.h>
+#include <DOM/SmartArt/ISmartArtNode.h>
+#include <DOM/SmartArt/ISmartArtShape.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SmartArt;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"SmartArtHyperlink.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = ExplicitCast<ISmartArt>(slide->get_Shape(2));
+auto node = smartArt->get_NodeFromAll(3);
+auto paragraph = node->get_TextFrame()->get_Paragraph(0);
+
+node->get_Shape(0)->get_TextFrame()->get_HyperlinkQueries()->RemoveAllHyperlinks();
+auto portions = paragraph->get_Portions();
+portions->Clear();
+
+auto link = MakeObject<Portion>(u"New reference");
+auto destination = MakeObject<Hyperlink>(u"https://example.com/new");
+link->get_PortionFormat()->set_HyperlinkClick(destination);
+portions->Add(link);
+auto text = MakeObject<Portion>(u" (updated)");
+portions->Add(text);
+
+auto firstAction = link->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+auto secondAction = text->get_PortionFormat()->GetEffective()->get_HyperlinkClick();
+Console::WriteLine(firstAction->get_ExternalUrl()); // https://example.com/new
+Console::WriteLine(secondAction ? secondAction->get_ExternalUrl() : String(u"nullptr")); // nullptr
+```
+
+## **Создание полного инвентаря гиперссылок**
+
+Перед распространением презентации проведите инвентаризацию её интерактивных действий и веб‑ссылок. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) возвращает объекты [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), а не простой список URL‑строк. Проверяйте как [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/), так и [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) у каждого контейнера. Они независимы: один контейнер может иметь оба действия, поэтому полный отчёт требует до двух строк на контейнер.
+
+Сканирование только гиперссылок уровня фигур может упустить ссылки, прикреплённые к частям текста. Запрашивайте нужный диапазон и сохраняйте полученные контейнеры, чтобы позже обновлять или удалять их действия.
+
+### **Запросы в диапазонах презентации, слайда и текстового кадра**
+
+Интерфейс [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) доступен через [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) и [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Каждый диапазон поддерживает одинаковые запросы:
 
 - [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) возвращает контейнеры с действием клика.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) возвращает контейнеры с действием наведения.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) возвращает контейнеры с любым из действий либо с обоими.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) возвращает контейнеры с действием при наведении.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) возвращает контейнеры с любым из этих действий.
 
-Следующий пример создаёт `hyperlink-audit-input.pptx` с внешней ссылкой‑кликом, ссылкой‑наведение на файл, внутренней навигацией по слайдам, ссылкой‑наведение на текст и макросом. Он не выполняет эти действия. Три запроса работают в каждой области; количество относится к контейнерам, а не к сумме действий. Область текстового кадра исключает собственные ссылки охватывающей её фигуры.
+В примере назначаются действия клика и наведения для фигуры и её текста, а также макрос‑действие отдельной кнопке. Сравниваются контейнеры, возвращённые [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/), с подсчётами для каждого типа активации. Запрос текстового кадра считает только ссылки в тексте. Действия самой фигуры попадают в запросы слайда и презентации.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +473,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Для этого примера запросы презентации и слайда дают по три контейнера‑клика, два контейнера‑наведения и три контейнера с любым действием. Запрос текстового кадра выдаёт по одному контейнеру в каждой категории.
+Для этого примера запросы презентации и слайда каждый возвращают три контейнера клика, два контейнера наведения и три контейнера с любым из действий. Запрос текстового кадра возвращает по одному контейнеру в каждой категории.
 
-### **Классифицировать действия и назначения**
+### **Классификация действий и назначений**
 
-Используйте [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) для определения типа действия перед анализом назначения. Значения [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) охватывают более чем просто веб‑навигацию:
+Используйте [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) для определения типа действия перед анализом его назначения. Значения [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) охватывают не только веб‑навигацию:
 
 | Значения | Значение для аудита |
 | --- | --- |
 | `Hyperlink` | Внешняя гиперссылка; проверьте URL и её схему. |
-| `JumpSpecificSlide` | Внутренняя навигация к определённому слайду. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Встроенная навигация презентации, разрешаемая в контексте слайд‑шоу. |
-| `JumpEndShow`, `StartCustomSlideShow` | Завершить текущее шоу или начать пользовательское шоу. |
-| `StartMacro` | Выполнить макрос. |
-| `StartProgram` | Запустить программу. |
+| `JumpSpecificSlide` | Внутренняя навигация к конкретному слайду. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Встроенная навигация в режиме показа слайдов. |
+| `JumpEndShow`, `StartCustomSlideShow` | Завершить текущий показ или запустить пользовательский показ. |
+| `StartMacro` | Выполнение макроса. |
+| `StartProgram` | Запуск программы. |
 | `OpenFile`, `OpenPresentation` | Открыть файл или другую презентацию; проверяйте отдельно от веб‑URL. |
-| `StartStopMedia` | Начать или остановить воспроизведение медиа. |
-| `NoAction`, `Unknown` | Нет действия навигации, либо неизвестное действие, требующее проверки. |
+| `StartStopMedia` | Запуск или остановка воспроизведения медиа. |
+| `NoAction`, `Unknown` | Нет навигационного действия или действие не распознано и требует проверки. |
 
-Считывайте внешние назначения через [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) и конкретные внутренние назначения через [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия у контейнера. Сохраняйте [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/), если он отличается от нормализованного URL, и включайте подсказку, возвращаемую [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/), когда она доступна.
+Чтение внешних назначений осуществляйте через [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/), а конкретных внутренних — через [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия у контейнера. Сохраняйте [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/), если он отличается от нормализованного URL, и включайте подсказку, полученную от [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/), когда она доступна.
 
-### **Отчет, очистка и проверка гиперссылок**
+### **Отчёт, очистка и проверка гиперссылок**
 
-Следующий пример на C++ читает существующую презентацию (используйте файл, созданный выше), записывает `hyperlink-audit.json`, применяет политику, сохраняет `hyperlink-sanitized.pptx` и открывает его вновь для повторной проверки обоих типов активаций. Он собирает контейнеры до их изменения и использует идентичность указателей, чтобы не обрабатывать один и тот же контейнер дважды. Запросы презентации охватывают обычные слайды; для инвентаризации всего пакета он также явно запрашивает шаблоны, раскладки, заметки и мастеры раздаточных материалов, если они присутствуют.
+Этот пример C++ открывает презентацию из предыдущего примера и записывает одну запись JSON на каждое действие. Он использует [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) для сбора контейнеров на обычных слайдах, мастерах, разметках и заметках, включая мастера заметок и раздаточных материалов, если они присутствуют. Идентифицируя каждый контейнер по указателю, считается один раз, затем применяется политика, описанная ниже, и сохраняется презентация, после чего проверяются действия клика и наведения.
 
-Отчёт фиксирует индекс слайда, начиная с 1, и [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/), если он доступен. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) предоставляет владелец слайда для поддерживаемых контейнеров. Шаблоны, раскладки и заметки не имеют обычного индекса слайда и идентифицируются своей областью. Контейнеры фигур и контейнеры форматирования частей текста помечаются отдельно; другие типы контейнеров сохраняют своё имя типа во время выполнения. Каждый контейнер получает локальный идентификатор отчёта, чтобы его два действия можно было сопоставить.
+В отчете указывается однозначный номер слайда (начинается с 1) и [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/), если он доступен. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) предоставляет принадлежащий слайд для поддерживаемых контейнеров. У мастеров, разметок и заметок нет обычного номера слайда и они идентифицируются по своему диапазону. Контейнеры фигур и контейнеры форматирования частей текста маркируются отдельно; другие типы сохраняют своё название типа во время выполнения. Каждый контейнер получает локальный идентификатор отчёта, чтобы его два действия можно было сопоставить.
 
-Эта ограничительная политика допускает только абсолютные HTTPS‑URL и действительные внутренние цели слайдов. Она отклоняет макросы, программы, файловые действия, другие действия слайд‑шоу, неизвестные действия и другие схемы URL. Эти отклонения — решения политики, а не оценка безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки для вашего приложения. Проверяются как оригинальные, так и нормализованные внешние URL. Пример проверяет метаданные без переходов по ссылкам и без выполнения действий.
+Эта строго ограниченная политика приложения допускает только абсолютные HTTPS‑URL и корректные внутренние ссылки на слайды. Она отклоняет макросы, программы, файловые действия, прочие действия показа, неизвестные действия и другие схемы URL. Такие отклонения являются решениями политики, а не выводом о безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки для вашего приложения. Проверяются как оригинальные, так и нормализованные внешние URL. Пример аудирует метаданные без переходов по ссылкам и без выполнения действий.
 
-Для исправления контейнер поддерживает [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) и методы [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Здесь запрещённые внешние ссылки‑клики заменяются фиксированной HTTPS‑страницей‑приёмником; другие запрещённые клики и запрещённые действия‑наведения удаляются независимо. Установите `replaceExternalClicks` в `false`, чтобы удалить все нарушения политики. Выберите страницу‑заменитель, управляемую вашим приложением, перед развёртыванием.
+Для исправления [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) поддерживает [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) и [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Здесь запрещённые внешние ссылки клика заменяются фиксированной HTTPS‑страницей‑проводником; остальные запрещённые клики и действия наведения удаляются независимо. Установите `replaceExternalClicks` в `false`, чтобы удалить все нарушения политики. Выберите страницу‑заменитель, принадлежащую вашему приложению, перед развертыванием.
 
-Флаг экспорта отчёта использует консервативную политику проверки PDF: помечать действия‑наведение и всё, что не является внешней ссылкой или переходом к конкретному слайду, как потенциально неподдерживаемое. Это подсказка для проверки, а не тест возможности или гарантия того, что непомеченные ссылки сохранятся при экспорте. Поддерживаемый экспорт в [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/cpp/convert-powerpoint-to-html/) может сохранять гиперссылки в зависимости от действия, параметров экспорта и средства просмотра. Растровые [изображения](/slides/ru/cpp/convert-powerpoint-to-png/) и [видео](/slides/ru/cpp/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; помечайте каждое действие при аудите для этих форматов вывода.
+Флаг экспорта отчёта использует консервативную политику проверки PDF: помечать действия наведения и всё, что не является внешней ссылкой или переходом к конкретному слайду, как потенциально неподдерживаемое. Это лишь подсказка для проверки, а не тест возможности или гарантия того, что непомеченные ссылки сохранятся при экспорте. Поддерживаемый экспорт в [PDF](/slides/ru/cpp/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/cpp/convert-powerpoint-to-html/) может сохранять гиперссылки в зависимости от действия, параметров экспорта и средства просмотра. Растровые [изображения](/slides/ru/cpp/convert-powerpoint-to-png/) и [видео](/slides/ru/cpp/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; помечайте каждое действие при аудите для этих форматов вывода.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +704,20 @@ if (violations != 0)
 }
 ```
 
-С созданным выше вводом отчёт содержит пять строк действий. Ссылка‑наведение на файл и клик‑макрос удаляются, а HTTPS‑ссылки и внутренняя навигация по слайдам остаются. Проверка выводит ноль запрещённых действий. Ввод, содержащий запрещённый внешний URL‑клик, также демонстрирует ветку замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет действие клика.
+С входными данными, созданными выше, в отчёте пять строк действий. Ссылка наведения мыши на файл и макрос‑клик удалены, а HTTPS‑ссылки и внутренняя навигация по слайдам остались. Проверка выводит ноль запрещённых действий. Ввод, содержащий запрещённый внешний URL клика, также демонстрирует ветку замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет действие клика.
 
-Эта выборочная очистка отличается от [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), который удаляет оба типа активаций в выбранной области независимо от политики. Здесь проверка сосредоточена только на действиях гиперссылок; она не удаляет встроенные проекты VBA, OLE‑объекты или другое активное содержимое и не проверяет экспортированный PDF или HTML файл.
+Эта выборочная очистка отличается от [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), который удаляет оба типа активации во всём выбранном диапазоне независимо от политики. Проверка здесь оценивает только действия гиперссылок; она не удаляет встроенные VBA‑проекты, OLE‑объекты или другое активное содержание и не проверяет экспортированный PDF или HTML файл.
 
 ## **FAQ**
 
 **Как создать ссылку на раздел или его первый слайд?**
 
-Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка указывает на отдельный слайд. Чтобы создать навигацию к разделу, свяжите её с первым слайдом этого раздела.
+Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка указывает на отдельный слайд. Чтобы переходить к разделу, свяжите её с первым слайдом этого раздела.
 
-**Могу ли я привязать гиперссылку к элементам шаблона слайда, чтобы она работала на всех слайдах?**
+**Можно ли привязать гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы шаблона слайда и раскладки поддерживают гиперссылки. Такие ссылки доступны во время показа слайдов на всех слайдах, использующих соответствующий шаблон или раскладку.
+Да. Элементы мастер‑слайда и разметки поддерживают гиперссылки. Такие ссылки доступны во время показа слайдов, использующих соответствующий мастер или разметку.
 
-**Будут ли гиперссылки сохранены при экспорте в PDF, HTML, изображения или видео?**
+**Сохраняются ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
 
-Поддерживаемый экспорт в PDF и HTML может сохранять гиперссылки; растровые изображения и видео — нет. См. соображения экспорта в разделе [Отчет, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
+Поддерживаемый экспорт в PDF и HTML может сохранять гиперссылки; растровые изображения и видео — нет. См. соображения экспорта в разделе [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
