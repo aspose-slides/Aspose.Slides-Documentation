@@ -117,6 +117,36 @@ shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 
 Use the camera when you need to change how the viewer sees the object. It does not change the 2D shape geometry on the slide. It changes the 3D viewpoint used by PowerPoint and by Aspose.Slides when rendering.
 
+### **Copy Camera Orientation from a Template Shape**
+
+To match a shape in a template, copy its [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) preset and read its angles with [GetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/getrotation/). The example opens `template.pptx`, reads the camera from the first shape on the first slide, and applies its orientation to the second shape. Both shapes already have 3D lighting, and the second shape has no explicit camera rotation.
+
+The angles are in degrees. Index `0` is latitude, index `1` is longitude, and index `2` is revolution. Pass them to [SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) in that order. If the source returns `null`, it has no explicit rotation, so leave the second shape's angles unset. An explicit rotation of `(0, 0, 0)` returns three zeros and should be copied.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var shapes = presentation.Slides[0].Shapes;
+
+var sourceCamera = shapes[0].ThreeDFormat.Camera;
+var destinationCamera = shapes[1].ThreeDFormat.Camera;
+
+destinationCamera.CameraType = sourceCamera.CameraType;
+var angles = sourceCamera.GetRotation();
+if (angles != null)
+{
+    destinationCamera.SetRotation(angles[0], angles[1], angles[2]);
+}
+
+presentation.Save("camera-copy.pptx", SaveFormat.Pptx);
+```
+
+When you reopen `camera-copy.pptx`, the two shapes have the same camera preset and rotation. In PowerPoint, the arrow on the right uses the camera orientation copied from the rectangle on the left. Both shapes use the same lighting and extrusion depth.
+
+![A blue 3D rectangle and a right arrow with matching camera orientation, viewed from above and to the right](camera-orientation.png)
+
 ## **Add Extrusion and Depth**
 
 Extrusion makes a shape look thick by extending it behind the front face. In PowerPoint, the depth control sets this visible thickness, and the color control sets the color of the side faces.
