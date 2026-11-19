@@ -78,6 +78,39 @@ with slides.Presentation() as presentation:
 
 {{% /alert %}}
 
+### **Combine Math Blocks**
+
+When parts of an equation are built independently as [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) objects, use [join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) to combine them. The example builds `c² =` in the left block and `a² + b²` in the right block. [set_superscript](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/set_superscript/) creates editable mathematical superscripts for all three powers.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_math_shape(20, 20, 600, 100)
+    math_paragraph = shape.text_frame.paragraphs[0].portions[0].math_paragraph
+
+    left_block = math.MathBlock()
+    left_block.add(math.MathematicalText("c").set_superscript("2"))
+    left_block.add(math.MathematicalText("="))
+
+    right_block = math.MathBlock()
+    right_block.add(math.MathematicalText("a").set_superscript("2"))
+    right_block.add(math.MathematicalText("+"))
+    right_block.add(math.MathematicalText("b").set_superscript("2"))
+
+    combined_block = left_block.join_block(right_block)
+    math_paragraph.add(combined_block)
+
+    presentation.save("equation.pptx", slides.export.SaveFormat.PPTX)
+```
+
+[join_block](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/join_block/) returns `left_block` itself, now containing both parts in order, and leaves `right_block` empty. Add the combined block to the [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) only once. After reopening `equation.pptx`, the paragraph contains one block representing `c² = a² + b²`, with all three powers preserved as mathematical superscripts.
+
+Calling [add](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/add/) as `left_block.add(right_block)` instead attempts to nest one block directly inside another and raises a `RuntimeError` wrapping a .NET `InvalidOperationException`.
+
 ## **Add Fractions**
 
 Use [divide](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathelementbase/divide/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathfractiontypes/).

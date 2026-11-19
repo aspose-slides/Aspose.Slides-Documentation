@@ -80,6 +80,46 @@ try {
 
 {{% /alert %}}
 
+### **Combine Math Blocks**
+
+When parts of an equation are built independently as [MathBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/) objects, use [joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) to combine them. The example builds `c² =` in the left block and `a² + b²` in the right block. [setSuperscript](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#setSuperscript) creates editable mathematical superscripts for all three powers.
+
+```php
+use aspose\slides\MathBlock;
+use aspose\slides\MathematicalText;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addMathShape(20, 20, 600, 100);
+    $mathPortion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $mathParagraph = $mathPortion->getMathParagraph();
+
+    $leftBlock = new MathBlock();
+    $leftBlock->add((new MathematicalText("c"))->setSuperscript("2"));
+    $leftBlock->add(new MathematicalText("="));
+
+    $rightBlock = new MathBlock();
+    $rightBlock->add((new MathematicalText("a"))->setSuperscript("2"));
+    $rightBlock->add(new MathematicalText("+"));
+    $rightBlock->add((new MathematicalText("b"))->setSuperscript("2"));
+
+    $combinedBlock = $leftBlock->joinBlock($rightBlock);
+    $mathParagraph->add($combinedBlock);
+
+    $presentation->save("equation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[joinBlock](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#joinBlock) returns `$leftBlock` itself, now containing both parts in order, and leaves `$rightBlock` empty. Add the combined block to the [MathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathparagraph/) only once. After reopening `equation.pptx`, the paragraph contains one block representing `c² = a² + b²`, with all three powers preserved as mathematical superscripts.
+
+Calling [add](https://reference.aspose.com/slides/php-java/aspose.slides/mathblock/#add) as `$leftBlock->add($rightBlock)` instead attempts to nest one block directly inside another and throws `InvalidOperationException`.
+
 ## **Add Fractions**
 
 Use [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#divide) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).

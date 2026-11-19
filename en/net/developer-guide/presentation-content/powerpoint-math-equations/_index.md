@@ -78,6 +78,40 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 
 {{% /alert %}}
 
+### **Combine Math Blocks**
+
+When parts of an equation are built independently as [IMathBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/) objects, use [JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) to combine them. The example builds `c² =` in the left block and `a² + b²` in the right block. [SetSuperscript](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/setsuperscript/) creates editable mathematical superscripts for all three powers.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddMathShape(20, 20, 600, 100);
+var mathParagraph = ((IMathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+
+var leftBlock = new MathBlock();
+leftBlock.Add(new MathematicalText("c").SetSuperscript("2"));
+leftBlock.Add(new MathematicalText("="));
+
+var rightBlock = new MathBlock();
+rightBlock.Add(new MathematicalText("a").SetSuperscript("2"));
+rightBlock.Add(new MathematicalText("+"));
+rightBlock.Add(new MathematicalText("b").SetSuperscript("2"));
+
+var combinedBlock = leftBlock.JoinBlock(rightBlock);
+mathParagraph.Add(combinedBlock);
+
+presentation.Save("equation.pptx", SaveFormat.Pptx);
+```
+
+[JoinBlock](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathblock/joinblock/) returns `leftBlock` itself, now containing both parts in order, and leaves `rightBlock` empty. Add the combined block to the [IMathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathparagraph/) only once. After reopening `equation.pptx`, the paragraph contains one block representing `c² = a² + b²`, with all three powers preserved as mathematical superscripts.
+
+Calling [Add](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelementcollection/add/) as `leftBlock.Add(rightBlock)` instead attempts to nest one block directly inside another and throws `InvalidOperationException`.
+
 ## **Add Fractions**
 
 Use [Divide](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/divide/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathfractiontypes/).

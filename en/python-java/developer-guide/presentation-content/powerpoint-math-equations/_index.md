@@ -82,6 +82,48 @@ finally:
 
 {{% /alert %}}
 
+### **Combine Math Blocks**
+
+When parts of an equation are built independently as [MathBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/) objects, use [joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) to combine them. The example builds `c² =` in the left block and `a² + b²` in the right block. [setSuperscript](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#setSuperscript) creates editable mathematical superscripts for all three powers.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import MathBlock, MathematicalText, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addMathShape(20, 20, 600, 100)
+    math_portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    math_paragraph = math_portion.getMathParagraph()
+
+    left_block = MathBlock()
+    left_block.add(MathematicalText("c").setSuperscript("2"))
+    left_block.add(MathematicalText("="))
+
+    right_block = MathBlock()
+    right_block.add(MathematicalText("a").setSuperscript("2"))
+    right_block.add(MathematicalText("+"))
+    right_block.add(MathematicalText("b").setSuperscript("2"))
+
+    combined_block = left_block.joinBlock(right_block)
+    math_paragraph.add(combined_block)
+
+    presentation.save("equation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+[joinBlock](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#joinBlock) returns `left_block` itself, now containing both parts in order, and leaves `right_block` empty. Add the combined block to the [MathParagraph](https://reference.aspose.com/slides/python-java/aspose.slides/mathparagraph/) only once. After reopening `equation.pptx`, the paragraph contains one block representing `c² = a² + b²`, with all three powers preserved as mathematical superscripts.
+
+Calling [add](https://reference.aspose.com/slides/python-java/aspose.slides/mathblock/#add) as `left_block.add(right_block)` instead attempts to nest one block directly inside another and raises `InvalidOperationException`.
+
 ## **Add Fractions**
 
 Use [divide](https://reference.aspose.com/slides/python-java/aspose.slides/mathelementbase/#divide) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/python-java/aspose.slides/mathfractiontypes/).
