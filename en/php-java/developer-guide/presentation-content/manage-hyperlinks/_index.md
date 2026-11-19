@@ -38,7 +38,7 @@ Aspose.Slides for PHP via Java lets you add these links, control their appearanc
 
 You can also edit presentations with the [free online Aspose PowerPoint editor](https://products.aspose.app/slides/editor).
 
-{{% /alert %}} 
+{{% /alert %}}
 
 ## **Add URL Hyperlinks**
 
@@ -73,11 +73,7 @@ try {
 
 ### **Add URL Hyperlinks to Shapes and Media Frames**
 
-To make a shape or frame clickable, call its [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) method. The hyperlink belongs to the object itself rather than to a text portion inside it.
-
-The same approach applies to picture, audio, and video frames: assign the hyperlink to the frame and call [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) if needed.
-
-The following example makes a rectangle clickable:
+Call [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) on the rectangle to make its entire area clickable. Use [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) to show readers a hint about the destination when they hover over the rectangle. Both methods also apply to picture, audio, and video frames.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -140,11 +136,13 @@ try {
 
 ## **Format Hyperlinks**
 
+You can change the color of linked text, play or stop a sound when a reader activates a link, and set the tooltip that appears on hover.
+
 ### **Color**
 
 The [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) method of [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) determines whether a hyperlink uses the presentation's hyperlink color or the text portion's formatting. To apply a custom text color, select [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) and set the portion's fill color. This feature was introduced in PowerPoint 2019; older versions do not apply this setting.
 
-The following example adds two text hyperlinks to the same slide. The first uses a red text fill, while the second retains the default hyperlink color.
+In this example, [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) makes the first link use the text portion's red fill. The second link keeps the presentation's hyperlink color.
 
 ```php
 use aspose\slides\FillType;
@@ -173,6 +171,7 @@ try {
     $presentation->dispose();
 }
 ```
+
 ### **Sound**
 
 A hyperlink can play a sound when activated or stop a sound that is already playing. Use the following methods to configure these behaviors:
@@ -182,7 +181,7 @@ A hyperlink can play a sound when activated or stop a sound that is already play
 
 #### **Add a Hyperlink Sound**
 
-The following example loads `sampleaudio.wav` and associates it with a button on the first slide. Clicking the button plays the sound and navigates to the next slide. A second shape on that slide stops the previous sound when clicked, without performing a navigation action.
+The button on the first slide uses [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) to play audio from `sampleaudio.wav` when the reader clicks to advance. On the second slide, a separate button uses [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) to stop playback and keep the reader on that slide.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -287,6 +286,43 @@ try {
 
 For unconditional removal, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) removes both activation types in the selected scope in one call. For selective cleanup and coverage of masters, layouts, and notes, see [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
+### **Clear Hyperlinks Before Replacing SmartArt Text**
+
+When you replace a paragraph in an existing SmartArt node, clearing its text portions can leave an old hyperlink in effect. Retrieve the paragraph through [SmartArtNode::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/gettextframe/). Before clearing its portions, call [getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) on the text frame of the node shape that displays the paragraph, then call [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) on the returned object. This removes every hyperlink in that frame, including links in its other paragraphs.
+
+The example assumes that the third shape on the first slide of `SmartArtHyperlink.pptx` is a SmartArt graphic. It replaces the first paragraph of the fourth node. In this presentation, the node's first shape displays that paragraph.
+
+After adding both portions, the example reads their effective formatting with [getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/). On that formatting, [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformateffectivedata/#getHyperlinkClick--) returns the new hyperlink for the first portion and `null` for the second.
+
+```php
+use aspose\slides\Hyperlink;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("SmartArtHyperlink.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    
+    $smartArt = $slide->getShapes()->get_Item(2);
+    $node = $smartArt->getAllNodes()->get_Item(3);
+    $paragraph = $node->getTextFrame()->getParagraphs()->get_Item(0);
+
+    $node->getShapes()->get_Item(0)->getTextFrame()->getHyperlinkQueries()->removeAllHyperlinks();
+    $paragraph->getPortions()->clear();
+
+    $link = new Portion("New reference");
+    $link->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://example.com/new"));
+    $paragraph->getPortions()->add($link);
+    $text = new Portion(" (updated)");
+    $paragraph->getPortions()->add($text);
+
+    echo java_values($link->getPortionFormat()->getEffective()->getHyperlinkClick()->getExternalUrl()), PHP_EOL; // https://example.com/new
+    var_dump(java_is_null($text->getPortionFormat()->getEffective()->getHyperlinkClick())); // bool(true): the second portion has no hyperlink.
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **Build a Complete Hyperlink Inventory**
 
 Before distributing a presentation, inventory its interactive actions as well as its web links. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) returns [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) objects, not a flat list of URL strings. Inspect both [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) and [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) on each container. They are independent: the same container can expose both actions, so a complete report needs up to two rows per container.
@@ -301,7 +337,7 @@ The [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slide
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) returns containers with a mouse-over action.
 - [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) returns containers with either or both actions.
 
-The following example creates `hyperlink-audit-input.pptx` with an external click link, a file mouse-over link, internal slide navigation, a text mouse-over link, and a macro action. It does not execute any of these actions. The same three queries work at every scope; the counts describe containers, not action totals. The text-frame scope excludes the enclosing shape's own links.
+This example assigns click and mouse-over actions to a shape and its text, and a macro action to a separate button. It compares the number of containers returned by [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) with the counts for each activation type. A text-frame query counts only links in the text. The enclosing shape's own actions appear in the slide and presentation queries.
 
 ```php
 use aspose\slides\Presentation;
@@ -362,7 +398,7 @@ Read external destinations from [getExternalUrl](https://reference.aspose.com/sl
 
 ### **Report, Sanitize, and Verify Hyperlinks**
 
-The following PHP example reads an existing presentation (use the file created above), writes `hyperlink-audit.json`, applies a policy, saves `hyperlink-sanitized.pptx`, and reopens it to check both activation types again. It collects containers before changing them and uses reference equality to avoid processing the same container twice. Presentation queries cover ordinary slides; for a package-wide inventory, it also explicitly queries masters, layouts, notes, and the notes and handout masters when present.
+This example opens the presentation from the preceding example and writes one JSON record per action. It uses [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) to collect containers on ordinary slides, masters, layouts, and notes, including the notes and handout masters when present. It uses reference equality to count each container once, applies the policy described below, and reopens the saved presentation to check both click and mouse-over actions.
 
 The report records a one-based slide index and [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) where available. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) supplies the owning slide for supported containers. Masters, layouts, and notes have no ordinary slide index and are identified by their scope. Shape containers and text-portion formatting containers are labeled separately; other container types retain their runtime type name. Each container gets a report-local ID so its two actions can be correlated. The report stores action types as the integer constants defined by the PHP enumeration.
 

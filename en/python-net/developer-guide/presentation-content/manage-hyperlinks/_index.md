@@ -65,11 +65,7 @@ with slides.Presentation() as presentation:
 
 ### **Add URL Hyperlinks to Shapes and Media Frames**
 
-To make a shape or frame clickable, set its [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) property. The hyperlink belongs to the object itself rather than to a text portion inside it.
-
-The same approach applies to picture, audio, and video frames: assign the hyperlink to the frame and set the link's [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) if needed.
-
-The following example makes a rectangle clickable:
+Assign a URL to the rectangle's [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) property to make its entire area clickable. The [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) gives readers a hint about the destination when they hover over the rectangle. The same properties apply to picture, audio, and video frames.
 
 ```python
 import aspose.slides as slides
@@ -110,11 +106,13 @@ with slides.Presentation() as presentation:
 
 ## **Format Hyperlinks**
 
+You can change the color of linked text, play or stop a sound when a reader activates a link, and set the tooltip that appears on hover.
+
 ### **Color**
 
 The [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) property of [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) determines whether a hyperlink uses the presentation's hyperlink color or the text portion's formatting. To apply a custom text color, select [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) and set the portion's fill color. This feature was introduced in PowerPoint 2019; older versions do not apply this setting.
 
-The following example adds two text hyperlinks to the same slide. The first uses a red text fill, while the second retains the default hyperlink color.
+In this example, setting [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) on the first link makes its text appear red. The second link keeps the presentation's hyperlink color.
 
 ```python
 import aspose.pydrawing as draw
@@ -143,7 +141,7 @@ A hyperlink can play a sound when activated or stop a sound that is already play
 
 #### **Add a Hyperlink Sound**
 
-The following example loads `sampleaudio.wav` and associates it with a button on the first slide. Clicking the button plays the sound and navigates to the next slide. A second shape on that slide stops the previous sound when clicked, without performing a navigation action.
+The button on the first slide uses [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) to play audio from a WAV file when the reader clicks to advance. On the second slide, a separate button uses [stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) to stop playback and keep the reader on that slide.
 
 ```python
 import aspose.slides as slides
@@ -214,6 +212,37 @@ with slides.Presentation("pres.pptx") as presentation:
 
 For unconditional removal, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) removes both activation types in the selected scope in one call. For selective cleanup and coverage of masters, layouts, and notes, see [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
+### **Clear Hyperlinks Before Replacing SmartArt Text**
+
+When you replace a paragraph in an existing SmartArt node, clearing its text portions can leave an old hyperlink in effect. Retrieve the paragraph through [SmartArtNode.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartnode/text_frame/). Before clearing its portions, call [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) through [hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) on the text frame of the node shape that displays the paragraph. This removes every hyperlink in that frame, including links in its other paragraphs.
+
+In `SmartArtHyperlink.pptx`, the third shape on the first slide is a SmartArt graphic. The example replaces the first paragraph of its fourth node. In this presentation, the node's first shape displays that paragraph.
+
+After adding both portions, the example reads their effective formatting with [get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/). The effective [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/iportionformateffectivedata/hyperlink_click/) property returns the new hyperlink for the first portion and `None` for the second.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("SmartArtHyperlink.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes[2]
+    node = smart_art.all_nodes[3]
+    paragraph = node.text_frame.paragraphs[0]
+
+    node.shapes[0].text_frame.hyperlink_queries.remove_all_hyperlinks()
+    paragraph.portions.clear()
+
+    link = slides.Portion("New reference")
+    link.portion_format.hyperlink_click = slides.Hyperlink("https://example.com/new")
+    paragraph.portions.add(link)
+    text = slides.Portion(" (updated)")
+    paragraph.portions.add(text)
+
+    print(link.portion_format.get_effective().hyperlink_click.external_url)  # https://example.com/new
+    print(text.portion_format.get_effective().hyperlink_click)  # None
+```
+
 ## **Build a Complete Hyperlink Inventory**
 
 Before distributing a presentation, inventory its interactive actions as well as its web links. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) returns [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) objects, not a flat list of URL strings. Inspect both [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) and [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) on each container. They are independent: the same container can expose both actions, so a complete report needs up to two rows per container.
@@ -228,7 +257,7 @@ The [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.sli
 - [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) returns containers with a mouse-over action.
 - [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) returns containers with either or both actions.
 
-The following example creates `hyperlink-audit-input.pptx` with an external click link, a file mouse-over link, internal slide navigation, a text mouse-over link, and a macro action. It does not execute any of these actions. The same three queries work at every scope; the counts describe containers, not action totals. The text-frame scope excludes the enclosing shape's own links.
+This example assigns click and mouse-over actions to a shape and its text, and a macro action to a separate button. It compares the containers returned by [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) with the counts for each activation type. A text-frame query counts only links in the text. The enclosing shape's own actions appear in the slide and presentation queries.
 
 ```python
 import aspose.slides as slides
@@ -284,7 +313,7 @@ Read external destinations from [external_url](https://reference.aspose.com/slid
 
 ### **Report, Sanitize, and Verify Hyperlinks**
 
-The following Python example reads an existing presentation (use the file created above), writes `hyperlink-audit.json`, applies a policy, saves `hyperlink-sanitized.pptx`, and reopens it to check both activation types again. It collects containers before changing them and queries each slide scope once to avoid duplicate processing. Presentation queries cover ordinary slides; for a package-wide inventory, the example queries ordinary slides, masters, layouts, notes, and the notes and handout masters when present.
+This example opens the presentation from the preceding example and writes one JSON record per action. It uses [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) to collect containers on ordinary slides, masters, layouts, and notes, including the notes and handout masters when present. It queries each scope once to avoid duplicate processing, applies the policy described below, and reopens the saved presentation to check both click and mouse-over actions.
 
 The report records a one-based slide index and [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) where available. The collector retains the owning slide and scope alongside each returned container. Masters, layouts, and notes have no ordinary slide index and are identified by their scope. Shape containers and text-portion formatting containers are labeled separately; other container types retain their runtime type name. Each container gets a report-local ID so its two actions can be correlated.
 
